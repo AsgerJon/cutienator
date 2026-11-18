@@ -10,7 +10,11 @@ from ._cognito_warning import CognitoWarning
 from ._base_meta_ugly import BaseMetaUgly
 from ._symbol import Symbol
 from ._shared_object import SharedObject
+from ._system import System
 from ._build import Build
+from ._linux import Linux
+from ._mac import Mac
+from ._windows import Windows
 from ._rituals import Rituals
 from ._declaration import Declaration
 from ._header import Header
@@ -20,7 +24,11 @@ __all__ = (
     'BaseMetaUgly',
     'Symbol',
     'SharedObject',
+    'System',
     'Build',
+    'Linux',
+    'Mac',
+    'Windows',
     'Rituals',
     'Declaration',
     'Header',

@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.utilities import maybe
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from ..occult import Build, Header, Rituals, SharedObject
+from ..occult import Build, Header, Rituals, SharedObject, System
 from . import Trial, Verdict
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -65,6 +65,12 @@ class Judge:
     folder, a class Qt does not have, or a C++ half that does not
     compile. A half that fails or dies is a verdict, not an exception.
   - Hearing a trial again overwrites the programs written before.
+  - Trials have been heard on Linux only. The judge asks 'System' for
+    the name of a Qt shared object and for what 'clang++' is told, but
+    it does not yet give the C++ half the name ending in '.exe' that a
+    program needs on Windows, nor put Qt's folder in 'PATH' for it
+    there, and 'findRitualFaults' reads the shared object with 'nm' in
+    the way of Linux.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -190,7 +196,8 @@ class Judge:
     Gives the Qt shared object holding the working code of a class, as
     '/usr/lib/libQt6Core.so.6' for 'QObject'.
 
-    Found for you, from the part of Qt the class belongs to.
+    Found for you, from the part of Qt the class belongs to. 'System'
+    gives the name the file has on the system Python runs on.
 
     Raises
     ------
@@ -202,7 +209,7 @@ class Judge:
       The shared object is not where it is expected to be.
     """
     module = self.getQtModule(className)
-    name = 'lib%s.so.6' % module.replace('Qt', 'Qt6', 1)
+    name = System.getHere().getQtFileName(module)
     path = os.path.join(Build.getQtSharedObjectFolder(), name)
     if not os.path.isfile(path):
       infoSpec = """The class '%s' belongs to '%s', but there is no Qt
@@ -388,9 +395,10 @@ class Judge:
     """
     Turns the C++ half into a program that can be run.
 
-    '-Wl,-rpath,' with the folder of Qt's shared objects makes the
-    program open the Qt it was compiled against, also when that Qt is
-    not where the machine keeps its own shared objects.
+    'clang++' is told what it is told when the rituals are built, save
+    for '-shared': the same standard, and what 'System' adds on the
+    system Python runs on, so that the program opens the Qt it was
+    compiled against.
 
     Raises
     ------
@@ -406,9 +414,12 @@ class Judge:
       sharedObject = self.getQtSharedObject(className)
       if sharedObject not in sharedObjects:
         sharedObjects.append(sharedObject)
+    system = System.getHere()
+    qtFolder = Build.getQtSharedObjectFolder()
     command = (
-        'clang++', '-std=c++17', '-fPIC', '-O2',
-        '-Wl,-rpath,%s' % Build.getQtSharedObjectFolder(),
+        'clang++', '-std=c++17', '-O2',
+        *system.getCompilerFlags(qtFolder),
+        *system.getLinkerFlags(qtFolder),
         '-I%s' % Build.getQtHeaderFolder(),
         cppFile, '-o', programFile, *sharedObjects,
     )

@@ -9,6 +9,8 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
+from . import System
+
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Tuple, Optional
 
@@ -50,12 +52,17 @@ class Build:
   Found for you
   -------------
 
-  Two things, which have no setter. Each is asked of Qt's own program
+  Three things, which have no setter. Each is asked of Qt's own program
   'qmake6' the first time it is needed, and then remembered for every
   'Build', since Qt is installed in one place.
 
   - 'getQtHeaderFolder': where Qt keeps its headers.
   - 'getQtSharedObjectFolder': where Qt keeps its shared objects.
+  - 'getQtProgramFolder': where Qt keeps its programs.
+
+  What differs between Linux, mac and Windows is not written here. The
+  build asks 'System.getHere()' for it: the name of a Qt shared object
+  and some of what 'clang++' is told.
 
   What to expect
   --------------
@@ -121,6 +128,7 @@ class Build:
   #  Class Variables
   __qt_header_folder__: Optional[str] = None
   __qt_shared_object_folder__: Optional[str] = None
+  __qt_program_folder__: Optional[str] = None
 
   #  Fallback Variables
 
@@ -218,6 +226,49 @@ class Build:
       return cls.getQtSharedObjectFolder(_recursion=True)
     return cls.__qt_shared_object_folder__
 
+  @classmethod
+  def _createQtProgramFolder(cls, ) -> None:
+    """Asks 'qmake6' where Qt keeps its programs and remembers it."""
+    answer = cls._run('qmake6', '-query', 'QT_INSTALL_BINS')
+    cls.__qt_program_folder__ = answer.strip()
+
+  @classmethod
+  def getQtProgramFolder(cls, **kwargs) -> str:
+    """
+    Gives the folder where Qt keeps its programs, as '/usr/lib/qt6/bin'.
+    'qmake6' itself is one of them.
+
+    Found for you: there is no setter. The first call asks Qt's own
+    program 'qmake6', and the answer is remembered on the class for every
+    'Build'. Call it on the class or on an instance, with no arguments;
+    the keyword is for the method's own use.
+
+    No build needs it. On Windows it is also the folder of Qt's shared
+    objects themselves, which 'Windows.prepareOpening' tells Python of.
+
+    Returns
+    -------
+
+    str
+      The full path of the folder.
+
+    Raises
+    ------
+
+    FileNotFoundError
+      'qmake6' is not installed, which usually means Qt's development
+      files are not either.
+
+    RuntimeError
+      'qmake6' ran and reported a failure; its message is included.
+    """
+    if cls.__qt_program_folder__ is None:
+      if kwargs.get('_recursion', False):
+        raise RecursionError
+      cls._createQtProgramFolder()
+      return cls.getQtProgramFolder(_recursion=True)
+    return cls.__qt_program_folder__
+
   def getRitualFiles(self) -> Paths:
     """
     Gives the ritual files this build compiles: the C++ files we write,
@@ -301,8 +352,9 @@ class Build:
 
     Call it to see what a build will do, or to paste the command into a
     terminal: "' '.join(build.getCommand())". It is put together from
-    what you provided through the three setters, and from Qt's header
-    folder, which is found for you.
+    what you provided through the three setters, from the folders of
+    Qt, which are found for you, and from what 'System.getHere()' says
+    of the system Python runs on.
 
     The compiler and its '-std' are those that read Qt's headers when
     the ritual files were generated. A header may give a class other
@@ -317,18 +369,12 @@ class Build:
       A 'Tuple[str, ...]', one argument per entry: 'clang++', then
       '-std=c++17', the standard the headers were read by;
       '-shared', to make a shared object and not a program;
-      '-fPIC', so the code can sit at any address;
       '-O2', so the compiler tidies the result;
-      '-fvisibility-inlines-hidden', so Qt's inline code leaves no
-      scrambled names in the target file;
-      '-Wl,--no-undefined', so a ritual calling a function that no Qt
-      shared object offers stops the build here, and not the first
-      program that opens the target file;
-      '-Wl,-rpath,' with the folder of each Qt shared object, so the
-      target file opens the Qt it was built against. Without it the
-      target file looks only where the machine keeps its own shared
-      objects, as '/usr/lib': a Qt installed elsewhere is not found
-      there, and another Qt that is there would be opened instead;
+      what the system adds for the compiler and then for the linker,
+      which on Linux is '-fPIC', '-fvisibility-inlines-hidden',
+      '-Wl,--no-undefined' and '-Wl,-rpath,' with the folder of Qt's
+      shared objects. 'getCompilerFlags' and 'getLinkerFlags' of
+      'Linux', 'Mac' and 'Windows' say what each is for;
       '-I' with the folder of Qt's headers;
       the path of each ritual file;
       '-o' with the path of the target file;
@@ -343,17 +389,16 @@ class Build:
 
     FileNotFoundError
       'qmake6' is not installed.
+
+    NotImplementedError
+      Python runs on a system that 'System' has no subclass for.
     """
-    qtFolders = []
-    for qtSharedObject in self.getQtSharedObjects():
-      qtFolder = os.path.dirname(qtSharedObject)
-      if qtFolder not in qtFolders:
-        qtFolders.append(qtFolder)
+    system = System.getHere()
+    qtFolder = self.getQtSharedObjectFolder()
     return (
-        'clang++', '-std=c++17', '-shared', '-fPIC', '-O2',
-        '-fvisibility-inlines-hidden',
-        '-Wl,--no-undefined',
-        *('-Wl,-rpath,%s' % qtFolder for qtFolder in qtFolders),
+        'clang++', '-std=c++17', '-shared', '-O2',
+        *system.getCompilerFlags(qtFolder),
+        *system.getLinkerFlags(qtFolder),
         '-I%s' % self.getQtHeaderFolder(), *self.getRitualFiles(),
         '-o', self.getTargetFile(), *self.getQtSharedObjects(),
     )
@@ -449,7 +494,9 @@ class Build:
 
     Name the file holding each Qt class the ritual files include: 'QObject'
     is in 'libQt6Core.so.6', 'QWidget' in 'libQt6Widgets.so.6'. Those
-    files lie in the folder 'getQtSharedObjectFolder' gives.
+    files lie in the folder 'getQtSharedObjectFolder' gives. The names
+    are those of Linux; 'System.getHere().getQtFileName("QtCore")' gives
+    the name on the system Python runs on.
 
     Parameters
     ----------

@@ -8,7 +8,7 @@ import glob
 import os
 from typing import TYPE_CHECKING
 
-from . import Build
+from . import Build, System
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, Optional, Tuple
@@ -332,8 +332,9 @@ class Rituals:
       'ritual_ZNK6QEvent5cloneEv': (ctypes.c_void_p, ctypes.c_void_p),
   }  # type: Dict[str, Tuple[Any, ...]]
 
-  #  The Qt shared objects the rituals call into, by file name.
-  __qt_file_names__ = ('libQt6Core.so.6',)
+  #  The parts of Qt the rituals call into. 'System' knows the file of
+  #  each part on the system Python runs on.
+  __qt_parts__ = ('QtCore',)
 
   #  The opened target file, or None until the first call.
   __opened_target__ = None  # type: Optional[ctypes.CDLL]
@@ -392,8 +393,10 @@ class Rituals:
     """
     Gives the Qt shared objects the rituals call into.
 
-    Found for you: the file names in '__qt_file_names__', each in the
-    folder where Qt keeps its shared objects.
+    Found for you: one file for each part of Qt in '__qt_parts__', in
+    the folder where Qt keeps its shared objects. 'System' gives the
+    name the file has on the system Python runs on, which on Linux is
+    'libQt6Core.so.6' for 'QtCore'.
 
     Returns
     -------
@@ -402,7 +405,8 @@ class Rituals:
       A 'Tuple[str, ...]' of full paths.
     """
     folder = Build.getQtSharedObjectFolder()
-    names = cls.__qt_file_names__
+    system = System.getHere()
+    names = (*(system.getQtFileName(part) for part in cls.__qt_parts__),)
     return (*(os.path.join(folder, name) for name in names),)
 
   @classmethod
@@ -439,6 +443,7 @@ class Rituals:
       infoSpec = """The shared object '%s' is missing, or older than a
       ritual file. Call 'Rituals.build()' first."""
       raise FileNotFoundError(' '.join((infoSpec % target).split()))
+    System.getHere().prepareOpening()
     opened = ctypes.CDLL(target)
     for name, (gives, *takes) in cls.__type_signatures__.items():
       try:

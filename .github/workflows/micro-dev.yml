@@ -55,8 +55,14 @@ jobs:
   test:
     needs: safety
     strategy:
+      # The outer loop is over the systems, the inner one over the
+      # Pythons. Every row runs to its end, also after another row has
+      # failed, so one press shows where the tests pass and where they
+      # do not. A release needs every row to pass.
+      fail-fast: false
       matrix:
         include:
+          # Linux.
           - { python-version: '3.7', os: ubuntu-22.04 }
           - { python-version: '3.8', os: ubuntu-22.04 }
           - { python-version: '3.9', os: ubuntu-22.04 }
@@ -66,26 +72,62 @@ jobs:
           - { python-version: '3.13', os: ubuntu-latest }
           - { python-version: '3.14', os: ubuntu-latest }
           - { python-version: '3.15', os: ubuntu-latest }
+          # mac on Apple's own chips. There is no Python 3.7 for them.
+          - { python-version: '3.8', os: macos-latest }
+          - { python-version: '3.9', os: macos-latest }
+          - { python-version: '3.10', os: macos-latest }
+          - { python-version: '3.11', os: macos-latest }
+          - { python-version: '3.12', os: macos-latest }
+          - { python-version: '3.13', os: macos-latest }
+          - { python-version: '3.14', os: macos-latest }
+          - { python-version: '3.15', os: macos-latest }
+          # mac on Intel chips.
+          - { python-version: '3.7', os: macos-26-intel }
+          - { python-version: '3.8', os: macos-26-intel }
+          - { python-version: '3.9', os: macos-26-intel }
+          - { python-version: '3.10', os: macos-26-intel }
+          - { python-version: '3.11', os: macos-26-intel }
+          - { python-version: '3.12', os: macos-26-intel }
+          - { python-version: '3.13', os: macos-26-intel }
+          - { python-version: '3.14', os: macos-26-intel }
+          - { python-version: '3.15', os: macos-26-intel }
+          # Windows.
+          - { python-version: '3.7', os: windows-latest }
+          - { python-version: '3.8', os: windows-latest }
+          - { python-version: '3.9', os: windows-latest }
+          - { python-version: '3.10', os: windows-latest }
+          - { python-version: '3.11', os: windows-latest }
+          - { python-version: '3.12', os: windows-latest }
+          - { python-version: '3.13', os: windows-latest }
+          - { python-version: '3.14', os: windows-latest }
+          - { python-version: '3.15', os: windows-latest }
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7
       # The tests call Qt for real, so Qt has to be on the machine, in
       # the very release the ritual files were written from: an older Qt
       # lacks functions the rituals call, and the Qt that Ubuntu offers
-      # is older. This step fetches the ready-made files of that release
-      # from Qt's own servers and puts its 'qmake6' on the path.
+      # is older. This step fetches the ready-made files of that release,
+      # for the system of the row, from Qt's own servers and puts its
+      # 'qmake6' on the path.
       # 'archives' keeps it to what the tests use: 'qtbase' holds QtCore,
-      # QtGui and QtWidgets, and 'icu' is a library that QtCore opens.
-      # 'install-deps' would fetch system libraries that only QtGui and
-      # the parts above it open. The step brings a Python of its own to
-      # do the fetching, so it must stand above the step that sets up the
-      # Python of the matrix: the Python set up last is the one that runs.
+      # QtGui and QtWidgets, and 'icu' is a library that QtCore opens on
+      # Linux. The other systems have no such archive and pass it over.
+      # 'install-deps' would fetch system libraries on Linux that only
+      # QtGui and the parts above it open.
+      # 'aqtsource' names the fetcher, 'aqtinstall', at one commit of its
+      # source. Its last release, 3.3.0, does not find Qt 6.11 or newer
+      # for Windows, where Qt has moved its files to other folders.
+      # The step brings a Python of its own to do the fetching, so it
+      # must stand above the step that sets up the Python of the matrix:
+      # the Python set up last is the one that runs.
       - name: Install Qt 6.12.0
         uses: jurplel/install-qt-action@v4.5.0
         with:
           version: '6.12.0'
           archives: 'qtbase icu'
           install-deps: false
+          aqtsource: 'git+https://github.com/miurahr/aqtinstall.git@5a49f2b391ae8ee1d3c0dd87f8b33c1d49a4deb7'
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v7
         with:
@@ -96,25 +138,27 @@ jobs:
           pip install -r requirements.txt
       # Stops here when the Python or the Qt the tests are about to run
       # with is not the one this job names, and shows the compiler that
-      # builds the rituals.
+      # builds the rituals. It names 'bash' so the same lines run on
+      # Windows, and 'tr' takes away the line ending Windows adds.
       - name: Check the Python, the Qt and the compiler
+        shell: bash
         run: |
           python --version | grep -F 'Python ${{ matrix.python-version }}.'
-          qmake6 -query QT_VERSION | grep -Fx '6.12.0'
+          qmake6 -query QT_VERSION | tr -d '\r' | grep -Fx '6.12.0'
           clang++ --version
       - name: Run tests
         env:
           PYTHONPATH: ${{ github.workspace }}/src
         run: python -m unittest discover -s tests
-      - name: Coverage (3.15 only)
-        if: ${{ matrix.python-version == '3.15' }}
+      - name: Coverage (Linux, 3.15 only)
+        if: ${{ runner.os == 'Linux' && matrix.python-version == '3.15' }}
         env:
           PYTHONPATH: ${{ github.workspace }}/src
         run: |
           pip install pytest pytest-cov
           pytest --cov --cov-branch --cov-report=xml
       - name: Upload coverage to Codecov
-        if: ${{ matrix.python-version == '3.15' }}
+        if: ${{ runner.os == 'Linux' && matrix.python-version == '3.15' }}
         uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

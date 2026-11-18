@@ -3,30 +3,32 @@
 #include <QtCore/qobject.h>
 
 //  const QMetaObject *QObject::metaObject() const
-extern "C" const QMetaObject *ritual_ZNK7QObject10metaObjectEv(
-    const QObject *self) {
+extern "C" Q_DECL_EXPORT
+const QMetaObject *ritual_ZNK7QObject10metaObjectEv(const QObject *self) {
   return self->metaObject();
 }
 
 //  QObject::QObject(QObject *parent)
-extern "C" QObject *ritual_ZN7QObjectC1EPS_(QObject *parent) {
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZN7QObjectC1EPS_(QObject *parent) {
   return new QObject(parent);
 }
 
 //  QObject::~QObject()
-extern "C" void ritual_ZN7QObjectD1Ev(QObject *self) {
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObjectD1Ev(QObject *self) {
   delete self;
 }
 
 //  bool QObject::event(QEvent *event)
-extern "C" bool ritual_ZN7QObject5eventEP6QEvent(
-    QObject *self,
-    QEvent *event) {
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject5eventEP6QEvent(QObject *self, QEvent *event) {
   return self->event(event);
 }
 
 //  bool QObject::eventFilter(QObject *watched, QEvent *event)
-extern "C" bool ritual_ZN7QObject11eventFilterEPS_P6QEvent(
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject11eventFilterEPS_P6QEvent(
     QObject *self,
     QObject *watched,
     QEvent *event) {
@@ -34,42 +36,50 @@ extern "C" bool ritual_ZN7QObject11eventFilterEPS_P6QEvent(
 }
 
 //  bool QObject::isWidgetType() const
-extern "C" bool ritual_ZNK7QObject12isWidgetTypeEv(const QObject *self) {
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK7QObject12isWidgetTypeEv(const QObject *self) {
   return self->isWidgetType();
 }
 
 //  bool QObject::isWindowType() const
-extern "C" bool ritual_ZNK7QObject12isWindowTypeEv(const QObject *self) {
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK7QObject12isWindowTypeEv(const QObject *self) {
   return self->isWindowType();
 }
 
 //  bool QObject::isQuickItemType() const
-extern "C" bool ritual_ZNK7QObject15isQuickItemTypeEv(const QObject *self) {
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK7QObject15isQuickItemTypeEv(const QObject *self) {
   return self->isQuickItemType();
 }
 
 //  bool QObject::isQmlExposed() const
-extern "C" bool ritual_ZNK7QObject12isQmlExposedEv(const QObject *self) {
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK7QObject12isQmlExposedEv(const QObject *self) {
   return self->isQmlExposed();
 }
 
 //  bool QObject::signalsBlocked() const
-extern "C" bool ritual_ZNK7QObject14signalsBlockedEv(const QObject *self) {
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK7QObject14signalsBlockedEv(const QObject *self) {
   return self->signalsBlocked();
 }
 
 //  bool QObject::blockSignals(bool b)
-extern "C" bool ritual_ZN7QObject12blockSignalsEb(QObject *self, bool b) {
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject12blockSignalsEb(QObject *self, bool b) {
   return self->blockSignals(b);
 }
 
 //  QThread *QObject::thread() const
-extern "C" QThread *ritual_ZNK7QObject6threadEv(const QObject *self) {
+extern "C" Q_DECL_EXPORT
+QThread *ritual_ZNK7QObject6threadEv(const QObject *self) {
   return self->thread();
 }
 
 //  int QObject::startTimer(int interval, Qt::TimerType timerType)
-extern "C" int ritual_ZN7QObject10startTimerEiN2Qt9TimerTypeE(
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QObject10startTimerEiN2Qt9TimerTypeE(
     QObject *self,
     int interval,
     Qt::TimerType timerType) {
@@ -77,41 +87,43 @@ extern "C" int ritual_ZN7QObject10startTimerEiN2Qt9TimerTypeE(
 }
 
 //  void QObject::killTimer(int id)
-extern "C" void ritual_ZN7QObject9killTimerEi(QObject *self, int id) {
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject9killTimerEi(QObject *self, int id) {
   self->killTimer(id);
 }
 
 //  void QObject::killTimer(Qt::TimerId id)
-extern "C" void ritual_ZN7QObject9killTimerEN2Qt7TimerIdE(
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject9killTimerEN2Qt7TimerIdE(
     QObject *self,
     Qt::TimerId id) {
   self->killTimer(id);
 }
 
 //  void QObject::setParent(QObject *parent)
-extern "C" void ritual_ZN7QObject9setParentEPS_(
-    QObject *self,
-    QObject *parent) {
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject9setParentEPS_(QObject *self, QObject *parent) {
   self->setParent(parent);
 }
 
 //  void QObject::installEventFilter(QObject *filterObj)
-extern "C" void ritual_ZN7QObject18installEventFilterEPS_(
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject18installEventFilterEPS_(
     QObject *self,
     QObject *filterObj) {
   self->installEventFilter(filterObj);
 }
 
 //  void QObject::removeEventFilter(QObject *obj)
-extern "C" void ritual_ZN7QObject17removeEventFilterEPS_(
-    QObject *self,
-    QObject *obj) {
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject17removeEventFilterEPS_(QObject *self, QObject *obj) {
   self->removeEventFilter(obj);
 }
 
 //  bool QObject::disconnect(const QObject *sender, const char *signal,
 //      const QObject *receiver, const char *member)
-extern "C" bool ritual_ZN7QObject10disconnectEPKS_PKcS1_S3_(
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject10disconnectEPKS_PKcS1_S3_(
     const QObject *sender,
     const char *signal,
     const QObject *receiver,
@@ -121,7 +133,8 @@ extern "C" bool ritual_ZN7QObject10disconnectEPKS_PKcS1_S3_(
 
 //  bool QObject::disconnect(const char *signal, const QObject *receiver,
 //      const char *member) const
-extern "C" bool ritual_ZNK7QObject10disconnectEPKcPKS_S1_(
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK7QObject10disconnectEPKcPKS_S1_(
     const QObject *self,
     const char *signal,
     const QObject *receiver,
@@ -131,7 +144,8 @@ extern "C" bool ritual_ZNK7QObject10disconnectEPKcPKS_S1_(
 
 //  bool QObject::disconnect(const QObject *receiver, const char *member)
 //      const
-extern "C" bool ritual_ZNK7QObject10disconnectEPKS_PKc(
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK7QObject10disconnectEPKS_PKc(
     const QObject *self,
     const QObject *receiver,
     const char *member) {
@@ -139,40 +153,46 @@ extern "C" bool ritual_ZNK7QObject10disconnectEPKS_PKc(
 }
 
 //  void QObject::dumpObjectTree() const
-extern "C" void ritual_ZNK7QObject14dumpObjectTreeEv(const QObject *self) {
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK7QObject14dumpObjectTreeEv(const QObject *self) {
   self->dumpObjectTree();
 }
 
 //  void QObject::dumpObjectInfo() const
-extern "C" void ritual_ZNK7QObject14dumpObjectInfoEv(const QObject *self) {
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK7QObject14dumpObjectInfoEv(const QObject *self) {
   self->dumpObjectInfo();
 }
 
 //  QBindingStorage *QObject::bindingStorage()
-extern "C" QBindingStorage *ritual_ZN7QObject14bindingStorageEv(
-    QObject *self) {
+extern "C" Q_DECL_EXPORT
+QBindingStorage *ritual_ZN7QObject14bindingStorageEv(QObject *self) {
   return self->bindingStorage();
 }
 
 //  const QBindingStorage *QObject::bindingStorage() const
-extern "C" const QBindingStorage *ritual_ZNK7QObject14bindingStorageEv(
+extern "C" Q_DECL_EXPORT
+const QBindingStorage *ritual_ZNK7QObject14bindingStorageEv(
     const QObject *self) {
   return self->bindingStorage();
 }
 
 //  QObject *QObject::parent() const
-extern "C" QObject *ritual_ZNK7QObject6parentEv(const QObject *self) {
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK7QObject6parentEv(const QObject *self) {
   return self->parent();
 }
 
 //  bool QObject::inherits(const char *classname) const
-extern "C" bool ritual_ZNK7QObject8inheritsEPKc(
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK7QObject8inheritsEPKc(
     const QObject *self,
     const char *classname) {
   return self->inherits(classname);
 }
 
 //  void QObject::deleteLater()
-extern "C" void ritual_ZN7QObject11deleteLaterEv(QObject *self) {
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject11deleteLaterEv(QObject *self) {
   self->deleteLater();
 }

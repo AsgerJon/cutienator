@@ -777,13 +777,22 @@ class RitualGenerator:
     return ''
 
   def _writeRitual(self, plan: Record, body: str) -> str:
-    """Gives the C++ text of one ritual, under the function it calls."""
+    """
+    Gives the C++ text of one ritual, under the function it calls.
+
+    Every ritual starts with the line 'extern "C" Q_DECL_EXPORT'. The
+    first part gives it the plain name Python finds it by. The second is
+    Qt's own mark for a function a shared object is to offer: Windows
+    offers only what carries it, and on Linux and mac it changes
+    nothing.
+    """
     shown = textwrap.wrap(plan['function'], 71) or ['']
     lines = ['//  %s' % shown[0]]
     lines.extend('//      %s' % line for line in shown[1:])
     takes = [self._joinType(t, n) for n, t in plan['takes']]
     named = self._joinType(plan['gives'], plan['ritualName'])
-    head = 'extern "C" %s(' % named
+    lines.append('extern "C" Q_DECL_EXPORT')
+    head = '%s(' % named
     whole = '%s%s) {' % (head, ', '.join(takes))
     if len(whole) <= 77:
       lines.append(whole)
