@@ -73,7 +73,7 @@ jobs:
           - { python-version: '3.13', os: ubuntu-latest }
           - { python-version: '3.14', os: ubuntu-latest }
           - { python-version: '3.15', os: ubuntu-latest }
-          # mac on Apple's own chips. There is no Python 3.7 for them.
+          # macOS on Apple silicon. There is no Python 3.7 for it.
           - { python-version: '3.8', os: macos-latest }
           - { python-version: '3.9', os: macos-latest }
           - { python-version: '3.10', os: macos-latest }
@@ -82,7 +82,7 @@ jobs:
           - { python-version: '3.13', os: macos-latest }
           - { python-version: '3.14', os: macos-latest }
           - { python-version: '3.15', os: macos-latest }
-          # mac on Intel chips. Python 3.7 runs on the older machine: it
+          # macOS on Intel chips. Python 3.7 runs on the older machine: it
           # needs OpenSSL 1.1 to fetch anything, and the newer machine no
           # longer has it, so Python 3.7 cannot be set up there.
           - { python-version: '3.7', os: macos-15-intel }

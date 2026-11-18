@@ -13,7 +13,7 @@ from ._shared_object import SharedObject
 from ._system import System
 from ._build import Build
 from ._linux import Linux
-from ._mac import Mac
+from ._mac_os import MacOS
 from ._windows import Windows
 from ._rituals import Rituals
 from ._declaration import Declaration
@@ -27,7 +27,7 @@ __all__ = (
     'System',
     'Build',
     'Linux',
-    'Mac',
+    'MacOS',
     'Windows',
     'Rituals',
     'Declaration',

@@ -783,7 +783,7 @@ class RitualGenerator:
     Every ritual starts with the line 'extern "C" Q_DECL_EXPORT'. The
     first part gives it the plain name Python finds it by. The second is
     Qt's own mark for a function a shared object is to offer: Windows
-    offers only what carries it, and on Linux and mac it changes
+    offers only what carries it, and on Linux and macOS it changes
     nothing.
     """
     shown = textwrap.wrap(plan['function'], 71) or ['']

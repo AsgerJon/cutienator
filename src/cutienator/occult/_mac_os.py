@@ -1,4 +1,4 @@
-"""Mac says how ritual files are compiled and opened on mac."""
+"""MacOS says how ritual files are compiled and opened on macOS."""
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
@@ -13,16 +13,16 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   Paths = Tuple[str, ...]
 
 
-class Mac(System):
+class MacOS(System):
   """
-  Answers for mac what 'System' asks of every system, on Apple's own
-  chips and on Intel chips alike.
+  Answers for macOS what 'System' asks of every system, on Apple
+  silicon and on Intel chips alike.
 
   You do not make one: 'System.getHere()' gives it when Python runs on
-  mac, and 'Build', 'Rituals' and the judge of the trials ask it.
+  macOS, and 'Build', 'Rituals' and the judge of the trials ask it.
 
-  What mac is like
-  ----------------
+  What macOS is like
+  ------------------
 
   - Qt keeps each of its parts in a folder of its own, called a
     framework, as 'QtCore.framework'. The shared object lies inside it
@@ -48,7 +48,7 @@ class Mac(System):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
-  #  What 'sys.platform' is on mac.
+  #  What 'sys.platform' is on macOS.
   __platform_name__ = 'darwin'
 
   #  Fallback Variables
@@ -97,7 +97,7 @@ class Mac(System):
 
   def getQtFileName(self, part: str) -> str:
     """
-    Gives the shared object of one part of Qt, which on mac lies inside
+    Gives the shared object of one part of Qt, which on macOS lies inside
     the framework of the part: 'QtCore.framework/Versions/A/QtCore' for
     'QtCore'.
     """
@@ -105,7 +105,7 @@ class Mac(System):
 
   def getCompilerFlags(self, qtFolder: str) -> Paths:
     """
-    Gives what 'clang++' is told on mac: what it is told on Linux, and
+    Gives what 'clang++' is told on macOS: what it is told on Linux, and
     where the frameworks are.
 
     Returns
@@ -115,7 +115,7 @@ class Mac(System):
       '-fPIC', so the code can sit at any address;
       '-fvisibility-inlines-hidden', so Qt's inline code leaves no
       scrambled names in the built file;
-      '-F' with the folder of Qt's shared objects, which on mac is the
+      '-F' with the folder of Qt's shared objects, which on macOS is the
       folder of the frameworks, so that 'QtCore/qobject.h' is found
       inside 'QtCore.framework'. Without it the compiler finds only the
       stand-in of that name in Qt's header folder, which sends it on to
@@ -125,7 +125,7 @@ class Mac(System):
 
   def getLinkerFlags(self, qtFolder: str) -> Paths:
     """
-    Gives what the linker is told on mac.
+    Gives what the linker is told on macOS.
 
     Returns
     -------
@@ -136,7 +136,7 @@ class Mac(System):
       '-Wl,--no-undefined' is on Linux, in the words of Apple's linker,
       which does not know the other;
       '-Wl,-rpath,' with the folder of Qt's shared objects, so the built
-      file opens the Qt it was built against. Qt's shared objects on mac
+      file opens the Qt it was built against. Qt's shared objects on macOS
       name themselves from that folder on, as
       'QtCore.framework/Versions/A/QtCore', so it is that folder and not
       the framework that the built file has to carry.
@@ -145,7 +145,7 @@ class Mac(System):
 
   def prepareOpening(self) -> None:
     """
-    Does nothing: on mac the built file carries the folder of its Qt,
+    Does nothing: on macOS the built file carries the folder of its Qt,
     which 'getLinkerFlags' had the linker write into it.
     """
 

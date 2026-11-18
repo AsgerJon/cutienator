@@ -60,7 +60,7 @@ class Build:
   - 'getQtSharedObjectFolder': where Qt keeps its shared objects.
   - 'getQtProgramFolder': where Qt keeps its programs.
 
-  What differs between Linux, mac and Windows is not written here. The
+  What differs between Linux, macOS and Windows is not written here. The
   build asks 'System.getHere()' for it: the name of a Qt shared object
   and some of what 'clang++' is told.
 
@@ -374,7 +374,7 @@ class Build:
       which on Linux is '-fPIC', '-fvisibility-inlines-hidden',
       '-Wl,--no-undefined' and '-Wl,-rpath,' with the folder of Qt's
       shared objects. 'getCompilerFlags' and 'getLinkerFlags' of
-      'Linux', 'Mac' and 'Windows' say what each is for;
+      'Linux', 'MacOS' and 'Windows' say what each is for;
       '-I' with the folder of Qt's headers;
       the path of each ritual file;
       '-o' with the path of the target file;

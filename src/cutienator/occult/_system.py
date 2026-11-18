@@ -34,7 +34,7 @@ class System:
   -----------
 
   Nothing. 'System.getHere()' gives the one object for the system this
-  Python runs on. It is a 'Linux', a 'Mac' or a 'Windows'; each of the
+  Python runs on. It is a 'Linux', a 'MacOS' or a 'Windows'; each of the
   three is a class in a file of its own, and each has a docstring
   saying what its system is like.
 
@@ -56,7 +56,7 @@ class System:
   - On any other system 'getHere' raises 'NotImplementedError', with
     the name Python has for that system.
   - 'System' itself answers none of the four: asked of it and not of a
-    'Linux', a 'Mac' or a 'Windows', each raises 'NotImplementedError'.
+    'Linux', a 'MacOS' or a 'Windows', each raises 'NotImplementedError'.
   - To teach cutienator a new system, write one more subclass in a file
     of its own, with '__platform_name__' set to what 'sys.platform' is
     there, and import it in the '__init__' of this package.
@@ -97,7 +97,7 @@ class System:
       if system.__platform_name__ == sys.platform:
         System.__system_here__ = system()
         return
-    infoSpec = """cutienator can build on Linux, on mac and on Windows.
+    infoSpec = """cutienator can build on Linux, on macOS and on Windows.
     This Python says its system is '%s', and no subclass of 'System' is
     written for that."""
     raise NotImplementedError(' '.join((infoSpec % sys.platform).split()))
@@ -115,7 +115,7 @@ class System:
     -------
 
     System
-      A 'Linux', a 'Mac' or a 'Windows'.
+      A 'Linux', a 'MacOS' or a 'Windows'.
 
     Raises
     ------
@@ -158,7 +158,7 @@ class System:
 
   def _refuse(self, methodName: str) -> NotImplementedError:
     """Gives the error for a question that only a subclass answers."""
-    infoSpec = """'%s.%s' is answered by 'Linux', 'Mac' and 'Windows',
+    infoSpec = """'%s.%s' is answered by 'Linux', 'MacOS' and 'Windows',
     each for its own system. Ask the object 'System.getHere()' gives."""
     info = infoSpec % (type(self).__name__, methodName)
     return NotImplementedError(' '.join(info.split()))
@@ -201,7 +201,7 @@ class System:
     ----------
 
     qtFolder : str
-      The folder where Qt keeps its shared objects. Only mac has a use
+      The folder where Qt keeps its shared objects. Only macOS has a use
       for it here.
 
     Returns

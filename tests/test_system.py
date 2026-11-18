@@ -1,5 +1,5 @@
 """
-TestSystem tests 'System' and its three subclasses, 'Linux', 'Mac' and
+TestSystem tests 'System' and its three subclasses, 'Linux', 'MacOS' and
 'Windows', which say what differs between the operating systems.
 """
 #  Apache-2.0 license
@@ -13,7 +13,7 @@ from unittest import mock
 
 from worktoy.work_test import BaseTest
 
-from cutienator.occult import System, Linux, Mac, Windows, Build
+from cutienator.occult import System, Linux, MacOS, Windows, Build
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Dict
@@ -45,7 +45,7 @@ class TestSystem(BaseTest):
   def test_three_systems_are_known(self) -> None:
     """'System' has the three subclasses, each with its platform name."""
     named = {s.__platform_name__: s for s in System.__subclasses__()}
-    self.assertEqual(named, dict(linux=Linux, darwin=Mac, win32=Windows))
+    self.assertEqual(named, dict(linux=Linux, darwin=MacOS, win32=Windows))
     self.assertIsNone(System.__platform_name__)
 
   def test_here_is_the_system_python_runs_on(self) -> None:
@@ -75,7 +75,7 @@ class TestSystem(BaseTest):
   def test_text_names_the_system(self) -> None:
     """The text of a system is the name of its class in angle brackets."""
     self.assertEqual(str(Linux()), '<Linux>')
-    self.assertEqual(repr(Mac()), '<Mac>')
+    self.assertEqual(repr(MacOS()), '<MacOS>')
     self.assertEqual(str(Windows()), '<Windows>')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -87,24 +87,24 @@ class TestSystem(BaseTest):
     self.assertEqual(Linux().getQtFileName('QtCore'), 'libQt6Core.so.6')
     self.assertEqual(Linux().getQtFileName('QtGui'), 'libQt6Gui.so.6')
     self.assertEqual(
-        Mac().getQtFileName('QtCore'),
+        MacOS().getQtFileName('QtCore'),
         'QtCore.framework/Versions/A/QtCore',
     )
     self.assertEqual(
-        Mac().getQtFileName('QtWidgets'),
+        MacOS().getQtFileName('QtWidgets'),
         'QtWidgets.framework/Versions/A/QtWidgets',
     )
     self.assertEqual(Windows().getQtFileName('QtCore'), 'Qt6Core.lib')
     self.assertEqual(Windows().getQtFileName('QtGui'), 'Qt6Gui.lib')
 
   def test_compiler_flags(self) -> None:
-    """Mac adds the folder of the frameworks to what Linux asks for."""
+    """On macOS the folder of the frameworks comes on top of Linux's."""
     self.assertEqual(
         Linux().getCompilerFlags('/opt/qt/lib'),
         ('-fPIC', '-fvisibility-inlines-hidden',),
     )
     self.assertEqual(
-        Mac().getCompilerFlags('/opt/qt/lib'),
+        MacOS().getCompilerFlags('/opt/qt/lib'),
         ('-fPIC', '-fvisibility-inlines-hidden', '-F/opt/qt/lib',),
     )
     self.assertEqual(
@@ -112,13 +112,13 @@ class TestSystem(BaseTest):
     )
 
   def test_linker_flags(self) -> None:
-    """Linux and mac have the Qt folder written in; Windows cannot."""
+    """Linux and macOS have the Qt folder written in; Windows cannot."""
     self.assertEqual(
         Linux().getLinkerFlags('/opt/qt/lib'),
         ('-Wl,--no-undefined', '-Wl,-rpath,/opt/qt/lib',),
     )
     self.assertEqual(
-        Mac().getLinkerFlags('/opt/qt/lib'),
+        MacOS().getLinkerFlags('/opt/qt/lib'),
         ('-Wl,-undefined,error', '-Wl,-rpath,/opt/qt/lib',),
     )
     self.assertEqual(Windows().getLinkerFlags('C:/Qt/lib'), ())
@@ -141,10 +141,10 @@ class TestSystem(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_linux_and_mac_prepare_nothing(self) -> None:
-    """On Linux and mac nothing is done before a built file is opened."""
+    """On Linux and macOS nothing is done before a file is opened."""
     before = dict(os.environ)
     self.assertIsNone(Linux().prepareOpening())
-    self.assertIsNone(Mac().prepareOpening())
+    self.assertIsNone(MacOS().prepareOpening())
     self.assertEqual(dict(os.environ), before)
 
   def test_windows_tells_python_of_the_qt_folder(self) -> None:
