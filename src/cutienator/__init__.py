@@ -5,7 +5,7 @@ The 'cutienator' provides Python bindings to the occult world of C++.
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
-__version__ = '0.0.0'
+__version__ = '0.0.1-dev0'
 
 from ._cpp_addr import CppAddr
 from ._cpp_box import CppBox
