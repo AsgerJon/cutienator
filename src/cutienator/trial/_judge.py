@@ -388,6 +388,10 @@ class Judge:
     """
     Turns the C++ half into a program that can be run.
 
+    '-Wl,-rpath,' with the folder of Qt's shared objects makes the
+    program open the Qt it was compiled against, also when that Qt is
+    not where the machine keeps its own shared objects.
+
     Raises
     ------
 
@@ -404,6 +408,7 @@ class Judge:
         sharedObjects.append(sharedObject)
     command = (
         'clang++', '-std=c++17', '-fPIC', '-O2',
+        '-Wl,-rpath,%s' % Build.getQtSharedObjectFolder(),
         '-I%s' % Build.getQtHeaderFolder(),
         cppFile, '-o', programFile, *sharedObjects,
     )

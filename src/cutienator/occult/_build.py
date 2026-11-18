@@ -324,6 +324,11 @@ class Build:
       '-Wl,--no-undefined', so a ritual calling a function that no Qt
       shared object offers stops the build here, and not the first
       program that opens the target file;
+      '-Wl,-rpath,' with the folder of each Qt shared object, so the
+      target file opens the Qt it was built against. Without it the
+      target file looks only where the machine keeps its own shared
+      objects, as '/usr/lib': a Qt installed elsewhere is not found
+      there, and another Qt that is there would be opened instead;
       '-I' with the folder of Qt's headers;
       the path of each ritual file;
       '-o' with the path of the target file;
@@ -339,10 +344,16 @@ class Build:
     FileNotFoundError
       'qmake6' is not installed.
     """
+    qtFolders = []
+    for qtSharedObject in self.getQtSharedObjects():
+      qtFolder = os.path.dirname(qtSharedObject)
+      if qtFolder not in qtFolders:
+        qtFolders.append(qtFolder)
     return (
         'clang++', '-std=c++17', '-shared', '-fPIC', '-O2',
         '-fvisibility-inlines-hidden',
         '-Wl,--no-undefined',
+        *('-Wl,-rpath,%s' % qtFolder for qtFolder in qtFolders),
         '-I%s' % self.getQtHeaderFolder(), *self.getRitualFiles(),
         '-o', self.getTargetFile(), *self.getQtSharedObjects(),
     )
