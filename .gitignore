@@ -221,3 +221,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+/.idea/.gitignore
+/.idea/copyright/base.xml
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/cutienator.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/copyright/profiles_settings.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/pyProjectModel.xml
+/.idea/vcs.xml
