@@ -1,0 +1,60 @@
+[build-system]
+requires = ['setuptools>=77.0.0']  # PEP 639 licence metadata
+build-backend = 'setuptools.build_meta'
+
+
+[project]
+name = "cutienator"
+version = "0.0.0"
+authors = [
+    { name = "Asger Jon Vistisen", email = "asgerjon2@gmail.com" },
+]
+description = "A vastly superior binding of Qt C++ to Python"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.7"
+dependencies = [
+    'worktoy>=1.2.2',
+]
+classifiers = [
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Programming Language :: Python :: 3.14',
+    'Programming Language :: Python :: 3.15',
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Operating System :: POSIX :: Linux",
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Topic :: Software Development :: Libraries"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/AsgerJon/cutienator"
+"Bug Tracker" = "https://github.com/AsgerJon/cutienator/issues"
+
+[dependency-groups]
+test = [
+    'pytest>=9.0.2',
+    'pytest-cov>=7.0.0',
+]
+
+# The ritual files are C++ that 'cutienator.occult.Rituals' compiles on the
+# machine the package is installed on, so they ship with the package.
+[tool.setuptools.package-data]
+cutienator = ["occult/rituals/*.cpp"]
+
+# pytest configuration lives here rather than in a root 'pytest.ini' so
+# the repository root stays uncluttered. pytest auto-discovers this
+# table, so no '-c' flag is needed locally or in CI.
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "--cov=cutienator --cov=tests --cov-branch --cov-report=term-missing"

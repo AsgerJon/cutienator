@@ -1,0 +1,11 @@
+the waiting mechanism, a full cute QObject, dev and release tooling
+
+- WAIT: a class body can name a class that is made later, and MetaCute
+  settles it when that class is made
+- QObject in full through generated rituals, with QEvent, QMetaObject,
+  QThread and QBindingStorage as far as it needs them
+- bin/dev_tooling: reads Qt's headers, builds the dependency tree, and
+  writes and tests the ritual files of all 770 classes
+- bin/release_tooling and the nine release workflows, from worktoy
+- the rituals are built by clang++, the compiler that reads the headers
+- 123 tests

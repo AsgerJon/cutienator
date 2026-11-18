@@ -1,0 +1,138 @@
+digraph QtToPython {
+  rankdir=TB;
+  bgcolor="white";
+  fontname="Liberation Sans";
+  fontsize=20;
+  labelloc=t;
+  label=<<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="3"><TR><TD><B>From Qt's C++ to your Python: every piece</B></TD></TR><TR><TD><FONT POINT-SIZE="13">read from the top: C++ first, your program last</FONT></TD></TR><TR><TD> </TD></TR></TABLE>>;
+  nodesep=0.45;
+  ranksep=0.5;
+  newrank=true;
+  compound=true;
+
+  node [shape=box, style="rounded,filled", fontname="Liberation Sans",
+        fontsize=13, margin="0.18,0.10", penwidth=1.3];
+  edge [fontname="Liberation Sans", fontsize=11, penwidth=1.6,
+        arrowsize=0.9];
+
+  //  Where it all starts. Not a file on this machine.
+  qtsrc [fillcolor="white", color="#7A7A7A", style="rounded,filled,dashed",
+    label=<<B>Qt's source code</B><BR/>C++ text, open source<BR/><I>turned into the two boxes below by<BR/>whoever packaged Qt for your system</I>>];
+
+  subgraph cluster_qt {
+    label=<<B>QT  (C++), as installed</B>>;
+    fontsize=14; fontcolor="#3D4852"; labeljust=l;
+    style="rounded,filled"; fillcolor="#F4F6F9"; color="#9AA5B1";
+    margin=16;
+
+    qthdr [fillcolor="#FFF6D5", color="#B8960C",
+      label=<<B>Qt's headers</B><BR/>text, in /usr/include/qt6<BR/>every class, function and attribute, by name<BR/><I>only a C++ compiler can read them</I>>];
+
+    qtso [fillcolor="#DCE3EC", color="#4B5B70",
+      label=<<B>Qt's shared objects</B><BR/>machine code, in /usr/lib<BR/>libQt6Core.so   libQt6Gui.so   libQt6Widgets.so<BR/><I>names scrambled, some functions missing</I>>];
+  }
+
+  subgraph cluster_ours {
+    label=<<B>OURS  (C++), built once, before anything runs</B>>;
+    fontsize=14; fontcolor="#3D4852"; labeljust=l;
+    style="rounded,filled"; fillcolor="#F4F6F9"; color="#9AA5B1";
+    margin=16;
+
+    cpp [fillcolor="#FFF6D5", color="#B8960C",
+      label=<<B>Our .cpp files</B><BR/>text that we write<BR/>today: rituals.cpp   later: one file per Qt class<BR/><I>one small, plainly named function per Qt function</I>>];
+
+    gpp [shape=ellipse, style="filled", fillcolor="white", color="#333333",
+      penwidth=1.8,
+      label=<<B>g++</B><BR/>the compiler, run once<BR/>-I  where Qt's headers are<BR/>-l  which Qt files ours leans on>];
+
+    ourso [fillcolor="#DCE3EC", color="#4B5B70",
+      label=<<B>Our shared object</B><BR/>machine code: librituals.so<BR/>plain names: newApplication, newWidget, showWidget, ...>];
+  }
+
+  nm [shape=ellipse, style="filled", fillcolor="white", color="#333333",
+    penwidth=1.8,
+    label=<<B>nm</B>, and your<BR/><B>SharedObject / Symbol</B><BR/>list the names a<BR/>shared object offers>];
+
+  objs [fillcolor="#FBE3E4", color="#B5474D",
+    label=<<B>The C++ objects themselves</B><BR/>QApplication, QWidget, ...<BR/>each lives at an address, in the memory<BR/>of your running Python program>];
+
+  subgraph cluster_py {
+    label=<<B>PYTHON, while running</B>>;
+    fontsize=14; fontcolor="#3D4852"; labeljust=l;
+    style="rounded,filled"; fillcolor="#F4F6F9"; color="#9AA5B1";
+    margin=16;
+
+    ctypes [fillcolor="#DDF3E0", color="#3C8D4A",
+      label=<<B>ctypes</B><BR/>comes with Python<BR/>opens a shared object, finds a function by name,<BR/>hands numbers over and gets a number back>];
+
+    ugly [fillcolor="#DDF3E0", color="#3C8D4A",
+      label=<<B>Ugly</B>   (the ugly side)<BR/>holds the address of one C++ object<BR/><I>the only code that touches ctypes</I>>];
+
+    meta [fillcolor="#DDF3E0", color="#3C8D4A",
+      label=<<B>The metaclass</B><BR/>opens our shared objects, once,<BR/>and knows which one offers a name>];
+
+    cute [fillcolor="#DDF3E0", color="#3C8D4A",
+      label=<<B>Cute classes</B><BR/>QWidget, built on CuteMixin<BR/>plain Python; uglySide is built on first read>];
+
+    prog [fillcolor="#DDF3E0", color="#3C8D4A",
+      label=<<B>Your program</B><BR/>QWidget(), show(), ...>];
+  }
+
+  later [fillcolor="white", color="#8E44AD", fontcolor="#6C3483",
+    style="rounded,filled,dashed", penwidth=1.6,
+    label=<<B>NOT BUILT YET: the other direction</B><BR/>Qt's C++ calling into your Python,<BR/>through our shared object<BR/><I>paintEvent, signals</I>>];
+
+  legend [shape=plaintext, style="", margin=0, label=<
+    <TABLE BORDER="1" COLOR="#9AA5B1" CELLBORDER="0" CELLSPACING="2" CELLPADDING="4">
+      <TR><TD ALIGN="LEFT"><FONT COLOR="#1F5FBF"><B>blue arrow</B></FONT></TD><TD ALIGN="LEFT">made from: happens once, before anything runs</TD></TR>
+      <TR><TD ALIGN="LEFT"><FONT COLOR="#C0392B"><B>red arrow</B></FONT></TD><TD ALIGN="LEFT">a call, while your program runs</TD></TR>
+      <TR><TD ALIGN="LEFT"><FONT COLOR="#5F6B7A"><B>grey dashed</B></FONT></TD><TD ALIGN="LEFT">knows about, without calling</TD></TR>
+      <TR><TD ALIGN="LEFT"><FONT COLOR="#8E44AD"><B>purple</B></FONT></TD><TD ALIGN="LEFT">not built yet</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#FFF6D5">yellow box</TD><TD ALIGN="LEFT">text a person can read</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#DCE3EC">grey box</TD><TD ALIGN="LEFT">machine code, the 1s and 0s</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#DDF3E0">green box</TD><TD ALIGN="LEFT">Python</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#FBE3E4">pink box</TD><TD ALIGN="LEFT">C++ objects alive in memory</TD></TR>
+      <TR><TD ALIGN="LEFT">oval</TD><TD ALIGN="LEFT">a program that does a job and exits</TD></TR>
+    </TABLE>>];
+
+  //  Made from: once, before anything runs.
+  edge [color="#1F5FBF", fontcolor="#1F5FBF", style=solid];
+  qtsrc -> qthdr [label="  published as"];
+  qtsrc -> qtso [label="  compiled into"];
+  qthdr -> gpp [label="  read, through #include"];
+  cpp -> gpp [label="  read"];
+  gpp -> ourso [label="  writes"];
+
+  //  Calls while the program runs. Each is written top to bottom and
+  //  drawn backwards, so the arrow points from the caller up to the
+  //  thing it calls.
+  edge [color="#C0392B", fontcolor="#C0392B", style=solid, dir=back];
+  qtso -> ourso [label="  calls the real Qt function"];
+  ourso -> ctypes [label="  opens the file, then runs one function"];
+  ctypes -> ugly [label="  a function's name, plus the address"];
+  ugly -> cute [label="  asks its ugly side"];
+  cute -> prog [label="  used like any Python class"];
+
+  edge [dir=forward];
+  qtso -> objs [label="  creates and changes"];
+
+  //  Knows about, without calling.
+  edge [color="#5F6B7A", fontcolor="#5F6B7A", style=dashed, penwidth=1.3];
+  ugly -> objs [label="  holds its address  ", constraint=false];
+  meta -> ugly [label="  tells it which file  "];
+  nm -> qtso [label="  lists names", constraint=false];
+  nm -> ourso [constraint=false];
+
+  //  Not built yet.
+  edge [color="#8E44AD", fontcolor="#8E44AD", style=dotted, penwidth=1.8];
+  later -> cute;
+
+  //  Keep it narrow and tall.
+  qtso -> cpp [style=invis];
+  qthdr -> cpp [style=invis];
+  prog -> legend [style=invis];
+  {rank=same; cpp; nm}
+  {rank=same; meta; ugly}
+  {rank=same; cute; later}
+  {rank=same; ctypes; objs}
+}

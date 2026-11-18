@@ -1,0 +1,786 @@
+The dependency tree of the classes of QtCore, QtGui and QtWidgets,
+Qt 6.12.0. Written by dev_tooling.DependencyTree.getTreeText().
+A class stands two spaces further in than the class it is built on.
+770 classes, 415 of them built on no other class of the tree.
+
+QAbstractConcatenable
+QAbstractEventDispatcher::TimerInfo
+QAbstractEventDispatcher::TimerInfoV2
+QAbstractFileIconProvider
+  QFileIconProvider
+QAbstractNativeEventFilter
+QAbstractTextDocumentLayout::PaintContext
+QAbstractTextDocumentLayout::Selection
+QAbstractUndoItem
+QAccessible
+QAccessible::ActivationObserver
+QAccessible::State
+QAccessibleActionInterface
+  QAccessibleWidget  (see under QAccessibleObject)
+QAccessibleAttributesInterface
+  QAccessibleWidgetV2  (see under QAccessibleWidget)
+QAccessibleBridge
+QAccessibleEditableTextInterface
+QAccessibleEvent
+  QAccessibleAnnouncementEvent
+  QAccessibleStateChangeEvent
+  QAccessibleTableModelChangeEvent
+  QAccessibleTextCursorEvent
+    QAccessibleTextInsertEvent
+    QAccessibleTextRemoveEvent
+    QAccessibleTextSelectionEvent
+    QAccessibleTextUpdateEvent
+  QAccessibleValueChangeEvent
+QAccessibleHyperlinkInterface
+QAccessibleImageInterface
+QAccessibleInterface
+  QAccessibleObject
+    QAccessibleApplication
+    QAccessibleWidget  (also built on QAccessibleActionInterface)
+      QAccessibleWidgetV2  (also built on QAccessibleAttributesInterface)
+QAccessibleSelectionInterface
+QAccessibleTableCellInterface
+QAccessibleTableInterface
+QAccessibleTextInterface
+QAccessibleValueInterface
+QAccessibleViewportInterface
+QAdoptSharedDataTag
+QAnyStringView
+QArrayData
+  QtPrivate::AlignedQArrayData
+QAssociativeConstIterator
+QAssociativeIterable
+QAssociativeIterator
+QAtomicInt
+QBackingStore
+QBasicMutex
+  QMutex
+QBasicReadWriteLock
+  QReadWriteLock
+QBasicTimer
+QBindingStatus
+QBindingStorage
+QBitArray
+QBitRef
+QBluetoothPermission
+QBrush
+QBrushData
+QBrushDataPointerDeleter
+QByteArray
+QByteArray::FromBase64Result
+QByteArrayMatcher
+QByteArrayView
+QCalendar
+QCalendar::SystemId
+QCalendar::YearMonthDay
+QCalendarPermission
+QCameraPermission
+QCborArray
+QCborArray::ConstIterator
+QCborArray::Iterator
+QCborError
+QCborMap
+QCborMap::ConstIterator
+QCborMap::Iterator
+QCborParserError
+QCborStreamReader
+QCborStreamWriter
+QCborValue
+QCborValueConstRef
+  QCborValueRef
+QChar
+QCollator
+QCollatorSortKey
+QColor
+QColorSpace
+QColorSpace::PrimaryPoints
+QColorTransform
+QColormap
+QCommandLineOption
+QCommandLineParser
+QContactsPermission
+QContiguousCacheData
+QCryptographicHash
+QCursor
+QDate
+QDateTime
+QDeadlineTimer
+QDebugStateSaver
+QDesktopServices
+QDir
+QDirIterator
+QDirListing
+QDirListing::DirEntry
+QDirListing::const_iterator
+QDirListing::sentinel
+QEasingCurve
+QElapsedTimer
+QEvent
+  QActionEvent
+  QApplicationStateChangeEvent
+  QChildEvent
+  QChildWindowEvent
+  QCloseEvent
+  QDragLeaveEvent
+  QDropEvent
+    QDragMoveEvent
+      QDragEnterEvent
+  QDynamicPropertyChangeEvent
+  QExposeEvent
+  QFileOpenEvent
+  QFocusEvent
+  QGestureEvent
+  QGraphicsSceneEvent
+    QGraphicsSceneContextMenuEvent
+    QGraphicsSceneDragDropEvent
+    QGraphicsSceneHelpEvent
+    QGraphicsSceneHoverEvent
+    QGraphicsSceneMouseEvent
+    QGraphicsSceneMoveEvent
+    QGraphicsSceneResizeEvent
+    QGraphicsSceneWheelEvent
+  QHelpEvent
+  QHideEvent
+  QIconDragEvent
+  QInputEvent
+    QContextMenuEvent
+    QKeyEvent
+    QPointerEvent
+      QSinglePointEvent
+        QEnterEvent
+        QHoverEvent
+        QMouseEvent
+        QNativeGestureEvent
+        QTabletEvent
+        QWheelEvent
+      QTouchEvent
+  QInputMethodEvent
+  QInputMethodQueryEvent
+  QMoveEvent
+  QPaintEvent
+  QPlatformSurfaceEvent
+  QResizeEvent
+  QScreenOrientationChangeEvent
+  QScrollEvent
+  QScrollPrepareEvent
+  QShortcutEvent
+  QShowEvent
+  QStatusTipEvent
+  QTimerEvent
+  QToolBarChangeEvent
+  QWhatsThisClickedEvent
+  QWindowStateChangeEvent
+QEventLoopLocker
+QEventPoint
+QException
+  QUnhandledException
+QFactoryInterface
+QFileInfo
+QFlag
+QFont
+QFont::Tag
+QFontDatabase
+QFontInfo
+QFontMetrics
+QFontMetricsF
+QFontVariableAxis
+QFormLayout::TakeRowResult
+QFutureInterfaceBase
+QGenericArgument
+  QGenericReturnArgument
+QGenericPluginFactory
+QGestureRecognizer
+QGlyphRun
+QGradient
+  QConicalGradient
+  QLinearGradient
+  QRadialGradient
+QGradient::QGradientData
+QGraphicsItem
+  QAbstractGraphicsShapeItem
+    QGraphicsEllipseItem
+    QGraphicsPathItem
+    QGraphicsPolygonItem
+    QGraphicsRectItem
+    QGraphicsSimpleTextItem
+  QGraphicsItemGroup
+  QGraphicsLineItem
+  QGraphicsObject  (see under QObject)
+  QGraphicsPixmapItem
+QGraphicsLayoutItem
+  QGraphicsLayout
+    QGraphicsAnchorLayout
+    QGraphicsGridLayout
+    QGraphicsLinearLayout
+  QGraphicsWidget  (see under QGraphicsObject)
+QHashDummyValue
+QHashPrivate::SpanConstants
+QHashSeed
+QIODeviceBase
+  QDataStream
+  QDebug
+  QIODevice  (see under QObject)
+  QTextStream
+QIcon
+QIconEngine
+QIconEngine::ScaledPixmapArgument
+QImageIOHandler
+QImageReader
+QImageWriter
+QIncompatibleFlag
+QInputMethodEvent::Attribute
+QInternal
+QItemEditorCreatorBase
+QItemEditorFactory
+QItemSelection
+QItemSelectionRange
+QJsonArray
+QJsonArray::const_iterator
+QJsonArray::iterator
+QJsonDocument
+QJsonObject
+QJsonObject::const_iterator
+QJsonObject::iterator
+QJsonParseError
+QJsonValue
+QJsonValueConstRef
+  QJsonValueRef
+QKeyCombination
+QKeySequence
+QLatin1Char
+QLatin1String
+QLatin1StringMatcher
+QLayoutItem
+  QLayout  (see under QObject)
+  QSpacerItem
+  QWidgetItem
+    QWidgetItemV2
+QLibraryInfo
+QLine
+QLineF
+QListWidgetItem
+QLocale
+QLocationPermission
+QLockFile
+QLoggingCategory
+QMargins
+QMarginsF
+QMatrix4x4
+QMessageAuthenticationCode
+QMessageLogContext
+QMessageLogger
+QMetaClassInfo
+QMetaContainer
+  QMetaAssociation
+  QMetaSequence
+QMetaEnum
+QMetaMethod
+QMetaMethodArgument
+QMetaMethodReturnArgument
+QMetaObject
+QMetaObject::Connection
+QMetaObject::Data
+QMetaObject::SuperData
+QMetaProperty
+QMetaType
+QMethodRawArguments
+QMicrophonePermission
+QMimeDatabase
+QMimeType
+QModelIndex
+QModelRoleData
+QModelRoleDataSpan
+QNativeInterface::QEGLContext
+QNativeInterface::QGLXContext
+QNativeInterface::QWaylandApplication
+QNativeInterface::QWaylandScreen
+QNativeInterface::QX11Application
+QNativeIpcKey
+QNoDebug
+QObject
+  QAbstractAnimation
+    QAnimationGroup
+      QParallelAnimationGroup
+      QSequentialAnimationGroup
+    QPauseAnimation
+    QVariantAnimation
+      QPropertyAnimation
+  QAbstractEventDispatcher
+    QAbstractEventDispatcherV2
+  QAbstractItemDelegate
+    QItemDelegate
+    QStyledItemDelegate
+  QAbstractItemModel
+    QAbstractListModel
+      QStringListModel
+    QAbstractProxyModel
+      QIdentityProxyModel
+      QSortFilterProxyModel
+      QTransposeProxyModel
+    QAbstractTableModel
+    QConcatenateTablesProxyModel
+    QFileSystemModel
+    QRangeModel
+    QStandardItemModel
+  QAbstractTextDocumentLayout
+    QPlainTextDocumentLayout
+  QAccessibilityHints
+  QAccessibleBridgePlugin
+  QAccessiblePlugin
+  QAction
+    QWidgetAction
+  QActionGroup
+  QAnimationDriver
+  QButtonGroup
+  QChronoTimer
+  QClipboard
+  QCompleter
+  QCoreApplication
+    QGuiApplication
+      QApplication
+  QDataWidgetMapper
+  QDrag
+  QEventLoop
+  QFileSelector
+  QFileSystemWatcher
+  QFutureWatcherBase
+  QGenericPlugin
+  QGesture
+    QPanGesture
+    QPinchGesture
+    QSwipeGesture
+    QTapAndHoldGesture
+    QTapGesture
+  QGraphicsAnchor
+  QGraphicsEffect
+    QGraphicsBlurEffect
+    QGraphicsColorizeEffect
+    QGraphicsDropShadowEffect
+    QGraphicsOpacityEffect
+  QGraphicsItemAnimation
+  QGraphicsObject  (also built on QGraphicsItem)
+    QGraphicsTextItem
+    QGraphicsWidget  (also built on QGraphicsLayoutItem)
+      QGraphicsProxyWidget
+  QGraphicsScene
+  QGraphicsTransform
+    QGraphicsRotation
+    QGraphicsScale
+  QIODevice  (also built on QIODeviceBase)
+    QBuffer
+    QFileDevice
+      QFile
+        QTemporaryFile
+      QSaveFile
+    QProcess
+  QIconEnginePlugin
+  QImageIOPlugin
+  QInputDevice
+    QPointingDevice
+  QInputMethod
+  QItemSelectionModel
+  QLayout  (also built on QLayoutItem)
+    QBoxLayout
+      QHBoxLayout
+      QVBoxLayout
+    QFormLayout
+    QGridLayout
+    QStackedLayout
+  QLibrary
+  QMimeData
+  QMovie
+  QObjectCleanupHandler
+  QOffscreenSurface  (also built on QSurface)
+  QOpenGLContext
+  QOpenGLContextGroup
+  QPdfWriter  (also built on QPagedPaintDevice)
+  QPluginLoader
+  QRangeModelDetails::AutoConnectContext
+  QScreen
+  QScroller
+  QSessionManager
+  QSettings
+  QSharedMemory
+  QShortcut
+  QSignalMapper
+  QSocketNotifier
+  QStyle
+    QCommonStyle
+      QProxyStyle
+  QStyleHints
+  QStylePlugin
+  QSyntaxHighlighter
+  QSystemTrayIcon
+  QTextDocument
+  QTextObject
+    QTextBlockGroup
+      QTextList
+    QTextFrame
+      QTextTable
+  QThread
+  QThreadPool
+  QTimeLine
+  QTimer
+  QTranslator
+  QUndoGroup
+  QUndoStack
+  QValidator
+    QDoubleValidator
+    QIntValidator
+    QRegularExpressionValidator
+  QWidget  (also built on QPaintDevice)
+    QAbstractButton
+      QCheckBox
+      QPushButton
+        QCommandLinkButton
+      QRadioButton
+      QToolButton
+    QAbstractSlider
+      QDial
+      QScrollBar
+      QSlider
+    QAbstractSpinBox
+      QDateTimeEdit
+        QDateEdit
+        QTimeEdit
+      QDoubleSpinBox
+      QSpinBox
+    QCalendarWidget
+    QComboBox
+      QFontComboBox
+    QDialog
+      QColorDialog
+      QErrorMessage
+      QFileDialog
+      QFontDialog
+      QInputDialog
+      QMessageBox
+      QProgressDialog
+      QWizard
+    QDialogButtonBox
+    QDockWidget
+    QFocusFrame
+    QFrame
+      QAbstractScrollArea
+        QAbstractItemView
+          QColumnView
+          QHeaderView
+          QListView
+            QListWidget
+            QUndoView
+          QTableView
+            QTableWidget
+          QTreeView
+            QTreeWidget
+        QGraphicsView
+        QMdiArea
+        QPlainTextEdit
+        QScrollArea
+        QTextEdit
+          QTextBrowser
+      QLCDNumber
+      QLabel
+      QSplitter
+      QStackedWidget
+      QToolBox
+    QGroupBox
+    QKeySequenceEdit
+    QLineEdit
+    QMainWindow
+    QMdiSubWindow
+    QMenu
+    QMenuBar
+    QProgressBar
+    QRhiWidget
+    QRubberBand
+    QSizeGrip
+    QSplashScreen
+    QSplitterHandle
+    QStatusBar
+    QTabBar
+    QTabWidget
+    QToolBar
+    QWizardPage
+  QWindow  (also built on QSurface)
+    QPaintDeviceWindow  (also built on QPaintDevice)
+      QRasterWindow
+QObjectData
+QOpenGLExtraFunctionsPrivate::Functions
+QOpenGLFunctions
+  QOpenGLExtraFunctions
+QOpenGLFunctionsPrivate
+  QOpenGLExtraFunctionsPrivate
+QOpenGLFunctionsPrivate::Functions
+QOperatingSystemVersionBase
+  QOperatingSystemVersionUnexported
+    QOperatingSystemVersion
+QPageLayout
+QPageRanges
+QPageRanges::Range
+QPageSize
+QPaintDevice
+  QImage
+  QPagedPaintDevice
+    QPdfWriter  (see under QObject)
+  QPaintDeviceWindow  (see under QWindow)
+  QPicture
+  QPixmap
+    QBitmap
+  QWidget  (see under QObject)
+QPaintEngine
+QPaintEngineState
+QPainter
+  QStylePainter
+QPainter::PixmapFragment
+QPainterPath
+QPainterPath::Element
+QPainterPathStroker
+QPainterStateGuard
+QPalette
+QPartialOrdering
+QPdfOutputIntent
+QPen
+QPermission
+QPersistentModelIndex
+QPixelFormat
+QPixmapCache
+QPixmapCache::Key
+QPluginMetaData
+QPluginMetaData::ElfNoteHeader
+QPluginMetaData::Header
+QPluginMetaData::MagicHeader
+QPoint
+QPointF
+QPointingDeviceUniqueId
+QPolygon
+QPolygonF
+QProcess::UnixProcessParameters
+QProcessEnvironment
+QPropertyBindingError
+QPropertyBindingPrivatePtr
+QPropertyBindingSourceLocation
+QPropertyObserverBase
+  QPropertyObserver
+    QPropertyNotifier
+QPropertyProxyBindingData
+QQuaternion
+QQuaternion::Axes
+QQuaternion::Axis
+QRandomGenerator
+  QRandomGenerator64
+QRangeModelDetails::ConnectionStorage
+QRangeModelDetails::ConnectionStorage::Connection
+QRangeModelDetails::DroppedEntryCell
+QRangeModelDetails::PropertyCache
+QRangeModelImplBase
+QRawFont
+QReadLocker
+QRect
+QRectF
+QRecursiveMutex
+QRegion
+QRegularExpression
+QRegularExpressionMatch
+QRegularExpressionMatchIterator
+QResource
+QRgba64
+QRunnable
+QScopedPointerPodDeleter
+QScopedPropertyUpdateGroup
+QScrollerProperties
+QSemaphore
+QSemaphoreReleaser
+QSequentialConstIterator
+QSequentialIterable
+QSequentialIterator
+QSharedData
+QSignalBlocker
+QSize
+QSizeF
+QSizePolicy
+QSocketDescriptor
+QStandardItem
+QStandardPaths
+QStaticByteArrayMatcherBase
+QStaticPlugin
+QStaticText
+QStorageInfo
+QString
+QStringConverterBase
+  QStringConverter
+    QStringDecoder
+    QStringEncoder
+QStringConverterBase::State
+QStringMatcher
+QStringTokenizerBaseBase
+QStringView
+QStyleFactory
+QStyleHintReturn
+  QStyleHintReturnMask
+  QStyleHintReturnVariant
+QStyleOption
+  QStyleOptionButton
+  QStyleOptionComplex
+    QStyleOptionComboBox
+    QStyleOptionGroupBox
+    QStyleOptionSizeGrip
+    QStyleOptionSlider
+    QStyleOptionSpinBox
+    QStyleOptionTitleBar
+    QStyleOptionToolButton
+  QStyleOptionDockWidget
+  QStyleOptionFocusRect
+  QStyleOptionFrame
+  QStyleOptionGraphicsItem
+  QStyleOptionHeader
+    QStyleOptionHeaderV2
+  QStyleOptionMenuItem
+    QStyleOptionMenuItemV2
+  QStyleOptionProgressBar
+  QStyleOptionRubberBand
+  QStyleOptionTab
+  QStyleOptionTabBarBase
+  QStyleOptionTabWidgetFrame
+  QStyleOptionToolBar
+  QStyleOptionToolBox
+  QStyleOptionViewItem
+QSurface
+  QOffscreenSurface  (see under QObject)
+  QWindow  (see under QObject)
+QSurfaceFormat
+QSysInfo
+QSystemSemaphore
+QTableWidgetItem
+QTableWidgetSelectionRange
+QTemporaryDir
+QTest::QTouchEventSequence
+QTest::QTouchEventWidgetSequence
+QTextBlock
+QTextBlock::iterator
+QTextBlockUserData
+QTextBoundaryFinder
+QTextCursor
+QTextDocumentFragment
+QTextDocumentWriter
+QTextEdit::ExtraSelection
+QTextFormat
+  QTextBlockFormat
+  QTextCharFormat
+    QTextImageFormat
+    QTextTableCellFormat
+  QTextFrameFormat
+    QTextTableFormat
+  QTextListFormat
+QTextFragment
+QTextFrame::iterator
+QTextFrameLayoutData
+QTextInlineObject
+QTextItem
+QTextLayout
+QTextLayout::FormatRange
+QTextLength
+QTextLine
+QTextObjectInterface
+QTextOption
+QTextOption::Tab
+QTextStreamManipulator
+QTextTableCell
+QThreadStorageData
+QTileRules
+QTime
+QTimeZone
+QTimeZone::OffsetData
+QToolTip
+QTransform
+QTreeWidgetItem
+QTreeWidgetItemIterator
+QTypeRevision
+QUndoCommand
+QUntypedBindable
+QUntypedPropertyBinding
+QUntypedPropertyData
+QUrl
+QUrlQuery
+QUuid
+QUuid::Id128Bytes
+QVLABaseBase
+QVariant
+QVariant::Private
+QVariant::PrivateShared
+QVariantConstPointer
+QVector2D
+QVector3D
+QVector4D
+QVersionNumber
+QWaitCondition
+QWhatsThis
+QWidgetData
+QWriteLocker
+QXmlStreamAttribute
+QXmlStreamAttributes
+QXmlStreamEntityDeclaration
+QXmlStreamEntityResolver
+QXmlStreamNamespaceDeclaration
+QXmlStreamNotationDeclaration
+QXmlStreamReader
+QXmlStreamWriter
+Qt::Disambiguated_t
+Qt::partial_ordering
+Qt::strong_ordering
+Qt::weak_ordering
+QtMetaContainerPrivate::Association
+QtMetaContainerPrivate::AssociativeConstIterator
+QtMetaContainerPrivate::AssociativeIterator
+QtMetaContainerPrivate::QMetaAssociationInterface
+QtMetaContainerPrivate::QMetaContainerInterface
+QtMetaContainerPrivate::QMetaSequenceInterface
+QtMetaContainerPrivate::Sequence
+QtMetaContainerPrivate::SequentialConstIterator
+QtMetaContainerPrivate::SequentialIterator
+QtMetaTypePrivate::QPairVariantInterfaceImpl
+QtMocHelpers::NoType
+QtPrivate::ArgBase
+QtPrivate::BindingFunctionVTable
+QtPrivate::CompareAgainstLiteralZero
+QtPrivate::Deprecated_t
+QtPrivate::EnableInternalData
+QtPrivate::ExceptionStore
+QtPrivate::FunctorCallBase
+QtPrivate::MSVCWorkAround
+QtPrivate::QAnyStringArg
+QtPrivate::QBindableInterface
+QtPrivate::QCaseInsensitiveLatin1Hash
+QtPrivate::QCaseSensitiveLatin1Hash
+QtPrivate::QCheckedIntegers::AssertReportPolicy
+QtPrivate::QContainerImplHelper
+QtPrivate::QHashCombineCommutativeMixer
+QtPrivate::QHashCombineMixer
+QtPrivate::QLatin1StringArg
+QtPrivate::QMetaTypeInterface
+QtPrivate::QPropertyBindingData
+QtPrivate::QPropertyBindingFunction
+QtPrivate::QRegularExpressionMatchIteratorRangeBasedForIterator
+QtPrivate::QRegularExpressionMatchIteratorRangeBasedForIteratorSentinel
+QtPrivate::QSlotObjectBase
+QtPrivate::QSlotObjectBase::Deleter
+QtPrivate::QStringViewArg
+QtPrivate::QTypeNormalizer
+QtPrivate::QVariantTypeCoercer
+QtPrivate::QVersionTag
+QtPrivate::QXmlString
+QtPrivate::RefCount
+QtPrivate::RefCounted
+QtPrivate::ResultItem
+QtPrivate::ResultIteratorBase
+QtPrivate::ResultStoreBase
+QtPrivate::SlotObjSharedPtr
+QtPrivate::StreamStateSaver
+QtPrivate::UnwrapHandler
+QtPrivate::hide_char8_t
+QtPrivate::wrap_char
+QtSharedPointer::ExternalRefCountData
+QtSharedPointer::NormalDeleter
+q20::identity
+q20::identity::is_transparent
+qfloat16
+qxp::nonesuch

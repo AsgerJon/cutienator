@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="2420" viewBox="0 0 1120 2420"><rect width="1120" height="2420" fill="white"/>
+<text x="560.0" y="44.0" font-family="Liberation Sans, Arial, sans-serif" font-size="28" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="middle" xml:space="preserve">One method, from Qt's C++ down to your Python</text>
+<text x="560.0" y="74.0" font-family="Liberation Sans, Arial, sans-serif" font-size="15" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="middle" xml:space="preserve">Follow <tspan fill="#D97706" font-weight="bold">show()</tspan> through every box. Each dark panel shows the real thing. The last box is the line you write.</text>
+<rect x="50.0" y="102.0" width="720.0" height="204.0" rx="12" fill="#FFFFFF" stroke="#7A7A7A" stroke-width="1.8" stroke-dasharray="7 5"/>
+<circle cx="100.0" cy="148.0" r="31" fill="white" stroke="#7A7A7A" stroke-width="1.5"/>
+<g transform="translate(76.0,124.0)"><path d="M14 0 h20 l8 8 v32 h-28 z" fill="#F3F4F6" stroke="#333" stroke-width="1.6"/><path d="M6 6 h22 l10 10 v32 h-32 z" fill="white" stroke="#333" stroke-width="2"/><path d="M28 6 v10 h10" fill="none" stroke="#333" stroke-width="2"/><text x="22" y="38" font-family="Liberation Mono, monospace" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">C++</text></g>
+<circle cx="52.0" cy="104.0" r="12" fill="#7A7A7A"/>
+<text x="52.0" y="109.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="white" font-weight="bold" font-style="normal" text-anchor="middle" xml:space="preserve">1</text>
+<text x="146.0" y="140.0" font-family="Liberation Sans, Arial, sans-serif" font-size="19" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="start" xml:space="preserve">Qt's source code</text>
+<text x="146.0" y="163.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">C++ text written by the people who make Qt. It is not on your</text>
+<text x="146.0" y="182.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">machine. Whoever packaged Qt for your system compiled it for you.</text>
+<rect x="146.0" y="203.0" width="604.0" height="96.0" rx="7" fill="#1F2937"/>
+<text x="158.0" y="227.1" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">void QWidget::<tspan fill="#FBBF24" font-weight="bold">show</tspan>()</text>
+<text x="158.0" y="246.6" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">{</text>
+<text x="158.0" y="266.1" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">    // Qt's own code</text>
+<text x="158.0" y="285.6" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">}</text>
+<path d="M225.0 306.0 V353.0" stroke="#374151" stroke-width="3" fill="none"/><path d="M225.0 362.0 l-7 -11 h14 z" fill="#374151"/>
+<path d="M595.0 306.0 V353.0" stroke="#374151" stroke-width="3" fill="none"/><path d="M595.0 362.0 l-7 -11 h14 z" fill="#374151"/>
+<text x="410.0" y="339.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" font-style="italic" text-anchor="middle" xml:space="preserve">arrives on your machine as two things</text>
+<rect x="50.0" y="362.0" width="350.0" height="210.5" rx="12" fill="#FFF6D5" stroke="#B8960C" stroke-width="1.8"/>
+<circle cx="90.0" cy="408.0" r="29" fill="white" stroke="#B8960C" stroke-width="1.5"/>
+<g transform="translate(66.0,384.0)"><path d="M6 6 h22 l10 10 v32 h-32 z" fill="white" stroke="#333" stroke-width="2"/><path d="M28 6 v10 h10" fill="none" stroke="#333" stroke-width="2"/><text x="22" y="38" font-family="Liberation Mono, monospace" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">.h</text></g>
+<circle cx="52.0" cy="364.0" r="12" fill="#B8960C"/>
+<text x="52.0" y="369.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="white" font-weight="bold" font-style="normal" text-anchor="middle" xml:space="preserve">2</text>
+<text x="128.0" y="400.0" font-family="Liberation Sans, Arial, sans-serif" font-size="19" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="start" xml:space="preserve">Qt's header</text>
+<text x="128.0" y="423.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">Text. Says what QWidget has,</text>
+<text x="128.0" y="442.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">by name. No working code.</text>
+<text x="128.0" y="462.0" font-family="Liberation Mono, monospace" font-size="12" fill="#6B7280" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">/usr/include/qt6/QtWidgets/qwidget.h</text>
+<rect x="66.0" y="483.0" width="318.0" height="73.5" rx="7" fill="#1F2937"/>
+<text x="78.0" y="506.4" font-family="Liberation Mono, monospace" font-size="12.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">class QWidget : public QObject, ...</text>
+<text x="78.0" y="524.9" font-family="Liberation Mono, monospace" font-size="12.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">public Q_SLOTS:</text>
+<text x="78.0" y="543.4" font-family="Liberation Mono, monospace" font-size="12.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">    void <tspan fill="#FBBF24" font-weight="bold">show</tspan>();</text>
+<rect x="420.0" y="362.0" width="350.0" height="232.5" rx="12" fill="#DCE3EC" stroke="#4B5B70" stroke-width="1.8"/>
+<circle cx="460.0" cy="408.0" r="29" fill="white" stroke="#4B5B70" stroke-width="1.5"/>
+<g transform="translate(436.0,384.0)"><path d="M11.0 2 v6 M11.0 40 v6 M2 11.0 h6 M40 11.0 h6" stroke="#333" stroke-width="2"/><path d="M19.5 2 v6 M19.5 40 v6 M2 19.5 h6 M40 19.5 h6" stroke="#333" stroke-width="2"/><path d="M28.0 2 v6 M28.0 40 v6 M2 28.0 h6 M40 28.0 h6" stroke="#333" stroke-width="2"/><path d="M36.5 2 v6 M36.5 40 v6 M2 36.5 h6 M40 36.5 h6" stroke="#333" stroke-width="2"/><rect x="7" y="7" width="34" height="34" rx="5" fill="#374151" stroke="#111827" stroke-width="1.5"/><text x="24" y="22" font-family="Liberation Mono, monospace" font-size="9.5" fill="#E5E7EB" text-anchor="middle">0110</text><text x="24" y="34" font-family="Liberation Mono, monospace" font-size="9.5" fill="#E5E7EB" text-anchor="middle">1001</text></g>
+<circle cx="422.0" cy="364.0" r="12" fill="#4B5B70"/>
+<text x="422.0" y="369.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="white" font-weight="bold" font-style="normal" text-anchor="middle" xml:space="preserve">3</text>
+<text x="498.0" y="400.0" font-family="Liberation Sans, Arial, sans-serif" font-size="19" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="start" xml:space="preserve">Qt's shared object</text>
+<text x="498.0" y="423.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">Machine code. The working show(),</text>
+<text x="498.0" y="442.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">under a scrambled name.</text>
+<text x="498.0" y="462.0" font-family="Liberation Mono, monospace" font-size="12" fill="#6B7280" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">/usr/lib/libQt6Widgets.so.6</text>
+<rect x="436.0" y="483.0" width="318.0" height="73.5" rx="7" fill="#1F2937"/>
+<text x="448.0" y="506.4" font-family="Liberation Mono, monospace" font-size="12.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">_ZN7QWidget4<tspan fill="#FBBF24" font-weight="bold">show</tspan>Ev</text>
+<text x="448.0" y="524.9" font-family="Liberation Mono, monospace" font-size="12.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">11110011 00001111 00011110 11111010</text>
+<text x="448.0" y="543.4" font-family="Liberation Mono, monospace" font-size="12.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">01001000 10001011 01000111 00100000</text>
+<text x="438.0" y="572.5" font-family="Liberation Sans, Arial, sans-serif" font-size="12" fill="#4B5563" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">its real first 8 bytes</text>
+<path d="M100.0 572.5 V641.5" stroke="#374151" stroke-width="3" fill="none"/><path d="M100.0 650.5 l-7 -11 h14 z" fill="#374151"/>
+<text x="116.0" y="616.5" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">we read the name from it, and write</text>
+<rect x="50.0" y="650.5" width="720.0" height="204.5" rx="12" fill="#FFF6D5" stroke="#B8960C" stroke-width="1.8"/>
+<circle cx="100.0" cy="696.5" r="31" fill="white" stroke="#B8960C" stroke-width="1.5"/>
+<g transform="translate(76.0,672.5)"><path d="M6 6 h22 l10 10 v32 h-32 z" fill="white" stroke="#333" stroke-width="2"/><path d="M28 6 v10 h10" fill="none" stroke="#333" stroke-width="2"/><text x="22" y="38" font-family="Liberation Mono, monospace" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">.cpp</text></g>
+<circle cx="52.0" cy="652.5" r="12" fill="#B8960C"/>
+<text x="52.0" y="657.5" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="white" font-weight="bold" font-style="normal" text-anchor="middle" xml:space="preserve">4</text>
+<text x="146.0" y="688.5" font-family="Liberation Sans, Arial, sans-serif" font-size="19" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="start" xml:space="preserve">Our ritual file</text>
+<text x="146.0" y="711.5" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">C++ text that we write. One small function that gives show() a</text>
+<text x="146.0" y="730.5" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">plain name and calls the real one.</text>
+<text x="146.0" y="750.5" font-family="Liberation Mono, monospace" font-size="12" fill="#6B7280" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">q_widget.cpp</text>
+<rect x="146.0" y="771.5" width="604.0" height="76.5" rx="7" fill="#1F2937"/>
+<text x="158.0" y="795.6" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">extern "C" void <tspan fill="#FBBF24" font-weight="bold">QWidget_show</tspan>(QWidget *self) {</text>
+<text x="158.0" y="815.1" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">  self-&gt;<tspan fill="#FBBF24" font-weight="bold">show</tspan>();</text>
+<text x="158.0" y="834.6" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">}</text>
+<path d="M100.0 855.0 V902.0" stroke="#374151" stroke-width="3" fill="none"/><path d="M100.0 911.0 l-7 -11 h14 z" fill="#374151"/>
+<text x="116.0" y="888.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">goes into</text>
+<rect x="50.0" y="911.0" width="720.0" height="165.0" rx="12" fill="#FFFFFF" stroke="#333333" stroke-width="1.8"/>
+<circle cx="100.0" cy="957.0" r="31" fill="white" stroke="#333333" stroke-width="1.5"/>
+<g transform="translate(76.0,933.0)"><rect x="21" y="1" width="6" height="10" rx="1.5" fill="#333" transform="rotate(0 24 24)"/><rect x="21" y="1" width="6" height="10" rx="1.5" fill="#333" transform="rotate(45 24 24)"/><rect x="21" y="1" width="6" height="10" rx="1.5" fill="#333" transform="rotate(90 24 24)"/><rect x="21" y="1" width="6" height="10" rx="1.5" fill="#333" transform="rotate(135 24 24)"/><rect x="21" y="1" width="6" height="10" rx="1.5" fill="#333" transform="rotate(180 24 24)"/><rect x="21" y="1" width="6" height="10" rx="1.5" fill="#333" transform="rotate(225 24 24)"/><rect x="21" y="1" width="6" height="10" rx="1.5" fill="#333" transform="rotate(270 24 24)"/><rect x="21" y="1" width="6" height="10" rx="1.5" fill="#333" transform="rotate(315 24 24)"/><circle cx="24" cy="24" r="14" fill="#333"/><circle cx="24" cy="24" r="6" fill="white"/></g>
+<circle cx="52.0" cy="913.0" r="12" fill="#333333"/>
+<text x="52.0" y="918.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="white" font-weight="bold" font-style="normal" text-anchor="middle" xml:space="preserve">5</text>
+<text x="146.0" y="949.0" font-family="Liberation Sans, Arial, sans-serif" font-size="19" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="start" xml:space="preserve">g++, the compiler</text>
+<text x="146.0" y="972.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">A program you run once. It reads our ritual file and Qt's header,</text>
+<text x="146.0" y="991.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">and is told which Qt shared object the result calls into.</text>
+<rect x="146.0" y="1012.0" width="604.0" height="57.0" rx="7" fill="#1F2937"/>
+<text x="158.0" y="1036.1" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">$ g++ -shared -fPIC -I/usr/include/qt6 q_widget.cpp \</text>
+<text x="158.0" y="1055.6" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">      -o librituals.so /usr/lib/libQt6Widgets.so.6</text>
+<path d="M100.0 1076.0 V1123.0" stroke="#374151" stroke-width="3" fill="none"/><path d="M100.0 1132.0 l-7 -11 h14 z" fill="#374151"/>
+<text x="116.0" y="1109.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">which writes</text>
+<rect x="50.0" y="1132.0" width="720.0" height="185.0" rx="12" fill="#DCE3EC" stroke="#4B5B70" stroke-width="1.8"/>
+<circle cx="100.0" cy="1178.0" r="31" fill="white" stroke="#4B5B70" stroke-width="1.5"/>
+<g transform="translate(76.0,1154.0)"><path d="M11.0 2 v6 M11.0 40 v6 M2 11.0 h6 M40 11.0 h6" stroke="#333" stroke-width="2"/><path d="M19.5 2 v6 M19.5 40 v6 M2 19.5 h6 M40 19.5 h6" stroke="#333" stroke-width="2"/><path d="M28.0 2 v6 M28.0 40 v6 M2 28.0 h6 M40 28.0 h6" stroke="#333" stroke-width="2"/><path d="M36.5 2 v6 M36.5 40 v6 M2 36.5 h6 M40 36.5 h6" stroke="#333" stroke-width="2"/><rect x="7" y="7" width="34" height="34" rx="5" fill="#374151" stroke="#111827" stroke-width="1.5"/><text x="24" y="22" font-family="Liberation Mono, monospace" font-size="9.5" fill="#E5E7EB" text-anchor="middle">0110</text><text x="24" y="34" font-family="Liberation Mono, monospace" font-size="9.5" fill="#E5E7EB" text-anchor="middle">1001</text></g>
+<circle cx="52.0" cy="1134.0" r="12" fill="#4B5B70"/>
+<text x="52.0" y="1139.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="white" font-weight="bold" font-style="normal" text-anchor="middle" xml:space="preserve">6</text>
+<text x="146.0" y="1170.0" font-family="Liberation Sans, Arial, sans-serif" font-size="19" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="start" xml:space="preserve">Our shared object</text>
+<text x="146.0" y="1193.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">Machine code again, but now under the plain name. Inside, it calls</text>
+<text x="146.0" y="1212.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">the real show() in Qt's shared object. "nm" lists what it offers.</text>
+<text x="146.0" y="1232.0" font-family="Liberation Mono, monospace" font-size="12" fill="#6B7280" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">librituals.so</text>
+<rect x="146.0" y="1253.0" width="604.0" height="57.0" rx="7" fill="#1F2937"/>
+<text x="158.0" y="1277.1" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">$ nm -D --defined-only librituals.so</text>
+<text x="158.0" y="1296.6" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">0000000000001220 T <tspan fill="#FBBF24" font-weight="bold">QWidget_show</tspan></text>
+<path d="M770.0 478.2 H792.0 V1178.0 H779.0" stroke="#374151" stroke-width="3" fill="none"/><path d="M770.0 1178.0 l11 -7 v14 z" fill="#374151"/>
+<text x="804.0" y="820.1" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">whose working</text>
+<text x="804.0" y="838.1" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">show() it calls</text>
+<path d="M20 1347.0 H1100" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="10 7"/>
+<text x="1096.0" y="1338.0" font-family="Liberation Sans, Arial, sans-serif" font-size="12.5" fill="#6B7280" font-weight="bold" font-style="normal" text-anchor="end" xml:space="preserve">ABOVE: made once, before anything runs</text>
+<text x="1096.0" y="1366.0" font-family="Liberation Sans, Arial, sans-serif" font-size="12.5" fill="#6B7280" font-weight="bold" font-style="normal" text-anchor="end" xml:space="preserve">BELOW: every time your program runs</text>
+<path d="M100.0 1317.0 V1400.0" stroke="#374151" stroke-width="3" fill="none"/><path d="M100.0 1409.0 l-7 -11 h14 z" fill="#374151"/>
+<text x="116.0" y="1383.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">which Python opens with</text>
+<rect x="50.0" y="1409.0" width="720.0" height="165.0" rx="12" fill="#DDF3E0" stroke="#3C8D4A" stroke-width="1.8"/>
+<circle cx="100.0" cy="1455.0" r="31" fill="white" stroke="#3C8D4A" stroke-width="1.5"/>
+<g transform="translate(76.0,1431.0)"><rect x="0" y="13" width="18" height="22" rx="4" fill="#3C8D4A"/><text x="9" y="28" font-family="Liberation Mono, monospace" font-size="10" font-weight="bold" fill="white" text-anchor="middle">Py</text><rect x="30" y="13" width="18" height="22" rx="4" fill="#4B5B70"/><text x="39" y="28" font-family="Liberation Mono, monospace" font-size="8.5" font-weight="bold" fill="white" text-anchor="middle">C++</text><path d="M18 21 h12 M18 27 h12" stroke="#333" stroke-width="2"/><path d="M27 18 l4 3 -4 3 z M21 24 l-4 3 4 3 z" fill="#333"/></g>
+<circle cx="52.0" cy="1411.0" r="12" fill="#3C8D4A"/>
+<text x="52.0" y="1416.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="white" font-weight="bold" font-style="normal" text-anchor="middle" xml:space="preserve">7</text>
+<text x="146.0" y="1447.0" font-family="Liberation Sans, Arial, sans-serif" font-size="19" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="start" xml:space="preserve">ctypes</text>
+<text x="146.0" y="1470.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">Comes with Python. Opens our shared object and runs a function in</text>
+<text x="146.0" y="1489.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">it by name. Only numbers go across: here, the widget's address.</text>
+<rect x="146.0" y="1510.0" width="604.0" height="57.0" rx="7" fill="#1F2937"/>
+<text x="158.0" y="1534.1" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">ours = ctypes.CDLL('librituals.so')</text>
+<text x="158.0" y="1553.6" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">ours.<tspan fill="#FBBF24" font-weight="bold">QWidget_show</tspan>(address)</text>
+<path d="M100.0 1574.0 V1621.0" stroke="#374151" stroke-width="3" fill="none"/><path d="M100.0 1630.0 l-7 -11 h14 z" fill="#374151"/>
+<text x="116.0" y="1607.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">used only by</text>
+<rect x="50.0" y="1630.0" width="720.0" height="206.5" rx="12" fill="#DDF3E0" stroke="#3C8D4A" stroke-width="1.8"/>
+<circle cx="100.0" cy="1676.0" r="31" fill="white" stroke="#3C8D4A" stroke-width="1.5"/>
+<g transform="translate(76.0,1652.0)"><path d="M4 12 h30 l10 12 -10 12 h-30 z" fill="white" stroke="#333" stroke-width="2"/><circle cx="36" cy="24" r="2.5" fill="#333"/><text x="18" y="29" font-family="Liberation Mono, monospace" font-size="13" font-weight="bold" fill="#333" text-anchor="middle">0x</text></g>
+<circle cx="52.0" cy="1632.0" r="12" fill="#3C8D4A"/>
+<text x="52.0" y="1637.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="white" font-weight="bold" font-style="normal" text-anchor="middle" xml:space="preserve">8</text>
+<text x="146.0" y="1668.0" font-family="Liberation Sans, Arial, sans-serif" font-size="19" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="start" xml:space="preserve">Ugly, the ugly side</text>
+<text x="146.0" y="1691.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">Your class for the C++ side of something cute. It holds the address</text>
+<text x="146.0" y="1710.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">of the C++ widget, and is the one place that touches ctypes.</text>
+<rect x="146.0" y="1731.0" width="604.0" height="76.5" rx="7" fill="#1F2937"/>
+<text x="158.0" y="1755.1" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">class Ugly:</text>
+<text x="158.0" y="1774.6" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">  address = 0x564cb5ecea40</text>
+<text x="158.0" y="1794.1" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">  def call(self, name): ...   # ours.<tspan fill="#FBBF24" font-weight="bold">QWidget_show</tspan>(address)</text>
+<text x="148.0" y="1823.5" font-family="Liberation Sans, Arial, sans-serif" font-size="12" fill="#4B5563" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">a sketch: Ugly is not written yet</text>
+<path d="M100.0 1836.5 V1883.5" stroke="#374151" stroke-width="3" fill="none"/><path d="M100.0 1892.5 l-7 -11 h14 z" fill="#374151"/>
+<text x="116.0" y="1869.5" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">which sits behind</text>
+<rect x="50.0" y="1892.5" width="720.0" height="206.5" rx="12" fill="#DDF3E0" stroke="#3C8D4A" stroke-width="1.8"/>
+<circle cx="100.0" cy="1938.5" r="31" fill="white" stroke="#3C8D4A" stroke-width="1.5"/>
+<g transform="translate(76.0,1914.5)"><path d="M24 42 C 2 26, 6 6, 24 15 C 42 6, 46 26, 24 42 Z" fill="#E11D48" stroke="#9F1239" stroke-width="1.5"/></g>
+<circle cx="52.0" cy="1894.5" r="12" fill="#3C8D4A"/>
+<text x="52.0" y="1899.5" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="white" font-weight="bold" font-style="normal" text-anchor="middle" xml:space="preserve">9</text>
+<text x="146.0" y="1930.5" font-family="Liberation Sans, Arial, sans-serif" font-size="19" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="start" xml:space="preserve">QWidget, the cute side</text>
+<text x="146.0" y="1953.5" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">The plain Python class people use. Its method does nothing but ask</text>
+<text x="146.0" y="1972.5" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">its ugly side.</text>
+<rect x="146.0" y="1993.5" width="604.0" height="76.5" rx="7" fill="#1F2937"/>
+<text x="158.0" y="2017.6" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">class QWidget(CuteMixin):</text>
+<text x="158.0" y="2037.1" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">  def <tspan fill="#FBBF24" font-weight="bold">show</tspan>(self) -&gt; None:</text>
+<text x="158.0" y="2056.6" font-family="Liberation Mono, monospace" font-size="13.5" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">    self.uglySide.call('<tspan fill="#FBBF24" font-weight="bold">QWidget_show</tspan>')</text>
+<text x="148.0" y="2086.0" font-family="Liberation Sans, Arial, sans-serif" font-size="12" fill="#4B5563" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">a sketch: this method is not written yet</text>
+<path d="M100.0 2099.0 V2146.0" stroke="#374151" stroke-width="3" fill="none"/><path d="M100.0 2155.0 l-7 -11 h14 z" fill="#374151"/>
+<text x="116.0" y="2132.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">whose method you call</text>
+<rect x="50.0" y="2155.0" width="720.0" height="151.0" rx="12" fill="#BFE8C6" stroke="#2E7D3A" stroke-width="3"/>
+<circle cx="100.0" cy="2201.0" r="31" fill="white" stroke="#2E7D3A" stroke-width="1.5"/>
+<g transform="translate(76.0,2177.0)"><rect x="2" y="8" width="44" height="32" rx="5" fill="#111827"/><text x="24" y="30" font-family="Liberation Mono, monospace" font-size="15" font-weight="bold" fill="#4ADE80" text-anchor="middle">&gt;&gt;&gt;</text></g>
+<circle cx="52.0" cy="2157.0" r="12" fill="#2E7D3A"/>
+<text x="52.0" y="2162.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="white" font-weight="bold" font-style="normal" text-anchor="middle" xml:space="preserve">10</text>
+<text x="146.0" y="2193.0" font-family="Liberation Sans, Arial, sans-serif" font-size="19" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="start" xml:space="preserve">Your program</text>
+<text x="146.0" y="2216.0" font-family="Liberation Sans, Arial, sans-serif" font-size="14" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">The line you write. Everything above exists so that this works.</text>
+<rect x="146.0" y="2237.0" width="604.0" height="62.0" rx="7" fill="#1F2937"/>
+<text x="158.0" y="2263.0" font-family="Liberation Mono, monospace" font-size="16" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">widget = QWidget()</text>
+<text x="158.0" y="2285.0" font-family="Liberation Mono, monospace" font-size="16" fill="#E5E7EB" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">widget.<tspan fill="#FBBF24" font-weight="bold">show</tspan>()</text>
+<rect x="810" y="1415.0" width="270" height="114.0" rx="10" fill="white" stroke="#6B7280" stroke-width="1.4" stroke-dasharray="6 4"/>
+<g transform="translate(820.0,1425.0)"><rect x="3" y="9" width="42" height="30" rx="6" fill="white" stroke="#333" stroke-width="2"/><text x="24" y="29" font-family="Liberation Mono, monospace" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">class</text></g>
+<text x="878.0" y="1445.0" font-family="Liberation Sans, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="start" xml:space="preserve">The metaclass</text>
+<text x="824.0" y="1483.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">Opens our shared object once</text>
+<text x="824.0" y="1501.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">and hands it to every Ugly.</text>
+<text x="824.0" y="1519.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">Planned, not written yet.</text>
+<path d="M810 1445.0 L770.0 1449.0" stroke="#6B7280" stroke-width="1.6" stroke-dasharray="6 4" fill="none"/>
+<rect x="810" y="1638.0" width="270" height="114.0" rx="10" fill="white" stroke="#6B7280" stroke-width="1.4" stroke-dasharray="6 4"/>
+<g transform="translate(820.0,1648.0)"><rect x="2" y="9" width="10" height="14" fill="white" stroke="#333" stroke-width="1.2"/><rect x="13" y="9" width="10" height="14" fill="white" stroke="#333" stroke-width="1.2"/><rect x="24" y="9" width="10" height="14" fill="white" stroke="#333" stroke-width="1.2"/><rect x="35" y="9" width="10" height="14" fill="white" stroke="#333" stroke-width="1.2"/><rect x="2" y="24" width="10" height="14" fill="white" stroke="#333" stroke-width="1.2"/><rect x="13" y="24" width="10" height="14" fill="#F59E0B" stroke="#333" stroke-width="1.2"/><rect x="24" y="24" width="10" height="14" fill="white" stroke="#333" stroke-width="1.2"/><rect x="35" y="24" width="10" height="14" fill="white" stroke="#333" stroke-width="1.2"/></g>
+<text x="878.0" y="1668.0" font-family="Liberation Sans, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="bold" font-style="normal" text-anchor="start" xml:space="preserve">The C++ widget itself</text>
+<text x="824.0" y="1706.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">Lives in the memory of your</text>
+<text x="824.0" y="1724.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">running program, at that address.</text>
+<text x="824.0" y="1742.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">Qt's code works on it there.</text>
+<path d="M810 1668.0 L770.0 1674.0" stroke="#6B7280" stroke-width="1.6" stroke-dasharray="6 4" fill="none"/>
+<rect x="50.0" y="2346.0" width="22" height="16" rx="3" fill="#FFF6D5" stroke="#B8960C" stroke-width="1.4"/>
+<text x="80.0" y="2359.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">text you can read</text>
+<rect x="220.1" y="2346.0" width="22" height="16" rx="3" fill="#DCE3EC" stroke="#4B5B70" stroke-width="1.4"/>
+<text x="250.1" y="2359.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">machine code</text>
+<rect x="353.7" y="2346.0" width="22" height="16" rx="3" fill="#DDF3E0" stroke="#3C8D4A" stroke-width="1.4"/>
+<text x="383.7" y="2359.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">Python</text>
+<rect x="443.5" y="2346.0" width="22" height="16" rx="3" fill="#FFFFFF" stroke="#333333" stroke-width="1.4"/>
+<text x="473.5" y="2359.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">a program you run</text>
+<rect x="613.6" y="2346.0" width="22" height="16" rx="3" fill="#F59E0B"/>
+<text x="643.6" y="2359.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="#4B5563" font-weight="normal" font-style="normal" text-anchor="start" xml:space="preserve">the one method we follow</text>
+<text x="50.0" y="2390.0" font-family="Liberation Sans, Arial, sans-serif" font-size="13" fill="#4B5563" font-weight="normal" font-style="italic" text-anchor="start" xml:space="preserve">Not in this picture: C++ calling into your Python (paintEvent, signals). That direction is not built yet.</text>
+</svg>
