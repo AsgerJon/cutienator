@@ -18,7 +18,7 @@ from worktoy.waitaminute.meta import DelException, QuestionableSyntax
 from worktoy.waitaminute.meta import ReboundOverload
 from worktoy.work_test import BaseTest
 
-from cutienator import MetaCute, CuteSpace, WAIT
+from cutienator.cute import MetaCute, CuteSpace, WAIT
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Callable

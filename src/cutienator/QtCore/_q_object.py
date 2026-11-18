@@ -10,13 +10,13 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from .._cute_mixin import CuteMixin
-from .._meta_cute import MetaCute
+from cutienator.cute._cute_mixin import CuteMixin
+from cutienator.cute._meta_cute import MetaCute
 from ._q_binding_storage import QBindingStorage
 from ._q_event import QEvent
 from ._q_meta_object import QMetaObject
-from .._ugly import Ugly
-from .._wait import WAIT
+from cutienator.occult._ugly import Ugly
+from cutienator.cute._wait import WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate

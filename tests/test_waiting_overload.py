@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 from worktoy.waitaminute import MissingVariable, TypeException
 from worktoy.work_test import BaseTest
 
-from cutienator import WaitingOverload, WAIT
+from cutienator.cute import WaitingOverload, WAIT
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any

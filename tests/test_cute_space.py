@@ -19,8 +19,8 @@ from worktoy.waitaminute.meta import UnboundClassHook, SlotsRefused
 from worktoy.waitaminute.meta import HookException
 from worktoy.work_test import BaseTest
 
-from cutienator import MetaCute, CuteSpace, CuteOverload, WAIT
-from cutienator import WaitingOverload
+from cutienator.cute import MetaCute, CuteSpace, CuteOverload, WAIT
+from cutienator.cute import WaitingOverload
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, List, Tuple

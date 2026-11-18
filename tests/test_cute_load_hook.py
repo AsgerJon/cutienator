@@ -14,7 +14,7 @@ from worktoy.mcls.space_hooks import LoadSpaceHook
 from worktoy.waitaminute.dispatch import DispatchException
 from worktoy.work_test import BaseTest
 
-from cutienator import MetaCute, CuteSpace, CuteLoadHook
+from cutienator.cute import MetaCute, CuteSpace, CuteLoadHook
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any

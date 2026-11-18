@@ -7,7 +7,7 @@ from worktoy.dispatch import overload
 from worktoy.mcls import BaseSpace
 from worktoy.waitaminute import TypeException
 
-from cutienator import MetaCute, WAIT
+from cutienator.cute import MetaCute, WAIT
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any

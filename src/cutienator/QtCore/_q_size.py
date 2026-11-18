@@ -10,9 +10,9 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from .._cute_mixin import CuteMixin
-from .._meta_cute import MetaCute
-from .._ugly import Ugly
+from cutienator.cute._cute_mixin import CuteMixin
+from cutienator.cute._meta_cute import MetaCute
+from cutienator.occult._ugly import Ugly
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate

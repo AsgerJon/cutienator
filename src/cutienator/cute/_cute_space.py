@@ -12,12 +12,14 @@ from worktoy.mcls import BaseSpace
 from worktoy.mcls.space_hooks import LoadSpaceHook
 from worktoy.waitaminute import TypeException
 from worktoy.waitaminute.dispatch import DuplicateSignature
+from worktoy.waitaminute.dispatch import DispatchException
 from worktoy.waitaminute.meta import OverloadConflict, ReboundOverload
 
+from . import DoorNumber, CuteFlags, CuteNum
 from . import WAIT, WaitingOverload, CuteOverload, CuteLoadHook
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Any, Dict, List, Optional, Tuple
+  from typing import Any, Callable, Dict, List, Optional, Tuple
 
   WaitingItem = Tuple[str, WaitingOverload]
 
@@ -111,6 +113,17 @@ class CuteSpace(BaseSpace):
     written, so the more special one is written first. That order is
     kept across the wait: a signature put back lands where it was
     written, not at the end.
+
+  The door
+  --------
+
+  A is A: a member of an enum of Qt is never a number. Qt still takes
+  the number in many places, as 'data(index, int role)', and C++ lets
+  a member be given there. So every overloaded name of a cute class
+  gets a door: when no signature takes a call as it is written, each
+  member of an enum or value of flags in it is swapped for its number,
+  and the call is tried once more. A call that is taken as written
+  never comes near the door. See 'collectFallback' and 'DoorNumber'.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -168,6 +181,8 @@ class CuteSpace(BaseSpace):
   #  order: a worktoy signature for one that is on record, the
   #  'WaitingOverload' itself for one that still waits.
   __declared_signatures__: Optional[Dict[str, List[Any]]] = None
+  #  The class the body became, once it is made; see 'setCuteClass'.
+  __cute_class__: Optional[type] = None
 
   #  Public Variables
 
@@ -176,6 +191,23 @@ class CuteSpace(BaseSpace):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def getCuteClass(self) -> type:
+    """
+    Gives the class the body of this namespace became.
+
+    Raises
+    ------
+
+    RuntimeError
+      The class is not made yet.
+    """
+    if self.__cute_class__ is None:
+      infoSpec = """The class '%s' is not made yet, so its namespace has
+      no class to give."""
+      info = infoSpec % (self.getClassName(),)
+      raise RuntimeError(' '.join(info.split()))
+    return self.__cute_class__
 
   def _getWaitingList(self) -> List[WaitingItem]:
     """Gives the list behind 'getWaitingOverloads', making it if need be."""
@@ -352,6 +384,25 @@ class CuteSpace(BaseSpace):
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def setCuteClass(self, cuteClass: type) -> None:
+    """
+    Tells the namespace which class its body became. 'CuteLoadHook'
+    calls this once, as the class is made. You never call it.
+
+    The doors of the class need it: a door finds the dispatcher it
+    belongs to on this class.
+
+    Raises
+    ------
+
+    RuntimeError
+      The namespace was told its class already.
+    """
+    if self.__cute_class__ is not None:
+      infoSpec = """The namespace of '%s' was told its class already."""
+      raise RuntimeError(infoSpec % (self.getClassName(),))
+    self.__cute_class__ = cuteClass
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -523,6 +574,53 @@ class CuteSpace(BaseSpace):
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def _createDoor(self, methodName: str) -> Callable:
+    """
+    Makes the door of one overloaded name of the class: the function
+    its dispatcher calls when no signature takes a call as written.
+
+    Parameters
+    ----------
+
+    methodName : str
+      The overloaded name, as 'data'.
+
+    Returns
+    -------
+
+    Callable
+      The door. It takes the call as it came: the object or class the
+      method was called on first, or nothing before the arguments for
+      a static method.
+    """
+    space = self
+
+    def door(*args: Any, **kwargs: Any) -> Any:
+      owner = space.getCuteClass()
+      dispatcher = owner.__dict__[methodName]
+      if dispatcher.getMethodKind() is staticmethod:
+        receiver, given = owner, args
+      else:
+        receiver, given = args[0], args[1:]
+      swapped, wasSwapped = [], False
+      for arg in given:
+        if isinstance(arg, (CuteNum, CuteFlags)):
+          arg, wasSwapped = DoorNumber(arg.value), True
+        swapped.append(arg)
+      if not wasSwapped:
+        raise DispatchException(dispatcher, given, kwargs)
+      bound = dispatcher.__get__(None, owner)
+      function = getattr(bound, '__func__', bound)
+      try:
+        return function(receiver, *swapped, **kwargs)
+      except DispatchException as dispatchException:
+        if dispatchException.dispatch is not dispatcher:
+          raise
+      #  The refusal names the call as it was written, members and all.
+      raise DispatchException(dispatcher, given, kwargs)
+
+    return door
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -557,6 +655,41 @@ class CuteSpace(BaseSpace):
       if methodName == name:
         return True
     return BaseSpace.hasOverloads(self, name)
+
+  def collectFallback(self, name: str) -> Optional[Callable]:
+    """
+    Gives the function the dispatcher of a name calls when no signature
+    takes a call: the fallback the class or a class it is built on
+    declares with '@overload.fallback', or else the door.
+
+    worktoy asks this as it builds the dispatcher of a name. A name
+    with no signature on record gets no door, since a door alone would
+    put a dispatcher where the class has none.
+
+    Parameters
+    ----------
+
+    name : str
+      The overloaded name.
+
+    Returns
+    -------
+
+    Optional[Callable]
+      The declared fallback, or the door, or None for a name with
+      nothing on record.
+    """
+    fallback = BaseSpace.collectFallback(self, name)
+    if fallback is not None:
+      return fallback
+    registries = (
+      self.collectOverloads(name),
+      self.collectFlexes(name),
+      self.collectVariadics(name),
+    )
+    if not any(registries):
+      return None
+    return self._createDoor(name)
 
   def postCompile(self, namespace: dict) -> dict:
     """

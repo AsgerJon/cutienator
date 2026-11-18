@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from worktoy.work_test import BaseTest
 
-from cutienator import CuteMixin
+from cutienator.cute import CuteMixin
 from cutienator.QtCore import QObject, QSize
 from cutienator.occult import Rituals
 

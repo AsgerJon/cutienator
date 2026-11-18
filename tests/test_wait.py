@@ -13,7 +13,7 @@ from worktoy.waitaminute import MissingVariable, TypeException
 from worktoy.waitaminute.desc import ReadOnlyError, ProtectedError
 from worktoy.work_test import BaseTest
 
-from cutienator import MetaCute, WAIT
+from cutienator.cute import MetaCute, WAIT
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any

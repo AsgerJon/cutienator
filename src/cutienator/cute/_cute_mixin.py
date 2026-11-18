@@ -7,11 +7,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from worktoy.dispatch import overload
 from worktoy.desc import Field
 from worktoy.mcls import BaseObject
 
-from ._ugly import Ugly
+from ..occult import Ugly
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional, Any
@@ -74,7 +73,6 @@ class CuteMixin(BaseObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
-  __private_name__: str = '__ugly_name__'
   #  The ritual removing a C++ object of the class, in a class whose C++
   #  objects are values: Python then owns each one it makes, and each
   #  copy a ritual hands it. None in every other class, whose C++

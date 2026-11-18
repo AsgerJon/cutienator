@@ -13,8 +13,7 @@ from unittest import mock
 from worktoy.waitaminute import MissingVariable, TypeException
 from worktoy.work_test import BaseTest
 
-from cutienator import Ugly
-from cutienator.occult import Rituals
+from cutienator.occult import Rituals, Ugly
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, List

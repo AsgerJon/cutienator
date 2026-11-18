@@ -5,8 +5,8 @@ QMetaObject binding of the Qt C++, so far with one function.
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
-from .._cute_mixin import CuteMixin
-from .._meta_cute import MetaCute
+from cutienator.cute._cute_mixin import CuteMixin
+from cutienator.cute._meta_cute import MetaCute
 
 
 class QMetaObject(CuteMixin, metaclass=MetaCute):

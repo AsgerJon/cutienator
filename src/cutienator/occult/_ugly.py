@@ -10,7 +10,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from .occult import Rituals
+from . import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional, Any
@@ -449,8 +449,8 @@ class Ugly:
     ----------
 
     ritualName : str
-      The name of the ritual, as 'Declaration.getRitualName' gives
-      it: 'ritual_ZNK7QObject6parentEv'.
+      The name of the ritual, as its ritual file has it:
+      'ritual_ZNK7QObject6parentEv'.
 
     *args : Any
       What the ritual takes after the address of the object, which is

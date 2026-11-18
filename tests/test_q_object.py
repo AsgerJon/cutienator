@@ -11,10 +11,10 @@ from typing import TYPE_CHECKING
 from worktoy.waitaminute.dispatch import DispatchException
 from worktoy.work_test import BaseTest
 
-from cutienator import MetaCute, Ugly
+from cutienator.cute import MetaCute
 from cutienator.QtCore import QObject, QEvent, QThread, QMetaObject
 from cutienator.QtCore import QBindingStorage
-from cutienator.occult import Rituals
+from cutienator.occult import Rituals, Ugly
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Callable

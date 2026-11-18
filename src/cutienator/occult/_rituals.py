@@ -37,7 +37,7 @@ class Rituals:
     calls one Qt function. It is named 'ritual' followed by the
     compiler's own name for that Qt function, which has the types it
     takes packed into it: 'ritual_ZNK7QObject6parentEv' calls
-    'QObject::parent()'. 'Declaration.getRitualName' gives the name.
+    'QObject::parent()'. Its ritual file and its rows file name it.
   - A ritual file is a C++ file holding rituals, in the ritual folder.
   - The rows file of a ritual file lies beside it, under the same name
     with the ending '.json'. It holds one row for each ritual: one word
@@ -570,8 +570,8 @@ class Rituals:
     ----------
 
     name : str
-      The name of the ritual, as 'Declaration.getRitualName' gives
-      it: 'ritual_ZNK7QObject6parentEv'. A rows file must list it.
+      The name of the ritual, as its ritual file has it:
+      'ritual_ZNK7QObject6parentEv'. A rows file must list it.
 
     *args : Any
       What goes into the ritual, in the order the ritual file declares.

@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.utilities import maybe
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from ..occult import Build, Header, Rituals, SharedObject, System
+from ..occult import Build, Rituals, SharedObject, System
 from . import Trial, Verdict
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -179,8 +179,8 @@ class Judge:
     """
     Gives the part of Qt a class belongs to, as 'QtCore' for 'QObject'.
 
-    Found for you, by 'Header.findQtModule', which looks through Qt's
-    header folder for the one part holding a header named as the class.
+    Found for you, by looking through Qt's header folder for the one
+    part holding a header named exactly as the class.
 
     Raises
     ------
@@ -189,7 +189,18 @@ class Judge:
       No part of Qt has a header of that name, so Qt has no such class;
       or more than one has, which is not expected to happen.
     """
-    return Header.findQtModule(className)
+    folder = Build.getQtHeaderFolder()
+    found = [
+        module for module in sorted(os.listdir(folder))
+        if os.path.isfile(os.path.join(folder, module, className))
+    ]
+    if len(found) != 1:
+      infoSpec = """Expected exactly one part of Qt to have a header named
+      '%s' in '%s', but found: %s."""
+      listed = ', '.join(found) or 'none'
+      info = infoSpec % (className, folder, listed)
+      raise LookupError(' '.join(info.split()))
+    return found[0]
 
   def getQtSharedObject(self, className: str) -> str:
     """

@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 from worktoy.waitaminute import TypeException
 from worktoy.work_test import BaseTest
 
-from cutienator import CuteOverload, WaitingOverload, WAIT
+from cutienator.cute import CuteOverload, WaitingOverload, WAIT
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any
