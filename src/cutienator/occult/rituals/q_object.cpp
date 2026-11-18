@@ -1,11 +1,23 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qobject.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qobject.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qanystringview.h>
+#include <QtCore/qnamespace.h>
+#include <QtCore/qobjectdefs.h>
+#include <QtCore/qmetaobject.h>
+#include <QtCore/qvariant.h>
 
 //  const QMetaObject *QObject::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK7QObject10metaObjectEv(const QObject *self) {
   return self->metaObject();
+}
+
+//  QString QObject::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN7QObject2trEPKcS1_i(const char *s, const char *c, int n) {
+  return new QString(QObject::tr(s, c, n));
 }
 
 //  QObject::QObject(QObject *parent)
@@ -33,6 +45,20 @@ bool ritual_ZN7QObject11eventFilterEPS_P6QEvent(
     QObject *watched,
     QEvent *event) {
   return self->eventFilter(watched, event);
+}
+
+//  QString QObject::objectName() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QObject10objectNameEv(const QObject *self) {
+  return new QString(self->objectName());
+}
+
+//  void QObject::setObjectName(QAnyStringView name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject13setObjectNameE14QAnyStringView(
+    QObject *self,
+    const QString *name) {
+  self->setObjectName(QAnyStringView(*name));
 }
 
 //  bool QObject::isWidgetType() const
@@ -75,6 +101,15 @@ bool ritual_ZN7QObject12blockSignalsEb(QObject *self, bool b) {
 extern "C" Q_DECL_EXPORT
 QThread *ritual_ZNK7QObject6threadEv(const QObject *self) {
   return self->thread();
+}
+
+//  bool QObject::moveToThread(QThread *thread, Qt::Disambiguated_t a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject12moveToThreadEP7QThreadN2Qt15Disambiguated_tE(
+    QObject *self,
+    QThread *thread,
+    const Qt::Disambiguated_t *a1) {
+  return self->moveToThread(thread, *a1);
 }
 
 //  int QObject::startTimer(int interval, Qt::TimerType timerType)
@@ -120,8 +155,63 @@ void ritual_ZN7QObject17removeEventFilterEPS_(QObject *self, QObject *obj) {
   self->removeEventFilter(obj);
 }
 
-//  bool QObject::disconnect(const QObject *sender, const char *signal,
-//      const QObject *receiver, const char *member)
+//  QMetaObject::Connection QObject::connect(const QObject *sender, const
+//      char *signal, const QObject *receiver, const char *member,
+//      Qt::ConnectionType a4)
+extern "C" Q_DECL_EXPORT
+QMetaObject::Connection *ritual_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(
+    const QObject *sender,
+    const char *signal,
+    const QObject *receiver,
+    const char *member,
+    Qt::ConnectionType a4) {
+  return new QMetaObject::Connection(
+      QObject::connect(
+          sender,
+          signal,
+          receiver,
+          member,
+          a4));
+}
+
+//  QMetaObject::Connection QObject::connect(const QObject *sender, const
+//      QMetaMethod &signal, const QObject *receiver, const QMetaMethod
+//      &method, Qt::ConnectionType type)
+extern "C" Q_DECL_EXPORT
+QMetaObject::Connection *ritual_ZN7QObject7connectEPKS_RK11QMetaMethodS1_S4_N2Qt14ConnectionTypeE(
+    const QObject *sender,
+    const QMetaMethod *signal,
+    const QObject *receiver,
+    const QMetaMethod *method,
+    Qt::ConnectionType type) {
+  return new QMetaObject::Connection(
+      QObject::connect(
+          sender,
+          *signal,
+          receiver,
+          *method,
+          type));
+}
+
+//  QMetaObject::Connection QObject::connect(const QObject *sender, const
+//      char *signal, const char *member, Qt::ConnectionType type) const
+extern "C" Q_DECL_EXPORT
+QMetaObject::Connection *ritual_ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE(
+    const QObject *self,
+    const QObject *sender,
+    const char *signal,
+    const char *member,
+    Qt::ConnectionType type) {
+  return new QMetaObject::Connection(
+      self->connect(
+          sender,
+          signal,
+          member,
+          type));
+}
+
+//  bool QObject::disconnect(const QObject *sender, const char *signal, const
+//      QObject *receiver, const char *member)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN7QObject10disconnectEPKS_PKcS1_S3_(
     const QObject *sender,
@@ -129,6 +219,17 @@ bool ritual_ZN7QObject10disconnectEPKS_PKcS1_S3_(
     const QObject *receiver,
     const char *member) {
   return QObject::disconnect(sender, signal, receiver, member);
+}
+
+//  bool QObject::disconnect(const QObject *sender, const QMetaMethod
+//      &signal, const QObject *receiver, const QMetaMethod &member)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject10disconnectEPKS_RK11QMetaMethodS1_S4_(
+    const QObject *sender,
+    const QMetaMethod *signal,
+    const QObject *receiver,
+    const QMetaMethod *member) {
+  return QObject::disconnect(sender, *signal, receiver, *member);
 }
 
 //  bool QObject::disconnect(const char *signal, const QObject *receiver,
@@ -152,6 +253,13 @@ bool ritual_ZNK7QObject10disconnectEPKS_PKc(
   return self->disconnect(receiver, member);
 }
 
+//  bool QObject::disconnect(const QMetaObject::Connection &a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject10disconnectERKN11QMetaObject10ConnectionE(
+    const QMetaObject::Connection *a0) {
+  return QObject::disconnect(*a0);
+}
+
 //  void QObject::dumpObjectTree() const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK7QObject14dumpObjectTreeEv(const QObject *self) {
@@ -162,6 +270,23 @@ void ritual_ZNK7QObject14dumpObjectTreeEv(const QObject *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK7QObject14dumpObjectInfoEv(const QObject *self) {
   self->dumpObjectInfo();
+}
+
+//  bool QObject::setProperty(const char *name, const QVariant &value)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject11setPropertyEPKcRK8QVariant(
+    QObject *self,
+    const char *name,
+    const QVariant *value) {
+  return self->setProperty(name, *value);
+}
+
+//  QVariant QObject::property(const char *name) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK7QObject8propertyEPKc(
+    const QObject *self,
+    const char *name) {
+  return new QVariant(self->property(name));
 }
 
 //  QBindingStorage *QObject::bindingStorage()

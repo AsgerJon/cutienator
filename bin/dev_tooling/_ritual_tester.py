@@ -50,7 +50,8 @@ class RitualTester:
   What it checks
   --------------
 
-  1. The ritual file on disk is what the generator would write now.
+  1. The ritual file on disk is what the generator would write now,
+     and so is the rows file beside it.
   2. 'clang++' compiles it against Qt's own headers, and finds every Qt
      function it calls in Qt's shared objects. A ritual handing a Qt
      function a wrong type does not compile, and neither does one
@@ -60,7 +61,9 @@ class RitualTester:
   4. Every ritual is named after a function the class really has, as
      the record of the class has it.
   5. Every function the header declares for the class is accounted
-     for: written, or not written with a reason.
+     for: written, or not written with a reason. One more is expected
+     for a class C++ can copy that declares no destructor: the
+     destructor the compiler writes for it.
 
   What to expect
   --------------
@@ -237,6 +240,16 @@ class RitualTester:
       write now. It was changed by hand, or written from other
       records."""
       faults.append(' '.join((infoSpec % ritualFile).split()))
+    rowsFile = generator.getRowsFile()
+    onDisk = None  # type: Optional[str]
+    if os.path.isfile(rowsFile):
+      with open(rowsFile) as file:
+        onDisk = file.read()
+    if onDisk != generator.getRowsText():
+      infoSpec = """The rows file '%s' is not what the generator would
+      write now. It is missing, was changed by hand, or was written from
+      other records."""
+      faults.append(' '.join((infoSpec % rowsFile).split()))
     written = generator.getWritten()
     notWritten = generator.getNotWritten()
     names = [ritual['ritualName'] for ritual in written]
@@ -393,18 +406,30 @@ class RitualTester:
     Reads the record of a class without the help of the generator, and
     gives how many functions the header declares for it, and the
     compiler's own name of each one that has such a name.
+
+    A class C++ can copy that declares no destructor counts one more:
+    the destructor the compiler writes for it, under the name the
+    compiler gives a destructor, as '_ZN5QSizeD1Ev' for 'QSize'.
     """
     tree = self.getRitualGenerator().getDependencyTree()
     record = tree.getClassRecord(className)
     count, compilerNames = 0, set()  # type: int, Set[str]
+    declaresDestructor = False
     for member in record.get('inner', ()):
       if member.get('kind') not in self.__counted_kinds__:
         continue
       if member.get('isImplicit'):
         continue
       count += 1
+      if member['kind'] == 'CXXDestructorDecl':
+        declaresDestructor = True
       if 'mangledName' in member:
         compilerNames.add(member['mangledName'])
+    if not declaresDestructor and className in tree.getCopyableNames():
+      count += 1
+      words = className.split('::')
+      lengths = ''.join('%d%s' % (len(word), word) for word in words)
+      compilerNames.add('_ZN%sD1Ev' % lengths)
     return count, compilerNames
 
   def _listOffered(self) -> Set[str]:

@@ -10,14 +10,14 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ._cute_mixin import CuteMixin
-from ._meta_cute import MetaCute
+from .._cute_mixin import CuteMixin
+from .._meta_cute import MetaCute
 from ._q_binding_storage import QBindingStorage
 from ._q_event import QEvent
 from ._q_meta_object import QMetaObject
-from ._ugly import Ugly
-from ._wait import WAIT
-from .occult import Rituals
+from .._ugly import Ugly
+from .._wait import WAIT
+from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -35,6 +35,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
     mother = QObject()
     child = QObject(mother)
     child.parent() is mother               # True
+    child.setObjectName('cutie')
+    child.objectName()                     # 'cutie'
     child.metaObject().className()         # 'QObject'
     child.thread()                         # the QThread Python runs in
 
@@ -46,35 +48,48 @@ class QObject(CuteMixin, metaclass=MetaCute):
   What exists
   -----------
 
-  Every function of Qt's QObject that has a ritual, 22 names in all:
-  'parent', 'setParent', 'thread', 'metaObject', 'bindingStorage',
-  'inherits', 'isWidgetType', 'isWindowType', 'isQuickItemType',
-  'isQmlExposed', 'signalsBlocked', 'blockSignals', 'event',
-  'eventFilter', 'installEventFilter', 'removeEventFilter', 'startTimer',
-  'killTimer', 'disconnect', 'dumpObjectTree', 'dumpObjectInfo' and
-  'deleteLater'. Creation takes a parent, None, or nothing.
+  Every function of Qt's QObject that has a ritual and takes and gives
+  nothing but numbers, text and objects of a cute class, 25 names in
+  all: 'parent', 'setParent', 'objectName', 'setObjectName', 'tr',
+  'thread', 'metaObject', 'bindingStorage', 'inherits', 'isWidgetType',
+  'isWindowType', 'isQuickItemType', 'isQmlExposed', 'signalsBlocked',
+  'blockSignals', 'event', 'eventFilter', 'installEventFilter',
+  'removeEventFilter', 'startTimer', 'killTimer', 'disconnect',
+  'dumpObjectTree', 'dumpObjectInfo' and 'deleteLater'. Creation takes
+  a parent, None, or nothing.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's '~QObject()'. Python has no name for deleting an object, and a
-    cute object whose C++ object is gone has no meaning yet.
+  - Qt's '~QObject()'. Python never removes a C++ QObject: Qt may
+    still use it.
   - Qt's 'killTimer(Qt::TimerId id)'. No enum is reflected yet, so it
     would take an 'int', as 'killTimer(int id)' does, and one name
     cannot have two functions for one signature.
   - Qt's 'bindingStorage() const'. It differs from 'bindingStorage()'
     only in what C++ may do with the answer, which Python cannot say.
-  - Qt's 'disconnect(sender, signal, receiver, member)'. It is a static
-    function, and the other two of that name are not. worktoy lets one
+  - Qt's 'disconnect(sender, signal, receiver, member)' and
+    'disconnect(const QMetaObject::Connection &)'. They are static
+    functions, and the other two of that name are not. worktoy lets one
     name be one kind of method.
+  - Qt's three 'connect' taking text or QMetaMethod. They give a
+    'QMetaObject::Connection', which has no cute class yet. They come
+    with the signals.
+  - Qt's 'disconnect' taking two QMetaMethod, which has no cute class
+    yet.
+  - Qt's 'property' and 'setProperty'. They give and take a QVariant,
+    which has no cute class yet.
+  - Qt's 'moveToThread'. Its declaration takes a second argument, a
+    mark of Qt's own named 'Qt::Disambiguated_t', which has no cute
+    class.
 
   What has no ritual yet
   ----------------------
 
-  52 of the 80 functions Qt declares, among them 'objectName',
-  'setObjectName', 'connect', 'children', 'property', 'setProperty',
-  'findChild' and 'moveToThread'. Most take or give a type that no
-  ritual can pass yet, as Qt's QString.
+  41 of the 80 functions Qt declares, among them 'children',
+  'findChild', 'findChildren' and 'dynamicPropertyNames'. Some take or
+  give a type that no ritual can pass yet, as a list. Others are
+  patterns for functions, are for a subclass alone, or are signals.
 
   What to expect
   --------------
@@ -84,19 +99,59 @@ class QObject(CuteMixin, metaclass=MetaCute):
     stands for it when there is one, as 'parent' after 'setParent'. For
     an object C++ made itself, as the thread, it gives a new cute object
     made around it.
+  - Qt's QString is a plain 'str', taken and given: 'setObjectName'
+    takes one and 'objectName' gives one. There is no QString class.
   - Where Qt takes an object or text and reads nothing as 'none given',
     None is taken. Where Qt fills in an argument left out, that is not
     done yet: every argument is given.
   - An enum of Qt is taken and given as its number.
   - A wrong argument is refused in Python, with 'DispatchException',
     and never reaches C++.
-  - Nothing deletes the C++ QObject yet, and nothing notices when C++
-    deletes it, which a parent does to its children when it goes.
+  - Python never removes the C++ QObject. Qt does: a parent removes its
+    children when it goes, and 'deleteLater' asks for it.
+  - Qt tells when it has removed a C++ QObject. Every call on the cute
+    object, and every use of it as an argument, then raises
+    'RuntimeError', and nothing reaches C++.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(str, str, int)
+  @overload(str, NoneType, int)
+  def tr(s: str, c: Optional[str], n: int) -> str:
+    """
+    Calls Qt's 'QString QObject::tr(const char *s, const char *c, int
+    n)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#tr
+
+    Parameters
+    ----------
+
+    s : str
+      Passed on as the bytes of the text.
+
+    c : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    n : int
+      Passed on as it is. Qt fills this in with -1 when it is left out;
+      here it has to be given.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back: 's' itself when no translation is loaded.
+    """
+    #  QString QObject::tr(const char *s, const char *c, int n)
+    return Rituals.call(
+        'ritual_ZN7QObject2trEPKcS1_i',
+        CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -106,6 +161,10 @@ class QObject(CuteMixin, metaclass=MetaCute):
   #  Qt's QThread is built on QObject, so its cute class is made after
   #  this one. 'thread' gives one back all the same; see 'WAIT'.
   QThread = WAIT['QThread']
+
+  #  Qt can watch a QObject and tell when it has removed it. Every class
+  #  built on this one is a QObject too, and inherits this.
+  __watched_by_qt__ = True
 
   #  Fallback Variables
 
@@ -128,12 +187,14 @@ class QObject(CuteMixin, metaclass=MetaCute):
 
     'CuteMixin' calls this at the first read of 'uglySide'. The C++
     QObject is created with the parent given to 'QObject(...)', which is
-    created first when it is not yet.
+    created first when it is not yet. Qt watches the new C++ QObject
+    from here on, so a call made after Qt has removed it is refused.
     """
     #  QObject::QObject(QObject *parent)
     parent = self._addressOf(self.__given_parent__)
     ugly = Ugly()
     ugly.setAddress(Rituals.call('ritual_ZN7QObjectC1EPS_', parent))
+    ugly.watch()
     ugly.setCuteSide(self)
     self.__ugly_side__ = ugly
     self.__given_parent__ = None
@@ -258,6 +319,21 @@ class QObject(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK7QObject6parentEv')
     return QObject._cuteAt(address)
 
+  def objectName(self) -> str:
+    """
+    Calls Qt's 'QString QObject::objectName() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#objectName-prop
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QObject::objectName() const
+    return self.uglySide.call('ritual_ZNK7QObject10objectNameEv')
+
   @overload(str)
   def inherits(self, classname: str) -> bool:
     """
@@ -295,6 +371,24 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  bool QObject::blockSignals(bool b)
     return self.uglySide.call('ritual_ZN7QObject12blockSignalsEb', b)
+
+  @overload(str)
+  def setObjectName(self, name: str) -> None:
+    """
+    Calls Qt's 'void QObject::setObjectName(QAnyStringView name)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#objectName-prop
+
+    Parameters
+    ----------
+
+    name : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QObject::setObjectName(QAnyStringView name)
+    self.uglySide.call(
+        'ritual_ZN7QObject13setObjectNameE14QAnyStringView', name,
+    )
 
   @overload(THIS)
   @overload(NoneType)

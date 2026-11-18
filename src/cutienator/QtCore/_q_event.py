@@ -9,10 +9,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ._cute_mixin import CuteMixin
-from ._meta_cute import MetaCute
-from ._ugly import Ugly
-from .occult import Rituals
+from .._cute_mixin import CuteMixin
+from .._meta_cute import MetaCute
+from .._ugly import Ugly
+from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -41,7 +41,8 @@ class QEvent(CuteMixin, metaclass=MetaCute):
   --------------
 
   - The C++ QEvent is created at the first use, not by 'QEvent(0)'.
-  - Nothing deletes the C++ QEvent yet.
+  - Python never removes the C++ QEvent. C++ cannot copy one, so it is
+    no value, and Qt may keep one it is handed.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

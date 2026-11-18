@@ -1,8 +1,10 @@
-"""RitualGenerator writes the ritual file of one Qt class."""
+"""RitualGenerator writes the ritual file of one Qt class, and the rows
+file that goes with it."""
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import json
 import os
 import re
 import textwrap
@@ -18,21 +20,25 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   Record = Dict[str, Any]
   Rituals = Tuple[Record, ...]
   Reasons = Tuple[Tuple[str, str], ...]
+  Rows = Dict[str, Tuple[str, ...]]
 
 
 class RitualGenerator:
   """
   Writes the ritual file of one Qt class: one ritual for each function
-  of the class whose types it can pass. This is the generator side of
-  the tooling; 'RitualTester' is the side that verifies what it wrote.
+  of the class whose types it can pass. Beside it goes the rows file,
+  which says for Python what each ritual takes and gives. This is the
+  generator side of the tooling; 'RitualTester' is the side that
+  verifies what it wrote.
 
     generator = RitualGenerator()
     generator.setDependencyTree(tree)
     generator.setClassName('QObject')
     generator.setWorkFolder('/some/folder')
     generator.write()            # writes '/some/folder/q_object.cpp'
-    generator.getWritten()       # the 28 rituals in that file
-    generator.getNotWritten()    # the other 52 functions, with reasons
+                                 # and '/some/folder/q_object.json'
+    generator.getWritten()       # the rituals in that file
+    generator.getNotWritten()    # the other functions, with reasons
 
   Terms
   -----
@@ -43,6 +49,12 @@ class RitualGenerator:
   - A ritual file is a C++ file holding rituals.
   - To pass a type is to hand a value of it from Python to C++, or
     back.
+  - A row says, for one ritual, what comes back from it and then what
+    goes into it, one word each. 'cutienator.occult.Rituals' reads the
+    rows to know how to call each ritual.
+  - A value class is a class C++ can copy, as 'QSize'. C++ hands such
+    an object around as a copy, where it hands a 'QObject' around by
+    its address.
 
   You provide
   -----------
@@ -63,6 +75,29 @@ class RitualGenerator:
   - Enums, as 'Qt::TimerType'.
   - Addresses of objects: 'QThread *' and 'const QObject *', for every
     class of the tree.
+  - Values: 'QSize', 'const QSize' and 'const QSize &', for every class
+    of the tree C++ can copy. The ritual takes the address of one and
+    hands Qt the object there, which Qt copies if it keeps it. For one
+    given back, the ritual makes a copy with 'new' and gives its
+    address: that copy is known to nobody else, and whoever called the
+    ritual has to remove it.
+  - Text: Qt's 'QString' in each of those three spellings, and the two
+    classes that look at text held elsewhere, 'QStringView' and
+    'QAnyStringView'. It is passed as a value of 'QString', and its
+    word in the row is 'text', so Python passes a plain 'str'.
+
+  The words of a row
+  ------------------
+
+  - 'nothing': the ritual gives nothing back.
+  - 'address': the address of an object, a value class included.
+  - 'text': the address of a 'QString' that is made from a 'str' for
+    the call, or read into a 'str' after it.
+  - 'chars': text as C has it, 'const char *'.
+  - A number goes by the name C++ has for it, as 'int', 'bool' and
+    'long long'. An enum goes by the number type it is kept as.
+  - 'size_t': the number type of that name, which is not the same
+    type built into C++ on every system.
 
   What to expect
   --------------
@@ -71,11 +106,22 @@ class RitualGenerator:
     it is in 'getWritten', or in 'getNotWritten' with the reason.
     Nothing is passed over silently. Functions the compiler makes up
     itself are no part of the header and are not counted.
+  - One function the compiler makes up gets a ritual all the same: the
+    destructor of a class C++ can copy that declares none, as 'QSize'.
+    Python removes its copy of such an object by that ritual.
   - A function is not written when it takes or gives a type that is
     not in the list above, when it is private or protected, when Qt
     forbids it, when it is a signal, or when it is a template.
+  - A function giving back 'QString &', the object itself to be changed
+    further, is not written: a copy would not be that object.
+  - A number that ends as 'long' on this system, under a name that
+    says no width, as 'GLintptr', is not written either. 'long' is 64
+    bits wide on Linux and macOS and 32 on Windows, and the row would
+    be right on one of them only.
+  - The ritual file pulls in the header file of every value class its
+    rituals copy, since a copy needs the whole class.
   - The getters decide and write nothing. Only 'write' touches a file,
-    and it replaces the ritual file whole.
+    and it replaces the ritual file and the rows file whole.
   - Whether what was written is right is not checked here. That is the
     job of 'RitualTester'.
   """
@@ -148,6 +194,19 @@ class RitualGenerator:
       'long long', 'unsigned long long', 'float', 'double',
   )
 
+  #  The names a header writes 'long' itself by. A number that ends as
+  #  'long' under any other name is as wide as its system makes it.
+  __long_names__ = ('long', 'unsigned long', 'ulong')
+
+  #  The names that end as 'long' on Linux and macOS and as another type
+  #  on Windows, each with the word it goes by in a row.
+  __size_names__ = {'size_t': 'size_t', 'std::size_t': 'size_t'}
+
+  #  The class of Qt that is text, and the classes of Qt that look at
+  #  text held elsewhere. A ritual takes a 'QString' for each of them.
+  __text_name__ = 'QString'
+  __view_names__ = ('QAnyStringView', 'QStringView')
+
   #  What the compiler calls each kind of function of a class.
   __function_kinds__ = dict(
       CXXConstructorDecl='constructor', CXXDestructorDecl='destructor',
@@ -174,6 +233,7 @@ class RitualGenerator:
   __unwritten_functions__ = None  # type: Optional[Reasons]
   __known_names__ = None  # type: Optional[FrozenSet[str]]
   __offered_names__ = None  # type: Optional[FrozenSet[str]]
+  __type_tables__ = None  # type: Optional[Record]
 
   #  Public Variables
 
@@ -274,6 +334,17 @@ class RitualGenerator:
     name = '%s.cpp' % self.getFileStem()
     return os.path.join(self.getWorkFolder(), name)
 
+  def getRowsFile(self) -> str:
+    """
+    Gives the full path of the rows file, as
+    '/some/folder/q_object.json': the ritual file with another ending.
+
+    Found for you, from the work folder and the name of the class.
+    Having the path does not mean the file is there; 'write' makes it.
+    """
+    name = '%s.json' % self.getFileStem()
+    return os.path.join(self.getWorkFolder(), name)
+
   def _createPlan(self, ) -> None:
     """Decides, for each function of the class, whether it is written."""
     tree = self.getDependencyTree()
@@ -306,6 +377,11 @@ class RitualGenerator:
         unwritten.append((plan['function'], reason))
       else:
         written.append(plan)
+    if className in self._getTypeTables()['copyable']:
+      declared = [m.get('kind') for m in record.get('inner', ())
+                  if not m.get('isImplicit')]
+      if 'CXXDestructorDecl' not in declared:
+        written.append(self._planOwnDestructor())
     self.__written_rituals__ = (*written,)
     self.__unwritten_functions__ = (*unwritten,)
 
@@ -330,6 +406,9 @@ class RitualGenerator:
       'takes': what the ritual takes, in order, each as a name and a
       type. For a ritual on an object the first is 'self', the address
       of the object.
+      'row': the row of the ritual: the word for what it gives, then
+      one word for each thing it takes.
+      'needs': the value classes the ritual copies.
       'text': the C++ text of the ritual.
 
     Raises
@@ -369,26 +448,92 @@ class RitualGenerator:
     """Gives the name of every ritual of the class, in order."""
     return (*(ritual['ritualName'] for ritual in self.getWritten()),)
 
-  def getRitualText(self) -> str:
-    """
-    Gives the whole text of the ritual file, without writing it.
-
-    Written for you from 'getWritten': a heading, the lines pulling in
-    the header file of the class, as 'QtPart.getIncludeLines' gives
-    them, and then each ritual under the Qt function it calls.
-    """
+  def _getHeading(self) -> str:
+    """Says who wrote a file, from what, and that it is written anew."""
     qtPart = self.getQtPart()
     headerPath = self.getDependencyTree().getHeaderPath(self.getClassName())
     relative = os.path.relpath(headerPath, qtPart.getQtHeaderFolder())
     infoSpec = """Written by dev_tooling.RitualGenerator from the records
     of %s, Qt %s. Changes made here are lost."""
     info = infoSpec % (relative, qtPart.getQtVersion())
-    heading = textwrap.wrap(' '.join(info.split()), 73)
+    return ' '.join(info.split())
+
+  def getRitualText(self) -> str:
+    """
+    Gives the whole text of the ritual file, without writing it.
+
+    Written for you from 'getWritten': a heading, the lines pulling in
+    the header file of the class, as 'QtPart.getIncludeLines' gives
+    them, the same for each value class a ritual copies, and then each
+    ritual under the Qt function it calls.
+    """
+    tree = self.getDependencyTree()
+    className = self.getClassName()
+    heading = textwrap.wrap(self._getHeading(), 73)
     blocks = ['\n'.join('//  %s' % line for line in heading)]
-    includeLines = qtPart.getIncludeLines(headerPath).rstrip('\n')
-    blocks[0] = '%s\n%s' % (blocks[0], includeLines)
+    needed = [className]
+    for ritual in self.getWritten():
+      needed.extend(n for n in ritual['needs'] if n not in needed)
+    includeLines = []  # type: List[str]
+    for name in needed:
+      lines = tree.getQtPart(name).getIncludeLines(tree.getHeaderPath(name))
+      for line in lines.split('\n'):
+        if line.strip() and line not in includeLines:
+          includeLines.append(line)
+    blocks[0] = '%s\n%s' % (blocks[0], '\n'.join(includeLines))
     blocks.extend(ritual['text'] for ritual in self.getWritten())
     return '%s\n' % '\n\n'.join(blocks)
+
+  def getRows(self) -> Rows:
+    """
+    Gives the row of every ritual of the class, under the name of the
+    ritual, in the order of 'getWritten'.
+
+    Decided for you, together with 'getWritten'.
+
+    Returns
+    -------
+
+    Rows
+      A 'Dict[str, Tuple[str, ...]]'. For
+      'ritual_ZN7QObject12blockSignalsEb' it holds
+      ('bool', 'address', 'bool'): a 'bool' comes back, and the address
+      of the object and a 'bool' go in.
+    """
+    return {
+        ritual['ritualName']: ritual['row'] for ritual in self.getWritten()
+    }
+
+  def getRowsText(self) -> str:
+    """
+    Gives the whole text of the rows file, without writing it.
+
+    Written for you from 'getRows', as JSON: under 'about' the heading
+    of the ritual file, and under 'rows' each ritual with its row.
+    """
+    about = textwrap.wrap(self._getHeading(), 66)
+    lines = ['{', '  "about": [']
+    lines.extend(
+        '    %s%s' % (json.dumps(line), ',' if line is not about[-1] else '')
+        for line in about
+    )
+    lines.extend(('  ],', '  "rows": {'))
+    rows = [*self.getRows().items()]
+    for index, (ritualName, row) in enumerate(rows):
+      end = '' if index == len(rows) - 1 else ','
+      words = ', '.join(json.dumps(word) for word in row)
+      whole = '    %s: [%s]%s' % (json.dumps(ritualName), words, end)
+      if len(whole) <= 77:
+        lines.append(whole)
+        continue
+      lines.append('    %s: [' % json.dumps(ritualName))
+      lines.extend(textwrap.wrap(
+          words, 77, initial_indent='      ', subsequent_indent='      ',
+          break_long_words=False, break_on_hyphens=False,
+      ))
+      lines.append('    ]%s' % end)
+    lines.extend(('  }', '}'))
+    return '%s\n' % '\n'.join(lines)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -419,6 +564,7 @@ class RitualGenerator:
     self.__unwritten_functions__ = None
     self.__known_names__ = None
     self.__offered_names__ = None
+    self.__type_tables__ = None
 
   def setClassName(self, className: str) -> None:
     """
@@ -508,32 +654,141 @@ class RitualGenerator:
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def _findKind(self, cppType: str) -> str:
+  def _getTypeTables(self, **kwargs) -> Record:
     """
-    Says how a type is passed: 'nothing', 'number', 'text', 'enum' or
-    'address'. Gives '' for a type the generator cannot pass yet.
+    Gives what the dependency tree knows of types, each asked of it
+    once: 'aliases', every second name for a type; 'enums' and
+    'classes', the names of those; 'enumTypes', the number type an enum
+    is kept as; 'copyable', the classes C++ can copy. Kept after the
+    first call.
     """
-    tree = self.getDependencyTree()
-    aliases = tree.getAliasTypes()
-    seen = set()
+    if self.__type_tables__ is None:
+      if kwargs.get('_recursion', False):
+        raise RecursionError
+      tree = self.getDependencyTree()
+      self.__type_tables__ = dict(
+          aliases=tree.getAliasTypes(),
+          enums=frozenset(tree.getEnumNames()),
+          classes=frozenset(tree.getClassNames()),
+          enumTypes=tree.getEnumTypes(),
+          copyable=tree.getCopyableNames(),
+      )
+      return self._getTypeTables(_recursion=True)
+    return self.__type_tables__
+
+  def _followAliases(self, cppType: str) -> str:
+    """Gives the type a name stands for, through every second name."""
+    aliases = self._getTypeTables()['aliases']
+    seen = set()  # type: Set[str]
     while cppType in aliases and cppType not in seen:
       seen.add(cppType)
       cppType = aliases[cppType]
-    if cppType == 'void':
-      return 'nothing'
-    if cppType in self.__number_types__:
-      return 'number'
-    if cppType == 'const char *':
-      return 'text'
-    if cppType in tree.getEnumNames():
-      return 'enum'
-    if cppType.endswith(' *'):
-      pointed = cppType[:-2]
+    return cppType
+
+  def _findNumberWord(self, written: str, plain: str) -> str:
+    """
+    Gives the word a number goes by in a row, or '' when no word is
+    right on every system.
+
+    Parameters
+    ----------
+
+    written : str
+      The type as the header writes it, as 'qsizetype' or 'size_t'.
+
+    plain : str
+      The number type built into C++ that it ends as on this system, as
+      'long long' or 'unsigned long'.
+
+    Returns
+    -------
+
+    str
+      'plain' for every type but 'long' and 'unsigned long'. Those two
+      are 64 bits wide on Linux and macOS and 32 on Windows, so they
+      are given only when the header writes 'long' itself. A name known
+      to follow the system, as 'size_t', gives its own word. Any other
+      name gives ''.
+    """
+    if plain not in ('long', 'unsigned long'):
+      return plain
+    if written.startswith('const '):
+      written = written[6:]
+    if written in self.__long_names__:
+      return plain
+    return self.__size_names__.get(written, '')
+
+  def _findValueName(self, cppType: str) -> str:
+    """
+    Gives the class a type hands around as a value: 'QSize' for
+    'QSize', 'const QSize' and 'const QSize &'. Gives '' for any other
+    type, as 'QSize &' and 'QSize *', and for a class C++ cannot copy.
+    """
+    if cppType.endswith(' &'):
+      if not cppType.startswith('const '):
+        return ''
+      cppType = cppType[:-2]
+    if cppType.startswith('const '):
+      cppType = cppType[6:]
+    cppType = self._followAliases(cppType)
+    if cppType in self._getTypeTables()['copyable']:
+      return cppType
+    return ''
+
+  def _findPassing(self, written: str, plain: str) -> Optional[Record]:
+    """
+    Says how a type is passed between Python and C++.
+
+    Parameters
+    ----------
+
+    written : str
+      The type as the header writes it, with every name in full.
+
+    plain : str
+      The same type as the compiler reads it, second names followed.
+
+    Returns
+    -------
+
+    Optional[Record]
+      None for a type that cannot be passed yet. Else a record saying:
+      'kind': 'nothing', 'number', 'chars', 'enum', 'address', 'value',
+      'text' or 'view'.
+      'word': its word in the row. It is '' for a number that has no
+      word that is right on every system.
+      'className': for 'value', 'text' and 'view', the class.
+    """
+    tables = self._getTypeTables()
+    plain = self._followAliases(plain)
+    if plain == 'void':
+      return dict(kind='nothing', word='nothing')
+    if plain in self.__number_types__:
+      return dict(kind='number', word=self._findNumberWord(written, plain))
+    if plain == 'const char *':
+      return dict(kind='chars', word='chars')
+    if plain in tables['enums']:
+      fixedWritten, fixedPlain = tables['enumTypes'].get(plain, ('int',) * 2)
+      fixedPlain = self._followAliases(fixedPlain)
+      if fixedPlain not in self.__number_types__:
+        return None
+      word = self._findNumberWord(fixedWritten, fixedPlain)
+      return dict(kind='enum', word=word)
+    if plain.endswith(' *'):
+      pointed = plain[:-2]
       if pointed.startswith('const '):
         pointed = pointed[6:]
-      if pointed in tree.getClassNames():
-        return 'address'
-    return ''
+      if pointed in tables['classes']:
+        return dict(kind='address', word='address')
+      return None
+    valueName = self._findValueName(plain)
+    if not valueName:
+      return None
+    if valueName == self.__text_name__:
+      return dict(kind='text', word='text', className=valueName)
+    if valueName in self.__view_names__:
+      return dict(kind='view', word='text', className=valueName)
+    return dict(kind='value', word='address', className=valueName)
 
   def _getKnownNames(self, **kwargs) -> FrozenSet[str]:
     """
@@ -662,7 +917,8 @@ class RitualGenerator:
   def _planFunction(self, member: Record) -> Record:
     """
     Works out the ritual of one function of the class, whether or not
-    it can be written: its name, what it takes and gives, and its text.
+    it can be written: its name, what it takes and gives, its row and
+    its text.
     """
     className = self.getClassName()
     kind = self.__function_kinds__[member['kind']]
@@ -670,6 +926,9 @@ class RitualGenerator:
       kind = 'static method'
     functionType = member['type']['qualType']
     given, taken, words = self._splitFunctionType(functionType)
+    #  The same type as the compiler reads it, second names followed.
+    plainType = member['type'].get('desugaredQualType', functionType)
+    plainGiven = self._splitFunctionType(plainType)[0]
     arguments = []
     for entry in member.get('inner', ()):
       if entry.get('kind') != 'ParmVarDecl':
@@ -690,35 +949,115 @@ class RitualGenerator:
       shown = self._joinType(given, shown)
     if 'const' in words:
       shown = '%s const' % shown
-    passed = ', '.join(name for name, _, _ in arguments)
     #  From here on the types are for the ritual, which stands outside
     #  the class and needs every name in full.
     given = self._spellOutside(given)
-    takes = [
-        (name, self._spellOutside(cppType)) for name, cppType, _ in arguments
-    ]
+    unknown, unsure = [], []  # type: List[str], List[str]
+    takes, passed, row, needs = [], [], [], []
+    for name, cppType, plain in arguments:
+      written = self._spellOutside(cppType)
+      passing = self._findPassing(written, plain)
+      if passing is None:
+        unknown.append(plain)
+        passing = dict(kind='', word='')
+      elif not passing['word']:
+        unsure.append(written)
+      if passing['kind'] in ('value', 'text', 'view'):
+        valueName = passing['className']
+        needs.append(valueName)
+        if passing['kind'] == 'view':
+          #  A look at text is made from the text for the call.
+          needs.append(self.__text_name__)
+          takes.append((name, 'const %s *' % self.__text_name__))
+          passed.append('%s(*%s)' % (valueName, name))
+        else:
+          takes.append((name, 'const %s *' % valueName))
+          passed.append('*%s' % name)
+      else:
+        takes.append((name, written))
+        passed.append(name)
+      row.append(passing['word'])
+    opening, closing = '', ');'
     if kind == 'constructor':
-      given = '%s *' % className
-      body = 'return new %s(%s);' % (className, passed)
+      given, gives = '%s *' % className, 'address'
+      opening, called = 'return ', 'new %s' % className
     elif kind == 'destructor':
-      given = 'void'
+      given, gives = 'void', 'nothing'
       takes.insert(0, ('self', '%s *' % className))
-      body = 'delete self;'
-    elif kind == 'static method':
-      body = '%s::%s(%s);' % (className, member['name'], passed)
+      row.insert(0, 'address')
     else:
-      const = 'const ' if 'const' in words else ''
-      takes.insert(0, ('self', '%s%s *' % (const, className)))
-      body = 'self->%s(%s);' % (member['name'], passed)
-    if kind in ('method', 'static method') and given != 'void':
-      body = 'return %s' % body
+      ownName = member['name']
+      if member['kind'] == 'CXXConversionDecl':
+        #  A function that turns the object into another type is named
+        #  after that type, and the header may shorten the name of the
+        #  type as it may anywhere inside the class.
+        ownName = 'operator %s' % self._spellOutside(plainGiven)
+      if kind == 'static method':
+        called = '%s::%s' % (className, ownName)
+      else:
+        const = 'const ' if 'const' in words else ''
+        takes.insert(0, ('self', '%s%s *' % (const, className)))
+        row.insert(0, 'address')
+        called = 'self->%s' % ownName
+      giving = self._findPassing(given, self._spellOutside(plainGiven))
+      if giving is None:
+        unknown.append(given)
+        giving = dict(kind='', word='')
+      elif not giving['word']:
+        unsure.append(given)
+      gives = giving['word']
+      if giving['kind'] in ('value', 'text', 'view'):
+        #  The copy is made here, and its address is what goes back.
+        valueName = giving['className']
+        needs.append(valueName)
+        if giving['kind'] == 'view':
+          needs.append(self.__text_name__)
+          valueName = self.__text_name__
+          closing = ').toString());'
+        else:
+          closing = '));'
+        given = '%s *' % valueName
+        opening = 'return new %s(' % valueName
+      elif giving['kind'] != 'nothing':
+        opening = 'return '
     plan = dict(
         ritualName='ritual%s' % member.get('mangledName', ''),
         function=shown, kind=kind, gives=given, takes=(*takes,),
-        plainTypes=(*(plain for _, _, plain in arguments),),
+        row=(gives, *row), needs=(*dict.fromkeys(needs),),
+        unknownTypes=(*dict.fromkeys(unknown),),
+        unsureNumbers=(*dict.fromkeys(unsure),),
         words=(*words,), variadic='...' in taken,
     )
+    if kind == 'destructor':
+      body = ['  delete self;']
+    else:
+      body = self._writeBody(opening, called, passed, closing)
     plan['text'] = self._writeRitual(plan, body)
+    return plan
+
+  def _planOwnDestructor(self) -> Record:
+    """
+    Works out the ritual of the destructor of a class that declares
+    none, which the compiler then writes itself.
+
+    It is written for a class C++ can copy only. Python holds copies of
+    such a class that nothing else knows of, and removes each by this
+    ritual. The compiler's own name for a destructor is made of the
+    words of the class name, each with its length in front, between
+    '_ZN' and 'D1Ev': '_ZN5QSizeD1Ev' for 'QSize'.
+    """
+    className = self.getClassName()
+    words = className.split('::')
+    lengths = ''.join('%d%s' % (len(word), word) for word in words)
+    plan = dict(
+        ritualName='ritual_ZN%sD1Ev' % lengths,
+        function='%s::~%s()' % (className, words[-1]),
+        kind='destructor', gives='void',
+        takes=(('self', '%s *' % className),),
+        row=('nothing', 'address'), needs=(), unknownTypes=(),
+        unsureNumbers=(), words=(), variadic=False,
+    )
+    plan['text'] = self._writeRitual(plan, ['  delete self;'])
     return plan
 
   def _findReason(
@@ -765,18 +1104,60 @@ class RitualGenerator:
       infoSpec = """declared and nowhere to be found: no header has its
       code and no Qt shared object offers it"""
       return ' '.join(infoSpec.split())
-    unknown = [
-        plain for plain in plan['plainTypes'] if not self._findKind(plain)
-    ]
-    if plan['kind'] in ('method', 'static method'):
-      if not self._findKind(plan['gives']):
-        unknown.append(plan['gives'])
-    if unknown:
-      names = ', '.join(dict.fromkeys(unknown))
+    if plan['unknownTypes']:
+      names = ', '.join(plan['unknownTypes'])
       return 'takes or gives a type that cannot be passed yet: %s' % names
+    if plan['unsureNumbers']:
+      infoSpec = """takes or gives a number that is not equally wide on
+      every system: %s"""
+      names = ', '.join(plan['unsureNumbers'])
+      return ' '.join((infoSpec % names).split())
     return ''
 
-  def _writeRitual(self, plan: Record, body: str) -> str:
+  @staticmethod
+  def _writeBody(
+      opening: str,
+      called: str,
+      passed: List[str],
+      closing: str,
+  ) -> List[str]:
+    """
+    Gives the lines between the curly brackets of one ritual: the call
+    of the Qt function. They are kept to 77 letters where the names
+    allow it.
+
+    Parameters
+    ----------
+
+    opening : str
+      What stands before the call, as 'return ' or 'return new QSize('.
+
+    called : str
+      What is called, as 'self->expandedTo' or 'new QSize'.
+
+    passed : List[str]
+      What is passed on, in order, as '*otherSize'.
+
+    closing : str
+      What stands after the last thing passed on, as '));'.
+    """
+    whole = '  %s%s(%s%s' % (opening, called, ', '.join(passed), closing)
+    if len(whole) <= 77:
+      return [whole]
+    lines, indent = [], '  '
+    if opening.endswith('('):
+      lines.append('%s%s' % (indent, opening))
+      indent, opening = '      ', ''
+    lines.append('%s%s%s(' % (indent, opening, called))
+    if not passed:
+      lines[-1] = '%s%s' % (lines[-1], closing)
+      return lines
+    for index, entry in enumerate(passed):
+      end = closing if index == len(passed) - 1 else ','
+      lines.append('%s    %s%s' % (indent, entry, end))
+    return lines
+
+  def _writeRitual(self, plan: Record, body: List[str]) -> str:
     """
     Gives the C++ text of one ritual, under the function it calls.
 
@@ -786,9 +1167,10 @@ class RitualGenerator:
     offers only what carries it, and on Linux and macOS it changes
     nothing.
     """
-    shown = textwrap.wrap(plan['function'], 71) or ['']
-    lines = ['//  %s' % shown[0]]
-    lines.extend('//      %s' % line for line in shown[1:])
+    lines = textwrap.wrap(
+        plan['function'], 77, initial_indent='//  ',
+        subsequent_indent='//      ',
+    ) or ['//  ']
     takes = [self._joinType(t, n) for n, t in plan['takes']]
     named = self._joinType(plan['gives'], plan['ritualName'])
     lines.append('extern "C" Q_DECL_EXPORT')
@@ -803,7 +1185,7 @@ class RitualGenerator:
         lines.append('    %s%s' % (take, end))
       if not takes:
         lines[-1] = '%s) {' % head
-    lines.append('  %s' % body)
+    lines.extend(body)
     lines.append('}')
     return '\n'.join(lines)
 
@@ -825,14 +1207,15 @@ class RitualGenerator:
 
   def write(self) -> str:
     """
-    Writes the ritual file of the class into the work folder, replacing
-    one written before.
+    Writes the ritual file of the class into the work folder, and the
+    rows file beside it, replacing those written before.
 
     Returns
     -------
 
     str
-      The full path of the ritual file, which now exists.
+      The full path of the ritual file, which now exists. The rows file
+      is at 'getRowsFile'.
 
     Raises
     ------
@@ -846,4 +1229,6 @@ class RitualGenerator:
     ritualFile = self.getRitualFile()
     with open(ritualFile, 'w') as file:
       file.write(self.getRitualText())
+    with open(self.getRowsFile(), 'w') as file:
+      file.write(self.getRowsText())
     return ritualFile

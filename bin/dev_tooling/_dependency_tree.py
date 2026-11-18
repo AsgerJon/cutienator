@@ -3,7 +3,10 @@
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import os
 import re
+import subprocess
+import tempfile
 from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
@@ -78,6 +81,8 @@ class DependencyTree:
   - Two more things come out of the same records and are kept beside
     the tree: 'getEnumNames', every enum, and 'getAliasTypes', every
     second name a header gives a type.
+  - 'getCopyableNames' is the one answer that comes from no record: the
+    compiler is asked which classes it can copy.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -134,7 +139,9 @@ class DependencyTree:
   __left_out_names__ = None  # type: Optional[Names]
   __class_numbers__ = None  # type: Optional[Dict[str, str]]
   __enum_names__ = None  # type: Optional[Names]
+  __enum_types__ = None  # type: Optional[Dict[str, Tuple[str, str]]]
   __alias_types__ = None  # type: Optional[Dict[str, str]]
+  __copyable_names__ = None  # type: Optional[FrozenSet[str]]
   __defined_names__ = None  # type: Optional[FrozenSet[str]]
   __make_order__ = None  # type: Optional[Names]
   __make_places__ = None  # type: Optional[Dict[str, int]]
@@ -172,6 +179,7 @@ class DependencyTree:
     places = dict()  # type: Dict[str, Tuple[str, str]]
     numbers = dict()  # type: Dict[str, str]
     enumNames = set()  # type: Set[str]
+    enumTypes = dict()  # type: Dict[str, Tuple[str, str]]
     aliasTypes = dict()  # type: Dict[str, str]
     definedNames = set()  # type: Set[str]
     leftOut = []  # type: List[str]
@@ -197,9 +205,11 @@ class DependencyTree:
       names = dict()  # type: Dict[str, str]
       for entryId in entries:
         self._nameEntry(entryId, entries, namespaces, names)
-      for prefix, insideId, ownName in found['enums']:
+      for prefix, insideId, ownName, fixedType in found['enums']:
         outer = prefix if insideId is None else '%s::' % names[insideId]
         enumNames.add('%s%s' % (outer, ownName))
+        if fixedType is not None:
+          enumTypes['%s%s' % (outer, ownName)] = fixedType
       for prefix, insideId, ownName, cppType in found['aliases']:
         outer = prefix if insideId is None else '%s::' % names[insideId]
         aliasTypes['%s%s' % (outer, ownName)] = cppType
@@ -233,6 +243,7 @@ class DependencyTree:
     self.__left_out_names__ = (*sorted(leftOut),)
     self.__class_numbers__ = numbers
     self.__enum_names__ = (*sorted(enumNames),)
+    self.__enum_types__ = enumTypes
     self.__alias_types__ = aliasTypes
     self.__defined_names__ = frozenset(definedNames)
     takes, gives = dict(), dict()
@@ -635,6 +646,129 @@ class DependencyTree:
     self.getClassNames()
     return self.__enum_names__
 
+  def getEnumTypes(self) -> Dict[str, Tuple[str, str]]:
+    """
+    Gives, for each enum whose declaration says which number type its
+    names are kept as, that type: as the header writes it, and as the
+    compiler reads it. 'QEvent::Type' is not in it; an enum declared as
+    'enum class Kind : quint8' gives ('quint8', 'unsigned char').
+
+    Kept beside the tree, from the same records. An enum that says
+    nothing is kept as the compiler sees fit, which is an 'int' for
+    every enum that needs no more room.
+
+    Returns
+    -------
+
+    Dict[str, Tuple[str, str]]
+      Under the full name of the enum, the two spellings of the type.
+    """
+    self.getClassNames()
+    return dict(self.__enum_types__)
+
+  def _createCopyableNames(self, ) -> None:
+    """
+    Asks the compiler which classes of the tree it can copy, and keeps
+    the answer.
+
+    A small C++ program is written into a folder of its own, compiled
+    with 'clang++', run once and thrown away. For each class it prints
+    whether these two lines of C++ are allowed for anyone:
+    'new T(other)', which makes a copy of another one, and 'delete' of
+    the copy. The compiler alone knows that for sure. The records say
+    it for a class that declares its copying itself, and leave it open
+    for the many classes that let the compiler write it.
+
+    Raises
+    ------
+
+    RuntimeError
+      'clang++' refused the program, or the program did not run. What
+      it said is in the message.
+    """
+    classNames = self.getClassNames()
+    includeLines = []  # type: List[str]
+    for className in classNames:
+      qtPart = self.getQtPart(className)
+      lines = qtPart.getIncludeLines(self.getHeaderPath(className))
+      for line in lines.split('\n'):
+        if line.strip() and line not in includeLines:
+          includeLines.append(line)
+    lines = [
+        *includeLines,
+        '#include <cstdio>',
+        '#include <type_traits>',
+        '#include <utility>',
+        '',
+        'template <typename T, typename = void>',
+        'struct CanCopy : std::false_type {};',
+        '',
+        'template <typename T>',
+        'struct CanCopy<T, std::void_t<',
+        '    decltype(new T(std::declval<const T &>())),',
+        '    decltype(delete std::declval<T *>())>> : std::true_type {};',
+        '',
+        'int main() {',
+    ]
+    lineSpec = '  std::printf("%%d %%s\\n", int(CanCopy<%s>::value), "%s");'
+    lines.extend(lineSpec % (name, name) for name in classNames)
+    lines.extend(('  return 0;', '}', ''))
+    qtParts = self.getQtParts()
+    with tempfile.TemporaryDirectory() as folder:
+      sourceFile = os.path.join(folder, 'copyable.cpp')
+      programFile = os.path.join(folder, 'copyable')
+      with open(sourceFile, 'w') as file:
+        file.write('\n'.join(lines))
+      command = (
+          'clang++', '-std=c++17', '-fPIC',
+          '-I%s' % QtPart.getQtHeaderFolder(), sourceFile,
+          '-o', programFile,
+          '-Wl,-rpath,%s' % QtPart.getQtSharedObjectFolder(),
+          *(qtPart.getQtSharedObject() for qtPart in qtParts),
+      )
+      said = ''
+      for step in (command, (programFile,)):
+        done = subprocess.run(
+            step, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            universal_newlines=True,
+        )
+        if done.returncode:
+          infoSpec = """Asking the compiler which classes it can copy
+          failed at '%s', which said: %s"""
+          info = infoSpec % (os.path.basename(step[0]), done.stderr)
+          raise RuntimeError(' '.join(info.split()))
+        said = done.stdout
+    copyable = set()  # type: Set[str]
+    for line in said.split('\n'):
+      answer, _, name = line.partition(' ')
+      if answer == '1':
+        copyable.add(name)
+    self.__copyable_names__ = frozenset(copyable)
+
+  def getCopyableNames(self, **kwargs) -> FrozenSet[str]:
+    """
+    Gives the name of every class of the tree that C++ can copy, as
+    'QSize' and 'QString'. 'QObject' is not among them: Qt forbids
+    copying one.
+
+    Asked of the compiler at the first call, which takes about ten
+    seconds, and kept. A function can take such a class as a value, or
+    give one back, since a copy of it can be made for Python to hold.
+    You pass nothing; the keyword is for the method's own use.
+
+    Raises
+    ------
+
+    RuntimeError
+      The compiler could not be asked; see '_createCopyableNames'.
+    """
+    if self.__copyable_names__ is None:
+      if kwargs.get('_recursion', False):
+        raise RecursionError
+      self._createCopyableNames()
+      return self.getCopyableNames(_recursion=True)
+    return self.__copyable_names__
+
   def getDefinedNames(self) -> FrozenSet[str]:
     """
     Gives the compiler's own name of every function that has its body of
@@ -739,7 +873,9 @@ class DependencyTree:
     self.__left_out_names__ = None
     self.__class_numbers__ = None
     self.__enum_names__ = None
+    self.__enum_types__ = None
     self.__alias_types__ = None
+    self.__copyable_names__ = None
     self.__defined_names__ = None
     self.__make_order__ = None
     self.__make_places__ = None
@@ -841,7 +977,8 @@ class DependencyTree:
       definition its parents and the types its functions take and
       give. 'namespaces': the full name of each namespace, under its
       number. 'enums' and 'aliases': each enum, and each other name
-      for a type, with where it is written.
+      for a type, with where it is written. An enum comes with the
+      number type its declaration fixes for it, or None.
     """
     if not isinstance(node, dict):
       return
@@ -857,7 +994,11 @@ class DependencyTree:
     if not node.get('name'):
       return
     if kind == 'EnumDecl':
-      found['enums'].append((prefix, insideId, node['name']))
+      fixedType = node.get('fixedUnderlyingType')
+      if fixedType is not None:
+        written = fixedType['qualType']
+        fixedType = (written, fixedType.get('desugaredQualType', written))
+      found['enums'].append((prefix, insideId, node['name'], fixedType))
       return
     if kind in ('TypedefDecl', 'TypeAliasDecl'):
       cppType = node['type']

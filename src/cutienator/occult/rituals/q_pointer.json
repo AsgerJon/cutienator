@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by hand, beside q_pointer.cpp, which is written by hand as",
+    "well: the generator writes no rituals for Qt's pattern 'QPointer'."
+  ],
+  "rows": {
+    "ritual_ZN8QPointerI7QObjectEC1IvEEPS0_": ["address", "address"],
+    "ritual_ZN8QPointerI7QObjectED1Ev": ["nothing", "address"],
+    "ritual_ZNK8QPointerI7QObjectE6isNullEv": ["bool", "address"]
+  }
+}

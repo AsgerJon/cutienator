@@ -84,7 +84,8 @@ class TestBuild(BaseTest):
         *build.getQtSharedObjects(),
     )
     self.assertEqual(build.getCommand(), expected)
-    self.assertEqual(len(build.getRitualFiles()), 3)
+    self.assertEqual(build.getRitualFiles(), Rituals.getRitualFiles())
+    self.assertTrue(build.getRitualFiles())
 
   def test_command_needs_all_three(self) -> None:
     """A build that was told nothing names what it is missing."""

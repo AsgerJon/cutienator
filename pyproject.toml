@@ -49,9 +49,10 @@ test = [
 ]
 
 # The ritual files are C++ that 'cutienator.occult.Rituals' compiles on the
-# machine the package is installed on, so they ship with the package.
+# machine the package is installed on, so they ship with the package,
+# each with its rows file, which says what its rituals take and give.
 [tool.setuptools.package-data]
-cutienator = ["occult/rituals/*.cpp"]
+cutienator = ["occult/rituals/*.cpp", "occult/rituals/*.json"]
 
 # pytest configuration lives here rather than in a root 'pytest.ini' so
 # the repository root stays uncluttered. pytest auto-discovers this

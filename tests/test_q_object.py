@@ -11,8 +11,9 @@ from typing import TYPE_CHECKING
 from worktoy.waitaminute.dispatch import DispatchException
 from worktoy.work_test import BaseTest
 
-from cutienator import MetaCute, QObject, QEvent, QThread, QMetaObject
-from cutienator import QBindingStorage
+from cutienator import MetaCute, Ugly
+from cutienator.QtCore import QObject, QEvent, QThread, QMetaObject
+from cutienator.QtCore import QBindingStorage
 from cutienator.occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -38,8 +39,9 @@ class TestQObject(BaseTest):
     than it, which takes some seconds the first time.
   - No Qt application runs during the tests. Qt starts no timer without
     one, so 'startTimer' gives 0 here.
-  - Nothing deletes a C++ object yet. What a test makes stays until the
-    run ends.
+  - Python removes no C++ QObject. What a test makes stays until the
+    run ends, unless the test has Qt remove it, by the ritual of Qt's
+    '~QObject()'.
   - A wrong argument is refused by worktoy, with 'DispatchException',
     before Qt sees it. A wrong address that did reach Qt would end the
     whole run, so no test passes one.
@@ -305,6 +307,73 @@ class TestQObject(BaseTest):
     self.assertIs(event.isAccepted(), False)
     self.assertIsNone(event.accept())
     self.assertIs(event.isAccepted(), True)
+
+  def test_object_name_is_a_plain_str(self) -> None:
+    """'setObjectName' takes a 'str' and 'objectName' gives it back."""
+    cuteObject = QObject()
+    self.assertEqual(cuteObject.objectName(), '')
+    for name in ('cutie', '', 'smile \U0001F600', 'nul\x00inside'):
+      with self.subTest(name=name):
+        self.assertIsNone(cuteObject.setObjectName(name))
+        self.assertEqual(cuteObject.objectName(), name)
+        self.assertIs(type(cuteObject.objectName()), str)
+
+  def test_object_name_refuses_what_is_no_text(self) -> None:
+    """A number, None and nothing at all never reach Qt as a name."""
+    cuteObject = QObject()
+    cuteObject.setObjectName('kept')
+    for wrong in ((5,), (None,), (), ('one', 'two')):
+      with self.subTest(wrong=wrong):
+        raised = self._raisedBy(lambda: cuteObject.setObjectName(*wrong))
+        self.assertIsInstance(raised, DispatchException)
+    self.assertEqual(cuteObject.objectName(), 'kept')
+
+  def test_tr_gives_the_text_back_untranslated(self) -> None:
+    """With no translation loaded, 'tr' gives the text it was given."""
+    self.assertEqual(QObject.tr('hello', None, -1), 'hello')
+    self.assertEqual(QObject().tr('hello', 'context', -1), 'hello')
+    raised = self._raisedBy(lambda: QObject.tr('hello'))
+    self.assertIsInstance(raised, DispatchException)
+
+  def test_qt_watches_every_cute_qobject(self) -> None:
+    """One made in Python and one Qt handed out are both watched."""
+    cuteObject = QObject()
+    self.assertIs(cuteObject.uglySide.isWatched(), True)
+    self.assertIs(cuteObject.uglySide.isGone(), False)
+    thread = cuteObject.thread()
+    self.assertIs(thread.uglySide.isWatched(), True)
+    self.assertIs(thread.uglySide.isGone(), False)
+
+  def test_a_call_on_what_qt_removed_is_refused(self) -> None:
+    """Qt removes the children with their parent. A call on any of
+    them, and passing one on, then raises and never reaches C++."""
+    mother = QObject()
+    child = QObject(mother)
+    child.setObjectName('kid')
+    other = QObject()
+    #  Qt's '~QObject()', as Qt itself runs it on an object it removes.
+    Rituals.call('ritual_ZN7QObjectD1Ev', mother.uglySide.getAddress())
+    self.assertIs(mother.uglySide.isGone(), True)
+    self.assertIs(child.uglySide.isGone(), True)
+    attempts = (
+        lambda: child.objectName(), lambda: mother.parent(),
+        lambda: child.deleteLater(), lambda: other.setParent(child),
+        lambda: other.installEventFilter(mother),
+    )
+    for index, attempt in enumerate(attempts):
+      with self.subTest(index=index):
+        self.assertIsInstance(self._raisedBy(attempt), RuntimeError)
+    self.assertIs(other.uglySide.isGone(), False)
+    self.assertIsNone(other.parent())
+
+  def test_what_qt_removed_is_found_by_its_address_no_more(self) -> None:
+    """Another object may be at the address by then."""
+    cuteObject = QObject()
+    address = cuteObject.uglySide.getAddress()
+    self.assertIs(QObject._cuteAt(address), cuteObject)
+    Rituals.call('ritual_ZN7QObjectD1Ev', address)
+    with self.assertRaises(LookupError):
+      Ugly.at(address)
 
   def test_every_listed_ritual_is_offered(self) -> None:
     """The shared object offers each ritual 'Rituals' lists."""

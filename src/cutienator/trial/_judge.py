@@ -150,8 +150,8 @@ class Judge:
     Gives the folder holding the 'cutienator' package.
 
     Found for you, from where this module lies. The Python half is run
-    with this folder on its path, so 'from cutienator import QObject'
-    finds this very cutienator and no other.
+    with this folder on its path, so 'from cutienator.QtCore import
+    QObject' finds this very cutienator and no other.
     """
     here = os.path.dirname(os.path.abspath(__file__))
     return os.path.dirname(os.path.dirname(here))
@@ -275,8 +275,10 @@ class Judge:
         'from __future__ import annotations',
         '',
     ]
+    #  A cute class is in the package named after its part of Qt.
     for className in trial.getClassNames():
-      lines.append('from cutienator import %s' % className)
+      module = self.getQtModule(className)
+      lines.append('from cutienator.%s import %s' % (module, className))
     lines.extend((
         '', '',
         'def word(flag: bool) -> str:',

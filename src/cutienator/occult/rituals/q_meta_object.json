@@ -1,0 +1,96 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qobjectdefs.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QMetaObject9classNameEv": ["chars", "address"],
+    "ritual_ZNK11QMetaObject10superClassEv": ["address", "address"],
+    "ritual_ZNK11QMetaObject8inheritsEPKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QMetaObject4castEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QMetaObject4castEPK7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QMetaObject2trEPKcS1_i": [
+      "text", "address", "chars", "chars", "int"
+    ],
+    "ritual_ZNK11QMetaObject8metaTypeEv": ["address", "address"],
+    "ritual_ZNK11QMetaObject12methodOffsetEv": ["int", "address"],
+    "ritual_ZNK11QMetaObject16enumeratorOffsetEv": ["int", "address"],
+    "ritual_ZNK11QMetaObject14propertyOffsetEv": ["int", "address"],
+    "ritual_ZNK11QMetaObject15classInfoOffsetEv": ["int", "address"],
+    "ritual_ZNK11QMetaObject16constructorCountEv": ["int", "address"],
+    "ritual_ZNK11QMetaObject11methodCountEv": ["int", "address"],
+    "ritual_ZNK11QMetaObject15enumeratorCountEv": ["int", "address"],
+    "ritual_ZNK11QMetaObject13propertyCountEv": ["int", "address"],
+    "ritual_ZNK11QMetaObject14classInfoCountEv": ["int", "address"],
+    "ritual_ZNK11QMetaObject18indexOfConstructorEPKc": [
+      "int", "address", "chars"
+    ],
+    "ritual_ZNK11QMetaObject13indexOfMethodEPKc": [
+      "int", "address", "chars"
+    ],
+    "ritual_ZNK11QMetaObject13indexOfSignalEPKc": [
+      "int", "address", "chars"
+    ],
+    "ritual_ZNK11QMetaObject11indexOfSlotEPKc": ["int", "address", "chars"],
+    "ritual_ZNK11QMetaObject17indexOfEnumeratorEPKc": [
+      "int", "address", "chars"
+    ],
+    "ritual_ZNK11QMetaObject15indexOfPropertyEPKc": [
+      "int", "address", "chars"
+    ],
+    "ritual_ZNK11QMetaObject16indexOfClassInfoEPKc": [
+      "int", "address", "chars"
+    ],
+    "ritual_ZNK11QMetaObject11constructorEi": ["address", "address", "int"],
+    "ritual_ZNK11QMetaObject6methodEi": ["address", "address", "int"],
+    "ritual_ZNK11QMetaObject10enumeratorEi": ["address", "address", "int"],
+    "ritual_ZNK11QMetaObject8propertyEi": ["address", "address", "int"],
+    "ritual_ZNK11QMetaObject9classInfoEi": ["address", "address", "int"],
+    "ritual_ZNK11QMetaObject12userPropertyEv": ["address", "address"],
+    "ritual_ZN11QMetaObject16checkConnectArgsEPKcS1_": [
+      "bool", "chars", "chars"
+    ],
+    "ritual_ZN11QMetaObject16checkConnectArgsERK11QMetaMethodS2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QMetaObject19normalizedSignatureEPKc": ["address", "chars"],
+    "ritual_ZN11QMetaObject14normalizedTypeEPKc": ["address", "chars"],
+    "ritual_ZN11QMetaObject10disconnectEPK7QObjectiS2_i": [
+      "bool", "address", "int", "address", "int"
+    ],
+    "ritual_ZN11QMetaObject13disconnectOneEPK7QObjectiS2_i": [
+      "bool", "address", "int", "address", "int"
+    ],
+    "ritual_ZN11QMetaObject18connectSlotsByNameEP7QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QMetaObject12invokeMethodEP7QObjectPKcN2Qt14ConnectionTypeE22QGenericReturnArgument16QGenericArgumentS7_S7_S7_S7_S7_S7_S7_S7_S7_": [
+      "bool", "address", "chars", "int", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZN11QMetaObject12invokeMethodEP7QObjectPKc22QGenericReturnArgument16QGenericArgumentS5_S5_S5_S5_S5_S5_S5_S5_S5_": [
+      "bool", "address", "chars", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN11QMetaObject12invokeMethodEP7QObjectPKcN2Qt14ConnectionTypeE16QGenericArgumentS6_S6_S6_S6_S6_S6_S6_S6_S6_": [
+      "bool", "address", "chars", "int", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN11QMetaObject12invokeMethodEP7QObjectPKc16QGenericArgumentS4_S4_S4_S4_S4_S4_S4_S4_S4_": [
+      "bool", "address", "chars", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11QMetaObject11newInstanceE16QGenericArgumentS0_S0_S0_S0_S0_S0_S0_S0_S0_": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QMetaObjectD1Ev": ["nothing", "address"]
+  }
+}

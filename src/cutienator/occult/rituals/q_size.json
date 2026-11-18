@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qsize.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5QSizeC1Ev": ["address"],
+    "ritual_ZN5QSizeC1Eii": ["address", "int", "int"],
+    "ritual_ZNK5QSize6isNullEv": ["bool", "address"],
+    "ritual_ZNK5QSize7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK5QSize7isValidEv": ["bool", "address"],
+    "ritual_ZNK5QSize5widthEv": ["int", "address"],
+    "ritual_ZNK5QSize6heightEv": ["int", "address"],
+    "ritual_ZN5QSize8setWidthEi": ["nothing", "address", "int"],
+    "ritual_ZN5QSize9setHeightEi": ["nothing", "address", "int"],
+    "ritual_ZN5QSize9transposeEv": ["nothing", "address"],
+    "ritual_ZNK5QSize10transposedEv": ["address", "address"],
+    "ritual_ZN5QSize5scaleEiiN2Qt15AspectRatioModeE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN5QSize5scaleERKS_N2Qt15AspectRatioModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK5QSize6scaledEiiN2Qt15AspectRatioModeE": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK5QSize6scaledERKS_N2Qt15AspectRatioModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK5QSize10expandedToERKS_": ["address", "address", "address"],
+    "ritual_ZNK5QSize9boundedToERKS_": ["address", "address", "address"],
+    "ritual_ZNK5QSize7grownByE8QMargins": ["address", "address", "address"],
+    "ritual_ZNK5QSize8shrunkByE8QMargins": ["address", "address", "address"],
+    "ritual_ZNK5QSize7toSizeFEv": ["address", "address"],
+    "ritual_ZN5QSizeD1Ev": ["nothing", "address"]
+  }
+}

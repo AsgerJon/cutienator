@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcoreevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QEventC1ENS_4TypeE": ["address", "int"],
+    "ritual_ZN6QEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QEvent4typeEv": ["int", "address"],
+    "ritual_ZNK6QEvent11spontaneousEv": ["bool", "address"],
+    "ritual_ZN6QEvent11setAcceptedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK6QEvent10isAcceptedEv": ["bool", "address"],
+    "ritual_ZN6QEvent6acceptEv": ["nothing", "address"],
+    "ritual_ZN6QEvent6ignoreEv": ["nothing", "address"],
+    "ritual_ZNK6QEvent12isInputEventEv": ["bool", "address"],
+    "ritual_ZNK6QEvent14isPointerEventEv": ["bool", "address"],
+    "ritual_ZNK6QEvent18isSinglePointEventEv": ["bool", "address"],
+    "ritual_ZN6QEvent17registerEventTypeEi": ["int", "int"],
+    "ritual_ZNK6QEvent5cloneEv": ["address", "address"]
+  }
+}

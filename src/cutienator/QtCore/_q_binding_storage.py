@@ -1,30 +1,28 @@
 """
-QMetaObject binding of the Qt C++, so far with one function.
+QBindingStorage binding of the Qt C++, so far in name only.
 """
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
-from ._cute_mixin import CuteMixin
-from ._meta_cute import MetaCute
+from .._cute_mixin import CuteMixin
+from .._meta_cute import MetaCute
 
 
-class QMetaObject(CuteMixin, metaclass=MetaCute):
+class QBindingStorage(CuteMixin, metaclass=MetaCute):
   """
-  The cute side of Qt's QMetaObject, so far with one function. It exists
-  because 'QObject.metaObject()' gives one back, and a cute function can
-  only give back an object of a cute class.
+  The cute side of Qt's QBindingStorage, so far in name only. It
+  exists because 'QObject.bindingStorage()' gives one back, and a cute
+  function can only give back an object of a cute class.
 
-    metaObject = QObject().metaObject()
-    metaObject.className()    # 'QObject'
+    storage = QObject().bindingStorage()   # a QBindingStorage
 
   What exists so far
   ------------------
 
-  - 'className', reflecting the Qt function of the same name through a
-    ritual.
-  - None can be made from Python. One comes out of
-    'QObject.metaObject()'.
+  Nothing of its own: no function of Qt's QBindingStorage is reflected
+  yet, and none can be made from Python. One comes out of
+  'QObject.bindingStorage()' and can be held and compared, no more.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -51,8 +49,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
 
   def _createUglySide(self, ) -> None:
     """
-    Refuses: no ritual makes a C++ QMetaObject yet, so 'QMetaObject()'
-    has nothing to stand for. One is given by 'QObject.metaObject()'.
+    Refuses: no ritual makes a C++ QBindingStorage yet, so
+    'QBindingStorage()' has nothing to stand for. One is given by
+    'QObject.bindingStorage()'.
 
     Raises
     ------
@@ -60,26 +59,10 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     TypeError
       Always.
     """
-    infoSpec = """A 'QMetaObject' cannot be made from Python yet: there
-    is no ritual for its constructor. One is given by
-    'QObject.metaObject()'."""
+    infoSpec = """A 'QBindingStorage' cannot be made from Python yet:
+    there is no ritual for its constructor. One is given by
+    'QObject.bindingStorage()'."""
     raise TypeError(' '.join(infoSpec.split()))
-
-  def className(self) -> str:
-    """
-    Calls Qt's 'const char *QMetaObject::className() const'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qmetaobject.html#className
-
-    Returns
-    -------
-
-    str
-      The text Qt gave back, as 'QObject'.
-    """
-    #  const char *QMetaObject::className() const
-    text = self.uglySide.call('ritual_ZNK11QMetaObject9classNameEv')
-    return text.decode()
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
