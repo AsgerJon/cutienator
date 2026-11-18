@@ -22,6 +22,15 @@ class Windows(System):
   'msvc2022_64' of a Qt installation, and 'clang++' must be one that
   builds for Visual Studio, which needs Visual Studio installed.
 
+  The two must fit together: the C++ library of a Visual Studio refuses
+  a 'clang++' that is too old for it, and says which it wants, as
+  "expected Clang 22 or newer" from Visual Studio 2026. A build then
+  fails with those words. The 'clang++' that the installer of Visual
+  Studio offers always fits, since Microsoft keeps it in step with that
+  library. It lies in 'VC/Tools/Llvm/x64/bin' of the Visual Studio
+  folder, and it is the one used when that folder comes first in
+  'PATH'.
+
   You do not make one: 'System.getHere()' gives it when Python runs on
   Windows, and 'Build', 'Rituals' and the judge of the trials ask it.
 

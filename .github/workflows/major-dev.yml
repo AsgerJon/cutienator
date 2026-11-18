@@ -81,8 +81,10 @@ jobs:
           - { python-version: '3.13', os: macos-latest }
           - { python-version: '3.14', os: macos-latest }
           - { python-version: '3.15', os: macos-latest }
-          # mac on Intel chips.
-          - { python-version: '3.7', os: macos-26-intel }
+          # mac on Intel chips. Python 3.7 runs on the older machine: it
+          # needs OpenSSL 1.1 to fetch anything, and the newer machine no
+          # longer has it, so Python 3.7 cannot be set up there.
+          - { python-version: '3.7', os: macos-15-intel }
           - { python-version: '3.8', os: macos-26-intel }
           - { python-version: '3.9', os: macos-26-intel }
           - { python-version: '3.10', os: macos-26-intel }
@@ -91,7 +93,10 @@ jobs:
           - { python-version: '3.13', os: macos-26-intel }
           - { python-version: '3.14', os: macos-26-intel }
           - { python-version: '3.15', os: macos-26-intel }
-          # Windows.
+          # Windows. While GitHub moves 'windows-latest' from Visual
+          # Studio 2022 to 2026, a row lands on a machine with the one or
+          # with the other. The step 'Use the clang++ of Visual Studio'
+          # is what makes both work.
           - { python-version: '3.7', os: windows-latest }
           - { python-version: '3.8', os: windows-latest }
           - { python-version: '3.9', os: windows-latest }
@@ -136,6 +141,25 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+      # Windows only. Such a machine has two 'clang++': one installed on
+      # its own, which is first in line, and the one that comes with
+      # Visual Studio. Microsoft keeps only the second in step with the
+      # C++ library of that Visual Studio, which refuses a 'clang++'
+      # older than it wants: Visual Studio 2026 refuses the clang 20 that
+      # is first in line on its machine. This step puts the second one
+      # first in line for the steps below, and stops here if it is not
+      # where Visual Studio keeps it.
+      - name: Use the clang++ of Visual Studio
+        if: ${{ runner.os == 'Windows' }}
+        shell: pwsh
+        run: |
+          $installer = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer"
+          $studio = & "$installer\vswhere.exe" -latest -products * -property installationPath
+          $folder = Join-Path $studio 'VC\Tools\Llvm\x64\bin'
+          if (-not (Test-Path (Join-Path $folder 'clang++.exe'))) {
+            throw "Visual Studio has no clang++.exe in '$folder'."
+          }
+          Add-Content -Path $env:GITHUB_PATH -Value $folder
       # Stops here when the Python or the Qt the tests are about to run
       # with is not the one this job names, and shows the compiler that
       # builds the rituals. It names 'bash' so the same lines run on
