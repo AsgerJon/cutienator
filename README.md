@@ -4,7 +4,7 @@
 [![Systems](https://img.shields.io/badge/Systems-Linux_%7C_macOS_%7C_Windows-informational)](#where-it-runs)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-# cutienator v0.0.1-dev1 (development build)
+# cutienator v0.0.1-dev2 (development build)
 A vastly superior binding of Qt C++ to Python. 
 
 # Where It Runs

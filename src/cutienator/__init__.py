@@ -10,7 +10,7 @@ PySide6 has them: 'cutienator.QtCore' so far.
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
-__version__ = '0.0.1-dev1'
+__version__ = '0.0.1-dev2'
 
 from . import cute
 
