@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qcheckbox.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QCheckBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QCheckBox2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QCheckBoxC1EP7QWidget": ["address", "address"],
+    "ritual_ZN9QCheckBoxC1ERK7QStringP7QWidget": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN9QCheckBoxD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QCheckBox8sizeHintEv": ["address", "address"],
+    "ritual_ZNK9QCheckBox15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZN9QCheckBox11setTristateEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QCheckBox10isTristateEv": ["bool", "address"],
+    "ritual_ZNK9QCheckBox10checkStateEv": ["int", "address"],
+    "ritual_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

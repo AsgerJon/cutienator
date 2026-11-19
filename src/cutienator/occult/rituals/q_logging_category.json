@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qloggingcategory.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QLoggingCategoryC1EPKc9QtMsgType": [
+      "address", "chars", "int"
+    ],
+    "ritual_ZN16QLoggingCategoryD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QLoggingCategory9isEnabledE9QtMsgType": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN16QLoggingCategory10setEnabledE9QtMsgTypeb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK16QLoggingCategory14isDebugEnabledEv": ["bool", "address"],
+    "ritual_ZNK16QLoggingCategory13isInfoEnabledEv": ["bool", "address"],
+    "ritual_ZNK16QLoggingCategory16isWarningEnabledEv": ["bool", "address"],
+    "ritual_ZNK16QLoggingCategory17isCriticalEnabledEv": ["bool", "address"],
+    "ritual_ZNK16QLoggingCategory12categoryNameEv": ["chars", "address"],
+    "ritual_ZN16QLoggingCategory15defaultCategoryEv": ["address"],
+    "ritual_ZN16QLoggingCategory14setFilterRulesERK7QString": [
+      "nothing", "text"
+    ]
+  }
+}

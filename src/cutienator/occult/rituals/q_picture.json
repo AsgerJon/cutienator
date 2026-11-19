@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpicture.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QPictureC1Ei": ["address", "int"],
+    "ritual_ZN8QPictureC1ERKS_": ["address", "address"],
+    "ritual_ZN8QPictureD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QPicture6isNullEv": ["bool", "address"],
+    "ritual_ZNK8QPicture7devTypeEv": ["int", "address"],
+    "ritual_ZNK8QPicture4sizeEv": ["unsigned int", "address"],
+    "ritual_ZNK8QPicture4dataEv": ["chars", "address"],
+    "ritual_ZN8QPicture7setDataEPKcj": [
+      "nothing", "address", "chars", "unsigned int"
+    ],
+    "ritual_ZN8QPicture4playEP8QPainter": ["bool", "address", "address"],
+    "ritual_ZN8QPicture4loadEP9QIODevice": ["bool", "address", "address"],
+    "ritual_ZN8QPicture4loadERK7QString": ["bool", "address", "text"],
+    "ritual_ZN8QPicture4saveEP9QIODevice": ["bool", "address", "address"],
+    "ritual_ZN8QPicture4saveERK7QString": ["bool", "address", "text"],
+    "ritual_ZNK8QPicture12boundingRectEv": ["address", "address"],
+    "ritual_ZN8QPicture15setBoundingRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QPicture6detachEv": ["nothing", "address"],
+    "ritual_ZNK8QPicture10isDetachedEv": ["bool", "address"],
+    "ritual_ZNK8QPicture11paintEngineEv": ["address", "address"]
+  }
+}

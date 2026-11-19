@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qrgba64.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7QRgba64C1Ev": ["address"],
+    "ritual_ZN7QRgba6410fromRgba64Ey": ["address", "unsigned long long"],
+    "ritual_ZN7QRgba6410fromRgba64Etttt": [
+      "address", "unsigned short", "unsigned short", "unsigned short",
+      "unsigned short"
+    ],
+    "ritual_ZN7QRgba648fromRgbaEhhhh": [
+      "address", "unsigned char", "unsigned char", "unsigned char",
+      "unsigned char"
+    ],
+    "ritual_ZN7QRgba6410fromArgb32Ej": ["address", "unsigned int"],
+    "ritual_ZNK7QRgba648isOpaqueEv": ["bool", "address"],
+    "ritual_ZNK7QRgba6413isTransparentEv": ["bool", "address"],
+    "ritual_ZNK7QRgba643redEv": ["unsigned short", "address"],
+    "ritual_ZNK7QRgba645greenEv": ["unsigned short", "address"],
+    "ritual_ZNK7QRgba644blueEv": ["unsigned short", "address"],
+    "ritual_ZNK7QRgba645alphaEv": ["unsigned short", "address"],
+    "ritual_ZN7QRgba646setRedEt": ["nothing", "address", "unsigned short"],
+    "ritual_ZN7QRgba648setGreenEt": ["nothing", "address", "unsigned short"],
+    "ritual_ZN7QRgba647setBlueEt": ["nothing", "address", "unsigned short"],
+    "ritual_ZN7QRgba648setAlphaEt": ["nothing", "address", "unsigned short"],
+    "ritual_ZNK7QRgba644red8Ev": ["unsigned char", "address"],
+    "ritual_ZNK7QRgba646green8Ev": ["unsigned char", "address"],
+    "ritual_ZNK7QRgba645blue8Ev": ["unsigned char", "address"],
+    "ritual_ZNK7QRgba646alpha8Ev": ["unsigned char", "address"],
+    "ritual_ZNK7QRgba648toArgb32Ev": ["unsigned int", "address"],
+    "ritual_ZNK7QRgba647toRgb16Ev": ["unsigned short", "address"],
+    "ritual_ZNK7QRgba6413premultipliedEv": ["address", "address"],
+    "ritual_ZNK7QRgba6415unpremultipliedEv": ["address", "address"],
+    "ritual_ZNK7QRgba64cvyEv": ["unsigned long long", "address"],
+    "ritual_ZN7QRgba64D1Ev": ["nothing", "address"]
+  }
+}

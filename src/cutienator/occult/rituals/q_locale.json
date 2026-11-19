@@ -1,0 +1,288 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qlocale.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7QLocaleC1Ev": ["address"],
+    "ritual_ZN7QLocaleC1ERK7QString": ["address", "text"],
+    "ritual_ZN7QLocaleC1E11QStringView": ["address", "text"],
+    "ritual_ZN7QLocaleC1ENS_8LanguageENS_7CountryE": [
+      "address", "unsigned short", "unsigned short"
+    ],
+    "ritual_ZN7QLocaleC1ENS_8LanguageENS_6ScriptENS_7CountryE": [
+      "address", "unsigned short", "unsigned short", "unsigned short"
+    ],
+    "ritual_ZN7QLocaleC1ERKS_": ["address", "address"],
+    "ritual_ZN7QLocaleD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QLocale8languageEv": ["unsigned short", "address"],
+    "ritual_ZNK7QLocale6scriptEv": ["unsigned short", "address"],
+    "ritual_ZNK7QLocale7countryEv": ["unsigned short", "address"],
+    "ritual_ZNK7QLocale4nameENS_12TagSeparatorE": [
+      "text", "address", "char"
+    ],
+    "ritual_ZNK7QLocale9bcp47NameENS_12TagSeparatorE": [
+      "text", "address", "char"
+    ],
+    "ritual_ZNK7QLocale18nativeLanguageNameEv": ["text", "address"],
+    "ritual_ZNK7QLocale19nativeTerritoryNameEv": ["text", "address"],
+    "ritual_ZNK7QLocale17nativeCountryNameEv": ["text", "address"],
+    "ritual_ZNK7QLocale7toShortERK7QStringPb": [
+      "short", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale8toUShortERK7QStringPb": [
+      "unsigned short", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale5toIntERK7QStringPb": [
+      "int", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale6toUIntERK7QStringPb": [
+      "unsigned int", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale6toLongERK7QStringPb": [
+      "long", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale7toULongERK7QStringPb": [
+      "unsigned long", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale10toLongLongERK7QStringPb": [
+      "long long", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale11toULongLongERK7QStringPb": [
+      "unsigned long long", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale7toFloatERK7QStringPb": [
+      "float", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale8toDoubleERK7QStringPb": [
+      "double", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale7toShortE11QStringViewPb": [
+      "short", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale8toUShortE11QStringViewPb": [
+      "unsigned short", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale5toIntE11QStringViewPb": [
+      "int", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale6toUIntE11QStringViewPb": [
+      "unsigned int", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale6toLongE11QStringViewPb": [
+      "long", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale7toULongE11QStringViewPb": [
+      "unsigned long", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale10toLongLongE11QStringViewPb": [
+      "long long", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale11toULongLongE11QStringViewPb": [
+      "unsigned long long", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale7toFloatE11QStringViewPb": [
+      "float", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale8toDoubleE11QStringViewPb": [
+      "double", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale8toStringEx": ["text", "address", "long long"],
+    "ritual_ZNK7QLocale8toStringEy": [
+      "text", "address", "unsigned long long"
+    ],
+    "ritual_ZNK7QLocale8toStringEl": ["text", "address", "long"],
+    "ritual_ZNK7QLocale8toStringEm": ["text", "address", "unsigned long"],
+    "ritual_ZNK7QLocale8toStringEs": ["text", "address", "short"],
+    "ritual_ZNK7QLocale8toStringEt": ["text", "address", "unsigned short"],
+    "ritual_ZNK7QLocale8toStringEi": ["text", "address", "int"],
+    "ritual_ZNK7QLocale8toStringEj": ["text", "address", "unsigned int"],
+    "ritual_ZNK7QLocale8toStringEdci": [
+      "text", "address", "double", "char", "int"
+    ],
+    "ritual_ZNK7QLocale8toStringEfci": [
+      "text", "address", "float", "char", "int"
+    ],
+    "ritual_ZNK7QLocale8toStringE5QDateRK7QString": [
+      "text", "address", "address", "text"
+    ],
+    "ritual_ZNK7QLocale8toStringE5QTimeRK7QString": [
+      "text", "address", "address", "text"
+    ],
+    "ritual_ZNK7QLocale8toStringERK9QDateTimeRK7QString": [
+      "text", "address", "address", "text"
+    ],
+    "ritual_ZNK7QLocale8toStringE5QDate11QStringView": [
+      "text", "address", "address", "text"
+    ],
+    "ritual_ZNK7QLocale8toStringE5QTime11QStringView": [
+      "text", "address", "address", "text"
+    ],
+    "ritual_ZNK7QLocale8toStringERK9QDateTime11QStringView": [
+      "text", "address", "address", "text"
+    ],
+    "ritual_ZNK7QLocale8toStringE5QDateNS_10FormatTypeE": [
+      "text", "address", "address", "int"
+    ],
+    "ritual_ZNK7QLocale8toStringE5QTimeNS_10FormatTypeE": [
+      "text", "address", "address", "int"
+    ],
+    "ritual_ZNK7QLocale8toStringERK9QDateTimeNS_10FormatTypeE": [
+      "text", "address", "address", "int"
+    ],
+    "ritual_ZNK7QLocale8toStringE5QDate11QStringView9QCalendar": [
+      "text", "address", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale8toStringE5QDateNS_10FormatTypeE9QCalendar": [
+      "text", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK7QLocale8toStringERK9QDateTimeNS_10FormatTypeE9QCalendar": [
+      "text", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK7QLocale8toStringERK9QDateTime11QStringView9QCalendar": [
+      "text", "address", "address", "text", "address"
+    ],
+    "ritual_ZNK7QLocale10dateFormatENS_10FormatTypeE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK7QLocale10timeFormatENS_10FormatTypeE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK7QLocale14dateTimeFormatENS_10FormatTypeE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK7QLocale6toTimeERK7QStringNS_10FormatTypeE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZNK7QLocale6toTimeERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZNK7QLocale6toDateERK7QStringNS_10FormatTypeEi": [
+      "address", "address", "text", "int", "int"
+    ],
+    "ritual_ZNK7QLocale6toDateERK7QStringS2_i": [
+      "address", "address", "text", "text", "int"
+    ],
+    "ritual_ZNK7QLocale10toDateTimeERK7QStringNS_10FormatTypeEi": [
+      "address", "address", "text", "int", "int"
+    ],
+    "ritual_ZNK7QLocale10toDateTimeERK7QStringS2_i": [
+      "address", "address", "text", "text", "int"
+    ],
+    "ritual_ZNK7QLocale6toDateERK7QStringNS_10FormatTypeE9QCalendari": [
+      "address", "address", "text", "int", "address", "int"
+    ],
+    "ritual_ZNK7QLocale6toDateERK7QStringS2_9QCalendari": [
+      "address", "address", "text", "text", "address", "int"
+    ],
+    "ritual_ZNK7QLocale10toDateTimeERK7QStringNS_10FormatTypeE9QCalendari": [
+      "address", "address", "text", "int", "address", "int"
+    ],
+    "ritual_ZNK7QLocale10toDateTimeERK7QStringS2_9QCalendari": [
+      "address", "address", "text", "text", "address", "int"
+    ],
+    "ritual_ZNK7QLocale12decimalPointEv": ["text", "address"],
+    "ritual_ZNK7QLocale14groupSeparatorEv": ["text", "address"],
+    "ritual_ZNK7QLocale7percentEv": ["text", "address"],
+    "ritual_ZNK7QLocale9zeroDigitEv": ["text", "address"],
+    "ritual_ZNK7QLocale12negativeSignEv": ["text", "address"],
+    "ritual_ZNK7QLocale12positiveSignEv": ["text", "address"],
+    "ritual_ZNK7QLocale11exponentialEv": ["text", "address"],
+    "ritual_ZNK7QLocale9monthNameEiNS_10FormatTypeE": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK7QLocale19standaloneMonthNameEiNS_10FormatTypeE": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK7QLocale7dayNameEiNS_10FormatTypeE": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK7QLocale17standaloneDayNameEiNS_10FormatTypeE": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK7QLocale14firstDayOfWeekEv": ["int", "address"],
+    "ritual_ZNK7QLocale6amTextEv": ["text", "address"],
+    "ritual_ZNK7QLocale6pmTextEv": ["text", "address"],
+    "ritual_ZNK7QLocale17measurementSystemEv": ["int", "address"],
+    "ritual_ZNK7QLocale9collationEv": ["address", "address"],
+    "ritual_ZNK7QLocale13textDirectionEv": ["int", "address"],
+    "ritual_ZNK7QLocale7toUpperERK7QString": ["text", "address", "text"],
+    "ritual_ZNK7QLocale7toLowerERK7QString": ["text", "address", "text"],
+    "ritual_ZNK7QLocale14currencySymbolENS_20CurrencySymbolFormatE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK7QLocale16toCurrencyStringExRK7QString": [
+      "text", "address", "long long", "text"
+    ],
+    "ritual_ZNK7QLocale16toCurrencyStringEyRK7QString": [
+      "text", "address", "unsigned long long", "text"
+    ],
+    "ritual_ZNK7QLocale16toCurrencyStringEsRK7QString": [
+      "text", "address", "short", "text"
+    ],
+    "ritual_ZNK7QLocale16toCurrencyStringEtRK7QString": [
+      "text", "address", "unsigned short", "text"
+    ],
+    "ritual_ZNK7QLocale16toCurrencyStringEiRK7QString": [
+      "text", "address", "int", "text"
+    ],
+    "ritual_ZNK7QLocale16toCurrencyStringEjRK7QString": [
+      "text", "address", "unsigned int", "text"
+    ],
+    "ritual_ZNK7QLocale16toCurrencyStringEdRK7QStringi": [
+      "text", "address", "double", "text", "int"
+    ],
+    "ritual_ZNK7QLocale16toCurrencyStringEfRK7QStringi": [
+      "text", "address", "float", "text", "int"
+    ],
+    "ritual_ZNK7QLocale17formattedDataSizeExi6QFlagsINS_14DataSizeFormatEE": [
+      "text", "address", "long long", "int", "int"
+    ],
+    "ritual_ZN7QLocale14languageToCodeENS_8LanguageE6QFlagsINS_16LanguageCodeTypeEE": [
+      "text", "unsigned short", "int"
+    ],
+    "ritual_ZN7QLocale14codeToLanguageE11QStringView6QFlagsINS_16LanguageCodeTypeEE": [
+      "unsigned short", "text", "int"
+    ],
+    "ritual_ZN7QLocale15territoryToCodeENS_7CountryE": [
+      "text", "unsigned short"
+    ],
+    "ritual_ZN7QLocale13countryToCodeENS_7CountryE": [
+      "text", "unsigned short"
+    ],
+    "ritual_ZN7QLocale13codeToCountryE11QStringView": [
+      "unsigned short", "text"
+    ],
+    "ritual_ZN7QLocale12scriptToCodeENS_6ScriptE": [
+      "text", "unsigned short"
+    ],
+    "ritual_ZN7QLocale12codeToScriptE11QStringView": [
+      "unsigned short", "text"
+    ],
+    "ritual_ZN7QLocale16languageToStringENS_8LanguageE": [
+      "text", "unsigned short"
+    ],
+    "ritual_ZN7QLocale17territoryToStringENS_7CountryE": [
+      "text", "unsigned short"
+    ],
+    "ritual_ZN7QLocale15countryToStringENS_7CountryE": [
+      "text", "unsigned short"
+    ],
+    "ritual_ZN7QLocale14scriptToStringENS_6ScriptE": [
+      "text", "unsigned short"
+    ],
+    "ritual_ZN7QLocale10setDefaultERKS_": ["nothing", "address"],
+    "ritual_ZN7QLocale1cEv": ["address"],
+    "ritual_ZN7QLocale6systemEv": ["address"],
+    "ritual_ZN7QLocale16setNumberOptionsE6QFlagsINS_12NumberOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QLocale13numberOptionsEv": ["int", "address"],
+    "ritual_ZNK7QLocale11quoteStringERK7QStringNS_14QuotationStyleE": [
+      "text", "address", "text", "int"
+    ],
+    "ritual_ZNK7QLocale11quoteStringE11QStringViewNS_14QuotationStyleE": [
+      "text", "address", "text", "int"
+    ]
+  }
+}

@@ -443,6 +443,57 @@ qsizetype ritual_ZNK7QString5countERK18QRegularExpression(
   return self->count(*re);
 }
 
+//  QString QString::section(QChar sep, qsizetype start, qsizetype end,
+//      SectionFlags flags) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QString7sectionE5QCharxx6QFlagsINS_11SectionFlagEE(
+    const QString *self,
+    const QChar *sep,
+    qsizetype start,
+    qsizetype end,
+    int flags) {
+  return new QString(
+      self->section(
+          *sep,
+          start,
+          end,
+          QFlags<QString::SectionFlag>::fromInt(flags)));
+}
+
+//  QString QString::section(const QString &in_sep, qsizetype start,
+//      qsizetype end, SectionFlags flags) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QString7sectionERKS_xx6QFlagsINS_11SectionFlagEE(
+    const QString *self,
+    const QString *in_sep,
+    qsizetype start,
+    qsizetype end,
+    int flags) {
+  return new QString(
+      self->section(
+          *in_sep,
+          start,
+          end,
+          QFlags<QString::SectionFlag>::fromInt(flags)));
+}
+
+//  QString QString::section(const QRegularExpression &re, qsizetype start,
+//      qsizetype end, SectionFlags flags) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QString7sectionERK18QRegularExpressionxx6QFlagsINS_11SectionFlagEE(
+    const QString *self,
+    const QRegularExpression *re,
+    qsizetype start,
+    qsizetype end,
+    int flags) {
+  return new QString(
+      self->section(
+          *re,
+          start,
+          end,
+          QFlags<QString::SectionFlag>::fromInt(flags)));
+}
+
 //  QString QString::left(qsizetype n) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNKR7QString4leftEx(const QString *self, qsizetype n) {
@@ -850,6 +901,81 @@ int ritual_ZN7QString18localeAwareCompareE11QStringViewS0_(
     const QString *s1,
     const QString *s2) {
   return QString::localeAwareCompare(QStringView(*s1), QStringView(*s2));
+}
+
+//  short QString::toShort(bool *ok, int base) const
+extern "C" Q_DECL_EXPORT
+short ritual_ZNK7QString7toShortEPbi(
+    const QString *self,
+    bool *ok,
+    int base) {
+  return self->toShort(ok, base);
+}
+
+//  ushort QString::toUShort(bool *ok, int base) const
+extern "C" Q_DECL_EXPORT
+ushort ritual_ZNK7QString8toUShortEPbi(
+    const QString *self,
+    bool *ok,
+    int base) {
+  return self->toUShort(ok, base);
+}
+
+//  int QString::toInt(bool *ok, int base) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK7QString5toIntEPbi(const QString *self, bool *ok, int base) {
+  return self->toInt(ok, base);
+}
+
+//  uint QString::toUInt(bool *ok, int base) const
+extern "C" Q_DECL_EXPORT
+uint ritual_ZNK7QString6toUIntEPbi(const QString *self, bool *ok, int base) {
+  return self->toUInt(ok, base);
+}
+
+//  long QString::toLong(bool *ok, int base) const
+extern "C" Q_DECL_EXPORT
+long ritual_ZNK7QString6toLongEPbi(const QString *self, bool *ok, int base) {
+  return self->toLong(ok, base);
+}
+
+//  ulong QString::toULong(bool *ok, int base) const
+extern "C" Q_DECL_EXPORT
+ulong ritual_ZNK7QString7toULongEPbi(
+    const QString *self,
+    bool *ok,
+    int base) {
+  return self->toULong(ok, base);
+}
+
+//  qlonglong QString::toLongLong(bool *ok, int base) const
+extern "C" Q_DECL_EXPORT
+qlonglong ritual_ZNK7QString10toLongLongEPbi(
+    const QString *self,
+    bool *ok,
+    int base) {
+  return self->toLongLong(ok, base);
+}
+
+//  qulonglong QString::toULongLong(bool *ok, int base) const
+extern "C" Q_DECL_EXPORT
+qulonglong ritual_ZNK7QString11toULongLongEPbi(
+    const QString *self,
+    bool *ok,
+    int base) {
+  return self->toULongLong(ok, base);
+}
+
+//  float QString::toFloat(bool *ok) const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK7QString7toFloatEPb(const QString *self, bool *ok) {
+  return self->toFloat(ok);
+}
+
+//  double QString::toDouble(bool *ok) const
+extern "C" Q_DECL_EXPORT
+double ritual_ZNK7QString8toDoubleEPb(const QString *self, bool *ok) {
+  return self->toDouble(ok);
 }
 
 //  QString QString::number(int a0, int base)

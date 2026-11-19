@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpdfwriter.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QPdfWriter10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QPdfWriter2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QPdfWriterC1ERK7QString": ["address", "text"],
+    "ritual_ZN10QPdfWriterC1EP9QIODevice": ["address", "address"],
+    "ritual_ZN10QPdfWriterD1Ev": ["nothing", "address"],
+    "ritual_ZN10QPdfWriter13setPdfVersionEN17QPagedPaintDevice10PdfVersionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QPdfWriter10pdfVersionEv": ["int", "address"],
+    "ritual_ZNK10QPdfWriter5titleEv": ["text", "address"],
+    "ritual_ZN10QPdfWriter8setTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10QPdfWriter7creatorEv": ["text", "address"],
+    "ritual_ZN10QPdfWriter10setCreatorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10QPdfWriter10documentIdEv": ["address", "address"],
+    "ritual_ZN10QPdfWriter13setDocumentIdE5QUuid": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QPdfWriter6authorEv": ["text", "address"],
+    "ritual_ZN10QPdfWriter9setAuthorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QPdfWriter7newPageEv": ["bool", "address"],
+    "ritual_ZN10QPdfWriter13setResolutionEi": ["nothing", "address", "int"],
+    "ritual_ZNK10QPdfWriter10resolutionEv": ["int", "address"],
+    "ritual_ZN10QPdfWriter22setDocumentXmpMetadataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QPdfWriter19documentXmpMetadataEv": ["address", "address"],
+    "ritual_ZN10QPdfWriter17addFileAttachmentERK7QStringRK10QByteArrayS2_": [
+      "nothing", "address", "text", "address", "text"
+    ],
+    "ritual_ZNK10QPdfWriter10colorModelEv": ["int", "address"],
+    "ritual_ZN10QPdfWriter13setColorModelENS_10ColorModelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QPdfWriter12outputIntentEv": ["address", "address"],
+    "ritual_ZN10QPdfWriter15setOutputIntentERK16QPdfOutputIntent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

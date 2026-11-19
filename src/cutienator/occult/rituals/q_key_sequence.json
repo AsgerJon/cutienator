@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qkeysequence.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QKeySequenceC1Ev": ["address"],
+    "ritual_ZN12QKeySequenceC1ERK7QStringNS_14SequenceFormatE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN12QKeySequenceC1Eiiii": [
+      "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN12QKeySequenceC1E15QKeyCombinationS0_S0_S0_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QKeySequenceC1ERKS_": ["address", "address"],
+    "ritual_ZN12QKeySequenceC1ENS_11StandardKeyE": ["address", "int"],
+    "ritual_ZN12QKeySequenceD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QKeySequence5countEv": ["int", "address"],
+    "ritual_ZNK12QKeySequence7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK12QKeySequence8toStringENS_14SequenceFormatE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN12QKeySequence10fromStringERK7QStringNS_14SequenceFormatE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZNK12QKeySequence7matchesERKS_": ["int", "address", "address"],
+    "ritual_ZN12QKeySequence8mnemonicERK7QString": ["address", "text"],
+    "ritual_ZNK12QKeySequencecv8QVariantEv": ["address", "address"],
+    "ritual_ZNK12QKeySequenceixEj": ["address", "address", "unsigned int"],
+    "ritual_ZNK12QKeySequenceeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QKeySequenceneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QKeySequenceltERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QKeySequencegtERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QKeySequenceleERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QKeySequencegeERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QKeySequence10isDetachedEv": ["bool", "address"]
+  }
+}

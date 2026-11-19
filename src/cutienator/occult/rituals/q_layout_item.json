@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qlayoutitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QLayoutItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QLayoutItem8sizeHintEv": ["address", "address"],
+    "ritual_ZNK11QLayoutItem11minimumSizeEv": ["address", "address"],
+    "ritual_ZNK11QLayoutItem11maximumSizeEv": ["address", "address"],
+    "ritual_ZNK11QLayoutItem19expandingDirectionsEv": ["int", "address"],
+    "ritual_ZN11QLayoutItem11setGeometryERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QLayoutItem8geometryEv": ["address", "address"],
+    "ritual_ZNK11QLayoutItem7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK11QLayoutItem17hasHeightForWidthEv": ["bool", "address"],
+    "ritual_ZNK11QLayoutItem14heightForWidthEi": ["int", "address", "int"],
+    "ritual_ZNK11QLayoutItem21minimumHeightForWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN11QLayoutItem10invalidateEv": ["nothing", "address"],
+    "ritual_ZNK11QLayoutItem6widgetEv": ["address", "address"],
+    "ritual_ZN11QLayoutItem6layoutEv": ["address", "address"],
+    "ritual_ZN11QLayoutItem10spacerItemEv": ["address", "address"],
+    "ritual_ZNK11QLayoutItem9alignmentEv": ["int", "address"],
+    "ritual_ZN11QLayoutItem12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QLayoutItem12controlTypesEv": ["int", "address"]
+  }
+}

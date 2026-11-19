@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qfontmetrics.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QFontMetricsFC1ERK5QFont": ["address", "address"],
+    "ritual_ZN13QFontMetricsFC1ERK5QFontPK12QPaintDevice": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QFontMetricsFC1ERK12QFontMetrics": ["address", "address"],
+    "ritual_ZN13QFontMetricsFC1ERKS_": ["address", "address"],
+    "ritual_ZN13QFontMetricsFD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QFontMetricsF6ascentEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF9capHeightEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF7descentEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF6heightEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF7leadingEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF11lineSpacingEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF14minLeftBearingEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF15minRightBearingEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF8maxWidthEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF7xHeightEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF16averageCharWidthEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF6inFontE5QChar": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK13QFontMetricsF10inFontUcs4Ej": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK13QFontMetricsF11leftBearingE5QChar": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK13QFontMetricsF12rightBearingE5QChar": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK13QFontMetricsF17horizontalAdvanceERK7QStringi": [
+      "double", "address", "text", "int"
+    ],
+    "ritual_ZNK13QFontMetricsF17horizontalAdvanceE5QChar": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK13QFontMetricsF17horizontalAdvanceERK7QStringRK11QTextOption": [
+      "double", "address", "text", "address"
+    ],
+    "ritual_ZNK13QFontMetricsF12boundingRectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13QFontMetricsF12boundingRectERK7QStringRK11QTextOption": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK13QFontMetricsF12boundingRectE5QChar": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QFontMetricsF12boundingRectERK6QRectFiRK7QStringiPi": [
+      "address", "address", "address", "int", "text", "int", "address"
+    ],
+    "ritual_ZNK13QFontMetricsF4sizeEiRK7QStringiPi": [
+      "address", "address", "int", "text", "int", "address"
+    ],
+    "ritual_ZNK13QFontMetricsF17tightBoundingRectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13QFontMetricsF17tightBoundingRectERK7QStringRK11QTextOption": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK13QFontMetricsF10elidedTextERK7QStringN2Qt13TextElideModeEdi": [
+      "text", "address", "text", "int", "double", "int"
+    ],
+    "ritual_ZNK13QFontMetricsF12underlinePosEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF11overlinePosEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF12strikeOutPosEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF9lineWidthEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsF7fontDpiEv": ["double", "address"],
+    "ritual_ZNK13QFontMetricsFeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK13QFontMetricsFneERKS_": ["bool", "address", "address"]
+  }
+}

@@ -7,6 +7,7 @@ cute Python representations out of the ugly and occult cpp items.
 from __future__ import annotations
 
 from ._door_number import DoorNumber
+from ._short_name_meta import ShortNameMeta
 from ._cute_flags_hook import CuteFlagsHook
 from ._cute_flags_space import CuteFlagsSpace
 from ._meta_cute_flags import MetaCuteFlags
@@ -24,6 +25,7 @@ from ._cute_mixin import CuteMixin
 
 __all__ = (
     'DoorNumber',
+    'ShortNameMeta',
     'CuteFlagsHook',
     'CuteFlagsSpace',
     'MetaCuteFlags',

@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qline.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QLineFC1Ev": ["address"],
+    "ritual_ZN6QLineFC1ERK7QPointFS2_": ["address", "address", "address"],
+    "ritual_ZN6QLineFC1Edddd": [
+      "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN6QLineFC1ERK5QLine": ["address", "address"],
+    "ritual_ZN6QLineF9fromPolarEdd": ["address", "double", "double"],
+    "ritual_ZNK6QLineF6isNullEv": ["bool", "address"],
+    "ritual_ZNK6QLineF2p1Ev": ["address", "address"],
+    "ritual_ZNK6QLineF2p2Ev": ["address", "address"],
+    "ritual_ZNK6QLineF2x1Ev": ["double", "address"],
+    "ritual_ZNK6QLineF2y1Ev": ["double", "address"],
+    "ritual_ZNK6QLineF2x2Ev": ["double", "address"],
+    "ritual_ZNK6QLineF2y2Ev": ["double", "address"],
+    "ritual_ZNK6QLineF2dxEv": ["double", "address"],
+    "ritual_ZNK6QLineF2dyEv": ["double", "address"],
+    "ritual_ZNK6QLineF6lengthEv": ["double", "address"],
+    "ritual_ZN6QLineF9setLengthEd": ["nothing", "address", "double"],
+    "ritual_ZNK6QLineF5angleEv": ["double", "address"],
+    "ritual_ZN6QLineF8setAngleEd": ["nothing", "address", "double"],
+    "ritual_ZNK6QLineF7angleToERKS_": ["double", "address", "address"],
+    "ritual_ZNK6QLineF10unitVectorEv": ["address", "address"],
+    "ritual_ZNK6QLineF12normalVectorEv": ["address", "address"],
+    "ritual_ZNK6QLineF10intersectsERKS_P7QPointF": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZNK6QLineF7pointAtEd": ["address", "address", "double"],
+    "ritual_ZN6QLineF9translateERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QLineF9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK6QLineF10translatedERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK6QLineF10translatedEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK6QLineF6centerEv": ["address", "address"],
+    "ritual_ZN6QLineF5setP1ERK7QPointF": ["nothing", "address", "address"],
+    "ritual_ZN6QLineF5setP2ERK7QPointF": ["nothing", "address", "address"],
+    "ritual_ZN6QLineF9setPointsERK7QPointFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN6QLineF7setLineEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK6QLineF6toLineEv": ["address", "address"],
+    "ritual_ZN6QLineFD1Ev": ["nothing", "address"]
+  }
+}

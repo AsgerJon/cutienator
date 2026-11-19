@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qactiongroup.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QActionGroup10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QActionGroup2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QActionGroupC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QActionGroupD1Ev": ["nothing", "address"],
+    "ritual_ZN12QActionGroup9addActionEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QActionGroup9addActionERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QActionGroup9addActionERK5QIconRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN12QActionGroup12removeActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QActionGroup13checkedActionEv": ["address", "address"],
+    "ritual_ZNK12QActionGroup11isExclusiveEv": ["bool", "address"],
+    "ritual_ZNK12QActionGroup9isEnabledEv": ["bool", "address"],
+    "ritual_ZNK12QActionGroup9isVisibleEv": ["bool", "address"],
+    "ritual_ZNK12QActionGroup15exclusionPolicyEv": ["int", "address"],
+    "ritual_ZN12QActionGroup10setEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QActionGroup11setDisabledEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QActionGroup10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QActionGroup12setExclusiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QActionGroup18setExclusionPolicyENS_15ExclusionPolicyE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

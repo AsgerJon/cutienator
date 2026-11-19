@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qline.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5QLineC1Ev": ["address"],
+    "ritual_ZN5QLineC1ERK6QPointS2_": ["address", "address", "address"],
+    "ritual_ZN5QLineC1Eiiii": ["address", "int", "int", "int", "int"],
+    "ritual_ZNK5QLine6isNullEv": ["bool", "address"],
+    "ritual_ZNK5QLine2p1Ev": ["address", "address"],
+    "ritual_ZNK5QLine2p2Ev": ["address", "address"],
+    "ritual_ZNK5QLine2x1Ev": ["int", "address"],
+    "ritual_ZNK5QLine2y1Ev": ["int", "address"],
+    "ritual_ZNK5QLine2x2Ev": ["int", "address"],
+    "ritual_ZNK5QLine2y2Ev": ["int", "address"],
+    "ritual_ZNK5QLine2dxEv": ["int", "address"],
+    "ritual_ZNK5QLine2dyEv": ["int", "address"],
+    "ritual_ZN5QLine9translateERK6QPoint": ["nothing", "address", "address"],
+    "ritual_ZN5QLine9translateEii": ["nothing", "address", "int", "int"],
+    "ritual_ZNK5QLine10translatedERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK5QLine10translatedEii": ["address", "address", "int", "int"],
+    "ritual_ZNK5QLine6centerEv": ["address", "address"],
+    "ritual_ZN5QLine5setP1ERK6QPoint": ["nothing", "address", "address"],
+    "ritual_ZN5QLine5setP2ERK6QPoint": ["nothing", "address", "address"],
+    "ritual_ZN5QLine9setPointsERK6QPointS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN5QLine7setLineEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK5QLine7toLineFEv": ["address", "address"],
+    "ritual_ZN5QLineD1Ev": ["nothing", "address"]
+  }
+}

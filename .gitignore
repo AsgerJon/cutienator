@@ -232,3 +232,5 @@ __marimo__/
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/pyProjectModel.xml
 /.idea/vcs.xml
+# What the compiler makes of each ritual file, kept between builds
+src/cutienator/occult/rituals/objects/

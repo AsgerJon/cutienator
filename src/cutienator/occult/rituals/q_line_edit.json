@@ -1,0 +1,131 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qlineedit.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QLineEdit10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QLineEdit2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QLineEditC1EP7QWidget": ["address", "address"],
+    "ritual_ZN9QLineEditC1ERK7QStringP7QWidget": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN9QLineEditD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QLineEdit4textEv": ["text", "address"],
+    "ritual_ZNK9QLineEdit11displayTextEv": ["text", "address"],
+    "ritual_ZNK9QLineEdit15placeholderTextEv": ["text", "address"],
+    "ritual_ZN9QLineEdit18setPlaceholderTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QLineEdit9maxLengthEv": ["int", "address"],
+    "ritual_ZN9QLineEdit12setMaxLengthEi": ["nothing", "address", "int"],
+    "ritual_ZN9QLineEdit8setFrameEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QLineEdit8hasFrameEv": ["bool", "address"],
+    "ritual_ZN9QLineEdit21setClearButtonEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QLineEdit20isClearButtonEnabledEv": ["bool", "address"],
+    "ritual_ZNK9QLineEdit8echoModeEv": ["int", "address"],
+    "ritual_ZN9QLineEdit11setEchoModeENS_8EchoModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QLineEdit10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZN9QLineEdit11setReadOnlyEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QLineEdit12setValidatorEPK10QValidator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QLineEdit9validatorEv": ["address", "address"],
+    "ritual_ZN9QLineEdit12setCompleterEP10QCompleter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QLineEdit9completerEv": ["address", "address"],
+    "ritual_ZNK9QLineEdit8sizeHintEv": ["address", "address"],
+    "ritual_ZNK9QLineEdit15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZNK9QLineEdit14cursorPositionEv": ["int", "address"],
+    "ritual_ZN9QLineEdit17setCursorPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QLineEdit16cursorPositionAtERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QLineEdit9alignmentEv": ["int", "address"],
+    "ritual_ZN9QLineEdit13cursorForwardEbi": [
+      "nothing", "address", "bool", "int"
+    ],
+    "ritual_ZN9QLineEdit14cursorBackwardEbi": [
+      "nothing", "address", "bool", "int"
+    ],
+    "ritual_ZN9QLineEdit17cursorWordForwardEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9QLineEdit18cursorWordBackwardEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9QLineEdit9backspaceEv": ["nothing", "address"],
+    "ritual_ZN9QLineEdit3delEv": ["nothing", "address"],
+    "ritual_ZN9QLineEdit4homeEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QLineEdit3endEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QLineEdit10isModifiedEv": ["bool", "address"],
+    "ritual_ZN9QLineEdit11setModifiedEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QLineEdit12setSelectionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK9QLineEdit15hasSelectedTextEv": ["bool", "address"],
+    "ritual_ZNK9QLineEdit12selectedTextEv": ["text", "address"],
+    "ritual_ZNK9QLineEdit14selectionStartEv": ["int", "address"],
+    "ritual_ZNK9QLineEdit12selectionEndEv": ["int", "address"],
+    "ritual_ZNK9QLineEdit15selectionLengthEv": ["int", "address"],
+    "ritual_ZNK9QLineEdit15isUndoAvailableEv": ["bool", "address"],
+    "ritual_ZNK9QLineEdit15isRedoAvailableEv": ["bool", "address"],
+    "ritual_ZN9QLineEdit14setDragEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QLineEdit11dragEnabledEv": ["bool", "address"],
+    "ritual_ZN9QLineEdit18setCursorMoveStyleEN2Qt15CursorMoveStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QLineEdit15cursorMoveStyleEv": ["int", "address"],
+    "ritual_ZNK9QLineEdit9inputMaskEv": ["text", "address"],
+    "ritual_ZN9QLineEdit12setInputMaskERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QLineEdit18hasAcceptableInputEv": ["bool", "address"],
+    "ritual_ZN9QLineEdit14setTextMarginsEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN9QLineEdit14setTextMarginsERK8QMargins": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QLineEdit11textMarginsEv": ["address", "address"],
+    "ritual_ZN9QLineEdit9addActionEP7QActionNS_14ActionPositionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN9QLineEdit9addActionERK5QIconNS_14ActionPositionE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN9QLineEdit7setTextERK7QString": ["nothing", "address", "text"],
+    "ritual_ZN9QLineEdit5clearEv": ["nothing", "address"],
+    "ritual_ZN9QLineEdit9selectAllEv": ["nothing", "address"],
+    "ritual_ZN9QLineEdit4undoEv": ["nothing", "address"],
+    "ritual_ZN9QLineEdit4redoEv": ["nothing", "address"],
+    "ritual_ZN9QLineEdit3cutEv": ["nothing", "address"],
+    "ritual_ZNK9QLineEdit4copyEv": ["nothing", "address"],
+    "ritual_ZN9QLineEdit5pasteEv": ["nothing", "address"],
+    "ritual_ZN9QLineEdit8deselectEv": ["nothing", "address"],
+    "ritual_ZN9QLineEdit6insertERK7QString": ["nothing", "address", "text"],
+    "ritual_ZN9QLineEdit25createStandardContextMenuEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QLineEdit16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK9QLineEdit16inputMethodQueryEN2Qt16InputMethodQueryE8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN9QLineEdit10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit5eventEP6QEvent": ["bool", "address", "address"]
+  }
+}

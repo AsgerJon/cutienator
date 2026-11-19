@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qabstractscrollarea.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QAbstractScrollArea10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QAbstractScrollArea2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QAbstractScrollAreaC1EP7QWidget": ["address", "address"],
+    "ritual_ZN19QAbstractScrollAreaD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QAbstractScrollArea23verticalScrollBarPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea26setVerticalScrollBarPolicyEN2Qt15ScrollBarPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QAbstractScrollArea17verticalScrollBarEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea20setVerticalScrollBarEP10QScrollBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractScrollArea25horizontalScrollBarPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea28setHorizontalScrollBarPolicyEN2Qt15ScrollBarPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QAbstractScrollArea19horizontalScrollBarEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea22setHorizontalScrollBarEP10QScrollBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractScrollArea12cornerWidgetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea15setCornerWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea18addScrollBarWidgetEP7QWidget6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK19QAbstractScrollArea8viewportEv": ["address", "address"],
+    "ritual_ZN19QAbstractScrollArea11setViewportEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractScrollArea19maximumViewportSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QAbstractScrollArea15minimumSizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QAbstractScrollArea8sizeHintEv": ["address", "address"],
+    "ritual_ZN19QAbstractScrollArea13setupViewportEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractScrollArea16sizeAdjustPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea19setSizeAdjustPolicyENS_16SizeAdjustPolicyE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

@@ -253,13 +253,10 @@ class TestDoor(BaseTest):
       DoorModel.getNamespace().setCuteClass(DoorModel)
 
   def test_a_member_into_a_real_function_of_qt(self) -> None:
-    """'QSize.scaled' takes the mode as a number in Qt."""
+    """'QSize.setWidth' takes a number in Qt."""
     size = QSize(4, 2)
-    byNumber = size.scaled(10, 10, 1)
-    byMember = size.scaled(10, 10, AspectRatioMode.KeepAspectRatio)
-    self.assertEqual(byMember.width(), byNumber.width())
-    self.assertEqual(byMember.height(), byNumber.height())
-    self.assertEqual((byMember.width(), byMember.height()), (10, 5))
+    size.setWidth(ItemDataRole.EditRole)
+    self.assertEqual((size.width(), size.height()), (2, 2))
 
   def test_a_member_into_a_real_static_function_of_qt(self) -> None:
     """'QObject.tr' takes its count as a number in Qt."""

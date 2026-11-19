@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qfiledevice.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QFileDevice10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QFileDevice2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QFileDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QFileDevice5errorEv": ["int", "address"],
+    "ritual_ZN11QFileDevice10unsetErrorEv": ["nothing", "address"],
+    "ritual_ZN11QFileDevice5closeEv": ["nothing", "address"],
+    "ritual_ZNK11QFileDevice12isSequentialEv": ["bool", "address"],
+    "ritual_ZNK11QFileDevice6handleEv": ["int", "address"],
+    "ritual_ZNK11QFileDevice8fileNameEv": ["text", "address"],
+    "ritual_ZNK11QFileDevice3posEv": ["long long", "address"],
+    "ritual_ZN11QFileDevice4seekEx": ["bool", "address", "long long"],
+    "ritual_ZNK11QFileDevice5atEndEv": ["bool", "address"],
+    "ritual_ZN11QFileDevice5flushEv": ["bool", "address"],
+    "ritual_ZNK11QFileDevice4sizeEv": ["long long", "address"],
+    "ritual_ZN11QFileDevice6resizeEx": ["bool", "address", "long long"],
+    "ritual_ZNK11QFileDevice11permissionsEv": ["int", "address"],
+    "ritual_ZN11QFileDevice14setPermissionsE6QFlagsINS_10PermissionEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN11QFileDevice5unmapEPh": ["bool", "address", "address"],
+    "ritual_ZNK11QFileDevice8fileTimeENS_8FileTimeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QFileDevice11setFileTimeERK9QDateTimeNS_8FileTimeE": [
+      "bool", "address", "address", "int"
+    ]
+  }
+}

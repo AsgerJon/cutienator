@@ -1,0 +1,87 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qlistwidget.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QListWidgetItemC1EP11QListWidgeti": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QListWidgetItemC1ERK7QStringP11QListWidgeti": [
+      "address", "text", "address", "int"
+    ],
+    "ritual_ZN15QListWidgetItemC1ERK5QIconRK7QStringP11QListWidgeti": [
+      "address", "address", "text", "address", "int"
+    ],
+    "ritual_ZN15QListWidgetItemC1ERKS_": ["address", "address"],
+    "ritual_ZN15QListWidgetItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QListWidgetItem5cloneEv": ["address", "address"],
+    "ritual_ZNK15QListWidgetItem10listWidgetEv": ["address", "address"],
+    "ritual_ZN15QListWidgetItem11setSelectedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QListWidgetItem10isSelectedEv": ["bool", "address"],
+    "ritual_ZN15QListWidgetItem9setHiddenEb": ["nothing", "address", "bool"],
+    "ritual_ZNK15QListWidgetItem8isHiddenEv": ["bool", "address"],
+    "ritual_ZNK15QListWidgetItem5flagsEv": ["int", "address"],
+    "ritual_ZN15QListWidgetItem8setFlagsE6QFlagsIN2Qt8ItemFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QListWidgetItem4textEv": ["text", "address"],
+    "ritual_ZN15QListWidgetItem7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QListWidgetItem4iconEv": ["address", "address"],
+    "ritual_ZN15QListWidgetItem7setIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QListWidgetItem9statusTipEv": ["text", "address"],
+    "ritual_ZN15QListWidgetItem12setStatusTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QListWidgetItem7toolTipEv": ["text", "address"],
+    "ritual_ZN15QListWidgetItem10setToolTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QListWidgetItem9whatsThisEv": ["text", "address"],
+    "ritual_ZN15QListWidgetItem12setWhatsThisERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QListWidgetItem4fontEv": ["address", "address"],
+    "ritual_ZN15QListWidgetItem7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QListWidgetItem13textAlignmentEv": ["int", "address"],
+    "ritual_ZN15QListWidgetItem16setTextAlignmentEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QListWidgetItem16setTextAlignmentEN2Qt13AlignmentFlagE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QListWidgetItem16setTextAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QListWidgetItem10backgroundEv": ["address", "address"],
+    "ritual_ZN15QListWidgetItem13setBackgroundERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QListWidgetItem10foregroundEv": ["address", "address"],
+    "ritual_ZN15QListWidgetItem13setForegroundERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QListWidgetItem10checkStateEv": ["int", "address"],
+    "ritual_ZN15QListWidgetItem13setCheckStateEN2Qt10CheckStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QListWidgetItem8sizeHintEv": ["address", "address"],
+    "ritual_ZN15QListWidgetItem11setSizeHintERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QListWidgetItem4dataEi": ["address", "address", "int"],
+    "ritual_ZN15QListWidgetItem7setDataEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QListWidgetItemltERKS_": ["bool", "address", "address"],
+    "ritual_ZNK15QListWidgetItem4typeEv": ["int", "address"]
+  }
+}

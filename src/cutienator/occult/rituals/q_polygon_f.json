@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpolygon.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QPolygonFC1Ev": ["address"],
+    "ritual_ZN9QPolygonFC1ERK6QRectF": ["address", "address"],
+    "ritual_ZN9QPolygonFC1ERK8QPolygon": ["address", "address"],
+    "ritual_ZNK9QPolygonFcv8QVariantEv": ["address", "address"],
+    "ritual_ZN9QPolygonF9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN9QPolygonF9translateERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QPolygonF10translatedEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK9QPolygonF10translatedERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QPolygonF9toPolygonEv": ["address", "address"],
+    "ritual_ZNK9QPolygonF8isClosedEv": ["bool", "address"],
+    "ritual_ZNK9QPolygonF12boundingRectEv": ["address", "address"],
+    "ritual_ZNK9QPolygonF13containsPointERK7QPointFN2Qt8FillRuleE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK9QPolygonF6unitedERKS_": ["address", "address", "address"],
+    "ritual_ZNK9QPolygonF11intersectedERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QPolygonF10subtractedERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QPolygonF10intersectsERKS_": ["bool", "address", "address"],
+    "ritual_ZN9QPolygonFD1Ev": ["nothing", "address"]
+  }
+}

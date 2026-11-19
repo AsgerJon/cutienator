@@ -1,0 +1,137 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qtreewidget.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QTreeWidgetItemC1Ei": ["address", "int"],
+    "ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgeti": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgetPS_i": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN15QTreeWidgetItemC1EPS_i": ["address", "address", "int"],
+    "ritual_ZN15QTreeWidgetItemC1EPS_S0_i": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN15QTreeWidgetItemC1ERKS_": ["address", "address"],
+    "ritual_ZN15QTreeWidgetItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QTreeWidgetItem5cloneEv": ["address", "address"],
+    "ritual_ZNK15QTreeWidgetItem10treeWidgetEv": ["address", "address"],
+    "ritual_ZN15QTreeWidgetItem11setSelectedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QTreeWidgetItem10isSelectedEv": ["bool", "address"],
+    "ritual_ZN15QTreeWidgetItem9setHiddenEb": ["nothing", "address", "bool"],
+    "ritual_ZNK15QTreeWidgetItem8isHiddenEv": ["bool", "address"],
+    "ritual_ZN15QTreeWidgetItem11setExpandedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QTreeWidgetItem10isExpandedEv": ["bool", "address"],
+    "ritual_ZN15QTreeWidgetItem21setFirstColumnSpannedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QTreeWidgetItem20isFirstColumnSpannedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QTreeWidgetItem11setDisabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QTreeWidgetItem10isDisabledEv": ["bool", "address"],
+    "ritual_ZN15QTreeWidgetItem23setChildIndicatorPolicyENS_20ChildIndicatorPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTreeWidgetItem20childIndicatorPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK15QTreeWidgetItem5flagsEv": ["int", "address"],
+    "ritual_ZN15QTreeWidgetItem8setFlagsE6QFlagsIN2Qt8ItemFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTreeWidgetItem4textEi": ["text", "address", "int"],
+    "ritual_ZN15QTreeWidgetItem7setTextEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK15QTreeWidgetItem4iconEi": ["address", "address", "int"],
+    "ritual_ZN15QTreeWidgetItem7setIconEiRK5QIcon": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QTreeWidgetItem9statusTipEi": ["text", "address", "int"],
+    "ritual_ZN15QTreeWidgetItem12setStatusTipEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK15QTreeWidgetItem7toolTipEi": ["text", "address", "int"],
+    "ritual_ZN15QTreeWidgetItem10setToolTipEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK15QTreeWidgetItem9whatsThisEi": ["text", "address", "int"],
+    "ritual_ZN15QTreeWidgetItem12setWhatsThisEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK15QTreeWidgetItem4fontEi": ["address", "address", "int"],
+    "ritual_ZN15QTreeWidgetItem7setFontEiRK5QFont": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QTreeWidgetItem13textAlignmentEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN15QTreeWidgetItem16setTextAlignmentEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QTreeWidgetItem16setTextAlignmentEiN2Qt13AlignmentFlagE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QTreeWidgetItem16setTextAlignmentEi6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK15QTreeWidgetItem10backgroundEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QTreeWidgetItem13setBackgroundEiRK6QBrush": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QTreeWidgetItem10foregroundEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QTreeWidgetItem13setForegroundEiRK6QBrush": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QTreeWidgetItem10checkStateEi": ["int", "address", "int"],
+    "ritual_ZN15QTreeWidgetItem13setCheckStateEiN2Qt10CheckStateE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK15QTreeWidgetItem8sizeHintEi": ["address", "address", "int"],
+    "ritual_ZN15QTreeWidgetItem11setSizeHintEiRK5QSize": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QTreeWidgetItem4dataEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN15QTreeWidgetItem7setDataEiiRK8QVariant": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK15QTreeWidgetItemltERKS_": ["bool", "address", "address"],
+    "ritual_ZNK15QTreeWidgetItem6parentEv": ["address", "address"],
+    "ritual_ZNK15QTreeWidgetItem5childEi": ["address", "address", "int"],
+    "ritual_ZNK15QTreeWidgetItem10childCountEv": ["int", "address"],
+    "ritual_ZNK15QTreeWidgetItem11columnCountEv": ["int", "address"],
+    "ritual_ZNK15QTreeWidgetItem12indexOfChildEPS_": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN15QTreeWidgetItem8addChildEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QTreeWidgetItem11insertChildEiPS_": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QTreeWidgetItem11removeChildEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QTreeWidgetItem9takeChildEi": ["address", "address", "int"],
+    "ritual_ZNK15QTreeWidgetItem4typeEv": ["int", "address"],
+    "ritual_ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ]
+  }
+}

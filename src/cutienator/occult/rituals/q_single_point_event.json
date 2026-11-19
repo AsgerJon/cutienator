@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QSinglePointEvent5cloneEv": ["address", "address"],
+    "ritual_ZN17QSinglePointEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QSinglePointEvent6buttonEv": ["int", "address"],
+    "ritual_ZNK17QSinglePointEvent7buttonsEv": ["int", "address"],
+    "ritual_ZNK17QSinglePointEvent8positionEv": ["address", "address"],
+    "ritual_ZNK17QSinglePointEvent13scenePositionEv": ["address", "address"],
+    "ritual_ZNK17QSinglePointEvent14globalPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QSinglePointEvent12isBeginEventEv": ["bool", "address"],
+    "ritual_ZNK17QSinglePointEvent13isUpdateEventEv": ["bool", "address"],
+    "ritual_ZNK17QSinglePointEvent10isEndEventEv": ["bool", "address"],
+    "ritual_ZNK17QSinglePointEvent21exclusivePointGrabberEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSinglePointEvent24setExclusivePointGrabberEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -3,6 +3,8 @@ QSize binding of the Qt C++
 """
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of QtCore/qsize.h,
+#  Qt 6.12.0. Changes made here are lost.
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
@@ -10,81 +12,58 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from cutienator.cute._cute_mixin import CuteMixin
-from cutienator.cute._meta_cute import MetaCute
-from cutienator.occult._ugly import Ugly
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-
-if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional, Tuple
+from ._qt import Qt
+from ._q_margins import QMargins
 
 
 class QSize(CuteMixin, metaclass=MetaCute):
   """
-  The cute side of Qt's QSize: a plain Python object standing in front
-  of one C++ QSize, which holds a width and a height.
+  The cute side of Qt's QSize: a plain Python object standing in front of one
+  C++ QSize.
 
-    size = QSize(3, 4)
-    size.width()                           # 3
-    wide = size.expandedTo(QSize(5, 1))    # a new QSize
-    wide.width(), wide.height()            # 5, 4
-
-  This is the first value class written out from its ritual file. It is
-  written by hand, in the shape a program is meant to write the others
-  in.
-
-  What a value class is
-  ---------------------
-
-  C++ hands a QSize around as a copy, where it hands a QObject around
-  by its address. So every C++ QSize behind a cute QSize is Python's
-  own: nothing in C++ knows of it.
-
-  - 'QSize(3, 4)' makes one.
-  - A function giving a QSize back, as 'expandedTo', gives a copy the
-    ritual made for Python, in a new cute QSize.
-  - A function taking a QSize, as 'expandedTo' again, is handed the
-    address of Python's own, which Qt reads and copies if it keeps it.
-  - When the cute QSize goes, its C++ QSize is removed, by the ritual
-    named in '__delete_ritual__' below. As the program ends nothing is
-    removed.
+  C++ hands a QSize around as a copy, so every C++ QSize behind a cute one is
+  Python's own: it is removed, by the ritual named in '__delete_ritual__',
+  when the cute object goes.
 
   What exists
   -----------
 
-  Every function of Qt's QSize that has a ritual and takes and gives
-  nothing but numbers and QSize, 13 names in all: 'isNull', 'isEmpty',
-  'isValid', 'width', 'height', 'setWidth', 'setHeight', 'transpose',
-  'transposed', 'scale', 'scaled', 'expandedTo' and 'boundedTo'.
-  Creation takes a width and a height, or nothing.
+  Every function of Qt's QSize that has a ritual and that Python can call so
+  far, 16 names in all: 'isNull', 'isEmpty', 'isValid', 'width', 'height',
+  'setWidth', 'setHeight', 'transpose', 'transposed', 'scale', 'scaled',
+  'expandedTo', 'boundedTo', 'grownBy', 'shrunkBy', 'toSizeF'. It can be made
+  from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'grownBy(QMargins m)' and 'shrunkBy(QMargins m)'. They take a
-    QMargins, which has no cute class yet.
-  - Qt's 'toSizeF()'. It gives a QSizeF, which has no cute class yet.
-  - Qt's '~QSize()'. Python removes its C++ QSize by it, and has no
-    other use for it.
+  - Qt's 'QSize::~QSize()': the destructor: Python removes its C++ QSize by
+    it, and has no other use for it.
 
-  What has no ritual yet
-  ----------------------
+  What has no ritual
+  ------------------
 
-  7 of the 27 functions Qt declares: 'rwidth' and 'rheight', which give
-  the number itself to be changed in place, and '+=', '-=', '*=' and
-  '/=', which give the QSize itself back. Comparing two with '==' and
-  adding two with '+' are no functions of the class in Qt, and are not
-  there either.
+  7 of the 28 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 1 private.
 
   What to expect
   --------------
 
-  - The C++ QSize is created at the first use, not by 'QSize(3, 4)'.
-  - An enum of Qt is taken as its number: 'scaled(5, 5, 1)' is Qt's
-    'Qt::KeepAspectRatio'.
-  - A wrong argument is refused in Python, with 'DispatchException',
-    and never reaches C++.
+  - The C++ QSize is created at the first use, not by 'QSize(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - A function giving a QSize back gives a copy the ritual made for Python,
+    in a new cute QSize.
   """
+
+  #  The cute classes made after this one that its functions take or give;
+  #  see 'WAIT'.
+  QSizeF = WAIT['QSizeF']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -95,16 +74,16 @@ class QSize(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
-  #  Qt's '~QSize()'. Naming it makes this a value class: Python owns
-  #  every C++ QSize behind a cute one, and removes it by this ritual.
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QSize'
+
+  #  Qt's '~QSize()'. Naming it makes this a value class: Python owns every
+  #  C++ QSize behind a cute one, and removes it by this ritual.
   __delete_ritual__ = 'ritual_ZN5QSizeD1Ev'
 
   #  Fallback Variables
 
   #  Private Variables
-  #  The width and the height given to the constructor, kept until the
-  #  C++ object is created. None when nothing was given.
-  __given_size__: Optional[Tuple[int, int]] = None
 
   #  Public Variables
 
@@ -113,26 +92,6 @@ class QSize(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-  def _createUglySide(self, ) -> None:
-    """
-    Creates the C++ QSize and the Ugly standing for it, which removes
-    the C++ QSize when it goes itself.
-
-    'CuteMixin' calls this at the first read of 'uglySide'. The C++
-    QSize is created with what was given to 'QSize(...)'.
-    """
-    if self.__given_size__ is None:
-      #  QSize::QSize()
-      address = Rituals.call('ritual_ZN5QSizeC1Ev')
-    else:
-      #  QSize::QSize(int w, int h)
-      address = Rituals.call('ritual_ZN5QSizeC1Eii', *self.__given_size__)
-    ugly = Ugly()
-    ugly.setAddress(address)
-    ugly.setDeleteRitual(self.__delete_ritual__)
-    ugly.setCuteSide(self)
-    self.__ugly_side__ = ugly
 
   def isNull(self) -> bool:
     """
@@ -195,11 +154,11 @@ class QSize(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK5QSize10transposedEv')
     return QSize._cuteOwning(address)
 
-  @overload(int, int, int)
-  def scaled(self, w: int, h: int, mode: int) -> QSize:
+  @overload(int, int, Qt.AspectRatioMode)
+  def scaled(self, w: int, h: int, mode: Qt.AspectRatioMode) -> QSize:
     """
-    Calls Qt's 'QSize QSize::scaled(int w, int h, Qt::AspectRatioMode
-    mode) const'.
+    Calls Qt's 'QSize QSize::scaled(int w, int h, Qt::AspectRatioMode mode)
+    const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qsize.html#scaled
 
@@ -212,9 +171,8 @@ class QSize(CuteMixin, metaclass=MetaCute):
     h : int
       Passed on as it is.
 
-    mode : int
-      The number of a 'Qt::AspectRatioMode', as 1 for
-      'Qt::KeepAspectRatio'. Passed on as it is.
+    mode : Qt.AspectRatioMode
+      Passed on as its number.
 
     Returns
     -------
@@ -224,15 +182,15 @@ class QSize(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QSize::scaled(int w, int h, Qt::AspectRatioMode mode) const
     address = self.uglySide.call(
-        'ritual_ZNK5QSize6scaledEiiN2Qt15AspectRatioModeE', w, h, mode,
+        'ritual_ZNK5QSize6scaledEiiN2Qt15AspectRatioModeE', w, h, mode.value,
     )
     return QSize._cuteOwning(address)
 
-  @overload(THIS, int)
-  def scaled(self, s: QSize, mode: int) -> QSize:
+  @overload(THIS, Qt.AspectRatioMode)
+  def scaled(self, s: QSize, mode: Qt.AspectRatioMode) -> QSize:
     """
-    Calls Qt's 'QSize QSize::scaled(const QSize &s, Qt::AspectRatioMode
-    mode) const'.
+    Calls Qt's 'QSize QSize::scaled(const QSize &s, Qt::AspectRatioMode mode)
+    const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qsize.html#scaled
 
@@ -240,12 +198,10 @@ class QSize(CuteMixin, metaclass=MetaCute):
     ----------
 
     s : QSize
-      Passed on as a value: Qt reads the C++ QSize, which stays
-      Python's own.
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
 
-    mode : int
-      The number of a 'Qt::AspectRatioMode', as 1 for
-      'Qt::KeepAspectRatio'. Passed on as it is.
+    mode : Qt.AspectRatioMode
+      Passed on as its number.
 
     Returns
     -------
@@ -256,23 +212,22 @@ class QSize(CuteMixin, metaclass=MetaCute):
     #  QSize QSize::scaled(const QSize &s, Qt::AspectRatioMode mode) const
     address = self.uglySide.call(
         'ritual_ZNK5QSize6scaledERKS_N2Qt15AspectRatioModeE',
-        self._valueOf(s), mode,
+        self._valueOf(s), mode.value,
     )
     return QSize._cuteOwning(address)
 
   @overload(THIS)
-  def expandedTo(self, otherSize: QSize) -> QSize:
+  def expandedTo(self, a0: QSize) -> QSize:
     """
-    Calls Qt's 'QSize QSize::expandedTo(const QSize &) const'.
+    Calls Qt's 'QSize QSize::expandedTo(const QSize &a0) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qsize.html#expandedTo
 
     Parameters
     ----------
 
-    otherSize : QSize
-      Passed on as a value: Qt reads the C++ QSize, which stays
-      Python's own.
+    a0 : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
 
     Returns
     -------
@@ -280,25 +235,24 @@ class QSize(CuteMixin, metaclass=MetaCute):
     QSize
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
-    #  QSize QSize::expandedTo(const QSize &) const
+    #  QSize QSize::expandedTo(const QSize &a0) const
     address = self.uglySide.call(
-        'ritual_ZNK5QSize10expandedToERKS_', self._valueOf(otherSize),
+        'ritual_ZNK5QSize10expandedToERKS_', self._valueOf(a0),
     )
     return QSize._cuteOwning(address)
 
   @overload(THIS)
-  def boundedTo(self, otherSize: QSize) -> QSize:
+  def boundedTo(self, a0: QSize) -> QSize:
     """
-    Calls Qt's 'QSize QSize::boundedTo(const QSize &) const'.
+    Calls Qt's 'QSize QSize::boundedTo(const QSize &a0) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qsize.html#boundedTo
 
     Parameters
     ----------
 
-    otherSize : QSize
-      Passed on as a value: Qt reads the C++ QSize, which stays
-      Python's own.
+    a0 : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
 
     Returns
     -------
@@ -306,11 +260,79 @@ class QSize(CuteMixin, metaclass=MetaCute):
     QSize
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
-    #  QSize QSize::boundedTo(const QSize &) const
+    #  QSize QSize::boundedTo(const QSize &a0) const
     address = self.uglySide.call(
-        'ritual_ZNK5QSize9boundedToERKS_', self._valueOf(otherSize),
+        'ritual_ZNK5QSize9boundedToERKS_', self._valueOf(a0),
     )
     return QSize._cuteOwning(address)
+
+  @overload(QMargins)
+  def grownBy(self, m: QMargins) -> QSize:
+    """
+    Calls Qt's 'QSize QSize::grownBy(QMargins m) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#grownBy
+
+    Parameters
+    ----------
+
+    m : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QSize::grownBy(QMargins m) const
+    address = self.uglySide.call(
+        'ritual_ZNK5QSize7grownByE8QMargins', self._valueOf(m),
+    )
+    return QSize._cuteOwning(address)
+
+  @overload(QMargins)
+  def shrunkBy(self, m: QMargins) -> QSize:
+    """
+    Calls Qt's 'QSize QSize::shrunkBy(QMargins m) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#shrunkBy
+
+    Parameters
+    ----------
+
+    m : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QSize::shrunkBy(QMargins m) const
+    address = self.uglySide.call(
+        'ritual_ZNK5QSize8shrunkByE8QMargins', self._valueOf(m),
+    )
+    return QSize._cuteOwning(address)
+
+  def toSizeF(self) -> QSizeF:
+    """
+    Calls Qt's 'QSizeF QSize::toSizeF() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#toSizeF
+
+    Returns
+    -------
+
+    QSizeF
+      A new cute QSizeF around the copy Qt gave back. Python owns it.
+    """
+    #  QSizeF QSize::toSizeF() const
+    address = self.uglySide.call('ritual_ZNK5QSize7toSizeFEv')
+    return self.QSizeF._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -363,18 +385,19 @@ class QSize(CuteMixin, metaclass=MetaCute):
   @overload()
   def __init__(self) -> None:
     """
-    Notes that nothing was given, for Qt's 'QSize::QSize()', which is
-    called at the first use and makes a QSize that is not valid.
+    Notes what was given, for Qt's 'QSize::QSize()', which is called at the
+    first use.
 
     Qt's own words: https://doc.qt.io/qt-6/qsize.html#QSize
     """
-    self.__given_size__ = None
+    #  QSize::QSize()
+    self._noteCreation(QSize, lambda: Rituals.call('ritual_ZN5QSizeC1Ev'))
 
   @overload(int, int)
   def __init__(self, w: int, h: int) -> None:
     """
-    Notes the width and the height for Qt's 'QSize::QSize(int w, int
-    h)', which is called at the first use.
+    Notes what was given, for Qt's 'QSize::QSize(int w, int h)', which is
+    called at the first use.
 
     Qt's own words: https://doc.qt.io/qt-6/qsize.html#QSize
 
@@ -387,7 +410,10 @@ class QSize(CuteMixin, metaclass=MetaCute):
     h : int
       Passed on as it is.
     """
-    self.__given_size__ = (w, h)
+    #  QSize::QSize(int w, int h)
+    self._noteCreation(QSize, lambda: Rituals.call(
+        'ritual_ZN5QSizeC1Eii', w, h,
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -418,11 +444,10 @@ class QSize(CuteMixin, metaclass=MetaCute):
     #  void QSize::transpose()
     self.uglySide.call('ritual_ZN5QSize9transposeEv')
 
-  @overload(int, int, int)
-  def scale(self, w: int, h: int, mode: int) -> None:
+  @overload(int, int, Qt.AspectRatioMode)
+  def scale(self, w: int, h: int, mode: Qt.AspectRatioMode) -> None:
     """
-    Calls Qt's 'void QSize::scale(int w, int h, Qt::AspectRatioMode
-    mode)'.
+    Calls Qt's 'void QSize::scale(int w, int h, Qt::AspectRatioMode mode)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qsize.html#scale
 
@@ -435,20 +460,18 @@ class QSize(CuteMixin, metaclass=MetaCute):
     h : int
       Passed on as it is.
 
-    mode : int
-      The number of a 'Qt::AspectRatioMode', as 1 for
-      'Qt::KeepAspectRatio'. Passed on as it is.
+    mode : Qt.AspectRatioMode
+      Passed on as its number.
     """
     #  void QSize::scale(int w, int h, Qt::AspectRatioMode mode)
     self.uglySide.call(
-        'ritual_ZN5QSize5scaleEiiN2Qt15AspectRatioModeE', w, h, mode,
+        'ritual_ZN5QSize5scaleEiiN2Qt15AspectRatioModeE', w, h, mode.value,
     )
 
-  @overload(THIS, int)
-  def scale(self, s: QSize, mode: int) -> None:
+  @overload(THIS, Qt.AspectRatioMode)
+  def scale(self, s: QSize, mode: Qt.AspectRatioMode) -> None:
     """
-    Calls Qt's 'void QSize::scale(const QSize &s, Qt::AspectRatioMode
-    mode)'.
+    Calls Qt's 'void QSize::scale(const QSize &s, Qt::AspectRatioMode mode)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qsize.html#scale
 
@@ -456,15 +479,13 @@ class QSize(CuteMixin, metaclass=MetaCute):
     ----------
 
     s : QSize
-      Passed on as a value: Qt reads the C++ QSize, which stays
-      Python's own.
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
 
-    mode : int
-      The number of a 'Qt::AspectRatioMode', as 1 for
-      'Qt::KeepAspectRatio'. Passed on as it is.
+    mode : Qt.AspectRatioMode
+      Passed on as its number.
     """
     #  void QSize::scale(const QSize &s, Qt::AspectRatioMode mode)
     self.uglySide.call(
         'ritual_ZN5QSize5scaleERKS_N2Qt15AspectRatioModeE',
-        self._valueOf(s), mode,
+        self._valueOf(s), mode.value,
     )

@@ -10,13 +10,13 @@ from typing import TYPE_CHECKING
 from worktoy.keenum import KeeMeta, Kee
 from worktoy.waitaminute.keenum import KeeResolveError
 
-from . import CuteNumSpace
+from . import CuteNumSpace, ShortNameMeta
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, Optional
 
 
-class Cute(KeeMeta):
+class Cute(ShortNameMeta, KeeMeta):
   """
   The 'KeeMeta' of worktoy, taught the two things Qt needs of an enum
   that worktoy refuses. You never use it by name: an enum of Qt is
@@ -37,6 +37,8 @@ class Cute(KeeMeta):
     'Key_Dead_A'. A name is found as it is written first. In another
     case it is still found where one name fits, as worktoy has it, and
     refused where two fit.
+  - The names of an enum are names of the class that holds the enum
+    as well, as 'QEvent.Timer'; see 'ShortNameMeta'.
   - A number Qt gave no name. Qt hands whole ranges of numbers to the
     programmer: 'QEvent.Type(1001)' is the type of an event of your
     own. Calling an enum with such a number gives a member without a
@@ -61,6 +63,13 @@ class Cute(KeeMeta):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def getShortNames(cls) -> dict:
+    """
+    Gives each name Qt wrote in the enum with its member, in the order
+    written.
+    """
+    return {member.name: member for member in cls}
 
   def isNameless(cls, member: Any) -> bool:
     """

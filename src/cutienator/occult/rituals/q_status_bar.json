@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qstatusbar.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QStatusBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QStatusBar2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QStatusBarC1EP7QWidget": ["address", "address"],
+    "ritual_ZN10QStatusBarD1Ev": ["nothing", "address"],
+    "ritual_ZN10QStatusBar9addWidgetEP7QWidgeti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN10QStatusBar12insertWidgetEiP7QWidgeti": [
+      "int", "address", "int", "address", "int"
+    ],
+    "ritual_ZN10QStatusBar18addPermanentWidgetEP7QWidgeti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN10QStatusBar21insertPermanentWidgetEiP7QWidgeti": [
+      "int", "address", "int", "address", "int"
+    ],
+    "ritual_ZN10QStatusBar12removeWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QStatusBar18setSizeGripEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK10QStatusBar17isSizeGripEnabledEv": ["bool", "address"],
+    "ritual_ZNK10QStatusBar14currentMessageEv": ["text", "address"],
+    "ritual_ZN10QStatusBar11showMessageERK7QStringi": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN10QStatusBar12clearMessageEv": ["nothing", "address"]
+  }
+}

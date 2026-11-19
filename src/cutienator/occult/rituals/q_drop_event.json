@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QDropEvent5cloneEv": ["address", "address"],
+    "ritual_ZN10QDropEventD1Ev": ["nothing", "address"],
+    "ritual_ZN10QDropEventC1ERK7QPointF6QFlagsIN2Qt10DropActionEEPK9QMimeDataS3_INS4_11MouseButtonEES3_INS4_16KeyboardModifierEEN6QEvent4TypeE": [
+      "address", "address", "int", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK10QDropEvent3posEv": ["address", "address"],
+    "ritual_ZNK10QDropEvent4posFEv": ["address", "address"],
+    "ritual_ZNK10QDropEvent12mouseButtonsEv": ["int", "address"],
+    "ritual_ZNK10QDropEvent17keyboardModifiersEv": ["int", "address"],
+    "ritual_ZNK10QDropEvent8positionEv": ["address", "address"],
+    "ritual_ZNK10QDropEvent7buttonsEv": ["int", "address"],
+    "ritual_ZNK10QDropEvent9modifiersEv": ["int", "address"],
+    "ritual_ZNK10QDropEvent15possibleActionsEv": ["int", "address"],
+    "ritual_ZNK10QDropEvent14proposedActionEv": ["int", "address"],
+    "ritual_ZN10QDropEvent20acceptProposedActionEv": ["nothing", "address"],
+    "ritual_ZNK10QDropEvent10dropActionEv": ["int", "address"],
+    "ritual_ZN10QDropEvent13setDropActionEN2Qt10DropActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QDropEvent6sourceEv": ["address", "address"],
+    "ritual_ZNK10QDropEvent8mimeDataEv": ["address", "address"]
+  }
+}

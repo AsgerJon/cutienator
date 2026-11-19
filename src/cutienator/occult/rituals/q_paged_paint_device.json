@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpagedpaintdevice.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QPagedPaintDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZN17QPagedPaintDevice7newPageEv": ["bool", "address"],
+    "ritual_ZN17QPagedPaintDevice13setPageLayoutERK11QPageLayout": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QPagedPaintDevice11setPageSizeERK9QPageSize": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QPagedPaintDevice18setPageOrientationEN11QPageLayout11OrientationE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN17QPagedPaintDevice14setPageMarginsERK9QMarginsFN11QPageLayout4UnitE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK17QPagedPaintDevice10pageLayoutEv": ["address", "address"],
+    "ritual_ZN17QPagedPaintDevice13setPageRangesERK11QPageRanges": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QPagedPaintDevice10pageRangesEv": ["address", "address"]
+  }
+}

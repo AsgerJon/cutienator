@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qvectornd.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QVector3DC1Ev": ["address"],
+    "ritual_ZN9QVector3DC1EN2Qt14InitializationE": ["address", "int"],
+    "ritual_ZN9QVector3DC1Efff": ["address", "float", "float", "float"],
+    "ritual_ZN9QVector3DC1E6QPoint": ["address", "address"],
+    "ritual_ZN9QVector3DC1E7QPointF": ["address", "address"],
+    "ritual_ZN9QVector3DC1E9QVector2D": ["address", "address"],
+    "ritual_ZN9QVector3DC1E9QVector2Df": ["address", "address", "float"],
+    "ritual_ZN9QVector3DC1E9QVector4D": ["address", "address"],
+    "ritual_ZNK9QVector3D6isNullEv": ["bool", "address"],
+    "ritual_ZNK9QVector3D1xEv": ["float", "address"],
+    "ritual_ZNK9QVector3D1yEv": ["float", "address"],
+    "ritual_ZNK9QVector3D1zEv": ["float", "address"],
+    "ritual_ZN9QVector3D4setXEf": ["nothing", "address", "float"],
+    "ritual_ZN9QVector3D4setYEf": ["nothing", "address", "float"],
+    "ritual_ZN9QVector3D4setZEf": ["nothing", "address", "float"],
+    "ritual_ZNK9QVector3DixEi": ["float", "address", "int"],
+    "ritual_ZNK9QVector3D6lengthEv": ["float", "address"],
+    "ritual_ZNK9QVector3D13lengthSquaredEv": ["float", "address"],
+    "ritual_ZNK9QVector3D10normalizedEv": ["address", "address"],
+    "ritual_ZN9QVector3D9normalizeEv": ["nothing", "address"],
+    "ritual_ZN9QVector3D10dotProductES_S_": ["float", "address", "address"],
+    "ritual_ZN9QVector3D12crossProductES_S_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QVector3D6normalES_S_": ["address", "address", "address"],
+    "ritual_ZN9QVector3D6normalES_S_S_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK9QVector3D7projectERK10QMatrix4x4S2_RK5QRect": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK9QVector3D9unprojectERK10QMatrix4x4S2_RK5QRect": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK9QVector3D15distanceToPointES_": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK9QVector3D15distanceToPlaneES_S_": [
+      "float", "address", "address", "address"
+    ],
+    "ritual_ZNK9QVector3D15distanceToPlaneES_S_S_": [
+      "float", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK9QVector3D14distanceToLineES_S_": [
+      "float", "address", "address", "address"
+    ],
+    "ritual_ZNK9QVector3D10toVector2DEv": ["address", "address"],
+    "ritual_ZNK9QVector3D10toVector4DEv": ["address", "address"],
+    "ritual_ZNK9QVector3D7toPointEv": ["address", "address"],
+    "ritual_ZNK9QVector3D8toPointFEv": ["address", "address"],
+    "ritual_ZNK9QVector3Dcv8QVariantEv": ["address", "address"],
+    "ritual_ZN9QVector3DD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qrect.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5QRectC1Ev": ["address"],
+    "ritual_ZN5QRectC1ERK6QPointS2_": ["address", "address", "address"],
+    "ritual_ZN5QRectC1ERK6QPointRK5QSize": ["address", "address", "address"],
+    "ritual_ZN5QRectC1Eiiii": ["address", "int", "int", "int", "int"],
+    "ritual_ZNK5QRect6isNullEv": ["bool", "address"],
+    "ritual_ZNK5QRect7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK5QRect7isValidEv": ["bool", "address"],
+    "ritual_ZNK5QRect4leftEv": ["int", "address"],
+    "ritual_ZNK5QRect3topEv": ["int", "address"],
+    "ritual_ZNK5QRect5rightEv": ["int", "address"],
+    "ritual_ZNK5QRect6bottomEv": ["int", "address"],
+    "ritual_ZNK5QRect10normalizedEv": ["address", "address"],
+    "ritual_ZNK5QRect1xEv": ["int", "address"],
+    "ritual_ZNK5QRect1yEv": ["int", "address"],
+    "ritual_ZN5QRect7setLeftEi": ["nothing", "address", "int"],
+    "ritual_ZN5QRect6setTopEi": ["nothing", "address", "int"],
+    "ritual_ZN5QRect8setRightEi": ["nothing", "address", "int"],
+    "ritual_ZN5QRect9setBottomEi": ["nothing", "address", "int"],
+    "ritual_ZN5QRect4setXEi": ["nothing", "address", "int"],
+    "ritual_ZN5QRect4setYEi": ["nothing", "address", "int"],
+    "ritual_ZN5QRect10setTopLeftERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QRect14setBottomRightERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QRect11setTopRightERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QRect13setBottomLeftERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5QRect7topLeftEv": ["address", "address"],
+    "ritual_ZNK5QRect11bottomRightEv": ["address", "address"],
+    "ritual_ZNK5QRect8topRightEv": ["address", "address"],
+    "ritual_ZNK5QRect10bottomLeftEv": ["address", "address"],
+    "ritual_ZNK5QRect6centerEv": ["address", "address"],
+    "ritual_ZN5QRect8moveLeftEi": ["nothing", "address", "int"],
+    "ritual_ZN5QRect7moveTopEi": ["nothing", "address", "int"],
+    "ritual_ZN5QRect9moveRightEi": ["nothing", "address", "int"],
+    "ritual_ZN5QRect10moveBottomEi": ["nothing", "address", "int"],
+    "ritual_ZN5QRect11moveTopLeftERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QRect15moveBottomRightERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QRect12moveTopRightERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QRect14moveBottomLeftERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QRect10moveCenterERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QRect9translateEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN5QRect9translateERK6QPoint": ["nothing", "address", "address"],
+    "ritual_ZNK5QRect10translatedEii": ["address", "address", "int", "int"],
+    "ritual_ZNK5QRect10translatedERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK5QRect10transposedEv": ["address", "address"],
+    "ritual_ZN5QRect6moveToEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN5QRect6moveToERK6QPoint": ["nothing", "address", "address"],
+    "ritual_ZN5QRect7setRectEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK5QRect7getRectEPiS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN5QRect9setCoordsEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK5QRect9getCoordsEPiS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN5QRect6adjustEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK5QRect8adjustedEiiii": [
+      "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK5QRect4sizeEv": ["address", "address"],
+    "ritual_ZNK5QRect5widthEv": ["int", "address"],
+    "ritual_ZNK5QRect6heightEv": ["int", "address"],
+    "ritual_ZN5QRect8setWidthEi": ["nothing", "address", "int"],
+    "ritual_ZN5QRect9setHeightEi": ["nothing", "address", "int"],
+    "ritual_ZN5QRect7setSizeERK5QSize": ["nothing", "address", "address"],
+    "ritual_ZNK5QRectorERKS_": ["address", "address", "address"],
+    "ritual_ZNK5QRectanERKS_": ["address", "address", "address"],
+    "ritual_ZNK5QRect8containsERKS_b": [
+      "bool", "address", "address", "bool"
+    ],
+    "ritual_ZNK5QRect8containsERK6QPointb": [
+      "bool", "address", "address", "bool"
+    ],
+    "ritual_ZNK5QRect8containsEii": ["bool", "address", "int", "int"],
+    "ritual_ZNK5QRect8containsEiib": [
+      "bool", "address", "int", "int", "bool"
+    ],
+    "ritual_ZNK5QRect6unitedERKS_": ["address", "address", "address"],
+    "ritual_ZNK5QRect11intersectedERKS_": ["address", "address", "address"],
+    "ritual_ZNK5QRect10intersectsERKS_": ["bool", "address", "address"],
+    "ritual_ZNK5QRect12marginsAddedERK8QMargins": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK5QRect14marginsRemovedERK8QMargins": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN5QRect4spanERK6QPointS2_": ["address", "address", "address"],
+    "ritual_ZNK5QRect7toRectFEv": ["address", "address"],
+    "ritual_ZN5QRectD1Ev": ["nothing", "address"]
+  }
+}

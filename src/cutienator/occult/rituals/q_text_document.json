@@ -1,0 +1,188 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextdocument.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QTextDocument10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QTextDocument2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QTextDocumentC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QTextDocumentC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN13QTextDocumentD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QTextDocument5cloneEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QTextDocument7isEmptyEv": ["bool", "address"],
+    "ritual_ZN13QTextDocument5clearEv": ["nothing", "address"],
+    "ritual_ZN13QTextDocument18setUndoRedoEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QTextDocument17isUndoRedoEnabledEv": ["bool", "address"],
+    "ritual_ZNK13QTextDocument15isUndoAvailableEv": ["bool", "address"],
+    "ritual_ZNK13QTextDocument15isRedoAvailableEv": ["bool", "address"],
+    "ritual_ZNK13QTextDocument18availableUndoStepsEv": ["int", "address"],
+    "ritual_ZNK13QTextDocument18availableRedoStepsEv": ["int", "address"],
+    "ritual_ZNK13QTextDocument8revisionEv": ["int", "address"],
+    "ritual_ZN13QTextDocument17setDocumentLayoutEP27QAbstractTextDocumentLayout": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QTextDocument14documentLayoutEv": ["address", "address"],
+    "ritual_ZN13QTextDocument18setMetaInformationENS_15MetaInformationERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK13QTextDocument15metaInformationENS_15MetaInformationE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK13QTextDocument6toHtmlEv": ["text", "address"],
+    "ritual_ZN13QTextDocument7setHtmlERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QTextDocument10toMarkdownE6QFlagsINS_15MarkdownFeatureEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN13QTextDocument11setMarkdownERK7QString6QFlagsINS_15MarkdownFeatureEE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK13QTextDocument9toRawTextEv": ["text", "address"],
+    "ritual_ZNK13QTextDocument11toPlainTextEv": ["text", "address"],
+    "ritual_ZN13QTextDocument12setPlainTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QTextDocument11characterAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13QTextDocument4findERK7QStringi6QFlagsINS_8FindFlagEE": [
+      "address", "address", "text", "int", "int"
+    ],
+    "ritual_ZNK13QTextDocument4findERK7QStringRK11QTextCursor6QFlagsINS_8FindFlagEE": [
+      "address", "address", "text", "address", "int"
+    ],
+    "ritual_ZNK13QTextDocument4findERK18QRegularExpressioni6QFlagsINS_8FindFlagEE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK13QTextDocument4findERK18QRegularExpressionRK11QTextCursor6QFlagsINS_8FindFlagEE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK13QTextDocument7frameAtEi": ["address", "address", "int"],
+    "ritual_ZNK13QTextDocument9rootFrameEv": ["address", "address"],
+    "ritual_ZNK13QTextDocument6objectEi": ["address", "address", "int"],
+    "ritual_ZNK13QTextDocument15objectForFormatERK11QTextFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QTextDocument9findBlockEi": ["address", "address", "int"],
+    "ritual_ZNK13QTextDocument17findBlockByNumberEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13QTextDocument21findBlockByLineNumberEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13QTextDocument5beginEv": ["address", "address"],
+    "ritual_ZNK13QTextDocument3endEv": ["address", "address"],
+    "ritual_ZNK13QTextDocument10firstBlockEv": ["address", "address"],
+    "ritual_ZNK13QTextDocument9lastBlockEv": ["address", "address"],
+    "ritual_ZN13QTextDocument11setPageSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QTextDocument8pageSizeEv": ["address", "address"],
+    "ritual_ZN13QTextDocument14setDefaultFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QTextDocument11defaultFontEv": ["address", "address"],
+    "ritual_ZN13QTextDocument22setSuperScriptBaselineEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QTextDocument19superScriptBaselineEv": [
+      "double", "address"
+    ],
+    "ritual_ZN13QTextDocument20setSubScriptBaselineEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QTextDocument17subScriptBaselineEv": ["double", "address"],
+    "ritual_ZN13QTextDocument17setBaselineOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QTextDocument14baselineOffsetEv": ["double", "address"],
+    "ritual_ZNK13QTextDocument9pageCountEv": ["int", "address"],
+    "ritual_ZNK13QTextDocument10isModifiedEv": ["bool", "address"],
+    "ritual_ZNK13QTextDocument5printEP17QPagedPaintDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QTextDocument8resourceEiRK4QUrl": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN13QTextDocument11addResourceEiRK4QUrlRK8QVariant": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN13QTextDocument17markContentsDirtyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QTextDocument19setUseDesignMetricsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QTextDocument16useDesignMetricsEv": ["bool", "address"],
+    "ritual_ZN13QTextDocument16setLayoutEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QTextDocument15isLayoutEnabledEv": ["bool", "address"],
+    "ritual_ZN13QTextDocument12drawContentsEP8QPainterRK6QRectF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QTextDocument12setTextWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QTextDocument9textWidthEv": ["double", "address"],
+    "ritual_ZNK13QTextDocument10idealWidthEv": ["double", "address"],
+    "ritual_ZNK13QTextDocument11indentWidthEv": ["double", "address"],
+    "ritual_ZN13QTextDocument14setIndentWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QTextDocument14documentMarginEv": ["double", "address"],
+    "ritual_ZN13QTextDocument17setDocumentMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QTextDocument10adjustSizeEv": ["nothing", "address"],
+    "ritual_ZNK13QTextDocument4sizeEv": ["address", "address"],
+    "ritual_ZNK13QTextDocument10blockCountEv": ["int", "address"],
+    "ritual_ZNK13QTextDocument9lineCountEv": ["int", "address"],
+    "ritual_ZNK13QTextDocument14characterCountEv": ["int", "address"],
+    "ritual_ZN13QTextDocument20setDefaultStyleSheetERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QTextDocument17defaultStyleSheetEv": ["text", "address"],
+    "ritual_ZN13QTextDocument4undoEP11QTextCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QTextDocument4redoEP11QTextCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QTextDocument19clearUndoRedoStacksENS_6StacksE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QTextDocument17maximumBlockCountEv": ["int", "address"],
+    "ritual_ZN13QTextDocument20setMaximumBlockCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QTextDocument17defaultTextOptionEv": ["address", "address"],
+    "ritual_ZN13QTextDocument20setDefaultTextOptionERK11QTextOption": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QTextDocument7baseUrlEv": ["address", "address"],
+    "ritual_ZN13QTextDocument10setBaseUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QTextDocument22defaultCursorMoveStyleEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13QTextDocument25setDefaultCursorMoveStyleEN2Qt15CursorMoveStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QTextDocument4undoEv": ["nothing", "address"],
+    "ritual_ZN13QTextDocument4redoEv": ["nothing", "address"],
+    "ritual_ZN13QTextDocument14appendUndoItemEP17QAbstractUndoItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QTextDocument11setModifiedEb": ["nothing", "address", "bool"]
+  }
+}

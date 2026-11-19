@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qprogressbar.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QProgressBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QProgressBar2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QProgressBarC1EP7QWidget": ["address", "address"],
+    "ritual_ZN12QProgressBarD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QProgressBar7minimumEv": ["int", "address"],
+    "ritual_ZNK12QProgressBar7maximumEv": ["int", "address"],
+    "ritual_ZNK12QProgressBar5valueEv": ["int", "address"],
+    "ritual_ZNK12QProgressBar4textEv": ["text", "address"],
+    "ritual_ZN12QProgressBar14setTextVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QProgressBar13isTextVisibleEv": ["bool", "address"],
+    "ritual_ZNK12QProgressBar9alignmentEv": ["int", "address"],
+    "ritual_ZN12QProgressBar12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QProgressBar8sizeHintEv": ["address", "address"],
+    "ritual_ZNK12QProgressBar15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZNK12QProgressBar11orientationEv": ["int", "address"],
+    "ritual_ZN12QProgressBar21setInvertedAppearanceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QProgressBar18invertedAppearanceEv": ["bool", "address"],
+    "ritual_ZN12QProgressBar16setTextDirectionENS_9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QProgressBar13textDirectionEv": ["int", "address"],
+    "ritual_ZN12QProgressBar9setFormatERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QProgressBar11resetFormatEv": ["nothing", "address"],
+    "ritual_ZNK12QProgressBar6formatEv": ["text", "address"],
+    "ritual_ZN12QProgressBar5resetEv": ["nothing", "address"],
+    "ritual_ZN12QProgressBar8setRangeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QProgressBar10setMinimumEi": ["nothing", "address", "int"],
+    "ritual_ZN12QProgressBar10setMaximumEi": ["nothing", "address", "int"],
+    "ritual_ZN12QProgressBar8setValueEi": ["nothing", "address", "int"],
+    "ritual_ZN12QProgressBar14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

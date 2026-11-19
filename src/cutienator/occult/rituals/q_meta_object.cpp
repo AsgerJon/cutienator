@@ -247,6 +247,26 @@ QByteArray *ritual_ZN11QMetaObject14normalizedTypeEPKc(const char *type) {
   return new QByteArray(QMetaObject::normalizedType(type));
 }
 
+//  Connection QMetaObject::connect(const QObject *sender, int signal_index,
+//      const QObject *receiver, int method_index, int type, int *types)
+extern "C" Q_DECL_EXPORT
+QMetaObject::Connection *ritual_ZN11QMetaObject7connectEPK7QObjectiS2_iiPi(
+    const QObject *sender,
+    int signal_index,
+    const QObject *receiver,
+    int method_index,
+    int type,
+    int *types) {
+  return new QMetaObject::Connection(
+      QMetaObject::connect(
+          sender,
+          signal_index,
+          receiver,
+          method_index,
+          type,
+          types));
+}
+
 //  bool QMetaObject::disconnect(const QObject *sender, int signal_index,
 //      const QObject *receiver, int method_index)
 extern "C" Q_DECL_EXPORT

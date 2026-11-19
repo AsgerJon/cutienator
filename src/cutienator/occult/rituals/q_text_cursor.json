@@ -1,0 +1,151 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextcursor.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QTextCursorC1Ev": ["address"],
+    "ritual_ZN11QTextCursorC1EP13QTextDocument": ["address", "address"],
+    "ritual_ZN11QTextCursorC1EP10QTextFrame": ["address", "address"],
+    "ritual_ZN11QTextCursorC1ERK10QTextBlock": ["address", "address"],
+    "ritual_ZN11QTextCursorC1ERKS_": ["address", "address"],
+    "ritual_ZN11QTextCursorD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QTextCursor6isNullEv": ["bool", "address"],
+    "ritual_ZN11QTextCursor11setPositionEiNS_8MoveModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK11QTextCursor8positionEv": ["int", "address"],
+    "ritual_ZNK11QTextCursor15positionInBlockEv": ["int", "address"],
+    "ritual_ZNK11QTextCursor6anchorEv": ["int", "address"],
+    "ritual_ZN11QTextCursor10insertTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QTextCursor10insertTextERK7QStringRK15QTextCharFormat": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN11QTextCursor12movePositionENS_13MoveOperationENS_8MoveModeEi": [
+      "bool", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK11QTextCursor16visualNavigationEv": ["bool", "address"],
+    "ritual_ZN11QTextCursor19setVisualNavigationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QTextCursor20setVerticalMovementXEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextCursor17verticalMovementXEv": ["int", "address"],
+    "ritual_ZN11QTextCursor23setKeepPositionOnInsertEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QTextCursor20keepPositionOnInsertEv": ["bool", "address"],
+    "ritual_ZN11QTextCursor10deleteCharEv": ["nothing", "address"],
+    "ritual_ZN11QTextCursor18deletePreviousCharEv": ["nothing", "address"],
+    "ritual_ZN11QTextCursor6selectENS_13SelectionTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextCursor12hasSelectionEv": ["bool", "address"],
+    "ritual_ZNK11QTextCursor19hasComplexSelectionEv": ["bool", "address"],
+    "ritual_ZN11QTextCursor18removeSelectedTextEv": ["nothing", "address"],
+    "ritual_ZN11QTextCursor14clearSelectionEv": ["nothing", "address"],
+    "ritual_ZNK11QTextCursor14selectionStartEv": ["int", "address"],
+    "ritual_ZNK11QTextCursor12selectionEndEv": ["int", "address"],
+    "ritual_ZNK11QTextCursor12selectedTextEv": ["text", "address"],
+    "ritual_ZNK11QTextCursor9selectionEv": ["address", "address"],
+    "ritual_ZNK11QTextCursor18selectedTableCellsEPiS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11QTextCursor5blockEv": ["address", "address"],
+    "ritual_ZNK11QTextCursor10charFormatEv": ["address", "address"],
+    "ritual_ZN11QTextCursor13setCharFormatERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTextCursor15mergeCharFormatERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextCursor11blockFormatEv": ["address", "address"],
+    "ritual_ZN11QTextCursor14setBlockFormatERK16QTextBlockFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTextCursor16mergeBlockFormatERK16QTextBlockFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextCursor15blockCharFormatEv": ["address", "address"],
+    "ritual_ZN11QTextCursor18setBlockCharFormatERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTextCursor20mergeBlockCharFormatERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextCursor12atBlockStartEv": ["bool", "address"],
+    "ritual_ZNK11QTextCursor10atBlockEndEv": ["bool", "address"],
+    "ritual_ZNK11QTextCursor7atStartEv": ["bool", "address"],
+    "ritual_ZNK11QTextCursor5atEndEv": ["bool", "address"],
+    "ritual_ZN11QTextCursor11insertBlockEv": ["nothing", "address"],
+    "ritual_ZN11QTextCursor11insertBlockERK16QTextBlockFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTextCursor11insertBlockERK16QTextBlockFormatRK15QTextCharFormat": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QTextCursor10insertListERK15QTextListFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QTextCursor10insertListEN15QTextListFormat5StyleE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QTextCursor10createListERK15QTextListFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QTextCursor10createListEN15QTextListFormat5StyleE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QTextCursor11currentListEv": ["address", "address"],
+    "ritual_ZN11QTextCursor11insertTableEiiRK16QTextTableFormat": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN11QTextCursor11insertTableEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK11QTextCursor12currentTableEv": ["address", "address"],
+    "ritual_ZN11QTextCursor11insertFrameERK16QTextFrameFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QTextCursor12currentFrameEv": ["address", "address"],
+    "ritual_ZN11QTextCursor14insertFragmentERK21QTextDocumentFragment": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTextCursor10insertHtmlERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QTextCursor14insertMarkdownERK7QString6QFlagsIN13QTextDocument15MarkdownFeatureEE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN11QTextCursor11insertImageERK16QTextImageFormatN16QTextFrameFormat8PositionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN11QTextCursor11insertImageERK16QTextImageFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTextCursor11insertImageERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QTextCursor11insertImageERK6QImageRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN11QTextCursor14beginEditBlockEv": ["nothing", "address"],
+    "ritual_ZN11QTextCursor21joinPreviousEditBlockEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QTextCursor12endEditBlockEv": ["nothing", "address"],
+    "ritual_ZNK11QTextCursorneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QTextCursorltERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QTextCursorleERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QTextCursoreqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QTextCursorgeERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QTextCursorgtERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QTextCursor8isCopyOfERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QTextCursor11blockNumberEv": ["int", "address"],
+    "ritual_ZNK11QTextCursor12columnNumberEv": ["int", "address"],
+    "ritual_ZNK11QTextCursor8documentEv": ["address", "address"]
+  }
+}

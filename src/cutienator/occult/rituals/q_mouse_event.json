@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QMouseEvent5cloneEv": ["address", "address"],
+    "ritual_ZN11QMouseEventD1Ev": ["nothing", "address"],
+    "ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFN2Qt11MouseButtonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice": [
+      "address", "int", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_N2Qt11MouseButtonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice": [
+      "address", "int", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_S4_N2Qt11MouseButtonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice": [
+      "address", "int", "address", "address", "address", "int", "int", "int",
+      "address"
+    ],
+    "ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_S4_N2Qt11MouseButtonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEENS5_16MouseEventSourceEPK15QPointingDevice": [
+      "address", "int", "address", "address", "address", "int", "int", "int",
+      "int", "address"
+    ],
+    "ritual_ZNK11QMouseEvent3posEv": ["address", "address"],
+    "ritual_ZNK11QMouseEvent9globalPosEv": ["address", "address"],
+    "ritual_ZNK11QMouseEvent1xEv": ["int", "address"],
+    "ritual_ZNK11QMouseEvent1yEv": ["int", "address"],
+    "ritual_ZNK11QMouseEvent7globalXEv": ["int", "address"],
+    "ritual_ZNK11QMouseEvent7globalYEv": ["int", "address"],
+    "ritual_ZNK11QMouseEvent8localPosEv": ["address", "address"],
+    "ritual_ZNK11QMouseEvent9windowPosEv": ["address", "address"],
+    "ritual_ZNK11QMouseEvent9screenPosEv": ["address", "address"],
+    "ritual_ZNK11QMouseEvent6sourceEv": ["int", "address"],
+    "ritual_ZNK11QMouseEvent5flagsEv": ["int", "address"]
+  }
+}

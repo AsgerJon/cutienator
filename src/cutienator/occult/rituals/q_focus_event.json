@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QFocusEvent5cloneEv": ["address", "address"],
+    "ritual_ZN11QFocusEventD1Ev": ["nothing", "address"],
+    "ritual_ZN11QFocusEventC1EN6QEvent4TypeEN2Qt11FocusReasonE": [
+      "address", "int", "int"
+    ],
+    "ritual_ZNK11QFocusEvent8gotFocusEv": ["bool", "address"],
+    "ritual_ZNK11QFocusEvent9lostFocusEv": ["bool", "address"],
+    "ritual_ZNK11QFocusEvent6reasonEv": ["int", "address"]
+  }
+}

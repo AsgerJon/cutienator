@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qbrush.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QLinearGradientC1Ev": ["address"],
+    "ritual_ZN15QLinearGradientC1ERK7QPointFS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QLinearGradientC1Edddd": [
+      "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN15QLinearGradientD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QLinearGradient5startEv": ["address", "address"],
+    "ritual_ZN15QLinearGradient8setStartERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLinearGradient8setStartEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK15QLinearGradient9finalStopEv": ["address", "address"],
+    "ritual_ZN15QLinearGradient12setFinalStopERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLinearGradient12setFinalStopEdd": [
+      "nothing", "address", "double", "double"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qspinbox.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QSpinBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QSpinBox2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8QSpinBoxC1EP7QWidget": ["address", "address"],
+    "ritual_ZN8QSpinBoxD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QSpinBox5valueEv": ["int", "address"],
+    "ritual_ZNK8QSpinBox6prefixEv": ["text", "address"],
+    "ritual_ZN8QSpinBox9setPrefixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QSpinBox6suffixEv": ["text", "address"],
+    "ritual_ZN8QSpinBox9setSuffixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QSpinBox9cleanTextEv": ["text", "address"],
+    "ritual_ZNK8QSpinBox10singleStepEv": ["int", "address"],
+    "ritual_ZN8QSpinBox13setSingleStepEi": ["nothing", "address", "int"],
+    "ritual_ZNK8QSpinBox7minimumEv": ["int", "address"],
+    "ritual_ZN8QSpinBox10setMinimumEi": ["nothing", "address", "int"],
+    "ritual_ZNK8QSpinBox7maximumEv": ["int", "address"],
+    "ritual_ZN8QSpinBox10setMaximumEi": ["nothing", "address", "int"],
+    "ritual_ZN8QSpinBox8setRangeEii": ["nothing", "address", "int", "int"],
+    "ritual_ZNK8QSpinBox8stepTypeEv": ["int", "address"],
+    "ritual_ZN8QSpinBox11setStepTypeEN16QAbstractSpinBox8StepTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QSpinBox18displayIntegerBaseEv": ["int", "address"],
+    "ritual_ZN8QSpinBox21setDisplayIntegerBaseEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QSpinBox8setValueEi": ["nothing", "address", "int"]
+  }
+}

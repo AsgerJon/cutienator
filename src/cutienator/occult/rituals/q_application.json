@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qapplication.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QApplication10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QApplication2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QApplicationC1ERiPPci": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN12QApplicationD1Ev": ["nothing", "address"],
+    "ritual_ZN12QApplication5styleEv": ["address"],
+    "ritual_ZN12QApplication8setStyleEP6QStyle": ["nothing", "address"],
+    "ritual_ZN12QApplication8setStyleERK7QString": ["address", "text"],
+    "ritual_ZN12QApplication7paletteEPK7QWidget": ["address", "address"],
+    "ritual_ZN12QApplication7paletteEPKc": ["address", "chars"],
+    "ritual_ZN12QApplication10setPaletteERK8QPalettePKc": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZN12QApplication4fontEv": ["address"],
+    "ritual_ZN12QApplication4fontEPK7QWidget": ["address", "address"],
+    "ritual_ZN12QApplication4fontEPKc": ["address", "chars"],
+    "ritual_ZN12QApplication7setFontERK5QFontPKc": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZN12QApplication11fontMetricsEv": ["address"],
+    "ritual_ZN12QApplication17activePopupWidgetEv": ["address"],
+    "ritual_ZN12QApplication17activeModalWidgetEv": ["address"],
+    "ritual_ZN12QApplication11focusWidgetEv": ["address"],
+    "ritual_ZN12QApplication12activeWindowEv": ["address"],
+    "ritual_ZN12QApplication15setActiveWindowEP7QWidget": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QApplication8widgetAtERK6QPoint": ["address", "address"],
+    "ritual_ZN12QApplication8widgetAtEii": ["address", "int", "int"],
+    "ritual_ZN12QApplication10topLevelAtERK6QPoint": ["address", "address"],
+    "ritual_ZN12QApplication10topLevelAtEii": ["address", "int", "int"],
+    "ritual_ZN12QApplication4beepEv": ["nothing"],
+    "ritual_ZN12QApplication5alertEP7QWidgeti": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QApplication18setCursorFlashTimeEi": ["nothing", "int"],
+    "ritual_ZN12QApplication15cursorFlashTimeEv": ["int"],
+    "ritual_ZN12QApplication22setDoubleClickIntervalEi": ["nothing", "int"],
+    "ritual_ZN12QApplication19doubleClickIntervalEv": ["int"],
+    "ritual_ZN12QApplication24setKeyboardInputIntervalEi": [
+      "nothing", "int"
+    ],
+    "ritual_ZN12QApplication21keyboardInputIntervalEv": ["int"],
+    "ritual_ZN12QApplication19setWheelScrollLinesEi": ["nothing", "int"],
+    "ritual_ZN12QApplication16wheelScrollLinesEv": ["int"],
+    "ritual_ZN12QApplication16setStartDragTimeEi": ["nothing", "int"],
+    "ritual_ZN12QApplication13startDragTimeEv": ["int"],
+    "ritual_ZN12QApplication20setStartDragDistanceEi": ["nothing", "int"],
+    "ritual_ZN12QApplication17startDragDistanceEv": ["int"],
+    "ritual_ZN12QApplication15isEffectEnabledEN2Qt8UIEffectE": [
+      "bool", "int"
+    ],
+    "ritual_ZN12QApplication16setEffectEnabledEN2Qt8UIEffectEb": [
+      "nothing", "int", "bool"
+    ],
+    "ritual_ZN12QApplication4execEv": ["int"],
+    "ritual_ZN12QApplication6notifyEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK12QApplication10styleSheetEv": ["text", "address"],
+    "ritual_ZNK12QApplication14autoSipEnabledEv": ["bool", "address"],
+    "ritual_ZN12QApplication13setStyleSheetERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QApplication17setAutoSipEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QApplication15closeAllWindowsEv": ["nothing"],
+    "ritual_ZN12QApplication7aboutQtEv": ["nothing"]
+  }
+}

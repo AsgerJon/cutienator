@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qstyleditemdelegate.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QStyledItemDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QStyledItemDelegate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QStyledItemDelegateC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QStyledItemDelegateD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QStyledItemDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QStyledItemDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QStyledItemDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QStyledItemDelegate13setEditorDataEP7QWidgetRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QStyledItemDelegate12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QStyledItemDelegate20updateEditorGeometryEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QStyledItemDelegate17itemEditorFactoryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QStyledItemDelegate20setItemEditorFactoryEP18QItemEditorFactory": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QStyledItemDelegate11displayTextERK8QVariantRK7QLocale": [
+      "text", "address", "address", "address"
+    ]
+  }
+}

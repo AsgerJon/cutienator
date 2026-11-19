@@ -1,0 +1,500 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtWidgets/qtreewidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtreewidget.h>
+#include <QtCore/qstring.h>
+#include <QtGui/qicon.h>
+#include <QtGui/qfont.h>
+#include <QtGui/qbrush.h>
+#include <QtCore/qsize.h>
+#include <QtCore/qvariant.h>
+
+//  QTreeWidgetItem::QTreeWidgetItem(int type)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1Ei(int type) {
+  return new QTreeWidgetItem(type);
+}
+
+//  QTreeWidgetItem::QTreeWidgetItem(QTreeWidget *treeview, int type)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgeti(
+    QTreeWidget *treeview,
+    int type) {
+  return new QTreeWidgetItem(treeview, type);
+}
+
+//  QTreeWidgetItem::QTreeWidgetItem(QTreeWidget *treeview, QTreeWidgetItem
+//      *after, int type)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgetPS_i(
+    QTreeWidget *treeview,
+    QTreeWidgetItem *after,
+    int type) {
+  return new QTreeWidgetItem(treeview, after, type);
+}
+
+//  QTreeWidgetItem::QTreeWidgetItem(QTreeWidgetItem *parent, int type)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1EPS_i(
+    QTreeWidgetItem *parent,
+    int type) {
+  return new QTreeWidgetItem(parent, type);
+}
+
+//  QTreeWidgetItem::QTreeWidgetItem(QTreeWidgetItem *parent, QTreeWidgetItem
+//      *after, int type)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1EPS_S0_i(
+    QTreeWidgetItem *parent,
+    QTreeWidgetItem *after,
+    int type) {
+  return new QTreeWidgetItem(parent, after, type);
+}
+
+//  QTreeWidgetItem::QTreeWidgetItem(const QTreeWidgetItem &other)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1ERKS_(
+    const QTreeWidgetItem *other) {
+  return new QTreeWidgetItem(*other);
+}
+
+//  QTreeWidgetItem::~QTreeWidgetItem()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItemD1Ev(QTreeWidgetItem *self) {
+  delete self;
+}
+
+//  QTreeWidgetItem *QTreeWidgetItem::clone() const
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZNK15QTreeWidgetItem5cloneEv(
+    const QTreeWidgetItem *self) {
+  return self->clone();
+}
+
+//  QTreeWidget *QTreeWidgetItem::treeWidget() const
+extern "C" Q_DECL_EXPORT
+QTreeWidget *ritual_ZNK15QTreeWidgetItem10treeWidgetEv(
+    const QTreeWidgetItem *self) {
+  return self->treeWidget();
+}
+
+//  void QTreeWidgetItem::setSelected(bool select)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem11setSelectedEb(
+    QTreeWidgetItem *self,
+    bool select) {
+  self->setSelected(select);
+}
+
+//  bool QTreeWidgetItem::isSelected() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QTreeWidgetItem10isSelectedEv(const QTreeWidgetItem *self) {
+  return self->isSelected();
+}
+
+//  void QTreeWidgetItem::setHidden(bool hide)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem9setHiddenEb(
+    QTreeWidgetItem *self,
+    bool hide) {
+  self->setHidden(hide);
+}
+
+//  bool QTreeWidgetItem::isHidden() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QTreeWidgetItem8isHiddenEv(const QTreeWidgetItem *self) {
+  return self->isHidden();
+}
+
+//  void QTreeWidgetItem::setExpanded(bool expand)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem11setExpandedEb(
+    QTreeWidgetItem *self,
+    bool expand) {
+  self->setExpanded(expand);
+}
+
+//  bool QTreeWidgetItem::isExpanded() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QTreeWidgetItem10isExpandedEv(const QTreeWidgetItem *self) {
+  return self->isExpanded();
+}
+
+//  void QTreeWidgetItem::setFirstColumnSpanned(bool span)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem21setFirstColumnSpannedEb(
+    QTreeWidgetItem *self,
+    bool span) {
+  self->setFirstColumnSpanned(span);
+}
+
+//  bool QTreeWidgetItem::isFirstColumnSpanned() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QTreeWidgetItem20isFirstColumnSpannedEv(
+    const QTreeWidgetItem *self) {
+  return self->isFirstColumnSpanned();
+}
+
+//  void QTreeWidgetItem::setDisabled(bool disabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem11setDisabledEb(
+    QTreeWidgetItem *self,
+    bool disabled) {
+  self->setDisabled(disabled);
+}
+
+//  bool QTreeWidgetItem::isDisabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QTreeWidgetItem10isDisabledEv(const QTreeWidgetItem *self) {
+  return self->isDisabled();
+}
+
+//  void QTreeWidgetItem::setChildIndicatorPolicy(QTreeWidgetItem::ChildIndic
+//      atorPolicy policy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem23setChildIndicatorPolicyENS_20ChildIndicatorPolicyE(
+    QTreeWidgetItem *self,
+    QTreeWidgetItem::ChildIndicatorPolicy policy) {
+  self->setChildIndicatorPolicy(policy);
+}
+
+//  QTreeWidgetItem::ChildIndicatorPolicy
+//      QTreeWidgetItem::childIndicatorPolicy() const
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem::ChildIndicatorPolicy ritual_ZNK15QTreeWidgetItem20childIndicatorPolicyEv(
+    const QTreeWidgetItem *self) {
+  return self->childIndicatorPolicy();
+}
+
+//  Qt::ItemFlags QTreeWidgetItem::flags() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK15QTreeWidgetItem5flagsEv(const QTreeWidgetItem *self) {
+  return static_cast<int>(self->flags().toInt());
+}
+
+//  void QTreeWidgetItem::setFlags(Qt::ItemFlags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem8setFlagsE6QFlagsIN2Qt8ItemFlagEE(
+    QTreeWidgetItem *self,
+    int flags) {
+  self->setFlags(QFlags<Qt::ItemFlag>::fromInt(flags));
+}
+
+//  QString QTreeWidgetItem::text(int column) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK15QTreeWidgetItem4textEi(
+    const QTreeWidgetItem *self,
+    int column) {
+  return new QString(self->text(column));
+}
+
+//  void QTreeWidgetItem::setText(int column, const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem7setTextEiRK7QString(
+    QTreeWidgetItem *self,
+    int column,
+    const QString *text) {
+  self->setText(column, *text);
+}
+
+//  QIcon QTreeWidgetItem::icon(int column) const
+extern "C" Q_DECL_EXPORT
+QIcon *ritual_ZNK15QTreeWidgetItem4iconEi(
+    const QTreeWidgetItem *self,
+    int column) {
+  return new QIcon(self->icon(column));
+}
+
+//  void QTreeWidgetItem::setIcon(int column, const QIcon &icon)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem7setIconEiRK5QIcon(
+    QTreeWidgetItem *self,
+    int column,
+    const QIcon *icon) {
+  self->setIcon(column, *icon);
+}
+
+//  QString QTreeWidgetItem::statusTip(int column) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK15QTreeWidgetItem9statusTipEi(
+    const QTreeWidgetItem *self,
+    int column) {
+  return new QString(self->statusTip(column));
+}
+
+//  void QTreeWidgetItem::setStatusTip(int column, const QString &statusTip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem12setStatusTipEiRK7QString(
+    QTreeWidgetItem *self,
+    int column,
+    const QString *statusTip) {
+  self->setStatusTip(column, *statusTip);
+}
+
+//  QString QTreeWidgetItem::toolTip(int column) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK15QTreeWidgetItem7toolTipEi(
+    const QTreeWidgetItem *self,
+    int column) {
+  return new QString(self->toolTip(column));
+}
+
+//  void QTreeWidgetItem::setToolTip(int column, const QString &toolTip)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem10setToolTipEiRK7QString(
+    QTreeWidgetItem *self,
+    int column,
+    const QString *toolTip) {
+  self->setToolTip(column, *toolTip);
+}
+
+//  QString QTreeWidgetItem::whatsThis(int column) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK15QTreeWidgetItem9whatsThisEi(
+    const QTreeWidgetItem *self,
+    int column) {
+  return new QString(self->whatsThis(column));
+}
+
+//  void QTreeWidgetItem::setWhatsThis(int column, const QString &whatsThis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem12setWhatsThisEiRK7QString(
+    QTreeWidgetItem *self,
+    int column,
+    const QString *whatsThis) {
+  self->setWhatsThis(column, *whatsThis);
+}
+
+//  QFont QTreeWidgetItem::font(int column) const
+extern "C" Q_DECL_EXPORT
+QFont *ritual_ZNK15QTreeWidgetItem4fontEi(
+    const QTreeWidgetItem *self,
+    int column) {
+  return new QFont(self->font(column));
+}
+
+//  void QTreeWidgetItem::setFont(int column, const QFont &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem7setFontEiRK5QFont(
+    QTreeWidgetItem *self,
+    int column,
+    const QFont *font) {
+  self->setFont(column, *font);
+}
+
+//  int QTreeWidgetItem::textAlignment(int column) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK15QTreeWidgetItem13textAlignmentEi(
+    const QTreeWidgetItem *self,
+    int column) {
+  return self->textAlignment(column);
+}
+
+//  void QTreeWidgetItem::setTextAlignment(int column, int alignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem16setTextAlignmentEii(
+    QTreeWidgetItem *self,
+    int column,
+    int alignment) {
+  self->setTextAlignment(column, alignment);
+}
+
+//  void QTreeWidgetItem::setTextAlignment(int column, Qt::AlignmentFlag
+//      alignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem16setTextAlignmentEiN2Qt13AlignmentFlagE(
+    QTreeWidgetItem *self,
+    int column,
+    Qt::AlignmentFlag alignment) {
+  self->setTextAlignment(column, alignment);
+}
+
+//  void QTreeWidgetItem::setTextAlignment(int column, Qt::Alignment
+//      alignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem16setTextAlignmentEi6QFlagsIN2Qt13AlignmentFlagEE(
+    QTreeWidgetItem *self,
+    int column,
+    int alignment) {
+  self->setTextAlignment(
+      column,
+      QFlags<Qt::AlignmentFlag>::fromInt(alignment));
+}
+
+//  QBrush QTreeWidgetItem::background(int column) const
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZNK15QTreeWidgetItem10backgroundEi(
+    const QTreeWidgetItem *self,
+    int column) {
+  return new QBrush(self->background(column));
+}
+
+//  void QTreeWidgetItem::setBackground(int column, const QBrush &brush)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem13setBackgroundEiRK6QBrush(
+    QTreeWidgetItem *self,
+    int column,
+    const QBrush *brush) {
+  self->setBackground(column, *brush);
+}
+
+//  QBrush QTreeWidgetItem::foreground(int column) const
+extern "C" Q_DECL_EXPORT
+QBrush *ritual_ZNK15QTreeWidgetItem10foregroundEi(
+    const QTreeWidgetItem *self,
+    int column) {
+  return new QBrush(self->foreground(column));
+}
+
+//  void QTreeWidgetItem::setForeground(int column, const QBrush &brush)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem13setForegroundEiRK6QBrush(
+    QTreeWidgetItem *self,
+    int column,
+    const QBrush *brush) {
+  self->setForeground(column, *brush);
+}
+
+//  Qt::CheckState QTreeWidgetItem::checkState(int column) const
+extern "C" Q_DECL_EXPORT
+Qt::CheckState ritual_ZNK15QTreeWidgetItem10checkStateEi(
+    const QTreeWidgetItem *self,
+    int column) {
+  return self->checkState(column);
+}
+
+//  void QTreeWidgetItem::setCheckState(int column, Qt::CheckState state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem13setCheckStateEiN2Qt10CheckStateE(
+    QTreeWidgetItem *self,
+    int column,
+    Qt::CheckState state) {
+  self->setCheckState(column, state);
+}
+
+//  QSize QTreeWidgetItem::sizeHint(int column) const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK15QTreeWidgetItem8sizeHintEi(
+    const QTreeWidgetItem *self,
+    int column) {
+  return new QSize(self->sizeHint(column));
+}
+
+//  void QTreeWidgetItem::setSizeHint(int column, const QSize &size)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem11setSizeHintEiRK5QSize(
+    QTreeWidgetItem *self,
+    int column,
+    const QSize *size) {
+  self->setSizeHint(column, *size);
+}
+
+//  QVariant QTreeWidgetItem::data(int column, int role) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK15QTreeWidgetItem4dataEii(
+    const QTreeWidgetItem *self,
+    int column,
+    int role) {
+  return new QVariant(self->data(column, role));
+}
+
+//  void QTreeWidgetItem::setData(int column, int role, const QVariant
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem7setDataEiiRK8QVariant(
+    QTreeWidgetItem *self,
+    int column,
+    int role,
+    const QVariant *value) {
+  self->setData(column, role, *value);
+}
+
+//  bool QTreeWidgetItem::operator<(const QTreeWidgetItem &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QTreeWidgetItemltERKS_(
+    const QTreeWidgetItem *self,
+    const QTreeWidgetItem *other) {
+  return self->operator<(*other);
+}
+
+//  QTreeWidgetItem *QTreeWidgetItem::parent() const
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZNK15QTreeWidgetItem6parentEv(
+    const QTreeWidgetItem *self) {
+  return self->parent();
+}
+
+//  QTreeWidgetItem *QTreeWidgetItem::child(int index) const
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZNK15QTreeWidgetItem5childEi(
+    const QTreeWidgetItem *self,
+    int index) {
+  return self->child(index);
+}
+
+//  int QTreeWidgetItem::childCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK15QTreeWidgetItem10childCountEv(const QTreeWidgetItem *self) {
+  return self->childCount();
+}
+
+//  int QTreeWidgetItem::columnCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK15QTreeWidgetItem11columnCountEv(const QTreeWidgetItem *self) {
+  return self->columnCount();
+}
+
+//  int QTreeWidgetItem::indexOfChild(QTreeWidgetItem *child) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK15QTreeWidgetItem12indexOfChildEPS_(
+    const QTreeWidgetItem *self,
+    QTreeWidgetItem *child) {
+  return self->indexOfChild(child);
+}
+
+//  void QTreeWidgetItem::addChild(QTreeWidgetItem *child)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem8addChildEPS_(
+    QTreeWidgetItem *self,
+    QTreeWidgetItem *child) {
+  self->addChild(child);
+}
+
+//  void QTreeWidgetItem::insertChild(int index, QTreeWidgetItem *child)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem11insertChildEiPS_(
+    QTreeWidgetItem *self,
+    int index,
+    QTreeWidgetItem *child) {
+  self->insertChild(index, child);
+}
+
+//  void QTreeWidgetItem::removeChild(QTreeWidgetItem *child)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem11removeChildEPS_(
+    QTreeWidgetItem *self,
+    QTreeWidgetItem *child) {
+  self->removeChild(child);
+}
+
+//  QTreeWidgetItem *QTreeWidgetItem::takeChild(int index)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZN15QTreeWidgetItem9takeChildEi(
+    QTreeWidgetItem *self,
+    int index) {
+  return self->takeChild(index);
+}
+
+//  int QTreeWidgetItem::type() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK15QTreeWidgetItem4typeEv(const QTreeWidgetItem *self) {
+  return self->type();
+}
+
+//  void QTreeWidgetItem::sortChildren(int column, Qt::SortOrder order)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE(
+    QTreeWidgetItem *self,
+    int column,
+    Qt::SortOrder order) {
+  self->sortChildren(column, order);
+}

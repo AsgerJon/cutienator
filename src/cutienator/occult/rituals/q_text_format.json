@@ -1,0 +1,76 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextformat.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QTextFormatC1Ev": ["address"],
+    "ritual_ZN11QTextFormatC1Ei": ["address", "int"],
+    "ritual_ZN11QTextFormatC1ERKS_": ["address", "address"],
+    "ritual_ZN11QTextFormatD1Ev": ["nothing", "address"],
+    "ritual_ZN11QTextFormat5mergeERKS_": ["nothing", "address", "address"],
+    "ritual_ZNK11QTextFormat7isValidEv": ["bool", "address"],
+    "ritual_ZNK11QTextFormat7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK11QTextFormat4typeEv": ["int", "address"],
+    "ritual_ZNK11QTextFormat11objectIndexEv": ["int", "address"],
+    "ritual_ZN11QTextFormat14setObjectIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextFormat8propertyEi": ["address", "address", "int"],
+    "ritual_ZN11QTextFormat11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN11QTextFormat13clearPropertyEi": ["nothing", "address", "int"],
+    "ritual_ZNK11QTextFormat11hasPropertyEi": ["bool", "address", "int"],
+    "ritual_ZNK11QTextFormat12boolPropertyEi": ["bool", "address", "int"],
+    "ritual_ZNK11QTextFormat11intPropertyEi": ["int", "address", "int"],
+    "ritual_ZNK11QTextFormat14doublePropertyEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK11QTextFormat14stringPropertyEi": ["text", "address", "int"],
+    "ritual_ZNK11QTextFormat13colorPropertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QTextFormat11penPropertyEi": ["address", "address", "int"],
+    "ritual_ZNK11QTextFormat13brushPropertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QTextFormat14lengthPropertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QTextFormat13propertyCountEv": ["int", "address"],
+    "ritual_ZN11QTextFormat13setObjectTypeEi": ["nothing", "address", "int"],
+    "ritual_ZNK11QTextFormat10objectTypeEv": ["int", "address"],
+    "ritual_ZNK11QTextFormat12isCharFormatEv": ["bool", "address"],
+    "ritual_ZNK11QTextFormat13isBlockFormatEv": ["bool", "address"],
+    "ritual_ZNK11QTextFormat12isListFormatEv": ["bool", "address"],
+    "ritual_ZNK11QTextFormat13isFrameFormatEv": ["bool", "address"],
+    "ritual_ZNK11QTextFormat13isImageFormatEv": ["bool", "address"],
+    "ritual_ZNK11QTextFormat13isTableFormatEv": ["bool", "address"],
+    "ritual_ZNK11QTextFormat17isTableCellFormatEv": ["bool", "address"],
+    "ritual_ZNK11QTextFormat13toBlockFormatEv": ["address", "address"],
+    "ritual_ZNK11QTextFormat12toCharFormatEv": ["address", "address"],
+    "ritual_ZNK11QTextFormat12toListFormatEv": ["address", "address"],
+    "ritual_ZNK11QTextFormat13toTableFormatEv": ["address", "address"],
+    "ritual_ZNK11QTextFormat13toFrameFormatEv": ["address", "address"],
+    "ritual_ZNK11QTextFormat13toImageFormatEv": ["address", "address"],
+    "ritual_ZNK11QTextFormat17toTableCellFormatEv": ["address", "address"],
+    "ritual_ZNK11QTextFormateqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QTextFormatneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QTextFormatcv8QVariantEv": ["address", "address"],
+    "ritual_ZN11QTextFormat18setLayoutDirectionEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextFormat15layoutDirectionEv": ["int", "address"],
+    "ritual_ZN11QTextFormat13setBackgroundERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextFormat10backgroundEv": ["address", "address"],
+    "ritual_ZN11QTextFormat15clearBackgroundEv": ["nothing", "address"],
+    "ritual_ZN11QTextFormat13setForegroundERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextFormat10foregroundEv": ["address", "address"],
+    "ritual_ZN11QTextFormat15clearForegroundEv": ["nothing", "address"]
+  }
+}

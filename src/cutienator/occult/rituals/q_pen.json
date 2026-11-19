@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpen.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN4QPenC1Ev": ["address"],
+    "ritual_ZN4QPenC1EN2Qt8PenStyleE": ["address", "int"],
+    "ritual_ZN4QPenC1ERK6QColor": ["address", "address"],
+    "ritual_ZN4QPenC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE": [
+      "address", "address", "double", "int", "int", "int"
+    ],
+    "ritual_ZN4QPenC1ERKS_": ["address", "address"],
+    "ritual_ZN4QPenD1Ev": ["nothing", "address"],
+    "ritual_ZNK4QPen5styleEv": ["int", "address"],
+    "ritual_ZN4QPen8setStyleEN2Qt8PenStyleE": ["nothing", "address", "int"],
+    "ritual_ZNK4QPen10dashOffsetEv": ["double", "address"],
+    "ritual_ZN4QPen13setDashOffsetEd": ["nothing", "address", "double"],
+    "ritual_ZNK4QPen10miterLimitEv": ["double", "address"],
+    "ritual_ZN4QPen13setMiterLimitEd": ["nothing", "address", "double"],
+    "ritual_ZNK4QPen6widthFEv": ["double", "address"],
+    "ritual_ZN4QPen9setWidthFEd": ["nothing", "address", "double"],
+    "ritual_ZNK4QPen5widthEv": ["int", "address"],
+    "ritual_ZN4QPen8setWidthEi": ["nothing", "address", "int"],
+    "ritual_ZNK4QPen5colorEv": ["address", "address"],
+    "ritual_ZN4QPen8setColorERK6QColor": ["nothing", "address", "address"],
+    "ritual_ZNK4QPen5brushEv": ["address", "address"],
+    "ritual_ZN4QPen8setBrushERK6QBrush": ["nothing", "address", "address"],
+    "ritual_ZNK4QPen7isSolidEv": ["bool", "address"],
+    "ritual_ZNK4QPen8capStyleEv": ["int", "address"],
+    "ritual_ZN4QPen11setCapStyleEN2Qt11PenCapStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK4QPen9joinStyleEv": ["int", "address"],
+    "ritual_ZN4QPen12setJoinStyleEN2Qt12PenJoinStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK4QPen10isCosmeticEv": ["bool", "address"],
+    "ritual_ZN4QPen11setCosmeticEb": ["nothing", "address", "bool"],
+    "ritual_ZNK4QPeneqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK4QPenneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK4QPencv8QVariantEv": ["address", "address"],
+    "ritual_ZN4QPen10isDetachedEv": ["bool", "address"]
+  }
+}

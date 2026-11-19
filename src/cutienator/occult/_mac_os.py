@@ -113,15 +113,18 @@ class MacOS(System):
 
     Paths
       '-fPIC', so the code can sit at any address;
-      '-fvisibility-inlines-hidden', so Qt's inline code leaves no
-      scrambled names in the built file;
+      '-fvisibility=hidden' and '-fvisibility-inlines-hidden', so the
+      built file offers only the rituals, and nothing of Qt's own;
       '-F' with the folder of Qt's shared objects, which on macOS is the
       folder of the frameworks, so that 'QtCore/qobject.h' is found
       inside 'QtCore.framework'. Without it the compiler finds only the
       stand-in of that name in Qt's header folder, which sends it on to
       the framework and nowhere else.
     """
-    return ('-fPIC', '-fvisibility-inlines-hidden', '-F%s' % qtFolder,)
+    return (
+        '-fPIC', '-fvisibility=hidden', '-fvisibility-inlines-hidden',
+        '-F%s' % qtFolder,
+    )
 
   def getLinkerFlags(self, qtFolder: str) -> Paths:
     """

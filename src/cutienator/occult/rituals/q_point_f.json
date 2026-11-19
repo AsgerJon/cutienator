@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qpoint.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7QPointFC1Ev": ["address"],
+    "ritual_ZN7QPointFC1ERK6QPoint": ["address", "address"],
+    "ritual_ZN7QPointFC1Edd": ["address", "double", "double"],
+    "ritual_ZNK7QPointF15manhattanLengthEv": ["double", "address"],
+    "ritual_ZNK7QPointF6isNullEv": ["bool", "address"],
+    "ritual_ZNK7QPointF1xEv": ["double", "address"],
+    "ritual_ZNK7QPointF1yEv": ["double", "address"],
+    "ritual_ZN7QPointF4setXEd": ["nothing", "address", "double"],
+    "ritual_ZN7QPointF4setYEd": ["nothing", "address", "double"],
+    "ritual_ZNK7QPointF10transposedEv": ["address", "address"],
+    "ritual_ZN7QPointF10dotProductERKS_S1_": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK7QPointF7toPointEv": ["address", "address"],
+    "ritual_ZN7QPointFD1Ev": ["nothing", "address"]
+  }
+}

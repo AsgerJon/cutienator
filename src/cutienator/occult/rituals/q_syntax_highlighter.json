@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qsyntaxhighlighter.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QSyntaxHighlighter10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QSyntaxHighlighter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QSyntaxHighlighterD1Ev": ["nothing", "address"],
+    "ritual_ZN18QSyntaxHighlighter11setDocumentEP13QTextDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QSyntaxHighlighter8documentEv": ["address", "address"],
+    "ritual_ZN18QSyntaxHighlighter11rehighlightEv": ["nothing", "address"],
+    "ritual_ZN18QSyntaxHighlighter16rehighlightBlockERK10QTextBlock": [
+      "nothing", "address", "address"
+    ]
+  }
+}

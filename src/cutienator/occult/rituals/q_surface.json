@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qsurface.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QSurfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QSurface12surfaceClassEv": ["int", "address"],
+    "ritual_ZNK8QSurface6formatEv": ["address", "address"],
+    "ritual_ZNK8QSurface11surfaceTypeEv": ["int", "address"],
+    "ritual_ZNK8QSurface14supportsOpenGLEv": ["bool", "address"],
+    "ritual_ZNK8QSurface4sizeEv": ["address", "address"]
+  }
+}

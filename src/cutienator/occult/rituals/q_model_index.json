@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qabstractitemmodel.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN11QModelIndexC1Ev": ["address"],
+    "ritual_ZNK11QModelIndex3rowEv": ["int", "address"],
+    "ritual_ZNK11QModelIndex6columnEv": ["int", "address"],
+    "ritual_ZNK11QModelIndex10internalIdEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK11QModelIndex6parentEv": ["address", "address"],
+    "ritual_ZNK11QModelIndex7siblingEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK11QModelIndex15siblingAtColumnEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QModelIndex12siblingAtRowEi": ["address", "address", "int"],
+    "ritual_ZNK11QModelIndex4dataEi": ["address", "address", "int"],
+    "ritual_ZNK11QModelIndex9multiDataE18QModelRoleDataSpan": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QModelIndex5flagsEv": ["int", "address"],
+    "ritual_ZNK11QModelIndex5modelEv": ["address", "address"],
+    "ritual_ZNK11QModelIndex7isValidEv": ["bool", "address"],
+    "ritual_ZN11QModelIndexD1Ev": ["nothing", "address"]
+  }
+}

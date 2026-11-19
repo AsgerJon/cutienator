@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QResizeEvent5cloneEv": ["address", "address"],
+    "ritual_ZN12QResizeEventD1Ev": ["nothing", "address"],
+    "ritual_ZN12QResizeEventC1ERK5QSizeS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QResizeEvent4sizeEv": ["address", "address"],
+    "ritual_ZNK12QResizeEvent7oldSizeEv": ["address", "address"]
+  }
+}

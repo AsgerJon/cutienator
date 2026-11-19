@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qfontdatabase.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QFontDatabaseC1Ev": ["address"],
+    "ritual_ZN13QFontDatabase11styleStringERK5QFont": ["text", "address"],
+    "ritual_ZN13QFontDatabase11styleStringERK9QFontInfo": [
+      "text", "address"
+    ],
+    "ritual_ZN13QFontDatabase4fontERK7QStringS2_i": [
+      "address", "text", "text", "int"
+    ],
+    "ritual_ZN13QFontDatabase16isBitmapScalableERK7QStringS2_": [
+      "bool", "text", "text"
+    ],
+    "ritual_ZN13QFontDatabase18isSmoothlyScalableERK7QStringS2_": [
+      "bool", "text", "text"
+    ],
+    "ritual_ZN13QFontDatabase10isScalableERK7QStringS2_": [
+      "bool", "text", "text"
+    ],
+    "ritual_ZN13QFontDatabase12isFixedPitchERK7QStringS2_": [
+      "bool", "text", "text"
+    ],
+    "ritual_ZN13QFontDatabase6italicERK7QStringS2_": [
+      "bool", "text", "text"
+    ],
+    "ritual_ZN13QFontDatabase4boldERK7QStringS2_": ["bool", "text", "text"],
+    "ritual_ZN13QFontDatabase6weightERK7QStringS2_": ["int", "text", "text"],
+    "ritual_ZN13QFontDatabase9hasFamilyERK7QString": ["bool", "text"],
+    "ritual_ZN13QFontDatabase15isPrivateFamilyERK7QString": ["bool", "text"],
+    "ritual_ZN13QFontDatabase17writingSystemNameENS_13WritingSystemE": [
+      "text", "int"
+    ],
+    "ritual_ZN13QFontDatabase19writingSystemSampleENS_13WritingSystemE": [
+      "text", "int"
+    ],
+    "ritual_ZN13QFontDatabase18addApplicationFontERK7QString": [
+      "int", "text"
+    ],
+    "ritual_ZN13QFontDatabase26addApplicationFontFromDataERK10QByteArray": [
+      "int", "address"
+    ],
+    "ritual_ZN13QFontDatabase21removeApplicationFontEi": ["bool", "int"],
+    "ritual_ZN13QFontDatabase25removeAllApplicationFontsEv": ["bool"],
+    "ritual_ZN13QFontDatabase32addApplicationFallbackFontFamilyEN5QChar6ScriptERK7QString": [
+      "nothing", "int", "text"
+    ],
+    "ritual_ZN13QFontDatabase35removeApplicationFallbackFontFamilyEN5QChar6ScriptERK7QString": [
+      "bool", "int", "text"
+    ],
+    "ritual_ZN13QFontDatabase29addApplicationEmojiFontFamilyERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN13QFontDatabase32removeApplicationEmojiFontFamilyERK7QString": [
+      "bool", "text"
+    ],
+    "ritual_ZN13QFontDatabase10systemFontENS_10SystemFontE": [
+      "address", "int"
+    ],
+    "ritual_ZN13QFontDatabaseD1Ev": ["nothing", "address"]
+  }
+}

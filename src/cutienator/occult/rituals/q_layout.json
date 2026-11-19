@@ -1,0 +1,98 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qlayout.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QLayout2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QLayout7spacingEv": ["int", "address"],
+    "ritual_ZN7QLayout10setSpacingEi": ["nothing", "address", "int"],
+    "ritual_ZN7QLayout18setContentsMarginsEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN7QLayout18setContentsMarginsERK8QMargins": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLayout20unsetContentsMarginsEv": ["nothing", "address"],
+    "ritual_ZNK7QLayout18getContentsMarginsEPiS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK7QLayout15contentsMarginsEv": ["address", "address"],
+    "ritual_ZNK7QLayout12contentsRectEv": ["address", "address"],
+    "ritual_ZN7QLayout12setAlignmentEP7QWidget6QFlagsIN2Qt13AlignmentFlagEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN7QLayout12setAlignmentEPS_6QFlagsIN2Qt13AlignmentFlagEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN7QLayout17setSizeConstraintENS_14SizeConstraintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QLayout14sizeConstraintEv": ["int", "address"],
+    "ritual_ZN7QLayout18setSizeConstraintsENS_14SizeConstraintES0_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN7QLayout27setHorizontalSizeConstraintENS_14SizeConstraintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QLayout24horizontalSizeConstraintEv": ["int", "address"],
+    "ritual_ZN7QLayout25setVerticalSizeConstraintENS_14SizeConstraintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QLayout22verticalSizeConstraintEv": ["int", "address"],
+    "ritual_ZN7QLayout10setMenuBarEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QLayout7menuBarEv": ["address", "address"],
+    "ritual_ZNK7QLayout12parentWidgetEv": ["address", "address"],
+    "ritual_ZN7QLayout10invalidateEv": ["nothing", "address"],
+    "ritual_ZNK7QLayout8geometryEv": ["address", "address"],
+    "ritual_ZN7QLayout8activateEv": ["bool", "address"],
+    "ritual_ZN7QLayout6updateEv": ["nothing", "address"],
+    "ritual_ZN7QLayout9addWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLayout7addItemEP11QLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLayout12removeWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLayout10removeItemEP11QLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QLayout19expandingDirectionsEv": ["int", "address"],
+    "ritual_ZNK7QLayout11minimumSizeEv": ["address", "address"],
+    "ritual_ZNK7QLayout11maximumSizeEv": ["address", "address"],
+    "ritual_ZN7QLayout11setGeometryERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_ZN7QLayout6takeAtEi": ["address", "address", "int"],
+    "ritual_ZNK7QLayout7indexOfEPK7QWidget": ["int", "address", "address"],
+    "ritual_ZNK7QLayout7indexOfEPK11QLayoutItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK7QLayout5countEv": ["int", "address"],
+    "ritual_ZNK7QLayout7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK7QLayout12controlTypesEv": ["int", "address"],
+    "ritual_ZN7QLayout13replaceWidgetEP7QWidgetS1_6QFlagsIN2Qt15FindChildOptionEE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK7QLayout26totalMinimumHeightForWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK7QLayout19totalHeightForWidthEi": ["int", "address", "int"],
+    "ritual_ZNK7QLayout16totalMinimumSizeEv": ["address", "address"],
+    "ritual_ZNK7QLayout16totalMaximumSizeEv": ["address", "address"],
+    "ritual_ZNK7QLayout13totalSizeHintEv": ["address", "address"],
+    "ritual_ZN7QLayout6layoutEv": ["address", "address"],
+    "ritual_ZN7QLayout10setEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QLayout9isEnabledEv": ["bool", "address"],
+    "ritual_ZN7QLayout21closestAcceptableSizeEPK7QWidgetRK5QSize": [
+      "address", "address", "address"
+    ]
+  }
+}

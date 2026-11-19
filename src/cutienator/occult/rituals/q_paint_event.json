@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QPaintEvent5cloneEv": ["address", "address"],
+    "ritual_ZN11QPaintEventD1Ev": ["nothing", "address"],
+    "ritual_ZN11QPaintEventC1ERK7QRegion": ["address", "address"],
+    "ritual_ZN11QPaintEventC1ERK5QRect": ["address", "address"],
+    "ritual_ZNK11QPaintEvent4rectEv": ["address", "address"],
+    "ritual_ZNK11QPaintEvent6regionEv": ["address", "address"]
+  }
+}

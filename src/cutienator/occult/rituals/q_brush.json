@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qbrush.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QBrushC1Ev": ["address"],
+    "ritual_ZN6QBrushC1EN2Qt10BrushStyleE": ["address", "int"],
+    "ritual_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN6QBrushC1EN2Qt11GlobalColorENS0_10BrushStyleE": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN6QBrushC1ERK6QColorRK7QPixmap": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QBrushC1EN2Qt11GlobalColorERK7QPixmap": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN6QBrushC1ERK7QPixmap": ["address", "address"],
+    "ritual_ZN6QBrushC1ERK6QImage": ["address", "address"],
+    "ritual_ZN6QBrushC1ERKS_": ["address", "address"],
+    "ritual_ZN6QBrushC1ERK9QGradient": ["address", "address"],
+    "ritual_ZN6QBrushD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QBrushcv8QVariantEv": ["address", "address"],
+    "ritual_ZNK6QBrush5styleEv": ["int", "address"],
+    "ritual_ZN6QBrush8setStyleEN2Qt10BrushStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QBrush9transformEv": ["address", "address"],
+    "ritual_ZN6QBrush12setTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QBrush7textureEv": ["address", "address"],
+    "ritual_ZN6QBrush10setTextureERK7QPixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QBrush12textureImageEv": ["address", "address"],
+    "ritual_ZN6QBrush15setTextureImageERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QBrush5colorEv": ["address", "address"],
+    "ritual_ZN6QBrush8setColorERK6QColor": ["nothing", "address", "address"],
+    "ritual_ZN6QBrush8setColorEN2Qt11GlobalColorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QBrush8gradientEv": ["address", "address"],
+    "ritual_ZNK6QBrush8isOpaqueEv": ["bool", "address"],
+    "ritual_ZNK6QBrusheqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK6QBrushneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK6QBrush10isDetachedEv": ["bool", "address"]
+  }
+}

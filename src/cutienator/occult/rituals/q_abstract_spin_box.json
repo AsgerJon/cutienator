@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qabstractspinbox.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QAbstractSpinBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QAbstractSpinBox2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QAbstractSpinBoxC1EP7QWidget": ["address", "address"],
+    "ritual_ZN16QAbstractSpinBoxD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QAbstractSpinBox13buttonSymbolsEv": ["int", "address"],
+    "ritual_ZN16QAbstractSpinBox16setButtonSymbolsENS_13ButtonSymbolsE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QAbstractSpinBox17setCorrectionModeENS_14CorrectionModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QAbstractSpinBox14correctionModeEv": ["int", "address"],
+    "ritual_ZNK16QAbstractSpinBox18hasAcceptableInputEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QAbstractSpinBox4textEv": ["text", "address"],
+    "ritual_ZNK16QAbstractSpinBox16specialValueTextEv": ["text", "address"],
+    "ritual_ZN16QAbstractSpinBox19setSpecialValueTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QAbstractSpinBox8wrappingEv": ["bool", "address"],
+    "ritual_ZN16QAbstractSpinBox11setWrappingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QAbstractSpinBox11setReadOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QAbstractSpinBox10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZN16QAbstractSpinBox19setKeyboardTrackingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QAbstractSpinBox16keyboardTrackingEv": ["bool", "address"],
+    "ritual_ZN16QAbstractSpinBox12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QAbstractSpinBox9alignmentEv": ["int", "address"],
+    "ritual_ZN16QAbstractSpinBox8setFrameEb": ["nothing", "address", "bool"],
+    "ritual_ZNK16QAbstractSpinBox8hasFrameEv": ["bool", "address"],
+    "ritual_ZN16QAbstractSpinBox14setAcceleratedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QAbstractSpinBox13isAcceleratedEv": ["bool", "address"],
+    "ritual_ZN16QAbstractSpinBox22setGroupSeparatorShownEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QAbstractSpinBox21isGroupSeparatorShownEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QAbstractSpinBox8sizeHintEv": ["address", "address"],
+    "ritual_ZNK16QAbstractSpinBox15minimumSizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QAbstractSpinBox13interpretTextEv": ["nothing", "address"],
+    "ritual_ZN16QAbstractSpinBox5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QAbstractSpinBox16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QAbstractSpinBox6stepByEi": ["nothing", "address", "int"],
+    "ritual_ZN16QAbstractSpinBox6stepUpEv": ["nothing", "address"],
+    "ritual_ZN16QAbstractSpinBox8stepDownEv": ["nothing", "address"],
+    "ritual_ZN16QAbstractSpinBox9selectAllEv": ["nothing", "address"],
+    "ritual_ZN16QAbstractSpinBox5clearEv": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qbuffer.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QBuffer10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QBuffer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QBufferC1EP7QObject": ["address", "address"],
+    "ritual_ZN7QBufferC1EP10QByteArrayP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7QBufferD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QBuffer6bufferEv": ["address", "address"],
+    "ritual_ZN7QBuffer9setBufferEP10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QBuffer7setDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QBuffer7setDataEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZNK7QBuffer4dataEv": ["address", "address"],
+    "ritual_ZN7QBuffer4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN7QBuffer5closeEv": ["nothing", "address"],
+    "ritual_ZNK7QBuffer4sizeEv": ["long long", "address"],
+    "ritual_ZNK7QBuffer3posEv": ["long long", "address"],
+    "ritual_ZN7QBuffer4seekEx": ["bool", "address", "long long"],
+    "ritual_ZNK7QBuffer5atEndEv": ["bool", "address"],
+    "ritual_ZNK7QBuffer11canReadLineEv": ["bool", "address"]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpagesize.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QPageSizeC1Ev": ["address"],
+    "ritual_ZN9QPageSizeC1ENS_10PageSizeIdE": ["address", "int"],
+    "ritual_ZN9QPageSizeC1ERK5QSizeRK7QStringNS_15SizeMatchPolicyE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZN9QPageSizeC1ERK6QSizeFNS_4UnitERK7QStringNS_15SizeMatchPolicyE": [
+      "address", "address", "int", "text", "int"
+    ],
+    "ritual_ZN9QPageSizeC1ERKS_": ["address", "address"],
+    "ritual_ZN9QPageSizeD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QPageSize14isEquivalentToERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK9QPageSize7isValidEv": ["bool", "address"],
+    "ritual_ZNK9QPageSize3keyEv": ["text", "address"],
+    "ritual_ZNK9QPageSize4nameEv": ["text", "address"],
+    "ritual_ZNK9QPageSize2idEv": ["int", "address"],
+    "ritual_ZNK9QPageSize9windowsIdEv": ["int", "address"],
+    "ritual_ZNK9QPageSize14definitionSizeEv": ["address", "address"],
+    "ritual_ZNK9QPageSize15definitionUnitsEv": ["int", "address"],
+    "ritual_ZNK9QPageSize4sizeENS_4UnitE": ["address", "address", "int"],
+    "ritual_ZNK9QPageSize10sizePointsEv": ["address", "address"],
+    "ritual_ZNK9QPageSize10sizePixelsEi": ["address", "address", "int"],
+    "ritual_ZNK9QPageSize4rectENS_4UnitE": ["address", "address", "int"],
+    "ritual_ZNK9QPageSize10rectPointsEv": ["address", "address"],
+    "ritual_ZNK9QPageSize10rectPixelsEi": ["address", "address", "int"],
+    "ritual_ZN9QPageSize3keyENS_10PageSizeIdE": ["text", "int"],
+    "ritual_ZN9QPageSize4nameENS_10PageSizeIdE": ["text", "int"],
+    "ritual_ZN9QPageSize2idERK5QSizeNS_15SizeMatchPolicyE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN9QPageSize2idERK6QSizeFNS_4UnitENS_15SizeMatchPolicyE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN9QPageSize2idEi": ["int", "int"],
+    "ritual_ZN9QPageSize9windowsIdENS_10PageSizeIdE": ["int", "int"],
+    "ritual_ZN9QPageSize14definitionSizeENS_10PageSizeIdE": [
+      "address", "int"
+    ],
+    "ritual_ZN9QPageSize15definitionUnitsENS_10PageSizeIdE": ["int", "int"],
+    "ritual_ZN9QPageSize4sizeENS_10PageSizeIdENS_4UnitE": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN9QPageSize10sizePointsENS_10PageSizeIdE": ["address", "int"],
+    "ritual_ZN9QPageSize10sizePixelsENS_10PageSizeIdEi": [
+      "address", "int", "int"
+    ]
+  }
+}

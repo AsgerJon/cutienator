@@ -1,0 +1,155 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qplaintextedit.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QPlainTextEdit10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QPlainTextEdit2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QPlainTextEditC1EP7QWidget": ["address", "address"],
+    "ritual_ZN14QPlainTextEditC1ERK7QStringP7QWidget": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN14QPlainTextEditD1Ev": ["nothing", "address"],
+    "ritual_ZN14QPlainTextEdit11setDocumentEP13QTextDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QPlainTextEdit8documentEv": ["address", "address"],
+    "ritual_ZN14QPlainTextEdit18setPlaceholderTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QPlainTextEdit15placeholderTextEv": ["text", "address"],
+    "ritual_ZN14QPlainTextEdit13setTextCursorERK11QTextCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QPlainTextEdit10textCursorEv": ["address", "address"],
+    "ritual_ZNK14QPlainTextEdit10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZN14QPlainTextEdit11setReadOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QPlainTextEdit23setTextInteractionFlagsE6QFlagsIN2Qt19TextInteractionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QPlainTextEdit20textInteractionFlagsEv": ["int", "address"],
+    "ritual_ZN14QPlainTextEdit22mergeCurrentCharFormatERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QPlainTextEdit20setCurrentCharFormatERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QPlainTextEdit17currentCharFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QPlainTextEdit15tabChangesFocusEv": ["bool", "address"],
+    "ritual_ZN14QPlainTextEdit18setTabChangesFocusEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QPlainTextEdit16setDocumentTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QPlainTextEdit13documentTitleEv": ["text", "address"],
+    "ritual_ZNK14QPlainTextEdit17isUndoRedoEnabledEv": ["bool", "address"],
+    "ritual_ZN14QPlainTextEdit18setUndoRedoEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QPlainTextEdit20setMaximumBlockCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QPlainTextEdit17maximumBlockCountEv": ["int", "address"],
+    "ritual_ZNK14QPlainTextEdit12lineWrapModeEv": ["int", "address"],
+    "ritual_ZN14QPlainTextEdit15setLineWrapModeENS_12LineWrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QPlainTextEdit12wordWrapModeEv": ["int", "address"],
+    "ritual_ZN14QPlainTextEdit15setWordWrapModeEN11QTextOption8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QPlainTextEdit20setBackgroundVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QPlainTextEdit17backgroundVisibleEv": ["bool", "address"],
+    "ritual_ZN14QPlainTextEdit17setCenterOnScrollEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QPlainTextEdit14centerOnScrollEv": ["bool", "address"],
+    "ritual_ZN14QPlainTextEdit4findERK7QString6QFlagsIN13QTextDocument8FindFlagEE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_ZN14QPlainTextEdit4findERK18QRegularExpression6QFlagsIN13QTextDocument8FindFlagEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK14QPlainTextEdit11toPlainTextEv": ["text", "address"],
+    "ritual_ZN14QPlainTextEdit19ensureCursorVisibleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QPlainTextEdit12loadResourceEiRK4QUrl": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN14QPlainTextEdit25createStandardContextMenuEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QPlainTextEdit25createStandardContextMenuERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QPlainTextEdit17cursorForPositionERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QPlainTextEdit10cursorRectERK11QTextCursor": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QPlainTextEdit10cursorRectEv": ["address", "address"],
+    "ritual_ZNK14QPlainTextEdit8anchorAtERK6QPoint": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK14QPlainTextEdit13overwriteModeEv": ["bool", "address"],
+    "ritual_ZN14QPlainTextEdit16setOverwriteModeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QPlainTextEdit15tabStopDistanceEv": ["double", "address"],
+    "ritual_ZN14QPlainTextEdit18setTabStopDistanceEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QPlainTextEdit11cursorWidthEv": ["int", "address"],
+    "ritual_ZN14QPlainTextEdit14setCursorWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QPlainTextEdit10moveCursorEN11QTextCursor13MoveOperationENS0_8MoveModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK14QPlainTextEdit8canPasteEv": ["bool", "address"],
+    "ritual_ZNK14QPlainTextEdit5printEP17QPagedPaintDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QPlainTextEdit10blockCountEv": ["int", "address"],
+    "ritual_ZNK14QPlainTextEdit16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QPlainTextEdit16inputMethodQueryEN2Qt16InputMethodQueryE8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN14QPlainTextEdit12setPlainTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QPlainTextEdit3cutEv": ["nothing", "address"],
+    "ritual_ZN14QPlainTextEdit4copyEv": ["nothing", "address"],
+    "ritual_ZN14QPlainTextEdit5pasteEv": ["nothing", "address"],
+    "ritual_ZN14QPlainTextEdit4undoEv": ["nothing", "address"],
+    "ritual_ZN14QPlainTextEdit4redoEv": ["nothing", "address"],
+    "ritual_ZN14QPlainTextEdit5clearEv": ["nothing", "address"],
+    "ritual_ZN14QPlainTextEdit9selectAllEv": ["nothing", "address"],
+    "ritual_ZN14QPlainTextEdit15insertPlainTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QPlainTextEdit15appendPlainTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QPlainTextEdit10appendHtmlERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QPlainTextEdit12centerCursorEv": ["nothing", "address"],
+    "ritual_ZN14QPlainTextEdit6zoomInEi": ["nothing", "address", "int"],
+    "ritual_ZN14QPlainTextEdit7zoomOutEi": ["nothing", "address", "int"]
+  }
+}

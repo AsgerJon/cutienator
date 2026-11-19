@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qguiapplication.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QGuiApplication10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGuiApplication2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QGuiApplicationC1ERiPPci": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN15QGuiApplicationD1Ev": ["nothing", "address"],
+    "ritual_ZN15QGuiApplication25setApplicationDisplayNameERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN15QGuiApplication22applicationDisplayNameEv": ["text"],
+    "ritual_ZN15QGuiApplication14setBadgeNumberEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN15QGuiApplication18setDesktopFileNameERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN15QGuiApplication15desktopFileNameEv": ["text"],
+    "ritual_ZN15QGuiApplication10topLevelAtERK6QPoint": [
+      "address", "address"
+    ],
+    "ritual_ZN15QGuiApplication13setWindowIconERK5QIcon": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QGuiApplication10windowIconEv": ["address"],
+    "ritual_ZN15QGuiApplication12platformNameEv": ["text"],
+    "ritual_ZN15QGuiApplication11modalWindowEv": ["address"],
+    "ritual_ZN15QGuiApplication11focusWindowEv": ["address"],
+    "ritual_ZN15QGuiApplication11focusObjectEv": ["address"],
+    "ritual_ZN15QGuiApplication13primaryScreenEv": ["address"],
+    "ritual_ZN15QGuiApplication8screenAtERK6QPoint": ["address", "address"],
+    "ritual_ZNK15QGuiApplication16devicePixelRatioEv": ["double", "address"],
+    "ritual_ZN15QGuiApplication14overrideCursorEv": ["address"],
+    "ritual_ZN15QGuiApplication17setOverrideCursorERK7QCursor": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QGuiApplication20changeOverrideCursorERK7QCursor": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QGuiApplication21restoreOverrideCursorEv": ["nothing"],
+    "ritual_ZN15QGuiApplication4fontEv": ["address"],
+    "ritual_ZN15QGuiApplication7setFontERK5QFont": ["nothing", "address"],
+    "ritual_ZN15QGuiApplication9clipboardEv": ["address"],
+    "ritual_ZN15QGuiApplication7paletteEv": ["address"],
+    "ritual_ZN15QGuiApplication10setPaletteERK8QPalette": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QGuiApplication17keyboardModifiersEv": ["int"],
+    "ritual_ZN15QGuiApplication22queryKeyboardModifiersEv": ["int"],
+    "ritual_ZN15QGuiApplication12mouseButtonsEv": ["int"],
+    "ritual_ZN15QGuiApplication18setLayoutDirectionEN2Qt15LayoutDirectionE": [
+      "nothing", "int"
+    ],
+    "ritual_ZN15QGuiApplication15layoutDirectionEv": ["int"],
+    "ritual_ZN15QGuiApplication13isRightToLeftEv": ["bool"],
+    "ritual_ZN15QGuiApplication13isLeftToRightEv": ["bool"],
+    "ritual_ZN15QGuiApplication10styleHintsEv": ["address"],
+    "ritual_ZN15QGuiApplication23setDesktopSettingsAwareEb": [
+      "nothing", "bool"
+    ],
+    "ritual_ZN15QGuiApplication20desktopSettingsAwareEv": ["bool"],
+    "ritual_ZN15QGuiApplication11inputMethodEv": ["address"],
+    "ritual_ZN15QGuiApplication25setQuitOnLastWindowClosedEb": [
+      "nothing", "bool"
+    ],
+    "ritual_ZN15QGuiApplication22quitOnLastWindowClosedEv": ["bool"],
+    "ritual_ZN15QGuiApplication16applicationStateEv": ["int"],
+    "ritual_ZN15QGuiApplication35setHighDpiScaleFactorRoundingPolicyEN2Qt32HighDpiScaleFactorRoundingPolicyE": [
+      "nothing", "int"
+    ],
+    "ritual_ZN15QGuiApplication32highDpiScaleFactorRoundingPolicyEv": [
+      "int"
+    ],
+    "ritual_ZN15QGuiApplication4execEv": ["int"],
+    "ritual_ZN15QGuiApplication6notifyEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK15QGuiApplication17isSessionRestoredEv": ["bool", "address"],
+    "ritual_ZNK15QGuiApplication9sessionIdEv": ["text", "address"],
+    "ritual_ZNK15QGuiApplication10sessionKeyEv": ["text", "address"],
+    "ritual_ZNK15QGuiApplication15isSavingSessionEv": ["bool", "address"],
+    "ritual_ZN15QGuiApplication4syncEv": ["nothing"]
+  }
+}

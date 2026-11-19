@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qdockwidget.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QDockWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QDockWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QDockWidgetC1ERK7QStringP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "text", "address", "int"
+    ],
+    "ritual_ZN11QDockWidgetC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QDockWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QDockWidget6widgetEv": ["address", "address"],
+    "ritual_ZN11QDockWidget9setWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QDockWidget11setFeaturesE6QFlagsINS_17DockWidgetFeatureEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QDockWidget8featuresEv": ["int", "address"],
+    "ritual_ZN11QDockWidget11setFloatingEb": ["nothing", "address", "bool"],
+    "ritual_ZNK11QDockWidget10isFloatingEv": ["bool", "address"],
+    "ritual_ZN11QDockWidget15setAllowedAreasE6QFlagsIN2Qt14DockWidgetAreaEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QDockWidget12allowedAreasEv": ["int", "address"],
+    "ritual_ZN11QDockWidget17setTitleBarWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QDockWidget14titleBarWidgetEv": ["address", "address"],
+    "ritual_ZN11QDockWidget15setDockLocationEN2Qt14DockWidgetAreaE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QDockWidget12dockLocationEv": ["int", "address"],
+    "ritual_ZNK11QDockWidget13isAreaAllowedEN2Qt14DockWidgetAreaE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK11QDockWidget16toggleViewActionEv": ["address", "address"]
+  }
+}

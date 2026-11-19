@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qlayoutitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSpacerItemC1EiiN11QSizePolicy6PolicyES1_": [
+      "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN11QSpacerItemD1Ev": ["nothing", "address"],
+    "ritual_ZN11QSpacerItem10changeSizeEiiN11QSizePolicy6PolicyES1_": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK11QSpacerItem8sizeHintEv": ["address", "address"],
+    "ritual_ZNK11QSpacerItem11minimumSizeEv": ["address", "address"],
+    "ritual_ZNK11QSpacerItem11maximumSizeEv": ["address", "address"],
+    "ritual_ZNK11QSpacerItem19expandingDirectionsEv": ["int", "address"],
+    "ritual_ZNK11QSpacerItem7isEmptyEv": ["bool", "address"],
+    "ritual_ZN11QSpacerItem11setGeometryERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QSpacerItem8geometryEv": ["address", "address"],
+    "ritual_ZN11QSpacerItem10spacerItemEv": ["address", "address"],
+    "ritual_ZNK11QSpacerItem10sizePolicyEv": ["address", "address"]
+  }
+}

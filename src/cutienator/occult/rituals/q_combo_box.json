@@ -1,0 +1,136 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qcombobox.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QComboBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QComboBox2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QComboBoxC1EP7QWidget": ["address", "address"],
+    "ritual_ZN9QComboBoxD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QComboBox15maxVisibleItemsEv": ["int", "address"],
+    "ritual_ZN9QComboBox18setMaxVisibleItemsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QComboBox5countEv": ["int", "address"],
+    "ritual_ZN9QComboBox11setMaxCountEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QComboBox8maxCountEv": ["int", "address"],
+    "ritual_ZNK9QComboBox17duplicatesEnabledEv": ["bool", "address"],
+    "ritual_ZN9QComboBox20setDuplicatesEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9QComboBox8setFrameEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QComboBox8hasFrameEv": ["bool", "address"],
+    "ritual_ZNK9QComboBox8findTextERK7QString6QFlagsIN2Qt9MatchFlagEE": [
+      "int", "address", "text", "int"
+    ],
+    "ritual_ZNK9QComboBox8findDataERK8QVarianti6QFlagsIN2Qt9MatchFlagEE": [
+      "int", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK9QComboBox12insertPolicyEv": ["int", "address"],
+    "ritual_ZN9QComboBox15setInsertPolicyENS_12InsertPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QComboBox16sizeAdjustPolicyEv": ["int", "address"],
+    "ritual_ZN9QComboBox19setSizeAdjustPolicyENS_16SizeAdjustPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QComboBox21minimumContentsLengthEv": ["int", "address"],
+    "ritual_ZN9QComboBox24setMinimumContentsLengthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QComboBox8iconSizeEv": ["address", "address"],
+    "ritual_ZN9QComboBox11setIconSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox18setPlaceholderTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QComboBox15placeholderTextEv": ["text", "address"],
+    "ritual_ZNK9QComboBox10isEditableEv": ["bool", "address"],
+    "ritual_ZN9QComboBox11setEditableEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QComboBox11setLineEditEP9QLineEdit": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QComboBox8lineEditEv": ["address", "address"],
+    "ritual_ZN9QComboBox12setValidatorEPK10QValidator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QComboBox9validatorEv": ["address", "address"],
+    "ritual_ZN9QComboBox12setCompleterEP10QCompleter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QComboBox9completerEv": ["address", "address"],
+    "ritual_ZNK9QComboBox12itemDelegateEv": ["address", "address"],
+    "ritual_ZN9QComboBox15setItemDelegateEP21QAbstractItemDelegate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QComboBox5modelEv": ["address", "address"],
+    "ritual_ZN9QComboBox8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QComboBox14rootModelIndexEv": ["address", "address"],
+    "ritual_ZN9QComboBox17setRootModelIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QComboBox11modelColumnEv": ["int", "address"],
+    "ritual_ZN9QComboBox14setModelColumnEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QComboBox16labelDrawingModeEv": ["int", "address"],
+    "ritual_ZN9QComboBox19setLabelDrawingModeENS_16LabelDrawingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QComboBox12currentIndexEv": ["int", "address"],
+    "ritual_ZNK9QComboBox11currentTextEv": ["text", "address"],
+    "ritual_ZNK9QComboBox11currentDataEi": ["address", "address", "int"],
+    "ritual_ZNK9QComboBox8itemTextEi": ["text", "address", "int"],
+    "ritual_ZNK9QComboBox8itemIconEi": ["address", "address", "int"],
+    "ritual_ZNK9QComboBox8itemDataEii": ["address", "address", "int", "int"],
+    "ritual_ZN9QComboBox7addItemERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN9QComboBox7addItemERK5QIconRK7QStringRK8QVariant": [
+      "nothing", "address", "address", "text", "address"
+    ],
+    "ritual_ZN9QComboBox10insertItemEiRK7QStringRK8QVariant": [
+      "nothing", "address", "int", "text", "address"
+    ],
+    "ritual_ZN9QComboBox10insertItemEiRK5QIconRK7QStringRK8QVariant": [
+      "nothing", "address", "int", "address", "text", "address"
+    ],
+    "ritual_ZN9QComboBox15insertSeparatorEi": ["nothing", "address", "int"],
+    "ritual_ZN9QComboBox10removeItemEi": ["nothing", "address", "int"],
+    "ritual_ZN9QComboBox11setItemTextEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN9QComboBox11setItemIconEiRK5QIcon": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN9QComboBox11setItemDataEiRK8QVarianti": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZNK9QComboBox4viewEv": ["address", "address"],
+    "ritual_ZN9QComboBox7setViewEP17QAbstractItemView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QComboBox8sizeHintEv": ["address", "address"],
+    "ritual_ZNK9QComboBox15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZN9QComboBox9showPopupEv": ["nothing", "address"],
+    "ritual_ZN9QComboBox9hidePopupEv": ["nothing", "address"],
+    "ritual_ZN9QComboBox5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZNK9QComboBox16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK9QComboBox16inputMethodQueryEN2Qt16InputMethodQueryERK8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN9QComboBox5clearEv": ["nothing", "address"],
+    "ritual_ZN9QComboBox13clearEditTextEv": ["nothing", "address"],
+    "ritual_ZN9QComboBox11setEditTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9QComboBox15setCurrentIndexEi": ["nothing", "address", "int"],
+    "ritual_ZN9QComboBox14setCurrentTextERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

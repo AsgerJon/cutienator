@@ -1,0 +1,2043 @@
+"""ClassGenerator writes the Python file of one cute class."""
+#  Apache-2.0 license
+#  Copyright (c) 2026 Asger Jon Vistisen
+from __future__ import annotations
+
+import collections
+import keyword
+import os
+import textwrap
+from typing import TYPE_CHECKING
+
+from worktoy.waitaminute import MissingVariable, TypeException
+
+from . import DependencyTree, QtPart, RitualGenerator, EnumGenerator
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Any, Dict, List, Optional, Set, Tuple
+
+  Record = Dict[str, Any]
+  Records = Tuple[Record, ...]
+  Reasons = Tuple[Tuple[str, str], ...]
+  Names = Tuple[str, ...]
+
+
+class ClassGenerator:
+  """
+  Writes the Python file of one cute class: the class standing for one
+  class of Qt, with one function for each ritual of that class that
+  Python can call. It writes what a person wrote for 'QSize' and
+  'QObject' by hand, from the same plan the ritual file of the class is
+  written from, so the two agree. This is the generator side of the
+  tooling; 'ClassTester' is the side that verifies what it wrote.
+
+    generator = ClassGenerator()
+    generator.setDependencyTree(tree)
+    generator.setClassName('QSize')
+    generator.setCuteNames('QSize', 'QPoint')   # the cute classes
+    generator.setWorkFolder('/some/folder/cutienator')
+    generator.write()        # writes '.../cutienator/QtCore/_q_size.py'
+    generator.getFunctions()    # the functions of that class
+    generator.getLeftOut()      # the rituals with no function, and why
+
+  Terms
+  -----
+
+  - A cute class is a plain Python class standing for one class of Qt.
+    An object of it stands in front of one C++ object.
+  - A ritual, a ritual file and a row are as 'RitualGenerator' explains
+    them.
+  - A signature is what stands between the brackets of one
+    '@overload(...)': the classes of the arguments one call may have.
+  - A late class is a cute class made after the one being written,
+    which the body can only name through 'WAIT'.
+
+  You provide
+  -----------
+
+  - 'setDependencyTree': the tree of the parts of Qt. Required.
+  - 'setClassName': the class of Qt to write the cute class of.
+    Required.
+  - 'setCuteNames': every class of Qt that has, or is about to get, a
+    cute class. A function naming any other class is left out.
+    Required.
+  - 'setWorkFolder': the folder of the package 'cutienator'. The file
+    goes into the folder of its part of Qt there. Required before
+    'write' only.
+
+  How a type of Qt looks in Python
+  --------------------------------
+
+  - A number is an 'int', a 'float' or a 'bool'.
+  - Text, Qt's 'QString' and C's 'const char *', is a 'str'.
+  - An enum is a member of its class, as 'Qt.AspectRatioMode', and the
+    combinations of a flags enum are values of the class of that enum,
+    named as Qt names them, as 'Qt.WindowFlags'.
+  - An object Qt takes or gives by its address is an object of its cute
+    class. None is taken for no object, and for no text where Qt takes
+    text as C has it, since C++ lets nothing be given there. Whether
+    Qt can do with nothing in that place is as in C++.
+  - An object Qt takes or gives as a value is an object of its cute
+    class, which Python owns.
+
+  What it writes for one function of Qt
+  -------------------------------------
+
+  - One function of the same name, calling the ritual. A name that is
+    a word of Python gets an underscore after it, as 'raise_'.
+  - A function taking nothing, alone at its name, is a plain function.
+    Every other function is given its signature with '@overload'.
+  - Where None is taken, and where Qt fills in an argument that is
+    left out, the function gets one more signature for each such call,
+    stacked on the one function. What Qt fills in is the default of
+    the Python argument. An argument whose default cannot be said in
+    Python has to be given, and so has every argument before it.
+  - A signature naming a late class needs a function of its own, so
+    such a function takes the full call only.
+  - Each constructor of Qt is one '__init__', which notes what it was
+    given. The C++ object is made at the first use. Qt's application,
+    'QCoreApplication' and every class built on it, is made at once:
+    nearly every other object of Qt can only be made after it.
+
+  What gets no function, though it has a ritual
+  ---------------------------------------------
+
+  The destructor; an operator; a function naming a class that has no
+  cute class, or giving a value of a class Python cannot own; one
+  taking a number to change in place or a single letter of C; one whose
+  calls an earlier function of its name takes already; one that is
+  another kind of method than most of its name; and Qt's own inner
+  workings, named 'qt_...'. Each is listed by 'getLeftOut', and in the
+  docstring of the class.
+
+  What to expect
+  --------------
+
+  - The cute class is built on the cute class of the first class its
+    Qt class is built on. A second one, as 'QPaintDevice' for
+    'QWidget', is not reflected.
+  - A class Qt writes inside another, as 'QMetaObject::Connection', is
+    a cute class in a file of its own, named after both, as
+    '_q_meta_object__connection.py'. It is named 'Connection', the
+    class it is written inside holds it under that name, and it is
+    made before that class. Other classes name it through that class,
+    as 'QMetaObject.Connection'.
+  - The getters decide and write nothing. Only 'write' touches a file,
+    and it replaces the file whole, and the files of the enums of the
+    class with it.
+  """
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def getStem(cppName: str) -> str:
+    """
+    Gives a name of Qt in small letters, with an underscore before each
+    word: 'q_object' for 'QObject'.
+    """
+    stem = []  # type: List[str]
+    for letter in cppName.replace('::', '__'):
+      if letter.isupper() and stem and stem[-1] != '_':
+        stem.append('_')
+      stem.append(letter.lower())
+    return ''.join(stem)
+
+  @staticmethod
+  def _wrapWords(words: str, indent: str, width: int = 77) -> List[str]:
+    """Gives words as lines of at most 'width' letters, each indented."""
+    return textwrap.wrap(
+        ' '.join(words.split()), width, initial_indent=indent,
+        subsequent_indent=indent, break_long_words=False,
+        break_on_hyphens=False,
+    ) or [indent.rstrip()]
+
+  @staticmethod
+  def _wrapCpp(shown: str, first: str, later: str) -> List[str]:
+    """
+    Gives a function as C++ writes it as lines of at most 77 letters.
+
+    C++ writes a name with what it takes right behind it, as
+    'QWidget::setParent(QWidget', which can be longer than a line. Such
+    a word is broken behind a '(' or a '::'.
+
+    Parameters
+    ----------
+
+    shown : str
+      The function as C++ writes it.
+
+    first : str
+      What the first line starts with.
+
+    later : str
+      What every other line starts with.
+    """
+    lines, line = [], first
+    for word in shown.split():
+      pieces = [word]
+      while len(later) + len(pieces[-1]) > 77:
+        long = pieces.pop()
+        room = 77 - len(later)
+        cut = max(long.rfind('(', 0, room), long.rfind('::', 0, room - 1))
+        if cut <= 0:
+          pieces.append(long)
+          break
+        cut += 1 if long[cut] == '(' else 2
+        pieces.extend((long[:cut], long[cut:]))
+      for index, piece in enumerate(pieces):
+        glue = '' if index or line in (first, later) else ' '
+        if len(line) + len(glue) + len(piece) > 77:
+          if line.strip() and line not in (first, later):
+            lines.append(line)
+            line, glue = later, ''
+        line = '%s%s%s' % (line, glue, piece)
+    lines.append(line)
+    return lines
+
+  @staticmethod
+  def _unwrap(node: Optional[Record]) -> Optional[Record]:
+    """
+    Gives what the compiler wrote down for a value, without the layers
+    it puts around it that change nothing of the value.
+    """
+    layers = (
+        'ImplicitCastExpr', 'ExprWithCleanups', 'ConstantExpr',
+        'MaterializeTemporaryExpr', 'CXXBindTemporaryExpr', 'ParenExpr',
+    )
+    while node is not None and node.get('kind') in layers:
+      inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
+      node = inner[0] if inner else None
+    return node
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  #  Class Variables
+  #  What a number type built into C++ is in Python.
+  __python_numbers__ = dict(
+      bool='bool', float='float', double='float',
+  )
+
+  #  The words Python has for the names of Qt that are words of Python
+  #  in an enum; see 'EnumGenerator'.
+  __python_words__ = {'None': 'NULL', 'True': 'TRUE', 'False': 'FALSE'}
+
+  #  The sections of a class body, in order, each with its banner.
+  __section_names__ = (
+      'STATIC METHODS', 'NAMESPACE', 'GETTERS', 'SETTERS', 'NOTIFIERS',
+      'Python API', 'CONSTRUCTORS', 'DOMAIN SPECIFIC', 'OPTIONAL METHODS',
+      'REQUIRED METHODS', 'PARENT METHODS', 'PUBLIC METHODS',
+  )
+
+  #  The class of Qt whose objects Qt can watch, and tell the removal
+  #  of. Its cute class says so, and every class built on it inherits
+  #  that.
+  __watched_name__ = 'QObject'
+
+  #  The class of Qt that everything else of Qt needs to be there
+  #  first. It, and every class built on it, is made at once.
+  __application_name__ = 'QCoreApplication'
+
+  #  The parts of Qt, each after the parts it is built on.
+  __part_order__ = ('QtCore', 'QtGui', 'QtWidgets')
+
+  #  Fallback Variables
+
+  #  Private Variables
+  __dependency_tree__ = None  # type: Optional[DependencyTree]
+  __class_name__ = None  # type: Optional[str]
+  __work_folder__ = None  # type: Optional[str]
+  __cute_names__ = None  # type: Optional[Names]
+  __ritual_generators__ = None  # type: Optional[Dict[str, Any]]
+  __made_functions__ = None  # type: Optional[Records]
+  __left_out__ = None  # type: Optional[Reasons]
+  __needed_names__ = None  # type: Optional[Record]
+
+  #  Public Variables
+
+  #  Virtual Variables
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def getDependencyTree(self) -> DependencyTree:
+    """
+    Gives the dependency tree the generator works from.
+
+    Provided by you, through 'setDependencyTree'.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setDependencyTree' has not been called.
+    """
+    if self.__dependency_tree__ is None:
+      raise MissingVariable(self, '__dependency_tree__', DependencyTree)
+    return self.__dependency_tree__
+
+  def getClassName(self) -> str:
+    """
+    Gives the class of Qt the cute class stands for, as 'QSize'.
+
+    Provided by you, through 'setClassName'.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setClassName' has not been called.
+    """
+    if self.__class_name__ is None:
+      raise MissingVariable(self, '__class_name__', str)
+    return self.__class_name__
+
+  def getWorkFolder(self) -> str:
+    """
+    Gives the folder of the package the file is written into.
+
+    Provided by you, through 'setWorkFolder'.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setWorkFolder' has not been called.
+    """
+    if self.__work_folder__ is None:
+      raise MissingVariable(self, '__work_folder__', str)
+    return self.__work_folder__
+
+  def getCuteNames(self) -> Names:
+    """
+    Gives every class of Qt that has, or is about to get, a cute class.
+
+    Provided by you, through 'setCuteNames'.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setCuteNames' has not been called.
+    """
+    if self.__cute_names__ is None:
+      raise MissingVariable(self, '__cute_names__', tuple)
+    return self.__cute_names__
+
+  def getPythonName(self, className: Optional[str] = None) -> str:
+    """
+    Gives the name the cute class of a class of Qt has in Python:
+    'QSize' for 'QSize', and 'Connection' for
+    'QMetaObject::Connection'. It is that of the class being written
+    when none is named.
+    """
+    className = className or self.getClassName()
+    return className.rpartition('::')[2]
+
+  def getOwnerName(self, className: Optional[str] = None) -> str:
+    """
+    Gives the class Qt writes a class inside, as 'QMetaObject' for
+    'QMetaObject::Connection', or '' for a class written inside none.
+    """
+    className = className or self.getClassName()
+    return className.rpartition('::')[0]
+
+  def getInnerNames(self) -> Names:
+    """
+    Gives the classes Qt writes right inside the class that have a
+    cute class, in alphabetical order. The cute class holds each under
+    its own name.
+    """
+    className = self.getClassName()
+    return (*sorted(
+        name for name in self.getCuteNames()
+        if self.getOwnerName(name) == className),)
+
+  def getPartName(self, className: Optional[str] = None) -> str:
+    """
+    Gives the part of Qt a class belongs to, as 'QtCore': that of the
+    class being written when none is named.
+    """
+    className = className or self.getClassName()
+    return self.getDependencyTree().getPartName(className)
+
+  def getFileStem(self, className: Optional[str] = None) -> str:
+    """
+    Gives the name of the file of a cute class without its ending, as
+    '_q_size' for 'QSize': that of the class being written when none
+    is named.
+    """
+    return '_%s' % self.getStem(className or self.getClassName())
+
+  def getClassFile(self) -> str:
+    """
+    Gives the full path of the file, as
+    '/some/folder/cutienator/QtCore/_q_size.py'.
+
+    Found for you. Having the path does not mean the file is there;
+    'write' makes it.
+    """
+    name = '%s.py' % self.getFileStem()
+    return os.path.join(self.getWorkFolder(), self.getPartName(), name)
+
+  def getRitualGenerator(self, className: Optional[str] = None) -> Any:
+    """
+    Gives the generator of the ritual file of a class: that of the
+    class being written when none is named. The functions of the cute
+    class are written from its plan.
+
+    Made for you, once for each class, and kept.
+
+    Returns
+    -------
+
+    RitualGenerator
+      With the tree and the class set, and no work folder.
+    """
+    className = className or self.getClassName()
+    if self.__ritual_generators__ is None:
+      self.__ritual_generators__ = dict()
+    if className not in self.__ritual_generators__:
+      generator = RitualGenerator()
+      generator.setDependencyTree(self.getDependencyTree())
+      generator.setClassName(className)
+      self.__ritual_generators__[className] = generator
+    return self.__ritual_generators__[className]
+
+  def getBaseName(self) -> Optional[str]:
+    """
+    Gives the class of Qt whose cute class this one is built on: the
+    first class the Qt class is built on, when that has a cute class.
+    Gives None for a class built on no such class.
+    """
+    parents = self.getDependencyTree().getParents(self.getClassName())
+    if not parents or parents[0] not in self.getCuteNames():
+      return None
+    if '::' in parents[0] or not self._isMadeBefore(parents[0]):
+      return None
+    return parents[0]
+
+  def getUnreflectedParents(self) -> Names:
+    """Gives the classes the Qt class is built on that the cute class
+    is not built on."""
+    parents = self.getDependencyTree().getParents(self.getClassName())
+    return (*(p for p in parents if p != self.getBaseName()),)
+
+  def getEnumGenerators(self) -> Tuple[Any, ...]:
+    """
+    Gives the generator of each enum Qt writes inside the class that
+    code outside the class may use, in alphabetical order.
+
+    Made for you. 'write' has each of them write its file.
+    """
+    tree, className = self.getDependencyTree(), self.getClassName()
+    generators = []
+    for enumName in tree.getEnumRecordNames():
+      if tree.getEnumRecord(enumName)['ownerName'] != className:
+        continue
+      generator = self._getEnumGenerator(enumName)
+      if generator.findRefusal() is None:
+        generators.append(generator)
+    return (*generators,)
+
+  def getFunctions(self, **kwargs) -> Records:
+    """
+    Gives the functions of the cute class, in the order they are
+    written.
+
+    Decided for you, at the first call, and kept. Nothing is written to
+    a file by this. You pass nothing; the keyword is for the method's
+    own use.
+
+    Returns
+    -------
+
+    Records
+      A 'Tuple[Dict[str, Any], ...]'. Each function says:
+      'pythonName': its name in Python, as 'scaled' or '__init__'.
+      'plan': the ritual it calls, as 'RitualGenerator' has it.
+      'kind': 'constructor', 'method' or 'static method'.
+      'parameters': its arguments in Python, in order.
+      'signatures': each signature it is given, as the texts between
+      the brackets of one '@overload(...)'.
+      'signatureKeys': the same signatures by the classes they take,
+      whatever names the file writes those by.
+      'section': the section of the class body it stands in.
+
+    Raises
+    ------
+
+    MissingVariable
+      One of the first three setters has not been called.
+
+    LookupError
+      The tree has no class of that name.
+    """
+    if self.__made_functions__ is None:
+      if kwargs.get('_recursion', False):
+        raise RecursionError
+      self._createFunctions()
+      return self.getFunctions(_recursion=True)
+    return self.__made_functions__
+
+  def getLeftOut(self) -> Reasons:
+    """
+    Gives the rituals of the class that get no function, each with the
+    reason, in the order the header declares them.
+
+    Decided for you, together with 'getFunctions'.
+
+    Returns
+    -------
+
+    Reasons
+      A 'Tuple[Tuple[str, str], ...]': the Qt function as C++ writes
+      it, and the reason in words.
+    """
+    self.getFunctions()
+    return self.__left_out__
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def _forget(self) -> None:
+    """Forgets what was decided, after a setter changed what it is
+    decided from."""
+    self.__made_functions__ = None
+    self.__left_out__ = None
+    self.__needed_names__ = None
+
+  def setDependencyTree(self, dependencyTree: DependencyTree) -> None:
+    """
+    Tells the generator which dependency tree to work from.
+
+    Required. Calling it again forgets what was decided before.
+
+    Raises
+    ------
+
+    TypeException
+      'dependencyTree' is not a 'DependencyTree'.
+    """
+    if not isinstance(dependencyTree, DependencyTree):
+      raise TypeException('dependencyTree', dependencyTree, DependencyTree)
+    self.__dependency_tree__ = dependencyTree
+    self.__ritual_generators__ = None
+    self._forget()
+
+  def setClassName(self, className: str) -> None:
+    """
+    Tells the generator which class of Qt to write the cute class of.
+
+    Required. Calling it again forgets what was decided before.
+
+    Parameters
+    ----------
+
+    className : str
+      The class by the name the dependency tree has it under, as
+      'QSize'.
+
+    Raises
+    ------
+
+    TypeException
+      'className' is not text.
+    """
+    if not isinstance(className, str):
+      raise TypeException('className', className, str)
+    self.__class_name__ = className
+    self._forget()
+
+  def setCuteNames(self, *cuteNames: str) -> None:
+    """
+    Tells the generator which classes of Qt have, or are about to get,
+    a cute class.
+
+    Required. A function naming a class that is not among them is left
+    out, with that reason. Calling it again forgets what was decided
+    before.
+
+    Parameters
+    ----------
+
+    *cuteNames : str
+      The classes, by the names the dependency tree has them under.
+
+    Raises
+    ------
+
+    TypeException
+      One of them is not text.
+    """
+    for cuteName in cuteNames:
+      if not isinstance(cuteName, str):
+        raise TypeException('cuteName', cuteName, str)
+    self.__cute_names__ = (*cuteNames,)
+    self._forget()
+
+  def setWorkFolder(self, workFolder: str) -> None:
+    """
+    Tells the generator where the package 'cutienator' is.
+
+    Required before 'write' and 'getClassFile'.
+
+    Parameters
+    ----------
+
+    workFolder : str
+      The path of the folder of the package, which exists. The file is
+      written into the folder of its part of Qt there, as 'QtCore'.
+
+    Raises
+    ------
+
+    TypeException
+      'workFolder' is not text.
+
+    FileNotFoundError
+      There is no folder at the path.
+    """
+    if not isinstance(workFolder, str):
+      raise TypeException('workFolder', workFolder, str)
+    workFolder = os.path.abspath(workFolder)
+    if not os.path.isdir(workFolder):
+      infoSpec = """There is no folder at '%s'."""
+      raise FileNotFoundError(infoSpec % workFolder)
+    self.__work_folder__ = workFolder
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def __str__(self) -> str:
+    """Says which class this is for and which setters are still due."""
+    clsName = type(self).__name__
+    unset = [
+        setter for setter, value in (
+            ('setDependencyTree', self.__dependency_tree__),
+            ('setClassName', self.__class_name__),
+            ('setCuteNames', self.__cute_names__),
+        ) if value is None
+    ]
+    if unset:
+      infoSpec = """<%s still waiting for: %s>"""
+      return infoSpec % (clsName, ', '.join(unset))
+    return "<%s of the class '%s'>" % (clsName, self.__class_name__)
+
+  __repr__ = __str__
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def _getEnumGenerator(self, enumName: str) -> Any:
+    """Gives the generator of one enum, with the tree and the folder
+    it writes into set when that is known."""
+    generator = EnumGenerator()
+    generator.setDependencyTree(self.getDependencyTree())
+    generator.setEnumName(enumName)
+    if self.__work_folder__ is not None:
+      generator.setWorkFolder(self.__work_folder__)
+    return generator
+
+  def _isMadeBefore(self, otherName: str) -> bool:
+    """
+    Says whether the cute class of another class of Qt is made before
+    the one being written, so that this file can import it.
+
+    A class of an earlier part of Qt is. A class of the same part is
+    when the dependency tree makes it earlier. Any other class is a
+    late class.
+    """
+    tree, className = self.getDependencyTree(), self.getClassName()
+    order = self.__part_order__
+    here = order.index(tree.getPartName(className))
+    there = order.index(tree.getPartName(otherName))
+    if there != here:
+      return True if there < here else False
+    #  A class written inside another is made right before the
+    #  outermost class around it, whose file brings it in.
+    mine, theirs = className.split('::')[0], otherName.split('::')[0]
+    if mine == theirs:
+      return len(otherName) > len(className)
+    makeOrder = tree.getMakeOrder()
+    return makeOrder.index(theirs) < makeOrder.index(mine)
+
+  def _note(self, kind: str, name: str) -> None:
+    """Notes a name the file needs: a class to import, a late class,
+    or one of the names the top of the file brings in."""
+    if self.__needed_names__ is None:
+      self.__needed_names__ = collections.defaultdict(list)
+    if name not in self.__needed_names__[kind]:
+      self.__needed_names__[kind].append(name)
+
+  def _findClass(self, otherName: str) -> Optional[Record]:
+    """
+    Says how the body names the cute class of a class of Qt.
+
+    Returns
+    -------
+
+    Optional[Record]
+      None for a class that has no cute class. Else 'entry': what
+      stands for it in a signature, as 'THIS' or 'QEvent'; 'name': its
+      name in Python; 'late': whether it is a late class.
+    """
+    className = self.getClassName()
+    if otherName == className:
+      name = self.getPythonName()
+      return dict(entry='THIS', name=name, late=False, bring='')
+    if otherName not in self.getCuteNames():
+      return None
+    ownerName = self.getOwnerName(otherName)
+    if not ownerName:
+      late = not self._isMadeBefore(otherName)
+      return dict(
+          entry=otherName, name=otherName, late=late, bring=otherName)
+    name = self.getPythonName(otherName)
+    if ownerName == className:
+      #  A class written inside this one is brought in by this file,
+      #  and bound in the body under its own name.
+      return dict(entry=name, name=name, late=False, bring='')
+    if '::' in ownerName or ownerName not in self.getCuteNames():
+      return None
+    if not self._isMadeBefore(ownerName):
+      return None
+    entry = '%s.%s' % (ownerName, name)
+    return dict(entry=entry, name=entry, late=False, bring=ownerName)
+
+  def _findEnum(self, enumName: str, flags: bool) -> Optional[Record]:
+    """
+    Says how the body names the class of an enum of Qt.
+
+    Parameters
+    ----------
+
+    enumName : str
+      The full name of the enum, as 'Qt::WindowType'.
+
+    flags : bool
+      Whether the combinations of the enum are meant, which Qt names
+      apart, as 'Qt::WindowFlags'.
+
+    Returns
+    -------
+
+    Optional[Record]
+      None for an enum the body cannot name. Else 'entry': the class as
+      the body writes it, as 'Qt.WindowFlags'; 'owner': the class it
+      is reached through, or '' for the namespace 'Qt' and for an enum
+      of the class being written; 'generator': the 'EnumGenerator' of
+      the enum.
+    """
+    tree = self.getDependencyTree()
+    try:
+      record = tree.getEnumRecord(enumName)
+    except ValueError:
+      return None
+    generator = self._getEnumGenerator(enumName)
+    if generator.findRefusal() is not None:
+      return None
+    ownName, ownerName = record['ownName'], record['ownerName']
+    if flags:
+      flagsName = generator.getFlagsName()
+      if flagsName is None:
+        return None
+      ownName = flagsName.rpartition('::')[2]
+    if ownerName == self.getClassName():
+      return dict(entry=ownName, owner='', generator=generator)
+    if ownerName == 'Qt':
+      self._note('namespace', 'Qt')
+      entry = 'Qt.%s' % ownName
+      return dict(entry=entry, owner='', generator=generator)
+    if not record['insideClass']:
+      return None
+    owner = self._findClass(ownerName)
+    if owner is None or owner['late']:
+      return None
+    entry = '%s.%s' % (ownerName, ownName)
+    return dict(entry=entry, owner=ownerName, generator=generator)
+
+  def _findEnumNumber(self, referenced: Record) -> Optional[int]:
+    """
+    Gives the number of one name of an enum that a default of Qt
+    refers to, or None when it is not found.
+
+    Parameters
+    ----------
+
+    referenced : Record
+      What the compiler wrote down of the name referred to: its 'name'
+      and the 'type' of its enum.
+    """
+    tree, name = self.getDependencyTree(), referenced.get('name')
+    enumName = referenced.get('type', dict()).get('qualType', '')
+    className = self.getClassName()
+    for scope in ('', className, *tree.getAncestors(className)):
+      fullName = '%s::%s' % (scope, enumName) if scope else enumName
+      try:
+        members = tree.getEnumRecord(fullName)['members']
+      except ValueError:
+        continue
+      for memberName, number in members:
+        if memberName == name:
+          return number
+    #  An enum without a name of its own is in no list of enums. Its
+    #  names are found in the record of the class that writes it.
+    for scope in (className, *tree.getAncestors(className)):
+      for child in tree.getClassRecord(scope).get('inner', ()):
+        if child.get('kind') != 'EnumDecl' or child.get('name'):
+          continue
+        collected = DependencyTree._collectEnumMembers(child)
+        if collected['unsure'] is not None:
+          continue
+        for memberName, number in collected['members']:
+          if memberName == name:
+            return number
+    return None
+
+  def _findNumber(self, node: Optional[Record]) -> Any:
+    """
+    Gives the number a default of Qt stands for, as an 'int', a 'float'
+    or a 'bool', or None when it is no plain number.
+    """
+    node = self._unwrap(node)
+    if node is None:
+      return None
+    kind = node.get('kind')
+    if kind == 'CXXBoolLiteralExpr':
+      return True if node.get('value') else False
+    if kind == 'IntegerLiteral':
+      return int(node['value'])
+    if kind == 'FloatingLiteral':
+      return float(node['value'])
+    if kind == 'UnaryOperator' and node.get('opcode') in ('-', '+'):
+      inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
+      number = self._findNumber(inner[0]) if inner else None
+      if number is None or isinstance(number, bool):
+        return None
+      return -number if node['opcode'] == '-' else number
+    if kind == 'DeclRefExpr':
+      referenced = node.get('referencedDecl', dict())
+      if referenced.get('kind') == 'EnumConstantDecl':
+        return self._findEnumNumber(referenced)
+    return None
+
+  @staticmethod
+  def _findGiven(node: Record) -> List[Record]:
+    """Gives what a default of Qt hands to the constructor it calls,
+    leaving out what that constructor fills in itself."""
+    return [
+        child for child in node.get('inner', ())
+        if isinstance(child, dict)
+        and child.get('kind') != 'CXXDefaultArgExpr'
+    ]
+
+  def _findDefault(self, argument: Record, parameter: Record) -> Any:
+    """
+    Says in Python what Qt fills in for an argument that is left out.
+
+    Parameters
+    ----------
+
+    argument : Record
+      The argument as the plan of the ritual has it.
+
+    parameter : Record
+      The same argument as this generator has it in Python.
+
+    Returns
+    -------
+
+    Optional[Record]
+      None when it cannot be said in Python. Else 'text': the default
+      of the Python argument, as 'None' or '-1'; and for a value that
+      has to be made anew for each call, 'made': what makes it, as
+      'QPoint()'.
+    """
+    node = self._unwrap(argument['default'])
+    if node is None:
+      return None
+    kind, nodeKind = parameter['kind'], node.get('kind')
+    making = ('CXXTemporaryObjectExpr', 'CXXConstructExpr')
+    if nodeKind == 'CXXFunctionalCastExpr':
+      inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
+      node = self._unwrap(inner[0]) if inner else None
+      if node is None:
+        return None
+      nodeKind = node.get('kind')
+    if kind in ('address', 'chars'):
+      if nodeKind == 'CXXNullPtrLiteralExpr':
+        return dict(text='None')
+      if nodeKind == 'IntegerLiteral' and node.get('value') == '0':
+        return dict(text='None')
+      return None
+    if kind == 'number':
+      number = self._findNumber(node)
+      if number is None:
+        return None
+      wanted = parameter['annotation']
+      if wanted == 'bool':
+        return dict(text=repr(True if number else False))
+      if wanted == 'float':
+        return dict(text=repr(float(number)))
+      if isinstance(number, float):
+        return None
+      return dict(text=repr(int(number)))
+    if kind in ('enum', 'flags'):
+      if nodeKind in making:
+        given = self._findGiven(node)
+        if not given:
+          if kind == 'flags':
+            return dict(text='%s()' % parameter['entry'])
+          return None
+        if len(given) != 1:
+          return None
+        node = self._unwrap(given[0])
+        nodeKind = node.get('kind') if node else None
+      if nodeKind != 'DeclRefExpr':
+        return None
+      referenced = node.get('referencedDecl', dict())
+      if referenced.get('kind') != 'EnumConstantDecl':
+        return None
+      for name, _ in parameter['enumGenerator'].getEnumRecord()['members']:
+        if name == referenced.get('name'):
+          name = self.__python_words__.get(name, name)
+          return dict(text='%s.%s' % (parameter['entry'], name))
+      return None
+    if kind == 'text':
+      if nodeKind in making and not self._findGiven(node):
+        return dict(text="''")
+      return None
+    if kind == 'value':
+      if nodeKind in making and not self._findGiven(node):
+        if self._canBeMadeEmpty(parameter['className']):
+          made = '%s()' % parameter['annotation']
+          return dict(text='None', made=made)
+      return None
+    return None
+
+  def _canBeMadeEmpty(self, className: str) -> bool:
+    """Says whether the cute class of a class of Qt can be made with
+    nothing given: whether it has a ritual for such a constructor."""
+    for plan in self.getRitualGenerator(className).getWritten():
+      if plan['kind'] == 'constructor' and not plan['arguments']:
+        return True
+    return False
+
+  def _canBeOwned(self, className: str) -> bool:
+    """Says whether Python can own a C++ object of a class: whether
+    C++ can copy it, and a ritual removes it."""
+    tree = self.getDependencyTree()
+    if className not in tree.getCopyableNames():
+      return False
+    for plan in self.getRitualGenerator(className).getWritten():
+      if plan['kind'] == 'destructor':
+        return True
+    return False
+
+  def isApplication(self) -> bool:
+    """Says whether the class is Qt's application, or built on it."""
+    tree, className = self.getDependencyTree(), self.getClassName()
+    if className == self.__application_name__:
+      return True
+    return self.__application_name__ in tree.getAncestors(className)
+
+  def getDeleteRitual(self) -> Optional[str]:
+    """
+    Gives the ritual removing a C++ object of the class, for a class
+    whose C++ objects are values, which Python owns. Gives None for
+    any other class.
+    """
+    if not self._canBeOwned(self.getClassName()):
+      return None
+    for plan in self.getRitualGenerator().getWritten():
+      if plan['kind'] == 'destructor':
+        return plan['ritualName']
+    return None
+
+  def _planParameter(self, argument: Record, static: bool) -> Any:
+    """
+    Says how one argument of a Qt function looks in Python.
+
+    Parameters
+    ----------
+
+    argument : Record
+      The argument as the plan of the ritual has it.
+
+    static : bool
+      Whether the function is called on no object, so that it has no
+      'self' to reach a helper through.
+
+    Returns
+    -------
+
+    Union[Record, str]
+      The reason, in words, when the function cannot be written for
+      this argument. Else a record: 'name', 'kind', 'entry' (what
+      stands for it in a signature), 'annotation', 'passed' (what the
+      ritual is handed), 'words' (what its docstring says) and 'late'.
+    """
+    passing, name = argument['passing'], argument['name']
+    if keyword.iskeyword(name):
+      name = '%s_' % name
+    kind = passing['kind']
+    helper = 'CuteMixin' if static else 'self'
+    record = dict(
+        name=name, kind=kind, late=False, nullable=False, default=None,
+    )
+    if kind == 'number':
+      number = passing['className']
+      if number == 'char':
+        return 'takes a single letter as C has it'
+      annotation = self.__python_numbers__.get(number, 'int')
+      return dict(
+          record, entry=annotation, annotation=annotation, passed=name,
+          words='Passed on as it is.',
+      )
+    if kind in ('text', 'view'):
+      words = 'Passed on as it is: a QString is made of it for the call.'
+      return dict(
+          record, kind='text', entry='str', annotation='str',
+          passed=name, words=words,
+      )
+    if kind == 'chars':
+      return dict(
+          record, entry='str', annotation='str',
+          passed='%s._bytesOf(%s)' % (helper, name),
+          words='Passed on as the bytes of the text.',
+      )
+    if kind in ('enum', 'flags'):
+      plain = argument['plain']
+      if kind == 'flags':
+        enumName = passing['className'][len('QFlags<'):-1]
+      else:
+        enumName = plain
+      found = self._findEnum(enumName, kind == 'flags')
+      if found is None:
+        infoSpec = """names the enum '%s', whose class cannot be named
+        here"""
+        return ' '.join((infoSpec % enumName).split())
+      if found['owner']:
+        self._note('classes', found['owner'])
+      return dict(
+          record, entry=found['entry'], annotation=found['entry'],
+          passed='%s.value' % name, words='Passed on as its number.',
+          enumGenerator=found['generator'], key='enum %s' % enumName,
+      )
+    if kind in ('address', 'value'):
+      if kind == 'address':
+        pointed = argument['plain'][:-2]
+        if pointed.startswith('const '):
+          pointed = pointed[6:]
+      else:
+        pointed = passing['className']
+      found = self._findClass(pointed)
+      if found is None:
+        return "names '%s', which has no cute class yet" % pointed
+      if kind == 'address':
+        passed = '%s._addressOf(%s)' % (helper, name)
+        words = 'Passed on as the address of its C++ object.'
+      else:
+        passed = '%s._valueOf(%s)' % (helper, name)
+        infoSpec = """Passed on as a value: Qt reads the C++ %s, which
+        stays Python's own."""
+        words = ' '.join((infoSpec % pointed).split())
+      return dict(
+          record, entry=found['entry'], annotation=found['name'],
+          passed=passed, words=words, late=found['late'],
+          className=pointed, bring=found['bring'],
+          key='class %s' % pointed,
+      )
+    if kind == 'number address':
+      return 'takes a number to change where it is'
+    return 'takes a type Python has no way to hand over yet'
+
+  def _planGiving(self, plan: Record, static: bool) -> Any:
+    """
+    Says how what a Qt function gives looks in Python.
+
+    Returns
+    -------
+
+    Union[Record, str]
+      The reason, in words, when the function cannot be written for
+      what it gives. Else a record: 'kind', 'annotation', 'words'
+      (what the docstring says under 'Returns', or ''), and for a class
+      'name' and 'late'.
+    """
+    giving = plan['giving']
+    kind = giving['kind']
+    if kind == 'nothing':
+      return dict(kind=kind, annotation='None', words='')
+    if kind == 'number':
+      annotation = self.__python_numbers__.get(giving['className'], 'int')
+      if giving['className'] == 'char':
+        return 'gives a single letter as C has it'
+      return dict(kind=kind, annotation=annotation, words='')
+    if kind in ('text', 'view'):
+      words = 'The text Qt gave back.'
+      return dict(kind='text', annotation='str', words=words)
+    if kind == 'chars':
+      self._note('typing', 'Optional')
+      words = 'The text Qt gave back. None when Qt gave back no text.'
+      return dict(kind=kind, annotation='Optional[str]', words=words)
+    if kind in ('enum', 'flags'):
+      written = RitualGenerator._stripReadOnly(giving['written'])
+      tables = self.getRitualGenerator()._getTypeTables()
+      plain = self.getRitualGenerator()._followAliases(written)
+      if kind == 'flags':
+        enumName = giving['className'][len('QFlags<'):-1]
+      else:
+        enumName = plain if plain in tables['enums'] else written
+      found = self._findEnum(enumName, kind == 'flags')
+      if found is None:
+        infoSpec = """gives the enum '%s', whose class cannot be named
+        here"""
+        return ' '.join((infoSpec % enumName).split())
+      if found['owner']:
+        self._note('classes', found['owner'])
+      if kind == 'enum':
+        infoSpec = """The member standing for the number Qt gave back.
+        For a number Qt gives no name it is the member without a name
+        that '%s(number)' gives."""
+        words = ' '.join((infoSpec % found['entry']).split())
+      else:
+        words = 'The value standing for the combination Qt gave back.'
+      maker = found['entry']
+      if kind == 'flags' and not found['owner'] and '.' not in maker:
+        #  The name Qt has for the combinations of a flags enum of this
+        #  class is bound in the body of the class alone, so a function
+        #  reaches it through the class.
+        maker = '%s.%s' % (self.getPythonName(), maker)
+      return dict(
+          kind=kind, annotation=found['entry'], words=words,
+          entry=found['entry'], maker=maker,
+      )
+    if kind in ('address', 'value'):
+      if kind == 'address':
+        pointed = self.getRitualGenerator()._followAliases(
+            giving['written'])
+        pointed = pointed[:-2] if pointed.endswith(' *') else pointed
+        if pointed.startswith('const '):
+          pointed = pointed[6:]
+        pointed = self.getRitualGenerator()._followAliases(pointed)
+      else:
+        pointed = giving['className']
+      found = self._findClass(pointed)
+      if found is None:
+        return "gives '%s', which has no cute class yet" % pointed
+      if kind == 'value' and not self._canBeOwned(pointed):
+        infoSpec = """gives a value of '%s', which Python cannot own: no
+        ritual removes one"""
+        return ' '.join((infoSpec % pointed).split())
+      if kind == 'address':
+        self._note('typing', 'Optional')
+        annotation = 'Optional[%s]' % found['name']
+        infoSpec = """The cute object standing for what Qt gave back.
+        None when Qt gave back no object."""
+      else:
+        annotation = found['name']
+        infoSpec = """A new cute %s around the copy Qt gave back. Python
+        owns it."""
+        infoSpec = infoSpec % pointed
+      return dict(
+          kind=kind, annotation=annotation, name=found['name'],
+          words=' '.join(infoSpec.split()), late=found['late'],
+          bring=found['bring'],
+      )
+    return 'gives a type Python has no way to take yet'
+
+  def _planFunction(self, plan: Record) -> Any:
+    """
+    Works out the function of one ritual: its name, its arguments and
+    what it gives, in Python.
+
+    Returns
+    -------
+
+    Union[Record, str]
+      The reason, in words, when the ritual gets no function. Else the
+      function, as 'getFunctions' gives it, with its signatures still
+      to be decided.
+    """
+    kind, name = plan['kind'], plan['name']
+    if kind == 'destructor':
+      if self.getDeleteRitual() is None:
+        return 'the destructor: Python never removes a C++ %s' % (
+            self.getClassName(),)
+      infoSpec = """the destructor: Python removes its C++ %s by it, and
+      has no other use for it"""
+      return ' '.join((infoSpec % self.getClassName()).split())
+    if name.startswith('operator'):
+      return 'an operator, which is not reflected yet'
+    if name.startswith('qt_'):
+      return "one of Qt's own inner workings"
+    static = kind != 'method'
+    parameters = []  # type: List[Record]
+    arguments = [*plan['arguments']]
+    while arguments:
+      argument = arguments.pop(0)
+      passing = argument['passing']
+      following = arguments[0]['passing']['kind'] if arguments else ''
+      if passing['kind'] == 'number address':
+        if following == 'texts address':
+          #  The texts a program was started with, and how many they
+          #  are, are one argument in Python: a list of them.
+          texts = arguments.pop(0)
+          helper = 'CuteMixin' if static and kind != 'constructor' else (
+              'self')
+          infoSpec = """The texts the program was started with, as
+          'sys.argv'. Passed on as Qt takes them: how many they are,
+          and where the first one is."""
+          parameters.append(dict(
+              name=texts['name'], kind='texts', late=False,
+              nullable=False, default=None, entry='list',
+              annotation='list',
+              passed='*%s._startTextsOf(%s)' % (helper, texts['name']),
+              words=' '.join(infoSpec.split()),
+          ))
+          continue
+      parameter = self._planParameter(
+          argument, static and kind != 'constructor')
+      if isinstance(parameter, str):
+        return parameter
+      parameter['argument'] = argument
+      parameters.append(parameter)
+    gives = None  # type: Optional[Record]
+    if kind != 'constructor':
+      gives = self._planGiving(plan, static)
+      if isinstance(gives, str):
+        return gives
+    pythonName = '__init__' if kind == 'constructor' else name
+    if keyword.iskeyword(pythonName):
+      pythonName = '%s_' % pythonName
+    #  What Qt fills in, from the last argument backwards for as long as
+    #  it can be said in Python.
+    for parameter in reversed(parameters):
+      argument = parameter.get('argument')
+      if argument is None or argument['default'] is None:
+        break
+      default = self._findDefault(argument, parameter)
+      if default is None:
+        break
+      parameter['default'] = default
+    for parameter in parameters:
+      #  C++ lets nothing be given wherever an address is taken.
+      if parameter['kind'] in ('address', 'chars'):
+        parameter['nullable'] = True
+    return dict(
+        pythonName=pythonName, plan=plan, kind=kind,
+        parameters=parameters, gives=gives,
+    )
+
+  @staticmethod
+  def _findSection(function: Record) -> str:
+    """Gives the section of the class body a function stands in."""
+    plan = function['plan']
+    if function['kind'] == 'constructor':
+      return 'CONSTRUCTORS'
+    if function['kind'] == 'static method':
+      return 'STATIC METHODS'
+    name = plan['name']
+    if name.startswith('set') and name[3:4].isupper():
+      return 'SETTERS'
+    if 'const' in plan['words'] and function['gives']['kind'] != 'nothing':
+      return 'GETTERS'
+    return 'PUBLIC METHODS'
+
+  def _createSignatures(self, function: Record) -> None:
+    """
+    Gives a function its signatures: the full call first decided, then
+    one for each call that leaves out what Qt fills in, and one more
+    for each place None is taken.
+
+    A function naming a late class gets the full call only, since a
+    signature naming a late class needs a function of its own.
+    """
+    parameters = function['parameters']
+    function['waiting'] = any(p['late'] for p in parameters)
+    fewest = len(parameters)
+    for parameter in reversed(parameters):
+      if parameter['default'] is None:
+        break
+      fewest -= 1
+    if function['waiting']:
+      fewest = len(parameters)
+      for parameter in parameters:
+        parameter['nullable'], parameter['default'] = False, None
+    signatures = []  # type: List[Tuple[str, ...]]
+    keys = []  # type: List[Tuple[str, ...]]
+    for count in range(fewest, len(parameters) + 1):
+      built = [((), ())]  # type: List[Tuple[Tuple, Tuple]]
+      for parameter in parameters[:count]:
+        #  The class of an enum has two names where Qt names its
+        #  combinations apart, and a class of Qt may be written as
+        #  'THIS'. What a signature takes goes by the class itself.
+        entry = parameter['entry']
+        entries = [(entry, parameter.get('key', entry))]
+        if parameter['nullable']:
+          entries.append(('NoneType', 'NoneType'))
+        built = [
+            ((*shown, text), (*known, key))
+            for shown, known in built for text, key in entries
+        ]
+      signatures.extend(shown for shown, _ in built)
+      keys.extend(known for _, known in built)
+    function['signatures'] = signatures
+    function['signatureKeys'] = keys
+
+  def _isMoreSpecial(self, first: Tuple, other: Tuple) -> bool:
+    """
+    Says whether one signature takes only calls another takes as well,
+    and not every one of them: whether a class in it is built on the
+    class at the same place of the other.
+    """
+    if len(first) != len(other) or first == other:
+      return False
+    tree, className = self.getDependencyTree(), self.getClassName()
+    for one, another in zip(first, other):
+      if one == another:
+        continue
+      one = className if one == 'THIS' else one
+      another = className if another == 'THIS' else another
+      try:
+        ancestors = tree.getAncestors(one)
+      except LookupError:
+        return False
+      if another not in ancestors:
+        return False
+    return True
+
+  def _createFunctions(self) -> None:
+    """Decides the functions of the cute class and what is left out."""
+    self.__needed_names__ = collections.defaultdict(list)
+    planned, leftOut = [], []  # type: List[Record], List[Tuple[str, str]]
+    enumNames = set()  # type: Set[str]
+    for generator in self.getEnumGenerators():
+      enumNames.add(generator.getOwnName())
+      flagsName = generator.getFlagsName()
+      if flagsName:
+        enumNames.add(flagsName.rpartition('::')[2])
+    for plan in self.getRitualGenerator().getWritten():
+      function = self._planFunction(plan)
+      if isinstance(function, str):
+        leftOut.append((plan['function'], function))
+        continue
+      if function['pythonName'] in enumNames:
+        infoSpec = """the class has an enum of that name, which holds
+        the name"""
+        leftOut.append((plan['function'], ' '.join(infoSpec.split())))
+        continue
+      function['section'] = self._findSection(function)
+      self._createSignatures(function)
+      planned.append(function)
+    #  One name is one kind of method: the kind most of its functions
+    #  have, and the kind of the first when it is a tie.
+    byName = collections.OrderedDict()  # type: Dict[str, List[Record]]
+    for function in planned:
+      byName.setdefault(function['pythonName'], []).append(function)
+    functions = []  # type: List[Record]
+    for pythonName, group in byName.items():
+      kinds = [f['kind'] for f in group]
+      kept = max(dict.fromkeys(kinds), key=kinds.count)
+      for function in [f for f in group if f['kind'] != kept]:
+        infoSpec = """another kind of method than most functions of
+        its name, and one name is one kind of method"""
+        reason = ' '.join(infoSpec.split())
+        leftOut.append((function['plan']['function'], reason))
+      group = [f for f in group if f['kind'] == kept]
+      #  A call an earlier function of the name takes already is not
+      #  taken again.
+      taken = dict()  # type: Dict[Tuple[str, ...], str]
+      kept = []
+      for function in group:
+        shown = function['plan']['function']
+        pairs = [*zip(function['signatures'], function['signatureKeys'])]
+        fresh = [(s, k) for s, k in pairs if k not in taken]
+        if not fresh:
+          full = function['signatureKeys'][-1]
+          infoSpec = """takes in Python what '%s' takes"""
+          leftOut.append((shown, infoSpec % taken[full]))
+          continue
+        function['signatures'] = [s for s, _ in fresh]
+        function['signatureKeys'] = [k for _, k in fresh]
+        for _, key in fresh:
+          taken[key] = shown
+        kept.append(function)
+      #  worktoy asks the signatures of one class in the order written,
+      #  so the more special one is written first.
+      ordered = []  # type: List[Record]
+      for function in kept:
+        place = len(ordered)
+        for index, earlier in enumerate(ordered):
+          pairs = [
+              (mine, theirs) for mine in function['signatures']
+              for theirs in earlier['signatures']
+          ]
+          if any(self._isMoreSpecial(*pair) for pair in pairs):
+            place = index
+            break
+        ordered.insert(place, function)
+      for function in ordered:
+        function['section'] = ordered[0]['section']
+        function['overloaded'] = True if (
+            len(ordered) > 1 or function['signatures'] != [()]
+            or function['kind'] == 'constructor') else False
+      functions.extend(ordered)
+    written = self.getRitualGenerator().getWritten()
+    declared = [plan['function'] for plan in written]
+    leftOut.sort(key=lambda pair: declared.index(pair[0]))
+    for function in functions:
+      self._noteFunction(function)
+    self.__made_functions__ = (*functions,)
+    self.__left_out__ = (*leftOut,)
+
+  def _noteFunction(self, function: Record) -> None:
+    """Notes the names the file needs for one function it writes."""
+    if function['overloaded']:
+      self._note('top', 'overload')
+    static = function['kind'] == 'static method'
+    if function['kind'] != 'method':
+      self._note('top', 'Rituals')
+    for signature in function['signatures']:
+      if 'THIS' in signature:
+        self._note('top', 'THIS')
+      if 'NoneType' in signature:
+        self._note('top', 'NoneType')
+    for parameter in function['parameters']:
+      if parameter['nullable']:
+        self._note('typing', 'Optional')
+      default = parameter['default']
+      if default is not None and 'made' in default:
+        self._note('typing', 'Optional')
+      if static and parameter['kind'] in ('address', 'value', 'chars'):
+        self._note('top', 'CuteMixin')
+      if parameter.get('bring'):
+        kind = 'late' if parameter['late'] else 'classes'
+        self._note(kind, parameter['bring'])
+    gives = function['gives']
+    if gives and gives.get('bring'):
+      self._note('late' if gives['late'] else 'classes', gives['bring'])
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  WRITING  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def _getHeading(self) -> List[str]:
+    """Says who wrote the file, from what, and that it is written
+    anew."""
+    tree, className = self.getDependencyTree(), self.getClassName()
+    headerPath = tree.getHeaderPath(className)
+    relative = os.path.relpath(headerPath, QtPart.getQtHeaderFolder())
+    infoSpec = """Written by dev_tooling.ClassGenerator from the records
+    of %s, Qt %s. Changes made here are lost."""
+    info = infoSpec % (relative, QtPart.getQtVersion())
+    return self._wrapWords(info, '#  ')
+
+  def _writeImports(self) -> List[str]:
+    """Gives the lines at the top of the file that bring in names."""
+    needed = self.__needed_names__
+    className, baseName = self.getClassName(), self.getBaseName()
+    here = self.getPartName()
+    lines = ['from __future__ import annotations', '']
+    lines.extend(('from typing import TYPE_CHECKING', ''))
+    top = needed['top']
+    worktoy = []
+    if 'THIS' in top:
+      worktoy.append('from worktoy.core.sentinels import THIS')
+    if 'overload' in top:
+      worktoy.append('from worktoy.dispatch import overload')
+    if worktoy:
+      lines.extend((*worktoy, ''))
+    cute = []
+    if baseName is None or 'CuteMixin' in top:
+      cute.append('CuteMixin')
+    if baseName is None:
+      cute.append('MetaCute')
+    if needed['late']:
+      cute.append('WAIT')
+    ours = []
+    if cute:
+      ours.append('from ..cute import %s' % ', '.join(cute))
+    if 'Rituals' in top:
+      ours.append('from ..occult import Rituals')
+    classes = [n for n in needed['classes'] if n != className]
+    if baseName is not None and baseName not in classes:
+      classes.insert(0, baseName)
+    if 'Qt' in needed['namespace']:
+      if here == 'QtCore':
+        ours.append('from ._qt import Qt')
+      else:
+        ours.append('from ..QtCore import Qt')
+    for otherName in sorted(classes):
+      there = self.getPartName(otherName)
+      if there == here:
+        stem = self.getFileStem(otherName)
+        ours.append('from .%s import %s' % (stem, otherName))
+      else:
+        ours.append('from ..%s import %s' % (there, otherName))
+    for innerName in self.getInnerNames():
+      ours.append('from .%s import %s' % (
+          self.getFileStem(innerName), self.getPythonName(innerName)))
+    for generator in self.getEnumGenerators():
+      line = 'from .%s import %s' % (
+          generator.getFileStem(), generator.getOwnName())
+      if len(line) > 77:
+        line = 'from .%s \\\n  import %s' % (
+            generator.getFileStem(), generator.getOwnName())
+      ours.append(line)
+    lines.extend(ours)
+    typing = sorted(needed['typing'])
+    if typing:
+      lines.append('')
+      lines.append('if TYPE_CHECKING:  # pragma: no cover, no mutate')
+      lines.append('  from typing import %s' % ', '.join(typing))
+    if 'NoneType' in top:
+      lines.append('')
+      infoSpec = """The class of None, for a signature that takes None in
+      the place of an object or of text."""
+      lines.extend(self._wrapWords(infoSpec, '#  '))
+      lines.append('NoneType = type(None)')
+    return lines
+
+  def _countNotWritten(self) -> List[Tuple[int, str]]:
+    """Gives how many functions of the class have no ritual, for each
+    reason, the most frequent first."""
+    reasons = collections.Counter()  # type: Any
+    for _, reason in self.getRitualGenerator().getNotWritten():
+      reasons[reason.partition(':')[0]] += 1
+    return [(count, reason) for reason, count in reasons.most_common()]
+
+  def _writeClassDocstring(self) -> List[str]:
+    """Gives the docstring of the cute class."""
+    className, baseName = self.getClassName(), self.getBaseName()
+    functions, leftOut = self.getFunctions(), self.getLeftOut()
+    written = self.getRitualGenerator().getWritten()
+    notWritten = self.getRitualGenerator().getNotWritten()
+    owned = self.getDeleteRitual() is not None
+    paragraphs = []  # type: List[Any]
+    infoSpec = """The cute side of Qt's %s: a plain Python object
+    standing in front of one C++ %s."""
+    paragraphs.append(infoSpec % (className, className))
+    if baseName is not None:
+      infoSpec = """It is built on the cute '%s', as Qt's %s is built on
+      Qt's %s, and has everything that class has."""
+      info = infoSpec % (baseName, className, baseName)
+      for parent in self.getUnreflectedParents():
+        infoSpec = """ Qt's %s is built on Qt's %s as well, which is not
+        reflected."""
+        info = '%s%s' % (info, infoSpec % (className, parent))
+      paragraphs.append(info)
+    if owned:
+      infoSpec = """C++ hands a %s around as a copy, so every C++ %s
+      behind a cute one is Python's own: it is removed, by the ritual
+      named in '__delete_ritual__', when the cute object goes."""
+      paragraphs.append(infoSpec % (className, className))
+    names = [*dict.fromkeys(
+        f['pythonName'] for f in functions if f['kind'] != 'constructor')]
+    makers = [f for f in functions if f['kind'] == 'constructor']
+    paragraphs.append(('What exists', None))
+    if names:
+      infoSpec = """Every function of Qt's %s that has a ritual and that
+      Python can call so far, %d %s in all: %s."""
+      shown = ', '.join("'%s'" % name for name in names)
+      word = 'name' if len(names) == 1 else 'names'
+      info = infoSpec % (className, len(names), word, shown)
+    else:
+      info = """No function of Qt's %s yet.""" % className
+    if makers:
+      infoSpec = """ It can be made from Python, in %d %s; see
+      '__init__'."""
+      word = 'way' if len(makers) == 1 else 'ways'
+      info = '%s%s' % (info, infoSpec % (len(makers), word))
+    else:
+      infoSpec = """ None can be made from Python: one comes out of a
+      function of another class that gives one back."""
+      info = '%s%s' % (info, infoSpec)
+    paragraphs.append(info)
+    if leftOut:
+      paragraphs.append(('What has a ritual and is left out, and why', None))
+      for shown, reason in leftOut:
+        paragraphs.append(('- ', "Qt's '%s': %s." % (shown, reason)))
+    if notWritten:
+      paragraphs.append(('What has no ritual', None))
+      infoSpec = """%d of the %d functions Qt declares:"""
+      total = len(written) + len(notWritten)
+      counted = '; '.join(
+          '%d %s' % pair for pair in self._countNotWritten())
+      paragraphs.append(
+          '%s %s.' % (infoSpec % (len(notWritten), total), counted))
+    paragraphs.append(('What to expect', None))
+    infoSpec = """The C++ %s is created at the first use, not by
+    '%s(...)'."""
+    if self.isApplication():
+      infoSpec = """The C++ %s is created by '%s(...)' at once, since
+      nearly every other object of Qt can only be made after it."""
+    expected = [infoSpec % (className, className)]
+    infoSpec = """A wrong argument is refused in Python, with
+    'DispatchException', and never reaches C++."""
+    expected.append(infoSpec)
+    infoSpec = """None is taken wherever Qt takes an object by its
+    address, or text as C has it, and is passed on as nothing. Whether
+    Qt can do with nothing there is as in C++."""
+    expected.append(infoSpec)
+    if owned:
+      infoSpec = """A function giving a %s back gives a copy the ritual
+      made for Python, in a new cute %s."""
+      expected.append(infoSpec % (className, className))
+    else:
+      infoSpec = """Python never removes the C++ %s."""
+      expected.append(infoSpec % className)
+    tree = self.getDependencyTree()
+    watched = self.__watched_name__
+    if className == watched or watched in tree.getAncestors(className):
+      infoSpec = """Qt tells when it has removed the C++ %s. Every call
+      on the cute object, and every use of it as an argument, then
+      raises 'RuntimeError', and nothing reaches C++."""
+      expected.append(infoSpec % className)
+    for info in expected:
+      paragraphs.append(('- ', info))
+    lines = ['  """']
+    previous = None  # type: Any
+    for paragraph in paragraphs:
+      if isinstance(paragraph, tuple) and paragraph[1] is None:
+        lines.extend(('', '  %s' % paragraph[0]))
+        lines.extend(('  %s' % ('-' * len(paragraph[0])), ''))
+      elif isinstance(paragraph, tuple):
+        wrapped = textwrap.wrap(
+            ' '.join(paragraph[1].split()), 77, initial_indent='  - ',
+            subsequent_indent='    ', break_long_words=False,
+            break_on_hyphens=False,
+        )
+        lines.extend(wrapped)
+      else:
+        if previous is not None and not isinstance(previous, tuple):
+          lines.append('')
+        lines.extend(self._wrapWords(paragraph, '  '))
+      previous = paragraph
+    lines.append('  """')
+    return lines
+
+  @staticmethod
+  def _writeBanner(sectionName: str) -> List[str]:
+    """Gives the three lines that head one section of a class body."""
+    full = '  %s#' % ('# ' * 37)
+    head = '  #  %s  ' % sectionName
+    if len(head) % 2:
+      head = '%s ' % head
+    while len(head) < len(full):
+      head = '%s# ' % head
+    return [full, head.rstrip(), full]
+
+  def _writeNames(self) -> List[str]:
+    """
+    Gives the lines right under the docstring of the class, which bind
+    what the signatures below them name: the enums Qt writes inside the
+    class, and the late classes.
+
+    They stand above every section, since a signature can only name
+    what the body has bound on a line above it.
+    """
+    className, lines = self.getClassName(), []  # type: str, List[str]
+    innerNames = self.getInnerNames()
+    if innerNames:
+      infoSpec = """The classes Qt writes inside %s."""
+      lines.append('')
+      lines.extend(self._wrapWords(infoSpec % className, '  #  '))
+      for innerName in innerNames:
+        name = self.getPythonName(innerName)
+        lines.append('  %s = %s' % (name, name))
+    generators = self.getEnumGenerators()
+    if generators:
+      infoSpec = """The enums Qt writes inside %s, and the names Qt has
+      for the combinations of its flags enums."""
+      lines.append('')
+      lines.extend(self._wrapWords(infoSpec % className, '  #  '))
+      for generator in generators:
+        ownName = generator.getOwnName()
+        lines.append('  %s = %s' % (ownName, ownName))
+        flagsName = generator.getFlagsName()
+        if flagsName:
+          shortName = flagsName.rpartition('::')[2]
+          lines.append('  %s = %s' % (shortName, ownName))
+    late = sorted(self.__needed_names__['late'])
+    if late:
+      infoSpec = """The cute classes made after this one that its
+      functions take or give; see 'WAIT'."""
+      lines.append('')
+      lines.extend(self._wrapWords(infoSpec, '  #  '))
+      for lateName in late:
+        lines.append("  %s = WAIT['%s']" % (lateName, lateName))
+    return lines
+
+  def _writeNamespace(self) -> List[str]:
+    """Gives the lines of the section that holds the variables of the
+    class: the class of Qt it stands for, and its delete ritual."""
+    className = self.getClassName()
+    lines = ['  #  Class Variables']
+    lines.append('  #  The class of Qt this class stands for.')
+    lines.append("  __qt_class__ = '%s'" % className)
+    if className == self.__watched_name__:
+      infoSpec = """Qt can watch a %s and tell when it has removed it.
+      Every class built on this one is a %s too, and inherits this."""
+      lines.append('')
+      lines.extend(self._wrapWords(
+          infoSpec % (className, className), '  #  '))
+      lines.append('  __watched_by_qt__ = True')
+    deleteRitual = self.getDeleteRitual()
+    if deleteRitual is not None:
+      lines.append('')
+      infoSpec = """Qt's '~%s()'. Naming it makes this a value class:
+      Python owns every C++ %s behind a cute one, and removes it by
+      this ritual."""
+      info = infoSpec % (className, className)
+      lines.extend(self._wrapWords(info, '  #  '))
+      line = "  __delete_ritual__ = '%s'" % deleteRitual
+      if len(line) > 77:
+        line = "  __delete_ritual__ = (\n      '%s')" % deleteRitual
+      lines.append(line)
+    lines.extend((
+        '', '  #  Fallback Variables', '', '  #  Private Variables',
+        '', '  #  Public Variables', '', '  #  Virtual Variables',
+    ))
+    return lines
+
+  def _writeCall(
+      self,
+      opening: str,
+      called: str,
+      ritualName: str,
+      passed: List[str],
+      closing: str = ')',
+  ) -> List[str]:
+    """
+    Gives the lines of one call of a ritual, kept to 77 letters where
+    the names allow it.
+
+    Parameters
+    ----------
+
+    opening : str
+      What stands before the call, indent included, as
+      '    address = '.
+
+    called : str
+      What is called, as 'self.uglySide.call'.
+
+    ritualName : str
+      The ritual.
+
+    passed : List[str]
+      What the ritual is handed, in order.
+
+    closing : str
+      What ends the call, as ')' or '))'.
+    """
+    quoted = "'%s'" % ritualName
+    whole = '%s%s(%s%s' % (
+        opening, called, ', '.join([quoted, *passed]), closing)
+    if len(whole) <= 77:
+      return [whole]
+    indent = ' ' * (len(opening) - len(opening.lstrip()))
+    inner = '%s    ' % indent
+    lines = ['%s%s(' % (opening, called)]
+    rest = ', '.join(passed)
+    whole = '%s%s,' % (inner, ', '.join([quoted, *passed]))
+    if len(whole) <= 77:
+      lines.append(whole)
+    else:
+      first = '%s%s,' % (inner, quoted)
+      if len(first) > 77:
+        #  A name longer than a line is written as two texts side by
+        #  side, which Python reads as one.
+        room = 77 - len(inner) - 3
+        pieces = [
+            ritualName[i:i + room] for i in range(0, len(ritualName), room)
+        ]
+        for piece in pieces[:-1]:
+          lines.append("%s'%s'" % (inner, piece))
+        first = "%s'%s'," % (inner, pieces[-1])
+      lines.append(first)
+      if rest:
+        packed = textwrap.wrap(
+            '%s,' % rest, 77, initial_indent=inner,
+            subsequent_indent=inner, break_long_words=False,
+            break_on_hyphens=False,
+        )
+        lines.extend(packed)
+    lines.append('%s%s' % (indent, closing))
+    return lines
+
+  def _writeDef(self, function: Record) -> List[str]:
+    """Gives the decorators and the 'def' line of one function."""
+    lines = []  # type: List[str]
+    static = function['kind'] == 'static method'
+    if static:
+      lines.append('  @staticmethod')
+    if function['overloaded']:
+      for signature in function['signatures']:
+        line = '  @overload(%s)' % ', '.join(signature)
+        if len(line) <= 77:
+          lines.append(line)
+          continue
+        lines.append('  @overload(')
+        lines.extend(textwrap.wrap(
+            '%s,' % ', '.join(signature), 77, initial_indent='      ',
+            subsequent_indent='      ', break_long_words=False,
+        ))
+        lines.append('  )')
+    shown = [] if static else ['self']
+    stacked = len(function['signatures']) > 1
+    for parameter in function['parameters']:
+      annotation = parameter['annotation']
+      default = parameter['default'] if stacked else None
+      if parameter['nullable'] or (default and 'made' in default):
+        annotation = 'Optional[%s]' % annotation
+      text = '%s: %s' % (parameter['name'], annotation)
+      if default is not None:
+        text = '%s = %s' % (text, default['text'])
+      shown.append(text)
+    gives = function['gives']
+    annotation = 'None' if gives is None else gives['annotation']
+    whole = '  def %s(%s) -> %s:' % (
+        function['pythonName'], ', '.join(shown), annotation)
+    if len(whole) <= 77:
+      lines.append(whole)
+    else:
+      lines.append('  def %s(' % function['pythonName'])
+      for text in shown:
+        line = '      %s,' % text
+        if len(line) > 77 and ' = ' in text:
+          #  A default too long for the line goes on a line of its own.
+          named, _, default = text.partition(' = ')
+          lines.append('      %s = (' % named)
+          line = '          %s),' % default
+        lines.append(line)
+      lines.append('  ) -> %s:' % annotation)
+    return lines
+
+  def _writeDocstring(self, function: Record) -> List[str]:
+    """Gives the docstring of one function."""
+    plan, className = function['plan'], self.getClassName()
+    stem = className.lower().replace('::', '-')
+    if function['kind'] == 'constructor':
+      infoSpec = """Notes what was given, for Qt's '%s', which is called
+      at the first use."""
+      if self.isApplication():
+        infoSpec = """Calls Qt's '%s' at once: nearly every other
+        object of Qt can only be made after the application."""
+      anchor = self.getPythonName()
+    else:
+      infoSpec = """Calls Qt's '%s'."""
+      anchor = plan['name']
+    lines = ['    """']
+    lines.extend(self._wrapCpp(
+        infoSpec % plan['function'], '    ', '    '))
+    link = 'https://doc.qt.io/qt-6/%s.html#%s' % (stem, anchor)
+    whole = "    Qt's own words: %s" % link
+    lines.append('')
+    if len(whole) <= 77:
+      lines.append(whole)
+    else:
+      if len(link) > 73:
+        #  A link cannot be broken, so one too long for a line is given
+        #  as the page alone, without the place on it.
+        link = link.partition('#')[0]
+      lines.extend(("    Qt's own words:", '    %s' % link))
+    if function.get('waiting'):
+      infoSpec = """The signature names a class made later, so the
+      function takes the full call only: no argument may be left out,
+      and None is taken nowhere."""
+      lines.append('')
+      lines.extend(self._wrapWords(infoSpec, '    '))
+    stacked = len(function['signatures']) > 1
+    parameters = function['parameters']
+    if parameters:
+      lines.extend(('', '    Parameters', '    ----------'))
+      for parameter in parameters:
+        annotation = parameter['annotation']
+        words = parameter['words']
+        if parameter['nullable']:
+          annotation = 'Optional[%s]' % annotation
+          if parameter['kind'] == 'chars':
+            words = '%s None is passed on as no text.' % words
+          else:
+            words = '%s None is passed on as no object.' % words
+        default = parameter['default'] if stacked else None
+        if default is not None:
+          if 'made' in default:
+            annotation = 'Optional[%s]' % annotation
+            infoSpec = """%s May be left out, as in Qt: a new '%s' is
+            then passed on."""
+            words = infoSpec % (words, default['made'])
+          else:
+            infoSpec = """%s May be left out, as in Qt: it is then %s."""
+            words = infoSpec % (words, default['text'])
+        lines.append('')
+        lines.append('    %s : %s' % (parameter['name'], annotation))
+        lines.extend(self._wrapWords(words, '      '))
+    gives = function['gives']
+    if gives is not None and gives['words']:
+      lines.extend(('', '    Returns', '    -------', ''))
+      lines.append('    %s' % gives['annotation'])
+      lines.extend(self._wrapWords(gives['words'], '      '))
+    lines.append('    """')
+    if len(lines) == 3 and len(lines[1]) <= 70:
+      return ['    """%s"""' % lines[1].strip()]
+    return lines
+
+  def _writeBody(self, function: Record) -> List[str]:
+    """Gives the lines of one function below its docstring."""
+    plan, className = function['plan'], self.getPythonName()
+    kind, gives = function['kind'], function['gives']
+    lines = self._wrapCpp(plan['function'], '    #  ', '    #      ')
+    stacked = len(function['signatures']) > 1
+    passed = []
+    for parameter in function['parameters']:
+      default = parameter['default'] if stacked else None
+      if default is not None and 'made' in default:
+        name = parameter['name']
+        lines.append('    if %s is None:' % name)
+        lines.append('      %s = %s' % (name, default['made']))
+      passed.append(parameter['passed'])
+    ritualName = plan['ritualName']
+    if kind == 'constructor':
+      lines.extend(self._writeCall(
+          '    self._noteCreation(%s, lambda: ' % className,
+          'Rituals.call', ritualName, passed, '))',
+      ))
+      if self.isApplication():
+        #  Reading the ugly side is the first use.
+        lines.append('    self._getUglySide()')
+      return lines
+    called = 'Rituals.call' if kind == 'static method' else (
+        'self.uglySide.call')
+    givenKind = gives['kind']
+    if givenKind == 'nothing':
+      lines.extend(self._writeCall('    ', called, ritualName, passed))
+    elif givenKind in ('number', 'text'):
+      lines.extend(
+          self._writeCall('    return ', called, ritualName, passed))
+    elif givenKind == 'chars':
+      lines.extend(
+          self._writeCall('    chars = ', called, ritualName, passed))
+      lines.append('    return None if chars is None else chars.decode()')
+    elif givenKind in ('enum', 'flags'):
+      lines.extend(self._writeCall(
+          '    return %s(' % gives['maker'], called, ritualName, passed,
+          '))',
+      ))
+    else:
+      lines.extend(
+          self._writeCall('    address = ', called, ritualName, passed))
+      holder = gives['name']
+      if gives['late']:
+        owner = className if kind == 'static method' else 'self'
+        holder = '%s.%s' % (owner, gives['name'])
+      maker = '_cuteAt' if givenKind == 'address' else '_cuteOwning'
+      lines.append('    return %s.%s(address)' % (holder, maker))
+    return lines
+
+  def _writeFunction(self, function: Record) -> List[str]:
+    """Gives every line of one function of the class body."""
+    return [
+        *self._writeDef(function), *self._writeDocstring(function),
+        *self._writeBody(function),
+    ]
+
+  def getClassText(self) -> str:
+    """
+    Gives the whole text of the file, without writing it.
+
+    Written for you from 'getFunctions' and 'getLeftOut': the heading,
+    the names the file brings in, and the class with its docstring and
+    its sections.
+    """
+    className, baseName = self.getClassName(), self.getBaseName()
+    pythonName = self.getPythonName()
+    functions = self.getFunctions()
+    lines = ['"""', '%s binding of the Qt C++' % className, '"""']
+    lines.extend(('#  Apache-2.0 license',
+                  '#  Copyright (c) 2026 Asger Jon Vistisen'))
+    lines.extend(self._getHeading())
+    lines.extend(self._writeImports())
+    lines.extend(('', ''))
+    if baseName is None:
+      lines.append('class %s(CuteMixin, metaclass=MetaCute):' % pythonName)
+    else:
+      lines.append('class %s(%s):' % (pythonName, baseName))
+    lines.extend(self._writeClassDocstring())
+    lines.extend(self._writeNames())
+    for sectionName in self.__section_names__:
+      lines.append('')
+      lines.extend(self._writeBanner(sectionName))
+      if sectionName == 'NAMESPACE':
+        lines.append('')
+        lines.extend(self._writeNamespace())
+      for function in functions:
+        if function['section'] != sectionName:
+          continue
+        lines.append('')
+        lines.extend(self._writeFunction(function))
+    return '%s\n' % '\n'.join(lines)
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def write(self) -> str:
+    """
+    Writes the file of the cute class into the folder of its part of
+    Qt, replacing the one written before, and the file of each enum Qt
+    writes inside the class beside it.
+
+    Returns
+    -------
+
+    str
+      The full path of the file of the class, which now exists.
+
+    Raises
+    ------
+
+    MissingVariable
+      One of the four setters has not been called.
+
+    LookupError
+      The tree has no class of that name.
+    """
+    classFile = self.getClassFile()
+    text = self.getClassText()
+    for generator in self.getEnumGenerators():
+      generator.write()
+    with open(classFile, 'w') as file:
+      file.write(text)
+    return classFile

@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qregularexpression.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QRegularExpression14patternOptionsEv": ["int", "address"],
+    "ritual_ZN18QRegularExpression17setPatternOptionsE6QFlagsINS_13PatternOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QRegularExpressionC1Ev": ["address"],
+    "ritual_ZN18QRegularExpressionC1ERK7QString6QFlagsINS_13PatternOptionEE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN18QRegularExpressionC1ERKS_": ["address", "address"],
+    "ritual_ZN18QRegularExpressionD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QRegularExpression7patternEv": ["text", "address"],
+    "ritual_ZN18QRegularExpression10setPatternERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QRegularExpression7isValidEv": ["bool", "address"],
+    "ritual_ZNK18QRegularExpression18patternErrorOffsetEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK18QRegularExpression11errorStringEv": ["text", "address"],
+    "ritual_ZNK18QRegularExpression12captureCountEv": ["int", "address"],
+    "ritual_ZNK18QRegularExpression5matchERK7QStringxNS_9MatchTypeE6QFlagsINS_11MatchOptionEE": [
+      "address", "address", "text", "long long", "int", "int"
+    ],
+    "ritual_ZNK18QRegularExpression5matchE11QStringViewxNS_9MatchTypeE6QFlagsINS_11MatchOptionEE": [
+      "address", "address", "text", "long long", "int", "int"
+    ],
+    "ritual_ZNK18QRegularExpression9matchViewE11QStringViewxNS_9MatchTypeE6QFlagsINS_11MatchOptionEE": [
+      "address", "address", "text", "long long", "int", "int"
+    ],
+    "ritual_ZNK18QRegularExpression11globalMatchERK7QStringxNS_9MatchTypeE6QFlagsINS_11MatchOptionEE": [
+      "address", "address", "text", "long long", "int", "int"
+    ],
+    "ritual_ZNK18QRegularExpression11globalMatchE11QStringViewxNS_9MatchTypeE6QFlagsINS_11MatchOptionEE": [
+      "address", "address", "text", "long long", "int", "int"
+    ],
+    "ritual_ZNK18QRegularExpression15globalMatchViewE11QStringViewxNS_9MatchTypeE6QFlagsINS_11MatchOptionEE": [
+      "address", "address", "text", "long long", "int", "int"
+    ],
+    "ritual_ZNK18QRegularExpression8optimizeEv": ["nothing", "address"],
+    "ritual_ZN18QRegularExpression6escapeERK7QString": ["text", "text"],
+    "ritual_ZN18QRegularExpression27wildcardToRegularExpressionERK7QString6QFlagsINS_24WildcardConversionOptionEE": [
+      "text", "text", "int"
+    ],
+    "ritual_ZN18QRegularExpression15anchoredPatternERK7QString": [
+      "text", "text"
+    ],
+    "ritual_ZN18QRegularExpression6escapeE11QStringView": ["text", "text"],
+    "ritual_ZN18QRegularExpression27wildcardToRegularExpressionE11QStringView6QFlagsINS_24WildcardConversionOptionEE": [
+      "text", "text", "int"
+    ],
+    "ritual_ZN18QRegularExpression15anchoredPatternE11QStringView": [
+      "text", "text"
+    ],
+    "ritual_ZN18QRegularExpression12fromWildcardE11QStringViewN2Qt15CaseSensitivityE6QFlagsINS_24WildcardConversionOptionEE": [
+      "address", "text", "int", "int"
+    ]
+  }
+}

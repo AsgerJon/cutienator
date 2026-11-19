@@ -1,0 +1,478 @@
+"""
+QMimeData binding of the Qt C++
+"""
+#  Apache-2.0 license
+#  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  QtCore/qmimedata.h, Qt 6.12.0. Changes made here are lost.
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from worktoy.dispatch import overload
+
+from ..cute import CuteMixin
+from ..occult import Rituals
+from ._q_byte_array import QByteArray
+from ._q_meta_object import QMetaObject
+from ._q_object import QObject
+from ._q_variant import QVariant
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
+
+
+class QMimeData(QObject):
+  """
+  The cute side of Qt's QMimeData: a plain Python object standing in front of
+  one C++ QMimeData.
+
+  It is built on the cute 'QObject', as Qt's QMimeData is built on Qt's
+  QObject, and has everything that class has.
+
+  What exists
+  -----------
+
+  Every function of Qt's QMimeData that has a ritual and that Python can call
+  so far, 20 names in all: 'metaObject', 'tr', 'hasUrls', 'text', 'setText',
+  'hasText', 'html', 'setHtml', 'hasHtml', 'imageData', 'setImageData',
+  'hasImage', 'colorData', 'setColorData', 'hasColor', 'data', 'setData',
+  'removeFormat', 'hasFormat', 'clear'. It can be made from Python, in 1 way;
+  see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QMimeData::~QMimeData()': the destructor: Python never removes a
+    C++ QMimeData.
+
+  What has no ritual
+  ------------------
+
+  12 of the 34 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 3 private; 2 forbidden; 1 a template; 1 protected.
+
+  What to expect
+  --------------
+
+  - The C++ QMimeData is created at the first use, not by 'QMimeData(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - Python never removes the C++ QMimeData.
+  - Qt tells when it has removed the C++ QMimeData. Every call on the cute
+    object, and every use of it as an argument, then raises 'RuntimeError',
+    and nothing reaches C++.
+  """
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(str)
+  @overload(NoneType)
+  @overload(str, str)
+  @overload(str, NoneType)
+  @overload(NoneType, str)
+  @overload(NoneType, NoneType)
+  @overload(str, str, int)
+  @overload(str, NoneType, int)
+  @overload(NoneType, str, int)
+  @overload(NoneType, NoneType, int)
+  def tr(s: Optional[str], c: Optional[str] = None, n: int = -1) -> str:
+    """
+    Calls Qt's 'QString QMimeData::tr(const char *s, const char *c, int n)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#tr
+
+    Parameters
+    ----------
+
+    s : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    c : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text. May
+      be left out, as in Qt: it is then None.
+
+    n : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QMimeData::tr(const char *s, const char *c, int n)
+    return Rituals.call(
+        'ritual_ZN9QMimeData2trEPKcS1_i',
+        CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
+    )
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QMimeData'
+
+  #  Fallback Variables
+
+  #  Private Variables
+
+  #  Public Variables
+
+  #  Virtual Variables
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def metaObject(self) -> Optional[QMetaObject]:
+    """
+    Calls Qt's 'const QMetaObject *QMimeData::metaObject() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#metaObject
+
+    Returns
+    -------
+
+    Optional[QMetaObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QMetaObject *QMimeData::metaObject() const
+    address = self.uglySide.call('ritual_ZNK9QMimeData10metaObjectEv')
+    return QMetaObject._cuteAt(address)
+
+  def hasUrls(self) -> bool:
+    """
+    Calls Qt's 'bool QMimeData::hasUrls() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#hasUrls
+    """
+    #  bool QMimeData::hasUrls() const
+    return self.uglySide.call('ritual_ZNK9QMimeData7hasUrlsEv')
+
+  def text(self) -> str:
+    """
+    Calls Qt's 'QString QMimeData::text() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#text
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QMimeData::text() const
+    return self.uglySide.call('ritual_ZNK9QMimeData4textEv')
+
+  def hasText(self) -> bool:
+    """
+    Calls Qt's 'bool QMimeData::hasText() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#hasText
+    """
+    #  bool QMimeData::hasText() const
+    return self.uglySide.call('ritual_ZNK9QMimeData7hasTextEv')
+
+  def html(self) -> str:
+    """
+    Calls Qt's 'QString QMimeData::html() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#html
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QMimeData::html() const
+    return self.uglySide.call('ritual_ZNK9QMimeData4htmlEv')
+
+  def hasHtml(self) -> bool:
+    """
+    Calls Qt's 'bool QMimeData::hasHtml() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#hasHtml
+    """
+    #  bool QMimeData::hasHtml() const
+    return self.uglySide.call('ritual_ZNK9QMimeData7hasHtmlEv')
+
+  def imageData(self) -> QVariant:
+    """
+    Calls Qt's 'QVariant QMimeData::imageData() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#imageData
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QMimeData::imageData() const
+    address = self.uglySide.call('ritual_ZNK9QMimeData9imageDataEv')
+    return QVariant._cuteOwning(address)
+
+  def hasImage(self) -> bool:
+    """
+    Calls Qt's 'bool QMimeData::hasImage() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#hasImage
+    """
+    #  bool QMimeData::hasImage() const
+    return self.uglySide.call('ritual_ZNK9QMimeData8hasImageEv')
+
+  def colorData(self) -> QVariant:
+    """
+    Calls Qt's 'QVariant QMimeData::colorData() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#colorData
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QMimeData::colorData() const
+    address = self.uglySide.call('ritual_ZNK9QMimeData9colorDataEv')
+    return QVariant._cuteOwning(address)
+
+  def hasColor(self) -> bool:
+    """
+    Calls Qt's 'bool QMimeData::hasColor() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#hasColor
+    """
+    #  bool QMimeData::hasColor() const
+    return self.uglySide.call('ritual_ZNK9QMimeData8hasColorEv')
+
+  @overload(str)
+  def data(self, mimetype: str) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray QMimeData::data(const QString &mimetype) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#data
+
+    Parameters
+    ----------
+
+    mimetype : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QMimeData::data(const QString &mimetype) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QMimeData4dataERK7QString', mimetype,
+    )
+    return QByteArray._cuteOwning(address)
+
+  @overload(str)
+  def hasFormat(self, mimetype: str) -> bool:
+    """
+    Calls Qt's 'bool QMimeData::hasFormat(const QString &mimetype) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#hasFormat
+
+    Parameters
+    ----------
+
+    mimetype : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool QMimeData::hasFormat(const QString &mimetype) const
+    return self.uglySide.call(
+        'ritual_ZNK9QMimeData9hasFormatERK7QString', mimetype,
+    )
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(str)
+  def setText(self, text: str) -> None:
+    """
+    Calls Qt's 'void QMimeData::setText(const QString &text)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#setText
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QMimeData::setText(const QString &text)
+    self.uglySide.call('ritual_ZN9QMimeData7setTextERK7QString', text)
+
+  @overload(str)
+  def setHtml(self, html: str) -> None:
+    """
+    Calls Qt's 'void QMimeData::setHtml(const QString &html)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#setHtml
+
+    Parameters
+    ----------
+
+    html : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QMimeData::setHtml(const QString &html)
+    self.uglySide.call('ritual_ZN9QMimeData7setHtmlERK7QString', html)
+
+  @overload(QVariant)
+  def setImageData(self, image: QVariant) -> None:
+    """
+    Calls Qt's 'void QMimeData::setImageData(const QVariant &image)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#setImageData
+
+    Parameters
+    ----------
+
+    image : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+    """
+    #  void QMimeData::setImageData(const QVariant &image)
+    self.uglySide.call(
+        'ritual_ZN9QMimeData12setImageDataERK8QVariant',
+        self._valueOf(image),
+    )
+
+  @overload(QVariant)
+  def setColorData(self, color: QVariant) -> None:
+    """
+    Calls Qt's 'void QMimeData::setColorData(const QVariant &color)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#setColorData
+
+    Parameters
+    ----------
+
+    color : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+    """
+    #  void QMimeData::setColorData(const QVariant &color)
+    self.uglySide.call(
+        'ritual_ZN9QMimeData12setColorDataERK8QVariant',
+        self._valueOf(color),
+    )
+
+  @overload(str, QByteArray)
+  def setData(self, mimetype: str, data: QByteArray) -> None:
+    """
+    Calls Qt's 'void QMimeData::setData(const QString &mimetype, const
+    QByteArray &data)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#setData
+
+    Parameters
+    ----------
+
+    mimetype : str
+      Passed on as it is: a QString is made of it for the call.
+
+    data : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  void QMimeData::setData(const QString &mimetype, const QByteArray
+    #      &data)
+    self.uglySide.call(
+        'ritual_ZN9QMimeData7setDataERK7QStringRK10QByteArray',
+        mimetype, self._valueOf(data),
+    )
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QMimeData::QMimeData()', which is called
+    at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#QMimeData
+    """
+    #  QMimeData::QMimeData()
+    self._noteCreation(QMimeData, lambda: Rituals.call(
+        'ritual_ZN9QMimeDataC1Ev',
+    ))
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(str)
+  def removeFormat(self, mimetype: str) -> None:
+    """
+    Calls Qt's 'void QMimeData::removeFormat(const QString &mimetype)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#removeFormat
+
+    Parameters
+    ----------
+
+    mimetype : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QMimeData::removeFormat(const QString &mimetype)
+    self.uglySide.call(
+        'ritual_ZN9QMimeData12removeFormatERK7QString', mimetype,
+    )
+
+  def clear(self) -> None:
+    """
+    Calls Qt's 'void QMimeData::clear()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#clear
+    """
+    #  void QMimeData::clear()
+    self.uglySide.call('ritual_ZN9QMimeData5clearEv')

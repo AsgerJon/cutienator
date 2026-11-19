@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qscrollarea.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QScrollArea10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QScrollArea2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QScrollAreaC1EP7QWidget": ["address", "address"],
+    "ritual_ZN11QScrollAreaD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QScrollArea6widgetEv": ["address", "address"],
+    "ritual_ZN11QScrollArea9setWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QScrollArea10takeWidgetEv": ["address", "address"],
+    "ritual_ZNK11QScrollArea15widgetResizableEv": ["bool", "address"],
+    "ritual_ZN11QScrollArea18setWidgetResizableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QScrollArea8sizeHintEv": ["address", "address"],
+    "ritual_ZN11QScrollArea18focusNextPrevChildEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZNK11QScrollArea9alignmentEv": ["int", "address"],
+    "ritual_ZN11QScrollArea12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QScrollArea13ensureVisibleEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN11QScrollArea19ensureWidgetVisibleEP7QWidgetii": [
+      "nothing", "address", "address", "int", "int"
+    ]
+  }
+}

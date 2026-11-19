@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import os
 import subprocess
+from concurrent.futures import ThreadPoolExecutor
 from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
@@ -36,6 +37,9 @@ class Build:
     for what it provides, not for the language it is written in.
   - The target file is the one shared object the build writes. It
     offers every ritual of the ritual files.
+  - An object file is what 'clang++' makes of one ritual file by
+    itself. The object files are then joined into the target file.
+    They are kept, in the object folder, from one build to the next.
   - A Qt shared object is one of Qt's own compiled files, which the
     rituals call into.
 
@@ -59,6 +63,12 @@ class Build:
   - 'getQtHeaderFolder': where Qt keeps its headers.
   - 'getQtSharedObjectFolder': where Qt keeps its shared objects.
   - 'getQtProgramFolder': where Qt keeps its programs.
+  - 'getQtVersion': which Qt that is, as '6.12.0'.
+
+  Two more follow from what you provide: 'getObjectFolder', the folder
+  'objects' beside the target file, and 'getJobCount', how many ritual
+  files are compiled at the same time, which is as many as the machine
+  has processors unless 'setJobCount' says otherwise.
 
   What differs between Linux, macOS and Windows is not written here. The
   build asks 'System.getHere()' for it: the name of a Qt shared object
@@ -68,11 +78,19 @@ class Build:
   --------------
 
   - Nothing is compiled until 'run' is called.
+  - Each ritual file is compiled by itself, several at the same time,
+    and only when it has to be: when it has no object file, when it
+    changed after its object file was made, or when Qt or what
+    'clang++' is told is no longer what it was when the object files
+    were made. So the first build takes a couple of seconds for each
+    ritual file, shared among the processors, and a build after one
+    ritual file changed takes a couple of seconds in all.
   - A setter refuses a wrong value at once: one that is not text, or a
     path that leads nowhere.
   - A getter whose setter was never called raises 'MissingVariable',
     naming what is missing.
-  - 'getCommand' gives the exact 'clang++' command without running it.
+  - 'getCompileCommand' and 'getLinkCommand' give the exact 'clang++'
+    commands without running them.
   - 'print(build)' lists the setters still to be called.
   """
 
@@ -129,6 +147,7 @@ class Build:
   __qt_header_folder__: Optional[str] = None
   __qt_shared_object_folder__: Optional[str] = None
   __qt_program_folder__: Optional[str] = None
+  __qt_version__: Optional[str] = None
 
   #  Fallback Variables
 
@@ -136,6 +155,7 @@ class Build:
   __ritual_files__ = None
   __target_file__ = None
   __qt_shared_objects__ = None
+  __job_count__ = None
 
   #  Public Variables
 
@@ -225,6 +245,38 @@ class Build:
       cls._createQtSharedObjectFolder()
       return cls.getQtSharedObjectFolder(_recursion=True)
     return cls.__qt_shared_object_folder__
+
+  @classmethod
+  def _createQtVersion(cls, ) -> None:
+    """Asks 'qmake6' which Qt it belongs to and remembers it."""
+    answer = cls._run('qmake6', '-query', 'QT_VERSION')
+    cls.__qt_version__ = answer.strip()
+
+  @classmethod
+  def getQtVersion(cls, **kwargs) -> str:
+    """
+    Gives the version of the Qt the rituals are built against, as
+    '6.12.0'.
+
+    Found for you: there is no setter. The first call asks Qt's own
+    program 'qmake6', and the answer is remembered on the class for every
+    'Build'. You pass nothing; the keyword is for the method's own use.
+
+    The build keeps it beside the object files. An object file made
+    against another Qt is made again.
+
+    Raises
+    ------
+
+    FileNotFoundError
+      'qmake6' is not installed.
+    """
+    if cls.__qt_version__ is None:
+      if kwargs.get('_recursion', False):
+        raise RecursionError
+      cls._createQtVersion()
+      return cls.getQtVersion(_recursion=True)
+    return cls.__qt_version__
 
   @classmethod
   def _createQtProgramFolder(cls, ) -> None:
@@ -345,16 +397,96 @@ class Build:
       return self.getQtSharedObjects(_recursion=True)
     return self.__qt_shared_objects__
 
-  def getCommand(self) -> Paths:
+  def getObjectFolder(self) -> str:
     """
-    Gives the exact 'clang++' command that 'run' runs, without running
-    it.
+    Gives the folder the object files are kept in.
 
-    Call it to see what a build will do, or to paste the command into a
-    terminal: "' '.join(build.getCommand())". It is put together from
-    what you provided through the three setters, from the folders of
-    Qt, which are found for you, and from what 'System.getHere()' says
-    of the system Python runs on.
+    Found for you: the folder 'objects' beside the target file. Having
+    the path does not mean the folder is there; 'run' makes it.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setTargetFile' has not been called on this build.
+    """
+    return os.path.join(os.path.dirname(self.getTargetFile()), 'objects')
+
+  def getObjectFile(self, ritualFile: str) -> str:
+    """
+    Gives the object file of one ritual file: the same name with the
+    ending '.o', in the object folder.
+
+    Parameters
+    ----------
+
+    ritualFile : str
+      The path of a ritual file, as '/here/q_object.cpp'.
+    """
+    stem = os.path.splitext(os.path.basename(ritualFile))[0]
+    return os.path.join(self.getObjectFolder(), '%s.o' % stem)
+
+  def getToldFile(self) -> str:
+    """
+    Gives the file in the object folder that says what the object files
+    there were made with: the Qt, and what 'clang++' was told. 'run'
+    writes it once every object file is made.
+    """
+    return os.path.join(self.getObjectFolder(), 'told.txt')
+
+  def getToldText(self) -> str:
+    """
+    Gives what the object files are made with as this build has it: the
+    version of Qt, and the command 'clang++' is run by for one ritual
+    file, with the name of the file left open.
+    """
+    command = self.getCompileCommand('RITUAL_FILE')
+    return 'Qt %s\n%s\n' % (self.getQtVersion(), ' '.join(command))
+
+  def getJobCount(self) -> int:
+    """
+    Gives how many ritual files are compiled at the same time.
+
+    Found for you: as many as the machine has processors. 'setJobCount'
+    says otherwise.
+    """
+    if self.__job_count__ is None:
+      return os.cpu_count() or 1
+    return self.__job_count__
+
+  def getStaleRitualFiles(self) -> Paths:
+    """
+    Gives the ritual files that have to be compiled: each one that has
+    no object file, or that changed after its object file was made.
+    When Qt, or what 'clang++' is told, is no longer what the object
+    files were made with, that is every ritual file.
+
+    Returns
+    -------
+
+    Paths
+      A 'Tuple[str, ...]' of full paths, in the order you gave them.
+    """
+    ritualFiles = self.getRitualFiles()
+    toldFile, told = self.getToldFile(), None
+    if os.path.isfile(toldFile):
+      with open(toldFile) as file:
+        told = file.read()
+    if told != self.getToldText():
+      return ritualFiles
+    stale = []
+    for ritualFile in ritualFiles:
+      objectFile = self.getObjectFile(ritualFile)
+      if not os.path.isfile(objectFile):
+        stale.append(ritualFile)
+      elif os.path.getmtime(objectFile) < os.path.getmtime(ritualFile):
+        stale.append(ritualFile)
+    return (*stale,)
+
+  def getCompileCommand(self, ritualFile: str) -> Paths:
+    """
+    Gives the exact 'clang++' command that makes the object file of one
+    ritual file, without running it.
 
     The compiler and its '-std' are those that read Qt's headers when
     the ritual files were generated. A header may give a class other
@@ -362,21 +494,65 @@ class Build:
     'qfloat16.h' does, and a ritual written from what one of them read
     would then not compile with the other.
 
+    Parameters
+    ----------
+
+    ritualFile : str
+      The path of the ritual file.
+
     Returns
     -------
 
     Paths
       A 'Tuple[str, ...]', one argument per entry: 'clang++', then
       '-std=c++17', the standard the headers were read by;
-      '-shared', to make a shared object and not a program;
       '-O2', so the compiler tidies the result;
+      '-c', to make an object file and join nothing yet;
+      what the system adds for the compiler, which on Linux is '-fPIC'
+      and the two '-fvisibility' flags. 'getCompilerFlags' of 'Linux',
+      'MacOS' and 'Windows' says what each is for;
+      '-I' with the folder of Qt's headers;
+      the path of the ritual file;
+      '-o' with the path of its object file.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setTargetFile' has not been called on this build.
+
+    FileNotFoundError
+      'qmake6' is not installed.
+
+    NotImplementedError
+      Python runs on a system that 'System' has no subclass for.
+    """
+    system = System.getHere()
+    qtFolder = self.getQtSharedObjectFolder()
+    return (
+        'clang++', '-std=c++17', '-O2', '-c',
+        *system.getCompilerFlags(qtFolder),
+        '-I%s' % self.getQtHeaderFolder(), ritualFile,
+        '-o', self.getObjectFile(ritualFile),
+    )
+
+  def getLinkCommand(self) -> Paths:
+    """
+    Gives the exact 'clang++' command that joins the object files into
+    the target file, without running it.
+
+    Returns
+    -------
+
+    Paths
+      A 'Tuple[str, ...]', one argument per entry: 'clang++', then
+      '-shared', to make a shared object and not a program;
       what the system adds for the compiler and then for the linker,
-      which on Linux is '-fPIC', '-fvisibility-inlines-hidden',
+      which on Linux is '-fPIC', the two '-fvisibility' flags,
       '-Wl,--no-undefined' and '-Wl,-rpath,' with the folder of Qt's
       shared objects. 'getCompilerFlags' and 'getLinkerFlags' of
       'Linux', 'MacOS' and 'Windows' say what each is for;
-      '-I' with the folder of Qt's headers;
-      the path of each ritual file;
+      the path of the object file of each ritual file;
       '-o' with the path of the target file;
       the path of each Qt shared object the target file calls into.
 
@@ -395,11 +571,12 @@ class Build:
     """
     system = System.getHere()
     qtFolder = self.getQtSharedObjectFolder()
+    ritualFiles = self.getRitualFiles()
     return (
-        'clang++', '-std=c++17', '-shared', '-O2',
+        'clang++', '-shared',
         *system.getCompilerFlags(qtFolder),
         *system.getLinkerFlags(qtFolder),
-        '-I%s' % self.getQtHeaderFolder(), *self.getRitualFiles(),
+        *(self.getObjectFile(ritualFile) for ritualFile in ritualFiles),
         '-o', self.getTargetFile(), *self.getQtSharedObjects(),
     )
 
@@ -450,6 +627,36 @@ class Build:
     self.__ritual_files__ = (
         *(os.path.abspath(path) for path in ritualFiles),
     )
+
+  def setJobCount(self, jobCount: int) -> None:
+    """
+    Tells the build how many ritual files to compile at the same time.
+
+    Optional. Without it the build compiles as many at once as the
+    machine has processors.
+
+    Parameters
+    ----------
+
+    jobCount : int
+      1 or more.
+
+    Raises
+    ------
+
+    TypeException
+      'jobCount' is not an 'int'.
+
+    ValueError
+      'jobCount' is less than 1.
+    """
+    if not isinstance(jobCount, int) or isinstance(jobCount, bool):
+      raise TypeException('jobCount', jobCount, int)
+    if jobCount < 1:
+      infoSpec = """A build compiles 1 ritual file at a time or more,
+      but received %d."""
+      raise ValueError(' '.join((infoSpec % jobCount).split()))
+    self.__job_count__ = jobCount
 
   def setTargetFile(self, targetFile: str) -> None:
     """
@@ -576,13 +783,33 @@ class Build:
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def _compile(self, ritualFile: str) -> Optional[str]:
+    """
+    Makes the object file of one ritual file.
+
+    Returns
+    -------
+
+    Optional[str]
+      None when 'clang++' made it. Else what 'clang++' said, with the
+      ritual file named in front.
+    """
+    try:
+      self._run(*self.getCompileCommand(ritualFile))
+    except RuntimeError as runtimeError:
+      return '%s: %s' % (ritualFile, runtimeError)
+    return None
+
   def run(self) -> str:
     """
     Compiles the ritual files into the target file.
 
     This is the only method that compiles. All three setters must have
-    been called first. It returns when 'clang++' has finished, which takes
-    one to three seconds per ritual file that includes Qt's headers.
+    been called first. Each ritual file 'getStaleRitualFiles' names is
+    compiled into its object file, 'getJobCount' of them at the same
+    time. Then the object files of all the ritual files are joined into
+    the target file. A ritual file takes one to three seconds; joining
+    takes about one.
 
     Returns
     -------
@@ -597,12 +824,39 @@ class Build:
       One of the three setters has not been called; the message names
       the missing value.
 
+    ValueError
+      Two ritual files have one name, and so one object file.
+
     FileNotFoundError
       'clang++' or 'qmake6' is not installed.
 
     RuntimeError
-      'clang++' refused the ritual files. Its own message, with the file
-      names and line numbers, is included.
+      'clang++' refused a ritual file, or could not join the object
+      files. Its own message, with the file names and line numbers, is
+      included. Every ritual file it did compile keeps its object file.
     """
-    self._run(*self.getCommand())
+    ritualFiles = self.getRitualFiles()
+    objectFiles = [self.getObjectFile(f) for f in ritualFiles]
+    for objectFile in objectFiles:
+      if objectFiles.count(objectFile) > 1:
+        infoSpec = """Two ritual files would be compiled into '%s'. Give
+        each ritual file a name of its own."""
+        raise ValueError(' '.join((infoSpec % objectFile).split()))
+    os.makedirs(self.getObjectFolder(), exist_ok=True)
+    toldFile, toldText = self.getToldFile(), self.getToldText()
+    stale = self.getStaleRitualFiles()
+    if len(stale) == len(ritualFiles) and os.path.isfile(toldFile):
+      #  Every object file is made anew. Until all of them are, nothing
+      #  says what the ones lying there were made with.
+      os.remove(toldFile)
+    with ThreadPoolExecutor(max_workers=self.getJobCount()) as pool:
+      refusals = [r for r in pool.map(self._compile, stale) if r]
+    if refusals:
+      infoSpec = """'clang++' refused %d of %d ritual files. The first:
+      %s"""
+      info = infoSpec % (len(refusals), len(stale), refusals[0])
+      raise RuntimeError(info)
+    with open(toldFile, 'w') as file:
+      file.write(toldText)
+    self._run(*self.getLinkCommand())
     return self.getTargetFile()

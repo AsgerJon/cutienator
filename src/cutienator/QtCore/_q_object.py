@@ -3,6 +3,8 @@ QObject binding of the Qt C++
 """
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  QtCore/qobject.h, Qt 6.12.0. Changes made here are lost.
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
@@ -10,14 +12,12 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from cutienator.cute._cute_mixin import CuteMixin
-from cutienator.cute._meta_cute import MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
+from ..occult import Rituals
+from ._qt import Qt
 from ._q_binding_storage import QBindingStorage
 from ._q_event import QEvent
 from ._q_meta_object import QMetaObject
-from cutienator.occult._ugly import Ugly
-from cutienator.cute._wait import WAIT
-from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -29,123 +29,108 @@ NoneType = type(None)
 
 class QObject(CuteMixin, metaclass=MetaCute):
   """
-  The cute side of Qt's QObject: a plain Python object standing in front
-  of one C++ QObject.
-
-    mother = QObject()
-    child = QObject(mother)
-    child.parent() is mother               # True
-    child.setObjectName('cutie')
-    child.objectName()                     # 'cutie'
-    child.metaObject().className()         # 'QObject'
-    child.thread()                         # the QThread Python runs in
-
-  This is the first class written out in full from its ritual file: one
-  function here for each ritual in 'occult/rituals/q_object.cpp', with
-  the few exceptions listed below. It is written by hand, in the shape a
-  program is meant to write the others in.
+  The cute side of Qt's QObject: a plain Python object standing in front of
+  one C++ QObject.
 
   What exists
   -----------
 
-  Every function of Qt's QObject that has a ritual and takes and gives
-  nothing but numbers, text and objects of a cute class, 25 names in
-  all: 'parent', 'setParent', 'objectName', 'setObjectName', 'tr',
-  'thread', 'metaObject', 'bindingStorage', 'inherits', 'isWidgetType',
-  'isWindowType', 'isQuickItemType', 'isQmlExposed', 'signalsBlocked',
-  'blockSignals', 'event', 'eventFilter', 'installEventFilter',
-  'removeEventFilter', 'startTimer', 'killTimer', 'disconnect',
-  'dumpObjectTree', 'dumpObjectInfo' and 'deleteLater'. Creation takes
-  a parent, None, or nothing.
+  Every function of Qt's QObject that has a ritual and that Python can call
+  so far, 28 names in all: 'metaObject', 'tr', 'event', 'eventFilter',
+  'objectName', 'setObjectName', 'isWidgetType', 'isWindowType',
+  'isQuickItemType', 'isQmlExposed', 'signalsBlocked', 'blockSignals',
+  'thread', 'startTimer', 'killTimer', 'setParent', 'installEventFilter',
+  'removeEventFilter', 'connect', 'disconnect', 'dumpObjectTree',
+  'dumpObjectInfo', 'setProperty', 'property', 'bindingStorage', 'parent',
+  'inherits', 'deleteLater'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's '~QObject()'. Python never removes a C++ QObject: Qt may
-    still use it.
-  - Qt's 'killTimer(Qt::TimerId id)'. No enum is reflected yet, so it
-    would take an 'int', as 'killTimer(int id)' does, and one name
-    cannot have two functions for one signature.
-  - Qt's 'bindingStorage() const'. It differs from 'bindingStorage()'
-    only in what C++ may do with the answer, which Python cannot say.
-  - Qt's 'disconnect(sender, signal, receiver, member)' and
-    'disconnect(const QMetaObject::Connection &)'. They are static
-    functions, and the other two of that name are not. worktoy lets one
-    name be one kind of method.
-  - Qt's three 'connect' taking text or QMetaMethod. They give a
-    'QMetaObject::Connection', which has no cute class yet. They come
-    with the signals.
-  - Qt's 'disconnect' taking two QMetaMethod, which has no cute class
-    yet.
-  - Qt's 'property' and 'setProperty'. They give and take a QVariant,
-    which has no cute class yet.
-  - Qt's 'moveToThread'. Its declaration takes a second argument, a
-    mark of Qt's own named 'Qt::Disambiguated_t', which has no cute
-    class.
+  - Qt's 'QObject::~QObject()': the destructor: Python never removes a C++
+    QObject.
+  - Qt's 'bool QObject::moveToThread(QThread *thread, Qt::Disambiguated_t
+    a1)': names 'Qt::Disambiguated_t', which has no cute class yet.
+  - Qt's 'QMetaObject::Connection QObject::connect(const QObject *sender,
+    const char *signal, const char *member, Qt::ConnectionType type) const':
+    another kind of method than most functions of its name, and one name is
+    one kind of method.
+  - Qt's 'bool QObject::disconnect(const char *signal, const QObject
+    *receiver, const char *member) const': another kind of method than most
+    functions of its name, and one name is one kind of method.
+  - Qt's 'bool QObject::disconnect(const QObject *receiver, const char
+    *member) const': another kind of method than most functions of its name,
+    and one name is one kind of method.
+  - Qt's 'const QBindingStorage *QObject::bindingStorage() const': takes in
+    Python what 'QBindingStorage *QObject::bindingStorage()' takes.
 
-  What has no ritual yet
-  ----------------------
+  What has no ritual
+  ------------------
 
-  41 of the 80 functions Qt declares, among them 'children',
-  'findChild', 'findChildren' and 'dynamicPropertyNames'. Some take or
-  give a type that no ritual can pass yet, as a list. Others are
-  patterns for functions, are for a subclass alone, or are signals.
+  41 of the 80 functions Qt declares: 11 a template; 10 protected; 9 takes or
+  gives a type that cannot be passed yet; 7 private; 2 a signal; 2 forbidden.
 
   What to expect
   --------------
 
-  - The C++ QObject is created at the first use, not by 'QObject()'.
-  - A function giving an object back gives the very cute object that
-    stands for it when there is one, as 'parent' after 'setParent'. For
-    an object C++ made itself, as the thread, it gives a new cute object
-    made around it.
-  - Qt's QString is a plain 'str', taken and given: 'setObjectName'
-    takes one and 'objectName' gives one. There is no QString class.
-  - Where Qt takes an object or text and reads nothing as 'none given',
-    None is taken. Where Qt fills in an argument left out, that is not
-    done yet: every argument is given.
-  - An enum of Qt is taken and given as its number.
-  - A wrong argument is refused in Python, with 'DispatchException',
-    and never reaches C++.
-  - Python never removes the C++ QObject. Qt does: a parent removes its
-    children when it goes, and 'deleteLater' asks for it.
-  - Qt tells when it has removed a C++ QObject. Every call on the cute
-    object, and every use of it as an argument, then raises
-    'RuntimeError', and nothing reaches C++.
+  - The C++ QObject is created at the first use, not by 'QObject(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - Python never removes the C++ QObject.
+  - Qt tells when it has removed the C++ QObject. Every call on the cute
+    object, and every use of it as an argument, then raises 'RuntimeError',
+    and nothing reaches C++.
   """
+
+  #  The cute classes made after this one that its functions take or give;
+  #  see 'WAIT'.
+  QMetaMethod = WAIT['QMetaMethod']
+  QThread = WAIT['QThread']
+  QVariant = WAIT['QVariant']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @staticmethod
+  @overload(str)
+  @overload(NoneType)
+  @overload(str, str)
+  @overload(str, NoneType)
+  @overload(NoneType, str)
+  @overload(NoneType, NoneType)
   @overload(str, str, int)
   @overload(str, NoneType, int)
-  def tr(s: str, c: Optional[str], n: int) -> str:
+  @overload(NoneType, str, int)
+  @overload(NoneType, NoneType, int)
+  def tr(s: Optional[str], c: Optional[str] = None, n: int = -1) -> str:
     """
-    Calls Qt's 'QString QObject::tr(const char *s, const char *c, int
-    n)'.
+    Calls Qt's 'QString QObject::tr(const char *s, const char *c, int n)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#tr
 
     Parameters
     ----------
 
-    s : str
-      Passed on as the bytes of the text.
-
-    c : Optional[str]
+    s : Optional[str]
       Passed on as the bytes of the text. None is passed on as no text.
 
+    c : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text. May
+      be left out, as in Qt: it is then None.
+
     n : int
-      Passed on as it is. Qt fills this in with -1 when it is left out;
-      here it has to be given.
+      Passed on as it is. May be left out, as in Qt: it is then -1.
 
     Returns
     -------
 
     str
-      The text Qt gave back: 's' itself when no translation is loaded.
+      The text Qt gave back.
     """
     #  QString QObject::tr(const char *s, const char *c, int n)
     return Rituals.call(
@@ -153,14 +138,274 @@ class QObject(CuteMixin, metaclass=MetaCute):
         CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
     )
 
+  @staticmethod
+  @overload(THIS, str, THIS, str)
+  @overload(THIS, str, THIS, NoneType)
+  @overload(THIS, str, NoneType, str)
+  @overload(THIS, str, NoneType, NoneType)
+  @overload(THIS, NoneType, THIS, str)
+  @overload(THIS, NoneType, THIS, NoneType)
+  @overload(THIS, NoneType, NoneType, str)
+  @overload(THIS, NoneType, NoneType, NoneType)
+  @overload(NoneType, str, THIS, str)
+  @overload(NoneType, str, THIS, NoneType)
+  @overload(NoneType, str, NoneType, str)
+  @overload(NoneType, str, NoneType, NoneType)
+  @overload(NoneType, NoneType, THIS, str)
+  @overload(NoneType, NoneType, THIS, NoneType)
+  @overload(NoneType, NoneType, NoneType, str)
+  @overload(NoneType, NoneType, NoneType, NoneType)
+  @overload(THIS, str, THIS, str, Qt.ConnectionType)
+  @overload(THIS, str, THIS, NoneType, Qt.ConnectionType)
+  @overload(THIS, str, NoneType, str, Qt.ConnectionType)
+  @overload(THIS, str, NoneType, NoneType, Qt.ConnectionType)
+  @overload(THIS, NoneType, THIS, str, Qt.ConnectionType)
+  @overload(THIS, NoneType, THIS, NoneType, Qt.ConnectionType)
+  @overload(THIS, NoneType, NoneType, str, Qt.ConnectionType)
+  @overload(THIS, NoneType, NoneType, NoneType, Qt.ConnectionType)
+  @overload(NoneType, str, THIS, str, Qt.ConnectionType)
+  @overload(NoneType, str, THIS, NoneType, Qt.ConnectionType)
+  @overload(NoneType, str, NoneType, str, Qt.ConnectionType)
+  @overload(NoneType, str, NoneType, NoneType, Qt.ConnectionType)
+  @overload(NoneType, NoneType, THIS, str, Qt.ConnectionType)
+  @overload(NoneType, NoneType, THIS, NoneType, Qt.ConnectionType)
+  @overload(NoneType, NoneType, NoneType, str, Qt.ConnectionType)
+  @overload(NoneType, NoneType, NoneType, NoneType, Qt.ConnectionType)
+  def connect(
+      sender: Optional[QObject],
+      signal: Optional[str],
+      receiver: Optional[QObject],
+      member: Optional[str],
+      a4: Qt.ConnectionType = Qt.ConnectionType.AutoConnection,
+  ) -> QMetaObject.Connection:
+    """
+    Calls Qt's 'QMetaObject::Connection QObject::connect(const QObject
+    *sender, const char *signal, const QObject *receiver, const char *member,
+    Qt::ConnectionType a4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#connect
+
+    Parameters
+    ----------
+
+    sender : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    signal : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    receiver : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    member : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    a4 : Qt.ConnectionType
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ConnectionType.AutoConnection.
+
+    Returns
+    -------
+
+    QMetaObject.Connection
+      A new cute QMetaObject::Connection around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QMetaObject::Connection QObject::connect(const QObject *sender, const
+    #      char *signal, const QObject *receiver, const char *member,
+    #      Qt::ConnectionType a4)
+    address = Rituals.call(
+        'ritual_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE',
+        CuteMixin._addressOf(sender), CuteMixin._bytesOf(signal),
+        CuteMixin._addressOf(receiver), CuteMixin._bytesOf(member), a4.value,
+    )
+    return QMetaObject.Connection._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS, QMetaMethod, THIS, QMetaMethod, Qt.ConnectionType)
+  def connect(
+      sender: QObject,
+      signal: QMetaMethod,
+      receiver: QObject,
+      method: QMetaMethod,
+      type: Qt.ConnectionType,
+  ) -> QMetaObject.Connection:
+    """
+    Calls Qt's 'QMetaObject::Connection QObject::connect(const QObject
+    *sender, const QMetaMethod &signal, const QObject *receiver, const
+    QMetaMethod &method, Qt::ConnectionType type)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#connect
+
+    The signature names a class made later, so the function takes the full
+    call only: no argument may be left out, and None is taken nowhere.
+
+    Parameters
+    ----------
+
+    sender : QObject
+      Passed on as the address of its C++ object.
+
+    signal : QMetaMethod
+      Passed on as a value: Qt reads the C++ QMetaMethod, which stays
+      Python's own.
+
+    receiver : QObject
+      Passed on as the address of its C++ object.
+
+    method : QMetaMethod
+      Passed on as a value: Qt reads the C++ QMetaMethod, which stays
+      Python's own.
+
+    type : Qt.ConnectionType
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QMetaObject.Connection
+      A new cute QMetaObject::Connection around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QMetaObject::Connection QObject::connect(const QObject *sender, const
+    #      QMetaMethod &signal, const QObject *receiver, const QMetaMethod
+    #      &method, Qt::ConnectionType type)
+    address = Rituals.call(
+        'ritual_ZN7QObject7connectEPKS_RK11QMetaMethodS1_S4_N2Qt14Connectio'
+        'nTypeE',
+        CuteMixin._addressOf(sender), CuteMixin._valueOf(signal),
+        CuteMixin._addressOf(receiver), CuteMixin._valueOf(method),
+        type.value,
+    )
+    return QMetaObject.Connection._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS, str, THIS, str)
+  @overload(THIS, str, THIS, NoneType)
+  @overload(THIS, str, NoneType, str)
+  @overload(THIS, str, NoneType, NoneType)
+  @overload(THIS, NoneType, THIS, str)
+  @overload(THIS, NoneType, THIS, NoneType)
+  @overload(THIS, NoneType, NoneType, str)
+  @overload(THIS, NoneType, NoneType, NoneType)
+  @overload(NoneType, str, THIS, str)
+  @overload(NoneType, str, THIS, NoneType)
+  @overload(NoneType, str, NoneType, str)
+  @overload(NoneType, str, NoneType, NoneType)
+  @overload(NoneType, NoneType, THIS, str)
+  @overload(NoneType, NoneType, THIS, NoneType)
+  @overload(NoneType, NoneType, NoneType, str)
+  @overload(NoneType, NoneType, NoneType, NoneType)
+  def disconnect(
+      sender: Optional[QObject],
+      signal: Optional[str],
+      receiver: Optional[QObject],
+      member: Optional[str],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QObject::disconnect(const QObject *sender, const char
+    *signal, const QObject *receiver, const char *member)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#disconnect
+
+    Parameters
+    ----------
+
+    sender : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    signal : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    receiver : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    member : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+    """
+    #  bool QObject::disconnect(const QObject *sender, const char *signal,
+    #      const QObject *receiver, const char *member)
+    return Rituals.call(
+        'ritual_ZN7QObject10disconnectEPKS_PKcS1_S3_',
+        CuteMixin._addressOf(sender), CuteMixin._bytesOf(signal),
+        CuteMixin._addressOf(receiver), CuteMixin._bytesOf(member),
+    )
+
+  @staticmethod
+  @overload(THIS, QMetaMethod, THIS, QMetaMethod)
+  def disconnect(
+      sender: QObject,
+      signal: QMetaMethod,
+      receiver: QObject,
+      member: QMetaMethod,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QObject::disconnect(const QObject *sender, const
+    QMetaMethod &signal, const QObject *receiver, const QMetaMethod
+    &member)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#disconnect
+
+    The signature names a class made later, so the function takes the full
+    call only: no argument may be left out, and None is taken nowhere.
+
+    Parameters
+    ----------
+
+    sender : QObject
+      Passed on as the address of its C++ object.
+
+    signal : QMetaMethod
+      Passed on as a value: Qt reads the C++ QMetaMethod, which stays
+      Python's own.
+
+    receiver : QObject
+      Passed on as the address of its C++ object.
+
+    member : QMetaMethod
+      Passed on as a value: Qt reads the C++ QMetaMethod, which stays
+      Python's own.
+    """
+    #  bool QObject::disconnect(const QObject *sender, const QMetaMethod
+    #      &signal, const QObject *receiver, const QMetaMethod &member)
+    return Rituals.call(
+        'ritual_ZN7QObject10disconnectEPKS_RK11QMetaMethodS1_S4_',
+        CuteMixin._addressOf(sender), CuteMixin._valueOf(signal),
+        CuteMixin._addressOf(receiver), CuteMixin._valueOf(member),
+    )
+
+  @staticmethod
+  @overload(QMetaObject.Connection)
+  def disconnect(a0: QMetaObject.Connection) -> bool:
+    """
+    Calls Qt's 'bool QObject::disconnect(const QMetaObject::Connection &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#disconnect
+
+    Parameters
+    ----------
+
+    a0 : QMetaObject.Connection
+      Passed on as a value: Qt reads the C++ QMetaObject::Connection, which
+      stays Python's own.
+    """
+    #  bool QObject::disconnect(const QMetaObject::Connection &a0)
+    return Rituals.call(
+        'ritual_ZN7QObject10disconnectERKN11QMetaObject10ConnectionE',
+        CuteMixin._valueOf(a0),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
-  #  Qt's QThread is built on QObject, so its cute class is made after
-  #  this one. 'thread' gives one back all the same; see 'WAIT'.
-  QThread = WAIT['QThread']
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QObject'
 
   #  Qt can watch a QObject and tell when it has removed it. Every class
   #  built on this one is a QObject too, and inherits this.
@@ -169,9 +414,6 @@ class QObject(CuteMixin, metaclass=MetaCute):
   #  Fallback Variables
 
   #  Private Variables
-  #  The parent given to the constructor, kept until the C++ object is
-  #  created.
-  __given_parent__: Optional[QObject] = None
 
   #  Public Variables
 
@@ -181,25 +423,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def _createUglySide(self, ) -> None:
-    """
-    Creates the C++ QObject and the Ugly standing for it.
-
-    'CuteMixin' calls this at the first read of 'uglySide'. The C++
-    QObject is created with the parent given to 'QObject(...)', which is
-    created first when it is not yet. Qt watches the new C++ QObject
-    from here on, so a call made after Qt has removed it is refused.
-    """
-    #  QObject::QObject(QObject *parent)
-    parent = self._addressOf(self.__given_parent__)
-    ugly = Ugly()
-    ugly.setAddress(Rituals.call('ritual_ZN7QObjectC1EPS_', parent))
-    ugly.watch()
-    ugly.setCuteSide(self)
-    self.__ugly_side__ = ugly
-    self.__given_parent__ = None
-
-  def metaObject(self) -> QMetaObject:
+  def metaObject(self) -> Optional[QMetaObject]:
     """
     Calls Qt's 'const QMetaObject *QObject::metaObject() const'.
 
@@ -208,12 +432,28 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Returns
     -------
 
-    QMetaObject
-      The cute object standing for what Qt gave back.
+    Optional[QMetaObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
     """
     #  const QMetaObject *QObject::metaObject() const
     address = self.uglySide.call('ritual_ZNK7QObject10metaObjectEv')
     return QMetaObject._cuteAt(address)
+
+  def objectName(self) -> str:
+    """
+    Calls Qt's 'QString QObject::objectName() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#objectName
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QObject::objectName() const
+    return self.uglySide.call('ritual_ZNK7QObject10objectNameEv')
 
   def isWidgetType(self) -> bool:
     """
@@ -260,7 +500,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     #  bool QObject::signalsBlocked() const
     return self.uglySide.call('ritual_ZNK7QObject14signalsBlockedEv')
 
-  def thread(self) -> QThread:
+  def thread(self) -> Optional[QThread]:
     """
     Calls Qt's 'QThread *QObject::thread() const'.
 
@@ -269,37 +509,39 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Returns
     -------
 
-    QThread
-      The cute object standing for what Qt gave back. For an object
-      made in the thread Python runs in, that thread is one C++ made
-      itself, so a new cute QThread is made around it.
-
-    Raises
-    ------
-
-    MissingVariable
-      The cute class 'QThread' is not made yet: its file was never
-      imported.
+    Optional[QThread]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
     """
     #  QThread *QObject::thread() const
     address = self.uglySide.call('ritual_ZNK7QObject6threadEv')
     return self.QThread._cuteAt(address)
 
-  def bindingStorage(self) -> QBindingStorage:
+  @overload(str)
+  @overload(NoneType)
+  def property(self, name: Optional[str]) -> QVariant:
     """
-    Calls Qt's 'QBindingStorage *QObject::bindingStorage()'.
+    Calls Qt's 'QVariant QObject::property(const char *name) const'.
 
-    Qt's own words: https://doc.qt.io/qt-6/qobject.html#bindingStorage
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#property
+
+    Parameters
+    ----------
+
+    name : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
 
     Returns
     -------
 
-    QBindingStorage
-      The cute object standing for what Qt gave back.
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
     """
-    #  QBindingStorage *QObject::bindingStorage()
-    address = self.uglySide.call('ritual_ZN7QObject14bindingStorageEv')
-    return QBindingStorage._cuteAt(address)
+    #  QVariant QObject::property(const char *name) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QObject8propertyEPKc', self._bytesOf(name),
+    )
+    return self.QVariant._cuteOwning(address)
 
   def parent(self) -> Optional[QObject]:
     """
@@ -311,31 +553,16 @@ class QObject(CuteMixin, metaclass=MetaCute):
     -------
 
     Optional[QObject]
-      The cute object standing for what Qt gave back: the very object
-      that was given as the parent, when it still exists. None when Qt
-      gave back no object.
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
     """
     #  QObject *QObject::parent() const
     address = self.uglySide.call('ritual_ZNK7QObject6parentEv')
     return QObject._cuteAt(address)
 
-  def objectName(self) -> str:
-    """
-    Calls Qt's 'QString QObject::objectName() const'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qobject.html#objectName-prop
-
-    Returns
-    -------
-
-    str
-      The text Qt gave back.
-    """
-    #  QString QObject::objectName() const
-    return self.uglySide.call('ritual_ZNK7QObject10objectNameEv')
-
   @overload(str)
-  def inherits(self, classname: str) -> bool:
+  @overload(NoneType)
+  def inherits(self, classname: Optional[str]) -> bool:
     """
     Calls Qt's 'bool QObject::inherits(const char *classname) const'.
 
@@ -344,8 +571,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Parameters
     ----------
 
-    classname : str
-      Passed on as the bytes of the text.
+    classname : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
     """
     #  bool QObject::inherits(const char *classname) const
     return self.uglySide.call(
@@ -356,28 +583,12 @@ class QObject(CuteMixin, metaclass=MetaCute):
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(bool)
-  def blockSignals(self, b: bool) -> bool:
-    """
-    Calls Qt's 'bool QObject::blockSignals(bool b)'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qobject.html#blockSignals
-
-    Parameters
-    ----------
-
-    b : bool
-      Passed on as it is.
-    """
-    #  bool QObject::blockSignals(bool b)
-    return self.uglySide.call('ritual_ZN7QObject12blockSignalsEb', b)
-
   @overload(str)
   def setObjectName(self, name: str) -> None:
     """
     Calls Qt's 'void QObject::setObjectName(QAnyStringView name)'.
 
-    Qt's own words: https://doc.qt.io/qt-6/qobject.html#objectName-prop
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#setObjectName
 
     Parameters
     ----------
@@ -402,12 +613,39 @@ class QObject(CuteMixin, metaclass=MetaCute):
     ----------
 
     parent : Optional[QObject]
-      Passed on as the address of its C++ object. None is passed on as
-      no object.
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QObject::setParent(QObject *parent)
     self.uglySide.call(
         'ritual_ZN7QObject9setParentEPS_', self._addressOf(parent),
+    )
+
+  @overload(str, QVariant)
+  def setProperty(self, name: str, value: QVariant) -> bool:
+    """
+    Calls Qt's 'bool QObject::setProperty(const char *name, const QVariant
+    &value)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#setProperty
+
+    The signature names a class made later, so the function takes the full
+    call only: no argument may be left out, and None is taken nowhere.
+
+    Parameters
+    ----------
+
+    name : str
+      Passed on as the bytes of the text.
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+    """
+    #  bool QObject::setProperty(const char *name, const QVariant &value)
+    return self.uglySide.call(
+        'ritual_ZN7QObject11setPropertyEPKcRK8QVariant',
+        self._bytesOf(name), self._valueOf(value),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -427,7 +665,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
   @overload(NoneType)
   def __init__(self, parent: Optional[QObject] = None) -> None:
     """
-    Notes the parent for Qt's 'QObject::QObject(QObject *parent)', which
+    Notes what was given, for Qt's 'QObject::QObject(QObject *parent)', which
     is called at the first use.
 
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#QObject
@@ -436,10 +674,13 @@ class QObject(CuteMixin, metaclass=MetaCute):
     ----------
 
     parent : Optional[QObject]
-      Passed on as the address of its C++ object. None, or nothing at
-      all, is passed on as no object.
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
     """
-    self.__given_parent__ = parent
+    #  QObject::QObject(QObject *parent)
+    self._noteCreation(QObject, lambda: Rituals.call(
+        'ritual_ZN7QObjectC1EPS_', self._addressOf(parent),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -462,7 +703,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @overload(QEvent)
-  def event(self, event: QEvent) -> bool:
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
     """
     Calls Qt's 'bool QObject::event(QEvent *event)'.
 
@@ -471,8 +713,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Parameters
     ----------
 
-    event : QEvent
-      Passed on as the address of its C++ object.
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  bool QObject::event(QEvent *event)
     return self.uglySide.call(
@@ -480,21 +723,29 @@ class QObject(CuteMixin, metaclass=MetaCute):
     )
 
   @overload(THIS, QEvent)
-  def eventFilter(self, watched: QObject, event: QEvent) -> bool:
+  @overload(THIS, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(
+      self,
+      watched: Optional[QObject],
+      event: Optional[QEvent],
+  ) -> bool:
     """
-    Calls Qt's 'bool QObject::eventFilter(QObject *watched, QEvent
-    *event)'.
+    Calls Qt's 'bool QObject::eventFilter(QObject *watched, QEvent *event)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#eventFilter
 
     Parameters
     ----------
 
-    watched : QObject
-      Passed on as the address of its C++ object.
+    watched : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
-    event : QEvent
-      Passed on as the address of its C++ object.
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  bool QObject::eventFilter(QObject *watched, QEvent *event)
     return self.uglySide.call(
@@ -502,8 +753,29 @@ class QObject(CuteMixin, metaclass=MetaCute):
         self._addressOf(watched), self._addressOf(event),
     )
 
-  @overload(int, int)
-  def startTimer(self, interval: int, timerType: int) -> int:
+  @overload(bool)
+  def blockSignals(self, b: bool) -> bool:
+    """
+    Calls Qt's 'bool QObject::blockSignals(bool b)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#blockSignals
+
+    Parameters
+    ----------
+
+    b : bool
+      Passed on as it is.
+    """
+    #  bool QObject::blockSignals(bool b)
+    return self.uglySide.call('ritual_ZN7QObject12blockSignalsEb', b)
+
+  @overload(int)
+  @overload(int, Qt.TimerType)
+  def startTimer(
+      self,
+      interval: int,
+      timerType: Qt.TimerType = Qt.TimerType.CoarseTimer,
+  ) -> int:
     """
     Calls Qt's 'int QObject::startTimer(int interval, Qt::TimerType
     timerType)'.
@@ -516,15 +788,14 @@ class QObject(CuteMixin, metaclass=MetaCute):
     interval : int
       Passed on as it is.
 
-    timerType : int
-      The number of a 'Qt::TimerType', as 1 for 'Qt::CoarseTimer'.
-      Passed on as it is. Qt fills this in when it is left out; here it
-      has to be given.
+    timerType : Qt.TimerType
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.TimerType.CoarseTimer.
     """
     #  int QObject::startTimer(int interval, Qt::TimerType timerType)
     return self.uglySide.call(
         'ritual_ZN7QObject10startTimerEiN2Qt9TimerTypeE',
-        interval, timerType,
+        interval, timerType.value,
     )
 
   @overload(int)
@@ -543,19 +814,36 @@ class QObject(CuteMixin, metaclass=MetaCute):
     #  void QObject::killTimer(int id)
     self.uglySide.call('ritual_ZN7QObject9killTimerEi', id)
 
-  @overload(THIS)
-  def installEventFilter(self, filterObj: QObject) -> None:
+  @overload(Qt.TimerId)
+  def killTimer(self, id: Qt.TimerId) -> None:
     """
-    Calls Qt's 'void QObject::installEventFilter(QObject *filterObj)'.
+    Calls Qt's 'void QObject::killTimer(Qt::TimerId id)'.
 
-    Qt's own words:
-    https://doc.qt.io/qt-6/qobject.html#installEventFilter
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#killTimer
 
     Parameters
     ----------
 
-    filterObj : QObject
-      Passed on as the address of its C++ object.
+    id : Qt.TimerId
+      Passed on as its number.
+    """
+    #  void QObject::killTimer(Qt::TimerId id)
+    self.uglySide.call('ritual_ZN7QObject9killTimerEN2Qt7TimerIdE', id.value)
+
+  @overload(THIS)
+  @overload(NoneType)
+  def installEventFilter(self, filterObj: Optional[QObject]) -> None:
+    """
+    Calls Qt's 'void QObject::installEventFilter(QObject *filterObj)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#installEventFilter
+
+    Parameters
+    ----------
+
+    filterObj : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QObject::installEventFilter(QObject *filterObj)
     self.uglySide.call(
@@ -564,88 +852,23 @@ class QObject(CuteMixin, metaclass=MetaCute):
     )
 
   @overload(THIS)
-  def removeEventFilter(self, obj: QObject) -> None:
+  @overload(NoneType)
+  def removeEventFilter(self, obj: Optional[QObject]) -> None:
     """
     Calls Qt's 'void QObject::removeEventFilter(QObject *obj)'.
 
-    Qt's own words:
-    https://doc.qt.io/qt-6/qobject.html#removeEventFilter
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#removeEventFilter
 
     Parameters
     ----------
 
-    obj : QObject
-      Passed on as the address of its C++ object.
+    obj : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QObject::removeEventFilter(QObject *obj)
     self.uglySide.call(
         'ritual_ZN7QObject17removeEventFilterEPS_', self._addressOf(obj),
-    )
-
-  @overload(str, THIS, str)
-  @overload(str, THIS, NoneType)
-  @overload(str, NoneType, str)
-  @overload(str, NoneType, NoneType)
-  @overload(NoneType, THIS, str)
-  @overload(NoneType, THIS, NoneType)
-  @overload(NoneType, NoneType, str)
-  @overload(NoneType, NoneType, NoneType)
-  def disconnect(
-      self,
-      signal: Optional[str],
-      receiver: Optional[QObject],
-      member: Optional[str],
-  ) -> bool:
-    """
-    Calls Qt's 'bool QObject::disconnect(const char *signal, const
-    QObject *receiver, const char *member) const'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qobject.html#disconnect-2
-
-    Parameters
-    ----------
-
-    signal : Optional[str]
-      Passed on as the bytes of the text. None is passed on as no text.
-
-    receiver : Optional[QObject]
-      Passed on as the address of its C++ object. None is passed on as
-      no object.
-
-    member : Optional[str]
-      Passed on as the bytes of the text. None is passed on as no text.
-    """
-    #  bool QObject::disconnect(const char *signal,
-    #      const QObject *receiver, const char *member) const
-    return self.uglySide.call(
-        'ritual_ZNK7QObject10disconnectEPKcPKS_S1_',
-        self._bytesOf(signal), self._addressOf(receiver),
-        self._bytesOf(member),
-    )
-
-  @overload(THIS, str)
-  @overload(THIS, NoneType)
-  def disconnect(self, receiver: QObject, member: Optional[str]) -> bool:
-    """
-    Calls Qt's 'bool QObject::disconnect(const QObject *receiver, const
-    char *member) const'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qobject.html#disconnect-3
-
-    Parameters
-    ----------
-
-    receiver : QObject
-      Passed on as the address of its C++ object.
-
-    member : Optional[str]
-      Passed on as the bytes of the text. None is passed on as no text.
-    """
-    #  bool QObject::disconnect(const QObject *receiver,
-    #      const char *member) const
-    return self.uglySide.call(
-        'ritual_ZNK7QObject10disconnectEPKS_PKc',
-        self._addressOf(receiver), self._bytesOf(member),
     )
 
   def dumpObjectTree(self) -> None:
@@ -665,6 +888,23 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  void QObject::dumpObjectInfo() const
     self.uglySide.call('ritual_ZNK7QObject14dumpObjectInfoEv')
+
+  def bindingStorage(self) -> Optional[QBindingStorage]:
+    """
+    Calls Qt's 'QBindingStorage *QObject::bindingStorage()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#bindingStorage
+
+    Returns
+    -------
+
+    Optional[QBindingStorage]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QBindingStorage *QObject::bindingStorage()
+    address = self.uglySide.call('ritual_ZN7QObject14bindingStorageEv')
+    return QBindingStorage._cuteAt(address)
 
   def deleteLater(self) -> None:
     """

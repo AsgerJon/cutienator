@@ -1,0 +1,86 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qmenu.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK5QMenu10metaObjectEv": ["address", "address"],
+    "ritual_ZN5QMenu2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN5QMenuC1EP7QWidget": ["address", "address"],
+    "ritual_ZN5QMenuC1ERK7QStringP7QWidget": ["address", "text", "address"],
+    "ritual_ZN5QMenuD1Ev": ["nothing", "address"],
+    "ritual_ZN5QMenu9addActionERK7QStringPK7QObjectPKcRK12QKeySequence": [
+      "address", "address", "text", "address", "chars", "address"
+    ],
+    "ritual_ZN5QMenu9addActionERK5QIconRK7QStringPK7QObjectPKcRK12QKeySequence": [
+      "address", "address", "address", "text", "address", "chars", "address"
+    ],
+    "ritual_ZN5QMenu7addMenuEPS_": ["address", "address", "address"],
+    "ritual_ZN5QMenu7addMenuERK7QString": ["address", "address", "text"],
+    "ritual_ZN5QMenu7addMenuERK5QIconRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN5QMenu12addSeparatorEv": ["address", "address"],
+    "ritual_ZN5QMenu10addSectionERK7QString": ["address", "address", "text"],
+    "ritual_ZN5QMenu10addSectionERK5QIconRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN5QMenu10insertMenuEP7QActionPS_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN5QMenu15insertSeparatorEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN5QMenu13insertSectionEP7QActionRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN5QMenu13insertSectionEP7QActionRK5QIconRK7QString": [
+      "address", "address", "address", "address", "text"
+    ],
+    "ritual_ZNK5QMenu7isEmptyEv": ["bool", "address"],
+    "ritual_ZN5QMenu5clearEv": ["nothing", "address"],
+    "ritual_ZN5QMenu17setTearOffEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZNK5QMenu16isTearOffEnabledEv": ["bool", "address"],
+    "ritual_ZNK5QMenu20isTearOffMenuVisibleEv": ["bool", "address"],
+    "ritual_ZN5QMenu15showTearOffMenuEv": ["nothing", "address"],
+    "ritual_ZN5QMenu15showTearOffMenuERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu15hideTearOffMenuEv": ["nothing", "address"],
+    "ritual_ZN5QMenu16setDefaultActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5QMenu13defaultActionEv": ["address", "address"],
+    "ritual_ZN5QMenu15setActiveActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5QMenu12activeActionEv": ["address", "address"],
+    "ritual_ZN5QMenu5popupERK6QPointP7QAction": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN5QMenu4execEv": ["address", "address"],
+    "ritual_ZN5QMenu4execERK6QPointP7QAction": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK5QMenu8sizeHintEv": ["address", "address"],
+    "ritual_ZNK5QMenu14actionGeometryEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK5QMenu8actionAtERK6QPoint": ["address", "address", "address"],
+    "ritual_ZNK5QMenu10menuActionEv": ["address", "address"],
+    "ritual_ZN5QMenu12menuInActionEPK7QAction": ["address", "address"],
+    "ritual_ZNK5QMenu5titleEv": ["text", "address"],
+    "ritual_ZN5QMenu8setTitleERK7QString": ["nothing", "address", "text"],
+    "ritual_ZNK5QMenu4iconEv": ["address", "address"],
+    "ritual_ZN5QMenu7setIconERK5QIcon": ["nothing", "address", "address"],
+    "ritual_ZN5QMenu14setNoReplayForEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5QMenu21separatorsCollapsibleEv": ["bool", "address"],
+    "ritual_ZN5QMenu24setSeparatorsCollapsibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK5QMenu15toolTipsVisibleEv": ["bool", "address"],
+    "ritual_ZN5QMenu18setToolTipsVisibleEb": ["nothing", "address", "bool"]
+  }
+}

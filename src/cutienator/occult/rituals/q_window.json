@@ -1,0 +1,188 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qwindow.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QWindow2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QWindowC1EP7QScreen": ["address", "address"],
+    "ritual_ZN7QWindowC1EPS_": ["address", "address"],
+    "ritual_ZN7QWindowD1Ev": ["nothing", "address"],
+    "ritual_ZN7QWindow14setSurfaceTypeEN8QSurface11SurfaceTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QWindow11surfaceTypeEv": ["int", "address"],
+    "ritual_ZNK7QWindow9isVisibleEv": ["bool", "address"],
+    "ritual_ZNK7QWindow10visibilityEv": ["int", "address"],
+    "ritual_ZN7QWindow13setVisibilityENS_10VisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow6createEv": ["nothing", "address"],
+    "ritual_ZNK7QWindow5winIdEv": ["unsigned long long", "address"],
+    "ritual_ZNK7QWindow6parentENS_12AncestorModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN7QWindow9setParentEPS_": ["nothing", "address", "address"],
+    "ritual_ZNK7QWindow10isTopLevelEv": ["bool", "address"],
+    "ritual_ZNK7QWindow7isModalEv": ["bool", "address"],
+    "ritual_ZNK7QWindow8modalityEv": ["int", "address"],
+    "ritual_ZN7QWindow11setModalityEN2Qt14WindowModalityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow9setFormatERK14QSurfaceFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QWindow6formatEv": ["address", "address"],
+    "ritual_ZNK7QWindow15requestedFormatEv": ["address", "address"],
+    "ritual_ZN7QWindow8setFlagsE6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QWindow5flagsEv": ["int", "address"],
+    "ritual_ZN7QWindow7setFlagEN2Qt10WindowTypeEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK7QWindow4typeEv": ["int", "address"],
+    "ritual_ZNK7QWindow5titleEv": ["text", "address"],
+    "ritual_ZN7QWindow10setOpacityEd": ["nothing", "address", "double"],
+    "ritual_ZNK7QWindow7opacityEv": ["double", "address"],
+    "ritual_ZN7QWindow7setMaskERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QWindow4maskEv": ["address", "address"],
+    "ritual_ZNK7QWindow8isActiveEv": ["bool", "address"],
+    "ritual_ZN7QWindow30reportContentOrientationChangeEN2Qt17ScreenOrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QWindow18contentOrientationEv": ["int", "address"],
+    "ritual_ZNK7QWindow16devicePixelRatioEv": ["double", "address"],
+    "ritual_ZNK7QWindow11windowStateEv": ["int", "address"],
+    "ritual_ZNK7QWindow12windowStatesEv": ["int", "address"],
+    "ritual_ZN7QWindow14setWindowStateEN2Qt11WindowStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow15setWindowStatesE6QFlagsIN2Qt11WindowStateEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWindow18setTransientParentEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QWindow15transientParentEv": ["address", "address"],
+    "ritual_ZNK7QWindow12isAncestorOfEPKS_NS_12AncestorModeE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK7QWindow9isExposedEv": ["bool", "address"],
+    "ritual_ZNK7QWindow12minimumWidthEv": ["int", "address"],
+    "ritual_ZNK7QWindow13minimumHeightEv": ["int", "address"],
+    "ritual_ZNK7QWindow12maximumWidthEv": ["int", "address"],
+    "ritual_ZNK7QWindow13maximumHeightEv": ["int", "address"],
+    "ritual_ZNK7QWindow11minimumSizeEv": ["address", "address"],
+    "ritual_ZNK7QWindow11maximumSizeEv": ["address", "address"],
+    "ritual_ZNK7QWindow8baseSizeEv": ["address", "address"],
+    "ritual_ZNK7QWindow13sizeIncrementEv": ["address", "address"],
+    "ritual_ZN7QWindow14setMinimumSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWindow14setMaximumSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWindow11setBaseSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWindow16setSizeIncrementERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QWindow8geometryEv": ["address", "address"],
+    "ritual_ZNK7QWindow12frameMarginsEv": ["address", "address"],
+    "ritual_ZNK7QWindow13frameGeometryEv": ["address", "address"],
+    "ritual_ZNK7QWindow13framePositionEv": ["address", "address"],
+    "ritual_ZN7QWindow16setFramePositionERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWindow16setFramePositionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK7QWindow15safeAreaMarginsEv": ["address", "address"],
+    "ritual_ZNK7QWindow5widthEv": ["int", "address"],
+    "ritual_ZNK7QWindow6heightEv": ["int", "address"],
+    "ritual_ZNK7QWindow1xEv": ["int", "address"],
+    "ritual_ZNK7QWindow1yEv": ["int", "address"],
+    "ritual_ZNK7QWindow4sizeEv": ["address", "address"],
+    "ritual_ZNK7QWindow8positionEv": ["address", "address"],
+    "ritual_ZN7QWindow11setPositionERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWindow11setPositionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN7QWindow6resizeERK5QSize": ["nothing", "address", "address"],
+    "ritual_ZN7QWindow6resizeEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN7QWindow11setFilePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK7QWindow8filePathEv": ["text", "address"],
+    "ritual_ZN7QWindow7setIconERK5QIcon": ["nothing", "address", "address"],
+    "ritual_ZNK7QWindow4iconEv": ["address", "address"],
+    "ritual_ZN7QWindow7destroyEv": ["nothing", "address"],
+    "ritual_ZN7QWindow22setKeyboardGrabEnabledEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN7QWindow19setMouseGrabEnabledEb": ["bool", "address", "bool"],
+    "ritual_ZNK7QWindow6screenEv": ["address", "address"],
+    "ritual_ZN7QWindow9setScreenEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QWindow14accessibleRootEv": ["address", "address"],
+    "ritual_ZNK7QWindow11focusObjectEv": ["address", "address"],
+    "ritual_ZNK7QWindow11mapToGlobalERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK7QWindow13mapFromGlobalERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK7QWindow11mapToGlobalERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK7QWindow13mapFromGlobalERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK7QWindow6cursorEv": ["address", "address"],
+    "ritual_ZN7QWindow9setCursorERK7QCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWindow11unsetCursorEv": ["nothing", "address"],
+    "ritual_ZN7QWindow9fromWinIdEy": ["address", "unsigned long long"],
+    "ritual_ZN7QWindow15requestActivateEv": ["nothing", "address"],
+    "ritual_ZN7QWindow10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QWindow4showEv": ["nothing", "address"],
+    "ritual_ZN7QWindow4hideEv": ["nothing", "address"],
+    "ritual_ZN7QWindow13showMinimizedEv": ["nothing", "address"],
+    "ritual_ZN7QWindow13showMaximizedEv": ["nothing", "address"],
+    "ritual_ZN7QWindow14showFullScreenEv": ["nothing", "address"],
+    "ritual_ZN7QWindow10showNormalEv": ["nothing", "address"],
+    "ritual_ZN7QWindow5closeEv": ["bool", "address"],
+    "ritual_ZN7QWindow5raiseEv": ["nothing", "address"],
+    "ritual_ZN7QWindow5lowerEv": ["nothing", "address"],
+    "ritual_ZN7QWindow17startSystemResizeE6QFlagsIN2Qt4EdgeEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN7QWindow15startSystemMoveEv": ["bool", "address"],
+    "ritual_ZN7QWindow8setTitleERK7QString": ["nothing", "address", "text"],
+    "ritual_ZN7QWindow4setXEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow4setYEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow8setWidthEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow9setHeightEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow11setGeometryEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN7QWindow11setGeometryERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWindow15setMinimumWidthEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow16setMinimumHeightEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow15setMaximumWidthEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow16setMaximumHeightEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow5alertEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWindow13requestUpdateEv": ["nothing", "address"]
+  }
+}

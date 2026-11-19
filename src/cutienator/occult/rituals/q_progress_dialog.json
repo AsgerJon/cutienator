@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qprogressdialog.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QProgressDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QProgressDialog2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QProgressDialogC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QProgressDialogC1ERK7QStringS2_iiP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "text", "text", "int", "int", "address", "int"
+    ],
+    "ritual_ZN15QProgressDialogD1Ev": ["nothing", "address"],
+    "ritual_ZN15QProgressDialog8setLabelEP6QLabel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QProgressDialog15setCancelButtonEP11QPushButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QProgressDialog6setBarEP12QProgressBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QProgressDialog11wasCanceledEv": ["bool", "address"],
+    "ritual_ZNK15QProgressDialog7minimumEv": ["int", "address"],
+    "ritual_ZNK15QProgressDialog7maximumEv": ["int", "address"],
+    "ritual_ZNK15QProgressDialog5valueEv": ["int", "address"],
+    "ritual_ZNK15QProgressDialog8sizeHintEv": ["address", "address"],
+    "ritual_ZNK15QProgressDialog9labelTextEv": ["text", "address"],
+    "ritual_ZNK15QProgressDialog15minimumDurationEv": ["int", "address"],
+    "ritual_ZN15QProgressDialog12setAutoResetEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QProgressDialog9autoResetEv": ["bool", "address"],
+    "ritual_ZN15QProgressDialog12setAutoCloseEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QProgressDialog9autoCloseEv": ["bool", "address"],
+    "ritual_ZN15QProgressDialog4openEP7QObjectPKc": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZN15QProgressDialog6cancelEv": ["nothing", "address"],
+    "ritual_ZN15QProgressDialog5resetEv": ["nothing", "address"],
+    "ritual_ZN15QProgressDialog10setMaximumEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QProgressDialog10setMinimumEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QProgressDialog8setRangeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QProgressDialog8setValueEi": ["nothing", "address", "int"],
+    "ritual_ZN15QProgressDialog12setLabelTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QProgressDialog19setCancelButtonTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QProgressDialog18setMinimumDurationEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

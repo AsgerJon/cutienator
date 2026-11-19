@@ -1,28 +1,68 @@
 """
-QBindingStorage binding of the Qt C++, so far in name only.
+QBindingStorage binding of the Qt C++
 """
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  QtCore/qbindingstorage.h, Qt 6.12.0. Changes made here are lost.
 from __future__ import annotations
 
-from cutienator.cute._cute_mixin import CuteMixin
-from cutienator.cute._meta_cute import MetaCute
+from typing import TYPE_CHECKING
+
+from worktoy.dispatch import overload
+
+from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
 
 
 class QBindingStorage(CuteMixin, metaclass=MetaCute):
   """
-  The cute side of Qt's QBindingStorage, so far in name only. It
-  exists because 'QObject.bindingStorage()' gives one back, and a cute
-  function can only give back an object of a cute class.
+  The cute side of Qt's QBindingStorage: a plain Python object standing in
+  front of one C++ QBindingStorage.
 
-    storage = QObject().bindingStorage()   # a QBindingStorage
+  C++ hands a QBindingStorage around as a copy, so every C++ QBindingStorage
+  behind a cute one is Python's own: it is removed, by the ritual named in
+  '__delete_ritual__', when the cute object goes.
 
-  What exists so far
+  What exists
+  -----------
+
+  Every function of Qt's QBindingStorage that has a ritual and that Python
+  can call so far, 2 names in all: 'isEmpty', 'isValid'. It can be made from
+  Python, in 1 way; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QBindingStorage::~QBindingStorage()': the destructor: Python
+    removes its C++ QBindingStorage by it, and has no other use for it.
+  - Qt's 'void QBindingStorage::registerDependency(const QUntypedPropertyData
+    *data) const': names 'QUntypedPropertyData', which has no cute class yet.
+  - Qt's 'QtPrivate::QPropertyBindingData *QBindingStorage::bindingData(const
+    QUntypedPropertyData *data) const': names 'QUntypedPropertyData', which
+    has no cute class yet.
+  - Qt's 'QtPrivate::QPropertyBindingData
+    *QBindingStorage::bindingData(QUntypedPropertyData *data, bool create)':
+    names 'QUntypedPropertyData', which has no cute class yet.
+
+  What has no ritual
   ------------------
 
-  Nothing of its own: no function of Qt's QBindingStorage is reflected
-  yet, and none can be made from Python. One comes out of
-  'QObject.bindingStorage()' and can be held and compared, no more.
+  6 of the 13 functions Qt declares: 5 private; 1 takes or gives a type that
+  cannot be passed yet.
+
+  What to expect
+  --------------
+
+  - The C++ QBindingStorage is created at the first use, not by
+    'QBindingStorage(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - A function giving a QBindingStorage back gives a copy the ritual made for
+    Python, in a new cute QBindingStorage.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -34,6 +74,13 @@ class QBindingStorage(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QBindingStorage'
+
+  #  Qt's '~QBindingStorage()'. Naming it makes this a value class: Python
+  #  owns every C++ QBindingStorage behind a cute one, and removes it by this
+  #  ritual.
+  __delete_ritual__ = 'ritual_ZN15QBindingStorageD1Ev'
 
   #  Fallback Variables
 
@@ -47,22 +94,14 @@ class QBindingStorage(CuteMixin, metaclass=MetaCute):
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def _createUglySide(self, ) -> None:
+  def isValid(self) -> bool:
     """
-    Refuses: no ritual makes a C++ QBindingStorage yet, so
-    'QBindingStorage()' has nothing to stand for. One is given by
-    'QObject.bindingStorage()'.
+    Calls Qt's 'bool QBindingStorage::isValid() const'.
 
-    Raises
-    ------
-
-    TypeError
-      Always.
+    Qt's own words: https://doc.qt.io/qt-6/qbindingstorage.html#isValid
     """
-    infoSpec = """A 'QBindingStorage' cannot be made from Python yet:
-    there is no ritual for its constructor. One is given by
-    'QObject.bindingStorage()'."""
-    raise TypeError(' '.join(infoSpec.split()))
+    #  bool QBindingStorage::isValid() const
+    return self.uglySide.call('ritual_ZNK15QBindingStorage7isValidEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -79,6 +118,20 @@ class QBindingStorage(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QBindingStorage::QBindingStorage()',
+    which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qbindingstorage.html#QBindingStorage
+    """
+    #  QBindingStorage::QBindingStorage()
+    self._noteCreation(QBindingStorage, lambda: Rituals.call(
+        'ritual_ZN15QBindingStorageC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -99,3 +152,12 @@ class QBindingStorage(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def isEmpty(self) -> bool:
+    """
+    Calls Qt's 'bool QBindingStorage::isEmpty()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbindingstorage.html#isEmpty
+    """
+    #  bool QBindingStorage::isEmpty()
+    return self.uglySide.call('ritual_ZN15QBindingStorage7isEmptyEv')

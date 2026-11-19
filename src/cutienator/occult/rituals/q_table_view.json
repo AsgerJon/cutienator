@@ -1,0 +1,106 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qtableview.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QTableView10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QTableView2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QTableViewC1EP7QWidget": ["address", "address"],
+    "ritual_ZN10QTableViewD1Ev": ["nothing", "address"],
+    "ritual_ZN10QTableView8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QTableView12setRootIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QTableView17setSelectionModelEP19QItemSelectionModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QTableView13doItemsLayoutEv": ["nothing", "address"],
+    "ritual_ZNK10QTableView16horizontalHeaderEv": ["address", "address"],
+    "ritual_ZNK10QTableView14verticalHeaderEv": ["address", "address"],
+    "ritual_ZN10QTableView19setHorizontalHeaderEP11QHeaderView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QTableView17setVerticalHeaderEP11QHeaderView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QTableView19rowViewportPositionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK10QTableView5rowAtEi": ["int", "address", "int"],
+    "ritual_ZN10QTableView12setRowHeightEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK10QTableView9rowHeightEi": ["int", "address", "int"],
+    "ritual_ZNK10QTableView22columnViewportPositionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK10QTableView8columnAtEi": ["int", "address", "int"],
+    "ritual_ZN10QTableView14setColumnWidthEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK10QTableView11columnWidthEi": ["int", "address", "int"],
+    "ritual_ZNK10QTableView11isRowHiddenEi": ["bool", "address", "int"],
+    "ritual_ZN10QTableView12setRowHiddenEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK10QTableView14isColumnHiddenEi": ["bool", "address", "int"],
+    "ritual_ZN10QTableView15setColumnHiddenEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN10QTableView17setSortingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK10QTableView16isSortingEnabledEv": ["bool", "address"],
+    "ritual_ZNK10QTableView8showGridEv": ["bool", "address"],
+    "ritual_ZNK10QTableView9gridStyleEv": ["int", "address"],
+    "ritual_ZN10QTableView12setGridStyleEN2Qt8PenStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QTableView11setWordWrapEb": ["nothing", "address", "bool"],
+    "ritual_ZNK10QTableView8wordWrapEv": ["bool", "address"],
+    "ritual_ZN10QTableView22setCornerButtonEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK10QTableView21isCornerButtonEnabledEv": ["bool", "address"],
+    "ritual_ZNK10QTableView10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QTableView8scrollToERK11QModelIndexN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK10QTableView7indexAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QTableView7setSpanEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK10QTableView7rowSpanEii": ["int", "address", "int", "int"],
+    "ritual_ZNK10QTableView10columnSpanEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN10QTableView10clearSpansEv": ["nothing", "address"],
+    "ritual_ZN10QTableView9selectRowEi": ["nothing", "address", "int"],
+    "ritual_ZN10QTableView12selectColumnEi": ["nothing", "address", "int"],
+    "ritual_ZN10QTableView7hideRowEi": ["nothing", "address", "int"],
+    "ritual_ZN10QTableView10hideColumnEi": ["nothing", "address", "int"],
+    "ritual_ZN10QTableView7showRowEi": ["nothing", "address", "int"],
+    "ritual_ZN10QTableView10showColumnEi": ["nothing", "address", "int"],
+    "ritual_ZN10QTableView19resizeRowToContentsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QTableView20resizeRowsToContentsEv": ["nothing", "address"],
+    "ritual_ZN10QTableView22resizeColumnToContentsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QTableView23resizeColumnsToContentsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QTableView12sortByColumnEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QTableView11setShowGridEb": ["nothing", "address", "bool"]
+  }
+}

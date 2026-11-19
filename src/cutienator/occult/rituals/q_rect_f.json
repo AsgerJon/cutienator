@@ -1,0 +1,125 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qrect.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QRectFC1Ev": ["address"],
+    "ritual_ZN6QRectFC1ERK7QPointFRK6QSizeF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QRectFC1ERK7QPointFS2_": ["address", "address", "address"],
+    "ritual_ZN6QRectFC1Edddd": [
+      "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN6QRectFC1ERK5QRect": ["address", "address"],
+    "ritual_ZNK6QRectF6isNullEv": ["bool", "address"],
+    "ritual_ZNK6QRectF7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK6QRectF7isValidEv": ["bool", "address"],
+    "ritual_ZNK6QRectF10normalizedEv": ["address", "address"],
+    "ritual_ZNK6QRectF4leftEv": ["double", "address"],
+    "ritual_ZNK6QRectF3topEv": ["double", "address"],
+    "ritual_ZNK6QRectF5rightEv": ["double", "address"],
+    "ritual_ZNK6QRectF6bottomEv": ["double", "address"],
+    "ritual_ZNK6QRectF1xEv": ["double", "address"],
+    "ritual_ZNK6QRectF1yEv": ["double", "address"],
+    "ritual_ZN6QRectF7setLeftEd": ["nothing", "address", "double"],
+    "ritual_ZN6QRectF6setTopEd": ["nothing", "address", "double"],
+    "ritual_ZN6QRectF8setRightEd": ["nothing", "address", "double"],
+    "ritual_ZN6QRectF9setBottomEd": ["nothing", "address", "double"],
+    "ritual_ZN6QRectF4setXEd": ["nothing", "address", "double"],
+    "ritual_ZN6QRectF4setYEd": ["nothing", "address", "double"],
+    "ritual_ZNK6QRectF7topLeftEv": ["address", "address"],
+    "ritual_ZNK6QRectF11bottomRightEv": ["address", "address"],
+    "ritual_ZNK6QRectF8topRightEv": ["address", "address"],
+    "ritual_ZNK6QRectF10bottomLeftEv": ["address", "address"],
+    "ritual_ZNK6QRectF6centerEv": ["address", "address"],
+    "ritual_ZN6QRectF10setTopLeftERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QRectF14setBottomRightERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QRectF11setTopRightERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QRectF13setBottomLeftERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QRectF8moveLeftEd": ["nothing", "address", "double"],
+    "ritual_ZN6QRectF7moveTopEd": ["nothing", "address", "double"],
+    "ritual_ZN6QRectF9moveRightEd": ["nothing", "address", "double"],
+    "ritual_ZN6QRectF10moveBottomEd": ["nothing", "address", "double"],
+    "ritual_ZN6QRectF11moveTopLeftERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QRectF15moveBottomRightERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QRectF12moveTopRightERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QRectF14moveBottomLeftERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QRectF10moveCenterERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QRectF9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN6QRectF9translateERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QRectF10translatedEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK6QRectF10translatedERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK6QRectF10transposedEv": ["address", "address"],
+    "ritual_ZN6QRectF6moveToEdd": ["nothing", "address", "double", "double"],
+    "ritual_ZN6QRectF6moveToERK7QPointF": ["nothing", "address", "address"],
+    "ritual_ZN6QRectF7setRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK6QRectF7getRectEPdS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN6QRectF9setCoordsEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK6QRectF9getCoordsEPdS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN6QRectF6adjustEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK6QRectF8adjustedEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK6QRectF4sizeEv": ["address", "address"],
+    "ritual_ZNK6QRectF5widthEv": ["double", "address"],
+    "ritual_ZNK6QRectF6heightEv": ["double", "address"],
+    "ritual_ZN6QRectF8setWidthEd": ["nothing", "address", "double"],
+    "ritual_ZN6QRectF9setHeightEd": ["nothing", "address", "double"],
+    "ritual_ZN6QRectF7setSizeERK6QSizeF": ["nothing", "address", "address"],
+    "ritual_ZNK6QRectForERKS_": ["address", "address", "address"],
+    "ritual_ZNK6QRectFanERKS_": ["address", "address", "address"],
+    "ritual_ZNK6QRectF8containsERKS_": ["bool", "address", "address"],
+    "ritual_ZNK6QRectF8containsERK7QPointF": ["bool", "address", "address"],
+    "ritual_ZNK6QRectF8containsEdd": ["bool", "address", "double", "double"],
+    "ritual_ZNK6QRectF6unitedERKS_": ["address", "address", "address"],
+    "ritual_ZNK6QRectF11intersectedERKS_": ["address", "address", "address"],
+    "ritual_ZNK6QRectF10intersectsERKS_": ["bool", "address", "address"],
+    "ritual_ZNK6QRectF12marginsAddedERK9QMarginsF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK6QRectF14marginsRemovedERK9QMarginsF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK6QRectF6toRectEv": ["address", "address"],
+    "ritual_ZNK6QRectF13toAlignedRectEv": ["address", "address"],
+    "ritual_ZN6QRectFD1Ev": ["nothing", "address"]
+  }
+}

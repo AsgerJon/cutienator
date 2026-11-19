@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaction.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QAction10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QAction2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QActionC1EP7QObject": ["address", "address"],
+    "ritual_ZN7QActionC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN7QActionC1ERK5QIconRK7QStringP7QObject": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN7QActionD1Ev": ["nothing", "address"],
+    "ritual_ZN7QAction14setActionGroupEP12QActionGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QAction11actionGroupEv": ["address", "address"],
+    "ritual_ZN7QAction7setIconERK5QIcon": ["nothing", "address", "address"],
+    "ritual_ZNK7QAction4iconEv": ["address", "address"],
+    "ritual_ZN7QAction7setTextERK7QString": ["nothing", "address", "text"],
+    "ritual_ZNK7QAction4textEv": ["text", "address"],
+    "ritual_ZN7QAction11setIconTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK7QAction8iconTextEv": ["text", "address"],
+    "ritual_ZN7QAction10setToolTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK7QAction7toolTipEv": ["text", "address"],
+    "ritual_ZN7QAction12setStatusTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK7QAction9statusTipEv": ["text", "address"],
+    "ritual_ZN7QAction12setWhatsThisERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK7QAction9whatsThisEv": ["text", "address"],
+    "ritual_ZN7QAction11setPriorityENS_8PriorityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QAction8priorityEv": ["int", "address"],
+    "ritual_ZN7QAction12setSeparatorEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QAction11isSeparatorEv": ["bool", "address"],
+    "ritual_ZN7QAction11setShortcutERK12QKeySequence": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QAction8shortcutEv": ["address", "address"],
+    "ritual_ZN7QAction12setShortcutsEN12QKeySequence11StandardKeyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QAction18setShortcutContextEN2Qt15ShortcutContextE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QAction15shortcutContextEv": ["int", "address"],
+    "ritual_ZN7QAction13setAutoRepeatEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QAction10autoRepeatEv": ["bool", "address"],
+    "ritual_ZN7QAction7setFontERK5QFont": ["nothing", "address", "address"],
+    "ritual_ZNK7QAction4fontEv": ["address", "address"],
+    "ritual_ZN7QAction12setCheckableEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QAction11isCheckableEv": ["bool", "address"],
+    "ritual_ZNK7QAction4dataEv": ["address", "address"],
+    "ritual_ZN7QAction7setDataERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QAction9isCheckedEv": ["bool", "address"],
+    "ritual_ZNK7QAction9isEnabledEv": ["bool", "address"],
+    "ritual_ZNK7QAction9isVisibleEv": ["bool", "address"],
+    "ritual_ZN7QAction8activateENS_11ActionEventE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QAction11setMenuRoleENS_8MenuRoleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QAction8menuRoleEv": ["int", "address"],
+    "ritual_ZN7QAction20setIconVisibleInMenuEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK7QAction19isIconVisibleInMenuEv": ["bool", "address"],
+    "ritual_ZN7QAction31setShortcutVisibleInContextMenuEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK7QAction30isShortcutVisibleInContextMenuEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN7QAction14showStatusTextEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN7QAction7triggerEv": ["nothing", "address"],
+    "ritual_ZN7QAction5hoverEv": ["nothing", "address"],
+    "ritual_ZN7QAction10setCheckedEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QAction6toggleEv": ["nothing", "address"],
+    "ritual_ZN7QAction10setEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QAction12resetEnabledEv": ["nothing", "address"],
+    "ritual_ZN7QAction11setDisabledEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QAction10setVisibleEb": ["nothing", "address", "bool"]
+  }
+}

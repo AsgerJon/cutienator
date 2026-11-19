@@ -1,0 +1,138 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qtreeview.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QTreeView10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QTreeView2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QTreeViewC1EP7QWidget": ["address", "address"],
+    "ritual_ZN9QTreeViewD1Ev": ["nothing", "address"],
+    "ritual_ZN9QTreeView8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView12setRootIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView17setSelectionModelEP19QItemSelectionModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QTreeView6headerEv": ["address", "address"],
+    "ritual_ZN9QTreeView9setHeaderEP11QHeaderView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QTreeView15autoExpandDelayEv": ["int", "address"],
+    "ritual_ZN9QTreeView18setAutoExpandDelayEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QTreeView11indentationEv": ["int", "address"],
+    "ritual_ZN9QTreeView14setIndentationEi": ["nothing", "address", "int"],
+    "ritual_ZN9QTreeView16resetIndentationEv": ["nothing", "address"],
+    "ritual_ZNK9QTreeView15rootIsDecoratedEv": ["bool", "address"],
+    "ritual_ZN9QTreeView18setRootIsDecoratedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QTreeView17uniformRowHeightsEv": ["bool", "address"],
+    "ritual_ZN9QTreeView20setUniformRowHeightsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QTreeView15itemsExpandableEv": ["bool", "address"],
+    "ritual_ZN9QTreeView18setItemsExpandableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QTreeView20expandsOnDoubleClickEv": ["bool", "address"],
+    "ritual_ZN9QTreeView23setExpandsOnDoubleClickEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QTreeView22columnViewportPositionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK9QTreeView11columnWidthEi": ["int", "address", "int"],
+    "ritual_ZN9QTreeView14setColumnWidthEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK9QTreeView8columnAtEi": ["int", "address", "int"],
+    "ritual_ZNK9QTreeView14isColumnHiddenEi": ["bool", "address", "int"],
+    "ritual_ZN9QTreeView15setColumnHiddenEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK9QTreeView14isHeaderHiddenEv": ["bool", "address"],
+    "ritual_ZN9QTreeView15setHeaderHiddenEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QTreeView11isRowHiddenEiRK11QModelIndex": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN9QTreeView12setRowHiddenEiRK11QModelIndexb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZNK9QTreeView20isFirstColumnSpannedEiRK11QModelIndex": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN9QTreeView21setFirstColumnSpannedEiRK11QModelIndexb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZNK9QTreeView10isExpandedERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QTreeView11setExpandedERK11QModelIndexb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN9QTreeView17setSortingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QTreeView16isSortingEnabledEv": ["bool", "address"],
+    "ritual_ZN9QTreeView11setAnimatedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QTreeView10isAnimatedEv": ["bool", "address"],
+    "ritual_ZN9QTreeView22setAllColumnsShowFocusEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QTreeView19allColumnsShowFocusEv": ["bool", "address"],
+    "ritual_ZN9QTreeView11setWordWrapEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QTreeView8wordWrapEv": ["bool", "address"],
+    "ritual_ZN9QTreeView15setTreePositionEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QTreeView12treePositionEv": ["int", "address"],
+    "ritual_ZN9QTreeView14keyboardSearchERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QTreeView10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QTreeView18itemDecorationRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QTreeView8scrollToERK11QModelIndexN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK9QTreeView7indexAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QTreeView10indexAboveERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QTreeView10indexBelowERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QTreeView13doItemsLayoutEv": ["nothing", "address"],
+    "ritual_ZN9QTreeView5resetEv": ["nothing", "address"],
+    "ritual_ZN9QTreeView9selectAllEv": ["nothing", "address"],
+    "ritual_ZN9QTreeView10hideColumnEi": ["nothing", "address", "int"],
+    "ritual_ZN9QTreeView10showColumnEi": ["nothing", "address", "int"],
+    "ritual_ZN9QTreeView6expandERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView8collapseERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView22resizeColumnToContentsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QTreeView12sortByColumnEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN9QTreeView9expandAllEv": ["nothing", "address"],
+    "ritual_ZN9QTreeView17expandRecursivelyERK11QModelIndexi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN9QTreeView11collapseAllEv": ["nothing", "address"],
+    "ritual_ZN9QTreeView13expandToDepthEi": ["nothing", "address", "int"]
+  }
+}

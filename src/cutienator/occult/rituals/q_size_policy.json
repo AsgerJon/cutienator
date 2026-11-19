@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qsizepolicy.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSizePolicyC1Ev": ["address"],
+    "ritual_ZN11QSizePolicyC1ENS_6PolicyES0_NS_11ControlTypeE": [
+      "address", "int", "int", "int"
+    ],
+    "ritual_ZNK11QSizePolicy16horizontalPolicyEv": ["int", "address"],
+    "ritual_ZNK11QSizePolicy14verticalPolicyEv": ["int", "address"],
+    "ritual_ZNK11QSizePolicy11controlTypeEv": ["int", "address"],
+    "ritual_ZN11QSizePolicy19setHorizontalPolicyENS_6PolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QSizePolicy17setVerticalPolicyENS_6PolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QSizePolicy14setControlTypeENS_11ControlTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QSizePolicy19expandingDirectionsEv": ["int", "address"],
+    "ritual_ZN11QSizePolicy17setHeightForWidthEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QSizePolicy17hasHeightForWidthEv": ["bool", "address"],
+    "ritual_ZN11QSizePolicy17setWidthForHeightEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QSizePolicy17hasWidthForHeightEv": ["bool", "address"],
+    "ritual_ZNK11QSizePolicyeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QSizePolicyneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QSizePolicycv8QVariantEv": ["address", "address"],
+    "ritual_ZNK11QSizePolicy17horizontalStretchEv": ["int", "address"],
+    "ritual_ZNK11QSizePolicy15verticalStretchEv": ["int", "address"],
+    "ritual_ZN11QSizePolicy20setHorizontalStretchEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QSizePolicy18setVerticalStretchEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QSizePolicy20retainSizeWhenHiddenEv": ["bool", "address"],
+    "ritual_ZN11QSizePolicy23setRetainSizeWhenHiddenEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QSizePolicy9transposeEv": ["nothing", "address"],
+    "ritual_ZNK11QSizePolicy10transposedEv": ["address", "address"],
+    "ritual_ZN11QSizePolicyD1Ev": ["nothing", "address"]
+  }
+}

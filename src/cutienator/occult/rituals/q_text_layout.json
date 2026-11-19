@@ -1,0 +1,82 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextlayout.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QTextLayoutC1Ev": ["address"],
+    "ritual_ZN11QTextLayoutC1ERK7QString": ["address", "text"],
+    "ritual_ZN11QTextLayoutC1ERK7QStringRK5QFontPK12QPaintDevice": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN11QTextLayoutC1ERK10QTextBlock": ["address", "address"],
+    "ritual_ZN11QTextLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZN11QTextLayout7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextLayout4fontEv": ["address", "address"],
+    "ritual_ZN11QTextLayout10setRawFontERK8QRawFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTextLayout7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QTextLayout4textEv": ["text", "address"],
+    "ritual_ZN11QTextLayout13setTextOptionERK11QTextOption": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextLayout10textOptionEv": ["address", "address"],
+    "ritual_ZN11QTextLayout14setPreeditAreaEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK11QTextLayout19preeditAreaPositionEv": ["int", "address"],
+    "ritual_ZNK11QTextLayout15preeditAreaTextEv": ["text", "address"],
+    "ritual_ZN11QTextLayout12clearFormatsEv": ["nothing", "address"],
+    "ritual_ZN11QTextLayout15setCacheEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QTextLayout12cacheEnabledEv": ["bool", "address"],
+    "ritual_ZN11QTextLayout18setCursorMoveStyleEN2Qt15CursorMoveStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextLayout15cursorMoveStyleEv": ["int", "address"],
+    "ritual_ZN11QTextLayout11beginLayoutEv": ["nothing", "address"],
+    "ritual_ZN11QTextLayout9endLayoutEv": ["nothing", "address"],
+    "ritual_ZN11QTextLayout11clearLayoutEv": ["nothing", "address"],
+    "ritual_ZN11QTextLayout10createLineEv": ["address", "address"],
+    "ritual_ZNK11QTextLayout9lineCountEv": ["int", "address"],
+    "ritual_ZNK11QTextLayout6lineAtEi": ["address", "address", "int"],
+    "ritual_ZNK11QTextLayout19lineForTextPositionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QTextLayout21isValidCursorPositionEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK11QTextLayout18nextCursorPositionEiNS_10CursorModeE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK11QTextLayout22previousCursorPositionEiNS_10CursorModeE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK11QTextLayout18leftCursorPositionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK11QTextLayout19rightCursorPositionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK11QTextLayout10drawCursorEP8QPainterRK7QPointFi": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK11QTextLayout10drawCursorEP8QPainterRK7QPointFii": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK11QTextLayout8positionEv": ["address", "address"],
+    "ritual_ZN11QTextLayout11setPositionERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextLayout12boundingRectEv": ["address", "address"],
+    "ritual_ZNK11QTextLayout12minimumWidthEv": ["double", "address"],
+    "ritual_ZNK11QTextLayout12maximumWidthEv": ["double", "address"],
+    "ritual_ZN11QTextLayout8setFlagsEi": ["nothing", "address", "int"]
+  }
+}

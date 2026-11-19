@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qstylepainter.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QStylePainterC1Ev": ["address"],
+    "ritual_ZN13QStylePainterC1EP7QWidget": ["address", "address"],
+    "ritual_ZN13QStylePainterC1EP12QPaintDeviceP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QStylePainter5beginEP7QWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QStylePainter5beginEP12QPaintDeviceP7QWidget": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QStylePainter13drawPrimitiveEN6QStyle16PrimitiveElementERK12QStyleOption": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QStylePainter11drawControlEN6QStyle14ControlElementERK12QStyleOption": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QStylePainter18drawComplexControlEN6QStyle14ComplexControlERK19QStyleOptionComplex": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QStylePainter12drawItemTextERK5QRectiRK8QPalettebRK7QStringNS3_9ColorRoleE": [
+      "nothing", "address", "address", "int", "address", "bool", "text",
+      "int"
+    ],
+    "ritual_ZN13QStylePainter14drawItemPixmapERK5QRectiRK7QPixmap": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK13QStylePainter5styleEv": ["address", "address"]
+  }
+}

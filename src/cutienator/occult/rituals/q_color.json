@@ -1,0 +1,172 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qcolor.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QColorC1Ev": ["address"],
+    "ritual_ZN6QColorC1EN2Qt11GlobalColorE": ["address", "int"],
+    "ritual_ZN6QColorC1Eiiii": ["address", "int", "int", "int", "int"],
+    "ritual_ZN6QColorC1Ej": ["address", "unsigned int"],
+    "ritual_ZN6QColorC1E7QRgba64": ["address", "address"],
+    "ritual_ZN6QColorC1ERK7QString": ["address", "text"],
+    "ritual_ZN6QColorC1E11QStringView": ["address", "text"],
+    "ritual_ZN6QColorC1EPKc": ["address", "chars"],
+    "ritual_ZN6QColorC1E13QLatin1String": ["address", "address"],
+    "ritual_ZN6QColorC1ENS_4SpecE": ["address", "int"],
+    "ritual_ZN6QColor10fromStringE14QAnyStringView": ["address", "text"],
+    "ritual_ZNK6QColor7isValidEv": ["bool", "address"],
+    "ritual_ZNK6QColor4nameENS_10NameFormatE": ["text", "address", "int"],
+    "ritual_ZN6QColor13setNamedColorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN6QColor13setNamedColorE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN6QColor13setNamedColorE13QLatin1String": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QColor4specEv": ["int", "address"],
+    "ritual_ZNK6QColor5alphaEv": ["int", "address"],
+    "ritual_ZN6QColor8setAlphaEi": ["nothing", "address", "int"],
+    "ritual_ZNK6QColor6alphaFEv": ["float", "address"],
+    "ritual_ZN6QColor9setAlphaFEf": ["nothing", "address", "float"],
+    "ritual_ZNK6QColor3redEv": ["int", "address"],
+    "ritual_ZNK6QColor5greenEv": ["int", "address"],
+    "ritual_ZNK6QColor4blueEv": ["int", "address"],
+    "ritual_ZN6QColor6setRedEi": ["nothing", "address", "int"],
+    "ritual_ZN6QColor8setGreenEi": ["nothing", "address", "int"],
+    "ritual_ZN6QColor7setBlueEi": ["nothing", "address", "int"],
+    "ritual_ZNK6QColor4redFEv": ["float", "address"],
+    "ritual_ZNK6QColor6greenFEv": ["float", "address"],
+    "ritual_ZNK6QColor5blueFEv": ["float", "address"],
+    "ritual_ZN6QColor7setRedFEf": ["nothing", "address", "float"],
+    "ritual_ZN6QColor9setGreenFEf": ["nothing", "address", "float"],
+    "ritual_ZN6QColor8setBlueFEf": ["nothing", "address", "float"],
+    "ritual_ZNK6QColor6getRgbEPiS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN6QColor6setRgbEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK6QColor7getRgbFEPfS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN6QColor7setRgbFEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZNK6QColor6rgba64Ev": ["address", "address"],
+    "ritual_ZN6QColor9setRgba64E7QRgba64": ["nothing", "address", "address"],
+    "ritual_ZNK6QColor4rgbaEv": ["unsigned int", "address"],
+    "ritual_ZN6QColor7setRgbaEj": ["nothing", "address", "unsigned int"],
+    "ritual_ZNK6QColor3rgbEv": ["unsigned int", "address"],
+    "ritual_ZN6QColor6setRgbEj": ["nothing", "address", "unsigned int"],
+    "ritual_ZNK6QColor3hueEv": ["int", "address"],
+    "ritual_ZNK6QColor10saturationEv": ["int", "address"],
+    "ritual_ZNK6QColor6hsvHueEv": ["int", "address"],
+    "ritual_ZNK6QColor13hsvSaturationEv": ["int", "address"],
+    "ritual_ZNK6QColor5valueEv": ["int", "address"],
+    "ritual_ZNK6QColor4hueFEv": ["float", "address"],
+    "ritual_ZNK6QColor11saturationFEv": ["float", "address"],
+    "ritual_ZNK6QColor7hsvHueFEv": ["float", "address"],
+    "ritual_ZNK6QColor14hsvSaturationFEv": ["float", "address"],
+    "ritual_ZNK6QColor6valueFEv": ["float", "address"],
+    "ritual_ZNK6QColor6getHsvEPiS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN6QColor6setHsvEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK6QColor7getHsvFEPfS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN6QColor7setHsvFEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZNK6QColor4cyanEv": ["int", "address"],
+    "ritual_ZNK6QColor7magentaEv": ["int", "address"],
+    "ritual_ZNK6QColor6yellowEv": ["int", "address"],
+    "ritual_ZNK6QColor5blackEv": ["int", "address"],
+    "ritual_ZNK6QColor5cyanFEv": ["float", "address"],
+    "ritual_ZNK6QColor8magentaFEv": ["float", "address"],
+    "ritual_ZNK6QColor7yellowFEv": ["float", "address"],
+    "ritual_ZNK6QColor6blackFEv": ["float", "address"],
+    "ritual_ZNK6QColor7getCmykEPiS0_S0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN6QColor7setCmykEiiiii": [
+      "nothing", "address", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK6QColor8getCmykFEPfS0_S0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN6QColor8setCmykFEfffff": [
+      "nothing", "address", "float", "float", "float", "float", "float"
+    ],
+    "ritual_ZNK6QColor6hslHueEv": ["int", "address"],
+    "ritual_ZNK6QColor13hslSaturationEv": ["int", "address"],
+    "ritual_ZNK6QColor9lightnessEv": ["int", "address"],
+    "ritual_ZNK6QColor7hslHueFEv": ["float", "address"],
+    "ritual_ZNK6QColor14hslSaturationFEv": ["float", "address"],
+    "ritual_ZNK6QColor10lightnessFEv": ["float", "address"],
+    "ritual_ZNK6QColor6getHslEPiS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN6QColor6setHslEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK6QColor7getHslFEPfS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN6QColor7setHslFEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZNK6QColor5toRgbEv": ["address", "address"],
+    "ritual_ZNK6QColor5toHsvEv": ["address", "address"],
+    "ritual_ZNK6QColor6toCmykEv": ["address", "address"],
+    "ritual_ZNK6QColor5toHslEv": ["address", "address"],
+    "ritual_ZNK6QColor13toExtendedRgbEv": ["address", "address"],
+    "ritual_ZNK6QColor9convertToENS_4SpecE": ["address", "address", "int"],
+    "ritual_ZN6QColor7fromRgbEj": ["address", "unsigned int"],
+    "ritual_ZN6QColor8fromRgbaEj": ["address", "unsigned int"],
+    "ritual_ZN6QColor7fromRgbEiiii": ["address", "int", "int", "int", "int"],
+    "ritual_ZN6QColor8fromRgbFEffff": [
+      "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN6QColor10fromRgba64Etttt": [
+      "address", "unsigned short", "unsigned short", "unsigned short",
+      "unsigned short"
+    ],
+    "ritual_ZN6QColor10fromRgba64E7QRgba64": ["address", "address"],
+    "ritual_ZN6QColor7fromHsvEiiii": ["address", "int", "int", "int", "int"],
+    "ritual_ZN6QColor8fromHsvFEffff": [
+      "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN6QColor8fromCmykEiiiii": [
+      "address", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN6QColor9fromCmykFEfffff": [
+      "address", "float", "float", "float", "float", "float"
+    ],
+    "ritual_ZN6QColor7fromHslEiiii": ["address", "int", "int", "int", "int"],
+    "ritual_ZN6QColor8fromHslFEffff": [
+      "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZNK6QColor7lighterEi": ["address", "address", "int"],
+    "ritual_ZNK6QColor6darkerEi": ["address", "address", "int"],
+    "ritual_ZNK6QColoreqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK6QColorneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK6QColorcv8QVariantEv": ["address", "address"],
+    "ritual_ZN6QColor12isValidColorERK7QString": ["bool", "text"],
+    "ritual_ZN6QColor12isValidColorE11QStringView": ["bool", "text"],
+    "ritual_ZN6QColor12isValidColorE13QLatin1String": ["bool", "address"],
+    "ritual_ZN6QColor16isValidColorNameE14QAnyStringView": ["bool", "text"],
+    "ritual_ZN6QColorC1ENS_4SpecEttttt": [
+      "address", "int", "unsigned short", "unsigned short", "unsigned short",
+      "unsigned short", "unsigned short"
+    ],
+    "ritual_ZN6QColorD1Ev": ["nothing", "address"]
+  }
+}

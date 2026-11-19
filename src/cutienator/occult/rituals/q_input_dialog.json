@@ -1,0 +1,112 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qinputdialog.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QInputDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QInputDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QInputDialogC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QInputDialogD1Ev": ["nothing", "address"],
+    "ritual_ZN12QInputDialog12setInputModeENS_9InputModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QInputDialog9inputModeEv": ["int", "address"],
+    "ritual_ZN12QInputDialog12setLabelTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QInputDialog9labelTextEv": ["text", "address"],
+    "ritual_ZN12QInputDialog9setOptionENS_17InputDialogOptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK12QInputDialog10testOptionENS_17InputDialogOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QInputDialog10setOptionsE6QFlagsINS_17InputDialogOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QInputDialog7optionsEv": ["int", "address"],
+    "ritual_ZN12QInputDialog12setTextValueERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QInputDialog9textValueEv": ["text", "address"],
+    "ritual_ZN12QInputDialog15setTextEchoModeEN9QLineEdit8EchoModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QInputDialog12textEchoModeEv": ["int", "address"],
+    "ritual_ZN12QInputDialog19setComboBoxEditableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QInputDialog18isComboBoxEditableEv": ["bool", "address"],
+    "ritual_ZN12QInputDialog11setIntValueEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QInputDialog8intValueEv": ["int", "address"],
+    "ritual_ZN12QInputDialog13setIntMinimumEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QInputDialog10intMinimumEv": ["int", "address"],
+    "ritual_ZN12QInputDialog13setIntMaximumEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QInputDialog10intMaximumEv": ["int", "address"],
+    "ritual_ZN12QInputDialog11setIntRangeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QInputDialog10setIntStepEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QInputDialog7intStepEv": ["int", "address"],
+    "ritual_ZN12QInputDialog14setDoubleValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK12QInputDialog11doubleValueEv": ["double", "address"],
+    "ritual_ZN12QInputDialog16setDoubleMinimumEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK12QInputDialog13doubleMinimumEv": ["double", "address"],
+    "ritual_ZN12QInputDialog16setDoubleMaximumEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK12QInputDialog13doubleMaximumEv": ["double", "address"],
+    "ritual_ZN12QInputDialog14setDoubleRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN12QInputDialog17setDoubleDecimalsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QInputDialog14doubleDecimalsEv": ["int", "address"],
+    "ritual_ZN12QInputDialog15setOkButtonTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QInputDialog12okButtonTextEv": ["text", "address"],
+    "ritual_ZN12QInputDialog19setCancelButtonTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QInputDialog16cancelButtonTextEv": ["text", "address"],
+    "ritual_ZN12QInputDialog4openEP7QObjectPKc": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZNK12QInputDialog15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZNK12QInputDialog8sizeHintEv": ["address", "address"],
+    "ritual_ZN12QInputDialog10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QInputDialog7getTextEP7QWidgetRK7QStringS4_N9QLineEdit8EchoModeES4_Pb6QFlagsIN2Qt10WindowTypeEES8_INS9_15InputMethodHintEE": [
+      "text", "address", "text", "text", "int", "text", "address", "int",
+      "int"
+    ],
+    "ritual_ZN12QInputDialog16getMultiLineTextEP7QWidgetRK7QStringS4_S4_Pb6QFlagsIN2Qt10WindowTypeEES6_INS7_15InputMethodHintEE": [
+      "text", "address", "text", "text", "text", "address", "int", "int"
+    ],
+    "ritual_ZN12QInputDialog6getIntEP7QWidgetRK7QStringS4_iiiiPb6QFlagsIN2Qt10WindowTypeEE": [
+      "int", "address", "text", "text", "int", "int", "int", "int",
+      "address", "int"
+    ],
+    "ritual_ZN12QInputDialog9getDoubleEP7QWidgetRK7QStringS4_dddiPb6QFlagsIN2Qt10WindowTypeEEd": [
+      "double", "address", "text", "text", "double", "double", "double",
+      "int", "address", "int", "double"
+    ],
+    "ritual_ZN12QInputDialog13setDoubleStepEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK12QInputDialog10doubleStepEv": ["double", "address"],
+    "ritual_ZN12QInputDialog4doneEi": ["nothing", "address", "int"]
+  }
+}

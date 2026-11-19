@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qbrush.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QRadialGradientC1Ev": ["address"],
+    "ritual_ZN15QRadialGradientC1ERK7QPointFdS2_": [
+      "address", "address", "double", "address"
+    ],
+    "ritual_ZN15QRadialGradientC1Eddddd": [
+      "address", "double", "double", "double", "double", "double"
+    ],
+    "ritual_ZN15QRadialGradientC1ERK7QPointFd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN15QRadialGradientC1Eddd": [
+      "address", "double", "double", "double"
+    ],
+    "ritual_ZN15QRadialGradientC1ERK7QPointFdS2_d": [
+      "address", "address", "double", "address", "double"
+    ],
+    "ritual_ZN15QRadialGradientC1Edddddd": [
+      "address", "double", "double", "double", "double", "double", "double"
+    ],
+    "ritual_ZN15QRadialGradientD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QRadialGradient6centerEv": ["address", "address"],
+    "ritual_ZN15QRadialGradient9setCenterERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QRadialGradient9setCenterEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK15QRadialGradient10focalPointEv": ["address", "address"],
+    "ritual_ZN15QRadialGradient13setFocalPointERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QRadialGradient13setFocalPointEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK15QRadialGradient6radiusEv": ["double", "address"],
+    "ritual_ZN15QRadialGradient9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QRadialGradient12centerRadiusEv": ["double", "address"],
+    "ritual_ZN15QRadialGradient15setCenterRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QRadialGradient11focalRadiusEv": ["double", "address"],
+    "ritual_ZN15QRadialGradient14setFocalRadiusEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

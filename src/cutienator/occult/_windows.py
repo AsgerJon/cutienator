@@ -133,8 +133,8 @@ class Windows(System):
 
     Left out, though the other systems are told them: '-fPIC', which
     'clang++' refuses for Windows, where code can sit at any address as
-    it is; and '-fvisibility-inlines-hidden', since a DLL offers only
-    what is marked for it.
+    it is; and the two '-fvisibility' flags, since a DLL offers only
+    what is marked for it anyway.
     """
     return ('-fms-runtime-lib=dll',)
 

@@ -1,0 +1,175 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsscene.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QGraphicsScene10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QGraphicsScene2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QGraphicsSceneC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QGraphicsSceneC1ERK6QRectFP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsSceneC1EddddP7QObject": [
+      "address", "double", "double", "double", "double", "address"
+    ],
+    "ritual_ZN14QGraphicsSceneD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QGraphicsScene9sceneRectEv": ["address", "address"],
+    "ritual_ZNK14QGraphicsScene5widthEv": ["double", "address"],
+    "ritual_ZNK14QGraphicsScene6heightEv": ["double", "address"],
+    "ritual_ZN14QGraphicsScene12setSceneRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene12setSceneRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QGraphicsScene6renderEP8QPainterRK6QRectFS4_N2Qt15AspectRatioModeE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK14QGraphicsScene15itemIndexMethodEv": ["int", "address"],
+    "ritual_ZN14QGraphicsScene18setItemIndexMethodENS_15ItemIndexMethodE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QGraphicsScene12bspTreeDepthEv": ["int", "address"],
+    "ritual_ZN14QGraphicsScene15setBspTreeDepthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QGraphicsScene17itemsBoundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene6itemAtERK7QPointFRK10QTransform": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene6itemAtEddRK10QTransform": [
+      "address", "address", "double", "double", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene13selectionAreaEv": ["address", "address"],
+    "ritual_ZN14QGraphicsScene16setSelectionAreaERK12QPainterPathRK10QTransform": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene16setSelectionAreaERK12QPainterPathN2Qt22ItemSelectionOperationENS3_17ItemSelectionModeERK10QTransform": [
+      "nothing", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QGraphicsScene16destroyItemGroupEP18QGraphicsItemGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene7addItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene10addEllipseERK6QRectFRK4QPenRK6QBrush": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene7addLineERK6QLineFRK4QPen": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene7addPathERK12QPainterPathRK4QPenRK6QBrush": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene9addPixmapERK7QPixmap": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene10addPolygonERK9QPolygonFRK4QPenRK6QBrush": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene7addRectERK6QRectFRK4QPenRK6QBrush": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene7addTextERK7QStringRK5QFont": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN14QGraphicsScene13addSimpleTextERK7QStringRK5QFont": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN14QGraphicsScene9addWidgetEP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QGraphicsScene10addEllipseEddddRK4QPenRK6QBrush": [
+      "address", "address", "double", "double", "double", "double",
+      "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene7addLineEddddRK4QPen": [
+      "address", "address", "double", "double", "double", "double", "address"
+    ],
+    "ritual_ZN14QGraphicsScene7addRectEddddRK4QPenRK6QBrush": [
+      "address", "address", "double", "double", "double", "double",
+      "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene10removeItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene9focusItemEv": ["address", "address"],
+    "ritual_ZN14QGraphicsScene12setFocusItemEP13QGraphicsItemN2Qt11FocusReasonE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK14QGraphicsScene8hasFocusEv": ["bool", "address"],
+    "ritual_ZN14QGraphicsScene8setFocusEN2Qt11FocusReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QGraphicsScene10clearFocusEv": ["nothing", "address"],
+    "ritual_ZN14QGraphicsScene14setStickyFocusEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QGraphicsScene11stickyFocusEv": ["bool", "address"],
+    "ritual_ZNK14QGraphicsScene16mouseGrabberItemEv": ["address", "address"],
+    "ritual_ZNK14QGraphicsScene15backgroundBrushEv": ["address", "address"],
+    "ritual_ZN14QGraphicsScene18setBackgroundBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene15foregroundBrushEv": ["address", "address"],
+    "ritual_ZN14QGraphicsScene18setForegroundBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14QGraphicsScene6updateEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QGraphicsScene10invalidateEdddd6QFlagsINS_10SceneLayerEE": [
+      "nothing", "address", "double", "double", "double", "double", "int"
+    ],
+    "ritual_ZNK14QGraphicsScene5styleEv": ["address", "address"],
+    "ritual_ZN14QGraphicsScene8setStyleEP6QStyle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene4fontEv": ["address", "address"],
+    "ritual_ZN14QGraphicsScene7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene7paletteEv": ["address", "address"],
+    "ritual_ZN14QGraphicsScene10setPaletteERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene8isActiveEv": ["bool", "address"],
+    "ritual_ZNK14QGraphicsScene11activePanelEv": ["address", "address"],
+    "ritual_ZN14QGraphicsScene14setActivePanelEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene12activeWindowEv": ["address", "address"],
+    "ritual_ZN14QGraphicsScene15setActiveWindowEP15QGraphicsWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene9sendEventEP13QGraphicsItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene17minimumRenderSizeEv": ["double", "address"],
+    "ritual_ZN14QGraphicsScene20setMinimumRenderSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QGraphicsScene12focusOnTouchEv": ["bool", "address"],
+    "ritual_ZN14QGraphicsScene15setFocusOnTouchEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QGraphicsScene6updateERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QGraphicsScene10invalidateERK6QRectF6QFlagsINS_10SceneLayerEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QGraphicsScene7advanceEv": ["nothing", "address"],
+    "ritual_ZN14QGraphicsScene14clearSelectionEv": ["nothing", "address"],
+    "ritual_ZN14QGraphicsScene5clearEv": ["nothing", "address"]
+  }
+}

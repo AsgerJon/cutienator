@@ -109,6 +109,66 @@ class DependencyTree:
         return True
     return False
 
+  @staticmethod
+  def _findConstant(node: Record) -> Any:
+    """
+    Gives the number the compiler worked out for what a name of an enum
+    is set to, or None when the name is set to nothing.
+
+    The compiler writes that number down at the outermost step of the
+    sum, so the first one met on the way in is the one. 'true' and
+    'false' are 1 and 0. Anything else it wrote there is given back as
+    the text it is, for the caller to refuse.
+    """
+    for child in node.get('inner', ()):
+      if 'value' in child:
+        text = str(child['value'])
+        if text in ('true', 'false'):
+          return 1 if text == 'true' else 0
+        try:
+          return int(text)
+        except ValueError:
+          return text
+      number = DependencyTree._findConstant(child)
+      if number is not None:
+        return number
+    return None
+
+  @staticmethod
+  def _collectEnumMembers(enum: Record) -> Record:
+    """
+    Gives each name of an enum with its number, in the order written. A
+    name set to nothing is one more than the name before it, and the
+    first such name is 0, as C++ has it.
+
+    Parameters
+    ----------
+
+    enum : Record
+      What the compiler wrote down about one enum.
+
+    Returns
+    -------
+
+    Record
+      'members': the names with their numbers. 'unsure': the text the
+      compiler wrote for a name where a whole number was expected, or
+      None when every number is one. The numbers of an unsure enum are
+      not to be used.
+    """
+    members, last, unsure = [], -1, None
+    for child in enum.get('inner', ()):
+      if child.get('kind') != 'EnumConstantDecl':
+        continue
+      number = DependencyTree._findConstant(child)
+      if isinstance(number, str):
+        unsure, number = number, None
+      if number is None:
+        number = last + 1
+      last = number
+      members.append((child['name'], number))
+    return dict(members=(*members,), unsure=unsure)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -140,6 +200,7 @@ class DependencyTree:
   __class_numbers__ = None  # type: Optional[Dict[str, str]]
   __enum_names__ = None  # type: Optional[Names]
   __enum_types__ = None  # type: Optional[Dict[str, Tuple[str, str]]]
+  __enum_records__ = None  # type: Optional[Dict[str, Record]]
   __alias_types__ = None  # type: Optional[Dict[str, str]]
   __copyable_names__ = None  # type: Optional[FrozenSet[str]]
   __defined_names__ = None  # type: Optional[FrozenSet[str]]
@@ -180,6 +241,7 @@ class DependencyTree:
     numbers = dict()  # type: Dict[str, str]
     enumNames = set()  # type: Set[str]
     enumTypes = dict()  # type: Dict[str, Tuple[str, str]]
+    enumRecords = dict()  # type: Dict[str, Record]
     aliasTypes = dict()  # type: Dict[str, str]
     definedNames = set()  # type: Set[str]
     leftOut = []  # type: List[str]
@@ -205,11 +267,18 @@ class DependencyTree:
       names = dict()  # type: Dict[str, str]
       for entryId in entries:
         self._nameEntry(entryId, entries, namespaces, names)
-      for prefix, insideId, ownName, fixedType in found['enums']:
+      for prefix, insideId, ownName, fixedType, detail in found['enums']:
         outer = prefix if insideId is None else '%s::' % names[insideId]
         enumNames.add('%s%s' % (outer, ownName))
         if fixedType is not None:
           enumTypes['%s%s' % (outer, ownName)] = fixedType
+        if not detail['members']:
+          #  A line that only says the enum exists, with no names in it.
+          continue
+        enumRecords.setdefault('%s%s' % (outer, ownName), dict(
+            partName=partName, ownerName=outer[:-2], ownName=ownName,
+            insideClass=False if insideId is None else True, **detail,
+        ))
       for prefix, insideId, ownName, cppType in found['aliases']:
         outer = prefix if insideId is None else '%s::' % names[insideId]
         aliasTypes['%s%s' % (outer, ownName)] = cppType
@@ -244,6 +313,7 @@ class DependencyTree:
     self.__class_numbers__ = numbers
     self.__enum_names__ = (*sorted(enumNames),)
     self.__enum_types__ = enumTypes
+    self.__enum_records__ = enumRecords
     self.__alias_types__ = aliasTypes
     self.__defined_names__ = frozenset(definedNames)
     takes, gives = dict(), dict()
@@ -666,6 +736,56 @@ class DependencyTree:
     self.getClassNames()
     return dict(self.__enum_types__)
 
+  def getEnumRecord(self, enumName: str) -> Record:
+    """
+    Gives what the parts say of one enum that has names in it.
+
+    Kept beside the tree, from the same records.
+
+    Parameters
+    ----------
+
+    enumName : str
+      The full name of the enum, as 'Qt::AlignmentFlag'.
+
+    Returns
+    -------
+
+    Record
+      A dictionary, a new one each time. 'partName': the part of Qt the
+      enum is written in. 'headerPath': the header file. 'ownerName':
+      the class or namespace it is written inside, as 'Qt', or '' for
+      none. 'ownName': its own name, as 'AlignmentFlag'. 'insideClass':
+      whether the owner is a class. 'members': each name of the enum
+      with its number, in the order written. 'unsure': None, or what
+      the compiler wrote for a name where a whole number was expected;
+      the numbers of such an enum are not to be used. 'scoped': whether
+      C++ keeps the names inside the enum, as for 'enum class'.
+      'access': who may use it where it is written inside a class.
+
+    Raises
+    ------
+
+    ValueError
+      The parts hold no enum of that name with names in it.
+    """
+    self.getClassNames()
+    try:
+      return dict(self.__enum_records__[enumName])
+    except KeyError:
+      infoSpec = """The parts of Qt hold no enum named '%s' that has
+      names in it."""
+      raise ValueError(' '.join((infoSpec % enumName).split()))
+
+  def getEnumRecordNames(self) -> Names:
+    """
+    Gives the full name of every enum that has names in it, in
+    alphabetical order. 'getEnumNames' also lists the enums a header
+    only says exist.
+    """
+    self.getClassNames()
+    return (*sorted(self.__enum_records__),)
+
   def _createCopyableNames(self, ) -> None:
     """
     Asks the compiler which classes of the tree it can copy, and keeps
@@ -874,6 +994,7 @@ class DependencyTree:
     self.__class_numbers__ = None
     self.__enum_names__ = None
     self.__enum_types__ = None
+    self.__enum_records__ = None
     self.__alias_types__ = None
     self.__copyable_names__ = None
     self.__defined_names__ = None
@@ -978,7 +1099,9 @@ class DependencyTree:
       give. 'namespaces': the full name of each namespace, under its
       number. 'enums' and 'aliases': each enum, and each other name
       for a type, with where it is written. An enum comes with the
-      number type its declaration fixes for it, or None.
+      number type its declaration fixes for it, or None, and with its
+      names and their numbers, whether C++ scopes it, who may use it
+      and the header file it lies in.
     """
     if not isinstance(node, dict):
       return
@@ -998,7 +1121,14 @@ class DependencyTree:
       if fixedType is not None:
         written = fixedType['qualType']
         fixedType = (written, fixedType.get('desugaredQualType', written))
-      found['enums'].append((prefix, insideId, node['name'], fixedType))
+      detail = dict(
+          **self._collectEnumMembers(node),
+          scoped=True if node.get('scopedEnumTag') else False,
+          access=access, headerPath=headerPath,
+      )
+      found['enums'].append(
+          (prefix, insideId, node['name'], fixedType, detail),
+      )
       return
     if kind in ('TypedefDecl', 'TypeAliasDecl'):
       cppType = node['type']

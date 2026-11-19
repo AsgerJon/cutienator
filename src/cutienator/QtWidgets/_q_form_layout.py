@@ -1,0 +1,1362 @@
+"""
+QFormLayout binding of the Qt C++
+"""
+#  Apache-2.0 license
+#  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  QtWidgets/qformlayout.h, Qt 6.12.0. Changes made here are lost.
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from worktoy.dispatch import overload
+
+from ..cute import CuteMixin
+from ..occult import Rituals
+from ..QtCore import Qt
+from ._q_layout import QLayout
+from ._q_layout_item import QLayoutItem
+from ..QtCore import QMetaObject
+from ..QtCore import QRect
+from ..QtCore import QSize
+from ._q_widget import QWidget
+from ._q_form_layout_field_growth_policy import FieldGrowthPolicy
+from ._q_form_layout_item_role import ItemRole
+from ._q_form_layout_row_wrap_policy import RowWrapPolicy
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
+
+
+class QFormLayout(QLayout):
+  """
+  The cute side of Qt's QFormLayout: a plain Python object standing in front
+  of one C++ QFormLayout.
+
+  It is built on the cute 'QLayout', as Qt's QFormLayout is built on Qt's
+  QLayout, and has everything that class has.
+
+  What exists
+  -----------
+
+  Every function of Qt's QFormLayout that has a ritual and that Python can
+  call so far, 37 names in all: 'metaObject', 'tr', 'setFieldGrowthPolicy',
+  'fieldGrowthPolicy', 'setRowWrapPolicy', 'rowWrapPolicy',
+  'setLabelAlignment', 'labelAlignment', 'setFormAlignment', 'formAlignment',
+  'setHorizontalSpacing', 'horizontalSpacing', 'setVerticalSpacing',
+  'verticalSpacing', 'spacing', 'setSpacing', 'addRow', 'insertRow',
+  'removeRow', 'setItem', 'setWidget', 'setLayout', 'setRowVisible',
+  'isRowVisible', 'itemAt', 'labelForField', 'addItem', 'takeAt',
+  'setGeometry', 'minimumSize', 'sizeHint', 'invalidate',
+  'hasHeightForWidth', 'heightForWidth', 'expandingDirections', 'count',
+  'rowCount'. It can be made from Python, in 1 way; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QFormLayout::~QFormLayout()': the destructor: Python never removes
+    a C++ QFormLayout.
+  - Qt's 'TakeRowResult QFormLayout::takeRow(int row)': gives
+    'QFormLayout::TakeRowResult', which has no cute class yet.
+  - Qt's 'TakeRowResult QFormLayout::takeRow(QWidget *widget)': gives
+    'QFormLayout::TakeRowResult', which has no cute class yet.
+  - Qt's 'TakeRowResult QFormLayout::takeRow(QLayout *layout)': gives
+    'QFormLayout::TakeRowResult', which has no cute class yet.
+
+  What has no ritual
+  ------------------
+
+  13 of the 73 functions Qt declares: 7 private; 5 takes or gives a type that
+  cannot be passed yet; 1 a template.
+
+  What to expect
+  --------------
+
+  - The C++ QFormLayout is created at the first use, not by
+    'QFormLayout(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - Python never removes the C++ QFormLayout.
+  - Qt tells when it has removed the C++ QFormLayout. Every call on the cute
+    object, and every use of it as an argument, then raises 'RuntimeError',
+    and nothing reaches C++.
+  """
+
+  #  The enums Qt writes inside QFormLayout, and the names Qt has for the
+  #  combinations of its flags enums.
+  FieldGrowthPolicy = FieldGrowthPolicy
+  ItemRole = ItemRole
+  RowWrapPolicy = RowWrapPolicy
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(str)
+  @overload(NoneType)
+  @overload(str, str)
+  @overload(str, NoneType)
+  @overload(NoneType, str)
+  @overload(NoneType, NoneType)
+  @overload(str, str, int)
+  @overload(str, NoneType, int)
+  @overload(NoneType, str, int)
+  @overload(NoneType, NoneType, int)
+  def tr(s: Optional[str], c: Optional[str] = None, n: int = -1) -> str:
+    """
+    Calls Qt's 'QString QFormLayout::tr(const char *s, const char *c, int
+    n)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#tr
+
+    Parameters
+    ----------
+
+    s : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    c : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text. May
+      be left out, as in Qt: it is then None.
+
+    n : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QFormLayout::tr(const char *s, const char *c, int n)
+    return Rituals.call(
+        'ritual_ZN11QFormLayout2trEPKcS1_i',
+        CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
+    )
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QFormLayout'
+
+  #  Fallback Variables
+
+  #  Private Variables
+
+  #  Public Variables
+
+  #  Virtual Variables
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def metaObject(self) -> Optional[QMetaObject]:
+    """
+    Calls Qt's 'const QMetaObject *QFormLayout::metaObject() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#metaObject
+
+    Returns
+    -------
+
+    Optional[QMetaObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QMetaObject *QFormLayout::metaObject() const
+    address = self.uglySide.call('ritual_ZNK11QFormLayout10metaObjectEv')
+    return QMetaObject._cuteAt(address)
+
+  def fieldGrowthPolicy(self) -> FieldGrowthPolicy:
+    """
+    Calls Qt's 'FieldGrowthPolicy QFormLayout::fieldGrowthPolicy() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#fieldGrowthPolicy
+
+    Returns
+    -------
+
+    FieldGrowthPolicy
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that
+      'FieldGrowthPolicy(number)' gives.
+    """
+    #  FieldGrowthPolicy QFormLayout::fieldGrowthPolicy() const
+    return FieldGrowthPolicy(self.uglySide.call(
+        'ritual_ZNK11QFormLayout17fieldGrowthPolicyEv',
+    ))
+
+  def rowWrapPolicy(self) -> RowWrapPolicy:
+    """
+    Calls Qt's 'RowWrapPolicy QFormLayout::rowWrapPolicy() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#rowWrapPolicy
+
+    Returns
+    -------
+
+    RowWrapPolicy
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'RowWrapPolicy(number)'
+      gives.
+    """
+    #  RowWrapPolicy QFormLayout::rowWrapPolicy() const
+    return RowWrapPolicy(self.uglySide.call(
+        'ritual_ZNK11QFormLayout13rowWrapPolicyEv',
+    ))
+
+  def labelAlignment(self) -> Qt.Alignment:
+    """
+    Calls Qt's 'Qt::Alignment QFormLayout::labelAlignment() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#labelAlignment
+
+    Returns
+    -------
+
+    Qt.Alignment
+      The value standing for the combination Qt gave back.
+    """
+    #  Qt::Alignment QFormLayout::labelAlignment() const
+    return Qt.Alignment(self.uglySide.call(
+        'ritual_ZNK11QFormLayout14labelAlignmentEv',
+    ))
+
+  def formAlignment(self) -> Qt.Alignment:
+    """
+    Calls Qt's 'Qt::Alignment QFormLayout::formAlignment() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#formAlignment
+
+    Returns
+    -------
+
+    Qt.Alignment
+      The value standing for the combination Qt gave back.
+    """
+    #  Qt::Alignment QFormLayout::formAlignment() const
+    return Qt.Alignment(self.uglySide.call(
+        'ritual_ZNK11QFormLayout13formAlignmentEv',
+    ))
+
+  def horizontalSpacing(self) -> int:
+    """
+    Calls Qt's 'int QFormLayout::horizontalSpacing() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#horizontalSpacing
+    """
+    #  int QFormLayout::horizontalSpacing() const
+    return self.uglySide.call('ritual_ZNK11QFormLayout17horizontalSpacingEv')
+
+  def verticalSpacing(self) -> int:
+    """
+    Calls Qt's 'int QFormLayout::verticalSpacing() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#verticalSpacing
+    """
+    #  int QFormLayout::verticalSpacing() const
+    return self.uglySide.call('ritual_ZNK11QFormLayout15verticalSpacingEv')
+
+  def spacing(self) -> int:
+    """
+    Calls Qt's 'int QFormLayout::spacing() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#spacing
+    """
+    #  int QFormLayout::spacing() const
+    return self.uglySide.call('ritual_ZNK11QFormLayout7spacingEv')
+
+  @overload(int)
+  def isRowVisible(self, row: int) -> bool:
+    """
+    Calls Qt's 'bool QFormLayout::isRowVisible(int row) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#isRowVisible
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+    """
+    #  bool QFormLayout::isRowVisible(int row) const
+    return self.uglySide.call('ritual_ZNK11QFormLayout12isRowVisibleEi', row)
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def isRowVisible(self, widget: Optional[QWidget]) -> bool:
+    """
+    Calls Qt's 'bool QFormLayout::isRowVisible(QWidget *widget) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#isRowVisible
+
+    Parameters
+    ----------
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QFormLayout::isRowVisible(QWidget *widget) const
+    return self.uglySide.call(
+        'ritual_ZNK11QFormLayout12isRowVisibleEP7QWidget',
+        self._addressOf(widget),
+    )
+
+  @overload(QLayout)
+  def isRowVisible(self, layout: Optional[QLayout]) -> bool:
+    """
+    Calls Qt's 'bool QFormLayout::isRowVisible(QLayout *layout) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#isRowVisible
+
+    Parameters
+    ----------
+
+    layout : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QFormLayout::isRowVisible(QLayout *layout) const
+    return self.uglySide.call(
+        'ritual_ZNK11QFormLayout12isRowVisibleEP7QLayout',
+        self._addressOf(layout),
+    )
+
+  @overload(int, ItemRole)
+  def itemAt(self, row: int, role: ItemRole) -> Optional[QLayoutItem]:
+    """
+    Calls Qt's 'QLayoutItem *QFormLayout::itemAt(int row, ItemRole role)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#itemAt
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    role : ItemRole
+      Passed on as its number.
+
+    Returns
+    -------
+
+    Optional[QLayoutItem]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QLayoutItem *QFormLayout::itemAt(int row, ItemRole role) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QFormLayout6itemAtEiNS_8ItemRoleE', row, role.value,
+    )
+    return QLayoutItem._cuteAt(address)
+
+  @overload(int)
+  def itemAt(self, index: int) -> Optional[QLayoutItem]:
+    """
+    Calls Qt's 'QLayoutItem *QFormLayout::itemAt(int index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#itemAt
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Optional[QLayoutItem]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QLayoutItem *QFormLayout::itemAt(int index) const
+    address = self.uglySide.call('ritual_ZNK11QFormLayout6itemAtEi', index)
+    return QLayoutItem._cuteAt(address)
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def labelForField(self, field: Optional[QWidget]) -> Optional[QWidget]:
+    """
+    Calls Qt's 'QWidget *QFormLayout::labelForField(QWidget *field) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#labelForField
+
+    Parameters
+    ----------
+
+    field : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    Optional[QWidget]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QWidget *QFormLayout::labelForField(QWidget *field) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QFormLayout13labelForFieldEP7QWidget',
+        self._addressOf(field),
+    )
+    return QWidget._cuteAt(address)
+
+  @overload(QLayout)
+  def labelForField(self, field: Optional[QLayout]) -> Optional[QWidget]:
+    """
+    Calls Qt's 'QWidget *QFormLayout::labelForField(QLayout *field) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#labelForField
+
+    Parameters
+    ----------
+
+    field : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    Optional[QWidget]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QWidget *QFormLayout::labelForField(QLayout *field) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QFormLayout13labelForFieldEP7QLayout',
+        self._addressOf(field),
+    )
+    return QWidget._cuteAt(address)
+
+  def minimumSize(self) -> QSize:
+    """
+    Calls Qt's 'QSize QFormLayout::minimumSize() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#minimumSize
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QFormLayout::minimumSize() const
+    address = self.uglySide.call('ritual_ZNK11QFormLayout11minimumSizeEv')
+    return QSize._cuteOwning(address)
+
+  def sizeHint(self) -> QSize:
+    """
+    Calls Qt's 'QSize QFormLayout::sizeHint() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#sizeHint
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QFormLayout::sizeHint() const
+    address = self.uglySide.call('ritual_ZNK11QFormLayout8sizeHintEv')
+    return QSize._cuteOwning(address)
+
+  def hasHeightForWidth(self) -> bool:
+    """
+    Calls Qt's 'bool QFormLayout::hasHeightForWidth() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth
+    """
+    #  bool QFormLayout::hasHeightForWidth() const
+    return self.uglySide.call('ritual_ZNK11QFormLayout17hasHeightForWidthEv')
+
+  @overload(int)
+  def heightForWidth(self, width: int) -> int:
+    """
+    Calls Qt's 'int QFormLayout::heightForWidth(int width) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#heightForWidth
+
+    Parameters
+    ----------
+
+    width : int
+      Passed on as it is.
+    """
+    #  int QFormLayout::heightForWidth(int width) const
+    return self.uglySide.call(
+        'ritual_ZNK11QFormLayout14heightForWidthEi', width,
+    )
+
+  def expandingDirections(self) -> Qt.Orientations:
+    """
+    Calls Qt's 'Qt::Orientations QFormLayout::expandingDirections() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qformlayout.html#expandingDirections
+
+    Returns
+    -------
+
+    Qt.Orientations
+      The value standing for the combination Qt gave back.
+    """
+    #  Qt::Orientations QFormLayout::expandingDirections() const
+    return Qt.Orientations(self.uglySide.call(
+        'ritual_ZNK11QFormLayout19expandingDirectionsEv',
+    ))
+
+  def count(self) -> int:
+    """
+    Calls Qt's 'int QFormLayout::count() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#count
+    """
+    #  int QFormLayout::count() const
+    return self.uglySide.call('ritual_ZNK11QFormLayout5countEv')
+
+  def rowCount(self) -> int:
+    """
+    Calls Qt's 'int QFormLayout::rowCount() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#rowCount
+    """
+    #  int QFormLayout::rowCount() const
+    return self.uglySide.call('ritual_ZNK11QFormLayout8rowCountEv')
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(FieldGrowthPolicy)
+  def setFieldGrowthPolicy(self, policy: FieldGrowthPolicy) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setFieldGrowthPolicy(FieldGrowthPolicy
+    policy)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qformlayout.html#setFieldGrowthPolicy
+
+    Parameters
+    ----------
+
+    policy : FieldGrowthPolicy
+      Passed on as its number.
+    """
+    #  void QFormLayout::setFieldGrowthPolicy(FieldGrowthPolicy policy)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout20setFieldGrowthPolicyENS_17FieldGrowthPolic'
+        'yE',
+        policy.value,
+    )
+
+  @overload(RowWrapPolicy)
+  def setRowWrapPolicy(self, policy: RowWrapPolicy) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setRowWrapPolicy(RowWrapPolicy policy)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#setRowWrapPolicy
+
+    Parameters
+    ----------
+
+    policy : RowWrapPolicy
+      Passed on as its number.
+    """
+    #  void QFormLayout::setRowWrapPolicy(RowWrapPolicy policy)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout16setRowWrapPolicyENS_13RowWrapPolicyE',
+        policy.value,
+    )
+
+  @overload(Qt.Alignment)
+  def setLabelAlignment(self, alignment: Qt.Alignment) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setLabelAlignment(Qt::Alignment
+    alignment)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#setLabelAlignment
+
+    Parameters
+    ----------
+
+    alignment : Qt.Alignment
+      Passed on as its number.
+    """
+    #  void QFormLayout::setLabelAlignment(Qt::Alignment alignment)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout17setLabelAlignmentE6QFlagsIN2Qt13AlignmentF'
+        'lagEE',
+        alignment.value,
+    )
+
+  @overload(Qt.Alignment)
+  def setFormAlignment(self, alignment: Qt.Alignment) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setFormAlignment(Qt::Alignment alignment)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#setFormAlignment
+
+    Parameters
+    ----------
+
+    alignment : Qt.Alignment
+      Passed on as its number.
+    """
+    #  void QFormLayout::setFormAlignment(Qt::Alignment alignment)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout16setFormAlignmentE6QFlagsIN2Qt13AlignmentFl'
+        'agEE',
+        alignment.value,
+    )
+
+  @overload(int)
+  def setHorizontalSpacing(self, spacing: int) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setHorizontalSpacing(int spacing)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qformlayout.html#setHorizontalSpacing
+
+    Parameters
+    ----------
+
+    spacing : int
+      Passed on as it is.
+    """
+    #  void QFormLayout::setHorizontalSpacing(int spacing)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout20setHorizontalSpacingEi', spacing,
+    )
+
+  @overload(int)
+  def setVerticalSpacing(self, spacing: int) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setVerticalSpacing(int spacing)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qformlayout.html#setVerticalSpacing
+
+    Parameters
+    ----------
+
+    spacing : int
+      Passed on as it is.
+    """
+    #  void QFormLayout::setVerticalSpacing(int spacing)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout18setVerticalSpacingEi', spacing,
+    )
+
+  @overload(int)
+  def setSpacing(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setSpacing(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#setSpacing
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QFormLayout::setSpacing(int a0)
+    self.uglySide.call('ritual_ZN11QFormLayout10setSpacingEi', a0)
+
+  @overload(int, ItemRole, QLayoutItem)
+  @overload(int, ItemRole, NoneType)
+  def setItem(
+      self,
+      row: int,
+      role: ItemRole,
+      item: Optional[QLayoutItem],
+  ) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setItem(int row, ItemRole role, QLayoutItem
+    *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#setItem
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    role : ItemRole
+      Passed on as its number.
+
+    item : Optional[QLayoutItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::setItem(int row, ItemRole role, QLayoutItem *item)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout7setItemEiNS_8ItemRoleEP11QLayoutItem',
+        row, role.value, self._addressOf(item),
+    )
+
+  @overload(int, ItemRole, QWidget)
+  @overload(int, ItemRole, NoneType)
+  def setWidget(
+      self,
+      row: int,
+      role: ItemRole,
+      widget: Optional[QWidget],
+  ) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setWidget(int row, ItemRole role, QWidget
+    *widget)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#setWidget
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    role : ItemRole
+      Passed on as its number.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::setWidget(int row, ItemRole role, QWidget *widget)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout9setWidgetEiNS_8ItemRoleEP7QWidget',
+        row, role.value, self._addressOf(widget),
+    )
+
+  @overload(int, ItemRole, QLayout)
+  @overload(int, ItemRole, NoneType)
+  def setLayout(
+      self,
+      row: int,
+      role: ItemRole,
+      layout: Optional[QLayout],
+  ) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setLayout(int row, ItemRole role, QLayout
+    *layout)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#setLayout
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    role : ItemRole
+      Passed on as its number.
+
+    layout : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::setLayout(int row, ItemRole role, QLayout *layout)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout9setLayoutEiNS_8ItemRoleEP7QLayout',
+        row, role.value, self._addressOf(layout),
+    )
+
+  @overload(int, bool)
+  def setRowVisible(self, row: int, on: bool) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setRowVisible(int row, bool on)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#setRowVisible
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    on : bool
+      Passed on as it is.
+    """
+    #  void QFormLayout::setRowVisible(int row, bool on)
+    self.uglySide.call('ritual_ZN11QFormLayout13setRowVisibleEib', row, on)
+
+  @overload(QWidget, bool)
+  @overload(NoneType, bool)
+  def setRowVisible(self, widget: Optional[QWidget], on: bool) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setRowVisible(QWidget *widget, bool on)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#setRowVisible
+
+    Parameters
+    ----------
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    on : bool
+      Passed on as it is.
+    """
+    #  void QFormLayout::setRowVisible(QWidget *widget, bool on)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout13setRowVisibleEP7QWidgetb',
+        self._addressOf(widget), on,
+    )
+
+  @overload(QLayout, bool)
+  def setRowVisible(self, layout: Optional[QLayout], on: bool) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setRowVisible(QLayout *layout, bool on)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#setRowVisible
+
+    Parameters
+    ----------
+
+    layout : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    on : bool
+      Passed on as it is.
+    """
+    #  void QFormLayout::setRowVisible(QLayout *layout, bool on)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout13setRowVisibleEP7QLayoutb',
+        self._addressOf(layout), on,
+    )
+
+  @overload(QRect)
+  def setGeometry(self, rect: QRect) -> None:
+    """
+    Calls Qt's 'void QFormLayout::setGeometry(const QRect &rect)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#setGeometry
+
+    Parameters
+    ----------
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  void QFormLayout::setGeometry(const QRect &rect)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout11setGeometryERK5QRect', self._valueOf(rect),
+    )
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(QWidget)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QWidget] = None) -> None:
+    """
+    Notes what was given, for Qt's 'QFormLayout::QFormLayout(QWidget
+    *parent)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#QFormLayout
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QFormLayout::QFormLayout(QWidget *parent)
+    self._noteCreation(QFormLayout, lambda: Rituals.call(
+        'ritual_ZN11QFormLayoutC1EP7QWidget', self._addressOf(parent),
+    ))
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QWidget, QWidget)
+  @overload(QWidget, NoneType)
+  @overload(NoneType, QWidget)
+  @overload(NoneType, NoneType)
+  def addRow(
+      self,
+      label: Optional[QWidget],
+      field: Optional[QWidget],
+  ) -> None:
+    """
+    Calls Qt's 'void QFormLayout::addRow(QWidget *label, QWidget *field)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#addRow
+
+    Parameters
+    ----------
+
+    label : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    field : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::addRow(QWidget *label, QWidget *field)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout6addRowEP7QWidgetS1_',
+        self._addressOf(label), self._addressOf(field),
+    )
+
+  @overload(QWidget, QLayout)
+  @overload(NoneType, QLayout)
+  def addRow(
+      self,
+      label: Optional[QWidget],
+      field: Optional[QLayout],
+  ) -> None:
+    """
+    Calls Qt's 'void QFormLayout::addRow(QWidget *label, QLayout *field)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#addRow
+
+    Parameters
+    ----------
+
+    label : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    field : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::addRow(QWidget *label, QLayout *field)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout6addRowEP7QWidgetP7QLayout',
+        self._addressOf(label), self._addressOf(field),
+    )
+
+  @overload(str, QWidget)
+  @overload(str, NoneType)
+  def addRow(self, labelText: str, field: Optional[QWidget]) -> None:
+    """
+    Calls Qt's 'void QFormLayout::addRow(const QString &labelText, QWidget
+    *field)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#addRow
+
+    Parameters
+    ----------
+
+    labelText : str
+      Passed on as it is: a QString is made of it for the call.
+
+    field : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::addRow(const QString &labelText, QWidget *field)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout6addRowERK7QStringP7QWidget',
+        labelText, self._addressOf(field),
+    )
+
+  @overload(str, QLayout)
+  def addRow(self, labelText: str, field: Optional[QLayout]) -> None:
+    """
+    Calls Qt's 'void QFormLayout::addRow(const QString &labelText, QLayout
+    *field)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#addRow
+
+    Parameters
+    ----------
+
+    labelText : str
+      Passed on as it is: a QString is made of it for the call.
+
+    field : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::addRow(const QString &labelText, QLayout *field)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout6addRowERK7QStringP7QLayout',
+        labelText, self._addressOf(field),
+    )
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def addRow(self, widget: Optional[QWidget]) -> None:
+    """
+    Calls Qt's 'void QFormLayout::addRow(QWidget *widget)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#addRow
+
+    Parameters
+    ----------
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::addRow(QWidget *widget)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout6addRowEP7QWidget', self._addressOf(widget),
+    )
+
+  @overload(QLayout)
+  def addRow(self, layout: Optional[QLayout]) -> None:
+    """
+    Calls Qt's 'void QFormLayout::addRow(QLayout *layout)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#addRow
+
+    Parameters
+    ----------
+
+    layout : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::addRow(QLayout *layout)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout6addRowEP7QLayout', self._addressOf(layout),
+    )
+
+  @overload(int, QWidget, QWidget)
+  @overload(int, QWidget, NoneType)
+  @overload(int, NoneType, QWidget)
+  @overload(int, NoneType, NoneType)
+  def insertRow(
+      self,
+      row: int,
+      label: Optional[QWidget],
+      field: Optional[QWidget],
+  ) -> None:
+    """
+    Calls Qt's 'void QFormLayout::insertRow(int row, QWidget *label, QWidget
+    *field)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#insertRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    label : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    field : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::insertRow(int row, QWidget *label, QWidget *field)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout9insertRowEiP7QWidgetS1_',
+        row, self._addressOf(label), self._addressOf(field),
+    )
+
+  @overload(int, QWidget, QLayout)
+  @overload(int, NoneType, QLayout)
+  def insertRow(
+      self,
+      row: int,
+      label: Optional[QWidget],
+      field: Optional[QLayout],
+  ) -> None:
+    """
+    Calls Qt's 'void QFormLayout::insertRow(int row, QWidget *label, QLayout
+    *field)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#insertRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    label : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    field : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::insertRow(int row, QWidget *label, QLayout *field)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout9insertRowEiP7QWidgetP7QLayout',
+        row, self._addressOf(label), self._addressOf(field),
+    )
+
+  @overload(int, str, QWidget)
+  @overload(int, str, NoneType)
+  def insertRow(
+      self,
+      row: int,
+      labelText: str,
+      field: Optional[QWidget],
+  ) -> None:
+    """
+    Calls Qt's 'void QFormLayout::insertRow(int row, const QString
+    &labelText, QWidget *field)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#insertRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    labelText : str
+      Passed on as it is: a QString is made of it for the call.
+
+    field : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::insertRow(int row, const QString &labelText, QWidget
+    #      *field)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout9insertRowEiRK7QStringP7QWidget',
+        row, labelText, self._addressOf(field),
+    )
+
+  @overload(int, str, QLayout)
+  def insertRow(
+      self,
+      row: int,
+      labelText: str,
+      field: Optional[QLayout],
+  ) -> None:
+    """
+    Calls Qt's 'void QFormLayout::insertRow(int row, const QString
+    &labelText, QLayout *field)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#insertRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    labelText : str
+      Passed on as it is: a QString is made of it for the call.
+
+    field : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::insertRow(int row, const QString &labelText, QLayout
+    #      *field)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout9insertRowEiRK7QStringP7QLayout',
+        row, labelText, self._addressOf(field),
+    )
+
+  @overload(int, QWidget)
+  @overload(int, NoneType)
+  def insertRow(self, row: int, widget: Optional[QWidget]) -> None:
+    """
+    Calls Qt's 'void QFormLayout::insertRow(int row, QWidget *widget)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#insertRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::insertRow(int row, QWidget *widget)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout9insertRowEiP7QWidget',
+        row, self._addressOf(widget),
+    )
+
+  @overload(int, QLayout)
+  def insertRow(self, row: int, layout: Optional[QLayout]) -> None:
+    """
+    Calls Qt's 'void QFormLayout::insertRow(int row, QLayout *layout)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#insertRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    layout : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::insertRow(int row, QLayout *layout)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout9insertRowEiP7QLayout',
+        row, self._addressOf(layout),
+    )
+
+  @overload(int)
+  def removeRow(self, row: int) -> None:
+    """
+    Calls Qt's 'void QFormLayout::removeRow(int row)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#removeRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+    """
+    #  void QFormLayout::removeRow(int row)
+    self.uglySide.call('ritual_ZN11QFormLayout9removeRowEi', row)
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def removeRow(self, widget: Optional[QWidget]) -> None:
+    """
+    Calls Qt's 'void QFormLayout::removeRow(QWidget *widget)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#removeRow
+
+    Parameters
+    ----------
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::removeRow(QWidget *widget)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout9removeRowEP7QWidget',
+        self._addressOf(widget),
+    )
+
+  @overload(QLayout)
+  def removeRow(self, layout: Optional[QLayout]) -> None:
+    """
+    Calls Qt's 'void QFormLayout::removeRow(QLayout *layout)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#removeRow
+
+    Parameters
+    ----------
+
+    layout : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::removeRow(QLayout *layout)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout9removeRowEP7QLayout',
+        self._addressOf(layout),
+    )
+
+  @overload(QLayoutItem)
+  @overload(NoneType)
+  def addItem(self, item: Optional[QLayoutItem]) -> None:
+    """
+    Calls Qt's 'void QFormLayout::addItem(QLayoutItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#addItem
+
+    Parameters
+    ----------
+
+    item : Optional[QLayoutItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFormLayout::addItem(QLayoutItem *item)
+    self.uglySide.call(
+        'ritual_ZN11QFormLayout7addItemEP11QLayoutItem',
+        self._addressOf(item),
+    )
+
+  @overload(int)
+  def takeAt(self, index: int) -> Optional[QLayoutItem]:
+    """
+    Calls Qt's 'QLayoutItem *QFormLayout::takeAt(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#takeAt
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Optional[QLayoutItem]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QLayoutItem *QFormLayout::takeAt(int index)
+    address = self.uglySide.call('ritual_ZN11QFormLayout6takeAtEi', index)
+    return QLayoutItem._cuteAt(address)
+
+  def invalidate(self) -> None:
+    """
+    Calls Qt's 'void QFormLayout::invalidate()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#invalidate
+    """
+    #  void QFormLayout::invalidate()
+    self.uglySide.call('ritual_ZN11QFormLayout10invalidateEv')

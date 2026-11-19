@@ -1,0 +1,123 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qfont.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5QFontC1Ev": ["address"],
+    "ritual_ZN5QFontC1ERK7QStringiib": [
+      "address", "text", "int", "int", "bool"
+    ],
+    "ritual_ZN5QFontC1ERKS_PK12QPaintDevice": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN5QFontC1ERKS_": ["address", "address"],
+    "ritual_ZN5QFontD1Ev": ["nothing", "address"],
+    "ritual_ZNK5QFont6familyEv": ["text", "address"],
+    "ritual_ZN5QFont9setFamilyERK7QString": ["nothing", "address", "text"],
+    "ritual_ZNK5QFont9styleNameEv": ["text", "address"],
+    "ritual_ZN5QFont12setStyleNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK5QFont9pointSizeEv": ["int", "address"],
+    "ritual_ZN5QFont12setPointSizeEi": ["nothing", "address", "int"],
+    "ritual_ZNK5QFont10pointSizeFEv": ["double", "address"],
+    "ritual_ZN5QFont13setPointSizeFEd": ["nothing", "address", "double"],
+    "ritual_ZNK5QFont9pixelSizeEv": ["int", "address"],
+    "ritual_ZN5QFont12setPixelSizeEi": ["nothing", "address", "int"],
+    "ritual_ZNK5QFont6weightEv": ["int", "address"],
+    "ritual_ZN5QFont9setWeightENS_6WeightE": ["nothing", "address", "int"],
+    "ritual_ZNK5QFont4boldEv": ["bool", "address"],
+    "ritual_ZN5QFont7setBoldEb": ["nothing", "address", "bool"],
+    "ritual_ZN5QFont8setStyleENS_5StyleE": ["nothing", "address", "int"],
+    "ritual_ZNK5QFont5styleEv": ["int", "address"],
+    "ritual_ZNK5QFont6italicEv": ["bool", "address"],
+    "ritual_ZN5QFont9setItalicEb": ["nothing", "address", "bool"],
+    "ritual_ZNK5QFont9underlineEv": ["bool", "address"],
+    "ritual_ZN5QFont12setUnderlineEb": ["nothing", "address", "bool"],
+    "ritual_ZNK5QFont8overlineEv": ["bool", "address"],
+    "ritual_ZN5QFont11setOverlineEb": ["nothing", "address", "bool"],
+    "ritual_ZNK5QFont9strikeOutEv": ["bool", "address"],
+    "ritual_ZN5QFont12setStrikeOutEb": ["nothing", "address", "bool"],
+    "ritual_ZNK5QFont10fixedPitchEv": ["bool", "address"],
+    "ritual_ZN5QFont13setFixedPitchEb": ["nothing", "address", "bool"],
+    "ritual_ZNK5QFont7kerningEv": ["bool", "address"],
+    "ritual_ZN5QFont10setKerningEb": ["nothing", "address", "bool"],
+    "ritual_ZNK5QFont9styleHintEv": ["int", "address"],
+    "ritual_ZNK5QFont13styleStrategyEv": ["int", "address"],
+    "ritual_ZN5QFont12setStyleHintENS_9StyleHintENS_13StyleStrategyE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN5QFont16setStyleStrategyENS_13StyleStrategyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK5QFont7stretchEv": ["int", "address"],
+    "ritual_ZN5QFont10setStretchEi": ["nothing", "address", "int"],
+    "ritual_ZNK5QFont13letterSpacingEv": ["double", "address"],
+    "ritual_ZNK5QFont17letterSpacingTypeEv": ["int", "address"],
+    "ritual_ZN5QFont16setLetterSpacingENS_11SpacingTypeEd": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK5QFont11wordSpacingEv": ["double", "address"],
+    "ritual_ZN5QFont14setWordSpacingEd": ["nothing", "address", "double"],
+    "ritual_ZN5QFont17setCapitalizationENS_14CapitalizationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK5QFont14capitalizationEv": ["int", "address"],
+    "ritual_ZN5QFont20setHintingPreferenceENS_17HintingPreferenceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK5QFont17hintingPreferenceEv": ["int", "address"],
+    "ritual_ZN5QFont10setFeatureENS_3TagEj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN5QFont12unsetFeatureENS_3TagE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5QFont12featureValueENS_3TagE": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK5QFont12isFeatureSetENS_3TagE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5QFont13clearFeaturesEv": ["nothing", "address"],
+    "ritual_ZN5QFont15setVariableAxisENS_3TagEf": [
+      "nothing", "address", "address", "float"
+    ],
+    "ritual_ZN5QFont17unsetVariableAxisENS_3TagE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5QFont17isVariableAxisSetENS_3TagE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK5QFont17variableAxisValueENS_3TagE": [
+      "float", "address", "address"
+    ],
+    "ritual_ZN5QFont17clearVariableAxesEv": ["nothing", "address"],
+    "ritual_ZNK5QFont10exactMatchEv": ["bool", "address"],
+    "ritual_ZNK5QFonteqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK5QFontneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK5QFontltERKS_": ["bool", "address", "address"],
+    "ritual_ZNK5QFontcv8QVariantEv": ["address", "address"],
+    "ritual_ZNK5QFont8isCopyOfERKS_": ["bool", "address", "address"],
+    "ritual_ZNK5QFont3keyEv": ["text", "address"],
+    "ritual_ZNK5QFont8toStringEv": ["text", "address"],
+    "ritual_ZN5QFont10fromStringERK7QString": ["bool", "address", "text"],
+    "ritual_ZN5QFont10substituteERK7QString": ["text", "text"],
+    "ritual_ZN5QFont18insertSubstitutionERK7QStringS2_": [
+      "nothing", "text", "text"
+    ],
+    "ritual_ZN5QFont19removeSubstitutionsERK7QString": ["nothing", "text"],
+    "ritual_ZN5QFont10initializeEv": ["nothing"],
+    "ritual_ZN5QFont7cleanupEv": ["nothing"],
+    "ritual_ZN5QFont15cacheStatisticsEv": ["nothing"],
+    "ritual_ZNK5QFont13defaultFamilyEv": ["text", "address"],
+    "ritual_ZNK5QFont7resolveERKS_": ["address", "address", "address"],
+    "ritual_ZNK5QFont11resolveMaskEv": ["unsigned int", "address"],
+    "ritual_ZN5QFont14setResolveMaskEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN5QFont15setLegacyWeightEi": ["nothing", "address", "int"],
+    "ritual_ZNK5QFont12legacyWeightEv": ["int", "address"]
+  }
+}

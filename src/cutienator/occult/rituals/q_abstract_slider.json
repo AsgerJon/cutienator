@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qabstractslider.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QAbstractSlider10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstractSlider2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QAbstractSliderC1EP7QWidget": ["address", "address"],
+    "ritual_ZN15QAbstractSliderD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QAbstractSlider11orientationEv": ["int", "address"],
+    "ritual_ZN15QAbstractSlider10setMinimumEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QAbstractSlider7minimumEv": ["int", "address"],
+    "ritual_ZN15QAbstractSlider10setMaximumEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QAbstractSlider7maximumEv": ["int", "address"],
+    "ritual_ZN15QAbstractSlider13setSingleStepEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QAbstractSlider10singleStepEv": ["int", "address"],
+    "ritual_ZN15QAbstractSlider11setPageStepEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QAbstractSlider8pageStepEv": ["int", "address"],
+    "ritual_ZN15QAbstractSlider11setTrackingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractSlider11hasTrackingEv": ["bool", "address"],
+    "ritual_ZN15QAbstractSlider13setSliderDownEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractSlider12isSliderDownEv": ["bool", "address"],
+    "ritual_ZN15QAbstractSlider17setSliderPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QAbstractSlider14sliderPositionEv": ["int", "address"],
+    "ritual_ZN15QAbstractSlider21setInvertedAppearanceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractSlider18invertedAppearanceEv": ["bool", "address"],
+    "ritual_ZN15QAbstractSlider19setInvertedControlsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractSlider16invertedControlsEv": ["bool", "address"],
+    "ritual_ZNK15QAbstractSlider5valueEv": ["int", "address"],
+    "ritual_ZN15QAbstractSlider13triggerActionENS_12SliderActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSlider8setValueEi": ["nothing", "address", "int"],
+    "ritual_ZN15QAbstractSlider14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSlider8setRangeEii": [
+      "nothing", "address", "int", "int"
+    ]
+  }
+}

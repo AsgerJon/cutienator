@@ -1,0 +1,201 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qimage.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QImageC1Ev": ["address"],
+    "ritual_ZN6QImageC1ERK5QSizeNS_6FormatE": ["address", "address", "int"],
+    "ritual_ZN6QImageC1EiiNS_6FormatE": ["address", "int", "int", "int"],
+    "ritual_ZN6QImageC1ERK7QStringPKc": ["address", "text", "chars"],
+    "ritual_ZN6QImageC1ERKS_": ["address", "address"],
+    "ritual_ZN6QImageD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QImage6isNullEv": ["bool", "address"],
+    "ritual_ZNK6QImage7devTypeEv": ["int", "address"],
+    "ritual_ZNK6QImageeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK6QImageneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK6QImagecv8QVariantEv": ["address", "address"],
+    "ritual_ZN6QImage6detachEv": ["nothing", "address"],
+    "ritual_ZNK6QImage10isDetachedEv": ["bool", "address"],
+    "ritual_ZNK6QImage4copyERK5QRect": ["address", "address", "address"],
+    "ritual_ZNK6QImage4copyEiiii": [
+      "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK6QImage6formatEv": ["int", "address"],
+    "ritual_ZNKR6QImage15convertToFormatENS_6FormatE6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN6QImage19reinterpretAsFormatENS_6FormatE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNKR6QImage11convertedToENS_6FormatE6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN6QImage9convertToENS_6FormatE6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK6QImage5widthEv": ["int", "address"],
+    "ritual_ZNK6QImage6heightEv": ["int", "address"],
+    "ritual_ZNK6QImage4sizeEv": ["address", "address"],
+    "ritual_ZNK6QImage4rectEv": ["address", "address"],
+    "ritual_ZNK6QImage5depthEv": ["int", "address"],
+    "ritual_ZNK6QImage10colorCountEv": ["int", "address"],
+    "ritual_ZNK6QImage13bitPlaneCountEv": ["int", "address"],
+    "ritual_ZNK6QImage5colorEi": ["unsigned int", "address", "int"],
+    "ritual_ZN6QImage8setColorEij": [
+      "nothing", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN6QImage13setColorCountEi": ["nothing", "address", "int"],
+    "ritual_ZNK6QImage7allGrayEv": ["bool", "address"],
+    "ritual_ZNK6QImage11isGrayscaleEv": ["bool", "address"],
+    "ritual_ZNK6QImage11sizeInBytesEv": ["long long", "address"],
+    "ritual_ZNK6QImage12bytesPerLineEv": ["long long", "address"],
+    "ritual_ZNK6QImage5validEii": ["bool", "address", "int", "int"],
+    "ritual_ZNK6QImage5validERK6QPoint": ["bool", "address", "address"],
+    "ritual_ZNK6QImage10pixelIndexEii": ["int", "address", "int", "int"],
+    "ritual_ZNK6QImage10pixelIndexERK6QPoint": ["int", "address", "address"],
+    "ritual_ZNK6QImage5pixelEii": ["unsigned int", "address", "int", "int"],
+    "ritual_ZNK6QImage5pixelERK6QPoint": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN6QImage8setPixelEiij": [
+      "nothing", "address", "int", "int", "unsigned int"
+    ],
+    "ritual_ZN6QImage8setPixelERK6QPointj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK6QImage10pixelColorEii": ["address", "address", "int", "int"],
+    "ritual_ZNK6QImage10pixelColorERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QImage13setPixelColorEiiRK6QColor": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN6QImage13setPixelColorERK6QPointRK6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK6QImage16devicePixelRatioEv": ["double", "address"],
+    "ritual_ZN6QImage19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK6QImage21deviceIndependentSizeEv": ["address", "address"],
+    "ritual_ZN6QImage4fillEj": ["nothing", "address", "unsigned int"],
+    "ritual_ZN6QImage4fillERK6QColor": ["nothing", "address", "address"],
+    "ritual_ZN6QImage4fillEN2Qt11GlobalColorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QImage15hasAlphaChannelEv": ["bool", "address"],
+    "ritual_ZN6QImage15setAlphaChannelERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QImage15createAlphaMaskE6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK6QImage19createHeuristicMaskEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZNK6QImage19createMaskFromColorEjN2Qt8MaskModeE": [
+      "address", "address", "unsigned int", "int"
+    ],
+    "ritual_ZNK6QImage6scaledEiiN2Qt15AspectRatioModeENS0_18TransformationModeE": [
+      "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK6QImage6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK6QImage13scaledToWidthEiN2Qt18TransformationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK6QImage14scaledToHeightEiN2Qt18TransformationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK6QImage11transformedERK10QTransformN2Qt18TransformationModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN6QImage10trueMatrixERK10QTransformii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNKR6QImage8mirroredEbb": ["address", "address", "bool", "bool"],
+    "ritual_ZN6QImage6mirrorEbb": ["nothing", "address", "bool", "bool"],
+    "ritual_ZNKR6QImage10rgbSwappedEv": ["address", "address"],
+    "ritual_ZNKR6QImage7flippedE6QFlagsIN2Qt11OrientationEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN6QImage4flipE6QFlagsIN2Qt11OrientationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN6QImage7rgbSwapEv": ["nothing", "address"],
+    "ritual_ZN6QImage12invertPixelsENS_10InvertModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QImage10colorSpaceEv": ["address", "address"],
+    "ritual_ZNK6QImage21convertedToColorSpaceERK11QColorSpace": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNKR6QImage21convertedToColorSpaceERK11QColorSpaceNS_6FormatE6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN6QImage19convertToColorSpaceERK11QColorSpace": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QImage19convertToColorSpaceERK11QColorSpaceNS_6FormatE6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN6QImage13setColorSpaceERK11QColorSpace": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNKR6QImage16colorTransformedERK15QColorTransform": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNKR6QImage16colorTransformedERK15QColorTransformNS_6FormatE6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN6QImage19applyColorTransformERK15QColorTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QImage19applyColorTransformERK15QColorTransformNS_6FormatE6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN6QImage4loadEP9QIODevicePKc": [
+      "bool", "address", "address", "chars"
+    ],
+    "ritual_ZN6QImage4loadERK7QStringPKc": [
+      "bool", "address", "text", "chars"
+    ],
+    "ritual_ZN6QImage12loadFromDataE14QByteArrayViewPKc": [
+      "bool", "address", "address", "chars"
+    ],
+    "ritual_ZN6QImage12loadFromDataERK10QByteArrayPKc": [
+      "bool", "address", "address", "chars"
+    ],
+    "ritual_ZNK6QImage4saveERK7QStringPKci": [
+      "bool", "address", "text", "chars", "int"
+    ],
+    "ritual_ZNK6QImage4saveEP9QIODevicePKci": [
+      "bool", "address", "address", "chars", "int"
+    ],
+    "ritual_ZN6QImage8fromDataE14QByteArrayViewPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN6QImage8fromDataERK10QByteArrayPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZNK6QImage8cacheKeyEv": ["long long", "address"],
+    "ritual_ZNK6QImage11paintEngineEv": ["address", "address"],
+    "ritual_ZNK6QImage13dotsPerMeterXEv": ["int", "address"],
+    "ritual_ZNK6QImage13dotsPerMeterYEv": ["int", "address"],
+    "ritual_ZN6QImage16setDotsPerMeterXEi": ["nothing", "address", "int"],
+    "ritual_ZN6QImage16setDotsPerMeterYEi": ["nothing", "address", "int"],
+    "ritual_ZNK6QImage6offsetEv": ["address", "address"],
+    "ritual_ZN6QImage9setOffsetERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QImage4textERK7QString": ["text", "address", "text"],
+    "ritual_ZN6QImage7setTextERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZNK6QImage11pixelFormatEv": ["address", "address"],
+    "ritual_ZN6QImage13toPixelFormatENS_6FormatE": ["address", "int"],
+    "ritual_ZN6QImage13toImageFormatE12QPixelFormat": ["int", "address"]
+  }
+}

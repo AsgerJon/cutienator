@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QWheelEvent5cloneEv": ["address", "address"],
+    "ritual_ZN11QWheelEventD1Ev": ["nothing", "address"],
+    "ritual_ZN11QWheelEventC1ERK7QPointFS2_6QPointS3_6QFlagsIN2Qt11MouseButtonEES4_INS5_16KeyboardModifierEENS5_11ScrollPhaseEbNS5_16MouseEventSourceEPK15QPointingDevice": [
+      "address", "address", "address", "address", "address", "int", "int",
+      "int", "bool", "int", "address"
+    ],
+    "ritual_ZNK11QWheelEvent10pixelDeltaEv": ["address", "address"],
+    "ritual_ZNK11QWheelEvent10angleDeltaEv": ["address", "address"],
+    "ritual_ZNK11QWheelEvent5phaseEv": ["int", "address"],
+    "ritual_ZNK11QWheelEvent8invertedEv": ["bool", "address"],
+    "ritual_ZNK11QWheelEvent10isInvertedEv": ["bool", "address"],
+    "ritual_ZNK11QWheelEvent13hasPixelDeltaEv": ["bool", "address"],
+    "ritual_ZNK11QWheelEvent12isBeginEventEv": ["bool", "address"],
+    "ritual_ZNK11QWheelEvent13isUpdateEventEv": ["bool", "address"],
+    "ritual_ZNK11QWheelEvent10isEndEventEv": ["bool", "address"],
+    "ritual_ZNK11QWheelEvent6sourceEv": ["int", "address"]
+  }
+}

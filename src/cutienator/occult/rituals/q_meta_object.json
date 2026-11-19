@@ -59,6 +59,9 @@
     ],
     "ritual_ZN11QMetaObject19normalizedSignatureEPKc": ["address", "chars"],
     "ritual_ZN11QMetaObject14normalizedTypeEPKc": ["address", "chars"],
+    "ritual_ZN11QMetaObject7connectEPK7QObjectiS2_iiPi": [
+      "address", "address", "int", "address", "int", "int", "address"
+    ],
     "ritual_ZN11QMetaObject10disconnectEPK7QObjectiS2_i": [
       "bool", "address", "int", "address", "int"
     ],

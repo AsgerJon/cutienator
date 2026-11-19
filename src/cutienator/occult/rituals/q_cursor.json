@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qcursor.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7QCursorC1Ev": ["address"],
+    "ritual_ZN7QCursorC1EN2Qt11CursorShapeE": ["address", "int"],
+    "ritual_ZN7QCursorC1ERK7QBitmapS2_ii": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN7QCursorC1ERK7QPixmapii": ["address", "address", "int", "int"],
+    "ritual_ZN7QCursorC1ERKS_": ["address", "address"],
+    "ritual_ZN7QCursorD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QCursorcv8QVariantEv": ["address", "address"],
+    "ritual_ZNK7QCursor5shapeEv": ["int", "address"],
+    "ritual_ZN7QCursor8setShapeEN2Qt11CursorShapeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QCursor6bitmapEN2Qt21ReturnByValueConstantE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK7QCursor4maskEN2Qt21ReturnByValueConstantE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK7QCursor6bitmapEv": ["address", "address"],
+    "ritual_ZNK7QCursor4maskEv": ["address", "address"],
+    "ritual_ZNK7QCursor6pixmapEv": ["address", "address"],
+    "ritual_ZNK7QCursor7hotSpotEv": ["address", "address"],
+    "ritual_ZN7QCursor3posEv": ["address"],
+    "ritual_ZN7QCursor3posEPK7QScreen": ["address", "address"],
+    "ritual_ZN7QCursor6setPosEii": ["nothing", "int", "int"],
+    "ritual_ZN7QCursor6setPosEP7QScreenii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN7QCursor6setPosERK6QPoint": ["nothing", "address"],
+    "ritual_ZN7QCursor6setPosEP7QScreenRK6QPoint": [
+      "nothing", "address", "address"
+    ]
+  }
+}

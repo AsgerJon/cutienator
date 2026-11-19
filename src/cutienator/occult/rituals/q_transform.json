@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtransform.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QTransformC1EN2Qt14InitializationE": ["address", "int"],
+    "ritual_ZN10QTransformC1Ev": ["address"],
+    "ritual_ZN10QTransformC1Eddddddddd": [
+      "address", "double", "double", "double", "double", "double", "double",
+      "double", "double", "double"
+    ],
+    "ritual_ZN10QTransformC1Edddddd": [
+      "address", "double", "double", "double", "double", "double", "double"
+    ],
+    "ritual_ZN10QTransformC1ERKS_": ["address", "address"],
+    "ritual_ZNK10QTransform8isAffineEv": ["bool", "address"],
+    "ritual_ZNK10QTransform10isIdentityEv": ["bool", "address"],
+    "ritual_ZNK10QTransform12isInvertibleEv": ["bool", "address"],
+    "ritual_ZNK10QTransform9isScalingEv": ["bool", "address"],
+    "ritual_ZNK10QTransform10isRotatingEv": ["bool", "address"],
+    "ritual_ZNK10QTransform13isTranslatingEv": ["bool", "address"],
+    "ritual_ZNK10QTransform4typeEv": ["int", "address"],
+    "ritual_ZNK10QTransform11determinantEv": ["double", "address"],
+    "ritual_ZNK10QTransform3m11Ev": ["double", "address"],
+    "ritual_ZNK10QTransform3m12Ev": ["double", "address"],
+    "ritual_ZNK10QTransform3m13Ev": ["double", "address"],
+    "ritual_ZNK10QTransform3m21Ev": ["double", "address"],
+    "ritual_ZNK10QTransform3m22Ev": ["double", "address"],
+    "ritual_ZNK10QTransform3m23Ev": ["double", "address"],
+    "ritual_ZNK10QTransform3m31Ev": ["double", "address"],
+    "ritual_ZNK10QTransform3m32Ev": ["double", "address"],
+    "ritual_ZNK10QTransform3m33Ev": ["double", "address"],
+    "ritual_ZNK10QTransform2dxEv": ["double", "address"],
+    "ritual_ZNK10QTransform2dyEv": ["double", "address"],
+    "ritual_ZN10QTransform9setMatrixEddddddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double", "double", "double", "double"
+    ],
+    "ritual_ZNK10QTransform8invertedEPb": ["address", "address", "address"],
+    "ritual_ZNK10QTransform7adjointEv": ["address", "address"],
+    "ritual_ZNK10QTransform10transposedEv": ["address", "address"],
+    "ritual_ZNK10QTransformeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK10QTransformneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK10QTransformmlERKS_": ["address", "address", "address"],
+    "ritual_ZNK10QTransformcv8QVariantEv": ["address", "address"],
+    "ritual_ZN10QTransform5resetEv": ["nothing", "address"],
+    "ritual_ZNK10QTransform3mapERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTransform3mapERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTransform3mapERK5QLine": ["address", "address", "address"],
+    "ritual_ZNK10QTransform3mapERK6QLineF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTransform3mapERK9QPolygonF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTransform3mapERK8QPolygon": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTransform3mapERK7QRegion": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTransform3mapERK12QPainterPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTransform12mapToPolygonERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTransform7mapRectERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTransform7mapRectERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTransform3mapEiiPiS0_": [
+      "nothing", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK10QTransform3mapEddPdS0_": [
+      "nothing", "address", "double", "double", "address", "address"
+    ],
+    "ritual_ZN10QTransform13fromTranslateEdd": [
+      "address", "double", "double"
+    ],
+    "ritual_ZN10QTransform9fromScaleEdd": ["address", "double", "double"],
+    "ritual_ZN10QTransformD1Ev": ["nothing", "address"]
+  }
+}

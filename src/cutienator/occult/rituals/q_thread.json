@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qthread.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QThread10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QThread2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QThread13currentThreadEv": ["address"],
+    "ritual_ZN7QThread12isMainThreadEv": ["bool"],
+    "ritual_ZN7QThread16idealThreadCountEv": ["int"],
+    "ritual_ZN7QThread18yieldCurrentThreadEv": ["nothing"],
+    "ritual_ZN7QThreadC1EP7QObject": ["address", "address"],
+    "ritual_ZN7QThreadD1Ev": ["nothing", "address"],
+    "ritual_ZN7QThread11setPriorityENS_8PriorityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QThread8priorityEv": ["int", "address"],
+    "ritual_ZNK7QThread10isFinishedEv": ["bool", "address"],
+    "ritual_ZNK7QThread9isRunningEv": ["bool", "address"],
+    "ritual_ZN7QThread19requestInterruptionEv": ["nothing", "address"],
+    "ritual_ZNK7QThread23isInterruptionRequestedEv": ["bool", "address"],
+    "ritual_ZN7QThread12setStackSizeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK7QThread9stackSizeEv": ["unsigned int", "address"],
+    "ritual_ZNK7QThread15eventDispatcherEv": ["address", "address"],
+    "ritual_ZN7QThread18setEventDispatcherEP24QAbstractEventDispatcher": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QThread5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZNK7QThread9loopLevelEv": ["int", "address"],
+    "ritual_ZNK7QThread15isCurrentThreadEv": ["bool", "address"],
+    "ritual_ZN7QThread15setServiceLevelENS_16QualityOfServiceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QThread12serviceLevelEv": ["int", "address"],
+    "ritual_ZN7QThread5startENS_8PriorityE": ["nothing", "address", "int"],
+    "ritual_ZN7QThread9terminateEv": ["nothing", "address"],
+    "ritual_ZN7QThread4exitEi": ["nothing", "address", "int"],
+    "ritual_ZN7QThread4quitEv": ["nothing", "address"],
+    "ritual_ZN7QThread4waitE14QDeadlineTimer": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN7QThread4waitEm": ["bool", "address", "unsigned long"],
+    "ritual_ZN7QThread5sleepEm": ["nothing", "unsigned long"],
+    "ritual_ZN7QThread6msleepEm": ["nothing", "unsigned long"],
+    "ritual_ZN7QThread6usleepEm": ["nothing", "unsigned long"]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qtextbrowser.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QTextBrowser10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QTextBrowser2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QTextBrowserC1EP7QWidget": ["address", "address"],
+    "ritual_ZN12QTextBrowserD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QTextBrowser6sourceEv": ["address", "address"],
+    "ritual_ZNK12QTextBrowser10sourceTypeEv": ["int", "address"],
+    "ritual_ZN12QTextBrowser12loadResourceEiRK4QUrl": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK12QTextBrowser19isBackwardAvailableEv": ["bool", "address"],
+    "ritual_ZNK12QTextBrowser18isForwardAvailableEv": ["bool", "address"],
+    "ritual_ZN12QTextBrowser12clearHistoryEv": ["nothing", "address"],
+    "ritual_ZNK12QTextBrowser12historyTitleEi": ["text", "address", "int"],
+    "ritual_ZNK12QTextBrowser10historyUrlEi": ["address", "address", "int"],
+    "ritual_ZNK12QTextBrowser20backwardHistoryCountEv": ["int", "address"],
+    "ritual_ZNK12QTextBrowser19forwardHistoryCountEv": ["int", "address"],
+    "ritual_ZNK12QTextBrowser17openExternalLinksEv": ["bool", "address"],
+    "ritual_ZN12QTextBrowser20setOpenExternalLinksEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QTextBrowser9openLinksEv": ["bool", "address"],
+    "ritual_ZN12QTextBrowser12setOpenLinksEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QTextBrowser9setSourceERK4QUrlN13QTextDocument12ResourceTypeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QTextBrowser8backwardEv": ["nothing", "address"],
+    "ritual_ZN12QTextBrowser7forwardEv": ["nothing", "address"],
+    "ritual_ZN12QTextBrowser4homeEv": ["nothing", "address"],
+    "ritual_ZN12QTextBrowser6reloadEv": ["nothing", "address"]
+  }
+}

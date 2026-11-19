@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qsplitter.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QSplitter10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QSplitter2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QSplitterC1EP7QWidget": ["address", "address"],
+    "ritual_ZN9QSplitterC1EN2Qt11OrientationEP7QWidget": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN9QSplitterD1Ev": ["nothing", "address"],
+    "ritual_ZN9QSplitter9addWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSplitter12insertWidgetEiP7QWidget": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN9QSplitter13replaceWidgetEiP7QWidget": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN9QSplitter14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QSplitter11orientationEv": ["int", "address"],
+    "ritual_ZN9QSplitter22setChildrenCollapsibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QSplitter19childrenCollapsibleEv": ["bool", "address"],
+    "ritual_ZN9QSplitter14setCollapsibleEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK9QSplitter13isCollapsibleEi": ["bool", "address", "int"],
+    "ritual_ZN9QSplitter15setOpaqueResizeEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QSplitter12opaqueResizeEv": ["bool", "address"],
+    "ritual_ZN9QSplitter7refreshEv": ["nothing", "address"],
+    "ritual_ZNK9QSplitter8sizeHintEv": ["address", "address"],
+    "ritual_ZNK9QSplitter15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZNK9QSplitter9saveStateEv": ["address", "address"],
+    "ritual_ZN9QSplitter12restoreStateERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK9QSplitter11handleWidthEv": ["int", "address"],
+    "ritual_ZN9QSplitter14setHandleWidthEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QSplitter7indexOfEP7QWidget": ["int", "address", "address"],
+    "ritual_ZNK9QSplitter6widgetEi": ["address", "address", "int"],
+    "ritual_ZNK9QSplitter5countEv": ["int", "address"],
+    "ritual_ZNK9QSplitter8getRangeEiPiS0_": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK9QSplitter6handleEi": ["address", "address", "int"],
+    "ritual_ZN9QSplitter16setStretchFactorEii": [
+      "nothing", "address", "int", "int"
+    ]
+  }
+}

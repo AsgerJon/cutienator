@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qframe.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK6QFrame10metaObjectEv": ["address", "address"],
+    "ritual_ZN6QFrame2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN6QFrameC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN6QFrameD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QFrame10frameStyleEv": ["int", "address"],
+    "ritual_ZN6QFrame13setFrameStyleEi": ["nothing", "address", "int"],
+    "ritual_ZNK6QFrame10frameWidthEv": ["int", "address"],
+    "ritual_ZNK6QFrame8sizeHintEv": ["address", "address"],
+    "ritual_ZNK6QFrame10frameShapeEv": ["int", "address"],
+    "ritual_ZN6QFrame13setFrameShapeENS_5ShapeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QFrame11frameShadowEv": ["int", "address"],
+    "ritual_ZN6QFrame14setFrameShadowENS_6ShadowE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QFrame9lineWidthEv": ["int", "address"],
+    "ritual_ZN6QFrame12setLineWidthEi": ["nothing", "address", "int"],
+    "ritual_ZNK6QFrame12midLineWidthEv": ["int", "address"],
+    "ritual_ZN6QFrame15setMidLineWidthEi": ["nothing", "address", "int"],
+    "ritual_ZNK6QFrame9frameRectEv": ["address", "address"],
+    "ritual_ZN6QFrame12setFrameRectERK5QRect": [
+      "nothing", "address", "address"
+    ]
+  }
+}

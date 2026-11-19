@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qslider.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QSlider10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QSlider2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QSliderC1EP7QWidget": ["address", "address"],
+    "ritual_ZN7QSliderC1EN2Qt11OrientationEP7QWidget": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN7QSliderD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QSlider8sizeHintEv": ["address", "address"],
+    "ritual_ZNK7QSlider15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZN7QSlider15setTickPositionENS_12TickPositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QSlider12tickPositionEv": ["int", "address"],
+    "ritual_ZN7QSlider15setTickIntervalEi": ["nothing", "address", "int"],
+    "ritual_ZNK7QSlider12tickIntervalEv": ["int", "address"],
+    "ritual_ZN7QSlider5eventEP6QEvent": ["bool", "address", "address"]
+  }
+}

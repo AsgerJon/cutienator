@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qbindingstorage.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QBindingStorageC1Ev": ["address"],
+    "ritual_ZN15QBindingStorageD1Ev": ["nothing", "address"],
+    "ritual_ZN15QBindingStorage7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK15QBindingStorage7isValidEv": ["bool", "address"],
+    "ritual_ZNK15QBindingStorage18registerDependencyEPK20QUntypedPropertyData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QBindingStorage11bindingDataEPK20QUntypedPropertyData": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QBindingStorage11bindingDataEP20QUntypedPropertyDatab": [
+      "address", "address", "address", "bool"
+    ]
+  }
+}

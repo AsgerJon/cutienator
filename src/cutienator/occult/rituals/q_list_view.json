@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qlistview.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QListView10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QListView2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QListViewC1EP7QWidget": ["address", "address"],
+    "ritual_ZN9QListViewD1Ev": ["nothing", "address"],
+    "ritual_ZN9QListView11setMovementENS_8MovementE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QListView8movementEv": ["int", "address"],
+    "ritual_ZN9QListView7setFlowENS_4FlowE": ["nothing", "address", "int"],
+    "ritual_ZNK9QListView4flowEv": ["int", "address"],
+    "ritual_ZN9QListView11setWrappingEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QListView10isWrappingEv": ["bool", "address"],
+    "ritual_ZN9QListView13setResizeModeENS_10ResizeModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QListView10resizeModeEv": ["int", "address"],
+    "ritual_ZN9QListView13setLayoutModeENS_10LayoutModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QListView10layoutModeEv": ["int", "address"],
+    "ritual_ZN9QListView10setSpacingEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QListView7spacingEv": ["int", "address"],
+    "ritual_ZN9QListView12setBatchSizeEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QListView9batchSizeEv": ["int", "address"],
+    "ritual_ZN9QListView11setGridSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QListView8gridSizeEv": ["address", "address"],
+    "ritual_ZN9QListView11setViewModeENS_8ViewModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QListView8viewModeEv": ["int", "address"],
+    "ritual_ZN9QListView18clearPropertyFlagsEv": ["nothing", "address"],
+    "ritual_ZNK9QListView11isRowHiddenEi": ["bool", "address", "int"],
+    "ritual_ZN9QListView12setRowHiddenEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN9QListView14setModelColumnEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QListView11modelColumnEv": ["int", "address"],
+    "ritual_ZN9QListView19setUniformItemSizesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QListView16uniformItemSizesEv": ["bool", "address"],
+    "ritual_ZN9QListView11setWordWrapEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QListView8wordWrapEv": ["bool", "address"],
+    "ritual_ZN9QListView23setSelectionRectVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QListView22isSelectionRectVisibleEv": ["bool", "address"],
+    "ritual_ZN9QListView16setItemAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QListView13itemAlignmentEv": ["int", "address"],
+    "ritual_ZNK9QListView10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QListView8scrollToERK11QModelIndexN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK9QListView7indexAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QListView13doItemsLayoutEv": ["nothing", "address"],
+    "ritual_ZN9QListView5resetEv": ["nothing", "address"],
+    "ritual_ZN9QListView12setRootIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmetaobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QMetaMethodC1Ev": ["address"],
+    "ritual_ZNK11QMetaMethod15methodSignatureEv": ["address", "address"],
+    "ritual_ZNK11QMetaMethod4nameEv": ["address", "address"],
+    "ritual_ZNK11QMetaMethod8nameViewEv": ["address", "address"],
+    "ritual_ZNK11QMetaMethod8typeNameEv": ["chars", "address"],
+    "ritual_ZNK11QMetaMethod10returnTypeEv": ["int", "address"],
+    "ritual_ZNK11QMetaMethod14returnMetaTypeEv": ["address", "address"],
+    "ritual_ZNK11QMetaMethod14parameterCountEv": ["int", "address"],
+    "ritual_ZNK11QMetaMethod13parameterTypeEi": ["int", "address", "int"],
+    "ritual_ZNK11QMetaMethod17parameterMetaTypeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QMetaMethod17getParameterTypesEPi": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QMetaMethod17parameterTypeNameEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QMetaMethod3tagEv": ["chars", "address"],
+    "ritual_ZNK11QMetaMethod6accessEv": ["int", "address"],
+    "ritual_ZNK11QMetaMethod10methodTypeEv": ["int", "address"],
+    "ritual_ZNK11QMetaMethod10attributesEv": ["int", "address"],
+    "ritual_ZNK11QMetaMethod11methodIndexEv": ["int", "address"],
+    "ritual_ZNK11QMetaMethod19relativeMethodIndexEv": ["int", "address"],
+    "ritual_ZNK11QMetaMethod8revisionEv": ["int", "address"],
+    "ritual_ZNK11QMetaMethod7isConstEv": ["bool", "address"],
+    "ritual_ZNK11QMetaMethod19enclosingMetaObjectEv": ["address", "address"],
+    "ritual_ZNK11QMetaMethod6invokeEP7QObjectN2Qt14ConnectionTypeE22QGenericReturnArgument16QGenericArgumentS5_S5_S5_S5_S5_S5_S5_S5_S5_": [
+      "bool", "address", "address", "int", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZNK11QMetaMethod6invokeEP7QObject22QGenericReturnArgument16QGenericArgumentS3_S3_S3_S3_S3_S3_S3_S3_S3_": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZNK11QMetaMethod6invokeEP7QObjectN2Qt14ConnectionTypeE16QGenericArgumentS4_S4_S4_S4_S4_S4_S4_S4_S4_": [
+      "bool", "address", "address", "int", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZNK11QMetaMethod6invokeEP7QObject16QGenericArgumentS2_S2_S2_S2_S2_S2_S2_S2_S2_": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZNK11QMetaMethod7isValidEv": ["bool", "address"],
+    "ritual_ZN11QMetaMethodD1Ev": ["nothing", "address"]
+  }
+}

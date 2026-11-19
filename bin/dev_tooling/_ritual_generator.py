@@ -70,9 +70,19 @@ class RitualGenerator:
 
   - Nothing: a function giving back 'void'.
   - Numbers: 'bool' and the numbers built into C++, as 'int' and
-    'double', also under a second name, as 'qsizetype'.
+    'double', also under a second name, as 'qsizetype', and taken to
+    be read only, as 'const bool' and 'const int &'.
+  - A number the function may change, taken as 'int &' or 'int *'.
+    The ritual takes the address of the number and hands Qt the number
+    there. Giving one back is not written.
   - Text as C has it: 'const char *'.
+  - The texts a program was started with, 'char **'. The ritual takes
+    the address of the first and hands it on. Giving such back is not
+    written.
   - Enums, as 'Qt::TimerType'.
+  - Flags: the type Qt names for the combinations of a flags enum, as
+    'Qt::WindowFlags', which C++ reads as 'QFlags<Qt::WindowType>'. The
+    ritual takes and gives the number of the combination as an 'int'.
   - Addresses of objects: 'QThread *' and 'const QObject *', for every
     class of the tree.
   - Values: 'QSize', 'const QSize' and 'const QSize &', for every class
@@ -90,12 +100,18 @@ class RitualGenerator:
   ------------------
 
   - 'nothing': the ritual gives nothing back.
-  - 'address': the address of an object, a value class included.
+  - 'address': the address of an object, a value class included; of
+    a number the function may change; or of the first of the texts a
+    program was started with.
   - 'text': the address of a 'QString' that is made from a 'str' for
     the call, or read into a 'str' after it.
   - 'chars': text as C has it, 'const char *'.
   - A number goes by the name C++ has for it, as 'int', 'bool' and
     'long long'. An enum goes by the number type it is kept as.
+  - Flags go as 'int'. Qt keeps the combinations of a flags enum in a
+    number as wide as an 'int', with a sign on one system and without
+    on another, so the ritual hands the 32 bits over as an 'int' on
+    every system.
   - 'size_t': the number type of that name, which is not the same
     type built into C++ on every system.
 
@@ -206,6 +222,20 @@ class RitualGenerator:
   #  text held elsewhere. A ritual takes a 'QString' for each of them.
   __text_name__ = 'QString'
   __view_names__ = ('QAnyStringView', 'QStringView')
+
+  #  How C++ reads the type of the combinations of a flags enum, as
+  #  'QFlags<Qt::WindowType>', with the enum in the brackets. The same
+  #  type taken to be read only, as 'const QFlags<Qt::WindowType> &',
+  #  crosses the same way.
+  __flags_pattern__ = re.compile(
+      r'(?:const )?QFlags<([A-Za-z_]\w*(?:::[A-Za-z_]\w*)*)>(?: &)?')
+
+  #  The number types Qt keeps such combinations in a number as wide as
+  #  an 'int' for: every number type of an enum that is no wider.
+  __flags_enum_types__ = (
+      'bool', 'char', 'signed char', 'unsigned char', 'short',
+      'unsigned short', 'int', 'unsigned int',
+  )
 
   #  What the compiler calls each kind of function of a class.
   __function_kinds__ = dict(
@@ -410,6 +440,14 @@ class RitualGenerator:
       one word for each thing it takes.
       'needs': the value classes the ritual copies.
       'text': the C++ text of the ritual.
+      'name': the name of the Qt function, as 'parent'.
+      'arguments': what the Qt function takes, in order, each saying
+      its 'name', its type as 'written' in the header with every name
+      in full, how it is passed ('passing', as '_findPassing' gives
+      it), and 'default': what the compiler wrote down for the value
+      Qt fills in when the argument is left out, or None.
+      'giving': how what the Qt function gives is passed, with the
+      type as 'written'. It is None for a constructor and a destructor.
 
     Raises
     ------
@@ -527,10 +565,18 @@ class RitualGenerator:
         lines.append(whole)
         continue
       lines.append('    %s: [' % json.dumps(ritualName))
-      lines.extend(textwrap.wrap(
-          words, 77, initial_indent='      ', subsequent_indent='      ',
-          break_long_words=False, break_on_hyphens=False,
-      ))
+      #  The words are put on lines one by one. A word may hold a space,
+      #  as 'unsigned int', and must not be broken there.
+      packed = '     '
+      for position, word in enumerate(row):
+        piece = json.dumps(word)
+        if position < len(row) - 1:
+          piece = '%s,' % piece
+        if len(packed) + 1 + len(piece) > 77 and packed.strip():
+          lines.append(packed)
+          packed = '     '
+        packed = '%s %s' % (packed, piece)
+      lines.append(packed)
       lines.append('    ]%s' % end)
     lines.extend(('  }', '}'))
     return '%s\n' % '\n'.join(lines)
@@ -735,6 +781,42 @@ class RitualGenerator:
       return cppType
     return ''
 
+  @staticmethod
+  def _stripReadOnly(cppType: str) -> str:
+    """Gives 'int' for 'int', 'const int' and 'const int &'."""
+    if cppType.startswith('const '):
+      cppType = cppType[6:]
+      if cppType.endswith(' &'):
+        cppType = cppType[:-2]
+    return cppType
+
+  def _findReadOnlyNumber(self, plain: str) -> str:
+    """
+    Gives the number type built into C++ that a type hands around as a
+    copy: 'int' for 'int', 'const int' and 'const int &'. Gives '' for
+    any other type, as 'int &', which the function may change.
+    """
+    number = self._followAliases(self._stripReadOnly(plain))
+    if number in self.__number_types__:
+      return number
+    return ''
+
+  def _findFlagsEnum(self, plain: str) -> str:
+    """
+    Gives the flags enum whose combinations a type holds:
+    'Qt::WindowType' for 'QFlags<Qt::WindowType>', also when the type
+    is taken to be read only, as 'const QFlags<Qt::WindowType> &'. Gives
+    '' for any other type, and for an enum the dependency tree does not
+    know.
+    """
+    match = self.__flags_pattern__.fullmatch(plain)
+    if match is None:
+      return ''
+    enumName = match.group(1)
+    if enumName in self._getTypeTables()['enums']:
+      return enumName
+    return ''
+
   def _findPassing(self, written: str, plain: str) -> Optional[Record]:
     """
     Says how a type is passed between Python and C++.
@@ -753,20 +835,39 @@ class RitualGenerator:
 
     Optional[Record]
       None for a type that cannot be passed yet. Else a record saying:
-      'kind': 'nothing', 'number', 'chars', 'enum', 'address', 'value',
-      'text' or 'view'.
+      'kind': 'nothing', 'number', 'chars', 'enum', 'flags', 'address',
+      'value', 'text', 'view', 'number address' or 'texts address'.
       'word': its word in the row. It is '' for a number that has no
       word that is right on every system.
-      'className': for 'value', 'text' and 'view', the class.
+      'className': for 'value', 'text' and 'view', the class; for
+      'flags', the type as C++ reads it, as 'QFlags<Qt::WindowType>';
+      for 'number' and 'number address', the number type built into
+      C++, as 'int'.
+      'pointed': for 'number address', whether the header writes the
+      address itself, as 'int *', and not the number, as 'int &'.
     """
     tables = self._getTypeTables()
     plain = self._followAliases(plain)
     if plain == 'void':
       return dict(kind='nothing', word='nothing')
-    if plain in self.__number_types__:
-      return dict(kind='number', word=self._findNumberWord(written, plain))
+    readOnly = self._findReadOnlyNumber(plain)
+    if readOnly:
+      word = self._findNumberWord(self._stripReadOnly(written), readOnly)
+      return dict(kind='number', word=word, className=readOnly)
     if plain == 'const char *':
       return dict(kind='chars', word='chars')
+    if plain == 'char **':
+      return dict(kind='texts address', word='address')
+    if plain[-2:] in (' &', ' *'):
+      changed = self._followAliases(plain[:-2])
+      if changed in self.__number_types__ and changed != 'char':
+        #  The number has to be as wide on every system as its name
+        #  says, or the address would be read wrongly on one of them.
+        word = self._findNumberWord(written[:-2].strip(), changed)
+        return dict(
+            kind='number address', word='address' if word else '',
+            className=changed, pointed=plain.endswith(' *'),
+        )
     if plain in tables['enums']:
       fixedWritten, fixedPlain = tables['enumTypes'].get(plain, ('int',) * 2)
       fixedPlain = self._followAliases(fixedPlain)
@@ -774,6 +875,15 @@ class RitualGenerator:
         return None
       word = self._findNumberWord(fixedWritten, fixedPlain)
       return dict(kind='enum', word=word)
+    flagsEnum = self._findFlagsEnum(plain)
+    if flagsEnum:
+      fixedPlain = tables['enumTypes'].get(flagsEnum, ('int',) * 2)[1]
+      fixedPlain = self._followAliases(fixedPlain)
+      #  Qt keeps the combinations of a wider enum in a wider number,
+      #  which no 'int' holds.
+      word = 'int' if fixedPlain in self.__flags_enum_types__ else ''
+      flagsType = 'QFlags<%s>' % flagsEnum
+      return dict(kind='flags', word=word, className=flagsType)
     if plain.endswith(' *'):
       pointed = plain[:-2]
       if pointed.startswith('const '):
@@ -942,8 +1052,15 @@ class RitualGenerator:
       #  passed is judged by its full name.
       plain = cppType.get('desugaredQualType', cppType['qualType'])
       plain = self._spellOutside(plain)
-      arguments.append((name, cppType['qualType'], plain))
-    shown = ', '.join(self._joinType(t, n) for n, t, _ in arguments)
+      default = None
+      if 'init' in entry:
+        #  What Qt fills in when the argument is left out. The compiler
+        #  keeps it beside whatever else it notes of the argument.
+        for child in entry.get('inner', ()):
+          if isinstance(child, dict) and 'Attr' not in child.get('kind', ''):
+            default = child
+      arguments.append((name, cppType['qualType'], plain, default))
+    shown = ', '.join(self._joinType(t, n) for n, t, _, _ in arguments)
     shown = '%s::%s(%s)' % (className, member['name'], shown)
     if kind in ('method', 'static method'):
       shown = self._joinType(given, shown)
@@ -954,7 +1071,8 @@ class RitualGenerator:
     given = self._spellOutside(given)
     unknown, unsure = [], []  # type: List[str], List[str]
     takes, passed, row, needs = [], [], [], []
-    for name, cppType, plain in arguments:
+    noted = []  # type: List[Record]
+    for name, cppType, plain, default in arguments:
       written = self._spellOutside(cppType)
       passing = self._findPassing(written, plain)
       if passing is None:
@@ -962,6 +1080,10 @@ class RitualGenerator:
         passing = dict(kind='', word='')
       elif not passing['word']:
         unsure.append(written)
+      noted.append(dict(
+          name=name, written=written, plain=self._followAliases(plain),
+          passing=passing, default=default,
+      ))
       if passing['kind'] in ('value', 'text', 'view'):
         valueName = passing['className']
         needs.append(valueName)
@@ -973,11 +1095,24 @@ class RitualGenerator:
         else:
           takes.append((name, 'const %s *' % valueName))
           passed.append('*%s' % name)
+      elif passing['kind'] == 'flags':
+        #  The combination is made from its number for the call.
+        takes.append((name, 'int'))
+        passed.append('%s::fromInt(%s)' % (passing['className'], name))
+      elif passing['kind'] == 'number address':
+        #  Qt is handed the number at the address, which it may change.
+        takes.append((name, '%s *' % written[:-2].strip()))
+        passed.append(name if passing['pointed'] else '*%s' % name)
+      elif passing['kind'] == 'number':
+        #  A number taken to be read only is handed over as a copy.
+        takes.append((name, self._stripReadOnly(written)))
+        passed.append(name)
       else:
         takes.append((name, written))
         passed.append(name)
       row.append(passing['word'])
     opening, closing = '', ');'
+    giving = None  # type: Optional[Record]
     if kind == 'constructor':
       given, gives = '%s *' % className, 'address'
       opening, called = 'return ', 'new %s' % className
@@ -1000,12 +1135,19 @@ class RitualGenerator:
         row.insert(0, 'address')
         called = 'self->%s' % ownName
       giving = self._findPassing(given, self._spellOutside(plainGiven))
+      if giving and giving['kind'] in ('number address', 'texts address'):
+        #  The number itself, to be changed where it is, is not given
+        #  back: its address would outlive nothing it is known by.
+        giving = None
       if giving is None:
         unknown.append(given)
         giving = dict(kind='', word='')
       elif not giving['word']:
         unsure.append(given)
       gives = giving['word']
+      giving = dict(giving, written=given)
+      if giving['kind'] == 'number':
+        given = self._stripReadOnly(given)
       if giving['kind'] in ('value', 'text', 'view'):
         #  The copy is made here, and its address is what goes back.
         valueName = giving['className']
@@ -1018,6 +1160,10 @@ class RitualGenerator:
           closing = '));'
         given = '%s *' % valueName
         opening = 'return new %s(' % valueName
+      elif giving['kind'] == 'flags':
+        #  The number of the combination is what goes back.
+        given = 'int'
+        opening, closing = 'return static_cast<int>(', ').toInt());'
       elif giving['kind'] != 'nothing':
         opening = 'return '
     plan = dict(
@@ -1027,6 +1173,7 @@ class RitualGenerator:
         unknownTypes=(*dict.fromkeys(unknown),),
         unsureNumbers=(*dict.fromkeys(unsure),),
         words=(*words,), variadic='...' in taken,
+        name=member['name'], arguments=(*noted,), giving=giving,
     )
     if kind == 'destructor':
       body = ['  delete self;']
@@ -1056,6 +1203,7 @@ class RitualGenerator:
         takes=(('self', '%s *' % className),),
         row=('nothing', 'address'), needs=(), unknownTypes=(),
         unsureNumbers=(), words=(), variadic=False,
+        name='~%s' % words[-1], arguments=(), giving=None,
     )
     plan['text'] = self._writeRitual(plan, ['  delete self;'])
     return plan

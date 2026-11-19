@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qiodevice.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QIODevice10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QIODevice2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QIODeviceD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QIODevice8openModeEv": ["int", "address"],
+    "ritual_ZN9QIODevice18setTextModeEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QIODevice17isTextModeEnabledEv": ["bool", "address"],
+    "ritual_ZNK9QIODevice6isOpenEv": ["bool", "address"],
+    "ritual_ZNK9QIODevice10isReadableEv": ["bool", "address"],
+    "ritual_ZNK9QIODevice10isWritableEv": ["bool", "address"],
+    "ritual_ZNK9QIODevice12isSequentialEv": ["bool", "address"],
+    "ritual_ZNK9QIODevice16readChannelCountEv": ["int", "address"],
+    "ritual_ZNK9QIODevice17writeChannelCountEv": ["int", "address"],
+    "ritual_ZNK9QIODevice18currentReadChannelEv": ["int", "address"],
+    "ritual_ZN9QIODevice21setCurrentReadChannelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QIODevice19currentWriteChannelEv": ["int", "address"],
+    "ritual_ZN9QIODevice22setCurrentWriteChannelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN9QIODevice5closeEv": ["nothing", "address"],
+    "ritual_ZNK9QIODevice3posEv": ["long long", "address"],
+    "ritual_ZNK9QIODevice4sizeEv": ["long long", "address"],
+    "ritual_ZN9QIODevice4seekEx": ["bool", "address", "long long"],
+    "ritual_ZNK9QIODevice5atEndEv": ["bool", "address"],
+    "ritual_ZN9QIODevice5resetEv": ["bool", "address"],
+    "ritual_ZNK9QIODevice14bytesAvailableEv": ["long long", "address"],
+    "ritual_ZNK9QIODevice12bytesToWriteEv": ["long long", "address"],
+    "ritual_ZN9QIODevice4readEx": ["address", "address", "long long"],
+    "ritual_ZN9QIODevice7readAllEv": ["address", "address"],
+    "ritual_ZN9QIODevice8readLineEx": ["address", "address", "long long"],
+    "ritual_ZN9QIODevice12readLineIntoEP10QByteArrayx": [
+      "bool", "address", "address", "long long"
+    ],
+    "ritual_ZNK9QIODevice11canReadLineEv": ["bool", "address"],
+    "ritual_ZN9QIODevice16startTransactionEv": ["nothing", "address"],
+    "ritual_ZN9QIODevice17commitTransactionEv": ["nothing", "address"],
+    "ritual_ZN9QIODevice19rollbackTransactionEv": ["nothing", "address"],
+    "ritual_ZNK9QIODevice20isTransactionStartedEv": ["bool", "address"],
+    "ritual_ZN9QIODevice5writeEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN9QIODevice5writeEPKc": ["long long", "address", "chars"],
+    "ritual_ZN9QIODevice5writeERK10QByteArray": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN9QIODevice4peekEx": ["address", "address", "long long"],
+    "ritual_ZN9QIODevice4skipEx": ["long long", "address", "long long"],
+    "ritual_ZN9QIODevice16waitForReadyReadEi": ["bool", "address", "int"],
+    "ritual_ZN9QIODevice19waitForBytesWrittenEi": ["bool", "address", "int"],
+    "ritual_ZN9QIODevice9ungetCharEc": ["nothing", "address", "char"],
+    "ritual_ZN9QIODevice7putCharEc": ["bool", "address", "char"],
+    "ritual_ZNK9QIODevice11errorStringEv": ["text", "address"]
+  }
+}

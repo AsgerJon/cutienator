@@ -110,6 +110,15 @@
     "ritual_ZNK7QString5countERK18QRegularExpression": [
       "long long", "address", "address"
     ],
+    "ritual_ZNK7QString7sectionE5QCharxx6QFlagsINS_11SectionFlagEE": [
+      "text", "address", "address", "long long", "long long", "int"
+    ],
+    "ritual_ZNK7QString7sectionERKS_xx6QFlagsINS_11SectionFlagEE": [
+      "text", "address", "text", "long long", "long long", "int"
+    ],
+    "ritual_ZNK7QString7sectionERK18QRegularExpressionxx6QFlagsINS_11SectionFlagEE": [
+      "text", "address", "address", "long long", "long long", "int"
+    ],
     "ritual_ZNKR7QString4leftEx": ["text", "address", "long long"],
     "ritual_ZNKR7QString5rightEx": ["text", "address", "long long"],
     "ritual_ZNKR7QString3midExx": [
@@ -214,6 +223,26 @@
     "ritual_ZN7QString18localeAwareCompareE11QStringViewS0_": [
       "int", "text", "text"
     ],
+    "ritual_ZNK7QString7toShortEPbi": ["short", "address", "address", "int"],
+    "ritual_ZNK7QString8toUShortEPbi": [
+      "unsigned short", "address", "address", "int"
+    ],
+    "ritual_ZNK7QString5toIntEPbi": ["int", "address", "address", "int"],
+    "ritual_ZNK7QString6toUIntEPbi": [
+      "unsigned int", "address", "address", "int"
+    ],
+    "ritual_ZNK7QString6toLongEPbi": ["long", "address", "address", "int"],
+    "ritual_ZNK7QString7toULongEPbi": [
+      "unsigned long", "address", "address", "int"
+    ],
+    "ritual_ZNK7QString10toLongLongEPbi": [
+      "long long", "address", "address", "int"
+    ],
+    "ritual_ZNK7QString11toULongLongEPbi": [
+      "unsigned long long", "address", "address", "int"
+    ],
+    "ritual_ZNK7QString7toFloatEPb": ["float", "address", "address"],
+    "ritual_ZNK7QString8toDoubleEPb": ["double", "address", "address"],
     "ritual_ZN7QString6numberEii": ["text", "int", "int"],
     "ritual_ZN7QString6numberEji": ["text", "unsigned int", "int"],
     "ritual_ZN7QString6numberEli": ["text", "long", "int"],

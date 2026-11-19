@@ -1,0 +1,172 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpainterpath.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QPainterPathC1Ev": ["address"],
+    "ritual_ZN12QPainterPathC1ERK7QPointF": ["address", "address"],
+    "ritual_ZN12QPainterPathC1ERKS_": ["address", "address"],
+    "ritual_ZN12QPainterPathD1Ev": ["nothing", "address"],
+    "ritual_ZN12QPainterPath5clearEv": ["nothing", "address"],
+    "ritual_ZN12QPainterPath7reserveEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QPainterPath8capacityEv": ["int", "address"],
+    "ritual_ZN12QPainterPath12closeSubpathEv": ["nothing", "address"],
+    "ritual_ZN12QPainterPath6moveToERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPainterPath6moveToEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN12QPainterPath6lineToERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPainterPath6lineToEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN12QPainterPath9arcMoveToERK6QRectFd": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN12QPainterPath9arcMoveToEddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double"
+    ],
+    "ritual_ZN12QPainterPath5arcToERK6QRectFdd": [
+      "nothing", "address", "address", "double", "double"
+    ],
+    "ritual_ZN12QPainterPath5arcToEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN12QPainterPath7cubicToERK7QPointFS2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QPainterPath7cubicToEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN12QPainterPath6quadToERK7QPointFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QPainterPath6quadToEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK12QPainterPath15currentPositionEv": ["address", "address"],
+    "ritual_ZN12QPainterPath7addRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPainterPath7addRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN12QPainterPath10addEllipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPainterPath10addEllipseEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN12QPainterPath10addEllipseERK7QPointFdd": [
+      "nothing", "address", "address", "double", "double"
+    ],
+    "ritual_ZN12QPainterPath10addPolygonERK9QPolygonF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPainterPath7addTextERK7QPointFRK5QFontRK7QString": [
+      "nothing", "address", "address", "address", "text"
+    ],
+    "ritual_ZN12QPainterPath7addTextEddRK5QFontRK7QString": [
+      "nothing", "address", "double", "double", "address", "text"
+    ],
+    "ritual_ZN12QPainterPath7addPathERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPainterPath9addRegionERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPainterPath14addRoundedRectERK6QRectFddN2Qt8SizeModeE": [
+      "nothing", "address", "address", "double", "double", "int"
+    ],
+    "ritual_ZN12QPainterPath14addRoundedRectEddddddN2Qt8SizeModeE": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double", "int"
+    ],
+    "ritual_ZN12QPainterPath11connectPathERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QPainterPath8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QPainterPath8containsERK6QRectF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QPainterPath10intersectsERK6QRectF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QPainterPath9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN12QPainterPath9translateERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QPainterPath10translatedEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK12QPainterPath10translatedERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QPainterPath12boundingRectEv": ["address", "address"],
+    "ritual_ZNK12QPainterPath16controlPointRectEv": ["address", "address"],
+    "ritual_ZNK12QPainterPath8fillRuleEv": ["int", "address"],
+    "ritual_ZN12QPainterPath11setFillRuleEN2Qt8FillRuleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QPainterPath7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK12QPainterPath10toReversedEv": ["address", "address"],
+    "ritual_ZNK12QPainterPath13toFillPolygonERK10QTransform": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QPainterPath12elementCountEv": ["int", "address"],
+    "ritual_ZNK12QPainterPath9elementAtEi": ["address", "address", "int"],
+    "ritual_ZN12QPainterPath20setElementPositionAtEidd": [
+      "nothing", "address", "int", "double", "double"
+    ],
+    "ritual_ZNK12QPainterPath16isCachingEnabledEv": ["bool", "address"],
+    "ritual_ZN12QPainterPath17setCachingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QPainterPath6lengthEv": ["double", "address"],
+    "ritual_ZNK12QPainterPath15percentAtLengthEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK12QPainterPath14pointAtPercentEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK12QPainterPath14angleAtPercentEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK12QPainterPath14slopeAtPercentEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK12QPainterPath7trimmedEddd": [
+      "address", "address", "double", "double", "double"
+    ],
+    "ritual_ZNK12QPainterPath10intersectsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QPainterPath8containsERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QPainterPath6unitedERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QPainterPath11intersectedERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QPainterPath10subtractedERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QPainterPath10simplifiedEv": ["address", "address"],
+    "ritual_ZNK12QPainterPatheqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QPainterPathneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QPainterPathanERKS_": ["address", "address", "address"],
+    "ritual_ZNK12QPainterPathorERKS_": ["address", "address", "address"],
+    "ritual_ZNK12QPainterPathplERKS_": ["address", "address", "address"],
+    "ritual_ZNK12QPainterPathmiERKS_": ["address", "address", "address"]
+  }
+}

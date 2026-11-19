@@ -1,0 +1,113 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qfiledialog.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QFileDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QFileDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QFileDialogC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QFileDialogC1EP7QWidgetRK7QStringS4_S4_": [
+      "address", "address", "text", "text", "text"
+    ],
+    "ritual_ZN11QFileDialogD1Ev": ["nothing", "address"],
+    "ritual_ZN11QFileDialog12setDirectoryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QFileDialog12setDirectoryERK4QDir": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QFileDialog9directoryEv": ["address", "address"],
+    "ritual_ZN11QFileDialog15setDirectoryUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QFileDialog12directoryUrlEv": ["address", "address"],
+    "ritual_ZN11QFileDialog10selectFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QFileDialog9selectUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QFileDialog13setNameFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QFileDialog16selectNameFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QFileDialog22selectedMimeTypeFilterEv": ["text", "address"],
+    "ritual_ZNK11QFileDialog18selectedNameFilterEv": ["text", "address"],
+    "ritual_ZN11QFileDialog20selectMimeTypeFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QFileDialog6filterEv": ["int", "address"],
+    "ritual_ZN11QFileDialog9setFilterE6QFlagsIN4QDir6FilterEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QFileDialog11setViewModeENS_8ViewModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QFileDialog8viewModeEv": ["int", "address"],
+    "ritual_ZN11QFileDialog11setFileModeENS_8FileModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QFileDialog8fileModeEv": ["int", "address"],
+    "ritual_ZN11QFileDialog13setAcceptModeENS_10AcceptModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QFileDialog10acceptModeEv": ["int", "address"],
+    "ritual_ZNK11QFileDialog9saveStateEv": ["address", "address"],
+    "ritual_ZN11QFileDialog12restoreStateERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QFileDialog16setDefaultSuffixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QFileDialog13defaultSuffixEv": ["text", "address"],
+    "ritual_ZN11QFileDialog15setItemDelegateEP21QAbstractItemDelegate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QFileDialog12itemDelegateEv": ["address", "address"],
+    "ritual_ZN11QFileDialog15setIconProviderEP25QAbstractFileIconProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QFileDialog12iconProviderEv": ["address", "address"],
+    "ritual_ZN11QFileDialog12setLabelTextENS_11DialogLabelERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK11QFileDialog9labelTextENS_11DialogLabelE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN11QFileDialog13setProxyModelEP19QAbstractProxyModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QFileDialog10proxyModelEv": ["address", "address"],
+    "ritual_ZN11QFileDialog9setOptionENS_6OptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK11QFileDialog10testOptionENS_6OptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN11QFileDialog10setOptionsE6QFlagsINS_6OptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QFileDialog7optionsEv": ["int", "address"],
+    "ritual_ZN11QFileDialog4openEP7QObjectPKc": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZN11QFileDialog10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN11QFileDialog15getOpenFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsINS_6OptionEE": [
+      "text", "address", "text", "text", "text", "address", "int"
+    ],
+    "ritual_ZN11QFileDialog15getSaveFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsINS_6OptionEE": [
+      "text", "address", "text", "text", "text", "address", "int"
+    ],
+    "ritual_ZN11QFileDialog20getExistingDirectoryEP7QWidgetRK7QStringS4_6QFlagsINS_6OptionEE": [
+      "text", "address", "text", "text", "int"
+    ],
+    "ritual_ZN11QFileDialog15saveFileContentERK10QByteArrayRK7QStringP7QWidget": [
+      "nothing", "address", "text", "address"
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qlabel.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK6QLabel10metaObjectEv": ["address", "address"],
+    "ritual_ZN6QLabel2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN6QLabelC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN6QLabelC1ERK7QStringP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "text", "address", "int"
+    ],
+    "ritual_ZN6QLabelD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QLabel4textEv": ["text", "address"],
+    "ritual_ZNK6QLabel6pixmapEN2Qt21ReturnByValueConstantE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK6QLabel6pixmapEv": ["address", "address"],
+    "ritual_ZNK6QLabel7pictureEN2Qt21ReturnByValueConstantE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK6QLabel7pictureEv": ["address", "address"],
+    "ritual_ZNK6QLabel5movieEv": ["address", "address"],
+    "ritual_ZNK6QLabel10textFormatEv": ["int", "address"],
+    "ritual_ZN6QLabel13setTextFormatEN2Qt10TextFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QLabel9alignmentEv": ["int", "address"],
+    "ritual_ZN6QLabel12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN6QLabel11setWordWrapEb": ["nothing", "address", "bool"],
+    "ritual_ZNK6QLabel8wordWrapEv": ["bool", "address"],
+    "ritual_ZNK6QLabel6indentEv": ["int", "address"],
+    "ritual_ZN6QLabel9setIndentEi": ["nothing", "address", "int"],
+    "ritual_ZNK6QLabel6marginEv": ["int", "address"],
+    "ritual_ZN6QLabel9setMarginEi": ["nothing", "address", "int"],
+    "ritual_ZNK6QLabel17hasScaledContentsEv": ["bool", "address"],
+    "ritual_ZN6QLabel17setScaledContentsEb": ["nothing", "address", "bool"],
+    "ritual_ZNK6QLabel8sizeHintEv": ["address", "address"],
+    "ritual_ZNK6QLabel15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZN6QLabel8setBuddyEP7QWidget": ["nothing", "address", "address"],
+    "ritual_ZNK6QLabel5buddyEv": ["address", "address"],
+    "ritual_ZNK6QLabel14heightForWidthEi": ["int", "address", "int"],
+    "ritual_ZNK6QLabel17openExternalLinksEv": ["bool", "address"],
+    "ritual_ZN6QLabel20setOpenExternalLinksEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN6QLabel23setTextInteractionFlagsE6QFlagsIN2Qt19TextInteractionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QLabel20textInteractionFlagsEv": ["int", "address"],
+    "ritual_ZN6QLabel12setSelectionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK6QLabel15hasSelectedTextEv": ["bool", "address"],
+    "ritual_ZNK6QLabel12selectedTextEv": ["text", "address"],
+    "ritual_ZNK6QLabel14selectionStartEv": ["int", "address"],
+    "ritual_ZN6QLabel7setTextERK7QString": ["nothing", "address", "text"],
+    "ritual_ZN6QLabel9setPixmapERK7QPixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QLabel10setPictureERK8QPicture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QLabel8setMovieEP6QMovie": ["nothing", "address", "address"],
+    "ritual_ZN6QLabel6setNumEi": ["nothing", "address", "int"],
+    "ritual_ZN6QLabel6setNumEd": ["nothing", "address", "double"],
+    "ritual_ZN6QLabel5clearEv": ["nothing", "address"]
+  }
+}

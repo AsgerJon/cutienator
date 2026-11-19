@@ -10,10 +10,10 @@ from typing import TYPE_CHECKING
 from worktoy.desc import Field
 from worktoy.mcls import BaseObject
 
-from ..occult import Ugly
+from ..occult import Rituals, Ugly
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional, Any
+  from typing import Optional, Any, Callable, Tuple
 
 
 class CuteMixin(BaseObject):
@@ -68,6 +68,16 @@ class CuteMixin(BaseObject):
       return None
     return text.encode()
 
+  @staticmethod
+  def _startTextsOf(texts: list) -> Tuple[int, int]:
+    """
+    Gives what a ritual takes in the place of the texts a program was
+    started with, as 'sys.argv': where their count is kept, and where
+    the first of them is. Qt reads both for as long as its application
+    lives, so 'Rituals' keeps them for as long as Python runs.
+    """
+    return Rituals.keepStartTexts(texts)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -87,6 +97,9 @@ class CuteMixin(BaseObject):
 
   #  Private Variables
   __ugly_side__: Optional[object] = None
+  #  What makes the C++ object, noted by the '__init__' that was called
+  #  and kept until the first use. None when nothing was noted.
+  __creation_call__: Optional[Callable] = None
 
   #  Public Variables
   uglySide: Field[object] = Field()
@@ -97,8 +110,77 @@ class CuteMixin(BaseObject):
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def _noteCreation(self, cuteClass: type, creationCall: Callable) -> None:
+    """
+    Notes what makes the C++ object, until the first use. Every
+    '__init__' that a program wrote for a constructor of Qt ends with
+    this.
+
+    A cute class has the '__init__' functions of the class it is built
+    on as well, and those make the C++ object of that class. A
+    'QThread' made as a 'QObject' is made would stand in front of a C++
+    object that is no QThread, so such a call is refused here.
+
+    Parameters
+    ----------
+
+    cuteClass : type
+      The cute class whose constructor of Qt was chosen.
+
+    creationCall : Callable
+      Called with nothing at the first use. It gives the address of the
+      new C++ object.
+
+    Raises
+    ------
+
+    TypeError
+      The object is of a cute class standing for another class of Qt
+      than 'cuteClass'.
+    """
+    for cls in type(self).__mro__:
+      if '__qt_class__' in cls.__dict__:
+        break
+    else:
+      cls = cuteClass
+    if cls is not cuteClass:
+      infoSpec = """A '%s' cannot be made with what a '%s' is made
+      with: Qt's %s has no such constructor that Python can call."""
+      info = infoSpec % (cls.__name__, cuteClass.__name__, cls.__name__)
+      raise TypeError(' '.join(info.split()))
+    self.__creation_call__ = creationCall
+
   def _createUglySide(self, ) -> None:
-    raise NotImplementedError
+    """
+    Creates the C++ object and the Ugly standing for it, by what the
+    '__init__' that was called noted.
+
+    'uglySide' calls this at its first read. In a value class the Ugly
+    removes the C++ object when it goes itself. In a class that is a
+    QObject, Qt watches the C++ object from here on.
+
+    Raises
+    ------
+
+    TypeError
+      Nothing was noted: the class has no constructor of Qt that Python
+      can call.
+    """
+    creationCall = self.__creation_call__
+    if creationCall is None:
+      infoSpec = """A '%s' cannot be made from Python: no ritual makes
+      one. One is given by a function of another class."""
+      info = infoSpec % type(self).__name__
+      raise TypeError(' '.join(info.split()))
+    ugly = Ugly()
+    ugly.setAddress(creationCall())
+    if self.__delete_ritual__ is not None:
+      ugly.setDeleteRitual(self.__delete_ritual__)
+    if self.__watched_by_qt__:
+      ugly.watch()
+    ugly.setCuteSide(self)
+    self.__ugly_side__ = ugly
+    self.__creation_call__ = None
 
   @uglySide.GET
   def _getUglySide(self, **kwargs) -> object:

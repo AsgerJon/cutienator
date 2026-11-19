@@ -1,0 +1,340 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtGui/qquaternion.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qquaternion.h>
+#include <QtGui/qvectornd.h>
+#include <QtCore/qvariant.h>
+
+//  QQuaternion::QQuaternion()
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternionC1Ev() {
+  return new QQuaternion();
+}
+
+//  QQuaternion::QQuaternion(Qt::Initialization a0)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternionC1EN2Qt14InitializationE(
+    Qt::Initialization a0) {
+  return new QQuaternion(a0);
+}
+
+//  QQuaternion::QQuaternion(float scalar, float xpos, float ypos, float
+//      zpos)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternionC1Effff(
+    float scalar,
+    float xpos,
+    float ypos,
+    float zpos) {
+  return new QQuaternion(scalar, xpos, ypos, zpos);
+}
+
+//  QQuaternion::QQuaternion(float scalar, const QVector3D &vector)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternionC1EfRK9QVector3D(
+    float scalar,
+    const QVector3D *vector) {
+  return new QQuaternion(scalar, *vector);
+}
+
+//  QQuaternion::QQuaternion(const QVector4D &vector)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternionC1ERK9QVector4D(const QVector4D *vector) {
+  return new QQuaternion(*vector);
+}
+
+//  bool QQuaternion::isNull() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QQuaternion6isNullEv(const QQuaternion *self) {
+  return self->isNull();
+}
+
+//  bool QQuaternion::isIdentity() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QQuaternion10isIdentityEv(const QQuaternion *self) {
+  return self->isIdentity();
+}
+
+//  QVector3D QQuaternion::vector() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK11QQuaternion6vectorEv(const QQuaternion *self) {
+  return new QVector3D(self->vector());
+}
+
+//  void QQuaternion::setVector(const QVector3D &vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaternion9setVectorERK9QVector3D(
+    QQuaternion *self,
+    const QVector3D *vector) {
+  self->setVector(*vector);
+}
+
+//  void QQuaternion::setVector(float x, float y, float z)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaternion9setVectorEfff(
+    QQuaternion *self,
+    float x,
+    float y,
+    float z) {
+  self->setVector(x, y, z);
+}
+
+//  float QQuaternion::x() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK11QQuaternion1xEv(const QQuaternion *self) {
+  return self->x();
+}
+
+//  float QQuaternion::y() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK11QQuaternion1yEv(const QQuaternion *self) {
+  return self->y();
+}
+
+//  float QQuaternion::z() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK11QQuaternion1zEv(const QQuaternion *self) {
+  return self->z();
+}
+
+//  float QQuaternion::scalar() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK11QQuaternion6scalarEv(const QQuaternion *self) {
+  return self->scalar();
+}
+
+//  void QQuaternion::setX(float x)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaternion4setXEf(QQuaternion *self, float x) {
+  self->setX(x);
+}
+
+//  void QQuaternion::setY(float y)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaternion4setYEf(QQuaternion *self, float y) {
+  self->setY(y);
+}
+
+//  void QQuaternion::setZ(float z)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaternion4setZEf(QQuaternion *self, float z) {
+  self->setZ(z);
+}
+
+//  void QQuaternion::setScalar(float scalar)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaternion9setScalarEf(QQuaternion *self, float scalar) {
+  self->setScalar(scalar);
+}
+
+//  float QQuaternion::dotProduct(const QQuaternion &q1, const QQuaternion
+//      &q2)
+extern "C" Q_DECL_EXPORT
+float ritual_ZN11QQuaternion10dotProductERKS_S1_(
+    const QQuaternion *q1,
+    const QQuaternion *q2) {
+  return QQuaternion::dotProduct(*q1, *q2);
+}
+
+//  float QQuaternion::length() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK11QQuaternion6lengthEv(const QQuaternion *self) {
+  return self->length();
+}
+
+//  float QQuaternion::lengthSquared() const
+extern "C" Q_DECL_EXPORT
+float ritual_ZNK11QQuaternion13lengthSquaredEv(const QQuaternion *self) {
+  return self->lengthSquared();
+}
+
+//  QQuaternion QQuaternion::normalized() const
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZNK11QQuaternion10normalizedEv(const QQuaternion *self) {
+  return new QQuaternion(self->normalized());
+}
+
+//  void QQuaternion::normalize()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaternion9normalizeEv(QQuaternion *self) {
+  self->normalize();
+}
+
+//  QQuaternion QQuaternion::inverted() const
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZNK11QQuaternion8invertedEv(const QQuaternion *self) {
+  return new QQuaternion(self->inverted());
+}
+
+//  QQuaternion QQuaternion::conjugated() const
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZNK11QQuaternion10conjugatedEv(const QQuaternion *self) {
+  return new QQuaternion(self->conjugated());
+}
+
+//  QVector3D QQuaternion::rotatedVector(const QVector3D &vector) const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK11QQuaternion13rotatedVectorERK9QVector3D(
+    const QQuaternion *self,
+    const QVector3D *vector) {
+  return new QVector3D(self->rotatedVector(*vector));
+}
+
+//  QVector4D QQuaternion::toVector4D() const
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_ZNK11QQuaternion10toVector4DEv(const QQuaternion *self) {
+  return new QVector4D(self->toVector4D());
+}
+
+//  QVariant QQuaternion::operator QVariant() const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK11QQuaternioncv8QVariantEv(const QQuaternion *self) {
+  return new QVariant(self->operator QVariant());
+}
+
+//  void QQuaternion::getAxisAndAngle(QVector3D *axis, float *angle) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QQuaternion15getAxisAndAngleEP9QVector3DPf(
+    const QQuaternion *self,
+    QVector3D *axis,
+    float *angle) {
+  self->getAxisAndAngle(axis, angle);
+}
+
+//  QQuaternion QQuaternion::fromAxisAndAngle(const QVector3D &axis, float
+//      angle)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternion16fromAxisAndAngleERK9QVector3Df(
+    const QVector3D *axis,
+    float angle) {
+  return new QQuaternion(QQuaternion::fromAxisAndAngle(*axis, angle));
+}
+
+//  void QQuaternion::getAxisAndAngle(float *x, float *y, float *z, float
+//      *angle) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QQuaternion15getAxisAndAngleEPfS0_S0_S0_(
+    const QQuaternion *self,
+    float *x,
+    float *y,
+    float *z,
+    float *angle) {
+  self->getAxisAndAngle(x, y, z, angle);
+}
+
+//  QQuaternion QQuaternion::fromAxisAndAngle(float x, float y, float z,
+//      float angle)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternion16fromAxisAndAngleEffff(
+    float x,
+    float y,
+    float z,
+    float angle) {
+  return new QQuaternion(QQuaternion::fromAxisAndAngle(x, y, z, angle));
+}
+
+//  QVector3D QQuaternion::toEulerAngles() const
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZNK11QQuaternion13toEulerAnglesEv(
+    const QQuaternion *self) {
+  return new QVector3D(self->toEulerAngles());
+}
+
+//  void QQuaternion::getEulerAngles(float *pitch, float *yaw, float *roll)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QQuaternion14getEulerAnglesEPfS0_S0_(
+    const QQuaternion *self,
+    float *pitch,
+    float *yaw,
+    float *roll) {
+  self->getEulerAngles(pitch, yaw, roll);
+}
+
+//  QQuaternion QQuaternion::fromEulerAngles(float pitch, float yaw, float
+//      roll)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternion15fromEulerAnglesEfff(
+    float pitch,
+    float yaw,
+    float roll) {
+  return new QQuaternion(QQuaternion::fromEulerAngles(pitch, yaw, roll));
+}
+
+//  Axes QQuaternion::toAxes() const
+extern "C" Q_DECL_EXPORT
+QQuaternion::Axes *ritual_ZNK11QQuaternion6toAxesEv(
+    const QQuaternion *self) {
+  return new QQuaternion::Axes(self->toAxes());
+}
+
+//  QQuaternion QQuaternion::fromAxes(Axes axes)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternion8fromAxesENS_4AxesE(
+    const QQuaternion::Axes *axes) {
+  return new QQuaternion(QQuaternion::fromAxes(*axes));
+}
+
+//  void QQuaternion::getAxes(QVector3D *xAxis, QVector3D *yAxis, QVector3D
+//      *zAxis) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QQuaternion7getAxesEP9QVector3DS1_S1_(
+    const QQuaternion *self,
+    QVector3D *xAxis,
+    QVector3D *yAxis,
+    QVector3D *zAxis) {
+  self->getAxes(xAxis, yAxis, zAxis);
+}
+
+//  QQuaternion QQuaternion::fromAxes(const QVector3D &xAxis, const QVector3D
+//      &yAxis, const QVector3D &zAxis)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternion8fromAxesERK9QVector3DS2_S2_(
+    const QVector3D *xAxis,
+    const QVector3D *yAxis,
+    const QVector3D *zAxis) {
+  return new QQuaternion(QQuaternion::fromAxes(*xAxis, *yAxis, *zAxis));
+}
+
+//  QQuaternion QQuaternion::fromDirection(const QVector3D &direction, const
+//      QVector3D &up)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternion13fromDirectionERK9QVector3DS2_(
+    const QVector3D *direction,
+    const QVector3D *up) {
+  return new QQuaternion(QQuaternion::fromDirection(*direction, *up));
+}
+
+//  QQuaternion QQuaternion::rotationTo(const QVector3D &from, const
+//      QVector3D &to)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternion10rotationToERK9QVector3DS2_(
+    const QVector3D *from,
+    const QVector3D *to) {
+  return new QQuaternion(QQuaternion::rotationTo(*from, *to));
+}
+
+//  QQuaternion QQuaternion::slerp(const QQuaternion &q1, const QQuaternion
+//      &q2, float t)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternion5slerpERKS_S1_f(
+    const QQuaternion *q1,
+    const QQuaternion *q2,
+    float t) {
+  return new QQuaternion(QQuaternion::slerp(*q1, *q2, t));
+}
+
+//  QQuaternion QQuaternion::nlerp(const QQuaternion &q1, const QQuaternion
+//      &q2, float t)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZN11QQuaternion5nlerpERKS_S1_f(
+    const QQuaternion *q1,
+    const QQuaternion *q2,
+    float t) {
+  return new QQuaternion(QQuaternion::nlerp(*q1, *q2, t));
+}
+
+//  QQuaternion::~QQuaternion()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaternionD1Ev(QQuaternion *self) {
+  delete self;
+}

@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qabstractbutton.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QAbstractButton10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstractButton2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QAbstractButtonD1Ev": ["nothing", "address"],
+    "ritual_ZN15QAbstractButton7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QAbstractButton4textEv": ["text", "address"],
+    "ritual_ZN15QAbstractButton7setIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QAbstractButton4iconEv": ["address", "address"],
+    "ritual_ZNK15QAbstractButton8iconSizeEv": ["address", "address"],
+    "ritual_ZN15QAbstractButton11setShortcutERK12QKeySequence": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QAbstractButton8shortcutEv": ["address", "address"],
+    "ritual_ZN15QAbstractButton12setCheckableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractButton11isCheckableEv": ["bool", "address"],
+    "ritual_ZNK15QAbstractButton9isCheckedEv": ["bool", "address"],
+    "ritual_ZN15QAbstractButton7setDownEb": ["nothing", "address", "bool"],
+    "ritual_ZNK15QAbstractButton6isDownEv": ["bool", "address"],
+    "ritual_ZN15QAbstractButton13setAutoRepeatEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractButton10autoRepeatEv": ["bool", "address"],
+    "ritual_ZN15QAbstractButton18setAutoRepeatDelayEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QAbstractButton15autoRepeatDelayEv": ["int", "address"],
+    "ritual_ZN15QAbstractButton21setAutoRepeatIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QAbstractButton18autoRepeatIntervalEv": ["int", "address"],
+    "ritual_ZN15QAbstractButton16setAutoExclusiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractButton13autoExclusiveEv": ["bool", "address"],
+    "ritual_ZNK15QAbstractButton5groupEv": ["address", "address"],
+    "ritual_ZN15QAbstractButton11setIconSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QAbstractButton12animateClickEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractButton5clickEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractButton6toggleEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractButton10setCheckedEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

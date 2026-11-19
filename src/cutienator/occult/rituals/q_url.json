@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qurl.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN4QUrlC1Ev": ["address"],
+    "ritual_ZN4QUrlC1ERKS_": ["address", "address"],
+    "ritual_ZN4QUrlC1ERK7QStringNS_11ParsingModeE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN4QUrlD1Ev": ["nothing", "address"],
+    "ritual_ZN4QUrl6setUrlERK7QStringNS_11ParsingModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN4QUrl11fromEncodedE14QByteArrayViewNS_11ParsingModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN4QUrl13fromUserInputERK7QStringS2_6QFlagsINS_25UserInputResolutionOptionEE": [
+      "address", "text", "text", "int"
+    ],
+    "ritual_ZNK4QUrl7isValidEv": ["bool", "address"],
+    "ritual_ZNK4QUrl11errorStringEv": ["text", "address"],
+    "ritual_ZNK4QUrl7isEmptyEv": ["bool", "address"],
+    "ritual_ZN4QUrl5clearEv": ["nothing", "address"],
+    "ritual_ZN4QUrl9setSchemeERK7QString": ["nothing", "address", "text"],
+    "ritual_ZNK4QUrl6schemeEv": ["text", "address"],
+    "ritual_ZN4QUrl12setAuthorityERK7QStringNS_11ParsingModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK4QUrl9authorityE6QFlagsINS_25ComponentFormattingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN4QUrl11setUserInfoERK7QStringNS_11ParsingModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK4QUrl8userInfoE6QFlagsINS_25ComponentFormattingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN4QUrl11setUserNameERK7QStringNS_11ParsingModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK4QUrl8userNameE6QFlagsINS_25ComponentFormattingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN4QUrl11setPasswordERK7QStringNS_11ParsingModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK4QUrl8passwordE6QFlagsINS_25ComponentFormattingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN4QUrl7setHostERK7QStringNS_11ParsingModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK4QUrl4hostE6QFlagsINS_25ComponentFormattingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN4QUrl7setPortEi": ["nothing", "address", "int"],
+    "ritual_ZNK4QUrl4portEi": ["int", "address", "int"],
+    "ritual_ZN4QUrl7setPathERK7QStringNS_11ParsingModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK4QUrl4pathE6QFlagsINS_25ComponentFormattingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK4QUrl8fileNameE6QFlagsINS_25ComponentFormattingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK4QUrl8hasQueryEv": ["bool", "address"],
+    "ritual_ZN4QUrl8setQueryERK7QStringNS_11ParsingModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN4QUrl8setQueryERK9QUrlQuery": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK4QUrl5queryE6QFlagsINS_25ComponentFormattingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK4QUrl11hasFragmentEv": ["bool", "address"],
+    "ritual_ZNK4QUrl8fragmentE6QFlagsINS_25ComponentFormattingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN4QUrl11setFragmentERK7QStringNS_11ParsingModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK4QUrl8resolvedERKS_": ["address", "address", "address"],
+    "ritual_ZNK4QUrl10isRelativeEv": ["bool", "address"],
+    "ritual_ZNK4QUrl10isParentOfERKS_": ["bool", "address", "address"],
+    "ritual_ZNK4QUrl11isLocalFileEv": ["bool", "address"],
+    "ritual_ZN4QUrl13fromLocalFileERK7QString": ["address", "text"],
+    "ritual_ZNK4QUrl11toLocalFileEv": ["text", "address"],
+    "ritual_ZN4QUrl6detachEv": ["nothing", "address"],
+    "ritual_ZNK4QUrl10isDetachedEv": ["bool", "address"],
+    "ritual_ZN4QUrl19fromPercentEncodingERK10QByteArray": [
+      "text", "address"
+    ],
+    "ritual_ZN4QUrl17toPercentEncodingERK7QStringRK10QByteArrayS5_": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN4QUrl7fromAceERK10QByteArray6QFlagsINS_19AceProcessingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN4QUrl5toAceERK7QString6QFlagsINS_19AceProcessingOptionEE": [
+      "address", "text", "int"
+    ]
+  }
+}

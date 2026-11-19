@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpixmap.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7QPixmapC1Ev": ["address"],
+    "ritual_ZN7QPixmapC1Eii": ["address", "int", "int"],
+    "ritual_ZN7QPixmapC1ERK5QSize": ["address", "address"],
+    "ritual_ZN7QPixmapC1ERK7QStringPKc6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "text", "chars", "int"
+    ],
+    "ritual_ZN7QPixmapC1ERKS_": ["address", "address"],
+    "ritual_ZN7QPixmapD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QPixmapcv8QVariantEv": ["address", "address"],
+    "ritual_ZNK7QPixmap6isNullEv": ["bool", "address"],
+    "ritual_ZNK7QPixmap7devTypeEv": ["int", "address"],
+    "ritual_ZNK7QPixmap5widthEv": ["int", "address"],
+    "ritual_ZNK7QPixmap6heightEv": ["int", "address"],
+    "ritual_ZNK7QPixmap4sizeEv": ["address", "address"],
+    "ritual_ZNK7QPixmap4rectEv": ["address", "address"],
+    "ritual_ZNK7QPixmap5depthEv": ["int", "address"],
+    "ritual_ZN7QPixmap12defaultDepthEv": ["int"],
+    "ritual_ZN7QPixmap4fillERK6QColor": ["nothing", "address", "address"],
+    "ritual_ZNK7QPixmap4maskEv": ["address", "address"],
+    "ritual_ZN7QPixmap7setMaskERK7QBitmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QPixmap16devicePixelRatioEv": ["double", "address"],
+    "ritual_ZN7QPixmap19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK7QPixmap21deviceIndependentSizeEv": ["address", "address"],
+    "ritual_ZNK7QPixmap8hasAlphaEv": ["bool", "address"],
+    "ritual_ZNK7QPixmap15hasAlphaChannelEv": ["bool", "address"],
+    "ritual_ZNK7QPixmap19createHeuristicMaskEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZNK7QPixmap19createMaskFromColorERK6QColorN2Qt8MaskModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK7QPixmap6scaledEiiN2Qt15AspectRatioModeENS0_18TransformationModeE": [
+      "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK7QPixmap6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK7QPixmap13scaledToWidthEiN2Qt18TransformationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK7QPixmap14scaledToHeightEiN2Qt18TransformationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK7QPixmap11transformedERK10QTransformN2Qt18TransformationModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN7QPixmap10trueMatrixERK10QTransformii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK7QPixmap7toImageEv": ["address", "address"],
+    "ritual_ZN7QPixmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN7QPixmap15fromImageReaderEP12QImageReader6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN7QPixmap4loadERK7QStringPKc6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "bool", "address", "text", "chars", "int"
+    ],
+    "ritual_ZN7QPixmap12loadFromDataERK10QByteArrayPKc6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "bool", "address", "address", "chars", "int"
+    ],
+    "ritual_ZNK7QPixmap4saveERK7QStringPKci": [
+      "bool", "address", "text", "chars", "int"
+    ],
+    "ritual_ZNK7QPixmap4saveEP9QIODevicePKci": [
+      "bool", "address", "address", "chars", "int"
+    ],
+    "ritual_ZN7QPixmap16convertFromImageERK6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK7QPixmap4copyEiiii": [
+      "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK7QPixmap4copyERK5QRect": ["address", "address", "address"],
+    "ritual_ZN7QPixmap6scrollEiiiiiiP7QRegion": [
+      "nothing", "address", "int", "int", "int", "int", "int", "int",
+      "address"
+    ],
+    "ritual_ZN7QPixmap6scrollEiiRK5QRectP7QRegion": [
+      "nothing", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK7QPixmap8cacheKeyEv": ["long long", "address"],
+    "ritual_ZNK7QPixmap10isDetachedEv": ["bool", "address"],
+    "ritual_ZN7QPixmap6detachEv": ["nothing", "address"],
+    "ritual_ZNK7QPixmap9isQBitmapEv": ["bool", "address"],
+    "ritual_ZNK7QPixmap11paintEngineEv": ["address", "address"],
+    "ritual_ZNK7QPixmapntEv": ["bool", "address"]
+  }
+}

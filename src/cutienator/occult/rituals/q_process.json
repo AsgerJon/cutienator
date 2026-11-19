@@ -1,0 +1,89 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qprocess.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QProcess10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QProcess2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8QProcessC1EP7QObject": ["address", "address"],
+    "ritual_ZN8QProcessD1Ev": ["nothing", "address"],
+    "ritual_ZN8QProcess5startE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QProcess12startCommandERK7QString6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN8QProcess13startDetachedEPx": ["bool", "address", "address"],
+    "ritual_ZN8QProcess4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK8QProcess7programEv": ["text", "address"],
+    "ritual_ZN8QProcess10setProgramERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QProcess18processChannelModeEv": ["int", "address"],
+    "ritual_ZN8QProcess21setProcessChannelModeENS_18ProcessChannelModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QProcess16inputChannelModeEv": ["int", "address"],
+    "ritual_ZN8QProcess19setInputChannelModeENS_16InputChannelModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QProcess11readChannelEv": ["int", "address"],
+    "ritual_ZN8QProcess14setReadChannelENS_14ProcessChannelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QProcess16closeReadChannelENS_14ProcessChannelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QProcess17closeWriteChannelEv": ["nothing", "address"],
+    "ritual_ZN8QProcess20setStandardInputFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8QProcess21setStandardOutputFileERK7QString6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN8QProcess20setStandardErrorFileERK7QString6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN8QProcess24setStandardOutputProcessEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QProcess24failChildProcessModifierEPKci": [
+      "nothing", "address", "chars", "int"
+    ],
+    "ritual_ZNK8QProcess21unixProcessParametersEv": ["address", "address"],
+    "ritual_ZN8QProcess24setUnixProcessParametersERKNS_21UnixProcessParametersE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QProcess24setUnixProcessParametersE6QFlagsINS_15UnixProcessFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QProcess16workingDirectoryEv": ["text", "address"],
+    "ritual_ZN8QProcess19setWorkingDirectoryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8QProcess21setProcessEnvironmentERK19QProcessEnvironment": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QProcess18processEnvironmentEv": ["address", "address"],
+    "ritual_ZNK8QProcess5errorEv": ["int", "address"],
+    "ritual_ZNK8QProcess5stateEv": ["int", "address"],
+    "ritual_ZNK8QProcess9processIdEv": ["long long", "address"],
+    "ritual_ZN8QProcess14waitForStartedEi": ["bool", "address", "int"],
+    "ritual_ZN8QProcess16waitForReadyReadEi": ["bool", "address", "int"],
+    "ritual_ZN8QProcess19waitForBytesWrittenEi": ["bool", "address", "int"],
+    "ritual_ZN8QProcess15waitForFinishedEi": ["bool", "address", "int"],
+    "ritual_ZN8QProcess21readAllStandardOutputEv": ["address", "address"],
+    "ritual_ZN8QProcess20readAllStandardErrorEv": ["address", "address"],
+    "ritual_ZNK8QProcess8exitCodeEv": ["int", "address"],
+    "ritual_ZNK8QProcess10exitStatusEv": ["int", "address"],
+    "ritual_ZNK8QProcess12bytesToWriteEv": ["long long", "address"],
+    "ritual_ZNK8QProcess12isSequentialEv": ["bool", "address"],
+    "ritual_ZN8QProcess5closeEv": ["nothing", "address"],
+    "ritual_ZN8QProcess10nullDeviceEv": ["text"],
+    "ritual_ZN8QProcess9terminateEv": ["nothing", "address"],
+    "ritual_ZN8QProcess4killEv": ["nothing", "address"]
+  }
+}

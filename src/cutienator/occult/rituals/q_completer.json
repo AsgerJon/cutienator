@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qcompleter.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QCompleter10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QCompleter2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QCompleterC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QCompleterC1EP18QAbstractItemModelP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QCompleterD1Ev": ["nothing", "address"],
+    "ritual_ZN10QCompleter9setWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QCompleter6widgetEv": ["address", "address"],
+    "ritual_ZN10QCompleter8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QCompleter5modelEv": ["address", "address"],
+    "ritual_ZN10QCompleter17setCompletionModeENS_14CompletionModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QCompleter14completionModeEv": ["int", "address"],
+    "ritual_ZN10QCompleter13setFilterModeE6QFlagsIN2Qt9MatchFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QCompleter10filterModeEv": ["int", "address"],
+    "ritual_ZNK10QCompleter5popupEv": ["address", "address"],
+    "ritual_ZN10QCompleter8setPopupEP17QAbstractItemView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QCompleter18setCaseSensitivityEN2Qt15CaseSensitivityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QCompleter15caseSensitivityEv": ["int", "address"],
+    "ritual_ZN10QCompleter15setModelSortingENS_12ModelSortingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QCompleter12modelSortingEv": ["int", "address"],
+    "ritual_ZN10QCompleter19setCompletionColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QCompleter16completionColumnEv": ["int", "address"],
+    "ritual_ZN10QCompleter17setCompletionRoleEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QCompleter14completionRoleEv": ["int", "address"],
+    "ritual_ZNK10QCompleter10wrapAroundEv": ["bool", "address"],
+    "ritual_ZNK10QCompleter15maxVisibleItemsEv": ["int", "address"],
+    "ritual_ZN10QCompleter18setMaxVisibleItemsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QCompleter15completionCountEv": ["int", "address"],
+    "ritual_ZN10QCompleter13setCurrentRowEi": ["bool", "address", "int"],
+    "ritual_ZNK10QCompleter10currentRowEv": ["int", "address"],
+    "ritual_ZNK10QCompleter12currentIndexEv": ["address", "address"],
+    "ritual_ZNK10QCompleter17currentCompletionEv": ["text", "address"],
+    "ritual_ZNK10QCompleter15completionModelEv": ["address", "address"],
+    "ritual_ZNK10QCompleter16completionPrefixEv": ["text", "address"],
+    "ritual_ZN10QCompleter19setCompletionPrefixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QCompleter8completeERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QCompleter13setWrapAroundEb": ["nothing", "address", "bool"],
+    "ritual_ZNK10QCompleter13pathFromIndexERK11QModelIndex": [
+      "text", "address", "address"
+    ]
+  }
+}

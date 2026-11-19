@@ -1,0 +1,96 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qlistwidget.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QListWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QListWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QListWidgetC1EP7QWidget": ["address", "address"],
+    "ritual_ZN11QListWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZN11QListWidget17setSelectionModelEP19QItemSelectionModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QListWidget4itemEi": ["address", "address", "int"],
+    "ritual_ZNK11QListWidget3rowEPK15QListWidgetItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN11QListWidget10insertItemEiP15QListWidgetItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN11QListWidget10insertItemEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN11QListWidget7addItemERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QListWidget7addItemEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QListWidget8takeItemEi": ["address", "address", "int"],
+    "ritual_ZNK11QListWidget5countEv": ["int", "address"],
+    "ritual_ZNK11QListWidget11currentItemEv": ["address", "address"],
+    "ritual_ZN11QListWidget14setCurrentItemEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QListWidget14setCurrentItemEP15QListWidgetItem6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QListWidget10currentRowEv": ["int", "address"],
+    "ritual_ZN11QListWidget13setCurrentRowEi": ["nothing", "address", "int"],
+    "ritual_ZN11QListWidget13setCurrentRowEi6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK11QListWidget6itemAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QListWidget6itemAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK11QListWidget14visualItemRectEPK15QListWidgetItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QListWidget9sortItemsEN2Qt9SortOrderE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QListWidget17setSortingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QListWidget16isSortingEnabledEv": ["bool", "address"],
+    "ritual_ZN11QListWidget8editItemEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QListWidget20openPersistentEditorEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QListWidget21closePersistentEditorEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QListWidget22isPersistentEditorOpenEP15QListWidgetItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QListWidget10itemWidgetEP15QListWidgetItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QListWidget13setItemWidgetEP15QListWidgetItemP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QListWidget16removeItemWidgetEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QListWidget13indexFromItemEPK15QListWidgetItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QListWidget13itemFromIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QListWidget23setSupportedDragActionsE6QFlagsIN2Qt10DropActionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QListWidget20supportedDragActionsEv": ["int", "address"],
+    "ritual_ZN11QListWidget12scrollToItemEPK15QListWidgetItemN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN11QListWidget5clearEv": ["nothing", "address"]
+  }
+}

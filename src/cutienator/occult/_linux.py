@@ -104,10 +104,15 @@ class Linux(System):
 
     Paths
       '-fPIC', so the code can sit at any address;
-      '-fvisibility-inlines-hidden', so Qt's inline code leaves no
-      scrambled names in the built file.
+      '-fvisibility=hidden', so the built file offers only what is
+      marked for it, which is the rituals. Without it the functions
+      the compiler makes from Qt's patterns leave their scrambled
+      names in the file;
+      '-fvisibility-inlines-hidden', so Qt's inline code leaves none
+      either. The first flag does not reach it: Qt marks its classes
+      as offered, and that mark covers their inline functions.
     """
-    return ('-fPIC', '-fvisibility-inlines-hidden',)
+    return ('-fPIC', '-fvisibility=hidden', '-fvisibility-inlines-hidden',)
 
   def getLinkerFlags(self, qtFolder: str) -> Paths:
     """

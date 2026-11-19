@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qscrollbar.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QScrollBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QScrollBar2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QScrollBarC1EP7QWidget": ["address", "address"],
+    "ritual_ZN10QScrollBarC1EN2Qt11OrientationEP7QWidget": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN10QScrollBarD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QScrollBar8sizeHintEv": ["address", "address"],
+    "ritual_ZN10QScrollBar5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN10QScrollBar25createStandardContextMenuE6QPoint": [
+      "address", "address", "address"
+    ]
+  }
+}

@@ -13,7 +13,7 @@ from worktoy.work_test import BaseTest
 
 from cutienator.cute import MetaCute
 from cutienator.QtCore import QObject, QEvent, QThread, QMetaObject
-from cutienator.QtCore import QBindingStorage
+from cutienator.QtCore import QBindingStorage, Qt
 from cutienator.occult import Rituals, Ugly
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -212,16 +212,19 @@ class TestQObject(BaseTest):
   def test_disconnect_with_nothing_connected(self) -> None:
     """'disconnect' answers False when nothing was connected."""
     mother, child = QObject(), QObject()
-    self.assertIs(child.disconnect(None, None, None), False)
-    self.assertIs(child.disconnect(None, mother, None), False)
-    self.assertIs(child.disconnect(mother, None), False)
+    disconnect = QObject.disconnect
+    self.assertIs(disconnect(child, None, None, None), False)
+    self.assertIs(disconnect(child, None, mother, None), False)
+    self.assertIs(disconnect(child, '2destroyed()', mother, None), False)
 
   def test_timers_without_a_qt_application(self) -> None:
     """'startTimer' gives a number, and 'killTimer' takes it back."""
     cute = QObject()
-    timerId = cute.startTimer(1000, 1)
+    timerId = cute.startTimer(1000, Qt.TimerType.CoarseTimer)
     self.assertIs(type(timerId), int)
     self.assertIsNone(cute.killTimer(timerId))
+    timerId = cute.startTimer(1000, 1)
+    self.assertIsNone(cute.killTimer(Qt.TimerId(timerId)))
 
   def test_functions_that_give_nothing(self) -> None:
     """The two dumps and 'deleteLater' run and give None."""
@@ -246,8 +249,12 @@ class TestQObject(BaseTest):
 
   def test_whole_floats_for_whole_numbers(self) -> None:
     """A float with nothing behind the point is taken for an int."""
-    self.assertIs(type(QObject().startTimer(1000.0, 1.0)), int)
-    self.assertEqual(QEvent(0.0).type(), 0)
+    self.assertIs(type(QObject().startTimer(1000.0, 1)), int)
+
+  def test_a_named_number_for_a_member(self) -> None:
+    """A number Qt names in an enum is taken for its member."""
+    self.assertIs(QEvent(1).type(), QEvent.Type.Timer)
+    self.assertIs(QEvent('Timer').type(), QEvent.Type.Timer)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  REFUSALS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -268,19 +275,22 @@ class TestQObject(BaseTest):
       ('text as bool', lambda: child.blockSignals('yes')),
       ('2 as bool', lambda: child.blockSignals(2)),
       ('half a millisecond', lambda: child.startTimer(0.5, 1)),
-      ('one argument of two', lambda: child.startTimer(1000)),
+      ('no argument of two', lambda: child.startTimer()),
       ('text as timer', lambda: child.killTimer('0')),
       ('two of three', lambda: child.disconnect(None, None)),
       ('text as event type', lambda: QEvent('0')),
+      ('a float as event type', lambda: QEvent(0.0)),
+      ('a float as timer type', lambda: child.startTimer(1000, 1.0)),
+      ('a number Qt gives no name', lambda: QEvent(1001)),
+      ('a member of another enum', lambda: QEvent(Qt.TimerType(1))),
     )
     for wrongCall, call in wrongCalls:
       with self.subTest(wrongCall=wrongCall):
         self.assertIs(type(self._raisedBy(call)), DispatchException)
 
-  def test_classes_python_cannot_make_yet(self) -> None:
+  def test_classes_python_cannot_make(self) -> None:
     """A class with no ritual for making one refuses at its first use."""
     firstUses = (
-      ('QThread', lambda: QThread().parent()),
       ('QMetaObject', lambda: QMetaObject().className()),
     )
     for className, firstUse in firstUses:
@@ -294,10 +304,14 @@ class TestQObject(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_event_keeps_its_type(self) -> None:
-    """A 'QEvent' gives back the number of the type it was made with."""
+    """A 'QEvent' gives back the type it was made with."""
     for eventType in (0, 1, 7):
       with self.subTest(eventType=eventType):
-        self.assertEqual(QEvent(eventType).type(), eventType)
+        event = QEvent(eventType)
+        self.assertIs(event.type(), QEvent.Type(eventType))
+        self.assertEqual(event.type(), eventType)
+    own = QEvent.Type(1001)
+    self.assertIs(QEvent(own).type(), own)
 
   def test_event_is_accepted_until_ignored(self) -> None:
     """Qt makes an event accepted; 'ignore' and 'accept' change that."""
@@ -332,7 +346,9 @@ class TestQObject(BaseTest):
     """With no translation loaded, 'tr' gives the text it was given."""
     self.assertEqual(QObject.tr('hello', None, -1), 'hello')
     self.assertEqual(QObject().tr('hello', 'context', -1), 'hello')
-    raised = self._raisedBy(lambda: QObject.tr('hello'))
+    self.assertEqual(QObject.tr('hello'), 'hello')
+    self.assertEqual(QObject.tr('hello', 'context'), 'hello')
+    raised = self._raisedBy(lambda: QObject.tr())
     self.assertIsInstance(raised, DispatchException)
 
   def test_qt_watches_every_cute_qobject(self) -> None:

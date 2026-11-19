@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qdir.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN4QDirC1ERKS_": ["address", "address"],
+    "ritual_ZN4QDirC1ERK7QString": ["address", "text"],
+    "ritual_ZN4QDirC1ERK7QStringS2_6QFlagsINS_8SortFlagEES3_INS_6FilterEE": [
+      "address", "text", "text", "int", "int"
+    ],
+    "ritual_ZN4QDirD1Ev": ["nothing", "address"],
+    "ritual_ZN4QDir7setPathERK7QString": ["nothing", "address", "text"],
+    "ritual_ZNK4QDir4pathEv": ["text", "address"],
+    "ritual_ZNK4QDir12absolutePathEv": ["text", "address"],
+    "ritual_ZNK4QDir13canonicalPathEv": ["text", "address"],
+    "ritual_ZN4QDir13addSearchPathERK7QStringS2_": [
+      "nothing", "text", "text"
+    ],
+    "ritual_ZNK4QDir7dirNameEv": ["text", "address"],
+    "ritual_ZNK4QDir8filePathERK7QString": ["text", "address", "text"],
+    "ritual_ZNK4QDir16absoluteFilePathERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK4QDir16relativeFilePathERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN4QDir18toNativeSeparatorsERK7QString": ["text", "text"],
+    "ritual_ZN4QDir20fromNativeSeparatorsERK7QString": ["text", "text"],
+    "ritual_ZN4QDir2cdERK7QString": ["bool", "address", "text"],
+    "ritual_ZN4QDir4cdUpEv": ["bool", "address"],
+    "ritual_ZNK4QDir6filterEv": ["int", "address"],
+    "ritual_ZN4QDir9setFilterE6QFlagsINS_6FilterEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK4QDir7sortingEv": ["int", "address"],
+    "ritual_ZN4QDir10setSortingE6QFlagsINS_8SortFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK4QDir5countEN2Qt15Disambiguated_tE": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZNK4QDir7isEmptyE6QFlagsINS_6FilterEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK4QDirixEx": ["text", "address", "long long"],
+    "ritual_ZNK4QDir5rmdirERK7QString": ["bool", "address", "text"],
+    "ritual_ZNK4QDir6rmpathERK7QString": ["bool", "address", "text"],
+    "ritual_ZN4QDir17removeRecursivelyEv": ["bool", "address"],
+    "ritual_ZNK4QDir10isReadableEv": ["bool", "address"],
+    "ritual_ZNK4QDir6existsEv": ["bool", "address"],
+    "ritual_ZNK4QDir6isRootEv": ["bool", "address"],
+    "ritual_ZN4QDir14isRelativePathERK7QString": ["bool", "text"],
+    "ritual_ZN4QDir14isAbsolutePathERK7QString": ["bool", "text"],
+    "ritual_ZNK4QDir10isRelativeEv": ["bool", "address"],
+    "ritual_ZNK4QDir10isAbsoluteEv": ["bool", "address"],
+    "ritual_ZN4QDir12makeAbsoluteEv": ["bool", "address"],
+    "ritual_ZN4QDir6removeERK7QString": ["bool", "address", "text"],
+    "ritual_ZN4QDir6renameERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZNK4QDir6existsERK7QString": ["bool", "address", "text"],
+    "ritual_ZN4QDir13listSeparatorEv": ["address"],
+    "ritual_ZN4QDir9separatorEv": ["address"],
+    "ritual_ZN4QDir10setCurrentERK7QString": ["bool", "text"],
+    "ritual_ZN4QDir7currentEv": ["address"],
+    "ritual_ZN4QDir11currentPathEv": ["text"],
+    "ritual_ZN4QDir4homeEv": ["address"],
+    "ritual_ZN4QDir8homePathEv": ["text"],
+    "ritual_ZN4QDir4rootEv": ["address"],
+    "ritual_ZN4QDir8rootPathEv": ["text"],
+    "ritual_ZN4QDir4tempEv": ["address"],
+    "ritual_ZN4QDir8tempPathEv": ["text"],
+    "ritual_ZN4QDir5matchERK7QStringS2_": ["bool", "text", "text"],
+    "ritual_ZN4QDir9cleanPathERK7QString": ["text", "text"],
+    "ritual_ZNK4QDir7refreshEv": ["nothing", "address"]
+  }
+}

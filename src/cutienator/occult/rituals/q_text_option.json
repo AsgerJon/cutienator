@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextoption.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QTextOptionC1Ev": ["address"],
+    "ritual_ZN11QTextOptionC1E6QFlagsIN2Qt13AlignmentFlagEE": [
+      "address", "int"
+    ],
+    "ritual_ZN11QTextOptionD1Ev": ["nothing", "address"],
+    "ritual_ZN11QTextOptionC1ERKS_": ["address", "address"],
+    "ritual_ZN11QTextOption12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextOption9alignmentEv": ["int", "address"],
+    "ritual_ZN11QTextOption16setTextDirectionEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextOption13textDirectionEv": ["int", "address"],
+    "ritual_ZN11QTextOption11setWrapModeENS_8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextOption8wrapModeEv": ["int", "address"],
+    "ritual_ZN11QTextOption8setFlagsE6QFlagsINS_4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextOption5flagsEv": ["int", "address"],
+    "ritual_ZN11QTextOption18setTabStopDistanceEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11QTextOption15tabStopDistanceEv": ["double", "address"],
+    "ritual_ZN11QTextOption19setUseDesignMetricsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QTextOption16useDesignMetricsEv": ["bool", "address"]
+  }
+}

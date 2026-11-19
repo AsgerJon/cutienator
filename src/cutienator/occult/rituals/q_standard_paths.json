@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qstandardpaths.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QStandardPaths16writableLocationENS_16StandardLocationE": [
+      "text", "int"
+    ],
+    "ritual_ZN14QStandardPaths6locateENS_16StandardLocationERK7QString6QFlagsINS_12LocateOptionEE": [
+      "text", "int", "text", "int"
+    ],
+    "ritual_ZN14QStandardPaths11displayNameENS_16StandardLocationE": [
+      "text", "int"
+    ],
+    "ritual_ZN14QStandardPaths18setTestModeEnabledEb": ["nothing", "bool"],
+    "ritual_ZN14QStandardPaths17isTestModeEnabledEv": ["bool"]
+  }
+}

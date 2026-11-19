@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qcolordialog.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QColorDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QColorDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QColorDialogC1EP7QWidget": ["address", "address"],
+    "ritual_ZN12QColorDialogC1ERK6QColorP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QColorDialogD1Ev": ["nothing", "address"],
+    "ritual_ZN12QColorDialog15setCurrentColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QColorDialog12currentColorEv": ["address", "address"],
+    "ritual_ZNK12QColorDialog13selectedColorEv": ["address", "address"],
+    "ritual_ZN12QColorDialog9setOptionENS_17ColorDialogOptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK12QColorDialog10testOptionENS_17ColorDialogOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QColorDialog10setOptionsE6QFlagsINS_17ColorDialogOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QColorDialog7optionsEv": ["int", "address"],
+    "ritual_ZN12QColorDialog4openEP7QObjectPKc": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZN12QColorDialog10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QColorDialog8getColorERK6QColorP7QWidgetRK7QString6QFlagsINS_17ColorDialogOptionEE": [
+      "address", "address", "address", "text", "int"
+    ],
+    "ritual_ZN12QColorDialog11customCountEv": ["int"],
+    "ritual_ZN12QColorDialog11customColorEi": ["address", "int"],
+    "ritual_ZN12QColorDialog14setCustomColorEi6QColor": [
+      "nothing", "int", "address"
+    ],
+    "ritual_ZN12QColorDialog13standardColorEi": ["address", "int"],
+    "ritual_ZN12QColorDialog16setStandardColorEi6QColor": [
+      "nothing", "int", "address"
+    ]
+  }
+}

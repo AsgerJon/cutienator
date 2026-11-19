@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qtooltip.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QToolTip8showTextERK6QPointRK7QStringP7QWidgetRK5QRecti": [
+      "nothing", "address", "text", "address", "address", "int"
+    ],
+    "ritual_ZN8QToolTip8hideTextEv": ["nothing"],
+    "ritual_ZN8QToolTip9isVisibleEv": ["bool"],
+    "ritual_ZN8QToolTip4textEv": ["text"],
+    "ritual_ZN8QToolTip7paletteEv": ["address"],
+    "ritual_ZN8QToolTip10setPaletteERK8QPalette": ["nothing", "address"],
+    "ritual_ZN8QToolTip4fontEv": ["address"],
+    "ritual_ZN8QToolTip7setFontERK5QFont": ["nothing", "address"],
+    "ritual_ZN8QToolTipD1Ev": ["nothing", "address"]
+  }
+}

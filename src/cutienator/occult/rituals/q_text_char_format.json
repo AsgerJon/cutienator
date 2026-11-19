@@ -1,0 +1,144 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextformat.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QTextCharFormatC1Ev": ["address"],
+    "ritual_ZNK15QTextCharFormat7isValidEv": ["bool", "address"],
+    "ritual_ZN15QTextCharFormat7setFontERK5QFontNS_33FontPropertiesInheritanceBehaviorE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK15QTextCharFormat4fontEv": ["address", "address"],
+    "ritual_ZN15QTextCharFormat13setFontFamilyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QTextCharFormat10fontFamilyEv": ["text", "address"],
+    "ritual_ZNK15QTextCharFormat12fontFamiliesEv": ["address", "address"],
+    "ritual_ZN15QTextCharFormat16setFontStyleNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QTextCharFormat13fontStyleNameEv": ["address", "address"],
+    "ritual_ZN15QTextCharFormat16setFontPointSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QTextCharFormat13fontPointSizeEv": ["double", "address"],
+    "ritual_ZN15QTextCharFormat13setFontWeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTextCharFormat10fontWeightEv": ["int", "address"],
+    "ritual_ZN15QTextCharFormat13setFontItalicEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QTextCharFormat10fontItalicEv": ["bool", "address"],
+    "ritual_ZN15QTextCharFormat21setFontCapitalizationEN5QFont14CapitalizationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTextCharFormat18fontCapitalizationEv": ["int", "address"],
+    "ritual_ZN15QTextCharFormat24setFontLetterSpacingTypeEN5QFont11SpacingTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTextCharFormat21fontLetterSpacingTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN15QTextCharFormat20setFontLetterSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QTextCharFormat17fontLetterSpacingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN15QTextCharFormat18setFontWordSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QTextCharFormat15fontWordSpacingEv": ["double", "address"],
+    "ritual_ZN15QTextCharFormat16setFontUnderlineEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QTextCharFormat13fontUnderlineEv": ["bool", "address"],
+    "ritual_ZN15QTextCharFormat15setFontOverlineEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QTextCharFormat12fontOverlineEv": ["bool", "address"],
+    "ritual_ZN15QTextCharFormat16setFontStrikeOutEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QTextCharFormat13fontStrikeOutEv": ["bool", "address"],
+    "ritual_ZN15QTextCharFormat17setUnderlineColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QTextCharFormat14underlineColorEv": ["address", "address"],
+    "ritual_ZN15QTextCharFormat17setFontFixedPitchEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QTextCharFormat14fontFixedPitchEv": ["bool", "address"],
+    "ritual_ZN15QTextCharFormat14setFontStretchEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTextCharFormat11fontStretchEv": ["int", "address"],
+    "ritual_ZN15QTextCharFormat16setFontStyleHintEN5QFont9StyleHintENS0_13StyleStrategyE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QTextCharFormat20setFontStyleStrategyEN5QFont13StyleStrategyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTextCharFormat13fontStyleHintEv": ["int", "address"],
+    "ritual_ZNK15QTextCharFormat17fontStyleStrategyEv": ["int", "address"],
+    "ritual_ZN15QTextCharFormat24setFontHintingPreferenceEN5QFont17HintingPreferenceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTextCharFormat21fontHintingPreferenceEv": [
+      "int", "address"
+    ],
+    "ritual_ZN15QTextCharFormat14setFontKerningEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QTextCharFormat11fontKerningEv": ["bool", "address"],
+    "ritual_ZN15QTextCharFormat17setUnderlineStyleENS_14UnderlineStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTextCharFormat14underlineStyleEv": ["int", "address"],
+    "ritual_ZN15QTextCharFormat20setVerticalAlignmentENS_17VerticalAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTextCharFormat17verticalAlignmentEv": ["int", "address"],
+    "ritual_ZN15QTextCharFormat14setTextOutlineERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QTextCharFormat11textOutlineEv": ["address", "address"],
+    "ritual_ZN15QTextCharFormat10setToolTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QTextCharFormat7toolTipEv": ["text", "address"],
+    "ritual_ZN15QTextCharFormat22setSuperScriptBaselineEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QTextCharFormat19superScriptBaselineEv": [
+      "double", "address"
+    ],
+    "ritual_ZN15QTextCharFormat20setSubScriptBaselineEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QTextCharFormat17subScriptBaselineEv": [
+      "double", "address"
+    ],
+    "ritual_ZN15QTextCharFormat17setBaselineOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QTextCharFormat14baselineOffsetEv": ["double", "address"],
+    "ritual_ZN15QTextCharFormat9setAnchorEb": ["nothing", "address", "bool"],
+    "ritual_ZNK15QTextCharFormat8isAnchorEv": ["bool", "address"],
+    "ritual_ZN15QTextCharFormat13setAnchorHrefERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QTextCharFormat10anchorHrefEv": ["text", "address"],
+    "ritual_ZN15QTextCharFormat19setTableCellRowSpanEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTextCharFormat16tableCellRowSpanEv": ["int", "address"],
+    "ritual_ZN15QTextCharFormat22setTableCellColumnSpanEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTextCharFormat19tableCellColumnSpanEv": ["int", "address"],
+    "ritual_ZN15QTextCharFormatD1Ev": ["nothing", "address"]
+  }
+}

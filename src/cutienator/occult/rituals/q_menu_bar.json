@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qmenubar.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QMenuBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QMenuBar2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8QMenuBarC1EP7QWidget": ["address", "address"],
+    "ritual_ZN8QMenuBarD1Ev": ["nothing", "address"],
+    "ritual_ZN8QMenuBar7addMenuEP5QMenu": ["address", "address", "address"],
+    "ritual_ZN8QMenuBar7addMenuERK7QString": ["address", "address", "text"],
+    "ritual_ZN8QMenuBar7addMenuERK5QIconRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN8QMenuBar12addSeparatorEv": ["address", "address"],
+    "ritual_ZN8QMenuBar15insertSeparatorEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QMenuBar10insertMenuEP7QActionP5QMenu": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN8QMenuBar5clearEv": ["nothing", "address"],
+    "ritual_ZNK8QMenuBar12activeActionEv": ["address", "address"],
+    "ritual_ZN8QMenuBar15setActiveActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QMenuBar12setDefaultUpEb": ["nothing", "address", "bool"],
+    "ritual_ZNK8QMenuBar11isDefaultUpEv": ["bool", "address"],
+    "ritual_ZNK8QMenuBar8sizeHintEv": ["address", "address"],
+    "ritual_ZNK8QMenuBar15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZNK8QMenuBar14heightForWidthEi": ["int", "address", "int"],
+    "ritual_ZNK8QMenuBar14actionGeometryEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QMenuBar8actionAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QMenuBar15setCornerWidgetEP7QWidgetN2Qt6CornerE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK8QMenuBar12cornerWidgetEN2Qt6CornerE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK8QMenuBar15isNativeMenuBarEv": ["bool", "address"],
+    "ritual_ZN8QMenuBar16setNativeMenuBarEb": ["nothing", "address", "bool"],
+    "ritual_ZN8QMenuBar10setVisibleEb": ["nothing", "address", "bool"]
+  }
+}

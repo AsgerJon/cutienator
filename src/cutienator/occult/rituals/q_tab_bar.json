@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qtabbar.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QTabBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QTabBar2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QTabBarC1EP7QWidget": ["address", "address"],
+    "ritual_ZN7QTabBarD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QTabBar5shapeEv": ["int", "address"],
+    "ritual_ZN7QTabBar8setShapeENS_5ShapeE": ["nothing", "address", "int"],
+    "ritual_ZN7QTabBar6addTabERK7QString": ["int", "address", "text"],
+    "ritual_ZN7QTabBar6addTabERK5QIconRK7QString": [
+      "int", "address", "address", "text"
+    ],
+    "ritual_ZN7QTabBar9insertTabEiRK7QString": [
+      "int", "address", "int", "text"
+    ],
+    "ritual_ZN7QTabBar9insertTabEiRK5QIconRK7QString": [
+      "int", "address", "int", "address", "text"
+    ],
+    "ritual_ZN7QTabBar9removeTabEi": ["nothing", "address", "int"],
+    "ritual_ZN7QTabBar7moveTabEii": ["nothing", "address", "int", "int"],
+    "ritual_ZNK7QTabBar12isTabEnabledEi": ["bool", "address", "int"],
+    "ritual_ZN7QTabBar13setTabEnabledEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK7QTabBar12isTabVisibleEi": ["bool", "address", "int"],
+    "ritual_ZN7QTabBar13setTabVisibleEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK7QTabBar7tabTextEi": ["text", "address", "int"],
+    "ritual_ZN7QTabBar10setTabTextEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK7QTabBar12tabTextColorEi": ["address", "address", "int"],
+    "ritual_ZN7QTabBar15setTabTextColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK7QTabBar7tabIconEi": ["address", "address", "int"],
+    "ritual_ZN7QTabBar10setTabIconEiRK5QIcon": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK7QTabBar9elideModeEv": ["int", "address"],
+    "ritual_ZN7QTabBar12setElideModeEN2Qt13TextElideModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QTabBar13setTabToolTipEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK7QTabBar10tabToolTipEi": ["text", "address", "int"],
+    "ritual_ZN7QTabBar15setTabWhatsThisEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK7QTabBar12tabWhatsThisEi": ["text", "address", "int"],
+    "ritual_ZN7QTabBar10setTabDataEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK7QTabBar7tabDataEi": ["address", "address", "int"],
+    "ritual_ZNK7QTabBar7tabRectEi": ["address", "address", "int"],
+    "ritual_ZNK7QTabBar5tabAtERK6QPoint": ["int", "address", "address"],
+    "ritual_ZNK7QTabBar12currentIndexEv": ["int", "address"],
+    "ritual_ZNK7QTabBar5countEv": ["int", "address"],
+    "ritual_ZNK7QTabBar8sizeHintEv": ["address", "address"],
+    "ritual_ZNK7QTabBar15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZN7QTabBar11setDrawBaseEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QTabBar8drawBaseEv": ["bool", "address"],
+    "ritual_ZNK7QTabBar8iconSizeEv": ["address", "address"],
+    "ritual_ZN7QTabBar11setIconSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QTabBar17usesScrollButtonsEv": ["bool", "address"],
+    "ritual_ZN7QTabBar20setUsesScrollButtonsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK7QTabBar12tabsClosableEv": ["bool", "address"],
+    "ritual_ZN7QTabBar15setTabsClosableEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QTabBar12setTabButtonEiNS_14ButtonPositionEP7QWidget": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK7QTabBar9tabButtonEiNS_14ButtonPositionE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK7QTabBar25selectionBehaviorOnRemoveEv": ["int", "address"],
+    "ritual_ZN7QTabBar28setSelectionBehaviorOnRemoveENS_17SelectionBehaviorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QTabBar9expandingEv": ["bool", "address"],
+    "ritual_ZN7QTabBar12setExpandingEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QTabBar9isMovableEv": ["bool", "address"],
+    "ritual_ZN7QTabBar10setMovableEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QTabBar12documentModeEv": ["bool", "address"],
+    "ritual_ZN7QTabBar15setDocumentModeEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QTabBar8autoHideEv": ["bool", "address"],
+    "ritual_ZN7QTabBar11setAutoHideEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QTabBar19changeCurrentOnDragEv": ["bool", "address"],
+    "ritual_ZN7QTabBar22setChangeCurrentOnDragEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK7QTabBar17accessibleTabNameEi": ["text", "address", "int"],
+    "ritual_ZN7QTabBar20setAccessibleTabNameEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN7QTabBar15setCurrentIndexEi": ["nothing", "address", "int"]
+  }
+}

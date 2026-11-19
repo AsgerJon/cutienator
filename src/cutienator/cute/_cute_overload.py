@@ -8,12 +8,14 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from collections.abc import Callable
+
 from worktoy.dispatch import overload, TypeSig
 
 from . import WAIT, WaitingOverload
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Any, Callable
+  from typing import Any
 
 
 class CuteOverload:

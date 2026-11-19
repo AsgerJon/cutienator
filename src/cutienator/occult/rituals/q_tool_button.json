@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qtoolbutton.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QToolButton10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QToolButton2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QToolButtonC1EP7QWidget": ["address", "address"],
+    "ritual_ZN11QToolButtonD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QToolButton8sizeHintEv": ["address", "address"],
+    "ritual_ZNK11QToolButton15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZNK11QToolButton15toolButtonStyleEv": ["int", "address"],
+    "ritual_ZNK11QToolButton9arrowTypeEv": ["int", "address"],
+    "ritual_ZN11QToolButton12setArrowTypeEN2Qt9ArrowTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QToolButton7setMenuEP5QMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QToolButton4menuEv": ["address", "address"],
+    "ritual_ZN11QToolButton12setPopupModeENS_19ToolButtonPopupModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QToolButton9popupModeEv": ["int", "address"],
+    "ritual_ZNK11QToolButton13defaultActionEv": ["address", "address"],
+    "ritual_ZN11QToolButton12setAutoRaiseEb": ["nothing", "address", "bool"],
+    "ritual_ZNK11QToolButton9autoRaiseEv": ["bool", "address"],
+    "ritual_ZN11QToolButton8showMenuEv": ["nothing", "address"],
+    "ritual_ZN11QToolButton18setToolButtonStyleEN2Qt15ToolButtonStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QToolButton16setDefaultActionEP7QAction": [
+      "nothing", "address", "address"
+    ]
+  }
+}

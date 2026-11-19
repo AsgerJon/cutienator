@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmargins.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QMarginsC1Ev": ["address"],
+    "ritual_ZN8QMarginsC1Eiiii": ["address", "int", "int", "int", "int"],
+    "ritual_ZNK8QMargins6isNullEv": ["bool", "address"],
+    "ritual_ZNK8QMargins4leftEv": ["int", "address"],
+    "ritual_ZNK8QMargins3topEv": ["int", "address"],
+    "ritual_ZNK8QMargins5rightEv": ["int", "address"],
+    "ritual_ZNK8QMargins6bottomEv": ["int", "address"],
+    "ritual_ZN8QMargins7setLeftEi": ["nothing", "address", "int"],
+    "ritual_ZN8QMargins6setTopEi": ["nothing", "address", "int"],
+    "ritual_ZN8QMargins8setRightEi": ["nothing", "address", "int"],
+    "ritual_ZN8QMargins9setBottomEi": ["nothing", "address", "int"],
+    "ritual_ZNK8QMargins10toMarginsFEv": ["address", "address"],
+    "ritual_ZN8QMarginsD1Ev": ["nothing", "address"]
+  }
+}

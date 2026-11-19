@@ -1,46 +1,243 @@
 """
-QThread binding of the Qt C++, so far in name only.
+QThread binding of the Qt C++
 """
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  QtCore/qthread.h, Qt 6.12.0. Changes made here are lost.
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
+from worktoy.dispatch import overload
+
+from ..cute import CuteMixin
+from ..occult import Rituals
+from ._q_event import QEvent
+from ._q_meta_object import QMetaObject
 from ._q_object import QObject
+from ._q_thread_priority import Priority
+from ._q_thread_quality_of_service import QualityOfService
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QThread(QObject):
   """
-  The cute side of Qt's QThread, so far in name only. It exists
-  because 'QObject.thread()' gives one back, and a cute function can
-  only give back an object of a cute class.
+  The cute side of Qt's QThread: a plain Python object standing in front of
+  one C++ QThread.
 
-    thread = QObject().thread()   # the QThread Python runs in
-    thread.parent()               # all of QObject works on it
+  It is built on the cute 'QObject', as Qt's QThread is built on Qt's
+  QObject, and has everything that class has.
 
-  What exists so far
+  What exists
+  -----------
+
+  Every function of Qt's QThread that has a ritual and that Python can call
+  so far, 27 names in all: 'metaObject', 'tr', 'currentThread',
+  'isMainThread', 'idealThreadCount', 'yieldCurrentThread', 'setPriority',
+  'priority', 'isFinished', 'isRunning', 'requestInterruption',
+  'isInterruptionRequested', 'setStackSize', 'stackSize', 'event',
+  'loopLevel', 'isCurrentThread', 'setServiceLevel', 'serviceLevel', 'start',
+  'terminate', 'exit', 'quit', 'wait', 'sleep', 'msleep', 'usleep'. It can be
+  made from Python, in 1 way; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QThread::~QThread()': the destructor: Python never removes a C++
+    QThread.
+  - Qt's 'QAbstractEventDispatcher *QThread::eventDispatcher() const': gives
+    'QAbstractEventDispatcher', which has no cute class yet.
+  - Qt's 'void QThread::setEventDispatcher(QAbstractEventDispatcher
+    *eventDispatcher)': names 'QAbstractEventDispatcher', which has no cute
+    class yet.
+  - Qt's 'bool QThread::wait(QDeadlineTimer deadline)': names
+    'QDeadlineTimer', which has no cute class yet.
+
+  What has no ritual
   ------------------
 
-  - Everything 'QObject' has, since Qt's QThread is built on QObject.
-  - Nothing of its own: no function of Qt's QThread is reflected yet,
-    and none can be made from Python.
+  17 of the 49 functions Qt declares: 5 private; 4 takes or gives a type that
+  cannot be passed yet; 4 protected; 2 a template; 2 a signal.
 
   What to expect
   --------------
 
-  'QObject' is made before this class and waits for it, with the line
-  'QThread = WAIT['QThread']' in its body. Making this class is what
-  settles that: from here on 'QObject.QThread' is this class.
+  - The C++ QThread is created at the first use, not by 'QThread(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - Python never removes the C++ QThread.
+  - Qt tells when it has removed the C++ QThread. Every call on the cute
+    object, and every use of it as an argument, then raises 'RuntimeError',
+    and nothing reaches C++.
   """
+
+  #  The enums Qt writes inside QThread, and the names Qt has for the
+  #  combinations of its flags enums.
+  Priority = Priority
+  QualityOfService = QualityOfService
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(str)
+  @overload(NoneType)
+  @overload(str, str)
+  @overload(str, NoneType)
+  @overload(NoneType, str)
+  @overload(NoneType, NoneType)
+  @overload(str, str, int)
+  @overload(str, NoneType, int)
+  @overload(NoneType, str, int)
+  @overload(NoneType, NoneType, int)
+  def tr(s: Optional[str], c: Optional[str] = None, n: int = -1) -> str:
+    """
+    Calls Qt's 'QString QThread::tr(const char *s, const char *c, int n)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#tr
+
+    Parameters
+    ----------
+
+    s : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    c : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text. May
+      be left out, as in Qt: it is then None.
+
+    n : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QThread::tr(const char *s, const char *c, int n)
+    return Rituals.call(
+        'ritual_ZN7QThread2trEPKcS1_i',
+        CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
+    )
+
+  @staticmethod
+  def currentThread() -> Optional[QThread]:
+    """
+    Calls Qt's 'QThread *QThread::currentThread()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#currentThread
+
+    Returns
+    -------
+
+    Optional[QThread]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QThread *QThread::currentThread()
+    address = Rituals.call('ritual_ZN7QThread13currentThreadEv')
+    return QThread._cuteAt(address)
+
+  @staticmethod
+  def isMainThread() -> bool:
+    """
+    Calls Qt's 'bool QThread::isMainThread()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#isMainThread
+    """
+    #  bool QThread::isMainThread()
+    return Rituals.call('ritual_ZN7QThread12isMainThreadEv')
+
+  @staticmethod
+  def idealThreadCount() -> int:
+    """
+    Calls Qt's 'int QThread::idealThreadCount()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#idealThreadCount
+    """
+    #  int QThread::idealThreadCount()
+    return Rituals.call('ritual_ZN7QThread16idealThreadCountEv')
+
+  @staticmethod
+  def yieldCurrentThread() -> None:
+    """
+    Calls Qt's 'void QThread::yieldCurrentThread()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#yieldCurrentThread
+    """
+    #  void QThread::yieldCurrentThread()
+    Rituals.call('ritual_ZN7QThread18yieldCurrentThreadEv')
+
+  @staticmethod
+  @overload(int)
+  def sleep(a0: int) -> None:
+    """
+    Calls Qt's 'void QThread::sleep(unsigned long a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#sleep
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QThread::sleep(unsigned long a0)
+    Rituals.call('ritual_ZN7QThread5sleepEm', a0)
+
+  @staticmethod
+  @overload(int)
+  def msleep(a0: int) -> None:
+    """
+    Calls Qt's 'void QThread::msleep(unsigned long a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#msleep
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QThread::msleep(unsigned long a0)
+    Rituals.call('ritual_ZN7QThread6msleepEm', a0)
+
+  @staticmethod
+  @overload(int)
+  def usleep(a0: int) -> None:
+    """
+    Calls Qt's 'void QThread::usleep(unsigned long a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#usleep
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QThread::usleep(unsigned long a0)
+    Rituals.call('ritual_ZN7QThread6usleepEm', a0)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QThread'
 
   #  Fallback Variables
 
@@ -54,24 +251,172 @@ class QThread(QObject):
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def _createUglySide(self, ) -> None:
+  def metaObject(self) -> Optional[QMetaObject]:
     """
-    Refuses: no ritual makes a C++ QThread yet, so 'QThread()' has
-    nothing to stand for. One is given by 'QObject.thread()'.
+    Calls Qt's 'const QMetaObject *QThread::metaObject() const'.
 
-    Raises
-    ------
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#metaObject
 
-    TypeError
-      Always.
+    Returns
+    -------
+
+    Optional[QMetaObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
     """
-    infoSpec = """A 'QThread' cannot be made from Python yet: there is
-    no ritual for its constructor. One is given by 'QObject.thread()'."""
-    raise TypeError(' '.join(infoSpec.split()))
+    #  const QMetaObject *QThread::metaObject() const
+    address = self.uglySide.call('ritual_ZNK7QThread10metaObjectEv')
+    return QMetaObject._cuteAt(address)
+
+  def priority(self) -> Priority:
+    """
+    Calls Qt's 'Priority QThread::priority() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#priority
+
+    Returns
+    -------
+
+    Priority
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Priority(number)' gives.
+    """
+    #  Priority QThread::priority() const
+    return Priority(self.uglySide.call('ritual_ZNK7QThread8priorityEv'))
+
+  def isFinished(self) -> bool:
+    """
+    Calls Qt's 'bool QThread::isFinished() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#isFinished
+    """
+    #  bool QThread::isFinished() const
+    return self.uglySide.call('ritual_ZNK7QThread10isFinishedEv')
+
+  def isRunning(self) -> bool:
+    """
+    Calls Qt's 'bool QThread::isRunning() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#isRunning
+    """
+    #  bool QThread::isRunning() const
+    return self.uglySide.call('ritual_ZNK7QThread9isRunningEv')
+
+  def isInterruptionRequested(self) -> bool:
+    """
+    Calls Qt's 'bool QThread::isInterruptionRequested() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qthread.html#isInterruptionRequested
+    """
+    #  bool QThread::isInterruptionRequested() const
+    return self.uglySide.call(
+        'ritual_ZNK7QThread23isInterruptionRequestedEv',
+    )
+
+  def stackSize(self) -> int:
+    """
+    Calls Qt's 'uint QThread::stackSize() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#stackSize
+    """
+    #  uint QThread::stackSize() const
+    return self.uglySide.call('ritual_ZNK7QThread9stackSizeEv')
+
+  def loopLevel(self) -> int:
+    """
+    Calls Qt's 'int QThread::loopLevel() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#loopLevel
+    """
+    #  int QThread::loopLevel() const
+    return self.uglySide.call('ritual_ZNK7QThread9loopLevelEv')
+
+  def isCurrentThread(self) -> bool:
+    """
+    Calls Qt's 'bool QThread::isCurrentThread() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#isCurrentThread
+    """
+    #  bool QThread::isCurrentThread() const
+    return self.uglySide.call('ritual_ZNK7QThread15isCurrentThreadEv')
+
+  def serviceLevel(self) -> QualityOfService:
+    """
+    Calls Qt's 'QualityOfService QThread::serviceLevel() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#serviceLevel
+
+    Returns
+    -------
+
+    QualityOfService
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'QualityOfService(number)'
+      gives.
+    """
+    #  QualityOfService QThread::serviceLevel() const
+    return QualityOfService(self.uglySide.call(
+        'ritual_ZNK7QThread12serviceLevelEv',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(Priority)
+  def setPriority(self, priority: Priority) -> None:
+    """
+    Calls Qt's 'void QThread::setPriority(Priority priority)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#setPriority
+
+    Parameters
+    ----------
+
+    priority : Priority
+      Passed on as its number.
+    """
+    #  void QThread::setPriority(Priority priority)
+    self.uglySide.call(
+        'ritual_ZN7QThread11setPriorityENS_8PriorityE', priority.value,
+    )
+
+  @overload(int)
+  def setStackSize(self, stackSize: int) -> None:
+    """
+    Calls Qt's 'void QThread::setStackSize(uint stackSize)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#setStackSize
+
+    Parameters
+    ----------
+
+    stackSize : int
+      Passed on as it is.
+    """
+    #  void QThread::setStackSize(uint stackSize)
+    self.uglySide.call('ritual_ZN7QThread12setStackSizeEj', stackSize)
+
+  @overload(QualityOfService)
+  def setServiceLevel(self, serviceLevel: QualityOfService) -> None:
+    """
+    Calls Qt's 'void QThread::setServiceLevel(QualityOfService
+    serviceLevel)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#setServiceLevel
+
+    Parameters
+    ----------
+
+    serviceLevel : QualityOfService
+      Passed on as its number.
+    """
+    #  void QThread::setServiceLevel(QualityOfService serviceLevel)
+    self.uglySide.call(
+        'ritual_ZN7QThread15setServiceLevelENS_16QualityOfServiceE',
+        serviceLevel.value,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -84,6 +429,28 @@ class QThread(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QObject] = None) -> None:
+    """
+    Notes what was given, for Qt's 'QThread::QThread(QObject *parent)', which
+    is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#QThread
+
+    Parameters
+    ----------
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QThread::QThread(QObject *parent)
+    self._noteCreation(QThread, lambda: Rituals.call(
+        'ritual_ZN7QThreadC1EP7QObject', self._addressOf(parent),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -104,3 +471,101 @@ class QThread(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def requestInterruption(self) -> None:
+    """
+    Calls Qt's 'void QThread::requestInterruption()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#requestInterruption
+    """
+    #  void QThread::requestInterruption()
+    self.uglySide.call('ritual_ZN7QThread19requestInterruptionEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QThread::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QThread::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_ZN7QThread5eventEP6QEvent', self._addressOf(event),
+    )
+
+  @overload()
+  @overload(Priority)
+  def start(self, a0: Priority = Priority.InheritPriority) -> None:
+    """
+    Calls Qt's 'void QThread::start(Priority a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#start
+
+    Parameters
+    ----------
+
+    a0 : Priority
+      Passed on as its number. May be left out, as in Qt: it is then
+      Priority.InheritPriority.
+    """
+    #  void QThread::start(Priority a0)
+    self.uglySide.call('ritual_ZN7QThread5startENS_8PriorityE', a0.value)
+
+  def terminate(self) -> None:
+    """
+    Calls Qt's 'void QThread::terminate()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#terminate
+    """
+    #  void QThread::terminate()
+    self.uglySide.call('ritual_ZN7QThread9terminateEv')
+
+  @overload()
+  @overload(int)
+  def exit(self, retcode: int = 0) -> None:
+    """
+    Calls Qt's 'void QThread::exit(int retcode)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#exit
+
+    Parameters
+    ----------
+
+    retcode : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+    """
+    #  void QThread::exit(int retcode)
+    self.uglySide.call('ritual_ZN7QThread4exitEi', retcode)
+
+  def quit(self) -> None:
+    """
+    Calls Qt's 'void QThread::quit()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#quit
+    """
+    #  void QThread::quit()
+    self.uglySide.call('ritual_ZN7QThread4quitEv')
+
+  @overload(int)
+  def wait(self, time: int) -> bool:
+    """
+    Calls Qt's 'bool QThread::wait(unsigned long time)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#wait
+
+    Parameters
+    ----------
+
+    time : int
+      Passed on as it is.
+    """
+    #  bool QThread::wait(unsigned long time)
+    return self.uglySide.call('ritual_ZN7QThread4waitEm', time)

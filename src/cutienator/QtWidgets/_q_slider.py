@@ -1,0 +1,363 @@
+"""
+QSlider binding of the Qt C++
+"""
+#  Apache-2.0 license
+#  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  QtWidgets/qslider.h, Qt 6.12.0. Changes made here are lost.
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from worktoy.dispatch import overload
+
+from ..cute import CuteMixin
+from ..occult import Rituals
+from ..QtCore import Qt
+from ._q_abstract_slider import QAbstractSlider
+from ..QtCore import QEvent
+from ..QtCore import QMetaObject
+from ..QtCore import QSize
+from ._q_widget import QWidget
+from ._q_slider_tick_position import TickPosition
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
+
+
+class QSlider(QAbstractSlider):
+  """
+  The cute side of Qt's QSlider: a plain Python object standing in front of
+  one C++ QSlider.
+
+  It is built on the cute 'QAbstractSlider', as Qt's QSlider is built on Qt's
+  QAbstractSlider, and has everything that class has.
+
+  What exists
+  -----------
+
+  Every function of Qt's QSlider that has a ritual and that Python can call
+  so far, 9 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
+  'setTickPosition', 'tickPosition', 'setTickInterval', 'tickInterval',
+  'event'. It can be made from Python, in 2 ways; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QSlider::~QSlider()': the destructor: Python never removes a C++
+    QSlider.
+
+  What has no ritual
+  ------------------
+
+  13 of the 25 functions Qt declares: 5 protected; 3 private; 2 takes or
+  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+
+  What to expect
+  --------------
+
+  - The C++ QSlider is created at the first use, not by 'QSlider(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - Python never removes the C++ QSlider.
+  - Qt tells when it has removed the C++ QSlider. Every call on the cute
+    object, and every use of it as an argument, then raises 'RuntimeError',
+    and nothing reaches C++.
+  """
+
+  #  The enums Qt writes inside QSlider, and the names Qt has for the
+  #  combinations of its flags enums.
+  TickPosition = TickPosition
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(str)
+  @overload(NoneType)
+  @overload(str, str)
+  @overload(str, NoneType)
+  @overload(NoneType, str)
+  @overload(NoneType, NoneType)
+  @overload(str, str, int)
+  @overload(str, NoneType, int)
+  @overload(NoneType, str, int)
+  @overload(NoneType, NoneType, int)
+  def tr(s: Optional[str], c: Optional[str] = None, n: int = -1) -> str:
+    """
+    Calls Qt's 'QString QSlider::tr(const char *s, const char *c, int n)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#tr
+
+    Parameters
+    ----------
+
+    s : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    c : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text. May
+      be left out, as in Qt: it is then None.
+
+    n : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QSlider::tr(const char *s, const char *c, int n)
+    return Rituals.call(
+        'ritual_ZN7QSlider2trEPKcS1_i',
+        CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
+    )
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QSlider'
+
+  #  Fallback Variables
+
+  #  Private Variables
+
+  #  Public Variables
+
+  #  Virtual Variables
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def metaObject(self) -> Optional[QMetaObject]:
+    """
+    Calls Qt's 'const QMetaObject *QSlider::metaObject() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#metaObject
+
+    Returns
+    -------
+
+    Optional[QMetaObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QMetaObject *QSlider::metaObject() const
+    address = self.uglySide.call('ritual_ZNK7QSlider10metaObjectEv')
+    return QMetaObject._cuteAt(address)
+
+  def sizeHint(self) -> QSize:
+    """
+    Calls Qt's 'QSize QSlider::sizeHint() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#sizeHint
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QSlider::sizeHint() const
+    address = self.uglySide.call('ritual_ZNK7QSlider8sizeHintEv')
+    return QSize._cuteOwning(address)
+
+  def minimumSizeHint(self) -> QSize:
+    """
+    Calls Qt's 'QSize QSlider::minimumSizeHint() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#minimumSizeHint
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QSlider::minimumSizeHint() const
+    address = self.uglySide.call('ritual_ZNK7QSlider15minimumSizeHintEv')
+    return QSize._cuteOwning(address)
+
+  def tickPosition(self) -> TickPosition:
+    """
+    Calls Qt's 'TickPosition QSlider::tickPosition() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#tickPosition
+
+    Returns
+    -------
+
+    TickPosition
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'TickPosition(number)'
+      gives.
+    """
+    #  TickPosition QSlider::tickPosition() const
+    return TickPosition(self.uglySide.call(
+        'ritual_ZNK7QSlider12tickPositionEv',
+    ))
+
+  def tickInterval(self) -> int:
+    """
+    Calls Qt's 'int QSlider::tickInterval() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#tickInterval
+    """
+    #  int QSlider::tickInterval() const
+    return self.uglySide.call('ritual_ZNK7QSlider12tickIntervalEv')
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(TickPosition)
+  def setTickPosition(self, position: TickPosition) -> None:
+    """
+    Calls Qt's 'void QSlider::setTickPosition(TickPosition position)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#setTickPosition
+
+    Parameters
+    ----------
+
+    position : TickPosition
+      Passed on as its number.
+    """
+    #  void QSlider::setTickPosition(TickPosition position)
+    self.uglySide.call(
+        'ritual_ZN7QSlider15setTickPositionENS_12TickPositionE',
+        position.value,
+    )
+
+  @overload(int)
+  def setTickInterval(self, ti: int) -> None:
+    """
+    Calls Qt's 'void QSlider::setTickInterval(int ti)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#setTickInterval
+
+    Parameters
+    ----------
+
+    ti : int
+      Passed on as it is.
+    """
+    #  void QSlider::setTickInterval(int ti)
+    self.uglySide.call('ritual_ZN7QSlider15setTickIntervalEi', ti)
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(QWidget)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QWidget] = None) -> None:
+    """
+    Notes what was given, for Qt's 'QSlider::QSlider(QWidget *parent)', which
+    is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#QSlider
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QSlider::QSlider(QWidget *parent)
+    self._noteCreation(QSlider, lambda: Rituals.call(
+        'ritual_ZN7QSliderC1EP7QWidget', self._addressOf(parent),
+    ))
+
+  @overload(Qt.Orientation)
+  @overload(Qt.Orientation, QWidget)
+  @overload(Qt.Orientation, NoneType)
+  def __init__(
+      self,
+      orientation: Qt.Orientation,
+      parent: Optional[QWidget] = None,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QSlider::QSlider(Qt::Orientation
+    orientation, QWidget *parent)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#QSlider
+
+    Parameters
+    ----------
+
+    orientation : Qt.Orientation
+      Passed on as its number.
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QSlider::QSlider(Qt::Orientation orientation, QWidget *parent)
+    self._noteCreation(QSlider, lambda: Rituals.call(
+        'ritual_ZN7QSliderC1EN2Qt11OrientationEP7QWidget',
+        orientation.value, self._addressOf(parent),
+    ))
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QSlider::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QSlider::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_ZN7QSlider5eventEP6QEvent', self._addressOf(event),
+    )

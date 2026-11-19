@@ -1,0 +1,162 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qstandarditemmodel.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QStandardItemC1Ev": ["address"],
+    "ritual_ZN13QStandardItemC1ERK7QString": ["address", "text"],
+    "ritual_ZN13QStandardItemC1ERK5QIconRK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN13QStandardItemC1Eii": ["address", "int", "int"],
+    "ritual_ZN13QStandardItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QStandardItem4dataEi": ["address", "address", "int"],
+    "ritual_ZNK13QStandardItem9multiDataE18QModelRoleDataSpan": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QStandardItem7setDataERK8QVarianti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN13QStandardItem9clearDataEv": ["nothing", "address"],
+    "ritual_ZNK13QStandardItem4textEv": ["text", "address"],
+    "ritual_ZN13QStandardItem7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QStandardItem4iconEv": ["address", "address"],
+    "ritual_ZN13QStandardItem7setIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QStandardItem7toolTipEv": ["text", "address"],
+    "ritual_ZN13QStandardItem10setToolTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QStandardItem9statusTipEv": ["text", "address"],
+    "ritual_ZN13QStandardItem12setStatusTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QStandardItem9whatsThisEv": ["text", "address"],
+    "ritual_ZN13QStandardItem12setWhatsThisERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QStandardItem8sizeHintEv": ["address", "address"],
+    "ritual_ZN13QStandardItem11setSizeHintERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QStandardItem4fontEv": ["address", "address"],
+    "ritual_ZN13QStandardItem7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QStandardItem13textAlignmentEv": ["int", "address"],
+    "ritual_ZN13QStandardItem16setTextAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QStandardItem10backgroundEv": ["address", "address"],
+    "ritual_ZN13QStandardItem13setBackgroundERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QStandardItem10foregroundEv": ["address", "address"],
+    "ritual_ZN13QStandardItem13setForegroundERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QStandardItem10checkStateEv": ["int", "address"],
+    "ritual_ZN13QStandardItem13setCheckStateEN2Qt10CheckStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QStandardItem14accessibleTextEv": ["text", "address"],
+    "ritual_ZN13QStandardItem17setAccessibleTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QStandardItem21accessibleDescriptionEv": [
+      "text", "address"
+    ],
+    "ritual_ZN13QStandardItem24setAccessibleDescriptionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QStandardItem5flagsEv": ["int", "address"],
+    "ritual_ZN13QStandardItem8setFlagsE6QFlagsIN2Qt8ItemFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QStandardItem9isEnabledEv": ["bool", "address"],
+    "ritual_ZN13QStandardItem10setEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZNK13QStandardItem10isEditableEv": ["bool", "address"],
+    "ritual_ZN13QStandardItem11setEditableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QStandardItem12isSelectableEv": ["bool", "address"],
+    "ritual_ZN13QStandardItem13setSelectableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QStandardItem11isCheckableEv": ["bool", "address"],
+    "ritual_ZN13QStandardItem12setCheckableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QStandardItem14isAutoTristateEv": ["bool", "address"],
+    "ritual_ZN13QStandardItem15setAutoTristateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QStandardItem14isUserTristateEv": ["bool", "address"],
+    "ritual_ZN13QStandardItem15setUserTristateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QStandardItem13isDragEnabledEv": ["bool", "address"],
+    "ritual_ZN13QStandardItem14setDragEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QStandardItem13isDropEnabledEv": ["bool", "address"],
+    "ritual_ZN13QStandardItem14setDropEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QStandardItem6parentEv": ["address", "address"],
+    "ritual_ZNK13QStandardItem3rowEv": ["int", "address"],
+    "ritual_ZNK13QStandardItem6columnEv": ["int", "address"],
+    "ritual_ZNK13QStandardItem5indexEv": ["address", "address"],
+    "ritual_ZNK13QStandardItem5modelEv": ["address", "address"],
+    "ritual_ZNK13QStandardItem8rowCountEv": ["int", "address"],
+    "ritual_ZN13QStandardItem11setRowCountEi": ["nothing", "address", "int"],
+    "ritual_ZNK13QStandardItem11columnCountEv": ["int", "address"],
+    "ritual_ZN13QStandardItem14setColumnCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QStandardItem11hasChildrenEv": ["bool", "address"],
+    "ritual_ZNK13QStandardItem5childEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN13QStandardItem8setChildEiiPS_": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN13QStandardItem8setChildEiPS_": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QStandardItem10insertRowsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QStandardItem13insertColumnsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QStandardItem9removeRowEi": ["nothing", "address", "int"],
+    "ritual_ZN13QStandardItem12removeColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QStandardItem10removeRowsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QStandardItem13removeColumnsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QStandardItem9insertRowEiPS_": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QStandardItem9appendRowEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QStandardItem9takeChildEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN13QStandardItem12sortChildrenEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK13QStandardItem5cloneEv": ["address", "address"],
+    "ritual_ZNK13QStandardItem4typeEv": ["int", "address"]
+  }
+}

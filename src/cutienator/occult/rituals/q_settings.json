@@ -1,0 +1,77 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qsettings.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QSettings10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QSettings2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QSettingsC1ERK7QStringS2_P7QObject": [
+      "address", "text", "text", "address"
+    ],
+    "ritual_ZN9QSettingsC1ENS_5ScopeERK7QStringS3_P7QObject": [
+      "address", "int", "text", "text", "address"
+    ],
+    "ritual_ZN9QSettingsC1ENS_6FormatENS_5ScopeERK7QStringS4_P7QObject": [
+      "address", "int", "int", "text", "text", "address"
+    ],
+    "ritual_ZN9QSettingsC1ERK7QStringNS_6FormatEP7QObject": [
+      "address", "text", "int", "address"
+    ],
+    "ritual_ZN9QSettingsC1EP7QObject": ["address", "address"],
+    "ritual_ZN9QSettingsC1ENS_5ScopeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN9QSettingsD1Ev": ["nothing", "address"],
+    "ritual_ZN9QSettings5clearEv": ["nothing", "address"],
+    "ritual_ZN9QSettings4syncEv": ["nothing", "address"],
+    "ritual_ZNK9QSettings6statusEv": ["int", "address"],
+    "ritual_ZNK9QSettings20isAtomicSyncRequiredEv": ["bool", "address"],
+    "ritual_ZN9QSettings21setAtomicSyncRequiredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9QSettings10beginGroupE14QAnyStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9QSettings8endGroupEv": ["nothing", "address"],
+    "ritual_ZNK9QSettings5groupEv": ["text", "address"],
+    "ritual_ZN9QSettings14beginReadArrayE14QAnyStringView": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN9QSettings15beginWriteArrayE14QAnyStringViewi": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN9QSettings8endArrayEv": ["nothing", "address"],
+    "ritual_ZN9QSettings13setArrayIndexEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QSettings10isWritableEv": ["bool", "address"],
+    "ritual_ZN9QSettings8setValueE14QAnyStringViewRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK9QSettings5valueE14QAnyStringViewRK8QVariant": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK9QSettings5valueE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN9QSettings6removeE14QAnyStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QSettings8containsE14QAnyStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN9QSettings19setFallbacksEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QSettings16fallbacksEnabledEv": ["bool", "address"],
+    "ritual_ZNK9QSettings8fileNameEv": ["text", "address"],
+    "ritual_ZNK9QSettings6formatEv": ["int", "address"],
+    "ritual_ZNK9QSettings5scopeEv": ["int", "address"],
+    "ritual_ZNK9QSettings16organizationNameEv": ["text", "address"],
+    "ritual_ZNK9QSettings15applicationNameEv": ["text", "address"],
+    "ritual_ZN9QSettings16setDefaultFormatENS_6FormatE": ["nothing", "int"],
+    "ritual_ZN9QSettings13defaultFormatEv": ["int"],
+    "ritual_ZN9QSettings7setPathENS_6FormatENS_5ScopeERK7QString": [
+      "nothing", "int", "int", "text"
+    ]
+  }
+}

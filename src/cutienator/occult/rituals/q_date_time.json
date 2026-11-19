@@ -1,0 +1,135 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qdatetime.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QDateTimeC1Ev": ["address"],
+    "ritual_ZN9QDateTimeC1E5QDate5QTimeN2Qt8TimeSpecEi": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN9QDateTimeC1E5QDate5QTimeRK9QTimeZoneNS_20TransitionResolutionE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN9QDateTimeC1E5QDate5QTimeNS_20TransitionResolutionE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN9QDateTimeC1ERKS_": ["address", "address"],
+    "ritual_ZN9QDateTimeD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QDateTime6isNullEv": ["bool", "address"],
+    "ritual_ZNK9QDateTime7isValidEv": ["bool", "address"],
+    "ritual_ZNK9QDateTime4dateEv": ["address", "address"],
+    "ritual_ZNK9QDateTime4timeEv": ["address", "address"],
+    "ritual_ZNK9QDateTime8timeSpecEv": ["int", "address"],
+    "ritual_ZNK9QDateTime13offsetFromUtcEv": ["int", "address"],
+    "ritual_ZNK9QDateTime18timeRepresentationEv": ["address", "address"],
+    "ritual_ZNK9QDateTime8timeZoneEv": ["address", "address"],
+    "ritual_ZNK9QDateTime20timeZoneAbbreviationEv": ["text", "address"],
+    "ritual_ZNK9QDateTime14isDaylightTimeEv": ["bool", "address"],
+    "ritual_ZNK9QDateTime17toMSecsSinceEpochEv": ["long long", "address"],
+    "ritual_ZNK9QDateTime16toSecsSinceEpochEv": ["long long", "address"],
+    "ritual_ZN9QDateTime7setDateE5QDateNS_20TransitionResolutionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN9QDateTime7setTimeE5QTimeNS_20TransitionResolutionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN9QDateTime11setTimeSpecEN2Qt8TimeSpecE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QDateTime16setOffsetFromUtcEi": ["nothing", "address", "int"],
+    "ritual_ZN9QDateTime11setTimeZoneERK9QTimeZoneNS_20TransitionResolutionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN9QDateTime18setMSecsSinceEpochEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN9QDateTime17setSecsSinceEpochEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK9QDateTime8toStringEN2Qt10DateFormatE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK9QDateTime8toStringERK7QString": ["text", "address", "text"],
+    "ritual_ZNK9QDateTime8toStringERK7QString9QCalendar": [
+      "text", "address", "text", "address"
+    ],
+    "ritual_ZNK9QDateTime8toStringE11QStringView": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK9QDateTime8toStringE11QStringView9QCalendar": [
+      "text", "address", "text", "address"
+    ],
+    "ritual_ZNK9QDateTime7addDaysEx": ["address", "address", "long long"],
+    "ritual_ZNK9QDateTime9addMonthsEi": ["address", "address", "int"],
+    "ritual_ZNK9QDateTime8addYearsEi": ["address", "address", "int"],
+    "ritual_ZNK9QDateTime7addSecsEx": ["address", "address", "long long"],
+    "ritual_ZNK9QDateTime8addMSecsEx": ["address", "address", "long long"],
+    "ritual_ZNK9QDateTime10toTimeSpecEN2Qt8TimeSpecE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK9QDateTime11toLocalTimeEv": ["address", "address"],
+    "ritual_ZNK9QDateTime5toUTCEv": ["address", "address"],
+    "ritual_ZNK9QDateTime15toOffsetFromUtcEi": ["address", "address", "int"],
+    "ritual_ZNK9QDateTime10toTimeZoneERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QDateTime6daysToERKS_": ["long long", "address", "address"],
+    "ritual_ZNK9QDateTime6secsToERKS_": ["long long", "address", "address"],
+    "ritual_ZNK9QDateTime7msecsToERKS_": ["long long", "address", "address"],
+    "ritual_ZN9QDateTime15currentDateTimeERK9QTimeZone": [
+      "address", "address"
+    ],
+    "ritual_ZN9QDateTime15currentDateTimeEv": ["address"],
+    "ritual_ZN9QDateTime18currentDateTimeUtcEv": ["address"],
+    "ritual_ZN9QDateTime10fromStringE11QStringViewN2Qt10DateFormatE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN9QDateTime10fromStringERK7QStringN2Qt10DateFormatE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN9QDateTime10fromStringE11QStringViewS0_9QCalendar": [
+      "address", "text", "text", "address"
+    ],
+    "ritual_ZN9QDateTime10fromStringERK7QString11QStringView9QCalendar": [
+      "address", "text", "text", "address"
+    ],
+    "ritual_ZN9QDateTime10fromStringERK7QStringS2_9QCalendar": [
+      "address", "text", "text", "address"
+    ],
+    "ritual_ZN9QDateTime10fromStringE11QStringViewS0_i": [
+      "address", "text", "text", "int"
+    ],
+    "ritual_ZN9QDateTime10fromStringE11QStringViewS0_i9QCalendar": [
+      "address", "text", "text", "int", "address"
+    ],
+    "ritual_ZN9QDateTime10fromStringERK7QString11QStringViewi": [
+      "address", "text", "text", "int"
+    ],
+    "ritual_ZN9QDateTime10fromStringERK7QString11QStringViewi9QCalendar": [
+      "address", "text", "text", "int", "address"
+    ],
+    "ritual_ZN9QDateTime10fromStringERK7QStringS2_i": [
+      "address", "text", "text", "int"
+    ],
+    "ritual_ZN9QDateTime10fromStringERK7QStringS2_i9QCalendar": [
+      "address", "text", "text", "int", "address"
+    ],
+    "ritual_ZN9QDateTime19fromMSecsSinceEpochExN2Qt8TimeSpecEi": [
+      "address", "long long", "int", "int"
+    ],
+    "ritual_ZN9QDateTime18fromSecsSinceEpochExN2Qt8TimeSpecEi": [
+      "address", "long long", "int", "int"
+    ],
+    "ritual_ZN9QDateTime19fromMSecsSinceEpochExRK9QTimeZone": [
+      "address", "long long", "address"
+    ],
+    "ritual_ZN9QDateTime18fromSecsSinceEpochExRK9QTimeZone": [
+      "address", "long long", "address"
+    ],
+    "ritual_ZN9QDateTime19fromMSecsSinceEpochEx": ["address", "long long"],
+    "ritual_ZN9QDateTime18fromSecsSinceEpochEx": ["address", "long long"],
+    "ritual_ZN9QDateTime22currentMSecsSinceEpochEv": ["long long"],
+    "ritual_ZN9QDateTime21currentSecsSinceEpochEv": ["long long"]
+  }
+}

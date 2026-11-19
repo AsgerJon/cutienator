@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpalette.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QPaletteC1Ev": ["address"],
+    "ritual_ZN8QPaletteC1ERK6QColor": ["address", "address"],
+    "ritual_ZN8QPaletteC1EN2Qt11GlobalColorE": ["address", "int"],
+    "ritual_ZN8QPaletteC1ERK6QColorS2_": ["address", "address", "address"],
+    "ritual_ZN8QPaletteC1ERK6QBrushS2_S2_S2_S2_S2_S2_S2_S2_": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN8QPaletteC1ERK6QColorS2_S2_S2_S2_S2_S2_": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZN8QPaletteC1ERKS_": ["address", "address"],
+    "ritual_ZN8QPaletteD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QPalettecv8QVariantEv": ["address", "address"],
+    "ritual_ZNK8QPalette17currentColorGroupEv": ["int", "address"],
+    "ritual_ZN8QPalette20setCurrentColorGroupENS_10ColorGroupE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QPalette5colorENS_10ColorGroupENS_9ColorRoleE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN8QPalette8setColorENS_10ColorGroupENS_9ColorRoleERK6QColor": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN8QPalette8setColorENS_9ColorRoleERK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN8QPalette8setBrushENS_9ColorRoleERK6QBrush": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK8QPalette10isBrushSetENS_10ColorGroupENS_9ColorRoleE": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN8QPalette8setBrushENS_10ColorGroupENS_9ColorRoleERK6QBrush": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN8QPalette13setColorGroupENS_10ColorGroupERK6QBrushS3_S3_S3_S3_S3_S3_S3_S3_": [
+      "nothing", "address", "int", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QPalette7isEqualENS_10ColorGroupES0_": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZNK8QPalette5colorENS_9ColorRoleE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK8QPalette5brushENS_9ColorRoleE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK8QPalette10windowTextEv": ["address", "address"],
+    "ritual_ZNK8QPalette6buttonEv": ["address", "address"],
+    "ritual_ZNK8QPalette5lightEv": ["address", "address"],
+    "ritual_ZNK8QPalette4darkEv": ["address", "address"],
+    "ritual_ZNK8QPalette3midEv": ["address", "address"],
+    "ritual_ZNK8QPalette4textEv": ["address", "address"],
+    "ritual_ZNK8QPalette4baseEv": ["address", "address"],
+    "ritual_ZNK8QPalette13alternateBaseEv": ["address", "address"],
+    "ritual_ZNK8QPalette11toolTipBaseEv": ["address", "address"],
+    "ritual_ZNK8QPalette11toolTipTextEv": ["address", "address"],
+    "ritual_ZNK8QPalette6windowEv": ["address", "address"],
+    "ritual_ZNK8QPalette8midlightEv": ["address", "address"],
+    "ritual_ZNK8QPalette10brightTextEv": ["address", "address"],
+    "ritual_ZNK8QPalette10buttonTextEv": ["address", "address"],
+    "ritual_ZNK8QPalette6shadowEv": ["address", "address"],
+    "ritual_ZNK8QPalette9highlightEv": ["address", "address"],
+    "ritual_ZNK8QPalette15highlightedTextEv": ["address", "address"],
+    "ritual_ZNK8QPalette4linkEv": ["address", "address"],
+    "ritual_ZNK8QPalette11linkVisitedEv": ["address", "address"],
+    "ritual_ZNK8QPalette15placeholderTextEv": ["address", "address"],
+    "ritual_ZNK8QPalette6accentEv": ["address", "address"],
+    "ritual_ZNK8QPaletteeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK8QPaletteneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK8QPalette8isCopyOfERKS_": ["bool", "address", "address"],
+    "ritual_ZNK8QPalette8cacheKeyEv": ["long long", "address"],
+    "ritual_ZNK8QPalette7resolveERKS_": ["address", "address", "address"],
+    "ritual_ZNK8QPalette11resolveMaskEv": ["unsigned long long", "address"],
+    "ritual_ZN8QPalette14setResolveMaskEy": [
+      "nothing", "address", "unsigned long long"
+    ]
+  }
+}

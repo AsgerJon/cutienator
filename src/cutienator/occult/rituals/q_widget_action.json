@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qwidgetaction.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QWidgetAction10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QWidgetAction2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QWidgetActionC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QWidgetActionD1Ev": ["nothing", "address"],
+    "ritual_ZN13QWidgetAction16setDefaultWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QWidgetAction13defaultWidgetEv": ["address", "address"],
+    "ritual_ZN13QWidgetAction13requestWidgetEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QWidgetAction13releaseWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ]
+  }
+}

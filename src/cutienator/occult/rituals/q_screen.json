@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qscreen.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QScreen10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QScreen2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QScreenD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QScreen4nameEv": ["text", "address"],
+    "ritual_ZNK7QScreen12manufacturerEv": ["text", "address"],
+    "ritual_ZNK7QScreen5modelEv": ["text", "address"],
+    "ritual_ZNK7QScreen12serialNumberEv": ["text", "address"],
+    "ritual_ZNK7QScreen5depthEv": ["int", "address"],
+    "ritual_ZNK7QScreen4sizeEv": ["address", "address"],
+    "ritual_ZNK7QScreen8geometryEv": ["address", "address"],
+    "ritual_ZNK7QScreen12physicalSizeEv": ["address", "address"],
+    "ritual_ZNK7QScreen20physicalDotsPerInchXEv": ["double", "address"],
+    "ritual_ZNK7QScreen20physicalDotsPerInchYEv": ["double", "address"],
+    "ritual_ZNK7QScreen19physicalDotsPerInchEv": ["double", "address"],
+    "ritual_ZNK7QScreen19logicalDotsPerInchXEv": ["double", "address"],
+    "ritual_ZNK7QScreen19logicalDotsPerInchYEv": ["double", "address"],
+    "ritual_ZNK7QScreen18logicalDotsPerInchEv": ["double", "address"],
+    "ritual_ZNK7QScreen16devicePixelRatioEv": ["double", "address"],
+    "ritual_ZNK7QScreen13availableSizeEv": ["address", "address"],
+    "ritual_ZNK7QScreen17availableGeometryEv": ["address", "address"],
+    "ritual_ZN7QScreen16virtualSiblingAtE6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK7QScreen11virtualSizeEv": ["address", "address"],
+    "ritual_ZNK7QScreen15virtualGeometryEv": ["address", "address"],
+    "ritual_ZNK7QScreen20availableVirtualSizeEv": ["address", "address"],
+    "ritual_ZNK7QScreen24availableVirtualGeometryEv": ["address", "address"],
+    "ritual_ZNK7QScreen18primaryOrientationEv": ["int", "address"],
+    "ritual_ZNK7QScreen11orientationEv": ["int", "address"],
+    "ritual_ZNK7QScreen17nativeOrientationEv": ["int", "address"],
+    "ritual_ZNK7QScreen12angleBetweenEN2Qt17ScreenOrientationES1_": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK7QScreen16transformBetweenEN2Qt17ScreenOrientationES1_RK5QRect": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK7QScreen10mapBetweenEN2Qt17ScreenOrientationES1_RK5QRect": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK7QScreen10isPortraitEN2Qt17ScreenOrientationE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK7QScreen11isLandscapeEN2Qt17ScreenOrientationE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN7QScreen10grabWindowEyiiii": [
+      "address", "address", "unsigned long long", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK7QScreen11refreshRateEv": ["double", "address"]
+  }
+}

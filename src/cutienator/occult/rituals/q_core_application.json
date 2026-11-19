@@ -1,0 +1,104 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcoreapplication.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QCoreApplication10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QCoreApplication2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QCoreApplicationC1ERiPPci": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QCoreApplicationD1Ev": ["nothing", "address"],
+    "ritual_ZN16QCoreApplication12setAttributeEN2Qt20ApplicationAttributeEb": [
+      "nothing", "int", "bool"
+    ],
+    "ritual_ZN16QCoreApplication13testAttributeEN2Qt20ApplicationAttributeE": [
+      "bool", "int"
+    ],
+    "ritual_ZN16QCoreApplication21setOrganizationDomainERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN16QCoreApplication18organizationDomainEv": ["text"],
+    "ritual_ZN16QCoreApplication19setOrganizationNameERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN16QCoreApplication16organizationNameEv": ["text"],
+    "ritual_ZN16QCoreApplication18setApplicationNameERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN16QCoreApplication15applicationNameEv": ["text"],
+    "ritual_ZN16QCoreApplication21setApplicationVersionERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN16QCoreApplication18applicationVersionEv": ["text"],
+    "ritual_ZN16QCoreApplication16setSetuidAllowedEb": ["nothing", "bool"],
+    "ritual_ZN16QCoreApplication15isSetuidAllowedEv": ["bool"],
+    "ritual_ZN16QCoreApplication8instanceEv": ["address"],
+    "ritual_ZN16QCoreApplication14instanceExistsEv": ["bool"],
+    "ritual_ZN16QCoreApplication4execEv": ["int"],
+    "ritual_ZN16QCoreApplication13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "nothing", "int"
+    ],
+    "ritual_ZN16QCoreApplication13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEEi": [
+      "nothing", "int", "int"
+    ],
+    "ritual_ZN16QCoreApplication13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE14QDeadlineTimer": [
+      "nothing", "int", "address"
+    ],
+    "ritual_ZN16QCoreApplication9sendEventEP7QObjectP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QCoreApplication9postEventEP7QObjectP6QEventi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN16QCoreApplication16sendPostedEventsEP7QObjecti": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QCoreApplication18removePostedEventsEP7QObjecti": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QCoreApplication15eventDispatcherEv": ["address"],
+    "ritual_ZN16QCoreApplication18setEventDispatcherEP24QAbstractEventDispatcher": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QCoreApplication6notifyEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QCoreApplication10startingUpEv": ["bool"],
+    "ritual_ZN16QCoreApplication11closingDownEv": ["bool"],
+    "ritual_ZN16QCoreApplication18applicationDirPathEv": ["text"],
+    "ritual_ZN16QCoreApplication19applicationFilePathEv": ["text"],
+    "ritual_ZN16QCoreApplication14applicationPidEv": ["long long"],
+    "ritual_ZN16QCoreApplication15checkPermissionERK11QPermission": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN16QCoreApplication14addLibraryPathERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN16QCoreApplication17removeLibraryPathERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN16QCoreApplication17installTranslatorEP11QTranslator": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QCoreApplication16removeTranslatorEP11QTranslator": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QCoreApplication9translateEPKcS1_S1_i": [
+      "text", "chars", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QCoreApplication24installNativeEventFilterEP26QAbstractNativeEventFilter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QCoreApplication23removeNativeEventFilterEP26QAbstractNativeEventFilter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QCoreApplication17isQuitLockEnabledEv": ["bool"],
+    "ritual_ZN16QCoreApplication18setQuitLockEnabledEb": ["nothing", "bool"],
+    "ritual_ZN16QCoreApplication4quitEv": ["nothing"],
+    "ritual_ZN16QCoreApplication4exitEi": ["nothing", "int"]
+  }
+}

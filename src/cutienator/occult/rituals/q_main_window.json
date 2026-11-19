@@ -1,0 +1,132 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qmainwindow.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QMainWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QMainWindow2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QMainWindowC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QMainWindowD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QMainWindow8iconSizeEv": ["address", "address"],
+    "ritual_ZN11QMainWindow11setIconSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QMainWindow15toolButtonStyleEv": ["int", "address"],
+    "ritual_ZN11QMainWindow18setToolButtonStyleEN2Qt15ToolButtonStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QMainWindow10isAnimatedEv": ["bool", "address"],
+    "ritual_ZNK11QMainWindow20isDockNestingEnabledEv": ["bool", "address"],
+    "ritual_ZNK11QMainWindow12documentModeEv": ["bool", "address"],
+    "ritual_ZN11QMainWindow15setDocumentModeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QMainWindow8tabShapeEv": ["int", "address"],
+    "ritual_ZN11QMainWindow11setTabShapeEN10QTabWidget8TabShapeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QMainWindow11tabPositionEN2Qt14DockWidgetAreaE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN11QMainWindow14setTabPositionE6QFlagsIN2Qt14DockWidgetAreaEEN10QTabWidget11TabPositionE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN11QMainWindow14setDockOptionsE6QFlagsINS_10DockOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QMainWindow11dockOptionsEv": ["int", "address"],
+    "ritual_ZNK11QMainWindow11isSeparatorERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QMainWindow7menuBarEv": ["address", "address"],
+    "ritual_ZN11QMainWindow10setMenuBarEP8QMenuBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QMainWindow10menuWidgetEv": ["address", "address"],
+    "ritual_ZN11QMainWindow13setMenuWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QMainWindow9statusBarEv": ["address", "address"],
+    "ritual_ZN11QMainWindow12setStatusBarEP10QStatusBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QMainWindow13centralWidgetEv": ["address", "address"],
+    "ritual_ZN11QMainWindow16setCentralWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMainWindow17takeCentralWidgetEv": ["address", "address"],
+    "ritual_ZN11QMainWindow9setCornerEN2Qt6CornerENS0_14DockWidgetAreaE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK11QMainWindow6cornerEN2Qt6CornerE": ["int", "address", "int"],
+    "ritual_ZN11QMainWindow15addToolBarBreakEN2Qt11ToolBarAreaE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QMainWindow18insertToolBarBreakEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMainWindow10addToolBarEN2Qt11ToolBarAreaEP8QToolBar": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN11QMainWindow10addToolBarEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMainWindow10addToolBarERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QMainWindow13insertToolBarEP8QToolBarS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QMainWindow13removeToolBarEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMainWindow18removeToolBarBreakEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QMainWindow27unifiedTitleAndToolBarOnMacEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK11QMainWindow11toolBarAreaEPK8QToolBar": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK11QMainWindow12toolBarBreakEP8QToolBar": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QMainWindow13addDockWidgetEN2Qt14DockWidgetAreaEP11QDockWidget": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN11QMainWindow13addDockWidgetEN2Qt14DockWidgetAreaEP11QDockWidgetNS0_11OrientationE": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN11QMainWindow15splitDockWidgetEP11QDockWidgetS1_N2Qt11OrientationE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN11QMainWindow16tabifyDockWidgetEP11QDockWidgetS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QMainWindow16removeDockWidgetEP11QDockWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMainWindow17restoreDockWidgetEP11QDockWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QMainWindow14dockWidgetAreaEP11QDockWidget": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK11QMainWindow9saveStateEi": ["address", "address", "int"],
+    "ritual_ZN11QMainWindow12restoreStateERK10QByteArrayi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN11QMainWindow15createPopupMenuEv": ["address", "address"],
+    "ritual_ZN11QMainWindow11setAnimatedEb": ["nothing", "address", "bool"],
+    "ritual_ZN11QMainWindow21setDockNestingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QMainWindow30setUnifiedTitleAndToolBarOnMacEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

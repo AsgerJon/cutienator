@@ -144,13 +144,17 @@ class Rituals:
 
   #  The parts of Qt the rituals call into. 'System' knows the file of
   #  each part on the system Python runs on.
-  __qt_parts__ = ('QtCore',)
+  __qt_parts__ = ('QtCore', 'QtGui', 'QtWidgets')
 
   #  Every row of the rows files, or None until they are read.
   __ritual_rows__ = None  # type: Optional[Dict[str, Row]]
 
   #  The opened target file, or None until the first call.
   __opened_target__ = None  # type: Optional[ctypes.CDLL]
+
+  #  The texts a program was started with, each time they were handed to
+  #  Qt, kept so that Python never removes them.
+  __start_texts__ = []  # type: List[Any]
 
   #  Fallback Variables
 
@@ -430,6 +434,47 @@ class Rituals:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @classmethod
+  def keepStartTexts(cls, texts: Any) -> Tuple[int, int]:
+    """
+    Gives what Qt takes for the texts a program was started with, as
+    'sys.argv': the address of their count, and the address of the
+    first of them as C has text.
+
+    Qt's application reads both for as long as it lives, and may change
+    them. So they are kept here for as long as Python runs.
+
+    Parameters
+    ----------
+
+    texts : Any
+      A list or tuple of 'str'.
+
+    Returns
+    -------
+
+    Tuple[int, int]
+      The two addresses, in the order Qt takes them.
+
+    Raises
+    ------
+
+    TypeException
+      'texts' is no list or tuple, or one of them is not a 'str'.
+    """
+    if not isinstance(texts, (list, tuple)):
+      raise TypeException('texts', texts, list, tuple)
+    encoded = []
+    for text in texts:
+      if not isinstance(text, str):
+        raise TypeException('text', text, str)
+      encoded.append(text.encode())
+    count = ctypes.c_int(len(encoded))
+    #  C ends such a row of texts with one that is nowhere.
+    row = (ctypes.c_char_p * (len(encoded) + 1))(*encoded, None)
+    cls.__start_texts__.append((count, row))
+    return ctypes.addressof(count), ctypes.addressof(row)
+
+  @classmethod
   def _makeText(cls, text: Any) -> int:
     """
     Makes a C++ QString holding the letters of a 'str', and gives its
@@ -529,7 +574,9 @@ class Rituals:
 
     Call it after adding or changing a ritual file, in a Python that has
     not run a ritual yet: a shared object that is already open cannot be
-    swapped for a new one. It takes one to three seconds per ritual file.
+    swapped for a new one. Each ritual file is compiled by itself,
+    several at the same time, and only when it changed since the last
+    build; see 'Build'.
 
     Returns
     -------

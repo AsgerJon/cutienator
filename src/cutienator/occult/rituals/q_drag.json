@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qdrag.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK5QDrag10metaObjectEv": ["address", "address"],
+    "ritual_ZN5QDrag2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN5QDragC1EP7QObject": ["address", "address"],
+    "ritual_ZN5QDragD1Ev": ["nothing", "address"],
+    "ritual_ZN5QDrag11setMimeDataEP9QMimeData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5QDrag8mimeDataEv": ["address", "address"],
+    "ritual_ZN5QDrag9setPixmapERK7QPixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5QDrag6pixmapEv": ["address", "address"],
+    "ritual_ZN5QDrag10setHotSpotERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5QDrag7hotSpotEv": ["address", "address"],
+    "ritual_ZNK5QDrag6sourceEv": ["address", "address"],
+    "ritual_ZNK5QDrag6targetEv": ["address", "address"],
+    "ritual_ZN5QDrag4execE6QFlagsIN2Qt10DropActionEE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN5QDrag4execE6QFlagsIN2Qt10DropActionEES2_": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN5QDrag13setDragCursorERK7QPixmapN2Qt10DropActionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK5QDrag10dragCursorEN2Qt10DropActionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK5QDrag16supportedActionsEv": ["int", "address"],
+    "ritual_ZNK5QDrag13defaultActionEv": ["int", "address"],
+    "ritual_ZN5QDrag6cancelEv": ["nothing"]
+  }
+}

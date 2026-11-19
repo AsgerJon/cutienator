@@ -7,8 +7,11 @@ generator wrote.
 
 What it does so far: it reads every header file of a part of Qt and
 keeps all the contents of each; it makes the dependency tree of the
-classes found there; it writes the ritual file of a class; and it
-verifies that ritual file.
+classes found there; it writes the ritual file of a class and verifies
+that ritual file; it writes the Python file of an enum, and of a
+namespace that holds enums, and verifies the numbers in those files by
+asking the compiler; and it writes the Python file of a cute class from
+the plan of its ritual file, and verifies that file.
 
   python -m dev_tooling WORK_FOLDER QtCore QtGui QtWidgets
 """
@@ -21,6 +24,11 @@ from ._qt_part import QtPart
 from ._dependency_tree import DependencyTree
 from ._ritual_generator import RitualGenerator
 from ._ritual_tester import RitualTester
+from ._enum_generator import EnumGenerator
+from ._namespace_generator import NamespaceGenerator
+from ._enum_tester import EnumTester
+from ._class_generator import ClassGenerator
+from ._class_tester import ClassTester
 
 __all__ = (
     'HeaderFile',
@@ -28,4 +36,9 @@ __all__ = (
     'DependencyTree',
     'RitualGenerator',
     'RitualTester',
+    'EnumGenerator',
+    'NamespaceGenerator',
+    'EnumTester',
+    'ClassGenerator',
+    'ClassTester',
 )

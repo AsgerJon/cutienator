@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qitemselectionmodel.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QItemSelectionModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QItemSelectionModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QItemSelectionModelC1EP18QAbstractItemModel": [
+      "address", "address"
+    ],
+    "ritual_ZN19QItemSelectionModelC1EP18QAbstractItemModelP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QItemSelectionModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QItemSelectionModel12currentIndexEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QItemSelectionModel10isSelectedERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QItemSelectionModel13isRowSelectedEiRK11QModelIndex": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK19QItemSelectionModel16isColumnSelectedEiRK11QModelIndex": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK19QItemSelectionModel22rowIntersectsSelectionEiRK11QModelIndex": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK19QItemSelectionModel25columnIntersectsSelectionEiRK11QModelIndex": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK19QItemSelectionModel12hasSelectionEv": ["bool", "address"],
+    "ritual_ZNK19QItemSelectionModel9selectionEv": ["address", "address"],
+    "ritual_ZNK19QItemSelectionModel5modelEv": ["address", "address"],
+    "ritual_ZN19QItemSelectionModel5modelEv": ["address", "address"],
+    "ritual_ZN19QItemSelectionModel8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QItemSelectionModel15setCurrentIndexERK11QModelIndex6QFlagsINS_13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QItemSelectionModel6selectERK11QModelIndex6QFlagsINS_13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QItemSelectionModel6selectERK14QItemSelection6QFlagsINS_13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QItemSelectionModel5clearEv": ["nothing", "address"],
+    "ritual_ZN19QItemSelectionModel5resetEv": ["nothing", "address"],
+    "ritual_ZN19QItemSelectionModel14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QItemSelectionModel17clearCurrentIndexEv": [
+      "nothing", "address"
+    ]
+  }
+}

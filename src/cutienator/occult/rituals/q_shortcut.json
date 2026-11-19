@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qshortcut.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QShortcut10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QShortcut2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QShortcutC1EP7QObject": ["address", "address"],
+    "ritual_ZN9QShortcutC1ERK12QKeySequenceP7QObjectPKcS6_N2Qt15ShortcutContextE": [
+      "address", "address", "address", "chars", "chars", "int"
+    ],
+    "ritual_ZN9QShortcutC1EN12QKeySequence11StandardKeyEP7QObjectPKcS5_N2Qt15ShortcutContextE": [
+      "address", "int", "address", "chars", "chars", "int"
+    ],
+    "ritual_ZN9QShortcutD1Ev": ["nothing", "address"],
+    "ritual_ZN9QShortcut6setKeyERK12QKeySequence": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QShortcut3keyEv": ["address", "address"],
+    "ritual_ZN9QShortcut7setKeysEN12QKeySequence11StandardKeyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QShortcut10setEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QShortcut9isEnabledEv": ["bool", "address"],
+    "ritual_ZN9QShortcut10setContextEN2Qt15ShortcutContextE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QShortcut7contextEv": ["int", "address"],
+    "ritual_ZN9QShortcut13setAutoRepeatEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QShortcut10autoRepeatEv": ["bool", "address"],
+    "ritual_ZNK9QShortcut2idEv": ["int", "address"],
+    "ritual_ZN9QShortcut12setWhatsThisERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QShortcut9whatsThisEv": ["text", "address"]
+  }
+}

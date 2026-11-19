@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qicon.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5QIconC1Ev": ["address"],
+    "ritual_ZN5QIconC1ERK7QPixmap": ["address", "address"],
+    "ritual_ZN5QIconC1ERKS_": ["address", "address"],
+    "ritual_ZN5QIconC1ERK7QString": ["address", "text"],
+    "ritual_ZN5QIconC1EP11QIconEngine": ["address", "address"],
+    "ritual_ZN5QIconD1Ev": ["nothing", "address"],
+    "ritual_ZNK5QIconcv8QVariantEv": ["address", "address"],
+    "ritual_ZNK5QIcon6pixmapERK5QSizeNS_4ModeENS_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK5QIcon6pixmapEiiNS_4ModeENS_5StateE": [
+      "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK5QIcon6pixmapEiNS_4ModeENS_5StateE": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK5QIcon6pixmapERK5QSizedNS_4ModeENS_5StateE": [
+      "address", "address", "address", "double", "int", "int"
+    ],
+    "ritual_ZNK5QIcon6pixmapEP7QWindowRK5QSizeNS_4ModeENS_5StateE": [
+      "address", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK5QIcon10actualSizeERK5QSizeNS_4ModeENS_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK5QIcon10actualSizeEP7QWindowRK5QSizeNS_4ModeENS_5StateE": [
+      "address", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK5QIcon4nameEv": ["text", "address"],
+    "ritual_ZNK5QIcon5paintEP8QPainterRK5QRect6QFlagsIN2Qt13AlignmentFlagEENS_4ModeENS_5StateE": [
+      "nothing", "address", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK5QIcon5paintEP8QPainteriiii6QFlagsIN2Qt13AlignmentFlagEENS_4ModeENS_5StateE": [
+      "nothing", "address", "address", "int", "int", "int", "int", "int",
+      "int", "int"
+    ],
+    "ritual_ZNK5QIcon6isNullEv": ["bool", "address"],
+    "ritual_ZNK5QIcon10isDetachedEv": ["bool", "address"],
+    "ritual_ZN5QIcon6detachEv": ["nothing", "address"],
+    "ritual_ZNK5QIcon8cacheKeyEv": ["long long", "address"],
+    "ritual_ZN5QIcon9addPixmapERK7QPixmapNS_4ModeENS_5StateE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN5QIcon7addFileERK7QStringRK5QSizeNS_4ModeENS_5StateE": [
+      "nothing", "address", "text", "address", "int", "int"
+    ],
+    "ritual_ZN5QIcon9setIsMaskEb": ["nothing", "address", "bool"],
+    "ritual_ZNK5QIcon6isMaskEv": ["bool", "address"],
+    "ritual_ZN5QIcon9fromThemeERK7QString": ["address", "text"],
+    "ritual_ZN5QIcon9fromThemeERK7QStringRKS_": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN5QIcon12hasThemeIconERK7QString": ["bool", "text"],
+    "ritual_ZN5QIcon9fromThemeENS_9ThemeIconE": ["address", "int"],
+    "ritual_ZN5QIcon9fromThemeENS_9ThemeIconERKS_": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN5QIcon12hasThemeIconENS_9ThemeIconE": ["bool", "int"],
+    "ritual_ZN5QIcon9themeNameEv": ["text"],
+    "ritual_ZN5QIcon12setThemeNameERK7QString": ["nothing", "text"],
+    "ritual_ZN5QIcon17fallbackThemeNameEv": ["text"],
+    "ritual_ZN5QIcon20setFallbackThemeNameERK7QString": ["nothing", "text"]
+  }
+}

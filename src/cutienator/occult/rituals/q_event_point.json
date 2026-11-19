@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qeventpoint.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QEventPointC1EiPK15QPointingDevice": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN11QEventPointC1EiNS_5StateERK7QPointFS3_": [
+      "address", "int", "unsigned char", "address", "address"
+    ],
+    "ritual_ZN11QEventPointC1ERKS_": ["address", "address"],
+    "ritual_ZNK11QEventPointeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QEventPointneERKS_": ["bool", "address", "address"],
+    "ritual_ZN11QEventPointD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QEventPoint8positionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint13pressPositionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint12grabPositionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint12lastPositionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint13scenePositionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint18scenePressPositionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint17sceneGrabPositionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint17sceneLastPositionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint14globalPositionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint19globalPressPositionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint18globalGrabPositionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint18globalLastPositionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint18normalizedPositionEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint3posEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint8startPosEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint8scenePosEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint13startScenePosEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint9screenPosEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint14startScreenPosEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint18startNormalizedPosEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint13normalizedPosEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint7lastPosEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint12lastScenePosEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint13lastScreenPosEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint17lastNormalizedPosEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint8velocityEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint5stateEv": ["unsigned char", "address"],
+    "ritual_ZNK11QEventPoint6deviceEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint2idEv": ["int", "address"],
+    "ritual_ZNK11QEventPoint8uniqueIdEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint9timestampEv": ["unsigned long", "address"],
+    "ritual_ZNK11QEventPoint13lastTimestampEv": ["unsigned long", "address"],
+    "ritual_ZNK11QEventPoint14pressTimestampEv": [
+      "unsigned long", "address"
+    ],
+    "ritual_ZNK11QEventPoint8timeHeldEv": ["double", "address"],
+    "ritual_ZNK11QEventPoint8pressureEv": ["double", "address"],
+    "ritual_ZNK11QEventPoint8rotationEv": ["double", "address"],
+    "ritual_ZNK11QEventPoint16ellipseDiametersEv": ["address", "address"],
+    "ritual_ZNK11QEventPoint10isAcceptedEv": ["bool", "address"],
+    "ritual_ZN11QEventPoint11setAcceptedEb": ["nothing", "address", "bool"]
+  }
+}

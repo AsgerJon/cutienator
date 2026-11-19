@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgridlayout.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QGridLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QGridLayout2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QGridLayoutC1EP7QWidget": ["address", "address"],
+    "ritual_ZN11QGridLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QGridLayout8sizeHintEv": ["address", "address"],
+    "ritual_ZNK11QGridLayout11minimumSizeEv": ["address", "address"],
+    "ritual_ZNK11QGridLayout11maximumSizeEv": ["address", "address"],
+    "ritual_ZN11QGridLayout20setHorizontalSpacingEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QGridLayout17horizontalSpacingEv": ["int", "address"],
+    "ritual_ZN11QGridLayout18setVerticalSpacingEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QGridLayout15verticalSpacingEv": ["int", "address"],
+    "ritual_ZN11QGridLayout10setSpacingEi": ["nothing", "address", "int"],
+    "ritual_ZNK11QGridLayout7spacingEv": ["int", "address"],
+    "ritual_ZN11QGridLayout13setRowStretchEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN11QGridLayout16setColumnStretchEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK11QGridLayout10rowStretchEi": ["int", "address", "int"],
+    "ritual_ZNK11QGridLayout13columnStretchEi": ["int", "address", "int"],
+    "ritual_ZN11QGridLayout19setRowMinimumHeightEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN11QGridLayout21setColumnMinimumWidthEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK11QGridLayout16rowMinimumHeightEi": ["int", "address", "int"],
+    "ritual_ZNK11QGridLayout18columnMinimumWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK11QGridLayout11columnCountEv": ["int", "address"],
+    "ritual_ZNK11QGridLayout8rowCountEv": ["int", "address"],
+    "ritual_ZNK11QGridLayout8cellRectEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK11QGridLayout17hasHeightForWidthEv": ["bool", "address"],
+    "ritual_ZNK11QGridLayout14heightForWidthEi": ["int", "address", "int"],
+    "ritual_ZNK11QGridLayout21minimumHeightForWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK11QGridLayout19expandingDirectionsEv": ["int", "address"],
+    "ritual_ZN11QGridLayout10invalidateEv": ["nothing", "address"],
+    "ritual_ZN11QGridLayout9addWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QGridLayout9addWidgetEP7QWidgetii6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN11QGridLayout9addWidgetEP7QWidgetiiii6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN11QGridLayout9addLayoutEP7QLayoutii6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN11QGridLayout9addLayoutEP7QLayoutiiii6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN11QGridLayout15setOriginCornerEN2Qt6CornerE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QGridLayout12originCornerEv": ["int", "address"],
+    "ritual_ZNK11QGridLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_ZNK11QGridLayout14itemAtPositionEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QGridLayout6takeAtEi": ["address", "address", "int"],
+    "ritual_ZNK11QGridLayout5countEv": ["int", "address"],
+    "ritual_ZN11QGridLayout11setGeometryERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QGridLayout7addItemEP11QLayoutItemiiii6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN11QGridLayout21setDefaultPositioningEiN2Qt11OrientationE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK11QGridLayout15getItemPositionEiPiS0_S0_S0_": [
+      "nothing", "address", "int", "address", "address", "address", "address"
+    ]
+  }
+}

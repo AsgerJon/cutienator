@@ -1,0 +1,195 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qabstractitemview.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QAbstractItemView10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QAbstractItemView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QAbstractItemViewD1Ev": ["nothing", "address"],
+    "ritual_ZN17QAbstractItemView8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAbstractItemView5modelEv": ["address", "address"],
+    "ritual_ZN17QAbstractItemView17setSelectionModelEP19QItemSelectionModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAbstractItemView14selectionModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QAbstractItemView15setItemDelegateEP21QAbstractItemDelegate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAbstractItemView12itemDelegateEv": ["address", "address"],
+    "ritual_ZN17QAbstractItemView16setSelectionModeENS_13SelectionModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView13selectionModeEv": ["int", "address"],
+    "ritual_ZN17QAbstractItemView20setSelectionBehaviorENS_17SelectionBehaviorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView17selectionBehaviorEv": ["int", "address"],
+    "ritual_ZNK17QAbstractItemView12currentIndexEv": ["address", "address"],
+    "ritual_ZNK17QAbstractItemView9rootIndexEv": ["address", "address"],
+    "ritual_ZN17QAbstractItemView15setEditTriggersE6QFlagsINS_11EditTriggerEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView12editTriggersEv": ["int", "address"],
+    "ritual_ZN17QAbstractItemView21setVerticalScrollModeENS_10ScrollModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView18verticalScrollModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QAbstractItemView23resetVerticalScrollModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QAbstractItemView23setHorizontalScrollModeENS_10ScrollModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView20horizontalScrollModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QAbstractItemView25resetHorizontalScrollModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QAbstractItemView13setAutoScrollEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QAbstractItemView13hasAutoScrollEv": ["bool", "address"],
+    "ritual_ZN17QAbstractItemView19setAutoScrollMarginEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView16autoScrollMarginEv": ["int", "address"],
+    "ritual_ZN17QAbstractItemView19setTabKeyNavigationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QAbstractItemView16tabKeyNavigationEv": ["bool", "address"],
+    "ritual_ZN17QAbstractItemView21setDropIndicatorShownEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QAbstractItemView17showDropIndicatorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QAbstractItemView14setDragEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QAbstractItemView11dragEnabledEv": ["bool", "address"],
+    "ritual_ZN17QAbstractItemView24setDragDropOverwriteModeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QAbstractItemView21dragDropOverwriteModeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QAbstractItemView15setDragDropModeENS_12DragDropModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView12dragDropModeEv": ["int", "address"],
+    "ritual_ZN17QAbstractItemView20setDefaultDropActionEN2Qt10DropActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView17defaultDropActionEv": ["int", "address"],
+    "ritual_ZN17QAbstractItemView23setAlternatingRowColorsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QAbstractItemView20alternatingRowColorsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QAbstractItemView11setIconSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAbstractItemView8iconSizeEv": ["address", "address"],
+    "ritual_ZN17QAbstractItemView16setTextElideModeEN2Qt13TextElideModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView13textElideModeEv": ["int", "address"],
+    "ritual_ZN17QAbstractItemView14keyboardSearchERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QAbstractItemView10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QAbstractItemView8scrollToERK11QModelIndexNS_10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView7indexAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QAbstractItemView16sizeHintForIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QAbstractItemView14sizeHintForRowEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView17sizeHintForColumnEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView15updateThresholdEv": ["int", "address"],
+    "ritual_ZN17QAbstractItemView18setUpdateThresholdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView19keyboardSearchFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QAbstractItemView22setKeyboardSearchFlagsE6QFlagsIN2Qt9MatchFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QAbstractItemView20openPersistentEditorERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstractItemView21closePersistentEditorERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAbstractItemView22isPersistentEditorOpenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QAbstractItemView14setIndexWidgetERK11QModelIndexP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK17QAbstractItemView11indexWidgetERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QAbstractItemView21setItemDelegateForRowEiP21QAbstractItemDelegate": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK17QAbstractItemView18itemDelegateForRowEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QAbstractItemView24setItemDelegateForColumnEiP21QAbstractItemDelegate": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK17QAbstractItemView21itemDelegateForColumnEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QAbstractItemView12itemDelegateERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QAbstractItemView20itemDelegateForIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QAbstractItemView16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QAbstractItemView5resetEv": ["nothing", "address"],
+    "ritual_ZN17QAbstractItemView12setRootIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstractItemView13doItemsLayoutEv": ["nothing", "address"],
+    "ritual_ZN17QAbstractItemView9selectAllEv": ["nothing", "address"],
+    "ritual_ZN17QAbstractItemView4editERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstractItemView14clearSelectionEv": ["nothing", "address"],
+    "ritual_ZN17QAbstractItemView15setCurrentIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAbstractItemView11scrollToTopEv": ["nothing", "address"],
+    "ritual_ZN17QAbstractItemView14scrollToBottomEv": ["nothing", "address"],
+    "ritual_ZN17QAbstractItemView6updateERK11QModelIndex": [
+      "nothing", "address", "address"
+    ]
+  }
+}

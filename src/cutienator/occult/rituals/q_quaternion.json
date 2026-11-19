@@ -1,0 +1,88 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qquaternion.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QQuaternionC1Ev": ["address"],
+    "ritual_ZN11QQuaternionC1EN2Qt14InitializationE": ["address", "int"],
+    "ritual_ZN11QQuaternionC1Effff": [
+      "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN11QQuaternionC1EfRK9QVector3D": [
+      "address", "float", "address"
+    ],
+    "ritual_ZN11QQuaternionC1ERK9QVector4D": ["address", "address"],
+    "ritual_ZNK11QQuaternion6isNullEv": ["bool", "address"],
+    "ritual_ZNK11QQuaternion10isIdentityEv": ["bool", "address"],
+    "ritual_ZNK11QQuaternion6vectorEv": ["address", "address"],
+    "ritual_ZN11QQuaternion9setVectorERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQuaternion9setVectorEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZNK11QQuaternion1xEv": ["float", "address"],
+    "ritual_ZNK11QQuaternion1yEv": ["float", "address"],
+    "ritual_ZNK11QQuaternion1zEv": ["float", "address"],
+    "ritual_ZNK11QQuaternion6scalarEv": ["float", "address"],
+    "ritual_ZN11QQuaternion4setXEf": ["nothing", "address", "float"],
+    "ritual_ZN11QQuaternion4setYEf": ["nothing", "address", "float"],
+    "ritual_ZN11QQuaternion4setZEf": ["nothing", "address", "float"],
+    "ritual_ZN11QQuaternion9setScalarEf": ["nothing", "address", "float"],
+    "ritual_ZN11QQuaternion10dotProductERKS_S1_": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK11QQuaternion6lengthEv": ["float", "address"],
+    "ritual_ZNK11QQuaternion13lengthSquaredEv": ["float", "address"],
+    "ritual_ZNK11QQuaternion10normalizedEv": ["address", "address"],
+    "ritual_ZN11QQuaternion9normalizeEv": ["nothing", "address"],
+    "ritual_ZNK11QQuaternion8invertedEv": ["address", "address"],
+    "ritual_ZNK11QQuaternion10conjugatedEv": ["address", "address"],
+    "ritual_ZNK11QQuaternion13rotatedVectorERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QQuaternion10toVector4DEv": ["address", "address"],
+    "ritual_ZNK11QQuaternioncv8QVariantEv": ["address", "address"],
+    "ritual_ZNK11QQuaternion15getAxisAndAngleEP9QVector3DPf": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QQuaternion16fromAxisAndAngleERK9QVector3Df": [
+      "address", "address", "float"
+    ],
+    "ritual_ZNK11QQuaternion15getAxisAndAngleEPfS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QQuaternion16fromAxisAndAngleEffff": [
+      "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZNK11QQuaternion13toEulerAnglesEv": ["address", "address"],
+    "ritual_ZNK11QQuaternion14getEulerAnglesEPfS0_S0_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QQuaternion15fromEulerAnglesEfff": [
+      "address", "float", "float", "float"
+    ],
+    "ritual_ZNK11QQuaternion6toAxesEv": ["address", "address"],
+    "ritual_ZN11QQuaternion8fromAxesENS_4AxesE": ["address", "address"],
+    "ritual_ZNK11QQuaternion7getAxesEP9QVector3DS1_S1_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QQuaternion8fromAxesERK9QVector3DS2_S2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QQuaternion13fromDirectionERK9QVector3DS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QQuaternion10rotationToERK9QVector3DS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QQuaternion5slerpERKS_S1_f": [
+      "address", "address", "address", "float"
+    ],
+    "ritual_ZN11QQuaternion5nlerpERKS_S1_f": [
+      "address", "address", "address", "float"
+    ],
+    "ritual_ZN11QQuaternionD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qtablewidget.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QTableWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QTableWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QTableWidgetC1EP7QWidget": ["address", "address"],
+    "ritual_ZN12QTableWidgetC1EiiP7QWidget": [
+      "address", "int", "int", "address"
+    ],
+    "ritual_ZN12QTableWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZN12QTableWidget11setRowCountEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QTableWidget8rowCountEv": ["int", "address"],
+    "ritual_ZN12QTableWidget14setColumnCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QTableWidget11columnCountEv": ["int", "address"],
+    "ritual_ZNK12QTableWidget3rowEPK16QTableWidgetItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK12QTableWidget6columnEPK16QTableWidgetItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK12QTableWidget4itemEii": ["address", "address", "int", "int"],
+    "ritual_ZN12QTableWidget7setItemEiiP16QTableWidgetItem": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN12QTableWidget8takeItemEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK12QTableWidget13indexFromItemEPK16QTableWidgetItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QTableWidget13itemFromIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QTableWidget18verticalHeaderItemEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QTableWidget21setVerticalHeaderItemEiP16QTableWidgetItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN12QTableWidget22takeVerticalHeaderItemEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QTableWidget20horizontalHeaderItemEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QTableWidget23setHorizontalHeaderItemEiP16QTableWidgetItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN12QTableWidget24takeHorizontalHeaderItemEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QTableWidget10currentRowEv": ["int", "address"],
+    "ritual_ZNK12QTableWidget13currentColumnEv": ["int", "address"],
+    "ritual_ZNK12QTableWidget11currentItemEv": ["address", "address"],
+    "ritual_ZN12QTableWidget14setCurrentItemEP16QTableWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget14setCurrentItemEP16QTableWidgetItem6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QTableWidget14setCurrentCellEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QTableWidget14setCurrentCellEii6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN12QTableWidget9sortItemsEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QTableWidget17setSortingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QTableWidget16isSortingEnabledEv": ["bool", "address"],
+    "ritual_ZN12QTableWidget8editItemEP16QTableWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget20openPersistentEditorEP16QTableWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget21closePersistentEditorEP16QTableWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QTableWidget22isPersistentEditorOpenEP16QTableWidgetItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QTableWidget10cellWidgetEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN12QTableWidget13setCellWidgetEiiP7QWidget": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN12QTableWidget16removeCellWidgetEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QTableWidget16setRangeSelectedERK26QTableWidgetSelectionRangeb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK12QTableWidget9visualRowEi": ["int", "address", "int"],
+    "ritual_ZNK12QTableWidget12visualColumnEi": ["int", "address", "int"],
+    "ritual_ZNK12QTableWidget6itemAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QTableWidget6itemAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK12QTableWidget14visualItemRectEPK16QTableWidgetItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QTableWidget13itemPrototypeEv": ["address", "address"],
+    "ritual_ZN12QTableWidget16setItemPrototypeEPK16QTableWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QTableWidget20supportedDragActionsEv": ["int", "address"],
+    "ritual_ZN12QTableWidget23setSupportedDragActionsE6QFlagsIN2Qt10DropActionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QTableWidget12scrollToItemEPK16QTableWidgetItemN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QTableWidget9insertRowEi": ["nothing", "address", "int"],
+    "ritual_ZN12QTableWidget12insertColumnEi": ["nothing", "address", "int"],
+    "ritual_ZN12QTableWidget9removeRowEi": ["nothing", "address", "int"],
+    "ritual_ZN12QTableWidget12removeColumnEi": ["nothing", "address", "int"],
+    "ritual_ZN12QTableWidget5clearEv": ["nothing", "address"],
+    "ritual_ZN12QTableWidget13clearContentsEv": ["nothing", "address"]
+  }
+}

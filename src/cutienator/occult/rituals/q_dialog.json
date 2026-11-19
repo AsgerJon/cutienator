@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qdialog.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QDialogC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN7QDialogD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QDialog6resultEv": ["int", "address"],
+    "ritual_ZN7QDialog10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QDialog8sizeHintEv": ["address", "address"],
+    "ritual_ZNK7QDialog15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZN7QDialog18setSizeGripEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK7QDialog17isSizeGripEnabledEv": ["bool", "address"],
+    "ritual_ZN7QDialog8setModalEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QDialog9setResultEi": ["nothing", "address", "int"],
+    "ritual_ZN7QDialog4openEv": ["nothing", "address"],
+    "ritual_ZN7QDialog4execEv": ["int", "address"],
+    "ritual_ZN7QDialog4doneEi": ["nothing", "address", "int"],
+    "ritual_ZN7QDialog6acceptEv": ["nothing", "address"],
+    "ritual_ZN7QDialog6rejectEv": ["nothing", "address"]
+  }
+}

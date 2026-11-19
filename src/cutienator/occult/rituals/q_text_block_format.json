@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextformat.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QTextBlockFormatC1Ev": ["address"],
+    "ritual_ZNK16QTextBlockFormat7isValidEv": ["bool", "address"],
+    "ritual_ZN16QTextBlockFormat12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QTextBlockFormat9alignmentEv": ["int", "address"],
+    "ritual_ZN16QTextBlockFormat12setTopMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextBlockFormat9topMarginEv": ["double", "address"],
+    "ritual_ZN16QTextBlockFormat15setBottomMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextBlockFormat12bottomMarginEv": ["double", "address"],
+    "ritual_ZN16QTextBlockFormat13setLeftMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextBlockFormat10leftMarginEv": ["double", "address"],
+    "ritual_ZN16QTextBlockFormat14setRightMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextBlockFormat11rightMarginEv": ["double", "address"],
+    "ritual_ZN16QTextBlockFormat13setTextIndentEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextBlockFormat10textIndentEv": ["double", "address"],
+    "ritual_ZN16QTextBlockFormat9setIndentEi": ["nothing", "address", "int"],
+    "ritual_ZNK16QTextBlockFormat6indentEv": ["int", "address"],
+    "ritual_ZN16QTextBlockFormat15setHeadingLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QTextBlockFormat12headingLevelEv": ["int", "address"],
+    "ritual_ZN16QTextBlockFormat13setLineHeightEdi": [
+      "nothing", "address", "double", "int"
+    ],
+    "ritual_ZNK16QTextBlockFormat10lineHeightEdd": [
+      "double", "address", "double", "double"
+    ],
+    "ritual_ZNK16QTextBlockFormat10lineHeightEv": ["double", "address"],
+    "ritual_ZNK16QTextBlockFormat14lineHeightTypeEv": ["int", "address"],
+    "ritual_ZN16QTextBlockFormat20setNonBreakableLinesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QTextBlockFormat17nonBreakableLinesEv": ["bool", "address"],
+    "ritual_ZN16QTextBlockFormat18setPageBreakPolicyE6QFlagsIN11QTextFormat13PageBreakFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QTextBlockFormat15pageBreakPolicyEv": ["int", "address"],
+    "ritual_ZN16QTextBlockFormat9setMarkerENS_10MarkerTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QTextBlockFormat6markerEv": ["int", "address"],
+    "ritual_ZN16QTextBlockFormatD1Ev": ["nothing", "address"]
+  }
+}

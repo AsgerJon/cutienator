@@ -101,11 +101,14 @@ class TestSystem(BaseTest):
     """On macOS the folder of the frameworks comes on top of Linux's."""
     self.assertEqual(
         Linux().getCompilerFlags('/opt/qt/lib'),
-        ('-fPIC', '-fvisibility-inlines-hidden',),
+        ('-fPIC', '-fvisibility=hidden', '-fvisibility-inlines-hidden',),
     )
     self.assertEqual(
         MacOS().getCompilerFlags('/opt/qt/lib'),
-        ('-fPIC', '-fvisibility-inlines-hidden', '-F/opt/qt/lib',),
+        (
+          '-fPIC', '-fvisibility=hidden', '-fvisibility-inlines-hidden',
+          '-F/opt/qt/lib',
+        ),
     )
     self.assertEqual(
         Windows().getCompilerFlags('C:/Qt/lib'), ('-fms-runtime-lib=dll',),

@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qregion.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7QRegionC1Ev": ["address"],
+    "ritual_ZN7QRegionC1EiiiiNS_10RegionTypeE": [
+      "address", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN7QRegionC1ERK5QRectNS_10RegionTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN7QRegionC1ERK8QPolygonN2Qt8FillRuleE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN7QRegionC1ERKS_": ["address", "address"],
+    "ritual_ZN7QRegionC1ERK7QBitmap": ["address", "address"],
+    "ritual_ZN7QRegionD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QRegion7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK7QRegion6isNullEv": ["bool", "address"],
+    "ritual_ZNK7QRegion5beginEv": ["address", "address"],
+    "ritual_ZNK7QRegion6cbeginEv": ["address", "address"],
+    "ritual_ZNK7QRegion3endEv": ["address", "address"],
+    "ritual_ZNK7QRegion4cendEv": ["address", "address"],
+    "ritual_ZNK7QRegion8containsERK6QPoint": ["bool", "address", "address"],
+    "ritual_ZNK7QRegion8containsERK5QRect": ["bool", "address", "address"],
+    "ritual_ZN7QRegion9translateEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN7QRegion9translateERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QRegion10translatedEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK7QRegion10translatedERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK7QRegion6unitedERKS_": ["address", "address", "address"],
+    "ritual_ZNK7QRegion6unitedERK5QRect": ["address", "address", "address"],
+    "ritual_ZNK7QRegion11intersectedERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK7QRegion11intersectedERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK7QRegion10subtractedERKS_": ["address", "address", "address"],
+    "ritual_ZNK7QRegion5xoredERKS_": ["address", "address", "address"],
+    "ritual_ZNK7QRegion10intersectsERKS_": ["bool", "address", "address"],
+    "ritual_ZNK7QRegion10intersectsERK5QRect": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK7QRegion12boundingRectEv": ["address", "address"],
+    "ritual_ZN7QRegion8setRectsEPK5QRecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK7QRegion9rectCountEv": ["int", "address"],
+    "ritual_ZNK7QRegionorERKS_": ["address", "address", "address"],
+    "ritual_ZNK7QRegionplERKS_": ["address", "address", "address"],
+    "ritual_ZNK7QRegionplERK5QRect": ["address", "address", "address"],
+    "ritual_ZNK7QRegionanERKS_": ["address", "address", "address"],
+    "ritual_ZNK7QRegionanERK5QRect": ["address", "address", "address"],
+    "ritual_ZNK7QRegionmiERKS_": ["address", "address", "address"],
+    "ritual_ZNK7QRegioneoERKS_": ["address", "address", "address"],
+    "ritual_ZNK7QRegioneqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK7QRegionneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK7QRegioncv8QVariantEv": ["address", "address"]
+  }
+}
