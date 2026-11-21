@@ -11,9 +11,16 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._q_margins import QMargins
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QMargins
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QMargins = WAIT['QMargins']
 
 
 class QMarginsF(CuteMixin, metaclass=MetaCute):
@@ -145,6 +152,7 @@ class QMarginsF(CuteMixin, metaclass=MetaCute):
     """
     #  QMargins QMarginsF::toMargins() const
     address = self.uglySide.call('ritual_ZNK9QMarginsF9toMarginsEv')
+    from . import QMargins
     return QMargins._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

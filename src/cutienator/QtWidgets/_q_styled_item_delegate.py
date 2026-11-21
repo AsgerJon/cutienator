@@ -11,22 +11,30 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_abstract_item_delegate import QAbstractItemDelegate
-from ..QtCore import QAbstractItemModel
-from ..QtCore import QLocale
-from ..QtCore import QMetaObject
-from ..QtCore import QModelIndex
 from ..QtCore import QObject
-from ..QtGui import QPainter
-from ..QtCore import QSize
-from ._q_style_option_view_item import QStyleOptionViewItem
-from ..QtCore import QVariant
-from ._q_widget import QWidget
+from . import QAbstractItemDelegate
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QAbstractItemModel, QLocale, QMetaObject, QModelIndex
+  from ..QtCore import QSize, QVariant
+  from ..QtGui import QPainter
+  from . import QItemEditorFactory, QStyleOptionViewItem, QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractItemModel = WAIT['QAbstractItemModel']
+  QItemEditorFactory = WAIT['QItemEditorFactory']
+  QLocale = WAIT['QLocale']
+  QModelIndex = WAIT['QModelIndex']
+  QPainter = WAIT['QPainter']
+  QStyleOptionViewItem = WAIT['QStyleOptionViewItem']
+  QVariant = WAIT['QVariant']
+  QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -46,20 +54,16 @@ class QStyledItemDelegate(QAbstractItemDelegate):
   -----------
 
   Every function of Qt's QStyledItemDelegate that has a ritual and that
-  Python can call so far, 9 names in all: 'metaObject', 'tr', 'paint',
+  Python can call so far, 11 names in all: 'metaObject', 'tr', 'paint',
   'sizeHint', 'createEditor', 'setEditorData', 'setModelData',
-  'updateEditorGeometry', 'displayText'. It can be made from Python, in 1
-  way; see '__init__'.
+  'updateEditorGeometry', 'itemEditorFactory', 'setItemEditorFactory',
+  'displayText'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QStyledItemDelegate::~QStyledItemDelegate()': the destructor:
     Python never removes a C++ QStyledItemDelegate.
-  - Qt's 'QItemEditorFactory *QStyledItemDelegate::itemEditorFactory()
-    const': gives 'QItemEditorFactory', which has no cute class yet.
-  - Qt's 'void QStyledItemDelegate::setItemEditorFactory(QItemEditorFactory
-    *factory)': names 'QItemEditorFactory', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -168,6 +172,7 @@ class QStyledItemDelegate(QAbstractItemDelegate):
     address = self.uglySide.call(
         'ritual_ZNK19QStyledItemDelegate10metaObjectEv',
     )
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   @overload(QStyleOptionViewItem, QModelIndex)
@@ -206,6 +211,7 @@ class QStyledItemDelegate(QAbstractItemDelegate):
         'K11QModelIndex',
         self._valueOf(option), self._valueOf(index),
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(QWidget, QStyleOptionViewItem, QModelIndex)
@@ -252,7 +258,30 @@ class QStyledItemDelegate(QAbstractItemDelegate):
         'ptionViewItemRK11QModelIndex',
         self._addressOf(parent), self._valueOf(option), self._valueOf(index),
     )
+    from . import QWidget
     return QWidget._cuteAt(address)
+
+  def itemEditorFactory(self) -> Optional[QItemEditorFactory]:
+    """
+    Calls Qt's 'QItemEditorFactory *QStyledItemDelegate::itemEditorFactory()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleditemdelegate.html#itemEditorFactory
+
+    Returns
+    -------
+
+    Optional[QItemEditorFactory]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QItemEditorFactory *QStyledItemDelegate::itemEditorFactory() const
+    address = self.uglySide.call(
+        'ritual_ZNK19QStyledItemDelegate17itemEditorFactoryEv',
+    )
+    from . import QItemEditorFactory
+    return QItemEditorFactory._cuteAt(address)
 
   @overload(QVariant, QLocale)
   def displayText(self, value: QVariant, locale: QLocale) -> str:
@@ -363,6 +392,34 @@ class QStyledItemDelegate(QAbstractItemDelegate):
         'tItemModelRK11QModelIndex',
         self._addressOf(editor), self._addressOf(model),
         self._valueOf(index),
+    )
+
+  @overload(QItemEditorFactory)
+  @overload(NoneType)
+  def setItemEditorFactory(
+      self,
+      factory: Optional[QItemEditorFactory],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QStyledItemDelegate::setItemEditorFactory(QItemEditorFactory *factory)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleditemdelegate.html#setItemEditorFactory
+
+    Parameters
+    ----------
+
+    factory : Optional[QItemEditorFactory]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QStyledItemDelegate::setItemEditorFactory(QItemEditorFactory
+    #      *factory)
+    self.uglySide.call(
+        'ritual_ZN19QStyledItemDelegate20setItemEditorFactoryEP18QItemEdito'
+        'rFactory',
+        self._addressOf(factory),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

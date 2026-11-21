@@ -11,13 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..QtCore import Qt
-from ..QtCore import QObject
-from ..QtCore import QPointF
-from ._q_pointer_event import QPointerEvent
+from . import QPointerEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QObject, QPointF
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QObject = WAIT['QObject']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -158,6 +164,7 @@ class QSinglePointEvent(QPointerEvent):
     """
     #  QPointF QSinglePointEvent::position() const
     address = self.uglySide.call('ritual_ZNK17QSinglePointEvent8positionEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def scenePosition(self) -> QPointF:
@@ -177,6 +184,7 @@ class QSinglePointEvent(QPointerEvent):
     address = self.uglySide.call(
         'ritual_ZNK17QSinglePointEvent13scenePositionEv',
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def globalPosition(self) -> QPointF:
@@ -196,6 +204,7 @@ class QSinglePointEvent(QPointerEvent):
     address = self.uglySide.call(
         'ritual_ZNK17QSinglePointEvent14globalPositionEv',
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def isBeginEvent(self) -> bool:
@@ -249,6 +258,7 @@ class QSinglePointEvent(QPointerEvent):
     address = self.uglySide.call(
         'ritual_ZNK17QSinglePointEvent21exclusivePointGrabberEv',
     )
+    from ..QtCore import QObject
     return QObject._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

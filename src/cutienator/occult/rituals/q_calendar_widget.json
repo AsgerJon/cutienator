@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qcalendarwidget.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QCalendarWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QCalendarWidget2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QCalendarWidgetC1EP7QWidget": ["address", "address"],
+    "ritual_ZN15QCalendarWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QCalendarWidget8sizeHintEv": ["address", "address"],
+    "ritual_ZNK15QCalendarWidget15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZNK15QCalendarWidget12selectedDateEv": ["address", "address"],
+    "ritual_ZNK15QCalendarWidget9yearShownEv": ["int", "address"],
+    "ritual_ZNK15QCalendarWidget10monthShownEv": ["int", "address"],
+    "ritual_ZNK15QCalendarWidget11minimumDateEv": ["address", "address"],
+    "ritual_ZN15QCalendarWidget14setMinimumDateE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget16clearMinimumDateEv": ["nothing", "address"],
+    "ritual_ZNK15QCalendarWidget11maximumDateEv": ["address", "address"],
+    "ritual_ZN15QCalendarWidget14setMaximumDateE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget16clearMaximumDateEv": ["nothing", "address"],
+    "ritual_ZNK15QCalendarWidget14firstDayOfWeekEv": ["int", "address"],
+    "ritual_ZN15QCalendarWidget17setFirstDayOfWeekEN2Qt9DayOfWeekE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QCalendarWidget22isNavigationBarVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QCalendarWidget13isGridVisibleEv": ["bool", "address"],
+    "ritual_ZNK15QCalendarWidget8calendarEv": ["address", "address"],
+    "ritual_ZN15QCalendarWidget11setCalendarE9QCalendar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCalendarWidget13selectionModeEv": ["int", "address"],
+    "ritual_ZN15QCalendarWidget16setSelectionModeENS_13SelectionModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QCalendarWidget22horizontalHeaderFormatEv": [
+      "int", "address"
+    ],
+    "ritual_ZN15QCalendarWidget25setHorizontalHeaderFormatENS_22HorizontalHeaderFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QCalendarWidget20verticalHeaderFormatEv": [
+      "int", "address"
+    ],
+    "ritual_ZN15QCalendarWidget23setVerticalHeaderFormatENS_20VerticalHeaderFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QCalendarWidget16headerTextFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget19setHeaderTextFormatERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCalendarWidget17weekdayTextFormatEN2Qt9DayOfWeekE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QCalendarWidget20setWeekdayTextFormatEN2Qt9DayOfWeekERK15QTextCharFormat": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QCalendarWidget14dateTextFormatE5QDate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget17setDateTextFormatE5QDateRK15QTextCharFormat": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK15QCalendarWidget17isDateEditEnabledEv": ["bool", "address"],
+    "ritual_ZN15QCalendarWidget18setDateEditEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QCalendarWidget19dateEditAcceptDelayEv": ["int", "address"],
+    "ritual_ZN15QCalendarWidget22setDateEditAcceptDelayEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QCalendarWidget15setSelectedDateE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget12setDateRangeE5QDateS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget14setCurrentPageEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QCalendarWidget14setGridVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QCalendarWidget23setNavigationBarVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QCalendarWidget13showNextMonthEv": ["nothing", "address"],
+    "ritual_ZN15QCalendarWidget17showPreviousMonthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QCalendarWidget12showNextYearEv": ["nothing", "address"],
+    "ritual_ZN15QCalendarWidget16showPreviousYearEv": ["nothing", "address"],
+    "ritual_ZN15QCalendarWidget16showSelectedDateEv": ["nothing", "address"],
+    "ritual_ZN15QCalendarWidget9showTodayEv": ["nothing", "address"]
+  }
+}

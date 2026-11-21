@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmetaobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QMetaEnumC1Ev": ["address"],
+    "ritual_ZNK9QMetaEnum4nameEv": ["chars", "address"],
+    "ritual_ZNK9QMetaEnum8enumNameEv": ["chars", "address"],
+    "ritual_ZNK9QMetaEnum8metaTypeEv": ["address", "address"],
+    "ritual_ZNK9QMetaEnum6isFlagEv": ["bool", "address"],
+    "ritual_ZNK9QMetaEnum8isScopedEv": ["bool", "address"],
+    "ritual_ZNK9QMetaEnum7is64BitEv": ["bool", "address"],
+    "ritual_ZNK9QMetaEnum8keyCountEv": ["int", "address"],
+    "ritual_ZNK9QMetaEnum3keyEi": ["chars", "address", "int"],
+    "ritual_ZNK9QMetaEnum5valueEi": ["int", "address", "int"],
+    "ritual_ZNK9QMetaEnum5scopeEv": ["chars", "address"],
+    "ritual_ZNK9QMetaEnum10keyToValueEPKcPb": [
+      "int", "address", "chars", "address"
+    ],
+    "ritual_ZNK9QMetaEnum11keysToValueEPKcPb": [
+      "int", "address", "chars", "address"
+    ],
+    "ritual_ZNK9QMetaEnum10valueToKeyEy": [
+      "chars", "address", "unsigned long long"
+    ],
+    "ritual_ZNK9QMetaEnum11valueToKeysEy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZNK9QMetaEnum19enclosingMetaObjectEv": ["address", "address"],
+    "ritual_ZNK9QMetaEnum7isValidEv": ["bool", "address"],
+    "ritual_ZN9QMetaEnumD1Ev": ["nothing", "address"]
+  }
+}

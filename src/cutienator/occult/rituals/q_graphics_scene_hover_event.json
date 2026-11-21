@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN24QGraphicsSceneHoverEventC1EN6QEvent4TypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN24QGraphicsSceneHoverEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QGraphicsSceneHoverEvent3posEv": ["address", "address"],
+    "ritual_ZN24QGraphicsSceneHoverEvent6setPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QGraphicsSceneHoverEvent8scenePosEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QGraphicsSceneHoverEvent11setScenePosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QGraphicsSceneHoverEvent9screenPosEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QGraphicsSceneHoverEvent12setScreenPosERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QGraphicsSceneHoverEvent7lastPosEv": ["address", "address"],
+    "ritual_ZN24QGraphicsSceneHoverEvent10setLastPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QGraphicsSceneHoverEvent12lastScenePosEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QGraphicsSceneHoverEvent15setLastScenePosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QGraphicsSceneHoverEvent13lastScreenPosEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QGraphicsSceneHoverEvent16setLastScreenPosERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QGraphicsSceneHoverEvent9modifiersEv": ["int", "address"],
+    "ritual_ZN24QGraphicsSceneHoverEvent12setModifiersE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

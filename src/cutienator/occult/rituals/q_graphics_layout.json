@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicslayout.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QGraphicsLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZN15QGraphicsLayout18setContentsMarginsEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK15QGraphicsLayout18getContentsMarginsEPdS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QGraphicsLayout8activateEv": ["nothing", "address"],
+    "ritual_ZNK15QGraphicsLayout11isActivatedEv": ["bool", "address"],
+    "ritual_ZN15QGraphicsLayout10invalidateEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsLayout14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZN15QGraphicsLayout11widgetEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QGraphicsLayout5countEv": ["int", "address"],
+    "ritual_ZNK15QGraphicsLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_ZN15QGraphicsLayout8removeAtEi": ["nothing", "address", "int"],
+    "ritual_ZN15QGraphicsLayout31setInstantInvalidatePropagationEb": [
+      "nothing", "bool"
+    ],
+    "ritual_ZN15QGraphicsLayout28instantInvalidatePropagationEv": ["bool"]
+  }
+}

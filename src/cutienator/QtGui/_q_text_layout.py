@@ -11,20 +11,28 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_font import QFont
-from ._q_paint_device import QPaintDevice
-from ._q_painter import QPainter
-from ..QtCore import QPointF
-from ..QtCore import QRectF
-from ._q_text_option import QTextOption
-from ._q_text_layout_cursor_mode import CursorMode
-from ._q_text_layout_glyph_run_retrieval_flag import GlyphRunRetrievalFlag
+from . import QTextLayoutCursorMode, QTextLayoutGlyphRunRetrievalFlag
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QPointF, QRectF
+  from . import QFont, QPaintDevice, QPainter, QRawFont, QTextBlock
+  from . import QTextLine, QTextOption
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QFont = WAIT['QFont']
+  QPaintDevice = WAIT['QPaintDevice']
+  QPainter = WAIT['QPainter']
+  QPointF = WAIT['QPointF']
+  QRawFont = WAIT['QRawFont']
+  QTextBlock = WAIT['QTextBlock']
+  QTextOption = WAIT['QTextOption']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -40,31 +48,22 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextLayout that has a ritual and that Python can
-  call so far, 30 names in all: 'setFont', 'font', 'setText', 'text',
-  'setTextOption', 'textOption', 'setPreeditArea', 'preeditAreaPosition',
-  'preeditAreaText', 'clearFormats', 'setCacheEnabled', 'cacheEnabled',
-  'setCursorMoveStyle', 'cursorMoveStyle', 'beginLayout', 'endLayout',
-  'clearLayout', 'lineCount', 'isValidCursorPosition', 'nextCursorPosition',
-  'previousCursorPosition', 'leftCursorPosition', 'rightCursorPosition',
-  'drawCursor', 'position', 'setPosition', 'boundingRect', 'minimumWidth',
-  'maximumWidth', 'setFlags'. It can be made from Python, in 3 ways; see
-  '__init__'.
+  call so far, 34 names in all: 'setFont', 'font', 'setRawFont', 'setText',
+  'text', 'setTextOption', 'textOption', 'setPreeditArea',
+  'preeditAreaPosition', 'preeditAreaText', 'clearFormats',
+  'setCacheEnabled', 'cacheEnabled', 'setCursorMoveStyle', 'cursorMoveStyle',
+  'beginLayout', 'endLayout', 'clearLayout', 'createLine', 'lineCount',
+  'lineAt', 'lineForTextPosition', 'isValidCursorPosition',
+  'nextCursorPosition', 'previousCursorPosition', 'leftCursorPosition',
+  'rightCursorPosition', 'drawCursor', 'position', 'setPosition',
+  'boundingRect', 'minimumWidth', 'maximumWidth', 'setFlags'. It can be made
+  from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QTextLayout::QTextLayout(const QTextBlock &b)': names 'QTextBlock',
-    which has no cute class yet.
   - Qt's 'QTextLayout::~QTextLayout()': the destructor: Python never removes
     a C++ QTextLayout.
-  - Qt's 'void QTextLayout::setRawFont(const QRawFont &rawFont)': names
-    'QRawFont', which has no cute class yet.
-  - Qt's 'QTextLine QTextLayout::createLine()': gives 'QTextLine', which has
-    no cute class yet.
-  - Qt's 'QTextLine QTextLayout::lineAt(int i) const': gives 'QTextLine',
-    which has no cute class yet.
-  - Qt's 'QTextLine QTextLayout::lineForTextPosition(int pos) const': gives
-    'QTextLine', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -87,9 +86,9 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QTextLayout, and the names Qt has for the
   #  combinations of its flags enums.
-  CursorMode = CursorMode
-  GlyphRunRetrievalFlag = GlyphRunRetrievalFlag
-  GlyphRunRetrievalFlags = GlyphRunRetrievalFlag
+  CursorMode = QTextLayoutCursorMode
+  GlyphRunRetrievalFlag = QTextLayoutGlyphRunRetrievalFlag
+  GlyphRunRetrievalFlags = QTextLayoutGlyphRunRetrievalFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -129,6 +128,7 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     """
     #  QFont QTextLayout::font() const
     address = self.uglySide.call('ritual_ZNK11QTextLayout4fontEv')
+    from . import QFont
     return QFont._cuteOwning(address)
 
   def text(self) -> str:
@@ -160,6 +160,7 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     """
     #  const QTextOption &QTextLayout::textOption() const
     address = self.uglySide.call('ritual_ZNK11QTextLayout10textOptionEv')
+    from . import QTextOption
     return QTextOption._cuteOwning(address)
 
   def preeditAreaPosition(self) -> int:
@@ -225,6 +226,57 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     """
     #  int QTextLayout::lineCount() const
     return self.uglySide.call('ritual_ZNK11QTextLayout9lineCountEv')
+
+  @overload(int)
+  def lineAt(self, i: int) -> QTextLine:
+    """
+    Calls Qt's 'QTextLine QTextLayout::lineAt(int i) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextlayout.html#lineAt
+
+    Parameters
+    ----------
+
+    i : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QTextLine
+      A new cute QTextLine around the copy Qt gave back. Python owns it.
+    """
+    #  QTextLine QTextLayout::lineAt(int i) const
+    address = self.uglySide.call('ritual_ZNK11QTextLayout6lineAtEi', i)
+    from . import QTextLine
+    return QTextLine._cuteOwning(address)
+
+  @overload(int)
+  def lineForTextPosition(self, pos: int) -> QTextLine:
+    """
+    Calls Qt's 'QTextLine QTextLayout::lineForTextPosition(int pos) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextlayout.html#lineForTextPosition
+
+    Parameters
+    ----------
+
+    pos : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QTextLine
+      A new cute QTextLine around the copy Qt gave back. Python owns it.
+    """
+    #  QTextLine QTextLayout::lineForTextPosition(int pos) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QTextLayout19lineForTextPositionEi', pos,
+    )
+    from . import QTextLine
+    return QTextLine._cuteOwning(address)
 
   @overload(int)
   def isValidCursorPosition(self, pos: int) -> bool:
@@ -358,6 +410,7 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QTextLayout::position() const
     address = self.uglySide.call('ritual_ZNK11QTextLayout8positionEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def boundingRect(self) -> QRectF:
@@ -374,6 +427,7 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QTextLayout::boundingRect() const
     address = self.uglySide.call('ritual_ZNK11QTextLayout12boundingRectEv')
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   def minimumWidth(self) -> float:
@@ -414,6 +468,26 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     #  void QTextLayout::setFont(const QFont &f)
     self.uglySide.call(
         'ritual_ZN11QTextLayout7setFontERK5QFont', self._valueOf(f),
+    )
+
+  @overload(QRawFont)
+  def setRawFont(self, rawFont: QRawFont) -> None:
+    """
+    Calls Qt's 'void QTextLayout::setRawFont(const QRawFont &rawFont)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextlayout.html#setRawFont
+
+    Parameters
+    ----------
+
+    rawFont : QRawFont
+      Passed on as a value: Qt reads the C++ QRawFont, which stays Python's
+      own.
+    """
+    #  void QTextLayout::setRawFont(const QRawFont &rawFont)
+    self.uglySide.call(
+        'ritual_ZN11QTextLayout10setRawFontERK8QRawFont',
+        self._valueOf(rawFont),
     )
 
   @overload(str)
@@ -626,6 +700,26 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
         text, self._valueOf(font), self._addressOf(paintdevice),
     ))
 
+  @overload(QTextBlock)
+  def __init__(self, b: QTextBlock) -> None:
+    """
+    Notes what was given, for Qt's 'QTextLayout::QTextLayout(const QTextBlock
+    &b)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextlayout.html#QTextLayout
+
+    Parameters
+    ----------
+
+    b : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+    """
+    #  QTextLayout::QTextLayout(const QTextBlock &b)
+    self._noteCreation(QTextLayout, lambda: Rituals.call(
+        'ritual_ZN11QTextLayoutC1ERK10QTextBlock', self._valueOf(b),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -681,6 +775,23 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     """
     #  void QTextLayout::clearLayout()
     self.uglySide.call('ritual_ZN11QTextLayout11clearLayoutEv')
+
+  def createLine(self) -> QTextLine:
+    """
+    Calls Qt's 'QTextLine QTextLayout::createLine()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextlayout.html#createLine
+
+    Returns
+    -------
+
+    QTextLine
+      A new cute QTextLine around the copy Qt gave back. Python owns it.
+    """
+    #  QTextLine QTextLayout::createLine()
+    address = self.uglySide.call('ritual_ZN11QTextLayout10createLineEv')
+    from . import QTextLine
+    return QTextLine._cuteOwning(address)
 
   @overload(QPainter, QPointF, int)
   @overload(NoneType, QPointF, int)

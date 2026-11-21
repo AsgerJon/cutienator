@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QFileOpenEvent5cloneEv": ["address", "address"],
+    "ritual_ZN14QFileOpenEventD1Ev": ["nothing", "address"],
+    "ritual_ZN14QFileOpenEventC1ERK7QString": ["address", "text"],
+    "ritual_ZN14QFileOpenEventC1ERK4QUrl": ["address", "address"],
+    "ritual_ZNK14QFileOpenEvent4fileEv": ["text", "address"],
+    "ritual_ZNK14QFileOpenEvent3urlEv": ["address", "address"]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmetaobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QMetaPropertyC1Ev": ["address"],
+    "ritual_ZNK13QMetaProperty4nameEv": ["chars", "address"],
+    "ritual_ZNK13QMetaProperty8typeNameEv": ["chars", "address"],
+    "ritual_ZNK13QMetaProperty4typeEv": ["int", "address"],
+    "ritual_ZNK13QMetaProperty8userTypeEv": ["int", "address"],
+    "ritual_ZNK13QMetaProperty6typeIdEv": ["int", "address"],
+    "ritual_ZNK13QMetaProperty8metaTypeEv": ["address", "address"],
+    "ritual_ZNK13QMetaProperty13propertyIndexEv": ["int", "address"],
+    "ritual_ZNK13QMetaProperty21relativePropertyIndexEv": ["int", "address"],
+    "ritual_ZNK13QMetaProperty10isReadableEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty10isWritableEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty12isResettableEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty12isDesignableEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty12isScriptableEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty8isStoredEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty6isUserEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty10isConstantEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty7isFinalEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty9isVirtualEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty10isOverrideEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty10isRequiredEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty10isBindableEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty10isFlagTypeEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty10isEnumTypeEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty10enumeratorEv": ["address", "address"],
+    "ritual_ZNK13QMetaProperty15hasNotifySignalEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty12notifySignalEv": ["address", "address"],
+    "ritual_ZNK13QMetaProperty17notifySignalIndexEv": ["int", "address"],
+    "ritual_ZNK13QMetaProperty8revisionEv": ["int", "address"],
+    "ritual_ZNK13QMetaProperty4readEPK7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QMetaProperty5writeEP7QObjectRK8QVariant": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK13QMetaProperty5resetEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK13QMetaProperty8bindableEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QMetaProperty12hasStdCppSetEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty7isAliasEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty7isValidEv": ["bool", "address"],
+    "ritual_ZNK13QMetaProperty19enclosingMetaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13QMetaPropertyD1Ev": ["nothing", "address"]
+  }
+}

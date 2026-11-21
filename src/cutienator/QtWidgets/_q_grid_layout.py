@@ -11,18 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_layout import QLayout
-from ._q_layout_item import QLayoutItem
-from ..QtCore import QMetaObject
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from . import QLayout
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QRect, QSize
+  from . import QLayoutItem, QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QLayoutItem = WAIT['QLayoutItem']
+  QRect = WAIT['QRect']
+  QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -166,6 +171,7 @@ class QGridLayout(QLayout):
     """
     #  const QMetaObject *QGridLayout::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QGridLayout10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def sizeHint(self) -> QSize:
@@ -182,6 +188,7 @@ class QGridLayout(QLayout):
     """
     #  QSize QGridLayout::sizeHint() const
     address = self.uglySide.call('ritual_ZNK11QGridLayout8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSize(self) -> QSize:
@@ -198,6 +205,7 @@ class QGridLayout(QLayout):
     """
     #  QSize QGridLayout::minimumSize() const
     address = self.uglySide.call('ritual_ZNK11QGridLayout11minimumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def maximumSize(self) -> QSize:
@@ -214,6 +222,7 @@ class QGridLayout(QLayout):
     """
     #  QSize QGridLayout::maximumSize() const
     address = self.uglySide.call('ritual_ZNK11QGridLayout11maximumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def horizontalSpacing(self) -> int:
@@ -358,6 +367,7 @@ class QGridLayout(QLayout):
     address = self.uglySide.call(
         'ritual_ZNK11QGridLayout8cellRectEii', row, column,
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def hasHeightForWidth(self) -> bool:
@@ -464,6 +474,7 @@ class QGridLayout(QLayout):
     """
     #  QLayoutItem *QGridLayout::itemAt(int index) const
     address = self.uglySide.call('ritual_ZNK11QGridLayout6itemAtEi', index)
+    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   @overload(int, int)
@@ -494,6 +505,7 @@ class QGridLayout(QLayout):
     address = self.uglySide.call(
         'ritual_ZNK11QGridLayout14itemAtPositionEii', row, column,
     )
+    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   def count(self) -> int:
@@ -999,6 +1011,7 @@ class QGridLayout(QLayout):
     """
     #  QLayoutItem *QGridLayout::takeAt(int index)
     address = self.uglySide.call('ritual_ZN11QGridLayout6takeAtEi', index)
+    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   @overload(QLayoutItem, int, int)

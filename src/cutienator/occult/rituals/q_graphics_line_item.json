@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QGraphicsLineItemC1EP13QGraphicsItem": [
+      "address", "address"
+    ],
+    "ritual_ZN17QGraphicsLineItemC1ERK6QLineFP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QGraphicsLineItemC1EddddP13QGraphicsItem": [
+      "address", "double", "double", "double", "double", "address"
+    ],
+    "ritual_ZN17QGraphicsLineItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QGraphicsLineItem3penEv": ["address", "address"],
+    "ritual_ZN17QGraphicsLineItem6setPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QGraphicsLineItem4lineEv": ["address", "address"],
+    "ritual_ZN17QGraphicsLineItem7setLineERK6QLineF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QGraphicsLineItem7setLineEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK17QGraphicsLineItem12boundingRectEv": ["address", "address"],
+    "ritual_ZNK17QGraphicsLineItem5shapeEv": ["address", "address"],
+    "ritual_ZNK17QGraphicsLineItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QGraphicsLineItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK17QGraphicsLineItem12isObscuredByEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QGraphicsLineItem10opaqueAreaEv": ["address", "address"],
+    "ritual_ZNK17QGraphicsLineItem4typeEv": ["int", "address"]
+  }
+}

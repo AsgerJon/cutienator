@@ -11,21 +11,24 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_layout import QLayout
-from ._q_layout_item import QLayoutItem
-from ..QtCore import QMetaObject
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_widget import QWidget
-from ._q_form_layout_field_growth_policy import FieldGrowthPolicy
-from ._q_form_layout_item_role import ItemRole
-from ._q_form_layout_row_wrap_policy import RowWrapPolicy
+from . import QFormLayoutFieldGrowthPolicy, QFormLayoutItemRole
+from . import QFormLayoutRowWrapPolicy, QFormLayoutTakeRowResult, QLayout
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QRect, QSize
+  from . import QLayoutItem, QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QLayoutItem = WAIT['QLayoutItem']
+  QRect = WAIT['QRect']
+  QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,14 +47,14 @@ class QFormLayout(QLayout):
   -----------
 
   Every function of Qt's QFormLayout that has a ritual and that Python can
-  call so far, 37 names in all: 'metaObject', 'tr', 'setFieldGrowthPolicy',
+  call so far, 38 names in all: 'metaObject', 'tr', 'setFieldGrowthPolicy',
   'fieldGrowthPolicy', 'setRowWrapPolicy', 'rowWrapPolicy',
   'setLabelAlignment', 'labelAlignment', 'setFormAlignment', 'formAlignment',
   'setHorizontalSpacing', 'horizontalSpacing', 'setVerticalSpacing',
   'verticalSpacing', 'spacing', 'setSpacing', 'addRow', 'insertRow',
-  'removeRow', 'setItem', 'setWidget', 'setLayout', 'setRowVisible',
-  'isRowVisible', 'itemAt', 'labelForField', 'addItem', 'takeAt',
-  'setGeometry', 'minimumSize', 'sizeHint', 'invalidate',
+  'removeRow', 'takeRow', 'setItem', 'setWidget', 'setLayout',
+  'setRowVisible', 'isRowVisible', 'itemAt', 'labelForField', 'addItem',
+  'takeAt', 'setGeometry', 'minimumSize', 'sizeHint', 'invalidate',
   'hasHeightForWidth', 'heightForWidth', 'expandingDirections', 'count',
   'rowCount'. It can be made from Python, in 1 way; see '__init__'.
 
@@ -60,12 +63,6 @@ class QFormLayout(QLayout):
 
   - Qt's 'QFormLayout::~QFormLayout()': the destructor: Python never removes
     a C++ QFormLayout.
-  - Qt's 'TakeRowResult QFormLayout::takeRow(int row)': gives
-    'QFormLayout::TakeRowResult', which has no cute class yet.
-  - Qt's 'TakeRowResult QFormLayout::takeRow(QWidget *widget)': gives
-    'QFormLayout::TakeRowResult', which has no cute class yet.
-  - Qt's 'TakeRowResult QFormLayout::takeRow(QLayout *layout)': gives
-    'QFormLayout::TakeRowResult', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -89,11 +86,14 @@ class QFormLayout(QLayout):
     and nothing reaches C++.
   """
 
+  #  The classes Qt writes inside QFormLayout.
+  TakeRowResult = QFormLayoutTakeRowResult
+
   #  The enums Qt writes inside QFormLayout, and the names Qt has for the
   #  combinations of its flags enums.
-  FieldGrowthPolicy = FieldGrowthPolicy
-  ItemRole = ItemRole
-  RowWrapPolicy = RowWrapPolicy
+  FieldGrowthPolicy = QFormLayoutFieldGrowthPolicy
+  ItemRole = QFormLayoutItemRole
+  RowWrapPolicy = QFormLayoutRowWrapPolicy
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -177,6 +177,7 @@ class QFormLayout(QLayout):
     """
     #  const QMetaObject *QFormLayout::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QFormLayout10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def fieldGrowthPolicy(self) -> FieldGrowthPolicy:
@@ -194,7 +195,7 @@ class QFormLayout(QLayout):
       'FieldGrowthPolicy(number)' gives.
     """
     #  FieldGrowthPolicy QFormLayout::fieldGrowthPolicy() const
-    return FieldGrowthPolicy(self.uglySide.call(
+    return QFormLayout.FieldGrowthPolicy(self.uglySide.call(
         'ritual_ZNK11QFormLayout17fieldGrowthPolicyEv',
     ))
 
@@ -213,7 +214,7 @@ class QFormLayout(QLayout):
       gives.
     """
     #  RowWrapPolicy QFormLayout::rowWrapPolicy() const
-    return RowWrapPolicy(self.uglySide.call(
+    return QFormLayout.RowWrapPolicy(self.uglySide.call(
         'ritual_ZNK11QFormLayout13rowWrapPolicyEv',
     ))
 
@@ -363,6 +364,7 @@ class QFormLayout(QLayout):
     address = self.uglySide.call(
         'ritual_ZNK11QFormLayout6itemAtEiNS_8ItemRoleE', row, role.value,
     )
+    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   @overload(int)
@@ -387,6 +389,7 @@ class QFormLayout(QLayout):
     """
     #  QLayoutItem *QFormLayout::itemAt(int index) const
     address = self.uglySide.call('ritual_ZNK11QFormLayout6itemAtEi', index)
+    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   @overload(QWidget)
@@ -416,6 +419,7 @@ class QFormLayout(QLayout):
         'ritual_ZNK11QFormLayout13labelForFieldEP7QWidget',
         self._addressOf(field),
     )
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   @overload(QLayout)
@@ -444,6 +448,7 @@ class QFormLayout(QLayout):
         'ritual_ZNK11QFormLayout13labelForFieldEP7QLayout',
         self._addressOf(field),
     )
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   def minimumSize(self) -> QSize:
@@ -460,6 +465,7 @@ class QFormLayout(QLayout):
     """
     #  QSize QFormLayout::minimumSize() const
     address = self.uglySide.call('ritual_ZNK11QFormLayout11minimumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def sizeHint(self) -> QSize:
@@ -476,6 +482,7 @@ class QFormLayout(QLayout):
     """
     #  QSize QFormLayout::sizeHint() const
     address = self.uglySide.call('ritual_ZNK11QFormLayout8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def hasHeightForWidth(self) -> bool:
@@ -1307,6 +1314,85 @@ class QFormLayout(QLayout):
         self._addressOf(layout),
     )
 
+  @overload(int)
+  def takeRow(self, row: int) -> TakeRowResult:
+    """
+    Calls Qt's 'TakeRowResult QFormLayout::takeRow(int row)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#takeRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    TakeRowResult
+      A new cute QFormLayout::TakeRowResult around the copy Qt gave back.
+      Python owns it.
+    """
+    #  TakeRowResult QFormLayout::takeRow(int row)
+    address = self.uglySide.call('ritual_ZN11QFormLayout7takeRowEi', row)
+    return QFormLayoutTakeRowResult._cuteOwning(address)
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def takeRow(self, widget: Optional[QWidget]) -> TakeRowResult:
+    """
+    Calls Qt's 'TakeRowResult QFormLayout::takeRow(QWidget *widget)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#takeRow
+
+    Parameters
+    ----------
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    TakeRowResult
+      A new cute QFormLayout::TakeRowResult around the copy Qt gave back.
+      Python owns it.
+    """
+    #  TakeRowResult QFormLayout::takeRow(QWidget *widget)
+    address = self.uglySide.call(
+        'ritual_ZN11QFormLayout7takeRowEP7QWidget', self._addressOf(widget),
+    )
+    return QFormLayoutTakeRowResult._cuteOwning(address)
+
+  @overload(QLayout)
+  def takeRow(self, layout: Optional[QLayout]) -> TakeRowResult:
+    """
+    Calls Qt's 'TakeRowResult QFormLayout::takeRow(QLayout *layout)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#takeRow
+
+    Parameters
+    ----------
+
+    layout : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    TakeRowResult
+      A new cute QFormLayout::TakeRowResult around the copy Qt gave back.
+      Python owns it.
+    """
+    #  TakeRowResult QFormLayout::takeRow(QLayout *layout)
+    address = self.uglySide.call(
+        'ritual_ZN11QFormLayout7takeRowEP7QLayout', self._addressOf(layout),
+    )
+    return QFormLayoutTakeRowResult._cuteOwning(address)
+
   @overload(QLayoutItem)
   @overload(NoneType)
   def addItem(self, item: Optional[QLayoutItem]) -> None:
@@ -1350,6 +1436,7 @@ class QFormLayout(QLayout):
     """
     #  QLayoutItem *QFormLayout::takeAt(int index)
     address = self.uglySide.call('ritual_ZN11QFormLayout6takeAtEi', index)
+    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   def invalidate(self) -> None:

@@ -13,13 +13,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin
 from ..occult import Rituals
-from ._q_abstract_button import QAbstractButton
-from ..QtCore import QMetaObject
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from . import QAbstractButton, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -151,6 +150,7 @@ class QRadioButton(QAbstractButton):
     """
     #  const QMetaObject *QRadioButton::metaObject() const
     address = self.uglySide.call('ritual_ZNK12QRadioButton10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def sizeHint(self) -> QSize:
@@ -167,6 +167,7 @@ class QRadioButton(QAbstractButton):
     """
     #  QSize QRadioButton::sizeHint() const
     address = self.uglySide.call('ritual_ZNK12QRadioButton8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -185,6 +186,7 @@ class QRadioButton(QAbstractButton):
     address = self.uglySide.call(
         'ritual_ZNK12QRadioButton15minimumSizeHintEv',
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

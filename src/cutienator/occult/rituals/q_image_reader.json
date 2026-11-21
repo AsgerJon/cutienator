@@ -1,0 +1,89 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qimagereader.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QImageReader2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QImageReaderC1Ev": ["address"],
+    "ritual_ZN12QImageReaderC1EP9QIODeviceRK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QImageReaderC1ERK7QStringRK10QByteArray": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN12QImageReaderD1Ev": ["nothing", "address"],
+    "ritual_ZN12QImageReader9setFormatERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QImageReader6formatEv": ["address", "address"],
+    "ritual_ZN12QImageReader24setAutoDetectImageFormatEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QImageReader21autoDetectImageFormatEv": ["bool", "address"],
+    "ritual_ZN12QImageReader26setDecideFormatFromContentEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QImageReader23decideFormatFromContentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QImageReader9setDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QImageReader6deviceEv": ["address", "address"],
+    "ritual_ZN12QImageReader11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QImageReader8fileNameEv": ["text", "address"],
+    "ritual_ZNK12QImageReader4sizeEv": ["address", "address"],
+    "ritual_ZNK12QImageReader13effectiveSizeEv": ["address", "address"],
+    "ritual_ZNK12QImageReader11imageFormatEv": ["int", "address"],
+    "ritual_ZNK12QImageReader4textERK7QString": ["text", "address", "text"],
+    "ritual_ZN12QImageReader11setClipRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QImageReader8clipRectEv": ["address", "address"],
+    "ritual_ZN12QImageReader13setScaledSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QImageReader10scaledSizeEv": ["address", "address"],
+    "ritual_ZN12QImageReader10setQualityEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QImageReader7qualityEv": ["int", "address"],
+    "ritual_ZN12QImageReader17setScaledClipRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QImageReader14scaledClipRectEv": ["address", "address"],
+    "ritual_ZN12QImageReader18setBackgroundColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QImageReader15backgroundColorEv": ["address", "address"],
+    "ritual_ZNK12QImageReader17supportsAnimationEv": ["bool", "address"],
+    "ritual_ZNK12QImageReader14transformationEv": ["int", "address"],
+    "ritual_ZN12QImageReader16setAutoTransformEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QImageReader13autoTransformEv": ["bool", "address"],
+    "ritual_ZNK12QImageReader7subTypeEv": ["address", "address"],
+    "ritual_ZNK12QImageReader7canReadEv": ["bool", "address"],
+    "ritual_ZN12QImageReader4readEv": ["address", "address"],
+    "ritual_ZN12QImageReader4readEP6QImage": ["bool", "address", "address"],
+    "ritual_ZN12QImageReader15jumpToNextImageEv": ["bool", "address"],
+    "ritual_ZN12QImageReader11jumpToImageEi": ["bool", "address", "int"],
+    "ritual_ZNK12QImageReader9loopCountEv": ["int", "address"],
+    "ritual_ZNK12QImageReader10imageCountEv": ["int", "address"],
+    "ritual_ZNK12QImageReader14nextImageDelayEv": ["int", "address"],
+    "ritual_ZNK12QImageReader18currentImageNumberEv": ["int", "address"],
+    "ritual_ZNK12QImageReader16currentImageRectEv": ["address", "address"],
+    "ritual_ZNK12QImageReader5errorEv": ["int", "address"],
+    "ritual_ZNK12QImageReader11errorStringEv": ["text", "address"],
+    "ritual_ZNK12QImageReader14supportsOptionEN15QImageIOHandler11ImageOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QImageReader11imageFormatERK7QString": ["address", "text"],
+    "ritual_ZN12QImageReader11imageFormatEP9QIODevice": [
+      "address", "address"
+    ],
+    "ritual_ZN12QImageReader15allocationLimitEv": ["int"],
+    "ritual_ZN12QImageReader18setAllocationLimitEi": ["nothing", "int"]
+  }
+}

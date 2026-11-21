@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN25QGraphicsSceneResizeEventC1Ev": ["address"],
+    "ritual_ZN25QGraphicsSceneResizeEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QGraphicsSceneResizeEvent7oldSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QGraphicsSceneResizeEvent10setOldSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QGraphicsSceneResizeEvent7newSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QGraphicsSceneResizeEvent10setNewSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ]
+  }
+}

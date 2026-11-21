@@ -1,0 +1,113 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtCore/qabstractitemmodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qabstractitemmodel.h>
+#include <QtCore/qvariant.h>
+
+//  QPersistentModelIndex::QPersistentModelIndex()
+extern "C" Q_DECL_EXPORT
+QPersistentModelIndex *ritual_ZN21QPersistentModelIndexC1Ev() {
+  return new QPersistentModelIndex();
+}
+
+//  QPersistentModelIndex::QPersistentModelIndex(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+QPersistentModelIndex *ritual_ZN21QPersistentModelIndexC1ERK11QModelIndex(
+    const QModelIndex *index) {
+  return new QPersistentModelIndex(*index);
+}
+
+//  QPersistentModelIndex::QPersistentModelIndex(const QPersistentModelIndex
+//      &other)
+extern "C" Q_DECL_EXPORT
+QPersistentModelIndex *ritual_ZN21QPersistentModelIndexC1ERKS_(
+    const QPersistentModelIndex *other) {
+  return new QPersistentModelIndex(*other);
+}
+
+//  QPersistentModelIndex::~QPersistentModelIndex()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPersistentModelIndexD1Ev(QPersistentModelIndex *self) {
+  delete self;
+}
+
+//  QModelIndex QPersistentModelIndex::operator QModelIndex() const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK21QPersistentModelIndexcv11QModelIndexEv(
+    const QPersistentModelIndex *self) {
+  return new QModelIndex(self->operator QModelIndex());
+}
+
+//  int QPersistentModelIndex::row() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK21QPersistentModelIndex3rowEv(
+    const QPersistentModelIndex *self) {
+  return self->row();
+}
+
+//  int QPersistentModelIndex::column() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK21QPersistentModelIndex6columnEv(
+    const QPersistentModelIndex *self) {
+  return self->column();
+}
+
+//  quintptr QPersistentModelIndex::internalId() const
+extern "C" Q_DECL_EXPORT
+quintptr ritual_ZNK21QPersistentModelIndex10internalIdEv(
+    const QPersistentModelIndex *self) {
+  return self->internalId();
+}
+
+//  QModelIndex QPersistentModelIndex::parent() const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK21QPersistentModelIndex6parentEv(
+    const QPersistentModelIndex *self) {
+  return new QModelIndex(self->parent());
+}
+
+//  QModelIndex QPersistentModelIndex::sibling(int row, int column) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK21QPersistentModelIndex7siblingEii(
+    const QPersistentModelIndex *self,
+    int row,
+    int column) {
+  return new QModelIndex(self->sibling(row, column));
+}
+
+//  QVariant QPersistentModelIndex::data(int role) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK21QPersistentModelIndex4dataEi(
+    const QPersistentModelIndex *self,
+    int role) {
+  return new QVariant(self->data(role));
+}
+
+//  void QPersistentModelIndex::multiData(QModelRoleDataSpan roleDataSpan)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK21QPersistentModelIndex9multiDataE18QModelRoleDataSpan(
+    const QPersistentModelIndex *self,
+    const QModelRoleDataSpan *roleDataSpan) {
+  self->multiData(*roleDataSpan);
+}
+
+//  Qt::ItemFlags QPersistentModelIndex::flags() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK21QPersistentModelIndex5flagsEv(
+    const QPersistentModelIndex *self) {
+  return static_cast<int>(self->flags().toInt());
+}
+
+//  const QAbstractItemModel *QPersistentModelIndex::model() const
+extern "C" Q_DECL_EXPORT
+const QAbstractItemModel *ritual_ZNK21QPersistentModelIndex5modelEv(
+    const QPersistentModelIndex *self) {
+  return self->model();
+}
+
+//  bool QPersistentModelIndex::isValid() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK21QPersistentModelIndex7isValidEv(
+    const QPersistentModelIndex *self) {
+  return self->isValid();
+}

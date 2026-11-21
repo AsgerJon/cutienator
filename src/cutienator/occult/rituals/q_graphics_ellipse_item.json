@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QGraphicsEllipseItemC1EP13QGraphicsItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20QGraphicsEllipseItemC1ERK6QRectFP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsEllipseItemC1EddddP13QGraphicsItem": [
+      "address", "double", "double", "double", "double", "address"
+    ],
+    "ritual_ZN20QGraphicsEllipseItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QGraphicsEllipseItem4rectEv": ["address", "address"],
+    "ritual_ZN20QGraphicsEllipseItem7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsEllipseItem7setRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK20QGraphicsEllipseItem10startAngleEv": ["int", "address"],
+    "ritual_ZN20QGraphicsEllipseItem13setStartAngleEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QGraphicsEllipseItem9spanAngleEv": ["int", "address"],
+    "ritual_ZN20QGraphicsEllipseItem12setSpanAngleEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QGraphicsEllipseItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsEllipseItem5shapeEv": ["address", "address"],
+    "ritual_ZNK20QGraphicsEllipseItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsEllipseItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsEllipseItem12isObscuredByEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsEllipseItem10opaqueAreaEv": ["address", "address"],
+    "ritual_ZNK20QGraphicsEllipseItem4typeEv": ["int", "address"]
+  }
+}

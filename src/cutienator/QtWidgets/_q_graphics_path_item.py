@@ -1,0 +1,391 @@
+"""
+QGraphicsPathItem binding of the Qt C++
+"""
+#  Apache-2.0 license
+#  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost.
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from worktoy.dispatch import overload
+
+from ..cute import WAIT
+from ..occult import Rituals
+from . import QAbstractGraphicsShapeItem, QGraphicsItem
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+  from ..QtCore import QPointF, QRectF
+  from ..QtGui import QPainter, QPainterPath
+  from . import QStyleOptionGraphicsItem, QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPainter = WAIT['QPainter']
+  QPainterPath = WAIT['QPainterPath']
+  QPointF = WAIT['QPointF']
+  QStyleOptionGraphicsItem = WAIT['QStyleOptionGraphicsItem']
+  QWidget = WAIT['QWidget']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
+
+
+class QGraphicsPathItem(QAbstractGraphicsShapeItem):
+  """
+  The cute side of Qt's QGraphicsPathItem: a plain Python object standing in
+  front of one C++ QGraphicsPathItem.
+
+  It is built on the cute 'QAbstractGraphicsShapeItem', as Qt's
+  QGraphicsPathItem is built on Qt's QAbstractGraphicsShapeItem, and has
+  everything that class has.
+
+  What exists
+  -----------
+
+  Every function of Qt's QGraphicsPathItem that has a ritual and that Python
+  can call so far, 9 names in all: 'path', 'setPath', 'boundingRect',
+  'shape', 'contains', 'paint', 'isObscuredBy', 'opaqueArea', 'type'. It can
+  be made from Python, in 2 ways; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QGraphicsPathItem::~QGraphicsPathItem()': the destructor: Python
+    never removes a C++ QGraphicsPathItem.
+
+  What has no ritual
+  ------------------
+
+  7 of the 19 functions Qt declares: 3 protected; 2 forbidden; 2 private.
+
+  What to expect
+  --------------
+
+  - The C++ QGraphicsPathItem is created at the first use, not by
+    'QGraphicsPathItem(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - Python never removes the C++ QGraphicsPathItem.
+  """
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QGraphicsPathItem'
+
+  #  Fallback Variables
+
+  #  Private Variables
+
+  #  Public Variables
+
+  #  Virtual Variables
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def path(self) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsPathItem::path() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicspathitem.html#path
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsPathItem::path() const
+    address = self.uglySide.call('ritual_ZNK17QGraphicsPathItem4pathEv')
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  def boundingRect(self) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsPathItem::boundingRect() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicspathitem.html#boundingRect
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsPathItem::boundingRect() const
+    address = self.uglySide.call(
+        'ritual_ZNK17QGraphicsPathItem12boundingRectEv',
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  def shape(self) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsPathItem::shape() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicspathitem.html#shape
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsPathItem::shape() const
+    address = self.uglySide.call('ritual_ZNK17QGraphicsPathItem5shapeEv')
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  @overload(QPointF)
+  def contains(self, point: QPointF) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsPathItem::contains(const QPointF &point)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicspathitem.html#contains
+
+    Parameters
+    ----------
+
+    point : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+    """
+    #  bool QGraphicsPathItem::contains(const QPointF &point) const
+    return self.uglySide.call(
+        'ritual_ZNK17QGraphicsPathItem8containsERK7QPointF',
+        self._valueOf(point),
+    )
+
+  @overload(QGraphicsItem)
+  @overload(NoneType)
+  def isObscuredBy(self, item: Optional[QGraphicsItem]) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsPathItem::isObscuredBy(const QGraphicsItem
+    *item) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicspathitem.html#isObscuredBy
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGraphicsPathItem::isObscuredBy(const QGraphicsItem *item) const
+    return self.uglySide.call(
+        'ritual_ZNK17QGraphicsPathItem12isObscuredByEPK13QGraphicsItem',
+        self._addressOf(item),
+    )
+
+  def opaqueArea(self) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsPathItem::opaqueArea() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicspathitem.html#opaqueArea
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsPathItem::opaqueArea() const
+    address = self.uglySide.call(
+        'ritual_ZNK17QGraphicsPathItem10opaqueAreaEv',
+    )
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  def type(self) -> int:
+    """
+    Calls Qt's 'int QGraphicsPathItem::type() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicspathitem.html#type
+    """
+    #  int QGraphicsPathItem::type() const
+    return self.uglySide.call('ritual_ZNK17QGraphicsPathItem4typeEv')
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QPainterPath)
+  def setPath(self, path: QPainterPath) -> None:
+    """
+    Calls Qt's 'void QGraphicsPathItem::setPath(const QPainterPath &path)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicspathitem.html#setPath
+
+    Parameters
+    ----------
+
+    path : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+    """
+    #  void QGraphicsPathItem::setPath(const QPainterPath &path)
+    self.uglySide.call(
+        'ritual_ZN17QGraphicsPathItem7setPathERK12QPainterPath',
+        self._valueOf(path),
+    )
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(QGraphicsItem)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QGraphicsItem] = None) -> None:
+    """
+    Notes what was given, for Qt's
+    'QGraphicsPathItem::QGraphicsPathItem(QGraphicsItem *parent)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicspathitem.html#QGraphicsPathItem
+
+    Parameters
+    ----------
+
+    parent : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QGraphicsPathItem::QGraphicsPathItem(QGraphicsItem *parent)
+    self._noteCreation(QGraphicsPathItem, lambda: Rituals.call(
+        'ritual_ZN17QGraphicsPathItemC1EP13QGraphicsItem',
+        self._addressOf(parent),
+    ))
+
+  @overload(QPainterPath)
+  @overload(QPainterPath, QGraphicsItem)
+  @overload(QPainterPath, NoneType)
+  def __init__(
+      self,
+      path: QPainterPath,
+      parent: Optional[QGraphicsItem] = None,
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QGraphicsPathItem::QGraphicsPathItem(const QPainterPath &path,
+    QGraphicsItem *parent)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicspathitem.html#QGraphicsPathItem
+
+    Parameters
+    ----------
+
+    path : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    parent : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QGraphicsPathItem::QGraphicsPathItem(const QPainterPath &path,
+    #      QGraphicsItem *parent)
+    self._noteCreation(QGraphicsPathItem, lambda: Rituals.call(
+        'ritual_ZN17QGraphicsPathItemC1ERK12QPainterPathP13QGraphicsItem',
+        self._valueOf(path), self._addressOf(parent),
+    ))
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QPainter, QStyleOptionGraphicsItem)
+  @overload(QPainter, NoneType)
+  @overload(NoneType, QStyleOptionGraphicsItem)
+  @overload(NoneType, NoneType)
+  @overload(QPainter, QStyleOptionGraphicsItem, QWidget)
+  @overload(QPainter, QStyleOptionGraphicsItem, NoneType)
+  @overload(QPainter, NoneType, QWidget)
+  @overload(QPainter, NoneType, NoneType)
+  @overload(NoneType, QStyleOptionGraphicsItem, QWidget)
+  @overload(NoneType, QStyleOptionGraphicsItem, NoneType)
+  @overload(NoneType, NoneType, QWidget)
+  @overload(NoneType, NoneType, NoneType)
+  def paint(
+      self,
+      painter: Optional[QPainter],
+      option: Optional[QStyleOptionGraphicsItem],
+      widget: Optional[QWidget] = None,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsPathItem::paint(QPainter *painter, const
+    QStyleOptionGraphicsItem *option, QWidget *widget)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicspathitem.html#paint
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    option : Optional[QStyleOptionGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  void QGraphicsPathItem::paint(QPainter *painter, const
+    #      QStyleOptionGraphicsItem *option, QWidget *widget)
+    self.uglySide.call(
+        'ritual_ZN17QGraphicsPathItem5paintEP8QPainterPK24QStyleOptionGraph'
+        'icsItemP7QWidget',
+        self._addressOf(painter), self._addressOf(option),
+        self._addressOf(widget),
+    )

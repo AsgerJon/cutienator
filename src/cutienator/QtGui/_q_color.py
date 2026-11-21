@@ -11,15 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_rgba64 import QRgba64
-from ._q_color_name_format import NameFormat
-from ._q_color_spec import Spec
+from . import QColorNameFormat, QColorSpec
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QRgba64
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QRgba64 = WAIT['QRgba64']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -115,8 +120,8 @@ class QColor(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QColor, and the names Qt has for the
   #  combinations of its flags enums.
-  NameFormat = NameFormat
-  Spec = Spec
+  NameFormat = QColorNameFormat
+  Spec = QColorSpec
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -651,7 +656,7 @@ class QColor(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Spec(number)' gives.
     """
     #  Spec QColor::spec() const
-    return Spec(self.uglySide.call('ritual_ZNK6QColor4specEv'))
+    return QColor.Spec(self.uglySide.call('ritual_ZNK6QColor4specEv'))
 
   def alpha(self) -> int:
     """
@@ -739,6 +744,7 @@ class QColor(CuteMixin, metaclass=MetaCute):
     """
     #  QRgba64 QColor::rgba64() const
     address = self.uglySide.call('ritual_ZNK6QColor6rgba64Ev')
+    from . import QRgba64
     return QRgba64._cuteOwning(address)
 
   def rgba(self) -> int:

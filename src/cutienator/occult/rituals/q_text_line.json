@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextlayout.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QTextLineC1Ev": ["address"],
+    "ritual_ZNK9QTextLine7isValidEv": ["bool", "address"],
+    "ritual_ZNK9QTextLine4rectEv": ["address", "address"],
+    "ritual_ZNK9QTextLine1xEv": ["double", "address"],
+    "ritual_ZNK9QTextLine1yEv": ["double", "address"],
+    "ritual_ZNK9QTextLine5widthEv": ["double", "address"],
+    "ritual_ZNK9QTextLine6ascentEv": ["double", "address"],
+    "ritual_ZNK9QTextLine7descentEv": ["double", "address"],
+    "ritual_ZNK9QTextLine6heightEv": ["double", "address"],
+    "ritual_ZNK9QTextLine7leadingEv": ["double", "address"],
+    "ritual_ZN9QTextLine18setLeadingIncludedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QTextLine15leadingIncludedEv": ["bool", "address"],
+    "ritual_ZNK9QTextLine16naturalTextWidthEv": ["double", "address"],
+    "ritual_ZNK9QTextLine17horizontalAdvanceEv": ["double", "address"],
+    "ritual_ZNK9QTextLine15naturalTextRectEv": ["address", "address"],
+    "ritual_ZNK9QTextLine9cursorToXEPiNS_4EdgeE": [
+      "double", "address", "address", "int"
+    ],
+    "ritual_ZNK9QTextLine9cursorToXEiNS_4EdgeE": [
+      "double", "address", "int", "int"
+    ],
+    "ritual_ZNK9QTextLine9xToCursorEdNS_14CursorPositionE": [
+      "int", "address", "double", "int"
+    ],
+    "ritual_ZN9QTextLine12setLineWidthEd": ["nothing", "address", "double"],
+    "ritual_ZN9QTextLine13setNumColumnsEi": ["nothing", "address", "int"],
+    "ritual_ZN9QTextLine13setNumColumnsEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN9QTextLine11setPositionERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QTextLine8positionEv": ["address", "address"],
+    "ritual_ZNK9QTextLine9textStartEv": ["int", "address"],
+    "ritual_ZNK9QTextLine10textLengthEv": ["int", "address"],
+    "ritual_ZNK9QTextLine10lineNumberEv": ["int", "address"],
+    "ritual_ZNK9QTextLine4drawEP8QPainterRK7QPointF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QTextLineD1Ev": ["nothing", "address"]
+  }
+}

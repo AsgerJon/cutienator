@@ -11,19 +11,22 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_abstract_slider import QAbstractSlider
-from ..QtCore import QEvent
-from ._q_menu import QMenu
-from ..QtCore import QMetaObject
-from ..QtCore import QPoint
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from . import QAbstractSlider, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QEvent, QMetaObject, QPoint, QSize
+  from . import QMenu
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QPoint = WAIT['QPoint']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -154,6 +157,7 @@ class QScrollBar(QAbstractSlider):
     """
     #  const QMetaObject *QScrollBar::metaObject() const
     address = self.uglySide.call('ritual_ZNK10QScrollBar10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def sizeHint(self) -> QSize:
@@ -170,6 +174,7 @@ class QScrollBar(QAbstractSlider):
     """
     #  QSize QScrollBar::sizeHint() const
     address = self.uglySide.call('ritual_ZNK10QScrollBar8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -308,4 +313,5 @@ class QScrollBar(QAbstractSlider):
         'ritual_ZN10QScrollBar25createStandardContextMenuE6QPoint',
         self._valueOf(position),
     )
+    from . import QMenu
     return QMenu._cuteAt(address)

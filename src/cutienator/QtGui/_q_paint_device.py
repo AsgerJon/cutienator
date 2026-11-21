@@ -13,7 +13,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from ._q_paint_device_paint_device_metric import PaintDeviceMetric
+from . import QPaintDevicePaintDeviceMetric
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+  from . import QPaintEngine
 
 
 class QPaintDevice(CuteMixin, metaclass=MetaCute):
@@ -25,8 +30,8 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPaintDevice that has a ritual and that Python can
-  call so far, 16 names in all: 'devType', 'paintingActive', 'width',
-  'height', 'widthMM', 'heightMM', 'logicalDpiX', 'logicalDpiY',
+  call so far, 17 names in all: 'devType', 'paintingActive', 'paintEngine',
+  'width', 'height', 'widthMM', 'heightMM', 'logicalDpiX', 'logicalDpiY',
   'physicalDpiX', 'physicalDpiY', 'devicePixelRatio', 'devicePixelRatioF',
   'colorCount', 'depth', 'devicePixelRatioFScale', 'encodeMetricF'. None can
   be made from Python: one comes out of a function of another class that
@@ -37,8 +42,6 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QPaintDevice::~QPaintDevice()': the destructor: Python never
     removes a C++ QPaintDevice.
-  - Qt's 'QPaintEngine *QPaintDevice::paintEngine() const': gives
-    'QPaintEngine', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -60,7 +63,7 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QPaintDevice, and the names Qt has for the
   #  combinations of its flags enums.
-  PaintDeviceMetric = PaintDeviceMetric
+  PaintDeviceMetric = QPaintDevicePaintDeviceMetric
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -139,6 +142,24 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     """
     #  bool QPaintDevice::paintingActive() const
     return self.uglySide.call('ritual_ZNK12QPaintDevice14paintingActiveEv')
+
+  def paintEngine(self) -> Optional[QPaintEngine]:
+    """
+    Calls Qt's 'QPaintEngine *QPaintDevice::paintEngine() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#paintEngine
+
+    Returns
+    -------
+
+    Optional[QPaintEngine]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintEngine *QPaintDevice::paintEngine() const
+    address = self.uglySide.call('ritual_ZNK12QPaintDevice11paintEngineEv')
+    from . import QPaintEngine
+    return QPaintEngine._cuteAt(address)
 
   def width(self) -> int:
     """

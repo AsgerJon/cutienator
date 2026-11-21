@@ -12,26 +12,29 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_cursor import QCursor
-from ._q_icon import QIcon
-from ..QtCore import QMargins
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ..QtCore import QPoint
-from ..QtCore import QPointF
-from ..QtCore import QRect
-from ._q_region import QRegion
-from ._q_screen import QScreen
-from ..QtCore import QSize
-from ._q_surface import QSurface
-from ._q_window_ancestor_mode import AncestorMode
-from ._q_window_visibility import Visibility
+from ..QtCore import Qt, QObject
+from . import QSurfaceSurfaceType, QWindowAncestorMode, QWindowVisibility
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMargins, QMetaObject, QPoint, QPointF, QRect, QSize
+  from . import QCursor, QIcon, QRegion, QScreen, QSurface, QSurfaceFormat
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QCursor = WAIT['QCursor']
+  QIcon = WAIT['QIcon']
+  QPoint = WAIT['QPoint']
+  QPointF = WAIT['QPointF']
+  QRect = WAIT['QRect']
+  QRegion = WAIT['QRegion']
+  QScreen = WAIT['QScreen']
+  QSize = WAIT['QSize']
+  QSurfaceFormat = WAIT['QSurfaceFormat']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -51,16 +54,16 @@ class QWindow(QObject):
   -----------
 
   Every function of Qt's QWindow that has a ritual and that Python can call
-  so far, 103 names in all: 'metaObject', 'tr', 'setSurfaceType',
+  so far, 106 names in all: 'metaObject', 'tr', 'setSurfaceType',
   'surfaceType', 'isVisible', 'visibility', 'setVisibility', 'create',
   'winId', 'parent', 'setParent', 'isTopLevel', 'isModal', 'modality',
-  'setModality', 'setFlags', 'flags', 'setFlag', 'type', 'title',
-  'setOpacity', 'opacity', 'setMask', 'mask', 'isActive',
-  'reportContentOrientationChange', 'contentOrientation', 'devicePixelRatio',
-  'windowState', 'windowStates', 'setWindowState', 'setWindowStates',
-  'setTransientParent', 'transientParent', 'isAncestorOf', 'isExposed',
-  'minimumWidth', 'minimumHeight', 'maximumWidth', 'maximumHeight',
-  'minimumSize', 'maximumSize', 'baseSize', 'sizeIncrement',
+  'setModality', 'setFormat', 'format', 'requestedFormat', 'setFlags',
+  'flags', 'setFlag', 'type', 'title', 'setOpacity', 'opacity', 'setMask',
+  'mask', 'isActive', 'reportContentOrientationChange', 'contentOrientation',
+  'devicePixelRatio', 'windowState', 'windowStates', 'setWindowState',
+  'setWindowStates', 'setTransientParent', 'transientParent', 'isAncestorOf',
+  'isExposed', 'minimumWidth', 'minimumHeight', 'maximumWidth',
+  'maximumHeight', 'minimumSize', 'maximumSize', 'baseSize', 'sizeIncrement',
   'setMinimumSize', 'setMaximumSize', 'setBaseSize', 'setSizeIncrement',
   'geometry', 'frameMargins', 'frameGeometry', 'framePosition',
   'setFramePosition', 'safeAreaMargins', 'width', 'height', 'x', 'y', 'size',
@@ -80,12 +83,6 @@ class QWindow(QObject):
 
   - Qt's 'QWindow::~QWindow()': the destructor: Python never removes a C++
     QWindow.
-  - Qt's 'void QWindow::setFormat(const QSurfaceFormat &format)': names
-    'QSurfaceFormat', which has no cute class yet.
-  - Qt's 'QSurfaceFormat QWindow::format() const': gives 'QSurfaceFormat',
-    which has no cute class yet.
-  - Qt's 'QSurfaceFormat QWindow::requestedFormat() const': gives
-    'QSurfaceFormat', which has no cute class yet.
   - Qt's 'QAccessibleInterface *QWindow::accessibleRoot() const': gives
     'QAccessibleInterface', which has no cute class yet.
 
@@ -113,8 +110,8 @@ class QWindow(QObject):
 
   #  The enums Qt writes inside QWindow, and the names Qt has for the
   #  combinations of its flags enums.
-  AncestorMode = AncestorMode
-  Visibility = Visibility
+  AncestorMode = QWindowAncestorMode
+  Visibility = QWindowVisibility
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -222,6 +219,7 @@ class QWindow(QObject):
     """
     #  const QMetaObject *QWindow::metaObject() const
     address = self.uglySide.call('ritual_ZNK7QWindow10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def surfaceType(self) -> QSurface.SurfaceType:
@@ -239,7 +237,7 @@ class QWindow(QObject):
       'QSurface.SurfaceType(number)' gives.
     """
     #  SurfaceType QWindow::surfaceType() const
-    return QSurface.SurfaceType(self.uglySide.call(
+    return QSurfaceSurfaceType(self.uglySide.call(
         'ritual_ZNK7QWindow11surfaceTypeEv',
     ))
 
@@ -267,7 +265,9 @@ class QWindow(QObject):
       gives.
     """
     #  Visibility QWindow::visibility() const
-    return Visibility(self.uglySide.call('ritual_ZNK7QWindow10visibilityEv'))
+    return QWindow.Visibility(self.uglySide.call(
+        'ritual_ZNK7QWindow10visibilityEv',
+    ))
 
   def winId(self) -> int:
     """
@@ -346,6 +346,40 @@ class QWindow(QObject):
         'ritual_ZNK7QWindow8modalityEv',
     ))
 
+  def format(self) -> QSurfaceFormat:
+    """
+    Calls Qt's 'QSurfaceFormat QWindow::format() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#format
+
+    Returns
+    -------
+
+    QSurfaceFormat
+      A new cute QSurfaceFormat around the copy Qt gave back. Python owns it.
+    """
+    #  QSurfaceFormat QWindow::format() const
+    address = self.uglySide.call('ritual_ZNK7QWindow6formatEv')
+    from . import QSurfaceFormat
+    return QSurfaceFormat._cuteOwning(address)
+
+  def requestedFormat(self) -> QSurfaceFormat:
+    """
+    Calls Qt's 'QSurfaceFormat QWindow::requestedFormat() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#requestedFormat
+
+    Returns
+    -------
+
+    QSurfaceFormat
+      A new cute QSurfaceFormat around the copy Qt gave back. Python owns it.
+    """
+    #  QSurfaceFormat QWindow::requestedFormat() const
+    address = self.uglySide.call('ritual_ZNK7QWindow15requestedFormatEv')
+    from . import QSurfaceFormat
+    return QSurfaceFormat._cuteOwning(address)
+
   def flags(self) -> Qt.WindowFlags:
     """
     Calls Qt's 'Qt::WindowFlags QWindow::flags() const'.
@@ -416,6 +450,7 @@ class QWindow(QObject):
     """
     #  QRegion QWindow::mask() const
     address = self.uglySide.call('ritual_ZNK7QWindow4maskEv')
+    from . import QRegion
     return QRegion._cuteOwning(address)
 
   def isActive(self) -> bool:
@@ -600,6 +635,7 @@ class QWindow(QObject):
     """
     #  QSize QWindow::minimumSize() const
     address = self.uglySide.call('ritual_ZNK7QWindow11minimumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def maximumSize(self) -> QSize:
@@ -616,6 +652,7 @@ class QWindow(QObject):
     """
     #  QSize QWindow::maximumSize() const
     address = self.uglySide.call('ritual_ZNK7QWindow11maximumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def baseSize(self) -> QSize:
@@ -632,6 +669,7 @@ class QWindow(QObject):
     """
     #  QSize QWindow::baseSize() const
     address = self.uglySide.call('ritual_ZNK7QWindow8baseSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def sizeIncrement(self) -> QSize:
@@ -648,6 +686,7 @@ class QWindow(QObject):
     """
     #  QSize QWindow::sizeIncrement() const
     address = self.uglySide.call('ritual_ZNK7QWindow13sizeIncrementEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def geometry(self) -> QRect:
@@ -664,6 +703,7 @@ class QWindow(QObject):
     """
     #  QRect QWindow::geometry() const
     address = self.uglySide.call('ritual_ZNK7QWindow8geometryEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def frameMargins(self) -> QMargins:
@@ -680,6 +720,7 @@ class QWindow(QObject):
     """
     #  QMargins QWindow::frameMargins() const
     address = self.uglySide.call('ritual_ZNK7QWindow12frameMarginsEv')
+    from ..QtCore import QMargins
     return QMargins._cuteOwning(address)
 
   def frameGeometry(self) -> QRect:
@@ -696,6 +737,7 @@ class QWindow(QObject):
     """
     #  QRect QWindow::frameGeometry() const
     address = self.uglySide.call('ritual_ZNK7QWindow13frameGeometryEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def framePosition(self) -> QPoint:
@@ -712,6 +754,7 @@ class QWindow(QObject):
     """
     #  QPoint QWindow::framePosition() const
     address = self.uglySide.call('ritual_ZNK7QWindow13framePositionEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def safeAreaMargins(self) -> QMargins:
@@ -728,6 +771,7 @@ class QWindow(QObject):
     """
     #  QMargins QWindow::safeAreaMargins() const
     address = self.uglySide.call('ritual_ZNK7QWindow15safeAreaMarginsEv')
+    from ..QtCore import QMargins
     return QMargins._cuteOwning(address)
 
   def width(self) -> int:
@@ -780,6 +824,7 @@ class QWindow(QObject):
     """
     #  QSize QWindow::size() const
     address = self.uglySide.call('ritual_ZNK7QWindow4sizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def position(self) -> QPoint:
@@ -796,6 +841,7 @@ class QWindow(QObject):
     """
     #  QPoint QWindow::position() const
     address = self.uglySide.call('ritual_ZNK7QWindow8positionEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def filePath(self) -> str:
@@ -827,6 +873,7 @@ class QWindow(QObject):
     """
     #  QIcon QWindow::icon() const
     address = self.uglySide.call('ritual_ZNK7QWindow4iconEv')
+    from . import QIcon
     return QIcon._cuteOwning(address)
 
   def screen(self) -> Optional[QScreen]:
@@ -844,6 +891,7 @@ class QWindow(QObject):
     """
     #  QScreen *QWindow::screen() const
     address = self.uglySide.call('ritual_ZNK7QWindow6screenEv')
+    from . import QScreen
     return QScreen._cuteAt(address)
 
   def focusObject(self) -> Optional[QObject]:
@@ -887,6 +935,7 @@ class QWindow(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QWindow11mapToGlobalERK7QPointF', self._valueOf(pos),
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(QPoint)
@@ -913,6 +962,7 @@ class QWindow(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QWindow11mapToGlobalERK6QPoint', self._valueOf(pos),
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @overload(QPointF)
@@ -939,6 +989,7 @@ class QWindow(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QWindow13mapFromGlobalERK7QPointF', self._valueOf(pos),
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(QPoint)
@@ -965,6 +1016,7 @@ class QWindow(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QWindow13mapFromGlobalERK6QPoint', self._valueOf(pos),
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def cursor(self) -> QCursor:
@@ -981,13 +1033,14 @@ class QWindow(QObject):
     """
     #  QCursor QWindow::cursor() const
     address = self.uglySide.call('ritual_ZNK7QWindow6cursorEv')
+    from . import QCursor
     return QCursor._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QSurface.SurfaceType)
+  @overload(QSurfaceSurfaceType)
   def setSurfaceType(self, surfaceType: QSurface.SurfaceType) -> None:
     """
     Calls Qt's 'void QWindow::setSurfaceType(SurfaceType surfaceType)'.
@@ -1061,6 +1114,26 @@ class QWindow(QObject):
     self.uglySide.call(
         'ritual_ZN7QWindow11setModalityEN2Qt14WindowModalityE',
         modality.value,
+    )
+
+  @overload(QSurfaceFormat)
+  def setFormat(self, format: QSurfaceFormat) -> None:
+    """
+    Calls Qt's 'void QWindow::setFormat(const QSurfaceFormat &format)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#setFormat
+
+    Parameters
+    ----------
+
+    format : QSurfaceFormat
+      Passed on as a value: Qt reads the C++ QSurfaceFormat, which stays
+      Python's own.
+    """
+    #  void QWindow::setFormat(const QSurfaceFormat &format)
+    self.uglySide.call(
+        'ritual_ZN7QWindow9setFormatERK14QSurfaceFormat',
+        self._valueOf(format),
     )
 
   @overload(Qt.WindowFlags)

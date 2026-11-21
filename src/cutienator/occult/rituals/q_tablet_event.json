@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QTabletEvent5cloneEv": ["address", "address"],
+    "ritual_ZN12QTabletEventD1Ev": ["nothing", "address"],
+    "ritual_ZN12QTabletEventC1EN6QEvent4TypeEPK15QPointingDeviceRK7QPointFS7_dfffdf6QFlagsIN2Qt16KeyboardModifierEENS9_11MouseButtonES8_ISC_E": [
+      "address", "int", "address", "address", "address", "double", "float",
+      "float", "float", "double", "float", "int", "int", "int"
+    ],
+    "ritual_ZNK12QTabletEvent3posEv": ["address", "address"],
+    "ritual_ZNK12QTabletEvent9globalPosEv": ["address", "address"],
+    "ritual_ZNK12QTabletEvent4posFEv": ["address", "address"],
+    "ritual_ZNK12QTabletEvent10globalPosFEv": ["address", "address"],
+    "ritual_ZNK12QTabletEvent1xEv": ["int", "address"],
+    "ritual_ZNK12QTabletEvent1yEv": ["int", "address"],
+    "ritual_ZNK12QTabletEvent7globalXEv": ["int", "address"],
+    "ritual_ZNK12QTabletEvent7globalYEv": ["int", "address"],
+    "ritual_ZNK12QTabletEvent12hiResGlobalXEv": ["double", "address"],
+    "ritual_ZNK12QTabletEvent12hiResGlobalYEv": ["double", "address"],
+    "ritual_ZNK12QTabletEvent8uniqueIdEv": ["long long", "address"],
+    "ritual_ZNK12QTabletEvent8pressureEv": ["double", "address"],
+    "ritual_ZNK12QTabletEvent8rotationEv": ["double", "address"],
+    "ritual_ZNK12QTabletEvent1zEv": ["double", "address"],
+    "ritual_ZNK12QTabletEvent18tangentialPressureEv": ["double", "address"],
+    "ritual_ZNK12QTabletEvent5xTiltEv": ["double", "address"],
+    "ritual_ZNK12QTabletEvent5yTiltEv": ["double", "address"]
+  }
+}

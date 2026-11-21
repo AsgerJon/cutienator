@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from ._q_event_type import Type
+from . import QEventType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -59,7 +59,7 @@ class QEvent(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QEvent, and the names Qt has for the
   #  combinations of its flags enums.
-  Type = Type
+  Type = QEventType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -117,7 +117,7 @@ class QEvent(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Type(number)' gives.
     """
     #  Type QEvent::type() const
-    return Type(self.uglySide.call('ritual_ZNK6QEvent4typeEv'))
+    return QEvent.Type(self.uglySide.call('ritual_ZNK6QEvent4typeEv'))
 
   def spontaneous(self) -> bool:
     """

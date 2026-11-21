@@ -13,18 +13,23 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_abstract_item_view import QAbstractItemView
-from ..QtCore import QItemSelectionModel
-from ..QtCore import QMetaObject
-from ..QtCore import QModelIndex
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ._q_tree_view import QTreeView
-from ._q_widget import QWidget
+from ..QtCore import Qt, QItemSelectionModelSelectionFlag
+from . import QAbstractItemView, QTreeView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
+  from ..QtCore import QRect
+  from . import QTreeWidgetItem
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QItemSelectionModel = WAIT['QItemSelectionModel']
+  QModelIndex = WAIT['QModelIndex']
+  QPoint = WAIT['QPoint']
+  QTreeWidgetItem = WAIT['QTreeWidgetItem']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -84,10 +89,6 @@ class QTreeWidget(QTreeView):
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QTreeWidgetItem = WAIT['QTreeWidgetItem']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -171,6 +172,7 @@ class QTreeWidget(QTreeView):
     """
     #  const QMetaObject *QTreeWidget::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QTreeWidget10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def columnCount(self) -> int:
@@ -199,7 +201,8 @@ class QTreeWidget(QTreeView):
     address = self.uglySide.call(
         'ritual_ZNK11QTreeWidget17invisibleRootItemEv',
     )
-    return self.QTreeWidgetItem._cuteAt(address)
+    from . import QTreeWidgetItem
+    return QTreeWidgetItem._cuteAt(address)
 
   @overload(int)
   def topLevelItem(self, index: int) -> Optional[QTreeWidgetItem]:
@@ -225,7 +228,8 @@ class QTreeWidget(QTreeView):
     address = self.uglySide.call(
         'ritual_ZNK11QTreeWidget12topLevelItemEi', index,
     )
-    return self.QTreeWidgetItem._cuteAt(address)
+    from . import QTreeWidgetItem
+    return QTreeWidgetItem._cuteAt(address)
 
   def topLevelItemCount(self) -> int:
     """
@@ -237,7 +241,8 @@ class QTreeWidget(QTreeView):
     return self.uglySide.call('ritual_ZNK11QTreeWidget17topLevelItemCountEv')
 
   @overload(QTreeWidgetItem)
-  def indexOfTopLevelItem(self, item: QTreeWidgetItem) -> int:
+  @overload(NoneType)
+  def indexOfTopLevelItem(self, item: Optional[QTreeWidgetItem]) -> int:
     """
     Calls Qt's 'int QTreeWidget::indexOfTopLevelItem(QTreeWidgetItem *item)
     const'.
@@ -245,14 +250,12 @@ class QTreeWidget(QTreeView):
     Qt's own words:
     https://doc.qt.io/qt-6/qtreewidget.html#indexOfTopLevelItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  int QTreeWidget::indexOfTopLevelItem(QTreeWidgetItem *item) const
     return self.uglySide.call(
@@ -275,7 +278,8 @@ class QTreeWidget(QTreeView):
     """
     #  QTreeWidgetItem *QTreeWidget::headerItem() const
     address = self.uglySide.call('ritual_ZNK11QTreeWidget10headerItemEv')
-    return self.QTreeWidgetItem._cuteAt(address)
+    from . import QTreeWidgetItem
+    return QTreeWidgetItem._cuteAt(address)
 
   def currentItem(self) -> Optional[QTreeWidgetItem]:
     """
@@ -292,7 +296,8 @@ class QTreeWidget(QTreeView):
     """
     #  QTreeWidgetItem *QTreeWidget::currentItem() const
     address = self.uglySide.call('ritual_ZNK11QTreeWidget11currentItemEv')
-    return self.QTreeWidgetItem._cuteAt(address)
+    from . import QTreeWidgetItem
+    return QTreeWidgetItem._cuteAt(address)
 
   def currentColumn(self) -> int:
     """
@@ -328,7 +333,8 @@ class QTreeWidget(QTreeView):
     address = self.uglySide.call(
         'ritual_ZNK11QTreeWidget6itemAtERK6QPoint', self._valueOf(p),
     )
-    return self.QTreeWidgetItem._cuteAt(address)
+    from . import QTreeWidgetItem
+    return QTreeWidgetItem._cuteAt(address)
 
   @overload(int, int)
   def itemAt(self, x: int, y: int) -> Optional[QTreeWidgetItem]:
@@ -355,24 +361,24 @@ class QTreeWidget(QTreeView):
     """
     #  QTreeWidgetItem *QTreeWidget::itemAt(int x, int y) const
     address = self.uglySide.call('ritual_ZNK11QTreeWidget6itemAtEii', x, y)
-    return self.QTreeWidgetItem._cuteAt(address)
+    from . import QTreeWidgetItem
+    return QTreeWidgetItem._cuteAt(address)
 
   @overload(QTreeWidgetItem)
-  def visualItemRect(self, item: QTreeWidgetItem) -> QRect:
+  @overload(NoneType)
+  def visualItemRect(self, item: Optional[QTreeWidgetItem]) -> QRect:
     """
     Calls Qt's 'QRect QTreeWidget::visualItemRect(const QTreeWidgetItem
     *item) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#visualItemRect
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     Returns
     -------
@@ -385,6 +391,7 @@ class QTreeWidget(QTreeView):
         'ritual_ZNK11QTreeWidget14visualItemRectEPK15QTreeWidgetItem',
         self._addressOf(item),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def sortColumn(self) -> int:
@@ -396,11 +403,14 @@ class QTreeWidget(QTreeView):
     #  int QTreeWidget::sortColumn() const
     return self.uglySide.call('ritual_ZNK11QTreeWidget10sortColumnEv')
 
+  @overload(QTreeWidgetItem)
+  @overload(NoneType)
   @overload(QTreeWidgetItem, int)
+  @overload(NoneType, int)
   def isPersistentEditorOpen(
       self,
-      item: QTreeWidgetItem,
-      column: int,
+      item: Optional[QTreeWidgetItem],
+      column: int = 0,
   ) -> bool:
     """
     Calls Qt's 'bool QTreeWidget::isPersistentEditorOpen(QTreeWidgetItem
@@ -409,17 +419,15 @@ class QTreeWidget(QTreeView):
     Qt's own words:
     https://doc.qt.io/qt-6/qtreewidget.html#isPersistentEditorOpen
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     column : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 0.
     """
     #  bool QTreeWidget::isPersistentEditorOpen(QTreeWidgetItem *item, int
     #      column) const
@@ -430,9 +438,10 @@ class QTreeWidget(QTreeView):
     )
 
   @overload(QTreeWidgetItem, int)
+  @overload(NoneType, int)
   def itemWidget(
       self,
-      item: QTreeWidgetItem,
+      item: Optional[QTreeWidgetItem],
       column: int,
   ) -> Optional[QWidget]:
     """
@@ -441,14 +450,12 @@ class QTreeWidget(QTreeView):
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#itemWidget
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     column : int
       Passed on as it is.
@@ -469,21 +476,23 @@ class QTreeWidget(QTreeView):
     return QWidget._cuteAt(address)
 
   @overload(QTreeWidgetItem)
-  def itemAbove(self, item: QTreeWidgetItem) -> Optional[QTreeWidgetItem]:
+  @overload(NoneType)
+  def itemAbove(
+      self,
+      item: Optional[QTreeWidgetItem],
+  ) -> Optional[QTreeWidgetItem]:
     """
     Calls Qt's 'QTreeWidgetItem *QTreeWidget::itemAbove(const QTreeWidgetItem
     *item) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#itemAbove
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     Returns
     -------
@@ -498,24 +507,27 @@ class QTreeWidget(QTreeView):
         'ritual_ZNK11QTreeWidget9itemAboveEPK15QTreeWidgetItem',
         self._addressOf(item),
     )
-    return self.QTreeWidgetItem._cuteAt(address)
+    from . import QTreeWidgetItem
+    return QTreeWidgetItem._cuteAt(address)
 
   @overload(QTreeWidgetItem)
-  def itemBelow(self, item: QTreeWidgetItem) -> Optional[QTreeWidgetItem]:
+  @overload(NoneType)
+  def itemBelow(
+      self,
+      item: Optional[QTreeWidgetItem],
+  ) -> Optional[QTreeWidgetItem]:
     """
     Calls Qt's 'QTreeWidgetItem *QTreeWidget::itemBelow(const QTreeWidgetItem
     *item) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#itemBelow
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     Returns
     -------
@@ -530,27 +542,33 @@ class QTreeWidget(QTreeView):
         'ritual_ZNK11QTreeWidget9itemBelowEPK15QTreeWidgetItem',
         self._addressOf(item),
     )
-    return self.QTreeWidgetItem._cuteAt(address)
+    from . import QTreeWidgetItem
+    return QTreeWidgetItem._cuteAt(address)
 
+  @overload(QTreeWidgetItem)
+  @overload(NoneType)
   @overload(QTreeWidgetItem, int)
-  def indexFromItem(self, item: QTreeWidgetItem, column: int) -> QModelIndex:
+  @overload(NoneType, int)
+  def indexFromItem(
+      self,
+      item: Optional[QTreeWidgetItem],
+      column: int = 0,
+  ) -> QModelIndex:
     """
     Calls Qt's 'QModelIndex QTreeWidget::indexFromItem(const QTreeWidgetItem
     *item, int column) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#indexFromItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     column : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 0.
 
     Returns
     -------
@@ -564,6 +582,7 @@ class QTreeWidget(QTreeView):
         'ritual_ZNK11QTreeWidget13indexFromItemEPK15QTreeWidgetItemi',
         self._addressOf(item), column,
     )
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -594,7 +613,8 @@ class QTreeWidget(QTreeView):
         'ritual_ZNK11QTreeWidget13itemFromIndexERK11QModelIndex',
         self._valueOf(index),
     )
-    return self.QTreeWidgetItem._cuteAt(address)
+    from . import QTreeWidgetItem
+    return QTreeWidgetItem._cuteAt(address)
 
   def supportedDragActions(self) -> Qt.DropActions:
     """
@@ -635,20 +655,19 @@ class QTreeWidget(QTreeView):
     self.uglySide.call('ritual_ZN11QTreeWidget14setColumnCountEi', columns)
 
   @overload(QTreeWidgetItem)
-  def setHeaderItem(self, item: QTreeWidgetItem) -> None:
+  @overload(NoneType)
+  def setHeaderItem(self, item: Optional[QTreeWidgetItem]) -> None:
     """
     Calls Qt's 'void QTreeWidget::setHeaderItem(QTreeWidgetItem *item)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#setHeaderItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QTreeWidget::setHeaderItem(QTreeWidgetItem *item)
     self.uglySide.call(
@@ -675,20 +694,19 @@ class QTreeWidget(QTreeView):
     )
 
   @overload(QTreeWidgetItem)
-  def setCurrentItem(self, item: QTreeWidgetItem) -> None:
+  @overload(NoneType)
+  def setCurrentItem(self, item: Optional[QTreeWidgetItem]) -> None:
     """
     Calls Qt's 'void QTreeWidget::setCurrentItem(QTreeWidgetItem *item)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#setCurrentItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QTreeWidget::setCurrentItem(QTreeWidgetItem *item)
     self.uglySide.call(
@@ -697,21 +715,24 @@ class QTreeWidget(QTreeView):
     )
 
   @overload(QTreeWidgetItem, int)
-  def setCurrentItem(self, item: QTreeWidgetItem, column: int) -> None:
+  @overload(NoneType, int)
+  def setCurrentItem(
+      self,
+      item: Optional[QTreeWidgetItem],
+      column: int,
+  ) -> None:
     """
     Calls Qt's 'void QTreeWidget::setCurrentItem(QTreeWidgetItem *item, int
     column)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#setCurrentItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     column : int
       Passed on as it is.
@@ -722,10 +743,11 @@ class QTreeWidget(QTreeView):
         self._addressOf(item), column,
     )
 
-  @overload(QTreeWidgetItem, int, QItemSelectionModel.SelectionFlags)
+  @overload(QTreeWidgetItem, int, QItemSelectionModelSelectionFlag)
+  @overload(NoneType, int, QItemSelectionModelSelectionFlag)
   def setCurrentItem(
       self,
-      item: QTreeWidgetItem,
+      item: Optional[QTreeWidgetItem],
       column: int,
       command: QItemSelectionModel.SelectionFlags,
   ) -> None:
@@ -735,14 +757,12 @@ class QTreeWidget(QTreeView):
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#setCurrentItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     column : int
       Passed on as it is.
@@ -759,11 +779,14 @@ class QTreeWidget(QTreeView):
     )
 
   @overload(QTreeWidgetItem, int, QWidget)
+  @overload(QTreeWidgetItem, int, NoneType)
+  @overload(NoneType, int, QWidget)
+  @overload(NoneType, int, NoneType)
   def setItemWidget(
       self,
-      item: QTreeWidgetItem,
+      item: Optional[QTreeWidgetItem],
       column: int,
-      widget: QWidget,
+      widget: Optional[QWidget],
   ) -> None:
     """
     Calls Qt's 'void QTreeWidget::setItemWidget(QTreeWidgetItem *item, int
@@ -771,20 +794,19 @@ class QTreeWidget(QTreeView):
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#setItemWidget
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     column : int
       Passed on as it is.
 
-    widget : QWidget
-      Passed on as the address of its C++ object.
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QTreeWidget::setItemWidget(QTreeWidgetItem *item, int column,
     #      QWidget *widget)
@@ -896,7 +918,12 @@ class QTreeWidget(QTreeView):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @overload(int, QTreeWidgetItem)
-  def insertTopLevelItem(self, index: int, item: QTreeWidgetItem) -> None:
+  @overload(int, NoneType)
+  def insertTopLevelItem(
+      self,
+      index: int,
+      item: Optional[QTreeWidgetItem],
+  ) -> None:
     """
     Calls Qt's 'void QTreeWidget::insertTopLevelItem(int index,
     QTreeWidgetItem *item)'.
@@ -904,17 +931,15 @@ class QTreeWidget(QTreeView):
     Qt's own words:
     https://doc.qt.io/qt-6/qtreewidget.html#insertTopLevelItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
     index : int
       Passed on as it is.
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QTreeWidget::insertTopLevelItem(int index, QTreeWidgetItem *item)
     self.uglySide.call(
@@ -923,20 +948,19 @@ class QTreeWidget(QTreeView):
     )
 
   @overload(QTreeWidgetItem)
-  def addTopLevelItem(self, item: QTreeWidgetItem) -> None:
+  @overload(NoneType)
+  def addTopLevelItem(self, item: Optional[QTreeWidgetItem]) -> None:
     """
     Calls Qt's 'void QTreeWidget::addTopLevelItem(QTreeWidgetItem *item)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#addTopLevelItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QTreeWidget::addTopLevelItem(QTreeWidgetItem *item)
     self.uglySide.call(
@@ -968,7 +992,8 @@ class QTreeWidget(QTreeView):
     address = self.uglySide.call(
         'ritual_ZN11QTreeWidget16takeTopLevelItemEi', index,
     )
-    return self.QTreeWidgetItem._cuteAt(address)
+    from . import QTreeWidgetItem
+    return QTreeWidgetItem._cuteAt(address)
 
   @overload(int, Qt.SortOrder)
   def sortItems(self, column: int, order: Qt.SortOrder) -> None:
@@ -993,25 +1018,30 @@ class QTreeWidget(QTreeView):
         column, order.value,
     )
 
+  @overload(QTreeWidgetItem)
+  @overload(NoneType)
   @overload(QTreeWidgetItem, int)
-  def editItem(self, item: QTreeWidgetItem, column: int) -> None:
+  @overload(NoneType, int)
+  def editItem(
+      self,
+      item: Optional[QTreeWidgetItem],
+      column: int = 0,
+  ) -> None:
     """
     Calls Qt's 'void QTreeWidget::editItem(QTreeWidgetItem *item, int
     column)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#editItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     column : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 0.
     """
     #  void QTreeWidget::editItem(QTreeWidgetItem *item, int column)
     self.uglySide.call(
@@ -1019,8 +1049,15 @@ class QTreeWidget(QTreeView):
         self._addressOf(item), column,
     )
 
+  @overload(QTreeWidgetItem)
+  @overload(NoneType)
   @overload(QTreeWidgetItem, int)
-  def openPersistentEditor(self, item: QTreeWidgetItem, column: int) -> None:
+  @overload(NoneType, int)
+  def openPersistentEditor(
+      self,
+      item: Optional[QTreeWidgetItem],
+      column: int = 0,
+  ) -> None:
     """
     Calls Qt's 'void QTreeWidget::openPersistentEditor(QTreeWidgetItem *item,
     int column)'.
@@ -1028,17 +1065,15 @@ class QTreeWidget(QTreeView):
     Qt's own words:
     https://doc.qt.io/qt-6/qtreewidget.html#openPersistentEditor
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     column : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 0.
     """
     #  void QTreeWidget::openPersistentEditor(QTreeWidgetItem *item, int
     #      column)
@@ -1047,11 +1082,14 @@ class QTreeWidget(QTreeView):
         self._addressOf(item), column,
     )
 
+  @overload(QTreeWidgetItem)
+  @overload(NoneType)
   @overload(QTreeWidgetItem, int)
+  @overload(NoneType, int)
   def closePersistentEditor(
       self,
-      item: QTreeWidgetItem,
-      column: int,
+      item: Optional[QTreeWidgetItem],
+      column: int = 0,
   ) -> None:
     """
     Calls Qt's 'void QTreeWidget::closePersistentEditor(QTreeWidgetItem
@@ -1060,17 +1098,15 @@ class QTreeWidget(QTreeView):
     Qt's own words:
     https://doc.qt.io/qt-6/qtreewidget.html#closePersistentEditor
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     column : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 0.
     """
     #  void QTreeWidget::closePersistentEditor(QTreeWidgetItem *item, int
     #      column)
@@ -1080,21 +1116,24 @@ class QTreeWidget(QTreeView):
     )
 
   @overload(QTreeWidgetItem, int)
-  def removeItemWidget(self, item: QTreeWidgetItem, column: int) -> None:
+  @overload(NoneType, int)
+  def removeItemWidget(
+      self,
+      item: Optional[QTreeWidgetItem],
+      column: int,
+  ) -> None:
     """
     Calls Qt's 'void QTreeWidget::removeItemWidget(QTreeWidgetItem *item, int
     column)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#removeItemWidget
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     column : int
       Passed on as it is.
@@ -1105,11 +1144,15 @@ class QTreeWidget(QTreeView):
         self._addressOf(item), column,
     )
 
+  @overload(QTreeWidgetItem)
+  @overload(NoneType)
   @overload(QTreeWidgetItem, QAbstractItemView.ScrollHint)
+  @overload(NoneType, QAbstractItemView.ScrollHint)
   def scrollToItem(
       self,
-      item: QTreeWidgetItem,
-      hint: QAbstractItemView.ScrollHint,
+      item: Optional[QTreeWidgetItem],
+      hint: QAbstractItemView.ScrollHint = (
+          QAbstractItemView.ScrollHint.EnsureVisible),
   ) -> None:
     """
     Calls Qt's 'void QTreeWidget::scrollToItem(const QTreeWidgetItem *item,
@@ -1117,17 +1160,16 @@ class QTreeWidget(QTreeView):
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#scrollToItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     hint : QAbstractItemView.ScrollHint
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      QAbstractItemView.ScrollHint.EnsureVisible.
     """
     #  void QTreeWidget::scrollToItem(const QTreeWidgetItem *item,
     #      QAbstractItemView::ScrollHint hint)
@@ -1138,20 +1180,19 @@ class QTreeWidget(QTreeView):
     )
 
   @overload(QTreeWidgetItem)
-  def expandItem(self, item: QTreeWidgetItem) -> None:
+  @overload(NoneType)
+  def expandItem(self, item: Optional[QTreeWidgetItem]) -> None:
     """
     Calls Qt's 'void QTreeWidget::expandItem(const QTreeWidgetItem *item)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#expandItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QTreeWidget::expandItem(const QTreeWidgetItem *item)
     self.uglySide.call(
@@ -1160,20 +1201,19 @@ class QTreeWidget(QTreeView):
     )
 
   @overload(QTreeWidgetItem)
-  def collapseItem(self, item: QTreeWidgetItem) -> None:
+  @overload(NoneType)
+  def collapseItem(self, item: Optional[QTreeWidgetItem]) -> None:
     """
     Calls Qt's 'void QTreeWidget::collapseItem(const QTreeWidgetItem *item)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#collapseItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QTreeWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QTreeWidget::collapseItem(const QTreeWidgetItem *item)
     self.uglySide.call(

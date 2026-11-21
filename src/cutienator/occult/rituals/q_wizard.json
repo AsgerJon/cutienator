@@ -1,0 +1,86 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qwizard.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QWizard10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QWizard2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QWizardC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN7QWizardD1Ev": ["nothing", "address"],
+    "ritual_ZN7QWizard7addPageEP11QWizardPage": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN7QWizard7setPageEiP11QWizardPage": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN7QWizard10removePageEi": ["nothing", "address", "int"],
+    "ritual_ZNK7QWizard4pageEi": ["address", "address", "int"],
+    "ritual_ZNK7QWizard14hasVisitedPageEi": ["bool", "address", "int"],
+    "ritual_ZN7QWizard10setStartIdEi": ["nothing", "address", "int"],
+    "ritual_ZNK7QWizard7startIdEv": ["int", "address"],
+    "ritual_ZNK7QWizard11currentPageEv": ["address", "address"],
+    "ritual_ZNK7QWizard9currentIdEv": ["int", "address"],
+    "ritual_ZN7QWizard19validateCurrentPageEv": ["bool", "address"],
+    "ritual_ZNK7QWizard6nextIdEv": ["int", "address"],
+    "ritual_ZN7QWizard8setFieldERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK7QWizard5fieldERK7QString": ["address", "address", "text"],
+    "ritual_ZN7QWizard14setWizardStyleENS_11WizardStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QWizard11wizardStyleEv": ["int", "address"],
+    "ritual_ZN7QWizard9setOptionENS_12WizardOptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK7QWizard10testOptionENS_12WizardOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN7QWizard10setOptionsE6QFlagsINS_12WizardOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QWizard7optionsEv": ["int", "address"],
+    "ritual_ZN7QWizard13setButtonTextENS_12WizardButtonERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK7QWizard10buttonTextENS_12WizardButtonE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN7QWizard9setButtonENS_12WizardButtonEP15QAbstractButton": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK7QWizard6buttonENS_12WizardButtonE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN7QWizard14setTitleFormatEN2Qt10TextFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QWizard11titleFormatEv": ["int", "address"],
+    "ritual_ZN7QWizard17setSubTitleFormatEN2Qt10TextFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QWizard14subTitleFormatEv": ["int", "address"],
+    "ritual_ZN7QWizard9setPixmapENS_12WizardPixmapERK7QPixmap": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK7QWizard6pixmapENS_12WizardPixmapE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN7QWizard13setSideWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QWizard10sideWidgetEv": ["address", "address"],
+    "ritual_ZN7QWizard18setDefaultPropertyEPKcS1_S1_": [
+      "nothing", "address", "chars", "chars", "chars"
+    ],
+    "ritual_ZN7QWizard10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QWizard8sizeHintEv": ["address", "address"],
+    "ritual_ZN7QWizard4backEv": ["nothing", "address"],
+    "ritual_ZN7QWizard4nextEv": ["nothing", "address"],
+    "ritual_ZN7QWizard12setCurrentIdEi": ["nothing", "address", "int"],
+    "ritual_ZN7QWizard7restartEv": ["nothing", "address"]
+  }
+}

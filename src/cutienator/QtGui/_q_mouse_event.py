@@ -9,14 +9,28 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from ..QtCore import Qt
-from ..QtCore import QEvent
-from ..QtCore import QPoint
-from ..QtCore import QPointF
-from ._q_single_point_event import QSinglePointEvent
+from worktoy.dispatch import overload
+
+from ..cute import WAIT
+from ..occult import Rituals
+from ..QtCore import Qt, QEvent
+from . import QSinglePointEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QPoint, QPointF
+  from . import QPointingDevice
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPointF = WAIT['QPointF']
+  QPointingDevice = WAIT['QPointingDevice']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QMouseEvent(QSinglePointEvent):
@@ -33,32 +47,13 @@ class QMouseEvent(QSinglePointEvent):
   Every function of Qt's QMouseEvent that has a ritual and that Python can
   call so far, 12 names in all: 'clone', 'pos', 'globalPos', 'x', 'y',
   'globalX', 'globalY', 'localPos', 'windowPos', 'screenPos', 'source',
-  'flags'. None can be made from Python: one comes out of a function of
-  another class that gives one back.
+  'flags'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QMouseEvent::~QMouseEvent()': the destructor: Python never removes
     a C++ QMouseEvent.
-  - Qt's 'QMouseEvent::QMouseEvent(Type type, const QPointF &localPos,
-    Qt::MouseButton button, Qt::MouseButtons buttons, Qt::KeyboardModifiers
-    modifiers, const QPointingDevice *device)': names 'QPointingDevice',
-    which has no cute class yet.
-  - Qt's 'QMouseEvent::QMouseEvent(Type type, const QPointF &localPos, const
-    QPointF &globalPos, Qt::MouseButton button, Qt::MouseButtons buttons,
-    Qt::KeyboardModifiers modifiers, const QPointingDevice *device)': names
-    'QPointingDevice', which has no cute class yet.
-  - Qt's 'QMouseEvent::QMouseEvent(Type type, const QPointF &localPos, const
-    QPointF &scenePos, const QPointF &globalPos, Qt::MouseButton button,
-    Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, const
-    QPointingDevice *device)': names 'QPointingDevice', which has no cute
-    class yet.
-  - Qt's 'QMouseEvent::QMouseEvent(Type type, const QPointF &localPos, const
-    QPointF &scenePos, const QPointF &globalPos, Qt::MouseButton button,
-    Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers,
-    Qt::MouseEventSource source, const QPointingDevice *device)': names
-    'QPointingDevice', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -133,6 +128,7 @@ class QMouseEvent(QSinglePointEvent):
     """
     #  QPoint QMouseEvent::pos() const
     address = self.uglySide.call('ritual_ZNK11QMouseEvent3posEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def globalPos(self) -> QPoint:
@@ -149,6 +145,7 @@ class QMouseEvent(QSinglePointEvent):
     """
     #  QPoint QMouseEvent::globalPos() const
     address = self.uglySide.call('ritual_ZNK11QMouseEvent9globalPosEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def x(self) -> int:
@@ -201,6 +198,7 @@ class QMouseEvent(QSinglePointEvent):
     """
     #  QPointF QMouseEvent::localPos() const
     address = self.uglySide.call('ritual_ZNK11QMouseEvent8localPosEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def windowPos(self) -> QPointF:
@@ -217,6 +215,7 @@ class QMouseEvent(QSinglePointEvent):
     """
     #  QPointF QMouseEvent::windowPos() const
     address = self.uglySide.call('ritual_ZNK11QMouseEvent9windowPosEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def screenPos(self) -> QPointF:
@@ -233,6 +232,7 @@ class QMouseEvent(QSinglePointEvent):
     """
     #  QPointF QMouseEvent::screenPos() const
     address = self.uglySide.call('ritual_ZNK11QMouseEvent9screenPosEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def source(self) -> Qt.MouseEventSource:
@@ -286,6 +286,277 @@ class QMouseEvent(QSinglePointEvent):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(
+      QEvent.Type, QPointF, Qt.MouseButton, Qt.MouseButtons,
+      Qt.KeyboardModifiers, QPointingDevice,
+  )
+  @overload(
+      QEvent.Type, QPointF, Qt.MouseButton, Qt.MouseButtons,
+      Qt.KeyboardModifiers, NoneType,
+  )
+  def __init__(
+      self,
+      type: QEvent.Type,
+      localPos: QPointF,
+      button: Qt.MouseButton,
+      buttons: Qt.MouseButtons,
+      modifiers: Qt.KeyboardModifiers,
+      device: Optional[QPointingDevice],
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QMouseEvent::QMouseEvent(Type type, const
+    QPointF &localPos, Qt::MouseButton button, Qt::MouseButtons buttons,
+    Qt::KeyboardModifiers modifiers, const QPointingDevice *device)', which
+    is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmouseevent.html#QMouseEvent
+
+    Parameters
+    ----------
+
+    type : QEvent.Type
+      Passed on as its number.
+
+    localPos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    button : Qt.MouseButton
+      Passed on as its number.
+
+    buttons : Qt.MouseButtons
+      Passed on as its number.
+
+    modifiers : Qt.KeyboardModifiers
+      Passed on as its number.
+
+    device : Optional[QPointingDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QMouseEvent::QMouseEvent(Type type, const QPointF &localPos,
+    #      Qt::MouseButton button, Qt::MouseButtons buttons,
+    #      Qt::KeyboardModifiers modifiers, const QPointingDevice *device)
+    self._noteCreation(QMouseEvent, lambda: Rituals.call(
+        'ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFN2Qt11MouseButton'
+        'E6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice',
+        type.value, self._valueOf(localPos), button.value, buttons.value,
+        modifiers.value, self._addressOf(device),
+    ))
+
+  @overload(
+      QEvent.Type, QPointF, QPointF, Qt.MouseButton, Qt.MouseButtons,
+      Qt.KeyboardModifiers, QPointingDevice,
+  )
+  @overload(
+      QEvent.Type, QPointF, QPointF, Qt.MouseButton, Qt.MouseButtons,
+      Qt.KeyboardModifiers, NoneType,
+  )
+  def __init__(
+      self,
+      type: QEvent.Type,
+      localPos: QPointF,
+      globalPos: QPointF,
+      button: Qt.MouseButton,
+      buttons: Qt.MouseButtons,
+      modifiers: Qt.KeyboardModifiers,
+      device: Optional[QPointingDevice],
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QMouseEvent::QMouseEvent(Type type, const
+    QPointF &localPos, const QPointF &globalPos, Qt::MouseButton button,
+    Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, const
+    QPointingDevice *device)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmouseevent.html#QMouseEvent
+
+    Parameters
+    ----------
+
+    type : QEvent.Type
+      Passed on as its number.
+
+    localPos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    globalPos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    button : Qt.MouseButton
+      Passed on as its number.
+
+    buttons : Qt.MouseButtons
+      Passed on as its number.
+
+    modifiers : Qt.KeyboardModifiers
+      Passed on as its number.
+
+    device : Optional[QPointingDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QMouseEvent::QMouseEvent(Type type, const QPointF &localPos, const
+    #      QPointF &globalPos, Qt::MouseButton button, Qt::MouseButtons
+    #      buttons, Qt::KeyboardModifiers modifiers, const QPointingDevice
+    #      *device)
+    self._noteCreation(QMouseEvent, lambda: Rituals.call(
+        'ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_N2Qt11MouseBut'
+        'tonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice',
+        type.value, self._valueOf(localPos), self._valueOf(globalPos),
+        button.value, buttons.value, modifiers.value,
+        self._addressOf(device),
+    ))
+
+  @overload(
+      QEvent.Type, QPointF, QPointF, QPointF, Qt.MouseButton,
+      Qt.MouseButtons, Qt.KeyboardModifiers, QPointingDevice,
+  )
+  @overload(
+      QEvent.Type, QPointF, QPointF, QPointF, Qt.MouseButton,
+      Qt.MouseButtons, Qt.KeyboardModifiers, NoneType,
+  )
+  def __init__(
+      self,
+      type: QEvent.Type,
+      localPos: QPointF,
+      scenePos: QPointF,
+      globalPos: QPointF,
+      button: Qt.MouseButton,
+      buttons: Qt.MouseButtons,
+      modifiers: Qt.KeyboardModifiers,
+      device: Optional[QPointingDevice],
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QMouseEvent::QMouseEvent(Type type, const
+    QPointF &localPos, const QPointF &scenePos, const QPointF &globalPos,
+    Qt::MouseButton button, Qt::MouseButtons buttons, Qt::KeyboardModifiers
+    modifiers, const QPointingDevice *device)', which is called at the first
+    use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmouseevent.html#QMouseEvent
+
+    Parameters
+    ----------
+
+    type : QEvent.Type
+      Passed on as its number.
+
+    localPos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    scenePos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    globalPos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    button : Qt.MouseButton
+      Passed on as its number.
+
+    buttons : Qt.MouseButtons
+      Passed on as its number.
+
+    modifiers : Qt.KeyboardModifiers
+      Passed on as its number.
+
+    device : Optional[QPointingDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QMouseEvent::QMouseEvent(Type type, const QPointF &localPos, const
+    #      QPointF &scenePos, const QPointF &globalPos, Qt::MouseButton
+    #      button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers,
+    #      const QPointingDevice *device)
+    self._noteCreation(QMouseEvent, lambda: Rituals.call(
+        'ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_S4_N2Qt11Mouse'
+        'ButtonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice',
+        type.value, self._valueOf(localPos), self._valueOf(scenePos),
+        self._valueOf(globalPos), button.value, buttons.value,
+        modifiers.value, self._addressOf(device),
+    ))
+
+  @overload(
+      QEvent.Type, QPointF, QPointF, QPointF, Qt.MouseButton,
+      Qt.MouseButtons, Qt.KeyboardModifiers, Qt.MouseEventSource,
+      QPointingDevice,
+  )
+  @overload(
+      QEvent.Type, QPointF, QPointF, QPointF, Qt.MouseButton,
+      Qt.MouseButtons, Qt.KeyboardModifiers, Qt.MouseEventSource, NoneType,
+  )
+  def __init__(
+      self,
+      type: QEvent.Type,
+      localPos: QPointF,
+      scenePos: QPointF,
+      globalPos: QPointF,
+      button: Qt.MouseButton,
+      buttons: Qt.MouseButtons,
+      modifiers: Qt.KeyboardModifiers,
+      source: Qt.MouseEventSource,
+      device: Optional[QPointingDevice],
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QMouseEvent::QMouseEvent(Type type, const
+    QPointF &localPos, const QPointF &scenePos, const QPointF &globalPos,
+    Qt::MouseButton button, Qt::MouseButtons buttons, Qt::KeyboardModifiers
+    modifiers, Qt::MouseEventSource source, const QPointingDevice *device)',
+    which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmouseevent.html#QMouseEvent
+
+    Parameters
+    ----------
+
+    type : QEvent.Type
+      Passed on as its number.
+
+    localPos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    scenePos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    globalPos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    button : Qt.MouseButton
+      Passed on as its number.
+
+    buttons : Qt.MouseButtons
+      Passed on as its number.
+
+    modifiers : Qt.KeyboardModifiers
+      Passed on as its number.
+
+    source : Qt.MouseEventSource
+      Passed on as its number.
+
+    device : Optional[QPointingDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QMouseEvent::QMouseEvent(Type type, const QPointF &localPos, const
+    #      QPointF &scenePos, const QPointF &globalPos, Qt::MouseButton
+    #      button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers,
+    #      Qt::MouseEventSource source, const QPointingDevice *device)
+    self._noteCreation(QMouseEvent, lambda: Rituals.call(
+        'ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_S4_N2Qt11Mouse'
+        'ButtonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEENS5_16MouseEventSou'
+        'rceEPK15QPointingDevice',
+        type.value, self._valueOf(localPos), self._valueOf(scenePos),
+        self._valueOf(globalPos), button.value, buttons.value,
+        modifiers.value, source.value, self._addressOf(device),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

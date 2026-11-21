@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsproxywidget.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QGraphicsProxyWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QGraphicsProxyWidget2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QGraphicsProxyWidgetC1EP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QGraphicsProxyWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZN20QGraphicsProxyWidget9setWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsProxyWidget6widgetEv": ["address", "address"],
+    "ritual_ZNK20QGraphicsProxyWidget13subWidgetRectEPK7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsProxyWidget11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsProxyWidget5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsProxyWidget4typeEv": ["int", "address"],
+    "ritual_ZN20QGraphicsProxyWidget25createProxyForChildWidgetEP7QWidget": [
+      "address", "address", "address"
+    ]
+  }
+}

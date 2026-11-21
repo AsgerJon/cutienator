@@ -12,14 +12,20 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._q_line import QLine
-from ._q_point_f import QPointF
-from ._q_line_f_intersection_type import IntersectionType
+from . import QLineFIntersectionType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QLine, QPointF
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QLine = WAIT['QLine']
+  QPointF = WAIT['QPointF']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -66,7 +72,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QLineF, and the names Qt has for the
   #  combinations of its flags enums.
-  IntersectionType = IntersectionType
+  IntersectionType = QLineFIntersectionType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -146,6 +152,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QLineF::p1() const
     address = self.uglySide.call('ritual_ZNK6QLineF2p1Ev')
+    from . import QPointF
     return QPointF._cuteOwning(address)
 
   def p2(self) -> QPointF:
@@ -162,6 +169,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QLineF::p2() const
     address = self.uglySide.call('ritual_ZNK6QLineF2p2Ev')
+    from . import QPointF
     return QPointF._cuteOwning(address)
 
   def x1(self) -> float:
@@ -322,7 +330,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     """
     #  IntersectionType QLineF::intersects(const QLineF &l, QPointF
     #      *intersectionPoint) const
-    return IntersectionType(self.uglySide.call(
+    return QLineF.IntersectionType(self.uglySide.call(
         'ritual_ZNK6QLineF10intersectsERKS_P7QPointF',
         self._valueOf(l), self._addressOf(intersectionPoint),
     ))
@@ -348,6 +356,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QLineF::pointAt(qreal t) const
     address = self.uglySide.call('ritual_ZNK6QLineF7pointAtEd', t)
+    from . import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(QPointF)
@@ -416,6 +425,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QLineF::center() const
     address = self.uglySide.call('ritual_ZNK6QLineF6centerEv')
+    from . import QPointF
     return QPointF._cuteOwning(address)
 
   def toLine(self) -> QLine:
@@ -432,6 +442,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     """
     #  QLine QLineF::toLine() const
     address = self.uglySide.call('ritual_ZNK6QLineF6toLineEv')
+    from . import QLine
     return QLine._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

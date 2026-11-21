@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcollator.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QCollatorC1Ev": ["address"],
+    "ritual_ZN9QCollatorC1ERK7QLocale": ["address", "address"],
+    "ritual_ZN9QCollatorC1ERKS_": ["address", "address"],
+    "ritual_ZN9QCollatorD1Ev": ["nothing", "address"],
+    "ritual_ZN9QCollator9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QCollator6localeEv": ["address", "address"],
+    "ritual_ZNK9QCollator15caseSensitivityEv": ["int", "address"],
+    "ritual_ZN9QCollator18setCaseSensitivityEN2Qt15CaseSensitivityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QCollator14setNumericModeEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QCollator11numericModeEv": ["bool", "address"],
+    "ritual_ZN9QCollator20setIgnorePunctuationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QCollator17ignorePunctuationEv": ["bool", "address"],
+    "ritual_ZNK9QCollator7compareERK7QStringS2_": [
+      "int", "address", "text", "text"
+    ],
+    "ritual_ZNK9QCollator7compareEPK5QCharxS2_x": [
+      "int", "address", "address", "long long", "address", "long long"
+    ],
+    "ritual_ZNK9QCollatorclERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZNK9QCollator7compareE11QStringViewS0_": [
+      "int", "address", "text", "text"
+    ],
+    "ritual_ZNK9QCollatorclE11QStringViewS0_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZNK9QCollator7sortKeyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN9QCollator14defaultCompareE11QStringViewS0_": [
+      "int", "text", "text"
+    ],
+    "ritual_ZN9QCollator14defaultSortKeyE11QStringView": ["address", "text"]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qtoolbox.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QToolBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QToolBox2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8QToolBoxC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN8QToolBoxD1Ev": ["nothing", "address"],
+    "ritual_ZN8QToolBox7addItemEP7QWidgetRK7QString": [
+      "int", "address", "address", "text"
+    ],
+    "ritual_ZN8QToolBox7addItemEP7QWidgetRK5QIconRK7QString": [
+      "int", "address", "address", "address", "text"
+    ],
+    "ritual_ZN8QToolBox10insertItemEiP7QWidgetRK7QString": [
+      "int", "address", "int", "address", "text"
+    ],
+    "ritual_ZN8QToolBox10insertItemEiP7QWidgetRK5QIconRK7QString": [
+      "int", "address", "int", "address", "address", "text"
+    ],
+    "ritual_ZN8QToolBox10removeItemEi": ["nothing", "address", "int"],
+    "ritual_ZN8QToolBox14setItemEnabledEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK8QToolBox13isItemEnabledEi": ["bool", "address", "int"],
+    "ritual_ZN8QToolBox11setItemTextEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK8QToolBox8itemTextEi": ["text", "address", "int"],
+    "ritual_ZN8QToolBox11setItemIconEiRK5QIcon": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK8QToolBox8itemIconEi": ["address", "address", "int"],
+    "ritual_ZN8QToolBox14setItemToolTipEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK8QToolBox11itemToolTipEi": ["text", "address", "int"],
+    "ritual_ZNK8QToolBox12currentIndexEv": ["int", "address"],
+    "ritual_ZNK8QToolBox13currentWidgetEv": ["address", "address"],
+    "ritual_ZNK8QToolBox6widgetEi": ["address", "address", "int"],
+    "ritual_ZNK8QToolBox7indexOfEPK7QWidget": ["int", "address", "address"],
+    "ritual_ZNK8QToolBox5countEv": ["int", "address"],
+    "ritual_ZN8QToolBox15setCurrentIndexEi": ["nothing", "address", "int"],
+    "ritual_ZN8QToolBox16setCurrentWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ]
+  }
+}

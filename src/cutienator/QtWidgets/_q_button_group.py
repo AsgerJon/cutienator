@@ -11,14 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_abstract_button import QAbstractButton
-from ..QtCore import QMetaObject
 from ..QtCore import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject
+  from . import QAbstractButton
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractButton = WAIT['QAbstractButton']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -152,6 +158,7 @@ class QButtonGroup(QObject):
     """
     #  const QMetaObject *QButtonGroup::metaObject() const
     address = self.uglySide.call('ritual_ZNK12QButtonGroup10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def exclusive(self) -> bool:
@@ -178,6 +185,7 @@ class QButtonGroup(QObject):
     """
     #  QAbstractButton *QButtonGroup::checkedButton() const
     address = self.uglySide.call('ritual_ZNK12QButtonGroup13checkedButtonEv')
+    from . import QAbstractButton
     return QAbstractButton._cuteAt(address)
 
   @overload(int)
@@ -202,6 +210,7 @@ class QButtonGroup(QObject):
     """
     #  QAbstractButton *QButtonGroup::button(int id) const
     address = self.uglySide.call('ritual_ZNK12QButtonGroup6buttonEi', id)
+    from . import QAbstractButton
     return QAbstractButton._cuteAt(address)
 
   @overload(QAbstractButton)

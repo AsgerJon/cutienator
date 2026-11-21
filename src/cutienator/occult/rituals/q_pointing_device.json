@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpointingdevice.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QPointingDevice10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QPointingDevice2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QPointingDeviceC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QPointingDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZN15QPointingDeviceC1ERK7QStringxN12QInputDevice10DeviceTypeENS_11PointerTypeE6QFlagsINS3_10CapabilityEEiiS2_23QPointingDeviceUniqueIdP7QObject": [
+      "address", "text", "long long", "int", "int", "int", "int", "int",
+      "text", "address", "address"
+    ],
+    "ritual_ZN15QPointingDevice7setTypeEN12QInputDevice10DeviceTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QPointingDevice15setCapabilitiesE6QFlagsIN12QInputDevice10CapabilityEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QPointingDevice21setMaximumTouchPointsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QPointingDevice11pointerTypeEv": ["int", "address"],
+    "ritual_ZNK15QPointingDevice13maximumPointsEv": ["int", "address"],
+    "ritual_ZNK15QPointingDevice11buttonCountEv": ["int", "address"],
+    "ritual_ZNK15QPointingDevice8uniqueIdEv": ["address", "address"],
+    "ritual_ZN15QPointingDevice21primaryPointingDeviceERK7QString": [
+      "address", "text"
+    ]
+  }
+}

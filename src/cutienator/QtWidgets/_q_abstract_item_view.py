@@ -11,29 +11,30 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_abstract_item_delegate import QAbstractItemDelegate
-from ..QtCore import QAbstractItemModel
-from ._q_abstract_scroll_area import QAbstractScrollArea
-from ..QtCore import QItemSelectionModel
-from ..QtCore import QMetaObject
-from ..QtCore import QModelIndex
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ..QtCore import QVariant
-from ._q_widget import QWidget
-from ._q_abstract_item_view_drag_drop_mode import DragDropMode
-from ._q_abstract_item_view_edit_trigger import EditTrigger
-from ._q_abstract_item_view_scroll_hint import ScrollHint
-from ._q_abstract_item_view_scroll_mode import ScrollMode
-from ._q_abstract_item_view_selection_behavior import SelectionBehavior
-from ._q_abstract_item_view_selection_mode import SelectionMode
+from . import QAbstractItemViewDragDropMode, QAbstractItemViewEditTrigger
+from . import QAbstractItemViewScrollHint, QAbstractItemViewScrollMode
+from . import QAbstractItemViewSelectionBehavior
+from . import QAbstractItemViewSelectionMode, QAbstractScrollArea, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QAbstractItemModel, QItemSelectionModel, QMetaObject
+  from ..QtCore import QModelIndex, QPoint, QRect, QSize, QVariant
+  from . import QAbstractItemDelegate
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractItemDelegate = WAIT['QAbstractItemDelegate']
+  QAbstractItemModel = WAIT['QAbstractItemModel']
+  QItemSelectionModel = WAIT['QItemSelectionModel']
+  QModelIndex = WAIT['QModelIndex']
+  QPoint = WAIT['QPoint']
+  QSize = WAIT['QSize']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -108,13 +109,13 @@ class QAbstractItemView(QAbstractScrollArea):
 
   #  The enums Qt writes inside QAbstractItemView, and the names Qt has for
   #  the combinations of its flags enums.
-  DragDropMode = DragDropMode
-  EditTrigger = EditTrigger
-  EditTriggers = EditTrigger
-  ScrollHint = ScrollHint
-  ScrollMode = ScrollMode
-  SelectionBehavior = SelectionBehavior
-  SelectionMode = SelectionMode
+  DragDropMode = QAbstractItemViewDragDropMode
+  EditTrigger = QAbstractItemViewEditTrigger
+  EditTriggers = QAbstractItemViewEditTrigger
+  ScrollHint = QAbstractItemViewScrollHint
+  ScrollMode = QAbstractItemViewScrollMode
+  SelectionBehavior = QAbstractItemViewSelectionBehavior
+  SelectionMode = QAbstractItemViewSelectionMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -200,6 +201,7 @@ class QAbstractItemView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK17QAbstractItemView10metaObjectEv',
     )
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def model(self) -> Optional[QAbstractItemModel]:
@@ -217,6 +219,7 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  QAbstractItemModel *QAbstractItemView::model() const
     address = self.uglySide.call('ritual_ZNK17QAbstractItemView5modelEv')
+    from ..QtCore import QAbstractItemModel
     return QAbstractItemModel._cuteAt(address)
 
   def selectionModel(self) -> Optional[QItemSelectionModel]:
@@ -238,6 +241,7 @@ class QAbstractItemView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK17QAbstractItemView14selectionModelEv',
     )
+    from ..QtCore import QItemSelectionModel
     return QItemSelectionModel._cuteAt(address)
 
   @overload()
@@ -260,6 +264,7 @@ class QAbstractItemView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK17QAbstractItemView12itemDelegateEv',
     )
+    from . import QAbstractItemDelegate
     return QAbstractItemDelegate._cuteAt(address)
 
   @overload(QModelIndex)
@@ -294,6 +299,7 @@ class QAbstractItemView(QAbstractScrollArea):
         'ritual_ZNK17QAbstractItemView12itemDelegateERK11QModelIndex',
         self._valueOf(index),
     )
+    from . import QAbstractItemDelegate
     return QAbstractItemDelegate._cuteAt(address)
 
   def selectionMode(self) -> SelectionMode:
@@ -314,7 +320,7 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  QAbstractItemView::SelectionMode QAbstractItemView::selectionMode()
     #      const
-    return SelectionMode(self.uglySide.call(
+    return QAbstractItemView.SelectionMode(self.uglySide.call(
         'ritual_ZNK17QAbstractItemView13selectionModeEv',
     ))
 
@@ -336,7 +342,7 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  QAbstractItemView::SelectionBehavior
     #      QAbstractItemView::selectionBehavior() const
-    return SelectionBehavior(self.uglySide.call(
+    return QAbstractItemView.SelectionBehavior(self.uglySide.call(
         'ritual_ZNK17QAbstractItemView17selectionBehaviorEv',
     ))
 
@@ -357,6 +363,7 @@ class QAbstractItemView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK17QAbstractItemView12currentIndexEv',
     )
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   def rootIndex(self) -> QModelIndex:
@@ -373,6 +380,7 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  QModelIndex QAbstractItemView::rootIndex() const
     address = self.uglySide.call('ritual_ZNK17QAbstractItemView9rootIndexEv')
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   def editTriggers(self) -> EditTriggers:
@@ -409,7 +417,7 @@ class QAbstractItemView(QAbstractScrollArea):
       gives.
     """
     #  ScrollMode QAbstractItemView::verticalScrollMode() const
-    return ScrollMode(self.uglySide.call(
+    return QAbstractItemView.ScrollMode(self.uglySide.call(
         'ritual_ZNK17QAbstractItemView18verticalScrollModeEv',
     ))
 
@@ -429,7 +437,7 @@ class QAbstractItemView(QAbstractScrollArea):
       gives.
     """
     #  ScrollMode QAbstractItemView::horizontalScrollMode() const
-    return ScrollMode(self.uglySide.call(
+    return QAbstractItemView.ScrollMode(self.uglySide.call(
         'ritual_ZNK17QAbstractItemView20horizontalScrollModeEv',
     ))
 
@@ -518,7 +526,7 @@ class QAbstractItemView(QAbstractScrollArea):
       gives.
     """
     #  DragDropMode QAbstractItemView::dragDropMode() const
-    return DragDropMode(self.uglySide.call(
+    return QAbstractItemView.DragDropMode(self.uglySide.call(
         'ritual_ZNK17QAbstractItemView12dragDropModeEv',
     ))
 
@@ -568,6 +576,7 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  QSize QAbstractItemView::iconSize() const
     address = self.uglySide.call('ritual_ZNK17QAbstractItemView8iconSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def textElideMode(self) -> Qt.TextElideMode:
@@ -616,6 +625,7 @@ class QAbstractItemView(QAbstractScrollArea):
         'ritual_ZNK17QAbstractItemView10visualRectERK11QModelIndex',
         self._valueOf(index),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(QPoint)
@@ -644,6 +654,7 @@ class QAbstractItemView(QAbstractScrollArea):
         'ritual_ZNK17QAbstractItemView7indexAtERK6QPoint',
         self._valueOf(point),
     )
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -674,6 +685,7 @@ class QAbstractItemView(QAbstractScrollArea):
         'ritual_ZNK17QAbstractItemView16sizeHintForIndexERK11QModelIndex',
         self._valueOf(index),
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(int)
@@ -826,6 +838,7 @@ class QAbstractItemView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK17QAbstractItemView18itemDelegateForRowEi', row,
     )
+    from . import QAbstractItemDelegate
     return QAbstractItemDelegate._cuteAt(address)
 
   @overload(int)
@@ -858,6 +871,7 @@ class QAbstractItemView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK17QAbstractItemView21itemDelegateForColumnEi', column,
     )
+    from . import QAbstractItemDelegate
     return QAbstractItemDelegate._cuteAt(address)
 
   @overload(QModelIndex)
@@ -894,6 +908,7 @@ class QAbstractItemView(QAbstractScrollArea):
         'x',
         self._valueOf(index),
     )
+    from . import QAbstractItemDelegate
     return QAbstractItemDelegate._cuteAt(address)
 
   @overload(Qt.InputMethodQuery)
@@ -924,6 +939,7 @@ class QAbstractItemView(QAbstractScrollArea):
         'ueryE',
         query.value,
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

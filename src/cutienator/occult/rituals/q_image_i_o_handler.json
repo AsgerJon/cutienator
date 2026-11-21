@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qimageiohandler.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QImageIOHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN15QImageIOHandler9setDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QImageIOHandler6deviceEv": ["address", "address"],
+    "ritual_ZN15QImageIOHandler9setFormatERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QImageIOHandler9setFormatERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QImageIOHandler6formatEv": ["address", "address"],
+    "ritual_ZNK15QImageIOHandler7canReadEv": ["bool", "address"],
+    "ritual_ZN15QImageIOHandler4readEP6QImage": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QImageIOHandler5writeERK6QImage": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QImageIOHandler6optionENS_11ImageOptionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QImageIOHandler9setOptionENS_11ImageOptionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QImageIOHandler14supportsOptionENS_11ImageOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN15QImageIOHandler15jumpToNextImageEv": ["bool", "address"],
+    "ritual_ZN15QImageIOHandler11jumpToImageEi": ["bool", "address", "int"],
+    "ritual_ZNK15QImageIOHandler9loopCountEv": ["int", "address"],
+    "ritual_ZNK15QImageIOHandler10imageCountEv": ["int", "address"],
+    "ritual_ZNK15QImageIOHandler14nextImageDelayEv": ["int", "address"],
+    "ritual_ZNK15QImageIOHandler18currentImageNumberEv": ["int", "address"],
+    "ritual_ZNK15QImageIOHandler16currentImageRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QImageIOHandler13allocateImageE5QSizeN6QImage6FormatEPS1_": [
+      "bool", "address", "int", "address"
+    ]
+  }
+}

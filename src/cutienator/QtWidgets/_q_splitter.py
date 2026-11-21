@@ -11,17 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QByteArray
-from ._q_frame import QFrame
-from ..QtCore import QMetaObject
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from . import QFrame, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QByteArray, QMetaObject, QSize
+  from . import QSplitterHandle
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -40,13 +44,13 @@ class QSplitter(QFrame):
   -----------
 
   Every function of Qt's QSplitter that has a ritual and that Python can call
-  so far, 24 names in all: 'metaObject', 'tr', 'addWidget', 'insertWidget',
+  so far, 25 names in all: 'metaObject', 'tr', 'addWidget', 'insertWidget',
   'replaceWidget', 'setOrientation', 'orientation', 'setChildrenCollapsible',
   'childrenCollapsible', 'setCollapsible', 'isCollapsible',
   'setOpaqueResize', 'opaqueResize', 'refresh', 'sizeHint',
   'minimumSizeHint', 'saveState', 'restoreState', 'handleWidth',
-  'setHandleWidth', 'indexOf', 'widget', 'count', 'setStretchFactor'. It can
-  be made from Python, in 2 ways; see '__init__'.
+  'setHandleWidth', 'indexOf', 'widget', 'count', 'handle',
+  'setStretchFactor'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -55,8 +59,6 @@ class QSplitter(QFrame):
     C++ QSplitter.
   - Qt's 'void QSplitter::getRange(int index, int *a1, int *a2) const': takes
     a number to change where it is.
-  - Qt's 'QSplitterHandle *QSplitter::handle(int index) const': gives
-    'QSplitterHandle', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -161,6 +163,7 @@ class QSplitter(QFrame):
     """
     #  const QMetaObject *QSplitter::metaObject() const
     address = self.uglySide.call('ritual_ZNK9QSplitter10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def orientation(self) -> Qt.Orientation:
@@ -230,6 +233,7 @@ class QSplitter(QFrame):
     """
     #  QSize QSplitter::sizeHint() const
     address = self.uglySide.call('ritual_ZNK9QSplitter8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -246,6 +250,7 @@ class QSplitter(QFrame):
     """
     #  QSize QSplitter::minimumSizeHint() const
     address = self.uglySide.call('ritual_ZNK9QSplitter15minimumSizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def saveState(self) -> QByteArray:
@@ -262,6 +267,7 @@ class QSplitter(QFrame):
     """
     #  QByteArray QSplitter::saveState() const
     address = self.uglySide.call('ritual_ZNK9QSplitter9saveStateEv')
+    from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
 
   def handleWidth(self) -> int:
@@ -325,6 +331,31 @@ class QSplitter(QFrame):
     """
     #  int QSplitter::count() const
     return self.uglySide.call('ritual_ZNK9QSplitter5countEv')
+
+  @overload(int)
+  def handle(self, index: int) -> Optional[QSplitterHandle]:
+    """
+    Calls Qt's 'QSplitterHandle *QSplitter::handle(int index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplitter.html#handle
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Optional[QSplitterHandle]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QSplitterHandle *QSplitter::handle(int index) const
+    address = self.uglySide.call('ritual_ZNK9QSplitter6handleEi', index)
+    from . import QSplitterHandle
+    return QSplitterHandle._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

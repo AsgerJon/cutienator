@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextformat.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QTextListFormatC1Ev": ["address"],
+    "ritual_ZNK15QTextListFormat7isValidEv": ["bool", "address"],
+    "ritual_ZN15QTextListFormat8setStyleENS_5StyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QTextListFormat5styleEv": ["int", "address"],
+    "ritual_ZN15QTextListFormat9setIndentEi": ["nothing", "address", "int"],
+    "ritual_ZNK15QTextListFormat6indentEv": ["int", "address"],
+    "ritual_ZN15QTextListFormat15setNumberPrefixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QTextListFormat12numberPrefixEv": ["text", "address"],
+    "ritual_ZN15QTextListFormat15setNumberSuffixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QTextListFormat12numberSuffixEv": ["text", "address"],
+    "ritual_ZN15QTextListFormat8setStartEi": ["nothing", "address", "int"],
+    "ritual_ZNK15QTextListFormat5startEv": ["int", "address"],
+    "ritual_ZN15QTextListFormatD1Ev": ["nothing", "address"]
+  }
+}

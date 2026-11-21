@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qpropertyanimation.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QPropertyAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QPropertyAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QPropertyAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QPropertyAnimationC1EP7QObjectRK10QByteArrayS1_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QPropertyAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QPropertyAnimation12targetObjectEv": ["address", "address"],
+    "ritual_ZN18QPropertyAnimation15setTargetObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QPropertyAnimation12propertyNameEv": ["address", "address"],
+    "ritual_ZN18QPropertyAnimation15setPropertyNameERK10QByteArray": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QInputMethodEvent5cloneEv": ["address", "address"],
+    "ritual_ZN17QInputMethodEventD1Ev": ["nothing", "address"],
+    "ritual_ZN17QInputMethodEventC1Ev": ["address"],
+    "ritual_ZN17QInputMethodEvent15setCommitStringERK7QStringii": [
+      "nothing", "address", "text", "int", "int"
+    ],
+    "ritual_ZNK17QInputMethodEvent13preeditStringEv": ["text", "address"],
+    "ritual_ZNK17QInputMethodEvent12commitStringEv": ["text", "address"],
+    "ritual_ZNK17QInputMethodEvent16replacementStartEv": ["int", "address"],
+    "ritual_ZNK17QInputMethodEvent17replacementLengthEv": ["int", "address"]
+  }
+}

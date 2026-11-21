@@ -11,17 +11,26 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_event import QEvent
-from ._q_event_loop import QEventLoop
-from ._q_meta_object import QMetaObject
-from ._q_object import QObject
-from ._q_translator import QTranslator
+from . import Qt, QEventLoopProcessEventsFlag, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QAbstractEventDispatcher, QAbstractNativeEventFilter
+  from . import QDeadlineTimer, QEvent, QEventLoop, QMetaObject, QPermission
+  from . import QTranslator
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractEventDispatcher = WAIT['QAbstractEventDispatcher']
+  QAbstractNativeEventFilter = WAIT['QAbstractNativeEventFilter']
+  QDeadlineTimer = WAIT['QDeadlineTimer']
+  QEvent = WAIT['QEvent']
+  QPermission = WAIT['QPermission']
+  QTranslator = WAIT['QTranslator']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -40,42 +49,25 @@ class QCoreApplication(QObject):
   -----------
 
   Every function of Qt's QCoreApplication that has a ritual and that Python
-  can call so far, 37 names in all: 'metaObject', 'tr', 'setAttribute',
+  can call so far, 42 names in all: 'metaObject', 'tr', 'setAttribute',
   'testAttribute', 'setOrganizationDomain', 'organizationDomain',
   'setOrganizationName', 'organizationName', 'setApplicationName',
   'applicationName', 'setApplicationVersion', 'applicationVersion',
   'setSetuidAllowed', 'isSetuidAllowed', 'instance', 'instanceExists',
   'exec', 'processEvents', 'sendEvent', 'postEvent', 'sendPostedEvents',
-  'removePostedEvents', 'notify', 'startingUp', 'closingDown',
-  'applicationDirPath', 'applicationFilePath', 'applicationPid',
-  'addLibraryPath', 'removeLibraryPath', 'installTranslator',
-  'removeTranslator', 'translate', 'isQuitLockEnabled', 'setQuitLockEnabled',
-  'quit', 'exit'. It can be made from Python, in 1 way; see '__init__'.
+  'removePostedEvents', 'eventDispatcher', 'setEventDispatcher', 'notify',
+  'startingUp', 'closingDown', 'applicationDirPath', 'applicationFilePath',
+  'applicationPid', 'checkPermission', 'addLibraryPath', 'removeLibraryPath',
+  'installTranslator', 'removeTranslator', 'translate',
+  'installNativeEventFilter', 'removeNativeEventFilter', 'isQuitLockEnabled',
+  'setQuitLockEnabled', 'quit', 'exit'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QCoreApplication::~QCoreApplication()': the destructor: Python
     never removes a C++ QCoreApplication.
-  - Qt's 'void QCoreApplication::processEvents(QEventLoop::ProcessEventsFlags
-    flags, QDeadlineTimer deadline)': names 'QDeadlineTimer', which has no
-    cute class yet.
-  - Qt's 'QAbstractEventDispatcher *QCoreApplication::eventDispatcher()':
-    gives 'QAbstractEventDispatcher', which has no cute class yet.
-  - Qt's 'void QCoreApplication::setEventDispatcher(QAbstractEventDispatcher
-    *eventDispatcher)': names 'QAbstractEventDispatcher', which has no cute
-    class yet.
-  - Qt's 'Qt::PermissionStatus QCoreApplication::checkPermission(const
-    QPermission &permission)': names 'QPermission', which has no cute class
-    yet.
-  - Qt's 'void
-    QCoreApplication::installNativeEventFilter(QAbstractNativeEventFilter
-    *filterObj)': names 'QAbstractNativeEventFilter', which has no cute class
-    yet.
-  - Qt's 'void
-    QCoreApplication::removeNativeEventFilter(QAbstractNativeEventFilter
-    *filterObj)': names 'QAbstractNativeEventFilter', which has no cute class
-    yet.
 
   What has no ritual
   ------------------
@@ -426,10 +418,10 @@ class QCoreApplication(QObject):
 
   @staticmethod
   @overload()
-  @overload(QEventLoop.ProcessEventsFlags)
+  @overload(QEventLoopProcessEventsFlag)
   def processEvents(
       flags: QEventLoop.ProcessEventsFlags = (
-          QEventLoop.ProcessEventsFlags.AllEvents),
+          QEventLoopProcessEventsFlag.AllEvents),
   ) -> None:
     """
     Calls Qt's 'void
@@ -443,7 +435,7 @@ class QCoreApplication(QObject):
 
     flags : QEventLoop.ProcessEventsFlags
       Passed on as its number. May be left out, as in Qt: it is then
-      QEventLoop.ProcessEventsFlags.AllEvents.
+      QEventLoopProcessEventsFlag.AllEvents.
     """
     #  void QCoreApplication::processEvents(QEventLoop::ProcessEventsFlags
     #      flags)
@@ -454,7 +446,7 @@ class QCoreApplication(QObject):
     )
 
   @staticmethod
-  @overload(QEventLoop.ProcessEventsFlags, int)
+  @overload(QEventLoopProcessEventsFlag, int)
   def processEvents(
       flags: QEventLoop.ProcessEventsFlags,
       maxtime: int,
@@ -482,6 +474,38 @@ class QCoreApplication(QObject):
         'ritual_ZN16QCoreApplication13processEventsE6QFlagsIN10QEventLoop17'
         'ProcessEventsFlagEEi',
         flags.value, maxtime,
+    )
+
+  @staticmethod
+  @overload(QEventLoopProcessEventsFlag, QDeadlineTimer)
+  def processEvents(
+      flags: QEventLoop.ProcessEventsFlags,
+      deadline: QDeadlineTimer,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QCoreApplication::processEvents(QEventLoop::ProcessEventsFlags flags,
+    QDeadlineTimer deadline)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#processEvents
+
+    Parameters
+    ----------
+
+    flags : QEventLoop.ProcessEventsFlags
+      Passed on as its number.
+
+    deadline : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+    """
+    #  void QCoreApplication::processEvents(QEventLoop::ProcessEventsFlags
+    #      flags, QDeadlineTimer deadline)
+    Rituals.call(
+        'ritual_ZN16QCoreApplication13processEventsE6QFlagsIN10QEventLoop17'
+        'ProcessEventsFlagEE14QDeadlineTimer',
+        flags.value, CuteMixin._valueOf(deadline),
     )
 
   @staticmethod
@@ -623,6 +647,56 @@ class QCoreApplication(QObject):
     Rituals.call(
         'ritual_ZN16QCoreApplication18removePostedEventsEP7QObjecti',
         CuteMixin._addressOf(receiver), eventType,
+    )
+
+  @staticmethod
+  def eventDispatcher() -> Optional[QAbstractEventDispatcher]:
+    """
+    Calls Qt's 'QAbstractEventDispatcher
+    *QCoreApplication::eventDispatcher()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#eventDispatcher
+
+    Returns
+    -------
+
+    Optional[QAbstractEventDispatcher]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractEventDispatcher *QCoreApplication::eventDispatcher()
+    address = Rituals.call('ritual_ZN16QCoreApplication15eventDispatcherEv')
+    from . import QAbstractEventDispatcher
+    return QAbstractEventDispatcher._cuteAt(address)
+
+  @staticmethod
+  @overload(QAbstractEventDispatcher)
+  @overload(NoneType)
+  def setEventDispatcher(
+      eventDispatcher: Optional[QAbstractEventDispatcher],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QCoreApplication::setEventDispatcher(QAbstractEventDispatcher
+    *eventDispatcher)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#setEventDispatcher
+
+    Parameters
+    ----------
+
+    eventDispatcher : Optional[QAbstractEventDispatcher]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QCoreApplication::setEventDispatcher(QAbstractEventDispatcher
+    #      *eventDispatcher)
+    Rituals.call(
+        'ritual_ZN16QCoreApplication18setEventDispatcherEP24QAbstractEventD'
+        'ispatcher',
+        CuteMixin._addressOf(eventDispatcher),
     )
 
   @staticmethod
@@ -937,6 +1011,7 @@ class QCoreApplication(QObject):
     address = self.uglySide.call(
         'ritual_ZNK16QCoreApplication10metaObjectEv',
     )
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1028,4 +1103,93 @@ class QCoreApplication(QObject):
     return self.uglySide.call(
         'ritual_ZN16QCoreApplication6notifyEP7QObjectP6QEvent',
         self._addressOf(a0), self._addressOf(a1),
+    )
+
+  @overload(QPermission)
+  def checkPermission(self, permission: QPermission) -> Qt.PermissionStatus:
+    """
+    Calls Qt's 'Qt::PermissionStatus QCoreApplication::checkPermission(const
+    QPermission &permission)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#checkPermission
+
+    Parameters
+    ----------
+
+    permission : QPermission
+      Passed on as a value: Qt reads the C++ QPermission, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Qt.PermissionStatus
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that
+      'Qt.PermissionStatus(number)' gives.
+    """
+    #  Qt::PermissionStatus QCoreApplication::checkPermission(const
+    #      QPermission &permission)
+    return Qt.PermissionStatus(self.uglySide.call(
+        'ritual_ZN16QCoreApplication15checkPermissionERK11QPermission',
+        self._valueOf(permission),
+    ))
+
+  @overload(QAbstractNativeEventFilter)
+  @overload(NoneType)
+  def installNativeEventFilter(
+      self,
+      filterObj: Optional[QAbstractNativeEventFilter],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QCoreApplication::installNativeEventFilter(QAbstractNativeEventFilter
+    *filterObj)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#installNativeEventFilter
+
+    Parameters
+    ----------
+
+    filterObj : Optional[QAbstractNativeEventFilter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QCoreApplication::installNativeEventFilter(
+    #      QAbstractNativeEventFilter *filterObj)
+    self.uglySide.call(
+        'ritual_ZN16QCoreApplication24installNativeEventFilterEP26QAbstract'
+        'NativeEventFilter',
+        self._addressOf(filterObj),
+    )
+
+  @overload(QAbstractNativeEventFilter)
+  @overload(NoneType)
+  def removeNativeEventFilter(
+      self,
+      filterObj: Optional[QAbstractNativeEventFilter],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QCoreApplication::removeNativeEventFilter(QAbstractNativeEventFilter
+    *filterObj)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#removeNativeEventFilter
+
+    Parameters
+    ----------
+
+    filterObj : Optional[QAbstractNativeEventFilter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QCoreApplication::removeNativeEventFilter(
+    #      QAbstractNativeEventFilter *filterObj)
+    self.uglySide.call(
+        'ritual_ZN16QCoreApplication23removeNativeEventFilterEP26QAbstractN'
+        'ativeEventFilter',
+        self._addressOf(filterObj),
     )

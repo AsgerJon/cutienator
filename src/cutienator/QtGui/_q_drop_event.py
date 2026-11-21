@@ -11,16 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ..QtCore import QEvent
-from ..QtCore import QMimeData
-from ..QtCore import QObject
-from ..QtCore import QPoint
-from ..QtCore import QPointF
+from ..QtCore import Qt, QEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMimeData, QObject, QPoint, QPointF
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QMimeData = WAIT['QMimeData']
+  QPointF = WAIT['QPointF']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -122,6 +126,7 @@ class QDropEvent(QEvent):
     """
     #  QPoint QDropEvent::pos() const
     address = self.uglySide.call('ritual_ZNK10QDropEvent3posEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def posF(self) -> QPointF:
@@ -138,6 +143,7 @@ class QDropEvent(QEvent):
     """
     #  QPointF QDropEvent::posF() const
     address = self.uglySide.call('ritual_ZNK10QDropEvent4posFEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def mouseButtons(self) -> Qt.MouseButtons:
@@ -188,6 +194,7 @@ class QDropEvent(QEvent):
     """
     #  QPointF QDropEvent::position() const
     address = self.uglySide.call('ritual_ZNK10QDropEvent8positionEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def buttons(self) -> Qt.MouseButtons:
@@ -294,6 +301,7 @@ class QDropEvent(QEvent):
     """
     #  QObject *QDropEvent::source() const
     address = self.uglySide.call('ritual_ZNK10QDropEvent6sourceEv')
+    from ..QtCore import QObject
     return QObject._cuteAt(address)
 
   def mimeData(self) -> Optional[QMimeData]:
@@ -311,6 +319,7 @@ class QDropEvent(QEvent):
     """
     #  const QMimeData *QDropEvent::mimeData() const
     address = self.uglySide.call('ritual_ZNK10QDropEvent8mimeDataEv')
+    from ..QtCore import QMimeData
     return QMimeData._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

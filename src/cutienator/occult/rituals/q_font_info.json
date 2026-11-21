@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qfontinfo.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QFontInfoC1ERK5QFont": ["address", "address"],
+    "ritual_ZN9QFontInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN9QFontInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QFontInfo6familyEv": ["text", "address"],
+    "ritual_ZNK9QFontInfo9styleNameEv": ["text", "address"],
+    "ritual_ZNK9QFontInfo9pixelSizeEv": ["int", "address"],
+    "ritual_ZNK9QFontInfo9pointSizeEv": ["int", "address"],
+    "ritual_ZNK9QFontInfo10pointSizeFEv": ["double", "address"],
+    "ritual_ZNK9QFontInfo6italicEv": ["bool", "address"],
+    "ritual_ZNK9QFontInfo5styleEv": ["int", "address"],
+    "ritual_ZNK9QFontInfo6weightEv": ["int", "address"],
+    "ritual_ZNK9QFontInfo4boldEv": ["bool", "address"],
+    "ritual_ZNK9QFontInfo9underlineEv": ["bool", "address"],
+    "ritual_ZNK9QFontInfo8overlineEv": ["bool", "address"],
+    "ritual_ZNK9QFontInfo9strikeOutEv": ["bool", "address"],
+    "ritual_ZNK9QFontInfo10fixedPitchEv": ["bool", "address"],
+    "ritual_ZNK9QFontInfo9styleHintEv": ["int", "address"],
+    "ritual_ZNK9QFontInfo12legacyWeightEv": ["int", "address"],
+    "ritual_ZNK9QFontInfo10exactMatchEv": ["bool", "address"]
+  }
+}

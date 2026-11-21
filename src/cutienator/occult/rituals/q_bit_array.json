@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qbitarray.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QBitArrayC1Ev": ["address"],
+    "ritual_ZN9QBitArrayC1Exb": ["address", "long long", "bool"],
+    "ritual_ZN9QBitArrayC1ERKS_": ["address", "address"],
+    "ritual_ZNK9QBitArray4sizeEv": ["long long", "address"],
+    "ritual_ZNK9QBitArray5countEv": ["long long", "address"],
+    "ritual_ZNK9QBitArray5countEb": ["long long", "address", "bool"],
+    "ritual_ZNK9QBitArray7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK9QBitArray6isNullEv": ["bool", "address"],
+    "ritual_ZN9QBitArray6resizeEx": ["nothing", "address", "long long"],
+    "ritual_ZN9QBitArray6detachEv": ["nothing", "address"],
+    "ritual_ZNK9QBitArray10isDetachedEv": ["bool", "address"],
+    "ritual_ZN9QBitArray5clearEv": ["nothing", "address"],
+    "ritual_ZNK9QBitArray7testBitEx": ["bool", "address", "long long"],
+    "ritual_ZN9QBitArray6setBitEx": ["nothing", "address", "long long"],
+    "ritual_ZN9QBitArray6setBitExb": [
+      "nothing", "address", "long long", "bool"
+    ],
+    "ritual_ZN9QBitArray8clearBitEx": ["nothing", "address", "long long"],
+    "ritual_ZN9QBitArray9toggleBitEx": ["bool", "address", "long long"],
+    "ritual_ZNK9QBitArray2atEx": ["bool", "address", "long long"],
+    "ritual_ZN9QBitArrayixEx": ["address", "address", "long long"],
+    "ritual_ZNK9QBitArrayixEx": ["bool", "address", "long long"],
+    "ritual_ZN9QBitArray4fillEbx": ["bool", "address", "bool", "long long"],
+    "ritual_ZN9QBitArray4fillEbxx": [
+      "nothing", "address", "bool", "long long", "long long"
+    ],
+    "ritual_ZN9QBitArray8truncateEx": ["nothing", "address", "long long"],
+    "ritual_ZNK9QBitArray4bitsEv": ["chars", "address"],
+    "ritual_ZN9QBitArray8fromBitsEPKcx": ["address", "chars", "long long"],
+    "ritual_ZNK9QBitArray8toUInt32EN8QSysInfo6EndianEPb": [
+      "unsigned int", "address", "int", "address"
+    ],
+    "ritual_ZN9QBitArrayD1Ev": ["nothing", "address"]
+  }
+}

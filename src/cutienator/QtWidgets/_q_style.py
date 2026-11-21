@@ -11,37 +11,38 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_application import QApplication
-from ..QtGui import QFontMetrics
-from ..QtGui import QIcon
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ..QtGui import QPainter
-from ..QtGui import QPalette
-from ..QtGui import QPixmap
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_size_policy import QSizePolicy
-from ._q_style_option import QStyleOption
-from ._q_widget import QWidget
-from ._q_style_complex_control import ComplexControl
-from ._q_style_contents_type import ContentsType
-from ._q_style_control_element import ControlElement
-from ._q_style_pixel_metric import PixelMetric
-from ._q_style_primitive_element import PrimitiveElement
-from ._q_style_request_software_input_panel import RequestSoftwareInputPanel
-from ._q_style_standard_pixmap import StandardPixmap
-from ._q_style_state_flag import StateFlag
-from ._q_style_style_hint import StyleHint
-from ._q_style_sub_control import SubControl
-from ._q_style_sub_element import SubElement
+from ..QtCore import Qt, QObject
+from ..QtGui import QIconMode, QPaletteColorRole
+from . import QSizePolicyControlType, QStyleComplexControl
+from . import QStyleContentsType, QStyleControlElement, QStylePixelMetric
+from . import QStylePrimitiveElement, QStyleRequestSoftwareInputPanel
+from . import QStyleStandardPixmap, QStyleStateFlag, QStyleStyleHint
+from . import QStyleSubControl, QStyleSubElement
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QPoint, QRect, QSize
+  from ..QtGui import QFontMetrics, QIcon, QPainter, QPalette, QPixmap
+  from . import QApplication, QSizePolicy, QStyleOption, QStyleOptionComplex
+  from . import QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QApplication = WAIT['QApplication']
+  QFontMetrics = WAIT['QFontMetrics']
+  QPainter = WAIT['QPainter']
+  QPalette = WAIT['QPalette']
+  QPixmap = WAIT['QPixmap']
+  QPoint = WAIT['QPoint']
+  QRect = WAIT['QRect']
+  QSize = WAIT['QSize']
+  QStyleOption = WAIT['QStyleOption']
+  QStyleOptionComplex = WAIT['QStyleOptionComplex']
+  QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -60,9 +61,10 @@ class QStyle(QObject):
   -----------
 
   Every function of Qt's QStyle that has a ritual and that Python can call so
-  far, 27 names in all: 'metaObject', 'tr', 'name', 'polish', 'unpolish',
+  far, 30 names in all: 'metaObject', 'tr', 'name', 'polish', 'unpolish',
   'itemTextRect', 'itemPixmapRect', 'drawItemText', 'drawItemPixmap',
   'standardPalette', 'drawPrimitive', 'drawControl', 'subElementRect',
+  'drawComplexControl', 'hitTestComplexControl', 'subControlRect',
   'pixelMetric', 'sizeFromContents', 'standardPixmap', 'standardIcon',
   'generatedIconPixmap', 'visualRect', 'visualPos',
   'sliderPositionFromValue', 'sliderValueFromPosition', 'visualAlignment',
@@ -75,15 +77,6 @@ class QStyle(QObject):
 
   - Qt's 'QStyle::~QStyle()': the destructor: Python never removes a C++
     QStyle.
-  - Qt's 'void QStyle::drawComplexControl(ComplexControl cc, const
-    QStyleOptionComplex *opt, QPainter *p, const QWidget *widget) const':
-    names 'QStyleOptionComplex', which has no cute class yet.
-  - Qt's 'SubControl QStyle::hitTestComplexControl(ComplexControl cc, const
-    QStyleOptionComplex *opt, const QPoint &pt, const QWidget *widget)
-    const': names 'QStyleOptionComplex', which has no cute class yet.
-  - Qt's 'QRect QStyle::subControlRect(ComplexControl cc, const
-    QStyleOptionComplex *opt, SubControl sc, const QWidget *widget) const':
-    names 'QStyleOptionComplex', which has no cute class yet.
   - Qt's 'int QStyle::styleHint(StyleHint stylehint, const QStyleOption *opt,
     const QWidget *widget, QStyleHintReturn *returnData) const': names
     'QStyleHintReturn', which has no cute class yet.
@@ -112,19 +105,19 @@ class QStyle(QObject):
 
   #  The enums Qt writes inside QStyle, and the names Qt has for the
   #  combinations of its flags enums.
-  ComplexControl = ComplexControl
-  ContentsType = ContentsType
-  ControlElement = ControlElement
-  PixelMetric = PixelMetric
-  PrimitiveElement = PrimitiveElement
-  RequestSoftwareInputPanel = RequestSoftwareInputPanel
-  StandardPixmap = StandardPixmap
-  StateFlag = StateFlag
-  State = StateFlag
-  StyleHint = StyleHint
-  SubControl = SubControl
-  SubControls = SubControl
-  SubElement = SubElement
+  ComplexControl = QStyleComplexControl
+  ContentsType = QStyleContentsType
+  ControlElement = QStyleControlElement
+  PixelMetric = QStylePixelMetric
+  PrimitiveElement = QStylePrimitiveElement
+  RequestSoftwareInputPanel = QStyleRequestSoftwareInputPanel
+  StandardPixmap = QStyleStandardPixmap
+  StateFlag = QStyleStateFlag
+  State = QStyleStateFlag
+  StyleHint = QStyleStyleHint
+  SubControl = QStyleSubControl
+  SubControls = QStyleSubControl
+  SubElement = QStyleSubElement
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -210,6 +203,7 @@ class QStyle(QObject):
         direction.value, CuteMixin._valueOf(boundingRect),
         CuteMixin._valueOf(logicalRect),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @staticmethod
@@ -251,6 +245,7 @@ class QStyle(QObject):
         direction.value, CuteMixin._valueOf(boundingRect),
         CuteMixin._valueOf(logicalPos),
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @staticmethod
@@ -415,6 +410,7 @@ class QStyle(QObject):
         direction.value, alignment.value, CuteMixin._valueOf(size),
         CuteMixin._valueOf(rectangle),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -452,6 +448,7 @@ class QStyle(QObject):
     """
     #  const QMetaObject *QStyle::metaObject() const
     address = self.uglySide.call('ritual_ZNK6QStyle10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def name(self) -> str:
@@ -516,6 +513,7 @@ class QStyle(QObject):
         'ng',
         self._valueOf(fm), self._valueOf(r), flags, enabled, text,
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(QRect, int, QPixmap)
@@ -551,6 +549,7 @@ class QStyle(QObject):
         'ritual_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap',
         self._valueOf(r), flags, self._valueOf(pixmap),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def standardPalette(self) -> QPalette:
@@ -567,6 +566,7 @@ class QStyle(QObject):
     """
     #  QPalette QStyle::standardPalette() const
     address = self.uglySide.call('ritual_ZNK6QStyle15standardPaletteEv')
+    from ..QtGui import QPalette
     return QPalette._cuteOwning(address)
 
   @overload(SubElement, QStyleOption)
@@ -614,6 +614,116 @@ class QStyle(QObject):
         'PK7QWidget',
         subElement.value, self._addressOf(option), self._addressOf(widget),
     )
+    from ..QtCore import QRect
+    return QRect._cuteOwning(address)
+
+  @overload(ComplexControl, QStyleOptionComplex, QPoint)
+  @overload(ComplexControl, NoneType, QPoint)
+  @overload(ComplexControl, QStyleOptionComplex, QPoint, QWidget)
+  @overload(ComplexControl, QStyleOptionComplex, QPoint, NoneType)
+  @overload(ComplexControl, NoneType, QPoint, QWidget)
+  @overload(ComplexControl, NoneType, QPoint, NoneType)
+  def hitTestComplexControl(
+      self,
+      cc: ComplexControl,
+      opt: Optional[QStyleOptionComplex],
+      pt: QPoint,
+      widget: Optional[QWidget] = None,
+  ) -> SubControl:
+    """
+    Calls Qt's 'SubControl QStyle::hitTestComplexControl(ComplexControl cc,
+    const QStyleOptionComplex *opt, const QPoint &pt, const QWidget *widget)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstyle.html#hitTestComplexControl
+
+    Parameters
+    ----------
+
+    cc : ComplexControl
+      Passed on as its number.
+
+    opt : Optional[QStyleOptionComplex]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    pt : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    Returns
+    -------
+
+    SubControl
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'SubControl(number)'
+      gives.
+    """
+    #  SubControl QStyle::hitTestComplexControl(ComplexControl cc, const
+    #      QStyleOptionComplex *opt, const QPoint &pt, const QWidget *widget)
+    #      const
+    return QStyle.SubControl(self.uglySide.call(
+        'ritual_ZNK6QStyle21hitTestComplexControlENS_14ComplexControlEPK19Q'
+        'StyleOptionComplexRK6QPointPK7QWidget',
+        cc.value, self._addressOf(opt), self._valueOf(pt),
+        self._addressOf(widget),
+    ))
+
+  @overload(ComplexControl, QStyleOptionComplex, SubControl)
+  @overload(ComplexControl, NoneType, SubControl)
+  @overload(ComplexControl, QStyleOptionComplex, SubControl, QWidget)
+  @overload(ComplexControl, QStyleOptionComplex, SubControl, NoneType)
+  @overload(ComplexControl, NoneType, SubControl, QWidget)
+  @overload(ComplexControl, NoneType, SubControl, NoneType)
+  def subControlRect(
+      self,
+      cc: ComplexControl,
+      opt: Optional[QStyleOptionComplex],
+      sc: SubControl,
+      widget: Optional[QWidget] = None,
+  ) -> QRect:
+    """
+    Calls Qt's 'QRect QStyle::subControlRect(ComplexControl cc, const
+    QStyleOptionComplex *opt, SubControl sc, const QWidget *widget) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstyle.html#subControlRect
+
+    Parameters
+    ----------
+
+    cc : ComplexControl
+      Passed on as its number.
+
+    opt : Optional[QStyleOptionComplex]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    sc : SubControl
+      Passed on as its number.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    Returns
+    -------
+
+    QRect
+      A new cute QRect around the copy Qt gave back. Python owns it.
+    """
+    #  QRect QStyle::subControlRect(ComplexControl cc, const
+    #      QStyleOptionComplex *opt, SubControl sc, const QWidget *widget)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK6QStyle14subControlRectENS_14ComplexControlEPK19QStyleOp'
+        'tionComplexNS_10SubControlEPK7QWidget',
+        cc.value, self._addressOf(opt), sc.value, self._addressOf(widget),
+    )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(PixelMetric)
@@ -707,6 +817,7 @@ class QStyle(QObject):
         ct.value, self._addressOf(opt), self._valueOf(contentsSize),
         self._addressOf(w),
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(StandardPixmap)
@@ -755,6 +866,7 @@ class QStyle(QObject):
         'tionPK7QWidget',
         standardPixmap.value, self._addressOf(opt), self._addressOf(widget),
     )
+    from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
 
   @overload(StandardPixmap)
@@ -803,10 +915,11 @@ class QStyle(QObject):
         'onPK7QWidget',
         standardIcon.value, self._addressOf(option), self._addressOf(widget),
     )
+    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
-  @overload(QIcon.Mode, QPixmap, QStyleOption)
-  @overload(QIcon.Mode, QPixmap, NoneType)
+  @overload(QIconMode, QPixmap, QStyleOption)
+  @overload(QIconMode, QPixmap, NoneType)
   def generatedIconPixmap(
       self,
       iconMode: QIcon.Mode,
@@ -846,31 +959,32 @@ class QStyle(QObject):
         'QStyleOption',
         iconMode.value, self._valueOf(pixmap), self._addressOf(opt),
     )
+    from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
 
-  @overload(QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation)
+  @overload(QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation)
   @overload(
-      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
+      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
       QStyleOption,
   )
   @overload(
-      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
+      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
       NoneType,
   )
   @overload(
-      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
+      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
       QStyleOption, QWidget,
   )
   @overload(
-      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
+      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
       QStyleOption, NoneType,
   )
   @overload(
-      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
+      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
       NoneType, QWidget,
   )
   @overload(
-      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
+      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
       NoneType, NoneType,
   )
   def layoutSpacing(
@@ -918,31 +1032,29 @@ class QStyle(QObject):
         self._addressOf(option), self._addressOf(widget),
     )
 
+  @overload(QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation)
   @overload(
-      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
-  )
-  @overload(
-      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
+      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
       QStyleOption,
   )
   @overload(
-      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
+      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
       NoneType,
   )
   @overload(
-      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
+      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
       QStyleOption, QWidget,
   )
   @overload(
-      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
+      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
       QStyleOption, NoneType,
   )
   @overload(
-      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
+      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
       NoneType, QWidget,
   )
   @overload(
-      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
+      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
       NoneType, NoneType,
   )
   def combinedLayoutSpacing(
@@ -1125,8 +1237,8 @@ class QStyle(QObject):
 
   @overload(QPainter, QRect, int, QPalette, bool, str)
   @overload(NoneType, QRect, int, QPalette, bool, str)
-  @overload(QPainter, QRect, int, QPalette, bool, str, QPalette.ColorRole)
-  @overload(NoneType, QRect, int, QPalette, bool, str, QPalette.ColorRole)
+  @overload(QPainter, QRect, int, QPalette, bool, str, QPaletteColorRole)
+  @overload(NoneType, QRect, int, QPalette, bool, str, QPaletteColorRole)
   def drawItemText(
       self,
       painter: Optional[QPainter],
@@ -1135,7 +1247,7 @@ class QStyle(QObject):
       pal: QPalette,
       enabled: bool,
       text: str,
-      textRole: QPalette.ColorRole = QPalette.ColorRole.NoRole,
+      textRole: QPalette.ColorRole = QPaletteColorRole.NoRole,
   ) -> None:
     """
     Calls Qt's 'void QStyle::drawItemText(QPainter *painter, const QRect
@@ -1169,7 +1281,7 @@ class QStyle(QObject):
 
     textRole : QPalette.ColorRole
       Passed on as its number. May be left out, as in Qt: it is then
-      QPalette.ColorRole.NoRole.
+      QPaletteColorRole.NoRole.
     """
     #  void QStyle::drawItemText(QPainter *painter, const QRect &rect, int
     #      flags, const QPalette &pal, bool enabled, const QString &text,
@@ -1323,4 +1435,57 @@ class QStyle(QObject):
         'nP8QPainterPK7QWidget',
         element.value, self._addressOf(opt), self._addressOf(p),
         self._addressOf(w),
+    )
+
+  @overload(ComplexControl, QStyleOptionComplex, QPainter)
+  @overload(ComplexControl, QStyleOptionComplex, NoneType)
+  @overload(ComplexControl, NoneType, QPainter)
+  @overload(ComplexControl, NoneType, NoneType)
+  @overload(ComplexControl, QStyleOptionComplex, QPainter, QWidget)
+  @overload(ComplexControl, QStyleOptionComplex, QPainter, NoneType)
+  @overload(ComplexControl, QStyleOptionComplex, NoneType, QWidget)
+  @overload(ComplexControl, QStyleOptionComplex, NoneType, NoneType)
+  @overload(ComplexControl, NoneType, QPainter, QWidget)
+  @overload(ComplexControl, NoneType, QPainter, NoneType)
+  @overload(ComplexControl, NoneType, NoneType, QWidget)
+  @overload(ComplexControl, NoneType, NoneType, NoneType)
+  def drawComplexControl(
+      self,
+      cc: ComplexControl,
+      opt: Optional[QStyleOptionComplex],
+      p: Optional[QPainter],
+      widget: Optional[QWidget] = None,
+  ) -> None:
+    """
+    Calls Qt's 'void QStyle::drawComplexControl(ComplexControl cc, const
+    QStyleOptionComplex *opt, QPainter *p, const QWidget *widget) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstyle.html#drawComplexControl
+
+    Parameters
+    ----------
+
+    cc : ComplexControl
+      Passed on as its number.
+
+    opt : Optional[QStyleOptionComplex]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    p : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  void QStyle::drawComplexControl(ComplexControl cc, const
+    #      QStyleOptionComplex *opt, QPainter *p, const QWidget *widget)
+    #      const
+    self.uglySide.call(
+        'ritual_ZNK6QStyle18drawComplexControlENS_14ComplexControlEPK19QSty'
+        'leOptionComplexP8QPainterPK7QWidget',
+        cc.value, self._addressOf(opt), self._addressOf(p),
+        self._addressOf(widget),
     )

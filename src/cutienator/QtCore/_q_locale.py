@@ -12,23 +12,24 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_date_time import QDateTime
-from ._q_locale_country import Country
-from ._q_locale_currency_symbol_format import CurrencySymbolFormat
-from ._q_locale_data_size_format import DataSizeFormat
-from ._q_locale_floating_point_precision_option \
-  import FloatingPointPrecisionOption
-from ._q_locale_format_type import FormatType
-from ._q_locale_language import Language
-from ._q_locale_language_code_type import LanguageCodeType
-from ._q_locale_measurement_system import MeasurementSystem
-from ._q_locale_number_option import NumberOption
-from ._q_locale_quotation_style import QuotationStyle
-from ._q_locale_script import Script
-from ._q_locale_tag_separator import TagSeparator
+from . import Qt, QLocaleCountry, QLocaleCurrencySymbolFormat
+from . import QLocaleDataSizeFormat, QLocaleFloatingPointPrecisionOption
+from . import QLocaleFormatType, QLocaleLanguage, QLocaleLanguageCodeType
+from . import QLocaleMeasurementSystem, QLocaleNumberOption
+from . import QLocaleQuotationStyle, QLocaleScript, QLocaleTagSeparator
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QCalendar, QDate, QDateTime, QTime
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QCalendar = WAIT['QCalendar']
+  QDate = WAIT['QDate']
+  QDateTime = WAIT['QDateTime']
+  QTime = WAIT['QTime']
 
 
 class QLocale(CuteMixin, metaclass=MetaCute):
@@ -44,20 +45,20 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLocale that has a ritual and that Python can call
-  so far, 52 names in all: 'language', 'script', 'country', 'name',
+  so far, 54 names in all: 'language', 'script', 'country', 'name',
   'bcp47Name', 'nativeLanguageName', 'nativeTerritoryName',
   'nativeCountryName', 'toString', 'dateFormat', 'timeFormat',
-  'dateTimeFormat', 'toDateTime', 'decimalPoint', 'groupSeparator',
-  'percent', 'zeroDigit', 'negativeSign', 'positiveSign', 'exponential',
-  'monthName', 'standaloneMonthName', 'dayName', 'standaloneDayName',
-  'firstDayOfWeek', 'amText', 'pmText', 'measurementSystem', 'collation',
-  'textDirection', 'toUpper', 'toLower', 'currencySymbol',
-  'toCurrencyString', 'formattedDataSize', 'languageToCode',
-  'codeToLanguage', 'territoryToCode', 'countryToCode', 'codeToCountry',
-  'scriptToCode', 'codeToScript', 'languageToString', 'territoryToString',
-  'countryToString', 'scriptToString', 'setDefault', 'c', 'system',
-  'setNumberOptions', 'numberOptions', 'quoteString'. It can be made from
-  Python, in 5 ways; see '__init__'.
+  'dateTimeFormat', 'toTime', 'toDate', 'toDateTime', 'decimalPoint',
+  'groupSeparator', 'percent', 'zeroDigit', 'negativeSign', 'positiveSign',
+  'exponential', 'monthName', 'standaloneMonthName', 'dayName',
+  'standaloneDayName', 'firstDayOfWeek', 'amText', 'pmText',
+  'measurementSystem', 'collation', 'textDirection', 'toUpper', 'toLower',
+  'currencySymbol', 'toCurrencyString', 'formattedDataSize',
+  'languageToCode', 'codeToLanguage', 'territoryToCode', 'countryToCode',
+  'codeToCountry', 'scriptToCode', 'codeToScript', 'languageToString',
+  'territoryToString', 'countryToString', 'scriptToString', 'setDefault',
+  'c', 'system', 'setNumberOptions', 'numberOptions', 'quoteString'. It can
+  be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -124,51 +125,15 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     const': takes a single letter as C has it.
   - Qt's 'QString QLocale::toString(float f, char format, int precision)
     const': takes a single letter as C has it.
-  - Qt's 'QString QLocale::toString(QDate date, const QString &format)
-    const': names 'QDate', which has no cute class yet.
-  - Qt's 'QString QLocale::toString(QTime time, const QString &format)
-    const': names 'QTime', which has no cute class yet.
   - Qt's 'QString QLocale::toString(QDate date, QStringView format) const':
-    names 'QDate', which has no cute class yet.
+    takes in Python what 'QString QLocale::toString(QDate date, const QString
+    &format) const' takes.
   - Qt's 'QString QLocale::toString(QTime time, QStringView format) const':
-    names 'QTime', which has no cute class yet.
+    takes in Python what 'QString QLocale::toString(QTime time, const QString
+    &format) const' takes.
   - Qt's 'QString QLocale::toString(const QDateTime &dateTime, QStringView
     format) const': takes in Python what 'QString QLocale::toString(const
     QDateTime &dateTime, const QString &format) const' takes.
-  - Qt's 'QString QLocale::toString(QDate date, FormatType format) const':
-    names 'QDate', which has no cute class yet.
-  - Qt's 'QString QLocale::toString(QTime time, FormatType format) const':
-    names 'QTime', which has no cute class yet.
-  - Qt's 'QString QLocale::toString(QDate date, QStringView format, QCalendar
-    cal) const': names 'QDate', which has no cute class yet.
-  - Qt's 'QString QLocale::toString(QDate date, FormatType format, QCalendar
-    cal) const': names 'QDate', which has no cute class yet.
-  - Qt's 'QString QLocale::toString(const QDateTime &dateTime, FormatType
-    format, QCalendar cal) const': names 'QCalendar', which has no cute class
-    yet.
-  - Qt's 'QString QLocale::toString(const QDateTime &dateTime, QStringView
-    format, QCalendar cal) const': names 'QCalendar', which has no cute class
-    yet.
-  - Qt's 'QTime QLocale::toTime(const QString &string, FormatType a1) const':
-    gives 'QTime', which has no cute class yet.
-  - Qt's 'QTime QLocale::toTime(const QString &string, const QString &format)
-    const': gives 'QTime', which has no cute class yet.
-  - Qt's 'QDate QLocale::toDate(const QString &string, FormatType a1, int
-    baseYear) const': gives 'QDate', which has no cute class yet.
-  - Qt's 'QDate QLocale::toDate(const QString &string, const QString &format,
-    int baseYear) const': gives 'QDate', which has no cute class yet.
-  - Qt's 'QDate QLocale::toDate(const QString &string, FormatType format,
-    QCalendar cal, int baseYear) const': names 'QCalendar', which has no cute
-    class yet.
-  - Qt's 'QDate QLocale::toDate(const QString &string, const QString &format,
-    QCalendar cal, int baseYear) const': names 'QCalendar', which has no cute
-    class yet.
-  - Qt's 'QDateTime QLocale::toDateTime(const QString &string, FormatType
-    format, QCalendar cal, int baseYear) const': names 'QCalendar', which has
-    no cute class yet.
-  - Qt's 'QDateTime QLocale::toDateTime(const QString &string, const QString
-    &format, QCalendar cal, int baseYear) const': names 'QCalendar', which
-    has no cute class yet.
   - Qt's 'QString QLocale::toCurrencyString(qulonglong a0, const QString
     &symbol) const': takes in Python what 'QString
     QLocale::toCurrencyString(qlonglong a0, const QString &symbol) const'
@@ -214,21 +179,21 @@ class QLocale(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QLocale, and the names Qt has for the
   #  combinations of its flags enums.
-  Country = Country
-  CurrencySymbolFormat = CurrencySymbolFormat
-  DataSizeFormat = DataSizeFormat
-  DataSizeFormats = DataSizeFormat
-  FloatingPointPrecisionOption = FloatingPointPrecisionOption
-  FormatType = FormatType
-  Language = Language
-  LanguageCodeType = LanguageCodeType
-  LanguageCodeTypes = LanguageCodeType
-  MeasurementSystem = MeasurementSystem
-  NumberOption = NumberOption
-  NumberOptions = NumberOption
-  QuotationStyle = QuotationStyle
-  Script = Script
-  TagSeparator = TagSeparator
+  Country = QLocaleCountry
+  CurrencySymbolFormat = QLocaleCurrencySymbolFormat
+  DataSizeFormat = QLocaleDataSizeFormat
+  DataSizeFormats = QLocaleDataSizeFormat
+  FloatingPointPrecisionOption = QLocaleFloatingPointPrecisionOption
+  FormatType = QLocaleFormatType
+  Language = QLocaleLanguage
+  LanguageCodeType = QLocaleLanguageCodeType
+  LanguageCodeTypes = QLocaleLanguageCodeType
+  MeasurementSystem = QLocaleMeasurementSystem
+  NumberOption = QLocaleNumberOption
+  NumberOptions = QLocaleNumberOption
+  QuotationStyle = QLocaleQuotationStyle
+  Script = QLocaleScript
+  TagSeparator = QLocaleTagSeparator
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -303,7 +268,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     """
     #  Language QLocale::codeToLanguage(QStringView languageCode,
     #      LanguageCodeTypes codeTypes)
-    return Language(Rituals.call(
+    return QLocale.Language(Rituals.call(
         'ritual_ZN7QLocale14codeToLanguageE11QStringView6QFlagsINS_16Langua'
         'geCodeTypeEE',
         languageCode, codeTypes.value,
@@ -381,7 +346,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Country(number)' gives.
     """
     #  Country QLocale::codeToCountry(QStringView countryCode)
-    return Country(Rituals.call(
+    return QLocale.Country(Rituals.call(
         'ritual_ZN7QLocale13codeToCountryE11QStringView', countryCode,
     ))
 
@@ -432,7 +397,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Script(number)' gives.
     """
     #  Script QLocale::codeToScript(QStringView scriptCode)
-    return Script(Rituals.call(
+    return QLocale.Script(Rituals.call(
         'ritual_ZN7QLocale12codeToScriptE11QStringView', scriptCode,
     ))
 
@@ -628,7 +593,9 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Language(number)' gives.
     """
     #  Language QLocale::language() const
-    return Language(self.uglySide.call('ritual_ZNK7QLocale8languageEv'))
+    return QLocale.Language(self.uglySide.call(
+        'ritual_ZNK7QLocale8languageEv',
+    ))
 
   def script(self) -> Script:
     """
@@ -644,7 +611,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Script(number)' gives.
     """
     #  Script QLocale::script() const
-    return Script(self.uglySide.call('ritual_ZNK7QLocale6scriptEv'))
+    return QLocale.Script(self.uglySide.call('ritual_ZNK7QLocale6scriptEv'))
 
   def country(self) -> Country:
     """
@@ -660,7 +627,9 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Country(number)' gives.
     """
     #  Country QLocale::country() const
-    return Country(self.uglySide.call('ritual_ZNK7QLocale7countryEv'))
+    return QLocale.Country(self.uglySide.call(
+        'ritual_ZNK7QLocale7countryEv',
+    ))
 
   @overload()
   @overload(TagSeparator)
@@ -781,6 +750,64 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     #  QString QLocale::toString(qlonglong i) const
     return self.uglySide.call('ritual_ZNK7QLocale8toStringEx', i)
 
+  @overload(QDate, str)
+  def toString(self, date: QDate, format: str) -> str:
+    """
+    Calls Qt's 'QString QLocale::toString(QDate date, const QString &format)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toString
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+
+    format : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QLocale::toString(QDate date, const QString &format) const
+    return self.uglySide.call(
+        'ritual_ZNK7QLocale8toStringE5QDateRK7QString',
+        self._valueOf(date), format,
+    )
+
+  @overload(QTime, str)
+  def toString(self, time: QTime, format: str) -> str:
+    """
+    Calls Qt's 'QString QLocale::toString(QTime time, const QString &format)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toString
+
+    Parameters
+    ----------
+
+    time : QTime
+      Passed on as a value: Qt reads the C++ QTime, which stays Python's own.
+
+    format : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QLocale::toString(QTime time, const QString &format) const
+    return self.uglySide.call(
+        'ritual_ZNK7QLocale8toStringE5QTimeRK7QString',
+        self._valueOf(time), format,
+    )
+
   @overload(QDateTime, str)
   def toString(self, dateTime: QDateTime, format: str) -> str:
     """
@@ -810,6 +837,76 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK7QLocale8toStringERK9QDateTimeRK7QString',
         self._valueOf(dateTime), format,
+    )
+
+  @overload(QDate)
+  @overload(QDate, FormatType)
+  def toString(
+      self,
+      date: QDate,
+      format: FormatType = FormatType.LongFormat,
+  ) -> str:
+    """
+    Calls Qt's 'QString QLocale::toString(QDate date, FormatType format)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toString
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+
+    format : FormatType
+      Passed on as its number. May be left out, as in Qt: it is then
+      FormatType.LongFormat.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QLocale::toString(QDate date, FormatType format) const
+    return self.uglySide.call(
+        'ritual_ZNK7QLocale8toStringE5QDateNS_10FormatTypeE',
+        self._valueOf(date), format.value,
+    )
+
+  @overload(QTime)
+  @overload(QTime, FormatType)
+  def toString(
+      self,
+      time: QTime,
+      format: FormatType = FormatType.LongFormat,
+  ) -> str:
+    """
+    Calls Qt's 'QString QLocale::toString(QTime time, FormatType format)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toString
+
+    Parameters
+    ----------
+
+    time : QTime
+      Passed on as a value: Qt reads the C++ QTime, which stays Python's own.
+
+    format : FormatType
+      Passed on as its number. May be left out, as in Qt: it is then
+      FormatType.LongFormat.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QLocale::toString(QTime time, FormatType format) const
+    return self.uglySide.call(
+        'ritual_ZNK7QLocale8toStringE5QTimeNS_10FormatTypeE',
+        self._valueOf(time), format.value,
     )
 
   @overload(QDateTime)
@@ -847,6 +944,154 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK7QLocale8toStringERK9QDateTimeNS_10FormatTypeE',
         self._valueOf(dateTime), format.value,
+    )
+
+  @overload(QDate, str, QCalendar)
+  def toString(self, date: QDate, format: str, cal: QCalendar) -> str:
+    """
+    Calls Qt's 'QString QLocale::toString(QDate date, QStringView format,
+    QCalendar cal) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toString
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+
+    format : str
+      Passed on as it is: a QString is made of it for the call.
+
+    cal : QCalendar
+      Passed on as a value: Qt reads the C++ QCalendar, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QLocale::toString(QDate date, QStringView format, QCalendar
+    #      cal) const
+    return self.uglySide.call(
+        'ritual_ZNK7QLocale8toStringE5QDate11QStringView9QCalendar',
+        self._valueOf(date), format, self._valueOf(cal),
+    )
+
+  @overload(QDate, FormatType, QCalendar)
+  def toString(self, date: QDate, format: FormatType, cal: QCalendar) -> str:
+    """
+    Calls Qt's 'QString QLocale::toString(QDate date, FormatType format,
+    QCalendar cal) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toString
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+
+    format : FormatType
+      Passed on as its number.
+
+    cal : QCalendar
+      Passed on as a value: Qt reads the C++ QCalendar, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QLocale::toString(QDate date, FormatType format, QCalendar
+    #      cal) const
+    return self.uglySide.call(
+        'ritual_ZNK7QLocale8toStringE5QDateNS_10FormatTypeE9QCalendar',
+        self._valueOf(date), format.value, self._valueOf(cal),
+    )
+
+  @overload(QDateTime, FormatType, QCalendar)
+  def toString(
+      self,
+      dateTime: QDateTime,
+      format: FormatType,
+      cal: QCalendar,
+  ) -> str:
+    """
+    Calls Qt's 'QString QLocale::toString(const QDateTime &dateTime,
+    FormatType format, QCalendar cal) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toString
+
+    Parameters
+    ----------
+
+    dateTime : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+
+    format : FormatType
+      Passed on as its number.
+
+    cal : QCalendar
+      Passed on as a value: Qt reads the C++ QCalendar, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QLocale::toString(const QDateTime &dateTime, FormatType
+    #      format, QCalendar cal) const
+    return self.uglySide.call(
+        'ritual_ZNK7QLocale8toStringERK9QDateTimeNS_10FormatTypeE9QCalendar',
+        self._valueOf(dateTime), format.value, self._valueOf(cal),
+    )
+
+  @overload(QDateTime, str, QCalendar)
+  def toString(
+      self,
+      dateTime: QDateTime,
+      format: str,
+      cal: QCalendar,
+  ) -> str:
+    """
+    Calls Qt's 'QString QLocale::toString(const QDateTime &dateTime,
+    QStringView format, QCalendar cal) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toString
+
+    Parameters
+    ----------
+
+    dateTime : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+
+    format : str
+      Passed on as it is: a QString is made of it for the call.
+
+    cal : QCalendar
+      Passed on as a value: Qt reads the C++ QCalendar, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QLocale::toString(const QDateTime &dateTime, QStringView
+    #      format, QCalendar cal) const
+    return self.uglySide.call(
+        'ritual_ZNK7QLocale8toStringERK9QDateTime11QStringView9QCalendar',
+        self._valueOf(dateTime), format, self._valueOf(cal),
     )
 
   @overload()
@@ -930,6 +1175,233 @@ class QLocale(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK7QLocale14dateTimeFormatENS_10FormatTypeE', format.value,
     )
 
+  @overload(str)
+  @overload(str, FormatType)
+  def toTime(
+      self,
+      string: str,
+      a1: FormatType = FormatType.LongFormat,
+  ) -> QTime:
+    """
+    Calls Qt's 'QTime QLocale::toTime(const QString &string, FormatType a1)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toTime
+
+    Parameters
+    ----------
+
+    string : str
+      Passed on as it is: a QString is made of it for the call.
+
+    a1 : FormatType
+      Passed on as its number. May be left out, as in Qt: it is then
+      FormatType.LongFormat.
+
+    Returns
+    -------
+
+    QTime
+      A new cute QTime around the copy Qt gave back. Python owns it.
+    """
+    #  QTime QLocale::toTime(const QString &string, FormatType a1) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QLocale6toTimeERK7QStringNS_10FormatTypeE',
+        string, a1.value,
+    )
+    from . import QTime
+    return QTime._cuteOwning(address)
+
+  @overload(str, str)
+  def toTime(self, string: str, format: str) -> QTime:
+    """
+    Calls Qt's 'QTime QLocale::toTime(const QString &string, const QString
+    &format) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toTime
+
+    Parameters
+    ----------
+
+    string : str
+      Passed on as it is: a QString is made of it for the call.
+
+    format : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QTime
+      A new cute QTime around the copy Qt gave back. Python owns it.
+    """
+    #  QTime QLocale::toTime(const QString &string, const QString &format)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK7QLocale6toTimeERK7QStringS2_', string, format,
+    )
+    from . import QTime
+    return QTime._cuteOwning(address)
+
+  @overload(str, FormatType, int)
+  def toDate(self, string: str, a1: FormatType, baseYear: int) -> QDate:
+    """
+    Calls Qt's 'QDate QLocale::toDate(const QString &string, FormatType a1,
+    int baseYear) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toDate
+
+    Parameters
+    ----------
+
+    string : str
+      Passed on as it is: a QString is made of it for the call.
+
+    a1 : FormatType
+      Passed on as its number.
+
+    baseYear : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QDate
+      A new cute QDate around the copy Qt gave back. Python owns it.
+    """
+    #  QDate QLocale::toDate(const QString &string, FormatType a1, int
+    #      baseYear) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QLocale6toDateERK7QStringNS_10FormatTypeEi',
+        string, a1.value, baseYear,
+    )
+    from . import QDate
+    return QDate._cuteOwning(address)
+
+  @overload(str, str, int)
+  def toDate(self, string: str, format: str, baseYear: int) -> QDate:
+    """
+    Calls Qt's 'QDate QLocale::toDate(const QString &string, const QString
+    &format, int baseYear) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toDate
+
+    Parameters
+    ----------
+
+    string : str
+      Passed on as it is: a QString is made of it for the call.
+
+    format : str
+      Passed on as it is: a QString is made of it for the call.
+
+    baseYear : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QDate
+      A new cute QDate around the copy Qt gave back. Python owns it.
+    """
+    #  QDate QLocale::toDate(const QString &string, const QString &format,
+    #      int baseYear) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QLocale6toDateERK7QStringS2_i', string, format, baseYear,
+    )
+    from . import QDate
+    return QDate._cuteOwning(address)
+
+  @overload(str, FormatType, QCalendar, int)
+  def toDate(
+      self,
+      string: str,
+      format: FormatType,
+      cal: QCalendar,
+      baseYear: int,
+  ) -> QDate:
+    """
+    Calls Qt's 'QDate QLocale::toDate(const QString &string, FormatType
+    format, QCalendar cal, int baseYear) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toDate
+
+    Parameters
+    ----------
+
+    string : str
+      Passed on as it is: a QString is made of it for the call.
+
+    format : FormatType
+      Passed on as its number.
+
+    cal : QCalendar
+      Passed on as a value: Qt reads the C++ QCalendar, which stays Python's
+      own.
+
+    baseYear : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QDate
+      A new cute QDate around the copy Qt gave back. Python owns it.
+    """
+    #  QDate QLocale::toDate(const QString &string, FormatType format,
+    #      QCalendar cal, int baseYear) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QLocale6toDateERK7QStringNS_10FormatTypeE9QCalendari',
+        string, format.value, self._valueOf(cal), baseYear,
+    )
+    from . import QDate
+    return QDate._cuteOwning(address)
+
+  @overload(str, str, QCalendar, int)
+  def toDate(
+      self,
+      string: str,
+      format: str,
+      cal: QCalendar,
+      baseYear: int,
+  ) -> QDate:
+    """
+    Calls Qt's 'QDate QLocale::toDate(const QString &string, const QString
+    &format, QCalendar cal, int baseYear) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toDate
+
+    Parameters
+    ----------
+
+    string : str
+      Passed on as it is: a QString is made of it for the call.
+
+    format : str
+      Passed on as it is: a QString is made of it for the call.
+
+    cal : QCalendar
+      Passed on as a value: Qt reads the C++ QCalendar, which stays Python's
+      own.
+
+    baseYear : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QDate
+      A new cute QDate around the copy Qt gave back. Python owns it.
+    """
+    #  QDate QLocale::toDate(const QString &string, const QString &format,
+    #      QCalendar cal, int baseYear) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QLocale6toDateERK7QStringS2_9QCalendari',
+        string, format, self._valueOf(cal), baseYear,
+    )
+    from . import QDate
+    return QDate._cuteOwning(address)
+
   @overload(str, FormatType, int)
   def toDateTime(
       self,
@@ -967,6 +1439,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK7QLocale10toDateTimeERK7QStringNS_10FormatTypeEi',
         string, format.value, baseYear,
     )
+    from . import QDateTime
     return QDateTime._cuteOwning(address)
 
   @overload(str, str, int)
@@ -1001,6 +1474,98 @@ class QLocale(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK7QLocale10toDateTimeERK7QStringS2_i',
         string, format, baseYear,
     )
+    from . import QDateTime
+    return QDateTime._cuteOwning(address)
+
+  @overload(str, FormatType, QCalendar, int)
+  def toDateTime(
+      self,
+      string: str,
+      format: FormatType,
+      cal: QCalendar,
+      baseYear: int,
+  ) -> QDateTime:
+    """
+    Calls Qt's 'QDateTime QLocale::toDateTime(const QString &string,
+    FormatType format, QCalendar cal, int baseYear) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toDateTime
+
+    Parameters
+    ----------
+
+    string : str
+      Passed on as it is: a QString is made of it for the call.
+
+    format : FormatType
+      Passed on as its number.
+
+    cal : QCalendar
+      Passed on as a value: Qt reads the C++ QCalendar, which stays Python's
+      own.
+
+    baseYear : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QDateTime
+      A new cute QDateTime around the copy Qt gave back. Python owns it.
+    """
+    #  QDateTime QLocale::toDateTime(const QString &string, FormatType
+    #      format, QCalendar cal, int baseYear) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QLocale10toDateTimeERK7QStringNS_10FormatTypeE9QCalenda'
+        'ri',
+        string, format.value, self._valueOf(cal), baseYear,
+    )
+    from . import QDateTime
+    return QDateTime._cuteOwning(address)
+
+  @overload(str, str, QCalendar, int)
+  def toDateTime(
+      self,
+      string: str,
+      format: str,
+      cal: QCalendar,
+      baseYear: int,
+  ) -> QDateTime:
+    """
+    Calls Qt's 'QDateTime QLocale::toDateTime(const QString &string, const
+    QString &format, QCalendar cal, int baseYear) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toDateTime
+
+    Parameters
+    ----------
+
+    string : str
+      Passed on as it is: a QString is made of it for the call.
+
+    format : str
+      Passed on as it is: a QString is made of it for the call.
+
+    cal : QCalendar
+      Passed on as a value: Qt reads the C++ QCalendar, which stays Python's
+      own.
+
+    baseYear : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QDateTime
+      A new cute QDateTime around the copy Qt gave back. Python owns it.
+    """
+    #  QDateTime QLocale::toDateTime(const QString &string, const QString
+    #      &format, QCalendar cal, int baseYear) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QLocale10toDateTimeERK7QStringS2_9QCalendari',
+        string, format, self._valueOf(cal), baseYear,
+    )
+    from . import QDateTime
     return QDateTime._cuteOwning(address)
 
   def decimalPoint(self) -> str:
@@ -1308,7 +1873,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       'MeasurementSystem(number)' gives.
     """
     #  MeasurementSystem QLocale::measurementSystem() const
-    return MeasurementSystem(self.uglySide.call(
+    return QLocale.MeasurementSystem(self.uglySide.call(
         'ritual_ZNK7QLocale17measurementSystemEv',
     ))
 

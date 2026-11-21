@@ -11,19 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_date_time import QDateTime
-from ._q_i_o_device import QIODevice
-from ._q_meta_object import QMetaObject
-from ._q_file_device_file_error import FileError
-from ._q_file_device_file_handle_flag import FileHandleFlag
-from ._q_file_device_file_time import FileTime
-from ._q_file_device_memory_map_flag import MemoryMapFlag
-from ._q_file_device_permission import Permission
+from . import QFileDeviceFileError, QFileDeviceFileHandleFlag
+from . import QFileDeviceFileTime, QFileDeviceMemoryMapFlag
+from . import QFileDevicePermission, QIODevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QDateTime, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QDateTime = WAIT['QDateTime']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -80,14 +82,14 @@ class QFileDevice(QIODevice):
 
   #  The enums Qt writes inside QFileDevice, and the names Qt has for the
   #  combinations of its flags enums.
-  FileError = FileError
-  FileHandleFlag = FileHandleFlag
-  FileHandleFlags = FileHandleFlag
-  FileTime = FileTime
-  MemoryMapFlag = MemoryMapFlag
-  MemoryMapFlags = MemoryMapFlag
-  Permission = Permission
-  Permissions = Permission
+  FileError = QFileDeviceFileError
+  FileHandleFlag = QFileDeviceFileHandleFlag
+  FileHandleFlags = QFileDeviceFileHandleFlag
+  FileTime = QFileDeviceFileTime
+  MemoryMapFlag = QFileDeviceMemoryMapFlag
+  MemoryMapFlags = QFileDeviceMemoryMapFlag
+  Permission = QFileDevicePermission
+  Permissions = QFileDevicePermission
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -171,6 +173,7 @@ class QFileDevice(QIODevice):
     """
     #  const QMetaObject *QFileDevice::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QFileDevice10metaObjectEv')
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def error(self) -> FileError:
@@ -187,7 +190,9 @@ class QFileDevice(QIODevice):
       no name it is the member without a name that 'FileError(number)' gives.
     """
     #  FileError QFileDevice::error() const
-    return FileError(self.uglySide.call('ritual_ZNK11QFileDevice5errorEv'))
+    return QFileDevice.FileError(self.uglySide.call(
+        'ritual_ZNK11QFileDevice5errorEv',
+    ))
 
   def isSequential(self) -> bool:
     """
@@ -290,6 +295,7 @@ class QFileDevice(QIODevice):
     address = self.uglySide.call(
         'ritual_ZNK11QFileDevice8fileTimeENS_8FileTimeE', time.value,
     )
+    from . import QDateTime
     return QDateTime._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

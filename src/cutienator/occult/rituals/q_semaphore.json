@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qsemaphore.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QSemaphoreC1Ei": ["address", "int"],
+    "ritual_ZN10QSemaphoreD1Ev": ["nothing", "address"],
+    "ritual_ZN10QSemaphore7acquireEi": ["nothing", "address", "int"],
+    "ritual_ZN10QSemaphore10tryAcquireEi": ["bool", "address", "int"],
+    "ritual_ZN10QSemaphore10tryAcquireEii": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN10QSemaphore10tryAcquireEi14QDeadlineTimer": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN10QSemaphore7releaseEi": ["nothing", "address", "int"],
+    "ritual_ZNK10QSemaphore9availableEv": ["int", "address"],
+    "ritual_ZN10QSemaphore11try_acquireEv": ["bool", "address"]
+  }
+}

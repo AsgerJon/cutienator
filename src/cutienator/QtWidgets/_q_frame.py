@@ -11,19 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QMetaObject
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_widget import QWidget
-from ._q_frame_shadow import Shadow
-from ._q_frame_shape import Shape
-from ._q_frame_style_mask import StyleMask
+from . import QFrameShadow, QFrameShape, QFrameStyleMask, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QRect, QSize
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QRect = WAIT['QRect']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -77,9 +78,9 @@ class QFrame(QWidget):
 
   #  The enums Qt writes inside QFrame, and the names Qt has for the
   #  combinations of its flags enums.
-  Shadow = Shadow
-  Shape = Shape
-  StyleMask = StyleMask
+  Shadow = QFrameShadow
+  Shape = QFrameShape
+  StyleMask = QFrameStyleMask
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -162,6 +163,7 @@ class QFrame(QWidget):
     """
     #  const QMetaObject *QFrame::metaObject() const
     address = self.uglySide.call('ritual_ZNK6QFrame10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def frameStyle(self) -> int:
@@ -196,6 +198,7 @@ class QFrame(QWidget):
     """
     #  QSize QFrame::sizeHint() const
     address = self.uglySide.call('ritual_ZNK6QFrame8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def frameShape(self) -> Shape:
@@ -212,7 +215,9 @@ class QFrame(QWidget):
       no name it is the member without a name that 'Shape(number)' gives.
     """
     #  Shape QFrame::frameShape() const
-    return Shape(self.uglySide.call('ritual_ZNK6QFrame10frameShapeEv'))
+    return QFrame.Shape(self.uglySide.call(
+        'ritual_ZNK6QFrame10frameShapeEv',
+    ))
 
   def frameShadow(self) -> Shadow:
     """
@@ -228,7 +233,9 @@ class QFrame(QWidget):
       no name it is the member without a name that 'Shadow(number)' gives.
     """
     #  Shadow QFrame::frameShadow() const
-    return Shadow(self.uglySide.call('ritual_ZNK6QFrame11frameShadowEv'))
+    return QFrame.Shadow(self.uglySide.call(
+        'ritual_ZNK6QFrame11frameShadowEv',
+    ))
 
   def lineWidth(self) -> int:
     """
@@ -262,6 +269,7 @@ class QFrame(QWidget):
     """
     #  QRect QFrame::frameRect() const
     address = self.uglySide.call('ritual_ZNK6QFrame9frameRectEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

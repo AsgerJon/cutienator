@@ -13,14 +13,9 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from ._q_char_category import Category
-from ._q_char_combining_class import CombiningClass
-from ._q_char_decomposition import Decomposition
-from ._q_char_direction import Direction
-from ._q_char_joining_type import JoiningType
-from ._q_char_script import Script
-from ._q_char_special_character import SpecialCharacter
-from ._q_char_unicode_version import UnicodeVersion
+from . import QCharCategory, QCharCombiningClass, QCharDecomposition
+from . import QCharDirection, QCharJoiningType, QCharScript
+from . import QCharSpecialCharacter, QCharUnicodeVersion
 
 
 class QChar(CuteMixin, metaclass=MetaCute):
@@ -76,14 +71,14 @@ class QChar(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QChar, and the names Qt has for the
   #  combinations of its flags enums.
-  Category = Category
-  CombiningClass = CombiningClass
-  Decomposition = Decomposition
-  Direction = Direction
-  JoiningType = JoiningType
-  Script = Script
-  SpecialCharacter = SpecialCharacter
-  UnicodeVersion = UnicodeVersion
+  Category = QCharCategory
+  CombiningClass = QCharCombiningClass
+  Decomposition = QCharDecomposition
+  Direction = QCharDirection
+  JoiningType = QCharJoiningType
+  Script = QCharScript
+  SpecialCharacter = QCharSpecialCharacter
+  UnicodeVersion = QCharUnicodeVersion
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -105,7 +100,7 @@ class QChar(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  UnicodeVersion QChar::currentUnicodeVersion()
-    return UnicodeVersion(Rituals.call(
+    return QChar.UnicodeVersion(Rituals.call(
         'ritual_ZN5QChar21currentUnicodeVersionEv',
     ))
 
@@ -147,7 +142,7 @@ class QChar(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Category(number)' gives.
     """
     #  Category QChar::category() const
-    return Category(self.uglySide.call('ritual_ZNK5QChar8categoryEv'))
+    return QChar.Category(self.uglySide.call('ritual_ZNK5QChar8categoryEv'))
 
   def direction(self) -> Direction:
     """
@@ -163,7 +158,9 @@ class QChar(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Direction(number)' gives.
     """
     #  Direction QChar::direction() const
-    return Direction(self.uglySide.call('ritual_ZNK5QChar9directionEv'))
+    return QChar.Direction(self.uglySide.call(
+        'ritual_ZNK5QChar9directionEv',
+    ))
 
   def joiningType(self) -> JoiningType:
     """
@@ -180,7 +177,9 @@ class QChar(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  JoiningType QChar::joiningType() const
-    return JoiningType(self.uglySide.call('ritual_ZNK5QChar11joiningTypeEv'))
+    return QChar.JoiningType(self.uglySide.call(
+        'ritual_ZNK5QChar11joiningTypeEv',
+    ))
 
   def combiningClass(self) -> int:
     """
@@ -246,7 +245,7 @@ class QChar(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  Decomposition QChar::decompositionTag() const
-    return Decomposition(self.uglySide.call(
+    return QChar.Decomposition(self.uglySide.call(
         'ritual_ZNK5QChar16decompositionTagEv',
     ))
 
@@ -337,7 +336,7 @@ class QChar(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Script(number)' gives.
     """
     #  Script QChar::script() const
-    return Script(self.uglySide.call('ritual_ZNK5QChar6scriptEv'))
+    return QChar.Script(self.uglySide.call('ritual_ZNK5QChar6scriptEv'))
 
   def unicodeVersion(self) -> UnicodeVersion:
     """
@@ -354,7 +353,7 @@ class QChar(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  UnicodeVersion QChar::unicodeVersion() const
-    return UnicodeVersion(self.uglySide.call(
+    return QChar.UnicodeVersion(self.uglySide.call(
         'ritual_ZNK5QChar14unicodeVersionEv',
     ))
 

@@ -149,10 +149,12 @@ class TestQObject(BaseTest):
     self.assertIs(QObject().thread(), thread)
 
   def test_the_late_class_was_named(self) -> None:
-    """'QObject.QThread' holds the class 'QThread', and nothing waits."""
-    self.assertIs(QObject.QThread, QThread)
-    self.assertIs(QObject().QThread, QThread)
-    self.assertNotIn('QThread', MetaCute.getStillWaiting())
+    """'QObject' is not built on 'QEvent' and names it, so it waited
+    for it. This file brought 'QEvent' in, so 'QObject.QEvent' holds the
+    class and nothing waits for it any more."""
+    self.assertIs(QObject.QEvent, QEvent)
+    self.assertIs(QObject().QEvent, QEvent)
+    self.assertNotIn('QEvent', MetaCute.getStillWaiting())
 
   def test_a_given_object_serves_as_a_parent(self) -> None:
     """An object Qt gave, as the thread, is taken where one is asked."""

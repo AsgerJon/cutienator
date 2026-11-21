@@ -15,8 +15,16 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QPoint
-from ..QtCore import QRect
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QPoint, QRect
+  from . import QPolygonF
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPoint = WAIT['QPoint']
+  QRect = WAIT['QRect']
 
 
 class QPolygon(CuteMixin, metaclass=MetaCute):
@@ -65,10 +73,6 @@ class QPolygon(CuteMixin, metaclass=MetaCute):
   - A function giving a QPolygon back gives a copy the ritual made for
     Python, in a new cute QPolygon.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QPolygonF = WAIT['QPolygonF']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -166,6 +170,7 @@ class QPolygon(CuteMixin, metaclass=MetaCute):
     """
     #  QRect QPolygon::boundingRect() const
     address = self.uglySide.call('ritual_ZNK8QPolygon12boundingRectEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(int)
@@ -189,6 +194,7 @@ class QPolygon(CuteMixin, metaclass=MetaCute):
     """
     #  QPoint QPolygon::point(int i) const
     address = self.uglySide.call('ritual_ZNK8QPolygon5pointEi', i)
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @overload(QPoint, Qt.FillRule)
@@ -327,7 +333,8 @@ class QPolygon(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QPolygon::toPolygonF() const
     address = self.uglySide.call('ritual_ZNK8QPolygon10toPolygonFEv')
-    return self.QPolygonF._cuteOwning(address)
+    from . import QPolygonF
+    return QPolygonF._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

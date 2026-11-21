@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qmdiarea.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QMdiArea10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QMdiArea2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8QMdiAreaC1EP7QWidget": ["address", "address"],
+    "ritual_ZN8QMdiAreaD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QMdiArea8sizeHintEv": ["address", "address"],
+    "ritual_ZNK8QMdiArea15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZNK8QMdiArea16currentSubWindowEv": ["address", "address"],
+    "ritual_ZNK8QMdiArea15activeSubWindowEv": ["address", "address"],
+    "ritual_ZN8QMdiArea12addSubWindowEP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN8QMdiArea15removeSubWindowEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QMdiArea10backgroundEv": ["address", "address"],
+    "ritual_ZN8QMdiArea13setBackgroundERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QMdiArea15activationOrderEv": ["int", "address"],
+    "ritual_ZN8QMdiArea18setActivationOrderENS_11WindowOrderE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QMdiArea9setOptionENS_10AreaOptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK8QMdiArea10testOptionENS_10AreaOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN8QMdiArea11setViewModeENS_8ViewModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QMdiArea8viewModeEv": ["int", "address"],
+    "ritual_ZNK8QMdiArea12documentModeEv": ["bool", "address"],
+    "ritual_ZN8QMdiArea15setDocumentModeEb": ["nothing", "address", "bool"],
+    "ritual_ZN8QMdiArea15setTabsClosableEb": ["nothing", "address", "bool"],
+    "ritual_ZNK8QMdiArea12tabsClosableEv": ["bool", "address"],
+    "ritual_ZN8QMdiArea14setTabsMovableEb": ["nothing", "address", "bool"],
+    "ritual_ZNK8QMdiArea11tabsMovableEv": ["bool", "address"],
+    "ritual_ZN8QMdiArea11setTabShapeEN10QTabWidget8TabShapeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QMdiArea8tabShapeEv": ["int", "address"],
+    "ritual_ZN8QMdiArea14setTabPositionEN10QTabWidget11TabPositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QMdiArea11tabPositionEv": ["int", "address"],
+    "ritual_ZN8QMdiArea18setActiveSubWindowEP13QMdiSubWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QMdiArea14tileSubWindowsEv": ["nothing", "address"],
+    "ritual_ZN8QMdiArea17cascadeSubWindowsEv": ["nothing", "address"],
+    "ritual_ZN8QMdiArea20closeActiveSubWindowEv": ["nothing", "address"],
+    "ritual_ZN8QMdiArea18closeAllSubWindowsEv": ["nothing", "address"],
+    "ritual_ZN8QMdiArea21activateNextSubWindowEv": ["nothing", "address"],
+    "ritual_ZN8QMdiArea25activatePreviousSubWindowEv": ["nothing", "address"]
+  }
+}

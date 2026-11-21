@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qerrormessage.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QErrorMessage10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QErrorMessage2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QErrorMessageC1EP7QWidget": ["address", "address"],
+    "ritual_ZN13QErrorMessageD1Ev": ["nothing", "address"],
+    "ritual_ZN13QErrorMessage9qtHandlerEv": ["address"],
+    "ritual_ZN13QErrorMessage11showMessageERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QErrorMessage11showMessageERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ]
+  }
+}

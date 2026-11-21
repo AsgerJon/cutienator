@@ -1,6 +1,6 @@
 """
-WaitingOverload is what a waiting signature leaves at a name in a class
-body.
+WaitingOverload is what a stack of '@overload' decorators leaves at a
+name in a class body when one of its signatures names a late class.
 """
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
@@ -12,23 +12,23 @@ from typing import TYPE_CHECKING
 from worktoy.waitaminute import MissingVariable, TypeException
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Any, Callable, Optional, Tuple
+  from typing import Any, Callable, List, Optional, Tuple
 
 
 class WaitingOverload:
   """
-  Holds one function of a class body together with a signature that
-  names a late class, until the late class is made. See 'WAIT' for the
-  whole story; this is step 3 and 4 of it.
+  Holds one function of a class body together with every signature its
+  stack of '@overload' decorators gives it, when at least one of them
+  names a late class. See 'WAIT' for the whole story; this is step 3
+  of it.
 
   You never make one yourself. 'CuteOverload' makes it where worktoy's
   'overload' would have made its own record, and 'CuteSpace' takes it
   out of the class body as it is bound:
 
-    QThread = WAIT['QThread']
-
-    @overload(QThread)                       # 'CuteOverload' in a cute body
-    def moveToThread(self, thread): ...      # the name is bound to a
+    @overload(QIcon, str)                    # names a late class
+    @overload(str)                           # names none
+    def setText(self, *args): ...            # the name is bound to a
                                              # 'WaitingOverload' here
 
   Terms
@@ -42,21 +42,21 @@ class WaitingOverload:
   Provided by 'CuteOverload'
   --------------------------
 
-  - 'setSignatureEntries': what stood between the brackets. Required.
-  - 'setFunction': the function under the decorator. Required.
-  - 'setMethodKinds': each '@classmethod' or '@staticmethod' written
-    between the decorator and the function. Required, also when there
-    is none.
+  - 'setFunction': the function under the decorators. Required.
+  - 'addSignature': what stood between the brackets of one decorator,
+    once for each decorator of the stack, the lowest first.
+  - 'addMethodKinds': each '@classmethod' or '@staticmethod' written
+    in the stack.
 
   What to expect
   --------------
 
-  - It only holds. It checks nothing about the signature and calls
+  - It only holds. It checks nothing about the signatures and calls
     nothing.
   - It is no function and cannot be called. One left on a class would
     mean that a body other than a cute one used 'CuteOverload'.
-  - 'CuteSpace' replaces the entries as late classes are made, through
-    'setSignatureEntries', until no 'WAIT' is left among them.
+  - 'CuteSpace' puts each signature naming no late class on record at
+    once, and keeps each of the others as a 'WaitingSignature'.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -72,7 +72,7 @@ class WaitingOverload:
   #  Fallback Variables
 
   #  Private Variables
-  __signature_entries__: Optional[Tuple[Any, ...]] = None
+  __stacked_signatures__: Optional[List[Tuple[Any, ...]]] = None
   __waiting_function__: Optional[Callable] = None
   __method_kinds__: Optional[Tuple[Any, ...]] = None
 
@@ -84,30 +84,20 @@ class WaitingOverload:
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def getSignatureEntries(self) -> Tuple[Any, ...]:
+  def getSignatures(self) -> Tuple[Tuple[Any, ...], ...]:
     """
-    Gives the entries of the waiting signature, in the order they were
-    written: classes, 'THIS', and at least one 'WAIT' until the last
-    late class among them is made.
+    Gives the signatures of the stack, each as its entries, the one of
+    the lowest decorator first. That is the order worktoy puts the
+    signatures of a stack on record in.
 
-    Provided through 'setSignatureEntries'.
-
-    Raises
-    ------
-
-    MissingVariable
-      'setSignatureEntries' has not been called.
+    Provided through 'addSignature'. It is empty before the first call.
     """
-    if self.__signature_entries__ is None:
-      raise MissingVariable(self, '__signature_entries__', tuple)
-    return self.__signature_entries__
+    return (*(self.__stacked_signatures__ or ()),)
 
   def getFunction(self) -> Callable:
     """
-    Gives the function the waiting signature belongs to, without any
-    'classmethod' or 'staticmethod' around it.
-
-    Provided through 'setFunction'.
+    Gives the function the stack decorates, without any 'classmethod' or
+    'staticmethod' around it.
 
     Raises
     ------
@@ -121,63 +111,33 @@ class WaitingOverload:
 
   def getMethodKinds(self) -> Tuple[Any, ...]:
     """
-    Gives the method kinds written between the decorator and the
-    function, outermost first. It is empty for an instance method.
-
-    Provided through 'setMethodKinds'.
-
-    Raises
-    ------
-
-    MissingVariable
-      'setMethodKinds' has not been called.
+    Gives the method kinds written in the stack, outermost first. It is
+    empty for an instance method.
     """
-    if self.__method_kinds__ is None:
-      raise MissingVariable(self, '__method_kinds__', tuple)
-    return self.__method_kinds__
+    return self.__method_kinds__ or ()
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def setSignatureEntries(self, *signatureEntries: Any) -> None:
+  def addSignature(self, *signatureEntries: Any) -> None:
     """
-    Tells which entries the waiting signature has.
-
-    Required. Calling it again replaces the entries, which is how
-    'CuteSpace' puts a class in the place of its 'WAIT'.
+    Adds the signature of one more decorator of the stack, above those
+    added before. No entry at all is the signature of '@overload()'.
 
     Parameters
     ----------
 
     *signatureEntries : Any
-      One or more entries, in the order they were written.
-
-    Raises
-    ------
-
-    ValueError
-      Called with no entry at all. A signature without entries names no
-      late class and has no reason to wait.
+      The entries, in the order they were written.
     """
-    if not signatureEntries:
-      infoSpec = """A waiting signature has at least one entry, and none
-      was given."""
-      raise ValueError(' '.join(infoSpec.split()))
-    self.__signature_entries__ = (*signatureEntries,)
+    if self.__stacked_signatures__ is None:
+      self.__stacked_signatures__ = []
+    self.__stacked_signatures__.append((*signatureEntries,))
 
   def setFunction(self, function: Callable) -> None:
     """
-    Tells which function the waiting signature belongs to.
-
-    Required. Calling it again replaces the function given before.
-
-    Parameters
-    ----------
-
-    function : Callable
-      The function itself, taken out of any 'classmethod' or
-      'staticmethod' around it.
+    Tells which function the stack decorates. Required.
 
     Raises
     ------
@@ -189,13 +149,9 @@ class WaitingOverload:
       raise TypeException('function', function, FunctionType)
     self.__waiting_function__ = function
 
-  def setMethodKinds(self, *methodKinds: Any) -> None:
+  def addMethodKinds(self, *methodKinds: Any) -> None:
     """
-    Tells which method kinds were written between the decorator and the
-    function.
-
-    Required, also with nothing to give: no kind means an instance
-    method. Calling it again replaces the kinds given before.
+    Adds method kinds written above those added before.
 
     Parameters
     ----------
@@ -212,7 +168,7 @@ class WaitingOverload:
     for methodKind in methodKinds:
       if methodKind is not classmethod and methodKind is not staticmethod:
         raise TypeException('methodKind', methodKind, type)
-    self.__method_kinds__ = (*methodKinds,)
+    self.__method_kinds__ = (*methodKinds, *self.getMethodKinds())
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -223,16 +179,18 @@ class WaitingOverload:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def __str__(self) -> str:
-    """Says which function waits, and for which signature."""
+    """Says which function waits, and for which signatures."""
     clsName = type(self).__name__
     if self.__waiting_function__ is None:
       return '<%s with no function yet>' % clsName
     name = getattr(self.__waiting_function__, '__name__', '?')
-    entries = self.__signature_entries__ or ()
-    shown = ', '.join(
-        getattr(entry, '__name__', None) or str(entry) for entry in entries
+    shown = '; '.join(
+        '(%s)' % ', '.join(
+            getattr(entry, '__name__', None) or str(entry)
+            for entry in entries
+        ) for entries in self.getSignatures()
     )
-    return "<%s of '%s', waiting as (%s)>" % (clsName, name, shown)
+    return "<%s of '%s', with %s>" % (clsName, name, shown)
 
   __repr__ = __str__
 

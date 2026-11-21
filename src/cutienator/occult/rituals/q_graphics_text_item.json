@@ -1,0 +1,79 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QGraphicsTextItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QGraphicsTextItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QGraphicsTextItemC1EP13QGraphicsItem": [
+      "address", "address"
+    ],
+    "ritual_ZN17QGraphicsTextItemC1ERK7QStringP13QGraphicsItem": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN17QGraphicsTextItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QGraphicsTextItem6toHtmlEv": ["text", "address"],
+    "ritual_ZN17QGraphicsTextItem7setHtmlERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QGraphicsTextItem11toPlainTextEv": ["text", "address"],
+    "ritual_ZN17QGraphicsTextItem12setPlainTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QGraphicsTextItem4fontEv": ["address", "address"],
+    "ritual_ZN17QGraphicsTextItem7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QGraphicsTextItem19setDefaultTextColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QGraphicsTextItem16defaultTextColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QGraphicsTextItem12boundingRectEv": ["address", "address"],
+    "ritual_ZNK17QGraphicsTextItem5shapeEv": ["address", "address"],
+    "ritual_ZNK17QGraphicsTextItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QGraphicsTextItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK17QGraphicsTextItem12isObscuredByEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QGraphicsTextItem10opaqueAreaEv": ["address", "address"],
+    "ritual_ZNK17QGraphicsTextItem4typeEv": ["int", "address"],
+    "ritual_ZN17QGraphicsTextItem12setTextWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17QGraphicsTextItem9textWidthEv": ["double", "address"],
+    "ritual_ZN17QGraphicsTextItem10adjustSizeEv": ["nothing", "address"],
+    "ritual_ZN17QGraphicsTextItem11setDocumentEP13QTextDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QGraphicsTextItem8documentEv": ["address", "address"],
+    "ritual_ZN17QGraphicsTextItem23setTextInteractionFlagsE6QFlagsIN2Qt19TextInteractionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QGraphicsTextItem20textInteractionFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QGraphicsTextItem18setTabChangesFocusEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QGraphicsTextItem15tabChangesFocusEv": ["bool", "address"],
+    "ritual_ZN17QGraphicsTextItem20setOpenExternalLinksEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QGraphicsTextItem17openExternalLinksEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QGraphicsTextItem13setTextCursorERK11QTextCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QGraphicsTextItem10textCursorEv": ["address", "address"]
+  }
+}

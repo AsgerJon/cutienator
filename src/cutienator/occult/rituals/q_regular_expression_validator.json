@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qvalidator.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QRegularExpressionValidator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QRegularExpressionValidator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QRegularExpressionValidatorC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN27QRegularExpressionValidatorC1ERK18QRegularExpressionP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QRegularExpressionValidatorD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QRegularExpressionValidator17regularExpressionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QRegularExpressionValidator20setRegularExpressionERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ]
+  }
+}

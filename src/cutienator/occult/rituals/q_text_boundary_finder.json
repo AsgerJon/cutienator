@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qtextboundaryfinder.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QTextBoundaryFinderC1Ev": ["address"],
+    "ritual_ZN19QTextBoundaryFinderC1ERKS_": ["address", "address"],
+    "ritual_ZN19QTextBoundaryFinderD1Ev": ["nothing", "address"],
+    "ritual_ZN19QTextBoundaryFinderC1ENS_12BoundaryTypeERK7QString": [
+      "address", "int", "text"
+    ],
+    "ritual_ZN19QTextBoundaryFinderC1ENS_12BoundaryTypeEPK5QCharxPhx": [
+      "address", "int", "address", "long long", "address", "long long"
+    ],
+    "ritual_ZN19QTextBoundaryFinderC1ENS_12BoundaryTypeE11QStringViewPhx": [
+      "address", "int", "text", "address", "long long"
+    ],
+    "ritual_ZNK19QTextBoundaryFinder7isValidEv": ["bool", "address"],
+    "ritual_ZNK19QTextBoundaryFinder4typeEv": ["int", "address"],
+    "ritual_ZNK19QTextBoundaryFinder6stringEv": ["text", "address"],
+    "ritual_ZN19QTextBoundaryFinder7toStartEv": ["nothing", "address"],
+    "ritual_ZN19QTextBoundaryFinder5toEndEv": ["nothing", "address"],
+    "ritual_ZNK19QTextBoundaryFinder8positionEv": ["long long", "address"],
+    "ritual_ZN19QTextBoundaryFinder11setPositionEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN19QTextBoundaryFinder14toNextBoundaryEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN19QTextBoundaryFinder18toPreviousBoundaryEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK19QTextBoundaryFinder12isAtBoundaryEv": ["bool", "address"],
+    "ritual_ZNK19QTextBoundaryFinder15boundaryReasonsEv": ["int", "address"]
+  }
+}

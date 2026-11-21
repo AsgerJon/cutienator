@@ -11,17 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QColor
-from ..QtCore import QMetaObject
-from ..QtGui import QPixmap
-from ..QtGui import QScreen
-from ._q_widget import QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject
+  from ..QtGui import QColor, QPixmap, QScreen
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QColor = WAIT['QColor']
+  QPixmap = WAIT['QPixmap']
+  QScreen = WAIT['QScreen']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -155,6 +161,7 @@ class QSplashScreen(QWidget):
     """
     #  const QMetaObject *QSplashScreen::metaObject() const
     address = self.uglySide.call('ritual_ZNK13QSplashScreen10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def pixmap(self) -> QPixmap:
@@ -171,6 +178,7 @@ class QSplashScreen(QWidget):
     """
     #  const QPixmap QSplashScreen::pixmap() const
     address = self.uglySide.call('ritual_ZNK13QSplashScreen6pixmapEv')
+    from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
 
   def message(self) -> str:
@@ -251,6 +259,7 @@ class QSplashScreen(QWidget):
     """
     #  QSplashScreen::QSplashScreen(const QPixmap &pixmap, Qt::WindowFlags f)
     if pixmap is None:
+      from ..QtGui import QPixmap
       pixmap = QPixmap()
     self._noteCreation(QSplashScreen, lambda: Rituals.call(
         'ritual_ZN13QSplashScreenC1ERK7QPixmap6QFlagsIN2Qt10WindowTypeEE',
@@ -294,6 +303,7 @@ class QSplashScreen(QWidget):
     #  QSplashScreen::QSplashScreen(QScreen *screen, const QPixmap &pixmap,
     #      Qt::WindowFlags f)
     if pixmap is None:
+      from ..QtGui import QPixmap
       pixmap = QPixmap()
     self._noteCreation(QSplashScreen, lambda: Rituals.call(
         'ritual_ZN13QSplashScreenC1EP7QScreenRK7QPixmap6QFlagsIN2Qt10Window'

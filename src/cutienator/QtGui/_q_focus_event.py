@@ -12,8 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..occult import Rituals
-from ..QtCore import Qt
-from ..QtCore import QEvent
+from ..QtCore import Qt, QEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional

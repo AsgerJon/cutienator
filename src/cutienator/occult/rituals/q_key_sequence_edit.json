@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qkeysequenceedit.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QKeySequenceEdit10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QKeySequenceEdit2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QKeySequenceEditC1EP7QWidget": ["address", "address"],
+    "ritual_ZN16QKeySequenceEditC1ERK12QKeySequenceP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QKeySequenceEditD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QKeySequenceEdit11keySequenceEv": ["address", "address"],
+    "ritual_ZNK16QKeySequenceEdit21maximumSequenceLengthEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN16QKeySequenceEdit21setClearButtonEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QKeySequenceEdit20isClearButtonEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QKeySequenceEdit14setKeySequenceERK12QKeySequence": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QKeySequenceEdit5clearEv": ["nothing", "address"],
+    "ritual_ZN16QKeySequenceEdit24setMaximumSequenceLengthEx": [
+      "nothing", "address", "long long"
+    ]
+  }
+}

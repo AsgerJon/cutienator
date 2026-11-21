@@ -12,18 +12,24 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QChar
-from ._q_font import QFont
-from ._q_font_metrics import QFontMetrics
-from ._q_paint_device import QPaintDevice
-from ..QtCore import QRectF
-from ._q_text_option import QTextOption
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QChar, QRectF
+  from . import QFont, QFontMetrics, QPaintDevice, QTextOption
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QChar = WAIT['QChar']
+  QFont = WAIT['QFont']
+  QFontMetrics = WAIT['QFontMetrics']
+  QPaintDevice = WAIT['QPaintDevice']
+  QTextOption = WAIT['QTextOption']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -385,6 +391,7 @@ class QFontMetricsF(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK13QFontMetricsF12boundingRectERK7QString', string,
     )
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   @overload(str, QTextOption)
@@ -417,6 +424,7 @@ class QFontMetricsF(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK13QFontMetricsF12boundingRectERK7QStringRK11QTextOption',
         text, self._valueOf(textOption),
     )
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   @overload(QChar)
@@ -442,6 +450,7 @@ class QFontMetricsF(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK13QFontMetricsF12boundingRectE5QChar', self._valueOf(a0),
     )
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   @overload(str)
@@ -469,6 +478,7 @@ class QFontMetricsF(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK13QFontMetricsF17tightBoundingRectERK7QString', text,
     )
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   @overload(str, QTextOption)
@@ -503,6 +513,7 @@ class QFontMetricsF(CuteMixin, metaclass=MetaCute):
         'tion',
         text, self._valueOf(textOption),
     )
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   @overload(str, Qt.TextElideMode, float)

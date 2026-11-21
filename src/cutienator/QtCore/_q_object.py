@@ -14,13 +14,22 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_binding_storage import QBindingStorage
-from ._q_event import QEvent
-from ._q_meta_object import QMetaObject
+from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QBindingStorage, QEvent, QMetaMethod, QMetaObject, QThread
+  from . import QVariant
+  QMetaObjectConnection = QMetaObject.Connection
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QMetaMethod = WAIT['QMetaMethod']
+  QMetaObjectConnection = WAIT['Connection']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -85,12 +94,6 @@ class QObject(CuteMixin, metaclass=MetaCute):
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QMetaMethod = WAIT['QMetaMethod']
-  QThread = WAIT['QThread']
-  QVariant = WAIT['QVariant']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -221,16 +224,24 @@ class QObject(CuteMixin, metaclass=MetaCute):
         CuteMixin._addressOf(sender), CuteMixin._bytesOf(signal),
         CuteMixin._addressOf(receiver), CuteMixin._bytesOf(member), a4.value,
     )
+    from . import QMetaObject
     return QMetaObject.Connection._cuteOwning(address)
 
   @staticmethod
+  @overload(THIS, QMetaMethod, THIS, QMetaMethod)
+  @overload(THIS, QMetaMethod, NoneType, QMetaMethod)
+  @overload(NoneType, QMetaMethod, THIS, QMetaMethod)
+  @overload(NoneType, QMetaMethod, NoneType, QMetaMethod)
   @overload(THIS, QMetaMethod, THIS, QMetaMethod, Qt.ConnectionType)
+  @overload(THIS, QMetaMethod, NoneType, QMetaMethod, Qt.ConnectionType)
+  @overload(NoneType, QMetaMethod, THIS, QMetaMethod, Qt.ConnectionType)
+  @overload(NoneType, QMetaMethod, NoneType, QMetaMethod, Qt.ConnectionType)
   def connect(
-      sender: QObject,
+      sender: Optional[QObject],
       signal: QMetaMethod,
-      receiver: QObject,
+      receiver: Optional[QObject],
       method: QMetaMethod,
-      type: Qt.ConnectionType,
+      type: Qt.ConnectionType = Qt.ConnectionType.AutoConnection,
   ) -> QMetaObject.Connection:
     """
     Calls Qt's 'QMetaObject::Connection QObject::connect(const QObject
@@ -239,28 +250,28 @@ class QObject(CuteMixin, metaclass=MetaCute):
 
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#connect
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    sender : QObject
-      Passed on as the address of its C++ object.
+    sender : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     signal : QMetaMethod
       Passed on as a value: Qt reads the C++ QMetaMethod, which stays
       Python's own.
 
-    receiver : QObject
-      Passed on as the address of its C++ object.
+    receiver : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     method : QMetaMethod
       Passed on as a value: Qt reads the C++ QMetaMethod, which stays
       Python's own.
 
     type : Qt.ConnectionType
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ConnectionType.AutoConnection.
 
     Returns
     -------
@@ -279,6 +290,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
         CuteMixin._addressOf(receiver), CuteMixin._valueOf(method),
         type.value,
     )
+    from . import QMetaObject
     return QMetaObject.Connection._cuteOwning(address)
 
   @staticmethod
@@ -337,10 +349,13 @@ class QObject(CuteMixin, metaclass=MetaCute):
 
   @staticmethod
   @overload(THIS, QMetaMethod, THIS, QMetaMethod)
+  @overload(THIS, QMetaMethod, NoneType, QMetaMethod)
+  @overload(NoneType, QMetaMethod, THIS, QMetaMethod)
+  @overload(NoneType, QMetaMethod, NoneType, QMetaMethod)
   def disconnect(
-      sender: QObject,
+      sender: Optional[QObject],
       signal: QMetaMethod,
-      receiver: QObject,
+      receiver: Optional[QObject],
       member: QMetaMethod,
   ) -> bool:
     """
@@ -350,21 +365,20 @@ class QObject(CuteMixin, metaclass=MetaCute):
 
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#disconnect
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    sender : QObject
-      Passed on as the address of its C++ object.
+    sender : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     signal : QMetaMethod
       Passed on as a value: Qt reads the C++ QMetaMethod, which stays
       Python's own.
 
-    receiver : QObject
-      Passed on as the address of its C++ object.
+    receiver : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     member : QMetaMethod
       Passed on as a value: Qt reads the C++ QMetaMethod, which stays
@@ -379,7 +393,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     )
 
   @staticmethod
-  @overload(QMetaObject.Connection)
+  @overload(QMetaObjectConnection)
   def disconnect(a0: QMetaObject.Connection) -> bool:
     """
     Calls Qt's 'bool QObject::disconnect(const QMetaObject::Connection &a0)'.
@@ -438,6 +452,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  const QMetaObject *QObject::metaObject() const
     address = self.uglySide.call('ritual_ZNK7QObject10metaObjectEv')
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def objectName(self) -> str:
@@ -515,7 +530,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  QThread *QObject::thread() const
     address = self.uglySide.call('ritual_ZNK7QObject6threadEv')
-    return self.QThread._cuteAt(address)
+    from . import QThread
+    return QThread._cuteAt(address)
 
   @overload(str)
   @overload(NoneType)
@@ -541,7 +557,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK7QObject8propertyEPKc', self._bytesOf(name),
     )
-    return self.QVariant._cuteOwning(address)
+    from . import QVariant
+    return QVariant._cuteOwning(address)
 
   def parent(self) -> Optional[QObject]:
     """
@@ -622,21 +639,19 @@ class QObject(CuteMixin, metaclass=MetaCute):
     )
 
   @overload(str, QVariant)
-  def setProperty(self, name: str, value: QVariant) -> bool:
+  @overload(NoneType, QVariant)
+  def setProperty(self, name: Optional[str], value: QVariant) -> bool:
     """
     Calls Qt's 'bool QObject::setProperty(const char *name, const QVariant
     &value)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#setProperty
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    name : str
-      Passed on as the bytes of the text.
+    name : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
 
     value : QVariant
       Passed on as a value: Qt reads the C++ QVariant, which stays Python's
@@ -904,6 +919,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  QBindingStorage *QObject::bindingStorage()
     address = self.uglySide.call('ritual_ZN7QObject14bindingStorageEv')
+    from . import QBindingStorage
     return QBindingStorage._cuteAt(address)
 
   def deleteLater(self) -> None:

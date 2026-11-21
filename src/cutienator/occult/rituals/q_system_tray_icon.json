@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qsystemtrayicon.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QSystemTrayIcon10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QSystemTrayIcon2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QSystemTrayIconC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QSystemTrayIconC1ERK5QIconP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QSystemTrayIconD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSystemTrayIcon14setContextMenuEP5QMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QSystemTrayIcon11contextMenuEv": ["address", "address"],
+    "ritual_ZNK15QSystemTrayIcon4iconEv": ["address", "address"],
+    "ritual_ZN15QSystemTrayIcon7setIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QSystemTrayIcon7toolTipEv": ["text", "address"],
+    "ritual_ZN15QSystemTrayIcon10setToolTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QSystemTrayIcon21isSystemTrayAvailableEv": ["bool"],
+    "ritual_ZN15QSystemTrayIcon16supportsMessagesEv": ["bool"],
+    "ritual_ZNK15QSystemTrayIcon8geometryEv": ["address", "address"],
+    "ritual_ZNK15QSystemTrayIcon9isVisibleEv": ["bool", "address"],
+    "ritual_ZN15QSystemTrayIcon10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QSystemTrayIcon4showEv": ["nothing", "address"],
+    "ritual_ZN15QSystemTrayIcon4hideEv": ["nothing", "address"],
+    "ritual_ZN15QSystemTrayIcon11showMessageERK7QStringS2_RK5QIconi": [
+      "nothing", "address", "text", "text", "address", "int"
+    ],
+    "ritual_ZN15QSystemTrayIcon11showMessageERK7QStringS2_NS_11MessageIconEi": [
+      "nothing", "address", "text", "text", "int", "int"
+    ]
+  }
+}

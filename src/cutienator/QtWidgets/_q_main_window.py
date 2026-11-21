@@ -11,24 +11,29 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QByteArray
-from ._q_dock_widget import QDockWidget
-from ._q_menu import QMenu
-from ._q_menu_bar import QMenuBar
-from ..QtCore import QMetaObject
-from ..QtCore import QPoint
-from ..QtCore import QSize
-from ._q_status_bar import QStatusBar
-from ._q_tab_widget import QTabWidget
-from ._q_tool_bar import QToolBar
-from ._q_widget import QWidget
-from ._q_main_window_dock_option import DockOption
+from . import QMainWindowDockOption, QTabWidgetTabPosition
+from . import QTabWidgetTabShape, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QByteArray, QMetaObject, QPoint, QSize
+  from . import QDockWidget, QMenu, QMenuBar, QStatusBar, QTabWidget
+  from . import QToolBar
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
+  QDockWidget = WAIT['QDockWidget']
+  QMenuBar = WAIT['QMenuBar']
+  QPoint = WAIT['QPoint']
+  QSize = WAIT['QSize']
+  QStatusBar = WAIT['QStatusBar']
+  QToolBar = WAIT['QToolBar']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -92,8 +97,8 @@ class QMainWindow(QWidget):
 
   #  The enums Qt writes inside QMainWindow, and the names Qt has for the
   #  combinations of its flags enums.
-  DockOption = DockOption
-  DockOptions = DockOption
+  DockOption = QMainWindowDockOption
+  DockOptions = QMainWindowDockOption
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -177,6 +182,7 @@ class QMainWindow(QWidget):
     """
     #  const QMetaObject *QMainWindow::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QMainWindow10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def iconSize(self) -> QSize:
@@ -193,6 +199,7 @@ class QMainWindow(QWidget):
     """
     #  QSize QMainWindow::iconSize() const
     address = self.uglySide.call('ritual_ZNK11QMainWindow8iconSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def toolButtonStyle(self) -> Qt.ToolButtonStyle:
@@ -259,7 +266,7 @@ class QMainWindow(QWidget):
       'QTabWidget.TabShape(number)' gives.
     """
     #  QTabWidget::TabShape QMainWindow::tabShape() const
-    return QTabWidget.TabShape(self.uglySide.call(
+    return QTabWidgetTabShape(self.uglySide.call(
         'ritual_ZNK11QMainWindow8tabShapeEv',
     ))
 
@@ -287,7 +294,7 @@ class QMainWindow(QWidget):
     """
     #  QTabWidget::TabPosition QMainWindow::tabPosition(Qt::DockWidgetArea
     #      area) const
-    return QTabWidget.TabPosition(self.uglySide.call(
+    return QTabWidgetTabPosition(self.uglySide.call(
         'ritual_ZNK11QMainWindow11tabPositionEN2Qt14DockWidgetAreaE',
         area.value,
     ))
@@ -343,6 +350,7 @@ class QMainWindow(QWidget):
     """
     #  QMenuBar *QMainWindow::menuBar() const
     address = self.uglySide.call('ritual_ZNK11QMainWindow7menuBarEv')
+    from . import QMenuBar
     return QMenuBar._cuteAt(address)
 
   def menuWidget(self) -> Optional[QWidget]:
@@ -377,6 +385,7 @@ class QMainWindow(QWidget):
     """
     #  QStatusBar *QMainWindow::statusBar() const
     address = self.uglySide.call('ritual_ZNK11QMainWindow9statusBarEv')
+    from . import QStatusBar
     return QStatusBar._cuteAt(address)
 
   def centralWidget(self) -> Optional[QWidget]:
@@ -545,6 +554,7 @@ class QMainWindow(QWidget):
     address = self.uglySide.call(
         'ritual_ZNK11QMainWindow9saveStateEi', version,
     )
+    from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -608,7 +618,7 @@ class QMainWindow(QWidget):
     #  void QMainWindow::setDocumentMode(bool enabled)
     self.uglySide.call('ritual_ZN11QMainWindow15setDocumentModeEb', enabled)
 
-  @overload(QTabWidget.TabShape)
+  @overload(QTabWidgetTabShape)
   def setTabShape(self, tabShape: QTabWidget.TabShape) -> None:
     """
     Calls Qt's 'void QMainWindow::setTabShape(QTabWidget::TabShape
@@ -628,7 +638,7 @@ class QMainWindow(QWidget):
         tabShape.value,
     )
 
-  @overload(Qt.DockWidgetAreas, QTabWidget.TabPosition)
+  @overload(Qt.DockWidgetAreas, QTabWidgetTabPosition)
   def setTabPosition(
       self,
       areas: Qt.DockWidgetAreas,
@@ -1042,6 +1052,7 @@ class QMainWindow(QWidget):
     address = self.uglySide.call(
         'ritual_ZN11QMainWindow10addToolBarERK7QString', title,
     )
+    from . import QToolBar
     return QToolBar._cuteAt(address)
 
   @overload(QToolBar, QToolBar)
@@ -1340,4 +1351,5 @@ class QMainWindow(QWidget):
     """
     #  QMenu *QMainWindow::createPopupMenu()
     address = self.uglySide.call('ritual_ZN11QMainWindow15createPopupMenuEv')
+    from . import QMenu
     return QMenu._cuteAt(address)

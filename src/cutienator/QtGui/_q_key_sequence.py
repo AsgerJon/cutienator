@@ -12,11 +12,18 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._q_key_sequence_sequence_format import SequenceFormat
-from ._q_key_sequence_sequence_match import SequenceMatch
-from ._q_key_sequence_standard_key import StandardKey
+from . import QKeySequenceSequenceFormat, QKeySequenceSequenceMatch
+from . import QKeySequenceStandardKey
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QKeyCombination
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QKeyCombination = WAIT['QKeyCombination']
 
 
 class QKeySequence(CuteMixin, metaclass=MetaCute):
@@ -33,15 +40,12 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
 
   Every function of Qt's QKeySequence that has a ritual and that Python can
   call so far, 7 names in all: 'count', 'isEmpty', 'toString', 'fromString',
-  'matches', 'mnemonic', 'isDetached'. It can be made from Python, in 5 ways;
+  'matches', 'mnemonic', 'isDetached'. It can be made from Python, in 6 ways;
   see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QKeySequence::QKeySequence(QKeyCombination k1, QKeyCombination k2,
-    QKeyCombination k3, QKeyCombination k4)': names 'QKeyCombination', which
-    has no cute class yet.
   - Qt's 'QKeySequence::~QKeySequence()': the destructor: Python removes its
     C++ QKeySequence by it, and has no other use for it.
   - Qt's 'QVariant QKeySequence::operator QVariant() const': an operator,
@@ -83,9 +87,9 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QKeySequence, and the names Qt has for the
   #  combinations of its flags enums.
-  SequenceFormat = SequenceFormat
-  SequenceMatch = SequenceMatch
-  StandardKey = StandardKey
+  SequenceFormat = QKeySequenceSequenceFormat
+  SequenceMatch = QKeySequenceSequenceMatch
+  StandardKey = QKeySequenceStandardKey
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -250,7 +254,7 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  SequenceMatch QKeySequence::matches(const QKeySequence &seq) const
-    return SequenceMatch(self.uglySide.call(
+    return QKeySequence.SequenceMatch(self.uglySide.call(
         'ritual_ZNK12QKeySequence7matchesERKS_', self._valueOf(seq),
     ))
 
@@ -350,6 +354,51 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
     #  QKeySequence::QKeySequence(int k1, int k2, int k3, int k4)
     self._noteCreation(QKeySequence, lambda: Rituals.call(
         'ritual_ZN12QKeySequenceC1Eiiii', k1, k2, k3, k4,
+    ))
+
+  @overload(
+      QKeyCombination, QKeyCombination, QKeyCombination, QKeyCombination,
+  )
+  def __init__(
+      self,
+      k1: QKeyCombination,
+      k2: QKeyCombination,
+      k3: QKeyCombination,
+      k4: QKeyCombination,
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QKeySequence::QKeySequence(QKeyCombination k1, QKeyCombination k2,
+    QKeyCombination k3, QKeyCombination k4)', which is called at the first
+    use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#QKeySequence
+
+    Parameters
+    ----------
+
+    k1 : QKeyCombination
+      Passed on as a value: Qt reads the C++ QKeyCombination, which stays
+      Python's own.
+
+    k2 : QKeyCombination
+      Passed on as a value: Qt reads the C++ QKeyCombination, which stays
+      Python's own.
+
+    k3 : QKeyCombination
+      Passed on as a value: Qt reads the C++ QKeyCombination, which stays
+      Python's own.
+
+    k4 : QKeyCombination
+      Passed on as a value: Qt reads the C++ QKeyCombination, which stays
+      Python's own.
+    """
+    #  QKeySequence::QKeySequence(QKeyCombination k1, QKeyCombination k2,
+    #      QKeyCombination k3, QKeyCombination k4)
+    self._noteCreation(QKeySequence, lambda: Rituals.call(
+        'ritual_ZN12QKeySequenceC1E15QKeyCombinationS0_S0_S0_',
+        self._valueOf(k1), self._valueOf(k2), self._valueOf(k3),
+        self._valueOf(k4),
     ))
 
   @overload(THIS)

@@ -11,16 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_abstract_item_model import QAbstractItemModel
-from ._q_meta_object import QMetaObject
-from ._q_mime_data import QMimeData
-from ._q_model_index import QModelIndex
+from . import Qt, QAbstractItemModel
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QMetaObject, QMimeData, QModelIndex
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QMimeData = WAIT['QMimeData']
+  QModelIndex = WAIT['QModelIndex']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -157,6 +161,7 @@ class QAbstractTableModel(QAbstractItemModel):
     address = self.uglySide.call(
         'ritual_ZNK19QAbstractTableModel10metaObjectEv',
     )
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   @overload(int, int)
@@ -196,11 +201,13 @@ class QAbstractTableModel(QAbstractItemModel):
     #  QModelIndex QAbstractTableModel::index(int row, int column, const
     #      QModelIndex &parent) const
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     address = self.uglySide.call(
         'ritual_ZNK19QAbstractTableModel5indexEiiRK11QModelIndex',
         row, column, self._valueOf(parent),
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(int, int, QModelIndex)
@@ -236,6 +243,7 @@ class QAbstractTableModel(QAbstractItemModel):
         'ritual_ZNK19QAbstractTableModel7siblingEiiRK11QModelIndex',
         row, column, self._valueOf(idx),
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)

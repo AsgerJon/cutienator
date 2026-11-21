@@ -59,9 +59,17 @@ class WAIT(Object):
 
   - One line per late class, at the top of the body of the waiting
     class, with the name of the late class on both sides:
-    'QThread = WAIT['QThread']'. Or no line at all: write the 'WAIT'
-    right into the signature, as '@overload(WAIT['QThread'])', and the
-    body gets that line for you.
+    'QThread = WAIT['QThread']'. Or no line in the body at all: write
+    the 'WAIT' right into the signature, as
+    '@overload(WAIT['QThread'])', or bind it at the top of the file
+    and name that, and the body gets the line for you. The class files
+    the dev tooling writes bind theirs at the top of the file, beside
+    the import a type checker reads:
+
+      if TYPE_CHECKING:
+        from . import QThread
+      else:
+        QThread = WAIT['QThread']
   - The late class itself, written as any cute class, under that name.
     Nothing has to be called once it is made.
 
@@ -78,11 +86,12 @@ class WAIT(Object):
   3. 'CuteOverload' finds the 'WAIT' in the signature. It does not call
      worktoy's 'overload', which refuses anything but a class. It
      leaves a 'WaitingOverload' at the name 'moveToThread', holding the
-     signature and the function.
-  4. 'CuteSpace' takes the 'WaitingOverload' out of the body and keeps
-     it, with its place among the other signatures of that name.
-     worktoy screens the name, as for any overload, and gathers nothing
-     from it.
+     function and every signature its stack of decorators gives it.
+  4. 'CuteSpace' takes the 'WaitingOverload' out of the body. It puts
+     each signature of it that names no late class on record at once,
+     and keeps each of the others as a 'WaitingSignature', with its
+     place among the other signatures of that name. worktoy screens
+     the name, as for any overload.
   5. 'QObject' is made. Its 'moveToThread' has every signature but the
      waiting one. The 'WAIT' at 'QObject.QThread' tells 'MetaCute' that
      'QObject' waits for a class named 'QThread': see 'hookSetName'.
@@ -91,6 +100,22 @@ class WAIT(Object):
      signature back in its place with the class in it, and builds
      'moveToThread' again for 'QObject' and for every class built on it
      so far.
+
+  Why no call is lost by waiting
+  ------------------------------
+
+  A waiting signature only matters to a call that hands over an object
+  of the late class, and nothing can be an object of a class that is
+  not made. Step 6 is the last part of making the late class: it runs
+  as the class statement of the late class ends, before the class can
+  have a single object. So the first object of the late class there
+  ever is already finds every signature that waited for it in place.
+
+  That holds however the object comes to be. A program that makes one
+  has brought in the late class to do so. A cute function that gives
+  an object of a class its file did not bring in brings in the file of
+  that class itself, before it makes the object; the dev tooling
+  writes every such function that way.
 
   What to expect
   --------------
@@ -111,9 +136,16 @@ class WAIT(Object):
     class is made.
   - 'MetaCute.getStillWaiting()' names the classes that are waited for
     and not made.
-  - A waiting signature needs a function of its own. Stacking it with
-    other 'overload' decorators on one function is refused on that
-    line, and so is 'overload.flex' with a 'WAIT'.
+  - A waiting signature may share its function with other
+    '@overload(...)' signatures, waiting or not, in one stack of
+    decorators. It shares it with nothing else: 'overload.fallback',
+    'overload.finalize', 'overload.flex' and a signature ending in
+    'ARGS' are refused in a stack that waits, on that line, and so is
+    'overload.flex' with a 'WAIT'.
+  - A late class is known by its name, so a class made by 'MetaCute'
+    under the name of a late class is taken for it. A class of a
+    program that is built on a cute class must not have the name of a
+    class of Qt.
   - A 'WAIT' is settled for the class whose body binds it, and for no
     other. A class built on 'QObject' that names 'QThread' in a
     signature of its own names a 'WAIT' of its own, by that line or

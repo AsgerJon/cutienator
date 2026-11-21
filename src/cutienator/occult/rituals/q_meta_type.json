@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmetatype.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QMetaType4typeEPKc": ["int", "chars"],
+    "ritual_ZN9QMetaType8typeNameEi": ["chars", "int"],
+    "ritual_ZN9QMetaType6sizeOfEi": ["int", "int"],
+    "ritual_ZN9QMetaType9typeFlagsEi": ["int", "int"],
+    "ritual_ZN9QMetaType17metaObjectForTypeEi": ["address", "int"],
+    "ritual_ZN9QMetaType12isRegisteredEi": ["bool", "int"],
+    "ritual_ZN9QMetaTypeC1Ei": ["address", "int"],
+    "ritual_ZN9QMetaTypeC1EPKN9QtPrivate18QMetaTypeInterfaceE": [
+      "address", "address"
+    ],
+    "ritual_ZN9QMetaTypeC1Ev": ["address"],
+    "ritual_ZNK9QMetaType7isValidEN2Qt15Disambiguated_tE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK9QMetaType12isRegisteredEN2Qt15Disambiguated_tE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK9QMetaType12registerTypeEv": ["nothing", "address"],
+    "ritual_ZNK9QMetaType2idEi": ["int", "address", "int"],
+    "ritual_ZNK9QMetaType5rawIdEv": ["int", "address"],
+    "ritual_ZNK9QMetaType6sizeOfEv": ["long long", "address"],
+    "ritual_ZNK9QMetaType7alignOfEv": ["long long", "address"],
+    "ritual_ZNK9QMetaType5flagsEv": ["int", "address"],
+    "ritual_ZNK9QMetaType10metaObjectEv": ["address", "address"],
+    "ritual_ZNK9QMetaType4nameEv": ["chars", "address"],
+    "ritual_ZNK9QMetaType22isDefaultConstructibleEv": ["bool", "address"],
+    "ritual_ZNK9QMetaType19isCopyConstructibleEv": ["bool", "address"],
+    "ritual_ZNK9QMetaType19isMoveConstructibleEv": ["bool", "address"],
+    "ritual_ZNK9QMetaType14isDestructibleEv": ["bool", "address"],
+    "ritual_ZNK9QMetaType20isEqualityComparableEv": ["bool", "address"],
+    "ritual_ZNK9QMetaType9isOrderedEv": ["bool", "address"],
+    "ritual_ZNK9QMetaType32hasRegisteredDataStreamOperatorsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9QMetaType14underlyingTypeEv": ["address", "address"],
+    "ritual_ZN9QMetaType8fromNameE14QByteArrayView": ["address", "address"],
+    "ritual_ZNK9QMetaType32hasRegisteredDebugStreamOperatorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QMetaType32hasRegisteredDebugStreamOperatorEi": [
+      "bool", "int"
+    ],
+    "ritual_ZN9QMetaType10canConvertES_S_": ["bool", "address", "address"],
+    "ritual_ZN9QMetaType7canViewES_S_": ["bool", "address", "address"],
+    "ritual_ZN9QMetaType30hasRegisteredConverterFunctionES_S_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QMetaType32hasRegisteredMutableViewFunctionES_S_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QMetaType27unregisterConverterFunctionES_S_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QMetaType29unregisterMutableViewFunctionES_S_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QMetaType18unregisterMetaTypeES_": ["nothing", "address"],
+    "ritual_ZN9QMetaType5ifaceEv": ["address", "address"],
+    "ritual_ZNK9QMetaType5ifaceEv": ["address", "address"],
+    "ritual_ZN9QMetaTypeD1Ev": ["nothing", "address"]
+  }
+}

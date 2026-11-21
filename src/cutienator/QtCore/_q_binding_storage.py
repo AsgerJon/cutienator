@@ -11,8 +11,22 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+  from . import QUntypedPropertyData
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QUntypedPropertyData = WAIT['QUntypedPropertyData']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QBindingStorage(CuteMixin, metaclass=MetaCute):
@@ -28,22 +42,20 @@ class QBindingStorage(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QBindingStorage that has a ritual and that Python
-  can call so far, 2 names in all: 'isEmpty', 'isValid'. It can be made from
-  Python, in 1 way; see '__init__'.
+  can call so far, 3 names in all: 'isEmpty', 'isValid',
+  'registerDependency'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QBindingStorage::~QBindingStorage()': the destructor: Python
     removes its C++ QBindingStorage by it, and has no other use for it.
-  - Qt's 'void QBindingStorage::registerDependency(const QUntypedPropertyData
-    *data) const': names 'QUntypedPropertyData', which has no cute class yet.
   - Qt's 'QtPrivate::QPropertyBindingData *QBindingStorage::bindingData(const
-    QUntypedPropertyData *data) const': names 'QUntypedPropertyData', which
-    has no cute class yet.
+    QUntypedPropertyData *data) const': gives
+    'QtPrivate::QPropertyBindingData', which has no cute class yet.
   - Qt's 'QtPrivate::QPropertyBindingData
     *QBindingStorage::bindingData(QUntypedPropertyData *data, bool create)':
-    names 'QUntypedPropertyData', which has no cute class yet.
+    gives 'QtPrivate::QPropertyBindingData', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -161,3 +173,28 @@ class QBindingStorage(CuteMixin, metaclass=MetaCute):
     """
     #  bool QBindingStorage::isEmpty()
     return self.uglySide.call('ritual_ZN15QBindingStorage7isEmptyEv')
+
+  @overload(QUntypedPropertyData)
+  @overload(NoneType)
+  def registerDependency(self, data: Optional[QUntypedPropertyData]) -> None:
+    """
+    Calls Qt's 'void QBindingStorage::registerDependency(const
+    QUntypedPropertyData *data) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qbindingstorage.html#registerDependency
+
+    Parameters
+    ----------
+
+    data : Optional[QUntypedPropertyData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QBindingStorage::registerDependency(const QUntypedPropertyData
+    #      *data) const
+    self.uglySide.call(
+        'ritual_ZNK15QBindingStorage18registerDependencyEPK20QUntypedProper'
+        'tyData',
+        self._addressOf(data),
+    )

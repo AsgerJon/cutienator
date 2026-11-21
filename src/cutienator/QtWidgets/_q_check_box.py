@@ -14,13 +14,12 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_abstract_button import QAbstractButton
-from ..QtCore import QMetaObject
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from . import QAbstractButton, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -152,6 +151,7 @@ class QCheckBox(QAbstractButton):
     """
     #  const QMetaObject *QCheckBox::metaObject() const
     address = self.uglySide.call('ritual_ZNK9QCheckBox10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def sizeHint(self) -> QSize:
@@ -168,6 +168,7 @@ class QCheckBox(QAbstractButton):
     """
     #  QSize QCheckBox::sizeHint() const
     address = self.uglySide.call('ritual_ZNK9QCheckBox8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -184,6 +185,7 @@ class QCheckBox(QAbstractButton):
     """
     #  QSize QCheckBox::minimumSizeHint() const
     address = self.uglySide.call('ritual_ZNK9QCheckBox15minimumSizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def isTristate(self) -> bool:

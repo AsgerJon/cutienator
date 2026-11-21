@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcalendar.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QCalendarC1Ev": ["address"],
+    "ritual_ZN9QCalendarC1ENS_6SystemE": ["address", "int"],
+    "ritual_ZN9QCalendarC1E14QAnyStringView": ["address", "text"],
+    "ritual_ZN9QCalendarC1ENS_8SystemIdE": ["address", "address"],
+    "ritual_ZNK9QCalendar7isValidEv": ["bool", "address"],
+    "ritual_ZNK9QCalendar11daysInMonthEii": ["int", "address", "int", "int"],
+    "ritual_ZNK9QCalendar10daysInYearEi": ["int", "address", "int"],
+    "ritual_ZNK9QCalendar12monthsInYearEi": ["int", "address", "int"],
+    "ritual_ZNK9QCalendar11isDateValidEiii": [
+      "bool", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK9QCalendar10isLeapYearEi": ["bool", "address", "int"],
+    "ritual_ZNK9QCalendar11isGregorianEv": ["bool", "address"],
+    "ritual_ZNK9QCalendar7isLunarEv": ["bool", "address"],
+    "ritual_ZNK9QCalendar11isLuniSolarEv": ["bool", "address"],
+    "ritual_ZNK9QCalendar7isSolarEv": ["bool", "address"],
+    "ritual_ZNK9QCalendar11isProlepticEv": ["bool", "address"],
+    "ritual_ZNK9QCalendar11hasYearZeroEv": ["bool", "address"],
+    "ritual_ZNK9QCalendar18maximumDaysInMonthEv": ["int", "address"],
+    "ritual_ZNK9QCalendar18minimumDaysInMonthEv": ["int", "address"],
+    "ritual_ZNK9QCalendar19maximumMonthsInYearEv": ["int", "address"],
+    "ritual_ZNK9QCalendar4nameEv": ["text", "address"],
+    "ritual_ZNK9QCalendar13dateFromPartsEiii": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK9QCalendar13dateFromPartsERKNS_12YearMonthDayE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QCalendar21matchCenturyToWeekdayERKNS_12YearMonthDayEi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK9QCalendar13partsFromDateE5QDate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QCalendar9dayOfWeekE5QDate": ["int", "address", "address"],
+    "ritual_ZNK9QCalendar9monthNameERK7QLocaleiiNS0_10FormatTypeE": [
+      "text", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK9QCalendar19standaloneMonthNameERK7QLocaleiiNS0_10FormatTypeE": [
+      "text", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK9QCalendar11weekDayNameERK7QLocaleiNS0_10FormatTypeE": [
+      "text", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK9QCalendar21standaloneWeekDayNameERK7QLocaleiNS0_10FormatTypeE": [
+      "text", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK9QCalendar16dateTimeToStringE11QStringViewRK9QDateTime5QDate5QTimeRK7QLocale": [
+      "text", "address", "text", "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QCalendarD1Ev": ["nothing", "address"]
+  }
+}

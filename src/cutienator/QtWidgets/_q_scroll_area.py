@@ -14,13 +14,12 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_abstract_scroll_area import QAbstractScrollArea
-from ..QtCore import QMetaObject
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from . import QAbstractScrollArea, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -155,6 +154,7 @@ class QScrollArea(QAbstractScrollArea):
     """
     #  const QMetaObject *QScrollArea::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QScrollArea10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def widget(self) -> Optional[QWidget]:
@@ -197,6 +197,7 @@ class QScrollArea(QAbstractScrollArea):
     """
     #  QSize QScrollArea::sizeHint() const
     address = self.uglySide.call('ritual_ZNK11QScrollArea8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def alignment(self) -> Qt.Alignment:

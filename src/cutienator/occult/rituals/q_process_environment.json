@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qprocess.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QProcessEnvironmentC1Ev": ["address"],
+    "ritual_ZN19QProcessEnvironmentC1ENS_14InitializationE": [
+      "address", "int"
+    ],
+    "ritual_ZN19QProcessEnvironmentC1ERKS_": ["address", "address"],
+    "ritual_ZN19QProcessEnvironmentD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QProcessEnvironment7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK19QProcessEnvironment18inheritsFromParentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QProcessEnvironment5clearEv": ["nothing", "address"],
+    "ritual_ZNK19QProcessEnvironment8containsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN19QProcessEnvironment6insertERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN19QProcessEnvironment6removeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QProcessEnvironment5valueERK7QStringS2_": [
+      "text", "address", "text", "text"
+    ],
+    "ritual_ZN19QProcessEnvironment6insertERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QProcessEnvironment17systemEnvironmentEv": ["address"]
+  }
+}

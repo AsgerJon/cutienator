@@ -12,13 +12,19 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_brush import QBrush
-from ._q_color import QColor
-from ._q_palette_color_group import ColorGroup
-from ._q_palette_color_role import ColorRole
+from . import QPaletteColorGroup, QPaletteColorRole
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QBrush, QColor
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBrush = WAIT['QBrush']
+  QColor = WAIT['QColor']
 
 
 class QPalette(CuteMixin, metaclass=MetaCute):
@@ -76,8 +82,8 @@ class QPalette(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QPalette, and the names Qt has for the
   #  combinations of its flags enums.
-  ColorGroup = ColorGroup
-  ColorRole = ColorRole
+  ColorGroup = QPaletteColorGroup
+  ColorRole = QPaletteColorRole
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -122,7 +128,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  ColorGroup QPalette::currentColorGroup() const
-    return ColorGroup(self.uglySide.call(
+    return QPalette.ColorGroup(self.uglySide.call(
         'ritual_ZNK8QPalette17currentColorGroupEv',
     ))
 
@@ -154,6 +160,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK8QPalette5colorENS_10ColorGroupENS_9ColorRoleE',
         cg.value, cr.value,
     )
+    from . import QColor
     return QColor._cuteOwning(address)
 
   @overload(ColorRole)
@@ -179,6 +186,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK8QPalette5colorENS_9ColorRoleE', cr.value,
     )
+    from . import QColor
     return QColor._cuteOwning(address)
 
   @overload(ColorGroup, ColorRole)
@@ -209,6 +217,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE',
         cg.value, cr.value,
     )
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   @overload(ColorRole)
@@ -234,6 +243,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK8QPalette5brushENS_9ColorRoleE', cr.value,
     )
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   @overload(ColorGroup, ColorRole)
@@ -296,6 +306,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::windowText() const
     address = self.uglySide.call('ritual_ZNK8QPalette10windowTextEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def button(self) -> QBrush:
@@ -312,6 +323,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::button() const
     address = self.uglySide.call('ritual_ZNK8QPalette6buttonEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def light(self) -> QBrush:
@@ -328,6 +340,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::light() const
     address = self.uglySide.call('ritual_ZNK8QPalette5lightEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def dark(self) -> QBrush:
@@ -344,6 +357,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::dark() const
     address = self.uglySide.call('ritual_ZNK8QPalette4darkEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def mid(self) -> QBrush:
@@ -360,6 +374,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::mid() const
     address = self.uglySide.call('ritual_ZNK8QPalette3midEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def text(self) -> QBrush:
@@ -376,6 +391,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::text() const
     address = self.uglySide.call('ritual_ZNK8QPalette4textEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def base(self) -> QBrush:
@@ -392,6 +408,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::base() const
     address = self.uglySide.call('ritual_ZNK8QPalette4baseEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def alternateBase(self) -> QBrush:
@@ -408,6 +425,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::alternateBase() const
     address = self.uglySide.call('ritual_ZNK8QPalette13alternateBaseEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def toolTipBase(self) -> QBrush:
@@ -424,6 +442,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::toolTipBase() const
     address = self.uglySide.call('ritual_ZNK8QPalette11toolTipBaseEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def toolTipText(self) -> QBrush:
@@ -440,6 +459,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::toolTipText() const
     address = self.uglySide.call('ritual_ZNK8QPalette11toolTipTextEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def window(self) -> QBrush:
@@ -456,6 +476,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::window() const
     address = self.uglySide.call('ritual_ZNK8QPalette6windowEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def midlight(self) -> QBrush:
@@ -472,6 +493,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::midlight() const
     address = self.uglySide.call('ritual_ZNK8QPalette8midlightEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def brightText(self) -> QBrush:
@@ -488,6 +510,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::brightText() const
     address = self.uglySide.call('ritual_ZNK8QPalette10brightTextEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def buttonText(self) -> QBrush:
@@ -504,6 +527,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::buttonText() const
     address = self.uglySide.call('ritual_ZNK8QPalette10buttonTextEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def shadow(self) -> QBrush:
@@ -520,6 +544,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::shadow() const
     address = self.uglySide.call('ritual_ZNK8QPalette6shadowEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def highlight(self) -> QBrush:
@@ -536,6 +561,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::highlight() const
     address = self.uglySide.call('ritual_ZNK8QPalette9highlightEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def highlightedText(self) -> QBrush:
@@ -552,6 +578,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::highlightedText() const
     address = self.uglySide.call('ritual_ZNK8QPalette15highlightedTextEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def link(self) -> QBrush:
@@ -568,6 +595,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::link() const
     address = self.uglySide.call('ritual_ZNK8QPalette4linkEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def linkVisited(self) -> QBrush:
@@ -584,6 +612,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::linkVisited() const
     address = self.uglySide.call('ritual_ZNK8QPalette11linkVisitedEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def placeholderText(self) -> QBrush:
@@ -600,6 +629,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::placeholderText() const
     address = self.uglySide.call('ritual_ZNK8QPalette15placeholderTextEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def accent(self) -> QBrush:
@@ -616,6 +646,7 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPalette::accent() const
     address = self.uglySide.call('ritual_ZNK8QPalette6accentEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   @overload(THIS)

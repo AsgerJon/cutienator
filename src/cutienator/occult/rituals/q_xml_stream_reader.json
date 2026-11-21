@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qxmlstream.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QXmlStreamReaderC1Ev": ["address"],
+    "ritual_ZN16QXmlStreamReaderC1EP9QIODevice": ["address", "address"],
+    "ritual_ZN16QXmlStreamReaderC1E14QAnyStringView": ["address", "text"],
+    "ritual_ZN16QXmlStreamReaderD1Ev": ["nothing", "address"],
+    "ritual_ZN16QXmlStreamReader9setDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QXmlStreamReader6deviceEv": ["address", "address"],
+    "ritual_ZN16QXmlStreamReader7addDataE14QAnyStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QXmlStreamReader5clearEv": ["nothing", "address"],
+    "ritual_ZNK16QXmlStreamReader5atEndEv": ["bool", "address"],
+    "ritual_ZN16QXmlStreamReader8readNextEv": ["int", "address"],
+    "ritual_ZN16QXmlStreamReader20readNextStartElementEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QXmlStreamReader18skipCurrentElementEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QXmlStreamReader16readRawInnerDataEv": ["text", "address"],
+    "ritual_ZNK16QXmlStreamReader9tokenTypeEv": ["int", "address"],
+    "ritual_ZNK16QXmlStreamReader11tokenStringEv": ["text", "address"],
+    "ritual_ZN16QXmlStreamReader22setNamespaceProcessingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QXmlStreamReader19namespaceProcessingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QXmlStreamReader15isStartDocumentEv": ["bool", "address"],
+    "ritual_ZNK16QXmlStreamReader13isEndDocumentEv": ["bool", "address"],
+    "ritual_ZNK16QXmlStreamReader14isStartElementEv": ["bool", "address"],
+    "ritual_ZNK16QXmlStreamReader12isEndElementEv": ["bool", "address"],
+    "ritual_ZNK16QXmlStreamReader12isCharactersEv": ["bool", "address"],
+    "ritual_ZNK16QXmlStreamReader12isWhitespaceEv": ["bool", "address"],
+    "ritual_ZNK16QXmlStreamReader7isCDATAEv": ["bool", "address"],
+    "ritual_ZNK16QXmlStreamReader9isCommentEv": ["bool", "address"],
+    "ritual_ZNK16QXmlStreamReader5isDTDEv": ["bool", "address"],
+    "ritual_ZNK16QXmlStreamReader17isEntityReferenceEv": ["bool", "address"],
+    "ritual_ZNK16QXmlStreamReader23isProcessingInstructionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QXmlStreamReader20isStandaloneDocumentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QXmlStreamReader24hasStandaloneDeclarationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QXmlStreamReader15documentVersionEv": ["text", "address"],
+    "ritual_ZNK16QXmlStreamReader16documentEncodingEv": ["text", "address"],
+    "ritual_ZNK16QXmlStreamReader10lineNumberEv": ["long long", "address"],
+    "ritual_ZNK16QXmlStreamReader12columnNumberEv": ["long long", "address"],
+    "ritual_ZNK16QXmlStreamReader15characterOffsetEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK16QXmlStreamReader10attributesEv": ["address", "address"],
+    "ritual_ZN16QXmlStreamReader15readElementTextENS_24ReadElementTextBehaviourE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK16QXmlStreamReader4nameEv": ["text", "address"],
+    "ritual_ZNK16QXmlStreamReader12namespaceUriEv": ["text", "address"],
+    "ritual_ZNK16QXmlStreamReader13qualifiedNameEv": ["text", "address"],
+    "ritual_ZNK16QXmlStreamReader6prefixEv": ["text", "address"],
+    "ritual_ZNK16QXmlStreamReader27processingInstructionTargetEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK16QXmlStreamReader25processingInstructionDataEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK16QXmlStreamReader4textEv": ["text", "address"],
+    "ritual_ZN16QXmlStreamReader28addExtraNamespaceDeclarationERK30QXmlStreamNamespaceDeclaration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QXmlStreamReader7dtdNameEv": ["text", "address"],
+    "ritual_ZNK16QXmlStreamReader11dtdPublicIdEv": ["text", "address"],
+    "ritual_ZNK16QXmlStreamReader11dtdSystemIdEv": ["text", "address"],
+    "ritual_ZNK16QXmlStreamReader20entityExpansionLimitEv": [
+      "int", "address"
+    ],
+    "ritual_ZN16QXmlStreamReader23setEntityExpansionLimitEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QXmlStreamReader10raiseErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QXmlStreamReader11errorStringEv": ["text", "address"],
+    "ritual_ZNK16QXmlStreamReader5errorEv": ["int", "address"],
+    "ritual_ZNK16QXmlStreamReader8hasErrorEv": ["bool", "address"],
+    "ritual_ZN16QXmlStreamReader17setEntityResolverEP24QXmlStreamEntityResolver": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QXmlStreamReader14entityResolverEv": ["address", "address"]
+  }
+}

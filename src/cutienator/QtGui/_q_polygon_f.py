@@ -12,12 +12,20 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QPointF
-from ._q_polygon import QPolygon
-from ..QtCore import QRectF
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QPointF, QRectF
+  from . import QPolygon
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPointF = WAIT['QPointF']
+  QPolygon = WAIT['QPolygon']
+  QRectF = WAIT['QRectF']
 
 
 class QPolygonF(CuteMixin, metaclass=MetaCute):
@@ -162,6 +170,7 @@ class QPolygonF(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygon QPolygonF::toPolygon() const
     address = self.uglySide.call('ritual_ZNK9QPolygonF9toPolygonEv')
+    from . import QPolygon
     return QPolygon._cuteOwning(address)
 
   def isClosed(self) -> bool:
@@ -187,6 +196,7 @@ class QPolygonF(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QPolygonF::boundingRect() const
     address = self.uglySide.call('ritual_ZNK9QPolygonF12boundingRectEv')
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   @overload(QPointF, Qt.FillRule)

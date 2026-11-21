@@ -12,11 +12,18 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_brush import QBrush
-from ._q_color import QColor
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QBrush, QColor
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBrush = WAIT['QBrush']
+  QColor = WAIT['QColor']
 
 
 class QPen(CuteMixin, metaclass=MetaCute):
@@ -164,6 +171,7 @@ class QPen(CuteMixin, metaclass=MetaCute):
     """
     #  QColor QPen::color() const
     address = self.uglySide.call('ritual_ZNK4QPen5colorEv')
+    from . import QColor
     return QColor._cuteOwning(address)
 
   def brush(self) -> QBrush:
@@ -180,6 +188,7 @@ class QPen(CuteMixin, metaclass=MetaCute):
     """
     #  QBrush QPen::brush() const
     address = self.uglySide.call('ritual_ZNK4QPen5brushEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def isSolid(self) -> bool:

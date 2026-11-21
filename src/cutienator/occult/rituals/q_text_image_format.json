@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextformat.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QTextImageFormatC1Ev": ["address"],
+    "ritual_ZNK16QTextImageFormat7isValidEv": ["bool", "address"],
+    "ritual_ZN16QTextImageFormat7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QTextImageFormat4nameEv": ["text", "address"],
+    "ritual_ZN16QTextImageFormat8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextImageFormat5widthEv": ["double", "address"],
+    "ritual_ZN16QTextImageFormat15setMaximumWidthE11QTextLength": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QTextImageFormat12maximumWidthEv": ["address", "address"],
+    "ritual_ZN16QTextImageFormat9setHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextImageFormat6heightEv": ["double", "address"],
+    "ritual_ZN16QTextImageFormat10setQualityEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QTextImageFormat10setQualityEv": ["nothing", "address"],
+    "ritual_ZNK16QTextImageFormat7qualityEv": ["int", "address"],
+    "ritual_ZN16QTextImageFormatD1Ev": ["nothing", "address"]
+  }
+}

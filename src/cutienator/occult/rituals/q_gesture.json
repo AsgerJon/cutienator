@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgesture.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QGesture10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QGesture2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8QGestureC1EP7QObject": ["address", "address"],
+    "ritual_ZN8QGestureD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QGesture11gestureTypeEv": ["int", "address"],
+    "ritual_ZNK8QGesture5stateEv": ["int", "address"],
+    "ritual_ZNK8QGesture7hotSpotEv": ["address", "address"],
+    "ritual_ZN8QGesture10setHotSpotERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QGesture10hasHotSpotEv": ["bool", "address"],
+    "ritual_ZN8QGesture12unsetHotSpotEv": ["nothing", "address"],
+    "ritual_ZN8QGesture22setGestureCancelPolicyENS_19GestureCancelPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QGesture19gestureCancelPolicyEv": ["int", "address"]
+  }
+}

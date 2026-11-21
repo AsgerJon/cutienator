@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qtimeline.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QTimeLine10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QTimeLine2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QTimeLineC1EiP7QObject": ["address", "int", "address"],
+    "ritual_ZN9QTimeLineD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QTimeLine5stateEv": ["int", "address"],
+    "ritual_ZNK9QTimeLine9loopCountEv": ["int", "address"],
+    "ritual_ZN9QTimeLine12setLoopCountEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QTimeLine9directionEv": ["int", "address"],
+    "ritual_ZN9QTimeLine12setDirectionENS_9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QTimeLine8durationEv": ["int", "address"],
+    "ritual_ZN9QTimeLine11setDurationEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QTimeLine10startFrameEv": ["int", "address"],
+    "ritual_ZN9QTimeLine13setStartFrameEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QTimeLine8endFrameEv": ["int", "address"],
+    "ritual_ZN9QTimeLine11setEndFrameEi": ["nothing", "address", "int"],
+    "ritual_ZN9QTimeLine13setFrameRangeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK9QTimeLine14updateIntervalEv": ["int", "address"],
+    "ritual_ZN9QTimeLine17setUpdateIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QTimeLine11easingCurveEv": ["address", "address"],
+    "ritual_ZN9QTimeLine14setEasingCurveERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QTimeLine11currentTimeEv": ["int", "address"],
+    "ritual_ZNK9QTimeLine12currentFrameEv": ["int", "address"],
+    "ritual_ZNK9QTimeLine12currentValueEv": ["double", "address"],
+    "ritual_ZNK9QTimeLine12frameForTimeEi": ["int", "address", "int"],
+    "ritual_ZNK9QTimeLine12valueForTimeEi": ["double", "address", "int"],
+    "ritual_ZN9QTimeLine5startEv": ["nothing", "address"],
+    "ritual_ZN9QTimeLine6resumeEv": ["nothing", "address"],
+    "ritual_ZN9QTimeLine4stopEv": ["nothing", "address"],
+    "ritual_ZN9QTimeLine9setPausedEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QTimeLine14setCurrentTimeEi": ["nothing", "address", "int"],
+    "ritual_ZN9QTimeLine15toggleDirectionEv": ["nothing", "address"]
+  }
+}

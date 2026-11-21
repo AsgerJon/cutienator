@@ -11,14 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import QMetaObject
 from ..QtCore import QObject
-from ._q_text_document import QTextDocument
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject
+  from . import QTextBlock, QTextDocument
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QTextBlock = WAIT['QTextBlock']
+  QTextDocument = WAIT['QTextDocument']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,17 +44,15 @@ class QSyntaxHighlighter(QObject):
   -----------
 
   Every function of Qt's QSyntaxHighlighter that has a ritual and that Python
-  can call so far, 5 names in all: 'metaObject', 'tr', 'setDocument',
-  'document', 'rehighlight'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  can call so far, 6 names in all: 'metaObject', 'tr', 'setDocument',
+  'document', 'rehighlight', 'rehighlightBlock'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QSyntaxHighlighter::~QSyntaxHighlighter()': the destructor: Python
     never removes a C++ QSyntaxHighlighter.
-  - Qt's 'void QSyntaxHighlighter::rehighlightBlock(const QTextBlock
-    &block)': names 'QTextBlock', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -156,6 +161,7 @@ class QSyntaxHighlighter(QObject):
     address = self.uglySide.call(
         'ritual_ZNK18QSyntaxHighlighter10metaObjectEv',
     )
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def document(self) -> Optional[QTextDocument]:
@@ -173,6 +179,7 @@ class QSyntaxHighlighter(QObject):
     """
     #  QTextDocument *QSyntaxHighlighter::document() const
     address = self.uglySide.call('ritual_ZNK18QSyntaxHighlighter8documentEv')
+    from . import QTextDocument
     return QTextDocument._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -242,3 +249,25 @@ class QSyntaxHighlighter(QObject):
     """
     #  void QSyntaxHighlighter::rehighlight()
     self.uglySide.call('ritual_ZN18QSyntaxHighlighter11rehighlightEv')
+
+  @overload(QTextBlock)
+  def rehighlightBlock(self, block: QTextBlock) -> None:
+    """
+    Calls Qt's 'void QSyntaxHighlighter::rehighlightBlock(const QTextBlock
+    &block)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsyntaxhighlighter.html#rehighlightBlock
+
+    Parameters
+    ----------
+
+    block : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+    """
+    #  void QSyntaxHighlighter::rehighlightBlock(const QTextBlock &block)
+    self.uglySide.call(
+        'ritual_ZN18QSyntaxHighlighter16rehighlightBlockERK10QTextBlock',
+        self._valueOf(block),
+    )

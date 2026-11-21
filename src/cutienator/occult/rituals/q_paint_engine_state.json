@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpaintengine.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QPaintEngineState5stateEv": ["int", "address"],
+    "ritual_ZNK17QPaintEngineState3penEv": ["address", "address"],
+    "ritual_ZNK17QPaintEngineState5brushEv": ["address", "address"],
+    "ritual_ZNK17QPaintEngineState11brushOriginEv": ["address", "address"],
+    "ritual_ZNK17QPaintEngineState15backgroundBrushEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QPaintEngineState14backgroundModeEv": ["int", "address"],
+    "ritual_ZNK17QPaintEngineState4fontEv": ["address", "address"],
+    "ritual_ZNK17QPaintEngineState9transformEv": ["address", "address"],
+    "ritual_ZNK17QPaintEngineState13clipOperationEv": ["int", "address"],
+    "ritual_ZNK17QPaintEngineState10clipRegionEv": ["address", "address"],
+    "ritual_ZNK17QPaintEngineState8clipPathEv": ["address", "address"],
+    "ritual_ZNK17QPaintEngineState13isClipEnabledEv": ["bool", "address"],
+    "ritual_ZNK17QPaintEngineState11renderHintsEv": ["int", "address"],
+    "ritual_ZNK17QPaintEngineState15compositionModeEv": ["int", "address"],
+    "ritual_ZNK17QPaintEngineState7opacityEv": ["double", "address"],
+    "ritual_ZNK17QPaintEngineState7painterEv": ["address", "address"],
+    "ritual_ZNK17QPaintEngineState19brushNeedsResolvingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QPaintEngineState17penNeedsResolvingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QPaintEngineStateD1Ev": ["nothing", "address"]
+  }
+}

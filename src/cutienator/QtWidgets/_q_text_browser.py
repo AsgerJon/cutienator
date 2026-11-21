@@ -11,17 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import QMetaObject
-from ..QtGui import QTextDocument
-from ._q_text_edit import QTextEdit
-from ..QtCore import QUrl
-from ..QtCore import QVariant
-from ._q_widget import QWidget
+from ..QtGui import QTextDocumentResourceType
+from . import QTextEdit, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QUrl, QVariant
+  from ..QtGui import QTextDocument
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QUrl = WAIT['QUrl']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -158,6 +162,7 @@ class QTextBrowser(QTextEdit):
     """
     #  const QMetaObject *QTextBrowser::metaObject() const
     address = self.uglySide.call('ritual_ZNK12QTextBrowser10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def source(self) -> QUrl:
@@ -174,6 +179,7 @@ class QTextBrowser(QTextEdit):
     """
     #  QUrl QTextBrowser::source() const
     address = self.uglySide.call('ritual_ZNK12QTextBrowser6sourceEv')
+    from ..QtCore import QUrl
     return QUrl._cuteOwning(address)
 
   def sourceType(self) -> QTextDocument.ResourceType:
@@ -192,7 +198,7 @@ class QTextBrowser(QTextEdit):
       'QTextDocument.ResourceType(number)' gives.
     """
     #  QTextDocument::ResourceType QTextBrowser::sourceType() const
-    return QTextDocument.ResourceType(self.uglySide.call(
+    return QTextDocumentResourceType(self.uglySide.call(
         'ritual_ZNK12QTextBrowser10sourceTypeEv',
     ))
 
@@ -265,6 +271,7 @@ class QTextBrowser(QTextEdit):
     address = self.uglySide.call(
         'ritual_ZNK12QTextBrowser10historyUrlEi', a0,
     )
+    from ..QtCore import QUrl
     return QUrl._cuteOwning(address)
 
   def backwardHistoryCount(self) -> int:
@@ -352,12 +359,12 @@ class QTextBrowser(QTextEdit):
     self.uglySide.call('ritual_ZN12QTextBrowser12setOpenLinksEb', open)
 
   @overload(QUrl)
-  @overload(QUrl, QTextDocument.ResourceType)
+  @overload(QUrl, QTextDocumentResourceType)
   def setSource(
       self,
       name: QUrl,
       type: QTextDocument.ResourceType = (
-          QTextDocument.ResourceType.UnknownResource),
+          QTextDocumentResourceType.UnknownResource),
   ) -> None:
     """
     Calls Qt's 'void QTextBrowser::setSource(const QUrl &name,
@@ -373,7 +380,7 @@ class QTextBrowser(QTextEdit):
 
     type : QTextDocument.ResourceType
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocument.ResourceType.UnknownResource.
+      QTextDocumentResourceType.UnknownResource.
     """
     #  void QTextBrowser::setSource(const QUrl &name,
     #      QTextDocument::ResourceType type)
@@ -465,6 +472,7 @@ class QTextBrowser(QTextEdit):
         'ritual_ZN12QTextBrowser12loadResourceEiRK4QUrl',
         type, self._valueOf(name),
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   def clearHistory(self) -> None:

@@ -11,9 +11,17 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
-from ._q_gradient import QGradient
-from ..QtCore import QPointF
+from . import QGradient
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QPointF
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPointF = WAIT['QPointF']
 
 
 class QLinearGradient(QGradient):
@@ -98,6 +106,7 @@ class QLinearGradient(QGradient):
     """
     #  QPointF QLinearGradient::start() const
     address = self.uglySide.call('ritual_ZNK15QLinearGradient5startEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def finalStop(self) -> QPointF:
@@ -114,6 +123,7 @@ class QLinearGradient(QGradient):
     """
     #  QPointF QLinearGradient::finalStop() const
     address = self.uglySide.call('ritual_ZNK15QLinearGradient9finalStopEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

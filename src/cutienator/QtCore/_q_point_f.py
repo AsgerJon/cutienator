@@ -12,9 +12,16 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._q_point import QPoint
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QPoint
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPoint = WAIT['QPoint']
 
 
 class QPointF(CuteMixin, metaclass=MetaCute):
@@ -179,6 +186,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     """
     #  QPoint QPointF::toPoint() const
     address = self.uglySide.call('ritual_ZNK7QPointF7toPointEv')
+    from . import QPoint
     return QPoint._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

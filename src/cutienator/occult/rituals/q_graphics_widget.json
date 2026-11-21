@@ -1,0 +1,139 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicswidget.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QGraphicsWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGraphicsWidget2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QGraphicsWidgetC1EP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QGraphicsWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QGraphicsWidget6layoutEv": ["address", "address"],
+    "ritual_ZN15QGraphicsWidget9setLayoutEP15QGraphicsLayout": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGraphicsWidget10adjustSizeEv": ["nothing", "address"],
+    "ritual_ZNK15QGraphicsWidget15layoutDirectionEv": ["int", "address"],
+    "ritual_ZN15QGraphicsWidget18setLayoutDirectionEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QGraphicsWidget20unsetLayoutDirectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QGraphicsWidget5styleEv": ["address", "address"],
+    "ritual_ZN15QGraphicsWidget8setStyleEP6QStyle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QGraphicsWidget4fontEv": ["address", "address"],
+    "ritual_ZN15QGraphicsWidget7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QGraphicsWidget7paletteEv": ["address", "address"],
+    "ritual_ZN15QGraphicsWidget10setPaletteERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QGraphicsWidget18autoFillBackgroundEv": ["bool", "address"],
+    "ritual_ZN15QGraphicsWidget21setAutoFillBackgroundEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QGraphicsWidget6resizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGraphicsWidget6resizeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK15QGraphicsWidget4sizeEv": ["address", "address"],
+    "ritual_ZN15QGraphicsWidget11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGraphicsWidget11setGeometryEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK15QGraphicsWidget4rectEv": ["address", "address"],
+    "ritual_ZN15QGraphicsWidget18setContentsMarginsEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN15QGraphicsWidget18setContentsMarginsE9QMarginsF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QGraphicsWidget18getContentsMarginsEPdS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QGraphicsWidget21setWindowFrameMarginsEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN15QGraphicsWidget21setWindowFrameMarginsE9QMarginsF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QGraphicsWidget21getWindowFrameMarginsEPdS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QGraphicsWidget23unsetWindowFrameMarginsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QGraphicsWidget19windowFrameGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QGraphicsWidget15windowFrameRectEv": ["address", "address"],
+    "ritual_ZNK15QGraphicsWidget11windowFlagsEv": ["int", "address"],
+    "ritual_ZNK15QGraphicsWidget10windowTypeEv": ["int", "address"],
+    "ritual_ZN15QGraphicsWidget14setWindowFlagsE6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QGraphicsWidget14isActiveWindowEv": ["bool", "address"],
+    "ritual_ZN15QGraphicsWidget14setWindowTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QGraphicsWidget11windowTitleEv": ["text", "address"],
+    "ritual_ZNK15QGraphicsWidget11focusPolicyEv": ["int", "address"],
+    "ritual_ZN15QGraphicsWidget14setFocusPolicyEN2Qt11FocusPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QGraphicsWidget11setTabOrderEPS_S0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QGraphicsWidget11focusWidgetEv": ["address", "address"],
+    "ritual_ZN15QGraphicsWidget12grabShortcutERK12QKeySequenceN2Qt15ShortcutContextE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN15QGraphicsWidget15releaseShortcutEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QGraphicsWidget18setShortcutEnabledEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN15QGraphicsWidget21setShortcutAutoRepeatEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN15QGraphicsWidget9addActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGraphicsWidget12insertActionEP7QActionS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QGraphicsWidget12removeActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGraphicsWidget12setAttributeEN2Qt15WidgetAttributeEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK15QGraphicsWidget13testAttributeEN2Qt15WidgetAttributeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK15QGraphicsWidget4typeEv": ["int", "address"],
+    "ritual_ZN15QGraphicsWidget5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QGraphicsWidget16paintWindowFrameEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK15QGraphicsWidget12boundingRectEv": ["address", "address"],
+    "ritual_ZNK15QGraphicsWidget5shapeEv": ["address", "address"],
+    "ritual_ZN15QGraphicsWidget5closeEv": ["bool", "address"]
+  }
+}

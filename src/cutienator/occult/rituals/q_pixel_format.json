@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpixelformat.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QPixelFormatC1Ev": ["address"],
+    "ritual_ZN12QPixelFormatC1ENS_10ColorModelEhhhhhhNS_10AlphaUsageENS_13AlphaPositionENS_18AlphaPremultipliedENS_18TypeInterpretationENS_9ByteOrderEh": [
+      "address", "int", "unsigned char", "unsigned char", "unsigned char",
+      "unsigned char", "unsigned char", "unsigned char", "int", "int", "int",
+      "int", "int", "unsigned char"
+    ],
+    "ritual_ZNK12QPixelFormat10colorModelEv": ["int", "address"],
+    "ritual_ZNK12QPixelFormat12channelCountEv": ["unsigned char", "address"],
+    "ritual_ZNK12QPixelFormat7redSizeEv": ["unsigned char", "address"],
+    "ritual_ZNK12QPixelFormat9greenSizeEv": ["unsigned char", "address"],
+    "ritual_ZNK12QPixelFormat8blueSizeEv": ["unsigned char", "address"],
+    "ritual_ZNK12QPixelFormat8cyanSizeEv": ["unsigned char", "address"],
+    "ritual_ZNK12QPixelFormat11magentaSizeEv": ["unsigned char", "address"],
+    "ritual_ZNK12QPixelFormat10yellowSizeEv": ["unsigned char", "address"],
+    "ritual_ZNK12QPixelFormat9blackSizeEv": ["unsigned char", "address"],
+    "ritual_ZNK12QPixelFormat7hueSizeEv": ["unsigned char", "address"],
+    "ritual_ZNK12QPixelFormat14saturationSizeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK12QPixelFormat13lightnessSizeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK12QPixelFormat14brightnessSizeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK12QPixelFormat9alphaSizeEv": ["unsigned char", "address"],
+    "ritual_ZNK12QPixelFormat12bitsPerPixelEv": ["unsigned char", "address"],
+    "ritual_ZNK12QPixelFormat10alphaUsageEv": ["int", "address"],
+    "ritual_ZNK12QPixelFormat13alphaPositionEv": ["int", "address"],
+    "ritual_ZNK12QPixelFormat13premultipliedEv": ["int", "address"],
+    "ritual_ZNK12QPixelFormat18typeInterpretationEv": ["int", "address"],
+    "ritual_ZNK12QPixelFormat9byteOrderEv": ["int", "address"],
+    "ritual_ZNK12QPixelFormat9yuvLayoutEv": ["int", "address"],
+    "ritual_ZNK12QPixelFormat7subEnumEv": ["unsigned char", "address"],
+    "ritual_ZN12QPixelFormatD1Ev": ["nothing", "address"]
+  }
+}

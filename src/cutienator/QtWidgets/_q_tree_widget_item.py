@@ -12,20 +12,27 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QBrush
-from ..QtGui import QFont
-from ..QtGui import QIcon
-from ..QtCore import QSize
-from ._q_tree_widget import QTreeWidget
-from ..QtCore import QVariant
-from ._q_tree_widget_item_child_indicator_policy import ChildIndicatorPolicy
-from ._q_tree_widget_item_item_type import ItemType
+from . import QTreeWidgetItemChildIndicatorPolicy, QTreeWidgetItemItemType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QSize, QVariant
+  from ..QtGui import QBrush, QFont, QIcon
+  from . import QTreeWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBrush = WAIT['QBrush']
+  QFont = WAIT['QFont']
+  QIcon = WAIT['QIcon']
+  QSize = WAIT['QSize']
+  QTreeWidget = WAIT['QTreeWidget']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -95,8 +102,8 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QTreeWidgetItem, and the names Qt has for the
   #  combinations of its flags enums.
-  ChildIndicatorPolicy = ChildIndicatorPolicy
-  ItemType = ItemType
+  ChildIndicatorPolicy = QTreeWidgetItemChildIndicatorPolicy
+  ItemType = QTreeWidgetItemItemType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -159,6 +166,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QTreeWidget *QTreeWidgetItem::treeWidget() const
     address = self.uglySide.call('ritual_ZNK15QTreeWidgetItem10treeWidgetEv')
+    from . import QTreeWidget
     return QTreeWidget._cuteAt(address)
 
   def isSelected(self) -> bool:
@@ -227,7 +235,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QTreeWidgetItem::ChildIndicatorPolicy
     #      QTreeWidgetItem::childIndicatorPolicy() const
-    return ChildIndicatorPolicy(self.uglySide.call(
+    return QTreeWidgetItem.ChildIndicatorPolicy(self.uglySide.call(
         'ritual_ZNK15QTreeWidgetItem20childIndicatorPolicyEv',
     ))
 
@@ -293,6 +301,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK15QTreeWidgetItem4iconEi', column,
     )
+    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
   @overload(int)
@@ -390,6 +399,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK15QTreeWidgetItem4fontEi', column,
     )
+    from ..QtGui import QFont
     return QFont._cuteOwning(address)
 
   @overload(int)
@@ -433,6 +443,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK15QTreeWidgetItem10backgroundEi', column,
     )
+    from ..QtGui import QBrush
     return QBrush._cuteOwning(address)
 
   @overload(int)
@@ -458,6 +469,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK15QTreeWidgetItem10foregroundEi', column,
     )
+    from ..QtGui import QBrush
     return QBrush._cuteOwning(address)
 
   @overload(int)
@@ -510,6 +522,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK15QTreeWidgetItem8sizeHintEi', column,
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(int, int)
@@ -538,6 +551,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK15QTreeWidgetItem4dataEii', column, role,
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   def parent(self) -> Optional[QTreeWidgetItem]:

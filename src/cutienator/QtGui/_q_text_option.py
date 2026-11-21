@@ -15,9 +15,7 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_text_option_flag import Flag
-from ._q_text_option_tab_type import TabType
-from ._q_text_option_wrap_mode import WrapMode
+from . import QTextOptionFlag, QTextOptionTabType, QTextOptionWrapMode
 
 
 class QTextOption(CuteMixin, metaclass=MetaCute):
@@ -66,10 +64,10 @@ class QTextOption(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QTextOption, and the names Qt has for the
   #  combinations of its flags enums.
-  Flag = Flag
-  Flags = Flag
-  TabType = TabType
-  WrapMode = WrapMode
+  Flag = QTextOptionFlag
+  Flags = QTextOptionFlag
+  TabType = QTextOptionTabType
+  WrapMode = QTextOptionWrapMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -149,7 +147,9 @@ class QTextOption(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'WrapMode(number)' gives.
     """
     #  WrapMode QTextOption::wrapMode() const
-    return WrapMode(self.uglySide.call('ritual_ZNK11QTextOption8wrapModeEv'))
+    return QTextOption.WrapMode(self.uglySide.call(
+        'ritual_ZNK11QTextOption8wrapModeEv',
+    ))
 
   def flags(self) -> Flags:
     """

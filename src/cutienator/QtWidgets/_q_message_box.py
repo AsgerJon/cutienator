@@ -11,24 +11,26 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_abstract_button import QAbstractButton
-from ._q_check_box import QCheckBox
-from ._q_dialog import QDialog
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ..QtGui import QPixmap
-from ._q_push_button import QPushButton
-from ._q_widget import QWidget
-from ._q_message_box_button_role import ButtonRole
-from ._q_message_box_icon import Icon
-from ._q_message_box_option import Option
-from ._q_message_box_standard_button import StandardButton
+from ..QtCore import Qt, QObject
+from . import QDialog, QMessageBoxButtonRole, QMessageBoxIcon
+from . import QMessageBoxOption, QMessageBoxStandardButton, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject
+  from ..QtGui import QPixmap
+  from . import QAbstractButton, QCheckBox, QPushButton
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractButton = WAIT['QAbstractButton']
+  QCheckBox = WAIT['QCheckBox']
+  QPixmap = WAIT['QPixmap']
+  QPushButton = WAIT['QPushButton']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -112,12 +114,12 @@ class QMessageBox(QDialog):
 
   #  The enums Qt writes inside QMessageBox, and the names Qt has for the
   #  combinations of its flags enums.
-  ButtonRole = ButtonRole
-  Icon = Icon
-  Option = Option
-  Options = Option
-  StandardButton = StandardButton
-  StandardButtons = StandardButton
+  ButtonRole = QMessageBoxButtonRole
+  Icon = QMessageBoxIcon
+  Option = QMessageBoxOption
+  Options = QMessageBoxOption
+  StandardButton = QMessageBoxStandardButton
+  StandardButtons = QMessageBoxStandardButton
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -219,7 +221,7 @@ class QMessageBox(QDialog):
     #  StandardButton QMessageBox::information(QWidget *parent, const QString
     #      &title, const QString &text, StandardButtons buttons,
     #      StandardButton defaultButton)
-    return StandardButton(Rituals.call(
+    return QMessageBox.StandardButton(Rituals.call(
         'ritual_ZN11QMessageBox11informationEP7QWidgetRK7QStringS4_6QFlagsI'
         'NS_14StandardButtonEES6_',
         CuteMixin._addressOf(parent), title, text, buttons.value,
@@ -396,7 +398,7 @@ class QMessageBox(QDialog):
     #  StandardButton QMessageBox::question(QWidget *parent, const QString
     #      &title, const QString &text, StandardButtons buttons,
     #      StandardButton defaultButton)
-    return StandardButton(Rituals.call(
+    return QMessageBox.StandardButton(Rituals.call(
         'ritual_ZN11QMessageBox8questionEP7QWidgetRK7QStringS4_6QFlagsINS_1'
         '4StandardButtonEES6_',
         CuteMixin._addressOf(parent), title, text, buttons.value,
@@ -575,7 +577,7 @@ class QMessageBox(QDialog):
     #  StandardButton QMessageBox::warning(QWidget *parent, const QString
     #      &title, const QString &text, StandardButtons buttons,
     #      StandardButton defaultButton)
-    return StandardButton(Rituals.call(
+    return QMessageBox.StandardButton(Rituals.call(
         'ritual_ZN11QMessageBox7warningEP7QWidgetRK7QStringS4_6QFlagsINS_14'
         'StandardButtonEES6_',
         CuteMixin._addressOf(parent), title, text, buttons.value,
@@ -752,7 +754,7 @@ class QMessageBox(QDialog):
     #  StandardButton QMessageBox::critical(QWidget *parent, const QString
     #      &title, const QString &text, StandardButtons buttons,
     #      StandardButton defaultButton)
-    return StandardButton(Rituals.call(
+    return QMessageBox.StandardButton(Rituals.call(
         'ritual_ZN11QMessageBox8criticalEP7QWidgetRK7QStringS4_6QFlagsINS_1'
         '4StandardButtonEES6_',
         CuteMixin._addressOf(parent), title, text, buttons.value,
@@ -959,6 +961,7 @@ class QMessageBox(QDialog):
     address = Rituals.call(
         'ritual_ZN11QMessageBox12standardIconENS_4IconE', icon.value,
     )
+    from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -996,6 +999,7 @@ class QMessageBox(QDialog):
     """
     #  const QMetaObject *QMessageBox::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QMessageBox10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   @overload(QAbstractButton)
@@ -1023,7 +1027,7 @@ class QMessageBox(QDialog):
       gives.
     """
     #  ButtonRole QMessageBox::buttonRole(QAbstractButton *button) const
-    return ButtonRole(self.uglySide.call(
+    return QMessageBox.ButtonRole(self.uglySide.call(
         'ritual_ZNK11QMessageBox10buttonRoleEP15QAbstractButton',
         self._addressOf(button),
     ))
@@ -1074,7 +1078,7 @@ class QMessageBox(QDialog):
     """
     #  StandardButton QMessageBox::standardButton(QAbstractButton *button)
     #      const
-    return StandardButton(self.uglySide.call(
+    return QMessageBox.StandardButton(self.uglySide.call(
         'ritual_ZNK11QMessageBox14standardButtonEP15QAbstractButton',
         self._addressOf(button),
     ))
@@ -1104,6 +1108,7 @@ class QMessageBox(QDialog):
     address = self.uglySide.call(
         'ritual_ZNK11QMessageBox6buttonENS_14StandardButtonE', which.value,
     )
+    from . import QAbstractButton
     return QAbstractButton._cuteAt(address)
 
   def defaultButton(self) -> Optional[QPushButton]:
@@ -1121,6 +1126,7 @@ class QMessageBox(QDialog):
     """
     #  QPushButton *QMessageBox::defaultButton() const
     address = self.uglySide.call('ritual_ZNK11QMessageBox13defaultButtonEv')
+    from . import QPushButton
     return QPushButton._cuteAt(address)
 
   def escapeButton(self) -> Optional[QAbstractButton]:
@@ -1138,6 +1144,7 @@ class QMessageBox(QDialog):
     """
     #  QAbstractButton *QMessageBox::escapeButton() const
     address = self.uglySide.call('ritual_ZNK11QMessageBox12escapeButtonEv')
+    from . import QAbstractButton
     return QAbstractButton._cuteAt(address)
 
   def clickedButton(self) -> Optional[QAbstractButton]:
@@ -1155,6 +1162,7 @@ class QMessageBox(QDialog):
     """
     #  QAbstractButton *QMessageBox::clickedButton() const
     address = self.uglySide.call('ritual_ZNK11QMessageBox13clickedButtonEv')
+    from . import QAbstractButton
     return QAbstractButton._cuteAt(address)
 
   def text(self) -> str:
@@ -1186,7 +1194,9 @@ class QMessageBox(QDialog):
       no name it is the member without a name that 'Icon(number)' gives.
     """
     #  Icon QMessageBox::icon() const
-    return Icon(self.uglySide.call('ritual_ZNK11QMessageBox4iconEv'))
+    return QMessageBox.Icon(self.uglySide.call(
+        'ritual_ZNK11QMessageBox4iconEv',
+    ))
 
   def iconPixmap(self) -> QPixmap:
     """
@@ -1202,6 +1212,7 @@ class QMessageBox(QDialog):
     """
     #  QPixmap QMessageBox::iconPixmap() const
     address = self.uglySide.call('ritual_ZNK11QMessageBox10iconPixmapEv')
+    from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
 
   def textFormat(self) -> Qt.TextFormat:
@@ -1257,6 +1268,7 @@ class QMessageBox(QDialog):
     """
     #  QCheckBox *QMessageBox::checkBox() const
     address = self.uglySide.call('ritual_ZNK11QMessageBox8checkBoxEv')
+    from . import QCheckBox
     return QCheckBox._cuteAt(address)
 
   @overload(Option)
@@ -1930,6 +1942,7 @@ class QMessageBox(QDialog):
         'ritual_ZN11QMessageBox9addButtonERK7QStringNS_10ButtonRoleE',
         text, role.value,
     )
+    from . import QPushButton
     return QPushButton._cuteAt(address)
 
   @overload(StandardButton)
@@ -1957,6 +1970,7 @@ class QMessageBox(QDialog):
         'ritual_ZN11QMessageBox9addButtonENS_14StandardButtonE',
         button.value,
     )
+    from . import QPushButton
     return QPushButton._cuteAt(address)
 
   @overload(QAbstractButton)

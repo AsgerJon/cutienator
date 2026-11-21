@@ -16,12 +16,13 @@ from worktoy.waitaminute.dispatch import DispatchException
 from worktoy.waitaminute.meta import OverloadConflict, ReboundOverload
 
 from . import DoorNumber, CuteFlags, CuteNum
-from . import WAIT, WaitingOverload, CuteOverload, CuteLoadHook
+from . import WAIT, WaitingOverload, WaitingSignature
+from . import CuteOverload, CuteLoadHook
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Callable, Dict, List, Optional, Tuple
 
-  WaitingItem = Tuple[str, WaitingOverload]
+  WaitingItem = Tuple[str, WaitingSignature]
 
 
 class CuteSpace(BaseSpace):
@@ -36,7 +37,7 @@ class CuteSpace(BaseSpace):
   it, the class body runs in it, and it stays with the class:
 
     space = QObject.getNamespace()     # the 'CuteSpace' of 'QObject'
-    space.getWaitingOverloads()        # what of its body still waits
+    space.getWaitingSignatures()        # what of its body still waits
 
   Terms
   -----
@@ -64,13 +65,16 @@ class CuteSpace(BaseSpace):
      imported, so this stays the only one.
 
   2. The body binds a name to a 'WaitingOverload', which is what
-     'CuteOverload' gives for a waiting signature. '__setitem__' takes
-     it where worktoy takes an overload of its own. The hooks ahead of
-     the one that gathers overloads are asked first, and they refuse
-     what they refuse of any binding, as '__del__' or a misspelled
-     dunder. Then it is kept in 'getWaitingOverloads' and is not
-     stored in the class. Every other binding goes to 'BaseSpace' as
-     it is.
+     'CuteOverload' gives for a stack of '@overload' decorators with a
+     waiting signature among them. '__setitem__' takes it where worktoy
+     takes an overload of its own. The hooks ahead of the one that
+     gathers overloads are asked first, and they refuse what they
+     refuse of any binding, as '__del__' or a misspelled dunder. Then
+     each signature of the stack that names no late class is put on
+     record, as worktoy would have put it, and each of the others is
+     kept in 'getWaitingSignatures', as a 'WaitingSignature'. The
+     'WaitingOverload' itself is not stored in the class. Every other
+     binding goes to 'BaseSpace' as it is.
 
      It cannot be left to the hook that gathers overloads. That hook
      would note a 'WaitingOverload' down as a plain definition of the
@@ -93,6 +97,14 @@ class CuteSpace(BaseSpace):
     name of its late class, as the line 'QThread = WAIT['QThread']'
     would. Written twice, or beside that line, it is one and the same
     'WAIT'.
+  - A 'WAIT' no class body binds yet, as one bound at the top of a
+    file, is bound in the body of the first class that names it in a
+    signature, and serves that class alone. The class files the dev
+    tooling writes name their late classes that way.
+  - A waiting signature may share its function with other
+    '@overload(...)' signatures, waiting or not, in one stack of
+    decorators. Those that do not wait work from the start, and each
+    of the others comes back at the place it was written in.
   - A signature naming the 'WAIT' of another class, as
     'QObject.QThread' in the body of a class built on 'QObject', is
     refused with 'TypeError' on that line: no class would settle it,
@@ -132,8 +144,8 @@ class CuteSpace(BaseSpace):
 
   @staticmethod
   def _isOneSignature(
-      first: WaitingOverload,
-      other: WaitingOverload,
+      first: WaitingSignature,
+      other: WaitingSignature,
   ) -> bool:
     """
     Says whether two waiting signatures will be one and the same
@@ -143,10 +155,10 @@ class CuteSpace(BaseSpace):
     Parameters
     ----------
 
-    first : WaitingOverload
+    first : WaitingSignature
       One waiting signature.
 
-    other : WaitingOverload
+    other : WaitingSignature
       Another, written at the same name.
     """
     firstEntries = first.getSignatureEntries()
@@ -179,10 +191,14 @@ class CuteSpace(BaseSpace):
   __waiting_overloads__: Optional[List[WaitingItem]] = None
   #  For each overloaded name of this body, everything written at it in
   #  order: a worktoy signature for one that is on record, the
-  #  'WaitingOverload' itself for one that still waits.
+  #  'WaitingSignature' itself for one that still waits.
   __declared_signatures__: Optional[Dict[str, List[Any]]] = None
   #  The class the body became, once it is made; see 'setCuteClass'.
   __cute_class__: Optional[type] = None
+  #  For each overloaded name asked about so far, the namespaces of the
+  #  classes this one inherits overloads of that name from; see
+  #  '_getInheritedSpaces'.
+  __inherited_spaces__: Optional[Dict[str, List[Any]]] = None
 
   #  Public Variables
 
@@ -210,12 +226,12 @@ class CuteSpace(BaseSpace):
     return self.__cute_class__
 
   def _getWaitingList(self) -> List[WaitingItem]:
-    """Gives the list behind 'getWaitingOverloads', making it if need be."""
+    """Gives the list behind 'getWaitingSignatures', making it if need be."""
     if self.__waiting_overloads__ is None:
       self.__waiting_overloads__ = []
     return self.__waiting_overloads__
 
-  def getWaitingOverloads(self) -> Tuple[WaitingItem, ...]:
+  def getWaitingSignatures(self) -> Tuple[WaitingItem, ...]:
     """
     Gives the waiting signatures of this body that still wait, in the
     order they were written.
@@ -227,9 +243,9 @@ class CuteSpace(BaseSpace):
     -------
 
     Tuple[WaitingItem, ...]
-      A 'Tuple[Tuple[str, WaitingOverload], ...]': the name the
+      A 'Tuple[Tuple[str, WaitingSignature], ...]': the name the
       signature was written at, as 'moveToThread', and the
-      'WaitingOverload' holding its entries and its function. It is
+      'WaitingSignature' holding its entries and its function. It is
       empty for a body that waits for nothing, and again once every
       late class of the body is made.
     """
@@ -239,7 +255,7 @@ class CuteSpace(BaseSpace):
     """
     Gives everything this body wrote at one overloaded name, in the
     order it was written: a worktoy signature for each one that is on
-    record, and the 'WaitingOverload' itself for each one that still
+    record, and the 'WaitingSignature' itself for each one that still
     waits. The list is the one kept, so changing it changes the note.
     """
     if self.__declared_signatures__ is None:
@@ -462,12 +478,15 @@ class CuteSpace(BaseSpace):
     'staticmethod' around it, is taken where worktoy takes an overload
     of its own. The hooks ahead of the one that gathers overloads are
     asked first, in their order, and refuse what they refuse of any
-    binding. A 'WAIT' the signature names that no line of the body
-    binds is bound first, at the name of its late class. Then the
-    'WaitingOverload' is kept in 'getWaitingOverloads' and goes no
-    further: it is not stored in the class. Everything else goes to
-    'BaseSpace' as it is, and the signatures worktoy puts on record
-    for it are noted in the order of the body.
+    binding. Then each signature of its stack is taken in the order it
+    was written. A 'WAIT' it names that no line of the body binds is
+    bound first, at the name of its late class. A signature naming no
+    late class is put on record through 'addOverload'. One naming a
+    late class is kept in 'getWaitingSignatures', as a
+    'WaitingSignature'. The 'WaitingOverload' goes no further: it is
+    not stored in the class. Everything else goes to 'BaseSpace' as it
+    is, and the signatures worktoy puts on record for it are noted in
+    the order of the body.
 
     Parameters
     ----------
@@ -507,7 +526,9 @@ class CuteSpace(BaseSpace):
     DuplicateSignature
       A waiting signature is written at a name that already has the
       same waiting signature for another function. Once the late class
-      is made the two would be one signature.
+      is made the two would be one signature. Or a signature of the
+      stack that names no late class is on record at the name for
+      another function already.
     """
     methodKinds, bound = overload.peelMethodKinds(val)
     if not isinstance(bound, WaitingOverload):
@@ -543,28 +564,43 @@ class CuteSpace(BaseSpace):
     methodKinds = (*methodKinds, *bound.getMethodKinds())
     methodKind = overload.agreeMethodKind(methodKinds, key, className)
     self.addMethodKind(key, methodKind)
-    #  Every 'WAIT' the signature names becomes the one this body binds
-    #  for that late class. One written right into the signature is bound
-    #  here, by this very method.
-    entries = []
-    for entry in bound.getSignatureEntries():
-      if isinstance(entry, WAIT):
-        entry = self._getOwnWait(key, entry)
-      entries.append(entry)
-    bound.setSignatureEntries(*entries)
-    #  Two functions at what will be one signature are refused here, on
-    #  the line of the second, as worktoy refuses them for an overload
-    #  of its own. One function written there twice is taken once.
-    for heldName, held in self._getWaitingList():
-      if heldName != key or not self._isOneSignature(held, bound):
+    #  Each signature of the stack is taken in the order it was written.
+    #  One naming no late class goes on record at once, as worktoy would
+    #  have put it. One naming a late class is kept until that class is
+    #  made.
+    function = bound.getFunction()
+    for written in bound.getSignatures():
+      #  Every 'WAIT' the signature names becomes the one this body
+      #  binds for that late class. One no line of the body binds is
+      #  bound here, by this very method.
+      entries = []
+      for entry in written:
+        if isinstance(entry, WAIT):
+          entry = self._getOwnWait(key, entry)
+        entries.append(entry)
+      if not any(isinstance(entry, WAIT) for entry in entries):
+        before = len(self.getOverloads().get(key, []))
+        self.addOverload(key, TypeSig(*entries), function)
+        for signature, _ in self.getOverloads().get(key, [])[before:]:
+          self._getDeclaredSignatures(key).append(signature)
         continue
-      heldFunction, function = held.getFunction(), bound.getFunction()
-      if heldFunction is function:
-        return
-      raise DuplicateSignature(held, heldFunction, function)
+      waiting = WaitingSignature()
+      waiting.setSignatureEntries(*entries)
+      waiting.setFunction(function)
+      #  Two functions at what will be one signature are refused here,
+      #  on the line of the second, as worktoy refuses them for an
+      #  overload of its own. One function written there twice is taken
+      #  once.
+      for heldName, held in self._getWaitingList():
+        if heldName != key or not self._isOneSignature(held, waiting):
+          continue
+        if held.getFunction() is function:
+          break
+        raise DuplicateSignature(held, held.getFunction(), function)
+      else:
+        self._getWaitingList().append((key, waiting))
+        self._getDeclaredSignatures(key).append(waiting)
     self.addClaimedName(bound, key)
-    self._getWaitingList().append((key, bound))
-    self._getDeclaredSignatures(key).append(bound)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -632,6 +668,44 @@ class CuteSpace(BaseSpace):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def _getInheritedSpaces(self, name: str) -> List[Any]:
+    """
+    Gives the namespaces of the classes this one inherits overloads of
+    a name from, as worktoy works them out, and keeps the answer.
+
+    worktoy asks this each time it gathers something for the dispatcher
+    of a name: its signatures of three kinds, its fallback, its
+    finalizer and its kind of method, and the door asks three times
+    more. Each asking walks every class this one is built on. A cute
+    class has hundreds of overloaded names and is built on several
+    classes, so the walk is done once for each name and the answer is
+    kept. It cannot change while the namespace lives: it follows from
+    the classes the body is built on, and from the kind of method the
+    body gave the name, and both are fixed when the body has ended,
+    which is before worktoy first asks.
+
+    Parameters
+    ----------
+
+    name : str
+      The overloaded name.
+
+    Returns
+    -------
+
+    List[Any]
+      The namespaces, in the order worktoy gives them. It is the list
+      that is kept, so it is not to be changed.
+    """
+    if self.__inherited_spaces__ is None:
+      self.__inherited_spaces__ = dict()
+    try:
+      return self.__inherited_spaces__[name]
+    except KeyError:
+      spaces = BaseSpace._getInheritedSpaces(self, name)
+      self.__inherited_spaces__[name] = spaces
+      return spaces
 
   def hasOverloads(self, name: str) -> bool:
     """
@@ -725,9 +799,9 @@ class CuteSpace(BaseSpace):
     """
     namespace = BaseSpace.postCompile(self, namespace)
     className = self.getClassName()
-    for methodName, waitingOverload in self.getWaitingOverloads():
+    for methodName, waitingSignature in self.getWaitingSignatures():
       entries = []
-      for entry in waitingOverload.getSignatureEntries():
+      for entry in waitingSignature.getSignatureEntries():
         if isinstance(entry, WAIT):
           ownWait = self._findOwnWait(entry)
           if ownWait is None:
@@ -739,7 +813,7 @@ class CuteSpace(BaseSpace):
             raise TypeError(' '.join(info.split()))
           entry = ownWait
         entries.append(entry)
-      waitingOverload.setSignatureEntries(*entries)
+      waitingSignature.setSignatureEntries(*entries)
     return namespace
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -761,8 +835,8 @@ class CuteSpace(BaseSpace):
     self.__overload_map__ = {n: [*pairs] for n, pairs in onRecord.items()}
     self.__waiting_overloads__ = [*records['waitingList']]
     self.__declared_signatures__ = {n: [*w] for n, w in declared.items()}
-    for waitingOverload, entries in records['entries']:
-      waitingOverload.setSignatureEntries(*entries)
+    for waitingSignature, entries in records['entries']:
+      waitingSignature.setSignatureEntries(*entries)
 
   def nameLateClass(self, wait: WAIT, lateClass: type) -> Tuple[str, ...]:
     """
@@ -774,7 +848,7 @@ class CuteSpace(BaseSpace):
     signature the 'WAIT' is replaced by the class. A signature with no
     'WAIT' left is put on record through 'BaseSpace.addOverload', at
     the place it was written in, and waits no more. One still naming
-    another late class stays among 'getWaitingOverloads'.
+    another late class stays among 'getWaitingSignatures'.
 
     Nothing is built here. The dispatchers of the names given back are
     out of date from this moment on, and 'MetaCute' builds them again.
@@ -826,21 +900,21 @@ class CuteSpace(BaseSpace):
     it was when this raises half way.
     """
     methodNames = []  # type: List[str]
-    for waitingItem in self.getWaitingOverloads():
-      methodName, waitingOverload = waitingItem
-      entries = waitingOverload.getSignatureEntries()
+    for waitingItem in self.getWaitingSignatures():
+      methodName, waitingSignature = waitingItem
+      entries = waitingSignature.getSignatureEntries()
       if not any(entry is wait for entry in entries):
         continue
       entries = (*(lateClass if e is wait else e for e in entries),)
-      waitingOverload.setSignatureEntries(*entries)
+      waitingSignature.setSignatureEntries(*entries)
       if any(isinstance(entry, WAIT) for entry in entries):
         continue
       self._getWaitingList().remove(waitingItem)
       signature = TypeSig(*entries)
       before = len(self.getOverloads().get(methodName, []))
-      self.addOverload(methodName, signature, waitingOverload.getFunction())
+      self.addOverload(methodName, signature, waitingSignature.getFunction())
       declared = self._getDeclaredSignatures(methodName)
-      written = declared.index(waitingOverload)
+      written = declared.index(waitingSignature)
       onRecord = self.getOverloads()[methodName]
       if len(onRecord) == before:
         #  worktoy had the same signature for the same function already,

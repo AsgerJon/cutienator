@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qregularexpression.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN23QRegularExpressionMatchC1Ev": ["address"],
+    "ritual_ZN23QRegularExpressionMatchD1Ev": ["nothing", "address"],
+    "ritual_ZN23QRegularExpressionMatchC1ERKS_": ["address", "address"],
+    "ritual_ZNK23QRegularExpressionMatch17regularExpressionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch9matchTypeEv": ["int", "address"],
+    "ritual_ZNK23QRegularExpressionMatch12matchOptionsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch8hasMatchEv": ["bool", "address"],
+    "ritual_ZNK23QRegularExpressionMatch15hasPartialMatchEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch7isValidEv": ["bool", "address"],
+    "ritual_ZNK23QRegularExpressionMatch17lastCapturedIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch11hasCapturedE14QAnyStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch11hasCapturedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch8capturedEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch12capturedViewEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch8capturedE14QAnyStringView": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch12capturedViewE14QAnyStringView": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch13capturedStartEi": [
+      "long long", "address", "int"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch14capturedLengthEi": [
+      "long long", "address", "int"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch11capturedEndEi": [
+      "long long", "address", "int"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch13capturedStartE14QAnyStringView": [
+      "long long", "address", "text"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch14capturedLengthE14QAnyStringView": [
+      "long long", "address", "text"
+    ],
+    "ritual_ZNK23QRegularExpressionMatch11capturedEndE14QAnyStringView": [
+      "long long", "address", "text"
+    ]
+  }
+}

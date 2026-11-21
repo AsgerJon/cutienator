@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextformat.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QTextFrameFormatC1Ev": ["address"],
+    "ritual_ZNK16QTextFrameFormat7isValidEv": ["bool", "address"],
+    "ritual_ZN16QTextFrameFormat11setPositionENS_8PositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QTextFrameFormat8positionEv": ["int", "address"],
+    "ritual_ZN16QTextFrameFormat9setBorderEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextFrameFormat6borderEv": ["double", "address"],
+    "ritual_ZN16QTextFrameFormat14setBorderBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QTextFrameFormat11borderBrushEv": ["address", "address"],
+    "ritual_ZN16QTextFrameFormat14setBorderStyleENS_11BorderStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QTextFrameFormat11borderStyleEv": ["int", "address"],
+    "ritual_ZN16QTextFrameFormat9setMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextFrameFormat6marginEv": ["double", "address"],
+    "ritual_ZN16QTextFrameFormat12setTopMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextFrameFormat9topMarginEv": ["double", "address"],
+    "ritual_ZN16QTextFrameFormat15setBottomMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextFrameFormat12bottomMarginEv": ["double", "address"],
+    "ritual_ZN16QTextFrameFormat13setLeftMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextFrameFormat10leftMarginEv": ["double", "address"],
+    "ritual_ZN16QTextFrameFormat14setRightMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextFrameFormat11rightMarginEv": ["double", "address"],
+    "ritual_ZN16QTextFrameFormat10setPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QTextFrameFormat7paddingEv": ["double", "address"],
+    "ritual_ZN16QTextFrameFormat8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QTextFrameFormat8setWidthERK11QTextLength": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QTextFrameFormat5widthEv": ["address", "address"],
+    "ritual_ZN16QTextFrameFormat9setHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QTextFrameFormat9setHeightERK11QTextLength": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QTextFrameFormat6heightEv": ["address", "address"],
+    "ritual_ZN16QTextFrameFormat18setPageBreakPolicyE6QFlagsIN11QTextFormat13PageBreakFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QTextFrameFormat15pageBreakPolicyEv": ["int", "address"],
+    "ritual_ZN16QTextFrameFormatD1Ev": ["nothing", "address"]
+  }
+}

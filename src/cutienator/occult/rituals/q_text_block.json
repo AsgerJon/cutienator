@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QTextBlockC1Ev": ["address"],
+    "ritual_ZN10QTextBlockC1ERKS_": ["address", "address"],
+    "ritual_ZNK10QTextBlock7isValidEv": ["bool", "address"],
+    "ritual_ZNK10QTextBlockeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK10QTextBlockneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK10QTextBlockltERKS_": ["bool", "address", "address"],
+    "ritual_ZNK10QTextBlock8positionEv": ["int", "address"],
+    "ritual_ZNK10QTextBlock6lengthEv": ["int", "address"],
+    "ritual_ZNK10QTextBlock8containsEi": ["bool", "address", "int"],
+    "ritual_ZNK10QTextBlock6layoutEv": ["address", "address"],
+    "ritual_ZN10QTextBlock11clearLayoutEv": ["nothing", "address"],
+    "ritual_ZNK10QTextBlock11blockFormatEv": ["address", "address"],
+    "ritual_ZNK10QTextBlock16blockFormatIndexEv": ["int", "address"],
+    "ritual_ZNK10QTextBlock10charFormatEv": ["address", "address"],
+    "ritual_ZNK10QTextBlock15charFormatIndexEv": ["int", "address"],
+    "ritual_ZNK10QTextBlock13textDirectionEv": ["int", "address"],
+    "ritual_ZNK10QTextBlock4textEv": ["text", "address"],
+    "ritual_ZNK10QTextBlock8documentEv": ["address", "address"],
+    "ritual_ZNK10QTextBlock8textListEv": ["address", "address"],
+    "ritual_ZNK10QTextBlock8userDataEv": ["address", "address"],
+    "ritual_ZN10QTextBlock11setUserDataEP18QTextBlockUserData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QTextBlock9userStateEv": ["int", "address"],
+    "ritual_ZN10QTextBlock12setUserStateEi": ["nothing", "address", "int"],
+    "ritual_ZNK10QTextBlock8revisionEv": ["int", "address"],
+    "ritual_ZN10QTextBlock11setRevisionEi": ["nothing", "address", "int"],
+    "ritual_ZNK10QTextBlock9isVisibleEv": ["bool", "address"],
+    "ritual_ZN10QTextBlock10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZNK10QTextBlock11blockNumberEv": ["int", "address"],
+    "ritual_ZNK10QTextBlock15firstLineNumberEv": ["int", "address"],
+    "ritual_ZN10QTextBlock12setLineCountEi": ["nothing", "address", "int"],
+    "ritual_ZNK10QTextBlock9lineCountEv": ["int", "address"],
+    "ritual_ZNK10QTextBlock5beginEv": ["address", "address"],
+    "ritual_ZNK10QTextBlock3endEv": ["address", "address"],
+    "ritual_ZNK10QTextBlock4nextEv": ["address", "address"],
+    "ritual_ZNK10QTextBlock8previousEv": ["address", "address"],
+    "ritual_ZNK10QTextBlock13fragmentIndexEv": ["int", "address"],
+    "ritual_ZN10QTextBlockD1Ev": ["nothing", "address"]
+  }
+}

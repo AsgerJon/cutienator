@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qdatetime.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5QTimeC1Ev": ["address"],
+    "ritual_ZN5QTimeC1Eiiii": ["address", "int", "int", "int", "int"],
+    "ritual_ZNK5QTime6isNullEv": ["bool", "address"],
+    "ritual_ZNK5QTime7isValidEv": ["bool", "address"],
+    "ritual_ZNK5QTime4hourEv": ["int", "address"],
+    "ritual_ZNK5QTime6minuteEv": ["int", "address"],
+    "ritual_ZNK5QTime6secondEv": ["int", "address"],
+    "ritual_ZNK5QTime4msecEv": ["int", "address"],
+    "ritual_ZNK5QTime8toStringEN2Qt10DateFormatE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK5QTime8toStringERK7QString": ["text", "address", "text"],
+    "ritual_ZNK5QTime8toStringE11QStringView": ["text", "address", "text"],
+    "ritual_ZN5QTime6setHMSEiiii": [
+      "bool", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK5QTime7addSecsEi": ["address", "address", "int"],
+    "ritual_ZNK5QTime6secsToES_": ["int", "address", "address"],
+    "ritual_ZNK5QTime8addMSecsEi": ["address", "address", "int"],
+    "ritual_ZNK5QTime7msecsToES_": ["int", "address", "address"],
+    "ritual_ZN5QTime24fromMSecsSinceStartOfDayEi": ["address", "int"],
+    "ritual_ZNK5QTime20msecsSinceStartOfDayEv": ["int", "address"],
+    "ritual_ZN5QTime11currentTimeEv": ["address"],
+    "ritual_ZN5QTime10fromStringE11QStringViewN2Qt10DateFormatE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN5QTime10fromStringE11QStringViewS0_": [
+      "address", "text", "text"
+    ],
+    "ritual_ZN5QTime10fromStringERK7QString11QStringView": [
+      "address", "text", "text"
+    ],
+    "ritual_ZN5QTime10fromStringERK7QStringN2Qt10DateFormatE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN5QTime10fromStringERK7QStringS2_": ["address", "text", "text"],
+    "ritual_ZN5QTime7isValidEiiii": ["bool", "int", "int", "int", "int"],
+    "ritual_ZN5QTimeD1Ev": ["nothing", "address"]
+  }
+}

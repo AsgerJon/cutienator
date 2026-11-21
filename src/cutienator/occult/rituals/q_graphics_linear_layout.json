@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicslinearlayout.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QGraphicsLinearLayoutC1EP19QGraphicsLayoutItem": [
+      "address", "address"
+    ],
+    "ritual_ZN21QGraphicsLinearLayoutC1EN2Qt11OrientationEP19QGraphicsLayoutItem": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN21QGraphicsLinearLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZN21QGraphicsLinearLayout14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QGraphicsLinearLayout11orientationEv": ["int", "address"],
+    "ritual_ZN21QGraphicsLinearLayout7addItemEP19QGraphicsLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsLinearLayout10addStretchEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QGraphicsLinearLayout10insertItemEiP19QGraphicsLayoutItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QGraphicsLinearLayout13insertStretchEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21QGraphicsLinearLayout10removeItemEP19QGraphicsLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsLinearLayout8removeAtEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QGraphicsLinearLayout10setSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QGraphicsLinearLayout7spacingEv": ["double", "address"],
+    "ritual_ZN21QGraphicsLinearLayout14setItemSpacingEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK21QGraphicsLinearLayout11itemSpacingEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN21QGraphicsLinearLayout16setStretchFactorEP19QGraphicsLayoutItemi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK21QGraphicsLinearLayout13stretchFactorEP19QGraphicsLayoutItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsLinearLayout12setAlignmentEP19QGraphicsLayoutItem6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK21QGraphicsLinearLayout9alignmentEP19QGraphicsLayoutItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsLinearLayout11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QGraphicsLinearLayout5countEv": ["int", "address"],
+    "ritual_ZNK21QGraphicsLinearLayout6itemAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QGraphicsLinearLayout10invalidateEv": ["nothing", "address"],
+    "ritual_ZNK21QGraphicsLinearLayout8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK21QGraphicsLinearLayout4dumpEi": ["nothing", "address", "int"]
+  }
+}

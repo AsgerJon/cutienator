@@ -14,32 +14,43 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_brush import QBrush
-from ._q_color import QColor
-from ._q_font import QFont
-from ._q_gradient import QGradient
-from ._q_image import QImage
-from ..QtCore import QLine
-from ..QtCore import QLineF
-from ._q_paint_device import QPaintDevice
-from ._q_painter_path import QPainterPath
-from ._q_pen import QPen
-from ._q_pixmap import QPixmap
-from ..QtCore import QPoint
-from ..QtCore import QPointF
-from ._q_polygon import QPolygon
-from ._q_polygon_f import QPolygonF
-from ..QtCore import QRect
-from ..QtCore import QRectF
-from ._q_region import QRegion
-from ._q_text_option import QTextOption
-from ._q_transform import QTransform
-from ._q_painter_composition_mode import CompositionMode
-from ._q_painter_pixmap_fragment_hint import PixmapFragmentHint
-from ._q_painter_render_hint import RenderHint
+from . import QGradientPreset, QPainterCompositionMode
+from . import QPainterPixmapFragmentHint, QPainterRenderHint
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QLine, QLineF, QPoint, QPointF, QRect, QRectF
+  from . import QBrush, QColor, QFont, QFontInfo, QFontMetrics, QGradient
+  from . import QImage, QPaintDevice, QPaintEngine, QPainterPath, QPen
+  from . import QPicture, QPixmap, QPolygon, QPolygonF, QRegion, QStaticText
+  from . import QTextItem, QTextOption, QTransform
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBrush = WAIT['QBrush']
+  QColor = WAIT['QColor']
+  QFont = WAIT['QFont']
+  QImage = WAIT['QImage']
+  QLine = WAIT['QLine']
+  QLineF = WAIT['QLineF']
+  QPaintDevice = WAIT['QPaintDevice']
+  QPainterPath = WAIT['QPainterPath']
+  QPen = WAIT['QPen']
+  QPicture = WAIT['QPicture']
+  QPixmap = WAIT['QPixmap']
+  QPoint = WAIT['QPoint']
+  QPointF = WAIT['QPointF']
+  QPolygon = WAIT['QPolygon']
+  QPolygonF = WAIT['QPolygonF']
+  QRect = WAIT['QRect']
+  QRectF = WAIT['QRectF']
+  QRegion = WAIT['QRegion']
+  QStaticText = WAIT['QStaticText']
+  QTextItem = WAIT['QTextItem']
+  QTextOption = WAIT['QTextOption']
+  QTransform = WAIT['QTransform']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -55,9 +66,9 @@ class QPainter(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPainter that has a ritual and that Python can call
-  so far, 84 names in all: 'device', 'begin', 'end', 'isActive',
+  so far, 88 names in all: 'device', 'begin', 'end', 'isActive',
   'setCompositionMode', 'compositionMode', 'font', 'setFont', 'fontMetrics',
-  'setPen', 'pen', 'setBrush', 'brush', 'setBackgroundMode',
+  'fontInfo', 'setPen', 'pen', 'setBrush', 'brush', 'setBackgroundMode',
   'backgroundMode', 'brushOrigin', 'brushOriginF', 'setBrushOrigin',
   'setBackground', 'background', 'opacity', 'setOpacity', 'clipRegion',
   'clipPath', 'setClipRect', 'setClipRegion', 'setClipPath', 'setClipping',
@@ -71,39 +82,21 @@ class QPainter(CuteMixin, metaclass=MetaCute):
   'drawEllipse', 'drawPolyline', 'drawPolygon', 'drawConvexPolygon',
   'drawArc', 'drawPie', 'drawChord', 'drawRoundedRect', 'drawTiledPixmap',
   'drawPicture', 'drawPixmap', 'drawImage', 'setLayoutDirection',
-  'layoutDirection', 'drawText', 'boundingRect', 'fillRect', 'eraseRect',
-  'setRenderHint', 'setRenderHints', 'renderHints', 'testRenderHint',
-  'beginNativePainting', 'endNativePainting'. It can be made from Python, in
-  2 ways; see '__init__'.
+  'layoutDirection', 'drawStaticText', 'drawText', 'boundingRect',
+  'drawTextItem', 'fillRect', 'eraseRect', 'setRenderHint', 'setRenderHints',
+  'renderHints', 'testRenderHint', 'paintEngine', 'beginNativePainting',
+  'endNativePainting'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPainter::~QPainter()': the destructor: Python never removes a C++
     QPainter.
-  - Qt's 'QFontInfo QPainter::fontInfo() const': gives 'QFontInfo', which has
-    no cute class yet.
   - Qt's 'void QPainter::drawPixmapFragments(const PixmapFragment *fragments,
     int fragmentCount, const QPixmap &pixmap, PixmapFragmentHints hints)':
     names 'QPainter::PixmapFragment', which has no cute class yet.
   - Qt's 'void QPainter::drawGlyphRun(const QPointF &position, const
     QGlyphRun &glyphRun)': names 'QGlyphRun', which has no cute class yet.
-  - Qt's 'void QPainter::drawStaticText(const QPointF &topLeftPosition, const
-    QStaticText &staticText)': names 'QStaticText', which has no cute class
-    yet.
-  - Qt's 'void QPainter::drawStaticText(const QPoint &topLeftPosition, const
-    QStaticText &staticText)': names 'QStaticText', which has no cute class
-    yet.
-  - Qt's 'void QPainter::drawStaticText(int left, int top, const QStaticText
-    &staticText)': names 'QStaticText', which has no cute class yet.
-  - Qt's 'void QPainter::drawTextItem(const QPointF &p, const QTextItem
-    &ti)': names 'QTextItem', which has no cute class yet.
-  - Qt's 'void QPainter::drawTextItem(int x, int y, const QTextItem &ti)':
-    names 'QTextItem', which has no cute class yet.
-  - Qt's 'void QPainter::drawTextItem(const QPoint &p, const QTextItem &ti)':
-    names 'QTextItem', which has no cute class yet.
-  - Qt's 'QPaintEngine *QPainter::paintEngine() const': gives 'QPaintEngine',
-    which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -126,16 +119,11 @@ class QPainter(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QPainter, and the names Qt has for the
   #  combinations of its flags enums.
-  CompositionMode = CompositionMode
-  PixmapFragmentHint = PixmapFragmentHint
-  PixmapFragmentHints = PixmapFragmentHint
-  RenderHint = RenderHint
-  RenderHints = RenderHint
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QFontMetrics = WAIT['QFontMetrics']
-  QPicture = WAIT['QPicture']
+  CompositionMode = QPainterCompositionMode
+  PixmapFragmentHint = QPainterPixmapFragmentHint
+  PixmapFragmentHints = QPainterPixmapFragmentHint
+  RenderHint = QPainterRenderHint
+  RenderHints = QPainterRenderHint
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -176,6 +164,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  QPaintDevice *QPainter::device() const
     address = self.uglySide.call('ritual_ZNK8QPainter6deviceEv')
+    from . import QPaintDevice
     return QPaintDevice._cuteAt(address)
 
   def isActive(self) -> bool:
@@ -202,7 +191,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  CompositionMode QPainter::compositionMode() const
-    return CompositionMode(self.uglySide.call(
+    return QPainter.CompositionMode(self.uglySide.call(
         'ritual_ZNK8QPainter15compositionModeEv',
     ))
 
@@ -220,6 +209,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  const QFont &QPainter::font() const
     address = self.uglySide.call('ritual_ZNK8QPainter4fontEv')
+    from . import QFont
     return QFont._cuteOwning(address)
 
   def fontMetrics(self) -> QFontMetrics:
@@ -236,7 +226,25 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  QFontMetrics QPainter::fontMetrics() const
     address = self.uglySide.call('ritual_ZNK8QPainter11fontMetricsEv')
-    return self.QFontMetrics._cuteOwning(address)
+    from . import QFontMetrics
+    return QFontMetrics._cuteOwning(address)
+
+  def fontInfo(self) -> QFontInfo:
+    """
+    Calls Qt's 'QFontInfo QPainter::fontInfo() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#fontInfo
+
+    Returns
+    -------
+
+    QFontInfo
+      A new cute QFontInfo around the copy Qt gave back. Python owns it.
+    """
+    #  QFontInfo QPainter::fontInfo() const
+    address = self.uglySide.call('ritual_ZNK8QPainter8fontInfoEv')
+    from . import QFontInfo
+    return QFontInfo._cuteOwning(address)
 
   def pen(self) -> QPen:
     """
@@ -252,6 +260,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  const QPen &QPainter::pen() const
     address = self.uglySide.call('ritual_ZNK8QPainter3penEv')
+    from . import QPen
     return QPen._cuteOwning(address)
 
   def brush(self) -> QBrush:
@@ -268,6 +277,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPainter::brush() const
     address = self.uglySide.call('ritual_ZNK8QPainter5brushEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def backgroundMode(self) -> Qt.BGMode:
@@ -302,6 +312,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  QPoint QPainter::brushOrigin() const
     address = self.uglySide.call('ritual_ZNK8QPainter11brushOriginEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def brushOriginF(self) -> QPointF:
@@ -318,6 +329,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QPainter::brushOriginF() const
     address = self.uglySide.call('ritual_ZNK8QPainter12brushOriginFEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def background(self) -> QBrush:
@@ -334,6 +346,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  const QBrush &QPainter::background() const
     address = self.uglySide.call('ritual_ZNK8QPainter10backgroundEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def opacity(self) -> float:
@@ -359,6 +372,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  QRegion QPainter::clipRegion() const
     address = self.uglySide.call('ritual_ZNK8QPainter10clipRegionEv')
+    from . import QRegion
     return QRegion._cuteOwning(address)
 
   def clipPath(self) -> QPainterPath:
@@ -375,6 +389,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  QPainterPath QPainter::clipPath() const
     address = self.uglySide.call('ritual_ZNK8QPainter8clipPathEv')
+    from . import QPainterPath
     return QPainterPath._cuteOwning(address)
 
   def hasClipping(self) -> bool:
@@ -400,6 +415,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QPainter::clipBoundingRect() const
     address = self.uglySide.call('ritual_ZNK8QPainter16clipBoundingRectEv')
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   def transform(self) -> QTransform:
@@ -416,6 +432,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  const QTransform &QPainter::transform() const
     address = self.uglySide.call('ritual_ZNK8QPainter9transformEv')
+    from . import QTransform
     return QTransform._cuteOwning(address)
 
   def deviceTransform(self) -> QTransform:
@@ -432,6 +449,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  const QTransform &QPainter::deviceTransform() const
     address = self.uglySide.call('ritual_ZNK8QPainter15deviceTransformEv')
+    from . import QTransform
     return QTransform._cuteOwning(address)
 
   def worldTransform(self) -> QTransform:
@@ -448,6 +466,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  const QTransform &QPainter::worldTransform() const
     address = self.uglySide.call('ritual_ZNK8QPainter14worldTransformEv')
+    from . import QTransform
     return QTransform._cuteOwning(address)
 
   def combinedTransform(self) -> QTransform:
@@ -464,6 +483,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  QTransform QPainter::combinedTransform() const
     address = self.uglySide.call('ritual_ZNK8QPainter17combinedTransformEv')
+    from . import QTransform
     return QTransform._cuteOwning(address)
 
   def worldMatrixEnabled(self) -> bool:
@@ -489,6 +509,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  QRect QPainter::window() const
     address = self.uglySide.call('ritual_ZNK8QPainter6windowEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def viewport(self) -> QRect:
@@ -505,6 +526,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  QRect QPainter::viewport() const
     address = self.uglySide.call('ritual_ZNK8QPainter8viewportEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def viewTransformEnabled(self) -> bool:
@@ -569,6 +591,24 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK8QPainter14testRenderHintENS_10RenderHintE', hint.value,
     )
+
+  def paintEngine(self) -> Optional[QPaintEngine]:
+    """
+    Calls Qt's 'QPaintEngine *QPainter::paintEngine() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#paintEngine
+
+    Returns
+    -------
+
+    Optional[QPaintEngine]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintEngine *QPainter::paintEngine() const
+    address = self.uglySide.call('ritual_ZNK8QPainter11paintEngineEv')
+    from . import QPaintEngine
+    return QPaintEngine._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2914,6 +2954,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawTiledPixmap(const QRectF &rect, const QPixmap &pm,
     #      const QPointF &offset)
     if offset is None:
+      from ..QtCore import QPointF
       offset = QPointF()
     self.uglySide.call(
         'ritual_ZN8QPainter15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF',
@@ -3002,6 +3043,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawTiledPixmap(const QRect &a0, const QPixmap &a1,
     #      const QPoint &a2)
     if a2 is None:
+      from ..QtCore import QPoint
       a2 = QPoint()
     self.uglySide.call(
         'ritual_ZN8QPainter15drawTiledPixmapERK5QRectRK7QPixmapRK6QPoint',
@@ -3015,9 +3057,6 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     &picture)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawPicture
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------
@@ -3043,9 +3082,6 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     &picture)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawPicture
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------
@@ -3073,9 +3109,6 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     &picture)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawPicture
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------
@@ -3792,6 +3825,99 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         x, y, self._valueOf(image), sx, sy, sw, sh, flags.value,
     )
 
+  @overload(QPointF, QStaticText)
+  def drawStaticText(
+      self,
+      topLeftPosition: QPointF,
+      staticText: QStaticText,
+  ) -> None:
+    """
+    Calls Qt's 'void QPainter::drawStaticText(const QPointF &topLeftPosition,
+    const QStaticText &staticText)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawStaticText
+
+    Parameters
+    ----------
+
+    topLeftPosition : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    staticText : QStaticText
+      Passed on as a value: Qt reads the C++ QStaticText, which stays
+      Python's own.
+    """
+    #  void QPainter::drawStaticText(const QPointF &topLeftPosition, const
+    #      QStaticText &staticText)
+    self.uglySide.call(
+        'ritual_ZN8QPainter14drawStaticTextERK7QPointFRK11QStaticText',
+        self._valueOf(topLeftPosition), self._valueOf(staticText),
+    )
+
+  @overload(QPoint, QStaticText)
+  def drawStaticText(
+      self,
+      topLeftPosition: QPoint,
+      staticText: QStaticText,
+  ) -> None:
+    """
+    Calls Qt's 'void QPainter::drawStaticText(const QPoint &topLeftPosition,
+    const QStaticText &staticText)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawStaticText
+
+    Parameters
+    ----------
+
+    topLeftPosition : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    staticText : QStaticText
+      Passed on as a value: Qt reads the C++ QStaticText, which stays
+      Python's own.
+    """
+    #  void QPainter::drawStaticText(const QPoint &topLeftPosition, const
+    #      QStaticText &staticText)
+    self.uglySide.call(
+        'ritual_ZN8QPainter14drawStaticTextERK6QPointRK11QStaticText',
+        self._valueOf(topLeftPosition), self._valueOf(staticText),
+    )
+
+  @overload(int, int, QStaticText)
+  def drawStaticText(
+      self,
+      left: int,
+      top: int,
+      staticText: QStaticText,
+  ) -> None:
+    """
+    Calls Qt's 'void QPainter::drawStaticText(int left, int top, const
+    QStaticText &staticText)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawStaticText
+
+    Parameters
+    ----------
+
+    left : int
+      Passed on as it is.
+
+    top : int
+      Passed on as it is.
+
+    staticText : QStaticText
+      Passed on as a value: Qt reads the C++ QStaticText, which stays
+      Python's own.
+    """
+    #  void QPainter::drawStaticText(int left, int top, const QStaticText
+    #      &staticText)
+    self.uglySide.call(
+        'ritual_ZN8QPainter14drawStaticTextEiiRK11QStaticText',
+        left, top, self._valueOf(staticText),
+    )
+
   @overload(QPointF, str)
   def drawText(self, p: QPointF, s: str) -> None:
     """
@@ -4059,6 +4185,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawText(const QRectF &r, const QString &text, const
     #      QTextOption &o)
     if o is None:
+      from . import QTextOption
       o = QTextOption()
     self.uglySide.call(
         'ritual_ZN8QPainter8drawTextERK6QRectFRK7QStringRK11QTextOption',
@@ -4098,6 +4225,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         'ritual_ZN8QPainter12boundingRectERK6QRectFiRK7QString',
         self._valueOf(rect), flags, text,
     )
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   @overload(QRect, int, str)
@@ -4132,6 +4260,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         'ritual_ZN8QPainter12boundingRectERK5QRectiRK7QString',
         self._valueOf(rect), flags, text,
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(int, int, int, int, int, str)
@@ -4183,6 +4312,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         'ritual_ZN8QPainter12boundingRectEiiiiiRK7QString',
         x, y, w, h, flags, text,
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(QRectF, str)
@@ -4223,13 +4353,92 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  QRectF QPainter::boundingRect(const QRectF &rect, const QString &text,
     #      const QTextOption &o)
     if o is None:
+      from . import QTextOption
       o = QTextOption()
     address = self.uglySide.call(
         'ritual_ZN8QPainter12boundingRectERK6QRectFRK7QStringRK11QTextOptio'
         'n',
         self._valueOf(rect), text, self._valueOf(o),
     )
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
+
+  @overload(QPointF, QTextItem)
+  def drawTextItem(self, p: QPointF, ti: QTextItem) -> None:
+    """
+    Calls Qt's 'void QPainter::drawTextItem(const QPointF &p, const QTextItem
+    &ti)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawTextItem
+
+    Parameters
+    ----------
+
+    p : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    ti : QTextItem
+      Passed on as a value: Qt reads the C++ QTextItem, which stays Python's
+      own.
+    """
+    #  void QPainter::drawTextItem(const QPointF &p, const QTextItem &ti)
+    self.uglySide.call(
+        'ritual_ZN8QPainter12drawTextItemERK7QPointFRK9QTextItem',
+        self._valueOf(p), self._valueOf(ti),
+    )
+
+  @overload(int, int, QTextItem)
+  def drawTextItem(self, x: int, y: int, ti: QTextItem) -> None:
+    """
+    Calls Qt's 'void QPainter::drawTextItem(int x, int y, const QTextItem
+    &ti)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawTextItem
+
+    Parameters
+    ----------
+
+    x : int
+      Passed on as it is.
+
+    y : int
+      Passed on as it is.
+
+    ti : QTextItem
+      Passed on as a value: Qt reads the C++ QTextItem, which stays Python's
+      own.
+    """
+    #  void QPainter::drawTextItem(int x, int y, const QTextItem &ti)
+    self.uglySide.call(
+        'ritual_ZN8QPainter12drawTextItemEiiRK9QTextItem',
+        x, y, self._valueOf(ti),
+    )
+
+  @overload(QPoint, QTextItem)
+  def drawTextItem(self, p: QPoint, ti: QTextItem) -> None:
+    """
+    Calls Qt's 'void QPainter::drawTextItem(const QPoint &p, const QTextItem
+    &ti)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawTextItem
+
+    Parameters
+    ----------
+
+    p : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    ti : QTextItem
+      Passed on as a value: Qt reads the C++ QTextItem, which stays Python's
+      own.
+    """
+    #  void QPainter::drawTextItem(const QPoint &p, const QTextItem &ti)
+    self.uglySide.call(
+        'ritual_ZN8QPainter12drawTextItemERK6QPointRK9QTextItem',
+        self._valueOf(p), self._valueOf(ti),
+    )
 
   @overload(QRectF, QBrush)
   def fillRect(self, a0: QRectF, a1: QBrush) -> None:
@@ -4565,7 +4774,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         self._valueOf(r), style.value,
     )
 
-  @overload(int, int, int, int, QGradient.Preset)
+  @overload(int, int, int, int, QGradientPreset)
   def fillRect(
       self,
       x: int,
@@ -4605,7 +4814,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         x, y, w, h, preset.value,
     )
 
-  @overload(QRect, QGradient.Preset)
+  @overload(QRect, QGradientPreset)
   def fillRect(self, r: QRect, preset: QGradient.Preset) -> None:
     """
     Calls Qt's 'void QPainter::fillRect(const QRect &r, QGradient::Preset
@@ -4628,7 +4837,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         self._valueOf(r), preset.value,
     )
 
-  @overload(QRectF, QGradient.Preset)
+  @overload(QRectF, QGradientPreset)
   def fillRect(self, r: QRectF, preset: QGradient.Preset) -> None:
     """
     Calls Qt's 'void QPainter::fillRect(const QRectF &r, QGradient::Preset

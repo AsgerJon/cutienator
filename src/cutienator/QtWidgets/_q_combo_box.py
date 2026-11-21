@@ -11,28 +11,35 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_abstract_item_delegate import QAbstractItemDelegate
-from ..QtCore import QAbstractItemModel
-from ._q_abstract_item_view import QAbstractItemView
-from ._q_completer import QCompleter
-from ..QtCore import QEvent
-from ..QtGui import QIcon
-from ._q_line_edit import QLineEdit
-from ..QtCore import QMetaObject
-from ..QtCore import QModelIndex
-from ..QtCore import QSize
-from ..QtGui import QValidator
-from ..QtCore import QVariant
-from ._q_widget import QWidget
-from ._q_combo_box_insert_policy import InsertPolicy
-from ._q_combo_box_label_drawing_mode import LabelDrawingMode
-from ._q_combo_box_size_adjust_policy import SizeAdjustPolicy
+from . import QComboBoxInsertPolicy, QComboBoxLabelDrawingMode
+from . import QComboBoxSizeAdjustPolicy, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QAbstractItemModel, QEvent, QMetaObject, QModelIndex
+  from ..QtCore import QSize, QVariant
+  from ..QtGui import QIcon, QValidator
+  from . import QAbstractItemDelegate, QAbstractItemView, QCompleter
+  from . import QLineEdit
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractItemDelegate = WAIT['QAbstractItemDelegate']
+  QAbstractItemModel = WAIT['QAbstractItemModel']
+  QAbstractItemView = WAIT['QAbstractItemView']
+  QCompleter = WAIT['QCompleter']
+  QEvent = WAIT['QEvent']
+  QIcon = WAIT['QIcon']
+  QLineEdit = WAIT['QLineEdit']
+  QModelIndex = WAIT['QModelIndex']
+  QSize = WAIT['QSize']
+  QValidator = WAIT['QValidator']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -99,9 +106,9 @@ class QComboBox(QWidget):
 
   #  The enums Qt writes inside QComboBox, and the names Qt has for the
   #  combinations of its flags enums.
-  InsertPolicy = InsertPolicy
-  LabelDrawingMode = LabelDrawingMode
-  SizeAdjustPolicy = SizeAdjustPolicy
+  InsertPolicy = QComboBoxInsertPolicy
+  LabelDrawingMode = QComboBoxLabelDrawingMode
+  SizeAdjustPolicy = QComboBoxSizeAdjustPolicy
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -184,6 +191,7 @@ class QComboBox(QWidget):
     """
     #  const QMetaObject *QComboBox::metaObject() const
     address = self.uglySide.call('ritual_ZNK9QComboBox10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def maxVisibleItems(self) -> int:
@@ -298,7 +306,7 @@ class QComboBox(QWidget):
       gives.
     """
     #  InsertPolicy QComboBox::insertPolicy() const
-    return InsertPolicy(self.uglySide.call(
+    return QComboBox.InsertPolicy(self.uglySide.call(
         'ritual_ZNK9QComboBox12insertPolicyEv',
     ))
 
@@ -317,7 +325,7 @@ class QComboBox(QWidget):
       gives.
     """
     #  SizeAdjustPolicy QComboBox::sizeAdjustPolicy() const
-    return SizeAdjustPolicy(self.uglySide.call(
+    return QComboBox.SizeAdjustPolicy(self.uglySide.call(
         'ritual_ZNK9QComboBox16sizeAdjustPolicyEv',
     ))
 
@@ -347,6 +355,7 @@ class QComboBox(QWidget):
     """
     #  QSize QComboBox::iconSize() const
     address = self.uglySide.call('ritual_ZNK9QComboBox8iconSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def placeholderText(self) -> str:
@@ -388,6 +397,7 @@ class QComboBox(QWidget):
     """
     #  QLineEdit *QComboBox::lineEdit() const
     address = self.uglySide.call('ritual_ZNK9QComboBox8lineEditEv')
+    from . import QLineEdit
     return QLineEdit._cuteAt(address)
 
   def validator(self) -> Optional[QValidator]:
@@ -405,6 +415,7 @@ class QComboBox(QWidget):
     """
     #  const QValidator *QComboBox::validator() const
     address = self.uglySide.call('ritual_ZNK9QComboBox9validatorEv')
+    from ..QtGui import QValidator
     return QValidator._cuteAt(address)
 
   def completer(self) -> Optional[QCompleter]:
@@ -422,6 +433,7 @@ class QComboBox(QWidget):
     """
     #  QCompleter *QComboBox::completer() const
     address = self.uglySide.call('ritual_ZNK9QComboBox9completerEv')
+    from . import QCompleter
     return QCompleter._cuteAt(address)
 
   def itemDelegate(self) -> Optional[QAbstractItemDelegate]:
@@ -439,6 +451,7 @@ class QComboBox(QWidget):
     """
     #  QAbstractItemDelegate *QComboBox::itemDelegate() const
     address = self.uglySide.call('ritual_ZNK9QComboBox12itemDelegateEv')
+    from . import QAbstractItemDelegate
     return QAbstractItemDelegate._cuteAt(address)
 
   def model(self) -> Optional[QAbstractItemModel]:
@@ -456,6 +469,7 @@ class QComboBox(QWidget):
     """
     #  QAbstractItemModel *QComboBox::model() const
     address = self.uglySide.call('ritual_ZNK9QComboBox5modelEv')
+    from ..QtCore import QAbstractItemModel
     return QAbstractItemModel._cuteAt(address)
 
   def rootModelIndex(self) -> QModelIndex:
@@ -472,6 +486,7 @@ class QComboBox(QWidget):
     """
     #  QModelIndex QComboBox::rootModelIndex() const
     address = self.uglySide.call('ritual_ZNK9QComboBox14rootModelIndexEv')
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   def modelColumn(self) -> int:
@@ -498,7 +513,7 @@ class QComboBox(QWidget):
       gives.
     """
     #  LabelDrawingMode QComboBox::labelDrawingMode() const
-    return LabelDrawingMode(self.uglySide.call(
+    return QComboBox.LabelDrawingMode(self.uglySide.call(
         'ritual_ZNK9QComboBox16labelDrawingModeEv',
     ))
 
@@ -548,6 +563,7 @@ class QComboBox(QWidget):
     """
     #  QVariant QComboBox::currentData(int role) const
     address = self.uglySide.call('ritual_ZNK9QComboBox11currentDataEi', role)
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(int)
@@ -593,6 +609,7 @@ class QComboBox(QWidget):
     """
     #  QIcon QComboBox::itemIcon(int index) const
     address = self.uglySide.call('ritual_ZNK9QComboBox8itemIconEi', index)
+    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
   @overload(int)
@@ -622,6 +639,7 @@ class QComboBox(QWidget):
     address = self.uglySide.call(
         'ritual_ZNK9QComboBox8itemDataEii', index, role,
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   def view(self) -> Optional[QAbstractItemView]:
@@ -639,6 +657,7 @@ class QComboBox(QWidget):
     """
     #  QAbstractItemView *QComboBox::view() const
     address = self.uglySide.call('ritual_ZNK9QComboBox4viewEv')
+    from . import QAbstractItemView
     return QAbstractItemView._cuteAt(address)
 
   def sizeHint(self) -> QSize:
@@ -655,6 +674,7 @@ class QComboBox(QWidget):
     """
     #  QSize QComboBox::sizeHint() const
     address = self.uglySide.call('ritual_ZNK9QComboBox8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -671,6 +691,7 @@ class QComboBox(QWidget):
     """
     #  QSize QComboBox::minimumSizeHint() const
     address = self.uglySide.call('ritual_ZNK9QComboBox15minimumSizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(Qt.InputMethodQuery)
@@ -698,6 +719,7 @@ class QComboBox(QWidget):
         'ritual_ZNK9QComboBox16inputMethodQueryEN2Qt16InputMethodQueryE',
         a0.value,
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(Qt.InputMethodQuery, QVariant)
@@ -735,6 +757,7 @@ class QComboBox(QWidget):
         'Variant',
         query.value, self._valueOf(argument),
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1308,6 +1331,7 @@ class QComboBox(QWidget):
     """
     #  void QComboBox::addItem(const QString &text, const QVariant &userData)
     if userData is None:
+      from ..QtCore import QVariant
       userData = QVariant()
     self.uglySide.call(
         'ritual_ZN9QComboBox7addItemERK7QStringRK8QVariant',
@@ -1344,6 +1368,7 @@ class QComboBox(QWidget):
     #  void QComboBox::addItem(const QIcon &icon, const QString &text, const
     #      QVariant &userData)
     if userData is None:
+      from ..QtCore import QVariant
       userData = QVariant()
     self.uglySide.call(
         'ritual_ZN9QComboBox7addItemERK5QIconRK7QStringRK8QVariant',
@@ -1380,6 +1405,7 @@ class QComboBox(QWidget):
     #  void QComboBox::insertItem(int index, const QString &text, const
     #      QVariant &userData)
     if userData is None:
+      from ..QtCore import QVariant
       userData = QVariant()
     self.uglySide.call(
         'ritual_ZN9QComboBox10insertItemEiRK7QStringRK8QVariant',
@@ -1420,6 +1446,7 @@ class QComboBox(QWidget):
     #  void QComboBox::insertItem(int index, const QIcon &icon, const QString
     #      &text, const QVariant &userData)
     if userData is None:
+      from ..QtCore import QVariant
       userData = QVariant()
     self.uglySide.call(
         'ritual_ZN9QComboBox10insertItemEiRK5QIconRK7QStringRK8QVariant',

@@ -20,7 +20,7 @@ from worktoy.waitaminute.meta import HookException
 from worktoy.work_test import BaseTest
 
 from cutienator.cute import MetaCute, CuteSpace, CuteOverload, WAIT
-from cutienator.cute import WaitingOverload
+from cutienator.cute import WaitingSignature
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, List, Tuple
@@ -71,6 +71,15 @@ class TestCuteSpace(BaseTest):
     return wait
 
   @staticmethod
+  def _kept(space: CuteSpace) -> List[Tuple[Any, ...]]:
+    """Gives what a namespace keeps waiting: for each waiting signature
+    the name it was written at, its function and its entries."""
+    return [
+        (name, waiting.getFunction(), waiting.getSignatureEntries())
+        for name, waiting in space.getWaitingSignatures()
+    ]
+
+  @staticmethod
   def _onRecord(space: CuteSpace, name: str) -> List[Tuple[Any, ...]]:
     """Gives the signatures worktoy has on record at a name, in order."""
     onRecord = space.getOverloads().get(name, [])
@@ -85,7 +94,7 @@ class TestCuteSpace(BaseTest):
     space = self._makeSpace('PreparedOnce')
     self.assertIsInstance(space, CuteSpace)
     self.assertIsNot(space, self._makeSpace('PreparedOnce'))
-    self.assertEqual(space.getWaitingOverloads(), ())
+    self.assertEqual(space.getWaitingSignatures(), ())
 
   def test_reading_overload_gives_cute_overload(self) -> None:
     """The name 'overload' is answered with 'CuteOverload'."""
@@ -150,15 +159,17 @@ class TestCuteSpace(BaseTest):
   #  WHAT IT KEEPS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def test_a_waiting_overload_is_kept_and_not_stored(self) -> None:
-    """A 'WaitingOverload' is kept by the namespace and stored nowhere."""
+  def test_a_waiting_signature_is_kept_and_not_stored(self) -> None:
+    """A waiting signature is kept by the namespace, and what brought
+    it is stored nowhere."""
     space = self._makeSpace('KeepsOne')
     wait = self._bindWait(space, 'KeepsLate')
     waitingOverload = CuteOverload(wait)(self._first)
     space['meet'] = waitingOverload
     self.assertFalse(dict.__contains__(space, 'meet'))
-    kept = (('meet', waitingOverload),)
-    self.assertEqual(space.getWaitingOverloads(), kept)
+    self.assertEqual(self._kept(space), [('meet', self._first, (wait,))])
+    (_, waitingSignature), = space.getWaitingSignatures()
+    self.assertIsInstance(waitingSignature, WaitingSignature)
     self.assertEqual(self._onRecord(space, 'meet'), [])
     self.assertTrue(space.hasOverloads('meet'))
     self.assertFalse(space.hasOverloads('greet'))
@@ -171,9 +182,7 @@ class TestCuteSpace(BaseTest):
     space['meet'] = waitingOverload
     self.assertIs(dict.__getitem__(space, 'InlineLate'), wait)
     self.assertIs(space['InlineLate'], wait)
-    self.assertEqual(waitingOverload.getSignatureEntries(), (wait,))
-    kept = (('meet', waitingOverload),)
-    self.assertEqual(space.getWaitingOverloads(), kept)
+    self.assertEqual(self._kept(space), [('meet', self._first, (wait,))])
     self.assertIs(space.compile()['InlineLate'], wait)
 
   def test_one_wait_for_each_late_class(self) -> None:
@@ -184,14 +193,14 @@ class TestCuteSpace(BaseTest):
       space['meet'] = CuteOverload(first)(self._first)
       space['greet'] = CuteOverload(int, second)(self._second)
       self.assertIs(dict.__getitem__(space, 'TwiceInlineLate'), first)
-      (_, met), (_, greeted) = space.getWaitingOverloads()
+      (_, met), (_, greeted) = space.getWaitingSignatures()
       self.assertEqual(met.getSignatureEntries(), (first,))
       self.assertEqual(greeted.getSignatureEntries(), (int, first))
     with self.subTest(written='below its own line'):
       space = self._makeSpace('InlineBelow')
       wait = self._bindWait(space, 'BelowLineLate')
       space['meet'] = CuteOverload(WAIT['BelowLineLate'])(self._first)
-      (_, met), = space.getWaitingOverloads()
+      (_, met), = space.getWaitingSignatures()
       self.assertEqual(met.getSignatureEntries(), (wait,))
       self.assertIs(dict.__getitem__(space, 'BelowLineLate'), wait)
     with self.subTest(written='above its own line'):
@@ -199,14 +208,14 @@ class TestCuteSpace(BaseTest):
       space['meet'] = CuteOverload(WAIT['AboveLineLate'])(self._first)
       wait = self._bindWait(space, 'AboveLineLate')
       self.assertIs(space.compile()['AboveLineLate'], wait)
-      (_, met), = space.getWaitingOverloads()
+      (_, met), = space.getWaitingSignatures()
       self.assertEqual(met.getSignatureEntries(), (wait,))
     with self.subTest(written='at a name of its own choosing'):
       space = self._makeSpace('InlineNamed')
       wait = WAIT['NamedLate']
       space['Thread'] = wait
       space['meet'] = CuteOverload(WAIT['NamedLate'])(self._first)
-      (_, met), = space.getWaitingOverloads()
+      (_, met), = space.getWaitingSignatures()
       self.assertEqual(met.getSignatureEntries(), (wait,))
       self.assertFalse(dict.__contains__(space, 'NamedLate'))
 
@@ -245,7 +254,7 @@ class TestCuteSpace(BaseTest):
     self.assertEqual(dict.__getitem__(space, 'size'), 7)
     self.assertFalse(dict.__contains__(space, 'meet'))
     self.assertEqual(self._onRecord(space, 'meet'), [(int,)])
-    self.assertEqual(space.getWaitingOverloads(), ())
+    self.assertEqual(space.getWaitingSignatures(), ())
 
   def test_the_kind_of_method_is_noted(self) -> None:
     """A kind written above or below a waiting signature is noted."""
@@ -258,8 +267,8 @@ class TestCuteSpace(BaseTest):
     self.assertIs(kinds['above'], staticmethod)
     self.assertIs(kinds['below'], classmethod)
     self.assertIsNone(kinds['neither'])
-    for _, waitingOverload in space.getWaitingOverloads():
-      self.assertIsInstance(waitingOverload, WaitingOverload)
+    for _, waitingSignature in space.getWaitingSignatures():
+      self.assertIsInstance(waitingSignature, WaitingSignature)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  WHAT IT REFUSES  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -272,7 +281,7 @@ class TestCuteSpace(BaseTest):
     space['meet'] = self._first
     with self.assertRaises(OverloadConflict):
       space['meet'] = CuteOverload(wait)(self._second)
-    self.assertEqual(space.getWaitingOverloads(), ())
+    self.assertEqual(space.getWaitingSignatures(), ())
 
   def test_waiting_signature_then_plain_definition(self) -> None:
     """A plain definition at the name of a waiting signature is refused."""
@@ -281,7 +290,7 @@ class TestCuteSpace(BaseTest):
     space['meet'] = CuteOverload(wait)(self._first)
     with self.assertRaises(OverloadConflict):
       space['meet'] = self._second
-    self.assertEqual(len(space.getWaitingOverloads()), 1)
+    self.assertEqual(len(space.getWaitingSignatures()), 1)
 
   def test_two_kinds_of_method_at_one_name(self) -> None:
     """A name is one kind of method, waiting signatures included."""
@@ -328,7 +337,7 @@ class TestCuteSpace(BaseTest):
         waitingOverload = CuteOverload(wait)(self._first)
         with self.assertRaises(refusal):
           space[name] = waitingOverload
-        self.assertEqual(space.getWaitingOverloads(), ())
+        self.assertEqual(space.getWaitingSignatures(), ())
 
   def test_a_class_hook_takes_a_waiting_classmethod(self) -> None:
     """A class hook takes a waiting signature under '@classmethod'."""
@@ -336,8 +345,8 @@ class TestCuteSpace(BaseTest):
     wait = self._bindWait(space, 'HookedLate')
     waitingOverload = CuteOverload(wait)(self._first)
     space['__class_call__'] = classmethod(waitingOverload)
-    kept = (('__class_call__', waitingOverload),)
-    self.assertEqual(space.getWaitingOverloads(), kept)
+    kept = [('__class_call__', self._first, (wait,))]
+    self.assertEqual(self._kept(space), kept)
     self.assertIs(space.getMethodKinds()['__class_call__'], classmethod)
 
   def test_a_name_taken_keeps_a_wait_from_being_bound(self) -> None:
@@ -356,7 +365,7 @@ class TestCuteSpace(BaseTest):
         self.assertIs(type(context.exception), TypeError)
         self.assertIn("'NameTaken.meet'", str(context.exception))
         self.assertIn("'TakenLate'", str(context.exception))
-        self.assertEqual(space.getWaitingOverloads(), ())
+        self.assertEqual(space.getWaitingSignatures(), ())
 
   def test_a_wait_unbound_before_the_body_ends_is_refused(self) -> None:
     """A WAIT named in a signature must still be bound as the body ends."""
@@ -392,7 +401,8 @@ class TestCuteSpace(BaseTest):
       space['meet'] = first
       with self.assertRaises(DuplicateSignature):
         space['meet'] = CuteOverload(int, wait)(self._second)
-      self.assertEqual(space.getWaitingOverloads(), (('meet', first),))
+      kept = [('meet', self._first, (int, wait))]
+      self.assertEqual(self._kept(space), kept)
     with self.subTest(named='by two WAITs for one late class'):
       space = self._makeSpace('TwoNames')
       wait, again = WAIT['TwoNamesLate'], WAIT['TwoNamesLate']
@@ -405,7 +415,7 @@ class TestCuteSpace(BaseTest):
       wait = self._bindWait(space, 'OtherNameLate')
       space['meet'] = CuteOverload(wait)(self._first)
       space['greet'] = CuteOverload(wait)(self._second)
-      self.assertEqual(len(space.getWaitingOverloads()), 2)
+      self.assertEqual(len(space.getWaitingSignatures()), 2)
 
   def test_waiting_signatures_that_differ_are_all_kept(self) -> None:
     """Signatures that will not be one signature stand side by side."""
@@ -417,7 +427,7 @@ class TestCuteSpace(BaseTest):
     space['meet'] = CuteOverload(wait, int)(self._third)
     space['meet'] = CuteOverload(int, wait)(self._first)
     space['meet'] = CuteOverload(wait, wait)(self._second)
-    self.assertEqual(len(space.getWaitingOverloads()), 5)
+    self.assertEqual(len(space.getWaitingSignatures()), 5)
 
   def test_one_function_written_twice_is_taken_once(self) -> None:
     """One function twice at one waiting signature is no mistake."""
@@ -429,9 +439,58 @@ class TestCuteSpace(BaseTest):
     wait = self._bindWait(space, 'WrittenTwiceLate')
     space['meet'] = CuteOverload(wait)(self._first)
     space['meet'] = CuteOverload(wait)(self._first)
-    self.assertEqual(len(space.getWaitingOverloads()), 1)
+    self.assertEqual(len(space.getWaitingSignatures()), 1)
     self.assertEqual(space.nameLateClass(wait, Late), ('meet',))
     self.assertEqual(self._onRecord(space, 'meet'), [(Late,)])
+
+  def test_signatures_sharing_one_function(self) -> None:
+    """Of a stack on one function, each signature naming no late class
+    goes on record at once and each of the others is kept, and all of
+    them end up in the order they were written."""
+
+    class Late:
+      pass
+
+    NoneType = type(None)
+    with self.subTest(written='waiting on top'):
+      space = self._makeSpace('SharesAbove')
+      wait = self._bindWait(space, 'SharesAboveLate')
+      space['meet'] = CuteOverload(wait)(
+          CuteOverload(NoneType)(CuteOverload(int)(self._first)))
+      self.assertFalse(dict.__contains__(space, 'meet'))
+      self.assertEqual(self._onRecord(space, 'meet'), [(int,), (NoneType,)])
+      self.assertEqual(self._kept(space), [('meet', self._first, (wait,))])
+      self.assertEqual(space.nameLateClass(wait, Late), ('meet',))
+      onRecord = [(int,), (NoneType,), (Late,)]
+      self.assertEqual(self._onRecord(space, 'meet'), onRecord)
+      self.assertEqual(self._kept(space), [])
+    with self.subTest(written='waiting at the bottom'):
+      space = self._makeSpace('SharesBelow')
+      wait = self._bindWait(space, 'SharesBelowLate')
+      space['meet'] = staticmethod(CuteOverload(int)(
+          CuteOverload(str, wait)(CuteOverload(wait)(self._first))))
+      self.assertIs(space.getMethodKinds()['meet'], staticmethod)
+      self.assertEqual(self._onRecord(space, 'meet'), [(int,)])
+      kept = [
+          ('meet', self._first, (wait,)),
+          ('meet', self._first, (str, wait)),
+      ]
+      self.assertEqual(self._kept(space), kept)
+      self.assertEqual(space.nameLateClass(wait, Late), ('meet',))
+      onRecord = [(Late,), (str, Late), (int,)]
+      self.assertEqual(self._onRecord(space, 'meet'), onRecord)
+    with self.subTest(written='one signature twice'):
+      space = self._makeSpace('SharesTwice')
+      wait = self._bindWait(space, 'SharesTwiceLate')
+      space['meet'] = CuteOverload(wait)(
+          CuteOverload(int)(CuteOverload(wait)(self._first)))
+      self.assertEqual(self._kept(space), [('meet', self._first, (wait,))])
+    with self.subTest(written='on record for another function'):
+      space = self._makeSpace('SharesTaken')
+      wait = self._bindWait(space, 'SharesTakenLate')
+      space['meet'] = CuteOverload(int)(self._first)
+      with self.assertRaises(DuplicateSignature):
+        space['meet'] = CuteOverload(wait)(CuteOverload(int)(self._second))
 
   def test_a_waiting_signature_is_bound_once(self) -> None:
     """Binding one waiting signature a second time is refused."""
@@ -443,8 +502,8 @@ class TestCuteSpace(BaseTest):
         space['__add__'] = waitingOverload
         with self.assertRaises(ReboundOverload):
           space[secondName] = waitingOverload
-        kept = (('__add__', waitingOverload),)
-        self.assertEqual(space.getWaitingOverloads(), kept)
+        kept = [('__add__', self._first, (wait,))]
+        self.assertEqual(self._kept(space), kept)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  WHAT IT PUTS BACK  # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -472,7 +531,7 @@ class TestCuteSpace(BaseTest):
         self.assertEqual(space.nameLateClass(wait, Late), ('meet',))
         expected = [((Late,), (int,), (str,))[at] for at in order]
         self.assertEqual(self._onRecord(space, 'meet'), expected)
-        self.assertEqual(space.getWaitingOverloads(), ())
+        self.assertEqual(space.getWaitingSignatures(), ())
 
   def test_only_the_signatures_of_that_wait_go_back(self) -> None:
     """A signature waiting for another class stays where it is."""
@@ -488,7 +547,7 @@ class TestCuteSpace(BaseTest):
     self.assertEqual(space.nameLateClass(wait, Late), ('meet',))
     self.assertEqual(self._onRecord(space, 'meet'), [(Late,)])
     self.assertEqual(self._onRecord(space, 'greet'), [])
-    waiting = space.getWaitingOverloads()
+    waiting = space.getWaitingSignatures()
     self.assertEqual([name for name, _ in waiting], ['greet'])
 
   def test_two_waits_in_one_signature(self) -> None:
@@ -506,13 +565,13 @@ class TestCuteSpace(BaseTest):
     space['join'] = CuteOverload(one, int, two)(self._first)
     self.assertEqual(space.nameLateClass(two, LateTwo), ())
     self.assertEqual(self._onRecord(space, 'join'), [])
-    (_, waitingOverload), = space.getWaitingOverloads()
+    (_, waitingOverload), = space.getWaitingSignatures()
     halfNamed = (one, int, LateTwo)
     self.assertEqual(waitingOverload.getSignatureEntries(), halfNamed)
     self.assertEqual(space.nameLateClass(one, LateOne), ('join',))
     allNamed = [(LateOne, int, LateTwo)]
     self.assertEqual(self._onRecord(space, 'join'), allNamed)
-    self.assertEqual(space.getWaitingOverloads(), ())
+    self.assertEqual(space.getWaitingSignatures(), ())
 
   def test_several_names_are_given_once_each(self) -> None:
     """Each name that got a signature back is given once, in order."""
@@ -541,12 +600,12 @@ class TestCuteSpace(BaseTest):
     space['meet'] = CuteOverload(wait, int)(self._first)
     space['meet'] = CuteOverload(Late)(self._second)
     space['meet'] = CuteOverload(wait)(self._third)
-    before = space.getWaitingOverloads()
+    before = space.getWaitingSignatures()
     #  '(wait, int)' goes back first. Then '(wait)' meets '(Late)' of
     #  another function, and worktoy refuses it.
     with self.assertRaises(DuplicateSignature):
       space.nameLateClass(wait, Late)
-    self.assertEqual(space.getWaitingOverloads(), before)
+    self.assertEqual(space.getWaitingSignatures(), before)
     self.assertEqual(self._onRecord(space, 'meet'), [(str,), (Late,)])
     for _, waitingOverload in before:
       self.assertIn(wait, waitingOverload.getSignatureEntries())
@@ -567,9 +626,7 @@ class TestCuteSpace(BaseTest):
     self.assertEqual(self._onRecord(space, 'meet'), [(int,), (Late,)])
     space.restoreRecords(records)
     self.assertEqual(self._onRecord(space, 'meet'), [(int,)])
-    kept = (('meet', waitingOverload),)
-    self.assertEqual(space.getWaitingOverloads(), kept)
-    self.assertEqual(waitingOverload.getSignatureEntries(), (wait,))
+    self.assertEqual(self._kept(space), [('meet', self._second, (wait,))])
     #  From there the late class is named as if for the first time.
     self.assertEqual(space.nameLateClass(wait, Late), ('meet',))
     self.assertEqual(self._onRecord(space, 'meet'), [(int,), (Late,)])

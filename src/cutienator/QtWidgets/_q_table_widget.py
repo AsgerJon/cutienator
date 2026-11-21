@@ -11,21 +11,25 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_abstract_item_view import QAbstractItemView
-from ..QtCore import QItemSelectionModel
-from ..QtCore import QMetaObject
-from ..QtCore import QModelIndex
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ._q_table_view import QTableView
-from ._q_table_widget_item import QTableWidgetItem
-from ._q_widget import QWidget
+from ..QtCore import Qt, QItemSelectionModelSelectionFlag
+from . import QAbstractItemView, QTableView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
+  from ..QtCore import QRect
+  from . import QTableWidgetItem, QTableWidgetSelectionRange
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QModelIndex = WAIT['QModelIndex']
+  QPoint = WAIT['QPoint']
+  QTableWidgetItem = WAIT['QTableWidgetItem']
+  QTableWidgetSelectionRange = WAIT['QTableWidgetSelectionRange']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,7 +48,7 @@ class QTableWidget(QTableView):
   -----------
 
   Every function of Qt's QTableWidget that has a ritual and that Python can
-  call so far, 49 names in all: 'metaObject', 'tr', 'setRowCount',
+  call so far, 50 names in all: 'metaObject', 'tr', 'setRowCount',
   'rowCount', 'setColumnCount', 'columnCount', 'row', 'column', 'item',
   'setItem', 'takeItem', 'indexFromItem', 'itemFromIndex',
   'verticalHeaderItem', 'setVerticalHeaderItem', 'takeVerticalHeaderItem',
@@ -53,20 +57,18 @@ class QTableWidget(QTableView):
   'setCurrentItem', 'setCurrentCell', 'sortItems', 'setSortingEnabled',
   'isSortingEnabled', 'editItem', 'openPersistentEditor',
   'closePersistentEditor', 'isPersistentEditorOpen', 'cellWidget',
-  'setCellWidget', 'removeCellWidget', 'visualRow', 'visualColumn', 'itemAt',
-  'visualItemRect', 'itemPrototype', 'setItemPrototype',
-  'supportedDragActions', 'setSupportedDragActions', 'scrollToItem',
-  'insertRow', 'insertColumn', 'removeRow', 'removeColumn', 'clear',
-  'clearContents'. It can be made from Python, in 2 ways; see '__init__'.
+  'setCellWidget', 'removeCellWidget', 'setRangeSelected', 'visualRow',
+  'visualColumn', 'itemAt', 'visualItemRect', 'itemPrototype',
+  'setItemPrototype', 'supportedDragActions', 'setSupportedDragActions',
+  'scrollToItem', 'insertRow', 'insertColumn', 'removeRow', 'removeColumn',
+  'clear', 'clearContents'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QTableWidget::~QTableWidget()': the destructor: Python never
     removes a C++ QTableWidget.
-  - Qt's 'void QTableWidget::setRangeSelected(const
-    QTableWidgetSelectionRange &range, bool select)': names
-    'QTableWidgetSelectionRange', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -173,6 +175,7 @@ class QTableWidget(QTableView):
     """
     #  const QMetaObject *QTableWidget::metaObject() const
     address = self.uglySide.call('ritual_ZNK12QTableWidget10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def rowCount(self) -> int:
@@ -264,6 +267,7 @@ class QTableWidget(QTableView):
     address = self.uglySide.call(
         'ritual_ZNK12QTableWidget4itemEii', row, column,
     )
+    from . import QTableWidgetItem
     return QTableWidgetItem._cuteAt(address)
 
   @overload(QTableWidgetItem)
@@ -294,6 +298,7 @@ class QTableWidget(QTableView):
         'ritual_ZNK12QTableWidget13indexFromItemEPK16QTableWidgetItem',
         self._addressOf(item),
     )
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -324,6 +329,7 @@ class QTableWidget(QTableView):
         'ritual_ZNK12QTableWidget13itemFromIndexERK11QModelIndex',
         self._valueOf(index),
     )
+    from . import QTableWidgetItem
     return QTableWidgetItem._cuteAt(address)
 
   @overload(int)
@@ -352,6 +358,7 @@ class QTableWidget(QTableView):
     address = self.uglySide.call(
         'ritual_ZNK12QTableWidget18verticalHeaderItemEi', row,
     )
+    from . import QTableWidgetItem
     return QTableWidgetItem._cuteAt(address)
 
   @overload(int)
@@ -380,6 +387,7 @@ class QTableWidget(QTableView):
     address = self.uglySide.call(
         'ritual_ZNK12QTableWidget20horizontalHeaderItemEi', column,
     )
+    from . import QTableWidgetItem
     return QTableWidgetItem._cuteAt(address)
 
   def currentRow(self) -> int:
@@ -415,6 +423,7 @@ class QTableWidget(QTableView):
     """
     #  QTableWidgetItem *QTableWidget::currentItem() const
     address = self.uglySide.call('ritual_ZNK12QTableWidget11currentItemEv')
+    from . import QTableWidgetItem
     return QTableWidgetItem._cuteAt(address)
 
   def isSortingEnabled(self) -> bool:
@@ -543,6 +552,7 @@ class QTableWidget(QTableView):
     address = self.uglySide.call(
         'ritual_ZNK12QTableWidget6itemAtERK6QPoint', self._valueOf(p),
     )
+    from . import QTableWidgetItem
     return QTableWidgetItem._cuteAt(address)
 
   @overload(int, int)
@@ -570,6 +580,7 @@ class QTableWidget(QTableView):
     """
     #  QTableWidgetItem *QTableWidget::itemAt(int x, int y) const
     address = self.uglySide.call('ritual_ZNK12QTableWidget6itemAtEii', x, y)
+    from . import QTableWidgetItem
     return QTableWidgetItem._cuteAt(address)
 
   @overload(QTableWidgetItem)
@@ -599,6 +610,7 @@ class QTableWidget(QTableView):
         'ritual_ZNK12QTableWidget14visualItemRectEPK16QTableWidgetItem',
         self._addressOf(item),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def itemPrototype(self) -> Optional[QTableWidgetItem]:
@@ -616,6 +628,7 @@ class QTableWidget(QTableView):
     """
     #  const QTableWidgetItem *QTableWidget::itemPrototype() const
     address = self.uglySide.call('ritual_ZNK12QTableWidget13itemPrototypeEv')
+    from . import QTableWidgetItem
     return QTableWidgetItem._cuteAt(address)
 
   def supportedDragActions(self) -> Qt.DropActions:
@@ -791,8 +804,8 @@ class QTableWidget(QTableView):
         self._addressOf(item),
     )
 
-  @overload(QTableWidgetItem, QItemSelectionModel.SelectionFlags)
-  @overload(NoneType, QItemSelectionModel.SelectionFlags)
+  @overload(QTableWidgetItem, QItemSelectionModelSelectionFlag)
+  @overload(NoneType, QItemSelectionModelSelectionFlag)
   def setCurrentItem(
       self,
       item: Optional[QTableWidgetItem],
@@ -843,7 +856,7 @@ class QTableWidget(QTableView):
         'ritual_ZN12QTableWidget14setCurrentCellEii', row, column,
     )
 
-  @overload(int, int, QItemSelectionModel.SelectionFlags)
+  @overload(int, int, QItemSelectionModelSelectionFlag)
   def setCurrentCell(
       self,
       row: int,
@@ -926,6 +939,36 @@ class QTableWidget(QTableView):
     self.uglySide.call(
         'ritual_ZN12QTableWidget13setCellWidgetEiiP7QWidget',
         row, column, self._addressOf(widget),
+    )
+
+  @overload(QTableWidgetSelectionRange, bool)
+  def setRangeSelected(
+      self,
+      range: QTableWidgetSelectionRange,
+      select: bool,
+  ) -> None:
+    """
+    Calls Qt's 'void QTableWidget::setRangeSelected(const
+    QTableWidgetSelectionRange &range, bool select)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#setRangeSelected
+
+    Parameters
+    ----------
+
+    range : QTableWidgetSelectionRange
+      Passed on as a value: Qt reads the C++ QTableWidgetSelectionRange,
+      which stays Python's own.
+
+    select : bool
+      Passed on as it is.
+    """
+    #  void QTableWidget::setRangeSelected(const QTableWidgetSelectionRange
+    #      &range, bool select)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget16setRangeSelectedERK26QTableWidgetSelectio'
+        'nRangeb',
+        self._valueOf(range), select,
     )
 
   @overload(QTableWidgetItem)
@@ -1088,6 +1131,7 @@ class QTableWidget(QTableView):
     address = self.uglySide.call(
         'ritual_ZN12QTableWidget8takeItemEii', row, column,
     )
+    from . import QTableWidgetItem
     return QTableWidgetItem._cuteAt(address)
 
   @overload(int)
@@ -1116,6 +1160,7 @@ class QTableWidget(QTableView):
     address = self.uglySide.call(
         'ritual_ZN12QTableWidget22takeVerticalHeaderItemEi', row,
     )
+    from . import QTableWidgetItem
     return QTableWidgetItem._cuteAt(address)
 
   @overload(int)
@@ -1147,6 +1192,7 @@ class QTableWidget(QTableView):
     address = self.uglySide.call(
         'ritual_ZN12QTableWidget24takeHorizontalHeaderItemEi', column,
     )
+    from . import QTableWidgetItem
     return QTableWidgetItem._cuteAt(address)
 
   @overload(int)

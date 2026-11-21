@@ -1,0 +1,23 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtWidgets/qstyleoption.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qstyleoption.h>
+
+//  QStyleOptionSpinBox::QStyleOptionSpinBox()
+extern "C" Q_DECL_EXPORT
+QStyleOptionSpinBox *ritual_ZN19QStyleOptionSpinBoxC1Ev() {
+  return new QStyleOptionSpinBox();
+}
+
+//  QStyleOptionSpinBox::QStyleOptionSpinBox(const QStyleOptionSpinBox
+//      &other)
+extern "C" Q_DECL_EXPORT
+QStyleOptionSpinBox *ritual_ZN19QStyleOptionSpinBoxC1ERKS_(
+    const QStyleOptionSpinBox *other) {
+  return new QStyleOptionSpinBox(*other);
+}
+
+//  QStyleOptionSpinBox::~QStyleOptionSpinBox()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QStyleOptionSpinBoxD1Ev(QStyleOptionSpinBox *self) {
+  delete self;
+}

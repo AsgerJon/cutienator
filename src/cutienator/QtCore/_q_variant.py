@@ -12,27 +12,47 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._q_byte_array import QByteArray
-from ._q_char import QChar
-from ._q_date_time import QDateTime
-from ._q_line import QLine
-from ._q_line_f import QLineF
-from ._q_locale import QLocale
-from ._q_model_index import QModelIndex
-from ._q_point import QPoint
-from ._q_point_f import QPointF
-from ._q_rect import QRect
-from ._q_rect_f import QRectF
-from ._q_regular_expression import QRegularExpression
-from ._q_size import QSize
-from ._q_size_f import QSizeF
-from ._q_url import QUrl
-from ._q_variant_type import Type
+from . import QVariantType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QBitArray, QByteArray, QChar, QDate, QDateTime, QEasingCurve
+  from . import QJsonArray, QJsonObject, QJsonValue, QLine, QLineF, QLocale
+  from . import QMetaType, QModelIndex, QPersistentModelIndex, QPoint
+  from . import QPointF, QRect, QRectF, QRegularExpression, QSize, QSizeF
+  from . import QTime, QUrl, QUuid
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBitArray = WAIT['QBitArray']
+  QByteArray = WAIT['QByteArray']
+  QChar = WAIT['QChar']
+  QDate = WAIT['QDate']
+  QDateTime = WAIT['QDateTime']
+  QEasingCurve = WAIT['QEasingCurve']
+  QJsonArray = WAIT['QJsonArray']
+  QJsonObject = WAIT['QJsonObject']
+  QJsonValue = WAIT['QJsonValue']
+  QLine = WAIT['QLine']
+  QLineF = WAIT['QLineF']
+  QLocale = WAIT['QLocale']
+  QMetaType = WAIT['QMetaType']
+  QModelIndex = WAIT['QModelIndex']
+  QPersistentModelIndex = WAIT['QPersistentModelIndex']
+  QPoint = WAIT['QPoint']
+  QPointF = WAIT['QPointF']
+  QRect = WAIT['QRect']
+  QRectF = WAIT['QRectF']
+  QRegularExpression = WAIT['QRegularExpression']
+  QSize = WAIT['QSize']
+  QSizeF = WAIT['QSizeF']
+  QTime = WAIT['QTime']
+  QUrl = WAIT['QUrl']
+  QUuid = WAIT['QUuid']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -52,13 +72,15 @@ class QVariant(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QVariant that has a ritual and that Python can call
-  so far, 31 names in all: 'userType', 'typeId', 'typeName', 'canConvert',
-  'convert', 'isValid', 'isNull', 'clear', 'detach', 'isDetached', 'toBool',
-  'toByteArray', 'toString', 'toChar', 'toDateTime', 'toPoint', 'toPointF',
-  'toRect', 'toSize', 'toSizeF', 'toLine', 'toLineF', 'toRectF', 'toLocale',
-  'toRegularExpression', 'toUrl', 'toModelIndex', 'type', 'typeToName',
-  'nameToType', 'setValue'. It can be made from Python, in 23 ways; see
-  '__init__'.
+  so far, 42 names in all: 'userType', 'typeId', 'typeName', 'metaType',
+  'canConvert', 'convert', 'canView', 'isValid', 'isNull', 'clear', 'detach',
+  'isDetached', 'toBool', 'toByteArray', 'toBitArray', 'toString', 'toChar',
+  'toDate', 'toTime', 'toDateTime', 'toPoint', 'toPointF', 'toRect',
+  'toSize', 'toSizeF', 'toLine', 'toLineF', 'toRectF', 'toLocale',
+  'toRegularExpression', 'toEasingCurve', 'toUuid', 'toUrl', 'toJsonValue',
+  'toJsonObject', 'toJsonArray', 'toModelIndex', 'toPersistentModelIndex',
+  'type', 'typeToName', 'nameToType', 'setValue'. It can be made from Python,
+  in 32 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -73,36 +95,10 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     'QVariant::QVariant(int i)' takes.
   - Qt's 'QVariant::QVariant(float f)': takes in Python what
     'QVariant::QVariant(double d)' takes.
-  - Qt's 'QVariant::QVariant(QDate date)': names 'QDate', which has no cute
-    class yet.
-  - Qt's 'QVariant::QVariant(QTime time)': names 'QTime', which has no cute
-    class yet.
-  - Qt's 'QVariant::QVariant(const QBitArray &bitarray)': names 'QBitArray',
-    which has no cute class yet.
-  - Qt's 'QVariant::QVariant(const QJsonArray &jsonArray)': names
-    'QJsonArray', which has no cute class yet.
-  - Qt's 'QVariant::QVariant(const QJsonObject &jsonObject)': names
-    'QJsonObject', which has no cute class yet.
-  - Qt's 'QVariant::QVariant(const QJsonValue &jsonValue)': names
-    'QJsonValue', which has no cute class yet.
-  - Qt's 'QVariant::QVariant(QUuid uuid)': names 'QUuid', which has no cute
-    class yet.
-  - Qt's 'QVariant::QVariant(const QEasingCurve &easing)': names
-    'QEasingCurve', which has no cute class yet.
   - Qt's 'QVariant::QVariant(const QJsonDocument &jsonDocument)': names
     'QJsonDocument', which has no cute class yet.
-  - Qt's 'QVariant::QVariant(const QPersistentModelIndex &modelIndex)': names
-    'QPersistentModelIndex', which has no cute class yet.
   - Qt's 'QVariant::QVariant(QLatin1StringView string)': names
     'QLatin1String', which has no cute class yet.
-  - Qt's 'QMetaType QVariant::metaType() const': gives 'QMetaType', which has
-    no cute class yet.
-  - Qt's 'bool QVariant::canConvert(QMetaType targetType) const': names
-    'QMetaType', which has no cute class yet.
-  - Qt's 'bool QVariant::convert(QMetaType type)': names 'QMetaType', which
-    has no cute class yet.
-  - Qt's 'bool QVariant::canView(QMetaType targetType) const': names
-    'QMetaType', which has no cute class yet.
   - Qt's 'int QVariant::toInt(bool *ok) const': takes a number to change
     where it is.
   - Qt's 'uint QVariant::toUInt(bool *ok) const': takes a number to change
@@ -117,26 +113,8 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     where it is.
   - Qt's 'qreal QVariant::toReal(bool *ok) const': takes a number to change
     where it is.
-  - Qt's 'QBitArray QVariant::toBitArray() const': gives 'QBitArray', which
-    has no cute class yet.
-  - Qt's 'QDate QVariant::toDate() const': gives 'QDate', which has no cute
-    class yet.
-  - Qt's 'QTime QVariant::toTime() const': gives 'QTime', which has no cute
-    class yet.
-  - Qt's 'QEasingCurve QVariant::toEasingCurve() const': gives
-    'QEasingCurve', which has no cute class yet.
-  - Qt's 'QUuid QVariant::toUuid() const': gives 'QUuid', which has no cute
-    class yet.
-  - Qt's 'QJsonValue QVariant::toJsonValue() const': gives 'QJsonValue',
-    which has no cute class yet.
-  - Qt's 'QJsonObject QVariant::toJsonObject() const': gives 'QJsonObject',
-    which has no cute class yet.
-  - Qt's 'QJsonArray QVariant::toJsonArray() const': gives 'QJsonArray',
-    which has no cute class yet.
   - Qt's 'QJsonDocument QVariant::toJsonDocument() const': gives
     'QJsonDocument', which has no cute class yet.
-  - Qt's 'QPersistentModelIndex QVariant::toPersistentModelIndex() const':
-    gives 'QPersistentModelIndex', which has no cute class yet.
   - Qt's 'QPartialOrdering QVariant::compare(const QVariant &lhs, const
     QVariant &rhs)': gives 'QPartialOrdering', which has no cute class yet.
 
@@ -161,7 +139,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QVariant, and the names Qt has for the
   #  combinations of its flags enums.
-  Type = Type
+  Type = QVariantType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -214,7 +192,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Type(number)' gives.
     """
     #  Type QVariant::nameToType(const char *name)
-    return Type(Rituals.call(
+    return QVariant.Type(Rituals.call(
         'ritual_ZN8QVariant10nameToTypeEPKc', CuteMixin._bytesOf(name),
     ))
 
@@ -276,6 +254,43 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     chars = self.uglySide.call('ritual_ZNK8QVariant8typeNameEv')
     return None if chars is None else chars.decode()
 
+  def metaType(self) -> QMetaType:
+    """
+    Calls Qt's 'QMetaType QVariant::metaType() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#metaType
+
+    Returns
+    -------
+
+    QMetaType
+      A new cute QMetaType around the copy Qt gave back. Python owns it.
+    """
+    #  QMetaType QVariant::metaType() const
+    address = self.uglySide.call('ritual_ZNK8QVariant8metaTypeEv')
+    from . import QMetaType
+    return QMetaType._cuteOwning(address)
+
+  @overload(QMetaType)
+  def canConvert(self, targetType: QMetaType) -> bool:
+    """
+    Calls Qt's 'bool QVariant::canConvert(QMetaType targetType) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#canConvert
+
+    Parameters
+    ----------
+
+    targetType : QMetaType
+      Passed on as a value: Qt reads the C++ QMetaType, which stays Python's
+      own.
+    """
+    #  bool QVariant::canConvert(QMetaType targetType) const
+    return self.uglySide.call(
+        'ritual_ZNK8QVariant10canConvertE9QMetaType',
+        self._valueOf(targetType),
+    )
+
   @overload(int)
   def canConvert(self, targetTypeId: int) -> bool:
     """
@@ -292,6 +307,25 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     #  bool QVariant::canConvert(int targetTypeId) const
     return self.uglySide.call(
         'ritual_ZNK8QVariant10canConvertEi', targetTypeId,
+    )
+
+  @overload(QMetaType)
+  def canView(self, targetType: QMetaType) -> bool:
+    """
+    Calls Qt's 'bool QVariant::canView(QMetaType targetType) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#canView
+
+    Parameters
+    ----------
+
+    targetType : QMetaType
+      Passed on as a value: Qt reads the C++ QMetaType, which stays Python's
+      own.
+    """
+    #  bool QVariant::canView(QMetaType targetType) const
+    return self.uglySide.call(
+        'ritual_ZNK8QVariant7canViewE9QMetaType', self._valueOf(targetType),
     )
 
   def isValid(self) -> bool:
@@ -344,7 +378,25 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QByteArray QVariant::toByteArray() const
     address = self.uglySide.call('ritual_ZNK8QVariant11toByteArrayEv')
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
+
+  def toBitArray(self) -> QBitArray:
+    """
+    Calls Qt's 'QBitArray QVariant::toBitArray() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toBitArray
+
+    Returns
+    -------
+
+    QBitArray
+      A new cute QBitArray around the copy Qt gave back. Python owns it.
+    """
+    #  QBitArray QVariant::toBitArray() const
+    address = self.uglySide.call('ritual_ZNK8QVariant10toBitArrayEv')
+    from . import QBitArray
+    return QBitArray._cuteOwning(address)
 
   def toString(self) -> str:
     """
@@ -375,7 +427,42 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QChar QVariant::toChar() const
     address = self.uglySide.call('ritual_ZNK8QVariant6toCharEv')
+    from . import QChar
     return QChar._cuteOwning(address)
+
+  def toDate(self) -> QDate:
+    """
+    Calls Qt's 'QDate QVariant::toDate() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toDate
+
+    Returns
+    -------
+
+    QDate
+      A new cute QDate around the copy Qt gave back. Python owns it.
+    """
+    #  QDate QVariant::toDate() const
+    address = self.uglySide.call('ritual_ZNK8QVariant6toDateEv')
+    from . import QDate
+    return QDate._cuteOwning(address)
+
+  def toTime(self) -> QTime:
+    """
+    Calls Qt's 'QTime QVariant::toTime() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toTime
+
+    Returns
+    -------
+
+    QTime
+      A new cute QTime around the copy Qt gave back. Python owns it.
+    """
+    #  QTime QVariant::toTime() const
+    address = self.uglySide.call('ritual_ZNK8QVariant6toTimeEv')
+    from . import QTime
+    return QTime._cuteOwning(address)
 
   def toDateTime(self) -> QDateTime:
     """
@@ -391,6 +478,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QDateTime QVariant::toDateTime() const
     address = self.uglySide.call('ritual_ZNK8QVariant10toDateTimeEv')
+    from . import QDateTime
     return QDateTime._cuteOwning(address)
 
   def toPoint(self) -> QPoint:
@@ -407,6 +495,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QPoint QVariant::toPoint() const
     address = self.uglySide.call('ritual_ZNK8QVariant7toPointEv')
+    from . import QPoint
     return QPoint._cuteOwning(address)
 
   def toPointF(self) -> QPointF:
@@ -423,6 +512,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QVariant::toPointF() const
     address = self.uglySide.call('ritual_ZNK8QVariant8toPointFEv')
+    from . import QPointF
     return QPointF._cuteOwning(address)
 
   def toRect(self) -> QRect:
@@ -439,6 +529,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QRect QVariant::toRect() const
     address = self.uglySide.call('ritual_ZNK8QVariant6toRectEv')
+    from . import QRect
     return QRect._cuteOwning(address)
 
   def toSize(self) -> QSize:
@@ -455,6 +546,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QVariant::toSize() const
     address = self.uglySide.call('ritual_ZNK8QVariant6toSizeEv')
+    from . import QSize
     return QSize._cuteOwning(address)
 
   def toSizeF(self) -> QSizeF:
@@ -471,6 +563,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QSizeF QVariant::toSizeF() const
     address = self.uglySide.call('ritual_ZNK8QVariant7toSizeFEv')
+    from . import QSizeF
     return QSizeF._cuteOwning(address)
 
   def toLine(self) -> QLine:
@@ -487,6 +580,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QLine QVariant::toLine() const
     address = self.uglySide.call('ritual_ZNK8QVariant6toLineEv')
+    from . import QLine
     return QLine._cuteOwning(address)
 
   def toLineF(self) -> QLineF:
@@ -503,6 +597,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QLineF QVariant::toLineF() const
     address = self.uglySide.call('ritual_ZNK8QVariant7toLineFEv')
+    from . import QLineF
     return QLineF._cuteOwning(address)
 
   def toRectF(self) -> QRectF:
@@ -519,6 +614,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QVariant::toRectF() const
     address = self.uglySide.call('ritual_ZNK8QVariant7toRectFEv')
+    from . import QRectF
     return QRectF._cuteOwning(address)
 
   def toLocale(self) -> QLocale:
@@ -535,6 +631,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QLocale QVariant::toLocale() const
     address = self.uglySide.call('ritual_ZNK8QVariant8toLocaleEv')
+    from . import QLocale
     return QLocale._cuteOwning(address)
 
   def toRegularExpression(self) -> QRegularExpression:
@@ -554,7 +651,42 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK8QVariant19toRegularExpressionEv',
     )
+    from . import QRegularExpression
     return QRegularExpression._cuteOwning(address)
+
+  def toEasingCurve(self) -> QEasingCurve:
+    """
+    Calls Qt's 'QEasingCurve QVariant::toEasingCurve() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toEasingCurve
+
+    Returns
+    -------
+
+    QEasingCurve
+      A new cute QEasingCurve around the copy Qt gave back. Python owns it.
+    """
+    #  QEasingCurve QVariant::toEasingCurve() const
+    address = self.uglySide.call('ritual_ZNK8QVariant13toEasingCurveEv')
+    from . import QEasingCurve
+    return QEasingCurve._cuteOwning(address)
+
+  def toUuid(self) -> QUuid:
+    """
+    Calls Qt's 'QUuid QVariant::toUuid() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toUuid
+
+    Returns
+    -------
+
+    QUuid
+      A new cute QUuid around the copy Qt gave back. Python owns it.
+    """
+    #  QUuid QVariant::toUuid() const
+    address = self.uglySide.call('ritual_ZNK8QVariant6toUuidEv')
+    from . import QUuid
+    return QUuid._cuteOwning(address)
 
   def toUrl(self) -> QUrl:
     """
@@ -570,7 +702,59 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QUrl QVariant::toUrl() const
     address = self.uglySide.call('ritual_ZNK8QVariant5toUrlEv')
+    from . import QUrl
     return QUrl._cuteOwning(address)
+
+  def toJsonValue(self) -> QJsonValue:
+    """
+    Calls Qt's 'QJsonValue QVariant::toJsonValue() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toJsonValue
+
+    Returns
+    -------
+
+    QJsonValue
+      A new cute QJsonValue around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonValue QVariant::toJsonValue() const
+    address = self.uglySide.call('ritual_ZNK8QVariant11toJsonValueEv')
+    from . import QJsonValue
+    return QJsonValue._cuteOwning(address)
+
+  def toJsonObject(self) -> QJsonObject:
+    """
+    Calls Qt's 'QJsonObject QVariant::toJsonObject() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toJsonObject
+
+    Returns
+    -------
+
+    QJsonObject
+      A new cute QJsonObject around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonObject QVariant::toJsonObject() const
+    address = self.uglySide.call('ritual_ZNK8QVariant12toJsonObjectEv')
+    from . import QJsonObject
+    return QJsonObject._cuteOwning(address)
+
+  def toJsonArray(self) -> QJsonArray:
+    """
+    Calls Qt's 'QJsonArray QVariant::toJsonArray() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toJsonArray
+
+    Returns
+    -------
+
+    QJsonArray
+      A new cute QJsonArray around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonArray QVariant::toJsonArray() const
+    address = self.uglySide.call('ritual_ZNK8QVariant11toJsonArrayEv')
+    from . import QJsonArray
+    return QJsonArray._cuteOwning(address)
 
   def toModelIndex(self) -> QModelIndex:
     """
@@ -586,7 +770,30 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QModelIndex QVariant::toModelIndex() const
     address = self.uglySide.call('ritual_ZNK8QVariant12toModelIndexEv')
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
+
+  def toPersistentModelIndex(self) -> QPersistentModelIndex:
+    """
+    Calls Qt's 'QPersistentModelIndex QVariant::toPersistentModelIndex()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qvariant.html#toPersistentModelIndex
+
+    Returns
+    -------
+
+    QPersistentModelIndex
+      A new cute QPersistentModelIndex around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QPersistentModelIndex QVariant::toPersistentModelIndex() const
+    address = self.uglySide.call(
+        'ritual_ZNK8QVariant22toPersistentModelIndexEv',
+    )
+    from . import QPersistentModelIndex
+    return QPersistentModelIndex._cuteOwning(address)
 
   def type(self) -> Type:
     """
@@ -602,7 +809,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Type(number)' gives.
     """
     #  Type QVariant::type() const
-    return Type(self.uglySide.call('ritual_ZNK8QVariant4typeEv'))
+    return QVariant.Type(self.uglySide.call('ritual_ZNK8QVariant4typeEv'))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -748,6 +955,64 @@ class QVariant(CuteMixin, metaclass=MetaCute):
         'ritual_ZN8QVariantC1E5QChar', self._valueOf(qchar),
     ))
 
+  @overload(QDate)
+  def __init__(self, date: QDate) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(QDate date)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+    """
+    #  QVariant::QVariant(QDate date)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1E5QDate', self._valueOf(date),
+    ))
+
+  @overload(QTime)
+  def __init__(self, time: QTime) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(QTime time)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    time : QTime
+      Passed on as a value: Qt reads the C++ QTime, which stays Python's own.
+    """
+    #  QVariant::QVariant(QTime time)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1E5QTime', self._valueOf(time),
+    ))
+
+  @overload(QBitArray)
+  def __init__(self, bitarray: QBitArray) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(const QBitArray
+    &bitarray)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    bitarray : QBitArray
+      Passed on as a value: Qt reads the C++ QBitArray, which stays Python's
+      own.
+    """
+    #  QVariant::QVariant(const QBitArray &bitarray)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1ERK9QBitArray', self._valueOf(bitarray),
+    ))
+
   @overload(QByteArray)
   def __init__(self, bytearray: QByteArray) -> None:
     """
@@ -786,6 +1051,46 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     #  QVariant::QVariant(const QDateTime &datetime)
     self._noteCreation(QVariant, lambda: Rituals.call(
         'ritual_ZN8QVariantC1ERK9QDateTime', self._valueOf(datetime),
+    ))
+
+  @overload(QJsonArray)
+  def __init__(self, jsonArray: QJsonArray) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(const QJsonArray
+    &jsonArray)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    jsonArray : QJsonArray
+      Passed on as a value: Qt reads the C++ QJsonArray, which stays Python's
+      own.
+    """
+    #  QVariant::QVariant(const QJsonArray &jsonArray)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1ERK10QJsonArray', self._valueOf(jsonArray),
+    ))
+
+  @overload(QJsonObject)
+  def __init__(self, jsonObject: QJsonObject) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(const QJsonObject
+    &jsonObject)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    jsonObject : QJsonObject
+      Passed on as a value: Qt reads the C++ QJsonObject, which stays
+      Python's own.
+    """
+    #  QVariant::QVariant(const QJsonObject &jsonObject)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1ERK11QJsonObject', self._valueOf(jsonObject),
     ))
 
   @overload(QLocale)
@@ -866,6 +1171,26 @@ class QVariant(CuteMixin, metaclass=MetaCute):
         'ritual_ZN8QVariantC1ERK4QUrl', self._valueOf(url),
     ))
 
+  @overload(QJsonValue)
+  def __init__(self, jsonValue: QJsonValue) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(const QJsonValue
+    &jsonValue)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    jsonValue : QJsonValue
+      Passed on as a value: Qt reads the C++ QJsonValue, which stays Python's
+      own.
+    """
+    #  QVariant::QVariant(const QJsonValue &jsonValue)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1ERK10QJsonValue', self._valueOf(jsonValue),
+    ))
+
   @overload(QModelIndex)
   def __init__(self, modelIndex: QModelIndex) -> None:
     """
@@ -884,6 +1209,25 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     #  QVariant::QVariant(const QModelIndex &modelIndex)
     self._noteCreation(QVariant, lambda: Rituals.call(
         'ritual_ZN8QVariantC1ERK11QModelIndex', self._valueOf(modelIndex),
+    ))
+
+  @overload(QUuid)
+  def __init__(self, uuid: QUuid) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(QUuid uuid)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    uuid : QUuid
+      Passed on as a value: Qt reads the C++ QUuid, which stays Python's own.
+    """
+    #  QVariant::QVariant(QUuid uuid)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1E5QUuid', self._valueOf(uuid),
     ))
 
   @overload(QSize)
@@ -1043,6 +1387,47 @@ class QVariant(CuteMixin, metaclass=MetaCute):
         'ritual_ZN8QVariantC1E6QRectF', self._valueOf(rect),
     ))
 
+  @overload(QEasingCurve)
+  def __init__(self, easing: QEasingCurve) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(const QEasingCurve
+    &easing)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    easing : QEasingCurve
+      Passed on as a value: Qt reads the C++ QEasingCurve, which stays
+      Python's own.
+    """
+    #  QVariant::QVariant(const QEasingCurve &easing)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1ERK12QEasingCurve', self._valueOf(easing),
+    ))
+
+  @overload(QPersistentModelIndex)
+  def __init__(self, modelIndex: QPersistentModelIndex) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(const
+    QPersistentModelIndex &modelIndex)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    modelIndex : QPersistentModelIndex
+      Passed on as a value: Qt reads the C++ QPersistentModelIndex, which
+      stays Python's own.
+    """
+    #  QVariant::QVariant(const QPersistentModelIndex &modelIndex)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1ERK21QPersistentModelIndex',
+        self._valueOf(modelIndex),
+    ))
+
   @overload(NoneType)
   def __init__(self, str: Optional[str]) -> None:
     """
@@ -1100,6 +1485,25 @@ class QVariant(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QMetaType)
+  def convert(self, type: QMetaType) -> bool:
+    """
+    Calls Qt's 'bool QVariant::convert(QMetaType type)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#convert
+
+    Parameters
+    ----------
+
+    type : QMetaType
+      Passed on as a value: Qt reads the C++ QMetaType, which stays Python's
+      own.
+    """
+    #  bool QVariant::convert(QMetaType type)
+    return self.uglySide.call(
+        'ritual_ZN8QVariant7convertE9QMetaType', self._valueOf(type),
+    )
 
   @overload(int)
   def convert(self, targetTypeId: int) -> bool:

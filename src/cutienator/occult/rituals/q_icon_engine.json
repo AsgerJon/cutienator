@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qiconengine.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QIconEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN11QIconEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QIconEngine9addPixmapERK7QPixmapN5QIcon4ModeENS3_5StateE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QIconEngine7addFileERK7QStringRK5QSizeN5QIcon4ModeENS6_5StateE": [
+      "nothing", "address", "text", "address", "int", "int"
+    ],
+    "ritual_ZNK11QIconEngine3keyEv": ["text", "address"],
+    "ritual_ZNK11QIconEngine5cloneEv": ["address", "address"],
+    "ritual_ZN11QIconEngine8iconNameEv": ["text", "address"],
+    "ritual_ZN11QIconEngine6isNullEv": ["bool", "address"],
+    "ritual_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
+      "address", "address", "address", "int", "int", "double"
+    ]
+  }
+}

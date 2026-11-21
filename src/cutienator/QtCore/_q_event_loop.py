@@ -11,15 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_event import QEvent
-from ._q_meta_object import QMetaObject
-from ._q_object import QObject
-from ._q_event_loop_process_events_flag import ProcessEventsFlag
+from . import QEventLoopProcessEventsFlag, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QDeadlineTimer, QEvent, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QDeadlineTimer = WAIT['QDeadlineTimer']
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -47,9 +52,6 @@ class QEventLoop(QObject):
 
   - Qt's 'QEventLoop::~QEventLoop()': the destructor: Python never removes a
     C++ QEventLoop.
-  - Qt's 'void QEventLoop::processEvents(ProcessEventsFlags flags,
-    QDeadlineTimer deadline)': names 'QDeadlineTimer', which has no cute
-    class yet.
 
   What has no ritual
   ------------------
@@ -74,8 +76,8 @@ class QEventLoop(QObject):
 
   #  The enums Qt writes inside QEventLoop, and the names Qt has for the
   #  combinations of its flags enums.
-  ProcessEventsFlag = ProcessEventsFlag
-  ProcessEventsFlags = ProcessEventsFlag
+  ProcessEventsFlag = QEventLoopProcessEventsFlag
+  ProcessEventsFlags = QEventLoopProcessEventsFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -158,6 +160,7 @@ class QEventLoop(QObject):
     """
     #  const QMetaObject *QEventLoop::metaObject() const
     address = self.uglySide.call('ritual_ZNK10QEventLoop10metaObjectEv')
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def isRunning(self) -> bool:
@@ -279,6 +282,36 @@ class QEventLoop(QObject):
         'ritual_ZN10QEventLoop13processEventsE6QFlagsINS_17ProcessEventsFla'
         'gEEi',
         flags.value, maximumTime,
+    )
+
+  @overload(ProcessEventsFlags, QDeadlineTimer)
+  def processEvents(
+      self,
+      flags: ProcessEventsFlags,
+      deadline: QDeadlineTimer,
+  ) -> None:
+    """
+    Calls Qt's 'void QEventLoop::processEvents(ProcessEventsFlags flags,
+    QDeadlineTimer deadline)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qeventloop.html#processEvents
+
+    Parameters
+    ----------
+
+    flags : ProcessEventsFlags
+      Passed on as its number.
+
+    deadline : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+    """
+    #  void QEventLoop::processEvents(ProcessEventsFlags flags,
+    #      QDeadlineTimer deadline)
+    self.uglySide.call(
+        'ritual_ZN10QEventLoop13processEventsE6QFlagsINS_17ProcessEventsFla'
+        'gEE14QDeadlineTimer',
+        flags.value, self._valueOf(deadline),
     )
 
   @overload()

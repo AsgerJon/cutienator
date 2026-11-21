@@ -10,7 +10,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from ..cute import CuteMixin, MetaCute
-from ._q_i_o_device_base_open_mode_flag import OpenModeFlag
+from . import QIODeviceBaseOpenModeFlag
 
 
 class QIODeviceBase(CuteMixin, metaclass=MetaCute):
@@ -44,8 +44,8 @@ class QIODeviceBase(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QIODeviceBase, and the names Qt has for the
   #  combinations of its flags enums.
-  OpenModeFlag = OpenModeFlag
-  OpenMode = OpenModeFlag
+  OpenModeFlag = QIODeviceBaseOpenModeFlag
+  OpenMode = QIODeviceBaseOpenModeFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

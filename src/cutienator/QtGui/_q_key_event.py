@@ -11,14 +11,25 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ..QtCore import QEvent
-from ._q_input_event import QInputEvent
-from ._q_key_sequence import QKeySequence
+from ..QtCore import Qt, QEvent
+from . import QInputEvent, QKeySequenceStandardKey
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QKeyCombination
+  from . import QInputDevice, QKeySequence
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QInputDevice = WAIT['QInputDevice']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QKeyEvent(QInputEvent):
@@ -33,22 +44,16 @@ class QKeyEvent(QInputEvent):
   -----------
 
   Every function of Qt's QKeyEvent that has a ritual and that Python can call
-  so far, 10 names in all: 'clone', 'key', 'matches', 'modifiers', 'text',
-  'isAutoRepeat', 'count', 'nativeScanCode', 'nativeVirtualKey',
-  'nativeModifiers'. It can be made from Python, in 1 way; see '__init__'.
+  so far, 11 names in all: 'clone', 'key', 'matches', 'modifiers',
+  'keyCombination', 'text', 'isAutoRepeat', 'count', 'nativeScanCode',
+  'nativeVirtualKey', 'nativeModifiers'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QKeyEvent::~QKeyEvent()': the destructor: Python never removes a
     C++ QKeyEvent.
-  - Qt's 'QKeyEvent::QKeyEvent(Type type, int key, Qt::KeyboardModifiers
-    modifiers, quint32 nativeScanCode, quint32 nativeVirtualKey, quint32
-    nativeModifiers, const QString &text, bool autorep, quint16 count, const
-    QInputDevice *device)': names 'QInputDevice', which has no cute class
-    yet.
-  - Qt's 'QKeyCombination QKeyEvent::keyCombination() const': gives
-    'QKeyCombination', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -117,7 +122,7 @@ class QKeyEvent(QInputEvent):
     #  int QKeyEvent::key() const
     return self.uglySide.call('ritual_ZNK9QKeyEvent3keyEv')
 
-  @overload(QKeySequence.StandardKey)
+  @overload(QKeySequenceStandardKey)
   def matches(self, key: QKeySequence.StandardKey) -> bool:
     """
     Calls Qt's 'bool QKeyEvent::matches(QKeySequence::StandardKey key)
@@ -153,6 +158,24 @@ class QKeyEvent(QInputEvent):
     return Qt.KeyboardModifiers(self.uglySide.call(
         'ritual_ZNK9QKeyEvent9modifiersEv',
     ))
+
+  def keyCombination(self) -> QKeyCombination:
+    """
+    Calls Qt's 'QKeyCombination QKeyEvent::keyCombination() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeyevent.html#keyCombination
+
+    Returns
+    -------
+
+    QKeyCombination
+      A new cute QKeyCombination around the copy Qt gave back. Python owns
+      it.
+    """
+    #  QKeyCombination QKeyEvent::keyCombination() const
+    address = self.uglySide.call('ritual_ZNK9QKeyEvent14keyCombinationEv')
+    from ..QtCore import QKeyCombination
+    return QKeyCombination._cuteOwning(address)
 
   def text(self) -> str:
     """
@@ -278,6 +301,81 @@ class QKeyEvent(QInputEvent):
         'ritual_ZN9QKeyEventC1EN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifie'
         'rEERK7QStringbt',
         type.value, key, modifiers.value, text, autorep, count,
+    ))
+
+  @overload(
+      QEvent.Type, int, Qt.KeyboardModifiers, int, int, int, str, bool, int,
+      QInputDevice,
+  )
+  @overload(
+      QEvent.Type, int, Qt.KeyboardModifiers, int, int, int, str, bool, int,
+      NoneType,
+  )
+  def __init__(
+      self,
+      type: QEvent.Type,
+      key: int,
+      modifiers: Qt.KeyboardModifiers,
+      nativeScanCode: int,
+      nativeVirtualKey: int,
+      nativeModifiers: int,
+      text: str,
+      autorep: bool,
+      count: int,
+      device: Optional[QInputDevice],
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QKeyEvent::QKeyEvent(Type type, int key,
+    Qt::KeyboardModifiers modifiers, quint32 nativeScanCode, quint32
+    nativeVirtualKey, quint32 nativeModifiers, const QString &text, bool
+    autorep, quint16 count, const QInputDevice *device)', which is called at
+    the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeyevent.html#QKeyEvent
+
+    Parameters
+    ----------
+
+    type : QEvent.Type
+      Passed on as its number.
+
+    key : int
+      Passed on as it is.
+
+    modifiers : Qt.KeyboardModifiers
+      Passed on as its number.
+
+    nativeScanCode : int
+      Passed on as it is.
+
+    nativeVirtualKey : int
+      Passed on as it is.
+
+    nativeModifiers : int
+      Passed on as it is.
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+
+    autorep : bool
+      Passed on as it is.
+
+    count : int
+      Passed on as it is.
+
+    device : Optional[QInputDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QKeyEvent::QKeyEvent(Type type, int key, Qt::KeyboardModifiers
+    #      modifiers, quint32 nativeScanCode, quint32 nativeVirtualKey,
+    #      quint32 nativeModifiers, const QString &text, bool autorep,
+    #      quint16 count, const QInputDevice *device)
+    self._noteCreation(QKeyEvent, lambda: Rituals.call(
+        'ritual_ZN9QKeyEventC1EN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifie'
+        'rEEjjjRK7QStringbtPK12QInputDevice',
+        type.value, key, modifiers.value, nativeScanCode, nativeVirtualKey,
+        nativeModifiers, text, autorep, count, self._addressOf(device),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -11,15 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_key_sequence import QKeySequence
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
+from ..QtCore import Qt, QObject
+from . import QKeySequenceStandardKey
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject
+  from . import QKeySequence
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QKeySequence = WAIT['QKeySequence']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -151,6 +157,7 @@ class QShortcut(QObject):
     """
     #  const QMetaObject *QShortcut::metaObject() const
     address = self.uglySide.call('ritual_ZNK9QShortcut10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def key(self) -> QKeySequence:
@@ -167,6 +174,7 @@ class QShortcut(QObject):
     """
     #  QKeySequence QShortcut::key() const
     address = self.uglySide.call('ritual_ZNK9QShortcut3keyEv')
+    from . import QKeySequence
     return QKeySequence._cuteOwning(address)
 
   def isEnabled(self) -> bool:
@@ -253,7 +261,7 @@ class QShortcut(QObject):
         'ritual_ZN9QShortcut6setKeyERK12QKeySequence', self._valueOf(key),
     )
 
-  @overload(QKeySequence.StandardKey)
+  @overload(QKeySequenceStandardKey)
   def setKeys(self, key: QKeySequence.StandardKey) -> None:
     """
     Calls Qt's 'void QShortcut::setKeys(QKeySequence::StandardKey key)'.
@@ -442,40 +450,40 @@ class QShortcut(QObject):
         self._bytesOf(ambiguousMember), context.value,
     ))
 
-  @overload(QKeySequence.StandardKey, QObject)
-  @overload(QKeySequence.StandardKey, NoneType)
-  @overload(QKeySequence.StandardKey, QObject, str)
-  @overload(QKeySequence.StandardKey, QObject, NoneType)
-  @overload(QKeySequence.StandardKey, NoneType, str)
-  @overload(QKeySequence.StandardKey, NoneType, NoneType)
-  @overload(QKeySequence.StandardKey, QObject, str, str)
-  @overload(QKeySequence.StandardKey, QObject, str, NoneType)
-  @overload(QKeySequence.StandardKey, QObject, NoneType, str)
-  @overload(QKeySequence.StandardKey, QObject, NoneType, NoneType)
-  @overload(QKeySequence.StandardKey, NoneType, str, str)
-  @overload(QKeySequence.StandardKey, NoneType, str, NoneType)
-  @overload(QKeySequence.StandardKey, NoneType, NoneType, str)
-  @overload(QKeySequence.StandardKey, NoneType, NoneType, NoneType)
-  @overload(QKeySequence.StandardKey, QObject, str, str, Qt.ShortcutContext)
+  @overload(QKeySequenceStandardKey, QObject)
+  @overload(QKeySequenceStandardKey, NoneType)
+  @overload(QKeySequenceStandardKey, QObject, str)
+  @overload(QKeySequenceStandardKey, QObject, NoneType)
+  @overload(QKeySequenceStandardKey, NoneType, str)
+  @overload(QKeySequenceStandardKey, NoneType, NoneType)
+  @overload(QKeySequenceStandardKey, QObject, str, str)
+  @overload(QKeySequenceStandardKey, QObject, str, NoneType)
+  @overload(QKeySequenceStandardKey, QObject, NoneType, str)
+  @overload(QKeySequenceStandardKey, QObject, NoneType, NoneType)
+  @overload(QKeySequenceStandardKey, NoneType, str, str)
+  @overload(QKeySequenceStandardKey, NoneType, str, NoneType)
+  @overload(QKeySequenceStandardKey, NoneType, NoneType, str)
+  @overload(QKeySequenceStandardKey, NoneType, NoneType, NoneType)
+  @overload(QKeySequenceStandardKey, QObject, str, str, Qt.ShortcutContext)
   @overload(
-      QKeySequence.StandardKey, QObject, str, NoneType, Qt.ShortcutContext,
+      QKeySequenceStandardKey, QObject, str, NoneType, Qt.ShortcutContext,
   )
   @overload(
-      QKeySequence.StandardKey, QObject, NoneType, str, Qt.ShortcutContext,
+      QKeySequenceStandardKey, QObject, NoneType, str, Qt.ShortcutContext,
   )
   @overload(
-      QKeySequence.StandardKey, QObject, NoneType, NoneType,
+      QKeySequenceStandardKey, QObject, NoneType, NoneType,
       Qt.ShortcutContext,
   )
-  @overload(QKeySequence.StandardKey, NoneType, str, str, Qt.ShortcutContext)
+  @overload(QKeySequenceStandardKey, NoneType, str, str, Qt.ShortcutContext)
   @overload(
-      QKeySequence.StandardKey, NoneType, str, NoneType, Qt.ShortcutContext,
+      QKeySequenceStandardKey, NoneType, str, NoneType, Qt.ShortcutContext,
   )
   @overload(
-      QKeySequence.StandardKey, NoneType, NoneType, str, Qt.ShortcutContext,
+      QKeySequenceStandardKey, NoneType, NoneType, str, Qt.ShortcutContext,
   )
   @overload(
-      QKeySequence.StandardKey, NoneType, NoneType, NoneType,
+      QKeySequenceStandardKey, NoneType, NoneType, NoneType,
       Qt.ShortcutContext,
   )
   def __init__(

@@ -11,17 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import QByteArray
-from ..QtCore import QIODevice
-from ..QtCore import QMetaObject
 from ..QtCore import QObject
-from ._q_paged_paint_device import QPagedPaintDevice
-from ._q_pdf_writer_color_model import ColorModel
+from . import QPagedPaintDevicePdfVersion, QPdfWriterColorModel
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QByteArray, QIODevice, QMetaObject, QUuid
+  from . import QPagedPaintDevice
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
+  QIODevice = WAIT['QIODevice']
+  QUuid = WAIT['QUuid']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -41,22 +47,18 @@ class QPdfWriter(QObject):
   -----------
 
   Every function of Qt's QPdfWriter that has a ritual and that Python can
-  call so far, 18 names in all: 'metaObject', 'tr', 'setPdfVersion',
-  'pdfVersion', 'title', 'setTitle', 'creator', 'setCreator', 'author',
-  'setAuthor', 'newPage', 'setResolution', 'resolution',
-  'setDocumentXmpMetadata', 'documentXmpMetadata', 'addFileAttachment',
-  'colorModel', 'setColorModel'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  call so far, 20 names in all: 'metaObject', 'tr', 'setPdfVersion',
+  'pdfVersion', 'title', 'setTitle', 'creator', 'setCreator', 'documentId',
+  'setDocumentId', 'author', 'setAuthor', 'newPage', 'setResolution',
+  'resolution', 'setDocumentXmpMetadata', 'documentXmpMetadata',
+  'addFileAttachment', 'colorModel', 'setColorModel'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPdfWriter::~QPdfWriter()': the destructor: Python never removes a
     C++ QPdfWriter.
-  - Qt's 'QUuid QPdfWriter::documentId() const': gives 'QUuid', which has no
-    cute class yet.
-  - Qt's 'void QPdfWriter::setDocumentId(QUuid documentId)': names 'QUuid',
-    which has no cute class yet.
   - Qt's 'QPdfOutputIntent QPdfWriter::outputIntent() const': gives
     'QPdfOutputIntent', which has no cute class yet.
   - Qt's 'void QPdfWriter::setOutputIntent(const QPdfOutputIntent &intent)':
@@ -85,7 +87,7 @@ class QPdfWriter(QObject):
 
   #  The enums Qt writes inside QPdfWriter, and the names Qt has for the
   #  combinations of its flags enums.
-  ColorModel = ColorModel
+  ColorModel = QPdfWriterColorModel
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -168,6 +170,7 @@ class QPdfWriter(QObject):
     """
     #  const QMetaObject *QPdfWriter::metaObject() const
     address = self.uglySide.call('ritual_ZNK10QPdfWriter10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def pdfVersion(self) -> QPagedPaintDevice.PdfVersion:
@@ -185,7 +188,7 @@ class QPdfWriter(QObject):
       'QPagedPaintDevice.PdfVersion(number)' gives.
     """
     #  PdfVersion QPdfWriter::pdfVersion() const
-    return QPagedPaintDevice.PdfVersion(self.uglySide.call(
+    return QPagedPaintDevicePdfVersion(self.uglySide.call(
         'ritual_ZNK10QPdfWriter10pdfVersionEv',
     ))
 
@@ -218,6 +221,23 @@ class QPdfWriter(QObject):
     """
     #  QString QPdfWriter::creator() const
     return self.uglySide.call('ritual_ZNK10QPdfWriter7creatorEv')
+
+  def documentId(self) -> QUuid:
+    """
+    Calls Qt's 'QUuid QPdfWriter::documentId() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpdfwriter.html#documentId
+
+    Returns
+    -------
+
+    QUuid
+      A new cute QUuid around the copy Qt gave back. Python owns it.
+    """
+    #  QUuid QPdfWriter::documentId() const
+    address = self.uglySide.call('ritual_ZNK10QPdfWriter10documentIdEv')
+    from ..QtCore import QUuid
+    return QUuid._cuteOwning(address)
 
   def author(self) -> str:
     """
@@ -260,6 +280,7 @@ class QPdfWriter(QObject):
     address = self.uglySide.call(
         'ritual_ZNK10QPdfWriter19documentXmpMetadataEv',
     )
+    from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
 
   def colorModel(self) -> ColorModel:
@@ -277,7 +298,7 @@ class QPdfWriter(QObject):
       gives.
     """
     #  ColorModel QPdfWriter::colorModel() const
-    return ColorModel(self.uglySide.call(
+    return QPdfWriter.ColorModel(self.uglySide.call(
         'ritual_ZNK10QPdfWriter10colorModelEv',
     ))
 
@@ -285,7 +306,7 @@ class QPdfWriter(QObject):
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QPagedPaintDevice.PdfVersion)
+  @overload(QPagedPaintDevicePdfVersion)
   def setPdfVersion(self, version: QPagedPaintDevice.PdfVersion) -> None:
     """
     Calls Qt's 'void QPdfWriter::setPdfVersion(PdfVersion version)'.
@@ -337,6 +358,25 @@ class QPdfWriter(QObject):
     #  void QPdfWriter::setCreator(const QString &creator)
     self.uglySide.call(
         'ritual_ZN10QPdfWriter10setCreatorERK7QString', creator,
+    )
+
+  @overload(QUuid)
+  def setDocumentId(self, documentId: QUuid) -> None:
+    """
+    Calls Qt's 'void QPdfWriter::setDocumentId(QUuid documentId)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpdfwriter.html#setDocumentId
+
+    Parameters
+    ----------
+
+    documentId : QUuid
+      Passed on as a value: Qt reads the C++ QUuid, which stays Python's own.
+    """
+    #  void QPdfWriter::setDocumentId(QUuid documentId)
+    self.uglySide.call(
+        'ritual_ZN10QPdfWriter13setDocumentIdE5QUuid',
+        self._valueOf(documentId),
     )
 
   @overload(str)

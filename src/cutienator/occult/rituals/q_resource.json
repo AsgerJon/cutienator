@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qresource.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QResourceC1ERK7QStringRK7QLocale": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN9QResourceD1Ev": ["nothing", "address"],
+    "ritual_ZN9QResource11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QResource8fileNameEv": ["text", "address"],
+    "ritual_ZNK9QResource16absoluteFilePathEv": ["text", "address"],
+    "ritual_ZN9QResource9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QResource6localeEv": ["address", "address"],
+    "ritual_ZNK9QResource7isValidEv": ["bool", "address"],
+    "ritual_ZNK9QResource20compressionAlgorithmEv": ["int", "address"],
+    "ritual_ZNK9QResource4sizeEv": ["long long", "address"],
+    "ritual_ZNK9QResource16uncompressedSizeEv": ["long long", "address"],
+    "ritual_ZNK9QResource16uncompressedDataEv": ["address", "address"],
+    "ritual_ZNK9QResource12lastModifiedEv": ["address", "address"],
+    "ritual_ZN9QResource16registerResourceERK7QStringS2_": [
+      "bool", "text", "text"
+    ],
+    "ritual_ZN9QResource18unregisterResourceERK7QStringS2_": [
+      "bool", "text", "text"
+    ]
+  }
+}

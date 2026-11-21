@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qcommonstyle.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QCommonStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QCommonStyle2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QCommonStyleC1Ev": ["address"],
+    "ritual_ZN12QCommonStyleD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QCommonStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QCommonStyle11drawControlEN6QStyle14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QCommonStyle14subElementRectEN6QStyle10SubElementEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK12QCommonStyle18drawComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QCommonStyle21hitTestComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget": [
+      "int", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QCommonStyle14subControlRectEN6QStyle14ComplexControlEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget": [
+      "address", "address", "int", "address", "int", "address"
+    ],
+    "ritual_ZNK12QCommonStyle16sizeFromContentsEN6QStyle12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget": [
+      "address", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QCommonStyle11pixelMetricEN6QStyle11PixelMetricEPK12QStyleOptionPK7QWidget": [
+      "int", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK12QCommonStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn": [
+      "int", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QCommonStyle12standardIconEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK12QCommonStyle14standardPixmapEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK12QCommonStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK12QCommonStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget": [
+      "int", "address", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN12QCommonStyle6polishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QCommonStyle6polishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QCommonStyle8unpolishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QCommonStyle8unpolishEP12QApplication": [
+      "nothing", "address", "address"
+    ]
+  }
+}

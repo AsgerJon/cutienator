@@ -12,12 +12,21 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QPoint
-from ..QtCore import QPointF
-from ._q_vector3_d import QVector3D
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QPoint, QPointF
+  from . import QVector3D, QVector4D
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPoint = WAIT['QPoint']
+  QPointF = WAIT['QPointF']
+  QVector3D = WAIT['QVector3D']
+  QVector4D = WAIT['QVector4D']
 
 
 class QVector2D(CuteMixin, metaclass=MetaCute):
@@ -33,20 +42,16 @@ class QVector2D(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QVector2D that has a ritual and that Python can call
-  so far, 15 names in all: 'isNull', 'x', 'y', 'setX', 'setY', 'length',
+  so far, 16 names in all: 'isNull', 'x', 'y', 'setX', 'setY', 'length',
   'lengthSquared', 'normalized', 'normalize', 'distanceToPoint',
-  'distanceToLine', 'dotProduct', 'toVector3D', 'toPoint', 'toPointF'. It can
-  be made from Python, in 6 ways; see '__init__'.
+  'distanceToLine', 'dotProduct', 'toVector3D', 'toVector4D', 'toPoint',
+  'toPointF'. It can be made from Python, in 7 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QVector2D::QVector2D(QVector4D vector)': names 'QVector4D', which
-    has no cute class yet.
   - Qt's 'float QVector2D::operator[](int i) const': an operator, which is
     not reflected yet.
-  - Qt's 'QVector4D QVector2D::toVector4D() const': gives 'QVector4D', which
-    has no cute class yet.
   - Qt's 'QVariant QVector2D::operator QVariant() const': an operator, which
     is not reflected yet.
   - Qt's 'QVector2D::~QVector2D()': the destructor: Python removes its C++
@@ -244,7 +249,25 @@ class QVector2D(CuteMixin, metaclass=MetaCute):
     """
     #  QVector3D QVector2D::toVector3D() const
     address = self.uglySide.call('ritual_ZNK9QVector2D10toVector3DEv')
+    from . import QVector3D
     return QVector3D._cuteOwning(address)
+
+  def toVector4D(self) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D QVector2D::toVector4D() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector2d.html#toVector4D
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D QVector2D::toVector4D() const
+    address = self.uglySide.call('ritual_ZNK9QVector2D10toVector4DEv')
+    from . import QVector4D
+    return QVector4D._cuteOwning(address)
 
   def toPoint(self) -> QPoint:
     """
@@ -260,6 +283,7 @@ class QVector2D(CuteMixin, metaclass=MetaCute):
     """
     #  QPoint QVector2D::toPoint() const
     address = self.uglySide.call('ritual_ZNK9QVector2D7toPointEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def toPointF(self) -> QPointF:
@@ -276,6 +300,7 @@ class QVector2D(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QVector2D::toPointF() const
     address = self.uglySide.call('ritual_ZNK9QVector2D8toPointFEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -438,6 +463,26 @@ class QVector2D(CuteMixin, metaclass=MetaCute):
     #  QVector2D::QVector2D(QVector3D vector)
     self._noteCreation(QVector2D, lambda: Rituals.call(
         'ritual_ZN9QVector2DC1E9QVector3D', self._valueOf(vector),
+    ))
+
+  @overload(QVector4D)
+  def __init__(self, vector: QVector4D) -> None:
+    """
+    Notes what was given, for Qt's 'QVector2D::QVector2D(QVector4D vector)',
+    which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector2d.html#QVector2D
+
+    Parameters
+    ----------
+
+    vector : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+    """
+    #  QVector2D::QVector2D(QVector4D vector)
+    self._noteCreation(QVector2D, lambda: Rituals.call(
+        'ritual_ZN9QVector2DC1E9QVector4D', self._valueOf(vector),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

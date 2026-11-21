@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QEnterEvent5cloneEv": ["address", "address"],
+    "ritual_ZN11QEnterEventD1Ev": ["nothing", "address"],
+    "ritual_ZN11QEnterEventC1ERK7QPointFS2_S2_PK15QPointingDevice": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11QEnterEvent3posEv": ["address", "address"],
+    "ritual_ZNK11QEnterEvent9globalPosEv": ["address", "address"],
+    "ritual_ZNK11QEnterEvent1xEv": ["int", "address"],
+    "ritual_ZNK11QEnterEvent1yEv": ["int", "address"],
+    "ritual_ZNK11QEnterEvent7globalXEv": ["int", "address"],
+    "ritual_ZNK11QEnterEvent7globalYEv": ["int", "address"],
+    "ritual_ZNK11QEnterEvent8localPosEv": ["address", "address"],
+    "ritual_ZNK11QEnterEvent9windowPosEv": ["address", "address"],
+    "ritual_ZNK11QEnterEvent9screenPosEv": ["address", "address"]
+  }
+}

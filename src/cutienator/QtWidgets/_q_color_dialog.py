@@ -11,17 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtGui import QColor
-from ._q_dialog import QDialog
-from ..QtCore import QMetaObject
 from ..QtCore import QObject
-from ._q_widget import QWidget
-from ._q_color_dialog_color_dialog_option import ColorDialogOption
+from . import QColorDialogColorDialogOption, QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject
+  from ..QtGui import QColor
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QColor = WAIT['QColor']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -76,8 +80,8 @@ class QColorDialog(QDialog):
 
   #  The enums Qt writes inside QColorDialog, and the names Qt has for the
   #  combinations of its flags enums.
-  ColorDialogOption = ColorDialogOption
-  ColorDialogOptions = ColorDialogOption
+  ColorDialogOption = QColorDialogColorDialogOption
+  ColorDialogOptions = QColorDialogColorDialogOption
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -179,6 +183,7 @@ class QColorDialog(QDialog):
         CuteMixin._valueOf(initial), CuteMixin._addressOf(parent), title,
         options.value,
     )
+    from ..QtGui import QColor
     return QColor._cuteOwning(address)
 
   @staticmethod
@@ -213,6 +218,7 @@ class QColorDialog(QDialog):
     """
     #  QColor QColorDialog::customColor(int index)
     address = Rituals.call('ritual_ZN12QColorDialog11customColorEi', index)
+    from ..QtGui import QColor
     return QColor._cuteOwning(address)
 
   @staticmethod
@@ -261,6 +267,7 @@ class QColorDialog(QDialog):
     """
     #  QColor QColorDialog::standardColor(int index)
     address = Rituals.call('ritual_ZN12QColorDialog13standardColorEi', index)
+    from ..QtGui import QColor
     return QColor._cuteOwning(address)
 
   @staticmethod
@@ -323,6 +330,7 @@ class QColorDialog(QDialog):
     """
     #  const QMetaObject *QColorDialog::metaObject() const
     address = self.uglySide.call('ritual_ZNK12QColorDialog10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def currentColor(self) -> QColor:
@@ -339,6 +347,7 @@ class QColorDialog(QDialog):
     """
     #  QColor QColorDialog::currentColor() const
     address = self.uglySide.call('ritual_ZNK12QColorDialog12currentColorEv')
+    from ..QtGui import QColor
     return QColor._cuteOwning(address)
 
   def selectedColor(self) -> QColor:
@@ -355,6 +364,7 @@ class QColorDialog(QDialog):
     """
     #  QColor QColorDialog::selectedColor() const
     address = self.uglySide.call('ritual_ZNK12QColorDialog13selectedColorEv')
+    from ..QtGui import QColor
     return QColor._cuteOwning(address)
 
   @overload(ColorDialogOption)

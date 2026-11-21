@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qpermissions.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QPermissionC1Ev": ["address"],
+    "ritual_ZNK11QPermission6statusEv": ["int", "address"],
+    "ritual_ZNK11QPermission4typeEv": ["address", "address"],
+    "ritual_ZN11QPermissionD1Ev": ["nothing", "address"]
+  }
+}

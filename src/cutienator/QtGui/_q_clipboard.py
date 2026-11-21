@@ -11,17 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_image import QImage
-from ..QtCore import QMetaObject
-from ..QtCore import QMimeData
 from ..QtCore import QObject
-from ._q_pixmap import QPixmap
-from ._q_clipboard_mode import Mode
+from . import QClipboardMode
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QMimeData
+  from . import QImage, QPixmap
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QImage = WAIT['QImage']
+  QMimeData = WAIT['QMimeData']
+  QPixmap = WAIT['QPixmap']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -70,7 +76,7 @@ class QClipboard(QObject):
 
   #  The enums Qt writes inside QClipboard, and the names Qt has for the
   #  combinations of its flags enums.
-  Mode = Mode
+  Mode = QClipboardMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -153,6 +159,7 @@ class QClipboard(QObject):
     """
     #  const QMetaObject *QClipboard::metaObject() const
     address = self.uglySide.call('ritual_ZNK10QClipboard10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def supportsSelection(self) -> bool:
@@ -252,6 +259,7 @@ class QClipboard(QObject):
     address = self.uglySide.call(
         'ritual_ZNK10QClipboard8mimeDataENS_4ModeE', mode.value,
     )
+    from ..QtCore import QMimeData
     return QMimeData._cuteAt(address)
 
   @overload()
@@ -279,6 +287,7 @@ class QClipboard(QObject):
     address = self.uglySide.call(
         'ritual_ZNK10QClipboard5imageENS_4ModeE', mode.value,
     )
+    from . import QImage
     return QImage._cuteOwning(address)
 
   @overload()
@@ -306,6 +315,7 @@ class QClipboard(QObject):
     address = self.uglySide.call(
         'ritual_ZNK10QClipboard6pixmapENS_4ModeE', mode.value,
     )
+    from . import QPixmap
     return QPixmap._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

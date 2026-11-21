@@ -13,12 +13,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin
 from ..occult import Rituals
-from ._q_abstract_spin_box import QAbstractSpinBox
-from ..QtCore import QMetaObject
-from ._q_widget import QWidget
+from . import QAbstractSpinBox, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -153,6 +153,7 @@ class QSpinBox(QAbstractSpinBox):
     """
     #  const QMetaObject *QSpinBox::metaObject() const
     address = self.uglySide.call('ritual_ZNK8QSpinBox10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def value(self) -> int:

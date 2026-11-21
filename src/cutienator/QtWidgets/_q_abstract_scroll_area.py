@@ -11,18 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_frame import QFrame
-from ..QtCore import QMetaObject
-from ._q_scroll_bar import QScrollBar
-from ..QtCore import QSize
-from ._q_widget import QWidget
-from ._q_abstract_scroll_area_size_adjust_policy import SizeAdjustPolicy
+from . import QAbstractScrollAreaSizeAdjustPolicy, QFrame, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
+  from . import QScrollBar
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QScrollBar = WAIT['QScrollBar']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -81,7 +84,7 @@ class QAbstractScrollArea(QFrame):
 
   #  The enums Qt writes inside QAbstractScrollArea, and the names Qt has for
   #  the combinations of its flags enums.
-  SizeAdjustPolicy = SizeAdjustPolicy
+  SizeAdjustPolicy = QAbstractScrollAreaSizeAdjustPolicy
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -168,6 +171,7 @@ class QAbstractScrollArea(QFrame):
     address = self.uglySide.call(
         'ritual_ZNK19QAbstractScrollArea10metaObjectEv',
     )
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def verticalScrollBarPolicy(self) -> Qt.ScrollBarPolicy:
@@ -210,6 +214,7 @@ class QAbstractScrollArea(QFrame):
     address = self.uglySide.call(
         'ritual_ZNK19QAbstractScrollArea17verticalScrollBarEv',
     )
+    from . import QScrollBar
     return QScrollBar._cuteAt(address)
 
   def horizontalScrollBarPolicy(self) -> Qt.ScrollBarPolicy:
@@ -253,6 +258,7 @@ class QAbstractScrollArea(QFrame):
     address = self.uglySide.call(
         'ritual_ZNK19QAbstractScrollArea19horizontalScrollBarEv',
     )
+    from . import QScrollBar
     return QScrollBar._cuteAt(address)
 
   def cornerWidget(self) -> Optional[QWidget]:
@@ -311,6 +317,7 @@ class QAbstractScrollArea(QFrame):
     address = self.uglySide.call(
         'ritual_ZNK19QAbstractScrollArea19maximumViewportSizeEv',
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -330,6 +337,7 @@ class QAbstractScrollArea(QFrame):
     address = self.uglySide.call(
         'ritual_ZNK19QAbstractScrollArea15minimumSizeHintEv',
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def sizeHint(self) -> QSize:
@@ -348,6 +356,7 @@ class QAbstractScrollArea(QFrame):
     address = self.uglySide.call(
         'ritual_ZNK19QAbstractScrollArea8sizeHintEv',
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def sizeAdjustPolicy(self) -> SizeAdjustPolicy:
@@ -367,7 +376,7 @@ class QAbstractScrollArea(QFrame):
       gives.
     """
     #  SizeAdjustPolicy QAbstractScrollArea::sizeAdjustPolicy() const
-    return SizeAdjustPolicy(self.uglySide.call(
+    return QAbstractScrollArea.SizeAdjustPolicy(self.uglySide.call(
         'ritual_ZNK19QAbstractScrollArea16sizeAdjustPolicyEv',
     ))
 

@@ -1,0 +1,4145 @@
+"""
+QGraphicsItem binding of the Qt C++
+"""
+#  Apache-2.0 license
+#  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost.
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from worktoy.core.sentinels import THIS
+from worktoy.dispatch import overload
+
+from ..cute import CuteMixin, MetaCute, WAIT
+from ..QtCore import Qt
+from . import QGraphicsItemCacheMode, QGraphicsItemGraphicsItemChange
+from . import QGraphicsItemGraphicsItemFlag, QGraphicsItemPanelModality
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+  from ..QtCore import QPointF, QRectF, QSize, QVariant
+  from ..QtGui import QCursor, QPainter, QPainterPath, QPolygonF, QRegion
+  from ..QtGui import QTransform
+  from . import QGraphicsEffect, QGraphicsItemGroup, QGraphicsObject
+  from . import QGraphicsScene, QGraphicsWidget, QStyleOptionGraphicsItem
+  from . import QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QCursor = WAIT['QCursor']
+  QGraphicsEffect = WAIT['QGraphicsEffect']
+  QGraphicsItemGroup = WAIT['QGraphicsItemGroup']
+  QPainter = WAIT['QPainter']
+  QPainterPath = WAIT['QPainterPath']
+  QPointF = WAIT['QPointF']
+  QPolygonF = WAIT['QPolygonF']
+  QRectF = WAIT['QRectF']
+  QSize = WAIT['QSize']
+  QStyleOptionGraphicsItem = WAIT['QStyleOptionGraphicsItem']
+  QTransform = WAIT['QTransform']
+  QVariant = WAIT['QVariant']
+  QWidget = WAIT['QWidget']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
+
+
+class QGraphicsItem(CuteMixin, metaclass=MetaCute):
+  """
+  The cute side of Qt's QGraphicsItem: a plain Python object standing in
+  front of one C++ QGraphicsItem.
+
+  What exists
+  -----------
+
+  Every function of Qt's QGraphicsItem that has a ritual and that Python can
+  call so far, 131 names in all: 'scene', 'parentItem', 'topLevelItem',
+  'parentObject', 'parentWidget', 'topLevelWidget', 'window', 'panel',
+  'setParentItem', 'isWidget', 'isWindow', 'isPanel', 'toGraphicsObject',
+  'group', 'setGroup', 'flags', 'setFlag', 'setFlags', 'cacheMode',
+  'setCacheMode', 'panelModality', 'setPanelModality', 'toolTip',
+  'setToolTip', 'cursor', 'setCursor', 'hasCursor', 'unsetCursor',
+  'isVisible', 'isVisibleTo', 'setVisible', 'hide', 'show', 'isEnabled',
+  'setEnabled', 'isSelected', 'setSelected', 'acceptDrops', 'setAcceptDrops',
+  'opacity', 'effectiveOpacity', 'setOpacity', 'graphicsEffect',
+  'setGraphicsEffect', 'acceptedMouseButtons', 'setAcceptedMouseButtons',
+  'acceptHoverEvents', 'setAcceptHoverEvents', 'acceptTouchEvents',
+  'setAcceptTouchEvents', 'filtersChildEvents', 'setFiltersChildEvents',
+  'handlesChildEvents', 'setHandlesChildEvents', 'isActive', 'setActive',
+  'hasFocus', 'setFocus', 'clearFocus', 'focusProxy', 'setFocusProxy',
+  'focusItem', 'focusScopeItem', 'grabMouse', 'ungrabMouse', 'grabKeyboard',
+  'ungrabKeyboard', 'pos', 'x', 'setX', 'y', 'setY', 'scenePos', 'setPos',
+  'moveBy', 'ensureVisible', 'transform', 'sceneTransform',
+  'deviceTransform', 'setTransform', 'resetTransform', 'setRotation',
+  'rotation', 'setScale', 'scale', 'transformOriginPoint',
+  'setTransformOriginPoint', 'advance', 'zValue', 'setZValue', 'stackBefore',
+  'boundingRect', 'childrenBoundingRect', 'sceneBoundingRect', 'shape',
+  'isClipped', 'clipPath', 'contains', 'collidesWithItem',
+  'collidesWithPath', 'isObscured', 'isObscuredBy', 'opaqueArea',
+  'boundingRegion', 'boundingRegionGranularity',
+  'setBoundingRegionGranularity', 'paint', 'update', 'scroll', 'mapToItem',
+  'mapToParent', 'mapToScene', 'mapRectToItem', 'mapRectToParent',
+  'mapRectToScene', 'mapFromItem', 'mapFromParent', 'mapFromScene',
+  'mapRectFromItem', 'mapRectFromParent', 'mapRectFromScene', 'isAncestorOf',
+  'commonAncestorItem', 'isUnderMouse', 'data', 'setData',
+  'inputMethodHints', 'setInputMethodHints', 'type',
+  'installSceneEventFilter', 'removeSceneEventFilter'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QGraphicsItem::~QGraphicsItem()': the destructor: Python never
+    removes a C++ QGraphicsItem.
+  - Qt's 'const QGraphicsObject *QGraphicsItem::toGraphicsObject() const':
+    takes in Python what 'QGraphicsObject *QGraphicsItem::toGraphicsObject()'
+    takes.
+  - Qt's 'QTransform QGraphicsItem::itemTransform(const QGraphicsItem *other,
+    bool *ok) const': takes a number to change where it is.
+
+  What has no ritual
+  ------------------
+
+  40 of the 215 functions Qt declares: 30 protected; 5 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 2 private; 1 the class is abstract,
+  so C++ cannot make one.
+
+  What to expect
+  --------------
+
+  - The C++ QGraphicsItem is created at the first use, not by
+    'QGraphicsItem(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - Python never removes the C++ QGraphicsItem.
+  """
+
+  #  The enums Qt writes inside QGraphicsItem, and the names Qt has for the
+  #  combinations of its flags enums.
+  CacheMode = QGraphicsItemCacheMode
+  GraphicsItemChange = QGraphicsItemGraphicsItemChange
+  GraphicsItemFlag = QGraphicsItemGraphicsItemFlag
+  GraphicsItemFlags = QGraphicsItemGraphicsItemFlag
+  PanelModality = QGraphicsItemPanelModality
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QGraphicsItem'
+
+  #  Fallback Variables
+
+  #  Private Variables
+
+  #  Public Variables
+
+  #  Virtual Variables
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def scene(self) -> Optional[QGraphicsScene]:
+    """
+    Calls Qt's 'QGraphicsScene *QGraphicsItem::scene() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#scene
+
+    Returns
+    -------
+
+    Optional[QGraphicsScene]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsScene *QGraphicsItem::scene() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem5sceneEv')
+    from . import QGraphicsScene
+    return QGraphicsScene._cuteAt(address)
+
+  def parentItem(self) -> Optional[QGraphicsItem]:
+    """
+    Calls Qt's 'QGraphicsItem *QGraphicsItem::parentItem() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#parentItem
+
+    Returns
+    -------
+
+    Optional[QGraphicsItem]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsItem *QGraphicsItem::parentItem() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem10parentItemEv')
+    return QGraphicsItem._cuteAt(address)
+
+  def topLevelItem(self) -> Optional[QGraphicsItem]:
+    """
+    Calls Qt's 'QGraphicsItem *QGraphicsItem::topLevelItem() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelItem
+
+    Returns
+    -------
+
+    Optional[QGraphicsItem]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsItem *QGraphicsItem::topLevelItem() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem12topLevelItemEv')
+    return QGraphicsItem._cuteAt(address)
+
+  def parentObject(self) -> Optional[QGraphicsObject]:
+    """
+    Calls Qt's 'QGraphicsObject *QGraphicsItem::parentObject() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#parentObject
+
+    Returns
+    -------
+
+    Optional[QGraphicsObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsObject *QGraphicsItem::parentObject() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem12parentObjectEv')
+    from . import QGraphicsObject
+    return QGraphicsObject._cuteAt(address)
+
+  def parentWidget(self) -> Optional[QGraphicsWidget]:
+    """
+    Calls Qt's 'QGraphicsWidget *QGraphicsItem::parentWidget() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#parentWidget
+
+    Returns
+    -------
+
+    Optional[QGraphicsWidget]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsWidget *QGraphicsItem::parentWidget() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem12parentWidgetEv')
+    from . import QGraphicsWidget
+    return QGraphicsWidget._cuteAt(address)
+
+  def topLevelWidget(self) -> Optional[QGraphicsWidget]:
+    """
+    Calls Qt's 'QGraphicsWidget *QGraphicsItem::topLevelWidget() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelWidget
+
+    Returns
+    -------
+
+    Optional[QGraphicsWidget]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsWidget *QGraphicsItem::topLevelWidget() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem14topLevelWidgetEv',
+    )
+    from . import QGraphicsWidget
+    return QGraphicsWidget._cuteAt(address)
+
+  def window(self) -> Optional[QGraphicsWidget]:
+    """
+    Calls Qt's 'QGraphicsWidget *QGraphicsItem::window() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#window
+
+    Returns
+    -------
+
+    Optional[QGraphicsWidget]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsWidget *QGraphicsItem::window() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem6windowEv')
+    from . import QGraphicsWidget
+    return QGraphicsWidget._cuteAt(address)
+
+  def panel(self) -> Optional[QGraphicsItem]:
+    """
+    Calls Qt's 'QGraphicsItem *QGraphicsItem::panel() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#panel
+
+    Returns
+    -------
+
+    Optional[QGraphicsItem]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsItem *QGraphicsItem::panel() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem5panelEv')
+    return QGraphicsItem._cuteAt(address)
+
+  def isWidget(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isWidget() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isWidget
+    """
+    #  bool QGraphicsItem::isWidget() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem8isWidgetEv')
+
+  def isWindow(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isWindow() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isWindow
+    """
+    #  bool QGraphicsItem::isWindow() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem8isWindowEv')
+
+  def isPanel(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isPanel() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isPanel
+    """
+    #  bool QGraphicsItem::isPanel() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem7isPanelEv')
+
+  def group(self) -> Optional[QGraphicsItemGroup]:
+    """
+    Calls Qt's 'QGraphicsItemGroup *QGraphicsItem::group() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#group
+
+    Returns
+    -------
+
+    Optional[QGraphicsItemGroup]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsItemGroup *QGraphicsItem::group() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem5groupEv')
+    from . import QGraphicsItemGroup
+    return QGraphicsItemGroup._cuteAt(address)
+
+  def flags(self) -> GraphicsItemFlags:
+    """
+    Calls Qt's 'GraphicsItemFlags QGraphicsItem::flags() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#flags
+
+    Returns
+    -------
+
+    GraphicsItemFlags
+      The value standing for the combination Qt gave back.
+    """
+    #  GraphicsItemFlags QGraphicsItem::flags() const
+    return QGraphicsItem.GraphicsItemFlags(self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem5flagsEv',
+    ))
+
+  def cacheMode(self) -> CacheMode:
+    """
+    Calls Qt's 'CacheMode QGraphicsItem::cacheMode() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#cacheMode
+
+    Returns
+    -------
+
+    CacheMode
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'CacheMode(number)' gives.
+    """
+    #  CacheMode QGraphicsItem::cacheMode() const
+    return QGraphicsItem.CacheMode(self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem9cacheModeEv',
+    ))
+
+  def panelModality(self) -> PanelModality:
+    """
+    Calls Qt's 'PanelModality QGraphicsItem::panelModality() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#panelModality
+
+    Returns
+    -------
+
+    PanelModality
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'PanelModality(number)'
+      gives.
+    """
+    #  PanelModality QGraphicsItem::panelModality() const
+    return QGraphicsItem.PanelModality(self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem13panelModalityEv',
+    ))
+
+  def toolTip(self) -> str:
+    """
+    Calls Qt's 'QString QGraphicsItem::toolTip() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#toolTip
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QGraphicsItem::toolTip() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem7toolTipEv')
+
+  def cursor(self) -> QCursor:
+    """
+    Calls Qt's 'QCursor QGraphicsItem::cursor() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#cursor
+
+    Returns
+    -------
+
+    QCursor
+      A new cute QCursor around the copy Qt gave back. Python owns it.
+    """
+    #  QCursor QGraphicsItem::cursor() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem6cursorEv')
+    from ..QtGui import QCursor
+    return QCursor._cuteOwning(address)
+
+  def hasCursor(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::hasCursor() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#hasCursor
+    """
+    #  bool QGraphicsItem::hasCursor() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem9hasCursorEv')
+
+  def isVisible(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isVisible() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isVisible
+    """
+    #  bool QGraphicsItem::isVisible() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem9isVisibleEv')
+
+  @overload(THIS)
+  @overload(NoneType)
+  def isVisibleTo(self, parent: Optional[QGraphicsItem]) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isVisibleTo(const QGraphicsItem *parent)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isVisibleTo
+
+    Parameters
+    ----------
+
+    parent : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGraphicsItem::isVisibleTo(const QGraphicsItem *parent) const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11isVisibleToEPKS_',
+        self._addressOf(parent),
+    )
+
+  def isEnabled(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isEnabled() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isEnabled
+    """
+    #  bool QGraphicsItem::isEnabled() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem9isEnabledEv')
+
+  def isSelected(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isSelected() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isSelected
+    """
+    #  bool QGraphicsItem::isSelected() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem10isSelectedEv')
+
+  def acceptDrops(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::acceptDrops() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#acceptDrops
+    """
+    #  bool QGraphicsItem::acceptDrops() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem11acceptDropsEv')
+
+  def opacity(self) -> float:
+    """
+    Calls Qt's 'qreal QGraphicsItem::opacity() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#opacity
+    """
+    #  qreal QGraphicsItem::opacity() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem7opacityEv')
+
+  def effectiveOpacity(self) -> float:
+    """
+    Calls Qt's 'qreal QGraphicsItem::effectiveOpacity() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#effectiveOpacity
+    """
+    #  qreal QGraphicsItem::effectiveOpacity() const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem16effectiveOpacityEv',
+    )
+
+  def graphicsEffect(self) -> Optional[QGraphicsEffect]:
+    """
+    Calls Qt's 'QGraphicsEffect *QGraphicsItem::graphicsEffect() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#graphicsEffect
+
+    Returns
+    -------
+
+    Optional[QGraphicsEffect]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsEffect *QGraphicsItem::graphicsEffect() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem14graphicsEffectEv',
+    )
+    from . import QGraphicsEffect
+    return QGraphicsEffect._cuteAt(address)
+
+  def acceptedMouseButtons(self) -> Qt.MouseButtons:
+    """
+    Calls Qt's 'Qt::MouseButtons QGraphicsItem::acceptedMouseButtons()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#acceptedMouseButtons
+
+    Returns
+    -------
+
+    Qt.MouseButtons
+      The value standing for the combination Qt gave back.
+    """
+    #  Qt::MouseButtons QGraphicsItem::acceptedMouseButtons() const
+    return Qt.MouseButtons(self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem20acceptedMouseButtonsEv',
+    ))
+
+  def acceptHoverEvents(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::acceptHoverEvents() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#acceptHoverEvents
+    """
+    #  bool QGraphicsItem::acceptHoverEvents() const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem17acceptHoverEventsEv',
+    )
+
+  def acceptTouchEvents(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::acceptTouchEvents() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#acceptTouchEvents
+    """
+    #  bool QGraphicsItem::acceptTouchEvents() const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem17acceptTouchEventsEv',
+    )
+
+  def filtersChildEvents(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::filtersChildEvents() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#filtersChildEvents
+    """
+    #  bool QGraphicsItem::filtersChildEvents() const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem18filtersChildEventsEv',
+    )
+
+  def handlesChildEvents(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::handlesChildEvents() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#handlesChildEvents
+    """
+    #  bool QGraphicsItem::handlesChildEvents() const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem18handlesChildEventsEv',
+    )
+
+  def isActive(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isActive() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isActive
+    """
+    #  bool QGraphicsItem::isActive() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem8isActiveEv')
+
+  def hasFocus(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::hasFocus() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#hasFocus
+    """
+    #  bool QGraphicsItem::hasFocus() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem8hasFocusEv')
+
+  def focusProxy(self) -> Optional[QGraphicsItem]:
+    """
+    Calls Qt's 'QGraphicsItem *QGraphicsItem::focusProxy() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#focusProxy
+
+    Returns
+    -------
+
+    Optional[QGraphicsItem]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsItem *QGraphicsItem::focusProxy() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem10focusProxyEv')
+    return QGraphicsItem._cuteAt(address)
+
+  def focusItem(self) -> Optional[QGraphicsItem]:
+    """
+    Calls Qt's 'QGraphicsItem *QGraphicsItem::focusItem() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#focusItem
+
+    Returns
+    -------
+
+    Optional[QGraphicsItem]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsItem *QGraphicsItem::focusItem() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem9focusItemEv')
+    return QGraphicsItem._cuteAt(address)
+
+  def focusScopeItem(self) -> Optional[QGraphicsItem]:
+    """
+    Calls Qt's 'QGraphicsItem *QGraphicsItem::focusScopeItem() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#focusScopeItem
+
+    Returns
+    -------
+
+    Optional[QGraphicsItem]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsItem *QGraphicsItem::focusScopeItem() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem14focusScopeItemEv',
+    )
+    return QGraphicsItem._cuteAt(address)
+
+  def pos(self) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::pos() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#pos
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::pos() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem3posEv')
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  def x(self) -> float:
+    """
+    Calls Qt's 'qreal QGraphicsItem::x() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#x
+    """
+    #  qreal QGraphicsItem::x() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem1xEv')
+
+  def y(self) -> float:
+    """
+    Calls Qt's 'qreal QGraphicsItem::y() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#y
+    """
+    #  qreal QGraphicsItem::y() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem1yEv')
+
+  def scenePos(self) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::scenePos() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#scenePos
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::scenePos() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem8scenePosEv')
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  def transform(self) -> QTransform:
+    """
+    Calls Qt's 'QTransform QGraphicsItem::transform() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#transform
+
+    Returns
+    -------
+
+    QTransform
+      A new cute QTransform around the copy Qt gave back. Python owns it.
+    """
+    #  QTransform QGraphicsItem::transform() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem9transformEv')
+    from ..QtGui import QTransform
+    return QTransform._cuteOwning(address)
+
+  def sceneTransform(self) -> QTransform:
+    """
+    Calls Qt's 'QTransform QGraphicsItem::sceneTransform() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#sceneTransform
+
+    Returns
+    -------
+
+    QTransform
+      A new cute QTransform around the copy Qt gave back. Python owns it.
+    """
+    #  QTransform QGraphicsItem::sceneTransform() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem14sceneTransformEv',
+    )
+    from ..QtGui import QTransform
+    return QTransform._cuteOwning(address)
+
+  @overload(QTransform)
+  def deviceTransform(self, viewportTransform: QTransform) -> QTransform:
+    """
+    Calls Qt's 'QTransform QGraphicsItem::deviceTransform(const QTransform
+    &viewportTransform) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#deviceTransform
+
+    Parameters
+    ----------
+
+    viewportTransform : QTransform
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QTransform
+      A new cute QTransform around the copy Qt gave back. Python owns it.
+    """
+    #  QTransform QGraphicsItem::deviceTransform(const QTransform
+    #      &viewportTransform) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem15deviceTransformERK10QTransform',
+        self._valueOf(viewportTransform),
+    )
+    from ..QtGui import QTransform
+    return QTransform._cuteOwning(address)
+
+  def rotation(self) -> float:
+    """
+    Calls Qt's 'qreal QGraphicsItem::rotation() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#rotation
+    """
+    #  qreal QGraphicsItem::rotation() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem8rotationEv')
+
+  def scale(self) -> float:
+    """
+    Calls Qt's 'qreal QGraphicsItem::scale() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#scale
+    """
+    #  qreal QGraphicsItem::scale() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem5scaleEv')
+
+  def transformOriginPoint(self) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::transformOriginPoint() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#transformOriginPoint
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::transformOriginPoint() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem20transformOriginPointEv',
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  def zValue(self) -> float:
+    """
+    Calls Qt's 'qreal QGraphicsItem::zValue() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#zValue
+    """
+    #  qreal QGraphicsItem::zValue() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem6zValueEv')
+
+  def boundingRect(self) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::boundingRect() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRect
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::boundingRect() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem12boundingRectEv')
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  def childrenBoundingRect(self) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::childrenBoundingRect() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#childrenBoundingRect
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::childrenBoundingRect() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem20childrenBoundingRectEv',
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  def sceneBoundingRect(self) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::sceneBoundingRect() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#sceneBoundingRect
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::sceneBoundingRect() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem17sceneBoundingRectEv',
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  def shape(self) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsItem::shape() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#shape
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsItem::shape() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem5shapeEv')
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  def isClipped(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isClipped() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isClipped
+    """
+    #  bool QGraphicsItem::isClipped() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem9isClippedEv')
+
+  def clipPath(self) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsItem::clipPath() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#clipPath
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsItem::clipPath() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem8clipPathEv')
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  @overload(QPointF)
+  def contains(self, point: QPointF) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::contains(const QPointF &point) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#contains
+
+    Parameters
+    ----------
+
+    point : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+    """
+    #  bool QGraphicsItem::contains(const QPointF &point) const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem8containsERK7QPointF',
+        self._valueOf(point),
+    )
+
+  @overload(THIS)
+  @overload(NoneType)
+  @overload(THIS, Qt.ItemSelectionMode)
+  @overload(NoneType, Qt.ItemSelectionMode)
+  def collidesWithItem(
+      self,
+      other: Optional[QGraphicsItem],
+      mode: Qt.ItemSelectionMode = Qt.ItemSelectionMode.IntersectsItemShape,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::collidesWithItem(const QGraphicsItem
+    *other, Qt::ItemSelectionMode mode) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem
+
+    Parameters
+    ----------
+
+    other : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ItemSelectionMode.IntersectsItemShape.
+    """
+    #  bool QGraphicsItem::collidesWithItem(const QGraphicsItem *other,
+    #      Qt::ItemSelectionMode mode) const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem16collidesWithItemEPKS_N2Qt17ItemSelectio'
+        'nModeE',
+        self._addressOf(other), mode.value,
+    )
+
+  @overload(QPainterPath)
+  @overload(QPainterPath, Qt.ItemSelectionMode)
+  def collidesWithPath(
+      self,
+      path: QPainterPath,
+      mode: Qt.ItemSelectionMode = Qt.ItemSelectionMode.IntersectsItemShape,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::collidesWithPath(const QPainterPath
+    &path, Qt::ItemSelectionMode mode) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath
+
+    Parameters
+    ----------
+
+    path : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ItemSelectionMode.IntersectsItemShape.
+    """
+    #  bool QGraphicsItem::collidesWithPath(const QPainterPath &path,
+    #      Qt::ItemSelectionMode mode) const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem16collidesWithPathERK12QPainterPathN2Qt17'
+        'ItemSelectionModeE',
+        self._valueOf(path), mode.value,
+    )
+
+  @overload()
+  @overload(QRectF)
+  def isObscured(self, rect: Optional[QRectF] = None) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isObscured(const QRectF &rect) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured
+
+    Parameters
+    ----------
+
+    rect : Optional[QRectF]
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own. May be left out, as in Qt: a new 'QRectF()' is then passed on.
+    """
+    #  bool QGraphicsItem::isObscured(const QRectF &rect) const
+    if rect is None:
+      from ..QtCore import QRectF
+      rect = QRectF()
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem10isObscuredERK6QRectF',
+        self._valueOf(rect),
+    )
+
+  @overload(float, float, float, float)
+  def isObscured(self, x: float, y: float, w: float, h: float) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isObscured(qreal x, qreal y, qreal w,
+    qreal h) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+    """
+    #  bool QGraphicsItem::isObscured(qreal x, qreal y, qreal w, qreal h)
+    #      const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem10isObscuredEdddd', x, y, w, h,
+    )
+
+  @overload(THIS)
+  @overload(NoneType)
+  def isObscuredBy(self, item: Optional[QGraphicsItem]) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isObscuredBy(const QGraphicsItem *item)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGraphicsItem::isObscuredBy(const QGraphicsItem *item) const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem12isObscuredByEPKS_',
+        self._addressOf(item),
+    )
+
+  def opaqueArea(self) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsItem::opaqueArea() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsItem::opaqueArea() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem10opaqueAreaEv')
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  @overload(QTransform)
+  def boundingRegion(self, itemToDeviceTransform: QTransform) -> QRegion:
+    """
+    Calls Qt's 'QRegion QGraphicsItem::boundingRegion(const QTransform
+    &itemToDeviceTransform) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegion
+
+    Parameters
+    ----------
+
+    itemToDeviceTransform : QTransform
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QGraphicsItem::boundingRegion(const QTransform
+    #      &itemToDeviceTransform) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem14boundingRegionERK10QTransform',
+        self._valueOf(itemToDeviceTransform),
+    )
+    from ..QtGui import QRegion
+    return QRegion._cuteOwning(address)
+
+  def boundingRegionGranularity(self) -> float:
+    """
+    Calls Qt's 'qreal QGraphicsItem::boundingRegionGranularity() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegionGranularity
+    """
+    #  qreal QGraphicsItem::boundingRegionGranularity() const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem25boundingRegionGranularityEv',
+    )
+
+  @overload(THIS, QPointF)
+  @overload(NoneType, QPointF)
+  def mapToItem(
+      self,
+      item: Optional[QGraphicsItem],
+      point: QPointF,
+  ) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::mapToItem(const QGraphicsItem *item,
+    const QPointF &point) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    point : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::mapToItem(const QGraphicsItem *item, const
+    #      QPointF &point) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK7QPointF',
+        self._addressOf(item), self._valueOf(point),
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(THIS, QRectF)
+  @overload(NoneType, QRectF)
+  def mapToItem(
+      self,
+      item: Optional[QGraphicsItem],
+      rect: QRectF,
+  ) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapToItem(const QGraphicsItem *item,
+    const QRectF &rect) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapToItem(const QGraphicsItem *item, const
+    #      QRectF &rect) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK6QRectF',
+        self._addressOf(item), self._valueOf(rect),
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(THIS, QPolygonF)
+  @overload(NoneType, QPolygonF)
+  def mapToItem(
+      self,
+      item: Optional[QGraphicsItem],
+      polygon: QPolygonF,
+  ) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapToItem(const QGraphicsItem *item,
+    const QPolygonF &polygon) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    polygon : QPolygonF
+      Passed on as a value: Qt reads the C++ QPolygonF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapToItem(const QGraphicsItem *item, const
+    #      QPolygonF &polygon) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK9QPolygonF',
+        self._addressOf(item), self._valueOf(polygon),
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(THIS, QPainterPath)
+  @overload(NoneType, QPainterPath)
+  def mapToItem(
+      self,
+      item: Optional[QGraphicsItem],
+      path: QPainterPath,
+  ) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsItem::mapToItem(const QGraphicsItem
+    *item, const QPainterPath &path) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    path : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsItem::mapToItem(const QGraphicsItem *item, const
+    #      QPainterPath &path) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK12QPainterPath',
+        self._addressOf(item), self._valueOf(path),
+    )
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  @overload(THIS, float, float)
+  @overload(NoneType, float, float)
+  def mapToItem(
+      self,
+      item: Optional[QGraphicsItem],
+      x: float,
+      y: float,
+  ) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::mapToItem(const QGraphicsItem *item,
+    qreal x, qreal y) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::mapToItem(const QGraphicsItem *item, qreal x,
+    #      qreal y) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem9mapToItemEPKS_dd',
+        self._addressOf(item), x, y,
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(THIS, float, float, float, float)
+  @overload(NoneType, float, float, float, float)
+  def mapToItem(
+      self,
+      item: Optional[QGraphicsItem],
+      x: float,
+      y: float,
+      w: float,
+      h: float,
+  ) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapToItem(const QGraphicsItem *item,
+    qreal x, qreal y, qreal w, qreal h) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapToItem(const QGraphicsItem *item, qreal x,
+    #      qreal y, qreal w, qreal h) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem9mapToItemEPKS_dddd',
+        self._addressOf(item), x, y, w, h,
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(QPointF)
+  def mapToParent(self, point: QPointF) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::mapToParent(const QPointF &point)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent
+
+    Parameters
+    ----------
+
+    point : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::mapToParent(const QPointF &point) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11mapToParentERK7QPointF',
+        self._valueOf(point),
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(QRectF)
+  def mapToParent(self, rect: QRectF) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapToParent(const QRectF &rect)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent
+
+    Parameters
+    ----------
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapToParent(const QRectF &rect) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11mapToParentERK6QRectF',
+        self._valueOf(rect),
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(QPolygonF)
+  def mapToParent(self, polygon: QPolygonF) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapToParent(const QPolygonF
+    &polygon) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent
+
+    Parameters
+    ----------
+
+    polygon : QPolygonF
+      Passed on as a value: Qt reads the C++ QPolygonF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapToParent(const QPolygonF &polygon) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11mapToParentERK9QPolygonF',
+        self._valueOf(polygon),
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(QPainterPath)
+  def mapToParent(self, path: QPainterPath) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsItem::mapToParent(const QPainterPath
+    &path) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent
+
+    Parameters
+    ----------
+
+    path : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsItem::mapToParent(const QPainterPath &path)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11mapToParentERK12QPainterPath',
+        self._valueOf(path),
+    )
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  @overload(float, float)
+  def mapToParent(self, x: float, y: float) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::mapToParent(qreal x, qreal y) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::mapToParent(qreal x, qreal y) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11mapToParentEdd', x, y,
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(float, float, float, float)
+  def mapToParent(self, x: float, y: float, w: float, h: float) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapToParent(qreal x, qreal y, qreal
+    w, qreal h) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapToParent(qreal x, qreal y, qreal w, qreal
+    #      h) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11mapToParentEdddd', x, y, w, h,
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(QPointF)
+  def mapToScene(self, point: QPointF) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::mapToScene(const QPointF &point)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene
+
+    Parameters
+    ----------
+
+    point : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::mapToScene(const QPointF &point) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem10mapToSceneERK7QPointF',
+        self._valueOf(point),
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(QRectF)
+  def mapToScene(self, rect: QRectF) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapToScene(const QRectF &rect)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene
+
+    Parameters
+    ----------
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapToScene(const QRectF &rect) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem10mapToSceneERK6QRectF',
+        self._valueOf(rect),
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(QPolygonF)
+  def mapToScene(self, polygon: QPolygonF) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapToScene(const QPolygonF &polygon)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene
+
+    Parameters
+    ----------
+
+    polygon : QPolygonF
+      Passed on as a value: Qt reads the C++ QPolygonF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapToScene(const QPolygonF &polygon) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem10mapToSceneERK9QPolygonF',
+        self._valueOf(polygon),
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(QPainterPath)
+  def mapToScene(self, path: QPainterPath) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsItem::mapToScene(const QPainterPath
+    &path) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene
+
+    Parameters
+    ----------
+
+    path : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsItem::mapToScene(const QPainterPath &path) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem10mapToSceneERK12QPainterPath',
+        self._valueOf(path),
+    )
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  @overload(float, float)
+  def mapToScene(self, x: float, y: float) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::mapToScene(qreal x, qreal y) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::mapToScene(qreal x, qreal y) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem10mapToSceneEdd', x, y,
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(float, float, float, float)
+  def mapToScene(self, x: float, y: float, w: float, h: float) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapToScene(qreal x, qreal y, qreal
+    w, qreal h) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapToScene(qreal x, qreal y, qreal w, qreal
+    #      h) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem10mapToSceneEdddd', x, y, w, h,
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(THIS, QRectF)
+  @overload(NoneType, QRectF)
+  def mapRectToItem(
+      self,
+      item: Optional[QGraphicsItem],
+      rect: QRectF,
+  ) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::mapRectToItem(const QGraphicsItem
+    *item, const QRectF &rect) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::mapRectToItem(const QGraphicsItem *item, const
+    #      QRectF &rect) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem13mapRectToItemEPKS_RK6QRectF',
+        self._addressOf(item), self._valueOf(rect),
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(THIS, float, float, float, float)
+  @overload(NoneType, float, float, float, float)
+  def mapRectToItem(
+      self,
+      item: Optional[QGraphicsItem],
+      x: float,
+      y: float,
+      w: float,
+      h: float,
+  ) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::mapRectToItem(const QGraphicsItem
+    *item, qreal x, qreal y, qreal w, qreal h) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::mapRectToItem(const QGraphicsItem *item, qreal
+    #      x, qreal y, qreal w, qreal h) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem13mapRectToItemEPKS_dddd',
+        self._addressOf(item), x, y, w, h,
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(QRectF)
+  def mapRectToParent(self, rect: QRectF) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::mapRectToParent(const QRectF &rect)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent
+
+    Parameters
+    ----------
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::mapRectToParent(const QRectF &rect) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem15mapRectToParentERK6QRectF',
+        self._valueOf(rect),
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(float, float, float, float)
+  def mapRectToParent(
+      self,
+      x: float,
+      y: float,
+      w: float,
+      h: float,
+  ) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::mapRectToParent(qreal x, qreal y, qreal
+    w, qreal h) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::mapRectToParent(qreal x, qreal y, qreal w, qreal
+    #      h) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem15mapRectToParentEdddd', x, y, w, h,
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(QRectF)
+  def mapRectToScene(self, rect: QRectF) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::mapRectToScene(const QRectF &rect)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene
+
+    Parameters
+    ----------
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::mapRectToScene(const QRectF &rect) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem14mapRectToSceneERK6QRectF',
+        self._valueOf(rect),
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(float, float, float, float)
+  def mapRectToScene(self, x: float, y: float, w: float, h: float) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::mapRectToScene(qreal x, qreal y, qreal
+    w, qreal h) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::mapRectToScene(qreal x, qreal y, qreal w, qreal
+    #      h) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem14mapRectToSceneEdddd', x, y, w, h,
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(THIS, QPointF)
+  @overload(NoneType, QPointF)
+  def mapFromItem(
+      self,
+      item: Optional[QGraphicsItem],
+      point: QPointF,
+  ) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::mapFromItem(const QGraphicsItem *item,
+    const QPointF &point) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    point : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::mapFromItem(const QGraphicsItem *item, const
+    #      QPointF &point) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK7QPointF',
+        self._addressOf(item), self._valueOf(point),
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(THIS, QRectF)
+  @overload(NoneType, QRectF)
+  def mapFromItem(
+      self,
+      item: Optional[QGraphicsItem],
+      rect: QRectF,
+  ) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapFromItem(const QGraphicsItem
+    *item, const QRectF &rect) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapFromItem(const QGraphicsItem *item, const
+    #      QRectF &rect) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK6QRectF',
+        self._addressOf(item), self._valueOf(rect),
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(THIS, QPolygonF)
+  @overload(NoneType, QPolygonF)
+  def mapFromItem(
+      self,
+      item: Optional[QGraphicsItem],
+      polygon: QPolygonF,
+  ) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapFromItem(const QGraphicsItem
+    *item, const QPolygonF &polygon) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    polygon : QPolygonF
+      Passed on as a value: Qt reads the C++ QPolygonF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapFromItem(const QGraphicsItem *item, const
+    #      QPolygonF &polygon) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK9QPolygonF',
+        self._addressOf(item), self._valueOf(polygon),
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(THIS, QPainterPath)
+  @overload(NoneType, QPainterPath)
+  def mapFromItem(
+      self,
+      item: Optional[QGraphicsItem],
+      path: QPainterPath,
+  ) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsItem::mapFromItem(const QGraphicsItem
+    *item, const QPainterPath &path) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    path : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsItem::mapFromItem(const QGraphicsItem *item,
+    #      const QPainterPath &path) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK12QPainterPath',
+        self._addressOf(item), self._valueOf(path),
+    )
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  @overload(THIS, float, float)
+  @overload(NoneType, float, float)
+  def mapFromItem(
+      self,
+      item: Optional[QGraphicsItem],
+      x: float,
+      y: float,
+  ) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::mapFromItem(const QGraphicsItem *item,
+    qreal x, qreal y) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::mapFromItem(const QGraphicsItem *item, qreal x,
+    #      qreal y) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_dd',
+        self._addressOf(item), x, y,
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(THIS, float, float, float, float)
+  @overload(NoneType, float, float, float, float)
+  def mapFromItem(
+      self,
+      item: Optional[QGraphicsItem],
+      x: float,
+      y: float,
+      w: float,
+      h: float,
+  ) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapFromItem(const QGraphicsItem
+    *item, qreal x, qreal y, qreal w, qreal h) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapFromItem(const QGraphicsItem *item, qreal
+    #      x, qreal y, qreal w, qreal h) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_dddd',
+        self._addressOf(item), x, y, w, h,
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(QPointF)
+  def mapFromParent(self, point: QPointF) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::mapFromParent(const QPointF &point)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent
+
+    Parameters
+    ----------
+
+    point : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::mapFromParent(const QPointF &point) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem13mapFromParentERK7QPointF',
+        self._valueOf(point),
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(QRectF)
+  def mapFromParent(self, rect: QRectF) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapFromParent(const QRectF &rect)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent
+
+    Parameters
+    ----------
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapFromParent(const QRectF &rect) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem13mapFromParentERK6QRectF',
+        self._valueOf(rect),
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(QPolygonF)
+  def mapFromParent(self, polygon: QPolygonF) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapFromParent(const QPolygonF
+    &polygon) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent
+
+    Parameters
+    ----------
+
+    polygon : QPolygonF
+      Passed on as a value: Qt reads the C++ QPolygonF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapFromParent(const QPolygonF &polygon) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem13mapFromParentERK9QPolygonF',
+        self._valueOf(polygon),
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(QPainterPath)
+  def mapFromParent(self, path: QPainterPath) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsItem::mapFromParent(const QPainterPath
+    &path) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent
+
+    Parameters
+    ----------
+
+    path : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsItem::mapFromParent(const QPainterPath &path)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem13mapFromParentERK12QPainterPath',
+        self._valueOf(path),
+    )
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  @overload(float, float)
+  def mapFromParent(self, x: float, y: float) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::mapFromParent(qreal x, qreal y)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::mapFromParent(qreal x, qreal y) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem13mapFromParentEdd', x, y,
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(float, float, float, float)
+  def mapFromParent(
+      self,
+      x: float,
+      y: float,
+      w: float,
+      h: float,
+  ) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapFromParent(qreal x, qreal y,
+    qreal w, qreal h) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapFromParent(qreal x, qreal y, qreal w,
+    #      qreal h) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem13mapFromParentEdddd', x, y, w, h,
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(QPointF)
+  def mapFromScene(self, point: QPointF) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::mapFromScene(const QPointF &point)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene
+
+    Parameters
+    ----------
+
+    point : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::mapFromScene(const QPointF &point) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem12mapFromSceneERK7QPointF',
+        self._valueOf(point),
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(QRectF)
+  def mapFromScene(self, rect: QRectF) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapFromScene(const QRectF &rect)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene
+
+    Parameters
+    ----------
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapFromScene(const QRectF &rect) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem12mapFromSceneERK6QRectF',
+        self._valueOf(rect),
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(QPolygonF)
+  def mapFromScene(self, polygon: QPolygonF) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapFromScene(const QPolygonF
+    &polygon) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene
+
+    Parameters
+    ----------
+
+    polygon : QPolygonF
+      Passed on as a value: Qt reads the C++ QPolygonF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapFromScene(const QPolygonF &polygon) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem12mapFromSceneERK9QPolygonF',
+        self._valueOf(polygon),
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(QPainterPath)
+  def mapFromScene(self, path: QPainterPath) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsItem::mapFromScene(const QPainterPath
+    &path) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene
+
+    Parameters
+    ----------
+
+    path : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsItem::mapFromScene(const QPainterPath &path)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem12mapFromSceneERK12QPainterPath',
+        self._valueOf(path),
+    )
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  @overload(float, float)
+  def mapFromScene(self, x: float, y: float) -> QPointF:
+    """
+    Calls Qt's 'QPointF QGraphicsItem::mapFromScene(qreal x, qreal y) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QGraphicsItem::mapFromScene(qreal x, qreal y) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem12mapFromSceneEdd', x, y,
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(float, float, float, float)
+  def mapFromScene(
+      self,
+      x: float,
+      y: float,
+      w: float,
+      h: float,
+  ) -> QPolygonF:
+    """
+    Calls Qt's 'QPolygonF QGraphicsItem::mapFromScene(qreal x, qreal y, qreal
+    w, qreal h) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPolygonF
+      A new cute QPolygonF around the copy Qt gave back. Python owns it.
+    """
+    #  QPolygonF QGraphicsItem::mapFromScene(qreal x, qreal y, qreal w, qreal
+    #      h) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem12mapFromSceneEdddd', x, y, w, h,
+    )
+    from ..QtGui import QPolygonF
+    return QPolygonF._cuteOwning(address)
+
+  @overload(THIS, QRectF)
+  @overload(NoneType, QRectF)
+  def mapRectFromItem(
+      self,
+      item: Optional[QGraphicsItem],
+      rect: QRectF,
+  ) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::mapRectFromItem(const QGraphicsItem
+    *item, const QRectF &rect) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::mapRectFromItem(const QGraphicsItem *item, const
+    #      QRectF &rect) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem15mapRectFromItemEPKS_RK6QRectF',
+        self._addressOf(item), self._valueOf(rect),
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(THIS, float, float, float, float)
+  @overload(NoneType, float, float, float, float)
+  def mapRectFromItem(
+      self,
+      item: Optional[QGraphicsItem],
+      x: float,
+      y: float,
+      w: float,
+      h: float,
+  ) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::mapRectFromItem(const QGraphicsItem
+    *item, qreal x, qreal y, qreal w, qreal h) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::mapRectFromItem(const QGraphicsItem *item, qreal
+    #      x, qreal y, qreal w, qreal h) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem15mapRectFromItemEPKS_dddd',
+        self._addressOf(item), x, y, w, h,
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(QRectF)
+  def mapRectFromParent(self, rect: QRectF) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::mapRectFromParent(const QRectF &rect)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent
+
+    Parameters
+    ----------
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::mapRectFromParent(const QRectF &rect) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem17mapRectFromParentERK6QRectF',
+        self._valueOf(rect),
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(float, float, float, float)
+  def mapRectFromParent(
+      self,
+      x: float,
+      y: float,
+      w: float,
+      h: float,
+  ) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::mapRectFromParent(qreal x, qreal y,
+    qreal w, qreal h) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::mapRectFromParent(qreal x, qreal y, qreal w,
+    #      qreal h) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem17mapRectFromParentEdddd', x, y, w, h,
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(QRectF)
+  def mapRectFromScene(self, rect: QRectF) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::mapRectFromScene(const QRectF &rect)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene
+
+    Parameters
+    ----------
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::mapRectFromScene(const QRectF &rect) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem16mapRectFromSceneERK6QRectF',
+        self._valueOf(rect),
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(float, float, float, float)
+  def mapRectFromScene(
+      self,
+      x: float,
+      y: float,
+      w: float,
+      h: float,
+  ) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsItem::mapRectFromScene(qreal x, qreal y,
+    qreal w, qreal h) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsItem::mapRectFromScene(qreal x, qreal y, qreal w,
+    #      qreal h) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem16mapRectFromSceneEdddd', x, y, w, h,
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(THIS)
+  @overload(NoneType)
+  def isAncestorOf(self, child: Optional[QGraphicsItem]) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isAncestorOf(const QGraphicsItem *child)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isAncestorOf
+
+    Parameters
+    ----------
+
+    child : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGraphicsItem::isAncestorOf(const QGraphicsItem *child) const
+    return self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem12isAncestorOfEPKS_',
+        self._addressOf(child),
+    )
+
+  @overload(THIS)
+  @overload(NoneType)
+  def commonAncestorItem(
+      self,
+      other: Optional[QGraphicsItem],
+  ) -> Optional[QGraphicsItem]:
+    """
+    Calls Qt's 'QGraphicsItem *QGraphicsItem::commonAncestorItem(const
+    QGraphicsItem *other) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#commonAncestorItem
+
+    Parameters
+    ----------
+
+    other : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    Optional[QGraphicsItem]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsItem *QGraphicsItem::commonAncestorItem(const QGraphicsItem
+    #      *other) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem18commonAncestorItemEPKS_',
+        self._addressOf(other),
+    )
+    return QGraphicsItem._cuteAt(address)
+
+  def isUnderMouse(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsItem::isUnderMouse() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isUnderMouse
+    """
+    #  bool QGraphicsItem::isUnderMouse() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem12isUnderMouseEv')
+
+  @overload(int)
+  def data(self, key: int) -> QVariant:
+    """
+    Calls Qt's 'QVariant QGraphicsItem::data(int key) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#data
+
+    Parameters
+    ----------
+
+    key : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QGraphicsItem::data(int key) const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsItem4dataEi', key)
+    from ..QtCore import QVariant
+    return QVariant._cuteOwning(address)
+
+  def inputMethodHints(self) -> Qt.InputMethodHints:
+    """
+    Calls Qt's 'Qt::InputMethodHints QGraphicsItem::inputMethodHints()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodHints
+
+    Returns
+    -------
+
+    Qt.InputMethodHints
+      The value standing for the combination Qt gave back.
+    """
+    #  Qt::InputMethodHints QGraphicsItem::inputMethodHints() const
+    return Qt.InputMethodHints(self.uglySide.call(
+        'ritual_ZNK13QGraphicsItem16inputMethodHintsEv',
+    ))
+
+  def type(self) -> int:
+    """
+    Calls Qt's 'int QGraphicsItem::type() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#type
+    """
+    #  int QGraphicsItem::type() const
+    return self.uglySide.call('ritual_ZNK13QGraphicsItem4typeEv')
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  @overload(NoneType)
+  def setParentItem(self, parent: Optional[QGraphicsItem]) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setParentItem(QGraphicsItem *parent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setParentItem
+
+    Parameters
+    ----------
+
+    parent : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsItem::setParentItem(QGraphicsItem *parent)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem13setParentItemEPS_',
+        self._addressOf(parent),
+    )
+
+  @overload(QGraphicsItemGroup)
+  @overload(NoneType)
+  def setGroup(self, group: Optional[QGraphicsItemGroup]) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setGroup(QGraphicsItemGroup *group)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setGroup
+
+    Parameters
+    ----------
+
+    group : Optional[QGraphicsItemGroup]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsItem::setGroup(QGraphicsItemGroup *group)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem8setGroupEP18QGraphicsItemGroup',
+        self._addressOf(group),
+    )
+
+  @overload(GraphicsItemFlag)
+  @overload(GraphicsItemFlag, bool)
+  def setFlag(self, flag: GraphicsItemFlag, enabled: bool = True) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setFlag(GraphicsItemFlag flag, bool
+    enabled)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag
+
+    Parameters
+    ----------
+
+    flag : GraphicsItemFlag
+      Passed on as its number.
+
+    enabled : bool
+      Passed on as it is. May be left out, as in Qt: it is then True.
+    """
+    #  void QGraphicsItem::setFlag(GraphicsItemFlag flag, bool enabled)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem7setFlagENS_16GraphicsItemFlagEb',
+        flag.value, enabled,
+    )
+
+  @overload(GraphicsItemFlags)
+  def setFlags(self, flags: GraphicsItemFlags) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setFlags(GraphicsItemFlags flags)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags
+
+    Parameters
+    ----------
+
+    flags : GraphicsItemFlags
+      Passed on as its number.
+    """
+    #  void QGraphicsItem::setFlags(GraphicsItemFlags flags)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem8setFlagsE6QFlagsINS_16GraphicsItemFlagEE',
+        flags.value,
+    )
+
+  @overload(CacheMode)
+  @overload(CacheMode, QSize)
+  def setCacheMode(
+      self,
+      mode: CacheMode,
+      cacheSize: Optional[QSize] = None,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setCacheMode(CacheMode mode, const QSize
+    &cacheSize)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode
+
+    Parameters
+    ----------
+
+    mode : CacheMode
+      Passed on as its number.
+
+    cacheSize : Optional[QSize]
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+      May be left out, as in Qt: a new 'QSize()' is then passed on.
+    """
+    #  void QGraphicsItem::setCacheMode(CacheMode mode, const QSize
+    #      &cacheSize)
+    if cacheSize is None:
+      from ..QtCore import QSize
+      cacheSize = QSize()
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem12setCacheModeENS_9CacheModeERK5QSize',
+        mode.value, self._valueOf(cacheSize),
+    )
+
+  @overload(PanelModality)
+  def setPanelModality(self, panelModality: PanelModality) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setPanelModality(PanelModality
+    panelModality)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#setPanelModality
+
+    Parameters
+    ----------
+
+    panelModality : PanelModality
+      Passed on as its number.
+    """
+    #  void QGraphicsItem::setPanelModality(PanelModality panelModality)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem16setPanelModalityENS_13PanelModalityE',
+        panelModality.value,
+    )
+
+  @overload(str)
+  def setToolTip(self, toolTip: str) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setToolTip(const QString &toolTip)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setToolTip
+
+    Parameters
+    ----------
+
+    toolTip : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QGraphicsItem::setToolTip(const QString &toolTip)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem10setToolTipERK7QString', toolTip,
+    )
+
+  @overload(QCursor)
+  def setCursor(self, cursor: QCursor) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setCursor(const QCursor &cursor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setCursor
+
+    Parameters
+    ----------
+
+    cursor : QCursor
+      Passed on as a value: Qt reads the C++ QCursor, which stays Python's
+      own.
+    """
+    #  void QGraphicsItem::setCursor(const QCursor &cursor)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem9setCursorERK7QCursor',
+        self._valueOf(cursor),
+    )
+
+  @overload(bool)
+  def setVisible(self, visible: bool) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setVisible(bool visible)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setVisible
+
+    Parameters
+    ----------
+
+    visible : bool
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setVisible(bool visible)
+    self.uglySide.call('ritual_ZN13QGraphicsItem10setVisibleEb', visible)
+
+  @overload(bool)
+  def setEnabled(self, enabled: bool) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setEnabled(bool enabled)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setEnabled
+
+    Parameters
+    ----------
+
+    enabled : bool
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setEnabled(bool enabled)
+    self.uglySide.call('ritual_ZN13QGraphicsItem10setEnabledEb', enabled)
+
+  @overload(bool)
+  def setSelected(self, selected: bool) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setSelected(bool selected)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setSelected
+
+    Parameters
+    ----------
+
+    selected : bool
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setSelected(bool selected)
+    self.uglySide.call('ritual_ZN13QGraphicsItem11setSelectedEb', selected)
+
+  @overload(bool)
+  def setAcceptDrops(self, on: bool) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setAcceptDrops(bool on)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptDrops
+
+    Parameters
+    ----------
+
+    on : bool
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setAcceptDrops(bool on)
+    self.uglySide.call('ritual_ZN13QGraphicsItem14setAcceptDropsEb', on)
+
+  @overload(float)
+  def setOpacity(self, opacity: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setOpacity(qreal opacity)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setOpacity
+
+    Parameters
+    ----------
+
+    opacity : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setOpacity(qreal opacity)
+    self.uglySide.call('ritual_ZN13QGraphicsItem10setOpacityEd', opacity)
+
+  @overload(QGraphicsEffect)
+  @overload(NoneType)
+  def setGraphicsEffect(self, effect: Optional[QGraphicsEffect]) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setGraphicsEffect(QGraphicsEffect
+    *effect)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#setGraphicsEffect
+
+    Parameters
+    ----------
+
+    effect : Optional[QGraphicsEffect]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsItem::setGraphicsEffect(QGraphicsEffect *effect)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem17setGraphicsEffectEP15QGraphicsEffect',
+        self._addressOf(effect),
+    )
+
+  @overload(Qt.MouseButtons)
+  def setAcceptedMouseButtons(self, buttons: Qt.MouseButtons) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setAcceptedMouseButtons(Qt::MouseButtons
+    buttons)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptedMouseButtons
+
+    Parameters
+    ----------
+
+    buttons : Qt.MouseButtons
+      Passed on as its number.
+    """
+    #  void QGraphicsItem::setAcceptedMouseButtons(Qt::MouseButtons buttons)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem23setAcceptedMouseButtonsE6QFlagsIN2Qt11Mo'
+        'useButtonEE',
+        buttons.value,
+    )
+
+  @overload(bool)
+  def setAcceptHoverEvents(self, enabled: bool) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setAcceptHoverEvents(bool enabled)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptHoverEvents
+
+    Parameters
+    ----------
+
+    enabled : bool
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setAcceptHoverEvents(bool enabled)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem20setAcceptHoverEventsEb', enabled,
+    )
+
+  @overload(bool)
+  def setAcceptTouchEvents(self, enabled: bool) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setAcceptTouchEvents(bool enabled)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptTouchEvents
+
+    Parameters
+    ----------
+
+    enabled : bool
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setAcceptTouchEvents(bool enabled)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem20setAcceptTouchEventsEb', enabled,
+    )
+
+  @overload(bool)
+  def setFiltersChildEvents(self, enabled: bool) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setFiltersChildEvents(bool enabled)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#setFiltersChildEvents
+
+    Parameters
+    ----------
+
+    enabled : bool
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setFiltersChildEvents(bool enabled)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem21setFiltersChildEventsEb', enabled,
+    )
+
+  @overload(bool)
+  def setHandlesChildEvents(self, enabled: bool) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setHandlesChildEvents(bool enabled)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#setHandlesChildEvents
+
+    Parameters
+    ----------
+
+    enabled : bool
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setHandlesChildEvents(bool enabled)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem21setHandlesChildEventsEb', enabled,
+    )
+
+  @overload(bool)
+  def setActive(self, active: bool) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setActive(bool active)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setActive
+
+    Parameters
+    ----------
+
+    active : bool
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setActive(bool active)
+    self.uglySide.call('ritual_ZN13QGraphicsItem9setActiveEb', active)
+
+  @overload()
+  @overload(Qt.FocusReason)
+  def setFocus(
+      self,
+      focusReason: Qt.FocusReason = Qt.FocusReason.OtherFocusReason,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setFocus(Qt::FocusReason focusReason)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus
+
+    Parameters
+    ----------
+
+    focusReason : Qt.FocusReason
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.FocusReason.OtherFocusReason.
+    """
+    #  void QGraphicsItem::setFocus(Qt::FocusReason focusReason)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem8setFocusEN2Qt11FocusReasonE',
+        focusReason.value,
+    )
+
+  @overload(THIS)
+  @overload(NoneType)
+  def setFocusProxy(self, item: Optional[QGraphicsItem]) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setFocusProxy(QGraphicsItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setFocusProxy
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsItem::setFocusProxy(QGraphicsItem *item)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem13setFocusProxyEPS_', self._addressOf(item),
+    )
+
+  @overload(float)
+  def setX(self, x: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setX(qreal x)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setX
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setX(qreal x)
+    self.uglySide.call('ritual_ZN13QGraphicsItem4setXEd', x)
+
+  @overload(float)
+  def setY(self, y: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setY(qreal y)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setY
+
+    Parameters
+    ----------
+
+    y : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setY(qreal y)
+    self.uglySide.call('ritual_ZN13QGraphicsItem4setYEd', y)
+
+  @overload(QPointF)
+  def setPos(self, pos: QPointF) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setPos(const QPointF &pos)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setPos
+
+    Parameters
+    ----------
+
+    pos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+    """
+    #  void QGraphicsItem::setPos(const QPointF &pos)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem6setPosERK7QPointF', self._valueOf(pos),
+    )
+
+  @overload(float, float)
+  def setPos(self, x: float, y: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setPos(qreal x, qreal y)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setPos
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setPos(qreal x, qreal y)
+    self.uglySide.call('ritual_ZN13QGraphicsItem6setPosEdd', x, y)
+
+  @overload(QTransform)
+  @overload(QTransform, bool)
+  def setTransform(self, matrix: QTransform, combine: bool = False) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setTransform(const QTransform &matrix,
+    bool combine)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform
+
+    Parameters
+    ----------
+
+    matrix : QTransform
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own.
+
+    combine : bool
+      Passed on as it is. May be left out, as in Qt: it is then False.
+    """
+    #  void QGraphicsItem::setTransform(const QTransform &matrix, bool
+    #      combine)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem12setTransformERK10QTransformb',
+        self._valueOf(matrix), combine,
+    )
+
+  @overload(float)
+  def setRotation(self, angle: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setRotation(qreal angle)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setRotation
+
+    Parameters
+    ----------
+
+    angle : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setRotation(qreal angle)
+    self.uglySide.call('ritual_ZN13QGraphicsItem11setRotationEd', angle)
+
+  @overload(float)
+  def setScale(self, scale: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setScale(qreal scale)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setScale
+
+    Parameters
+    ----------
+
+    scale : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setScale(qreal scale)
+    self.uglySide.call('ritual_ZN13QGraphicsItem8setScaleEd', scale)
+
+  @overload(QPointF)
+  def setTransformOriginPoint(self, origin: QPointF) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setTransformOriginPoint(const QPointF
+    &origin)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint
+
+    Parameters
+    ----------
+
+    origin : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+    """
+    #  void QGraphicsItem::setTransformOriginPoint(const QPointF &origin)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem23setTransformOriginPointERK7QPointF',
+        self._valueOf(origin),
+    )
+
+  @overload(float, float)
+  def setTransformOriginPoint(self, ax: float, ay: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setTransformOriginPoint(qreal ax, qreal
+    ay)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint
+
+    Parameters
+    ----------
+
+    ax : float
+      Passed on as it is.
+
+    ay : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setTransformOriginPoint(qreal ax, qreal ay)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem23setTransformOriginPointEdd', ax, ay,
+    )
+
+  @overload(float)
+  def setZValue(self, z: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setZValue(qreal z)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setZValue
+
+    Parameters
+    ----------
+
+    z : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setZValue(qreal z)
+    self.uglySide.call('ritual_ZN13QGraphicsItem9setZValueEd', z)
+
+  @overload(float)
+  def setBoundingRegionGranularity(self, granularity: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setBoundingRegionGranularity(qreal
+    granularity)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#setBoundingRegionGranularity
+
+    Parameters
+    ----------
+
+    granularity : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::setBoundingRegionGranularity(qreal granularity)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem28setBoundingRegionGranularityEd',
+        granularity,
+    )
+
+  @overload(int, QVariant)
+  def setData(self, key: int, value: QVariant) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setData(int key, const QVariant &value)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#setData
+
+    Parameters
+    ----------
+
+    key : int
+      Passed on as it is.
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+    """
+    #  void QGraphicsItem::setData(int key, const QVariant &value)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem7setDataEiRK8QVariant',
+        key, self._valueOf(value),
+    )
+
+  @overload(Qt.InputMethodHints)
+  def setInputMethodHints(self, hints: Qt.InputMethodHints) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setInputMethodHints(Qt::InputMethodHints
+    hints)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#setInputMethodHints
+
+    Parameters
+    ----------
+
+    hints : Qt.InputMethodHints
+      Passed on as its number.
+    """
+    #  void QGraphicsItem::setInputMethodHints(Qt::InputMethodHints hints)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem19setInputMethodHintsE6QFlagsIN2Qt15InputM'
+        'ethodHintEE',
+        hints.value,
+    )
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def toGraphicsObject(self) -> Optional[QGraphicsObject]:
+    """
+    Calls Qt's 'QGraphicsObject *QGraphicsItem::toGraphicsObject()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject
+
+    Returns
+    -------
+
+    Optional[QGraphicsObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsObject *QGraphicsItem::toGraphicsObject()
+    address = self.uglySide.call(
+        'ritual_ZN13QGraphicsItem16toGraphicsObjectEv',
+    )
+    from . import QGraphicsObject
+    return QGraphicsObject._cuteAt(address)
+
+  def unsetCursor(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::unsetCursor()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#unsetCursor
+    """
+    #  void QGraphicsItem::unsetCursor()
+    self.uglySide.call('ritual_ZN13QGraphicsItem11unsetCursorEv')
+
+  def hide(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::hide()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#hide
+    """
+    #  void QGraphicsItem::hide()
+    self.uglySide.call('ritual_ZN13QGraphicsItem4hideEv')
+
+  def show(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::show()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#show
+    """
+    #  void QGraphicsItem::show()
+    self.uglySide.call('ritual_ZN13QGraphicsItem4showEv')
+
+  def clearFocus(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::clearFocus()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#clearFocus
+    """
+    #  void QGraphicsItem::clearFocus()
+    self.uglySide.call('ritual_ZN13QGraphicsItem10clearFocusEv')
+
+  def grabMouse(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::grabMouse()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#grabMouse
+    """
+    #  void QGraphicsItem::grabMouse()
+    self.uglySide.call('ritual_ZN13QGraphicsItem9grabMouseEv')
+
+  def ungrabMouse(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::ungrabMouse()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabMouse
+    """
+    #  void QGraphicsItem::ungrabMouse()
+    self.uglySide.call('ritual_ZN13QGraphicsItem11ungrabMouseEv')
+
+  def grabKeyboard(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::grabKeyboard()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#grabKeyboard
+    """
+    #  void QGraphicsItem::grabKeyboard()
+    self.uglySide.call('ritual_ZN13QGraphicsItem12grabKeyboardEv')
+
+  def ungrabKeyboard(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::ungrabKeyboard()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabKeyboard
+    """
+    #  void QGraphicsItem::ungrabKeyboard()
+    self.uglySide.call('ritual_ZN13QGraphicsItem14ungrabKeyboardEv')
+
+  @overload(float, float)
+  def moveBy(self, dx: float, dy: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::moveBy(qreal dx, qreal dy)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#moveBy
+
+    Parameters
+    ----------
+
+    dx : float
+      Passed on as it is.
+
+    dy : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::moveBy(qreal dx, qreal dy)
+    self.uglySide.call('ritual_ZN13QGraphicsItem6moveByEdd', dx, dy)
+
+  @overload()
+  @overload(QRectF)
+  @overload(QRectF, int)
+  @overload(QRectF, int, int)
+  def ensureVisible(
+      self,
+      rect: Optional[QRectF] = None,
+      xmargin: int = 50,
+      ymargin: int = 50,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::ensureVisible(const QRectF &rect, int
+    xmargin, int ymargin)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible
+
+    Parameters
+    ----------
+
+    rect : Optional[QRectF]
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own. May be left out, as in Qt: a new 'QRectF()' is then passed on.
+
+    xmargin : int
+      Passed on as it is. May be left out, as in Qt: it is then 50.
+
+    ymargin : int
+      Passed on as it is. May be left out, as in Qt: it is then 50.
+    """
+    #  void QGraphicsItem::ensureVisible(const QRectF &rect, int xmargin, int
+    #      ymargin)
+    if rect is None:
+      from ..QtCore import QRectF
+      rect = QRectF()
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem13ensureVisibleERK6QRectFii',
+        self._valueOf(rect), xmargin, ymargin,
+    )
+
+  @overload(float, float, float, float)
+  @overload(float, float, float, float, int)
+  @overload(float, float, float, float, int, int)
+  def ensureVisible(
+      self,
+      x: float,
+      y: float,
+      w: float,
+      h: float,
+      xmargin: int = 50,
+      ymargin: int = 50,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::ensureVisible(qreal x, qreal y, qreal w,
+    qreal h, int xmargin, int ymargin)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    xmargin : int
+      Passed on as it is. May be left out, as in Qt: it is then 50.
+
+    ymargin : int
+      Passed on as it is. May be left out, as in Qt: it is then 50.
+    """
+    #  void QGraphicsItem::ensureVisible(qreal x, qreal y, qreal w, qreal h,
+    #      int xmargin, int ymargin)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem13ensureVisibleEddddii',
+        x, y, w, h, xmargin, ymargin,
+    )
+
+  def resetTransform(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::resetTransform()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#resetTransform
+    """
+    #  void QGraphicsItem::resetTransform()
+    self.uglySide.call('ritual_ZN13QGraphicsItem14resetTransformEv')
+
+  @overload(int)
+  def advance(self, phase: int) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::advance(int phase)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#advance
+
+    Parameters
+    ----------
+
+    phase : int
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::advance(int phase)
+    self.uglySide.call('ritual_ZN13QGraphicsItem7advanceEi', phase)
+
+  @overload(THIS)
+  @overload(NoneType)
+  def stackBefore(self, sibling: Optional[QGraphicsItem]) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::stackBefore(const QGraphicsItem
+    *sibling)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#stackBefore
+
+    Parameters
+    ----------
+
+    sibling : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsItem::stackBefore(const QGraphicsItem *sibling)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem11stackBeforeEPKS_',
+        self._addressOf(sibling),
+    )
+
+  @overload(QPainter, QStyleOptionGraphicsItem)
+  @overload(QPainter, NoneType)
+  @overload(NoneType, QStyleOptionGraphicsItem)
+  @overload(NoneType, NoneType)
+  @overload(QPainter, QStyleOptionGraphicsItem, QWidget)
+  @overload(QPainter, QStyleOptionGraphicsItem, NoneType)
+  @overload(QPainter, NoneType, QWidget)
+  @overload(QPainter, NoneType, NoneType)
+  @overload(NoneType, QStyleOptionGraphicsItem, QWidget)
+  @overload(NoneType, QStyleOptionGraphicsItem, NoneType)
+  @overload(NoneType, NoneType, QWidget)
+  @overload(NoneType, NoneType, NoneType)
+  def paint(
+      self,
+      painter: Optional[QPainter],
+      option: Optional[QStyleOptionGraphicsItem],
+      widget: Optional[QWidget] = None,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::paint(QPainter *painter, const
+    QStyleOptionGraphicsItem *option, QWidget *widget)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#paint
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    option : Optional[QStyleOptionGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  void QGraphicsItem::paint(QPainter *painter, const
+    #      QStyleOptionGraphicsItem *option, QWidget *widget)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem5paintEP8QPainterPK24QStyleOptionGraphicsI'
+        'temP7QWidget',
+        self._addressOf(painter), self._addressOf(option),
+        self._addressOf(widget),
+    )
+
+  @overload()
+  @overload(QRectF)
+  def update(self, rect: Optional[QRectF] = None) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::update(const QRectF &rect)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#update
+
+    Parameters
+    ----------
+
+    rect : Optional[QRectF]
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own. May be left out, as in Qt: a new 'QRectF()' is then passed on.
+    """
+    #  void QGraphicsItem::update(const QRectF &rect)
+    if rect is None:
+      from ..QtCore import QRectF
+      rect = QRectF()
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem6updateERK6QRectF', self._valueOf(rect),
+    )
+
+  @overload(float, float, float, float)
+  def update(self, x: float, y: float, width: float, height: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::update(qreal x, qreal y, qreal width,
+    qreal height)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#update
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    width : float
+      Passed on as it is.
+
+    height : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItem::update(qreal x, qreal y, qreal width, qreal
+    #      height)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem6updateEdddd', x, y, width, height,
+    )
+
+  @overload(float, float)
+  @overload(float, float, QRectF)
+  def scroll(
+      self,
+      dx: float,
+      dy: float,
+      rect: Optional[QRectF] = None,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::scroll(qreal dx, qreal dy, const QRectF
+    &rect)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#scroll
+
+    Parameters
+    ----------
+
+    dx : float
+      Passed on as it is.
+
+    dy : float
+      Passed on as it is.
+
+    rect : Optional[QRectF]
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own. May be left out, as in Qt: a new 'QRectF()' is then passed on.
+    """
+    #  void QGraphicsItem::scroll(qreal dx, qreal dy, const QRectF &rect)
+    if rect is None:
+      from ..QtCore import QRectF
+      rect = QRectF()
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem6scrollEddRK6QRectF',
+        dx, dy, self._valueOf(rect),
+    )
+
+  @overload(THIS)
+  @overload(NoneType)
+  def installSceneEventFilter(
+      self,
+      filterItem: Optional[QGraphicsItem],
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::installSceneEventFilter(QGraphicsItem
+    *filterItem)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#installSceneEventFilter
+
+    Parameters
+    ----------
+
+    filterItem : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsItem::installSceneEventFilter(QGraphicsItem *filterItem)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem23installSceneEventFilterEPS_',
+        self._addressOf(filterItem),
+    )
+
+  @overload(THIS)
+  @overload(NoneType)
+  def removeSceneEventFilter(
+      self,
+      filterItem: Optional[QGraphicsItem],
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::removeSceneEventFilter(QGraphicsItem
+    *filterItem)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#removeSceneEventFilter
+
+    Parameters
+    ----------
+
+    filterItem : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsItem::removeSceneEventFilter(QGraphicsItem *filterItem)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsItem22removeSceneEventFilterEPS_',
+        self._addressOf(filterItem),
+    )

@@ -11,20 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_dialog import QDialog
-from ._q_label import QLabel
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ._q_progress_bar import QProgressBar
-from ._q_push_button import QPushButton
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from ..QtCore import Qt, QObject
+from . import QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
+  from . import QLabel, QProgressBar, QPushButton
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QLabel = WAIT['QLabel']
+  QProgressBar = WAIT['QProgressBar']
+  QPushButton = WAIT['QPushButton']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -162,6 +165,7 @@ class QProgressDialog(QDialog):
     """
     #  const QMetaObject *QProgressDialog::metaObject() const
     address = self.uglySide.call('ritual_ZNK15QProgressDialog10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def wasCanceled(self) -> bool:
@@ -214,6 +218,7 @@ class QProgressDialog(QDialog):
     """
     #  QSize QProgressDialog::sizeHint() const
     address = self.uglySide.call('ritual_ZNK15QProgressDialog8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def labelText(self) -> str:

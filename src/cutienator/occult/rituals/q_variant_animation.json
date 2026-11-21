@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qvariantanimation.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QVariantAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QVariantAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QVariantAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QVariantAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QVariantAnimation10startValueEv": ["address", "address"],
+    "ritual_ZN17QVariantAnimation13setStartValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QVariantAnimation8endValueEv": ["address", "address"],
+    "ritual_ZN17QVariantAnimation11setEndValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QVariantAnimation10keyValueAtEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN17QVariantAnimation13setKeyValueAtEdRK8QVariant": [
+      "nothing", "address", "double", "address"
+    ],
+    "ritual_ZNK17QVariantAnimation12currentValueEv": ["address", "address"],
+    "ritual_ZNK17QVariantAnimation8durationEv": ["int", "address"],
+    "ritual_ZN17QVariantAnimation11setDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QVariantAnimation11easingCurveEv": ["address", "address"],
+    "ritual_ZN17QVariantAnimation14setEasingCurveERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ]
+  }
+}

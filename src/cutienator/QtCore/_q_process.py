@@ -12,23 +12,23 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_byte_array import QByteArray
-from ._q_i_o_device import QIODevice
-from ._q_i_o_device_base import QIODeviceBase
-from ._q_meta_object import QMetaObject
-from ._q_object import QObject
-from ._q_process_exit_status import ExitStatus
-from ._q_process_input_channel_mode import InputChannelMode
-from ._q_process_process_channel import ProcessChannel
-from ._q_process_process_channel_mode import ProcessChannelMode
-from ._q_process_process_error import ProcessError
-from ._q_process_process_state import ProcessState
-from ._q_process_unix_process_flag import UnixProcessFlag
+from . import QIODevice, QIODeviceBaseOpenModeFlag, QObject
+from . import QProcessExitStatus, QProcessInputChannelMode
+from . import QProcessProcessChannel, QProcessProcessChannelMode
+from . import QProcessProcessError, QProcessProcessState
+from . import QProcessUnixProcessFlag
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QByteArray, QIODeviceBase, QMetaObject, QProcessEnvironment
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QProcessEnvironment = WAIT['QProcessEnvironment']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -47,18 +47,19 @@ class QProcess(QIODevice):
   -----------
 
   Every function of Qt's QProcess that has a ritual and that Python can call
-  so far, 40 names in all: 'metaObject', 'tr', 'start', 'startCommand',
+  so far, 42 names in all: 'metaObject', 'tr', 'start', 'startCommand',
   'open', 'program', 'setProgram', 'processChannelMode',
   'setProcessChannelMode', 'inputChannelMode', 'setInputChannelMode',
   'readChannel', 'setReadChannel', 'closeReadChannel', 'closeWriteChannel',
   'setStandardInputFile', 'setStandardOutputFile', 'setStandardErrorFile',
   'setStandardOutputProcess', 'failChildProcessModifier',
   'setUnixProcessParameters', 'workingDirectory', 'setWorkingDirectory',
-  'error', 'state', 'processId', 'waitForStarted', 'waitForReadyRead',
-  'waitForBytesWritten', 'waitForFinished', 'readAllStandardOutput',
-  'readAllStandardError', 'exitCode', 'exitStatus', 'bytesToWrite',
-  'isSequential', 'close', 'nullDevice', 'terminate', 'kill'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'setProcessEnvironment', 'processEnvironment', 'error', 'state',
+  'processId', 'waitForStarted', 'waitForReadyRead', 'waitForBytesWritten',
+  'waitForFinished', 'readAllStandardOutput', 'readAllStandardError',
+  'exitCode', 'exitStatus', 'bytesToWrite', 'isSequential', 'close',
+  'nullDevice', 'terminate', 'kill'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -72,10 +73,6 @@ class QProcess(QIODevice):
   - Qt's 'void QProcess::setUnixProcessParameters(const UnixProcessParameters
     &params)': names 'QProcess::UnixProcessParameters', which has no cute
     class yet.
-  - Qt's 'void QProcess::setProcessEnvironment(const QProcessEnvironment
-    &environment)': names 'QProcessEnvironment', which has no cute class yet.
-  - Qt's 'QProcessEnvironment QProcess::processEnvironment() const': gives
-    'QProcessEnvironment', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -100,14 +97,14 @@ class QProcess(QIODevice):
 
   #  The enums Qt writes inside QProcess, and the names Qt has for the
   #  combinations of its flags enums.
-  ExitStatus = ExitStatus
-  InputChannelMode = InputChannelMode
-  ProcessChannel = ProcessChannel
-  ProcessChannelMode = ProcessChannelMode
-  ProcessError = ProcessError
-  ProcessState = ProcessState
-  UnixProcessFlag = UnixProcessFlag
-  UnixProcessFlags = UnixProcessFlag
+  ExitStatus = QProcessExitStatus
+  InputChannelMode = QProcessInputChannelMode
+  ProcessChannel = QProcessProcessChannel
+  ProcessChannelMode = QProcessProcessChannelMode
+  ProcessError = QProcessProcessError
+  ProcessState = QProcessProcessState
+  UnixProcessFlag = QProcessUnixProcessFlag
+  UnixProcessFlags = QProcessUnixProcessFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -206,6 +203,7 @@ class QProcess(QIODevice):
     """
     #  const QMetaObject *QProcess::metaObject() const
     address = self.uglySide.call('ritual_ZNK8QProcess10metaObjectEv')
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def program(self) -> str:
@@ -238,7 +236,7 @@ class QProcess(QIODevice):
       'ProcessChannelMode(number)' gives.
     """
     #  ProcessChannelMode QProcess::processChannelMode() const
-    return ProcessChannelMode(self.uglySide.call(
+    return QProcess.ProcessChannelMode(self.uglySide.call(
         'ritual_ZNK8QProcess18processChannelModeEv',
     ))
 
@@ -257,7 +255,7 @@ class QProcess(QIODevice):
       gives.
     """
     #  InputChannelMode QProcess::inputChannelMode() const
-    return InputChannelMode(self.uglySide.call(
+    return QProcess.InputChannelMode(self.uglySide.call(
         'ritual_ZNK8QProcess16inputChannelModeEv',
     ))
 
@@ -276,7 +274,7 @@ class QProcess(QIODevice):
       gives.
     """
     #  ProcessChannel QProcess::readChannel() const
-    return ProcessChannel(self.uglySide.call(
+    return QProcess.ProcessChannel(self.uglySide.call(
         'ritual_ZNK8QProcess11readChannelEv',
     ))
 
@@ -295,6 +293,24 @@ class QProcess(QIODevice):
     #  QString QProcess::workingDirectory() const
     return self.uglySide.call('ritual_ZNK8QProcess16workingDirectoryEv')
 
+  def processEnvironment(self) -> QProcessEnvironment:
+    """
+    Calls Qt's 'QProcessEnvironment QProcess::processEnvironment() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#processEnvironment
+
+    Returns
+    -------
+
+    QProcessEnvironment
+      A new cute QProcessEnvironment around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QProcessEnvironment QProcess::processEnvironment() const
+    address = self.uglySide.call('ritual_ZNK8QProcess18processEnvironmentEv')
+    from . import QProcessEnvironment
+    return QProcessEnvironment._cuteOwning(address)
+
   def error(self) -> ProcessError:
     """
     Calls Qt's 'QProcess::ProcessError QProcess::error() const'.
@@ -310,7 +326,9 @@ class QProcess(QIODevice):
       gives.
     """
     #  QProcess::ProcessError QProcess::error() const
-    return ProcessError(self.uglySide.call('ritual_ZNK8QProcess5errorEv'))
+    return QProcess.ProcessError(self.uglySide.call(
+        'ritual_ZNK8QProcess5errorEv',
+    ))
 
   def state(self) -> ProcessState:
     """
@@ -327,7 +345,9 @@ class QProcess(QIODevice):
       gives.
     """
     #  QProcess::ProcessState QProcess::state() const
-    return ProcessState(self.uglySide.call('ritual_ZNK8QProcess5stateEv'))
+    return QProcess.ProcessState(self.uglySide.call(
+        'ritual_ZNK8QProcess5stateEv',
+    ))
 
   def processId(self) -> int:
     """
@@ -362,7 +382,7 @@ class QProcess(QIODevice):
       gives.
     """
     #  QProcess::ExitStatus QProcess::exitStatus() const
-    return ExitStatus(self.uglySide.call(
+    return QProcess.ExitStatus(self.uglySide.call(
         'ritual_ZNK8QProcess10exitStatusEv',
     ))
 
@@ -483,11 +503,11 @@ class QProcess(QIODevice):
     )
 
   @overload(str)
-  @overload(str, QIODeviceBase.OpenMode)
+  @overload(str, QIODeviceBaseOpenModeFlag)
   def setStandardOutputFile(
       self,
       fileName: str,
-      mode: QIODeviceBase.OpenMode = QIODeviceBase.OpenMode.Truncate,
+      mode: QIODeviceBase.OpenMode = QIODeviceBaseOpenModeFlag.Truncate,
   ) -> None:
     """
     Calls Qt's 'void QProcess::setStandardOutputFile(const QString &fileName,
@@ -504,7 +524,7 @@ class QProcess(QIODevice):
 
     mode : QIODeviceBase.OpenMode
       Passed on as its number. May be left out, as in Qt: it is then
-      QIODeviceBase.OpenMode.Truncate.
+      QIODeviceBaseOpenModeFlag.Truncate.
     """
     #  void QProcess::setStandardOutputFile(const QString &fileName, OpenMode
     #      mode)
@@ -515,11 +535,11 @@ class QProcess(QIODevice):
     )
 
   @overload(str)
-  @overload(str, QIODeviceBase.OpenMode)
+  @overload(str, QIODeviceBaseOpenModeFlag)
   def setStandardErrorFile(
       self,
       fileName: str,
-      mode: QIODeviceBase.OpenMode = QIODeviceBase.OpenMode.Truncate,
+      mode: QIODeviceBase.OpenMode = QIODeviceBaseOpenModeFlag.Truncate,
   ) -> None:
     """
     Calls Qt's 'void QProcess::setStandardErrorFile(const QString &fileName,
@@ -535,7 +555,7 @@ class QProcess(QIODevice):
 
     mode : QIODeviceBase.OpenMode
       Passed on as its number. May be left out, as in Qt: it is then
-      QIODeviceBase.OpenMode.Truncate.
+      QIODeviceBaseOpenModeFlag.Truncate.
     """
     #  void QProcess::setStandardErrorFile(const QString &fileName, OpenMode
     #      mode)
@@ -611,6 +631,29 @@ class QProcess(QIODevice):
         'ritual_ZN8QProcess19setWorkingDirectoryERK7QString', dir,
     )
 
+  @overload(QProcessEnvironment)
+  def setProcessEnvironment(self, environment: QProcessEnvironment) -> None:
+    """
+    Calls Qt's 'void QProcess::setProcessEnvironment(const
+    QProcessEnvironment &environment)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qprocess.html#setProcessEnvironment
+
+    Parameters
+    ----------
+
+    environment : QProcessEnvironment
+      Passed on as a value: Qt reads the C++ QProcessEnvironment, which stays
+      Python's own.
+    """
+    #  void QProcess::setProcessEnvironment(const QProcessEnvironment
+    #      &environment)
+    self.uglySide.call(
+        'ritual_ZN8QProcess21setProcessEnvironmentERK19QProcessEnvironment',
+        self._valueOf(environment),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -666,10 +709,10 @@ class QProcess(QIODevice):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @overload()
-  @overload(QIODeviceBase.OpenMode)
+  @overload(QIODeviceBaseOpenModeFlag)
   def start(
       self,
-      mode: QIODeviceBase.OpenMode = QIODeviceBase.OpenMode.ReadWrite,
+      mode: QIODeviceBase.OpenMode = QIODeviceBaseOpenModeFlag.ReadWrite,
   ) -> None:
     """
     Calls Qt's 'void QProcess::start(OpenMode mode)'.
@@ -681,7 +724,7 @@ class QProcess(QIODevice):
 
     mode : QIODeviceBase.OpenMode
       Passed on as its number. May be left out, as in Qt: it is then
-      QIODeviceBase.OpenMode.ReadWrite.
+      QIODeviceBaseOpenModeFlag.ReadWrite.
     """
     #  void QProcess::start(OpenMode mode)
     self.uglySide.call(
@@ -690,11 +733,11 @@ class QProcess(QIODevice):
     )
 
   @overload(str)
-  @overload(str, QIODeviceBase.OpenMode)
+  @overload(str, QIODeviceBaseOpenModeFlag)
   def startCommand(
       self,
       command: str,
-      mode: QIODeviceBase.OpenMode = QIODeviceBase.OpenMode.ReadWrite,
+      mode: QIODeviceBase.OpenMode = QIODeviceBaseOpenModeFlag.ReadWrite,
   ) -> None:
     """
     Calls Qt's 'void QProcess::startCommand(const QString &command, OpenMode
@@ -710,7 +753,7 @@ class QProcess(QIODevice):
 
     mode : QIODeviceBase.OpenMode
       Passed on as its number. May be left out, as in Qt: it is then
-      QIODeviceBase.OpenMode.ReadWrite.
+      QIODeviceBaseOpenModeFlag.ReadWrite.
     """
     #  void QProcess::startCommand(const QString &command, OpenMode mode)
     self.uglySide.call(
@@ -720,10 +763,10 @@ class QProcess(QIODevice):
     )
 
   @overload()
-  @overload(QIODeviceBase.OpenMode)
+  @overload(QIODeviceBaseOpenModeFlag)
   def open(
       self,
-      mode: QIODeviceBase.OpenMode = QIODeviceBase.OpenMode.ReadWrite,
+      mode: QIODeviceBase.OpenMode = QIODeviceBaseOpenModeFlag.ReadWrite,
   ) -> bool:
     """
     Calls Qt's 'bool QProcess::open(OpenMode mode)'.
@@ -735,7 +778,7 @@ class QProcess(QIODevice):
 
     mode : QIODeviceBase.OpenMode
       Passed on as its number. May be left out, as in Qt: it is then
-      QIODeviceBase.OpenMode.ReadWrite.
+      QIODeviceBaseOpenModeFlag.ReadWrite.
     """
     #  bool QProcess::open(OpenMode mode)
     return self.uglySide.call(
@@ -892,6 +935,7 @@ class QProcess(QIODevice):
     address = self.uglySide.call(
         'ritual_ZN8QProcess21readAllStandardOutputEv',
     )
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   def readAllStandardError(self) -> QByteArray:
@@ -910,6 +954,7 @@ class QProcess(QIODevice):
     address = self.uglySide.call(
         'ritual_ZN8QProcess20readAllStandardErrorEv',
     )
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   def close(self) -> None:

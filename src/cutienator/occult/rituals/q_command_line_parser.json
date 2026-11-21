@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcommandlineparser.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN18QCommandLineParser2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QCommandLineParserC1Ev": ["address"],
+    "ritual_ZN18QCommandLineParserD1Ev": ["nothing", "address"],
+    "ritual_ZN18QCommandLineParser27setSingleDashWordOptionModeENS_24SingleDashWordOptionModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QCommandLineParser38setOptionsAfterPositionalArgumentsModeENS_35OptionsAfterPositionalArgumentsModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QCommandLineParser9addOptionERK18QCommandLineOption": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QCommandLineParser16addVersionOptionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QCommandLineParser13addHelpOptionEv": ["address", "address"],
+    "ritual_ZN18QCommandLineParser25setApplicationDescriptionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QCommandLineParser22applicationDescriptionEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18QCommandLineParser21addPositionalArgumentERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
+    "ritual_ZN18QCommandLineParser24clearPositionalArgumentsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QCommandLineParser9errorTextEv": ["text", "address"],
+    "ritual_ZNK18QCommandLineParser5isSetERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK18QCommandLineParser5valueERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK18QCommandLineParser5isSetERK18QCommandLineOption": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QCommandLineParser5valueERK18QCommandLineOption": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN18QCommandLineParser11showVersionEv": ["nothing", "address"],
+    "ritual_ZN18QCommandLineParser8showHelpEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QCommandLineParser8helpTextEv": ["text", "address"],
+    "ritual_ZN18QCommandLineParser18showMessageAndExitENS_11MessageTypeERK7QStringi": [
+      "nothing", "int", "text", "int"
+    ]
+  }
+}

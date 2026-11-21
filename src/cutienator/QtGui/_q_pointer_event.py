@@ -11,12 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ._q_event_point import QEventPoint
-from ._q_input_event import QInputEvent
-from ..QtCore import QObject
+from ..cute import WAIT
+from . import QInputEvent, QPointingDevicePointerType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QObject
+  from . import QEventPoint, QPointingDevice
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEventPoint = WAIT['QEventPoint']
+  QObject = WAIT['QObject']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -35,23 +43,19 @@ class QPointerEvent(QInputEvent):
   -----------
 
   Every function of Qt's QPointerEvent that has a ritual and that Python can
-  call so far, 15 names in all: 'clone', 'setTimestamp', 'pointCount',
-  'pointById', 'allPointsGrabbed', 'isBeginEvent', 'isUpdateEvent',
-  'isEndEvent', 'allPointsAccepted', 'setAccepted', 'exclusiveGrabber',
-  'setExclusiveGrabber', 'clearPassiveGrabbers', 'addPassiveGrabber',
-  'removePassiveGrabber'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  call so far, 17 names in all: 'clone', 'pointingDevice', 'pointerType',
+  'setTimestamp', 'pointCount', 'pointById', 'allPointsGrabbed',
+  'isBeginEvent', 'isUpdateEvent', 'isEndEvent', 'allPointsAccepted',
+  'setAccepted', 'exclusiveGrabber', 'setExclusiveGrabber',
+  'clearPassiveGrabbers', 'addPassiveGrabber', 'removePassiveGrabber'. None
+  can be made from Python: one comes out of a function of another class that
+  gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPointerEvent::~QPointerEvent()': the destructor: Python never
     removes a C++ QPointerEvent.
-  - Qt's 'const QPointingDevice *QPointerEvent::pointingDevice() const':
-    gives 'QPointingDevice', which has no cute class yet.
-  - Qt's 'QPointingDevice::PointerType QPointerEvent::pointerType() const':
-    gives the enum 'QPointingDevice::PointerType', whose class cannot be
-    named here.
 
   What has no ritual
   ------------------
@@ -113,6 +117,47 @@ class QPointerEvent(QInputEvent):
     #  QPointerEvent *QPointerEvent::clone() const
     address = self.uglySide.call('ritual_ZNK13QPointerEvent5cloneEv')
     return QPointerEvent._cuteAt(address)
+
+  def pointingDevice(self) -> Optional[QPointingDevice]:
+    """
+    Calls Qt's 'const QPointingDevice *QPointerEvent::pointingDevice()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointerevent.html#pointingDevice
+
+    Returns
+    -------
+
+    Optional[QPointingDevice]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QPointingDevice *QPointerEvent::pointingDevice() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QPointerEvent14pointingDeviceEv',
+    )
+    from . import QPointingDevice
+    return QPointingDevice._cuteAt(address)
+
+  def pointerType(self) -> QPointingDevice.PointerType:
+    """
+    Calls Qt's 'QPointingDevice::PointerType QPointerEvent::pointerType()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointerevent.html#pointerType
+
+    Returns
+    -------
+
+    QPointingDevice.PointerType
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that
+      'QPointingDevice.PointerType(number)' gives.
+    """
+    #  QPointingDevice::PointerType QPointerEvent::pointerType() const
+    return QPointingDevicePointerType(self.uglySide.call(
+        'ritual_ZNK13QPointerEvent11pointerTypeEv',
+    ))
 
   def pointCount(self) -> int:
     """
@@ -203,6 +248,7 @@ class QPointerEvent(QInputEvent):
         'ritual_ZNK13QPointerEvent16exclusiveGrabberERK11QEventPoint',
         self._valueOf(point),
     )
+    from ..QtCore import QObject
     return QObject._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -328,6 +374,7 @@ class QPointerEvent(QInputEvent):
     """
     #  QEventPoint *QPointerEvent::pointById(int id)
     address = self.uglySide.call('ritual_ZN13QPointerEvent9pointByIdEi', id)
+    from . import QEventPoint
     return QEventPoint._cuteAt(address)
 
   @overload(QEventPoint)

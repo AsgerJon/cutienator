@@ -13,27 +13,35 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ..QtCore import QChar
-from ._q_font import QFont
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ._q_paged_paint_device import QPagedPaintDevice
-from ._q_painter import QPainter
-from ..QtCore import QRectF
-from ..QtCore import QRegularExpression
-from ..QtCore import QSizeF
-from ._q_text_option import QTextOption
-from ..QtCore import QUrl
-from ..QtCore import QVariant
-from ._q_text_document_find_flag import FindFlag
-from ._q_text_document_markdown_feature import MarkdownFeature
-from ._q_text_document_meta_information import MetaInformation
-from ._q_text_document_resource_type import ResourceType
-from ._q_text_document_stacks import Stacks
+from ..QtCore import Qt, QObject
+from . import QTextDocumentFindFlag, QTextDocumentMarkdownFeature
+from . import QTextDocumentMetaInformation, QTextDocumentResourceType
+from . import QTextDocumentStacks
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QChar, QMetaObject, QRectF, QRegularExpression, QSizeF
+  from ..QtCore import QUrl, QVariant
+  from . import QAbstractTextDocumentLayout, QFont, QPagedPaintDevice
+  from . import QPainter, QTextBlock, QTextCursor, QTextFormat, QTextFrame
+  from . import QTextObject, QTextOption
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractTextDocumentLayout = WAIT['QAbstractTextDocumentLayout']
+  QFont = WAIT['QFont']
+  QPagedPaintDevice = WAIT['QPagedPaintDevice']
+  QPainter = WAIT['QPainter']
+  QRectF = WAIT['QRectF']
+  QRegularExpression = WAIT['QRegularExpression']
+  QSizeF = WAIT['QSizeF']
+  QTextCursor = WAIT['QTextCursor']
+  QTextFormat = WAIT['QTextFormat']
+  QTextOption = WAIT['QTextOption']
+  QUrl = WAIT['QUrl']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -52,12 +60,15 @@ class QTextDocument(QObject):
   -----------
 
   Every function of Qt's QTextDocument that has a ritual and that Python can
-  call so far, 70 names in all: 'metaObject', 'tr', 'clone', 'isEmpty',
+  call so far, 83 names in all: 'metaObject', 'tr', 'clone', 'isEmpty',
   'clear', 'setUndoRedoEnabled', 'isUndoRedoEnabled', 'isUndoAvailable',
   'isRedoAvailable', 'availableUndoSteps', 'availableRedoSteps', 'revision',
-  'setMetaInformation', 'metaInformation', 'toHtml', 'setHtml', 'toMarkdown',
-  'setMarkdown', 'toRawText', 'toPlainText', 'setPlainText', 'characterAt',
-  'find', 'setPageSize', 'pageSize', 'setDefaultFont', 'defaultFont',
+  'setDocumentLayout', 'documentLayout', 'setMetaInformation',
+  'metaInformation', 'toHtml', 'setHtml', 'toMarkdown', 'setMarkdown',
+  'toRawText', 'toPlainText', 'setPlainText', 'characterAt', 'find',
+  'frameAt', 'rootFrame', 'object', 'objectForFormat', 'findBlock',
+  'findBlockByNumber', 'findBlockByLineNumber', 'begin', 'end', 'firstBlock',
+  'lastBlock', 'setPageSize', 'pageSize', 'setDefaultFont', 'defaultFont',
   'setSuperScriptBaseline', 'superScriptBaseline', 'setSubScriptBaseline',
   'subScriptBaseline', 'setBaselineOffset', 'baselineOffset', 'pageCount',
   'isModified', 'print', 'resource', 'addResource', 'markContentsDirty',
@@ -76,33 +87,6 @@ class QTextDocument(QObject):
 
   - Qt's 'QTextDocument::~QTextDocument()': the destructor: Python never
     removes a C++ QTextDocument.
-  - Qt's 'void QTextDocument::setDocumentLayout(QAbstractTextDocumentLayout
-    *layout)': names 'QAbstractTextDocumentLayout', which has no cute class
-    yet.
-  - Qt's 'QAbstractTextDocumentLayout *QTextDocument::documentLayout()
-    const': gives 'QAbstractTextDocumentLayout', which has no cute class yet.
-  - Qt's 'QTextFrame *QTextDocument::frameAt(int pos) const': gives
-    'QTextFrame', which has no cute class yet.
-  - Qt's 'QTextFrame *QTextDocument::rootFrame() const': gives 'QTextFrame',
-    which has no cute class yet.
-  - Qt's 'QTextObject *QTextDocument::object(int objectIndex) const': gives
-    'QTextObject', which has no cute class yet.
-  - Qt's 'QTextObject *QTextDocument::objectForFormat(const QTextFormat &a0)
-    const': gives 'QTextObject', which has no cute class yet.
-  - Qt's 'QTextBlock QTextDocument::findBlock(int pos) const': gives
-    'QTextBlock', which has no cute class yet.
-  - Qt's 'QTextBlock QTextDocument::findBlockByNumber(int blockNumber)
-    const': gives 'QTextBlock', which has no cute class yet.
-  - Qt's 'QTextBlock QTextDocument::findBlockByLineNumber(int blockNumber)
-    const': gives 'QTextBlock', which has no cute class yet.
-  - Qt's 'QTextBlock QTextDocument::begin() const': gives 'QTextBlock', which
-    has no cute class yet.
-  - Qt's 'QTextBlock QTextDocument::end() const': gives 'QTextBlock', which
-    has no cute class yet.
-  - Qt's 'QTextBlock QTextDocument::firstBlock() const': gives 'QTextBlock',
-    which has no cute class yet.
-  - Qt's 'QTextBlock QTextDocument::lastBlock() const': gives 'QTextBlock',
-    which has no cute class yet.
   - Qt's 'void QTextDocument::appendUndoItem(QAbstractUndoItem *a0)': names
     'QAbstractUndoItem', which has no cute class yet.
 
@@ -131,17 +115,13 @@ class QTextDocument(QObject):
 
   #  The enums Qt writes inside QTextDocument, and the names Qt has for the
   #  combinations of its flags enums.
-  FindFlag = FindFlag
-  FindFlags = FindFlag
-  MarkdownFeature = MarkdownFeature
-  MarkdownFeatures = MarkdownFeature
-  MetaInformation = MetaInformation
-  ResourceType = ResourceType
-  Stacks = Stacks
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QTextCursor = WAIT['QTextCursor']
+  FindFlag = QTextDocumentFindFlag
+  FindFlags = QTextDocumentFindFlag
+  MarkdownFeature = QTextDocumentMarkdownFeature
+  MarkdownFeatures = QTextDocumentMarkdownFeature
+  MetaInformation = QTextDocumentMetaInformation
+  ResourceType = QTextDocumentResourceType
+  Stacks = QTextDocumentStacks
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -225,6 +205,7 @@ class QTextDocument(QObject):
     """
     #  const QMetaObject *QTextDocument::metaObject() const
     address = self.uglySide.call('ritual_ZNK13QTextDocument10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   @overload()
@@ -330,6 +311,27 @@ class QTextDocument(QObject):
     """
     #  int QTextDocument::revision() const
     return self.uglySide.call('ritual_ZNK13QTextDocument8revisionEv')
+
+  def documentLayout(self) -> Optional[QAbstractTextDocumentLayout]:
+    """
+    Calls Qt's 'QAbstractTextDocumentLayout *QTextDocument::documentLayout()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#documentLayout
+
+    Returns
+    -------
+
+    Optional[QAbstractTextDocumentLayout]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractTextDocumentLayout *QTextDocument::documentLayout() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QTextDocument14documentLayoutEv',
+    )
+    from . import QAbstractTextDocumentLayout
+    return QAbstractTextDocumentLayout._cuteAt(address)
 
   @overload(MetaInformation)
   def metaInformation(self, info: MetaInformation) -> str:
@@ -457,6 +459,7 @@ class QTextDocument(QObject):
     address = self.uglySide.call(
         'ritual_ZNK13QTextDocument11characterAtEi', pos,
     )
+    from ..QtCore import QChar
     return QChar._cuteOwning(address)
 
   @overload(str)
@@ -499,23 +502,22 @@ class QTextDocument(QObject):
         'ritual_ZNK13QTextDocument4findERK7QStringi6QFlagsINS_8FindFlagEE',
         subString, from_, options.value,
     )
-    return self.QTextCursor._cuteOwning(address)
+    from . import QTextCursor
+    return QTextCursor._cuteOwning(address)
 
+  @overload(str, QTextCursor)
   @overload(str, QTextCursor, FindFlags)
   def find(
       self,
       subString: str,
       cursor: QTextCursor,
-      options: FindFlags,
+      options: FindFlags = FindFlags(),
   ) -> QTextCursor:
     """
     Calls Qt's 'QTextCursor QTextDocument::find(const QString &subString,
     const QTextCursor &cursor, FindFlags options) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#find
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------
@@ -528,7 +530,8 @@ class QTextDocument(QObject):
       Python's own.
 
     options : FindFlags
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      FindFlags().
 
     Returns
     -------
@@ -543,7 +546,8 @@ class QTextDocument(QObject):
         '_8FindFlagEE',
         subString, self._valueOf(cursor), options.value,
     )
-    return self.QTextCursor._cuteOwning(address)
+    from . import QTextCursor
+    return QTextCursor._cuteOwning(address)
 
   @overload(QRegularExpression)
   @overload(QRegularExpression, int)
@@ -587,23 +591,22 @@ class QTextDocument(QObject):
         'FindFlagEE',
         self._valueOf(expr), from_, options.value,
     )
-    return self.QTextCursor._cuteOwning(address)
+    from . import QTextCursor
+    return QTextCursor._cuteOwning(address)
 
+  @overload(QRegularExpression, QTextCursor)
   @overload(QRegularExpression, QTextCursor, FindFlags)
   def find(
       self,
       expr: QRegularExpression,
       cursor: QTextCursor,
-      options: FindFlags,
+      options: FindFlags = FindFlags(),
   ) -> QTextCursor:
     """
     Calls Qt's 'QTextCursor QTextDocument::find(const QRegularExpression
     &expr, const QTextCursor &cursor, FindFlags options) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#find
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------
@@ -617,7 +620,8 @@ class QTextDocument(QObject):
       Python's own.
 
     options : FindFlags
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      FindFlags().
 
     Returns
     -------
@@ -632,7 +636,259 @@ class QTextDocument(QObject):
         'or6QFlagsINS_8FindFlagEE',
         self._valueOf(expr), self._valueOf(cursor), options.value,
     )
-    return self.QTextCursor._cuteOwning(address)
+    from . import QTextCursor
+    return QTextCursor._cuteOwning(address)
+
+  @overload(int)
+  def frameAt(self, pos: int) -> Optional[QTextFrame]:
+    """
+    Calls Qt's 'QTextFrame *QTextDocument::frameAt(int pos) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#frameAt
+
+    Parameters
+    ----------
+
+    pos : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Optional[QTextFrame]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextFrame *QTextDocument::frameAt(int pos) const
+    address = self.uglySide.call('ritual_ZNK13QTextDocument7frameAtEi', pos)
+    from . import QTextFrame
+    return QTextFrame._cuteAt(address)
+
+  def rootFrame(self) -> Optional[QTextFrame]:
+    """
+    Calls Qt's 'QTextFrame *QTextDocument::rootFrame() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#rootFrame
+
+    Returns
+    -------
+
+    Optional[QTextFrame]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextFrame *QTextDocument::rootFrame() const
+    address = self.uglySide.call('ritual_ZNK13QTextDocument9rootFrameEv')
+    from . import QTextFrame
+    return QTextFrame._cuteAt(address)
+
+  @overload(int)
+  def object(self, objectIndex: int) -> Optional[QTextObject]:
+    """
+    Calls Qt's 'QTextObject *QTextDocument::object(int objectIndex) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#object
+
+    Parameters
+    ----------
+
+    objectIndex : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Optional[QTextObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextObject *QTextDocument::object(int objectIndex) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QTextDocument6objectEi', objectIndex,
+    )
+    from . import QTextObject
+    return QTextObject._cuteAt(address)
+
+  @overload(QTextFormat)
+  def objectForFormat(self, a0: QTextFormat) -> Optional[QTextObject]:
+    """
+    Calls Qt's 'QTextObject *QTextDocument::objectForFormat(const QTextFormat
+    &a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#objectForFormat
+
+    Parameters
+    ----------
+
+    a0 : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Optional[QTextObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextObject *QTextDocument::objectForFormat(const QTextFormat &a0)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK13QTextDocument15objectForFormatERK11QTextFormat',
+        self._valueOf(a0),
+    )
+    from . import QTextObject
+    return QTextObject._cuteAt(address)
+
+  @overload(int)
+  def findBlock(self, pos: int) -> QTextBlock:
+    """
+    Calls Qt's 'QTextBlock QTextDocument::findBlock(int pos) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#findBlock
+
+    Parameters
+    ----------
+
+    pos : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QTextBlock
+      A new cute QTextBlock around the copy Qt gave back. Python owns it.
+    """
+    #  QTextBlock QTextDocument::findBlock(int pos) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QTextDocument9findBlockEi', pos,
+    )
+    from . import QTextBlock
+    return QTextBlock._cuteOwning(address)
+
+  @overload(int)
+  def findBlockByNumber(self, blockNumber: int) -> QTextBlock:
+    """
+    Calls Qt's 'QTextBlock QTextDocument::findBlockByNumber(int blockNumber)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextdocument.html#findBlockByNumber
+
+    Parameters
+    ----------
+
+    blockNumber : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QTextBlock
+      A new cute QTextBlock around the copy Qt gave back. Python owns it.
+    """
+    #  QTextBlock QTextDocument::findBlockByNumber(int blockNumber) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QTextDocument17findBlockByNumberEi', blockNumber,
+    )
+    from . import QTextBlock
+    return QTextBlock._cuteOwning(address)
+
+  @overload(int)
+  def findBlockByLineNumber(self, blockNumber: int) -> QTextBlock:
+    """
+    Calls Qt's 'QTextBlock QTextDocument::findBlockByLineNumber(int
+    blockNumber) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextdocument.html#findBlockByLineNumber
+
+    Parameters
+    ----------
+
+    blockNumber : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QTextBlock
+      A new cute QTextBlock around the copy Qt gave back. Python owns it.
+    """
+    #  QTextBlock QTextDocument::findBlockByLineNumber(int blockNumber) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QTextDocument21findBlockByLineNumberEi', blockNumber,
+    )
+    from . import QTextBlock
+    return QTextBlock._cuteOwning(address)
+
+  def begin(self) -> QTextBlock:
+    """
+    Calls Qt's 'QTextBlock QTextDocument::begin() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#begin
+
+    Returns
+    -------
+
+    QTextBlock
+      A new cute QTextBlock around the copy Qt gave back. Python owns it.
+    """
+    #  QTextBlock QTextDocument::begin() const
+    address = self.uglySide.call('ritual_ZNK13QTextDocument5beginEv')
+    from . import QTextBlock
+    return QTextBlock._cuteOwning(address)
+
+  def end(self) -> QTextBlock:
+    """
+    Calls Qt's 'QTextBlock QTextDocument::end() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#end
+
+    Returns
+    -------
+
+    QTextBlock
+      A new cute QTextBlock around the copy Qt gave back. Python owns it.
+    """
+    #  QTextBlock QTextDocument::end() const
+    address = self.uglySide.call('ritual_ZNK13QTextDocument3endEv')
+    from . import QTextBlock
+    return QTextBlock._cuteOwning(address)
+
+  def firstBlock(self) -> QTextBlock:
+    """
+    Calls Qt's 'QTextBlock QTextDocument::firstBlock() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#firstBlock
+
+    Returns
+    -------
+
+    QTextBlock
+      A new cute QTextBlock around the copy Qt gave back. Python owns it.
+    """
+    #  QTextBlock QTextDocument::firstBlock() const
+    address = self.uglySide.call('ritual_ZNK13QTextDocument10firstBlockEv')
+    from . import QTextBlock
+    return QTextBlock._cuteOwning(address)
+
+  def lastBlock(self) -> QTextBlock:
+    """
+    Calls Qt's 'QTextBlock QTextDocument::lastBlock() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#lastBlock
+
+    Returns
+    -------
+
+    QTextBlock
+      A new cute QTextBlock around the copy Qt gave back. Python owns it.
+    """
+    #  QTextBlock QTextDocument::lastBlock() const
+    address = self.uglySide.call('ritual_ZNK13QTextDocument9lastBlockEv')
+    from . import QTextBlock
+    return QTextBlock._cuteOwning(address)
 
   def pageSize(self) -> QSizeF:
     """
@@ -648,6 +904,7 @@ class QTextDocument(QObject):
     """
     #  QSizeF QTextDocument::pageSize() const
     address = self.uglySide.call('ritual_ZNK13QTextDocument8pageSizeEv')
+    from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
 
   def defaultFont(self) -> QFont:
@@ -664,6 +921,7 @@ class QTextDocument(QObject):
     """
     #  QFont QTextDocument::defaultFont() const
     address = self.uglySide.call('ritual_ZNK13QTextDocument11defaultFontEv')
+    from . import QFont
     return QFont._cuteOwning(address)
 
   def superScriptBaseline(self) -> float:
@@ -745,6 +1003,7 @@ class QTextDocument(QObject):
         'ritual_ZNK13QTextDocument8resourceEiRK4QUrl',
         type, self._valueOf(name),
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   def useDesignMetrics(self) -> bool:
@@ -818,6 +1077,7 @@ class QTextDocument(QObject):
     """
     #  QSizeF QTextDocument::size() const
     address = self.uglySide.call('ritual_ZNK13QTextDocument4sizeEv')
+    from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
 
   def blockCount(self) -> int:
@@ -894,6 +1154,7 @@ class QTextDocument(QObject):
     address = self.uglySide.call(
         'ritual_ZNK13QTextDocument17defaultTextOptionEv',
     )
+    from . import QTextOption
     return QTextOption._cuteOwning(address)
 
   def baseUrl(self) -> QUrl:
@@ -910,6 +1171,7 @@ class QTextDocument(QObject):
     """
     #  QUrl QTextDocument::baseUrl() const
     address = self.uglySide.call('ritual_ZNK13QTextDocument7baseUrlEv')
+    from ..QtCore import QUrl
     return QUrl._cuteOwning(address)
 
   def defaultCursorMoveStyle(self) -> Qt.CursorMoveStyle:
@@ -954,6 +1216,34 @@ class QTextDocument(QObject):
     #  void QTextDocument::setUndoRedoEnabled(bool enable)
     self.uglySide.call(
         'ritual_ZN13QTextDocument18setUndoRedoEnabledEb', enable,
+    )
+
+  @overload(QAbstractTextDocumentLayout)
+  @overload(NoneType)
+  def setDocumentLayout(
+      self,
+      layout: Optional[QAbstractTextDocumentLayout],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QTextDocument::setDocumentLayout(QAbstractTextDocumentLayout *layout)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextdocument.html#setDocumentLayout
+
+    Parameters
+    ----------
+
+    layout : Optional[QAbstractTextDocumentLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTextDocument::setDocumentLayout(QAbstractTextDocumentLayout
+    #      *layout)
+    self.uglySide.call(
+        'ritual_ZN13QTextDocument17setDocumentLayoutEP27QAbstractTextDocume'
+        'ntLayout',
+        self._addressOf(layout),
     )
 
   @overload(MetaInformation, str)
@@ -1536,6 +1826,7 @@ class QTextDocument(QObject):
     #  void QTextDocument::drawContents(QPainter *painter, const QRectF
     #      &rect)
     if rect is None:
+      from ..QtCore import QRectF
       rect = QRectF()
     self.uglySide.call(
         'ritual_ZN13QTextDocument12drawContentsEP8QPainterRK6QRectF',
@@ -1552,20 +1843,19 @@ class QTextDocument(QObject):
     self.uglySide.call('ritual_ZN13QTextDocument10adjustSizeEv')
 
   @overload(QTextCursor)
-  def undo(self, cursor: QTextCursor) -> None:
+  @overload(NoneType)
+  def undo(self, cursor: Optional[QTextCursor]) -> None:
     """
     Calls Qt's 'void QTextDocument::undo(QTextCursor *cursor)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#undo
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    cursor : QTextCursor
-      Passed on as the address of its C++ object.
+    cursor : Optional[QTextCursor]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QTextDocument::undo(QTextCursor *cursor)
     self.uglySide.call(
@@ -1584,20 +1874,19 @@ class QTextDocument(QObject):
     self.uglySide.call('ritual_ZN13QTextDocument4undoEv')
 
   @overload(QTextCursor)
-  def redo(self, cursor: QTextCursor) -> None:
+  @overload(NoneType)
+  def redo(self, cursor: Optional[QTextCursor]) -> None:
     """
     Calls Qt's 'void QTextDocument::redo(QTextCursor *cursor)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#redo
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    cursor : QTextCursor
-      Passed on as the address of its C++ object.
+    cursor : Optional[QTextCursor]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QTextDocument::redo(QTextCursor *cursor)
     self.uglySide.call(

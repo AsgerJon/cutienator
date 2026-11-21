@@ -13,9 +13,8 @@ from worktoy.dispatch import overload
 
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_text_format import QTextFormat
-from ._q_text_block_format_line_height_types import LineHeightTypes
-from ._q_text_block_format_marker_type import MarkerType
+from . import QTextBlockFormatLineHeightTypes, QTextBlockFormatMarkerType
+from . import QTextFormat
 
 
 class QTextBlockFormat(QTextFormat):
@@ -71,8 +70,8 @@ class QTextBlockFormat(QTextFormat):
 
   #  The enums Qt writes inside QTextBlockFormat, and the names Qt has for
   #  the combinations of its flags enums.
-  LineHeightTypes = LineHeightTypes
-  MarkerType = MarkerType
+  LineHeightTypes = QTextBlockFormatLineHeightTypes
+  MarkerType = QTextBlockFormatMarkerType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -283,7 +282,7 @@ class QTextBlockFormat(QTextFormat):
       gives.
     """
     #  MarkerType QTextBlockFormat::marker() const
-    return MarkerType(self.uglySide.call(
+    return QTextBlockFormat.MarkerType(self.uglySide.call(
         'ritual_ZNK16QTextBlockFormat6markerEv',
     ))
 

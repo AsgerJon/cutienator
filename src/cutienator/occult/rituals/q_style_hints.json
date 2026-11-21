@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qstylehints.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QStyleHints10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QStyleHints2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QStyleHints27setMouseDoubleClickIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QStyleHints24mouseDoubleClickIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK11QStyleHints24mouseDoubleClickDistanceEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK11QStyleHints22touchDoubleTapDistanceEv": ["int", "address"],
+    "ritual_ZN11QStyleHints28setMousePressAndHoldIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QStyleHints25mousePressAndHoldIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZN11QStyleHints20setStartDragDistanceEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QStyleHints17startDragDistanceEv": ["int", "address"],
+    "ritual_ZN11QStyleHints16setStartDragTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QStyleHints13startDragTimeEv": ["int", "address"],
+    "ritual_ZNK11QStyleHints17startDragVelocityEv": ["int", "address"],
+    "ritual_ZN11QStyleHints24setKeyboardInputIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QStyleHints21keyboardInputIntervalEv": ["int", "address"],
+    "ritual_ZNK11QStyleHints22keyboardAutoRepeatRateEv": ["int", "address"],
+    "ritual_ZNK11QStyleHints23keyboardAutoRepeatRateFEv": [
+      "double", "address"
+    ],
+    "ritual_ZN11QStyleHints18setCursorFlashTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QStyleHints15cursorFlashTimeEv": ["int", "address"],
+    "ritual_ZNK11QStyleHints16showIsFullScreenEv": ["bool", "address"],
+    "ritual_ZNK11QStyleHints15showIsMaximizedEv": ["bool", "address"],
+    "ritual_ZNK11QStyleHints27showShortcutsInContextMenusEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN11QStyleHints30setShowShortcutsInContextMenusEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QStyleHints18contextMenuTriggerEv": ["int", "address"],
+    "ritual_ZN11QStyleHints21setContextMenuTriggerEN2Qt18ContextMenuTriggerE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QStyleHints18menuSelectionWrapsEv": ["bool", "address"],
+    "ritual_ZNK11QStyleHints17passwordMaskDelayEv": ["int", "address"],
+    "ritual_ZNK11QStyleHints21passwordMaskCharacterEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QStyleHints18fontSmoothingGammaEv": ["double", "address"],
+    "ritual_ZNK11QStyleHints16useRtlExtensionsEv": ["bool", "address"],
+    "ritual_ZNK11QStyleHints22setFocusOnTouchReleaseEv": ["bool", "address"],
+    "ritual_ZNK11QStyleHints16tabFocusBehaviorEv": ["int", "address"],
+    "ritual_ZN11QStyleHints19setTabFocusBehaviorEN2Qt16TabFocusBehaviorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QStyleHints21singleClickActivationEv": ["bool", "address"],
+    "ritual_ZNK11QStyleHints15useHoverEffectsEv": ["bool", "address"],
+    "ritual_ZN11QStyleHints18setUseHoverEffectsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QStyleHints16wheelScrollLinesEv": ["int", "address"],
+    "ritual_ZN11QStyleHints19setWheelScrollLinesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints31setMouseQuickSelectionThresholdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QStyleHints28mouseQuickSelectionThresholdEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK11QStyleHints11colorSchemeEv": ["int", "address"],
+    "ritual_ZN11QStyleHints14setColorSchemeEN2Qt11ColorSchemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QStyleHints16unsetColorSchemeEv": ["nothing", "address"],
+    "ritual_ZNK11QStyleHints13accessibilityEv": ["address", "address"],
+    "ritual_ZNK11QStyleHints24toolTipWakeUpDelayAsMSecEv": ["int", "address"]
+  }
+}

@@ -14,15 +14,24 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._q_font_capitalization import Capitalization
-from ._q_font_hinting_preference import HintingPreference
-from ._q_font_resolve_properties import ResolveProperties
-from ._q_font_spacing_type import SpacingType
-from ._q_font_stretch import Stretch
-from ._q_font_style import Style
-from ._q_font_style_hint import StyleHint
-from ._q_font_style_strategy import StyleStrategy
-from ._q_font_weight import Weight
+from . import QFontCapitalization, QFontHintingPreference
+from . import QFontResolveProperties, QFontSpacingType, QFontStretch
+from . import QFontStyle, QFontStyleHint, QFontStyleStrategy, QFontTag
+from . import QFontWeight
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+  from . import QPaintDevice
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPaintDevice = WAIT['QPaintDevice']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QFont(CuteMixin, metaclass=MetaCute):
@@ -38,7 +47,7 @@ class QFont(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFont that has a ritual and that Python can call so
-  far, 62 names in all: 'family', 'setFamily', 'styleName', 'setStyleName',
+  far, 70 names in all: 'family', 'setFamily', 'styleName', 'setStyleName',
   'pointSize', 'setPointSize', 'pointSizeF', 'setPointSizeF', 'pixelSize',
   'setPixelSize', 'weight', 'setWeight', 'bold', 'setBold', 'setStyle',
   'style', 'italic', 'setItalic', 'underline', 'setUnderline', 'overline',
@@ -47,8 +56,10 @@ class QFont(CuteMixin, metaclass=MetaCute):
   'setStyleStrategy', 'stretch', 'setStretch', 'letterSpacing',
   'letterSpacingType', 'setLetterSpacing', 'wordSpacing', 'setWordSpacing',
   'setCapitalization', 'capitalization', 'setHintingPreference',
-  'hintingPreference', 'clearFeatures', 'clearVariableAxes', 'exactMatch',
-  'isCopyOf', 'key', 'toString', 'fromString', 'substitute',
+  'hintingPreference', 'setFeature', 'unsetFeature', 'featureValue',
+  'isFeatureSet', 'clearFeatures', 'setVariableAxis', 'unsetVariableAxis',
+  'isVariableAxisSet', 'variableAxisValue', 'clearVariableAxes',
+  'exactMatch', 'isCopyOf', 'key', 'toString', 'fromString', 'substitute',
   'insertSubstitution', 'removeSubstitutions', 'initialize', 'cleanup',
   'cacheStatistics', 'defaultFamily', 'resolve', 'resolveMask',
   'setResolveMask', 'setLegacyWeight', 'legacyWeight'. It can be made from
@@ -59,22 +70,6 @@ class QFont(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QFont::~QFont()': the destructor: Python removes its C++ QFont by
     it, and has no other use for it.
-  - Qt's 'void QFont::setFeature(Tag tag, quint32 value)': names
-    'QFont::Tag', which has no cute class yet.
-  - Qt's 'void QFont::unsetFeature(Tag tag)': names 'QFont::Tag', which has
-    no cute class yet.
-  - Qt's 'quint32 QFont::featureValue(Tag tag) const': names 'QFont::Tag',
-    which has no cute class yet.
-  - Qt's 'bool QFont::isFeatureSet(Tag tag) const': names 'QFont::Tag', which
-    has no cute class yet.
-  - Qt's 'void QFont::setVariableAxis(Tag tag, float value)': names
-    'QFont::Tag', which has no cute class yet.
-  - Qt's 'void QFont::unsetVariableAxis(Tag tag)': names 'QFont::Tag', which
-    has no cute class yet.
-  - Qt's 'bool QFont::isVariableAxisSet(Tag tag) const': names 'QFont::Tag',
-    which has no cute class yet.
-  - Qt's 'float QFont::variableAxisValue(Tag tag) const': names 'QFont::Tag',
-    which has no cute class yet.
   - Qt's 'bool QFont::operator==(const QFont &a0) const': an operator, which
     is not reflected yet.
   - Qt's 'bool QFont::operator!=(const QFont &a0) const': an operator, which
@@ -103,21 +98,20 @@ class QFont(CuteMixin, metaclass=MetaCute):
     in a new cute QFont.
   """
 
+  #  The classes Qt writes inside QFont.
+  Tag = QFontTag
+
   #  The enums Qt writes inside QFont, and the names Qt has for the
   #  combinations of its flags enums.
-  Capitalization = Capitalization
-  HintingPreference = HintingPreference
-  ResolveProperties = ResolveProperties
-  SpacingType = SpacingType
-  Stretch = Stretch
-  Style = Style
-  StyleHint = StyleHint
-  StyleStrategy = StyleStrategy
-  Weight = Weight
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QPaintDevice = WAIT['QPaintDevice']
+  Capitalization = QFontCapitalization
+  HintingPreference = QFontHintingPreference
+  ResolveProperties = QFontResolveProperties
+  SpacingType = QFontSpacingType
+  Stretch = QFontStretch
+  Style = QFontStyle
+  StyleHint = QFontStyleHint
+  StyleStrategy = QFontStyleStrategy
+  Weight = QFontWeight
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -309,7 +303,7 @@ class QFont(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Weight(number)' gives.
     """
     #  Weight QFont::weight() const
-    return Weight(self.uglySide.call('ritual_ZNK5QFont6weightEv'))
+    return QFont.Weight(self.uglySide.call('ritual_ZNK5QFont6weightEv'))
 
   def bold(self) -> bool:
     """
@@ -334,7 +328,7 @@ class QFont(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Style(number)' gives.
     """
     #  Style QFont::style() const
-    return Style(self.uglySide.call('ritual_ZNK5QFont5styleEv'))
+    return QFont.Style(self.uglySide.call('ritual_ZNK5QFont5styleEv'))
 
   def italic(self) -> bool:
     """
@@ -404,7 +398,9 @@ class QFont(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'StyleHint(number)' gives.
     """
     #  StyleHint QFont::styleHint() const
-    return StyleHint(self.uglySide.call('ritual_ZNK5QFont9styleHintEv'))
+    return QFont.StyleHint(self.uglySide.call(
+        'ritual_ZNK5QFont9styleHintEv',
+    ))
 
   def styleStrategy(self) -> StyleStrategy:
     """
@@ -421,7 +417,7 @@ class QFont(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  StyleStrategy QFont::styleStrategy() const
-    return StyleStrategy(self.uglySide.call(
+    return QFont.StyleStrategy(self.uglySide.call(
         'ritual_ZNK5QFont13styleStrategyEv',
     ))
 
@@ -458,7 +454,7 @@ class QFont(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  SpacingType QFont::letterSpacingType() const
-    return SpacingType(self.uglySide.call(
+    return QFont.SpacingType(self.uglySide.call(
         'ritual_ZNK5QFont17letterSpacingTypeEv',
     ))
 
@@ -486,7 +482,7 @@ class QFont(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  Capitalization QFont::capitalization() const
-    return Capitalization(self.uglySide.call(
+    return QFont.Capitalization(self.uglySide.call(
         'ritual_ZNK5QFont14capitalizationEv',
     ))
 
@@ -505,9 +501,85 @@ class QFont(CuteMixin, metaclass=MetaCute):
       'HintingPreference(number)' gives.
     """
     #  HintingPreference QFont::hintingPreference() const
-    return HintingPreference(self.uglySide.call(
+    return QFont.HintingPreference(self.uglySide.call(
         'ritual_ZNK5QFont17hintingPreferenceEv',
     ))
+
+  @overload(Tag)
+  def featureValue(self, tag: Tag) -> int:
+    """
+    Calls Qt's 'quint32 QFont::featureValue(Tag tag) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#featureValue
+
+    Parameters
+    ----------
+
+    tag : Tag
+      Passed on as a value: Qt reads the C++ QFont::Tag, which stays Python's
+      own.
+    """
+    #  quint32 QFont::featureValue(Tag tag) const
+    return self.uglySide.call(
+        'ritual_ZNK5QFont12featureValueENS_3TagE', self._valueOf(tag),
+    )
+
+  @overload(Tag)
+  def isFeatureSet(self, tag: Tag) -> bool:
+    """
+    Calls Qt's 'bool QFont::isFeatureSet(Tag tag) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#isFeatureSet
+
+    Parameters
+    ----------
+
+    tag : Tag
+      Passed on as a value: Qt reads the C++ QFont::Tag, which stays Python's
+      own.
+    """
+    #  bool QFont::isFeatureSet(Tag tag) const
+    return self.uglySide.call(
+        'ritual_ZNK5QFont12isFeatureSetENS_3TagE', self._valueOf(tag),
+    )
+
+  @overload(Tag)
+  def isVariableAxisSet(self, tag: Tag) -> bool:
+    """
+    Calls Qt's 'bool QFont::isVariableAxisSet(Tag tag) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#isVariableAxisSet
+
+    Parameters
+    ----------
+
+    tag : Tag
+      Passed on as a value: Qt reads the C++ QFont::Tag, which stays Python's
+      own.
+    """
+    #  bool QFont::isVariableAxisSet(Tag tag) const
+    return self.uglySide.call(
+        'ritual_ZNK5QFont17isVariableAxisSetENS_3TagE', self._valueOf(tag),
+    )
+
+  @overload(Tag)
+  def variableAxisValue(self, tag: Tag) -> float:
+    """
+    Calls Qt's 'float QFont::variableAxisValue(Tag tag) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#variableAxisValue
+
+    Parameters
+    ----------
+
+    tag : Tag
+      Passed on as a value: Qt reads the C++ QFont::Tag, which stays Python's
+      own.
+    """
+    #  float QFont::variableAxisValue(Tag tag) const
+    return self.uglySide.call(
+        'ritual_ZNK5QFont17variableAxisValueENS_3TagE', self._valueOf(tag),
+    )
 
   def exactMatch(self) -> bool:
     """
@@ -994,6 +1066,51 @@ class QFont(CuteMixin, metaclass=MetaCute):
         hintingPreference.value,
     )
 
+  @overload(Tag, int)
+  def setFeature(self, tag: Tag, value: int) -> None:
+    """
+    Calls Qt's 'void QFont::setFeature(Tag tag, quint32 value)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#setFeature
+
+    Parameters
+    ----------
+
+    tag : Tag
+      Passed on as a value: Qt reads the C++ QFont::Tag, which stays Python's
+      own.
+
+    value : int
+      Passed on as it is.
+    """
+    #  void QFont::setFeature(Tag tag, quint32 value)
+    self.uglySide.call(
+        'ritual_ZN5QFont10setFeatureENS_3TagEj', self._valueOf(tag), value,
+    )
+
+  @overload(Tag, float)
+  def setVariableAxis(self, tag: Tag, value: float) -> None:
+    """
+    Calls Qt's 'void QFont::setVariableAxis(Tag tag, float value)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#setVariableAxis
+
+    Parameters
+    ----------
+
+    tag : Tag
+      Passed on as a value: Qt reads the C++ QFont::Tag, which stays Python's
+      own.
+
+    value : float
+      Passed on as it is.
+    """
+    #  void QFont::setVariableAxis(Tag tag, float value)
+    self.uglySide.call(
+        'ritual_ZN5QFont15setVariableAxisENS_3TagEf',
+        self._valueOf(tag), value,
+    )
+
   @overload(int)
   def setResolveMask(self, mask: int) -> None:
     """
@@ -1088,15 +1205,13 @@ class QFont(CuteMixin, metaclass=MetaCute):
     ))
 
   @overload(THIS, QPaintDevice)
-  def __init__(self, font: QFont, pd: QPaintDevice) -> None:
+  @overload(THIS, NoneType)
+  def __init__(self, font: QFont, pd: Optional[QPaintDevice]) -> None:
     """
     Notes what was given, for Qt's 'QFont::QFont(const QFont &font, const
     QPaintDevice *pd)', which is called at the first use.
 
     Qt's own words: https://doc.qt.io/qt-6/qfont.html#QFont
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------
@@ -1104,8 +1219,9 @@ class QFont(CuteMixin, metaclass=MetaCute):
     font : QFont
       Passed on as a value: Qt reads the C++ QFont, which stays Python's own.
 
-    pd : QPaintDevice
-      Passed on as the address of its C++ object.
+    pd : Optional[QPaintDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  QFont::QFont(const QFont &font, const QPaintDevice *pd)
     self._noteCreation(QFont, lambda: Rituals.call(
@@ -1152,6 +1268,25 @@ class QFont(CuteMixin, metaclass=MetaCute):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(Tag)
+  def unsetFeature(self, tag: Tag) -> None:
+    """
+    Calls Qt's 'void QFont::unsetFeature(Tag tag)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#unsetFeature
+
+    Parameters
+    ----------
+
+    tag : Tag
+      Passed on as a value: Qt reads the C++ QFont::Tag, which stays Python's
+      own.
+    """
+    #  void QFont::unsetFeature(Tag tag)
+    self.uglySide.call(
+        'ritual_ZN5QFont12unsetFeatureENS_3TagE', self._valueOf(tag),
+    )
+
   def clearFeatures(self) -> None:
     """
     Calls Qt's 'void QFont::clearFeatures()'.
@@ -1160,6 +1295,25 @@ class QFont(CuteMixin, metaclass=MetaCute):
     """
     #  void QFont::clearFeatures()
     self.uglySide.call('ritual_ZN5QFont13clearFeaturesEv')
+
+  @overload(Tag)
+  def unsetVariableAxis(self, tag: Tag) -> None:
+    """
+    Calls Qt's 'void QFont::unsetVariableAxis(Tag tag)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#unsetVariableAxis
+
+    Parameters
+    ----------
+
+    tag : Tag
+      Passed on as a value: Qt reads the C++ QFont::Tag, which stays Python's
+      own.
+    """
+    #  void QFont::unsetVariableAxis(Tag tag)
+    self.uglySide.call(
+        'ritual_ZN5QFont17unsetVariableAxisENS_3TagE', self._valueOf(tag),
+    )
 
   def clearVariableAxes(self) -> None:
     """

@@ -11,17 +11,22 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ..QtCore import QMetaObject
-from ..QtCore import QMimeData
-from ..QtCore import QObject
-from ._q_pixmap import QPixmap
-from ..QtCore import QPoint
+from ..QtCore import Qt, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QMimeData, QPoint
+  from . import QPixmap
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QMimeData = WAIT['QMimeData']
+  QPixmap = WAIT['QPixmap']
+  QPoint = WAIT['QPoint']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -162,6 +167,7 @@ class QDrag(QObject):
     """
     #  const QMetaObject *QDrag::metaObject() const
     address = self.uglySide.call('ritual_ZNK5QDrag10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def mimeData(self) -> Optional[QMimeData]:
@@ -179,6 +185,7 @@ class QDrag(QObject):
     """
     #  QMimeData *QDrag::mimeData() const
     address = self.uglySide.call('ritual_ZNK5QDrag8mimeDataEv')
+    from ..QtCore import QMimeData
     return QMimeData._cuteAt(address)
 
   def pixmap(self) -> QPixmap:
@@ -195,6 +202,7 @@ class QDrag(QObject):
     """
     #  QPixmap QDrag::pixmap() const
     address = self.uglySide.call('ritual_ZNK5QDrag6pixmapEv')
+    from . import QPixmap
     return QPixmap._cuteOwning(address)
 
   def hotSpot(self) -> QPoint:
@@ -211,6 +219,7 @@ class QDrag(QObject):
     """
     #  QPoint QDrag::hotSpot() const
     address = self.uglySide.call('ritual_ZNK5QDrag7hotSpotEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def source(self) -> Optional[QObject]:
@@ -270,6 +279,7 @@ class QDrag(QObject):
     address = self.uglySide.call(
         'ritual_ZNK5QDrag10dragCursorEN2Qt10DropActionE', action.value,
     )
+    from . import QPixmap
     return QPixmap._cuteOwning(address)
 
   def supportedActions(self) -> Qt.DropActions:

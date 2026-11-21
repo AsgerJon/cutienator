@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qsystemsemaphore.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QSystemSemaphore2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QSystemSemaphoreC1ERK13QNativeIpcKeyiNS_10AccessModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QSystemSemaphoreD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSystemSemaphore12setNativeKeyERK13QNativeIpcKeyiNS_10AccessModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QSystemSemaphore12setNativeKeyERK7QStringiNS_10AccessModeEN13QNativeIpcKey4TypeE": [
+      "nothing", "address", "text", "int", "int", "unsigned short"
+    ],
+    "ritual_ZNK16QSystemSemaphore12nativeIpcKeyEv": ["address", "address"],
+    "ritual_ZN16QSystemSemaphoreC1ERK7QStringiNS_10AccessModeE": [
+      "address", "text", "int", "int"
+    ],
+    "ritual_ZN16QSystemSemaphore6setKeyERK7QStringiNS_10AccessModeE": [
+      "nothing", "address", "text", "int", "int"
+    ],
+    "ritual_ZNK16QSystemSemaphore3keyEv": ["text", "address"],
+    "ritual_ZN16QSystemSemaphore7acquireEv": ["bool", "address"],
+    "ritual_ZN16QSystemSemaphore7releaseEi": ["bool", "address", "int"],
+    "ritual_ZNK16QSystemSemaphore5errorEv": ["int", "address"],
+    "ritual_ZNK16QSystemSemaphore11errorStringEv": ["text", "address"],
+    "ritual_ZN16QSystemSemaphore18isKeyTypeSupportedEN13QNativeIpcKey4TypeE": [
+      "bool", "unsigned short"
+    ],
+    "ritual_ZN16QSystemSemaphore15platformSafeKeyERK7QStringN13QNativeIpcKey4TypeE": [
+      "address", "text", "unsigned short"
+    ],
+    "ritual_ZN16QSystemSemaphore15legacyNativeKeyERK7QStringN13QNativeIpcKey4TypeE": [
+      "address", "text", "unsigned short"
+    ]
+  }
+}

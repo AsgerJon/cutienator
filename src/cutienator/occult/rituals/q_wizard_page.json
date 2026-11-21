@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qwizard.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QWizardPage10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QWizardPage2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QWizardPageC1EP7QWidget": ["address", "address"],
+    "ritual_ZN11QWizardPageD1Ev": ["nothing", "address"],
+    "ritual_ZN11QWizardPage8setTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QWizardPage5titleEv": ["text", "address"],
+    "ritual_ZN11QWizardPage11setSubTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QWizardPage8subTitleEv": ["text", "address"],
+    "ritual_ZN11QWizardPage9setPixmapEN7QWizard12WizardPixmapERK7QPixmap": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK11QWizardPage6pixmapEN7QWizard12WizardPixmapE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QWizardPage12setFinalPageEb": ["nothing", "address", "bool"],
+    "ritual_ZNK11QWizardPage11isFinalPageEv": ["bool", "address"],
+    "ritual_ZN11QWizardPage13setCommitPageEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QWizardPage12isCommitPageEv": ["bool", "address"],
+    "ritual_ZN11QWizardPage13setButtonTextEN7QWizard12WizardButtonERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK11QWizardPage10buttonTextEN7QWizard12WizardButtonE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN11QWizardPage14initializePageEv": ["nothing", "address"],
+    "ritual_ZN11QWizardPage11cleanupPageEv": ["nothing", "address"],
+    "ritual_ZN11QWizardPage12validatePageEv": ["bool", "address"],
+    "ritual_ZNK11QWizardPage10isCompleteEv": ["bool", "address"],
+    "ritual_ZNK11QWizardPage6nextIdEv": ["int", "address"]
+  }
+}

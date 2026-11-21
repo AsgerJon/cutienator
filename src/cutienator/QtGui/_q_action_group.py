@@ -11,16 +11,22 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_action import QAction
-from ._q_icon import QIcon
-from ..QtCore import QMetaObject
 from ..QtCore import QObject
-from ._q_action_group_exclusion_policy import ExclusionPolicy
+from . import QActionGroupExclusionPolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject
+  from . import QAction, QIcon
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAction = WAIT['QAction']
+  QIcon = WAIT['QIcon']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -75,7 +81,7 @@ class QActionGroup(QObject):
 
   #  The enums Qt writes inside QActionGroup, and the names Qt has for the
   #  combinations of its flags enums.
-  ExclusionPolicy = ExclusionPolicy
+  ExclusionPolicy = QActionGroupExclusionPolicy
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -159,6 +165,7 @@ class QActionGroup(QObject):
     """
     #  const QMetaObject *QActionGroup::metaObject() const
     address = self.uglySide.call('ritual_ZNK12QActionGroup10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def checkedAction(self) -> Optional[QAction]:
@@ -176,6 +183,7 @@ class QActionGroup(QObject):
     """
     #  QAction *QActionGroup::checkedAction() const
     address = self.uglySide.call('ritual_ZNK12QActionGroup13checkedActionEv')
+    from . import QAction
     return QAction._cuteAt(address)
 
   def isExclusive(self) -> bool:
@@ -220,7 +228,7 @@ class QActionGroup(QObject):
       gives.
     """
     #  ExclusionPolicy QActionGroup::exclusionPolicy() const
-    return ExclusionPolicy(self.uglySide.call(
+    return QActionGroup.ExclusionPolicy(self.uglySide.call(
         'ritual_ZNK12QActionGroup15exclusionPolicyEv',
     ))
 
@@ -392,6 +400,7 @@ class QActionGroup(QObject):
     address = self.uglySide.call(
         'ritual_ZN12QActionGroup9addActionEP7QAction', self._addressOf(a),
     )
+    from . import QAction
     return QAction._cuteAt(address)
 
   @overload(str)
@@ -418,6 +427,7 @@ class QActionGroup(QObject):
     address = self.uglySide.call(
         'ritual_ZN12QActionGroup9addActionERK7QString', text,
     )
+    from . import QAction
     return QAction._cuteAt(address)
 
   @overload(QIcon, str)
@@ -450,6 +460,7 @@ class QActionGroup(QObject):
         'ritual_ZN12QActionGroup9addActionERK5QIconRK7QString',
         self._valueOf(icon), text,
     )
+    from . import QAction
     return QAction._cuteAt(address)
 
   @overload(QAction)

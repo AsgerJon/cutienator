@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qabstracteventdispatcher.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QAbstractEventDispatcher10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QAbstractEventDispatcherD1Ev": ["nothing", "address"],
+    "ritual_ZN24QAbstractEventDispatcher8instanceEP7QThread": [
+      "address", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher22registerSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher24unregisterSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher13registerTimerExN2Qt9TimerTypeEP7QObject": [
+      "int", "address", "long long", "int", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher13registerTimerEixN2Qt9TimerTypeEP7QObject": [
+      "nothing", "address", "int", "long long", "int", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher15unregisterTimerEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher16unregisterTimersEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher13remainingTimeEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher15unregisterTimerEN2Qt7TimerIdE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher6wakeUpEv": ["nothing", "address"],
+    "ritual_ZN24QAbstractEventDispatcher9interruptEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher10startingUpEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher11closingDownEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher24installNativeEventFilterEP26QAbstractNativeEventFilter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher23removeNativeEventFilterEP26QAbstractNativeEventFilter": [
+      "nothing", "address", "address"
+    ]
+  }
+}

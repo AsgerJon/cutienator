@@ -15,16 +15,23 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_painter import QPainter
-from ._q_pixmap import QPixmap
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_icon_mode import Mode
-from ._q_icon_state import State
-from ._q_icon_theme_icon import ThemeIcon
+from . import QIconMode, QIconState, QIconThemeIcon
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QRect, QSize
+  from . import QIconEngine, QPainter, QPixmap, QWindow
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QIconEngine = WAIT['QIconEngine']
+  QPainter = WAIT['QPainter']
+  QPixmap = WAIT['QPixmap']
+  QRect = WAIT['QRect']
+  QSize = WAIT['QSize']
+  QWindow = WAIT['QWindow']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -48,13 +55,11 @@ class QIcon(CuteMixin, metaclass=MetaCute):
   'isDetached', 'detach', 'cacheKey', 'addPixmap', 'addFile', 'setIsMask',
   'isMask', 'fromTheme', 'hasThemeIcon', 'themeName', 'setThemeName',
   'fallbackThemeName', 'setFallbackThemeName'. It can be made from Python, in
-  4 ways; see '__init__'.
+  5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QIcon::QIcon(QIconEngine *engine)': names 'QIconEngine', which has
-    no cute class yet.
   - Qt's 'QIcon::~QIcon()': the destructor: Python removes its C++ QIcon by
     it, and has no other use for it.
   - Qt's 'QVariant QIcon::operator QVariant() const': an operator, which is
@@ -82,13 +87,9 @@ class QIcon(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QIcon, and the names Qt has for the
   #  combinations of its flags enums.
-  Mode = Mode
-  State = State
-  ThemeIcon = ThemeIcon
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QWindow = WAIT['QWindow']
+  Mode = QIconMode
+  State = QIconState
+  ThemeIcon = QIconThemeIcon
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -372,6 +373,7 @@ class QIcon(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK5QIcon6pixmapERK5QSizeNS_4ModeENS_5StateE',
         self._valueOf(size), mode.value, state.value,
     )
+    from . import QPixmap
     return QPixmap._cuteOwning(address)
 
   @overload(int, int)
@@ -418,6 +420,7 @@ class QIcon(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK5QIcon6pixmapEiiNS_4ModeENS_5StateE',
         w, h, mode.value, state.value,
     )
+    from . import QPixmap
     return QPixmap._cuteOwning(address)
 
   @overload(int)
@@ -460,6 +463,7 @@ class QIcon(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK5QIcon6pixmapEiNS_4ModeENS_5StateE',
         extent, mode.value, state.value,
     )
+    from . import QPixmap
     return QPixmap._cuteOwning(address)
 
   @overload(QSize, float)
@@ -507,15 +511,21 @@ class QIcon(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK5QIcon6pixmapERK5QSizedNS_4ModeENS_5StateE',
         self._valueOf(size), devicePixelRatio, mode.value, state.value,
     )
+    from . import QPixmap
     return QPixmap._cuteOwning(address)
 
+  @overload(QWindow, QSize)
+  @overload(NoneType, QSize)
+  @overload(QWindow, QSize, Mode)
+  @overload(NoneType, QSize, Mode)
   @overload(QWindow, QSize, Mode, State)
+  @overload(NoneType, QSize, Mode, State)
   def pixmap(
       self,
-      window: QWindow,
+      window: Optional[QWindow],
       size: QSize,
-      mode: Mode,
-      state: State,
+      mode: Mode = Mode.Normal,
+      state: State = State.Off,
   ) -> QPixmap:
     """
     Calls Qt's 'QPixmap QIcon::pixmap(QWindow *window, const QSize &size,
@@ -523,23 +533,23 @@ class QIcon(CuteMixin, metaclass=MetaCute):
 
     Qt's own words: https://doc.qt.io/qt-6/qicon.html#pixmap
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    window : QWindow
-      Passed on as the address of its C++ object.
+    window : Optional[QWindow]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     size : QSize
       Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
 
     mode : Mode
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Mode.Normal.
 
     state : State
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      State.Off.
 
     Returns
     -------
@@ -554,6 +564,7 @@ class QIcon(CuteMixin, metaclass=MetaCute):
         self._addressOf(window), self._valueOf(size), mode.value,
         state.value,
     )
+    from . import QPixmap
     return QPixmap._cuteOwning(address)
 
   @overload(QSize)
@@ -597,15 +608,21 @@ class QIcon(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK5QIcon10actualSizeERK5QSizeNS_4ModeENS_5StateE',
         self._valueOf(size), mode.value, state.value,
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
+  @overload(QWindow, QSize)
+  @overload(NoneType, QSize)
+  @overload(QWindow, QSize, Mode)
+  @overload(NoneType, QSize, Mode)
   @overload(QWindow, QSize, Mode, State)
+  @overload(NoneType, QSize, Mode, State)
   def actualSize(
       self,
-      window: QWindow,
+      window: Optional[QWindow],
       size: QSize,
-      mode: Mode,
-      state: State,
+      mode: Mode = Mode.Normal,
+      state: State = State.Off,
   ) -> QSize:
     """
     Calls Qt's 'QSize QIcon::actualSize(QWindow *window, const QSize &size,
@@ -613,23 +630,23 @@ class QIcon(CuteMixin, metaclass=MetaCute):
 
     Qt's own words: https://doc.qt.io/qt-6/qicon.html#actualSize
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    window : QWindow
-      Passed on as the address of its C++ object.
+    window : Optional[QWindow]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     size : QSize
       Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
 
     mode : Mode
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Mode.Normal.
 
     state : State
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      State.Off.
 
     Returns
     -------
@@ -644,6 +661,7 @@ class QIcon(CuteMixin, metaclass=MetaCute):
         self._addressOf(window), self._valueOf(size), mode.value,
         state.value,
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def name(self) -> str:
@@ -796,6 +814,27 @@ class QIcon(CuteMixin, metaclass=MetaCute):
     #  QIcon::QIcon(const QString &fileName)
     self._noteCreation(QIcon, lambda: Rituals.call(
         'ritual_ZN5QIconC1ERK7QString', fileName,
+    ))
+
+  @overload(QIconEngine)
+  @overload(NoneType)
+  def __init__(self, engine: Optional[QIconEngine]) -> None:
+    """
+    Notes what was given, for Qt's 'QIcon::QIcon(QIconEngine *engine)', which
+    is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qicon.html#QIcon
+
+    Parameters
+    ----------
+
+    engine : Optional[QIconEngine]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QIcon::QIcon(QIconEngine *engine)
+    self._noteCreation(QIcon, lambda: Rituals.call(
+        'ritual_ZN5QIconC1EP11QIconEngine', self._addressOf(engine),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1019,6 +1058,7 @@ class QIcon(CuteMixin, metaclass=MetaCute):
     #  void QIcon::addFile(const QString &fileName, const QSize &size, Mode
     #      mode, State state)
     if size is None:
+      from ..QtCore import QSize
       size = QSize()
     self.uglySide.call(
         'ritual_ZN5QIcon7addFileERK7QStringRK5QSizeNS_4ModeENS_5StateE',

@@ -14,9 +14,10 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from ._q_char import QChar
-from ._q_dir_filter import Filter
-from ._q_dir_sort_flag import SortFlag
+from . import QDirFilter, QDirSortFlag
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QChar
 
 
 class QDir(CuteMixin, metaclass=MetaCute):
@@ -74,10 +75,10 @@ class QDir(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QDir, and the names Qt has for the
   #  combinations of its flags enums.
-  Filter = Filter
-  Filters = Filter
-  SortFlag = SortFlag
-  SortFlags = SortFlag
+  Filter = QDirFilter
+  Filters = QDirFilter
+  SortFlag = QDirSortFlag
+  SortFlags = QDirSortFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -203,6 +204,7 @@ class QDir(CuteMixin, metaclass=MetaCute):
     """
     #  QChar QDir::listSeparator()
     address = Rituals.call('ritual_ZN4QDir13listSeparatorEv')
+    from . import QChar
     return QChar._cuteOwning(address)
 
   @staticmethod
@@ -220,6 +222,7 @@ class QDir(CuteMixin, metaclass=MetaCute):
     """
     #  QChar QDir::separator()
     address = Rituals.call('ritual_ZN4QDir9separatorEv')
+    from . import QChar
     return QChar._cuteOwning(address)
 
   @staticmethod

@@ -14,12 +14,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_regular_expression_match_option import MatchOption
-from ._q_regular_expression_match_type import MatchType
-from ._q_regular_expression_pattern_option import PatternOption
-from ._q_regular_expression_wildcard_conversion_option \
-  import WildcardConversionOption
+from . import Qt, QRegularExpressionMatchOption, QRegularExpressionMatchType
+from . import QRegularExpressionPatternOption
+from . import QRegularExpressionWildcardConversionOption
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QRegularExpressionMatch, QRegularExpressionMatchIterator
 
 
 class QRegularExpression(CuteMixin, metaclass=MetaCute):
@@ -35,41 +35,28 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRegularExpression that has a ritual and that Python
-  can call so far, 13 names in all: 'patternOptions', 'setPatternOptions',
+  can call so far, 17 names in all: 'patternOptions', 'setPatternOptions',
   'pattern', 'setPattern', 'isValid', 'patternErrorOffset', 'errorString',
-  'captureCount', 'optimize', 'escape', 'wildcardToRegularExpression',
-  'anchoredPattern', 'fromWildcard'. It can be made from Python, in 3 ways;
-  see '__init__'.
+  'captureCount', 'match', 'matchView', 'globalMatch', 'globalMatchView',
+  'optimize', 'escape', 'wildcardToRegularExpression', 'anchoredPattern',
+  'fromWildcard'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QRegularExpression::~QRegularExpression()': the destructor: Python
     removes its C++ QRegularExpression by it, and has no other use for it.
-  - Qt's 'QRegularExpressionMatch QRegularExpression::match(const QString
-    &subject, qsizetype offset, MatchType matchType, MatchOptions
-    matchOptions) const': gives 'QRegularExpressionMatch', which has no cute
-    class yet.
   - Qt's 'QRegularExpressionMatch QRegularExpression::match(QStringView
     subjectView, qsizetype offset, MatchType matchType, MatchOptions
-    matchOptions) const': gives 'QRegularExpressionMatch', which has no cute
-    class yet.
-  - Qt's 'QRegularExpressionMatch QRegularExpression::matchView(QStringView
-    subjectView, qsizetype offset, MatchType matchType, MatchOptions
-    matchOptions) const': gives 'QRegularExpressionMatch', which has no cute
-    class yet.
-  - Qt's 'QRegularExpressionMatchIterator
-    QRegularExpression::globalMatch(const QString &subject, qsizetype offset,
-    MatchType matchType, MatchOptions matchOptions) const': gives
-    'QRegularExpressionMatchIterator', which has no cute class yet.
+    matchOptions) const': takes in Python what 'QRegularExpressionMatch
+    QRegularExpression::match(const QString &subject, qsizetype offset,
+    MatchType matchType, MatchOptions matchOptions) const' takes.
   - Qt's 'QRegularExpressionMatchIterator
     QRegularExpression::globalMatch(QStringView subjectView, qsizetype
-    offset, MatchType matchType, MatchOptions matchOptions) const': gives
-    'QRegularExpressionMatchIterator', which has no cute class yet.
-  - Qt's 'QRegularExpressionMatchIterator
-    QRegularExpression::globalMatchView(QStringView subjectView, qsizetype
-    offset, MatchType matchType, MatchOptions matchOptions) const': gives
-    'QRegularExpressionMatchIterator', which has no cute class yet.
+    offset, MatchType matchType, MatchOptions matchOptions) const': takes in
+    Python what 'QRegularExpressionMatchIterator
+    QRegularExpression::globalMatch(const QString &subject, qsizetype offset,
+    MatchType matchType, MatchOptions matchOptions) const' takes.
   - Qt's 'QString QRegularExpression::escape(QStringView str)': takes in
     Python what 'QString QRegularExpression::escape(const QString &str)'
     takes.
@@ -103,13 +90,13 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QRegularExpression, and the names Qt has for
   #  the combinations of its flags enums.
-  MatchOption = MatchOption
-  MatchOptions = MatchOption
-  MatchType = MatchType
-  PatternOption = PatternOption
-  PatternOptions = PatternOption
-  WildcardConversionOption = WildcardConversionOption
-  WildcardConversionOptions = WildcardConversionOption
+  MatchOption = QRegularExpressionMatchOption
+  MatchOptions = QRegularExpressionMatchOption
+  MatchType = QRegularExpressionMatchType
+  PatternOption = QRegularExpressionPatternOption
+  PatternOptions = QRegularExpressionPatternOption
+  WildcardConversionOption = QRegularExpressionWildcardConversionOption
+  WildcardConversionOptions = QRegularExpressionWildcardConversionOption
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -364,6 +351,221 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK18QRegularExpression12captureCountEv',
     )
+
+  @overload(str)
+  @overload(str, int)
+  @overload(str, int, MatchType)
+  @overload(str, int, MatchType, MatchOptions)
+  def match(
+      self,
+      subject: str,
+      offset: int = 0,
+      matchType: MatchType = MatchType.NormalMatch,
+      matchOptions: MatchOptions = MatchOptions.NoMatchOption,
+  ) -> QRegularExpressionMatch:
+    """
+    Calls Qt's 'QRegularExpressionMatch QRegularExpression::match(const
+    QString &subject, qsizetype offset, MatchType matchType, MatchOptions
+    matchOptions) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregularexpression.html#match
+
+    Parameters
+    ----------
+
+    subject : str
+      Passed on as it is: a QString is made of it for the call.
+
+    offset : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    matchType : MatchType
+      Passed on as its number. May be left out, as in Qt: it is then
+      MatchType.NormalMatch.
+
+    matchOptions : MatchOptions
+      Passed on as its number. May be left out, as in Qt: it is then
+      MatchOptions.NoMatchOption.
+
+    Returns
+    -------
+
+    QRegularExpressionMatch
+      A new cute QRegularExpressionMatch around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QRegularExpressionMatch QRegularExpression::match(const QString
+    #      &subject, qsizetype offset, MatchType matchType, MatchOptions
+    #      matchOptions) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QRegularExpression5matchERK7QStringxNS_9MatchTypeE6QFl'
+        'agsINS_11MatchOptionEE',
+        subject, offset, matchType.value, matchOptions.value,
+    )
+    from . import QRegularExpressionMatch
+    return QRegularExpressionMatch._cuteOwning(address)
+
+  @overload(str)
+  @overload(str, int)
+  @overload(str, int, MatchType)
+  @overload(str, int, MatchType, MatchOptions)
+  def matchView(
+      self,
+      subjectView: str,
+      offset: int = 0,
+      matchType: MatchType = MatchType.NormalMatch,
+      matchOptions: MatchOptions = MatchOptions.NoMatchOption,
+  ) -> QRegularExpressionMatch:
+    """
+    Calls Qt's 'QRegularExpressionMatch
+    QRegularExpression::matchView(QStringView subjectView, qsizetype offset,
+    MatchType matchType, MatchOptions matchOptions) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregularexpression.html#matchView
+
+    Parameters
+    ----------
+
+    subjectView : str
+      Passed on as it is: a QString is made of it for the call.
+
+    offset : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    matchType : MatchType
+      Passed on as its number. May be left out, as in Qt: it is then
+      MatchType.NormalMatch.
+
+    matchOptions : MatchOptions
+      Passed on as its number. May be left out, as in Qt: it is then
+      MatchOptions.NoMatchOption.
+
+    Returns
+    -------
+
+    QRegularExpressionMatch
+      A new cute QRegularExpressionMatch around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QRegularExpressionMatch QRegularExpression::matchView(QStringView
+    #      subjectView, qsizetype offset, MatchType matchType, MatchOptions
+    #      matchOptions) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QRegularExpression9matchViewE11QStringViewxNS_9MatchTy'
+        'peE6QFlagsINS_11MatchOptionEE',
+        subjectView, offset, matchType.value, matchOptions.value,
+    )
+    from . import QRegularExpressionMatch
+    return QRegularExpressionMatch._cuteOwning(address)
+
+  @overload(str)
+  @overload(str, int)
+  @overload(str, int, MatchType)
+  @overload(str, int, MatchType, MatchOptions)
+  def globalMatch(
+      self,
+      subject: str,
+      offset: int = 0,
+      matchType: MatchType = MatchType.NormalMatch,
+      matchOptions: MatchOptions = MatchOptions.NoMatchOption,
+  ) -> QRegularExpressionMatchIterator:
+    """
+    Calls Qt's 'QRegularExpressionMatchIterator
+    QRegularExpression::globalMatch(const QString &subject, qsizetype offset,
+    MatchType matchType, MatchOptions matchOptions) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qregularexpression.html#globalMatch
+
+    Parameters
+    ----------
+
+    subject : str
+      Passed on as it is: a QString is made of it for the call.
+
+    offset : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    matchType : MatchType
+      Passed on as its number. May be left out, as in Qt: it is then
+      MatchType.NormalMatch.
+
+    matchOptions : MatchOptions
+      Passed on as its number. May be left out, as in Qt: it is then
+      MatchOptions.NoMatchOption.
+
+    Returns
+    -------
+
+    QRegularExpressionMatchIterator
+      A new cute QRegularExpressionMatchIterator around the copy Qt gave
+      back. Python owns it.
+    """
+    #  QRegularExpressionMatchIterator QRegularExpression::globalMatch(const
+    #      QString &subject, qsizetype offset, MatchType matchType,
+    #      MatchOptions matchOptions) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QRegularExpression11globalMatchERK7QStringxNS_9MatchTy'
+        'peE6QFlagsINS_11MatchOptionEE',
+        subject, offset, matchType.value, matchOptions.value,
+    )
+    from . import QRegularExpressionMatchIterator
+    return QRegularExpressionMatchIterator._cuteOwning(address)
+
+  @overload(str)
+  @overload(str, int)
+  @overload(str, int, MatchType)
+  @overload(str, int, MatchType, MatchOptions)
+  def globalMatchView(
+      self,
+      subjectView: str,
+      offset: int = 0,
+      matchType: MatchType = MatchType.NormalMatch,
+      matchOptions: MatchOptions = MatchOptions.NoMatchOption,
+  ) -> QRegularExpressionMatchIterator:
+    """
+    Calls Qt's 'QRegularExpressionMatchIterator
+    QRegularExpression::globalMatchView(QStringView subjectView, qsizetype
+    offset, MatchType matchType, MatchOptions matchOptions) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qregularexpression.html#globalMatchView
+
+    Parameters
+    ----------
+
+    subjectView : str
+      Passed on as it is: a QString is made of it for the call.
+
+    offset : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    matchType : MatchType
+      Passed on as its number. May be left out, as in Qt: it is then
+      MatchType.NormalMatch.
+
+    matchOptions : MatchOptions
+      Passed on as its number. May be left out, as in Qt: it is then
+      MatchOptions.NoMatchOption.
+
+    Returns
+    -------
+
+    QRegularExpressionMatchIterator
+      A new cute QRegularExpressionMatchIterator around the copy Qt gave
+      back. Python owns it.
+    """
+    #  QRegularExpressionMatchIterator
+    #      QRegularExpression::globalMatchView(QStringView subjectView,
+    #      qsizetype offset, MatchType matchType, MatchOptions matchOptions)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK18QRegularExpression15globalMatchViewE11QStringViewxNS_9'
+        'MatchTypeE6QFlagsINS_11MatchOptionEE',
+        subjectView, offset, matchType.value, matchOptions.value,
+    )
+    from . import QRegularExpressionMatchIterator
+    return QRegularExpressionMatchIterator._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

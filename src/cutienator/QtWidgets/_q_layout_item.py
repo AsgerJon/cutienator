@@ -13,12 +13,18 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..QtCore import Qt
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_size_policy import QSizePolicy
+from . import QSizePolicyControlType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QRect, QSize
+  from . import QLayout, QSizePolicy, QSpacerItem, QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QRect = WAIT['QRect']
 
 
 class QLayoutItem(CuteMixin, metaclass=MetaCute):
@@ -62,12 +68,6 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QLayoutItem.
   """
 
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QLayout = WAIT['QLayout']
-  QSpacerItem = WAIT['QSpacerItem']
-  QWidget = WAIT['QWidget']
-
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -106,6 +106,7 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QLayoutItem::sizeHint() const
     address = self.uglySide.call('ritual_ZNK11QLayoutItem8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSize(self) -> QSize:
@@ -122,6 +123,7 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QLayoutItem::minimumSize() const
     address = self.uglySide.call('ritual_ZNK11QLayoutItem11minimumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def maximumSize(self) -> QSize:
@@ -138,6 +140,7 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QLayoutItem::maximumSize() const
     address = self.uglySide.call('ritual_ZNK11QLayoutItem11maximumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def expandingDirections(self) -> Qt.Orientations:
@@ -172,6 +175,7 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
     """
     #  QRect QLayoutItem::geometry() const
     address = self.uglySide.call('ritual_ZNK11QLayoutItem8geometryEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def isEmpty(self) -> bool:
@@ -244,7 +248,8 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
     """
     #  QWidget *QLayoutItem::widget() const
     address = self.uglySide.call('ritual_ZNK11QLayoutItem6widgetEv')
-    return self.QWidget._cuteAt(address)
+    from . import QWidget
+    return QWidget._cuteAt(address)
 
   def alignment(self) -> Qt.Alignment:
     """
@@ -276,7 +281,7 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  QSizePolicy::ControlTypes QLayoutItem::controlTypes() const
-    return QSizePolicy.ControlTypes(self.uglySide.call(
+    return QSizePolicyControlType(self.uglySide.call(
         'ritual_ZNK11QLayoutItem12controlTypesEv',
     ))
 
@@ -377,7 +382,8 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
     """
     #  QLayout *QLayoutItem::layout()
     address = self.uglySide.call('ritual_ZN11QLayoutItem6layoutEv')
-    return self.QLayout._cuteAt(address)
+    from . import QLayout
+    return QLayout._cuteAt(address)
 
   def spacerItem(self) -> Optional[QSpacerItem]:
     """
@@ -394,4 +400,5 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
     """
     #  QSpacerItem *QLayoutItem::spacerItem()
     address = self.uglySide.call('ritual_ZN11QLayoutItem10spacerItemEv')
-    return self.QSpacerItem._cuteAt(address)
+    from . import QSpacerItem
+    return QSpacerItem._cuteAt(address)

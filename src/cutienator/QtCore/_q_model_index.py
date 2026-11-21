@@ -13,10 +13,17 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._qt import Qt
+from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QAbstractItemModel, QModelRoleDataSpan, QVariant
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QModelRoleDataSpan = WAIT['QModelRoleDataSpan']
 
 
 class QModelIndex(CuteMixin, metaclass=MetaCute):
@@ -32,15 +39,13 @@ class QModelIndex(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QModelIndex that has a ritual and that Python can
-  call so far, 11 names in all: 'row', 'column', 'internalId', 'parent',
-  'sibling', 'siblingAtColumn', 'siblingAtRow', 'data', 'flags', 'model',
-  'isValid'. It can be made from Python, in 1 way; see '__init__'.
+  call so far, 12 names in all: 'row', 'column', 'internalId', 'parent',
+  'sibling', 'siblingAtColumn', 'siblingAtRow', 'data', 'multiData', 'flags',
+  'model', 'isValid'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'void QModelIndex::multiData(QModelRoleDataSpan roleDataSpan)
-    const': names 'QModelRoleDataSpan', which has no cute class yet.
   - Qt's 'QModelIndex::~QModelIndex()': the destructor: Python removes its
     C++ QModelIndex by it, and has no other use for it.
 
@@ -63,11 +68,6 @@ class QModelIndex(CuteMixin, metaclass=MetaCute):
   - A function giving a QModelIndex back gives a copy the ritual made for
     Python, in a new cute QModelIndex.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QAbstractItemModel = WAIT['QAbstractItemModel']
-  QVariant = WAIT['QVariant']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -240,7 +240,8 @@ class QModelIndex(CuteMixin, metaclass=MetaCute):
     """
     #  QVariant QModelIndex::data(int role) const
     address = self.uglySide.call('ritual_ZNK11QModelIndex4dataEi', role)
-    return self.QVariant._cuteOwning(address)
+    from . import QVariant
+    return QVariant._cuteOwning(address)
 
   def flags(self) -> Qt.ItemFlags:
     """
@@ -274,7 +275,8 @@ class QModelIndex(CuteMixin, metaclass=MetaCute):
     """
     #  const QAbstractItemModel *QModelIndex::model() const
     address = self.uglySide.call('ritual_ZNK11QModelIndex5modelEv')
-    return self.QAbstractItemModel._cuteAt(address)
+    from . import QAbstractItemModel
+    return QAbstractItemModel._cuteAt(address)
 
   def isValid(self) -> bool:
     """
@@ -333,3 +335,24 @@ class QModelIndex(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QModelRoleDataSpan)
+  def multiData(self, roleDataSpan: QModelRoleDataSpan) -> None:
+    """
+    Calls Qt's 'void QModelIndex::multiData(QModelRoleDataSpan roleDataSpan)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmodelindex.html#multiData
+
+    Parameters
+    ----------
+
+    roleDataSpan : QModelRoleDataSpan
+      Passed on as a value: Qt reads the C++ QModelRoleDataSpan, which stays
+      Python's own.
+    """
+    #  void QModelIndex::multiData(QModelRoleDataSpan roleDataSpan) const
+    self.uglySide.call(
+        'ritual_ZNK11QModelIndex9multiDataE18QModelRoleDataSpan',
+        self._valueOf(roleDataSpan),
+    )

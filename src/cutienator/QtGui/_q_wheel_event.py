@@ -9,12 +9,29 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.dispatch import overload
+
+from ..cute import WAIT
+from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QPoint
-from ._q_single_point_event import QSinglePointEvent
+from . import QSinglePointEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QPoint, QPointF
+  from . import QPointingDevice
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPoint = WAIT['QPoint']
+  QPointF = WAIT['QPointF']
+  QPointingDevice = WAIT['QPointingDevice']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QWheelEvent(QSinglePointEvent):
@@ -31,19 +48,14 @@ class QWheelEvent(QSinglePointEvent):
   Every function of Qt's QWheelEvent that has a ritual and that Python can
   call so far, 11 names in all: 'clone', 'pixelDelta', 'angleDelta', 'phase',
   'inverted', 'isInverted', 'hasPixelDelta', 'isBeginEvent', 'isUpdateEvent',
-  'isEndEvent', 'source'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'isEndEvent', 'source'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QWheelEvent::~QWheelEvent()': the destructor: Python never removes
     a C++ QWheelEvent.
-  - Qt's 'QWheelEvent::QWheelEvent(const QPointF &pos, const QPointF
-    &globalPos, QPoint pixelDelta, QPoint angleDelta, Qt::MouseButtons
-    buttons, Qt::KeyboardModifiers modifiers, Qt::ScrollPhase phase, bool
-    inverted, Qt::MouseEventSource source, const QPointingDevice *device)':
-    names 'QPointingDevice', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -119,6 +131,7 @@ class QWheelEvent(QSinglePointEvent):
     """
     #  QPoint QWheelEvent::pixelDelta() const
     address = self.uglySide.call('ritual_ZNK11QWheelEvent10pixelDeltaEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def angleDelta(self) -> QPoint:
@@ -135,6 +148,7 @@ class QWheelEvent(QSinglePointEvent):
     """
     #  QPoint QWheelEvent::angleDelta() const
     address = self.uglySide.call('ritual_ZNK11QWheelEvent10angleDeltaEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def phase(self) -> Qt.ScrollPhase:
@@ -244,6 +258,91 @@ class QWheelEvent(QSinglePointEvent):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(
+      QPointF, QPointF, QPoint, QPoint, Qt.MouseButtons,
+      Qt.KeyboardModifiers, Qt.ScrollPhase, bool, Qt.MouseEventSource,
+      QPointingDevice,
+  )
+  @overload(
+      QPointF, QPointF, QPoint, QPoint, Qt.MouseButtons,
+      Qt.KeyboardModifiers, Qt.ScrollPhase, bool, Qt.MouseEventSource,
+      NoneType,
+  )
+  def __init__(
+      self,
+      pos: QPointF,
+      globalPos: QPointF,
+      pixelDelta: QPoint,
+      angleDelta: QPoint,
+      buttons: Qt.MouseButtons,
+      modifiers: Qt.KeyboardModifiers,
+      phase: Qt.ScrollPhase,
+      inverted: bool,
+      source: Qt.MouseEventSource,
+      device: Optional[QPointingDevice],
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QWheelEvent::QWheelEvent(const QPointF
+    &pos, const QPointF &globalPos, QPoint pixelDelta, QPoint angleDelta,
+    Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers,
+    Qt::ScrollPhase phase, bool inverted, Qt::MouseEventSource source, const
+    QPointingDevice *device)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwheelevent.html#QWheelEvent
+
+    Parameters
+    ----------
+
+    pos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    globalPos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    pixelDelta : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    angleDelta : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    buttons : Qt.MouseButtons
+      Passed on as its number.
+
+    modifiers : Qt.KeyboardModifiers
+      Passed on as its number.
+
+    phase : Qt.ScrollPhase
+      Passed on as its number.
+
+    inverted : bool
+      Passed on as it is.
+
+    source : Qt.MouseEventSource
+      Passed on as its number.
+
+    device : Optional[QPointingDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QWheelEvent::QWheelEvent(const QPointF &pos, const QPointF &globalPos,
+    #      QPoint pixelDelta, QPoint angleDelta, Qt::MouseButtons buttons,
+    #      Qt::KeyboardModifiers modifiers, Qt::ScrollPhase phase, bool
+    #      inverted, Qt::MouseEventSource source, const QPointingDevice
+    #      *device)
+    self._noteCreation(QWheelEvent, lambda: Rituals.call(
+        'ritual_ZN11QWheelEventC1ERK7QPointFS2_6QPointS3_6QFlagsIN2Qt11Mous'
+        'eButtonEES4_INS5_16KeyboardModifierEENS5_11ScrollPhaseEbNS5_16Mous'
+        'eEventSourceEPK15QPointingDevice',
+        self._valueOf(pos), self._valueOf(globalPos),
+        self._valueOf(pixelDelta), self._valueOf(angleDelta), buttons.value,
+        modifiers.value, phase.value, inverted, source.value,
+        self._addressOf(device),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

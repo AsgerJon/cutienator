@@ -12,15 +12,18 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import QRect
-from ..QtCore import QRectF
-from ..QtCore import QSize
-from ..QtCore import QSizeF
-from ._q_page_size_page_size_id import PageSizeId
-from ._q_page_size_size_match_policy import SizeMatchPolicy
-from ._q_page_size_unit import Unit
+from . import QPageSizePageSizeId, QPageSizeSizeMatchPolicy, QPageSizeUnit
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QRect, QRectF, QSize, QSizeF
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QSize = WAIT['QSize']
+  QSizeF = WAIT['QSizeF']
 
 
 class QPageSize(CuteMixin, metaclass=MetaCute):
@@ -94,9 +97,9 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QPageSize, and the names Qt has for the
   #  combinations of its flags enums.
-  PageSizeId = PageSizeId
-  SizeMatchPolicy = SizeMatchPolicy
-  Unit = Unit
+  PageSizeId = QPageSizePageSizeId
+  SizeMatchPolicy = QPageSizeSizeMatchPolicy
+  Unit = QPageSizeUnit
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -135,7 +138,7 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     """
     #  PageSizeId QPageSize::id(const QSize &pointSize, SizeMatchPolicy
     #      matchPolicy)
-    return PageSizeId(Rituals.call(
+    return QPageSize.PageSizeId(Rituals.call(
         'ritual_ZN9QPageSize2idERK5QSizeNS_15SizeMatchPolicyE',
         CuteMixin._valueOf(pointSize), matchPolicy.value,
     ))
@@ -178,7 +181,7 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     """
     #  PageSizeId QPageSize::id(const QSizeF &size, Unit units,
     #      SizeMatchPolicy matchPolicy)
-    return PageSizeId(Rituals.call(
+    return QPageSize.PageSizeId(Rituals.call(
         'ritual_ZN9QPageSize2idERK6QSizeFNS_4UnitENS_15SizeMatchPolicyE',
         CuteMixin._valueOf(size), units.value, matchPolicy.value,
     ))
@@ -206,7 +209,9 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  PageSizeId QPageSize::id(int windowsId)
-    return PageSizeId(Rituals.call('ritual_ZN9QPageSize2idEi', windowsId))
+    return QPageSize.PageSizeId(Rituals.call(
+        'ritual_ZN9QPageSize2idEi', windowsId,
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -314,6 +319,7 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     """
     #  QSizeF QPageSize::definitionSize() const
     address = self.uglySide.call('ritual_ZNK9QPageSize14definitionSizeEv')
+    from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
 
   def definitionUnits(self) -> Unit:
@@ -330,7 +336,7 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Unit(number)' gives.
     """
     #  Unit QPageSize::definitionUnits() const
-    return Unit(self.uglySide.call(
+    return QPageSize.Unit(self.uglySide.call(
         'ritual_ZNK9QPageSize15definitionUnitsEv',
     ))
 
@@ -357,6 +363,7 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK9QPageSize4sizeENS_4UnitE', units.value,
     )
+    from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
 
   def sizePoints(self) -> QSize:
@@ -373,6 +380,7 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QPageSize::sizePoints() const
     address = self.uglySide.call('ritual_ZNK9QPageSize10sizePointsEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(int)
@@ -398,6 +406,7 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK9QPageSize10sizePixelsEi', resolution,
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(Unit)
@@ -423,6 +432,7 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK9QPageSize4rectENS_4UnitE', units.value,
     )
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   def rectPoints(self) -> QRect:
@@ -439,6 +449,7 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     """
     #  QRect QPageSize::rectPoints() const
     address = self.uglySide.call('ritual_ZNK9QPageSize10rectPointsEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(int)
@@ -464,6 +475,7 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK9QPageSize10rectPixelsEi', resolution,
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

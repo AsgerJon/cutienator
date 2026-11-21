@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qtablewidget.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QTableWidgetSelectionRangeC1Ev": ["address"],
+    "ritual_ZN26QTableWidgetSelectionRangeC1Eiiii": [
+      "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK26QTableWidgetSelectionRange6topRowEv": ["int", "address"],
+    "ritual_ZNK26QTableWidgetSelectionRange9bottomRowEv": ["int", "address"],
+    "ritual_ZNK26QTableWidgetSelectionRange10leftColumnEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QTableWidgetSelectionRange11rightColumnEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QTableWidgetSelectionRange8rowCountEv": ["int", "address"],
+    "ritual_ZNK26QTableWidgetSelectionRange11columnCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QTableWidgetSelectionRangeD1Ev": ["nothing", "address"]
+  }
+}

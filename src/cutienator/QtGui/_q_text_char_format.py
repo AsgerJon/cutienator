@@ -11,16 +11,24 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
-from ._q_color import QColor
-from ._q_font import QFont
-from ._q_pen import QPen
-from ._q_text_format import QTextFormat
-from ..QtCore import QVariant
-from ._q_text_char_format_font_properties_inheritance_behavior \
-  import FontPropertiesInheritanceBehavior
-from ._q_text_char_format_underline_style import UnderlineStyle
-from ._q_text_char_format_vertical_alignment import VerticalAlignment
+from . import QFontCapitalization, QFontHintingPreference, QFontSpacingType
+from . import QFontStyleHint, QFontStyleStrategy
+from . import QTextCharFormatFontPropertiesInheritanceBehavior
+from . import QTextCharFormatUnderlineStyle, QTextCharFormatVerticalAlignment
+from . import QTextFormat
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QVariant
+  from . import QColor, QFont, QPen
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QColor = WAIT['QColor']
+  QFont = WAIT['QFont']
+  QPen = WAIT['QPen']
 
 
 class QTextCharFormat(QTextFormat):
@@ -87,9 +95,10 @@ class QTextCharFormat(QTextFormat):
 
   #  The enums Qt writes inside QTextCharFormat, and the names Qt has for the
   #  combinations of its flags enums.
-  FontPropertiesInheritanceBehavior = FontPropertiesInheritanceBehavior
-  UnderlineStyle = UnderlineStyle
-  VerticalAlignment = VerticalAlignment
+  FontPropertiesInheritanceBehavior = (
+      QTextCharFormatFontPropertiesInheritanceBehavior)
+  UnderlineStyle = QTextCharFormatUnderlineStyle
+  VerticalAlignment = QTextCharFormatVerticalAlignment
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -143,6 +152,7 @@ class QTextCharFormat(QTextFormat):
     """
     #  QFont QTextCharFormat::font() const
     address = self.uglySide.call('ritual_ZNK15QTextCharFormat4fontEv')
+    from . import QFont
     return QFont._cuteOwning(address)
 
   def fontFamily(self) -> str:
@@ -176,6 +186,7 @@ class QTextCharFormat(QTextFormat):
     address = self.uglySide.call(
         'ritual_ZNK15QTextCharFormat12fontFamiliesEv',
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   def fontStyleName(self) -> QVariant:
@@ -194,6 +205,7 @@ class QTextCharFormat(QTextFormat):
     address = self.uglySide.call(
         'ritual_ZNK15QTextCharFormat13fontStyleNameEv',
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   def fontPointSize(self) -> float:
@@ -240,7 +252,7 @@ class QTextCharFormat(QTextFormat):
       'QFont.Capitalization(number)' gives.
     """
     #  QFont::Capitalization QTextCharFormat::fontCapitalization() const
-    return QFont.Capitalization(self.uglySide.call(
+    return QFontCapitalization(self.uglySide.call(
         'ritual_ZNK15QTextCharFormat18fontCapitalizationEv',
     ))
 
@@ -261,7 +273,7 @@ class QTextCharFormat(QTextFormat):
       'QFont.SpacingType(number)' gives.
     """
     #  QFont::SpacingType QTextCharFormat::fontLetterSpacingType() const
-    return QFont.SpacingType(self.uglySide.call(
+    return QFontSpacingType(self.uglySide.call(
         'ritual_ZNK15QTextCharFormat21fontLetterSpacingTypeEv',
     ))
 
@@ -333,6 +345,7 @@ class QTextCharFormat(QTextFormat):
     address = self.uglySide.call(
         'ritual_ZNK15QTextCharFormat14underlineColorEv',
     )
+    from . import QColor
     return QColor._cuteOwning(address)
 
   def fontFixedPitch(self) -> bool:
@@ -371,7 +384,7 @@ class QTextCharFormat(QTextFormat):
       gives.
     """
     #  QFont::StyleHint QTextCharFormat::fontStyleHint() const
-    return QFont.StyleHint(self.uglySide.call(
+    return QFontStyleHint(self.uglySide.call(
         'ritual_ZNK15QTextCharFormat13fontStyleHintEv',
     ))
 
@@ -392,7 +405,7 @@ class QTextCharFormat(QTextFormat):
       'QFont.StyleStrategy(number)' gives.
     """
     #  QFont::StyleStrategy QTextCharFormat::fontStyleStrategy() const
-    return QFont.StyleStrategy(self.uglySide.call(
+    return QFontStyleStrategy(self.uglySide.call(
         'ritual_ZNK15QTextCharFormat17fontStyleStrategyEv',
     ))
 
@@ -414,7 +427,7 @@ class QTextCharFormat(QTextFormat):
     """
     #  QFont::HintingPreference QTextCharFormat::fontHintingPreference()
     #      const
-    return QFont.HintingPreference(self.uglySide.call(
+    return QFontHintingPreference(self.uglySide.call(
         'ritual_ZNK15QTextCharFormat21fontHintingPreferenceEv',
     ))
 
@@ -443,7 +456,7 @@ class QTextCharFormat(QTextFormat):
       gives.
     """
     #  UnderlineStyle QTextCharFormat::underlineStyle() const
-    return UnderlineStyle(self.uglySide.call(
+    return QTextCharFormat.UnderlineStyle(self.uglySide.call(
         'ritual_ZNK15QTextCharFormat14underlineStyleEv',
     ))
 
@@ -464,7 +477,7 @@ class QTextCharFormat(QTextFormat):
       'VerticalAlignment(number)' gives.
     """
     #  VerticalAlignment QTextCharFormat::verticalAlignment() const
-    return VerticalAlignment(self.uglySide.call(
+    return QTextCharFormat.VerticalAlignment(self.uglySide.call(
         'ritual_ZNK15QTextCharFormat17verticalAlignmentEv',
     ))
 
@@ -484,6 +497,7 @@ class QTextCharFormat(QTextFormat):
     address = self.uglySide.call(
         'ritual_ZNK15QTextCharFormat11textOutlineEv',
     )
+    from . import QPen
     return QPen._cuteOwning(address)
 
   def toolTip(self) -> str:
@@ -710,7 +724,7 @@ class QTextCharFormat(QTextFormat):
     #  void QTextCharFormat::setFontItalic(bool italic)
     self.uglySide.call('ritual_ZN15QTextCharFormat13setFontItalicEb', italic)
 
-  @overload(QFont.Capitalization)
+  @overload(QFontCapitalization)
   def setFontCapitalization(
       self,
       capitalization: QFont.Capitalization,
@@ -737,7 +751,7 @@ class QTextCharFormat(QTextFormat):
         capitalization.value,
     )
 
-  @overload(QFont.SpacingType)
+  @overload(QFontSpacingType)
   def setFontLetterSpacingType(
       self,
       letterSpacingType: QFont.SpacingType,
@@ -919,12 +933,12 @@ class QTextCharFormat(QTextFormat):
         'ritual_ZN15QTextCharFormat14setFontStretchEi', factor,
     )
 
-  @overload(QFont.StyleHint)
-  @overload(QFont.StyleHint, QFont.StyleStrategy)
+  @overload(QFontStyleHint)
+  @overload(QFontStyleHint, QFontStyleStrategy)
   def setFontStyleHint(
       self,
       hint: QFont.StyleHint,
-      strategy: QFont.StyleStrategy = QFont.StyleStrategy.PreferDefault,
+      strategy: QFont.StyleStrategy = QFontStyleStrategy.PreferDefault,
   ) -> None:
     """
     Calls Qt's 'void QTextCharFormat::setFontStyleHint(QFont::StyleHint hint,
@@ -941,7 +955,7 @@ class QTextCharFormat(QTextFormat):
 
     strategy : QFont.StyleStrategy
       Passed on as its number. May be left out, as in Qt: it is then
-      QFont.StyleStrategy.PreferDefault.
+      QFontStyleStrategy.PreferDefault.
     """
     #  void QTextCharFormat::setFontStyleHint(QFont::StyleHint hint,
     #      QFont::StyleStrategy strategy)
@@ -951,7 +965,7 @@ class QTextCharFormat(QTextFormat):
         hint.value, strategy.value,
     )
 
-  @overload(QFont.StyleStrategy)
+  @overload(QFontStyleStrategy)
   def setFontStyleStrategy(self, strategy: QFont.StyleStrategy) -> None:
     """
     Calls Qt's 'void
@@ -974,7 +988,7 @@ class QTextCharFormat(QTextFormat):
         strategy.value,
     )
 
-  @overload(QFont.HintingPreference)
+  @overload(QFontHintingPreference)
   def setFontHintingPreference(
       self,
       hintingPreference: QFont.HintingPreference,

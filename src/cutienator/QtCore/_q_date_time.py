@@ -12,11 +12,20 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_date_time_transition_resolution import TransitionResolution
-from ._q_date_time_year_range import YearRange
+from . import Qt, QDateTimeTransitionResolution, QDateTimeYearRange
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QCalendar, QDate, QTime, QTimeZone
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QCalendar = WAIT['QCalendar']
+  QDate = WAIT['QDate']
+  QTime = WAIT['QTime']
+  QTimeZone = WAIT['QTimeZone']
 
 
 class QDateTime(CuteMixin, metaclass=MetaCute):
@@ -32,86 +41,56 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QDateTime that has a ritual and that Python can call
-  so far, 32 names in all: 'isNull', 'isValid', 'timeSpec', 'offsetFromUtc',
-  'timeZoneAbbreviation', 'isDaylightTime', 'toMSecsSinceEpoch',
-  'toSecsSinceEpoch', 'setTimeSpec', 'setOffsetFromUtc',
+  so far, 40 names in all: 'isNull', 'isValid', 'date', 'time', 'timeSpec',
+  'offsetFromUtc', 'timeRepresentation', 'timeZone', 'timeZoneAbbreviation',
+  'isDaylightTime', 'toMSecsSinceEpoch', 'toSecsSinceEpoch', 'setDate',
+  'setTime', 'setTimeSpec', 'setOffsetFromUtc', 'setTimeZone',
   'setMSecsSinceEpoch', 'setSecsSinceEpoch', 'toString', 'addDays',
   'addMonths', 'addYears', 'addSecs', 'addMSecs', 'toTimeSpec',
-  'toLocalTime', 'toUTC', 'toOffsetFromUtc', 'daysTo', 'secsTo', 'msecsTo',
-  'currentDateTime', 'currentDateTimeUtc', 'fromString',
+  'toLocalTime', 'toUTC', 'toOffsetFromUtc', 'toTimeZone', 'daysTo',
+  'secsTo', 'msecsTo', 'currentDateTime', 'currentDateTimeUtc', 'fromString',
   'fromMSecsSinceEpoch', 'fromSecsSinceEpoch', 'currentMSecsSinceEpoch',
-  'currentSecsSinceEpoch'. It can be made from Python, in 2 ways; see
+  'currentSecsSinceEpoch'. It can be made from Python, in 5 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QDateTime::QDateTime(QDate date, QTime time, Qt::TimeSpec spec, int
-    offsetSeconds)': names 'QDate', which has no cute class yet.
-  - Qt's 'QDateTime::QDateTime(QDate date, QTime time, const QTimeZone
-    &timeZone, TransitionResolution resolve)': names 'QDate', which has no
-    cute class yet.
-  - Qt's 'QDateTime::QDateTime(QDate date, QTime time, TransitionResolution
-    resolve)': names 'QDate', which has no cute class yet.
   - Qt's 'QDateTime::~QDateTime()': the destructor: Python removes its C++
     QDateTime by it, and has no other use for it.
-  - Qt's 'QDate QDateTime::date() const': gives 'QDate', which has no cute
-    class yet.
-  - Qt's 'QTime QDateTime::time() const': gives 'QTime', which has no cute
-    class yet.
-  - Qt's 'QTimeZone QDateTime::timeRepresentation() const': gives
-    'QTimeZone', which has no cute class yet.
-  - Qt's 'QTimeZone QDateTime::timeZone() const': gives 'QTimeZone', which
-    has no cute class yet.
-  - Qt's 'void QDateTime::setDate(QDate date, TransitionResolution resolve)':
-    names 'QDate', which has no cute class yet.
-  - Qt's 'void QDateTime::setTime(QTime time, TransitionResolution resolve)':
-    names 'QTime', which has no cute class yet.
-  - Qt's 'void QDateTime::setTimeZone(const QTimeZone &toZone,
-    TransitionResolution resolve)': names 'QTimeZone', which has no cute
-    class yet.
-  - Qt's 'QString QDateTime::toString(const QString &format, QCalendar cal)
-    const': names 'QCalendar', which has no cute class yet.
   - Qt's 'QString QDateTime::toString(QStringView format) const': takes in
     Python what 'QString QDateTime::toString(const QString &format) const'
     takes.
   - Qt's 'QString QDateTime::toString(QStringView format, QCalendar cal)
-    const': names 'QCalendar', which has no cute class yet.
-  - Qt's 'QDateTime QDateTime::toTimeZone(const QTimeZone &toZone) const':
-    names 'QTimeZone', which has no cute class yet.
-  - Qt's 'QDateTime QDateTime::currentDateTime(const QTimeZone &zone)': names
-    'QTimeZone', which has no cute class yet.
+    const': takes in Python what 'QString QDateTime::toString(const QString
+    &format, QCalendar cal) const' takes.
   - Qt's 'QDateTime QDateTime::fromString(const QString &string,
     Qt::DateFormat format)': takes in Python what 'QDateTime
     QDateTime::fromString(QStringView string, Qt::DateFormat format)' takes.
-  - Qt's 'QDateTime QDateTime::fromString(QStringView string, QStringView
-    format, QCalendar cal)': names 'QCalendar', which has no cute class yet.
   - Qt's 'QDateTime QDateTime::fromString(const QString &string, QStringView
-    format, QCalendar cal)': names 'QCalendar', which has no cute class yet.
+    format, QCalendar cal)': takes in Python what 'QDateTime
+    QDateTime::fromString(QStringView string, QStringView format, QCalendar
+    cal)' takes.
   - Qt's 'QDateTime QDateTime::fromString(const QString &string, const
-    QString &format, QCalendar cal)': names 'QCalendar', which has no cute
-    class yet.
-  - Qt's 'QDateTime QDateTime::fromString(QStringView string, QStringView
-    format, int baseYear, QCalendar cal)': names 'QCalendar', which has no
-    cute class yet.
+    QString &format, QCalendar cal)': takes in Python what 'QDateTime
+    QDateTime::fromString(QStringView string, QStringView format, QCalendar
+    cal)' takes.
   - Qt's 'QDateTime QDateTime::fromString(const QString &string, QStringView
     format, int baseYear)': takes in Python what 'QDateTime
     QDateTime::fromString(QStringView string, QStringView format, int
     baseYear)' takes.
   - Qt's 'QDateTime QDateTime::fromString(const QString &string, QStringView
-    format, int baseYear, QCalendar cal)': names 'QCalendar', which has no
-    cute class yet.
+    format, int baseYear, QCalendar cal)': takes in Python what 'QDateTime
+    QDateTime::fromString(QStringView string, QStringView format, int
+    baseYear, QCalendar cal)' takes.
   - Qt's 'QDateTime QDateTime::fromString(const QString &string, const
     QString &format, int baseYear)': takes in Python what 'QDateTime
     QDateTime::fromString(QStringView string, QStringView format, int
     baseYear)' takes.
   - Qt's 'QDateTime QDateTime::fromString(const QString &string, const
-    QString &format, int baseYear, QCalendar cal)': names 'QCalendar', which
-    has no cute class yet.
-  - Qt's 'QDateTime QDateTime::fromMSecsSinceEpoch(qint64 msecs, const
-    QTimeZone &timeZone)': names 'QTimeZone', which has no cute class yet.
-  - Qt's 'QDateTime QDateTime::fromSecsSinceEpoch(qint64 secs, const
-    QTimeZone &timeZone)': names 'QTimeZone', which has no cute class yet.
+    QString &format, int baseYear, QCalendar cal)': takes in Python what
+    'QDateTime QDateTime::fromString(QStringView string, QStringView format,
+    int baseYear, QCalendar cal)' takes.
 
   What has no ritual
   ------------------
@@ -134,14 +113,43 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QDateTime, and the names Qt has for the
   #  combinations of its flags enums.
-  TransitionResolution = TransitionResolution
-  YearRange = YearRange
+  TransitionResolution = QDateTimeTransitionResolution
+  YearRange = QDateTimeYearRange
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @staticmethod
+  @overload(QTimeZone)
+  def currentDateTime(zone: QTimeZone) -> QDateTime:
+    """
+    Calls Qt's 'QDateTime QDateTime::currentDateTime(const QTimeZone &zone)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#currentDateTime
+
+    Parameters
+    ----------
+
+    zone : QTimeZone
+      Passed on as a value: Qt reads the C++ QTimeZone, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDateTime
+      A new cute QDateTime around the copy Qt gave back. Python owns it.
+    """
+    #  QDateTime QDateTime::currentDateTime(const QTimeZone &zone)
+    address = Rituals.call(
+        'ritual_ZN9QDateTime15currentDateTimeERK9QTimeZone',
+        CuteMixin._valueOf(zone),
+    )
+    return QDateTime._cuteOwning(address)
+
+  @staticmethod
+  @overload()
   def currentDateTime() -> QDateTime:
     """
     Calls Qt's 'QDateTime QDateTime::currentDateTime()'.
@@ -213,6 +221,42 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     return QDateTime._cuteOwning(address)
 
   @staticmethod
+  @overload(str, str, QCalendar)
+  def fromString(string: str, format: str, cal: QCalendar) -> QDateTime:
+    """
+    Calls Qt's 'QDateTime QDateTime::fromString(QStringView string,
+    QStringView format, QCalendar cal)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#fromString
+
+    Parameters
+    ----------
+
+    string : str
+      Passed on as it is: a QString is made of it for the call.
+
+    format : str
+      Passed on as it is: a QString is made of it for the call.
+
+    cal : QCalendar
+      Passed on as a value: Qt reads the C++ QCalendar, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDateTime
+      A new cute QDateTime around the copy Qt gave back. Python owns it.
+    """
+    #  QDateTime QDateTime::fromString(QStringView string, QStringView
+    #      format, QCalendar cal)
+    address = Rituals.call(
+        'ritual_ZN9QDateTime10fromStringE11QStringViewS0_9QCalendar',
+        string, format, CuteMixin._valueOf(cal),
+    )
+    return QDateTime._cuteOwning(address)
+
+  @staticmethod
   @overload(str, str, int)
   def fromString(string: str, format: str, baseYear: int) -> QDateTime:
     """
@@ -244,6 +288,50 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     address = Rituals.call(
         'ritual_ZN9QDateTime10fromStringE11QStringViewS0_i',
         string, format, baseYear,
+    )
+    return QDateTime._cuteOwning(address)
+
+  @staticmethod
+  @overload(str, str, int, QCalendar)
+  def fromString(
+      string: str,
+      format: str,
+      baseYear: int,
+      cal: QCalendar,
+  ) -> QDateTime:
+    """
+    Calls Qt's 'QDateTime QDateTime::fromString(QStringView string,
+    QStringView format, int baseYear, QCalendar cal)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#fromString
+
+    Parameters
+    ----------
+
+    string : str
+      Passed on as it is: a QString is made of it for the call.
+
+    format : str
+      Passed on as it is: a QString is made of it for the call.
+
+    baseYear : int
+      Passed on as it is.
+
+    cal : QCalendar
+      Passed on as a value: Qt reads the C++ QCalendar, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDateTime
+      A new cute QDateTime around the copy Qt gave back. Python owns it.
+    """
+    #  QDateTime QDateTime::fromString(QStringView string, QStringView
+    #      format, int baseYear, QCalendar cal)
+    address = Rituals.call(
+        'ritual_ZN9QDateTime10fromStringE11QStringViewS0_i9QCalendar',
+        string, format, baseYear, CuteMixin._valueOf(cal),
     )
     return QDateTime._cuteOwning(address)
 
@@ -284,6 +372,39 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     address = Rituals.call(
         'ritual_ZN9QDateTime19fromMSecsSinceEpochExN2Qt8TimeSpecEi',
         msecs, spec.value, offsetFromUtc,
+    )
+    return QDateTime._cuteOwning(address)
+
+  @staticmethod
+  @overload(int, QTimeZone)
+  def fromMSecsSinceEpoch(msecs: int, timeZone: QTimeZone) -> QDateTime:
+    """
+    Calls Qt's 'QDateTime QDateTime::fromMSecsSinceEpoch(qint64 msecs, const
+    QTimeZone &timeZone)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#fromMSecsSinceEpoch
+
+    Parameters
+    ----------
+
+    msecs : int
+      Passed on as it is.
+
+    timeZone : QTimeZone
+      Passed on as a value: Qt reads the C++ QTimeZone, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDateTime
+      A new cute QDateTime around the copy Qt gave back. Python owns it.
+    """
+    #  QDateTime QDateTime::fromMSecsSinceEpoch(qint64 msecs, const QTimeZone
+    #      &timeZone)
+    address = Rituals.call(
+        'ritual_ZN9QDateTime19fromMSecsSinceEpochExRK9QTimeZone',
+        msecs, CuteMixin._valueOf(timeZone),
     )
     return QDateTime._cuteOwning(address)
 
@@ -350,6 +471,39 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     address = Rituals.call(
         'ritual_ZN9QDateTime18fromSecsSinceEpochExN2Qt8TimeSpecEi',
         secs, spec.value, offsetFromUtc,
+    )
+    return QDateTime._cuteOwning(address)
+
+  @staticmethod
+  @overload(int, QTimeZone)
+  def fromSecsSinceEpoch(secs: int, timeZone: QTimeZone) -> QDateTime:
+    """
+    Calls Qt's 'QDateTime QDateTime::fromSecsSinceEpoch(qint64 secs, const
+    QTimeZone &timeZone)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#fromSecsSinceEpoch
+
+    Parameters
+    ----------
+
+    secs : int
+      Passed on as it is.
+
+    timeZone : QTimeZone
+      Passed on as a value: Qt reads the C++ QTimeZone, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDateTime
+      A new cute QDateTime around the copy Qt gave back. Python owns it.
+    """
+    #  QDateTime QDateTime::fromSecsSinceEpoch(qint64 secs, const QTimeZone
+    #      &timeZone)
+    address = Rituals.call(
+        'ritual_ZN9QDateTime18fromSecsSinceEpochExRK9QTimeZone',
+        secs, CuteMixin._valueOf(timeZone),
     )
     return QDateTime._cuteOwning(address)
 
@@ -441,6 +595,40 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     #  bool QDateTime::isValid() const
     return self.uglySide.call('ritual_ZNK9QDateTime7isValidEv')
 
+  def date(self) -> QDate:
+    """
+    Calls Qt's 'QDate QDateTime::date() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#date
+
+    Returns
+    -------
+
+    QDate
+      A new cute QDate around the copy Qt gave back. Python owns it.
+    """
+    #  QDate QDateTime::date() const
+    address = self.uglySide.call('ritual_ZNK9QDateTime4dateEv')
+    from . import QDate
+    return QDate._cuteOwning(address)
+
+  def time(self) -> QTime:
+    """
+    Calls Qt's 'QTime QDateTime::time() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#time
+
+    Returns
+    -------
+
+    QTime
+      A new cute QTime around the copy Qt gave back. Python owns it.
+    """
+    #  QTime QDateTime::time() const
+    address = self.uglySide.call('ritual_ZNK9QDateTime4timeEv')
+    from . import QTime
+    return QTime._cuteOwning(address)
+
   def timeSpec(self) -> Qt.TimeSpec:
     """
     Calls Qt's 'Qt::TimeSpec QDateTime::timeSpec() const'.
@@ -466,6 +654,42 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     """
     #  int QDateTime::offsetFromUtc() const
     return self.uglySide.call('ritual_ZNK9QDateTime13offsetFromUtcEv')
+
+  def timeRepresentation(self) -> QTimeZone:
+    """
+    Calls Qt's 'QTimeZone QDateTime::timeRepresentation() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#timeRepresentation
+
+    Returns
+    -------
+
+    QTimeZone
+      A new cute QTimeZone around the copy Qt gave back. Python owns it.
+    """
+    #  QTimeZone QDateTime::timeRepresentation() const
+    address = self.uglySide.call(
+        'ritual_ZNK9QDateTime18timeRepresentationEv',
+    )
+    from . import QTimeZone
+    return QTimeZone._cuteOwning(address)
+
+  def timeZone(self) -> QTimeZone:
+    """
+    Calls Qt's 'QTimeZone QDateTime::timeZone() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#timeZone
+
+    Returns
+    -------
+
+    QTimeZone
+      A new cute QTimeZone around the copy Qt gave back. Python owns it.
+    """
+    #  QTimeZone QDateTime::timeZone() const
+    address = self.uglySide.call('ritual_ZNK9QDateTime8timeZoneEv')
+    from . import QTimeZone
+    return QTimeZone._cuteOwning(address)
 
   def timeZoneAbbreviation(self) -> str:
     """
@@ -558,6 +782,37 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     #  QString QDateTime::toString(const QString &format) const
     return self.uglySide.call(
         'ritual_ZNK9QDateTime8toStringERK7QString', format,
+    )
+
+  @overload(str, QCalendar)
+  def toString(self, format: str, cal: QCalendar) -> str:
+    """
+    Calls Qt's 'QString QDateTime::toString(const QString &format, QCalendar
+    cal) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#toString
+
+    Parameters
+    ----------
+
+    format : str
+      Passed on as it is: a QString is made of it for the call.
+
+    cal : QCalendar
+      Passed on as a value: Qt reads the C++ QCalendar, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QDateTime::toString(const QString &format, QCalendar cal)
+    #      const
+    return self.uglySide.call(
+        'ritual_ZNK9QDateTime8toStringERK7QString9QCalendar',
+        format, self._valueOf(cal),
     )
 
   @overload(int)
@@ -758,6 +1013,34 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     )
     return QDateTime._cuteOwning(address)
 
+  @overload(QTimeZone)
+  def toTimeZone(self, toZone: QTimeZone) -> QDateTime:
+    """
+    Calls Qt's 'QDateTime QDateTime::toTimeZone(const QTimeZone &toZone)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#toTimeZone
+
+    Parameters
+    ----------
+
+    toZone : QTimeZone
+      Passed on as a value: Qt reads the C++ QTimeZone, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDateTime
+      A new cute QDateTime around the copy Qt gave back. Python owns it.
+    """
+    #  QDateTime QDateTime::toTimeZone(const QTimeZone &toZone) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QDateTime10toTimeZoneERK9QTimeZone',
+        self._valueOf(toZone),
+    )
+    return QDateTime._cuteOwning(address)
+
   @overload(THIS)
   def daysTo(self, a0: QDateTime) -> int:
     """
@@ -819,6 +1102,64 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QDate)
+  @overload(QDate, TransitionResolution)
+  def setDate(
+      self,
+      date: QDate,
+      resolve: TransitionResolution = TransitionResolution.LegacyBehavior,
+  ) -> None:
+    """
+    Calls Qt's 'void QDateTime::setDate(QDate date, TransitionResolution
+    resolve)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#setDate
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+
+    resolve : TransitionResolution
+      Passed on as its number. May be left out, as in Qt: it is then
+      TransitionResolution.LegacyBehavior.
+    """
+    #  void QDateTime::setDate(QDate date, TransitionResolution resolve)
+    self.uglySide.call(
+        'ritual_ZN9QDateTime7setDateE5QDateNS_20TransitionResolutionE',
+        self._valueOf(date), resolve.value,
+    )
+
+  @overload(QTime)
+  @overload(QTime, TransitionResolution)
+  def setTime(
+      self,
+      time: QTime,
+      resolve: TransitionResolution = TransitionResolution.LegacyBehavior,
+  ) -> None:
+    """
+    Calls Qt's 'void QDateTime::setTime(QTime time, TransitionResolution
+    resolve)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#setTime
+
+    Parameters
+    ----------
+
+    time : QTime
+      Passed on as a value: Qt reads the C++ QTime, which stays Python's own.
+
+    resolve : TransitionResolution
+      Passed on as its number. May be left out, as in Qt: it is then
+      TransitionResolution.LegacyBehavior.
+    """
+    #  void QDateTime::setTime(QTime time, TransitionResolution resolve)
+    self.uglySide.call(
+        'ritual_ZN9QDateTime7setTimeE5QTimeNS_20TransitionResolutionE',
+        self._valueOf(time), resolve.value,
+    )
+
   @overload(Qt.TimeSpec)
   def setTimeSpec(self, spec: Qt.TimeSpec) -> None:
     """
@@ -853,6 +1194,38 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     #  void QDateTime::setOffsetFromUtc(int offsetSeconds)
     self.uglySide.call(
         'ritual_ZN9QDateTime16setOffsetFromUtcEi', offsetSeconds,
+    )
+
+  @overload(QTimeZone)
+  @overload(QTimeZone, TransitionResolution)
+  def setTimeZone(
+      self,
+      toZone: QTimeZone,
+      resolve: TransitionResolution = TransitionResolution.LegacyBehavior,
+  ) -> None:
+    """
+    Calls Qt's 'void QDateTime::setTimeZone(const QTimeZone &toZone,
+    TransitionResolution resolve)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#setTimeZone
+
+    Parameters
+    ----------
+
+    toZone : QTimeZone
+      Passed on as a value: Qt reads the C++ QTimeZone, which stays Python's
+      own.
+
+    resolve : TransitionResolution
+      Passed on as its number. May be left out, as in Qt: it is then
+      TransitionResolution.LegacyBehavior.
+    """
+    #  void QDateTime::setTimeZone(const QTimeZone &toZone,
+    #      TransitionResolution resolve)
+    self.uglySide.call(
+        'ritual_ZN9QDateTime11setTimeZoneERK9QTimeZoneNS_20TransitionResolu'
+        'tionE',
+        self._valueOf(toZone), resolve.value,
     )
 
   @overload(int)
@@ -910,6 +1283,120 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     #  QDateTime::QDateTime()
     self._noteCreation(QDateTime, lambda: Rituals.call(
         'ritual_ZN9QDateTimeC1Ev',
+    ))
+
+  @overload(QDate, QTime, Qt.TimeSpec)
+  @overload(QDate, QTime, Qt.TimeSpec, int)
+  def __init__(
+      self,
+      date: QDate,
+      time: QTime,
+      spec: Qt.TimeSpec,
+      offsetSeconds: int = 0,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QDateTime::QDateTime(QDate date, QTime
+    time, Qt::TimeSpec spec, int offsetSeconds)', which is called at the
+    first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#QDateTime
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+
+    time : QTime
+      Passed on as a value: Qt reads the C++ QTime, which stays Python's own.
+
+    spec : Qt.TimeSpec
+      Passed on as its number.
+
+    offsetSeconds : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+    """
+    #  QDateTime::QDateTime(QDate date, QTime time, Qt::TimeSpec spec, int
+    #      offsetSeconds)
+    self._noteCreation(QDateTime, lambda: Rituals.call(
+        'ritual_ZN9QDateTimeC1E5QDate5QTimeN2Qt8TimeSpecEi',
+        self._valueOf(date), self._valueOf(time), spec.value, offsetSeconds,
+    ))
+
+  @overload(QDate, QTime, QTimeZone)
+  @overload(QDate, QTime, QTimeZone, TransitionResolution)
+  def __init__(
+      self,
+      date: QDate,
+      time: QTime,
+      timeZone: QTimeZone,
+      resolve: TransitionResolution = TransitionResolution.LegacyBehavior,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QDateTime::QDateTime(QDate date, QTime
+    time, const QTimeZone &timeZone, TransitionResolution resolve)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#QDateTime
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+
+    time : QTime
+      Passed on as a value: Qt reads the C++ QTime, which stays Python's own.
+
+    timeZone : QTimeZone
+      Passed on as a value: Qt reads the C++ QTimeZone, which stays Python's
+      own.
+
+    resolve : TransitionResolution
+      Passed on as its number. May be left out, as in Qt: it is then
+      TransitionResolution.LegacyBehavior.
+    """
+    #  QDateTime::QDateTime(QDate date, QTime time, const QTimeZone
+    #      &timeZone, TransitionResolution resolve)
+    self._noteCreation(QDateTime, lambda: Rituals.call(
+        'ritual_ZN9QDateTimeC1E5QDate5QTimeRK9QTimeZoneNS_20TransitionResol'
+        'utionE',
+        self._valueOf(date), self._valueOf(time), self._valueOf(timeZone),
+        resolve.value,
+    ))
+
+  @overload(QDate, QTime)
+  @overload(QDate, QTime, TransitionResolution)
+  def __init__(
+      self,
+      date: QDate,
+      time: QTime,
+      resolve: TransitionResolution = TransitionResolution.LegacyBehavior,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QDateTime::QDateTime(QDate date, QTime
+    time, TransitionResolution resolve)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#QDateTime
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+
+    time : QTime
+      Passed on as a value: Qt reads the C++ QTime, which stays Python's own.
+
+    resolve : TransitionResolution
+      Passed on as its number. May be left out, as in Qt: it is then
+      TransitionResolution.LegacyBehavior.
+    """
+    #  QDateTime::QDateTime(QDate date, QTime time, TransitionResolution
+    #      resolve)
+    self._noteCreation(QDateTime, lambda: Rituals.call(
+        'ritual_ZN9QDateTimeC1E5QDate5QTimeNS_20TransitionResolutionE',
+        self._valueOf(date), self._valueOf(time), resolve.value,
     ))
 
   @overload(THIS)

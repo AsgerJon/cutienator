@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qabstractfileiconprovider.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QAbstractFileIconProviderC1Ev": ["address"],
+    "ritual_ZN25QAbstractFileIconProviderD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QAbstractFileIconProvider4iconENS_8IconTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK25QAbstractFileIconProvider4iconERK9QFileInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QAbstractFileIconProvider4typeERK9QFileInfo": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN25QAbstractFileIconProvider10setOptionsE6QFlagsINS_6OptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QAbstractFileIconProvider7optionsEv": ["int", "address"]
+  }
+}

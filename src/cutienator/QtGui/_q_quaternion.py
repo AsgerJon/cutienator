@@ -12,13 +12,20 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_vector3_d import QVector3D
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QVector3D, QVector4D
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QVector3D = WAIT['QVector3D']
+  QVector4D = WAIT['QVector4D']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,21 +45,17 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QQuaternion that has a ritual and that Python can
-  call so far, 29 names in all: 'isNull', 'isIdentity', 'vector',
+  call so far, 30 names in all: 'isNull', 'isIdentity', 'vector',
   'setVector', 'x', 'y', 'z', 'scalar', 'setX', 'setY', 'setZ', 'setScalar',
   'dotProduct', 'length', 'lengthSquared', 'normalized', 'normalize',
-  'inverted', 'conjugated', 'rotatedVector', 'fromAxisAndAngle',
-  'toEulerAngles', 'fromEulerAngles', 'getAxes', 'fromAxes', 'fromDirection',
-  'rotationTo', 'slerp', 'nlerp'. It can be made from Python, in 4 ways; see
-  '__init__'.
+  'inverted', 'conjugated', 'rotatedVector', 'toVector4D',
+  'fromAxisAndAngle', 'toEulerAngles', 'fromEulerAngles', 'getAxes',
+  'fromAxes', 'fromDirection', 'rotationTo', 'slerp', 'nlerp'. It can be made
+  from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QQuaternion::QQuaternion(const QVector4D &vector)': names
-    'QVector4D', which has no cute class yet.
-  - Qt's 'QVector4D QQuaternion::toVector4D() const': gives 'QVector4D',
-    which has no cute class yet.
   - Qt's 'QVariant QQuaternion::operator QVariant() const': an operator,
     which is not reflected yet.
   - Qt's 'void QQuaternion::getAxisAndAngle(QVector3D *axis, float *angle)
@@ -469,6 +472,7 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
     """
     #  QVector3D QQuaternion::vector() const
     address = self.uglySide.call('ritual_ZNK11QQuaternion6vectorEv')
+    from . import QVector3D
     return QVector3D._cuteOwning(address)
 
   def x(self) -> float:
@@ -599,7 +603,25 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK11QQuaternion13rotatedVectorERK9QVector3D',
         self._valueOf(vector),
     )
+    from . import QVector3D
     return QVector3D._cuteOwning(address)
+
+  def toVector4D(self) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D QQuaternion::toVector4D() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#toVector4D
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D QQuaternion::toVector4D() const
+    address = self.uglySide.call('ritual_ZNK11QQuaternion10toVector4DEv')
+    from . import QVector4D
+    return QVector4D._cuteOwning(address)
 
   def toEulerAngles(self) -> QVector3D:
     """
@@ -615,6 +637,7 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
     """
     #  QVector3D QQuaternion::toEulerAngles() const
     address = self.uglySide.call('ritual_ZNK11QQuaternion13toEulerAnglesEv')
+    from . import QVector3D
     return QVector3D._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -829,6 +852,26 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
     self._noteCreation(QQuaternion, lambda: Rituals.call(
         'ritual_ZN11QQuaternionC1EfRK9QVector3D',
         scalar, self._valueOf(vector),
+    ))
+
+  @overload(QVector4D)
+  def __init__(self, vector: QVector4D) -> None:
+    """
+    Notes what was given, for Qt's 'QQuaternion::QQuaternion(const QVector4D
+    &vector)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#QQuaternion
+
+    Parameters
+    ----------
+
+    vector : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+    """
+    #  QQuaternion::QQuaternion(const QVector4D &vector)
+    self._noteCreation(QQuaternion, lambda: Rituals.call(
+        'ritual_ZN11QQuaternionC1ERK9QVector4D', self._valueOf(vector),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

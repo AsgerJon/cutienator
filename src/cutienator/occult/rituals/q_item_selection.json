@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qitemselectionmodel.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN14QItemSelectionC1ERK11QModelIndexS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QItemSelection6selectERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK14QItemSelection8containsERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QItemSelection5mergeERKS_6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QItemSelection5splitERK19QItemSelectionRangeS2_PS_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QItemSelectionD1Ev": ["nothing", "address"]
+  }
+}

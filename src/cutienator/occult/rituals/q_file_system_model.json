@@ -1,0 +1,138 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qfilesystemmodel.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QFileSystemModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QFileSystemModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QFileSystemModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QFileSystemModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QFileSystemModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel5indexERK7QStringi": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZNK16QFileSystemModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel7siblingEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel12canFetchMoreERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QFileSystemModel9fetchMoreERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel10myComputerEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK16QFileSystemModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QFileSystemModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK16QFileSystemModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK16QFileSystemModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN16QFileSystemModel4sortEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN16QFileSystemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel20supportedDropActionsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN16QFileSystemModel11setRootPathERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK16QFileSystemModel8rootPathEv": ["text", "address"],
+    "ritual_ZNK16QFileSystemModel13rootDirectoryEv": ["address", "address"],
+    "ritual_ZN16QFileSystemModel15setIconProviderEP25QAbstractFileIconProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel12iconProviderEv": ["address", "address"],
+    "ritual_ZN16QFileSystemModel9setFilterE6QFlagsIN4QDir6FilterEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QFileSystemModel6filterEv": ["int", "address"],
+    "ritual_ZN16QFileSystemModel18setResolveSymlinksEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QFileSystemModel15resolveSymlinksEv": ["bool", "address"],
+    "ritual_ZN16QFileSystemModel11setReadOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QFileSystemModel10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZN16QFileSystemModel21setNameFilterDisablesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QFileSystemModel18nameFilterDisablesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QFileSystemModel9setOptionENS_6OptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK16QFileSystemModel10testOptionENS_6OptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN16QFileSystemModel10setOptionsE6QFlagsINS_6OptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QFileSystemModel7optionsEv": ["int", "address"],
+    "ritual_ZNK16QFileSystemModel8filePathERK11QModelIndex": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel5isDirERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel4sizeERK11QModelIndex": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel4typeERK11QModelIndex": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel12lastModifiedERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel12lastModifiedERK11QModelIndexRK9QTimeZone": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QFileSystemModel5mkdirERK11QModelIndexRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN16QFileSystemModel5rmdirERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel8fileNameERK11QModelIndex": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel8fileIconERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel8fileInfoERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QFileSystemModel6removeERK11QModelIndex": [
+      "bool", "address", "address"
+    ]
+  }
+}

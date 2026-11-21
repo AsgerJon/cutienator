@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from worktoy.core.sentinels import THIS
+from worktoy.core.sentinels import THIS, ARGS
 from worktoy.dispatch import overload
 from worktoy.waitaminute import TypeException
 from worktoy.work_test import BaseTest
@@ -25,7 +25,8 @@ class TestCuteOverload(BaseTest):
   namespace of a cute class hands it to a body under the name
   'overload'. Two things are tested: that a signature with nothing late
   in it gives exactly what worktoy's 'overload' gives, and what a
-  signature with a 'WAIT' in it gives and refuses.
+  signature with a 'WAIT' in it gives and refuses, alone and in a
+  stack of decorators on one function.
 
   No test here makes a cute class, and a 'WAIT' in no class body is
   noted nowhere, so none has to mind the names 'MetaCute' keeps.
@@ -107,7 +108,7 @@ class TestCuteOverload(BaseTest):
         waitingOverload = CuteOverload(*entries)(self._someFunction)
         self.assertIsInstance(waitingOverload, WaitingOverload)
         self.assertNotIsInstance(waitingOverload, overload)
-        self.assertEqual(waitingOverload.getSignatureEntries(), entries)
+        self.assertEqual(waitingOverload.getSignatures(), (entries,))
         self.assertIs(waitingOverload.getFunction(), self._someFunction)
         self.assertEqual(waitingOverload.getMethodKinds(), ())
 
@@ -139,27 +140,97 @@ class TestCuteOverload(BaseTest):
           CuteOverload(wait)(wrong)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  #  A FUNCTION OF ITS OWN  # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  SHARING A FUNCTION   # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def test_sharing_a_function_is_refused(self) -> None:
-    """A waiting signature shares its function with no other decorator."""
+  def test_signatures_of_one_stack_share_the_function(self) -> None:
+    """A waiting signature shares its function with the other plain
+    signatures of its stack, whichever is written on top. The signatures
+    come in the order worktoy takes them: the lowest decorator first."""
     wait, other = WAIT['SharedLate'], WAIT['SharedOther']
+    function = self._someFunction
 
     def waiting() -> Any:
-      return CuteOverload(wait)(self._someFunction)
+      return CuteOverload(wait)(function)
 
-    def plain() -> Any:
-      return CuteOverload(int)(self._someFunction)
+    stacks = dict(
+        waitingAbovePlain=(
+            CuteOverload(wait)(CuteOverload(int)(function)),
+            ((int,), (wait,))),
+        plainAboveWaiting=(
+            CuteOverload(int)(waiting()), ((wait,), (int,))),
+        waitingAboveWaiting=(
+            CuteOverload(other)(waiting()), ((wait,), (other,))),
+        waitingAboveTwoPlain=(
+            CuteOverload(wait, int)(
+                CuteOverload(str)(CuteOverload(int)(function))),
+            ((int,), (str,), (wait, int))),
+        waitingAboveNoEntry=(
+            CuteOverload(wait)(CuteOverload()(function)), ((), (wait,))),
+        noEntryAboveWaiting=(
+            CuteOverload()(waiting()), ((wait,), ())),
+        waitingAboveTHIS=(
+            CuteOverload(wait)(CuteOverload(THIS)(function)),
+            ((THIS,), (wait,))),
+    )
+    for name, (stack, signatures) in stacks.items():
+      with self.subTest(stack=name):
+        self.assertIsInstance(stack, WaitingOverload)
+        self.assertEqual(stack.getSignatures(), signatures)
+        self.assertIs(stack.getFunction(), function)
+        self.assertEqual(stack.getMethodKinds(), ())
+
+  def test_method_kinds_anywhere_in_a_stack_are_kept(self) -> None:
+    """A kind written anywhere in a stack that waits is noted: below
+    worktoy's record, between two decorators, or below them all."""
+    wait = WAIT['StackKindLate']
+    function = self._someFunction
+    for kind in (staticmethod, classmethod):
+      stacks = dict(
+          belowThePlainOne=CuteOverload(wait)(
+              CuteOverload(int)(kind(function))),
+          betweenWaitingAndPlain=CuteOverload(wait)(
+              kind(CuteOverload(int)(function))),
+          betweenPlainAndWaiting=CuteOverload(int)(
+              kind(CuteOverload(wait)(function))),
+          belowTheWaitingOne=CuteOverload(int)(
+              CuteOverload(wait)(kind(function))),
+      )
+      for name, stack in stacks.items():
+        with self.subTest(kind=kind.__name__, stack=name):
+          self.assertEqual(stack.getMethodKinds(), (kind,))
+          self.assertIs(stack.getFunction(), function)
+          self.assertEqual(len(stack.getSignatures()), 2)
+
+  def test_other_roles_do_not_share_with_a_waiting_signature(self) -> None:
+    """A waiting signature shares its function with plain signatures
+    only: a fallback, a finalizer, 'overload.flex' and a signature
+    ending in 'ARGS' are refused in a stack that waits."""
+    wait = WAIT['RoleLate']
+    function = self._someFunction
+
+    def waiting() -> Any:
+      return CuteOverload(wait)(function)
 
     attempts = dict(
-        waitingAbovePlain=lambda: CuteOverload(wait)(plain()),
-        plainAboveWaiting=lambda: CuteOverload(int)(waiting()),
-        waitingAboveWaiting=lambda: CuteOverload(other)(waiting()),
-        kindInBetween=lambda: CuteOverload(int)(staticmethod(waiting())),
         fallbackAboveWaiting=lambda: CuteOverload.fallback(waiting()),
         finalizeAboveWaiting=lambda: CuteOverload.finalize(waiting()),
         flexAboveWaiting=lambda: CuteOverload.flex(int, str)(waiting()),
+        argsAboveWaiting=lambda: CuteOverload(int, ARGS)(waiting()),
+        argsOfAClassAboveWaiting=lambda: CuteOverload(ARGS[int])(waiting()),
+        waitingAboveFallback=lambda: CuteOverload(wait)(
+            CuteOverload.fallback(function)),
+        waitingAboveFinalizer=lambda: CuteOverload(wait)(
+            CuteOverload.finalize(CuteOverload(int)(function))),
+        waitingAboveFlex=lambda: CuteOverload(wait)(
+            CuteOverload.flex(int, str)(function)),
+        waitingAboveFlexOfOne=lambda: CuteOverload(wait)(
+            CuteOverload.flex(int)(function)),
+        waitingAboveFlexOfFour=lambda: CuteOverload(wait)(
+            CuteOverload.flex(int, str, float, bytes)(
+                CuteOverload(int)(function))),
+        waitingAboveArgs=lambda: CuteOverload(wait)(
+            CuteOverload(int, ARGS)(CuteOverload(int)(function))),
     )
     #  The refusal asked for is the one 'CuteOverload' words itself, a
     #  plain 'TypeError'. Without it worktoy would still stumble over the

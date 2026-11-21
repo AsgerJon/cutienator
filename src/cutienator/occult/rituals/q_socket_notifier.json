@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qsocketnotifier.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QSocketNotifier10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QSocketNotifier2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QSocketNotifierC1ENS_4TypeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN15QSocketNotifierC1ExNS_4TypeEP7QObject": [
+      "address", "long long", "int", "address"
+    ],
+    "ritual_ZN15QSocketNotifierD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSocketNotifier9setSocketEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK15QSocketNotifier6socketEv": ["long long", "address"],
+    "ritual_ZNK15QSocketNotifier4typeEv": ["int", "address"],
+    "ritual_ZNK15QSocketNotifier7isValidEv": ["bool", "address"],
+    "ritual_ZNK15QSocketNotifier9isEnabledEv": ["bool", "address"],
+    "ritual_ZN15QSocketNotifier10setEnabledEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

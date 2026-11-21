@@ -12,18 +12,23 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._q_byte_array import QByteArray
-from ._q_byte_array_view import QByteArrayView
-from ._q_url_ace_processing_option import AceProcessingOption
-from ._q_url_component_formatting_option import ComponentFormattingOption
-from ._q_url_parsing_mode import ParsingMode
-from ._q_url_url_formatting_option import UrlFormattingOption
-from ._q_url_user_input_resolution_option import UserInputResolutionOption
+from . import QUrlAceProcessingOption, QUrlComponentFormattingOption
+from . import QUrlParsingMode, QUrlUrlFormattingOption
+from . import QUrlUserInputResolutionOption
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QByteArray, QByteArrayView, QUrlQuery
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
+  QByteArrayView = WAIT['QByteArrayView']
+  QUrlQuery = WAIT['QUrlQuery']
 
 
 class QUrl(CuteMixin, metaclass=MetaCute):
@@ -54,8 +59,6 @@ class QUrl(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QUrl::~QUrl()': the destructor: Python removes its C++ QUrl by it,
     and has no other use for it.
-  - Qt's 'void QUrl::setQuery(const QUrlQuery &query)': names 'QUrlQuery',
-    which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -78,14 +81,14 @@ class QUrl(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QUrl, and the names Qt has for the
   #  combinations of its flags enums.
-  AceProcessingOption = AceProcessingOption
-  AceProcessingOptions = AceProcessingOption
-  ComponentFormattingOption = ComponentFormattingOption
-  ComponentFormattingOptions = ComponentFormattingOption
-  ParsingMode = ParsingMode
-  UrlFormattingOption = UrlFormattingOption
-  UserInputResolutionOption = UserInputResolutionOption
-  UserInputResolutionOptions = UserInputResolutionOption
+  AceProcessingOption = QUrlAceProcessingOption
+  AceProcessingOptions = QUrlAceProcessingOption
+  ComponentFormattingOption = QUrlComponentFormattingOption
+  ComponentFormattingOptions = QUrlComponentFormattingOption
+  ParsingMode = QUrlParsingMode
+  UrlFormattingOption = QUrlUrlFormattingOption
+  UserInputResolutionOption = QUrlUserInputResolutionOption
+  UserInputResolutionOptions = QUrlUserInputResolutionOption
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -264,13 +267,16 @@ class QUrl(CuteMixin, metaclass=MetaCute):
     #  QByteArray QUrl::toPercentEncoding(const QString &a0, const QByteArray
     #      &exclude, const QByteArray &include)
     if exclude is None:
+      from . import QByteArray
       exclude = QByteArray()
     if include is None:
+      from . import QByteArray
       include = QByteArray()
     address = Rituals.call(
         'ritual_ZN4QUrl17toPercentEncodingERK7QStringRK10QByteArrayS5_',
         a0, CuteMixin._valueOf(exclude), CuteMixin._valueOf(include),
     )
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   @staticmethod
@@ -346,6 +352,7 @@ class QUrl(CuteMixin, metaclass=MetaCute):
         'ritual_ZN4QUrl5toAceERK7QString6QFlagsINS_19AceProcessingOptionEE',
         domain, options.value,
     )
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1086,6 +1093,25 @@ class QUrl(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN4QUrl8setQueryERK7QStringNS_11ParsingModeE',
         query, mode.value,
+    )
+
+  @overload(QUrlQuery)
+  def setQuery(self, query: QUrlQuery) -> None:
+    """
+    Calls Qt's 'void QUrl::setQuery(const QUrlQuery &query)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurl.html#setQuery
+
+    Parameters
+    ----------
+
+    query : QUrlQuery
+      Passed on as a value: Qt reads the C++ QUrlQuery, which stays Python's
+      own.
+    """
+    #  void QUrl::setQuery(const QUrlQuery &query)
+    self.uglySide.call(
+        'ritual_ZN4QUrl8setQueryERK9QUrlQuery', self._valueOf(query),
     )
 
   @overload(str)

@@ -15,12 +15,20 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_color import QColor
-from ._q_gradient import QGradient
-from ._q_transform import QTransform
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QColor, QGradient, QImage, QPixmap, QTransform
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QColor = WAIT['QColor']
+  QGradient = WAIT['QGradient']
+  QImage = WAIT['QImage']
+  QPixmap = WAIT['QPixmap']
+  QTransform = WAIT['QTransform']
 
 
 class QBrush(CuteMixin, metaclass=MetaCute):
@@ -71,11 +79,6 @@ class QBrush(CuteMixin, metaclass=MetaCute):
   - A function giving a QBrush back gives a copy the ritual made for Python,
     in a new cute QBrush.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QImage = WAIT['QImage']
-  QPixmap = WAIT['QPixmap']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -136,6 +139,7 @@ class QBrush(CuteMixin, metaclass=MetaCute):
     """
     #  QTransform QBrush::transform() const
     address = self.uglySide.call('ritual_ZNK6QBrush9transformEv')
+    from . import QTransform
     return QTransform._cuteOwning(address)
 
   def texture(self) -> QPixmap:
@@ -152,7 +156,8 @@ class QBrush(CuteMixin, metaclass=MetaCute):
     """
     #  QPixmap QBrush::texture() const
     address = self.uglySide.call('ritual_ZNK6QBrush7textureEv')
-    return self.QPixmap._cuteOwning(address)
+    from . import QPixmap
+    return QPixmap._cuteOwning(address)
 
   def textureImage(self) -> QImage:
     """
@@ -168,7 +173,8 @@ class QBrush(CuteMixin, metaclass=MetaCute):
     """
     #  QImage QBrush::textureImage() const
     address = self.uglySide.call('ritual_ZNK6QBrush12textureImageEv')
-    return self.QImage._cuteOwning(address)
+    from . import QImage
+    return QImage._cuteOwning(address)
 
   def color(self) -> QColor:
     """
@@ -184,6 +190,7 @@ class QBrush(CuteMixin, metaclass=MetaCute):
     """
     #  const QColor &QBrush::color() const
     address = self.uglySide.call('ritual_ZNK6QBrush5colorEv')
+    from . import QColor
     return QColor._cuteOwning(address)
 
   def gradient(self) -> Optional[QGradient]:
@@ -201,6 +208,7 @@ class QBrush(CuteMixin, metaclass=MetaCute):
     """
     #  const QGradient *QBrush::gradient() const
     address = self.uglySide.call('ritual_ZNK6QBrush8gradientEv')
+    from . import QGradient
     return QGradient._cuteAt(address)
 
   def isOpaque(self) -> bool:
@@ -269,9 +277,6 @@ class QBrush(CuteMixin, metaclass=MetaCute):
 
     Qt's own words: https://doc.qt.io/qt-6/qbrush.html#setTexture
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
@@ -290,9 +295,6 @@ class QBrush(CuteMixin, metaclass=MetaCute):
     Calls Qt's 'void QBrush::setTextureImage(const QImage &image)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qbrush.html#setTextureImage
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------
@@ -452,9 +454,6 @@ class QBrush(CuteMixin, metaclass=MetaCute):
 
     Qt's own words: https://doc.qt.io/qt-6/qbrush.html#QBrush
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
@@ -480,9 +479,6 @@ class QBrush(CuteMixin, metaclass=MetaCute):
 
     Qt's own words: https://doc.qt.io/qt-6/qbrush.html#QBrush
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
@@ -507,9 +503,6 @@ class QBrush(CuteMixin, metaclass=MetaCute):
 
     Qt's own words: https://doc.qt.io/qt-6/qbrush.html#QBrush
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
@@ -529,9 +522,6 @@ class QBrush(CuteMixin, metaclass=MetaCute):
     which is called at the first use.
 
     Qt's own words: https://doc.qt.io/qt-6/qbrush.html#QBrush
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------

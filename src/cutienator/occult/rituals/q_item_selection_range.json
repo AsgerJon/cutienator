@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qitemselectionmodel.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QItemSelectionRangeC1Ev": ["address"],
+    "ritual_ZN19QItemSelectionRangeC1ERK11QModelIndexS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QItemSelectionRangeC1ERK11QModelIndex": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QItemSelectionRange3topEv": ["int", "address"],
+    "ritual_ZNK19QItemSelectionRange4leftEv": ["int", "address"],
+    "ritual_ZNK19QItemSelectionRange6bottomEv": ["int", "address"],
+    "ritual_ZNK19QItemSelectionRange5rightEv": ["int", "address"],
+    "ritual_ZNK19QItemSelectionRange5widthEv": ["int", "address"],
+    "ritual_ZNK19QItemSelectionRange6heightEv": ["int", "address"],
+    "ritual_ZNK19QItemSelectionRange7topLeftEv": ["address", "address"],
+    "ritual_ZNK19QItemSelectionRange11bottomRightEv": ["address", "address"],
+    "ritual_ZNK19QItemSelectionRange6parentEv": ["address", "address"],
+    "ritual_ZNK19QItemSelectionRange5modelEv": ["address", "address"],
+    "ritual_ZNK19QItemSelectionRange8containsERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QItemSelectionRange8containsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK19QItemSelectionRange10intersectsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QItemSelectionRange11intersectedERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QItemSelectionRange7isValidEv": ["bool", "address"],
+    "ritual_ZNK19QItemSelectionRange7isEmptyEv": ["bool", "address"],
+    "ritual_ZN19QItemSelectionRangeD1Ev": ["nothing", "address"]
+  }
+}

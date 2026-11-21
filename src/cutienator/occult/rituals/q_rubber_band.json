@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qrubberband.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QRubberBand10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QRubberBand2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QRubberBandC1ENS_5ShapeEP7QWidget": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN11QRubberBandD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QRubberBand5shapeEv": ["int", "address"],
+    "ritual_ZN11QRubberBand11setGeometryERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QRubberBand11setGeometryEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN11QRubberBand4moveEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN11QRubberBand4moveERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QRubberBand6resizeEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN11QRubberBand6resizeERK5QSize": [
+      "nothing", "address", "address"
+    ]
+  }
+}

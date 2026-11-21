@@ -11,16 +11,24 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtGui import QFont
-from ..QtGui import QPalette
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ._q_widget import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QPoint, QRect
+  from ..QtGui import QFont, QPalette
+  from . import QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QFont = WAIT['QFont']
+  QPalette = WAIT['QPalette']
+  QPoint = WAIT['QPoint']
+  QRect = WAIT['QRect']
+  QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -117,6 +125,7 @@ class QToolTip(CuteMixin, metaclass=MetaCute):
     #  void QToolTip::showText(const QPoint &pos, const QString &text,
     #      QWidget *w, const QRect &rect, int msecShowTime)
     if rect is None:
+      from ..QtCore import QRect
       rect = QRect()
     Rituals.call(
         'ritual_ZN8QToolTip8showTextERK6QPointRK7QStringP7QWidgetRK5QRecti',
@@ -175,6 +184,7 @@ class QToolTip(CuteMixin, metaclass=MetaCute):
     """
     #  QPalette QToolTip::palette()
     address = Rituals.call('ritual_ZN8QToolTip7paletteEv')
+    from ..QtGui import QPalette
     return QPalette._cuteOwning(address)
 
   @staticmethod
@@ -212,6 +222,7 @@ class QToolTip(CuteMixin, metaclass=MetaCute):
     """
     #  QFont QToolTip::font()
     address = Rituals.call('ritual_ZN8QToolTip4fontEv')
+    from ..QtGui import QFont
     return QFont._cuteOwning(address)
 
   @staticmethod

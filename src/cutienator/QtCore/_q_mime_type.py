@@ -1,0 +1,282 @@
+"""
+QMimeType binding of the Qt C++
+"""
+#  Apache-2.0 license
+#  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  QtCore/qmimetype.h, Qt 6.12.0. Changes made here are lost.
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from worktoy.core.sentinels import THIS
+from worktoy.dispatch import overload
+
+from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
+
+
+class QMimeType(CuteMixin, metaclass=MetaCute):
+  """
+  The cute side of Qt's QMimeType: a plain Python object standing in front of
+  one C++ QMimeType.
+
+  C++ hands a QMimeType around as a copy, so every C++ QMimeType behind a
+  cute one is Python's own: it is removed, by the ritual named in
+  '__delete_ritual__', when the cute object goes.
+
+  What exists
+  -----------
+
+  Every function of Qt's QMimeType that has a ritual and that Python can call
+  so far, 9 names in all: 'isValid', 'isDefault', 'name', 'comment',
+  'genericIconName', 'iconName', 'preferredSuffix', 'inherits',
+  'filterString'. It can be made from Python, in 2 ways; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QMimeType::~QMimeType()': the destructor: Python removes its C++
+    QMimeType by it, and has no other use for it.
+
+  What has no ritual
+  ------------------
+
+  12 of the 24 functions Qt declares: 9 takes or gives a type that cannot be
+  passed yet; 1 declared and nowhere to be found; 1 a template; 1 private.
+
+  What to expect
+  --------------
+
+  - The C++ QMimeType is created at the first use, not by 'QMimeType(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - A function giving a QMimeType back gives a copy the ritual made for
+    Python, in a new cute QMimeType.
+  """
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QMimeType'
+
+  #  Qt's '~QMimeType()'. Naming it makes this a value class: Python owns
+  #  every C++ QMimeType behind a cute one, and removes it by this ritual.
+  __delete_ritual__ = 'ritual_ZN9QMimeTypeD1Ev'
+
+  #  Fallback Variables
+
+  #  Private Variables
+
+  #  Public Variables
+
+  #  Virtual Variables
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def isValid(self) -> bool:
+    """
+    Calls Qt's 'bool QMimeType::isValid() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#isValid
+    """
+    #  bool QMimeType::isValid() const
+    return self.uglySide.call('ritual_ZNK9QMimeType7isValidEv')
+
+  def isDefault(self) -> bool:
+    """
+    Calls Qt's 'bool QMimeType::isDefault() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#isDefault
+    """
+    #  bool QMimeType::isDefault() const
+    return self.uglySide.call('ritual_ZNK9QMimeType9isDefaultEv')
+
+  def name(self) -> str:
+    """
+    Calls Qt's 'QString QMimeType::name() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#name
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QMimeType::name() const
+    return self.uglySide.call('ritual_ZNK9QMimeType4nameEv')
+
+  def comment(self) -> str:
+    """
+    Calls Qt's 'QString QMimeType::comment() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#comment
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QMimeType::comment() const
+    return self.uglySide.call('ritual_ZNK9QMimeType7commentEv')
+
+  def genericIconName(self) -> str:
+    """
+    Calls Qt's 'QString QMimeType::genericIconName() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#genericIconName
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QMimeType::genericIconName() const
+    return self.uglySide.call('ritual_ZNK9QMimeType15genericIconNameEv')
+
+  def iconName(self) -> str:
+    """
+    Calls Qt's 'QString QMimeType::iconName() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#iconName
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QMimeType::iconName() const
+    return self.uglySide.call('ritual_ZNK9QMimeType8iconNameEv')
+
+  def preferredSuffix(self) -> str:
+    """
+    Calls Qt's 'QString QMimeType::preferredSuffix() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#preferredSuffix
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QMimeType::preferredSuffix() const
+    return self.uglySide.call('ritual_ZNK9QMimeType15preferredSuffixEv')
+
+  @overload(str)
+  def inherits(self, mimeTypeName: str) -> bool:
+    """
+    Calls Qt's 'bool QMimeType::inherits(const QString &mimeTypeName) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#inherits
+
+    Parameters
+    ----------
+
+    mimeTypeName : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool QMimeType::inherits(const QString &mimeTypeName) const
+    return self.uglySide.call(
+        'ritual_ZNK9QMimeType8inheritsERK7QString', mimeTypeName,
+    )
+
+  def filterString(self) -> str:
+    """
+    Calls Qt's 'QString QMimeType::filterString() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#filterString
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QMimeType::filterString() const
+    return self.uglySide.call('ritual_ZNK9QMimeType12filterStringEv')
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QMimeType::QMimeType()', which is called
+    at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#QMimeType
+    """
+    #  QMimeType::QMimeType()
+    self._noteCreation(QMimeType, lambda: Rituals.call(
+        'ritual_ZN9QMimeTypeC1Ev',
+    ))
+
+  @overload(THIS)
+  def __init__(self, other: QMimeType) -> None:
+    """
+    Notes what was given, for Qt's 'QMimeType::QMimeType(const QMimeType
+    &other)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#QMimeType
+
+    Parameters
+    ----------
+
+    other : QMimeType
+      Passed on as a value: Qt reads the C++ QMimeType, which stays Python's
+      own.
+    """
+    #  QMimeType::QMimeType(const QMimeType &other)
+    self._noteCreation(QMimeType, lambda: Rituals.call(
+        'ritual_ZN9QMimeTypeC1ERKS_', self._valueOf(other),
+    ))
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

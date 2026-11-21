@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qeasingcurve.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QEasingCurveC1ENS_4TypeE": ["address", "int"],
+    "ritual_ZN12QEasingCurveC1ERKS_": ["address", "address"],
+    "ritual_ZN12QEasingCurveD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QEasingCurve9amplitudeEv": ["double", "address"],
+    "ritual_ZN12QEasingCurve12setAmplitudeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK12QEasingCurve6periodEv": ["double", "address"],
+    "ritual_ZN12QEasingCurve9setPeriodEd": ["nothing", "address", "double"],
+    "ritual_ZNK12QEasingCurve9overshootEv": ["double", "address"],
+    "ritual_ZN12QEasingCurve12setOvershootEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QEasingCurve21addCubicBezierSegmentERK7QPointFS2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QEasingCurve13addTCBSegmentERK7QPointFddd": [
+      "nothing", "address", "address", "double", "double", "double"
+    ],
+    "ritual_ZNK12QEasingCurve4typeEv": ["int", "address"],
+    "ritual_ZN12QEasingCurve7setTypeENS_4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QEasingCurve16valueForProgressEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZN12QEasingCurve15fromCubicBezierE7QPointFS0_": [
+      "address", "address", "address"
+    ]
+  }
+}

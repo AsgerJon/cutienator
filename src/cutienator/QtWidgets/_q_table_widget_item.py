@@ -15,15 +15,23 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QBrush
-from ..QtGui import QFont
-from ..QtGui import QIcon
-from ..QtCore import QSize
-from ..QtCore import QVariant
-from ._q_table_widget_item_item_type import ItemType
+from . import QTableWidgetItemItemType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QSize, QVariant
+  from ..QtGui import QBrush, QFont, QIcon
+  from . import QTableWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBrush = WAIT['QBrush']
+  QFont = WAIT['QFont']
+  QIcon = WAIT['QIcon']
+  QSize = WAIT['QSize']
+  QVariant = WAIT['QVariant']
 
 
 class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
@@ -81,11 +89,7 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QTableWidgetItem, and the names Qt has for
   #  the combinations of its flags enums.
-  ItemType = ItemType
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QTableWidget = WAIT['QTableWidget']
+  ItemType = QTableWidgetItemItemType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -150,7 +154,8 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK16QTableWidgetItem11tableWidgetEv',
     )
-    return self.QTableWidget._cuteAt(address)
+    from . import QTableWidget
+    return QTableWidget._cuteAt(address)
 
   def row(self) -> int:
     """
@@ -225,6 +230,7 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QIcon QTableWidgetItem::icon() const
     address = self.uglySide.call('ritual_ZNK16QTableWidgetItem4iconEv')
+    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
   def statusTip(self) -> str:
@@ -286,6 +292,7 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QFont QTableWidgetItem::font() const
     address = self.uglySide.call('ritual_ZNK16QTableWidgetItem4fontEv')
+    from ..QtGui import QFont
     return QFont._cuteOwning(address)
 
   def textAlignment(self) -> int:
@@ -316,6 +323,7 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK16QTableWidgetItem10backgroundEv',
     )
+    from ..QtGui import QBrush
     return QBrush._cuteOwning(address)
 
   def foreground(self) -> QBrush:
@@ -334,6 +342,7 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK16QTableWidgetItem10foregroundEv',
     )
+    from ..QtGui import QBrush
     return QBrush._cuteOwning(address)
 
   def checkState(self) -> Qt.CheckState:
@@ -369,6 +378,7 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QTableWidgetItem::sizeHint() const
     address = self.uglySide.call('ritual_ZNK16QTableWidgetItem8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(int)
@@ -392,6 +402,7 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QVariant QTableWidgetItem::data(int role) const
     address = self.uglySide.call('ritual_ZNK16QTableWidgetItem4dataEi', role)
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   def type(self) -> int:

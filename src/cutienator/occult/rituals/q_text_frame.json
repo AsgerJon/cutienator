@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QTextFrame10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QTextFrame2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QTextFrameC1EP13QTextDocument": ["address", "address"],
+    "ritual_ZN10QTextFrameD1Ev": ["nothing", "address"],
+    "ritual_ZN10QTextFrame14setFrameFormatERK16QTextFrameFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QTextFrame11frameFormatEv": ["address", "address"],
+    "ritual_ZNK10QTextFrame19firstCursorPositionEv": ["address", "address"],
+    "ritual_ZNK10QTextFrame18lastCursorPositionEv": ["address", "address"],
+    "ritual_ZNK10QTextFrame13firstPositionEv": ["int", "address"],
+    "ritual_ZNK10QTextFrame12lastPositionEv": ["int", "address"],
+    "ritual_ZNK10QTextFrame10layoutDataEv": ["address", "address"],
+    "ritual_ZN10QTextFrame13setLayoutDataEP20QTextFrameLayoutData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QTextFrame11parentFrameEv": ["address", "address"],
+    "ritual_ZNK10QTextFrame5beginEv": ["address", "address"],
+    "ritual_ZNK10QTextFrame3endEv": ["address", "address"]
+  }
+}

@@ -14,13 +14,13 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QAction
-from ..QtCore import QMetaObject
-from ._q_widget import QWidget
-from ._q_dock_widget_dock_widget_feature import DockWidgetFeature
+from . import QDockWidgetDockWidgetFeature, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject
+  from ..QtGui import QAction
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -75,8 +75,8 @@ class QDockWidget(QWidget):
 
   #  The enums Qt writes inside QDockWidget, and the names Qt has for the
   #  combinations of its flags enums.
-  DockWidgetFeature = DockWidgetFeature
-  DockWidgetFeatures = DockWidgetFeature
+  DockWidgetFeature = QDockWidgetDockWidgetFeature
+  DockWidgetFeatures = QDockWidgetDockWidgetFeature
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -160,6 +160,7 @@ class QDockWidget(QWidget):
     """
     #  const QMetaObject *QDockWidget::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QDockWidget10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def widget(self) -> Optional[QWidget]:
@@ -295,6 +296,7 @@ class QDockWidget(QWidget):
     address = self.uglySide.call(
         'ritual_ZNK11QDockWidget16toggleViewActionEv',
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

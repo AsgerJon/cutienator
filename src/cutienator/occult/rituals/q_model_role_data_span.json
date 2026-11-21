@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qabstractitemmodel.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN18QModelRoleDataSpanC1Ev": ["address"],
+    "ritual_ZN18QModelRoleDataSpanC1EP14QModelRoleDatax": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK18QModelRoleDataSpan4sizeEv": ["long long", "address"],
+    "ritual_ZNK18QModelRoleDataSpan6lengthEv": ["long long", "address"],
+    "ritual_ZNK18QModelRoleDataSpan4dataEv": ["address", "address"],
+    "ritual_ZNK18QModelRoleDataSpan5beginEv": ["address", "address"],
+    "ritual_ZNK18QModelRoleDataSpan3endEv": ["address", "address"],
+    "ritual_ZNK18QModelRoleDataSpan11dataForRoleEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QModelRoleDataSpanD1Ev": ["nothing", "address"]
+  }
+}

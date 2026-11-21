@@ -1,0 +1,101 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpaintengine.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QPaintEngineD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QPaintEngine8isActiveEv": ["bool", "address"],
+    "ritual_ZN12QPaintEngine9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QPaintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QPaintEngine3endEv": ["bool", "address"],
+    "ritual_ZN12QPaintEngine11updateStateERK17QPaintEngineState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPaintEngine9drawRectsEPK5QRecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QPaintEngine9drawRectsEPK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QPaintEngine9drawLinesEPK5QLinei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QPaintEngine9drawLinesEPK6QLineFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QPaintEngine11drawEllipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPaintEngine11drawEllipseERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPaintEngine8drawPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPaintEngine10drawPointsEPK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QPaintEngine10drawPointsEPK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QPaintEngine11drawPolygonEPK7QPointFiNS_15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN12QPaintEngine11drawPolygonEPK6QPointiNS_15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN12QPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QPaintEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN12QPaintEngine14setPaintDeviceEP12QPaintDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QPaintEngine11paintDeviceEv": ["address", "address"],
+    "ritual_ZN12QPaintEngine13setSystemClipERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QPaintEngine10systemClipEv": ["address", "address"],
+    "ritual_ZN12QPaintEngine13setSystemRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QPaintEngine10systemRectEv": ["address", "address"],
+    "ritual_ZNK12QPaintEngine16coordinateOffsetEv": ["address", "address"],
+    "ritual_ZNK12QPaintEngine4typeEv": ["int", "address"],
+    "ritual_ZN12QPaintEngine12fix_neg_rectEPiS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QPaintEngine9testDirtyE6QFlagsINS_9DirtyFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QPaintEngine8setDirtyE6QFlagsINS_9DirtyFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QPaintEngine10clearDirtyE6QFlagsINS_9DirtyFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QPaintEngine10hasFeatureE6QFlagsINS_18PaintEngineFeatureEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK12QPaintEngine7painterEv": ["address", "address"],
+    "ritual_ZN12QPaintEngine9syncStateEv": ["nothing", "address"],
+    "ritual_ZNK12QPaintEngine10isExtendedEv": ["bool", "address"],
+    "ritual_ZN12QPaintEngine12createPixmapE5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "address", "int"
+    ]
+  }
+}

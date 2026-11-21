@@ -11,33 +11,39 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_abstract_scroll_area import QAbstractScrollArea
-from ..QtGui import QBrush
-from ._q_graphics_scene import QGraphicsScene
-from ..QtCore import QMetaObject
-from ..QtGui import QPainter
-from ..QtGui import QPainterPath
-from ..QtCore import QPoint
-from ..QtCore import QPointF
-from ..QtGui import QPolygon
-from ..QtGui import QPolygonF
-from ..QtCore import QRect
-from ..QtCore import QRectF
-from ..QtCore import QSize
-from ..QtGui import QTransform
-from ..QtCore import QVariant
-from ._q_widget import QWidget
-from ._q_graphics_view_cache_mode_flag import CacheModeFlag
-from ._q_graphics_view_drag_mode import DragMode
-from ._q_graphics_view_optimization_flag import OptimizationFlag
-from ._q_graphics_view_viewport_anchor import ViewportAnchor
-from ._q_graphics_view_viewport_update_mode import ViewportUpdateMode
+from ..QtGui import QPainterRenderHint
+from . import QAbstractScrollArea, QGraphicsSceneSceneLayer
+from . import QGraphicsViewCacheModeFlag, QGraphicsViewDragMode
+from . import QGraphicsViewOptimizationFlag, QGraphicsViewViewportAnchor
+from . import QGraphicsViewViewportUpdateMode, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QPoint, QPointF, QRect, QRectF, QSize
+  from ..QtCore import QVariant
+  from ..QtGui import QBrush, QPainter, QPainterPath, QPolygon, QPolygonF
+  from ..QtGui import QTransform
+  from . import QGraphicsItem, QGraphicsScene
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBrush = WAIT['QBrush']
+  QGraphicsItem = WAIT['QGraphicsItem']
+  QGraphicsScene = WAIT['QGraphicsScene']
+  QPainter = WAIT['QPainter']
+  QPainterPath = WAIT['QPainterPath']
+  QPoint = WAIT['QPoint']
+  QPointF = WAIT['QPointF']
+  QPolygon = WAIT['QPolygon']
+  QPolygonF = WAIT['QPolygonF']
+  QRect = WAIT['QRect']
+  QRectF = WAIT['QRectF']
+  QTransform = WAIT['QTransform']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -56,7 +62,7 @@ class QGraphicsView(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QGraphicsView that has a ritual and that Python can
-  call so far, 53 names in all: 'metaObject', 'tr', 'sizeHint',
+  call so far, 54 names in all: 'metaObject', 'tr', 'sizeHint',
   'renderHints', 'setRenderHint', 'setRenderHints', 'alignment',
   'setAlignment', 'transformationAnchor', 'setTransformationAnchor',
   'resizeAnchor', 'setResizeAnchor', 'viewportUpdateMode',
@@ -67,28 +73,17 @@ class QGraphicsView(QAbstractScrollArea):
   'setInteractive', 'scene', 'setScene', 'sceneRect', 'setSceneRect',
   'transform', 'viewportTransform', 'isTransformed', 'setTransform',
   'resetTransform', 'rotate', 'scale', 'shear', 'translate', 'centerOn',
-  'ensureVisible', 'fitInView', 'render', 'mapToScene', 'mapFromScene',
-  'inputMethodQuery', 'backgroundBrush', 'setBackgroundBrush',
-  'foregroundBrush', 'setForegroundBrush', 'invalidateScene',
-  'updateSceneRect'. It can be made from Python, in 2 ways; see '__init__'.
+  'ensureVisible', 'fitInView', 'render', 'itemAt', 'mapToScene',
+  'mapFromScene', 'inputMethodQuery', 'backgroundBrush',
+  'setBackgroundBrush', 'foregroundBrush', 'setForegroundBrush',
+  'invalidateScene', 'updateSceneRect'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QGraphicsView::~QGraphicsView()': the destructor: Python never
     removes a C++ QGraphicsView.
-  - Qt's 'void QGraphicsView::centerOn(const QGraphicsItem *item)': names
-    'QGraphicsItem', which has no cute class yet.
-  - Qt's 'void QGraphicsView::ensureVisible(const QGraphicsItem *item, int
-    xmargin, int ymargin)': names 'QGraphicsItem', which has no cute class
-    yet.
-  - Qt's 'void QGraphicsView::fitInView(const QGraphicsItem *item,
-    Qt::AspectRatioMode aspectRadioMode)': names 'QGraphicsItem', which has
-    no cute class yet.
-  - Qt's 'QGraphicsItem *QGraphicsView::itemAt(const QPoint &pos) const':
-    gives 'QGraphicsItem', which has no cute class yet.
-  - Qt's 'QGraphicsItem *QGraphicsView::itemAt(int x, int y) const': gives
-    'QGraphicsItem', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -115,13 +110,13 @@ class QGraphicsView(QAbstractScrollArea):
 
   #  The enums Qt writes inside QGraphicsView, and the names Qt has for the
   #  combinations of its flags enums.
-  CacheModeFlag = CacheModeFlag
-  CacheMode = CacheModeFlag
-  DragMode = DragMode
-  OptimizationFlag = OptimizationFlag
-  OptimizationFlags = OptimizationFlag
-  ViewportAnchor = ViewportAnchor
-  ViewportUpdateMode = ViewportUpdateMode
+  CacheModeFlag = QGraphicsViewCacheModeFlag
+  CacheMode = QGraphicsViewCacheModeFlag
+  DragMode = QGraphicsViewDragMode
+  OptimizationFlag = QGraphicsViewOptimizationFlag
+  OptimizationFlags = QGraphicsViewOptimizationFlag
+  ViewportAnchor = QGraphicsViewViewportAnchor
+  ViewportUpdateMode = QGraphicsViewViewportUpdateMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -205,6 +200,7 @@ class QGraphicsView(QAbstractScrollArea):
     """
     #  const QMetaObject *QGraphicsView::metaObject() const
     address = self.uglySide.call('ritual_ZNK13QGraphicsView10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def sizeHint(self) -> QSize:
@@ -221,6 +217,7 @@ class QGraphicsView(QAbstractScrollArea):
     """
     #  QSize QGraphicsView::sizeHint() const
     address = self.uglySide.call('ritual_ZNK13QGraphicsView8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def renderHints(self) -> QPainter.RenderHints:
@@ -236,7 +233,7 @@ class QGraphicsView(QAbstractScrollArea):
       The value standing for the combination Qt gave back.
     """
     #  QPainter::RenderHints QGraphicsView::renderHints() const
-    return QPainter.RenderHints(self.uglySide.call(
+    return QPainterRenderHint(self.uglySide.call(
         'ritual_ZNK13QGraphicsView11renderHintsEv',
     ))
 
@@ -273,7 +270,7 @@ class QGraphicsView(QAbstractScrollArea):
       gives.
     """
     #  ViewportAnchor QGraphicsView::transformationAnchor() const
-    return ViewportAnchor(self.uglySide.call(
+    return QGraphicsView.ViewportAnchor(self.uglySide.call(
         'ritual_ZNK13QGraphicsView20transformationAnchorEv',
     ))
 
@@ -292,7 +289,7 @@ class QGraphicsView(QAbstractScrollArea):
       gives.
     """
     #  ViewportAnchor QGraphicsView::resizeAnchor() const
-    return ViewportAnchor(self.uglySide.call(
+    return QGraphicsView.ViewportAnchor(self.uglySide.call(
         'ritual_ZNK13QGraphicsView12resizeAnchorEv',
     ))
 
@@ -313,7 +310,7 @@ class QGraphicsView(QAbstractScrollArea):
       'ViewportUpdateMode(number)' gives.
     """
     #  ViewportUpdateMode QGraphicsView::viewportUpdateMode() const
-    return ViewportUpdateMode(self.uglySide.call(
+    return QGraphicsView.ViewportUpdateMode(self.uglySide.call(
         'ritual_ZNK13QGraphicsView18viewportUpdateModeEv',
     ))
 
@@ -349,7 +346,7 @@ class QGraphicsView(QAbstractScrollArea):
       no name it is the member without a name that 'DragMode(number)' gives.
     """
     #  DragMode QGraphicsView::dragMode() const
-    return DragMode(self.uglySide.call(
+    return QGraphicsView.DragMode(self.uglySide.call(
         'ritual_ZNK13QGraphicsView8dragModeEv',
     ))
 
@@ -390,6 +387,7 @@ class QGraphicsView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK13QGraphicsView14rubberBandRectEv',
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def cacheMode(self) -> CacheMode:
@@ -433,6 +431,7 @@ class QGraphicsView(QAbstractScrollArea):
     """
     #  QGraphicsScene *QGraphicsView::scene() const
     address = self.uglySide.call('ritual_ZNK13QGraphicsView5sceneEv')
+    from . import QGraphicsScene
     return QGraphicsScene._cuteAt(address)
 
   def sceneRect(self) -> QRectF:
@@ -449,6 +448,7 @@ class QGraphicsView(QAbstractScrollArea):
     """
     #  QRectF QGraphicsView::sceneRect() const
     address = self.uglySide.call('ritual_ZNK13QGraphicsView9sceneRectEv')
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   def transform(self) -> QTransform:
@@ -465,6 +465,7 @@ class QGraphicsView(QAbstractScrollArea):
     """
     #  QTransform QGraphicsView::transform() const
     address = self.uglySide.call('ritual_ZNK13QGraphicsView9transformEv')
+    from ..QtGui import QTransform
     return QTransform._cuteOwning(address)
 
   def viewportTransform(self) -> QTransform:
@@ -484,6 +485,7 @@ class QGraphicsView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK13QGraphicsView17viewportTransformEv',
     )
+    from ..QtGui import QTransform
     return QTransform._cuteOwning(address)
 
   def isTransformed(self) -> bool:
@@ -494,6 +496,63 @@ class QGraphicsView(QAbstractScrollArea):
     """
     #  bool QGraphicsView::isTransformed() const
     return self.uglySide.call('ritual_ZNK13QGraphicsView13isTransformedEv')
+
+  @overload(QPoint)
+  def itemAt(self, pos: QPoint) -> Optional[QGraphicsItem]:
+    """
+    Calls Qt's 'QGraphicsItem *QGraphicsView::itemAt(const QPoint &pos)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#itemAt
+
+    Parameters
+    ----------
+
+    pos : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    Optional[QGraphicsItem]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsItem *QGraphicsView::itemAt(const QPoint &pos) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsView6itemAtERK6QPoint', self._valueOf(pos),
+    )
+    from . import QGraphicsItem
+    return QGraphicsItem._cuteAt(address)
+
+  @overload(int, int)
+  def itemAt(self, x: int, y: int) -> Optional[QGraphicsItem]:
+    """
+    Calls Qt's 'QGraphicsItem *QGraphicsView::itemAt(int x, int y) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#itemAt
+
+    Parameters
+    ----------
+
+    x : int
+      Passed on as it is.
+
+    y : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Optional[QGraphicsItem]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsItem *QGraphicsView::itemAt(int x, int y) const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsView6itemAtEii', x, y)
+    from . import QGraphicsItem
+    return QGraphicsItem._cuteAt(address)
 
   @overload(QPoint)
   def mapToScene(self, point: QPoint) -> QPointF:
@@ -521,6 +580,7 @@ class QGraphicsView(QAbstractScrollArea):
         'ritual_ZNK13QGraphicsView10mapToSceneERK6QPoint',
         self._valueOf(point),
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(QRect)
@@ -548,6 +608,7 @@ class QGraphicsView(QAbstractScrollArea):
         'ritual_ZNK13QGraphicsView10mapToSceneERK5QRect',
         self._valueOf(rect),
     )
+    from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
 
   @overload(QPolygon)
@@ -576,6 +637,7 @@ class QGraphicsView(QAbstractScrollArea):
         'ritual_ZNK13QGraphicsView10mapToSceneERK8QPolygon',
         self._valueOf(polygon),
     )
+    from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
 
   @overload(QPainterPath)
@@ -604,6 +666,7 @@ class QGraphicsView(QAbstractScrollArea):
         'ritual_ZNK13QGraphicsView10mapToSceneERK12QPainterPath',
         self._valueOf(path),
     )
+    from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
   @overload(int, int)
@@ -632,6 +695,7 @@ class QGraphicsView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK13QGraphicsView10mapToSceneEii', x, y,
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(int, int, int, int)
@@ -667,6 +731,7 @@ class QGraphicsView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK13QGraphicsView10mapToSceneEiiii', x, y, w, h,
     )
+    from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
 
   @overload(QPointF)
@@ -695,6 +760,7 @@ class QGraphicsView(QAbstractScrollArea):
         'ritual_ZNK13QGraphicsView12mapFromSceneERK7QPointF',
         self._valueOf(point),
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @overload(QRectF)
@@ -723,6 +789,7 @@ class QGraphicsView(QAbstractScrollArea):
         'ritual_ZNK13QGraphicsView12mapFromSceneERK6QRectF',
         self._valueOf(rect),
     )
+    from ..QtGui import QPolygon
     return QPolygon._cuteOwning(address)
 
   @overload(QPolygonF)
@@ -751,6 +818,7 @@ class QGraphicsView(QAbstractScrollArea):
         'ritual_ZNK13QGraphicsView12mapFromSceneERK9QPolygonF',
         self._valueOf(polygon),
     )
+    from ..QtGui import QPolygon
     return QPolygon._cuteOwning(address)
 
   @overload(QPainterPath)
@@ -780,6 +848,7 @@ class QGraphicsView(QAbstractScrollArea):
         'ritual_ZNK13QGraphicsView12mapFromSceneERK12QPainterPath',
         self._valueOf(path),
     )
+    from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
   @overload(float, float)
@@ -808,6 +877,7 @@ class QGraphicsView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK13QGraphicsView12mapFromSceneEdd', x, y,
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @overload(float, float, float, float)
@@ -844,6 +914,7 @@ class QGraphicsView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK13QGraphicsView12mapFromSceneEdddd', x, y, w, h,
     )
+    from ..QtGui import QPolygon
     return QPolygon._cuteOwning(address)
 
   @overload(Qt.InputMethodQuery)
@@ -874,6 +945,7 @@ class QGraphicsView(QAbstractScrollArea):
         'E',
         query.value,
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   def backgroundBrush(self) -> QBrush:
@@ -892,6 +964,7 @@ class QGraphicsView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK13QGraphicsView15backgroundBrushEv',
     )
+    from ..QtGui import QBrush
     return QBrush._cuteOwning(address)
 
   def foregroundBrush(self) -> QBrush:
@@ -910,14 +983,15 @@ class QGraphicsView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK13QGraphicsView15foregroundBrushEv',
     )
+    from ..QtGui import QBrush
     return QBrush._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QPainter.RenderHint)
-  @overload(QPainter.RenderHint, bool)
+  @overload(QPainterRenderHint)
+  @overload(QPainterRenderHint, bool)
   def setRenderHint(
       self,
       hint: QPainter.RenderHint,
@@ -945,7 +1019,7 @@ class QGraphicsView(QAbstractScrollArea):
         hint.value, enabled,
     )
 
-  @overload(QPainter.RenderHints)
+  @overload(QPainterRenderHint)
   def setRenderHints(self, hints: QPainter.RenderHints) -> None:
     """
     Calls Qt's 'void QGraphicsView::setRenderHints(QPainter::RenderHints
@@ -1534,6 +1608,27 @@ class QGraphicsView(QAbstractScrollArea):
     #  void QGraphicsView::centerOn(qreal x, qreal y)
     self.uglySide.call('ritual_ZN13QGraphicsView8centerOnEdd', x, y)
 
+  @overload(QGraphicsItem)
+  @overload(NoneType)
+  def centerOn(self, item: Optional[QGraphicsItem]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::centerOn(const QGraphicsItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#centerOn
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::centerOn(const QGraphicsItem *item)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsView8centerOnEPK13QGraphicsItem',
+        self._addressOf(item),
+    )
+
   @overload(QRectF)
   @overload(QRectF, int)
   @overload(QRectF, int, int)
@@ -1615,6 +1710,44 @@ class QGraphicsView(QAbstractScrollArea):
         x, y, w, h, xmargin, ymargin,
     )
 
+  @overload(QGraphicsItem)
+  @overload(NoneType)
+  @overload(QGraphicsItem, int)
+  @overload(NoneType, int)
+  @overload(QGraphicsItem, int, int)
+  @overload(NoneType, int, int)
+  def ensureVisible(
+      self,
+      item: Optional[QGraphicsItem],
+      xmargin: int = 50,
+      ymargin: int = 50,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::ensureVisible(const QGraphicsItem *item,
+    int xmargin, int ymargin)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#ensureVisible
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    xmargin : int
+      Passed on as it is. May be left out, as in Qt: it is then 50.
+
+    ymargin : int
+      Passed on as it is. May be left out, as in Qt: it is then 50.
+    """
+    #  void QGraphicsView::ensureVisible(const QGraphicsItem *item, int
+    #      xmargin, int ymargin)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsView13ensureVisibleEPK13QGraphicsItemii',
+        self._addressOf(item), xmargin, ymargin,
+    )
+
   @overload(QRectF)
   @overload(QRectF, Qt.AspectRatioMode)
   def fitInView(
@@ -1690,6 +1823,41 @@ class QGraphicsView(QAbstractScrollArea):
         x, y, w, h, aspectRadioMode.value,
     )
 
+  @overload(QGraphicsItem)
+  @overload(NoneType)
+  @overload(QGraphicsItem, Qt.AspectRatioMode)
+  @overload(NoneType, Qt.AspectRatioMode)
+  def fitInView(
+      self,
+      item: Optional[QGraphicsItem],
+      aspectRadioMode: Qt.AspectRatioMode = (
+          Qt.AspectRatioMode.IgnoreAspectRatio),
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::fitInView(const QGraphicsItem *item,
+    Qt::AspectRatioMode aspectRadioMode)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#fitInView
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    aspectRadioMode : Qt.AspectRatioMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.AspectRatioMode.IgnoreAspectRatio.
+    """
+    #  void QGraphicsView::fitInView(const QGraphicsItem *item,
+    #      Qt::AspectRatioMode aspectRadioMode)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsView9fitInViewEPK13QGraphicsItemN2Qt15AspectRa'
+        'tioModeE',
+        self._addressOf(item), aspectRadioMode.value,
+    )
+
   @overload(QPainter)
   @overload(NoneType)
   @overload(QPainter, QRectF)
@@ -1734,8 +1902,10 @@ class QGraphicsView(QAbstractScrollArea):
     #  void QGraphicsView::render(QPainter *painter, const QRectF &target,
     #      const QRect &source, Qt::AspectRatioMode aspectRatioMode)
     if target is None:
+      from ..QtCore import QRectF
       target = QRectF()
     if source is None:
+      from ..QtCore import QRect
       source = QRect()
     self.uglySide.call(
         'ritual_ZN13QGraphicsView6renderEP8QPainterRK6QRectFRK5QRectN2Qt15A'
@@ -1746,12 +1916,12 @@ class QGraphicsView(QAbstractScrollArea):
 
   @overload()
   @overload(QRectF)
-  @overload(QRectF, QGraphicsScene.SceneLayers)
+  @overload(QRectF, QGraphicsSceneSceneLayer)
   def invalidateScene(
       self,
       rect: Optional[QRectF] = None,
       layers: QGraphicsScene.SceneLayers = (
-          QGraphicsScene.SceneLayers.AllLayers),
+          QGraphicsSceneSceneLayer.AllLayers),
   ) -> None:
     """
     Calls Qt's 'void QGraphicsView::invalidateScene(const QRectF &rect,
@@ -1768,11 +1938,12 @@ class QGraphicsView(QAbstractScrollArea):
 
     layers : QGraphicsScene.SceneLayers
       Passed on as its number. May be left out, as in Qt: it is then
-      QGraphicsScene.SceneLayers.AllLayers.
+      QGraphicsSceneSceneLayer.AllLayers.
     """
     #  void QGraphicsView::invalidateScene(const QRectF &rect,
     #      QGraphicsScene::SceneLayers layers)
     if rect is None:
+      from ..QtCore import QRectF
       rect = QRectF()
     self.uglySide.call(
         'ritual_ZN13QGraphicsView15invalidateSceneERK6QRectF6QFlagsIN14QGra'

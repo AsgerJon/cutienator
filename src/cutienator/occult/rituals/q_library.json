@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qlibrary.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QLibrary10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QLibrary2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8QLibraryC1EP7QObject": ["address", "address"],
+    "ritual_ZN8QLibraryC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN8QLibraryC1ERK7QStringiP7QObject": [
+      "address", "text", "int", "address"
+    ],
+    "ritual_ZN8QLibraryC1ERK7QStringS2_P7QObject": [
+      "address", "text", "text", "address"
+    ],
+    "ritual_ZN8QLibraryD1Ev": ["nothing", "address"],
+    "ritual_ZN8QLibrary4loadEv": ["bool", "address"],
+    "ritual_ZN8QLibrary6unloadEv": ["bool", "address"],
+    "ritual_ZNK8QLibrary8isLoadedEv": ["bool", "address"],
+    "ritual_ZN8QLibrary9isLibraryERK7QString": ["bool", "text"],
+    "ritual_ZN8QLibrary11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QLibrary8fileNameEv": ["text", "address"],
+    "ritual_ZN8QLibrary21setFileNameAndVersionERK7QStringi": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN8QLibrary21setFileNameAndVersionERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZNK8QLibrary11errorStringEv": ["text", "address"],
+    "ritual_ZN8QLibrary12setLoadHintsE6QFlagsINS_8LoadHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QLibrary9loadHintsEv": ["int", "address"]
+  }
+}

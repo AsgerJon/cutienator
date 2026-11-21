@@ -14,12 +14,12 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QMetaObject
-from ._q_widget import QWidget
-from ._q_abstract_slider_slider_action import SliderAction
+from . import QAbstractSliderSliderAction, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -76,7 +76,7 @@ class QAbstractSlider(QWidget):
 
   #  The enums Qt writes inside QAbstractSlider, and the names Qt has for the
   #  combinations of its flags enums.
-  SliderAction = SliderAction
+  SliderAction = QAbstractSliderSliderAction
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -160,6 +160,7 @@ class QAbstractSlider(QWidget):
     """
     #  const QMetaObject *QAbstractSlider::metaObject() const
     address = self.uglySide.call('ritual_ZNK15QAbstractSlider10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def orientation(self) -> Qt.Orientation:

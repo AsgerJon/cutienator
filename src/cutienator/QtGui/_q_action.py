@@ -13,19 +13,24 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_font import QFont
-from ._q_icon import QIcon
-from ._q_key_sequence import QKeySequence
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ..QtCore import QVariant
-from ._q_action_action_event import ActionEvent
-from ._q_action_menu_role import MenuRole
-from ._q_action_priority import Priority
+from ..QtCore import Qt, QObject
+from . import QActionActionEvent, QActionMenuRole, QActionPriority
+from . import QKeySequenceStandardKey
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QVariant
+  from . import QActionGroup, QFont, QIcon, QKeySequence
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QActionGroup = WAIT['QActionGroup']
+  QFont = WAIT['QFont']
+  QIcon = WAIT['QIcon']
+  QKeySequence = WAIT['QKeySequence']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -88,13 +93,9 @@ class QAction(QObject):
 
   #  The enums Qt writes inside QAction, and the names Qt has for the
   #  combinations of its flags enums.
-  ActionEvent = ActionEvent
-  MenuRole = MenuRole
-  Priority = Priority
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QActionGroup = WAIT['QActionGroup']
+  ActionEvent = QActionActionEvent
+  MenuRole = QActionMenuRole
+  Priority = QActionPriority
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -177,6 +178,7 @@ class QAction(QObject):
     """
     #  const QMetaObject *QAction::metaObject() const
     address = self.uglySide.call('ritual_ZNK7QAction10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def actionGroup(self) -> Optional[QActionGroup]:
@@ -194,7 +196,8 @@ class QAction(QObject):
     """
     #  QActionGroup *QAction::actionGroup() const
     address = self.uglySide.call('ritual_ZNK7QAction11actionGroupEv')
-    return self.QActionGroup._cuteAt(address)
+    from . import QActionGroup
+    return QActionGroup._cuteAt(address)
 
   def icon(self) -> QIcon:
     """
@@ -210,6 +213,7 @@ class QAction(QObject):
     """
     #  QIcon QAction::icon() const
     address = self.uglySide.call('ritual_ZNK7QAction4iconEv')
+    from . import QIcon
     return QIcon._cuteOwning(address)
 
   def text(self) -> str:
@@ -301,7 +305,9 @@ class QAction(QObject):
       no name it is the member without a name that 'Priority(number)' gives.
     """
     #  Priority QAction::priority() const
-    return Priority(self.uglySide.call('ritual_ZNK7QAction8priorityEv'))
+    return QAction.Priority(self.uglySide.call(
+        'ritual_ZNK7QAction8priorityEv',
+    ))
 
   def isSeparator(self) -> bool:
     """
@@ -326,6 +332,7 @@ class QAction(QObject):
     """
     #  QKeySequence QAction::shortcut() const
     address = self.uglySide.call('ritual_ZNK7QAction8shortcutEv')
+    from . import QKeySequence
     return QKeySequence._cuteOwning(address)
 
   def shortcutContext(self) -> Qt.ShortcutContext:
@@ -370,6 +377,7 @@ class QAction(QObject):
     """
     #  QFont QAction::font() const
     address = self.uglySide.call('ritual_ZNK7QAction4fontEv')
+    from . import QFont
     return QFont._cuteOwning(address)
 
   def isCheckable(self) -> bool:
@@ -395,6 +403,7 @@ class QAction(QObject):
     """
     #  QVariant QAction::data() const
     address = self.uglySide.call('ritual_ZNK7QAction4dataEv')
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   def isChecked(self) -> bool:
@@ -438,7 +447,9 @@ class QAction(QObject):
       no name it is the member without a name that 'MenuRole(number)' gives.
     """
     #  MenuRole QAction::menuRole() const
-    return MenuRole(self.uglySide.call('ritual_ZNK7QAction8menuRoleEv'))
+    return QAction.MenuRole(self.uglySide.call(
+        'ritual_ZNK7QAction8menuRoleEv',
+    ))
 
   def isIconVisibleInMenu(self) -> bool:
     """
@@ -466,20 +477,19 @@ class QAction(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @overload(QActionGroup)
-  def setActionGroup(self, group: QActionGroup) -> None:
+  @overload(NoneType)
+  def setActionGroup(self, group: Optional[QActionGroup]) -> None:
     """
     Calls Qt's 'void QAction::setActionGroup(QActionGroup *group)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qaction.html#setActionGroup
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    group : QActionGroup
-      Passed on as the address of its C++ object.
+    group : Optional[QActionGroup]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QAction::setActionGroup(QActionGroup *group)
     self.uglySide.call(
@@ -641,7 +651,7 @@ class QAction(QObject):
         self._valueOf(shortcut),
     )
 
-  @overload(QKeySequence.StandardKey)
+  @overload(QKeySequenceStandardKey)
   def setShortcuts(self, a0: QKeySequence.StandardKey) -> None:
     """
     Calls Qt's 'void QAction::setShortcuts(QKeySequence::StandardKey a0)'.

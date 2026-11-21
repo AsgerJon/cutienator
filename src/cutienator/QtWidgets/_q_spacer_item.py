@@ -11,15 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_layout_item import QLayoutItem
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_size_policy import QSizePolicy
+from . import QLayoutItem, QSizePolicyPolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QRect, QSize
+  from . import QSizePolicy
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QRect = WAIT['QRect']
 
 
 class QSpacerItem(QLayoutItem):
@@ -105,6 +111,7 @@ class QSpacerItem(QLayoutItem):
     """
     #  QSize QSpacerItem::sizeHint() const
     address = self.uglySide.call('ritual_ZNK11QSpacerItem8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSize(self) -> QSize:
@@ -121,6 +128,7 @@ class QSpacerItem(QLayoutItem):
     """
     #  QSize QSpacerItem::minimumSize() const
     address = self.uglySide.call('ritual_ZNK11QSpacerItem11minimumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def maximumSize(self) -> QSize:
@@ -137,6 +145,7 @@ class QSpacerItem(QLayoutItem):
     """
     #  QSize QSpacerItem::maximumSize() const
     address = self.uglySide.call('ritual_ZNK11QSpacerItem11maximumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def expandingDirections(self) -> Qt.Orientations:
@@ -180,6 +189,7 @@ class QSpacerItem(QLayoutItem):
     """
     #  QRect QSpacerItem::geometry() const
     address = self.uglySide.call('ritual_ZNK11QSpacerItem8geometryEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def sizePolicy(self) -> QSizePolicy:
@@ -196,6 +206,7 @@ class QSpacerItem(QLayoutItem):
     """
     #  QSizePolicy QSpacerItem::sizePolicy() const
     address = self.uglySide.call('ritual_ZNK11QSpacerItem10sizePolicyEv')
+    from . import QSizePolicy
     return QSizePolicy._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -233,14 +244,14 @@ class QSpacerItem(QLayoutItem):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @overload(int, int)
-  @overload(int, int, QSizePolicy.Policy)
-  @overload(int, int, QSizePolicy.Policy, QSizePolicy.Policy)
+  @overload(int, int, QSizePolicyPolicy)
+  @overload(int, int, QSizePolicyPolicy, QSizePolicyPolicy)
   def __init__(
       self,
       w: int,
       h: int,
-      hData: QSizePolicy.Policy = QSizePolicy.Policy.Minimum,
-      vData: QSizePolicy.Policy = QSizePolicy.Policy.Minimum,
+      hData: QSizePolicy.Policy = QSizePolicyPolicy.Minimum,
+      vData: QSizePolicy.Policy = QSizePolicyPolicy.Minimum,
   ) -> None:
     """
     Notes what was given, for Qt's 'QSpacerItem::QSpacerItem(int w, int h,
@@ -260,11 +271,11 @@ class QSpacerItem(QLayoutItem):
 
     hData : QSizePolicy.Policy
       Passed on as its number. May be left out, as in Qt: it is then
-      QSizePolicy.Policy.Minimum.
+      QSizePolicyPolicy.Minimum.
 
     vData : QSizePolicy.Policy
       Passed on as its number. May be left out, as in Qt: it is then
-      QSizePolicy.Policy.Minimum.
+      QSizePolicyPolicy.Minimum.
     """
     #  QSpacerItem::QSpacerItem(int w, int h, QSizePolicy::Policy hData,
     #      QSizePolicy::Policy vData)
@@ -294,14 +305,14 @@ class QSpacerItem(QLayoutItem):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @overload(int, int)
-  @overload(int, int, QSizePolicy.Policy)
-  @overload(int, int, QSizePolicy.Policy, QSizePolicy.Policy)
+  @overload(int, int, QSizePolicyPolicy)
+  @overload(int, int, QSizePolicyPolicy, QSizePolicyPolicy)
   def changeSize(
       self,
       w: int,
       h: int,
-      hData: QSizePolicy.Policy = QSizePolicy.Policy.Minimum,
-      vData: QSizePolicy.Policy = QSizePolicy.Policy.Minimum,
+      hData: QSizePolicy.Policy = QSizePolicyPolicy.Minimum,
+      vData: QSizePolicy.Policy = QSizePolicyPolicy.Minimum,
   ) -> None:
     """
     Calls Qt's 'void QSpacerItem::changeSize(int w, int h,
@@ -320,11 +331,11 @@ class QSpacerItem(QLayoutItem):
 
     hData : QSizePolicy.Policy
       Passed on as its number. May be left out, as in Qt: it is then
-      QSizePolicy.Policy.Minimum.
+      QSizePolicyPolicy.Minimum.
 
     vData : QSizePolicy.Policy
       Passed on as its number. May be left out, as in Qt: it is then
-      QSizePolicy.Policy.Minimum.
+      QSizePolicyPolicy.Minimum.
     """
     #  void QSpacerItem::changeSize(int w, int h, QSizePolicy::Policy hData,
     #      QSizePolicy::Policy vData)

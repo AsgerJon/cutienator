@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicseffect.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QGraphicsBlurEffect10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QGraphicsBlurEffect2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QGraphicsBlurEffectC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QGraphicsBlurEffectD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QGraphicsBlurEffect15boundingRectForERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsBlurEffect10blurRadiusEv": ["double", "address"],
+    "ritual_ZNK19QGraphicsBlurEffect9blurHintsEv": ["int", "address"],
+    "ritual_ZN19QGraphicsBlurEffect13setBlurRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QGraphicsBlurEffect12setBlurHintsE6QFlagsINS_8BlurHintEE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

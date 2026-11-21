@@ -11,16 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_byte_array import QByteArray
-from ._q_i_o_device import QIODevice
-from ._q_i_o_device_base import QIODeviceBase
-from ._q_meta_object import QMetaObject
-from ._q_object import QObject
+from . import QIODevice, QIODeviceBaseOpenModeFlag, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QByteArray, QIODeviceBase, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -151,6 +154,7 @@ class QBuffer(QIODevice):
     """
     #  const QMetaObject *QBuffer::metaObject() const
     address = self.uglySide.call('ritual_ZNK7QBuffer10metaObjectEv')
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def buffer(self) -> QByteArray:
@@ -167,6 +171,7 @@ class QBuffer(QIODevice):
     """
     #  const QByteArray &QBuffer::buffer() const
     address = self.uglySide.call('ritual_ZNK7QBuffer6bufferEv')
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   def data(self) -> QByteArray:
@@ -183,6 +188,7 @@ class QBuffer(QIODevice):
     """
     #  const QByteArray &QBuffer::data() const
     address = self.uglySide.call('ritual_ZNK7QBuffer4dataEv')
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   def size(self) -> int:
@@ -373,7 +379,7 @@ class QBuffer(QIODevice):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QIODeviceBase.OpenMode)
+  @overload(QIODeviceBaseOpenModeFlag)
   def open(self, openMode: QIODeviceBase.OpenMode) -> bool:
     """
     Calls Qt's 'bool QBuffer::open(OpenMode openMode)'.

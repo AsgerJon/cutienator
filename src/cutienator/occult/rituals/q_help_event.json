@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QHelpEvent5cloneEv": ["address", "address"],
+    "ritual_ZN10QHelpEventD1Ev": ["nothing", "address"],
+    "ritual_ZN10QHelpEventC1EN6QEvent4TypeERK6QPointS4_": [
+      "address", "int", "address", "address"
+    ],
+    "ritual_ZNK10QHelpEvent1xEv": ["int", "address"],
+    "ritual_ZNK10QHelpEvent1yEv": ["int", "address"],
+    "ritual_ZNK10QHelpEvent7globalXEv": ["int", "address"],
+    "ritual_ZNK10QHelpEvent7globalYEv": ["int", "address"],
+    "ritual_ZNK10QHelpEvent3posEv": ["address", "address"],
+    "ritual_ZNK10QHelpEvent9globalPosEv": ["address", "address"]
+  }
+}

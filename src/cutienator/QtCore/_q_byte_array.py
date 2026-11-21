@@ -12,15 +12,19 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_byte_array_view import QByteArrayView
-from ._q_byte_array_base64_decoding_status import Base64DecodingStatus
-from ._q_byte_array_base64_option import Base64Option
+from . import Qt, QByteArrayBase64DecodingStatus, QByteArrayBase64Option
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QByteArrayView
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QByteArrayView = WAIT['QByteArrayView']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -156,9 +160,9 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QByteArray, and the names Qt has for the
   #  combinations of its flags enums.
-  Base64DecodingStatus = Base64DecodingStatus
-  Base64Option = Base64Option
-  Base64Options = Base64Option
+  Base64DecodingStatus = QByteArrayBase64DecodingStatus
+  Base64Option = QByteArrayBase64Option
+  Base64Options = QByteArrayBase64Option
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

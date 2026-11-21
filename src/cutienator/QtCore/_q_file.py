@@ -11,16 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_byte_array import QByteArray
-from ._q_file_device import QFileDevice
-from ._q_i_o_device_base import QIODeviceBase
-from ._q_meta_object import QMetaObject
-from ._q_object import QObject
+from . import QFileDevice, QIODeviceBaseOpenModeFlag, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QByteArray, QIODeviceBase, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -167,6 +170,7 @@ class QFile(QFileDevice):
     address = Rituals.call(
         'ritual_ZN5QFile10encodeNameERK7QString', fileName,
     )
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   @staticmethod
@@ -267,6 +271,7 @@ class QFile(QFileDevice):
     """
     #  const QMetaObject *QFile::metaObject() const
     address = self.uglySide.call('ritual_ZNK5QFile10metaObjectEv')
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def fileName(self) -> str:
@@ -532,7 +537,7 @@ class QFile(QFileDevice):
     #  bool QFile::link(const QString &newName)
     return self.uglySide.call('ritual_ZN5QFile4linkERK7QString', newName)
 
-  @overload(QIODeviceBase.OpenMode)
+  @overload(QIODeviceBaseOpenModeFlag)
   def open(self, flags: QIODeviceBase.OpenMode) -> bool:
     """
     Calls Qt's 'bool QFile::open(OpenMode flags)'.
@@ -551,7 +556,7 @@ class QFile(QFileDevice):
         flags.value,
     )
 
-  @overload(QIODeviceBase.OpenMode, QFileDevice.Permissions)
+  @overload(QIODeviceBaseOpenModeFlag, QFileDevice.Permissions)
   def open(
       self,
       flags: QIODeviceBase.OpenMode,
@@ -578,8 +583,8 @@ class QFile(QFileDevice):
         flags.value, permissions.value,
     )
 
-  @overload(int, QIODeviceBase.OpenMode)
-  @overload(int, QIODeviceBase.OpenMode, QFileDevice.FileHandleFlags)
+  @overload(int, QIODeviceBaseOpenModeFlag)
+  @overload(int, QIODeviceBaseOpenModeFlag, QFileDevice.FileHandleFlags)
   def open(
       self,
       fd: int,

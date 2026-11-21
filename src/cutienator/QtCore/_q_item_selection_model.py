@@ -11,16 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_abstract_item_model import QAbstractItemModel
-from ._q_meta_object import QMetaObject
-from ._q_model_index import QModelIndex
-from ._q_object import QObject
-from ._q_item_selection_model_selection_flag import SelectionFlag
+from . import QItemSelectionModelSelectionFlag, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QAbstractItemModel, QItemSelection, QMetaObject, QModelIndex
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractItemModel = WAIT['QAbstractItemModel']
+  QItemSelection = WAIT['QItemSelection']
+  QModelIndex = WAIT['QModelIndex']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -39,26 +44,21 @@ class QItemSelectionModel(QObject):
   -----------
 
   Every function of Qt's QItemSelectionModel that has a ritual and that
-  Python can call so far, 17 names in all: 'metaObject', 'tr',
+  Python can call so far, 18 names in all: 'metaObject', 'tr',
   'currentIndex', 'isSelected', 'isRowSelected', 'isColumnSelected',
   'rowIntersectsSelection', 'columnIntersectsSelection', 'hasSelection',
-  'model', 'setModel', 'setCurrentIndex', 'select', 'clear', 'reset',
-  'clearSelection', 'clearCurrentIndex'. It can be made from Python, in 2
-  ways; see '__init__'.
+  'selection', 'model', 'setModel', 'setCurrentIndex', 'select', 'clear',
+  'reset', 'clearSelection', 'clearCurrentIndex'. It can be made from Python,
+  in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QItemSelectionModel::~QItemSelectionModel()': the destructor:
     Python never removes a C++ QItemSelectionModel.
-  - Qt's 'const QItemSelection QItemSelectionModel::selection() const': gives
-    'QItemSelection', which has no cute class yet.
   - Qt's 'QAbstractItemModel *QItemSelectionModel::model()': takes in Python
     what 'const QAbstractItemModel *QItemSelectionModel::model() const'
     takes.
-  - Qt's 'void QItemSelectionModel::select(const QItemSelection &selection,
-    QItemSelectionModel::SelectionFlags command)': names 'QItemSelection',
-    which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -84,8 +84,8 @@ class QItemSelectionModel(QObject):
 
   #  The enums Qt writes inside QItemSelectionModel, and the names Qt has for
   #  the combinations of its flags enums.
-  SelectionFlag = SelectionFlag
-  SelectionFlags = SelectionFlag
+  SelectionFlag = QItemSelectionModelSelectionFlag
+  SelectionFlags = QItemSelectionModelSelectionFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -172,6 +172,7 @@ class QItemSelectionModel(QObject):
     address = self.uglySide.call(
         'ritual_ZNK19QItemSelectionModel10metaObjectEv',
     )
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def currentIndex(self) -> QModelIndex:
@@ -191,6 +192,7 @@ class QItemSelectionModel(QObject):
     address = self.uglySide.call(
         'ritual_ZNK19QItemSelectionModel12currentIndexEv',
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -243,6 +245,7 @@ class QItemSelectionModel(QObject):
     #  bool QItemSelectionModel::isRowSelected(int row, const QModelIndex
     #      &parent) const
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZNK19QItemSelectionModel13isRowSelectedEiRK11QModelIndex',
@@ -277,6 +280,7 @@ class QItemSelectionModel(QObject):
     #  bool QItemSelectionModel::isColumnSelected(int column, const
     #      QModelIndex &parent) const
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZNK19QItemSelectionModel16isColumnSelectedEiRK11QModelIndex',
@@ -311,6 +315,7 @@ class QItemSelectionModel(QObject):
     #  bool QItemSelectionModel::rowIntersectsSelection(int row, const
     #      QModelIndex &parent) const
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZNK19QItemSelectionModel22rowIntersectsSelectionEiRK11QMode'
@@ -346,6 +351,7 @@ class QItemSelectionModel(QObject):
     #  bool QItemSelectionModel::columnIntersectsSelection(int column, const
     #      QModelIndex &parent) const
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZNK19QItemSelectionModel25columnIntersectsSelectionEiRK11QM'
@@ -365,6 +371,25 @@ class QItemSelectionModel(QObject):
         'ritual_ZNK19QItemSelectionModel12hasSelectionEv',
     )
 
+  def selection(self) -> QItemSelection:
+    """
+    Calls Qt's 'const QItemSelection QItemSelectionModel::selection() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qitemselectionmodel.html#selection
+
+    Returns
+    -------
+
+    QItemSelection
+      A new cute QItemSelection around the copy Qt gave back. Python owns it.
+    """
+    #  const QItemSelection QItemSelectionModel::selection() const
+    address = self.uglySide.call(
+        'ritual_ZNK19QItemSelectionModel9selectionEv',
+    )
+    from . import QItemSelection
+    return QItemSelection._cuteOwning(address)
+
   def model(self) -> Optional[QAbstractItemModel]:
     """
     Calls Qt's 'const QAbstractItemModel *QItemSelectionModel::model()
@@ -381,6 +406,7 @@ class QItemSelectionModel(QObject):
     """
     #  const QAbstractItemModel *QItemSelectionModel::model() const
     address = self.uglySide.call('ritual_ZNK19QItemSelectionModel5modelEv')
+    from . import QAbstractItemModel
     return QAbstractItemModel._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -556,6 +582,36 @@ class QItemSelectionModel(QObject):
         'ritual_ZN19QItemSelectionModel6selectERK11QModelIndex6QFlagsINS_13'
         'SelectionFlagEE',
         self._valueOf(index), command.value,
+    )
+
+  @overload(QItemSelection, SelectionFlags)
+  def select(
+      self,
+      selection: QItemSelection,
+      command: SelectionFlags,
+  ) -> None:
+    """
+    Calls Qt's 'void QItemSelectionModel::select(const QItemSelection
+    &selection, QItemSelectionModel::SelectionFlags command)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qitemselectionmodel.html#select
+
+    Parameters
+    ----------
+
+    selection : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    command : SelectionFlags
+      Passed on as its number.
+    """
+    #  void QItemSelectionModel::select(const QItemSelection &selection,
+    #      QItemSelectionModel::SelectionFlags command)
+    self.uglySide.call(
+        'ritual_ZN19QItemSelectionModel6selectERK14QItemSelection6QFlagsINS'
+        '_13SelectionFlagEE',
+        self._valueOf(selection), command.value,
     )
 
   def clear(self) -> None:

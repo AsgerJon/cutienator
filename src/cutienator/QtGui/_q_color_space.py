@@ -12,15 +12,21 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import QByteArray
-from ..QtCore import QPointF
-from ._q_color_space_color_model import ColorModel
-from ._q_color_space_named_color_space import NamedColorSpace
-from ._q_color_space_primaries import Primaries
-from ._q_color_space_transfer_function import TransferFunction
-from ._q_color_space_transform_model import TransformModel
+from . import QColorSpaceColorModel, QColorSpaceNamedColorSpace
+from . import QColorSpacePrimaries, QColorSpacePrimaryPoints
+from . import QColorSpaceTransferFunction, QColorSpaceTransformModel
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QByteArray, QPointF
+  from . import QColorTransform
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
+  QPointF = WAIT['QPointF']
 
 
 class QColorSpace(CuteMixin, metaclass=MetaCute):
@@ -36,29 +42,19 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QColorSpace that has a ritual and that Python can
-  call so far, 17 names in all: 'primaries', 'transferFunction', 'gamma',
+  call so far, 20 names in all: 'primaries', 'transferFunction', 'gamma',
   'description', 'setDescription', 'setTransferFunction',
   'withTransferFunction', 'setPrimaries', 'setWhitePoint', 'whitePoint',
-  'transformModel', 'colorModel', 'detach', 'isValid', 'isValidTarget',
-  'fromIccProfile', 'iccProfile'. It can be made from Python, in 7 ways; see
+  'setPrimaryPoints', 'primaryPoints', 'transformModel', 'colorModel',
+  'detach', 'isValid', 'isValidTarget', 'fromIccProfile', 'iccProfile',
+  'transformationToColorSpace'. It can be made from Python, in 8 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QColorSpace::QColorSpace(const PrimaryPoints &primaryPoints,
-    TransferFunction transferFunction, float gamma)': names
-    'QColorSpace::PrimaryPoints', which has no cute class yet.
   - Qt's 'QColorSpace::~QColorSpace()': the destructor: Python removes its
     C++ QColorSpace by it, and has no other use for it.
-  - Qt's 'void QColorSpace::setPrimaryPoints(const PrimaryPoints
-    &primaryPoints)': names 'QColorSpace::PrimaryPoints', which has no cute
-    class yet.
-  - Qt's 'PrimaryPoints QColorSpace::primaryPoints() const': gives
-    'QColorSpace::PrimaryPoints', which has no cute class yet.
-  - Qt's 'QColorTransform QColorSpace::transformationToColorSpace(const
-    QColorSpace &colorspace) const': gives 'QColorTransform', which has no
-    cute class yet.
   - Qt's 'QVariant QColorSpace::operator QVariant() const': an operator,
     which is not reflected yet.
 
@@ -82,13 +78,16 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QColorSpace.
   """
 
+  #  The classes Qt writes inside QColorSpace.
+  PrimaryPoints = QColorSpacePrimaryPoints
+
   #  The enums Qt writes inside QColorSpace, and the names Qt has for the
   #  combinations of its flags enums.
-  ColorModel = ColorModel
-  NamedColorSpace = NamedColorSpace
-  Primaries = Primaries
-  TransferFunction = TransferFunction
-  TransformModel = TransformModel
+  ColorModel = QColorSpaceColorModel
+  NamedColorSpace = QColorSpaceNamedColorSpace
+  Primaries = QColorSpacePrimaries
+  TransferFunction = QColorSpaceTransferFunction
+  TransformModel = QColorSpaceTransformModel
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -161,7 +160,7 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Primaries(number)' gives.
     """
     #  Primaries QColorSpace::primaries() const
-    return Primaries(self.uglySide.call(
+    return QColorSpace.Primaries(self.uglySide.call(
         'ritual_ZNK11QColorSpace9primariesEv',
     ))
 
@@ -180,7 +179,7 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  TransferFunction QColorSpace::transferFunction() const
-    return TransferFunction(self.uglySide.call(
+    return QColorSpace.TransferFunction(self.uglySide.call(
         'ritual_ZNK11QColorSpace16transferFunctionEv',
     ))
 
@@ -261,7 +260,25 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QColorSpace::whitePoint() const
     address = self.uglySide.call('ritual_ZNK11QColorSpace10whitePointEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
+
+  def primaryPoints(self) -> PrimaryPoints:
+    """
+    Calls Qt's 'PrimaryPoints QColorSpace::primaryPoints() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolorspace.html#primaryPoints
+
+    Returns
+    -------
+
+    PrimaryPoints
+      A new cute QColorSpace::PrimaryPoints around the copy Qt gave back.
+      Python owns it.
+    """
+    #  PrimaryPoints QColorSpace::primaryPoints() const
+    address = self.uglySide.call('ritual_ZNK11QColorSpace13primaryPointsEv')
+    return QColorSpacePrimaryPoints._cuteOwning(address)
 
   def transformModel(self) -> TransformModel:
     """
@@ -278,7 +295,7 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  TransformModel QColorSpace::transformModel() const
-    return TransformModel(self.uglySide.call(
+    return QColorSpace.TransformModel(self.uglySide.call(
         'ritual_ZNK11QColorSpace14transformModelEv',
     ))
 
@@ -297,7 +314,7 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  ColorModel QColorSpace::colorModel() const
-    return ColorModel(self.uglySide.call(
+    return QColorSpace.ColorModel(self.uglySide.call(
         'ritual_ZNK11QColorSpace10colorModelEv',
     ))
 
@@ -333,7 +350,43 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
     """
     #  QByteArray QColorSpace::iccProfile() const
     address = self.uglySide.call('ritual_ZNK11QColorSpace10iccProfileEv')
+    from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
+
+  @overload(THIS)
+  def transformationToColorSpace(
+      self,
+      colorspace: QColorSpace,
+  ) -> QColorTransform:
+    """
+    Calls Qt's 'QColorTransform QColorSpace::transformationToColorSpace(const
+    QColorSpace &colorspace) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcolorspace.html#transformationToColorSpace
+
+    Parameters
+    ----------
+
+    colorspace : QColorSpace
+      Passed on as a value: Qt reads the C++ QColorSpace, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QColorTransform
+      A new cute QColorTransform around the copy Qt gave back. Python owns
+      it.
+    """
+    #  QColorTransform QColorSpace::transformationToColorSpace(const
+    #      QColorSpace &colorspace) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QColorSpace26transformationToColorSpaceERKS_',
+        self._valueOf(colorspace),
+    )
+    from . import QColorTransform
+    return QColorTransform._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -469,6 +522,27 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN11QColorSpace13setWhitePointE7QPointF',
         self._valueOf(whitePoint),
+    )
+
+  @overload(PrimaryPoints)
+  def setPrimaryPoints(self, primaryPoints: PrimaryPoints) -> None:
+    """
+    Calls Qt's 'void QColorSpace::setPrimaryPoints(const PrimaryPoints
+    &primaryPoints)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolorspace.html#setPrimaryPoints
+
+    Parameters
+    ----------
+
+    primaryPoints : PrimaryPoints
+      Passed on as a value: Qt reads the C++ QColorSpace::PrimaryPoints,
+      which stays Python's own.
+    """
+    #  void QColorSpace::setPrimaryPoints(const PrimaryPoints &primaryPoints)
+    self.uglySide.call(
+        'ritual_ZN11QColorSpace16setPrimaryPointsERKNS_13PrimaryPointsE',
+        self._valueOf(primaryPoints),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -660,6 +734,42 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
         self._valueOf(whitePoint), self._valueOf(redPoint),
         self._valueOf(greenPoint), self._valueOf(bluePoint),
         transferFunction.value, gamma,
+    ))
+
+  @overload(PrimaryPoints, TransferFunction)
+  @overload(PrimaryPoints, TransferFunction, float)
+  def __init__(
+      self,
+      primaryPoints: PrimaryPoints,
+      transferFunction: TransferFunction,
+      gamma: float = 0.0,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QColorSpace::QColorSpace(const
+    PrimaryPoints &primaryPoints, TransferFunction transferFunction, float
+    gamma)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolorspace.html#QColorSpace
+
+    Parameters
+    ----------
+
+    primaryPoints : PrimaryPoints
+      Passed on as a value: Qt reads the C++ QColorSpace::PrimaryPoints,
+      which stays Python's own.
+
+    transferFunction : TransferFunction
+      Passed on as its number.
+
+    gamma : float
+      Passed on as it is. May be left out, as in Qt: it is then 0.0.
+    """
+    #  QColorSpace::QColorSpace(const PrimaryPoints &primaryPoints,
+    #      TransferFunction transferFunction, float gamma)
+    self._noteCreation(QColorSpace, lambda: Rituals.call(
+        'ritual_ZN11QColorSpaceC1ERKNS_13PrimaryPointsENS_16TransferFunctio'
+        'nEf',
+        self._valueOf(primaryPoints), transferFunction.value, gamma,
     ))
 
   @overload(THIS)

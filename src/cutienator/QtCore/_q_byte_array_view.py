@@ -12,9 +12,12 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from ._qt import Qt
+from . import Qt
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QByteArray
 
 
 class QByteArrayView(CuteMixin, metaclass=MetaCute):
@@ -106,10 +109,6 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QByteArrayView.
   """
 
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QByteArray = WAIT['QByteArray']
-
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -163,7 +162,8 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
     """
     #  QByteArray QByteArrayView::toByteArray() const
     address = self.uglySide.call('ritual_ZNK14QByteArrayView11toByteArrayEv')
-    return self.QByteArray._cuteOwning(address)
+    from . import QByteArray
+    return QByteArray._cuteOwning(address)
 
   def size(self) -> int:
     """

@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QNativeGestureEvent5cloneEv": ["address", "address"],
+    "ritual_ZN19QNativeGestureEventD1Ev": ["nothing", "address"],
+    "ritual_ZN19QNativeGestureEventC1EN2Qt17NativeGestureTypeEPK15QPointingDeviceRK7QPointFS7_S7_dyy": [
+      "address", "int", "address", "address", "address", "address", "double",
+      "unsigned long long", "unsigned long long"
+    ],
+    "ritual_ZN19QNativeGestureEventC1EN2Qt17NativeGestureTypeEPK15QPointingDeviceiRK7QPointFS7_S7_dS7_y": [
+      "address", "int", "address", "int", "address", "address", "address",
+      "double", "address", "unsigned long long"
+    ],
+    "ritual_ZNK19QNativeGestureEvent11gestureTypeEv": ["int", "address"],
+    "ritual_ZNK19QNativeGestureEvent11fingerCountEv": ["int", "address"],
+    "ritual_ZNK19QNativeGestureEvent5valueEv": ["double", "address"],
+    "ritual_ZNK19QNativeGestureEvent5deltaEv": ["address", "address"],
+    "ritual_ZNK19QNativeGestureEvent3posEv": ["address", "address"],
+    "ritual_ZNK19QNativeGestureEvent9globalPosEv": ["address", "address"],
+    "ritual_ZNK19QNativeGestureEvent8localPosEv": ["address", "address"],
+    "ritual_ZNK19QNativeGestureEvent9windowPosEv": ["address", "address"],
+    "ritual_ZNK19QNativeGestureEvent9screenPosEv": ["address", "address"]
+  }
+}

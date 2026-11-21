@@ -11,20 +11,24 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_layout import QLayout
-from ._q_layout_item import QLayoutItem
-from ..QtCore import QMetaObject
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_spacer_item import QSpacerItem
-from ._q_widget import QWidget
-from ._q_box_layout_direction import Direction
+from . import QBoxLayoutDirection, QLayout
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QRect, QSize
+  from . import QLayoutItem, QSpacerItem, QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QLayoutItem = WAIT['QLayoutItem']
+  QRect = WAIT['QRect']
+  QSpacerItem = WAIT['QSpacerItem']
+  QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -82,7 +86,7 @@ class QBoxLayout(QLayout):
 
   #  The enums Qt writes inside QBoxLayout, and the names Qt has for the
   #  combinations of its flags enums.
-  Direction = Direction
+  Direction = QBoxLayoutDirection
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -165,6 +169,7 @@ class QBoxLayout(QLayout):
     """
     #  const QMetaObject *QBoxLayout::metaObject() const
     address = self.uglySide.call('ritual_ZNK10QBoxLayout10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def direction(self) -> Direction:
@@ -181,7 +186,7 @@ class QBoxLayout(QLayout):
       no name it is the member without a name that 'Direction(number)' gives.
     """
     #  Direction QBoxLayout::direction() const
-    return Direction(self.uglySide.call(
+    return QBoxLayout.Direction(self.uglySide.call(
         'ritual_ZNK10QBoxLayout9directionEv',
     ))
 
@@ -224,6 +229,7 @@ class QBoxLayout(QLayout):
     """
     #  QSize QBoxLayout::sizeHint() const
     address = self.uglySide.call('ritual_ZNK10QBoxLayout8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSize(self) -> QSize:
@@ -240,6 +246,7 @@ class QBoxLayout(QLayout):
     """
     #  QSize QBoxLayout::minimumSize() const
     address = self.uglySide.call('ritual_ZNK10QBoxLayout11minimumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def maximumSize(self) -> QSize:
@@ -256,6 +263,7 @@ class QBoxLayout(QLayout):
     """
     #  QSize QBoxLayout::maximumSize() const
     address = self.uglySide.call('ritual_ZNK10QBoxLayout11maximumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def hasHeightForWidth(self) -> bool:
@@ -342,6 +350,7 @@ class QBoxLayout(QLayout):
     """
     #  QLayoutItem *QBoxLayout::itemAt(int a0) const
     address = self.uglySide.call('ritual_ZNK10QBoxLayout6itemAtEi', a0)
+    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   def count(self) -> int:
@@ -901,4 +910,5 @@ class QBoxLayout(QLayout):
     """
     #  QLayoutItem *QBoxLayout::takeAt(int a0)
     address = self.uglySide.call('ritual_ZN10QBoxLayout6takeAtEi', a0)
+    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)

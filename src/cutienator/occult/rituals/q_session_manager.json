@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qsessionmanager.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QSessionManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QSessionManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK15QSessionManager9sessionIdEv": ["text", "address"],
+    "ritual_ZNK15QSessionManager10sessionKeyEv": ["text", "address"],
+    "ritual_ZN15QSessionManager17allowsInteractionEv": ["bool", "address"],
+    "ritual_ZN15QSessionManager22allowsErrorInteractionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QSessionManager7releaseEv": ["nothing", "address"],
+    "ritual_ZN15QSessionManager6cancelEv": ["nothing", "address"],
+    "ritual_ZN15QSessionManager14setRestartHintENS_11RestartHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QSessionManager11restartHintEv": ["int", "address"],
+    "ritual_ZN15QSessionManager18setManagerPropertyERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZNK15QSessionManager8isPhase2Ev": ["bool", "address"],
+    "ritual_ZN15QSessionManager13requestPhase2Ev": ["nothing", "address"]
+  }
+}

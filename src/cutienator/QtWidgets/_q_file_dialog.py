@@ -11,26 +11,30 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_abstract_item_delegate import QAbstractItemDelegate
-from ..QtCore import QAbstractProxyModel
-from ..QtCore import QByteArray
-from ._q_dialog import QDialog
-from ..QtCore import QDir
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ..QtCore import QUrl
-from ._q_widget import QWidget
-from ._q_file_dialog_accept_mode import AcceptMode
-from ._q_file_dialog_dialog_label import DialogLabel
-from ._q_file_dialog_file_mode import FileMode
-from ._q_file_dialog_option import Option
-from ._q_file_dialog_view_mode import ViewMode
+from ..QtCore import Qt, QDirFilter, QObject
+from . import QDialog, QFileDialogAcceptMode, QFileDialogDialogLabel
+from . import QFileDialogFileMode, QFileDialogOption, QFileDialogViewMode
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QAbstractProxyModel, QByteArray, QDir, QMetaObject
+  from ..QtCore import QUrl
+  from ..QtGui import QAbstractFileIconProvider
+  from . import QAbstractItemDelegate
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractFileIconProvider = WAIT['QAbstractFileIconProvider']
+  QAbstractItemDelegate = WAIT['QAbstractItemDelegate']
+  QAbstractProxyModel = WAIT['QAbstractProxyModel']
+  QByteArray = WAIT['QByteArray']
+  QDir = WAIT['QDir']
+  QUrl = WAIT['QUrl']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -49,27 +53,23 @@ class QFileDialog(QDialog):
   -----------
 
   Every function of Qt's QFileDialog that has a ritual and that Python can
-  call so far, 39 names in all: 'metaObject', 'tr', 'setDirectory',
+  call so far, 41 names in all: 'metaObject', 'tr', 'setDirectory',
   'directory', 'setDirectoryUrl', 'directoryUrl', 'selectFile', 'selectUrl',
   'setNameFilter', 'selectNameFilter', 'selectedMimeTypeFilter',
   'selectedNameFilter', 'selectMimeTypeFilter', 'filter', 'setFilter',
   'setViewMode', 'viewMode', 'setFileMode', 'fileMode', 'setAcceptMode',
   'acceptMode', 'saveState', 'restoreState', 'setDefaultSuffix',
-  'defaultSuffix', 'setItemDelegate', 'itemDelegate', 'setLabelText',
-  'labelText', 'setProxyModel', 'proxyModel', 'setOption', 'testOption',
-  'setOptions', 'options', 'open', 'setVisible', 'getExistingDirectory',
-  'saveFileContent'. It can be made from Python, in 2 ways; see '__init__'.
+  'defaultSuffix', 'setItemDelegate', 'itemDelegate', 'setIconProvider',
+  'iconProvider', 'setLabelText', 'labelText', 'setProxyModel', 'proxyModel',
+  'setOption', 'testOption', 'setOptions', 'options', 'open', 'setVisible',
+  'getExistingDirectory', 'saveFileContent'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QFileDialog::~QFileDialog()': the destructor: Python never removes
     a C++ QFileDialog.
-  - Qt's 'void QFileDialog::setIconProvider(QAbstractFileIconProvider
-    *provider)': names 'QAbstractFileIconProvider', which has no cute class
-    yet.
-  - Qt's 'QAbstractFileIconProvider *QFileDialog::iconProvider() const':
-    gives 'QAbstractFileIconProvider', which has no cute class yet.
   - Qt's 'QString QFileDialog::getOpenFileName(QWidget *parent, const QString
     &caption, const QString &dir, const QString &filter, QString
     *selectedFilter, Options options)': names 'QString', which has no cute
@@ -103,12 +103,12 @@ class QFileDialog(QDialog):
 
   #  The enums Qt writes inside QFileDialog, and the names Qt has for the
   #  combinations of its flags enums.
-  AcceptMode = AcceptMode
-  DialogLabel = DialogLabel
-  FileMode = FileMode
-  Option = Option
-  Options = Option
-  ViewMode = ViewMode
+  AcceptMode = QFileDialogAcceptMode
+  DialogLabel = QFileDialogDialogLabel
+  FileMode = QFileDialogFileMode
+  Option = QFileDialogOption
+  Options = QFileDialogOption
+  ViewMode = QFileDialogViewMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -286,6 +286,7 @@ class QFileDialog(QDialog):
     """
     #  const QMetaObject *QFileDialog::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QFileDialog10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def directory(self) -> QDir:
@@ -302,6 +303,7 @@ class QFileDialog(QDialog):
     """
     #  QDir QFileDialog::directory() const
     address = self.uglySide.call('ritual_ZNK11QFileDialog9directoryEv')
+    from ..QtCore import QDir
     return QDir._cuteOwning(address)
 
   def directoryUrl(self) -> QUrl:
@@ -318,6 +320,7 @@ class QFileDialog(QDialog):
     """
     #  QUrl QFileDialog::directoryUrl() const
     address = self.uglySide.call('ritual_ZNK11QFileDialog12directoryUrlEv')
+    from ..QtCore import QUrl
     return QUrl._cuteOwning(address)
 
   def selectedMimeTypeFilter(self) -> str:
@@ -369,9 +372,7 @@ class QFileDialog(QDialog):
       The value standing for the combination Qt gave back.
     """
     #  QDir::Filters QFileDialog::filter() const
-    return QDir.Filters(self.uglySide.call(
-        'ritual_ZNK11QFileDialog6filterEv',
-    ))
+    return QDirFilter(self.uglySide.call('ritual_ZNK11QFileDialog6filterEv'))
 
   def viewMode(self) -> ViewMode:
     """
@@ -387,7 +388,9 @@ class QFileDialog(QDialog):
       no name it is the member without a name that 'ViewMode(number)' gives.
     """
     #  ViewMode QFileDialog::viewMode() const
-    return ViewMode(self.uglySide.call('ritual_ZNK11QFileDialog8viewModeEv'))
+    return QFileDialog.ViewMode(self.uglySide.call(
+        'ritual_ZNK11QFileDialog8viewModeEv',
+    ))
 
   def fileMode(self) -> FileMode:
     """
@@ -403,7 +406,9 @@ class QFileDialog(QDialog):
       no name it is the member without a name that 'FileMode(number)' gives.
     """
     #  FileMode QFileDialog::fileMode() const
-    return FileMode(self.uglySide.call('ritual_ZNK11QFileDialog8fileModeEv'))
+    return QFileDialog.FileMode(self.uglySide.call(
+        'ritual_ZNK11QFileDialog8fileModeEv',
+    ))
 
   def acceptMode(self) -> AcceptMode:
     """
@@ -420,7 +425,7 @@ class QFileDialog(QDialog):
       gives.
     """
     #  AcceptMode QFileDialog::acceptMode() const
-    return AcceptMode(self.uglySide.call(
+    return QFileDialog.AcceptMode(self.uglySide.call(
         'ritual_ZNK11QFileDialog10acceptModeEv',
     ))
 
@@ -438,6 +443,7 @@ class QFileDialog(QDialog):
     """
     #  QByteArray QFileDialog::saveState() const
     address = self.uglySide.call('ritual_ZNK11QFileDialog9saveStateEv')
+    from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
 
   def defaultSuffix(self) -> str:
@@ -470,7 +476,27 @@ class QFileDialog(QDialog):
     """
     #  QAbstractItemDelegate *QFileDialog::itemDelegate() const
     address = self.uglySide.call('ritual_ZNK11QFileDialog12itemDelegateEv')
+    from . import QAbstractItemDelegate
     return QAbstractItemDelegate._cuteAt(address)
+
+  def iconProvider(self) -> Optional[QAbstractFileIconProvider]:
+    """
+    Calls Qt's 'QAbstractFileIconProvider *QFileDialog::iconProvider()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#iconProvider
+
+    Returns
+    -------
+
+    Optional[QAbstractFileIconProvider]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractFileIconProvider *QFileDialog::iconProvider() const
+    address = self.uglySide.call('ritual_ZNK11QFileDialog12iconProviderEv')
+    from ..QtGui import QAbstractFileIconProvider
+    return QAbstractFileIconProvider._cuteAt(address)
 
   @overload(DialogLabel)
   def labelText(self, label: DialogLabel) -> str:
@@ -511,6 +537,7 @@ class QFileDialog(QDialog):
     """
     #  QAbstractProxyModel *QFileDialog::proxyModel() const
     address = self.uglySide.call('ritual_ZNK11QFileDialog10proxyModelEv')
+    from ..QtCore import QAbstractProxyModel
     return QAbstractProxyModel._cuteAt(address)
 
   @overload(Option)
@@ -626,7 +653,7 @@ class QFileDialog(QDialog):
         'ritual_ZN11QFileDialog13setNameFilterERK7QString', filter,
     )
 
-  @overload(QDir.Filters)
+  @overload(QDirFilter)
   def setFilter(self, filters: QDir.Filters) -> None:
     """
     Calls Qt's 'void QFileDialog::setFilter(QDir::Filters filters)'.
@@ -740,6 +767,32 @@ class QFileDialog(QDialog):
     self.uglySide.call(
         'ritual_ZN11QFileDialog15setItemDelegateEP21QAbstractItemDelegate',
         self._addressOf(delegate),
+    )
+
+  @overload(QAbstractFileIconProvider)
+  @overload(NoneType)
+  def setIconProvider(
+      self,
+      provider: Optional[QAbstractFileIconProvider],
+  ) -> None:
+    """
+    Calls Qt's 'void QFileDialog::setIconProvider(QAbstractFileIconProvider
+    *provider)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#setIconProvider
+
+    Parameters
+    ----------
+
+    provider : Optional[QAbstractFileIconProvider]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFileDialog::setIconProvider(QAbstractFileIconProvider *provider)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog15setIconProviderEP25QAbstractFileIconProvid'
+        'er',
+        self._addressOf(provider),
     )
 
   @overload(DialogLabel, str)

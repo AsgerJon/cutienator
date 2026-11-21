@@ -11,21 +11,25 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ..QtCore import QAbstractItemModel
-from ._q_abstract_item_view import QAbstractItemView
-from ..QtCore import QMetaObject
-from ..QtCore import QModelIndex
-from ..QtCore import QObject
-from ..QtCore import QRect
-from ._q_widget import QWidget
-from ._q_completer_completion_mode import CompletionMode
-from ._q_completer_model_sorting import ModelSorting
+from ..QtCore import Qt, QObject
+from . import QCompleterCompletionMode, QCompleterModelSorting
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QAbstractItemModel, QMetaObject, QModelIndex, QRect
+  from . import QAbstractItemView, QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractItemModel = WAIT['QAbstractItemModel']
+  QAbstractItemView = WAIT['QAbstractItemView']
+  QModelIndex = WAIT['QModelIndex']
+  QRect = WAIT['QRect']
+  QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -84,8 +88,8 @@ class QCompleter(QObject):
 
   #  The enums Qt writes inside QCompleter, and the names Qt has for the
   #  combinations of its flags enums.
-  CompletionMode = CompletionMode
-  ModelSorting = ModelSorting
+  CompletionMode = QCompleterCompletionMode
+  ModelSorting = QCompleterModelSorting
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -168,6 +172,7 @@ class QCompleter(QObject):
     """
     #  const QMetaObject *QCompleter::metaObject() const
     address = self.uglySide.call('ritual_ZNK10QCompleter10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def widget(self) -> Optional[QWidget]:
@@ -185,6 +190,7 @@ class QCompleter(QObject):
     """
     #  QWidget *QCompleter::widget() const
     address = self.uglySide.call('ritual_ZNK10QCompleter6widgetEv')
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   def model(self) -> Optional[QAbstractItemModel]:
@@ -202,6 +208,7 @@ class QCompleter(QObject):
     """
     #  QAbstractItemModel *QCompleter::model() const
     address = self.uglySide.call('ritual_ZNK10QCompleter5modelEv')
+    from ..QtCore import QAbstractItemModel
     return QAbstractItemModel._cuteAt(address)
 
   def completionMode(self) -> CompletionMode:
@@ -219,7 +226,7 @@ class QCompleter(QObject):
       gives.
     """
     #  CompletionMode QCompleter::completionMode() const
-    return CompletionMode(self.uglySide.call(
+    return QCompleter.CompletionMode(self.uglySide.call(
         'ritual_ZNK10QCompleter14completionModeEv',
     ))
 
@@ -255,6 +262,7 @@ class QCompleter(QObject):
     """
     #  QAbstractItemView *QCompleter::popup() const
     address = self.uglySide.call('ritual_ZNK10QCompleter5popupEv')
+    from . import QAbstractItemView
     return QAbstractItemView._cuteAt(address)
 
   def caseSensitivity(self) -> Qt.CaseSensitivity:
@@ -291,7 +299,7 @@ class QCompleter(QObject):
       gives.
     """
     #  ModelSorting QCompleter::modelSorting() const
-    return ModelSorting(self.uglySide.call(
+    return QCompleter.ModelSorting(self.uglySide.call(
         'ritual_ZNK10QCompleter12modelSortingEv',
     ))
 
@@ -363,6 +371,7 @@ class QCompleter(QObject):
     """
     #  QModelIndex QCompleter::currentIndex() const
     address = self.uglySide.call('ritual_ZNK10QCompleter12currentIndexEv')
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   def currentCompletion(self) -> str:
@@ -395,6 +404,7 @@ class QCompleter(QObject):
     """
     #  QAbstractItemModel *QCompleter::completionModel() const
     address = self.uglySide.call('ritual_ZNK10QCompleter15completionModelEv')
+    from ..QtCore import QAbstractItemModel
     return QAbstractItemModel._cuteAt(address)
 
   def completionPrefix(self) -> str:
@@ -791,6 +801,7 @@ class QCompleter(QObject):
     """
     #  void QCompleter::complete(const QRect &rect)
     if rect is None:
+      from ..QtCore import QRect
       rect = QRect()
     self.uglySide.call(
         'ritual_ZN10QCompleter8completeERK5QRect', self._valueOf(rect),

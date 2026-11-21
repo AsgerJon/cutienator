@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpaintengine.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QTextItem7descentEv": ["double", "address"],
+    "ritual_ZNK9QTextItem6ascentEv": ["double", "address"],
+    "ritual_ZNK9QTextItem5widthEv": ["double", "address"],
+    "ritual_ZNK9QTextItem11renderFlagsEv": ["int", "address"],
+    "ritual_ZNK9QTextItem4textEv": ["text", "address"],
+    "ritual_ZNK9QTextItem4fontEv": ["address", "address"],
+    "ritual_ZN9QTextItemD1Ev": ["nothing", "address"]
+  }
+}

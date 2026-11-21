@@ -14,16 +14,20 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_abstract_button import QAbstractButton
-from ..QtGui import QKeySequence
-from ..QtCore import QMetaObject
-from ._q_widget import QWidget
-from ._q_dialog_button_box_button_layout import ButtonLayout
-from ._q_dialog_button_box_button_role import ButtonRole
-from ._q_dialog_button_box_standard_button import StandardButton
+from . import QDialogButtonBoxButtonLayout, QDialogButtonBoxButtonRole
+from . import QDialogButtonBoxStandardButton, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject
+  from ..QtGui import QKeySequence
+  from . import QAbstractButton, QPushButton
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractButton = WAIT['QAbstractButton']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -80,14 +84,10 @@ class QDialogButtonBox(QWidget):
 
   #  The enums Qt writes inside QDialogButtonBox, and the names Qt has for
   #  the combinations of its flags enums.
-  ButtonLayout = ButtonLayout
-  ButtonRole = ButtonRole
-  StandardButton = StandardButton
-  StandardButtons = StandardButton
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QPushButton = WAIT['QPushButton']
+  ButtonLayout = QDialogButtonBoxButtonLayout
+  ButtonRole = QDialogButtonBoxButtonRole
+  StandardButton = QDialogButtonBoxStandardButton
+  StandardButtons = QDialogButtonBoxStandardButton
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -194,6 +194,7 @@ class QDialogButtonBox(QWidget):
         'uttonE',
         button.value,
     )
+    from ..QtGui import QKeySequence
     return QKeySequence._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -233,6 +234,7 @@ class QDialogButtonBox(QWidget):
     address = self.uglySide.call(
         'ritual_ZNK16QDialogButtonBox10metaObjectEv',
     )
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def orientation(self) -> Qt.Orientation:
@@ -279,7 +281,7 @@ class QDialogButtonBox(QWidget):
       gives.
     """
     #  ButtonRole QDialogButtonBox::buttonRole(QAbstractButton *button) const
-    return ButtonRole(self.uglySide.call(
+    return QDialogButtonBox.ButtonRole(self.uglySide.call(
         'ritual_ZNK16QDialogButtonBox10buttonRoleEP15QAbstractButton',
         self._addressOf(button),
     ))
@@ -332,7 +334,7 @@ class QDialogButtonBox(QWidget):
     """
     #  StandardButton QDialogButtonBox::standardButton(QAbstractButton
     #      *button) const
-    return StandardButton(self.uglySide.call(
+    return QDialogButtonBox.StandardButton(self.uglySide.call(
         'ritual_ZNK16QDialogButtonBox14standardButtonEP15QAbstractButton',
         self._addressOf(button),
     ))
@@ -363,7 +365,8 @@ class QDialogButtonBox(QWidget):
         'ritual_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE',
         which.value,
     )
-    return self.QPushButton._cuteAt(address)
+    from . import QPushButton
+    return QPushButton._cuteAt(address)
 
   def centerButtons(self) -> bool:
     """
@@ -666,7 +669,8 @@ class QDialogButtonBox(QWidget):
         'ritual_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE',
         text, role.value,
     )
-    return self.QPushButton._cuteAt(address)
+    from . import QPushButton
+    return QPushButton._cuteAt(address)
 
   @overload(StandardButton)
   def addButton(self, button: StandardButton) -> Optional[QPushButton]:
@@ -694,7 +698,8 @@ class QDialogButtonBox(QWidget):
         'ritual_ZN16QDialogButtonBox9addButtonENS_14StandardButtonE',
         button.value,
     )
-    return self.QPushButton._cuteAt(address)
+    from . import QPushButton
+    return QPushButton._cuteAt(address)
 
   @overload(QAbstractButton)
   @overload(NoneType)

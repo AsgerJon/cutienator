@@ -11,8 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QMarginsF
 
 
 class QMargins(CuteMixin, metaclass=MetaCute):
@@ -56,10 +59,6 @@ class QMargins(CuteMixin, metaclass=MetaCute):
   - A function giving a QMargins back gives a copy the ritual made for
     Python, in a new cute QMargins.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QMarginsF = WAIT['QMarginsF']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -148,7 +147,8 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     """
     #  QMarginsF QMargins::toMarginsF() const
     address = self.uglySide.call('ritual_ZNK8QMargins10toMarginsFEv')
-    return self.QMarginsF._cuteOwning(address)
+    from . import QMarginsF
+    return QMarginsF._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

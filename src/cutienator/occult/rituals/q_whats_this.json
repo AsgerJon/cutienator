@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qwhatsthis.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QWhatsThis18enterWhatsThisModeEv": ["nothing"],
+    "ritual_ZN10QWhatsThis15inWhatsThisModeEv": ["bool"],
+    "ritual_ZN10QWhatsThis18leaveWhatsThisModeEv": ["nothing"],
+    "ritual_ZN10QWhatsThis8showTextERK6QPointRK7QStringP7QWidget": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN10QWhatsThis8hideTextEv": ["nothing"],
+    "ritual_ZN10QWhatsThis12createActionEP7QObject": ["address", "address"],
+    "ritual_ZN10QWhatsThisD1Ev": ["nothing", "address"]
+  }
+}

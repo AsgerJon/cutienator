@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN30QGraphicsSceneContextMenuEventC1EN6QEvent4TypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN30QGraphicsSceneContextMenuEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK30QGraphicsSceneContextMenuEvent3posEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QGraphicsSceneContextMenuEvent6setPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK30QGraphicsSceneContextMenuEvent8scenePosEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QGraphicsSceneContextMenuEvent11setScenePosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK30QGraphicsSceneContextMenuEvent9screenPosEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QGraphicsSceneContextMenuEvent12setScreenPosERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK30QGraphicsSceneContextMenuEvent9modifiersEv": [
+      "int", "address"
+    ],
+    "ritual_ZN30QGraphicsSceneContextMenuEvent12setModifiersE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK30QGraphicsSceneContextMenuEvent6reasonEv": [
+      "int", "address"
+    ],
+    "ritual_ZN30QGraphicsSceneContextMenuEvent9setReasonENS_6ReasonE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

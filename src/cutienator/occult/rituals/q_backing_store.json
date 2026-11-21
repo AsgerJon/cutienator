@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qbackingstore.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QBackingStoreC1EP7QWindow": ["address", "address"],
+    "ritual_ZN13QBackingStoreD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QBackingStore6windowEv": ["address", "address"],
+    "ritual_ZN13QBackingStore11paintDeviceEv": ["address", "address"],
+    "ritual_ZN13QBackingStore5flushERK7QRegionP7QWindowRK6QPoint": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QBackingStore6resizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QBackingStore4sizeEv": ["address", "address"],
+    "ritual_ZN13QBackingStore6scrollERK7QRegionii": [
+      "bool", "address", "address", "int", "int"
+    ],
+    "ritual_ZN13QBackingStore10beginPaintERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QBackingStore8endPaintEv": ["nothing", "address"],
+    "ritual_ZN13QBackingStore17setStaticContentsERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QBackingStore14staticContentsEv": ["address", "address"],
+    "ritual_ZNK13QBackingStore17hasStaticContentsEv": ["bool", "address"]
+  }
+}

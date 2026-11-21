@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qsurfaceformat.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSurfaceFormatC1Ev": ["address"],
+    "ritual_ZN14QSurfaceFormatC1E6QFlagsINS_12FormatOptionEE": [
+      "address", "int"
+    ],
+    "ritual_ZN14QSurfaceFormatC1ERKS_": ["address", "address"],
+    "ritual_ZN14QSurfaceFormatD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSurfaceFormat18setDepthBufferSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat15depthBufferSizeEv": ["int", "address"],
+    "ritual_ZN14QSurfaceFormat20setStencilBufferSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat17stencilBufferSizeEv": ["int", "address"],
+    "ritual_ZN14QSurfaceFormat16setRedBufferSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat13redBufferSizeEv": ["int", "address"],
+    "ritual_ZN14QSurfaceFormat18setGreenBufferSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat15greenBufferSizeEv": ["int", "address"],
+    "ritual_ZN14QSurfaceFormat17setBlueBufferSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat14blueBufferSizeEv": ["int", "address"],
+    "ritual_ZN14QSurfaceFormat18setAlphaBufferSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat15alphaBufferSizeEv": ["int", "address"],
+    "ritual_ZN14QSurfaceFormat10setSamplesEi": ["nothing", "address", "int"],
+    "ritual_ZNK14QSurfaceFormat7samplesEv": ["int", "address"],
+    "ritual_ZN14QSurfaceFormat15setSwapBehaviorENS_12SwapBehaviorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat12swapBehaviorEv": ["int", "address"],
+    "ritual_ZNK14QSurfaceFormat8hasAlphaEv": ["bool", "address"],
+    "ritual_ZN14QSurfaceFormat10setProfileENS_20OpenGLContextProfileE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat7profileEv": ["int", "address"],
+    "ritual_ZN14QSurfaceFormat17setRenderableTypeENS_14RenderableTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat14renderableTypeEv": ["int", "address"],
+    "ritual_ZN14QSurfaceFormat15setMajorVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat12majorVersionEv": ["int", "address"],
+    "ritual_ZN14QSurfaceFormat15setMinorVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat12minorVersionEv": ["int", "address"],
+    "ritual_ZN14QSurfaceFormat10setVersionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat6stereoEv": ["bool", "address"],
+    "ritual_ZN14QSurfaceFormat9setStereoEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QSurfaceFormat10setOptionsE6QFlagsINS_12FormatOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QSurfaceFormat9setOptionENS_12FormatOptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK14QSurfaceFormat10testOptionENS_12FormatOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat7optionsEv": ["int", "address"],
+    "ritual_ZNK14QSurfaceFormat12swapIntervalEv": ["int", "address"],
+    "ritual_ZN14QSurfaceFormat15setSwapIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QSurfaceFormat10colorSpaceEv": ["address", "address"],
+    "ritual_ZN14QSurfaceFormat13setColorSpaceERK11QColorSpace": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSurfaceFormat13setColorSpaceENS_10ColorSpaceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QSurfaceFormat16setDefaultFormatERKS_": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QSurfaceFormat13defaultFormatEv": ["address"]
+  }
+}

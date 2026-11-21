@@ -11,18 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QAction
-from ..QtCore import QMetaObject
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QPoint, QRect, QSize
+  from ..QtGui import QAction
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAction = WAIT['QAction']
+  QPoint = WAIT['QPoint']
+  QSize = WAIT['QSize']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -157,6 +162,7 @@ class QToolBar(QWidget):
     """
     #  const QMetaObject *QToolBar::metaObject() const
     address = self.uglySide.call('ritual_ZNK8QToolBar10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def isMovable(self) -> bool:
@@ -248,6 +254,7 @@ class QToolBar(QWidget):
         'ritual_ZNK8QToolBar14actionGeometryEP7QAction',
         self._addressOf(action),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(QPoint)
@@ -275,6 +282,7 @@ class QToolBar(QWidget):
     address = self.uglySide.call(
         'ritual_ZNK8QToolBar8actionAtERK6QPoint', self._valueOf(p),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(int, int)
@@ -302,6 +310,7 @@ class QToolBar(QWidget):
     """
     #  QAction *QToolBar::actionAt(int x, int y) const
     address = self.uglySide.call('ritual_ZNK8QToolBar8actionAtEii', x, y)
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   def toggleViewAction(self) -> Optional[QAction]:
@@ -319,6 +328,7 @@ class QToolBar(QWidget):
     """
     #  QAction *QToolBar::toggleViewAction() const
     address = self.uglySide.call('ritual_ZNK8QToolBar16toggleViewActionEv')
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   def iconSize(self) -> QSize:
@@ -335,6 +345,7 @@ class QToolBar(QWidget):
     """
     #  QSize QToolBar::iconSize() const
     address = self.uglySide.call('ritual_ZNK8QToolBar8iconSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def toolButtonStyle(self) -> Qt.ToolButtonStyle:
@@ -619,6 +630,7 @@ class QToolBar(QWidget):
     """
     #  QAction *QToolBar::addSeparator()
     address = self.uglySide.call('ritual_ZN8QToolBar12addSeparatorEv')
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QAction)
@@ -648,6 +660,7 @@ class QToolBar(QWidget):
         'ritual_ZN8QToolBar15insertSeparatorEP7QAction',
         self._addressOf(before),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QWidget)
@@ -676,6 +689,7 @@ class QToolBar(QWidget):
     address = self.uglySide.call(
         'ritual_ZN8QToolBar9addWidgetEP7QWidget', self._addressOf(widget),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QAction, QWidget)
@@ -716,4 +730,5 @@ class QToolBar(QWidget):
         'ritual_ZN8QToolBar12insertWidgetEP7QActionP7QWidget',
         self._addressOf(before), self._addressOf(widget),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)

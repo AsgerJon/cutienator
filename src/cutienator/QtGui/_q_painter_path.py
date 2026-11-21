@@ -12,19 +12,26 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_font import QFont
-from ..QtCore import QPointF
-from ._q_polygon_f import QPolygonF
-from ..QtCore import QRectF
-from ._q_region import QRegion
-from ._q_transform import QTransform
-from ._q_painter_path_element_type import ElementType
+from . import QPainterPathElementType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QPointF, QRectF
+  from . import QFont, QPolygonF, QRegion, QTransform
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QFont = WAIT['QFont']
+  QPointF = WAIT['QPointF']
+  QPolygonF = WAIT['QPolygonF']
+  QRectF = WAIT['QRectF']
+  QRegion = WAIT['QRegion']
+  QTransform = WAIT['QTransform']
 
 
 class QPainterPath(CuteMixin, metaclass=MetaCute):
@@ -94,7 +101,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QPainterPath, and the names Qt has for the
   #  combinations of its flags enums.
-  ElementType = ElementType
+  ElementType = QPainterPathElementType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -149,6 +156,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK12QPainterPath15currentPositionEv',
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(QPointF)
@@ -318,6 +326,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QPainterPath::boundingRect() const
     address = self.uglySide.call('ritual_ZNK12QPainterPath12boundingRectEv')
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   def controlPointRect(self) -> QRectF:
@@ -336,6 +345,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK12QPainterPath16controlPointRectEv',
     )
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   def fillRule(self) -> Qt.FillRule:
@@ -406,11 +416,13 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QPainterPath::toFillPolygon(const QTransform &matrix) const
     if matrix is None:
+      from . import QTransform
       matrix = QTransform()
     address = self.uglySide.call(
         'ritual_ZNK12QPainterPath13toFillPolygonERK10QTransform',
         self._valueOf(matrix),
     )
+    from . import QPolygonF
     return QPolygonF._cuteOwning(address)
 
   def elementCount(self) -> int:
@@ -481,6 +493,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK12QPainterPath14pointAtPercentEd', t,
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(float)

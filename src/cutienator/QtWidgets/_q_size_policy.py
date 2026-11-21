@@ -14,9 +14,8 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_size_policy_control_type import ControlType
-from ._q_size_policy_policy import Policy
-from ._q_size_policy_policy_flag import PolicyFlag
+from . import QSizePolicyControlType, QSizePolicyPolicy
+from . import QSizePolicyPolicyFlag
 
 
 class QSizePolicy(CuteMixin, metaclass=MetaCute):
@@ -75,10 +74,10 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QSizePolicy, and the names Qt has for the
   #  combinations of its flags enums.
-  ControlType = ControlType
-  ControlTypes = ControlType
-  Policy = Policy
-  PolicyFlag = PolicyFlag
+  ControlType = QSizePolicyControlType
+  ControlTypes = QSizePolicyControlType
+  Policy = QSizePolicyPolicy
+  PolicyFlag = QSizePolicyPolicyFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -122,7 +121,7 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Policy(number)' gives.
     """
     #  Policy QSizePolicy::horizontalPolicy() const
-    return Policy(self.uglySide.call(
+    return QSizePolicy.Policy(self.uglySide.call(
         'ritual_ZNK11QSizePolicy16horizontalPolicyEv',
     ))
 
@@ -140,7 +139,7 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Policy(number)' gives.
     """
     #  Policy QSizePolicy::verticalPolicy() const
-    return Policy(self.uglySide.call(
+    return QSizePolicy.Policy(self.uglySide.call(
         'ritual_ZNK11QSizePolicy14verticalPolicyEv',
     ))
 
@@ -159,7 +158,7 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  ControlType QSizePolicy::controlType() const
-    return ControlType(self.uglySide.call(
+    return QSizePolicy.ControlType(self.uglySide.call(
         'ritual_ZNK11QSizePolicy11controlTypeEv',
     ))
 

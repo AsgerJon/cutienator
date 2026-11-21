@@ -12,12 +12,19 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._q_margins_f import QMarginsF
-from ._q_point_f import QPointF
-from ._q_rect import QRect
-from ._q_size_f import QSizeF
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QMarginsF, QPointF, QRect, QSizeF
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QMarginsF = WAIT['QMarginsF']
+  QPointF = WAIT['QPointF']
+  QRect = WAIT['QRect']
+  QSizeF = WAIT['QSizeF']
 
 
 class QRectF(CuteMixin, metaclass=MetaCute):
@@ -217,6 +224,7 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QRectF::topLeft() const
     address = self.uglySide.call('ritual_ZNK6QRectF7topLeftEv')
+    from . import QPointF
     return QPointF._cuteOwning(address)
 
   def bottomRight(self) -> QPointF:
@@ -233,6 +241,7 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QRectF::bottomRight() const
     address = self.uglySide.call('ritual_ZNK6QRectF11bottomRightEv')
+    from . import QPointF
     return QPointF._cuteOwning(address)
 
   def topRight(self) -> QPointF:
@@ -249,6 +258,7 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QRectF::topRight() const
     address = self.uglySide.call('ritual_ZNK6QRectF8topRightEv')
+    from . import QPointF
     return QPointF._cuteOwning(address)
 
   def bottomLeft(self) -> QPointF:
@@ -265,6 +275,7 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QRectF::bottomLeft() const
     address = self.uglySide.call('ritual_ZNK6QRectF10bottomLeftEv')
+    from . import QPointF
     return QPointF._cuteOwning(address)
 
   def center(self) -> QPointF:
@@ -281,6 +292,7 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QRectF::center() const
     address = self.uglySide.call('ritual_ZNK6QRectF6centerEv')
+    from . import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(float, float)
@@ -400,6 +412,7 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  QSizeF QRectF::size() const
     address = self.uglySide.call('ritual_ZNK6QRectF4sizeEv')
+    from . import QSizeF
     return QSizeF._cuteOwning(address)
 
   def width(self) -> float:
@@ -617,6 +630,7 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  QRect QRectF::toRect() const
     address = self.uglySide.call('ritual_ZNK6QRectF6toRectEv')
+    from . import QRect
     return QRect._cuteOwning(address)
 
   def toAlignedRect(self) -> QRect:
@@ -633,6 +647,7 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  QRect QRectF::toAlignedRect() const
     address = self.uglySide.call('ritual_ZNK6QRectF13toAlignedRectEv')
+    from . import QRect
     return QRect._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

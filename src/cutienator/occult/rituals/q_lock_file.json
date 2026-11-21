@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qlockfile.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QLockFileC1ERK7QString": ["address", "text"],
+    "ritual_ZN9QLockFileD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QLockFile8fileNameEv": ["text", "address"],
+    "ritual_ZN9QLockFile4lockEv": ["bool", "address"],
+    "ritual_ZN9QLockFile7tryLockEi": ["bool", "address", "int"],
+    "ritual_ZN9QLockFile6unlockEv": ["nothing", "address"],
+    "ritual_ZN9QLockFile16setStaleLockTimeEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QLockFile13staleLockTimeEv": ["int", "address"],
+    "ritual_ZNK9QLockFile8isLockedEv": ["bool", "address"],
+    "ritual_ZNK9QLockFile11getLockInfoEPxP7QStringS2_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QLockFile19removeStaleLockFileEv": ["bool", "address"],
+    "ritual_ZNK9QLockFile5errorEv": ["int", "address"]
+  }
+}

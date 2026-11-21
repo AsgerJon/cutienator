@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmutex.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QRecursiveMutexC1Ev": ["address"],
+    "ritual_ZN15QRecursiveMutexD1Ev": ["nothing", "address"],
+    "ritual_ZN15QRecursiveMutex6unlockEv": ["nothing", "address"]
+  }
+}

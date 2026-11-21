@@ -13,8 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from ._q_standard_paths_locate_option import LocateOption
-from ._q_standard_paths_standard_location import StandardLocation
+from . import QStandardPathsLocateOption, QStandardPathsStandardLocation
 
 
 class QStandardPaths(CuteMixin, metaclass=MetaCute):
@@ -51,9 +50,9 @@ class QStandardPaths(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QStandardPaths, and the names Qt has for the
   #  combinations of its flags enums.
-  LocateOption = LocateOption
-  LocateOptions = LocateOption
-  StandardLocation = StandardLocation
+  LocateOption = QStandardPathsLocateOption
+  LocateOptions = QStandardPathsLocateOption
+  StandardLocation = QStandardPathsStandardLocation
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

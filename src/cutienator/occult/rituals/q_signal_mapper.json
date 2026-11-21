@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qsignalmapper.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QSignalMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QSignalMapper2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QSignalMapperC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QSignalMapperD1Ev": ["nothing", "address"],
+    "ritual_ZN13QSignalMapper10setMappingEP7QObjecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN13QSignalMapper10setMappingEP7QObjectRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN13QSignalMapper10setMappingEP7QObjectS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QSignalMapper14removeMappingsEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QSignalMapper7mappingEi": ["address", "address", "int"],
+    "ritual_ZNK13QSignalMapper7mappingERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13QSignalMapper7mappingEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QSignalMapper3mapEv": ["nothing", "address"],
+    "ritual_ZN13QSignalMapper3mapEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

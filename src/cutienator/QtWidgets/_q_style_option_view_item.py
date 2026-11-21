@@ -13,13 +13,11 @@ from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..occult import Rituals
-from ._q_style_option import QStyleOption
-from ._q_style_option_view_item_position import Position
-from ._q_style_option_view_item_style_option_type import StyleOptionType
-from ._q_style_option_view_item_style_option_version \
-  import StyleOptionVersion
-from ._q_style_option_view_item_view_item_feature import ViewItemFeature
-from ._q_style_option_view_item_view_item_position import ViewItemPosition
+from . import QStyleOption, QStyleOptionViewItemPosition
+from . import QStyleOptionViewItemStyleOptionType
+from . import QStyleOptionViewItemStyleOptionVersion
+from . import QStyleOptionViewItemViewItemFeature
+from . import QStyleOptionViewItemViewItemPosition
 
 
 class QStyleOptionViewItem(QStyleOption):
@@ -69,12 +67,12 @@ class QStyleOptionViewItem(QStyleOption):
 
   #  The enums Qt writes inside QStyleOptionViewItem, and the names Qt has
   #  for the combinations of its flags enums.
-  Position = Position
-  StyleOptionType = StyleOptionType
-  StyleOptionVersion = StyleOptionVersion
-  ViewItemFeature = ViewItemFeature
-  ViewItemFeatures = ViewItemFeature
-  ViewItemPosition = ViewItemPosition
+  Position = QStyleOptionViewItemPosition
+  StyleOptionType = QStyleOptionViewItemStyleOptionType
+  StyleOptionVersion = QStyleOptionViewItemStyleOptionVersion
+  ViewItemFeature = QStyleOptionViewItemViewItemFeature
+  ViewItemFeatures = QStyleOptionViewItemViewItemFeature
+  ViewItemPosition = QStyleOptionViewItemViewItemPosition
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

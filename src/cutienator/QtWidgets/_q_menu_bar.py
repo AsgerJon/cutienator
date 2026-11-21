@@ -11,20 +11,25 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QAction
-from ..QtGui import QIcon
-from ._q_menu import QMenu
-from ..QtCore import QMetaObject
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QPoint, QRect, QSize
+  from ..QtGui import QAction, QIcon
+  from . import QMenu
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAction = WAIT['QAction']
+  QIcon = WAIT['QIcon']
+  QMenu = WAIT['QMenu']
+  QPoint = WAIT['QPoint']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -159,6 +164,7 @@ class QMenuBar(QWidget):
     """
     #  const QMetaObject *QMenuBar::metaObject() const
     address = self.uglySide.call('ritual_ZNK8QMenuBar10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def activeAction(self) -> Optional[QAction]:
@@ -176,6 +182,7 @@ class QMenuBar(QWidget):
     """
     #  QAction *QMenuBar::activeAction() const
     address = self.uglySide.call('ritual_ZNK8QMenuBar12activeActionEv')
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   def isDefaultUp(self) -> bool:
@@ -201,6 +208,7 @@ class QMenuBar(QWidget):
     """
     #  QSize QMenuBar::sizeHint() const
     address = self.uglySide.call('ritual_ZNK8QMenuBar8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -217,6 +225,7 @@ class QMenuBar(QWidget):
     """
     #  QSize QMenuBar::minimumSizeHint() const
     address = self.uglySide.call('ritual_ZNK8QMenuBar15minimumSizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(int)
@@ -260,6 +269,7 @@ class QMenuBar(QWidget):
     address = self.uglySide.call(
         'ritual_ZNK8QMenuBar14actionGeometryEP7QAction', self._addressOf(a0),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(QPoint)
@@ -287,6 +297,7 @@ class QMenuBar(QWidget):
     address = self.uglySide.call(
         'ritual_ZNK8QMenuBar8actionAtERK6QPoint', self._valueOf(a0),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload()
@@ -516,6 +527,7 @@ class QMenuBar(QWidget):
     address = self.uglySide.call(
         'ritual_ZN8QMenuBar7addMenuEP5QMenu', self._addressOf(menu),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(str)
@@ -542,6 +554,7 @@ class QMenuBar(QWidget):
     address = self.uglySide.call(
         'ritual_ZN8QMenuBar7addMenuERK7QString', title,
     )
+    from . import QMenu
     return QMenu._cuteAt(address)
 
   @overload(QIcon, str)
@@ -573,6 +586,7 @@ class QMenuBar(QWidget):
         'ritual_ZN8QMenuBar7addMenuERK5QIconRK7QString',
         self._valueOf(icon), title,
     )
+    from . import QMenu
     return QMenu._cuteAt(address)
 
   def addSeparator(self) -> Optional[QAction]:
@@ -590,6 +604,7 @@ class QMenuBar(QWidget):
     """
     #  QAction *QMenuBar::addSeparator()
     address = self.uglySide.call('ritual_ZN8QMenuBar12addSeparatorEv')
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QAction)
@@ -619,6 +634,7 @@ class QMenuBar(QWidget):
         'ritual_ZN8QMenuBar15insertSeparatorEP7QAction',
         self._addressOf(before),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QAction, QMenu)
@@ -658,6 +674,7 @@ class QMenuBar(QWidget):
         'ritual_ZN8QMenuBar10insertMenuEP7QActionP5QMenu',
         self._addressOf(before), self._addressOf(menu),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   def clear(self) -> None:

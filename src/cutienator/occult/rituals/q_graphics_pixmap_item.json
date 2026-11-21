@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QGraphicsPixmapItemC1EP13QGraphicsItem": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGraphicsPixmapItemC1ERK7QPixmapP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsPixmapItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QGraphicsPixmapItem6pixmapEv": ["address", "address"],
+    "ritual_ZN19QGraphicsPixmapItem9setPixmapERK7QPixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsPixmapItem18transformationModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QGraphicsPixmapItem21setTransformationModeEN2Qt18TransformationModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QGraphicsPixmapItem6offsetEv": ["address", "address"],
+    "ritual_ZN19QGraphicsPixmapItem9setOffsetERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsPixmapItem9setOffsetEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK19QGraphicsPixmapItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsPixmapItem5shapeEv": ["address", "address"],
+    "ritual_ZNK19QGraphicsPixmapItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsPixmapItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsPixmapItem12isObscuredByEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsPixmapItem10opaqueAreaEv": ["address", "address"],
+    "ritual_ZNK19QGraphicsPixmapItem4typeEv": ["int", "address"],
+    "ritual_ZNK19QGraphicsPixmapItem9shapeModeEv": ["int", "address"],
+    "ritual_ZN19QGraphicsPixmapItem12setShapeModeENS_9ShapeModeE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

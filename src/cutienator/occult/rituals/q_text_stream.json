@@ -1,0 +1,88 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qtextstream.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QTextStreamC1Ev": ["address"],
+    "ritual_ZN11QTextStreamC1EP9QIODevice": ["address", "address"],
+    "ritual_ZN11QTextStreamC1EP7QString6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QTextStreamC1EP10QByteArray6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QTextStreamC1ERK10QByteArray6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QTextStreamD1Ev": ["nothing", "address"],
+    "ritual_ZN11QTextStream11setEncodingEN16QStringConverter8EncodingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextStream8encodingEv": ["int", "address"],
+    "ritual_ZN11QTextStream20setAutoDetectUnicodeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QTextStream17autoDetectUnicodeEv": ["bool", "address"],
+    "ritual_ZN11QTextStream24setGenerateByteOrderMarkEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QTextStream21generateByteOrderMarkEv": ["bool", "address"],
+    "ritual_ZN11QTextStream9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextStream6localeEv": ["address", "address"],
+    "ritual_ZN11QTextStream9setDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextStream6deviceEv": ["address", "address"],
+    "ritual_ZN11QTextStream9setStringEP7QString6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QTextStream6stringEv": ["address", "address"],
+    "ritual_ZNK11QTextStream6statusEv": ["int", "address"],
+    "ritual_ZN11QTextStream9setStatusENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QTextStream11resetStatusEv": ["nothing", "address"],
+    "ritual_ZNK11QTextStream5atEndEv": ["bool", "address"],
+    "ritual_ZN11QTextStream5resetEv": ["nothing", "address"],
+    "ritual_ZN11QTextStream5flushEv": ["nothing", "address"],
+    "ritual_ZN11QTextStream4seekEx": ["bool", "address", "long long"],
+    "ritual_ZNK11QTextStream3posEv": ["long long", "address"],
+    "ritual_ZN11QTextStream14skipWhiteSpaceEv": ["nothing", "address"],
+    "ritual_ZN11QTextStream8readLineEx": ["text", "address", "long long"],
+    "ritual_ZN11QTextStream12readLineIntoEP7QStringx": [
+      "bool", "address", "address", "long long"
+    ],
+    "ritual_ZN11QTextStream7readAllEv": ["text", "address"],
+    "ritual_ZN11QTextStream4readEx": ["text", "address", "long long"],
+    "ritual_ZN11QTextStream17setFieldAlignmentENS_14FieldAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextStream14fieldAlignmentEv": ["int", "address"],
+    "ritual_ZN11QTextStream10setPadCharE5QChar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTextStream7padCharEv": ["address", "address"],
+    "ritual_ZN11QTextStream13setFieldWidthEi": ["nothing", "address", "int"],
+    "ritual_ZNK11QTextStream10fieldWidthEv": ["int", "address"],
+    "ritual_ZN11QTextStream14setNumberFlagsE6QFlagsINS_10NumberFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextStream11numberFlagsEv": ["int", "address"],
+    "ritual_ZN11QTextStream14setIntegerBaseEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextStream11integerBaseEv": ["int", "address"],
+    "ritual_ZN11QTextStream21setRealNumberNotationENS_18RealNumberNotationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextStream18realNumberNotationEv": ["int", "address"],
+    "ritual_ZN11QTextStream22setRealNumberPrecisionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QTextStream19realNumberPrecisionEv": ["int", "address"],
+    "ritual_ZNK11QTextStreamcvbEv": ["bool", "address"]
+  }
+}

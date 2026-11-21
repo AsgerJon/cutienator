@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSignalBlockerC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QSignalBlockerD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSignalBlocker7reblockEv": ["nothing", "address"],
+    "ritual_ZN14QSignalBlocker7unblockEv": ["nothing", "address"],
+    "ritual_ZN14QSignalBlocker7dismissEv": ["nothing", "address"]
+  }
+}

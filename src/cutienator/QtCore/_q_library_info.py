@@ -13,10 +13,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from ._q_library_info_library_path import LibraryPath
+from . import QLibraryInfoLibraryPath
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QVersionNumber
 
 
 class QLibraryInfo(CuteMixin, metaclass=MetaCute):
@@ -32,15 +34,13 @@ class QLibraryInfo(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLibraryInfo that has a ritual and that Python can
-  call so far, 5 names in all: 'build', 'isDebugBuild', 'isSharedBuild',
-  'path', 'location'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  call so far, 6 names in all: 'build', 'isDebugBuild', 'isSharedBuild',
+  'version', 'path', 'location'. None can be made from Python: one comes out
+  of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QVersionNumber QLibraryInfo::version()': gives 'QVersionNumber',
-    which has no cute class yet.
   - Qt's 'QLibraryInfo::~QLibraryInfo()': the destructor: Python removes its
     C++ QLibraryInfo by it, and has no other use for it.
 
@@ -66,7 +66,7 @@ class QLibraryInfo(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QLibraryInfo, and the names Qt has for the
   #  combinations of its flags enums.
-  LibraryPath = LibraryPath
+  LibraryPath = QLibraryInfoLibraryPath
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -108,6 +108,24 @@ class QLibraryInfo(CuteMixin, metaclass=MetaCute):
     """
     #  bool QLibraryInfo::isSharedBuild()
     return Rituals.call('ritual_ZN12QLibraryInfo13isSharedBuildEv')
+
+  @staticmethod
+  def version() -> QVersionNumber:
+    """
+    Calls Qt's 'QVersionNumber QLibraryInfo::version()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlibraryinfo.html#version
+
+    Returns
+    -------
+
+    QVersionNumber
+      A new cute QVersionNumber around the copy Qt gave back. Python owns it.
+    """
+    #  QVersionNumber QLibraryInfo::version()
+    address = Rituals.call('ritual_ZN12QLibraryInfo7versionEv')
+    from . import QVersionNumber
+    return QVersionNumber._cuteOwning(address)
 
   @staticmethod
   @overload(LibraryPath)

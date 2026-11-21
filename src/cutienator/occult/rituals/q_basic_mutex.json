@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmutex.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QBasicMutexC1Ev": ["address"],
+    "ritual_ZN11QBasicMutex6unlockEv": ["nothing", "address"],
+    "ritual_ZN11QBasicMutex7tryLockEv": ["bool", "address"],
+    "ritual_ZN11QBasicMutex8try_lockEv": ["bool", "address"]
+  }
+}

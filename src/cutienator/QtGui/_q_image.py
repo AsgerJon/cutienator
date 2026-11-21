@@ -12,25 +12,33 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QByteArray
-from ..QtCore import QByteArrayView
-from ._q_color import QColor
-from ._q_color_space import QColorSpace
-from ..QtCore import QIODevice
-from ._q_paint_device import QPaintDevice
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ..QtCore import QSizeF
-from ._q_transform import QTransform
-from ._q_image_format import Format
-from ._q_image_invert_mode import InvertMode
+from . import QImageFormat, QImageInvertMode, QPaintDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QByteArray, QByteArrayView, QIODevice, QPoint, QRect
+  from ..QtCore import QSize, QSizeF
+  from . import QColor, QColorSpace, QColorTransform, QPaintEngine
+  from . import QPixelFormat, QTransform
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
+  QByteArrayView = WAIT['QByteArrayView']
+  QColor = WAIT['QColor']
+  QColorSpace = WAIT['QColorSpace']
+  QColorTransform = WAIT['QColorTransform']
+  QIODevice = WAIT['QIODevice']
+  QPixelFormat = WAIT['QPixelFormat']
+  QPoint = WAIT['QPoint']
+  QRect = WAIT['QRect']
+  QSize = WAIT['QSize']
+  QTransform = WAIT['QTransform']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -53,7 +61,7 @@ class QImage(QPaintDevice):
   -----------
 
   Every function of Qt's QImage that has a ritual and that Python can call so
-  far, 68 names in all: 'isNull', 'devType', 'detach', 'isDetached', 'copy',
+  far, 74 names in all: 'isNull', 'devType', 'detach', 'isDetached', 'copy',
   'format', 'convertToFormat', 'reinterpretAsFormat', 'convertedTo',
   'convertTo', 'width', 'height', 'size', 'rect', 'depth', 'colorCount',
   'bitPlaneCount', 'color', 'setColor', 'setColorCount', 'allGray',
@@ -64,10 +72,12 @@ class QImage(QPaintDevice):
   'createMaskFromColor', 'scaled', 'scaledToWidth', 'scaledToHeight',
   'transformed', 'trueMatrix', 'mirrored', 'mirror', 'rgbSwapped', 'flipped',
   'flip', 'rgbSwap', 'invertPixels', 'colorSpace', 'convertedToColorSpace',
-  'convertToColorSpace', 'setColorSpace', 'load', 'loadFromData', 'save',
-  'fromData', 'cacheKey', 'dotsPerMeterX', 'dotsPerMeterY',
+  'convertToColorSpace', 'setColorSpace', 'colorTransformed',
+  'applyColorTransform', 'load', 'loadFromData', 'save', 'fromData',
+  'cacheKey', 'paintEngine', 'dotsPerMeterX', 'dotsPerMeterY',
   'setDotsPerMeterX', 'setDotsPerMeterY', 'offset', 'setOffset', 'text',
-  'setText'. It can be made from Python, in 5 ways; see '__init__'.
+  'setText', 'pixelFormat', 'toPixelFormat', 'toImageFormat'. It can be made
+  from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -80,24 +90,6 @@ class QImage(QPaintDevice):
     which is not reflected yet.
   - Qt's 'QVariant QImage::operator QVariant() const': an operator, which is
     not reflected yet.
-  - Qt's 'QImage QImage::colorTransformed(const QColorTransform &transform)
-    const': names 'QColorTransform', which has no cute class yet.
-  - Qt's 'QImage QImage::colorTransformed(const QColorTransform &transform,
-    QImage::Format format, Qt::ImageConversionFlags flags) const': names
-    'QColorTransform', which has no cute class yet.
-  - Qt's 'void QImage::applyColorTransform(const QColorTransform
-    &transform)': names 'QColorTransform', which has no cute class yet.
-  - Qt's 'void QImage::applyColorTransform(const QColorTransform &transform,
-    QImage::Format format, Qt::ImageConversionFlags flags)': names
-    'QColorTransform', which has no cute class yet.
-  - Qt's 'QPaintEngine *QImage::paintEngine() const': gives 'QPaintEngine',
-    which has no cute class yet.
-  - Qt's 'QPixelFormat QImage::pixelFormat() const': gives 'QPixelFormat',
-    which has no cute class yet.
-  - Qt's 'QPixelFormat QImage::toPixelFormat(QImage::Format format)': gives
-    'QPixelFormat', which has no cute class yet.
-  - Qt's 'QImage::Format QImage::toImageFormat(QPixelFormat format)': names
-    'QPixelFormat', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -121,8 +113,8 @@ class QImage(QPaintDevice):
 
   #  The enums Qt writes inside QImage, and the names Qt has for the
   #  combinations of its flags enums.
-  Format = Format
-  InvertMode = InvertMode
+  Format = QImageFormat
+  InvertMode = QImageInvertMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -161,6 +153,7 @@ class QImage(QPaintDevice):
         'ritual_ZN6QImage10trueMatrixERK10QTransformii',
         CuteMixin._valueOf(a0), w, h,
     )
+    from . import QTransform
     return QTransform._cuteOwning(address)
 
   @staticmethod
@@ -232,6 +225,61 @@ class QImage(QPaintDevice):
         CuteMixin._valueOf(data), CuteMixin._bytesOf(format),
     )
     return QImage._cuteOwning(address)
+
+  @staticmethod
+  @overload(Format)
+  def toPixelFormat(format: Format) -> QPixelFormat:
+    """
+    Calls Qt's 'QPixelFormat QImage::toPixelFormat(QImage::Format format)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#toPixelFormat
+
+    Parameters
+    ----------
+
+    format : Format
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QPixelFormat
+      A new cute QPixelFormat around the copy Qt gave back. Python owns it.
+    """
+    #  QPixelFormat QImage::toPixelFormat(QImage::Format format)
+    address = Rituals.call(
+        'ritual_ZN6QImage13toPixelFormatENS_6FormatE', format.value,
+    )
+    from . import QPixelFormat
+    return QPixelFormat._cuteOwning(address)
+
+  @staticmethod
+  @overload(QPixelFormat)
+  def toImageFormat(format: QPixelFormat) -> Format:
+    """
+    Calls Qt's 'QImage::Format QImage::toImageFormat(QPixelFormat format)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#toImageFormat
+
+    Parameters
+    ----------
+
+    format : QPixelFormat
+      Passed on as a value: Qt reads the C++ QPixelFormat, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Format
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Format(number)' gives.
+    """
+    #  QImage::Format QImage::toImageFormat(QPixelFormat format)
+    return QImage.Format(Rituals.call(
+        'ritual_ZN6QImage13toImageFormatE12QPixelFormat',
+        CuteMixin._valueOf(format),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -307,6 +355,7 @@ class QImage(QPaintDevice):
     """
     #  QImage QImage::copy(const QRect &rect) const
     if rect is None:
+      from ..QtCore import QRect
       rect = QRect()
     address = self.uglySide.call(
         'ritual_ZNK6QImage4copyERK5QRect', self._valueOf(rect),
@@ -359,7 +408,7 @@ class QImage(QPaintDevice):
       no name it is the member without a name that 'Format(number)' gives.
     """
     #  Format QImage::format() const
-    return Format(self.uglySide.call('ritual_ZNK6QImage6formatEv'))
+    return QImage.Format(self.uglySide.call('ritual_ZNK6QImage6formatEv'))
 
   @overload(Format)
   @overload(Format, Qt.ImageConversionFlags)
@@ -469,6 +518,7 @@ class QImage(QPaintDevice):
     """
     #  QSize QImage::size() const
     address = self.uglySide.call('ritual_ZNK6QImage4sizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def rect(self) -> QRect:
@@ -485,6 +535,7 @@ class QImage(QPaintDevice):
     """
     #  QRect QImage::rect() const
     address = self.uglySide.call('ritual_ZNK6QImage4rectEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def depth(self) -> int:
@@ -704,6 +755,7 @@ class QImage(QPaintDevice):
     """
     #  QColor QImage::pixelColor(int x, int y) const
     address = self.uglySide.call('ritual_ZNK6QImage10pixelColorEii', x, y)
+    from . import QColor
     return QColor._cuteOwning(address)
 
   @overload(QPoint)
@@ -730,6 +782,7 @@ class QImage(QPaintDevice):
     address = self.uglySide.call(
         'ritual_ZNK6QImage10pixelColorERK6QPoint', self._valueOf(pt),
     )
+    from . import QColor
     return QColor._cuteOwning(address)
 
   def devicePixelRatio(self) -> float:
@@ -757,6 +810,7 @@ class QImage(QPaintDevice):
     address = self.uglySide.call(
         'ritual_ZNK6QImage21deviceIndependentSizeEv',
     )
+    from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
 
   def hasAlphaChannel(self) -> bool:
@@ -1164,6 +1218,7 @@ class QImage(QPaintDevice):
     """
     #  QColorSpace QImage::colorSpace() const
     address = self.uglySide.call('ritual_ZNK6QImage10colorSpaceEv')
+    from . import QColorSpace
     return QColorSpace._cuteOwning(address)
 
   @overload(QColorSpace)
@@ -1236,6 +1291,79 @@ class QImage(QPaintDevice):
         'ritual_ZNKR6QImage21convertedToColorSpaceERK11QColorSpaceNS_6Forma'
         'tE6QFlagsIN2Qt19ImageConversionFlagEE',
         self._valueOf(colorSpace), format.value, flags.value,
+    )
+    return QImage._cuteOwning(address)
+
+  @overload(QColorTransform)
+  def colorTransformed(self, transform: QColorTransform) -> QImage:
+    """
+    Calls Qt's 'QImage QImage::colorTransformed(const QColorTransform
+    &transform) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#colorTransformed
+
+    Parameters
+    ----------
+
+    transform : QColorTransform
+      Passed on as a value: Qt reads the C++ QColorTransform, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QImage
+      A new cute QImage around the copy Qt gave back. Python owns it.
+    """
+    #  QImage QImage::colorTransformed(const QColorTransform &transform)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNKR6QImage16colorTransformedERK15QColorTransform',
+        self._valueOf(transform),
+    )
+    return QImage._cuteOwning(address)
+
+  @overload(QColorTransform, Format)
+  @overload(QColorTransform, Format, Qt.ImageConversionFlags)
+  def colorTransformed(
+      self,
+      transform: QColorTransform,
+      format: Format,
+      flags: Qt.ImageConversionFlags = Qt.ImageConversionFlags.AutoColor,
+  ) -> QImage:
+    """
+    Calls Qt's 'QImage QImage::colorTransformed(const QColorTransform
+    &transform, QImage::Format format, Qt::ImageConversionFlags flags)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#colorTransformed
+
+    Parameters
+    ----------
+
+    transform : QColorTransform
+      Passed on as a value: Qt reads the C++ QColorTransform, which stays
+      Python's own.
+
+    format : Format
+      Passed on as its number.
+
+    flags : Qt.ImageConversionFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ImageConversionFlags.AutoColor.
+
+    Returns
+    -------
+
+    QImage
+      A new cute QImage around the copy Qt gave back. Python owns it.
+    """
+    #  QImage QImage::colorTransformed(const QColorTransform &transform,
+    #      QImage::Format format, Qt::ImageConversionFlags flags) const
+    address = self.uglySide.call(
+        'ritual_ZNKR6QImage16colorTransformedERK15QColorTransformNS_6Format'
+        'E6QFlagsIN2Qt19ImageConversionFlagEE',
+        self._valueOf(transform), format.value, flags.value,
     )
     return QImage._cuteOwning(address)
 
@@ -1328,6 +1456,24 @@ class QImage(QPaintDevice):
     #  qint64 QImage::cacheKey() const
     return self.uglySide.call('ritual_ZNK6QImage8cacheKeyEv')
 
+  def paintEngine(self) -> Optional[QPaintEngine]:
+    """
+    Calls Qt's 'QPaintEngine *QImage::paintEngine() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#paintEngine
+
+    Returns
+    -------
+
+    Optional[QPaintEngine]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintEngine *QImage::paintEngine() const
+    address = self.uglySide.call('ritual_ZNK6QImage11paintEngineEv')
+    from . import QPaintEngine
+    return QPaintEngine._cuteAt(address)
+
   def dotsPerMeterX(self) -> int:
     """
     Calls Qt's 'int QImage::dotsPerMeterX() const'.
@@ -1360,6 +1506,7 @@ class QImage(QPaintDevice):
     """
     #  QPoint QImage::offset() const
     address = self.uglySide.call('ritual_ZNK6QImage6offsetEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @overload()
@@ -1385,6 +1532,23 @@ class QImage(QPaintDevice):
     """
     #  QString QImage::text(const QString &key) const
     return self.uglySide.call('ritual_ZNK6QImage4textERK7QString', key)
+
+  def pixelFormat(self) -> QPixelFormat:
+    """
+    Calls Qt's 'QPixelFormat QImage::pixelFormat() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#pixelFormat
+
+    Returns
+    -------
+
+    QPixelFormat
+      A new cute QPixelFormat around the copy Qt gave back. Python owns it.
+    """
+    #  QPixelFormat QImage::pixelFormat() const
+    address = self.uglySide.call('ritual_ZNK6QImage11pixelFormatEv')
+    from . import QPixelFormat
+    return QPixelFormat._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2027,6 +2191,63 @@ class QImage(QPaintDevice):
         'ritual_ZN6QImage19convertToColorSpaceERK11QColorSpaceNS_6FormatE6Q'
         'FlagsIN2Qt19ImageConversionFlagEE',
         self._valueOf(colorSpace), format.value, flags.value,
+    )
+
+  @overload(QColorTransform)
+  def applyColorTransform(self, transform: QColorTransform) -> None:
+    """
+    Calls Qt's 'void QImage::applyColorTransform(const QColorTransform
+    &transform)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#applyColorTransform
+
+    Parameters
+    ----------
+
+    transform : QColorTransform
+      Passed on as a value: Qt reads the C++ QColorTransform, which stays
+      Python's own.
+    """
+    #  void QImage::applyColorTransform(const QColorTransform &transform)
+    self.uglySide.call(
+        'ritual_ZN6QImage19applyColorTransformERK15QColorTransform',
+        self._valueOf(transform),
+    )
+
+  @overload(QColorTransform, Format)
+  @overload(QColorTransform, Format, Qt.ImageConversionFlags)
+  def applyColorTransform(
+      self,
+      transform: QColorTransform,
+      format: Format,
+      flags: Qt.ImageConversionFlags = Qt.ImageConversionFlags.AutoColor,
+  ) -> None:
+    """
+    Calls Qt's 'void QImage::applyColorTransform(const QColorTransform
+    &transform, QImage::Format format, Qt::ImageConversionFlags flags)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#applyColorTransform
+
+    Parameters
+    ----------
+
+    transform : QColorTransform
+      Passed on as a value: Qt reads the C++ QColorTransform, which stays
+      Python's own.
+
+    format : Format
+      Passed on as its number.
+
+    flags : Qt.ImageConversionFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ImageConversionFlags.AutoColor.
+    """
+    #  void QImage::applyColorTransform(const QColorTransform &transform,
+    #      QImage::Format format, Qt::ImageConversionFlags flags)
+    self.uglySide.call(
+        'ritual_ZN6QImage19applyColorTransformERK15QColorTransformNS_6Forma'
+        'tE6QFlagsIN2Qt19ImageConversionFlagEE',
+        self._valueOf(transform), format.value, flags.value,
     )
 
   @overload(QIODevice, str)

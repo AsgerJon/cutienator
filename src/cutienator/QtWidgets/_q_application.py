@@ -13,19 +13,25 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ..QtCore import QEvent
-from ..QtGui import QFont
-from ..QtGui import QFontMetrics
+from ..QtCore import Qt, QObject
 from ..QtGui import QGuiApplication
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ..QtGui import QPalette
-from ..QtCore import QPoint
-from ._q_widget import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QEvent, QMetaObject, QPoint
+  from ..QtGui import QFont, QFontMetrics, QPalette
+  from . import QStyle, QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QFont = WAIT['QFont']
+  QPalette = WAIT['QPalette']
+  QPoint = WAIT['QPoint']
+  QStyle = WAIT['QStyle']
+  QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -83,10 +89,6 @@ class QApplication(QGuiApplication):
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QStyle = WAIT['QStyle']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -151,24 +153,24 @@ class QApplication(QGuiApplication):
     """
     #  QStyle *QApplication::style()
     address = Rituals.call('ritual_ZN12QApplication5styleEv')
-    return QApplication.QStyle._cuteAt(address)
+    from . import QStyle
+    return QStyle._cuteAt(address)
 
   @staticmethod
   @overload(QStyle)
-  def setStyle(a0: QStyle) -> None:
+  @overload(NoneType)
+  def setStyle(a0: Optional[QStyle]) -> None:
     """
     Calls Qt's 'void QApplication::setStyle(QStyle *a0)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qapplication.html#setStyle
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    a0 : QStyle
-      Passed on as the address of its C++ object.
+    a0 : Optional[QStyle]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QApplication::setStyle(QStyle *a0)
     Rituals.call(
@@ -199,7 +201,8 @@ class QApplication(QGuiApplication):
     """
     #  QStyle *QApplication::setStyle(const QString &a0)
     address = Rituals.call('ritual_ZN12QApplication8setStyleERK7QString', a0)
-    return QApplication.QStyle._cuteAt(address)
+    from . import QStyle
+    return QStyle._cuteAt(address)
 
   @staticmethod
   @overload(QWidget)
@@ -228,6 +231,7 @@ class QApplication(QGuiApplication):
         'ritual_ZN12QApplication7paletteEPK7QWidget',
         CuteMixin._addressOf(a0),
     )
+    from ..QtGui import QPalette
     return QPalette._cuteOwning(address)
 
   @staticmethod
@@ -254,6 +258,7 @@ class QApplication(QGuiApplication):
     address = Rituals.call(
         'ritual_ZN12QApplication7paletteEPKc', CuteMixin._bytesOf(className),
     )
+    from ..QtGui import QPalette
     return QPalette._cuteOwning(address)
 
   @staticmethod
@@ -301,6 +306,7 @@ class QApplication(QGuiApplication):
     """
     #  QFont QApplication::font()
     address = Rituals.call('ritual_ZN12QApplication4fontEv')
+    from ..QtGui import QFont
     return QFont._cuteOwning(address)
 
   @staticmethod
@@ -329,6 +335,7 @@ class QApplication(QGuiApplication):
     address = Rituals.call(
         'ritual_ZN12QApplication4fontEPK7QWidget', CuteMixin._addressOf(a0),
     )
+    from ..QtGui import QFont
     return QFont._cuteOwning(address)
 
   @staticmethod
@@ -355,6 +362,7 @@ class QApplication(QGuiApplication):
     address = Rituals.call(
         'ritual_ZN12QApplication4fontEPKc', CuteMixin._bytesOf(className),
     )
+    from ..QtGui import QFont
     return QFont._cuteOwning(address)
 
   @staticmethod
@@ -399,6 +407,7 @@ class QApplication(QGuiApplication):
     """
     #  QFontMetrics QApplication::fontMetrics()
     address = Rituals.call('ritual_ZN12QApplication11fontMetricsEv')
+    from ..QtGui import QFontMetrics
     return QFontMetrics._cuteOwning(address)
 
   @staticmethod
@@ -418,6 +427,7 @@ class QApplication(QGuiApplication):
     """
     #  QWidget *QApplication::activePopupWidget()
     address = Rituals.call('ritual_ZN12QApplication17activePopupWidgetEv')
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   @staticmethod
@@ -437,6 +447,7 @@ class QApplication(QGuiApplication):
     """
     #  QWidget *QApplication::activeModalWidget()
     address = Rituals.call('ritual_ZN12QApplication17activeModalWidgetEv')
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   @staticmethod
@@ -455,6 +466,7 @@ class QApplication(QGuiApplication):
     """
     #  QWidget *QApplication::focusWidget()
     address = Rituals.call('ritual_ZN12QApplication11focusWidgetEv')
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   @staticmethod
@@ -473,6 +485,7 @@ class QApplication(QGuiApplication):
     """
     #  QWidget *QApplication::activeWindow()
     address = Rituals.call('ritual_ZN12QApplication12activeWindowEv')
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   @staticmethod
@@ -523,6 +536,7 @@ class QApplication(QGuiApplication):
     address = Rituals.call(
         'ritual_ZN12QApplication8widgetAtERK6QPoint', CuteMixin._valueOf(p),
     )
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   @staticmethod
@@ -551,6 +565,7 @@ class QApplication(QGuiApplication):
     """
     #  QWidget *QApplication::widgetAt(int x, int y)
     address = Rituals.call('ritual_ZN12QApplication8widgetAtEii', x, y)
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   @staticmethod
@@ -580,6 +595,7 @@ class QApplication(QGuiApplication):
         'ritual_ZN12QApplication10topLevelAtERK6QPoint',
         CuteMixin._valueOf(p),
     )
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   @staticmethod
@@ -608,6 +624,7 @@ class QApplication(QGuiApplication):
     """
     #  QWidget *QApplication::topLevelAt(int x, int y)
     address = Rituals.call('ritual_ZN12QApplication10topLevelAtEii', x, y)
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   @staticmethod
@@ -926,6 +943,7 @@ class QApplication(QGuiApplication):
     """
     #  const QMetaObject *QApplication::metaObject() const
     address = self.uglySide.call('ritual_ZNK12QApplication10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def styleSheet(self) -> str:

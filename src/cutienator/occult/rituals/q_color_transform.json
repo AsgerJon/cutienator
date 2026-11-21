@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qcolortransform.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QColorTransformC1Ev": ["address"],
+    "ritual_ZN15QColorTransformD1Ev": ["nothing", "address"],
+    "ritual_ZN15QColorTransformC1ERKS_": ["address", "address"],
+    "ritual_ZNK15QColorTransform10isIdentityEv": ["bool", "address"],
+    "ritual_ZNK15QColorTransform3mapEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK15QColorTransform3mapE7QRgba64": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QColorTransform3mapERK6QColor": [
+      "address", "address", "address"
+    ]
+  }
+}

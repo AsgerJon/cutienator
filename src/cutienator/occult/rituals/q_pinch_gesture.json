@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgesture.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QPinchGesture10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QPinchGesture2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QPinchGestureC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QPinchGestureD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QPinchGesture16totalChangeFlagsEv": ["int", "address"],
+    "ritual_ZN13QPinchGesture19setTotalChangeFlagsE6QFlagsINS_10ChangeFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QPinchGesture11changeFlagsEv": ["int", "address"],
+    "ritual_ZN13QPinchGesture14setChangeFlagsE6QFlagsINS_10ChangeFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QPinchGesture16startCenterPointEv": ["address", "address"],
+    "ritual_ZNK13QPinchGesture15lastCenterPointEv": ["address", "address"],
+    "ritual_ZNK13QPinchGesture11centerPointEv": ["address", "address"],
+    "ritual_ZN13QPinchGesture19setStartCenterPointERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QPinchGesture18setLastCenterPointERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QPinchGesture14setCenterPointERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPinchGesture16totalScaleFactorEv": ["double", "address"],
+    "ritual_ZNK13QPinchGesture15lastScaleFactorEv": ["double", "address"],
+    "ritual_ZNK13QPinchGesture11scaleFactorEv": ["double", "address"],
+    "ritual_ZN13QPinchGesture19setTotalScaleFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QPinchGesture18setLastScaleFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QPinchGesture14setScaleFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QPinchGesture18totalRotationAngleEv": ["double", "address"],
+    "ritual_ZNK13QPinchGesture17lastRotationAngleEv": ["double", "address"],
+    "ritual_ZNK13QPinchGesture13rotationAngleEv": ["double", "address"],
+    "ritual_ZN13QPinchGesture21setTotalRotationAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QPinchGesture20setLastRotationAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QPinchGesture16setRotationAngleEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

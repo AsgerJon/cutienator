@@ -109,7 +109,7 @@ class TestMetaCute(BaseTest):
     self.assertEqual(NothingLate().take('seven'), 'text')
     with self.assertRaises(DispatchException):
       NothingLate().take(object())
-    self.assertEqual(NothingLate.getNamespace().getWaitingOverloads(), ())
+    self.assertEqual(NothingLate.getNamespace().getWaitingSignatures(), ())
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  WAITING  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -158,7 +158,7 @@ class TestMetaCute(BaseTest):
         return 'late'
 
     space = StoredEarly.getNamespace()
-    waiting = space.getWaitingOverloads()
+    waiting = space.getWaitingSignatures()
     self.assertEqual(len(waiting), 1)
     methodName, waitingOverload = waiting[0]
     self.assertEqual(methodName, 'meet')
@@ -167,7 +167,7 @@ class TestMetaCute(BaseTest):
     class StoredLate(BaseObject, metaclass=MetaCute):
       pass
 
-    self.assertEqual(space.getWaitingOverloads(), ())
+    self.assertEqual(space.getWaitingSignatures(), ())
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTLING   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -435,6 +435,63 @@ class TestMetaCute(BaseTest):
     raised = self._raisedBy(lambda: early.meet('word', late))
     self.assertIs(type(raised), DispatchException)
 
+  def test_signatures_sharing_one_function(self) -> None:
+    """A waiting signature shares its function with other signatures.
+    Those that do not wait work from the start, and each of the others
+    once its late class is made."""
+
+    class SharesOne(BaseObject, metaclass=MetaCute):
+
+      @overload(WAIT['SharedLate'], int)
+      @overload(WAIT['SharedLate'])
+      @overload(type(None))
+      @overload()
+      def take(self, thing: Any = None, count: int = 1) -> tuple:
+        return type(thing).__name__, count
+
+      @staticmethod
+      @overload(str)
+      @overload(WAIT['SharedLate'], str)
+      def make(*args: Any) -> int:
+        return len(args)
+
+      @overload(WAIT['SharedOther'])
+      @overload(WAIT['SharedLate'], WAIT['SharedOther'])
+      def both(self, *args: Any) -> int:
+        return len(args)
+
+    class BuiltOnShares(SharesOne):
+      pass
+
+    sharesOne, builtOn = SharesOne(), BuiltOnShares()
+    self.assertEqual(sharesOne.take(), ('NoneType', 1))
+    self.assertEqual(builtOn.take(None), ('NoneType', 1))
+    self.assertEqual(SharesOne.make('text'), 1)
+    self.assertFalse(hasattr(SharesOne, 'both'))
+    with self.assertRaises(DispatchException):
+      sharesOne.take(7)
+
+    class SharedLate(BaseObject, metaclass=MetaCute):
+      pass
+
+    late = SharedLate()
+    self.assertEqual(sharesOne.take(late), ('SharedLate', 1))
+    self.assertEqual(sharesOne.take(late, 4), ('SharedLate', 4))
+    self.assertEqual(builtOn.take(late, 5), ('SharedLate', 5))
+    self.assertEqual(sharesOne.take(), ('NoneType', 1))
+    self.assertEqual(SharesOne.make(late, 'text'), 2)
+    self.assertEqual(BuiltOnShares.make('text'), 1)
+    self.assertFalse(hasattr(SharesOne, 'both'))
+    self.assertNotIn('SharedLate', MetaCute.getStillWaiting())
+    self.assertIn('SharedOther', MetaCute.getStillWaiting())
+
+    class SharedOther(BaseObject, metaclass=MetaCute):
+      pass
+
+    self.assertEqual(sharesOne.both(SharedOther()), 1)
+    self.assertEqual(builtOn.both(late, SharedOther()), 2)
+    self.assertNotIn('SharedOther', MetaCute.getStillWaiting())
+
   def test_plain_definition_below_is_left_alone(self) -> None:
     """A class defining the name plainly keeps its own definition."""
 
@@ -523,11 +580,12 @@ class TestMetaCute(BaseTest):
     self.assertIn('WholeLate', MetaCute.getStillWaiting())
     self.assertIsInstance(WholeSound.__dict__['WholeLate'], WAIT)
     self.assertFalse(hasattr(WholeSound, 'take'))
-    self.assertEqual(len(WholeSound.getNamespace().getWaitingOverloads()), 1)
+    wholeSpace = WholeSound.getNamespace()
+    self.assertEqual(len(wholeSpace.getWaitingSignatures()), 1)
     #  The faulty class is given up, and is as it was too.
     self.assertIsInstance(WholeFaulty.__dict__['WholeLate'], WAIT)
     faultySpace = WholeFaulty.getNamespace()
-    self.assertEqual(len(faultySpace.getWaitingOverloads()), 1)
+    self.assertEqual(len(faultySpace.getWaitingSignatures()), 1)
 
     class WholeLate(BaseObject, metaclass=MetaCute):
       pass
@@ -610,7 +668,7 @@ class TestMetaCute(BaseTest):
         StackAboveLate = WAIT['StackAboveLate']
 
         @overload(StackAboveLate)
-        @overload(int)
+        @overload.fallback
         def take(self, thing: Any) -> str:
           return 'taken'
 
@@ -618,7 +676,7 @@ class TestMetaCute(BaseTest):
       class StackBelow(BaseObject, metaclass=MetaCute):
         StackBelowLate = WAIT['StackBelowLate']
 
-        @overload(int)
+        @overload.finalize
         @overload(StackBelowLate)
         def take(self, thing: Any) -> str:
           return 'taken'
@@ -694,8 +752,8 @@ class TestMetaCute(BaseTest):
           return 'second'
 
     mistakes = (
-        ('a waiting signature stacked above', stackedAbove, TypeError),
-        ('a waiting signature stacked below', stackedBelow, TypeError),
+        ('a waiting signature above a fallback', stackedAbove, TypeError),
+        ('a finalizer above a waiting signature', stackedBelow, TypeError),
         ('a plain definition at its name', plainAfter, OverloadConflict),
         ('two kinds of method at its name', twoKinds, MixedMethodKind),
         ('a late class in overload.flex', flexed, TypeError),

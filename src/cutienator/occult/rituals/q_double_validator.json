@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qvalidator.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QDoubleValidator10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QDoubleValidator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QDoubleValidatorC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QDoubleValidatorC1EddiP7QObject": [
+      "address", "double", "double", "int", "address"
+    ],
+    "ritual_ZN16QDoubleValidatorD1Ev": ["nothing", "address"],
+    "ritual_ZN16QDoubleValidator8setRangeEddi": [
+      "nothing", "address", "double", "double", "int"
+    ],
+    "ritual_ZN16QDoubleValidator8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN16QDoubleValidator9setBottomEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QDoubleValidator6setTopEd": ["nothing", "address", "double"],
+    "ritual_ZN16QDoubleValidator11setDecimalsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QDoubleValidator11setNotationENS_8NotationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QDoubleValidator6bottomEv": ["double", "address"],
+    "ritual_ZNK16QDoubleValidator3topEv": ["double", "address"],
+    "ritual_ZNK16QDoubleValidator8decimalsEv": ["int", "address"],
+    "ritual_ZNK16QDoubleValidator8notationEv": ["int", "address"]
+  }
+}

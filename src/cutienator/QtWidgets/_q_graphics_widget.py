@@ -1,0 +1,1371 @@
+"""
+QGraphicsWidget binding of the Qt C++
+"""
+#  Apache-2.0 license
+#  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  QtWidgets/qgraphicswidget.h, Qt 6.12.0. Changes made here are lost.
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from worktoy.core.sentinels import THIS
+from worktoy.dispatch import overload
+
+from ..cute import CuteMixin, WAIT
+from ..occult import Rituals
+from ..QtCore import Qt
+from . import QGraphicsObject
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+  from ..QtCore import QMarginsF, QMetaObject, QRectF, QSizeF
+  from ..QtGui import QAction, QFont, QKeySequence, QPainter, QPainterPath
+  from ..QtGui import QPalette
+  from . import QGraphicsItem, QGraphicsLayout, QStyle
+  from . import QStyleOptionGraphicsItem, QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAction = WAIT['QAction']
+  QFont = WAIT['QFont']
+  QGraphicsItem = WAIT['QGraphicsItem']
+  QGraphicsLayout = WAIT['QGraphicsLayout']
+  QKeySequence = WAIT['QKeySequence']
+  QMarginsF = WAIT['QMarginsF']
+  QPainter = WAIT['QPainter']
+  QPalette = WAIT['QPalette']
+  QRectF = WAIT['QRectF']
+  QSizeF = WAIT['QSizeF']
+  QStyle = WAIT['QStyle']
+  QStyleOptionGraphicsItem = WAIT['QStyleOptionGraphicsItem']
+  QWidget = WAIT['QWidget']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
+
+
+class QGraphicsWidget(QGraphicsObject):
+  """
+  The cute side of Qt's QGraphicsWidget: a plain Python object standing in
+  front of one C++ QGraphicsWidget.
+
+  It is built on the cute 'QGraphicsObject', as Qt's QGraphicsWidget is built
+  on Qt's QGraphicsObject, and has everything that class has. Qt's
+  QGraphicsWidget is built on Qt's QGraphicsLayoutItem as well, which is not
+  reflected.
+
+  What exists
+  -----------
+
+  Every function of Qt's QGraphicsWidget that has a ritual and that Python
+  can call so far, 50 names in all: 'metaObject', 'tr', 'layout',
+  'setLayout', 'adjustSize', 'layoutDirection', 'setLayoutDirection',
+  'unsetLayoutDirection', 'style', 'setStyle', 'font', 'setFont', 'palette',
+  'setPalette', 'autoFillBackground', 'setAutoFillBackground', 'resize',
+  'size', 'setGeometry', 'rect', 'setContentsMargins',
+  'setWindowFrameMargins', 'unsetWindowFrameMargins', 'windowFrameGeometry',
+  'windowFrameRect', 'windowFlags', 'windowType', 'setWindowFlags',
+  'isActiveWindow', 'setWindowTitle', 'windowTitle', 'focusPolicy',
+  'setFocusPolicy', 'setTabOrder', 'focusWidget', 'grabShortcut',
+  'releaseShortcut', 'setShortcutEnabled', 'setShortcutAutoRepeat',
+  'addAction', 'insertAction', 'removeAction', 'setAttribute',
+  'testAttribute', 'type', 'paint', 'paintWindowFrame', 'boundingRect',
+  'shape', 'close'. It can be made from Python, in 1 way; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QGraphicsWidget::~QGraphicsWidget()': the destructor: Python never
+    removes a C++ QGraphicsWidget.
+  - Qt's 'void QGraphicsWidget::getContentsMargins(qreal *left, qreal *top,
+    qreal *right, qreal *bottom) const': takes a number to change where it
+    is.
+  - Qt's 'void QGraphicsWidget::getWindowFrameMargins(qreal *left, qreal
+    *top, qreal *right, qreal *bottom) const': takes a number to change where
+    it is.
+
+  What has no ritual
+  ------------------
+
+  39 of the 97 functions Qt declares: 26 protected; 5 takes or gives a type
+  that cannot be passed yet; 3 private; 2 a signal; 2 forbidden; 1 a
+  template.
+
+  What to expect
+  --------------
+
+  - The C++ QGraphicsWidget is created at the first use, not by
+    'QGraphicsWidget(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - Python never removes the C++ QGraphicsWidget.
+  - Qt tells when it has removed the C++ QGraphicsWidget. Every call on the
+    cute object, and every use of it as an argument, then raises
+    'RuntimeError', and nothing reaches C++.
+  """
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(str)
+  @overload(NoneType)
+  @overload(str, str)
+  @overload(str, NoneType)
+  @overload(NoneType, str)
+  @overload(NoneType, NoneType)
+  @overload(str, str, int)
+  @overload(str, NoneType, int)
+  @overload(NoneType, str, int)
+  @overload(NoneType, NoneType, int)
+  def tr(s: Optional[str], c: Optional[str] = None, n: int = -1) -> str:
+    """
+    Calls Qt's 'QString QGraphicsWidget::tr(const char *s, const char *c, int
+    n)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#tr
+
+    Parameters
+    ----------
+
+    s : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    c : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text. May
+      be left out, as in Qt: it is then None.
+
+    n : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QGraphicsWidget::tr(const char *s, const char *c, int n)
+    return Rituals.call(
+        'ritual_ZN15QGraphicsWidget2trEPKcS1_i',
+        CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
+    )
+
+  @staticmethod
+  @overload(THIS, THIS)
+  @overload(THIS, NoneType)
+  @overload(NoneType, THIS)
+  @overload(NoneType, NoneType)
+  def setTabOrder(
+      first: Optional[QGraphicsWidget],
+      second: Optional[QGraphicsWidget],
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setTabOrder(QGraphicsWidget *first,
+    QGraphicsWidget *second)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#setTabOrder
+
+    Parameters
+    ----------
+
+    first : Optional[QGraphicsWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    second : Optional[QGraphicsWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::setTabOrder(QGraphicsWidget *first,
+    #      QGraphicsWidget *second)
+    Rituals.call(
+        'ritual_ZN15QGraphicsWidget11setTabOrderEPS_S0_',
+        CuteMixin._addressOf(first), CuteMixin._addressOf(second),
+    )
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QGraphicsWidget'
+
+  #  Fallback Variables
+
+  #  Private Variables
+
+  #  Public Variables
+
+  #  Virtual Variables
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def metaObject(self) -> Optional[QMetaObject]:
+    """
+    Calls Qt's 'const QMetaObject *QGraphicsWidget::metaObject() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#metaObject
+
+    Returns
+    -------
+
+    Optional[QMetaObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QMetaObject *QGraphicsWidget::metaObject() const
+    address = self.uglySide.call('ritual_ZNK15QGraphicsWidget10metaObjectEv')
+    from ..QtCore import QMetaObject
+    return QMetaObject._cuteAt(address)
+
+  def layout(self) -> Optional[QGraphicsLayout]:
+    """
+    Calls Qt's 'QGraphicsLayout *QGraphicsWidget::layout() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#layout
+
+    Returns
+    -------
+
+    Optional[QGraphicsLayout]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsLayout *QGraphicsWidget::layout() const
+    address = self.uglySide.call('ritual_ZNK15QGraphicsWidget6layoutEv')
+    from . import QGraphicsLayout
+    return QGraphicsLayout._cuteAt(address)
+
+  def layoutDirection(self) -> Qt.LayoutDirection:
+    """
+    Calls Qt's 'Qt::LayoutDirection QGraphicsWidget::layoutDirection()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#layoutDirection
+
+    Returns
+    -------
+
+    Qt.LayoutDirection
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that
+      'Qt.LayoutDirection(number)' gives.
+    """
+    #  Qt::LayoutDirection QGraphicsWidget::layoutDirection() const
+    return Qt.LayoutDirection(self.uglySide.call(
+        'ritual_ZNK15QGraphicsWidget15layoutDirectionEv',
+    ))
+
+  def style(self) -> Optional[QStyle]:
+    """
+    Calls Qt's 'QStyle *QGraphicsWidget::style() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#style
+
+    Returns
+    -------
+
+    Optional[QStyle]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QStyle *QGraphicsWidget::style() const
+    address = self.uglySide.call('ritual_ZNK15QGraphicsWidget5styleEv')
+    from . import QStyle
+    return QStyle._cuteAt(address)
+
+  def font(self) -> QFont:
+    """
+    Calls Qt's 'QFont QGraphicsWidget::font() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#font
+
+    Returns
+    -------
+
+    QFont
+      A new cute QFont around the copy Qt gave back. Python owns it.
+    """
+    #  QFont QGraphicsWidget::font() const
+    address = self.uglySide.call('ritual_ZNK15QGraphicsWidget4fontEv')
+    from ..QtGui import QFont
+    return QFont._cuteOwning(address)
+
+  def palette(self) -> QPalette:
+    """
+    Calls Qt's 'QPalette QGraphicsWidget::palette() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#palette
+
+    Returns
+    -------
+
+    QPalette
+      A new cute QPalette around the copy Qt gave back. Python owns it.
+    """
+    #  QPalette QGraphicsWidget::palette() const
+    address = self.uglySide.call('ritual_ZNK15QGraphicsWidget7paletteEv')
+    from ..QtGui import QPalette
+    return QPalette._cuteOwning(address)
+
+  def autoFillBackground(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsWidget::autoFillBackground() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#autoFillBackground
+    """
+    #  bool QGraphicsWidget::autoFillBackground() const
+    return self.uglySide.call(
+        'ritual_ZNK15QGraphicsWidget18autoFillBackgroundEv',
+    )
+
+  def size(self) -> QSizeF:
+    """
+    Calls Qt's 'QSizeF QGraphicsWidget::size() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#size
+
+    Returns
+    -------
+
+    QSizeF
+      A new cute QSizeF around the copy Qt gave back. Python owns it.
+    """
+    #  QSizeF QGraphicsWidget::size() const
+    address = self.uglySide.call('ritual_ZNK15QGraphicsWidget4sizeEv')
+    from ..QtCore import QSizeF
+    return QSizeF._cuteOwning(address)
+
+  def rect(self) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsWidget::rect() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#rect
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsWidget::rect() const
+    address = self.uglySide.call('ritual_ZNK15QGraphicsWidget4rectEv')
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  def windowFrameGeometry(self) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsWidget::windowFrameGeometry() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameGeometry
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsWidget::windowFrameGeometry() const
+    address = self.uglySide.call(
+        'ritual_ZNK15QGraphicsWidget19windowFrameGeometryEv',
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  def windowFrameRect(self) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsWidget::windowFrameRect() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameRect
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsWidget::windowFrameRect() const
+    address = self.uglySide.call(
+        'ritual_ZNK15QGraphicsWidget15windowFrameRectEv',
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  def windowFlags(self) -> Qt.WindowFlags:
+    """
+    Calls Qt's 'Qt::WindowFlags QGraphicsWidget::windowFlags() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#windowFlags
+
+    Returns
+    -------
+
+    Qt.WindowFlags
+      The value standing for the combination Qt gave back.
+    """
+    #  Qt::WindowFlags QGraphicsWidget::windowFlags() const
+    return Qt.WindowFlags(self.uglySide.call(
+        'ritual_ZNK15QGraphicsWidget11windowFlagsEv',
+    ))
+
+  def windowType(self) -> Qt.WindowType:
+    """
+    Calls Qt's 'Qt::WindowType QGraphicsWidget::windowType() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#windowType
+
+    Returns
+    -------
+
+    Qt.WindowType
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Qt.WindowType(number)'
+      gives.
+    """
+    #  Qt::WindowType QGraphicsWidget::windowType() const
+    return Qt.WindowType(self.uglySide.call(
+        'ritual_ZNK15QGraphicsWidget10windowTypeEv',
+    ))
+
+  def isActiveWindow(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsWidget::isActiveWindow() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#isActiveWindow
+    """
+    #  bool QGraphicsWidget::isActiveWindow() const
+    return self.uglySide.call(
+        'ritual_ZNK15QGraphicsWidget14isActiveWindowEv',
+    )
+
+  def windowTitle(self) -> str:
+    """
+    Calls Qt's 'QString QGraphicsWidget::windowTitle() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#windowTitle
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QGraphicsWidget::windowTitle() const
+    return self.uglySide.call('ritual_ZNK15QGraphicsWidget11windowTitleEv')
+
+  def focusPolicy(self) -> Qt.FocusPolicy:
+    """
+    Calls Qt's 'Qt::FocusPolicy QGraphicsWidget::focusPolicy() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#focusPolicy
+
+    Returns
+    -------
+
+    Qt.FocusPolicy
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Qt.FocusPolicy(number)'
+      gives.
+    """
+    #  Qt::FocusPolicy QGraphicsWidget::focusPolicy() const
+    return Qt.FocusPolicy(self.uglySide.call(
+        'ritual_ZNK15QGraphicsWidget11focusPolicyEv',
+    ))
+
+  def focusWidget(self) -> Optional[QGraphicsWidget]:
+    """
+    Calls Qt's 'QGraphicsWidget *QGraphicsWidget::focusWidget() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#focusWidget
+
+    Returns
+    -------
+
+    Optional[QGraphicsWidget]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsWidget *QGraphicsWidget::focusWidget() const
+    address = self.uglySide.call(
+        'ritual_ZNK15QGraphicsWidget11focusWidgetEv',
+    )
+    return QGraphicsWidget._cuteAt(address)
+
+  @overload(Qt.WidgetAttribute)
+  def testAttribute(self, attribute: Qt.WidgetAttribute) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsWidget::testAttribute(Qt::WidgetAttribute
+    attribute) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#testAttribute
+
+    Parameters
+    ----------
+
+    attribute : Qt.WidgetAttribute
+      Passed on as its number.
+    """
+    #  bool QGraphicsWidget::testAttribute(Qt::WidgetAttribute attribute)
+    #      const
+    return self.uglySide.call(
+        'ritual_ZNK15QGraphicsWidget13testAttributeEN2Qt15WidgetAttributeE',
+        attribute.value,
+    )
+
+  def type(self) -> int:
+    """
+    Calls Qt's 'int QGraphicsWidget::type() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#type
+    """
+    #  int QGraphicsWidget::type() const
+    return self.uglySide.call('ritual_ZNK15QGraphicsWidget4typeEv')
+
+  def boundingRect(self) -> QRectF:
+    """
+    Calls Qt's 'QRectF QGraphicsWidget::boundingRect() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsWidget::boundingRect() const
+    address = self.uglySide.call(
+        'ritual_ZNK15QGraphicsWidget12boundingRectEv',
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  def shape(self) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QGraphicsWidget::shape() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#shape
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QGraphicsWidget::shape() const
+    address = self.uglySide.call('ritual_ZNK15QGraphicsWidget5shapeEv')
+    from ..QtGui import QPainterPath
+    return QPainterPath._cuteOwning(address)
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QGraphicsLayout)
+  @overload(NoneType)
+  def setLayout(self, layout: Optional[QGraphicsLayout]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setLayout(QGraphicsLayout *layout)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#setLayout
+
+    Parameters
+    ----------
+
+    layout : Optional[QGraphicsLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::setLayout(QGraphicsLayout *layout)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget9setLayoutEP15QGraphicsLayout',
+        self._addressOf(layout),
+    )
+
+  @overload(Qt.LayoutDirection)
+  def setLayoutDirection(self, direction: Qt.LayoutDirection) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setLayoutDirection(Qt::LayoutDirection
+    direction)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#setLayoutDirection
+
+    Parameters
+    ----------
+
+    direction : Qt.LayoutDirection
+      Passed on as its number.
+    """
+    #  void QGraphicsWidget::setLayoutDirection(Qt::LayoutDirection
+    #      direction)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget18setLayoutDirectionEN2Qt15LayoutDirecti'
+        'onE',
+        direction.value,
+    )
+
+  @overload(QStyle)
+  @overload(NoneType)
+  def setStyle(self, style: Optional[QStyle]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setStyle(QStyle *style)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#setStyle
+
+    Parameters
+    ----------
+
+    style : Optional[QStyle]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::setStyle(QStyle *style)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget8setStyleEP6QStyle',
+        self._addressOf(style),
+    )
+
+  @overload(QFont)
+  def setFont(self, font: QFont) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setFont(const QFont &font)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#setFont
+
+    Parameters
+    ----------
+
+    font : QFont
+      Passed on as a value: Qt reads the C++ QFont, which stays Python's own.
+    """
+    #  void QGraphicsWidget::setFont(const QFont &font)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget7setFontERK5QFont', self._valueOf(font),
+    )
+
+  @overload(QPalette)
+  def setPalette(self, palette: QPalette) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setPalette(const QPalette &palette)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#setPalette
+
+    Parameters
+    ----------
+
+    palette : QPalette
+      Passed on as a value: Qt reads the C++ QPalette, which stays Python's
+      own.
+    """
+    #  void QGraphicsWidget::setPalette(const QPalette &palette)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget10setPaletteERK8QPalette',
+        self._valueOf(palette),
+    )
+
+  @overload(bool)
+  def setAutoFillBackground(self, enabled: bool) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setAutoFillBackground(bool enabled)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#setAutoFillBackground
+
+    Parameters
+    ----------
+
+    enabled : bool
+      Passed on as it is.
+    """
+    #  void QGraphicsWidget::setAutoFillBackground(bool enabled)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget21setAutoFillBackgroundEb', enabled,
+    )
+
+  @overload(QRectF)
+  def setGeometry(self, rect: QRectF) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setGeometry(const QRectF &rect)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry
+
+    Parameters
+    ----------
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+    """
+    #  void QGraphicsWidget::setGeometry(const QRectF &rect)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget11setGeometryERK6QRectF',
+        self._valueOf(rect),
+    )
+
+  @overload(float, float, float, float)
+  def setGeometry(self, x: float, y: float, w: float, h: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setGeometry(qreal x, qreal y, qreal w,
+    qreal h)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+    """
+    #  void QGraphicsWidget::setGeometry(qreal x, qreal y, qreal w, qreal h)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget11setGeometryEdddd', x, y, w, h,
+    )
+
+  @overload(float, float, float, float)
+  def setContentsMargins(
+      self,
+      left: float,
+      top: float,
+      right: float,
+      bottom: float,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setContentsMargins(qreal left, qreal
+    top, qreal right, qreal bottom)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#setContentsMargins
+
+    Parameters
+    ----------
+
+    left : float
+      Passed on as it is.
+
+    top : float
+      Passed on as it is.
+
+    right : float
+      Passed on as it is.
+
+    bottom : float
+      Passed on as it is.
+    """
+    #  void QGraphicsWidget::setContentsMargins(qreal left, qreal top, qreal
+    #      right, qreal bottom)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget18setContentsMarginsEdddd',
+        left, top, right, bottom,
+    )
+
+  @overload(QMarginsF)
+  def setContentsMargins(self, margins: QMarginsF) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setContentsMargins(QMarginsF margins)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#setContentsMargins
+
+    Parameters
+    ----------
+
+    margins : QMarginsF
+      Passed on as a value: Qt reads the C++ QMarginsF, which stays Python's
+      own.
+    """
+    #  void QGraphicsWidget::setContentsMargins(QMarginsF margins)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget18setContentsMarginsE9QMarginsF',
+        self._valueOf(margins),
+    )
+
+  @overload(float, float, float, float)
+  def setWindowFrameMargins(
+      self,
+      left: float,
+      top: float,
+      right: float,
+      bottom: float,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setWindowFrameMargins(qreal left, qreal
+    top, qreal right, qreal bottom)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFrameMargins
+
+    Parameters
+    ----------
+
+    left : float
+      Passed on as it is.
+
+    top : float
+      Passed on as it is.
+
+    right : float
+      Passed on as it is.
+
+    bottom : float
+      Passed on as it is.
+    """
+    #  void QGraphicsWidget::setWindowFrameMargins(qreal left, qreal top,
+    #      qreal right, qreal bottom)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget21setWindowFrameMarginsEdddd',
+        left, top, right, bottom,
+    )
+
+  @overload(QMarginsF)
+  def setWindowFrameMargins(self, margins: QMarginsF) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setWindowFrameMargins(QMarginsF
+    margins)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFrameMargins
+
+    Parameters
+    ----------
+
+    margins : QMarginsF
+      Passed on as a value: Qt reads the C++ QMarginsF, which stays Python's
+      own.
+    """
+    #  void QGraphicsWidget::setWindowFrameMargins(QMarginsF margins)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget21setWindowFrameMarginsE9QMarginsF',
+        self._valueOf(margins),
+    )
+
+  @overload(Qt.WindowFlags)
+  def setWindowFlags(self, wFlags: Qt.WindowFlags) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setWindowFlags(Qt::WindowFlags
+    wFlags)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFlags
+
+    Parameters
+    ----------
+
+    wFlags : Qt.WindowFlags
+      Passed on as its number.
+    """
+    #  void QGraphicsWidget::setWindowFlags(Qt::WindowFlags wFlags)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget14setWindowFlagsE6QFlagsIN2Qt10WindowTyp'
+        'eEE',
+        wFlags.value,
+    )
+
+  @overload(str)
+  def setWindowTitle(self, title: str) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setWindowTitle(const QString &title)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowTitle
+
+    Parameters
+    ----------
+
+    title : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QGraphicsWidget::setWindowTitle(const QString &title)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget14setWindowTitleERK7QString', title,
+    )
+
+  @overload(Qt.FocusPolicy)
+  def setFocusPolicy(self, policy: Qt.FocusPolicy) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setFocusPolicy(Qt::FocusPolicy
+    policy)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#setFocusPolicy
+
+    Parameters
+    ----------
+
+    policy : Qt.FocusPolicy
+      Passed on as its number.
+    """
+    #  void QGraphicsWidget::setFocusPolicy(Qt::FocusPolicy policy)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget14setFocusPolicyEN2Qt11FocusPolicyE',
+        policy.value,
+    )
+
+  @overload(int)
+  @overload(int, bool)
+  def setShortcutEnabled(self, id: int, enabled: bool = True) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setShortcutEnabled(int id, bool
+    enabled)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutEnabled
+
+    Parameters
+    ----------
+
+    id : int
+      Passed on as it is.
+
+    enabled : bool
+      Passed on as it is. May be left out, as in Qt: it is then True.
+    """
+    #  void QGraphicsWidget::setShortcutEnabled(int id, bool enabled)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget18setShortcutEnabledEib', id, enabled,
+    )
+
+  @overload(int)
+  @overload(int, bool)
+  def setShortcutAutoRepeat(self, id: int, enabled: bool = True) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setShortcutAutoRepeat(int id, bool
+    enabled)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutAutoRepeat
+
+    Parameters
+    ----------
+
+    id : int
+      Passed on as it is.
+
+    enabled : bool
+      Passed on as it is. May be left out, as in Qt: it is then True.
+    """
+    #  void QGraphicsWidget::setShortcutAutoRepeat(int id, bool enabled)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget21setShortcutAutoRepeatEib', id, enabled,
+    )
+
+  @overload(Qt.WidgetAttribute)
+  @overload(Qt.WidgetAttribute, bool)
+  def setAttribute(
+      self,
+      attribute: Qt.WidgetAttribute,
+      on: bool = True,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::setAttribute(Qt::WidgetAttribute
+    attribute, bool on)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute
+
+    Parameters
+    ----------
+
+    attribute : Qt.WidgetAttribute
+      Passed on as its number.
+
+    on : bool
+      Passed on as it is. May be left out, as in Qt: it is then True.
+    """
+    #  void QGraphicsWidget::setAttribute(Qt::WidgetAttribute attribute, bool
+    #      on)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget12setAttributeEN2Qt15WidgetAttributeEb',
+        attribute.value, on,
+    )
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(QGraphicsItem)
+  @overload(NoneType)
+  @overload(QGraphicsItem, Qt.WindowFlags)
+  @overload(NoneType, Qt.WindowFlags)
+  def __init__(
+      self,
+      parent: Optional[QGraphicsItem] = None,
+      wFlags: Qt.WindowFlags = Qt.WindowFlags(),
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QGraphicsWidget::QGraphicsWidget(QGraphicsItem *parent, Qt::WindowFlags
+    wFlags)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#QGraphicsWidget
+
+    Parameters
+    ----------
+
+    parent : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    wFlags : Qt.WindowFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.WindowFlags().
+    """
+    #  QGraphicsWidget::QGraphicsWidget(QGraphicsItem *parent,
+    #      Qt::WindowFlags wFlags)
+    self._noteCreation(QGraphicsWidget, lambda: Rituals.call(
+        'ritual_ZN15QGraphicsWidgetC1EP13QGraphicsItem6QFlagsIN2Qt10WindowT'
+        'ypeEE',
+        self._addressOf(parent), wFlags.value,
+    ))
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def adjustSize(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::adjustSize()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#adjustSize
+    """
+    #  void QGraphicsWidget::adjustSize()
+    self.uglySide.call('ritual_ZN15QGraphicsWidget10adjustSizeEv')
+
+  def unsetLayoutDirection(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::unsetLayoutDirection()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#unsetLayoutDirection
+    """
+    #  void QGraphicsWidget::unsetLayoutDirection()
+    self.uglySide.call('ritual_ZN15QGraphicsWidget20unsetLayoutDirectionEv')
+
+  @overload(QSizeF)
+  def resize(self, size: QSizeF) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::resize(const QSizeF &size)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#resize
+
+    Parameters
+    ----------
+
+    size : QSizeF
+      Passed on as a value: Qt reads the C++ QSizeF, which stays Python's
+      own.
+    """
+    #  void QGraphicsWidget::resize(const QSizeF &size)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget6resizeERK6QSizeF', self._valueOf(size),
+    )
+
+  @overload(float, float)
+  def resize(self, w: float, h: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::resize(qreal w, qreal h)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#resize
+
+    Parameters
+    ----------
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+    """
+    #  void QGraphicsWidget::resize(qreal w, qreal h)
+    self.uglySide.call('ritual_ZN15QGraphicsWidget6resizeEdd', w, h)
+
+  def unsetWindowFrameMargins(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::unsetWindowFrameMargins()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#unsetWindowFrameMargins
+    """
+    #  void QGraphicsWidget::unsetWindowFrameMargins()
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget23unsetWindowFrameMarginsEv',
+    )
+
+  @overload(QKeySequence)
+  @overload(QKeySequence, Qt.ShortcutContext)
+  def grabShortcut(
+      self,
+      sequence: QKeySequence,
+      context: Qt.ShortcutContext = Qt.ShortcutContext.WindowShortcut,
+  ) -> int:
+    """
+    Calls Qt's 'int QGraphicsWidget::grabShortcut(const QKeySequence
+    &sequence, Qt::ShortcutContext context)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#grabShortcut
+
+    Parameters
+    ----------
+
+    sequence : QKeySequence
+      Passed on as a value: Qt reads the C++ QKeySequence, which stays
+      Python's own.
+
+    context : Qt.ShortcutContext
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ShortcutContext.WindowShortcut.
+    """
+    #  int QGraphicsWidget::grabShortcut(const QKeySequence &sequence,
+    #      Qt::ShortcutContext context)
+    return self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget12grabShortcutERK12QKeySequenceN2Qt15Sho'
+        'rtcutContextE',
+        self._valueOf(sequence), context.value,
+    )
+
+  @overload(int)
+  def releaseShortcut(self, id: int) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::releaseShortcut(int id)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#releaseShortcut
+
+    Parameters
+    ----------
+
+    id : int
+      Passed on as it is.
+    """
+    #  void QGraphicsWidget::releaseShortcut(int id)
+    self.uglySide.call('ritual_ZN15QGraphicsWidget15releaseShortcutEi', id)
+
+  @overload(QAction)
+  @overload(NoneType)
+  def addAction(self, action: Optional[QAction]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::addAction(QAction *action)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#addAction
+
+    Parameters
+    ----------
+
+    action : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::addAction(QAction *action)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget9addActionEP7QAction',
+        self._addressOf(action),
+    )
+
+  @overload(QAction, QAction)
+  @overload(QAction, NoneType)
+  @overload(NoneType, QAction)
+  @overload(NoneType, NoneType)
+  def insertAction(
+      self,
+      before: Optional[QAction],
+      action: Optional[QAction],
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::insertAction(QAction *before, QAction
+    *action)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#insertAction
+
+    Parameters
+    ----------
+
+    before : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    action : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::insertAction(QAction *before, QAction *action)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget12insertActionEP7QActionS1_',
+        self._addressOf(before), self._addressOf(action),
+    )
+
+  @overload(QAction)
+  @overload(NoneType)
+  def removeAction(self, action: Optional[QAction]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::removeAction(QAction *action)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#removeAction
+
+    Parameters
+    ----------
+
+    action : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::removeAction(QAction *action)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget12removeActionEP7QAction',
+        self._addressOf(action),
+    )
+
+  @overload(QPainter, QStyleOptionGraphicsItem)
+  @overload(QPainter, NoneType)
+  @overload(NoneType, QStyleOptionGraphicsItem)
+  @overload(NoneType, NoneType)
+  @overload(QPainter, QStyleOptionGraphicsItem, QWidget)
+  @overload(QPainter, QStyleOptionGraphicsItem, NoneType)
+  @overload(QPainter, NoneType, QWidget)
+  @overload(QPainter, NoneType, NoneType)
+  @overload(NoneType, QStyleOptionGraphicsItem, QWidget)
+  @overload(NoneType, QStyleOptionGraphicsItem, NoneType)
+  @overload(NoneType, NoneType, QWidget)
+  @overload(NoneType, NoneType, NoneType)
+  def paint(
+      self,
+      painter: Optional[QPainter],
+      option: Optional[QStyleOptionGraphicsItem],
+      widget: Optional[QWidget] = None,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::paint(QPainter *painter, const
+    QStyleOptionGraphicsItem *option, QWidget *widget)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#paint
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    option : Optional[QStyleOptionGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  void QGraphicsWidget::paint(QPainter *painter, const
+    #      QStyleOptionGraphicsItem *option, QWidget *widget)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget5paintEP8QPainterPK24QStyleOptionGraphic'
+        'sItemP7QWidget',
+        self._addressOf(painter), self._addressOf(option),
+        self._addressOf(widget),
+    )
+
+  @overload(QPainter, QStyleOptionGraphicsItem)
+  @overload(QPainter, NoneType)
+  @overload(NoneType, QStyleOptionGraphicsItem)
+  @overload(NoneType, NoneType)
+  @overload(QPainter, QStyleOptionGraphicsItem, QWidget)
+  @overload(QPainter, QStyleOptionGraphicsItem, NoneType)
+  @overload(QPainter, NoneType, QWidget)
+  @overload(QPainter, NoneType, NoneType)
+  @overload(NoneType, QStyleOptionGraphicsItem, QWidget)
+  @overload(NoneType, QStyleOptionGraphicsItem, NoneType)
+  @overload(NoneType, NoneType, QWidget)
+  @overload(NoneType, NoneType, NoneType)
+  def paintWindowFrame(
+      self,
+      painter: Optional[QPainter],
+      option: Optional[QStyleOptionGraphicsItem],
+      widget: Optional[QWidget] = None,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::paintWindowFrame(QPainter *painter,
+    const QStyleOptionGraphicsItem *option, QWidget *widget)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    option : Optional[QStyleOptionGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  void QGraphicsWidget::paintWindowFrame(QPainter *painter, const
+    #      QStyleOptionGraphicsItem *option, QWidget *widget)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget16paintWindowFrameEP8QPainterPK24QStyleO'
+        'ptionGraphicsItemP7QWidget',
+        self._addressOf(painter), self._addressOf(option),
+        self._addressOf(widget),
+    )
+
+  def close(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsWidget::close()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#close
+    """
+    #  bool QGraphicsWidget::close()
+    return self.uglySide.call('ritual_ZN15QGraphicsWidget5closeEv')

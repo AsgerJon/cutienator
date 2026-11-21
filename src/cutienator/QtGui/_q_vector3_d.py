@@ -15,8 +15,20 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QPoint
-from ..QtCore import QPointF
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QPoint, QPointF, QRect
+  from . import QMatrix4x4, QVector2D, QVector4D
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QMatrix4x4 = WAIT['QMatrix4x4']
+  QPoint = WAIT['QPoint']
+  QPointF = WAIT['QPointF']
+  QRect = WAIT['QRect']
+  QVector2D = WAIT['QVector2D']
+  QVector4D = WAIT['QVector4D']
 
 
 class QVector3D(CuteMixin, metaclass=MetaCute):
@@ -32,27 +44,17 @@ class QVector3D(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QVector3D that has a ritual and that Python can call
-  so far, 20 names in all: 'isNull', 'x', 'y', 'z', 'setX', 'setY', 'setZ',
+  so far, 23 names in all: 'isNull', 'x', 'y', 'z', 'setX', 'setY', 'setZ',
   'length', 'lengthSquared', 'normalized', 'normalize', 'dotProduct',
-  'crossProduct', 'normal', 'distanceToPoint', 'distanceToPlane',
-  'distanceToLine', 'toVector2D', 'toPoint', 'toPointF'. It can be made from
-  Python, in 7 ways; see '__init__'.
+  'crossProduct', 'normal', 'project', 'unproject', 'distanceToPoint',
+  'distanceToPlane', 'distanceToLine', 'toVector2D', 'toVector4D', 'toPoint',
+  'toPointF'. It can be made from Python, in 8 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QVector3D::QVector3D(QVector4D vector)': names 'QVector4D', which
-    has no cute class yet.
   - Qt's 'float QVector3D::operator[](int i) const': an operator, which is
     not reflected yet.
-  - Qt's 'QVector3D QVector3D::project(const QMatrix4x4 &modelView, const
-    QMatrix4x4 &projection, const QRect &viewport) const': names
-    'QMatrix4x4', which has no cute class yet.
-  - Qt's 'QVector3D QVector3D::unproject(const QMatrix4x4 &modelView, const
-    QMatrix4x4 &projection, const QRect &viewport) const': names
-    'QMatrix4x4', which has no cute class yet.
-  - Qt's 'QVector4D QVector3D::toVector4D() const': gives 'QVector4D', which
-    has no cute class yet.
   - Qt's 'QVariant QVector3D::operator QVariant() const': an operator, which
     is not reflected yet.
   - Qt's 'QVector3D::~QVector3D()': the destructor: Python removes its C++
@@ -76,10 +78,6 @@ class QVector3D(CuteMixin, metaclass=MetaCute):
   - A function giving a QVector3D back gives a copy the ritual made for
     Python, in a new cute QVector3D.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QVector2D = WAIT['QVector2D']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -307,6 +305,90 @@ class QVector3D(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK9QVector3D10normalizedEv')
     return QVector3D._cuteOwning(address)
 
+  @overload(QMatrix4x4, QMatrix4x4, QRect)
+  def project(
+      self,
+      modelView: QMatrix4x4,
+      projection: QMatrix4x4,
+      viewport: QRect,
+  ) -> QVector3D:
+    """
+    Calls Qt's 'QVector3D QVector3D::project(const QMatrix4x4 &modelView,
+    const QMatrix4x4 &projection, const QRect &viewport) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector3d.html#project
+
+    Parameters
+    ----------
+
+    modelView : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+
+    projection : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+
+    viewport : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    Returns
+    -------
+
+    QVector3D
+      A new cute QVector3D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector3D QVector3D::project(const QMatrix4x4 &modelView, const
+    #      QMatrix4x4 &projection, const QRect &viewport) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QVector3D7projectERK10QMatrix4x4S2_RK5QRect',
+        self._valueOf(modelView), self._valueOf(projection),
+        self._valueOf(viewport),
+    )
+    return QVector3D._cuteOwning(address)
+
+  @overload(QMatrix4x4, QMatrix4x4, QRect)
+  def unproject(
+      self,
+      modelView: QMatrix4x4,
+      projection: QMatrix4x4,
+      viewport: QRect,
+  ) -> QVector3D:
+    """
+    Calls Qt's 'QVector3D QVector3D::unproject(const QMatrix4x4 &modelView,
+    const QMatrix4x4 &projection, const QRect &viewport) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector3d.html#unproject
+
+    Parameters
+    ----------
+
+    modelView : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+
+    projection : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+
+    viewport : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    Returns
+    -------
+
+    QVector3D
+      A new cute QVector3D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector3D QVector3D::unproject(const QMatrix4x4 &modelView, const
+    #      QMatrix4x4 &projection, const QRect &viewport) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QVector3D9unprojectERK10QMatrix4x4S2_RK5QRect',
+        self._valueOf(modelView), self._valueOf(projection),
+        self._valueOf(viewport),
+    )
+    return QVector3D._cuteOwning(address)
+
   @overload(THIS)
   def distanceToPoint(self, point: QVector3D) -> float:
     """
@@ -427,7 +509,25 @@ class QVector3D(CuteMixin, metaclass=MetaCute):
     """
     #  QVector2D QVector3D::toVector2D() const
     address = self.uglySide.call('ritual_ZNK9QVector3D10toVector2DEv')
-    return self.QVector2D._cuteOwning(address)
+    from . import QVector2D
+    return QVector2D._cuteOwning(address)
+
+  def toVector4D(self) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D QVector3D::toVector4D() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector3d.html#toVector4D
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D QVector3D::toVector4D() const
+    address = self.uglySide.call('ritual_ZNK9QVector3D10toVector4DEv')
+    from . import QVector4D
+    return QVector4D._cuteOwning(address)
 
   def toPoint(self) -> QPoint:
     """
@@ -443,6 +543,7 @@ class QVector3D(CuteMixin, metaclass=MetaCute):
     """
     #  QPoint QVector3D::toPoint() const
     address = self.uglySide.call('ritual_ZNK9QVector3D7toPointEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def toPointF(self) -> QPointF:
@@ -459,6 +560,7 @@ class QVector3D(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QVector3D::toPointF() const
     address = self.uglySide.call('ritual_ZNK9QVector3D8toPointFEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -630,9 +732,6 @@ class QVector3D(CuteMixin, metaclass=MetaCute):
 
     Qt's own words: https://doc.qt.io/qt-6/qvector3d.html#QVector3D
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
@@ -653,9 +752,6 @@ class QVector3D(CuteMixin, metaclass=MetaCute):
 
     Qt's own words: https://doc.qt.io/qt-6/qvector3d.html#QVector3D
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
@@ -669,6 +765,26 @@ class QVector3D(CuteMixin, metaclass=MetaCute):
     #  QVector3D::QVector3D(QVector2D vector, float zpos)
     self._noteCreation(QVector3D, lambda: Rituals.call(
         'ritual_ZN9QVector3DC1E9QVector2Df', self._valueOf(vector), zpos,
+    ))
+
+  @overload(QVector4D)
+  def __init__(self, vector: QVector4D) -> None:
+    """
+    Notes what was given, for Qt's 'QVector3D::QVector3D(QVector4D vector)',
+    which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector3d.html#QVector3D
+
+    Parameters
+    ----------
+
+    vector : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+    """
+    #  QVector3D::QVector3D(QVector4D vector)
+    self._noteCreation(QVector3D, lambda: Rituals.call(
+        'ritual_ZN9QVector3DC1E9QVector4D', self._valueOf(vector),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

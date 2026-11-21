@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qimagewriter.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QImageWriter2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QImageWriterC1Ev": ["address"],
+    "ritual_ZN12QImageWriterC1EP9QIODeviceRK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QImageWriterC1ERK7QStringRK10QByteArray": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN12QImageWriterD1Ev": ["nothing", "address"],
+    "ritual_ZN12QImageWriter9setFormatERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QImageWriter6formatEv": ["address", "address"],
+    "ritual_ZN12QImageWriter9setDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QImageWriter6deviceEv": ["address", "address"],
+    "ritual_ZN12QImageWriter11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QImageWriter8fileNameEv": ["text", "address"],
+    "ritual_ZN12QImageWriter10setQualityEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QImageWriter7qualityEv": ["int", "address"],
+    "ritual_ZN12QImageWriter14setCompressionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QImageWriter11compressionEv": ["int", "address"],
+    "ritual_ZN12QImageWriter10setSubTypeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QImageWriter7subTypeEv": ["address", "address"],
+    "ritual_ZN12QImageWriter17setOptimizedWriteEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QImageWriter14optimizedWriteEv": ["bool", "address"],
+    "ritual_ZN12QImageWriter23setProgressiveScanWriteEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QImageWriter20progressiveScanWriteEv": ["bool", "address"],
+    "ritual_ZNK12QImageWriter14transformationEv": ["int", "address"],
+    "ritual_ZN12QImageWriter17setTransformationE6QFlagsIN15QImageIOHandler14TransformationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QImageWriter7setTextERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZNK12QImageWriter8canWriteEv": ["bool", "address"],
+    "ritual_ZN12QImageWriter5writeERK6QImage": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QImageWriter5errorEv": ["int", "address"],
+    "ritual_ZNK12QImageWriter11errorStringEv": ["text", "address"],
+    "ritual_ZNK12QImageWriter14supportsOptionEN15QImageIOHandler11ImageOptionE": [
+      "bool", "address", "int"
+    ]
+  }
+}

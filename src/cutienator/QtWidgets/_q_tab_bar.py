@@ -11,23 +11,26 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QColor
-from ..QtGui import QIcon
-from ..QtCore import QMetaObject
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ..QtCore import QVariant
-from ._q_widget import QWidget
-from ._q_tab_bar_button_position import ButtonPosition
-from ._q_tab_bar_selection_behavior import SelectionBehavior
-from ._q_tab_bar_shape import Shape
+from . import QTabBarButtonPosition, QTabBarSelectionBehavior, QTabBarShape
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QPoint, QRect, QSize, QVariant
+  from ..QtGui import QColor, QIcon
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QColor = WAIT['QColor']
+  QIcon = WAIT['QIcon']
+  QPoint = WAIT['QPoint']
+  QSize = WAIT['QSize']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -90,9 +93,9 @@ class QTabBar(QWidget):
 
   #  The enums Qt writes inside QTabBar, and the names Qt has for the
   #  combinations of its flags enums.
-  ButtonPosition = ButtonPosition
-  SelectionBehavior = SelectionBehavior
-  Shape = Shape
+  ButtonPosition = QTabBarButtonPosition
+  SelectionBehavior = QTabBarSelectionBehavior
+  Shape = QTabBarShape
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -175,6 +178,7 @@ class QTabBar(QWidget):
     """
     #  const QMetaObject *QTabBar::metaObject() const
     address = self.uglySide.call('ritual_ZNK7QTabBar10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def shape(self) -> Shape:
@@ -191,7 +195,7 @@ class QTabBar(QWidget):
       no name it is the member without a name that 'Shape(number)' gives.
     """
     #  Shape QTabBar::shape() const
-    return Shape(self.uglySide.call('ritual_ZNK7QTabBar5shapeEv'))
+    return QTabBar.Shape(self.uglySide.call('ritual_ZNK7QTabBar5shapeEv'))
 
   @overload(int)
   def isTabEnabled(self, index: int) -> bool:
@@ -268,6 +272,7 @@ class QTabBar(QWidget):
     """
     #  QColor QTabBar::tabTextColor(int index) const
     address = self.uglySide.call('ritual_ZNK7QTabBar12tabTextColorEi', index)
+    from ..QtGui import QColor
     return QColor._cuteOwning(address)
 
   @overload(int)
@@ -291,6 +296,7 @@ class QTabBar(QWidget):
     """
     #  QIcon QTabBar::tabIcon(int index) const
     address = self.uglySide.call('ritual_ZNK7QTabBar7tabIconEi', index)
+    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
   def elideMode(self) -> Qt.TextElideMode:
@@ -377,6 +383,7 @@ class QTabBar(QWidget):
     """
     #  QVariant QTabBar::tabData(int index) const
     address = self.uglySide.call('ritual_ZNK7QTabBar7tabDataEi', index)
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(int)
@@ -400,6 +407,7 @@ class QTabBar(QWidget):
     """
     #  QRect QTabBar::tabRect(int index) const
     address = self.uglySide.call('ritual_ZNK7QTabBar7tabRectEi', index)
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(QPoint)
@@ -453,6 +461,7 @@ class QTabBar(QWidget):
     """
     #  QSize QTabBar::sizeHint() const
     address = self.uglySide.call('ritual_ZNK7QTabBar8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -469,6 +478,7 @@ class QTabBar(QWidget):
     """
     #  QSize QTabBar::minimumSizeHint() const
     address = self.uglySide.call('ritual_ZNK7QTabBar15minimumSizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def drawBase(self) -> bool:
@@ -494,6 +504,7 @@ class QTabBar(QWidget):
     """
     #  QSize QTabBar::iconSize() const
     address = self.uglySide.call('ritual_ZNK7QTabBar8iconSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def usesScrollButtons(self) -> bool:
@@ -566,7 +577,7 @@ class QTabBar(QWidget):
       'SelectionBehavior(number)' gives.
     """
     #  SelectionBehavior QTabBar::selectionBehaviorOnRemove() const
-    return SelectionBehavior(self.uglySide.call(
+    return QTabBar.SelectionBehavior(self.uglySide.call(
         'ritual_ZNK7QTabBar25selectionBehaviorOnRemoveEv',
     ))
 

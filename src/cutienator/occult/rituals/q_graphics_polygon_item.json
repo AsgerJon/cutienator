@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QGraphicsPolygonItemC1EP13QGraphicsItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20QGraphicsPolygonItemC1ERK9QPolygonFP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsPolygonItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QGraphicsPolygonItem7polygonEv": ["address", "address"],
+    "ritual_ZN20QGraphicsPolygonItem10setPolygonERK9QPolygonF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsPolygonItem8fillRuleEv": ["int", "address"],
+    "ritual_ZN20QGraphicsPolygonItem11setFillRuleEN2Qt8FillRuleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QGraphicsPolygonItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsPolygonItem5shapeEv": ["address", "address"],
+    "ritual_ZNK20QGraphicsPolygonItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsPolygonItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsPolygonItem12isObscuredByEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsPolygonItem10opaqueAreaEv": ["address", "address"],
+    "ritual_ZNK20QGraphicsPolygonItem4typeEv": ["int", "address"]
+  }
+}

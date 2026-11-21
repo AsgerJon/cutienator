@@ -17,6 +17,7 @@ from ._cute import Cute
 from ._cute_num import CuteNum
 from ._cute_load_hook import CuteLoadHook
 from ._waiting_overload import WaitingOverload
+from ._waiting_signature import WaitingSignature
 from ._wait import WAIT
 from ._cute_overload import CuteOverload
 from ._cute_space import CuteSpace
@@ -35,6 +36,7 @@ __all__ = (
     'CuteNum',
     'CuteLoadHook',
     'WaitingOverload',
+    'WaitingSignature',
     'WAIT',
     'CuteOverload',
     'CuteSpace',

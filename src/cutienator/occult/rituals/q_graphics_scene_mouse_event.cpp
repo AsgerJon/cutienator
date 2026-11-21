@@ -1,0 +1,241 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qgraphicssceneevent.h>
+#include <QtCore/qpoint.h>
+
+//  QGraphicsSceneMouseEvent::QGraphicsSceneMouseEvent(Type type)
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneMouseEvent *ritual_ZN24QGraphicsSceneMouseEventC1EN6QEvent4TypeE(
+    QEvent::Type type) {
+  return new QGraphicsSceneMouseEvent(type);
+}
+
+//  QGraphicsSceneMouseEvent::~QGraphicsSceneMouseEvent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEventD1Ev(
+    QGraphicsSceneMouseEvent *self) {
+  delete self;
+}
+
+//  QPointF QGraphicsSceneMouseEvent::pos() const
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZNK24QGraphicsSceneMouseEvent3posEv(
+    const QGraphicsSceneMouseEvent *self) {
+  return new QPointF(self->pos());
+}
+
+//  void QGraphicsSceneMouseEvent::setPos(const QPointF &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent6setPosERK7QPointF(
+    QGraphicsSceneMouseEvent *self,
+    const QPointF *pos) {
+  self->setPos(*pos);
+}
+
+//  QPointF QGraphicsSceneMouseEvent::scenePos() const
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZNK24QGraphicsSceneMouseEvent8scenePosEv(
+    const QGraphicsSceneMouseEvent *self) {
+  return new QPointF(self->scenePos());
+}
+
+//  void QGraphicsSceneMouseEvent::setScenePos(const QPointF &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent11setScenePosERK7QPointF(
+    QGraphicsSceneMouseEvent *self,
+    const QPointF *pos) {
+  self->setScenePos(*pos);
+}
+
+//  QPoint QGraphicsSceneMouseEvent::screenPos() const
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZNK24QGraphicsSceneMouseEvent9screenPosEv(
+    const QGraphicsSceneMouseEvent *self) {
+  return new QPoint(self->screenPos());
+}
+
+//  void QGraphicsSceneMouseEvent::setScreenPos(const QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent12setScreenPosERK6QPoint(
+    QGraphicsSceneMouseEvent *self,
+    const QPoint *pos) {
+  self->setScreenPos(*pos);
+}
+
+//  QPointF QGraphicsSceneMouseEvent::buttonDownPos(Qt::MouseButton button)
+//      const
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZNK24QGraphicsSceneMouseEvent13buttonDownPosEN2Qt11MouseButtonE(
+    const QGraphicsSceneMouseEvent *self,
+    Qt::MouseButton button) {
+  return new QPointF(self->buttonDownPos(button));
+}
+
+//  void QGraphicsSceneMouseEvent::setButtonDownPos(Qt::MouseButton button,
+//      const QPointF &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent16setButtonDownPosEN2Qt11MouseButtonERK7QPointF(
+    QGraphicsSceneMouseEvent *self,
+    Qt::MouseButton button,
+    const QPointF *pos) {
+  self->setButtonDownPos(button, *pos);
+}
+
+//  QPointF QGraphicsSceneMouseEvent::buttonDownScenePos(Qt::MouseButton
+//      button) const
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZNK24QGraphicsSceneMouseEvent18buttonDownScenePosEN2Qt11MouseButtonE(
+    const QGraphicsSceneMouseEvent *self,
+    Qt::MouseButton button) {
+  return new QPointF(self->buttonDownScenePos(button));
+}
+
+//  void QGraphicsSceneMouseEvent::setButtonDownScenePos(Qt::MouseButton
+//      button, const QPointF &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent21setButtonDownScenePosEN2Qt11MouseButtonERK7QPointF(
+    QGraphicsSceneMouseEvent *self,
+    Qt::MouseButton button,
+    const QPointF *pos) {
+  self->setButtonDownScenePos(button, *pos);
+}
+
+//  QPoint QGraphicsSceneMouseEvent::buttonDownScreenPos(Qt::MouseButton
+//      button) const
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZNK24QGraphicsSceneMouseEvent19buttonDownScreenPosEN2Qt11MouseButtonE(
+    const QGraphicsSceneMouseEvent *self,
+    Qt::MouseButton button) {
+  return new QPoint(self->buttonDownScreenPos(button));
+}
+
+//  void QGraphicsSceneMouseEvent::setButtonDownScreenPos(Qt::MouseButton
+//      button, const QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent22setButtonDownScreenPosEN2Qt11MouseButtonERK6QPoint(
+    QGraphicsSceneMouseEvent *self,
+    Qt::MouseButton button,
+    const QPoint *pos) {
+  self->setButtonDownScreenPos(button, *pos);
+}
+
+//  QPointF QGraphicsSceneMouseEvent::lastPos() const
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZNK24QGraphicsSceneMouseEvent7lastPosEv(
+    const QGraphicsSceneMouseEvent *self) {
+  return new QPointF(self->lastPos());
+}
+
+//  void QGraphicsSceneMouseEvent::setLastPos(const QPointF &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent10setLastPosERK7QPointF(
+    QGraphicsSceneMouseEvent *self,
+    const QPointF *pos) {
+  self->setLastPos(*pos);
+}
+
+//  QPointF QGraphicsSceneMouseEvent::lastScenePos() const
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZNK24QGraphicsSceneMouseEvent12lastScenePosEv(
+    const QGraphicsSceneMouseEvent *self) {
+  return new QPointF(self->lastScenePos());
+}
+
+//  void QGraphicsSceneMouseEvent::setLastScenePos(const QPointF &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent15setLastScenePosERK7QPointF(
+    QGraphicsSceneMouseEvent *self,
+    const QPointF *pos) {
+  self->setLastScenePos(*pos);
+}
+
+//  QPoint QGraphicsSceneMouseEvent::lastScreenPos() const
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZNK24QGraphicsSceneMouseEvent13lastScreenPosEv(
+    const QGraphicsSceneMouseEvent *self) {
+  return new QPoint(self->lastScreenPos());
+}
+
+//  void QGraphicsSceneMouseEvent::setLastScreenPos(const QPoint &pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent16setLastScreenPosERK6QPoint(
+    QGraphicsSceneMouseEvent *self,
+    const QPoint *pos) {
+  self->setLastScreenPos(*pos);
+}
+
+//  Qt::MouseButtons QGraphicsSceneMouseEvent::buttons() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK24QGraphicsSceneMouseEvent7buttonsEv(
+    const QGraphicsSceneMouseEvent *self) {
+  return static_cast<int>(self->buttons().toInt());
+}
+
+//  void QGraphicsSceneMouseEvent::setButtons(Qt::MouseButtons buttons)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent10setButtonsE6QFlagsIN2Qt11MouseButtonEE(
+    QGraphicsSceneMouseEvent *self,
+    int buttons) {
+  self->setButtons(QFlags<Qt::MouseButton>::fromInt(buttons));
+}
+
+//  Qt::MouseButton QGraphicsSceneMouseEvent::button() const
+extern "C" Q_DECL_EXPORT
+Qt::MouseButton ritual_ZNK24QGraphicsSceneMouseEvent6buttonEv(
+    const QGraphicsSceneMouseEvent *self) {
+  return self->button();
+}
+
+//  void QGraphicsSceneMouseEvent::setButton(Qt::MouseButton button)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent9setButtonEN2Qt11MouseButtonE(
+    QGraphicsSceneMouseEvent *self,
+    Qt::MouseButton button) {
+  self->setButton(button);
+}
+
+//  Qt::KeyboardModifiers QGraphicsSceneMouseEvent::modifiers() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK24QGraphicsSceneMouseEvent9modifiersEv(
+    const QGraphicsSceneMouseEvent *self) {
+  return static_cast<int>(self->modifiers().toInt());
+}
+
+//  void QGraphicsSceneMouseEvent::setModifiers(Qt::KeyboardModifiers
+//      modifiers)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent12setModifiersE6QFlagsIN2Qt16KeyboardModifierEE(
+    QGraphicsSceneMouseEvent *self,
+    int modifiers) {
+  self->setModifiers(QFlags<Qt::KeyboardModifier>::fromInt(modifiers));
+}
+
+//  Qt::MouseEventSource QGraphicsSceneMouseEvent::source() const
+extern "C" Q_DECL_EXPORT
+Qt::MouseEventSource ritual_ZNK24QGraphicsSceneMouseEvent6sourceEv(
+    const QGraphicsSceneMouseEvent *self) {
+  return self->source();
+}
+
+//  void QGraphicsSceneMouseEvent::setSource(Qt::MouseEventSource source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent9setSourceEN2Qt16MouseEventSourceE(
+    QGraphicsSceneMouseEvent *self,
+    Qt::MouseEventSource source) {
+  self->setSource(source);
+}
+
+//  Qt::MouseEventFlags QGraphicsSceneMouseEvent::flags() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK24QGraphicsSceneMouseEvent5flagsEv(
+    const QGraphicsSceneMouseEvent *self) {
+  return static_cast<int>(self->flags().toInt());
+}
+
+//  void QGraphicsSceneMouseEvent::setFlags(Qt::MouseEventFlags a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGraphicsSceneMouseEvent8setFlagsE6QFlagsIN2Qt14MouseEventFlagEE(
+    QGraphicsSceneMouseEvent *self,
+    int a0) {
+  self->setFlags(QFlags<Qt::MouseEventFlag>::fromInt(a0));
+}

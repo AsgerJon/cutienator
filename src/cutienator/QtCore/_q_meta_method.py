@@ -11,18 +11,27 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_byte_array import QByteArray
-from ._q_byte_array_view import QByteArrayView
-from ._q_meta_object import QMetaObject
-from ._q_meta_method_access import Access
-from ._q_meta_method_attributes import Attributes
-from ._q_meta_method_method_type import MethodType
+from . import Qt, QMetaMethodAccess, QMetaMethodAttributes
+from . import QMetaMethodMethodType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QByteArray, QByteArrayView, QGenericArgument
+  from . import QGenericReturnArgument, QMetaObject, QMetaType, QObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QGenericArgument = WAIT['QGenericArgument']
+  QGenericReturnArgument = WAIT['QGenericReturnArgument']
+  QObject = WAIT['QObject']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QMetaMethod(CuteMixin, metaclass=MetaCute):
@@ -38,46 +47,18 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMetaMethod that has a ritual and that Python can
-  call so far, 18 names in all: 'methodSignature', 'name', 'nameView',
-  'typeName', 'returnType', 'parameterCount', 'parameterType',
-  'parameterTypeName', 'tag', 'access', 'methodType', 'attributes',
-  'methodIndex', 'relativeMethodIndex', 'revision', 'isConst',
-  'enclosingMetaObject', 'isValid'. It can be made from Python, in 1 way; see
-  '__init__'.
+  call so far, 21 names in all: 'methodSignature', 'name', 'nameView',
+  'typeName', 'returnType', 'returnMetaType', 'parameterCount',
+  'parameterType', 'parameterMetaType', 'parameterTypeName', 'tag', 'access',
+  'methodType', 'attributes', 'methodIndex', 'relativeMethodIndex',
+  'revision', 'isConst', 'enclosingMetaObject', 'invoke', 'isValid'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QMetaType QMetaMethod::returnMetaType() const': gives 'QMetaType',
-    which has no cute class yet.
-  - Qt's 'QMetaType QMetaMethod::parameterMetaType(int index) const': gives
-    'QMetaType', which has no cute class yet.
   - Qt's 'void QMetaMethod::getParameterTypes(int *types) const': takes a
     number to change where it is.
-  - Qt's 'bool QMetaMethod::invoke(QObject *object, Qt::ConnectionType
-    connectionType, QGenericReturnArgument returnValue, QGenericArgument
-    val0, QGenericArgument val1, QGenericArgument val2, QGenericArgument
-    val3, QGenericArgument val4, QGenericArgument val5, QGenericArgument
-    val6, QGenericArgument val7, QGenericArgument val8, QGenericArgument
-    val9) const': names 'QGenericReturnArgument', which has no cute class
-    yet.
-  - Qt's 'bool QMetaMethod::invoke(QObject *object, QGenericReturnArgument
-    returnValue, QGenericArgument val0, QGenericArgument val1,
-    QGenericArgument val2, QGenericArgument val3, QGenericArgument val4,
-    QGenericArgument val5, QGenericArgument val6, QGenericArgument val7,
-    QGenericArgument val8, QGenericArgument val9) const': names
-    'QGenericReturnArgument', which has no cute class yet.
-  - Qt's 'bool QMetaMethod::invoke(QObject *object, Qt::ConnectionType
-    connectionType, QGenericArgument val0, QGenericArgument val1,
-    QGenericArgument val2, QGenericArgument val3, QGenericArgument val4,
-    QGenericArgument val5, QGenericArgument val6, QGenericArgument val7,
-    QGenericArgument val8, QGenericArgument val9) const': names
-    'QGenericArgument', which has no cute class yet.
-  - Qt's 'bool QMetaMethod::invoke(QObject *object, QGenericArgument val0,
-    QGenericArgument val1, QGenericArgument val2, QGenericArgument val3,
-    QGenericArgument val4, QGenericArgument val5, QGenericArgument val6,
-    QGenericArgument val7, QGenericArgument val8, QGenericArgument val9)
-    const': names 'QGenericArgument', which has no cute class yet.
   - Qt's 'QMetaMethod::~QMetaMethod()': the destructor: Python removes its
     C++ QMetaMethod by it, and has no other use for it.
 
@@ -103,9 +84,9 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QMetaMethod, and the names Qt has for the
   #  combinations of its flags enums.
-  Access = Access
-  Attributes = Attributes
-  MethodType = MethodType
+  Access = QMetaMethodAccess
+  Attributes = QMetaMethodAttributes
+  MethodType = QMetaMethodMethodType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -151,6 +132,7 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QMetaMethod15methodSignatureEv',
     )
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   def name(self) -> QByteArray:
@@ -167,6 +149,7 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     """
     #  QByteArray QMetaMethod::name() const
     address = self.uglySide.call('ritual_ZNK11QMetaMethod4nameEv')
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   def nameView(self) -> QByteArrayView:
@@ -183,6 +166,7 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     """
     #  QByteArrayView QMetaMethod::nameView() const
     address = self.uglySide.call('ritual_ZNK11QMetaMethod8nameViewEv')
+    from . import QByteArrayView
     return QByteArrayView._cuteOwning(address)
 
   def typeName(self) -> Optional[str]:
@@ -209,6 +193,23 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     """
     #  int QMetaMethod::returnType() const
     return self.uglySide.call('ritual_ZNK11QMetaMethod10returnTypeEv')
+
+  def returnMetaType(self) -> QMetaType:
+    """
+    Calls Qt's 'QMetaType QMetaMethod::returnMetaType() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetamethod.html#returnMetaType
+
+    Returns
+    -------
+
+    QMetaType
+      A new cute QMetaType around the copy Qt gave back. Python owns it.
+    """
+    #  QMetaType QMetaMethod::returnMetaType() const
+    address = self.uglySide.call('ritual_ZNK11QMetaMethod14returnMetaTypeEv')
+    from . import QMetaType
+    return QMetaType._cuteOwning(address)
 
   def parameterCount(self) -> int:
     """
@@ -238,6 +239,32 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     )
 
   @overload(int)
+  def parameterMetaType(self, index: int) -> QMetaType:
+    """
+    Calls Qt's 'QMetaType QMetaMethod::parameterMetaType(int index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetamethod.html#parameterMetaType
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMetaType
+      A new cute QMetaType around the copy Qt gave back. Python owns it.
+    """
+    #  QMetaType QMetaMethod::parameterMetaType(int index) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QMetaMethod17parameterMetaTypeEi', index,
+    )
+    from . import QMetaType
+    return QMetaType._cuteOwning(address)
+
+  @overload(int)
   def parameterTypeName(self, index: int) -> QByteArray:
     """
     Calls Qt's 'QByteArray QMetaMethod::parameterTypeName(int index) const'.
@@ -260,6 +287,7 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QMetaMethod17parameterTypeNameEi', index,
     )
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   def tag(self) -> Optional[str]:
@@ -292,7 +320,9 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Access(number)' gives.
     """
     #  Access QMetaMethod::access() const
-    return Access(self.uglySide.call('ritual_ZNK11QMetaMethod6accessEv'))
+    return QMetaMethod.Access(self.uglySide.call(
+        'ritual_ZNK11QMetaMethod6accessEv',
+    ))
 
   def methodType(self) -> MethodType:
     """
@@ -309,7 +339,7 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  MethodType QMetaMethod::methodType() const
-    return MethodType(self.uglySide.call(
+    return QMetaMethod.MethodType(self.uglySide.call(
         'ritual_ZNK11QMetaMethod10methodTypeEv',
     ))
 
@@ -379,7 +409,411 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QMetaMethod19enclosingMetaObjectEv',
     )
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
+
+  @overload(
+      QObject, Qt.ConnectionType, QGenericReturnArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument,
+  )
+  @overload(
+      NoneType, Qt.ConnectionType, QGenericReturnArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument,
+  )
+  def invoke(
+      self,
+      object: Optional[QObject],
+      connectionType: Qt.ConnectionType,
+      returnValue: QGenericReturnArgument,
+      val0: QGenericArgument,
+      val1: QGenericArgument,
+      val2: QGenericArgument,
+      val3: QGenericArgument,
+      val4: QGenericArgument,
+      val5: QGenericArgument,
+      val6: QGenericArgument,
+      val7: QGenericArgument,
+      val8: QGenericArgument,
+      val9: QGenericArgument,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QMetaMethod::invoke(QObject *object, Qt::ConnectionType
+    connectionType, QGenericReturnArgument returnValue, QGenericArgument
+    val0, QGenericArgument val1, QGenericArgument val2, QGenericArgument
+    val3, QGenericArgument val4, QGenericArgument val5, QGenericArgument
+    val6, QGenericArgument val7, QGenericArgument val8, QGenericArgument
+    val9) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetamethod.html#invoke
+
+    Parameters
+    ----------
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    connectionType : Qt.ConnectionType
+      Passed on as its number.
+
+    returnValue : QGenericReturnArgument
+      Passed on as a value: Qt reads the C++ QGenericReturnArgument, which
+      stays Python's own.
+
+    val0 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val1 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val2 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val3 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val4 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val5 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val6 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val7 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val8 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val9 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+    """
+    #  bool QMetaMethod::invoke(QObject *object, Qt::ConnectionType
+    #      connectionType, QGenericReturnArgument returnValue,
+    #      QGenericArgument val0, QGenericArgument val1, QGenericArgument
+    #      val2, QGenericArgument val3, QGenericArgument val4,
+    #      QGenericArgument val5, QGenericArgument val6, QGenericArgument
+    #      val7, QGenericArgument val8, QGenericArgument val9) const
+    return self.uglySide.call(
+        'ritual_ZNK11QMetaMethod6invokeEP7QObjectN2Qt14ConnectionTypeE22QGe'
+        'nericReturnArgument16QGenericArgumentS5_S5_S5_S5_S5_S5_S5_S5_S5_',
+        self._addressOf(object), connectionType.value,
+        self._valueOf(returnValue), self._valueOf(val0), self._valueOf(val1),
+        self._valueOf(val2), self._valueOf(val3), self._valueOf(val4),
+        self._valueOf(val5), self._valueOf(val6), self._valueOf(val7),
+        self._valueOf(val8), self._valueOf(val9),
+    )
+
+  @overload(
+      QObject, QGenericReturnArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+  )
+  @overload(
+      NoneType, QGenericReturnArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+  )
+  def invoke(
+      self,
+      object: Optional[QObject],
+      returnValue: QGenericReturnArgument,
+      val0: QGenericArgument,
+      val1: QGenericArgument,
+      val2: QGenericArgument,
+      val3: QGenericArgument,
+      val4: QGenericArgument,
+      val5: QGenericArgument,
+      val6: QGenericArgument,
+      val7: QGenericArgument,
+      val8: QGenericArgument,
+      val9: QGenericArgument,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QMetaMethod::invoke(QObject *object,
+    QGenericReturnArgument returnValue, QGenericArgument val0,
+    QGenericArgument val1, QGenericArgument val2, QGenericArgument val3,
+    QGenericArgument val4, QGenericArgument val5, QGenericArgument val6,
+    QGenericArgument val7, QGenericArgument val8, QGenericArgument val9)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetamethod.html#invoke
+
+    Parameters
+    ----------
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    returnValue : QGenericReturnArgument
+      Passed on as a value: Qt reads the C++ QGenericReturnArgument, which
+      stays Python's own.
+
+    val0 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val1 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val2 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val3 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val4 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val5 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val6 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val7 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val8 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val9 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+    """
+    #  bool QMetaMethod::invoke(QObject *object, QGenericReturnArgument
+    #      returnValue, QGenericArgument val0, QGenericArgument val1,
+    #      QGenericArgument val2, QGenericArgument val3, QGenericArgument
+    #      val4, QGenericArgument val5, QGenericArgument val6,
+    #      QGenericArgument val7, QGenericArgument val8, QGenericArgument
+    #      val9) const
+    return self.uglySide.call(
+        'ritual_ZNK11QMetaMethod6invokeEP7QObject22QGenericReturnArgument16'
+        'QGenericArgumentS3_S3_S3_S3_S3_S3_S3_S3_S3_',
+        self._addressOf(object), self._valueOf(returnValue),
+        self._valueOf(val0), self._valueOf(val1), self._valueOf(val2),
+        self._valueOf(val3), self._valueOf(val4), self._valueOf(val5),
+        self._valueOf(val6), self._valueOf(val7), self._valueOf(val8),
+        self._valueOf(val9),
+    )
+
+  @overload(
+      QObject, Qt.ConnectionType, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+  )
+  @overload(
+      NoneType, Qt.ConnectionType, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+  )
+  def invoke(
+      self,
+      object: Optional[QObject],
+      connectionType: Qt.ConnectionType,
+      val0: QGenericArgument,
+      val1: QGenericArgument,
+      val2: QGenericArgument,
+      val3: QGenericArgument,
+      val4: QGenericArgument,
+      val5: QGenericArgument,
+      val6: QGenericArgument,
+      val7: QGenericArgument,
+      val8: QGenericArgument,
+      val9: QGenericArgument,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QMetaMethod::invoke(QObject *object, Qt::ConnectionType
+    connectionType, QGenericArgument val0, QGenericArgument val1,
+    QGenericArgument val2, QGenericArgument val3, QGenericArgument val4,
+    QGenericArgument val5, QGenericArgument val6, QGenericArgument val7,
+    QGenericArgument val8, QGenericArgument val9) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetamethod.html#invoke
+
+    Parameters
+    ----------
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    connectionType : Qt.ConnectionType
+      Passed on as its number.
+
+    val0 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val1 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val2 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val3 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val4 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val5 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val6 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val7 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val8 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val9 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+    """
+    #  bool QMetaMethod::invoke(QObject *object, Qt::ConnectionType
+    #      connectionType, QGenericArgument val0, QGenericArgument val1,
+    #      QGenericArgument val2, QGenericArgument val3, QGenericArgument
+    #      val4, QGenericArgument val5, QGenericArgument val6,
+    #      QGenericArgument val7, QGenericArgument val8, QGenericArgument
+    #      val9) const
+    return self.uglySide.call(
+        'ritual_ZNK11QMetaMethod6invokeEP7QObjectN2Qt14ConnectionTypeE16QGe'
+        'nericArgumentS4_S4_S4_S4_S4_S4_S4_S4_S4_',
+        self._addressOf(object), connectionType.value, self._valueOf(val0),
+        self._valueOf(val1), self._valueOf(val2), self._valueOf(val3),
+        self._valueOf(val4), self._valueOf(val5), self._valueOf(val6),
+        self._valueOf(val7), self._valueOf(val8), self._valueOf(val9),
+    )
+
+  @overload(
+      QObject, QGenericArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument,
+  )
+  @overload(
+      NoneType, QGenericArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument, QGenericArgument,
+      QGenericArgument, QGenericArgument, QGenericArgument,
+  )
+  def invoke(
+      self,
+      object: Optional[QObject],
+      val0: QGenericArgument,
+      val1: QGenericArgument,
+      val2: QGenericArgument,
+      val3: QGenericArgument,
+      val4: QGenericArgument,
+      val5: QGenericArgument,
+      val6: QGenericArgument,
+      val7: QGenericArgument,
+      val8: QGenericArgument,
+      val9: QGenericArgument,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QMetaMethod::invoke(QObject *object, QGenericArgument
+    val0, QGenericArgument val1, QGenericArgument val2, QGenericArgument
+    val3, QGenericArgument val4, QGenericArgument val5, QGenericArgument
+    val6, QGenericArgument val7, QGenericArgument val8, QGenericArgument
+    val9) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetamethod.html#invoke
+
+    Parameters
+    ----------
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    val0 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val1 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val2 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val3 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val4 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val5 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val6 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val7 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val8 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+
+    val9 : QGenericArgument
+      Passed on as a value: Qt reads the C++ QGenericArgument, which stays
+      Python's own.
+    """
+    #  bool QMetaMethod::invoke(QObject *object, QGenericArgument val0,
+    #      QGenericArgument val1, QGenericArgument val2, QGenericArgument
+    #      val3, QGenericArgument val4, QGenericArgument val5,
+    #      QGenericArgument val6, QGenericArgument val7, QGenericArgument
+    #      val8, QGenericArgument val9) const
+    return self.uglySide.call(
+        'ritual_ZNK11QMetaMethod6invokeEP7QObject16QGenericArgumentS2_S2_S2'
+        '_S2_S2_S2_S2_S2_S2_',
+        self._addressOf(object), self._valueOf(val0), self._valueOf(val1),
+        self._valueOf(val2), self._valueOf(val3), self._valueOf(val4),
+        self._valueOf(val5), self._valueOf(val6), self._valueOf(val7),
+        self._valueOf(val8), self._valueOf(val9),
+    )
 
   def isValid(self) -> bool:
     """

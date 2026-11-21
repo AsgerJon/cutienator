@@ -11,18 +11,29 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
-from ..QtGui import QPaintDevice
-from ..QtGui import QPainter
-from ..QtGui import QPalette
-from ..QtGui import QPixmap
-from ..QtCore import QRect
-from ._q_style import QStyle
-from ._q_style_option import QStyleOption
-from ._q_widget import QWidget
+from ..QtGui import QPainter, QPaletteColorRole
+from . import QStyleComplexControl, QStyleControlElement
+from . import QStylePrimitiveElement
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QRect
+  from ..QtGui import QPaintDevice, QPalette, QPixmap
+  from . import QStyle, QStyleOption, QStyleOptionComplex, QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPaintDevice = WAIT['QPaintDevice']
+  QPalette = WAIT['QPalette']
+  QPixmap = WAIT['QPixmap']
+  QRect = WAIT['QRect']
+  QStyleOption = WAIT['QStyleOption']
+  QStyleOptionComplex = WAIT['QStyleOptionComplex']
+  QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -41,16 +52,9 @@ class QStylePainter(QPainter):
   -----------
 
   Every function of Qt's QStylePainter that has a ritual and that Python can
-  call so far, 6 names in all: 'begin', 'drawPrimitive', 'drawControl',
-  'drawItemText', 'drawItemPixmap', 'style'. It can be made from Python, in 3
-  ways; see '__init__'.
-
-  What has a ritual and is left out, and why
-  ------------------------------------------
-
-  - Qt's 'void QStylePainter::drawComplexControl(QStyle::ComplexControl cc,
-    const QStyleOptionComplex &opt)': names 'QStyleOptionComplex', which has
-    no cute class yet.
+  call so far, 7 names in all: 'begin', 'drawPrimitive', 'drawControl',
+  'drawComplexControl', 'drawItemText', 'drawItemPixmap', 'style'. It can be
+  made from Python, in 3 ways; see '__init__'.
 
   What has no ritual
   ------------------
@@ -109,6 +113,7 @@ class QStylePainter(QPainter):
     """
     #  QStyle *QStylePainter::style() const
     address = self.uglySide.call('ritual_ZNK13QStylePainter5styleEv')
+    from . import QStyle
     return QStyle._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -260,7 +265,7 @@ class QStylePainter(QPainter):
         self._addressOf(pd), self._addressOf(w),
     )
 
-  @overload(QStyle.PrimitiveElement, QStyleOption)
+  @overload(QStylePrimitiveElement, QStyleOption)
   def drawPrimitive(
       self,
       pe: QStyle.PrimitiveElement,
@@ -290,7 +295,7 @@ class QStylePainter(QPainter):
         pe.value, self._valueOf(opt),
     )
 
-  @overload(QStyle.ControlElement, QStyleOption)
+  @overload(QStyleControlElement, QStyleOption)
   def drawControl(
       self,
       ce: QStyle.ControlElement,
@@ -320,8 +325,39 @@ class QStylePainter(QPainter):
         ce.value, self._valueOf(opt),
     )
 
+  @overload(QStyleComplexControl, QStyleOptionComplex)
+  def drawComplexControl(
+      self,
+      cc: QStyle.ComplexControl,
+      opt: QStyleOptionComplex,
+  ) -> None:
+    """
+    Calls Qt's 'void QStylePainter::drawComplexControl(QStyle::ComplexControl
+    cc, const QStyleOptionComplex &opt)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylepainter.html#drawComplexControl
+
+    Parameters
+    ----------
+
+    cc : QStyle.ComplexControl
+      Passed on as its number.
+
+    opt : QStyleOptionComplex
+      Passed on as a value: Qt reads the C++ QStyleOptionComplex, which stays
+      Python's own.
+    """
+    #  void QStylePainter::drawComplexControl(QStyle::ComplexControl cc,
+    #      const QStyleOptionComplex &opt)
+    self.uglySide.call(
+        'ritual_ZN13QStylePainter18drawComplexControlEN6QStyle14ComplexCont'
+        'rolERK19QStyleOptionComplex',
+        cc.value, self._valueOf(opt),
+    )
+
   @overload(QRect, int, QPalette, bool, str)
-  @overload(QRect, int, QPalette, bool, str, QPalette.ColorRole)
+  @overload(QRect, int, QPalette, bool, str, QPaletteColorRole)
   def drawItemText(
       self,
       r: QRect,
@@ -329,7 +365,7 @@ class QStylePainter(QPainter):
       pal: QPalette,
       enabled: bool,
       text: str,
-      textRole: QPalette.ColorRole = QPalette.ColorRole.NoRole,
+      textRole: QPalette.ColorRole = QPaletteColorRole.NoRole,
   ) -> None:
     """
     Calls Qt's 'void QStylePainter::drawItemText(const QRect &r, int flags,
@@ -359,7 +395,7 @@ class QStylePainter(QPainter):
 
     textRole : QPalette.ColorRole
       Passed on as its number. May be left out, as in Qt: it is then
-      QPalette.ColorRole.NoRole.
+      QPaletteColorRole.NoRole.
     """
     #  void QStylePainter::drawItemText(const QRect &r, int flags, const
     #      QPalette &pal, bool enabled, const QString &text,

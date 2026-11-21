@@ -11,13 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import QObject
-from ..QtCore import QUrl
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QObject, QUrl
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QObject = WAIT['QObject']
+  QUrl = WAIT['QUrl']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.

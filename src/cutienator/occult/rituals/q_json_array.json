@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qjsonarray.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QJsonArrayC1Ev": ["address"],
+    "ritual_ZN10QJsonArrayD1Ev": ["nothing", "address"],
+    "ritual_ZN10QJsonArrayC1ERKS_": ["address", "address"],
+    "ritual_ZNK10QJsonArray4sizeEv": ["long long", "address"],
+    "ritual_ZNK10QJsonArray5countEv": ["long long", "address"],
+    "ritual_ZNK10QJsonArray7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK10QJsonArray2atEx": ["address", "address", "long long"],
+    "ritual_ZNK10QJsonArray5firstEv": ["address", "address"],
+    "ritual_ZNK10QJsonArray4lastEv": ["address", "address"],
+    "ritual_ZN10QJsonArray7prependERK10QJsonValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QJsonArray6appendERK10QJsonValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QJsonArray8removeAtEx": ["nothing", "address", "long long"],
+    "ritual_ZN10QJsonArray6takeAtEx": ["address", "address", "long long"],
+    "ritual_ZN10QJsonArray11removeFirstEv": ["nothing", "address"],
+    "ritual_ZN10QJsonArray10removeLastEv": ["nothing", "address"],
+    "ritual_ZN10QJsonArray6insertExRK10QJsonValue": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN10QJsonArray7replaceExRK10QJsonValue": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZNK10QJsonArray8containsERK10QJsonValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QJsonArrayixEx": ["address", "address", "long long"],
+    "ritual_ZNK10QJsonArrayixEx": ["address", "address", "long long"],
+    "ritual_ZN10QJsonArray5beginEv": ["address", "address"],
+    "ritual_ZNK10QJsonArray5beginEv": ["address", "address"],
+    "ritual_ZNK10QJsonArray10constBeginEv": ["address", "address"],
+    "ritual_ZNK10QJsonArray6cbeginEv": ["address", "address"],
+    "ritual_ZN10QJsonArray3endEv": ["address", "address"],
+    "ritual_ZNK10QJsonArray3endEv": ["address", "address"],
+    "ritual_ZNK10QJsonArray8constEndEv": ["address", "address"],
+    "ritual_ZNK10QJsonArray4cendEv": ["address", "address"],
+    "ritual_ZN10QJsonArray6insertENS_8iteratorERK10QJsonValue": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QJsonArray5eraseENS_8iteratorE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QJsonArrayplERK10QJsonValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QJsonArray9push_backERK10QJsonValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QJsonArray10push_frontERK10QJsonValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QJsonArray9pop_frontEv": ["nothing", "address"],
+    "ritual_ZN10QJsonArray8pop_backEv": ["nothing", "address"],
+    "ritual_ZNK10QJsonArray5emptyEv": ["bool", "address"]
+  }
+}

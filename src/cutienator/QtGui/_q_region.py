@@ -15,13 +15,21 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QPoint
-from ._q_polygon import QPolygon
-from ..QtCore import QRect
-from ._q_region_region_type import RegionType
+from . import QRegionRegionType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QPoint, QRect
+  from . import QBitmap, QPolygon
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBitmap = WAIT['QBitmap']
+  QPoint = WAIT['QPoint']
+  QPolygon = WAIT['QPolygon']
+  QRect = WAIT['QRect']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -93,11 +101,7 @@ class QRegion(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QRegion, and the names Qt has for the
   #  combinations of its flags enums.
-  RegionType = RegionType
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QBitmap = WAIT['QBitmap']
+  RegionType = QRegionRegionType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -160,6 +164,7 @@ class QRegion(CuteMixin, metaclass=MetaCute):
     """
     #  const_iterator QRegion::begin() const
     address = self.uglySide.call('ritual_ZNK7QRegion5beginEv')
+    from ..QtCore import QRect
     return QRect._cuteAt(address)
 
   def cbegin(self) -> Optional[QRect]:
@@ -177,6 +182,7 @@ class QRegion(CuteMixin, metaclass=MetaCute):
     """
     #  const_iterator QRegion::cbegin() const
     address = self.uglySide.call('ritual_ZNK7QRegion6cbeginEv')
+    from ..QtCore import QRect
     return QRect._cuteAt(address)
 
   def end(self) -> Optional[QRect]:
@@ -194,6 +200,7 @@ class QRegion(CuteMixin, metaclass=MetaCute):
     """
     #  const_iterator QRegion::end() const
     address = self.uglySide.call('ritual_ZNK7QRegion3endEv')
+    from ..QtCore import QRect
     return QRect._cuteAt(address)
 
   def cend(self) -> Optional[QRect]:
@@ -211,6 +218,7 @@ class QRegion(CuteMixin, metaclass=MetaCute):
     """
     #  const_iterator QRegion::cend() const
     address = self.uglySide.call('ritual_ZNK7QRegion4cendEv')
+    from ..QtCore import QRect
     return QRect._cuteAt(address)
 
   @overload(QPoint)
@@ -507,6 +515,7 @@ class QRegion(CuteMixin, metaclass=MetaCute):
     """
     #  QRect QRegion::boundingRect() const
     address = self.uglySide.call('ritual_ZNK7QRegion12boundingRectEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def rectCount(self) -> int:
@@ -692,9 +701,6 @@ class QRegion(CuteMixin, metaclass=MetaCute):
     which is called at the first use.
 
     Qt's own words: https://doc.qt.io/qt-6/qregion.html#QRegion
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------

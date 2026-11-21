@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qurlquery.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QUrlQueryC1Ev": ["address"],
+    "ritual_ZN9QUrlQueryC1ERK4QUrl": ["address", "address"],
+    "ritual_ZN9QUrlQueryC1ERK7QString": ["address", "text"],
+    "ritual_ZN9QUrlQueryC1ERKS_": ["address", "address"],
+    "ritual_ZN9QUrlQueryD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QUrlQuery7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK9QUrlQuery10isDetachedEv": ["bool", "address"],
+    "ritual_ZN9QUrlQuery5clearEv": ["nothing", "address"],
+    "ritual_ZNK9QUrlQuery5queryE6QFlagsIN4QUrl25ComponentFormattingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN9QUrlQuery8setQueryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QUrlQuery8toStringE6QFlagsIN4QUrl25ComponentFormattingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN9QUrlQuery18setQueryDelimitersE5QCharS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK9QUrlQuery19queryValueDelimiterEv": ["address", "address"],
+    "ritual_ZNK9QUrlQuery18queryPairDelimiterEv": ["address", "address"],
+    "ritual_ZNK9QUrlQuery12hasQueryItemERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN9QUrlQuery12addQueryItemERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN9QUrlQuery15removeQueryItemERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QUrlQuery14queryItemValueERK7QString6QFlagsIN4QUrl25ComponentFormattingOptionEE": [
+      "text", "address", "text", "int"
+    ],
+    "ritual_ZN9QUrlQuery19removeAllQueryItemsERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

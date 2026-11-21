@@ -11,13 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import QByteArray
-from ..QtCore import QChar
-from ._q_font import QFont
-from ._q_font_database_system_font import SystemFont
-from ._q_font_database_writing_system import WritingSystem
+from ..QtCore import QCharScript
+from . import QFontDatabaseSystemFont, QFontDatabaseWritingSystem
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QByteArray, QChar
+  from . import QFont, QFontInfo
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
+  QFont = WAIT['QFont']
+  QFontInfo = WAIT['QFontInfo']
 
 
 class QFontDatabase(CuteMixin, metaclass=MetaCute):
@@ -45,8 +53,6 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QString QFontDatabase::styleString(const QFontInfo &fontInfo)':
-    names 'QFontInfo', which has no cute class yet.
   - Qt's 'QFontDatabase::~QFontDatabase()': the destructor: Python removes
     its C++ QFontDatabase by it, and has no other use for it.
 
@@ -72,8 +78,8 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QFontDatabase, and the names Qt has for the
   #  combinations of its flags enums.
-  SystemFont = SystemFont
-  WritingSystem = WritingSystem
+  SystemFont = QFontDatabaseSystemFont
+  WritingSystem = QFontDatabaseWritingSystem
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -103,6 +109,34 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZN13QFontDatabase11styleStringERK5QFont',
         CuteMixin._valueOf(font),
+    )
+
+  @staticmethod
+  @overload(QFontInfo)
+  def styleString(fontInfo: QFontInfo) -> str:
+    """
+    Calls Qt's 'QString QFontDatabase::styleString(const QFontInfo
+    &fontInfo)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontdatabase.html#styleString
+
+    Parameters
+    ----------
+
+    fontInfo : QFontInfo
+      Passed on as a value: Qt reads the C++ QFontInfo, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QFontDatabase::styleString(const QFontInfo &fontInfo)
+    return Rituals.call(
+        'ritual_ZN13QFontDatabase11styleStringERK9QFontInfo',
+        CuteMixin._valueOf(fontInfo),
     )
 
   @staticmethod
@@ -138,6 +172,7 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
         'ritual_ZN13QFontDatabase4fontERK7QStringS2_i',
         family, style, pointSize,
     )
+    from . import QFont
     return QFont._cuteOwning(address)
 
   @staticmethod
@@ -494,7 +529,7 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
     )
 
   @staticmethod
-  @overload(QChar.Script, str)
+  @overload(QCharScript, str)
   def addApplicationFallbackFontFamily(
       script: QChar.Script,
       familyName: str,
@@ -525,7 +560,7 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
     )
 
   @staticmethod
-  @overload(QChar.Script, str)
+  @overload(QCharScript, str)
   def removeApplicationFallbackFontFamily(
       script: QChar.Script,
       familyName: str,
@@ -626,6 +661,7 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
     address = Rituals.call(
         'ritual_ZN13QFontDatabase10systemFontENS_10SystemFontE', type.value,
     )
+    from . import QFont
     return QFont._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

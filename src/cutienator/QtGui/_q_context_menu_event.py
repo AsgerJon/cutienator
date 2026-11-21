@@ -11,14 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_input_event import QInputEvent
-from ..QtCore import QPoint
-from ._q_context_menu_event_reason import Reason
+from . import QContextMenuEventReason, QInputEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QPoint
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPoint = WAIT['QPoint']
 
 
 class QContextMenuEvent(QInputEvent):
@@ -63,7 +69,7 @@ class QContextMenuEvent(QInputEvent):
 
   #  The enums Qt writes inside QContextMenuEvent, and the names Qt has for
   #  the combinations of its flags enums.
-  Reason = Reason
+  Reason = QContextMenuEventReason
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -156,6 +162,7 @@ class QContextMenuEvent(QInputEvent):
     """
     #  const QPoint &QContextMenuEvent::pos() const
     address = self.uglySide.call('ritual_ZNK17QContextMenuEvent3posEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def globalPos(self) -> QPoint:
@@ -172,6 +179,7 @@ class QContextMenuEvent(QInputEvent):
     """
     #  const QPoint &QContextMenuEvent::globalPos() const
     address = self.uglySide.call('ritual_ZNK17QContextMenuEvent9globalPosEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def reason(self) -> Reason:
@@ -188,7 +196,7 @@ class QContextMenuEvent(QInputEvent):
       no name it is the member without a name that 'Reason(number)' gives.
     """
     #  Reason QContextMenuEvent::reason() const
-    return Reason(self.uglySide.call(
+    return QContextMenuEvent.Reason(self.uglySide.call(
         'ritual_ZNK17QContextMenuEvent6reasonEv',
     ))
 

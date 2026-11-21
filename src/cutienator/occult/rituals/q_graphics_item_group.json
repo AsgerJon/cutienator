@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QGraphicsItemGroupC1EP13QGraphicsItem": [
+      "address", "address"
+    ],
+    "ritual_ZN18QGraphicsItemGroupD1Ev": ["nothing", "address"],
+    "ritual_ZN18QGraphicsItemGroup10addToGroupEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QGraphicsItemGroup15removeFromGroupEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QGraphicsItemGroup12boundingRectEv": ["address", "address"],
+    "ritual_ZN18QGraphicsItemGroup5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18QGraphicsItemGroup12isObscuredByEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QGraphicsItemGroup10opaqueAreaEv": ["address", "address"],
+    "ritual_ZNK18QGraphicsItemGroup4typeEv": ["int", "address"]
+  }
+}

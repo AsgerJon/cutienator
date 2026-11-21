@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qpermissions.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QBluetoothPermission21setCommunicationModesE6QFlagsINS_17CommunicationModeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QBluetoothPermission18communicationModesEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QBluetoothPermissionC1Ev": ["address"],
+    "ritual_ZN20QBluetoothPermissionC1ERKS_": ["address", "address"],
+    "ritual_ZN20QBluetoothPermissionD1Ev": ["nothing", "address"]
+  }
+}

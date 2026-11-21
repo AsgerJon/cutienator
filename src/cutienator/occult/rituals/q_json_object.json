@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qjsonobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QJsonObjectC1Ev": ["address"],
+    "ritual_ZN11QJsonObjectD1Ev": ["nothing", "address"],
+    "ritual_ZN11QJsonObjectC1ERKS_": ["address", "address"],
+    "ritual_ZNK11QJsonObject4sizeEv": ["long long", "address"],
+    "ritual_ZNK11QJsonObject5countEv": ["long long", "address"],
+    "ritual_ZNK11QJsonObject6lengthEv": ["long long", "address"],
+    "ritual_ZNK11QJsonObject7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK11QJsonObject5valueERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QJsonObjectixERK7QString": ["address", "address", "text"],
+    "ritual_ZN11QJsonObjectixERK7QString": ["address", "address", "text"],
+    "ritual_ZNK11QJsonObject5valueE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QJsonObject5valueE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QJsonObjectixE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QJsonObjectixE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QJsonObjectixE11QStringView": ["address", "address", "text"],
+    "ritual_ZN11QJsonObjectixE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QJsonObject6removeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QJsonObject4takeERK7QString": ["address", "address", "text"],
+    "ritual_ZNK11QJsonObject8containsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN11QJsonObject6removeE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QJsonObject6removeE13QLatin1String": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QJsonObject4takeE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QJsonObject4takeE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QJsonObject8containsE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QJsonObject8containsE13QLatin1String": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QJsonObject5beginEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject5beginEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject6cbeginEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject10constBeginEv": ["address", "address"],
+    "ritual_ZN11QJsonObject3endEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject3endEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject4cendEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject8constEndEv": ["address", "address"],
+    "ritual_ZN11QJsonObject5eraseENS_8iteratorE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QJsonObject4findERK7QString": ["address", "address", "text"],
+    "ritual_ZNK11QJsonObject4findERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QJsonObject9constFindERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QJsonObject6insertERK7QStringRK10QJsonValue": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN11QJsonObject4findE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QJsonObject4findE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QJsonObject4findE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QJsonObject4findE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QJsonObject9constFindE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QJsonObject9constFindE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QJsonObject6insertE11QStringViewRK10QJsonValue": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN11QJsonObject6insertE13QLatin1StringRK10QJsonValue": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11QJsonObject5emptyEv": ["bool", "address"]
+  }
+}

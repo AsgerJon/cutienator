@@ -11,20 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QAbstractItemModel
-from ._q_abstract_item_view import QAbstractItemView
-from ..QtCore import QByteArray
-from ..QtCore import QMetaObject
-from ..QtCore import QPoint
-from ..QtCore import QSize
-from ._q_widget import QWidget
-from ._q_header_view_resize_mode import ResizeMode
+from . import QAbstractItemView, QHeaderViewResizeMode, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QAbstractItemModel, QByteArray, QMetaObject, QPoint
+  from ..QtCore import QSize
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractItemModel = WAIT['QAbstractItemModel']
+  QByteArray = WAIT['QByteArray']
+  QPoint = WAIT['QPoint']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -97,7 +100,7 @@ class QHeaderView(QAbstractItemView):
 
   #  The enums Qt writes inside QHeaderView, and the names Qt has for the
   #  combinations of its flags enums.
-  ResizeMode = ResizeMode
+  ResizeMode = QHeaderViewResizeMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -181,6 +184,7 @@ class QHeaderView(QAbstractItemView):
     """
     #  const QMetaObject *QHeaderView::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QHeaderView10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def orientation(self) -> Qt.Orientation:
@@ -234,6 +238,7 @@ class QHeaderView(QAbstractItemView):
     """
     #  QSize QHeaderView::sizeHint() const
     address = self.uglySide.call('ritual_ZNK11QHeaderView8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(int)
@@ -524,7 +529,7 @@ class QHeaderView(QAbstractItemView):
       gives.
     """
     #  ResizeMode QHeaderView::sectionResizeMode(int logicalIndex) const
-    return ResizeMode(self.uglySide.call(
+    return QHeaderView.ResizeMode(self.uglySide.call(
         'ritual_ZNK11QHeaderView17sectionResizeModeEi', logicalIndex,
     ))
 
@@ -717,6 +722,7 @@ class QHeaderView(QAbstractItemView):
     """
     #  QByteArray QHeaderView::saveState() const
     address = self.uglySide.call('ritual_ZNK11QHeaderView9saveStateEv')
+    from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

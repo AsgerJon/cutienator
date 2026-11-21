@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qrawfont.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QRawFontC1Ev": ["address"],
+    "ritual_ZN8QRawFontC1ERK7QStringdN5QFont17HintingPreferenceE": [
+      "address", "text", "double", "int"
+    ],
+    "ritual_ZN8QRawFontC1ERK10QByteArraydN5QFont17HintingPreferenceE": [
+      "address", "address", "double", "int"
+    ],
+    "ritual_ZN8QRawFontC1ERKS_": ["address", "address"],
+    "ritual_ZN8QRawFontD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QRawFont7isValidEv": ["bool", "address"],
+    "ritual_ZNK8QRawFonteqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK8QRawFontneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK8QRawFont10glyphCountEv": ["unsigned int", "address"],
+    "ritual_ZNK8QRawFont10familyNameEv": ["text", "address"],
+    "ritual_ZNK8QRawFont9styleNameEv": ["text", "address"],
+    "ritual_ZNK8QRawFont5styleEv": ["int", "address"],
+    "ritual_ZNK8QRawFont6weightEv": ["int", "address"],
+    "ritual_ZNK8QRawFont20glyphIndexesForCharsEPK5QChariPjPi": [
+      "bool", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK8QRawFont16alphaMapForGlyphEjNS_16AntialiasingTypeERK10QTransform": [
+      "address", "address", "unsigned int", "int", "address"
+    ],
+    "ritual_ZNK8QRawFont12pathForGlyphEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK8QRawFont12boundingRectEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN8QRawFont12setPixelSizeEd": ["nothing", "address", "double"],
+    "ritual_ZNK8QRawFont9pixelSizeEv": ["double", "address"],
+    "ritual_ZNK8QRawFont17hintingPreferenceEv": ["int", "address"],
+    "ritual_ZNK8QRawFont6ascentEv": ["double", "address"],
+    "ritual_ZNK8QRawFont9capHeightEv": ["double", "address"],
+    "ritual_ZNK8QRawFont7descentEv": ["double", "address"],
+    "ritual_ZNK8QRawFont7leadingEv": ["double", "address"],
+    "ritual_ZNK8QRawFont7xHeightEv": ["double", "address"],
+    "ritual_ZNK8QRawFont16averageCharWidthEv": ["double", "address"],
+    "ritual_ZNK8QRawFont12maxCharWidthEv": ["double", "address"],
+    "ritual_ZNK8QRawFont13lineThicknessEv": ["double", "address"],
+    "ritual_ZNK8QRawFont17underlinePositionEv": ["double", "address"],
+    "ritual_ZNK8QRawFont10unitsPerEmEv": ["double", "address"],
+    "ritual_ZNK8QRawFont9glyphNameEj": ["text", "address", "unsigned int"],
+    "ritual_ZN8QRawFont12loadFromFileERK7QStringdN5QFont17HintingPreferenceE": [
+      "nothing", "address", "text", "double", "int"
+    ],
+    "ritual_ZN8QRawFont12loadFromDataERK10QByteArraydN5QFont17HintingPreferenceE": [
+      "nothing", "address", "address", "double", "int"
+    ],
+    "ritual_ZNK8QRawFont17supportsCharacterEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK8QRawFont17supportsCharacterE5QChar": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK8QRawFont9fontTableEPKc": ["address", "address", "chars"],
+    "ritual_ZNK8QRawFont9fontTableEN5QFont3TagE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QRawFont8fromFontERK5QFontN13QFontDatabase13WritingSystemE": [
+      "address", "address", "int"
+    ]
+  }
+}

@@ -1,0 +1,386 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QGraphicsItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QGraphicsItem5sceneEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem10parentItemEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem12topLevelItemEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem12parentObjectEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem12parentWidgetEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem14topLevelWidgetEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem6windowEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem5panelEv": ["address", "address"],
+    "ritual_ZN13QGraphicsItem13setParentItemEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem8isWidgetEv": ["bool", "address"],
+    "ritual_ZNK13QGraphicsItem8isWindowEv": ["bool", "address"],
+    "ritual_ZNK13QGraphicsItem7isPanelEv": ["bool", "address"],
+    "ritual_ZN13QGraphicsItem16toGraphicsObjectEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem16toGraphicsObjectEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem5groupEv": ["address", "address"],
+    "ritual_ZN13QGraphicsItem8setGroupEP18QGraphicsItemGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem5flagsEv": ["int", "address"],
+    "ritual_ZN13QGraphicsItem7setFlagENS_16GraphicsItemFlagEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN13QGraphicsItem8setFlagsE6QFlagsINS_16GraphicsItemFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QGraphicsItem9cacheModeEv": ["int", "address"],
+    "ritual_ZN13QGraphicsItem12setCacheModeENS_9CacheModeERK5QSize": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem13panelModalityEv": ["int", "address"],
+    "ritual_ZN13QGraphicsItem16setPanelModalityENS_13PanelModalityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QGraphicsItem7toolTipEv": ["text", "address"],
+    "ritual_ZN13QGraphicsItem10setToolTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QGraphicsItem6cursorEv": ["address", "address"],
+    "ritual_ZN13QGraphicsItem9setCursorERK7QCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem9hasCursorEv": ["bool", "address"],
+    "ritual_ZN13QGraphicsItem11unsetCursorEv": ["nothing", "address"],
+    "ritual_ZNK13QGraphicsItem9isVisibleEv": ["bool", "address"],
+    "ritual_ZNK13QGraphicsItem11isVisibleToEPKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN13QGraphicsItem4hideEv": ["nothing", "address"],
+    "ritual_ZN13QGraphicsItem4showEv": ["nothing", "address"],
+    "ritual_ZNK13QGraphicsItem9isEnabledEv": ["bool", "address"],
+    "ritual_ZN13QGraphicsItem10setEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZNK13QGraphicsItem10isSelectedEv": ["bool", "address"],
+    "ritual_ZN13QGraphicsItem11setSelectedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QGraphicsItem11acceptDropsEv": ["bool", "address"],
+    "ritual_ZN13QGraphicsItem14setAcceptDropsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QGraphicsItem7opacityEv": ["double", "address"],
+    "ritual_ZNK13QGraphicsItem16effectiveOpacityEv": ["double", "address"],
+    "ritual_ZN13QGraphicsItem10setOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem14graphicsEffectEv": ["address", "address"],
+    "ritual_ZN13QGraphicsItem17setGraphicsEffectEP15QGraphicsEffect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem20acceptedMouseButtonsEv": ["int", "address"],
+    "ritual_ZN13QGraphicsItem23setAcceptedMouseButtonsE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QGraphicsItem17acceptHoverEventsEv": ["bool", "address"],
+    "ritual_ZN13QGraphicsItem20setAcceptHoverEventsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QGraphicsItem17acceptTouchEventsEv": ["bool", "address"],
+    "ritual_ZN13QGraphicsItem20setAcceptTouchEventsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QGraphicsItem18filtersChildEventsEv": ["bool", "address"],
+    "ritual_ZN13QGraphicsItem21setFiltersChildEventsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QGraphicsItem18handlesChildEventsEv": ["bool", "address"],
+    "ritual_ZN13QGraphicsItem21setHandlesChildEventsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QGraphicsItem8isActiveEv": ["bool", "address"],
+    "ritual_ZN13QGraphicsItem9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZNK13QGraphicsItem8hasFocusEv": ["bool", "address"],
+    "ritual_ZN13QGraphicsItem8setFocusEN2Qt11FocusReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QGraphicsItem10clearFocusEv": ["nothing", "address"],
+    "ritual_ZNK13QGraphicsItem10focusProxyEv": ["address", "address"],
+    "ritual_ZN13QGraphicsItem13setFocusProxyEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem9focusItemEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem14focusScopeItemEv": ["address", "address"],
+    "ritual_ZN13QGraphicsItem9grabMouseEv": ["nothing", "address"],
+    "ritual_ZN13QGraphicsItem11ungrabMouseEv": ["nothing", "address"],
+    "ritual_ZN13QGraphicsItem12grabKeyboardEv": ["nothing", "address"],
+    "ritual_ZN13QGraphicsItem14ungrabKeyboardEv": ["nothing", "address"],
+    "ritual_ZNK13QGraphicsItem3posEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem1xEv": ["double", "address"],
+    "ritual_ZN13QGraphicsItem4setXEd": ["nothing", "address", "double"],
+    "ritual_ZNK13QGraphicsItem1yEv": ["double", "address"],
+    "ritual_ZN13QGraphicsItem4setYEd": ["nothing", "address", "double"],
+    "ritual_ZNK13QGraphicsItem8scenePosEv": ["address", "address"],
+    "ritual_ZN13QGraphicsItem6setPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem6setPosEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN13QGraphicsItem6moveByEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN13QGraphicsItem13ensureVisibleERK6QRectFii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN13QGraphicsItem13ensureVisibleEddddii": [
+      "nothing", "address", "double", "double", "double", "double", "int",
+      "int"
+    ],
+    "ritual_ZNK13QGraphicsItem9transformEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem14sceneTransformEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem15deviceTransformERK10QTransform": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem13itemTransformEPKS_Pb": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem12setTransformERK10QTransformb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN13QGraphicsItem14resetTransformEv": ["nothing", "address"],
+    "ritual_ZN13QGraphicsItem11setRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem8rotationEv": ["double", "address"],
+    "ritual_ZN13QGraphicsItem8setScaleEd": ["nothing", "address", "double"],
+    "ritual_ZNK13QGraphicsItem5scaleEv": ["double", "address"],
+    "ritual_ZNK13QGraphicsItem20transformOriginPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem23setTransformOriginPointERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem23setTransformOriginPointEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN13QGraphicsItem7advanceEi": ["nothing", "address", "int"],
+    "ritual_ZNK13QGraphicsItem6zValueEv": ["double", "address"],
+    "ritual_ZN13QGraphicsItem9setZValueEd": ["nothing", "address", "double"],
+    "ritual_ZN13QGraphicsItem11stackBeforeEPKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem12boundingRectEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem20childrenBoundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem17sceneBoundingRectEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem5shapeEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem9isClippedEv": ["bool", "address"],
+    "ritual_ZNK13QGraphicsItem8clipPathEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem16collidesWithItemEPKS_N2Qt17ItemSelectionModeE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK13QGraphicsItem16collidesWithPathERK12QPainterPathN2Qt17ItemSelectionModeE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK13QGraphicsItem10isObscuredERK6QRectF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem10isObscuredEdddd": [
+      "bool", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem12isObscuredByEPKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem10opaqueAreaEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem14boundingRegionERK10QTransform": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem25boundingRegionGranularityEv": [
+      "double", "address"
+    ],
+    "ritual_ZN13QGraphicsItem28setBoundingRegionGranularityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QGraphicsItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem6updateERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem6updateEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN13QGraphicsItem6scrollEddRK6QRectF": [
+      "nothing", "address", "double", "double", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK7QPointF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem11mapToParentERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem10mapToSceneERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK6QRectF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem11mapToParentERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem10mapToSceneERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem13mapRectToItemEPKS_RK6QRectF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem15mapRectToParentERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem14mapRectToSceneERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK9QPolygonF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem11mapToParentERK9QPolygonF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem10mapToSceneERK9QPolygonF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK12QPainterPath": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem11mapToParentERK12QPainterPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem10mapToSceneERK12QPainterPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK7QPointF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem13mapFromParentERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem12mapFromSceneERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK6QRectF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem13mapFromParentERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem12mapFromSceneERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem15mapRectFromItemEPKS_RK6QRectF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem17mapRectFromParentERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem16mapRectFromSceneERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK9QPolygonF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem13mapFromParentERK9QPolygonF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem12mapFromSceneERK9QPolygonF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK12QPainterPath": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem13mapFromParentERK12QPainterPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem12mapFromSceneERK12QPainterPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem9mapToItemEPKS_dd": [
+      "address", "address", "address", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem11mapToParentEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem10mapToSceneEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem9mapToItemEPKS_dddd": [
+      "address", "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem11mapToParentEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem10mapToSceneEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem13mapRectToItemEPKS_dddd": [
+      "address", "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem15mapRectToParentEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem14mapRectToSceneEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem11mapFromItemEPKS_dd": [
+      "address", "address", "address", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem13mapFromParentEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem12mapFromSceneEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem11mapFromItemEPKS_dddd": [
+      "address", "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem13mapFromParentEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem12mapFromSceneEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem15mapRectFromItemEPKS_dddd": [
+      "address", "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem17mapRectFromParentEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem16mapRectFromSceneEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK13QGraphicsItem12isAncestorOfEPKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem18commonAncestorItemEPKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem12isUnderMouseEv": ["bool", "address"],
+    "ritual_ZNK13QGraphicsItem4dataEi": ["address", "address", "int"],
+    "ritual_ZN13QGraphicsItem7setDataEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem16inputMethodHintsEv": ["int", "address"],
+    "ritual_ZN13QGraphicsItem19setInputMethodHintsE6QFlagsIN2Qt15InputMethodHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QGraphicsItem4typeEv": ["int", "address"],
+    "ritual_ZN13QGraphicsItem23installSceneEventFilterEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem22removeSceneEventFilterEPS_": [
+      "nothing", "address", "address"
+    ]
+  }
+}

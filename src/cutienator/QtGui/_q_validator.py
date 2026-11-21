@@ -11,15 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import QLocale
-from ..QtCore import QMetaObject
 from ..QtCore import QObject
-from ._q_validator_state import State
+from . import QValidatorState
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QLocale, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QLocale = WAIT['QLocale']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -72,7 +77,7 @@ class QValidator(QObject):
 
   #  The enums Qt writes inside QValidator, and the names Qt has for the
   #  combinations of its flags enums.
-  State = State
+  State = QValidatorState
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -155,6 +160,7 @@ class QValidator(QObject):
     """
     #  const QMetaObject *QValidator::metaObject() const
     address = self.uglySide.call('ritual_ZNK10QValidator10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def locale(self) -> QLocale:
@@ -171,6 +177,7 @@ class QValidator(QObject):
     """
     #  QLocale QValidator::locale() const
     address = self.uglySide.call('ritual_ZNK10QValidator6localeEv')
+    from ..QtCore import QLocale
     return QLocale._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

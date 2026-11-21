@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN23QGraphicsSceneHelpEventC1EN6QEvent4TypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN23QGraphicsSceneHelpEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QGraphicsSceneHelpEvent8scenePosEv": ["address", "address"],
+    "ritual_ZN23QGraphicsSceneHelpEvent11setScenePosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QGraphicsSceneHelpEvent9screenPosEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QGraphicsSceneHelpEvent12setScreenPosERK6QPoint": [
+      "nothing", "address", "address"
+    ]
+  }
+}

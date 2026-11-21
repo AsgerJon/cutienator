@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qstatictext.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QStaticTextC1Ev": ["address"],
+    "ritual_ZN11QStaticTextC1ERK7QString": ["address", "text"],
+    "ritual_ZN11QStaticTextC1ERKS_": ["address", "address"],
+    "ritual_ZN11QStaticTextD1Ev": ["nothing", "address"],
+    "ritual_ZN11QStaticText7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QStaticText4textEv": ["text", "address"],
+    "ritual_ZN11QStaticText13setTextFormatEN2Qt10TextFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QStaticText10textFormatEv": ["int", "address"],
+    "ritual_ZN11QStaticText12setTextWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11QStaticText9textWidthEv": ["double", "address"],
+    "ritual_ZN11QStaticText13setTextOptionERK11QTextOption": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QStaticText10textOptionEv": ["address", "address"],
+    "ritual_ZNK11QStaticText4sizeEv": ["address", "address"],
+    "ritual_ZN11QStaticText7prepareERK10QTransformRK5QFont": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QStaticText18setPerformanceHintENS_15PerformanceHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QStaticText15performanceHintEv": ["int", "address"],
+    "ritual_ZNK11QStaticTexteqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QStaticTextneERKS_": ["bool", "address", "address"]
+  }
+}

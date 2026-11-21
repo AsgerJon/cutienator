@@ -11,18 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_frame import QFrame
-from ..QtCore import QMetaObject
-from ..QtGui import QPicture
-from ..QtGui import QPixmap
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from . import QFrame, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
+  from ..QtGui import QMovie, QPicture, QPixmap
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QMovie = WAIT['QMovie']
+  QPicture = WAIT['QPicture']
+  QPixmap = WAIT['QPixmap']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -41,25 +46,21 @@ class QLabel(QFrame):
   -----------
 
   Every function of Qt's QLabel that has a ritual and that Python can call so
-  far, 35 names in all: 'metaObject', 'tr', 'text', 'pixmap', 'picture',
-  'textFormat', 'setTextFormat', 'alignment', 'setAlignment', 'setWordWrap',
-  'wordWrap', 'indent', 'setIndent', 'margin', 'setMargin',
+  far, 37 names in all: 'metaObject', 'tr', 'text', 'pixmap', 'picture',
+  'movie', 'textFormat', 'setTextFormat', 'alignment', 'setAlignment',
+  'setWordWrap', 'wordWrap', 'indent', 'setIndent', 'margin', 'setMargin',
   'hasScaledContents', 'setScaledContents', 'sizeHint', 'minimumSizeHint',
   'setBuddy', 'buddy', 'heightForWidth', 'openExternalLinks',
   'setOpenExternalLinks', 'setTextInteractionFlags', 'textInteractionFlags',
   'setSelection', 'hasSelectedText', 'selectedText', 'selectionStart',
-  'setText', 'setPixmap', 'setPicture', 'setNum', 'clear'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  'setText', 'setPixmap', 'setPicture', 'setMovie', 'setNum', 'clear'. It can
+  be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QLabel::~QLabel()': the destructor: Python never removes a C++
     QLabel.
-  - Qt's 'QMovie *QLabel::movie() const': gives 'QMovie', which has no cute
-    class yet.
-  - Qt's 'void QLabel::setMovie(QMovie *movie)': names 'QMovie', which has no
-    cute class yet.
 
   What has no ritual
   ------------------
@@ -164,6 +165,7 @@ class QLabel(QFrame):
     """
     #  const QMetaObject *QLabel::metaObject() const
     address = self.uglySide.call('ritual_ZNK6QLabel10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def text(self) -> str:
@@ -204,6 +206,7 @@ class QLabel(QFrame):
     address = self.uglySide.call(
         'ritual_ZNK6QLabel6pixmapEN2Qt21ReturnByValueConstantE', a0.value,
     )
+    from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
 
   @overload()
@@ -221,6 +224,7 @@ class QLabel(QFrame):
     """
     #  QPixmap QLabel::pixmap() const
     address = self.uglySide.call('ritual_ZNK6QLabel6pixmapEv')
+    from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
 
   @overload(Qt.ReturnByValueConstant)
@@ -247,6 +251,7 @@ class QLabel(QFrame):
     address = self.uglySide.call(
         'ritual_ZNK6QLabel7pictureEN2Qt21ReturnByValueConstantE', a0.value,
     )
+    from ..QtGui import QPicture
     return QPicture._cuteOwning(address)
 
   @overload()
@@ -264,7 +269,26 @@ class QLabel(QFrame):
     """
     #  QPicture QLabel::picture() const
     address = self.uglySide.call('ritual_ZNK6QLabel7pictureEv')
+    from ..QtGui import QPicture
     return QPicture._cuteOwning(address)
+
+  def movie(self) -> Optional[QMovie]:
+    """
+    Calls Qt's 'QMovie *QLabel::movie() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#movie
+
+    Returns
+    -------
+
+    Optional[QMovie]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMovie *QLabel::movie() const
+    address = self.uglySide.call('ritual_ZNK6QLabel5movieEv')
+    from ..QtGui import QMovie
+    return QMovie._cuteAt(address)
 
   def textFormat(self) -> Qt.TextFormat:
     """
@@ -350,6 +374,7 @@ class QLabel(QFrame):
     """
     #  QSize QLabel::sizeHint() const
     address = self.uglySide.call('ritual_ZNK6QLabel8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -366,6 +391,7 @@ class QLabel(QFrame):
     """
     #  QSize QLabel::minimumSizeHint() const
     address = self.uglySide.call('ritual_ZNK6QLabel15minimumSizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def buddy(self) -> Optional[QWidget]:
@@ -695,6 +721,26 @@ class QLabel(QFrame):
     #  void QLabel::setPicture(const QPicture &a0)
     self.uglySide.call(
         'ritual_ZN6QLabel10setPictureERK8QPicture', self._valueOf(a0),
+    )
+
+  @overload(QMovie)
+  @overload(NoneType)
+  def setMovie(self, movie: Optional[QMovie]) -> None:
+    """
+    Calls Qt's 'void QLabel::setMovie(QMovie *movie)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#setMovie
+
+    Parameters
+    ----------
+
+    movie : Optional[QMovie]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLabel::setMovie(QMovie *movie)
+    self.uglySide.call(
+        'ritual_ZN6QLabel8setMovieEP6QMovie', self._addressOf(movie),
     )
 
   @overload(int)

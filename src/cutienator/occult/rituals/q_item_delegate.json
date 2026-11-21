@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qitemdelegate.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QItemDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QItemDelegate2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QItemDelegateC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QItemDelegateD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QItemDelegate11hasClippingEv": ["bool", "address"],
+    "ritual_ZN13QItemDelegate11setClippingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QItemDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QItemDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QItemDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QItemDelegate13setEditorDataEP7QWidgetRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13QItemDelegate12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QItemDelegate20updateEditorGeometryEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QItemDelegate17itemEditorFactoryEv": ["address", "address"],
+    "ritual_ZN13QItemDelegate20setItemEditorFactoryEP18QItemEditorFactory": [
+      "nothing", "address", "address"
+    ]
+  }
+}

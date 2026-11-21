@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qfocusframe.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QFocusFrame10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QFocusFrame2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QFocusFrameC1EP7QWidget": ["address", "address"],
+    "ritual_ZN11QFocusFrameD1Ev": ["nothing", "address"],
+    "ritual_ZN11QFocusFrame9setWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QFocusFrame6widgetEv": ["address", "address"]
+  }
+}

@@ -12,17 +12,23 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QChar
-from ._q_font import QFont
-from ._q_paint_device import QPaintDevice
-from ..QtCore import QRect
-from ._q_text_option import QTextOption
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QChar, QRect
+  from . import QFont, QPaintDevice, QTextOption
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QChar = WAIT['QChar']
+  QFont = WAIT['QFont']
+  QPaintDevice = WAIT['QPaintDevice']
+  QTextOption = WAIT['QTextOption']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -378,6 +384,7 @@ class QFontMetrics(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK12QFontMetrics12boundingRectE5QChar', self._valueOf(a0),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(str)
@@ -403,6 +410,7 @@ class QFontMetrics(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK12QFontMetrics12boundingRectERK7QString', text,
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(str, QTextOption)
@@ -435,6 +443,7 @@ class QFontMetrics(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK12QFontMetrics12boundingRectERK7QStringRK11QTextOption',
         text, self._valueOf(textOption),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(str)
@@ -462,6 +471,7 @@ class QFontMetrics(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK12QFontMetrics17tightBoundingRectERK7QString', text,
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(str, QTextOption)
@@ -496,6 +506,7 @@ class QFontMetrics(CuteMixin, metaclass=MetaCute):
         'ion',
         text, self._valueOf(textOption),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(str, Qt.TextElideMode, int)

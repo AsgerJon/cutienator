@@ -15,16 +15,23 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_brush import QBrush
-from ._q_font import QFont
-from ._q_icon import QIcon
-from ..QtCore import QModelIndex
-from ..QtCore import QSize
-from ..QtCore import QVariant
-from ._q_standard_item_item_type import ItemType
+from . import QStandardItemItemType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QModelIndex, QModelRoleDataSpan, QSize, QVariant
+  from . import QBrush, QFont, QIcon, QStandardItemModel
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBrush = WAIT['QBrush']
+  QFont = WAIT['QFont']
+  QIcon = WAIT['QIcon']
+  QModelRoleDataSpan = WAIT['QModelRoleDataSpan']
+  QSize = WAIT['QSize']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -40,8 +47,8 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QStandardItem that has a ritual and that Python can
-  call so far, 71 names in all: 'data', 'setData', 'clearData', 'text',
-  'setText', 'icon', 'setIcon', 'toolTip', 'setToolTip', 'statusTip',
+  call so far, 72 names in all: 'data', 'multiData', 'setData', 'clearData',
+  'text', 'setText', 'icon', 'setIcon', 'toolTip', 'setToolTip', 'statusTip',
   'setStatusTip', 'whatsThis', 'setWhatsThis', 'sizeHint', 'setSizeHint',
   'font', 'setFont', 'textAlignment', 'setTextAlignment', 'background',
   'setBackground', 'foreground', 'setForeground', 'checkState',
@@ -62,8 +69,6 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QStandardItem::~QStandardItem()': the destructor: Python never
     removes a C++ QStandardItem.
-  - Qt's 'void QStandardItem::multiData(QModelRoleDataSpan roleDataSpan)
-    const': names 'QModelRoleDataSpan', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -86,11 +91,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QStandardItem, and the names Qt has for the
   #  combinations of its flags enums.
-  ItemType = ItemType
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QStandardItemModel = WAIT['QStandardItemModel']
+  ItemType = QStandardItemItemType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -137,6 +138,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     """
     #  QVariant QStandardItem::data(int role) const
     address = self.uglySide.call('ritual_ZNK13QStandardItem4dataEi', role)
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   def text(self) -> str:
@@ -168,6 +170,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     """
     #  QIcon QStandardItem::icon() const
     address = self.uglySide.call('ritual_ZNK13QStandardItem4iconEv')
+    from . import QIcon
     return QIcon._cuteOwning(address)
 
   def toolTip(self) -> str:
@@ -229,6 +232,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QStandardItem::sizeHint() const
     address = self.uglySide.call('ritual_ZNK13QStandardItem8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def font(self) -> QFont:
@@ -245,6 +249,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     """
     #  QFont QStandardItem::font() const
     address = self.uglySide.call('ritual_ZNK13QStandardItem4fontEv')
+    from . import QFont
     return QFont._cuteOwning(address)
 
   def textAlignment(self) -> Qt.Alignment:
@@ -278,6 +283,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     """
     #  QBrush QStandardItem::background() const
     address = self.uglySide.call('ritual_ZNK13QStandardItem10backgroundEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def foreground(self) -> QBrush:
@@ -294,6 +300,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     """
     #  QBrush QStandardItem::foreground() const
     address = self.uglySide.call('ritual_ZNK13QStandardItem10foregroundEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def checkState(self) -> Qt.CheckState:
@@ -486,6 +493,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     """
     #  QModelIndex QStandardItem::index() const
     address = self.uglySide.call('ritual_ZNK13QStandardItem5indexEv')
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   def model(self) -> Optional[QStandardItemModel]:
@@ -503,7 +511,8 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     """
     #  QStandardItemModel *QStandardItem::model() const
     address = self.uglySide.call('ritual_ZNK13QStandardItem5modelEv')
-    return self.QStandardItemModel._cuteAt(address)
+    from . import QStandardItemModel
+    return QStandardItemModel._cuteAt(address)
 
   def rowCount(self) -> int:
     """
@@ -1221,6 +1230,27 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QModelRoleDataSpan)
+  def multiData(self, roleDataSpan: QModelRoleDataSpan) -> None:
+    """
+    Calls Qt's 'void QStandardItem::multiData(QModelRoleDataSpan
+    roleDataSpan) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#multiData
+
+    Parameters
+    ----------
+
+    roleDataSpan : QModelRoleDataSpan
+      Passed on as a value: Qt reads the C++ QModelRoleDataSpan, which stays
+      Python's own.
+    """
+    #  void QStandardItem::multiData(QModelRoleDataSpan roleDataSpan) const
+    self.uglySide.call(
+        'ritual_ZNK13QStandardItem9multiDataE18QModelRoleDataSpan',
+        self._valueOf(roleDataSpan),
+    )
 
   def clearData(self) -> None:
     """

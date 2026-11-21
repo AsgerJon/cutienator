@@ -1,0 +1,113 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qdatetime.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5QDateC1Ev": ["address"],
+    "ritual_ZN5QDateC1Eiii": ["address", "int", "int", "int"],
+    "ritual_ZN5QDateC1Eiii9QCalendar": [
+      "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZNK5QDate6isNullEv": ["bool", "address"],
+    "ritual_ZNK5QDate7isValidEv": ["bool", "address"],
+    "ritual_ZNK5QDate4yearEv": ["int", "address"],
+    "ritual_ZNK5QDate5monthEv": ["int", "address"],
+    "ritual_ZNK5QDate3dayEv": ["int", "address"],
+    "ritual_ZNK5QDate9dayOfWeekEv": ["int", "address"],
+    "ritual_ZNK5QDate9dayOfYearEv": ["int", "address"],
+    "ritual_ZNK5QDate11daysInMonthEv": ["int", "address"],
+    "ritual_ZNK5QDate10daysInYearEv": ["int", "address"],
+    "ritual_ZNK5QDate10weekNumberEPi": ["int", "address", "address"],
+    "ritual_ZNK5QDate4yearE9QCalendar": ["int", "address", "address"],
+    "ritual_ZNK5QDate5monthE9QCalendar": ["int", "address", "address"],
+    "ritual_ZNK5QDate3dayE9QCalendar": ["int", "address", "address"],
+    "ritual_ZNK5QDate9dayOfWeekE9QCalendar": ["int", "address", "address"],
+    "ritual_ZNK5QDate9dayOfYearE9QCalendar": ["int", "address", "address"],
+    "ritual_ZNK5QDate11daysInMonthE9QCalendar": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK5QDate10daysInYearE9QCalendar": ["int", "address", "address"],
+    "ritual_ZNK5QDate10startOfDayEN2Qt8TimeSpecEi": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK5QDate8endOfDayEN2Qt8TimeSpecEi": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK5QDate10startOfDayERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK5QDate8endOfDayERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK5QDate10startOfDayEv": ["address", "address"],
+    "ritual_ZNK5QDate8endOfDayEv": ["address", "address"],
+    "ritual_ZNK5QDate8toStringEN2Qt10DateFormatE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK5QDate8toStringERK7QString": ["text", "address", "text"],
+    "ritual_ZNK5QDate8toStringERK7QString9QCalendar": [
+      "text", "address", "text", "address"
+    ],
+    "ritual_ZNK5QDate8toStringE11QStringView": ["text", "address", "text"],
+    "ritual_ZNK5QDate8toStringE11QStringView9QCalendar": [
+      "text", "address", "text", "address"
+    ],
+    "ritual_ZN5QDate7setDateEiii": ["bool", "address", "int", "int", "int"],
+    "ritual_ZN5QDate7setDateEiii9QCalendar": [
+      "bool", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZNK5QDate7getDateEPiS0_S0_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK5QDate7addDaysEx": ["address", "address", "long long"],
+    "ritual_ZNK5QDate9addMonthsEi": ["address", "address", "int"],
+    "ritual_ZNK5QDate8addYearsEi": ["address", "address", "int"],
+    "ritual_ZNK5QDate9addMonthsEi9QCalendar": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK5QDate8addYearsEi9QCalendar": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK5QDate6daysToES_": ["long long", "address", "address"],
+    "ritual_ZN5QDate11currentDateEv": ["address"],
+    "ritual_ZN5QDate10fromStringE11QStringViewN2Qt10DateFormatE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN5QDate10fromStringERK7QStringN2Qt10DateFormatE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN5QDate10fromStringE11QStringViewS0_9QCalendar": [
+      "address", "text", "text", "address"
+    ],
+    "ritual_ZN5QDate10fromStringERK7QString11QStringView9QCalendar": [
+      "address", "text", "text", "address"
+    ],
+    "ritual_ZN5QDate10fromStringERK7QStringS2_9QCalendar": [
+      "address", "text", "text", "address"
+    ],
+    "ritual_ZN5QDate10fromStringE11QStringViewS0_i": [
+      "address", "text", "text", "int"
+    ],
+    "ritual_ZN5QDate10fromStringE11QStringViewS0_i9QCalendar": [
+      "address", "text", "text", "int", "address"
+    ],
+    "ritual_ZN5QDate10fromStringERK7QString11QStringViewi": [
+      "address", "text", "text", "int"
+    ],
+    "ritual_ZN5QDate10fromStringERK7QString11QStringViewi9QCalendar": [
+      "address", "text", "text", "int", "address"
+    ],
+    "ritual_ZN5QDate10fromStringERK7QStringS2_i": [
+      "address", "text", "text", "int"
+    ],
+    "ritual_ZN5QDate10fromStringERK7QStringS2_i9QCalendar": [
+      "address", "text", "text", "int", "address"
+    ],
+    "ritual_ZN5QDate7isValidEiii": ["bool", "int", "int", "int"],
+    "ritual_ZN5QDate10isLeapYearEi": ["bool", "int"],
+    "ritual_ZN5QDate13fromJulianDayEx": ["address", "long long"],
+    "ritual_ZNK5QDate11toJulianDayEv": ["long long", "address"],
+    "ritual_ZN5QDateD1Ev": ["nothing", "address"]
+  }
+}

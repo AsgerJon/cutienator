@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qversionnumber.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QVersionNumberC1Ev": ["address"],
+    "ritual_ZN14QVersionNumberC1Ei": ["address", "int"],
+    "ritual_ZN14QVersionNumberC1Eii": ["address", "int", "int"],
+    "ritual_ZN14QVersionNumberC1Eiii": ["address", "int", "int", "int"],
+    "ritual_ZNK14QVersionNumber6isNullEv": ["bool", "address"],
+    "ritual_ZNK14QVersionNumber12isNormalizedEv": ["bool", "address"],
+    "ritual_ZNK14QVersionNumber12majorVersionEv": ["int", "address"],
+    "ritual_ZNK14QVersionNumber12minorVersionEv": ["int", "address"],
+    "ritual_ZNK14QVersionNumber12microVersionEv": ["int", "address"],
+    "ritual_ZNK14QVersionNumber10normalizedEv": ["address", "address"],
+    "ritual_ZNK14QVersionNumber9segmentAtEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZNK14QVersionNumber12segmentCountEv": ["long long", "address"],
+    "ritual_ZNK14QVersionNumber10isPrefixOfERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QVersionNumber7compareERKS_S1_": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN14QVersionNumber12commonPrefixERKS_S1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QVersionNumber8toStringEv": ["text", "address"],
+    "ritual_ZN14QVersionNumber10fromStringE14QAnyStringViewPx": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN14QVersionNumberD1Ev": ["nothing", "address"]
+  }
+}

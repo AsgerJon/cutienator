@@ -11,14 +11,18 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._q_color import QColor
-from ._q_gradient_coordinate_mode import CoordinateMode
-from ._q_gradient_interpolation_mode import InterpolationMode
-from ._q_gradient_preset import Preset
-from ._q_gradient_spread import Spread
-from ._q_gradient_type import Type
+from . import QGradientCoordinateMode, QGradientInterpolationMode
+from . import QGradientPreset, QGradientSpread, QGradientType
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QColor
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QColor = WAIT['QColor']
 
 
 class QGradient(CuteMixin, metaclass=MetaCute):
@@ -70,11 +74,11 @@ class QGradient(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QGradient, and the names Qt has for the
   #  combinations of its flags enums.
-  CoordinateMode = CoordinateMode
-  InterpolationMode = InterpolationMode
-  Preset = Preset
-  Spread = Spread
-  Type = Type
+  CoordinateMode = QGradientCoordinateMode
+  InterpolationMode = QGradientInterpolationMode
+  Preset = QGradientPreset
+  Spread = QGradientSpread
+  Type = QGradientType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -118,7 +122,7 @@ class QGradient(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Type(number)' gives.
     """
     #  Type QGradient::type() const
-    return Type(self.uglySide.call('ritual_ZNK9QGradient4typeEv'))
+    return QGradient.Type(self.uglySide.call('ritual_ZNK9QGradient4typeEv'))
 
   def spread(self) -> Spread:
     """
@@ -134,7 +138,9 @@ class QGradient(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'Spread(number)' gives.
     """
     #  Spread QGradient::spread() const
-    return Spread(self.uglySide.call('ritual_ZNK9QGradient6spreadEv'))
+    return QGradient.Spread(self.uglySide.call(
+        'ritual_ZNK9QGradient6spreadEv',
+    ))
 
   def coordinateMode(self) -> CoordinateMode:
     """
@@ -151,7 +157,7 @@ class QGradient(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  CoordinateMode QGradient::coordinateMode() const
-    return CoordinateMode(self.uglySide.call(
+    return QGradient.CoordinateMode(self.uglySide.call(
         'ritual_ZNK9QGradient14coordinateModeEv',
     ))
 
@@ -170,7 +176,7 @@ class QGradient(CuteMixin, metaclass=MetaCute):
       'InterpolationMode(number)' gives.
     """
     #  InterpolationMode QGradient::interpolationMode() const
-    return InterpolationMode(self.uglySide.call(
+    return QGradient.InterpolationMode(self.uglySide.call(
         'ritual_ZNK9QGradient17interpolationModeEv',
     ))
 

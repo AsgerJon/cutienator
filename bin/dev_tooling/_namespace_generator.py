@@ -146,23 +146,31 @@ class NamespaceGenerator:
     """Gives the whole text of the file, without writing it."""
     namespaceName = self.getNamespaceName()
     ownName = namespaceName.split('::')[-1]
-    imports, bindings, flagsCount = [], [], 0
+    joinedNames, bindings, flagsCount = [], [], 0
     for enumName in self.getEnumNames():
       generator = self.getEnumGenerator(enumName)
       enumOwnName = generator.getOwnName()
-      fileStem = generator.getFileStem()
-      importLine = 'from .%s import %s' % (fileStem, enumOwnName)
-      if len(importLine) > 77:
-        importLine = importLine.replace(' import ', ' \\\n  import ')
-      imports.append(importLine)
-      bindings.append('  %s = %s' % (enumOwnName, enumOwnName))
+      joinedName = generator.getJoinedName()
+      joinedNames.append(joinedName)
+      bindings.append('  %s = %s' % (enumOwnName, joinedName))
       flagsName = generator.getFlagsName()
       if flagsName is None:
         continue
       flagsOwner, _, flagsOwnName = flagsName.rpartition('::')
       if flagsOwner == namespaceName:
-        bindings.append('  %s = %s' % (flagsOwnName, enumOwnName))
+        bindings.append('  %s = %s' % (flagsOwnName, joinedName))
         flagsCount += 1
+    #  Each enum is asked of the package of the part, the cute way, by
+    #  the name the package gives it. As many names stand on a line as
+    #  fit, and the import is written again for the rest.
+    imports, line = [], ''
+    for joinedName in joinedNames:
+      longer = '%s, %s' % (line, joinedName) if line else joinedName
+      if line and len('from . import ') + len(longer) > 77:
+        imports.append('from . import %s' % line)
+        longer = joinedName
+      line = longer
+    imports.append('from . import %s' % line)
     infoSpec = """Written by dev_tooling.NamespaceGenerator from the
     records of Qt %s. Changes made here are lost."""
     heading = ' '.join((infoSpec % QtPart.getQtVersion()).split())
@@ -170,7 +178,7 @@ class NamespaceGenerator:
     holds the %d enums Qt writes in it, each under its name, and the %d
     names Qt has for the combinations of a flags enum, each holding the
     class of that enum. It is never made into an object."""
-    about = infoSpec % (namespaceName, len(imports), flagsCount)
+    about = infoSpec % (namespaceName, len(joinedNames), flagsCount)
     about = ' '.join(about.split())
     infoSpec = """%s stands for the namespace '%s' of Qt."""
     lines = [

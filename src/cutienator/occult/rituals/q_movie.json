@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qmovie.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK6QMovie10metaObjectEv": ["address", "address"],
+    "ritual_ZN6QMovie2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN6QMovieC1EP7QObject": ["address", "address"],
+    "ritual_ZN6QMovieC1EP9QIODeviceRK10QByteArrayP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN6QMovieC1ERK7QStringRK10QByteArrayP7QObject": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QMovieD1Ev": ["nothing", "address"],
+    "ritual_ZN6QMovie9setDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QMovie6deviceEv": ["address", "address"],
+    "ritual_ZN6QMovie11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK6QMovie8fileNameEv": ["text", "address"],
+    "ritual_ZN6QMovie9setFormatERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QMovie6formatEv": ["address", "address"],
+    "ritual_ZN6QMovie18setBackgroundColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QMovie15backgroundColorEv": ["address", "address"],
+    "ritual_ZNK6QMovie5stateEv": ["int", "address"],
+    "ritual_ZNK6QMovie9frameRectEv": ["address", "address"],
+    "ritual_ZNK6QMovie12currentImageEv": ["address", "address"],
+    "ritual_ZNK6QMovie13currentPixmapEv": ["address", "address"],
+    "ritual_ZNK6QMovie7isValidEv": ["bool", "address"],
+    "ritual_ZNK6QMovie9lastErrorEv": ["int", "address"],
+    "ritual_ZNK6QMovie15lastErrorStringEv": ["text", "address"],
+    "ritual_ZN6QMovie11jumpToFrameEi": ["bool", "address", "int"],
+    "ritual_ZNK6QMovie9loopCountEv": ["int", "address"],
+    "ritual_ZNK6QMovie10frameCountEv": ["int", "address"],
+    "ritual_ZNK6QMovie14nextFrameDelayEv": ["int", "address"],
+    "ritual_ZNK6QMovie18currentFrameNumberEv": ["int", "address"],
+    "ritual_ZNK6QMovie5speedEv": ["int", "address"],
+    "ritual_ZN6QMovie10scaledSizeEv": ["address", "address"],
+    "ritual_ZN6QMovie13setScaledSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QMovie9cacheModeEv": ["int", "address"],
+    "ritual_ZN6QMovie12setCacheModeENS_9CacheModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN6QMovie5startEv": ["nothing", "address"],
+    "ritual_ZN6QMovie15jumpToNextFrameEv": ["bool", "address"],
+    "ritual_ZN6QMovie9setPausedEb": ["nothing", "address", "bool"],
+    "ritual_ZN6QMovie4stopEv": ["nothing", "address"],
+    "ritual_ZN6QMovie8setSpeedEi": ["nothing", "address", "int"]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QDragEnterEvent5cloneEv": ["address", "address"],
+    "ritual_ZN15QDragEnterEventD1Ev": ["nothing", "address"],
+    "ritual_ZN15QDragEnterEventC1ERK6QPoint6QFlagsIN2Qt10DropActionEEPK9QMimeDataS3_INS4_11MouseButtonEES3_INS4_16KeyboardModifierEE": [
+      "address", "address", "int", "address", "int", "int"
+    ],
+    "ritual_ZN15QDragEnterEventC1E7QPointF6QFlagsIN2Qt10DropActionEEPK9QMimeDataS1_INS2_11MouseButtonEES1_INS2_16KeyboardModifierEE": [
+      "address", "address", "int", "address", "int", "int"
+    ]
+  }
+}

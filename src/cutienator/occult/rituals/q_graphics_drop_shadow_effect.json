@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicseffect.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QGraphicsDropShadowEffect10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffect2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffectC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffectD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QGraphicsDropShadowEffect15boundingRectForERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QGraphicsDropShadowEffect6offsetEv": ["address", "address"],
+    "ritual_ZNK25QGraphicsDropShadowEffect7xOffsetEv": ["double", "address"],
+    "ritual_ZNK25QGraphicsDropShadowEffect7yOffsetEv": ["double", "address"],
+    "ritual_ZNK25QGraphicsDropShadowEffect10blurRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK25QGraphicsDropShadowEffect5colorEv": ["address", "address"],
+    "ritual_ZN25QGraphicsDropShadowEffect9setOffsetERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffect9setOffsetEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffect9setOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffect10setXOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffect10setYOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffect13setBlurRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN25QGraphicsDropShadowEffect8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -11,16 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_event import QEvent
-from ._q_meta_object import QMetaObject
-from ._q_object import QObject
-from ._q_thread_priority import Priority
-from ._q_thread_quality_of_service import QualityOfService
+from . import QObject, QThreadPriority, QThreadQualityOfService
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QAbstractEventDispatcher, QDeadlineTimer, QEvent, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractEventDispatcher = WAIT['QAbstractEventDispatcher']
+  QDeadlineTimer = WAIT['QDeadlineTimer']
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -39,26 +44,20 @@ class QThread(QObject):
   -----------
 
   Every function of Qt's QThread that has a ritual and that Python can call
-  so far, 27 names in all: 'metaObject', 'tr', 'currentThread',
+  so far, 29 names in all: 'metaObject', 'tr', 'currentThread',
   'isMainThread', 'idealThreadCount', 'yieldCurrentThread', 'setPriority',
   'priority', 'isFinished', 'isRunning', 'requestInterruption',
-  'isInterruptionRequested', 'setStackSize', 'stackSize', 'event',
-  'loopLevel', 'isCurrentThread', 'setServiceLevel', 'serviceLevel', 'start',
-  'terminate', 'exit', 'quit', 'wait', 'sleep', 'msleep', 'usleep'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'isInterruptionRequested', 'setStackSize', 'stackSize', 'eventDispatcher',
+  'setEventDispatcher', 'event', 'loopLevel', 'isCurrentThread',
+  'setServiceLevel', 'serviceLevel', 'start', 'terminate', 'exit', 'quit',
+  'wait', 'sleep', 'msleep', 'usleep'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QThread::~QThread()': the destructor: Python never removes a C++
     QThread.
-  - Qt's 'QAbstractEventDispatcher *QThread::eventDispatcher() const': gives
-    'QAbstractEventDispatcher', which has no cute class yet.
-  - Qt's 'void QThread::setEventDispatcher(QAbstractEventDispatcher
-    *eventDispatcher)': names 'QAbstractEventDispatcher', which has no cute
-    class yet.
-  - Qt's 'bool QThread::wait(QDeadlineTimer deadline)': names
-    'QDeadlineTimer', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -83,8 +82,8 @@ class QThread(QObject):
 
   #  The enums Qt writes inside QThread, and the names Qt has for the
   #  combinations of its flags enums.
-  Priority = Priority
-  QualityOfService = QualityOfService
+  Priority = QThreadPriority
+  QualityOfService = QThreadQualityOfService
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -266,6 +265,7 @@ class QThread(QObject):
     """
     #  const QMetaObject *QThread::metaObject() const
     address = self.uglySide.call('ritual_ZNK7QThread10metaObjectEv')
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def priority(self) -> Priority:
@@ -282,7 +282,9 @@ class QThread(QObject):
       no name it is the member without a name that 'Priority(number)' gives.
     """
     #  Priority QThread::priority() const
-    return Priority(self.uglySide.call('ritual_ZNK7QThread8priorityEv'))
+    return QThread.Priority(self.uglySide.call(
+        'ritual_ZNK7QThread8priorityEv',
+    ))
 
   def isFinished(self) -> bool:
     """
@@ -323,6 +325,24 @@ class QThread(QObject):
     #  uint QThread::stackSize() const
     return self.uglySide.call('ritual_ZNK7QThread9stackSizeEv')
 
+  def eventDispatcher(self) -> Optional[QAbstractEventDispatcher]:
+    """
+    Calls Qt's 'QAbstractEventDispatcher *QThread::eventDispatcher() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#eventDispatcher
+
+    Returns
+    -------
+
+    Optional[QAbstractEventDispatcher]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractEventDispatcher *QThread::eventDispatcher() const
+    address = self.uglySide.call('ritual_ZNK7QThread15eventDispatcherEv')
+    from . import QAbstractEventDispatcher
+    return QAbstractEventDispatcher._cuteAt(address)
+
   def loopLevel(self) -> int:
     """
     Calls Qt's 'int QThread::loopLevel() const'.
@@ -356,7 +376,7 @@ class QThread(QObject):
       gives.
     """
     #  QualityOfService QThread::serviceLevel() const
-    return QualityOfService(self.uglySide.call(
+    return QThread.QualityOfService(self.uglySide.call(
         'ritual_ZNK7QThread12serviceLevelEv',
     ))
 
@@ -397,6 +417,32 @@ class QThread(QObject):
     """
     #  void QThread::setStackSize(uint stackSize)
     self.uglySide.call('ritual_ZN7QThread12setStackSizeEj', stackSize)
+
+  @overload(QAbstractEventDispatcher)
+  @overload(NoneType)
+  def setEventDispatcher(
+      self,
+      eventDispatcher: Optional[QAbstractEventDispatcher],
+  ) -> None:
+    """
+    Calls Qt's 'void QThread::setEventDispatcher(QAbstractEventDispatcher
+    *eventDispatcher)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#setEventDispatcher
+
+    Parameters
+    ----------
+
+    eventDispatcher : Optional[QAbstractEventDispatcher]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QThread::setEventDispatcher(QAbstractEventDispatcher
+    #      *eventDispatcher)
+    self.uglySide.call(
+        'ritual_ZN7QThread18setEventDispatcherEP24QAbstractEventDispatcher',
+        self._addressOf(eventDispatcher),
+    )
 
   @overload(QualityOfService)
   def setServiceLevel(self, serviceLevel: QualityOfService) -> None:
@@ -553,6 +599,25 @@ class QThread(QObject):
     """
     #  void QThread::quit()
     self.uglySide.call('ritual_ZN7QThread4quitEv')
+
+  @overload(QDeadlineTimer)
+  def wait(self, deadline: QDeadlineTimer) -> bool:
+    """
+    Calls Qt's 'bool QThread::wait(QDeadlineTimer deadline)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#wait
+
+    Parameters
+    ----------
+
+    deadline : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+    """
+    #  bool QThread::wait(QDeadlineTimer deadline)
+    return self.uglySide.call(
+        'ritual_ZN7QThread4waitE14QDeadlineTimer', self._valueOf(deadline),
+    )
 
   @overload(int)
   def wait(self, time: int) -> bool:

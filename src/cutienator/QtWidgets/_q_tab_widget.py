@@ -11,19 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QIcon
-from ..QtCore import QMetaObject
-from ..QtCore import QSize
-from ._q_tab_bar import QTabBar
-from ._q_widget import QWidget
-from ._q_tab_widget_tab_position import TabPosition
-from ._q_tab_widget_tab_shape import TabShape
+from . import QTabWidgetTabPosition, QTabWidgetTabShape, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
+  from ..QtGui import QIcon
+  from . import QTabBar
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QIcon = WAIT['QIcon']
+  QSize = WAIT['QSize']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -85,8 +89,8 @@ class QTabWidget(QWidget):
 
   #  The enums Qt writes inside QTabWidget, and the names Qt has for the
   #  combinations of its flags enums.
-  TabPosition = TabPosition
-  TabShape = TabShape
+  TabPosition = QTabWidgetTabPosition
+  TabShape = QTabWidgetTabShape
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -169,6 +173,7 @@ class QTabWidget(QWidget):
     """
     #  const QMetaObject *QTabWidget::metaObject() const
     address = self.uglySide.call('ritual_ZNK10QTabWidget10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   @overload(int)
@@ -250,6 +255,7 @@ class QTabWidget(QWidget):
     """
     #  QIcon QTabWidget::tabIcon(int index) const
     address = self.uglySide.call('ritual_ZNK10QTabWidget7tabIconEi', index)
+    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
   @overload(int)
@@ -392,7 +398,7 @@ class QTabWidget(QWidget):
       gives.
     """
     #  TabPosition QTabWidget::tabPosition() const
-    return TabPosition(self.uglySide.call(
+    return QTabWidget.TabPosition(self.uglySide.call(
         'ritual_ZNK10QTabWidget11tabPositionEv',
     ))
 
@@ -428,7 +434,9 @@ class QTabWidget(QWidget):
       no name it is the member without a name that 'TabShape(number)' gives.
     """
     #  TabShape QTabWidget::tabShape() const
-    return TabShape(self.uglySide.call('ritual_ZNK10QTabWidget8tabShapeEv'))
+    return QTabWidget.TabShape(self.uglySide.call(
+        'ritual_ZNK10QTabWidget8tabShapeEv',
+    ))
 
   def sizeHint(self) -> QSize:
     """
@@ -444,6 +452,7 @@ class QTabWidget(QWidget):
     """
     #  QSize QTabWidget::sizeHint() const
     address = self.uglySide.call('ritual_ZNK10QTabWidget8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -460,6 +469,7 @@ class QTabWidget(QWidget):
     """
     #  QSize QTabWidget::minimumSizeHint() const
     address = self.uglySide.call('ritual_ZNK10QTabWidget15minimumSizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(int)
@@ -553,6 +563,7 @@ class QTabWidget(QWidget):
     """
     #  QSize QTabWidget::iconSize() const
     address = self.uglySide.call('ritual_ZNK10QTabWidget8iconSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def usesScrollButtons(self) -> bool:
@@ -597,6 +608,7 @@ class QTabWidget(QWidget):
     """
     #  QTabBar *QTabWidget::tabBar() const
     address = self.uglySide.call('ritual_ZNK10QTabWidget6tabBarEv')
+    from . import QTabBar
     return QTabBar._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -13,18 +13,15 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_dialog import QDialog
-from ._q_line_edit import QLineEdit
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ..QtCore import QSize
-from ._q_widget import QWidget
-from ._q_input_dialog_input_dialog_option import InputDialogOption
-from ._q_input_dialog_input_mode import InputMode
+from ..QtCore import Qt, QObject
+from . import QDialog, QInputDialogInputDialogOption, QInputDialogInputMode
+from . import QLineEditEchoMode, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
+  from . import QLineEdit
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -100,9 +97,9 @@ class QInputDialog(QDialog):
 
   #  The enums Qt writes inside QInputDialog, and the names Qt has for the
   #  combinations of its flags enums.
-  InputDialogOption = InputDialogOption
-  InputDialogOptions = InputDialogOption
-  InputMode = InputMode
+  InputDialogOption = QInputDialogInputDialogOption
+  InputDialogOptions = QInputDialogInputDialogOption
+  InputMode = QInputDialogInputMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -186,6 +183,7 @@ class QInputDialog(QDialog):
     """
     #  const QMetaObject *QInputDialog::metaObject() const
     address = self.uglySide.call('ritual_ZNK12QInputDialog10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def inputMode(self) -> InputMode:
@@ -202,7 +200,7 @@ class QInputDialog(QDialog):
       no name it is the member without a name that 'InputMode(number)' gives.
     """
     #  InputMode QInputDialog::inputMode() const
-    return InputMode(self.uglySide.call(
+    return QInputDialog.InputMode(self.uglySide.call(
         'ritual_ZNK12QInputDialog9inputModeEv',
     ))
 
@@ -288,7 +286,7 @@ class QInputDialog(QDialog):
       'QLineEdit.EchoMode(number)' gives.
     """
     #  QLineEdit::EchoMode QInputDialog::textEchoMode() const
-    return QLineEdit.EchoMode(self.uglySide.call(
+    return QLineEditEchoMode(self.uglySide.call(
         'ritual_ZNK12QInputDialog12textEchoModeEv',
     ))
 
@@ -422,6 +420,7 @@ class QInputDialog(QDialog):
     address = self.uglySide.call(
         'ritual_ZNK12QInputDialog15minimumSizeHintEv',
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def sizeHint(self) -> QSize:
@@ -438,6 +437,7 @@ class QInputDialog(QDialog):
     """
     #  QSize QInputDialog::sizeHint() const
     address = self.uglySide.call('ritual_ZNK12QInputDialog8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def doubleStep(self) -> float:
@@ -551,7 +551,7 @@ class QInputDialog(QDialog):
         'ritual_ZN12QInputDialog12setTextValueERK7QString', text,
     )
 
-  @overload(QLineEdit.EchoMode)
+  @overload(QLineEditEchoMode)
   def setTextEchoMode(self, mode: QLineEdit.EchoMode) -> None:
     """
     Calls Qt's 'void QInputDialog::setTextEchoMode(QLineEdit::EchoMode

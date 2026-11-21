@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qdatastream.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QDataStreamC1Ev": ["address"],
+    "ritual_ZN11QDataStreamC1EP9QIODevice": ["address", "address"],
+    "ritual_ZN11QDataStreamC1EP10QByteArray6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QDataStreamC1ERK10QByteArray": ["address", "address"],
+    "ritual_ZN11QDataStreamD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QDataStream6deviceEv": ["address", "address"],
+    "ritual_ZN11QDataStream9setDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QDataStream5atEndEv": ["bool", "address"],
+    "ritual_ZNK11QDataStream6statusEv": ["int", "address"],
+    "ritual_ZN11QDataStream9setStatusENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QDataStream11resetStatusEv": ["nothing", "address"],
+    "ritual_ZNK11QDataStream22floatingPointPrecisionEv": ["int", "address"],
+    "ritual_ZN11QDataStream25setFloatingPointPrecisionENS_22FloatingPointPrecisionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QDataStream9byteOrderEv": ["int", "address"],
+    "ritual_ZN11QDataStream12setByteOrderENS_9ByteOrderE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QDataStream7versionEv": ["int", "address"],
+    "ritual_ZN11QDataStream10setVersionEi": ["nothing", "address", "int"],
+    "ritual_ZNK11QDataStreamcvbEv": ["bool", "address"],
+    "ritual_ZN11QDataStream12writeRawDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN11QDataStream11skipRawDataEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZN11QDataStream16startTransactionEv": ["nothing", "address"],
+    "ritual_ZN11QDataStream17commitTransactionEv": ["bool", "address"],
+    "ritual_ZN11QDataStream19rollbackTransactionEv": ["nothing", "address"],
+    "ritual_ZN11QDataStream16abortTransactionEv": ["nothing", "address"],
+    "ritual_ZNK11QDataStream26isDeviceTransactionStartedEv": [
+      "bool", "address"
+    ]
+  }
+}

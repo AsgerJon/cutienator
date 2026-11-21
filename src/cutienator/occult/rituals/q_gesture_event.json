@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgesture.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QGestureEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QGestureEvent7gestureEN2Qt11GestureTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13QGestureEvent11setAcceptedEP8QGestureb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN13QGestureEvent6acceptEP8QGesture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGestureEvent6ignoreEP8QGesture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGestureEvent10isAcceptedEP8QGesture": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QGestureEvent11setAcceptedEN2Qt11GestureTypeEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN13QGestureEvent6acceptEN2Qt11GestureTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QGestureEvent6ignoreEN2Qt11GestureTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QGestureEvent10isAcceptedEN2Qt11GestureTypeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN13QGestureEvent9setWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGestureEvent6widgetEv": ["address", "address"],
+    "ritual_ZNK13QGestureEvent18mapToGraphicsSceneERK7QPointF": [
+      "address", "address", "address"
+    ]
+  }
+}

@@ -11,20 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ._q_pixmap import QPixmap
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ..QtCore import QSizeF
-from ._q_transform import QTransform
+from ..QtCore import Qt, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QPoint, QRect, QSize, QSizeF
+  from . import QPixmap, QTransform
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPoint = WAIT['QPoint']
+  QRect = WAIT['QRect']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -164,6 +165,7 @@ class QScreen(QObject):
     """
     #  const QMetaObject *QScreen::metaObject() const
     address = self.uglySide.call('ritual_ZNK7QScreen10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def name(self) -> str:
@@ -249,6 +251,7 @@ class QScreen(QObject):
     """
     #  QSize QScreen::size() const
     address = self.uglySide.call('ritual_ZNK7QScreen4sizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def geometry(self) -> QRect:
@@ -265,6 +268,7 @@ class QScreen(QObject):
     """
     #  QRect QScreen::geometry() const
     address = self.uglySide.call('ritual_ZNK7QScreen8geometryEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def physicalSize(self) -> QSizeF:
@@ -281,6 +285,7 @@ class QScreen(QObject):
     """
     #  QSizeF QScreen::physicalSize() const
     address = self.uglySide.call('ritual_ZNK7QScreen12physicalSizeEv')
+    from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
 
   def physicalDotsPerInchX(self) -> float:
@@ -360,6 +365,7 @@ class QScreen(QObject):
     """
     #  QSize QScreen::availableSize() const
     address = self.uglySide.call('ritual_ZNK7QScreen13availableSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def availableGeometry(self) -> QRect:
@@ -376,6 +382,7 @@ class QScreen(QObject):
     """
     #  QRect QScreen::availableGeometry() const
     address = self.uglySide.call('ritual_ZNK7QScreen17availableGeometryEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def virtualSize(self) -> QSize:
@@ -392,6 +399,7 @@ class QScreen(QObject):
     """
     #  QSize QScreen::virtualSize() const
     address = self.uglySide.call('ritual_ZNK7QScreen11virtualSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def virtualGeometry(self) -> QRect:
@@ -408,6 +416,7 @@ class QScreen(QObject):
     """
     #  QRect QScreen::virtualGeometry() const
     address = self.uglySide.call('ritual_ZNK7QScreen15virtualGeometryEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def availableVirtualSize(self) -> QSize:
@@ -426,6 +435,7 @@ class QScreen(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QScreen20availableVirtualSizeEv',
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def availableVirtualGeometry(self) -> QRect:
@@ -445,6 +455,7 @@ class QScreen(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QScreen24availableVirtualGeometryEv',
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def primaryOrientation(self) -> Qt.ScreenOrientation:
@@ -570,6 +581,7 @@ class QScreen(QObject):
         '5QRect',
         a.value, b.value, self._valueOf(target),
     )
+    from . import QTransform
     return QTransform._cuteOwning(address)
 
   @overload(Qt.ScreenOrientation, Qt.ScreenOrientation, QRect)
@@ -609,6 +621,7 @@ class QScreen(QObject):
         'ritual_ZNK7QScreen10mapBetweenEN2Qt17ScreenOrientationES1_RK5QRect',
         a.value, b.value, self._valueOf(rect),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(Qt.ScreenOrientation)
@@ -771,4 +784,5 @@ class QScreen(QObject):
     address = self.uglySide.call(
         'ritual_ZN7QScreen10grabWindowEyiiii', window, x, y, w, h,
     )
+    from . import QPixmap
     return QPixmap._cuteOwning(address)

@@ -14,13 +14,12 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QMetaObject
-from ..QtCore import QSize
-from ._q_widget import QWidget
-from ._q_dialog_dialog_code import DialogCode
+from . import QDialogDialogCode, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -73,7 +72,7 @@ class QDialog(QWidget):
 
   #  The enums Qt writes inside QDialog, and the names Qt has for the
   #  combinations of its flags enums.
-  DialogCode = DialogCode
+  DialogCode = QDialogDialogCode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -156,6 +155,7 @@ class QDialog(QWidget):
     """
     #  const QMetaObject *QDialog::metaObject() const
     address = self.uglySide.call('ritual_ZNK7QDialog10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def result(self) -> int:
@@ -181,6 +181,7 @@ class QDialog(QWidget):
     """
     #  QSize QDialog::sizeHint() const
     address = self.uglySide.call('ritual_ZNK7QDialog8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -197,6 +198,7 @@ class QDialog(QWidget):
     """
     #  QSize QDialog::minimumSizeHint() const
     address = self.uglySide.call('ritual_ZNK7QDialog15minimumSizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def isSizeGripEnabled(self) -> bool:

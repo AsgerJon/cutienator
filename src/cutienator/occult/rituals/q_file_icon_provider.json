@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qfileiconprovider.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QFileIconProviderC1Ev": ["address"],
+    "ritual_ZN17QFileIconProviderD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QFileIconProvider4iconEN25QAbstractFileIconProvider8IconTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QFileIconProvider4iconERK9QFileInfo": [
+      "address", "address", "address"
+    ]
+  }
+}

@@ -11,13 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
 from ..QtCore import QEvent
-from ..QtCore import QRect
-from ._q_region import QRegion
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QRect
+  from . import QRegion
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QRect = WAIT['QRect']
+  QRegion = WAIT['QRegion']
 
 
 class QPaintEvent(QEvent):
@@ -114,6 +122,7 @@ class QPaintEvent(QEvent):
     """
     #  const QRect &QPaintEvent::rect() const
     address = self.uglySide.call('ritual_ZNK11QPaintEvent4rectEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def region(self) -> QRegion:
@@ -130,6 +139,7 @@ class QPaintEvent(QEvent):
     """
     #  const QRegion &QPaintEvent::region() const
     address = self.uglySide.call('ritual_ZNK11QPaintEvent6regionEv')
+    from . import QRegion
     return QRegion._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

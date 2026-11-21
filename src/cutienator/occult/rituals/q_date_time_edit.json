@@ -1,0 +1,123 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qdatetimeedit.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QDateTimeEdit10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QDateTimeEdit2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QDateTimeEditC1EP7QWidget": ["address", "address"],
+    "ritual_ZN13QDateTimeEditC1ERK9QDateTimeP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEditC1E5QDateP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEditC1E5QTimeP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEditD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QDateTimeEdit8dateTimeEv": ["address", "address"],
+    "ritual_ZNK13QDateTimeEdit4dateEv": ["address", "address"],
+    "ritual_ZNK13QDateTimeEdit4timeEv": ["address", "address"],
+    "ritual_ZNK13QDateTimeEdit8calendarEv": ["address", "address"],
+    "ritual_ZN13QDateTimeEdit11setCalendarE9QCalendar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QDateTimeEdit15minimumDateTimeEv": ["address", "address"],
+    "ritual_ZN13QDateTimeEdit20clearMinimumDateTimeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit18setMinimumDateTimeERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QDateTimeEdit15maximumDateTimeEv": ["address", "address"],
+    "ritual_ZN13QDateTimeEdit20clearMaximumDateTimeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit18setMaximumDateTimeERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit16setDateTimeRangeERK9QDateTimeS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13QDateTimeEdit11minimumDateEv": ["address", "address"],
+    "ritual_ZN13QDateTimeEdit14setMinimumDateE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit16clearMinimumDateEv": ["nothing", "address"],
+    "ritual_ZNK13QDateTimeEdit11maximumDateEv": ["address", "address"],
+    "ritual_ZN13QDateTimeEdit14setMaximumDateE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit16clearMaximumDateEv": ["nothing", "address"],
+    "ritual_ZN13QDateTimeEdit12setDateRangeE5QDateS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13QDateTimeEdit11minimumTimeEv": ["address", "address"],
+    "ritual_ZN13QDateTimeEdit14setMinimumTimeE5QTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit16clearMinimumTimeEv": ["nothing", "address"],
+    "ritual_ZNK13QDateTimeEdit11maximumTimeEv": ["address", "address"],
+    "ritual_ZN13QDateTimeEdit14setMaximumTimeE5QTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit16clearMaximumTimeEv": ["nothing", "address"],
+    "ritual_ZN13QDateTimeEdit12setTimeRangeE5QTimeS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13QDateTimeEdit17displayedSectionsEv": ["int", "address"],
+    "ritual_ZNK13QDateTimeEdit14currentSectionEv": ["int", "address"],
+    "ritual_ZNK13QDateTimeEdit9sectionAtEi": ["int", "address", "int"],
+    "ritual_ZN13QDateTimeEdit17setCurrentSectionENS_7SectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QDateTimeEdit19currentSectionIndexEv": ["int", "address"],
+    "ritual_ZN13QDateTimeEdit22setCurrentSectionIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QDateTimeEdit14calendarWidgetEv": ["address", "address"],
+    "ritual_ZN13QDateTimeEdit17setCalendarWidgetEP15QCalendarWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QDateTimeEdit12sectionCountEv": ["int", "address"],
+    "ritual_ZN13QDateTimeEdit18setSelectedSectionENS_7SectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QDateTimeEdit11sectionTextENS_7SectionE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK13QDateTimeEdit13displayFormatEv": ["text", "address"],
+    "ritual_ZN13QDateTimeEdit16setDisplayFormatERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QDateTimeEdit13calendarPopupEv": ["bool", "address"],
+    "ritual_ZN13QDateTimeEdit16setCalendarPopupEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QDateTimeEdit8timeSpecEv": ["int", "address"],
+    "ritual_ZN13QDateTimeEdit11setTimeSpecEN2Qt8TimeSpecE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QDateTimeEdit8timeZoneEv": ["address", "address"],
+    "ritual_ZN13QDateTimeEdit11setTimeZoneERK9QTimeZone": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QDateTimeEdit8sizeHintEv": ["address", "address"],
+    "ritual_ZN13QDateTimeEdit5clearEv": ["nothing", "address"],
+    "ritual_ZN13QDateTimeEdit6stepByEi": ["nothing", "address", "int"],
+    "ritual_ZN13QDateTimeEdit5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit11setDateTimeERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit7setDateE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit7setTimeE5QTime": [
+      "nothing", "address", "address"
+    ]
+  }
+}

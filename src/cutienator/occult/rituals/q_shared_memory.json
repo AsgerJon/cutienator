@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qsharedmemory.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QSharedMemory10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QSharedMemory2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QSharedMemoryC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QSharedMemoryC1ERK13QNativeIpcKeyP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QSharedMemoryD1Ev": ["nothing", "address"],
+    "ritual_ZN13QSharedMemoryC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN13QSharedMemory6setKeyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QSharedMemory3keyEv": ["text", "address"],
+    "ritual_ZN13QSharedMemory12setNativeKeyERK13QNativeIpcKey": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSharedMemory12setNativeKeyERK7QStringN13QNativeIpcKey4TypeE": [
+      "nothing", "address", "text", "unsigned short"
+    ],
+    "ritual_ZNK13QSharedMemory9nativeKeyEv": ["text", "address"],
+    "ritual_ZNK13QSharedMemory12nativeIpcKeyEv": ["address", "address"],
+    "ritual_ZN13QSharedMemory6createExNS_10AccessModeE": [
+      "bool", "address", "long long", "int"
+    ],
+    "ritual_ZNK13QSharedMemory4sizeEv": ["long long", "address"],
+    "ritual_ZN13QSharedMemory6attachENS_10AccessModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK13QSharedMemory10isAttachedEv": ["bool", "address"],
+    "ritual_ZN13QSharedMemory6detachEv": ["bool", "address"],
+    "ritual_ZN13QSharedMemory4lockEv": ["bool", "address"],
+    "ritual_ZN13QSharedMemory6unlockEv": ["bool", "address"],
+    "ritual_ZNK13QSharedMemory5errorEv": ["int", "address"],
+    "ritual_ZNK13QSharedMemory11errorStringEv": ["text", "address"],
+    "ritual_ZN13QSharedMemory18isKeyTypeSupportedEN13QNativeIpcKey4TypeE": [
+      "bool", "unsigned short"
+    ],
+    "ritual_ZN13QSharedMemory15platformSafeKeyERK7QStringN13QNativeIpcKey4TypeE": [
+      "address", "text", "unsigned short"
+    ],
+    "ritual_ZN13QSharedMemory15legacyNativeKeyERK7QStringN13QNativeIpcKey4TypeE": [
+      "address", "text", "unsigned short"
+    ]
+  }
+}

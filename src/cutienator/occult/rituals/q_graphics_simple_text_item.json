@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QGraphicsSimpleTextItemC1EP13QGraphicsItem": [
+      "address", "address"
+    ],
+    "ritual_ZN23QGraphicsSimpleTextItemC1ERK7QStringP13QGraphicsItem": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN23QGraphicsSimpleTextItemD1Ev": ["nothing", "address"],
+    "ritual_ZN23QGraphicsSimpleTextItem7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK23QGraphicsSimpleTextItem4textEv": ["text", "address"],
+    "ritual_ZN23QGraphicsSimpleTextItem7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QGraphicsSimpleTextItem4fontEv": ["address", "address"],
+    "ritual_ZNK23QGraphicsSimpleTextItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QGraphicsSimpleTextItem5shapeEv": ["address", "address"],
+    "ritual_ZNK23QGraphicsSimpleTextItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QGraphicsSimpleTextItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK23QGraphicsSimpleTextItem12isObscuredByEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK23QGraphicsSimpleTextItem10opaqueAreaEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QGraphicsSimpleTextItem4typeEv": ["int", "address"]
+  }
+}

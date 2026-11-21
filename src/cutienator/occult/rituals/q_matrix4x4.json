@@ -1,0 +1,126 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qmatrix4x4.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QMatrix4x4C1Ev": ["address"],
+    "ritual_ZN10QMatrix4x4C1EN2Qt14InitializationE": ["address", "int"],
+    "ritual_ZN10QMatrix4x4C1Effffffffffffffff": [
+      "address", "float", "float", "float", "float", "float", "float",
+      "float", "float", "float", "float", "float", "float", "float", "float",
+      "float", "float"
+    ],
+    "ritual_ZN10QMatrix4x4C1ERK10QTransform": ["address", "address"],
+    "ritual_ZNK10QMatrix4x4clEii": ["float", "address", "int", "int"],
+    "ritual_ZNK10QMatrix4x46columnEi": ["address", "address", "int"],
+    "ritual_ZN10QMatrix4x49setColumnEiRK9QVector4D": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK10QMatrix4x43rowEi": ["address", "address", "int"],
+    "ritual_ZN10QMatrix4x46setRowEiRK9QVector4D": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK10QMatrix4x48isAffineEv": ["bool", "address"],
+    "ritual_ZNK10QMatrix4x410isIdentityEv": ["bool", "address"],
+    "ritual_ZN10QMatrix4x413setToIdentityEv": ["nothing", "address"],
+    "ritual_ZN10QMatrix4x44fillEf": ["nothing", "address", "float"],
+    "ritual_ZNK10QMatrix4x411determinantEv": ["double", "address"],
+    "ritual_ZNK10QMatrix4x48invertedEPb": ["address", "address", "address"],
+    "ritual_ZNK10QMatrix4x410transposedEv": ["address", "address"],
+    "ritual_ZNK10QMatrix4x4eqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK10QMatrix4x4neERKS_": ["bool", "address", "address"],
+    "ritual_ZN10QMatrix4x45scaleERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x49translateERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x46rotateEfRK9QVector3D": [
+      "nothing", "address", "float", "address"
+    ],
+    "ritual_ZN10QMatrix4x45scaleEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN10QMatrix4x45scaleEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN10QMatrix4x45scaleEf": ["nothing", "address", "float"],
+    "ritual_ZN10QMatrix4x49translateEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN10QMatrix4x49translateEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN10QMatrix4x46rotateEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN10QMatrix4x46rotateERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x45orthoERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x45orthoERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x45orthoEffffff": [
+      "nothing", "address", "float", "float", "float", "float", "float",
+      "float"
+    ],
+    "ritual_ZN10QMatrix4x47frustumEffffff": [
+      "nothing", "address", "float", "float", "float", "float", "float",
+      "float"
+    ],
+    "ritual_ZN10QMatrix4x411perspectiveEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN10QMatrix4x46lookAtERK9QVector3DS2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x48viewportERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x48viewportEffffff": [
+      "nothing", "address", "float", "float", "float", "float", "float",
+      "float"
+    ],
+    "ritual_ZN10QMatrix4x415flipCoordinatesEv": ["nothing", "address"],
+    "ritual_ZNK10QMatrix4x410copyDataToEPf": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QMatrix4x411toTransformEv": ["address", "address"],
+    "ritual_ZNK10QMatrix4x411toTransformEf": ["address", "address", "float"],
+    "ritual_ZNK10QMatrix4x43mapERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QMatrix4x43mapERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QMatrix4x43mapERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QMatrix4x49mapVectorERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QMatrix4x43mapERK9QVector4D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QMatrix4x47mapRectERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QMatrix4x47mapRectERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QMatrix4x48optimizeEv": ["nothing", "address"],
+    "ritual_ZNK10QMatrix4x4cv8QVariantEv": ["address", "address"],
+    "ritual_ZN10QMatrix4x415projectedRotateEfffff": [
+      "nothing", "address", "float", "float", "float", "float", "float"
+    ],
+    "ritual_ZN10QMatrix4x415projectedRotateEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZNK10QMatrix4x45flagsEv": ["int", "address"],
+    "ritual_ZN10QMatrix4x4D1Ev": ["nothing", "address"]
+  }
+}

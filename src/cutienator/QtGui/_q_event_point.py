@@ -12,12 +12,25 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import QPointF
-from ..QtCore import QSizeF
-from ._q_vector2_d import QVector2D
-from ._q_event_point_state import State
+from . import QEventPointState
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+  from ..QtCore import QPointF, QSizeF
+  from . import QPointingDevice, QVector2D
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPointF = WAIT['QPointF']
+  QPointingDevice = WAIT['QPointingDevice']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QEventPoint(CuteMixin, metaclass=MetaCute):
@@ -33,30 +46,26 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QEventPoint that has a ritual and that Python can
-  call so far, 37 names in all: 'position', 'pressPosition', 'grabPosition',
+  call so far, 38 names in all: 'position', 'pressPosition', 'grabPosition',
   'lastPosition', 'scenePosition', 'scenePressPosition', 'sceneGrabPosition',
   'sceneLastPosition', 'globalPosition', 'globalPressPosition',
   'globalGrabPosition', 'globalLastPosition', 'normalizedPosition', 'pos',
   'startPos', 'scenePos', 'startScenePos', 'screenPos', 'startScreenPos',
   'startNormalizedPos', 'normalizedPos', 'lastPos', 'lastScenePos',
-  'lastScreenPos', 'lastNormalizedPos', 'velocity', 'state', 'id',
+  'lastScreenPos', 'lastNormalizedPos', 'velocity', 'state', 'device', 'id',
   'timestamp', 'lastTimestamp', 'pressTimestamp', 'timeHeld', 'pressure',
   'rotation', 'ellipseDiameters', 'isAccepted', 'setAccepted'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QEventPoint::QEventPoint(int id, const QPointingDevice *device)':
-    names 'QPointingDevice', which has no cute class yet.
   - Qt's 'bool QEventPoint::operator==(const QEventPoint &other) const': an
     operator, which is not reflected yet.
   - Qt's 'bool QEventPoint::operator!=(const QEventPoint &other) const': an
     operator, which is not reflected yet.
   - Qt's 'QEventPoint::~QEventPoint()': the destructor: Python removes its
     C++ QEventPoint by it, and has no other use for it.
-  - Qt's 'const QPointingDevice *QEventPoint::device() const': gives
-    'QPointingDevice', which has no cute class yet.
   - Qt's 'QPointingDeviceUniqueId QEventPoint::uniqueId() const': gives
     'QPointingDeviceUniqueId', which has no cute class yet.
 
@@ -82,8 +91,8 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QEventPoint, and the names Qt has for the
   #  combinations of its flags enums.
-  State = State
-  States = State
+  State = QEventPointState
+  States = QEventPointState
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -127,6 +136,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::position() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint8positionEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def pressPosition(self) -> QPointF:
@@ -143,6 +153,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::pressPosition() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint13pressPositionEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def grabPosition(self) -> QPointF:
@@ -159,6 +170,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::grabPosition() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint12grabPositionEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def lastPosition(self) -> QPointF:
@@ -175,6 +187,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::lastPosition() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint12lastPositionEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def scenePosition(self) -> QPointF:
@@ -191,6 +204,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::scenePosition() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint13scenePositionEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def scenePressPosition(self) -> QPointF:
@@ -210,6 +224,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QEventPoint18scenePressPositionEv',
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def sceneGrabPosition(self) -> QPointF:
@@ -228,6 +243,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QEventPoint17sceneGrabPositionEv',
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def sceneLastPosition(self) -> QPointF:
@@ -246,6 +262,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QEventPoint17sceneLastPositionEv',
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def globalPosition(self) -> QPointF:
@@ -262,6 +279,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::globalPosition() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint14globalPositionEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def globalPressPosition(self) -> QPointF:
@@ -281,6 +299,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QEventPoint19globalPressPositionEv',
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def globalGrabPosition(self) -> QPointF:
@@ -300,6 +319,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QEventPoint18globalGrabPositionEv',
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def globalLastPosition(self) -> QPointF:
@@ -319,6 +339,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QEventPoint18globalLastPositionEv',
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def normalizedPosition(self) -> QPointF:
@@ -338,6 +359,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QEventPoint18normalizedPositionEv',
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def pos(self) -> QPointF:
@@ -354,6 +376,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::pos() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint3posEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def startPos(self) -> QPointF:
@@ -370,6 +393,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::startPos() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint8startPosEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def scenePos(self) -> QPointF:
@@ -386,6 +410,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::scenePos() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint8scenePosEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def startScenePos(self) -> QPointF:
@@ -402,6 +427,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::startScenePos() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint13startScenePosEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def screenPos(self) -> QPointF:
@@ -418,6 +444,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::screenPos() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint9screenPosEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def startScreenPos(self) -> QPointF:
@@ -434,6 +461,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::startScreenPos() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint14startScreenPosEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def startNormalizedPos(self) -> QPointF:
@@ -453,6 +481,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QEventPoint18startNormalizedPosEv',
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def normalizedPos(self) -> QPointF:
@@ -469,6 +498,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::normalizedPos() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint13normalizedPosEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def lastPos(self) -> QPointF:
@@ -485,6 +515,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::lastPos() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint7lastPosEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def lastScenePos(self) -> QPointF:
@@ -501,6 +532,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::lastScenePos() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint12lastScenePosEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def lastScreenPos(self) -> QPointF:
@@ -517,6 +549,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QEventPoint::lastScreenPos() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint13lastScreenPosEv')
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def lastNormalizedPos(self) -> QPointF:
@@ -535,6 +568,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QEventPoint17lastNormalizedPosEv',
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   def velocity(self) -> QVector2D:
@@ -551,6 +585,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  QVector2D QEventPoint::velocity() const
     address = self.uglySide.call('ritual_ZNK11QEventPoint8velocityEv')
+    from . import QVector2D
     return QVector2D._cuteOwning(address)
 
   def state(self) -> State:
@@ -567,7 +602,27 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'State(number)' gives.
     """
     #  State QEventPoint::state() const
-    return State(self.uglySide.call('ritual_ZNK11QEventPoint5stateEv'))
+    return QEventPoint.State(self.uglySide.call(
+        'ritual_ZNK11QEventPoint5stateEv',
+    ))
+
+  def device(self) -> Optional[QPointingDevice]:
+    """
+    Calls Qt's 'const QPointingDevice *QEventPoint::device() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qeventpoint.html#device
+
+    Returns
+    -------
+
+    Optional[QPointingDevice]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QPointingDevice *QEventPoint::device() const
+    address = self.uglySide.call('ritual_ZNK11QEventPoint6deviceEv')
+    from . import QPointingDevice
+    return QPointingDevice._cuteAt(address)
 
   def id(self) -> int:
     """
@@ -648,6 +703,7 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QEventPoint16ellipseDiametersEv',
     )
+    from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
 
   def isAccepted(self) -> bool:
@@ -691,6 +747,37 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(int)
+  @overload(int, QPointingDevice)
+  @overload(int, NoneType)
+  def __init__(
+      self,
+      id: int = -1,
+      device: Optional[QPointingDevice] = None,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QEventPoint::QEventPoint(int id, const
+    QPointingDevice *device)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qeventpoint.html#QEventPoint
+
+    Parameters
+    ----------
+
+    id : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    device : Optional[QPointingDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QEventPoint::QEventPoint(int id, const QPointingDevice *device)
+    self._noteCreation(QEventPoint, lambda: Rituals.call(
+        'ritual_ZN11QEventPointC1EiPK15QPointingDevice',
+        id, self._addressOf(device),
+    ))
 
   @overload(int, State, QPointF, QPointF)
   def __init__(

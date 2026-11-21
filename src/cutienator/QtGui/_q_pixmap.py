@@ -15,19 +15,28 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QByteArray
-from ._q_color import QColor
-from ..QtCore import QIODevice
-from ._q_image import QImage
-from ._q_paint_device import QPaintDevice
-from ..QtCore import QRect
-from ._q_region import QRegion
-from ..QtCore import QSize
-from ..QtCore import QSizeF
-from ._q_transform import QTransform
+from . import QPaintDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QByteArray, QIODevice, QRect, QSize, QSizeF
+  from . import QBitmap, QColor, QImage, QImageReader, QPaintEngine, QRegion
+  from . import QTransform
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBitmap = WAIT['QBitmap']
+  QByteArray = WAIT['QByteArray']
+  QColor = WAIT['QColor']
+  QIODevice = WAIT['QIODevice']
+  QImage = WAIT['QImage']
+  QImageReader = WAIT['QImageReader']
+  QRect = WAIT['QRect']
+  QRegion = WAIT['QRegion']
+  QSize = WAIT['QSize']
+  QTransform = WAIT['QTransform']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -50,15 +59,15 @@ class QPixmap(QPaintDevice):
   -----------
 
   Every function of Qt's QPixmap that has a ritual and that Python can call
-  so far, 35 names in all: 'isNull', 'devType', 'width', 'height', 'size',
+  so far, 37 names in all: 'isNull', 'devType', 'width', 'height', 'size',
   'rect', 'depth', 'defaultDepth', 'fill', 'mask', 'setMask',
   'devicePixelRatio', 'setDevicePixelRatio', 'deviceIndependentSize',
   'hasAlpha', 'hasAlphaChannel', 'createHeuristicMask',
   'createMaskFromColor', 'scaled', 'scaledToWidth', 'scaledToHeight',
-  'transformed', 'trueMatrix', 'toImage', 'fromImage', 'load',
-  'loadFromData', 'save', 'convertFromImage', 'copy', 'scroll', 'cacheKey',
-  'isDetached', 'detach', 'isQBitmap'. It can be made from Python, in 5 ways;
-  see '__init__'.
+  'transformed', 'trueMatrix', 'toImage', 'fromImage', 'fromImageReader',
+  'load', 'loadFromData', 'save', 'convertFromImage', 'copy', 'scroll',
+  'cacheKey', 'isDetached', 'detach', 'isQBitmap', 'paintEngine'. It can be
+  made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -67,11 +76,6 @@ class QPixmap(QPaintDevice):
     QPixmap by it, and has no other use for it.
   - Qt's 'QVariant QPixmap::operator QVariant() const': an operator, which is
     not reflected yet.
-  - Qt's 'QPixmap QPixmap::fromImageReader(QImageReader *imageReader,
-    Qt::ImageConversionFlags flags)': names 'QImageReader', which has no cute
-    class yet.
-  - Qt's 'QPaintEngine *QPixmap::paintEngine() const': gives 'QPaintEngine',
-    which has no cute class yet.
   - Qt's 'bool QPixmap::operator!() const': an operator, which is not
     reflected yet.
 
@@ -93,10 +97,6 @@ class QPixmap(QPaintDevice):
   - A function giving a QPixmap back gives a copy the ritual made for Python,
     in a new cute QPixmap.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QBitmap = WAIT['QBitmap']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -145,6 +145,7 @@ class QPixmap(QPaintDevice):
         'ritual_ZN7QPixmap10trueMatrixERK10QTransformii',
         CuteMixin._valueOf(m), w, h,
     )
+    from . import QTransform
     return QTransform._cuteOwning(address)
 
   @staticmethod
@@ -183,6 +184,47 @@ class QPixmap(QPaintDevice):
         'ritual_ZN7QPixmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversion'
         'FlagEE',
         CuteMixin._valueOf(image), flags.value,
+    )
+    return QPixmap._cuteOwning(address)
+
+  @staticmethod
+  @overload(QImageReader)
+  @overload(NoneType)
+  @overload(QImageReader, Qt.ImageConversionFlags)
+  @overload(NoneType, Qt.ImageConversionFlags)
+  def fromImageReader(
+      imageReader: Optional[QImageReader],
+      flags: Qt.ImageConversionFlags = Qt.ImageConversionFlags.AutoColor,
+  ) -> QPixmap:
+    """
+    Calls Qt's 'QPixmap QPixmap::fromImageReader(QImageReader *imageReader,
+    Qt::ImageConversionFlags flags)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpixmap.html#fromImageReader
+
+    Parameters
+    ----------
+
+    imageReader : Optional[QImageReader]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    flags : Qt.ImageConversionFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ImageConversionFlags.AutoColor.
+
+    Returns
+    -------
+
+    QPixmap
+      A new cute QPixmap around the copy Qt gave back. Python owns it.
+    """
+    #  QPixmap QPixmap::fromImageReader(QImageReader *imageReader,
+    #      Qt::ImageConversionFlags flags)
+    address = Rituals.call(
+        'ritual_ZN7QPixmap15fromImageReaderEP12QImageReader6QFlagsIN2Qt19Im'
+        'ageConversionFlagEE',
+        CuteMixin._addressOf(imageReader), flags.value,
     )
     return QPixmap._cuteOwning(address)
 
@@ -260,6 +302,7 @@ class QPixmap(QPaintDevice):
     """
     #  QSize QPixmap::size() const
     address = self.uglySide.call('ritual_ZNK7QPixmap4sizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def rect(self) -> QRect:
@@ -276,6 +319,7 @@ class QPixmap(QPaintDevice):
     """
     #  QRect QPixmap::rect() const
     address = self.uglySide.call('ritual_ZNK7QPixmap4rectEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def depth(self) -> int:
@@ -301,7 +345,8 @@ class QPixmap(QPaintDevice):
     """
     #  QBitmap QPixmap::mask() const
     address = self.uglySide.call('ritual_ZNK7QPixmap4maskEv')
-    return self.QBitmap._cuteOwning(address)
+    from . import QBitmap
+    return QBitmap._cuteOwning(address)
 
   def devicePixelRatio(self) -> float:
     """
@@ -328,6 +373,7 @@ class QPixmap(QPaintDevice):
     address = self.uglySide.call(
         'ritual_ZNK7QPixmap21deviceIndependentSizeEv',
     )
+    from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
 
   def hasAlpha(self) -> bool:
@@ -372,7 +418,8 @@ class QPixmap(QPaintDevice):
     address = self.uglySide.call(
         'ritual_ZNK7QPixmap19createHeuristicMaskEb', clipTight,
     )
-    return self.QBitmap._cuteOwning(address)
+    from . import QBitmap
+    return QBitmap._cuteOwning(address)
 
   @overload(QColor)
   @overload(QColor, Qt.MaskMode)
@@ -410,7 +457,8 @@ class QPixmap(QPaintDevice):
         'ritual_ZNK7QPixmap19createMaskFromColorERK6QColorN2Qt8MaskModeE',
         self._valueOf(maskColor), mode.value,
     )
-    return self.QBitmap._cuteOwning(address)
+    from . import QBitmap
+    return QBitmap._cuteOwning(address)
 
   @overload(int, int)
   @overload(int, int, Qt.AspectRatioMode)
@@ -631,6 +679,7 @@ class QPixmap(QPaintDevice):
     """
     #  QImage QPixmap::toImage() const
     address = self.uglySide.call('ritual_ZNK7QPixmap7toImageEv')
+    from . import QImage
     return QImage._cuteOwning(address)
 
   @overload(str)
@@ -771,6 +820,7 @@ class QPixmap(QPaintDevice):
     """
     #  QPixmap QPixmap::copy(const QRect &rect) const
     if rect is None:
+      from ..QtCore import QRect
       rect = QRect()
     address = self.uglySide.call(
         'ritual_ZNK7QPixmap4copyERK5QRect', self._valueOf(rect),
@@ -804,6 +854,24 @@ class QPixmap(QPaintDevice):
     #  bool QPixmap::isQBitmap() const
     return self.uglySide.call('ritual_ZNK7QPixmap9isQBitmapEv')
 
+  def paintEngine(self) -> Optional[QPaintEngine]:
+    """
+    Calls Qt's 'QPaintEngine *QPixmap::paintEngine() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpixmap.html#paintEngine
+
+    Returns
+    -------
+
+    Optional[QPaintEngine]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintEngine *QPixmap::paintEngine() const
+    address = self.uglySide.call('ritual_ZNK7QPixmap11paintEngineEv')
+    from . import QPaintEngine
+    return QPaintEngine._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -814,9 +882,6 @@ class QPixmap(QPaintDevice):
     Calls Qt's 'void QPixmap::setMask(const QBitmap &a0)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qpixmap.html#setMask
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------

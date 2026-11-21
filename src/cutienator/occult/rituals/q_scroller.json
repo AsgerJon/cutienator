@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qscroller.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QScroller10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QScroller2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QScroller11hasScrollerEP7QObject": ["bool", "address"],
+    "ritual_ZN9QScroller8scrollerEP7QObject": ["address", "address"],
+    "ritual_ZN9QScroller8scrollerEPK7QObject": ["address", "address"],
+    "ritual_ZN9QScroller11grabGestureEP7QObjectNS_19ScrollerGestureTypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN9QScroller14grabbedGestureEP7QObject": ["int", "address"],
+    "ritual_ZN9QScroller13ungrabGestureEP7QObject": ["nothing", "address"],
+    "ritual_ZNK9QScroller6targetEv": ["address", "address"],
+    "ritual_ZNK9QScroller5stateEv": ["int", "address"],
+    "ritual_ZN9QScroller11handleInputENS_5InputERK7QPointFx": [
+      "bool", "address", "int", "address", "long long"
+    ],
+    "ritual_ZN9QScroller4stopEv": ["nothing", "address"],
+    "ritual_ZNK9QScroller8velocityEv": ["address", "address"],
+    "ritual_ZNK9QScroller13finalPositionEv": ["address", "address"],
+    "ritual_ZNK9QScroller13pixelPerMeterEv": ["address", "address"],
+    "ritual_ZNK9QScroller18scrollerPropertiesEv": ["address", "address"],
+    "ritual_ZN9QScroller17setSnapPositionsXEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN9QScroller17setSnapPositionsYEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN9QScroller21setScrollerPropertiesERK19QScrollerProperties": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QScroller8scrollToERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QScroller8scrollToERK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN9QScroller13ensureVisibleERK6QRectFdd": [
+      "nothing", "address", "address", "double", "double"
+    ],
+    "ritual_ZN9QScroller13ensureVisibleERK6QRectFddi": [
+      "nothing", "address", "address", "double", "double", "int"
+    ],
+    "ritual_ZN9QScroller18resendPrepareEventEv": ["nothing", "address"]
+  }
+}

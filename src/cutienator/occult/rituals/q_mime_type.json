@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmimetype.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QMimeTypeC1Ev": ["address"],
+    "ritual_ZN9QMimeTypeC1ERKS_": ["address", "address"],
+    "ritual_ZN9QMimeTypeD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QMimeType7isValidEv": ["bool", "address"],
+    "ritual_ZNK9QMimeType9isDefaultEv": ["bool", "address"],
+    "ritual_ZNK9QMimeType4nameEv": ["text", "address"],
+    "ritual_ZNK9QMimeType7commentEv": ["text", "address"],
+    "ritual_ZNK9QMimeType15genericIconNameEv": ["text", "address"],
+    "ritual_ZNK9QMimeType8iconNameEv": ["text", "address"],
+    "ritual_ZNK9QMimeType15preferredSuffixEv": ["text", "address"],
+    "ritual_ZNK9QMimeType8inheritsERK7QString": ["bool", "address", "text"],
+    "ritual_ZNK9QMimeType12filterStringEv": ["text", "address"]
+  }
+}

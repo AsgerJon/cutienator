@@ -11,19 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_abstract_button import QAbstractButton
-from ..QtGui import QAction
-from ._q_menu import QMenu
-from ..QtCore import QMetaObject
-from ..QtCore import QSize
-from ._q_widget import QWidget
-from ._q_tool_button_tool_button_popup_mode import ToolButtonPopupMode
+from . import QAbstractButton, QToolButtonToolButtonPopupMode, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
+  from ..QtGui import QAction
+  from . import QMenu
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAction = WAIT['QAction']
+  QMenu = WAIT['QMenu']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -79,7 +83,7 @@ class QToolButton(QAbstractButton):
 
   #  The enums Qt writes inside QToolButton, and the names Qt has for the
   #  combinations of its flags enums.
-  ToolButtonPopupMode = ToolButtonPopupMode
+  ToolButtonPopupMode = QToolButtonToolButtonPopupMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -163,6 +167,7 @@ class QToolButton(QAbstractButton):
     """
     #  const QMetaObject *QToolButton::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QToolButton10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def sizeHint(self) -> QSize:
@@ -179,6 +184,7 @@ class QToolButton(QAbstractButton):
     """
     #  QSize QToolButton::sizeHint() const
     address = self.uglySide.call('ritual_ZNK11QToolButton8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -197,6 +203,7 @@ class QToolButton(QAbstractButton):
     address = self.uglySide.call(
         'ritual_ZNK11QToolButton15minimumSizeHintEv',
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def toolButtonStyle(self) -> Qt.ToolButtonStyle:
@@ -252,6 +259,7 @@ class QToolButton(QAbstractButton):
     """
     #  QMenu *QToolButton::menu() const
     address = self.uglySide.call('ritual_ZNK11QToolButton4menuEv')
+    from . import QMenu
     return QMenu._cuteAt(address)
 
   def popupMode(self) -> ToolButtonPopupMode:
@@ -269,7 +277,7 @@ class QToolButton(QAbstractButton):
       'ToolButtonPopupMode(number)' gives.
     """
     #  ToolButtonPopupMode QToolButton::popupMode() const
-    return ToolButtonPopupMode(self.uglySide.call(
+    return QToolButton.ToolButtonPopupMode(self.uglySide.call(
         'ritual_ZNK11QToolButton9popupModeEv',
     ))
 
@@ -288,6 +296,7 @@ class QToolButton(QAbstractButton):
     """
     #  QAction *QToolButton::defaultAction() const
     address = self.uglySide.call('ritual_ZNK11QToolButton13defaultActionEv')
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   def autoRaise(self) -> bool:

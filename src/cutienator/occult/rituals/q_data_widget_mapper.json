@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qdatawidgetmapper.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QDataWidgetMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QDataWidgetMapper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QDataWidgetMapperC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QDataWidgetMapperD1Ev": ["nothing", "address"],
+    "ritual_ZN17QDataWidgetMapper8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDataWidgetMapper5modelEv": ["address", "address"],
+    "ritual_ZN17QDataWidgetMapper15setItemDelegateEP21QAbstractItemDelegate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDataWidgetMapper12itemDelegateEv": ["address", "address"],
+    "ritual_ZN17QDataWidgetMapper12setRootIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDataWidgetMapper9rootIndexEv": ["address", "address"],
+    "ritual_ZN17QDataWidgetMapper14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QDataWidgetMapper11orientationEv": ["int", "address"],
+    "ritual_ZN17QDataWidgetMapper15setSubmitPolicyENS_12SubmitPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QDataWidgetMapper12submitPolicyEv": ["int", "address"],
+    "ritual_ZN17QDataWidgetMapper10addMappingEP7QWidgeti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN17QDataWidgetMapper10addMappingEP7QWidgetiRK10QByteArray": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN17QDataWidgetMapper13removeMappingEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDataWidgetMapper13mappedSectionEP7QWidget": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK17QDataWidgetMapper18mappedPropertyNameEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QDataWidgetMapper14mappedWidgetAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QDataWidgetMapper12clearMappingEv": ["nothing", "address"],
+    "ritual_ZNK17QDataWidgetMapper12currentIndexEv": ["int", "address"],
+    "ritual_ZN17QDataWidgetMapper6revertEv": ["nothing", "address"],
+    "ritual_ZN17QDataWidgetMapper6submitEv": ["bool", "address"],
+    "ritual_ZN17QDataWidgetMapper7toFirstEv": ["nothing", "address"],
+    "ritual_ZN17QDataWidgetMapper6toLastEv": ["nothing", "address"],
+    "ritual_ZN17QDataWidgetMapper6toNextEv": ["nothing", "address"],
+    "ritual_ZN17QDataWidgetMapper10toPreviousEv": ["nothing", "address"],
+    "ritual_ZN17QDataWidgetMapper15setCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QDataWidgetMapper20setCurrentModelIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ]
+  }
+}

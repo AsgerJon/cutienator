@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextdocumentfragment.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN21QTextDocumentFragmentC1Ev": ["address"],
+    "ritual_ZN21QTextDocumentFragmentC1EPK13QTextDocument": [
+      "address", "address"
+    ],
+    "ritual_ZN21QTextDocumentFragmentC1ERK11QTextCursor": [
+      "address", "address"
+    ],
+    "ritual_ZN21QTextDocumentFragmentC1ERKS_": ["address", "address"],
+    "ritual_ZN21QTextDocumentFragmentD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QTextDocumentFragment7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK21QTextDocumentFragment11toPlainTextEv": ["text", "address"],
+    "ritual_ZNK21QTextDocumentFragment9toRawTextEv": ["text", "address"],
+    "ritual_ZNK21QTextDocumentFragment6toHtmlEv": ["text", "address"],
+    "ritual_ZNK21QTextDocumentFragment10toMarkdownE6QFlagsIN13QTextDocument15MarkdownFeatureEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN21QTextDocumentFragment13fromPlainTextERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN21QTextDocumentFragment8fromHtmlERK7QStringPK13QTextDocument": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN21QTextDocumentFragment12fromMarkdownERK7QString6QFlagsIN13QTextDocument15MarkdownFeatureEE": [
+      "address", "text", "int"
+    ]
+  }
+}

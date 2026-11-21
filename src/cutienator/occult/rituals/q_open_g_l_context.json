@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qopenglcontext.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QOpenGLContext10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QOpenGLContext2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QOpenGLContextC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QOpenGLContextD1Ev": ["nothing", "address"],
+    "ritual_ZN14QOpenGLContext9setFormatERK14QSurfaceFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLContext15setShareContextEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLContext9setScreenEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLContext6createEv": ["bool", "address"],
+    "ritual_ZNK14QOpenGLContext7isValidEv": ["bool", "address"],
+    "ritual_ZNK14QOpenGLContext6formatEv": ["address", "address"],
+    "ritual_ZNK14QOpenGLContext12shareContextEv": ["address", "address"],
+    "ritual_ZNK14QOpenGLContext10shareGroupEv": ["address", "address"],
+    "ritual_ZNK14QOpenGLContext6screenEv": ["address", "address"],
+    "ritual_ZN14QOpenGLContext11makeCurrentEP8QSurface": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLContext11doneCurrentEv": ["nothing", "address"],
+    "ritual_ZN14QOpenGLContext11swapBuffersEP8QSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QOpenGLContext7surfaceEv": ["address", "address"],
+    "ritual_ZN14QOpenGLContext14currentContextEv": ["address"],
+    "ritual_ZN14QOpenGLContext10areSharingEPS_S0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK14QOpenGLContext9functionsEv": ["address", "address"],
+    "ritual_ZNK14QOpenGLContext14extraFunctionsEv": ["address", "address"],
+    "ritual_ZNK14QOpenGLContext12hasExtensionERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLContext16openGLModuleTypeEv": ["int"],
+    "ritual_ZNK14QOpenGLContext10isOpenGLESEv": ["bool", "address"],
+    "ritual_ZN14QOpenGLContext22supportsThreadedOpenGLEv": ["bool"],
+    "ritual_ZN14QOpenGLContext18globalShareContextEv": ["address"]
+  }
+}

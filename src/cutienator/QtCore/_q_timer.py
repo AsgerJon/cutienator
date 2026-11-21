@@ -13,12 +13,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_meta_object import QMetaObject
-from ._q_object import QObject
+from . import Qt, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QMetaObject
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -227,6 +227,7 @@ class QTimer(QObject):
     """
     #  const QMetaObject *QTimer::metaObject() const
     address = self.uglySide.call('ritual_ZNK6QTimer10metaObjectEv')
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def isActive(self) -> bool:

@@ -14,8 +14,15 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_margins import QMargins
+from . import Qt
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QMargins, QSizeF
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QMargins = WAIT['QMargins']
 
 
 class QSize(CuteMixin, metaclass=MetaCute):
@@ -60,10 +67,6 @@ class QSize(CuteMixin, metaclass=MetaCute):
   - A function giving a QSize back gives a copy the ritual made for Python,
     in a new cute QSize.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QSizeF = WAIT['QSizeF']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -332,7 +335,8 @@ class QSize(CuteMixin, metaclass=MetaCute):
     """
     #  QSizeF QSize::toSizeF() const
     address = self.uglySide.call('ritual_ZNK5QSize7toSizeFEv')
-    return self.QSizeF._cuteOwning(address)
+    from . import QSizeF
+    return QSizeF._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qinputdevice.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QInputDevice10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QInputDevice2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QInputDeviceC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QInputDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZN12QInputDeviceC1ERK7QStringxNS_10DeviceTypeES2_P7QObject": [
+      "address", "text", "long long", "int", "text", "address"
+    ],
+    "ritual_ZNK12QInputDevice4nameEv": ["text", "address"],
+    "ritual_ZNK12QInputDevice4typeEv": ["int", "address"],
+    "ritual_ZNK12QInputDevice12capabilitiesEv": ["int", "address"],
+    "ritual_ZNK12QInputDevice13hasCapabilityENS_10CapabilityE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK12QInputDevice8systemIdEv": ["long long", "address"],
+    "ritual_ZNK12QInputDevice8seatNameEv": ["text", "address"],
+    "ritual_ZNK12QInputDevice24availableVirtualGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN12QInputDevice15primaryKeyboardERK7QString": [
+      "address", "text"
+    ]
+  }
+}

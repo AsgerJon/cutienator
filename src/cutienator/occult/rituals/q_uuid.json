@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/quuid.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5QUuidC1Ev": ["address"],
+    "ritual_ZN5QUuidC1Ejtthhhhhhhh": [
+      "address", "unsigned int", "unsigned short", "unsigned short",
+      "unsigned char", "unsigned char", "unsigned char", "unsigned char",
+      "unsigned char", "unsigned char", "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN5QUuidC1ENS_10Id128BytesEN8QSysInfo6EndianE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN5QUuidC1E14QAnyStringView": ["address", "text"],
+    "ritual_ZN5QUuid10fromStringE14QAnyStringView": ["address", "text"],
+    "ritual_ZNK5QUuid8toStringENS_12StringFormatE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK5QUuid11toByteArrayENS_12StringFormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK5QUuid7toBytesEN8QSysInfo6EndianE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK5QUuid9toRfc4122Ev": ["address", "address"],
+    "ritual_ZN5QUuid11fromRfc4122E14QByteArrayView": ["address", "address"],
+    "ritual_ZNK5QUuid6isNullEN2Qt15Disambiguated_tE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5QUuid10createUuidEv": ["address"],
+    "ritual_ZN5QUuid12createUuidV5ES_14QByteArrayView": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN5QUuid12createUuidV3ES_14QByteArrayView": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN5QUuid12createUuidV7Ev": ["address"],
+    "ritual_ZNK5QUuid7variantEN2Qt15Disambiguated_tE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK5QUuid7versionEN2Qt15Disambiguated_tE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN5QUuidD1Ev": ["nothing", "address"]
+  }
+}

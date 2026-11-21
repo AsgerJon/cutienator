@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcoreevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QTimerEvent5cloneEv": ["address", "address"],
+    "ritual_ZN11QTimerEventD1Ev": ["nothing", "address"],
+    "ritual_ZN11QTimerEventC1Ei": ["address", "int"],
+    "ritual_ZN11QTimerEventC1EN2Qt7TimerIdE": ["address", "int"],
+    "ritual_ZNK11QTimerEvent7timerIdEv": ["int", "address"],
+    "ritual_ZNK11QTimerEvent2idEv": ["int", "address"]
+  }
+}

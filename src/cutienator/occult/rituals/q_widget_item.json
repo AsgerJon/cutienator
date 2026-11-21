@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qlayoutitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QWidgetItemC1EP7QWidget": ["address", "address"],
+    "ritual_ZN11QWidgetItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QWidgetItem8sizeHintEv": ["address", "address"],
+    "ritual_ZNK11QWidgetItem11minimumSizeEv": ["address", "address"],
+    "ritual_ZNK11QWidgetItem11maximumSizeEv": ["address", "address"],
+    "ritual_ZNK11QWidgetItem19expandingDirectionsEv": ["int", "address"],
+    "ritual_ZNK11QWidgetItem7isEmptyEv": ["bool", "address"],
+    "ritual_ZN11QWidgetItem11setGeometryERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QWidgetItem8geometryEv": ["address", "address"],
+    "ritual_ZNK11QWidgetItem6widgetEv": ["address", "address"],
+    "ritual_ZNK11QWidgetItem17hasHeightForWidthEv": ["bool", "address"],
+    "ritual_ZNK11QWidgetItem14heightForWidthEi": ["int", "address", "int"],
+    "ritual_ZNK11QWidgetItem21minimumHeightForWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK11QWidgetItem12controlTypesEv": ["int", "address"]
+  }
+}

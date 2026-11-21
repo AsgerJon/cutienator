@@ -11,11 +11,24 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..QtCore import Qt
-from ..QtCore import QEvent
+from ..cute import WAIT
+from ..occult import Rituals
+from ..QtCore import Qt, QEvent
+from . import QInputDeviceDeviceType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QInputDevice
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QInputDevice = WAIT['QInputDevice']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QInputEvent(QEvent):
@@ -30,22 +43,15 @@ class QInputEvent(QEvent):
   -----------
 
   Every function of Qt's QInputEvent that has a ritual and that Python can
-  call so far, 5 names in all: 'clone', 'modifiers', 'setModifiers',
-  'timestamp', 'setTimestamp'. None can be made from Python: one comes out of
-  a function of another class that gives one back.
+  call so far, 7 names in all: 'clone', 'device', 'deviceType', 'modifiers',
+  'setModifiers', 'timestamp', 'setTimestamp'. It can be made from Python, in
+  1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QInputEvent::~QInputEvent()': the destructor: Python never removes
     a C++ QInputEvent.
-  - Qt's 'QInputEvent::QInputEvent(Type type, const QInputDevice *m_dev,
-    Qt::KeyboardModifiers modifiers)': names 'QInputDevice', which has no
-    cute class yet.
-  - Qt's 'const QInputDevice *QInputEvent::device() const': gives
-    'QInputDevice', which has no cute class yet.
-  - Qt's 'QInputDevice::DeviceType QInputEvent::deviceType() const': gives
-    the enum 'QInputDevice::DeviceType', whose class cannot be named here.
 
   What has no ritual
   ------------------
@@ -105,6 +111,43 @@ class QInputEvent(QEvent):
     #  QInputEvent *QInputEvent::clone() const
     address = self.uglySide.call('ritual_ZNK11QInputEvent5cloneEv')
     return QInputEvent._cuteAt(address)
+
+  def device(self) -> Optional[QInputDevice]:
+    """
+    Calls Qt's 'const QInputDevice *QInputEvent::device() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputevent.html#device
+
+    Returns
+    -------
+
+    Optional[QInputDevice]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QInputDevice *QInputEvent::device() const
+    address = self.uglySide.call('ritual_ZNK11QInputEvent6deviceEv')
+    from . import QInputDevice
+    return QInputDevice._cuteAt(address)
+
+  def deviceType(self) -> QInputDevice.DeviceType:
+    """
+    Calls Qt's 'QInputDevice::DeviceType QInputEvent::deviceType() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputevent.html#deviceType
+
+    Returns
+    -------
+
+    QInputDevice.DeviceType
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that
+      'QInputDevice.DeviceType(number)' gives.
+    """
+    #  QInputDevice::DeviceType QInputEvent::deviceType() const
+    return QInputDeviceDeviceType(self.uglySide.call(
+        'ritual_ZNK11QInputEvent10deviceTypeEv',
+    ))
 
   def modifiers(self) -> Qt.KeyboardModifiers:
     """
@@ -184,6 +227,45 @@ class QInputEvent(QEvent):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent.Type, QInputDevice)
+  @overload(QEvent.Type, NoneType)
+  @overload(QEvent.Type, QInputDevice, Qt.KeyboardModifiers)
+  @overload(QEvent.Type, NoneType, Qt.KeyboardModifiers)
+  def __init__(
+      self,
+      type: QEvent.Type,
+      m_dev: Optional[QInputDevice],
+      modifiers: Qt.KeyboardModifiers = Qt.KeyboardModifiers.NoModifier,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QInputEvent::QInputEvent(Type type, const
+    QInputDevice *m_dev, Qt::KeyboardModifiers modifiers)', which is called
+    at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputevent.html#QInputEvent
+
+    Parameters
+    ----------
+
+    type : QEvent.Type
+      Passed on as its number.
+
+    m_dev : Optional[QInputDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    modifiers : Qt.KeyboardModifiers
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.KeyboardModifiers.NoModifier.
+    """
+    #  QInputEvent::QInputEvent(Type type, const QInputDevice *m_dev,
+    #      Qt::KeyboardModifiers modifiers)
+    self._noteCreation(QInputEvent, lambda: Rituals.call(
+        'ritual_ZN11QInputEventC1EN6QEvent4TypeEPK12QInputDevice6QFlagsIN2Q'
+        't16KeyboardModifierEE',
+        type.value, self._addressOf(m_dev), modifiers.value,
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

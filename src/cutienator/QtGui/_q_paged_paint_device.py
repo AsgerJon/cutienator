@@ -11,9 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ._q_page_size import QPageSize
-from ._q_paint_device import QPaintDevice
-from ._q_paged_paint_device_pdf_version import PdfVersion
+from ..cute import WAIT
+from . import QPageLayoutOrientation, QPageLayoutUnit
+from . import QPagedPaintDevicePdfVersion, QPaintDevice
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QMarginsF
+  from . import QPageLayout, QPageSize
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QMarginsF = WAIT['QMarginsF']
+  QPageLayout = WAIT['QPageLayout']
+  QPageSize = WAIT['QPageSize']
 
 
 class QPagedPaintDevice(QPaintDevice):
@@ -28,25 +39,15 @@ class QPagedPaintDevice(QPaintDevice):
   -----------
 
   Every function of Qt's QPagedPaintDevice that has a ritual and that Python
-  can call so far, 2 names in all: 'newPage', 'setPageSize'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  can call so far, 6 names in all: 'newPage', 'setPageLayout', 'setPageSize',
+  'setPageOrientation', 'setPageMargins', 'pageLayout'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPagedPaintDevice::~QPagedPaintDevice()': the destructor: Python
     never removes a C++ QPagedPaintDevice.
-  - Qt's 'bool QPagedPaintDevice::setPageLayout(const QPageLayout
-    &pageLayout)': names 'QPageLayout', which has no cute class yet.
-  - Qt's 'bool QPagedPaintDevice::setPageOrientation(QPageLayout::Orientation
-    orientation)': names the enum 'QPageLayout::Orientation', whose class
-    cannot be named here.
-  - Qt's 'bool QPagedPaintDevice::setPageMargins(const QMarginsF &margins,
-    QPageLayout::Unit units)': names the enum 'QPageLayout::Unit', whose
-    class cannot be named here.
-  - Qt's 'QPageLayout QPagedPaintDevice::pageLayout() const': gives
-    'QPageLayout', which has no cute class yet.
   - Qt's 'void QPagedPaintDevice::setPageRanges(const QPageRanges &ranges)':
     names 'QPageRanges', which has no cute class yet.
   - Qt's 'QPageRanges QPagedPaintDevice::pageRanges() const': gives
@@ -72,7 +73,7 @@ class QPagedPaintDevice(QPaintDevice):
 
   #  The enums Qt writes inside QPagedPaintDevice, and the names Qt has for
   #  the combinations of its flags enums.
-  PdfVersion = PdfVersion
+  PdfVersion = QPagedPaintDevicePdfVersion
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -98,9 +99,50 @@ class QPagedPaintDevice(QPaintDevice):
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def pageLayout(self) -> QPageLayout:
+    """
+    Calls Qt's 'QPageLayout QPagedPaintDevice::pageLayout() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagedpaintdevice.html#pageLayout
+
+    Returns
+    -------
+
+    QPageLayout
+      A new cute QPageLayout around the copy Qt gave back. Python owns it.
+    """
+    #  QPageLayout QPagedPaintDevice::pageLayout() const
+    address = self.uglySide.call(
+        'ritual_ZNK17QPagedPaintDevice10pageLayoutEv',
+    )
+    from . import QPageLayout
+    return QPageLayout._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QPageLayout)
+  def setPageLayout(self, pageLayout: QPageLayout) -> bool:
+    """
+    Calls Qt's 'bool QPagedPaintDevice::setPageLayout(const QPageLayout
+    &pageLayout)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageLayout
+
+    Parameters
+    ----------
+
+    pageLayout : QPageLayout
+      Passed on as a value: Qt reads the C++ QPageLayout, which stays
+      Python's own.
+    """
+    #  bool QPagedPaintDevice::setPageLayout(const QPageLayout &pageLayout)
+    return self.uglySide.call(
+        'ritual_ZN17QPagedPaintDevice13setPageLayoutERK11QPageLayout',
+        self._valueOf(pageLayout),
+    )
 
   @overload(QPageSize)
   def setPageSize(self, pageSize: QPageSize) -> bool:
@@ -121,6 +163,63 @@ class QPagedPaintDevice(QPaintDevice):
     return self.uglySide.call(
         'ritual_ZN17QPagedPaintDevice11setPageSizeERK9QPageSize',
         self._valueOf(pageSize),
+    )
+
+  @overload(QPageLayoutOrientation)
+  def setPageOrientation(self, orientation: QPageLayout.Orientation) -> bool:
+    """
+    Calls Qt's 'bool
+    QPagedPaintDevice::setPageOrientation(QPageLayout::Orientation
+    orientation)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageOrientation
+
+    Parameters
+    ----------
+
+    orientation : QPageLayout.Orientation
+      Passed on as its number.
+    """
+    #  bool QPagedPaintDevice::setPageOrientation(QPageLayout::Orientation
+    #      orientation)
+    return self.uglySide.call(
+        'ritual_ZN17QPagedPaintDevice18setPageOrientationEN11QPageLayout11O'
+        'rientationE',
+        orientation.value,
+    )
+
+  @overload(QMarginsF)
+  @overload(QMarginsF, QPageLayoutUnit)
+  def setPageMargins(
+      self,
+      margins: QMarginsF,
+      units: QPageLayout.Unit = QPageLayoutUnit.Millimeter,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QPagedPaintDevice::setPageMargins(const QMarginsF
+    &margins, QPageLayout::Unit units)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageMargins
+
+    Parameters
+    ----------
+
+    margins : QMarginsF
+      Passed on as a value: Qt reads the C++ QMarginsF, which stays Python's
+      own.
+
+    units : QPageLayout.Unit
+      Passed on as its number. May be left out, as in Qt: it is then
+      QPageLayoutUnit.Millimeter.
+    """
+    #  bool QPagedPaintDevice::setPageMargins(const QMarginsF &margins,
+    #      QPageLayout::Unit units)
+    return self.uglySide.call(
+        'ritual_ZN17QPagedPaintDevice14setPageMarginsERK9QMarginsFN11QPageL'
+        'ayout4UnitE',
+        self._valueOf(margins), units.value,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

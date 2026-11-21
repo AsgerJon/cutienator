@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicslayoutitem.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QGraphicsLayoutItemD1Ev": ["nothing", "address"],
+    "ritual_ZN19QGraphicsLayoutItem13setSizePolicyERK11QSizePolicy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsLayoutItem13setSizePolicyEN11QSizePolicy6PolicyES1_NS0_11ControlTypeE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem10sizePolicyEv": ["address", "address"],
+    "ritual_ZN19QGraphicsLayoutItem14setMinimumSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsLayoutItem14setMinimumSizeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem11minimumSizeEv": ["address", "address"],
+    "ritual_ZN19QGraphicsLayoutItem15setMinimumWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem12minimumWidthEv": ["double", "address"],
+    "ritual_ZN19QGraphicsLayoutItem16setMinimumHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem13minimumHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QGraphicsLayoutItem16setPreferredSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsLayoutItem16setPreferredSizeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem13preferredSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGraphicsLayoutItem17setPreferredWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem14preferredWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QGraphicsLayoutItem18setPreferredHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem15preferredHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QGraphicsLayoutItem14setMaximumSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsLayoutItem14setMaximumSizeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem11maximumSizeEv": ["address", "address"],
+    "ritual_ZN19QGraphicsLayoutItem15setMaximumWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem12maximumWidthEv": ["double", "address"],
+    "ritual_ZN19QGraphicsLayoutItem16setMaximumHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem13maximumHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem8geometryEv": ["address", "address"],
+    "ritual_ZNK19QGraphicsLayoutItem18getContentsMarginsEPdS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem12contentsRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem17effectiveSizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN19QGraphicsLayoutItem14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK19QGraphicsLayoutItem16parentLayoutItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGraphicsLayoutItem19setParentLayoutItemEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem8isLayoutEv": ["bool", "address"],
+    "ritual_ZNK19QGraphicsLayoutItem12graphicsItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem13ownedByLayoutEv": ["bool", "address"]
+  }
+}

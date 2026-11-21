@@ -11,17 +11,22 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_abstract_button import QAbstractButton
-from ..QtGui import QIcon
-from ._q_menu import QMenu
-from ..QtCore import QMetaObject
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from . import QAbstractButton, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
+  from ..QtGui import QIcon
+  from . import QMenu
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QIcon = WAIT['QIcon']
+  QMenu = WAIT['QMenu']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -155,6 +160,7 @@ class QPushButton(QAbstractButton):
     """
     #  const QMetaObject *QPushButton::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QPushButton10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def sizeHint(self) -> QSize:
@@ -171,6 +177,7 @@ class QPushButton(QAbstractButton):
     """
     #  QSize QPushButton::sizeHint() const
     address = self.uglySide.call('ritual_ZNK11QPushButton8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -189,6 +196,7 @@ class QPushButton(QAbstractButton):
     address = self.uglySide.call(
         'ritual_ZNK11QPushButton15minimumSizeHintEv',
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def autoDefault(self) -> bool:
@@ -224,6 +232,7 @@ class QPushButton(QAbstractButton):
     """
     #  QMenu *QPushButton::menu() const
     address = self.uglySide.call('ritual_ZNK11QPushButton4menuEv')
+    from . import QMenu
     return QMenu._cuteAt(address)
 
   def isFlat(self) -> bool:

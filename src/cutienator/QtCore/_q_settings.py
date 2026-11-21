@@ -11,17 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_meta_object import QMetaObject
-from ._q_object import QObject
-from ._q_variant import QVariant
-from ._q_settings_format import Format
-from ._q_settings_scope import Scope
-from ._q_settings_status import Status
+from . import QObject, QSettingsFormat, QSettingsScope, QSettingsStatus
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QMetaObject, QVariant
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -77,9 +79,9 @@ class QSettings(QObject):
 
   #  The enums Qt writes inside QSettings, and the names Qt has for the
   #  combinations of its flags enums.
-  Format = Format
-  Scope = Scope
-  Status = Status
+  Format = QSettingsFormat
+  Scope = QSettingsScope
+  Status = QSettingsStatus
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -161,7 +163,9 @@ class QSettings(QObject):
       no name it is the member without a name that 'Format(number)' gives.
     """
     #  Format QSettings::defaultFormat()
-    return Format(Rituals.call('ritual_ZN9QSettings13defaultFormatEv'))
+    return QSettings.Format(Rituals.call(
+        'ritual_ZN9QSettings13defaultFormatEv',
+    ))
 
   @staticmethod
   @overload(Format, Scope, str)
@@ -226,6 +230,7 @@ class QSettings(QObject):
     """
     #  const QMetaObject *QSettings::metaObject() const
     address = self.uglySide.call('ritual_ZNK9QSettings10metaObjectEv')
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def status(self) -> Status:
@@ -242,7 +247,9 @@ class QSettings(QObject):
       no name it is the member without a name that 'Status(number)' gives.
     """
     #  Status QSettings::status() const
-    return Status(self.uglySide.call('ritual_ZNK9QSettings6statusEv'))
+    return QSettings.Status(self.uglySide.call(
+        'ritual_ZNK9QSettings6statusEv',
+    ))
 
   def isAtomicSyncRequired(self) -> bool:
     """
@@ -308,6 +315,7 @@ class QSettings(QObject):
         'ritual_ZNK9QSettings5valueE14QAnyStringViewRK8QVariant',
         key, self._valueOf(defaultValue),
     )
+    from . import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(str)
@@ -333,6 +341,7 @@ class QSettings(QObject):
     address = self.uglySide.call(
         'ritual_ZNK9QSettings5valueE14QAnyStringView', key,
     )
+    from . import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(str)
@@ -391,7 +400,9 @@ class QSettings(QObject):
       no name it is the member without a name that 'Format(number)' gives.
     """
     #  Format QSettings::format() const
-    return Format(self.uglySide.call('ritual_ZNK9QSettings6formatEv'))
+    return QSettings.Format(self.uglySide.call(
+        'ritual_ZNK9QSettings6formatEv',
+    ))
 
   def scope(self) -> Scope:
     """
@@ -407,7 +418,9 @@ class QSettings(QObject):
       no name it is the member without a name that 'Scope(number)' gives.
     """
     #  Scope QSettings::scope() const
-    return Scope(self.uglySide.call('ritual_ZNK9QSettings5scopeEv'))
+    return QSettings.Scope(self.uglySide.call(
+        'ritual_ZNK9QSettings5scopeEv',
+    ))
 
   def organizationName(self) -> str:
     """

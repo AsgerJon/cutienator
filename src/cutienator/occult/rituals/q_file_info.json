@@ -1,0 +1,84 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qfileinfo.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QFileInfoC1Ev": ["address"],
+    "ritual_ZN9QFileInfoC1ERK7QString": ["address", "text"],
+    "ritual_ZN9QFileInfoC1ERK4QDirRK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN9QFileInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN9QFileInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN9QFileInfo7setFileERK7QString": ["nothing", "address", "text"],
+    "ritual_ZN9QFileInfo7setFileERK4QDirRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZNK9QFileInfo6existsEv": ["bool", "address"],
+    "ritual_ZN9QFileInfo6existsERK7QString": ["bool", "text"],
+    "ritual_ZN9QFileInfo7refreshEv": ["nothing", "address"],
+    "ritual_ZNK9QFileInfo8filePathEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo16absoluteFilePathEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo17canonicalFilePathEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo8fileNameEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo8baseNameEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo16completeBaseNameEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo6suffixEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo10bundleNameEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo14completeSuffixEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo4pathEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo12absolutePathEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo13canonicalPathEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo3dirEv": ["address", "address"],
+    "ritual_ZNK9QFileInfo11absoluteDirEv": ["address", "address"],
+    "ritual_ZNK9QFileInfo10isReadableEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo10isWritableEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo12isExecutableEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo8isHiddenEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo12isNativePathEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo10isRelativeEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo10isAbsoluteEv": ["bool", "address"],
+    "ritual_ZN9QFileInfo12makeAbsoluteEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo6isFileEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo5isDirEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo9isSymLinkEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo14isSymbolicLinkEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo7isOtherEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo10isShortcutEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo7isAliasEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo10isJunctionEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo6isRootEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo8isBundleEv": ["bool", "address"],
+    "ritual_ZNK9QFileInfo13symLinkTargetEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo11readSymLinkEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo14junctionTargetEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo5ownerEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo7ownerIdEv": ["unsigned int", "address"],
+    "ritual_ZNK9QFileInfo5groupEv": ["text", "address"],
+    "ritual_ZNK9QFileInfo7groupIdEv": ["unsigned int", "address"],
+    "ritual_ZNK9QFileInfo10permissionE6QFlagsIN11QFileDevice10PermissionEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK9QFileInfo4sizeEv": ["long long", "address"],
+    "ritual_ZNK9QFileInfo9birthTimeEv": ["address", "address"],
+    "ritual_ZNK9QFileInfo18metadataChangeTimeEv": ["address", "address"],
+    "ritual_ZNK9QFileInfo12lastModifiedEv": ["address", "address"],
+    "ritual_ZNK9QFileInfo8lastReadEv": ["address", "address"],
+    "ritual_ZNK9QFileInfo9birthTimeERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QFileInfo18metadataChangeTimeERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QFileInfo12lastModifiedERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QFileInfo8lastReadERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QFileInfo7cachingEv": ["bool", "address"],
+    "ritual_ZN9QFileInfo10setCachingEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QFileInfo4statEv": ["nothing", "address"]
+  }
+}

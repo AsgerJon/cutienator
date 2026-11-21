@@ -12,14 +12,22 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
-from ..QtCore import QIODevice
-from ._q_paint_device import QPaintDevice
-from ._q_painter import QPainter
-from ..QtCore import QRect
+from . import QPaintDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QIODevice, QRect
+  from . import QPaintEngine, QPainter
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QIODevice = WAIT['QIODevice']
+  QPainter = WAIT['QPainter']
+  QRect = WAIT['QRect']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -42,17 +50,16 @@ class QPicture(QPaintDevice):
   -----------
 
   Every function of Qt's QPicture that has a ritual and that Python can call
-  so far, 12 names in all: 'isNull', 'devType', 'size', 'data', 'setData',
+  so far, 13 names in all: 'isNull', 'devType', 'size', 'data', 'setData',
   'play', 'load', 'save', 'boundingRect', 'setBoundingRect', 'detach',
-  'isDetached'. It can be made from Python, in 2 ways; see '__init__'.
+  'isDetached', 'paintEngine'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPicture::~QPicture()': the destructor: Python removes its C++
     QPicture by it, and has no other use for it.
-  - Qt's 'QPaintEngine *QPicture::paintEngine() const': gives 'QPaintEngine',
-    which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -158,6 +165,7 @@ class QPicture(QPaintDevice):
     """
     #  QRect QPicture::boundingRect() const
     address = self.uglySide.call('ritual_ZNK8QPicture12boundingRectEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def isDetached(self) -> bool:
@@ -168,6 +176,24 @@ class QPicture(QPaintDevice):
     """
     #  bool QPicture::isDetached() const
     return self.uglySide.call('ritual_ZNK8QPicture10isDetachedEv')
+
+  def paintEngine(self) -> Optional[QPaintEngine]:
+    """
+    Calls Qt's 'QPaintEngine *QPicture::paintEngine() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpicture.html#paintEngine
+
+    Returns
+    -------
+
+    Optional[QPaintEngine]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintEngine *QPicture::paintEngine() const
+    address = self.uglySide.call('ritual_ZNK8QPicture11paintEngineEv')
+    from . import QPaintEngine
+    return QPaintEngine._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

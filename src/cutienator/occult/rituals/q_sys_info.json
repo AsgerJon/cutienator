@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qsysinfo.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QSysInfo20buildCpuArchitectureEv": ["text"],
+    "ritual_ZN8QSysInfo22currentCpuArchitectureEv": ["text"],
+    "ritual_ZN8QSysInfo8buildAbiEv": ["text"],
+    "ritual_ZN8QSysInfo10kernelTypeEv": ["text"],
+    "ritual_ZN8QSysInfo13kernelVersionEv": ["text"],
+    "ritual_ZN8QSysInfo11productTypeEv": ["text"],
+    "ritual_ZN8QSysInfo14productVersionEv": ["text"],
+    "ritual_ZN8QSysInfo17prettyProductNameEv": ["text"],
+    "ritual_ZN8QSysInfo15machineHostNameEv": ["text"],
+    "ritual_ZN8QSysInfo15machineUniqueIdEv": ["address"],
+    "ritual_ZN8QSysInfo12bootUniqueIdEv": ["address"],
+    "ritual_ZN8QSysInfoD1Ev": ["nothing", "address"]
+  }
+}

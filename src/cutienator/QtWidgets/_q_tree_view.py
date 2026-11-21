@@ -11,21 +11,26 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QAbstractItemModel
-from ._q_abstract_item_view import QAbstractItemView
-from ._q_header_view import QHeaderView
-from ..QtCore import QItemSelectionModel
-from ..QtCore import QMetaObject
-from ..QtCore import QModelIndex
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ._q_widget import QWidget
+from . import QAbstractItemView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QAbstractItemModel, QItemSelectionModel, QMetaObject
+  from ..QtCore import QModelIndex, QPoint, QRect
+  from . import QHeaderView
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractItemModel = WAIT['QAbstractItemModel']
+  QHeaderView = WAIT['QHeaderView']
+  QItemSelectionModel = WAIT['QItemSelectionModel']
+  QModelIndex = WAIT['QModelIndex']
+  QPoint = WAIT['QPoint']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -172,6 +177,7 @@ class QTreeView(QAbstractItemView):
     """
     #  const QMetaObject *QTreeView::metaObject() const
     address = self.uglySide.call('ritual_ZNK9QTreeView10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def header(self) -> Optional[QHeaderView]:
@@ -189,6 +195,7 @@ class QTreeView(QAbstractItemView):
     """
     #  QHeaderView *QTreeView::header() const
     address = self.uglySide.call('ritual_ZNK9QTreeView6headerEv')
+    from . import QHeaderView
     return QHeaderView._cuteAt(address)
 
   def autoExpandDelay(self) -> int:
@@ -464,6 +471,7 @@ class QTreeView(QAbstractItemView):
         'ritual_ZNK9QTreeView10visualRectERK11QModelIndex',
         self._valueOf(index),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -492,6 +500,7 @@ class QTreeView(QAbstractItemView):
         'ritual_ZNK9QTreeView18itemDecorationRectERK11QModelIndex',
         self._valueOf(index),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(QPoint)
@@ -518,6 +527,7 @@ class QTreeView(QAbstractItemView):
     address = self.uglySide.call(
         'ritual_ZNK9QTreeView7indexAtERK6QPoint', self._valueOf(p),
     )
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -546,6 +556,7 @@ class QTreeView(QAbstractItemView):
         'ritual_ZNK9QTreeView10indexAboveERK11QModelIndex',
         self._valueOf(index),
     )
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -574,6 +585,7 @@ class QTreeView(QAbstractItemView):
         'ritual_ZNK9QTreeView10indexBelowERK11QModelIndex',
         self._valueOf(index),
     )
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

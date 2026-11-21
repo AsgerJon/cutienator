@@ -12,11 +12,18 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_margins_f import QMarginsF
-from ._q_size import QSize
+from . import Qt
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QMarginsF, QSize
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QMarginsF = WAIT['QMarginsF']
+  QSize = WAIT['QSize']
 
 
 class QSizeF(CuteMixin, metaclass=MetaCute):
@@ -334,6 +341,7 @@ class QSizeF(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QSizeF::toSize() const
     address = self.uglySide.call('ritual_ZNK6QSizeF6toSizeEv')
+    from . import QSize
     return QSize._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

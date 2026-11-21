@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QGraphicsRectItemC1EP13QGraphicsItem": [
+      "address", "address"
+    ],
+    "ritual_ZN17QGraphicsRectItemC1ERK6QRectFP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QGraphicsRectItemC1EddddP13QGraphicsItem": [
+      "address", "double", "double", "double", "double", "address"
+    ],
+    "ritual_ZN17QGraphicsRectItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QGraphicsRectItem4rectEv": ["address", "address"],
+    "ritual_ZN17QGraphicsRectItem7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QGraphicsRectItem7setRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK17QGraphicsRectItem12boundingRectEv": ["address", "address"],
+    "ritual_ZNK17QGraphicsRectItem5shapeEv": ["address", "address"],
+    "ritual_ZNK17QGraphicsRectItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QGraphicsRectItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK17QGraphicsRectItem12isObscuredByEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QGraphicsRectItem10opaqueAreaEv": ["address", "address"],
+    "ritual_ZNK17QGraphicsRectItem4typeEv": ["int", "address"]
+  }
+}

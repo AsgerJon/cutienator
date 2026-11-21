@@ -12,16 +12,23 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_bitmap import QBitmap
-from ._q_pixmap import QPixmap
-from ..QtCore import QPoint
-from ._q_screen import QScreen
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QPoint
+  from . import QBitmap, QPixmap, QScreen
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBitmap = WAIT['QBitmap']
+  QPixmap = WAIT['QPixmap']
+  QPoint = WAIT['QPoint']
+  QScreen = WAIT['QScreen']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -92,6 +99,7 @@ class QCursor(CuteMixin, metaclass=MetaCute):
     """
     #  QPoint QCursor::pos()
     address = Rituals.call('ritual_ZN7QCursor3posEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @staticmethod
@@ -120,6 +128,7 @@ class QCursor(CuteMixin, metaclass=MetaCute):
     address = Rituals.call(
         'ritual_ZN7QCursor3posEPK7QScreen', CuteMixin._addressOf(screen),
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @staticmethod
@@ -278,6 +287,7 @@ class QCursor(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK7QCursor6bitmapEN2Qt21ReturnByValueConstantE', a0.value,
     )
+    from . import QBitmap
     return QBitmap._cuteOwning(address)
 
   @overload()
@@ -295,6 +305,7 @@ class QCursor(CuteMixin, metaclass=MetaCute):
     """
     #  QBitmap QCursor::bitmap() const
     address = self.uglySide.call('ritual_ZNK7QCursor6bitmapEv')
+    from . import QBitmap
     return QBitmap._cuteOwning(address)
 
   @overload(Qt.ReturnByValueConstant)
@@ -320,6 +331,7 @@ class QCursor(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK7QCursor4maskEN2Qt21ReturnByValueConstantE', a0.value,
     )
+    from . import QBitmap
     return QBitmap._cuteOwning(address)
 
   @overload()
@@ -337,6 +349,7 @@ class QCursor(CuteMixin, metaclass=MetaCute):
     """
     #  QBitmap QCursor::mask() const
     address = self.uglySide.call('ritual_ZNK7QCursor4maskEv')
+    from . import QBitmap
     return QBitmap._cuteOwning(address)
 
   def pixmap(self) -> QPixmap:
@@ -353,6 +366,7 @@ class QCursor(CuteMixin, metaclass=MetaCute):
     """
     #  QPixmap QCursor::pixmap() const
     address = self.uglySide.call('ritual_ZNK7QCursor6pixmapEv')
+    from . import QPixmap
     return QPixmap._cuteOwning(address)
 
   def hotSpot(self) -> QPoint:
@@ -369,6 +383,7 @@ class QCursor(CuteMixin, metaclass=MetaCute):
     """
     #  QPoint QCursor::hotSpot() const
     address = self.uglySide.call('ritual_ZNK7QCursor7hotSpotEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

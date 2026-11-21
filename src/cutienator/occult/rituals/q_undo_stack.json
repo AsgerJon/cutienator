@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qundostack.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QUndoStack10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QUndoStack2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QUndoStackC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QUndoStackD1Ev": ["nothing", "address"],
+    "ritual_ZN10QUndoStack5clearEv": ["nothing", "address"],
+    "ritual_ZN10QUndoStack4pushEP12QUndoCommand": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QUndoStack7canUndoEv": ["bool", "address"],
+    "ritual_ZNK10QUndoStack7canRedoEv": ["bool", "address"],
+    "ritual_ZNK10QUndoStack8undoTextEv": ["text", "address"],
+    "ritual_ZNK10QUndoStack8redoTextEv": ["text", "address"],
+    "ritual_ZNK10QUndoStack5countEv": ["int", "address"],
+    "ritual_ZNK10QUndoStack5indexEv": ["int", "address"],
+    "ritual_ZNK10QUndoStack4textEi": ["text", "address", "int"],
+    "ritual_ZNK10QUndoStack16createUndoActionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZNK10QUndoStack16createRedoActionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZNK10QUndoStack8isActiveEv": ["bool", "address"],
+    "ritual_ZNK10QUndoStack7isCleanEv": ["bool", "address"],
+    "ritual_ZNK10QUndoStack10cleanIndexEv": ["int", "address"],
+    "ritual_ZN10QUndoStack10beginMacroERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QUndoStack8endMacroEv": ["nothing", "address"],
+    "ritual_ZN10QUndoStack12setUndoLimitEi": ["nothing", "address", "int"],
+    "ritual_ZNK10QUndoStack9undoLimitEv": ["int", "address"],
+    "ritual_ZNK10QUndoStack7commandEi": ["address", "address", "int"],
+    "ritual_ZN10QUndoStack8setCleanEv": ["nothing", "address"],
+    "ritual_ZN10QUndoStack10resetCleanEv": ["nothing", "address"],
+    "ritual_ZN10QUndoStack8setIndexEi": ["nothing", "address", "int"],
+    "ritual_ZN10QUndoStack4undoEv": ["nothing", "address"],
+    "ritual_ZN10QUndoStack4redoEv": ["nothing", "address"],
+    "ritual_ZN10QUndoStack9setActiveEb": ["nothing", "address", "bool"]
+  }
+}

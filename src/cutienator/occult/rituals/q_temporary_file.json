@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qtemporaryfile.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QTemporaryFile10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QTemporaryFile2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QTemporaryFileC1Ev": ["address"],
+    "ritual_ZN14QTemporaryFileC1ERK7QString": ["address", "text"],
+    "ritual_ZN14QTemporaryFileC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QTemporaryFileC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN14QTemporaryFileD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QTemporaryFile10autoRemoveEv": ["bool", "address"],
+    "ritual_ZN14QTemporaryFile13setAutoRemoveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QTemporaryFile4openEv": ["bool", "address"],
+    "ritual_ZNK14QTemporaryFile8fileNameEv": ["text", "address"],
+    "ritual_ZNK14QTemporaryFile12fileTemplateEv": ["text", "address"],
+    "ritual_ZN14QTemporaryFile15setFileTemplateERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QTemporaryFile6renameERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN14QTemporaryFile15renameOverwriteERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN14QTemporaryFile16createNativeFileERK7QString": [
+      "address", "text"
+    ]
+  }
+}

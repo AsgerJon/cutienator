@@ -11,24 +11,26 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_clipboard import QClipboard
-from ..QtCore import QCoreApplication
-from ._q_cursor import QCursor
-from ..QtCore import QEvent
-from ._q_font import QFont
-from ._q_icon import QIcon
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ._q_palette import QPalette
-from ..QtCore import QPoint
-from ._q_screen import QScreen
-from ._q_window import QWindow
+from ..QtCore import Qt, QCoreApplication, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QEvent, QMetaObject, QPoint
+  from . import QClipboard, QCursor, QFont, QIcon, QPalette, QScreen
+  from . import QStyleHints, QWindow
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QCursor = WAIT['QCursor']
+  QEvent = WAIT['QEvent']
+  QFont = WAIT['QFont']
+  QIcon = WAIT['QIcon']
+  QPalette = WAIT['QPalette']
+  QPoint = WAIT['QPoint']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -47,7 +49,7 @@ class QGuiApplication(QCoreApplication):
   -----------
 
   Every function of Qt's QGuiApplication that has a ritual and that Python
-  can call so far, 47 names in all: 'metaObject', 'tr',
+  can call so far, 48 names in all: 'metaObject', 'tr',
   'setApplicationDisplayName', 'applicationDisplayName', 'setBadgeNumber',
   'setDesktopFileName', 'desktopFileName', 'topLevelAt', 'setWindowIcon',
   'windowIcon', 'platformName', 'modalWindow', 'focusWindow', 'focusObject',
@@ -56,7 +58,7 @@ class QGuiApplication(QCoreApplication):
   'font', 'setFont', 'clipboard', 'palette', 'setPalette',
   'keyboardModifiers', 'queryKeyboardModifiers', 'mouseButtons',
   'setLayoutDirection', 'layoutDirection', 'isRightToLeft', 'isLeftToRight',
-  'setDesktopSettingsAware', 'desktopSettingsAware',
+  'styleHints', 'setDesktopSettingsAware', 'desktopSettingsAware',
   'setQuitOnLastWindowClosed', 'quitOnLastWindowClosed', 'applicationState',
   'setHighDpiScaleFactorRoundingPolicy', 'highDpiScaleFactorRoundingPolicy',
   'exec', 'notify', 'isSessionRestored', 'sessionId', 'sessionKey',
@@ -68,8 +70,6 @@ class QGuiApplication(QCoreApplication):
 
   - Qt's 'QGuiApplication::~QGuiApplication()': the destructor: Python never
     removes a C++ QGuiApplication.
-  - Qt's 'QStyleHints *QGuiApplication::styleHints()': gives 'QStyleHints',
-    which has no cute class yet.
   - Qt's 'QInputMethod *QGuiApplication::inputMethod()': gives
     'QInputMethod', which has no cute class yet.
 
@@ -249,6 +249,7 @@ class QGuiApplication(QCoreApplication):
         'ritual_ZN15QGuiApplication10topLevelAtERK6QPoint',
         CuteMixin._valueOf(pos),
     )
+    from . import QWindow
     return QWindow._cuteAt(address)
 
   @staticmethod
@@ -286,6 +287,7 @@ class QGuiApplication(QCoreApplication):
     """
     #  QIcon QGuiApplication::windowIcon()
     address = Rituals.call('ritual_ZN15QGuiApplication10windowIconEv')
+    from . import QIcon
     return QIcon._cuteOwning(address)
 
   @staticmethod
@@ -320,6 +322,7 @@ class QGuiApplication(QCoreApplication):
     """
     #  QWindow *QGuiApplication::modalWindow()
     address = Rituals.call('ritual_ZN15QGuiApplication11modalWindowEv')
+    from . import QWindow
     return QWindow._cuteAt(address)
 
   @staticmethod
@@ -338,6 +341,7 @@ class QGuiApplication(QCoreApplication):
     """
     #  QWindow *QGuiApplication::focusWindow()
     address = Rituals.call('ritual_ZN15QGuiApplication11focusWindowEv')
+    from . import QWindow
     return QWindow._cuteAt(address)
 
   @staticmethod
@@ -374,6 +378,7 @@ class QGuiApplication(QCoreApplication):
     """
     #  QScreen *QGuiApplication::primaryScreen()
     address = Rituals.call('ritual_ZN15QGuiApplication13primaryScreenEv')
+    from . import QScreen
     return QScreen._cuteAt(address)
 
   @staticmethod
@@ -403,6 +408,7 @@ class QGuiApplication(QCoreApplication):
         'ritual_ZN15QGuiApplication8screenAtERK6QPoint',
         CuteMixin._valueOf(point),
     )
+    from . import QScreen
     return QScreen._cuteAt(address)
 
   @staticmethod
@@ -422,6 +428,7 @@ class QGuiApplication(QCoreApplication):
     """
     #  QCursor *QGuiApplication::overrideCursor()
     address = Rituals.call('ritual_ZN15QGuiApplication14overrideCursorEv')
+    from . import QCursor
     return QCursor._cuteAt(address)
 
   @staticmethod
@@ -495,6 +502,7 @@ class QGuiApplication(QCoreApplication):
     """
     #  QFont QGuiApplication::font()
     address = Rituals.call('ritual_ZN15QGuiApplication4fontEv')
+    from . import QFont
     return QFont._cuteOwning(address)
 
   @staticmethod
@@ -533,6 +541,7 @@ class QGuiApplication(QCoreApplication):
     """
     #  QClipboard *QGuiApplication::clipboard()
     address = Rituals.call('ritual_ZN15QGuiApplication9clipboardEv')
+    from . import QClipboard
     return QClipboard._cuteAt(address)
 
   @staticmethod
@@ -550,6 +559,7 @@ class QGuiApplication(QCoreApplication):
     """
     #  QPalette QGuiApplication::palette()
     address = Rituals.call('ritual_ZN15QGuiApplication7paletteEv')
+    from . import QPalette
     return QPalette._cuteOwning(address)
 
   @staticmethod
@@ -694,6 +704,25 @@ class QGuiApplication(QCoreApplication):
     """
     #  bool QGuiApplication::isLeftToRight()
     return Rituals.call('ritual_ZN15QGuiApplication13isLeftToRightEv')
+
+  @staticmethod
+  def styleHints() -> Optional[QStyleHints]:
+    """
+    Calls Qt's 'QStyleHints *QGuiApplication::styleHints()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qguiapplication.html#styleHints
+
+    Returns
+    -------
+
+    Optional[QStyleHints]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QStyleHints *QGuiApplication::styleHints()
+    address = Rituals.call('ritual_ZN15QGuiApplication10styleHintsEv')
+    from . import QStyleHints
+    return QStyleHints._cuteAt(address)
 
   @staticmethod
   @overload(bool)
@@ -884,6 +913,7 @@ class QGuiApplication(QCoreApplication):
     """
     #  const QMetaObject *QGuiApplication::metaObject() const
     address = self.uglySide.call('ritual_ZNK15QGuiApplication10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def devicePixelRatio(self) -> float:

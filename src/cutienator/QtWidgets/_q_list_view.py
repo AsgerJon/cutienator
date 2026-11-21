@@ -11,24 +11,24 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_abstract_item_view import QAbstractItemView
-from ..QtCore import QMetaObject
-from ..QtCore import QModelIndex
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_widget import QWidget
-from ._q_list_view_flow import Flow
-from ._q_list_view_layout_mode import LayoutMode
-from ._q_list_view_movement import Movement
-from ._q_list_view_resize_mode import ResizeMode
-from ._q_list_view_view_mode import ViewMode
+from . import QAbstractItemView, QListViewFlow, QListViewLayoutMode
+from . import QListViewMovement, QListViewResizeMode, QListViewViewMode
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QModelIndex, QPoint, QRect, QSize
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QModelIndex = WAIT['QModelIndex']
+  QPoint = WAIT['QPoint']
+  QSize = WAIT['QSize']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -88,11 +88,11 @@ class QListView(QAbstractItemView):
 
   #  The enums Qt writes inside QListView, and the names Qt has for the
   #  combinations of its flags enums.
-  Flow = Flow
-  LayoutMode = LayoutMode
-  Movement = Movement
-  ResizeMode = ResizeMode
-  ViewMode = ViewMode
+  Flow = QListViewFlow
+  LayoutMode = QListViewLayoutMode
+  Movement = QListViewMovement
+  ResizeMode = QListViewResizeMode
+  ViewMode = QListViewViewMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -175,6 +175,7 @@ class QListView(QAbstractItemView):
     """
     #  const QMetaObject *QListView::metaObject() const
     address = self.uglySide.call('ritual_ZNK9QListView10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def movement(self) -> Movement:
@@ -191,7 +192,9 @@ class QListView(QAbstractItemView):
       no name it is the member without a name that 'Movement(number)' gives.
     """
     #  Movement QListView::movement() const
-    return Movement(self.uglySide.call('ritual_ZNK9QListView8movementEv'))
+    return QListView.Movement(self.uglySide.call(
+        'ritual_ZNK9QListView8movementEv',
+    ))
 
   def flow(self) -> Flow:
     """
@@ -207,7 +210,7 @@ class QListView(QAbstractItemView):
       no name it is the member without a name that 'Flow(number)' gives.
     """
     #  Flow QListView::flow() const
-    return Flow(self.uglySide.call('ritual_ZNK9QListView4flowEv'))
+    return QListView.Flow(self.uglySide.call('ritual_ZNK9QListView4flowEv'))
 
   def isWrapping(self) -> bool:
     """
@@ -233,7 +236,7 @@ class QListView(QAbstractItemView):
       gives.
     """
     #  ResizeMode QListView::resizeMode() const
-    return ResizeMode(self.uglySide.call(
+    return QListView.ResizeMode(self.uglySide.call(
         'ritual_ZNK9QListView10resizeModeEv',
     ))
 
@@ -252,7 +255,7 @@ class QListView(QAbstractItemView):
       gives.
     """
     #  LayoutMode QListView::layoutMode() const
-    return LayoutMode(self.uglySide.call(
+    return QListView.LayoutMode(self.uglySide.call(
         'ritual_ZNK9QListView10layoutModeEv',
     ))
 
@@ -288,6 +291,7 @@ class QListView(QAbstractItemView):
     """
     #  QSize QListView::gridSize() const
     address = self.uglySide.call('ritual_ZNK9QListView8gridSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def viewMode(self) -> ViewMode:
@@ -304,7 +308,9 @@ class QListView(QAbstractItemView):
       no name it is the member without a name that 'ViewMode(number)' gives.
     """
     #  ViewMode QListView::viewMode() const
-    return ViewMode(self.uglySide.call('ritual_ZNK9QListView8viewModeEv'))
+    return QListView.ViewMode(self.uglySide.call(
+        'ritual_ZNK9QListView8viewModeEv',
+    ))
 
   @overload(int)
   def isRowHidden(self, row: int) -> bool:
@@ -403,6 +409,7 @@ class QListView(QAbstractItemView):
         'ritual_ZNK9QListView10visualRectERK11QModelIndex',
         self._valueOf(index),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(QPoint)
@@ -429,6 +436,7 @@ class QListView(QAbstractItemView):
     address = self.uglySide.call(
         'ritual_ZNK9QListView7indexAtERK6QPoint', self._valueOf(p),
     )
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

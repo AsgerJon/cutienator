@@ -11,14 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_locale import QLocale
-from ._q_meta_object import QMetaObject
-from ._q_object import QObject
+from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QLocale, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QLocale = WAIT['QLocale']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -151,6 +156,7 @@ class QTranslator(QObject):
     """
     #  const QMetaObject *QTranslator::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QTranslator10metaObjectEv')
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   @overload(str, str)

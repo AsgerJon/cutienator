@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qcolorspace.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QColorSpace13PrimaryPoints13fromPrimariesENS_9PrimariesE": [
+      "address", "int"
+    ],
+    "ritual_ZNK11QColorSpace13PrimaryPoints7isValidEv": ["bool", "address"],
+    "ritual_ZN11QColorSpace13PrimaryPointsD1Ev": ["nothing", "address"]
+  }
+}

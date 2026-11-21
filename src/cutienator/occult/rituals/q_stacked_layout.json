@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qstackedlayout.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QStackedLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QStackedLayout2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QStackedLayoutC1Ev": ["address"],
+    "ritual_ZN14QStackedLayoutC1EP7QWidget": ["address", "address"],
+    "ritual_ZN14QStackedLayoutC1EP7QLayout": ["address", "address"],
+    "ritual_ZN14QStackedLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZN14QStackedLayout9addWidgetEP7QWidget": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN14QStackedLayout12insertWidgetEiP7QWidget": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZNK14QStackedLayout13currentWidgetEv": ["address", "address"],
+    "ritual_ZNK14QStackedLayout12currentIndexEv": ["int", "address"],
+    "ritual_ZNK14QStackedLayout6widgetEi": ["address", "address", "int"],
+    "ritual_ZNK14QStackedLayout5countEv": ["int", "address"],
+    "ritual_ZNK14QStackedLayout12stackingModeEv": ["int", "address"],
+    "ritual_ZN14QStackedLayout15setStackingModeENS_12StackingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QStackedLayout7addItemEP11QLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QStackedLayout8sizeHintEv": ["address", "address"],
+    "ritual_ZNK14QStackedLayout11minimumSizeEv": ["address", "address"],
+    "ritual_ZNK14QStackedLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_ZN14QStackedLayout6takeAtEi": ["address", "address", "int"],
+    "ritual_ZN14QStackedLayout11setGeometryERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QStackedLayout17hasHeightForWidthEv": ["bool", "address"],
+    "ritual_ZNK14QStackedLayout14heightForWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN14QStackedLayout15setCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QStackedLayout16setCurrentWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ]
+  }
+}

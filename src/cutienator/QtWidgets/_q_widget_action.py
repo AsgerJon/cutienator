@@ -11,15 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtGui import QAction
-from ..QtCore import QMetaObject
 from ..QtCore import QObject
-from ._q_widget import QWidget
+from ..QtGui import QAction
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject
+  from . import QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -152,6 +158,7 @@ class QWidgetAction(QAction):
     """
     #  const QMetaObject *QWidgetAction::metaObject() const
     address = self.uglySide.call('ritual_ZNK13QWidgetAction10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def defaultWidget(self) -> Optional[QWidget]:
@@ -171,6 +178,7 @@ class QWidgetAction(QAction):
     address = self.uglySide.call(
         'ritual_ZNK13QWidgetAction13defaultWidgetEv',
     )
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -279,6 +287,7 @@ class QWidgetAction(QAction):
         'ritual_ZN13QWidgetAction13requestWidgetEP7QWidget',
         self._addressOf(parent),
     )
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   @overload(QWidget)

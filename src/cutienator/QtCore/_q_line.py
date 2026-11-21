@@ -13,7 +13,14 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._q_point import QPoint
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QLineF, QPoint
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPoint = WAIT['QPoint']
 
 
 class QLine(CuteMixin, metaclass=MetaCute):
@@ -52,10 +59,6 @@ class QLine(CuteMixin, metaclass=MetaCute):
   - A function giving a QLine back gives a copy the ritual made for Python,
     in a new cute QLine.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QLineF = WAIT['QLineF']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -108,6 +111,7 @@ class QLine(CuteMixin, metaclass=MetaCute):
     """
     #  QPoint QLine::p1() const
     address = self.uglySide.call('ritual_ZNK5QLine2p1Ev')
+    from . import QPoint
     return QPoint._cuteOwning(address)
 
   def p2(self) -> QPoint:
@@ -124,6 +128,7 @@ class QLine(CuteMixin, metaclass=MetaCute):
     """
     #  QPoint QLine::p2() const
     address = self.uglySide.call('ritual_ZNK5QLine2p2Ev')
+    from . import QPoint
     return QPoint._cuteOwning(address)
 
   def x1(self) -> int:
@@ -246,6 +251,7 @@ class QLine(CuteMixin, metaclass=MetaCute):
     """
     #  QPoint QLine::center() const
     address = self.uglySide.call('ritual_ZNK5QLine6centerEv')
+    from . import QPoint
     return QPoint._cuteOwning(address)
 
   def toLineF(self) -> QLineF:
@@ -262,7 +268,8 @@ class QLine(CuteMixin, metaclass=MetaCute):
     """
     #  QLineF QLine::toLineF() const
     address = self.uglySide.call('ritual_ZNK5QLine7toLineFEv')
-    return self.QLineF._cuteOwning(address)
+    from . import QLineF
+    return QLineF._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

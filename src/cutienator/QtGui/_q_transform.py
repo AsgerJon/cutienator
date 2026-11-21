@@ -15,15 +15,25 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QLine
-from ..QtCore import QLineF
-from ..QtCore import QPoint
-from ..QtCore import QPointF
-from ._q_polygon import QPolygon
-from ._q_polygon_f import QPolygonF
-from ..QtCore import QRect
-from ..QtCore import QRectF
-from ._q_transform_transformation_type import TransformationType
+from . import QTransformTransformationType
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QLine, QLineF, QPoint, QPointF, QRect, QRectF
+  from . import QPainterPath, QPolygon, QPolygonF, QRegion
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QLine = WAIT['QLine']
+  QLineF = WAIT['QLineF']
+  QPainterPath = WAIT['QPainterPath']
+  QPoint = WAIT['QPoint']
+  QPointF = WAIT['QPointF']
+  QPolygon = WAIT['QPolygon']
+  QPolygonF = WAIT['QPolygonF']
+  QRect = WAIT['QRect']
+  QRectF = WAIT['QRectF']
+  QRegion = WAIT['QRegion']
 
 
 class QTransform(CuteMixin, metaclass=MetaCute):
@@ -87,12 +97,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QTransform, and the names Qt has for the
   #  combinations of its flags enums.
-  TransformationType = TransformationType
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QPainterPath = WAIT['QPainterPath']
-  QRegion = WAIT['QRegion']
+  TransformationType = QTransformTransformationType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -245,7 +250,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
       'TransformationType(number)' gives.
     """
     #  TransformationType QTransform::type() const
-    return TransformationType(self.uglySide.call(
+    return QTransform.TransformationType(self.uglySide.call(
         'ritual_ZNK10QTransform4typeEv',
     ))
 
@@ -413,6 +418,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK10QTransform3mapERK6QPoint', self._valueOf(p),
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @overload(QPointF)
@@ -439,6 +445,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK10QTransform3mapERK7QPointF', self._valueOf(p),
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(QLine)
@@ -464,6 +471,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK10QTransform3mapERK5QLine', self._valueOf(l),
     )
+    from ..QtCore import QLine
     return QLine._cuteOwning(address)
 
   @overload(QLineF)
@@ -490,6 +498,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK10QTransform3mapERK6QLineF', self._valueOf(l),
     )
+    from ..QtCore import QLineF
     return QLineF._cuteOwning(address)
 
   @overload(QPolygonF)
@@ -516,6 +525,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK10QTransform3mapERK9QPolygonF', self._valueOf(a),
     )
+    from . import QPolygonF
     return QPolygonF._cuteOwning(address)
 
   @overload(QPolygon)
@@ -542,6 +552,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK10QTransform3mapERK8QPolygon', self._valueOf(a),
     )
+    from . import QPolygon
     return QPolygon._cuteOwning(address)
 
   @overload(QRegion)
@@ -550,9 +561,6 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     Calls Qt's 'QRegion QTransform::map(const QRegion &r) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtransform.html#map
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------
@@ -571,7 +579,8 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK10QTransform3mapERK7QRegion', self._valueOf(r),
     )
-    return self.QRegion._cuteOwning(address)
+    from . import QRegion
+    return QRegion._cuteOwning(address)
 
   @overload(QPainterPath)
   def map(self, p: QPainterPath) -> QPainterPath:
@@ -579,9 +588,6 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     Calls Qt's 'QPainterPath QTransform::map(const QPainterPath &p) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qtransform.html#map
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------
@@ -600,7 +606,8 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK10QTransform3mapERK12QPainterPath', self._valueOf(p),
     )
-    return self.QPainterPath._cuteOwning(address)
+    from . import QPainterPath
+    return QPainterPath._cuteOwning(address)
 
   @overload(QRect)
   def mapToPolygon(self, r: QRect) -> QPolygon:
@@ -625,6 +632,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK10QTransform12mapToPolygonERK5QRect', self._valueOf(r),
     )
+    from . import QPolygon
     return QPolygon._cuteOwning(address)
 
   @overload(QRect)
@@ -650,6 +658,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK10QTransform7mapRectERK5QRect', self._valueOf(a0),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(QRectF)
@@ -676,6 +685,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK10QTransform7mapRectERK6QRectF', self._valueOf(a0),
     )
+    from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

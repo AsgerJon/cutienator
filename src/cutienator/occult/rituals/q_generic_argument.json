@@ -1,0 +1,10 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qobjectdefs.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QGenericArgument4nameEv": ["chars", "address"],
+    "ritual_ZN16QGenericArgumentD1Ev": ["nothing", "address"]
+  }
+}

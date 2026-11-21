@@ -13,14 +13,21 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtGui import QIcon
-from ..QtGui import QKeySequence
-from ..QtCore import QMetaObject
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
+  from ..QtGui import QIcon, QKeySequence
+  from . import QButtonGroup
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QIcon = WAIT['QIcon']
+  QKeySequence = WAIT['QKeySequence']
+  QSize = WAIT['QSize']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -76,10 +83,6 @@ class QAbstractButton(QWidget):
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QButtonGroup = WAIT['QButtonGroup']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -163,6 +166,7 @@ class QAbstractButton(QWidget):
     """
     #  const QMetaObject *QAbstractButton::metaObject() const
     address = self.uglySide.call('ritual_ZNK15QAbstractButton10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def text(self) -> str:
@@ -194,6 +198,7 @@ class QAbstractButton(QWidget):
     """
     #  QIcon QAbstractButton::icon() const
     address = self.uglySide.call('ritual_ZNK15QAbstractButton4iconEv')
+    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
   def iconSize(self) -> QSize:
@@ -210,6 +215,7 @@ class QAbstractButton(QWidget):
     """
     #  QSize QAbstractButton::iconSize() const
     address = self.uglySide.call('ritual_ZNK15QAbstractButton8iconSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def shortcut(self) -> QKeySequence:
@@ -226,6 +232,7 @@ class QAbstractButton(QWidget):
     """
     #  QKeySequence QAbstractButton::shortcut() const
     address = self.uglySide.call('ritual_ZNK15QAbstractButton8shortcutEv')
+    from ..QtGui import QKeySequence
     return QKeySequence._cuteOwning(address)
 
   def isCheckable(self) -> bool:
@@ -312,7 +319,8 @@ class QAbstractButton(QWidget):
     """
     #  QButtonGroup *QAbstractButton::group() const
     address = self.uglySide.call('ritual_ZNK15QAbstractButton5groupEv')
-    return self.QButtonGroup._cuteAt(address)
+    from . import QButtonGroup
+    return QButtonGroup._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -11,15 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_byte_array import QByteArray
-from ._q_meta_object import QMetaObject
-from ._q_object import QObject
-from ._q_variant import QVariant
+from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QByteArray, QMetaObject, QVariant
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -152,6 +157,7 @@ class QMimeData(QObject):
     """
     #  const QMetaObject *QMimeData::metaObject() const
     address = self.uglySide.call('ritual_ZNK9QMimeData10metaObjectEv')
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def hasUrls(self) -> bool:
@@ -225,6 +231,7 @@ class QMimeData(QObject):
     """
     #  QVariant QMimeData::imageData() const
     address = self.uglySide.call('ritual_ZNK9QMimeData9imageDataEv')
+    from . import QVariant
     return QVariant._cuteOwning(address)
 
   def hasImage(self) -> bool:
@@ -250,6 +257,7 @@ class QMimeData(QObject):
     """
     #  QVariant QMimeData::colorData() const
     address = self.uglySide.call('ritual_ZNK9QMimeData9colorDataEv')
+    from . import QVariant
     return QVariant._cuteOwning(address)
 
   def hasColor(self) -> bool:
@@ -284,6 +292,7 @@ class QMimeData(QObject):
     address = self.uglySide.call(
         'ritual_ZNK9QMimeData4dataERK7QString', mimetype,
     )
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   @overload(str)

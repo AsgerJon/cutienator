@@ -11,24 +11,26 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_abstract_item_model import QAbstractItemModel
-from ._q_abstract_proxy_model import QAbstractProxyModel
-from ._q_meta_object import QMetaObject
-from ._q_mime_data import QMimeData
-from ._q_model_index import QModelIndex
-from ._q_object import QObject
-from ._q_regular_expression import QRegularExpression
-from ._q_size import QSize
-from ._q_variant import QVariant
-from ._q_sort_filter_proxy_model_data_change_relevance_flag \
-  import DataChangeRelevanceFlag
-from ._q_sort_filter_proxy_model_direction import Direction
+from . import Qt, QAbstractItemModel, QAbstractProxyModel, QObject
+from . import QSortFilterProxyModelDataChangeRelevanceFlag
+from . import QSortFilterProxyModelDirection
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QItemSelection, QMetaObject, QMimeData, QModelIndex
+  from . import QRegularExpression, QSize, QVariant
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QItemSelection = WAIT['QItemSelection']
+  QMimeData = WAIT['QMimeData']
+  QModelIndex = WAIT['QModelIndex']
+  QRegularExpression = WAIT['QRegularExpression']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -48,34 +50,28 @@ class QSortFilterProxyModel(QAbstractProxyModel):
   -----------
 
   Every function of Qt's QSortFilterProxyModel that has a ritual and that
-  Python can call so far, 52 names in all: 'metaObject', 'tr',
-  'setSourceModel', 'mapToSource', 'mapFromSource',
-  'filterRegularExpression', 'filterKeyColumn', 'setFilterKeyColumn',
-  'filterCaseSensitivity', 'setFilterCaseSensitivity', 'sortCaseSensitivity',
-  'setSortCaseSensitivity', 'isSortLocaleAware', 'setSortLocaleAware',
-  'sortColumn', 'sortOrder', 'dynamicSortFilter', 'setDynamicSortFilter',
-  'sortRole', 'setSortRole', 'filterRole', 'setFilterRole',
-  'isRecursiveFilteringEnabled', 'setRecursiveFilteringEnabled',
-  'autoAcceptChildRows', 'setAutoAcceptChildRows',
-  'setFilterRegularExpression', 'setFilterWildcard', 'setFilterFixedString',
-  'invalidate', 'index', 'parent', 'sibling', 'rowCount', 'columnCount',
-  'hasChildren', 'data', 'setData', 'headerData', 'setHeaderData',
-  'dropMimeData', 'insertRows', 'insertColumns', 'removeRows',
-  'removeColumns', 'fetchMore', 'canFetchMore', 'flags', 'buddy', 'span',
-  'sort', 'supportedDropActions'. It can be made from Python, in 1 way; see
-  '__init__'.
+  Python can call so far, 54 names in all: 'metaObject', 'tr',
+  'setSourceModel', 'mapToSource', 'mapFromSource', 'mapSelectionToSource',
+  'mapSelectionFromSource', 'filterRegularExpression', 'filterKeyColumn',
+  'setFilterKeyColumn', 'filterCaseSensitivity', 'setFilterCaseSensitivity',
+  'sortCaseSensitivity', 'setSortCaseSensitivity', 'isSortLocaleAware',
+  'setSortLocaleAware', 'sortColumn', 'sortOrder', 'dynamicSortFilter',
+  'setDynamicSortFilter', 'sortRole', 'setSortRole', 'filterRole',
+  'setFilterRole', 'isRecursiveFilteringEnabled',
+  'setRecursiveFilteringEnabled', 'autoAcceptChildRows',
+  'setAutoAcceptChildRows', 'setFilterRegularExpression',
+  'setFilterWildcard', 'setFilterFixedString', 'invalidate', 'index',
+  'parent', 'sibling', 'rowCount', 'columnCount', 'hasChildren', 'data',
+  'setData', 'headerData', 'setHeaderData', 'dropMimeData', 'insertRows',
+  'insertColumns', 'removeRows', 'removeColumns', 'fetchMore',
+  'canFetchMore', 'flags', 'buddy', 'span', 'sort', 'supportedDropActions'.
+  It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QSortFilterProxyModel::~QSortFilterProxyModel()': the destructor:
     Python never removes a C++ QSortFilterProxyModel.
-  - Qt's 'QItemSelection QSortFilterProxyModel::mapSelectionToSource(const
-    QItemSelection &proxySelection) const': names 'QItemSelection', which has
-    no cute class yet.
-  - Qt's 'QItemSelection QSortFilterProxyModel::mapSelectionFromSource(const
-    QItemSelection &sourceSelection) const': names 'QItemSelection', which
-    has no cute class yet.
 
   What has no ritual
   ------------------
@@ -101,10 +97,10 @@ class QSortFilterProxyModel(QAbstractProxyModel):
 
   #  The enums Qt writes inside QSortFilterProxyModel, and the names Qt has
   #  for the combinations of its flags enums.
-  DataChangeRelevanceFlag = DataChangeRelevanceFlag
-  DataChangeRelevanceFlags = DataChangeRelevanceFlag
-  Direction = Direction
-  Directions = Direction
+  DataChangeRelevanceFlag = QSortFilterProxyModelDataChangeRelevanceFlag
+  DataChangeRelevanceFlags = QSortFilterProxyModelDataChangeRelevanceFlag
+  Direction = QSortFilterProxyModelDirection
+  Directions = QSortFilterProxyModelDirection
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -192,6 +188,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     address = self.uglySide.call(
         'ritual_ZNK21QSortFilterProxyModel10metaObjectEv',
     )
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   @overload(QModelIndex)
@@ -222,6 +219,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
         'ritual_ZNK21QSortFilterProxyModel11mapToSourceERK11QModelIndex',
         self._valueOf(proxyIndex),
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -252,7 +250,80 @@ class QSortFilterProxyModel(QAbstractProxyModel):
         'ritual_ZNK21QSortFilterProxyModel13mapFromSourceERK11QModelIndex',
         self._valueOf(sourceIndex),
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
+
+  @overload(QItemSelection)
+  def mapSelectionToSource(
+      self,
+      proxySelection: QItemSelection,
+  ) -> QItemSelection:
+    """
+    Calls Qt's 'QItemSelection
+    QSortFilterProxyModel::mapSelectionToSource(const QItemSelection
+    &proxySelection) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#mapSelectionToSource
+
+    Parameters
+    ----------
+
+    proxySelection : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QItemSelection
+      A new cute QItemSelection around the copy Qt gave back. Python owns it.
+    """
+    #  QItemSelection QSortFilterProxyModel::mapSelectionToSource(const
+    #      QItemSelection &proxySelection) const
+    address = self.uglySide.call(
+        'ritual_ZNK21QSortFilterProxyModel20mapSelectionToSourceERK14QItemS'
+        'election',
+        self._valueOf(proxySelection),
+    )
+    from . import QItemSelection
+    return QItemSelection._cuteOwning(address)
+
+  @overload(QItemSelection)
+  def mapSelectionFromSource(
+      self,
+      sourceSelection: QItemSelection,
+  ) -> QItemSelection:
+    """
+    Calls Qt's 'QItemSelection
+    QSortFilterProxyModel::mapSelectionFromSource(const QItemSelection
+    &sourceSelection) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#mapSelectionFromSource
+
+    Parameters
+    ----------
+
+    sourceSelection : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QItemSelection
+      A new cute QItemSelection around the copy Qt gave back. Python owns it.
+    """
+    #  QItemSelection QSortFilterProxyModel::mapSelectionFromSource(const
+    #      QItemSelection &sourceSelection) const
+    address = self.uglySide.call(
+        'ritual_ZNK21QSortFilterProxyModel22mapSelectionFromSourceERK14QIte'
+        'mSelection',
+        self._valueOf(sourceSelection),
+    )
+    from . import QItemSelection
+    return QItemSelection._cuteOwning(address)
 
   def filterRegularExpression(self) -> QRegularExpression:
     """
@@ -274,6 +345,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     address = self.uglySide.call(
         'ritual_ZNK21QSortFilterProxyModel23filterRegularExpressionEv',
     )
+    from . import QRegularExpression
     return QRegularExpression._cuteOwning(address)
 
   def filterKeyColumn(self) -> int:
@@ -471,11 +543,13 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     #  QModelIndex QSortFilterProxyModel::index(int row, int column, const
     #      QModelIndex &parent) const
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     address = self.uglySide.call(
         'ritual_ZNK21QSortFilterProxyModel5indexEiiRK11QModelIndex',
         row, column, self._valueOf(parent),
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -505,6 +579,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
         'ritual_ZNK21QSortFilterProxyModel6parentERK11QModelIndex',
         self._valueOf(child),
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(int, int, QModelIndex)
@@ -540,6 +615,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
         'ritual_ZNK21QSortFilterProxyModel7siblingEiiRK11QModelIndex',
         row, column, self._valueOf(idx),
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload()
@@ -562,6 +638,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     """
     #  int QSortFilterProxyModel::rowCount(const QModelIndex &parent) const
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZNK21QSortFilterProxyModel8rowCountERK11QModelIndex',
@@ -589,6 +666,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     #  int QSortFilterProxyModel::columnCount(const QModelIndex &parent)
     #      const
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZNK21QSortFilterProxyModel11columnCountERK11QModelIndex',
@@ -616,6 +694,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     #  bool QSortFilterProxyModel::hasChildren(const QModelIndex &parent)
     #      const
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZNK21QSortFilterProxyModel11hasChildrenERK11QModelIndex',
@@ -653,6 +732,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
         'ritual_ZNK21QSortFilterProxyModel4dataERK11QModelIndexi',
         self._valueOf(index), role,
     )
+    from . import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(int, Qt.Orientation)
@@ -694,6 +774,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
         'ritual_ZNK21QSortFilterProxyModel10headerDataEiN2Qt11OrientationEi',
         section, orientation.value, role,
     )
+    from . import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -774,6 +855,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
         'ritual_ZNK21QSortFilterProxyModel5buddyERK11QModelIndex',
         self._valueOf(index),
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -802,6 +884,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
         'ritual_ZNK21QSortFilterProxyModel4spanERK11QModelIndex',
         self._valueOf(index),
     )
+    from . import QSize
     return QSize._cuteOwning(address)
 
   def supportedDropActions(self) -> Qt.DropActions:
@@ -1355,6 +1438,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     #  bool QSortFilterProxyModel::insertRows(int row, int count, const
     #      QModelIndex &parent)
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZN21QSortFilterProxyModel10insertRowsEiiRK11QModelIndex',
@@ -1393,6 +1477,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     #  bool QSortFilterProxyModel::insertColumns(int column, int count, const
     #      QModelIndex &parent)
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZN21QSortFilterProxyModel13insertColumnsEiiRK11QModelIndex',
@@ -1431,6 +1516,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     #  bool QSortFilterProxyModel::removeRows(int row, int count, const
     #      QModelIndex &parent)
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZN21QSortFilterProxyModel10removeRowsEiiRK11QModelIndex',
@@ -1469,6 +1555,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     #  bool QSortFilterProxyModel::removeColumns(int column, int count, const
     #      QModelIndex &parent)
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZN21QSortFilterProxyModel13removeColumnsEiiRK11QModelIndex',

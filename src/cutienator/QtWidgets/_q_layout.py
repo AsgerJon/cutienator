@@ -12,21 +12,25 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_layout_item import QLayoutItem
-from ..QtCore import QMargins
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_size_policy import QSizePolicy
-from ._q_widget import QWidget
-from ._q_layout_size_constraint import SizeConstraint
+from ..QtCore import Qt, QObject
+from . import QLayoutSizeConstraint, QSizePolicyControlType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMargins, QMetaObject, QRect, QSize
+  from . import QLayoutItem, QSizePolicy, QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QLayoutItem = WAIT['QLayoutItem']
+  QMargins = WAIT['QMargins']
+  QRect = WAIT['QRect']
+  QSize = WAIT['QSize']
+  QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -93,7 +97,7 @@ class QLayout(QObject):
 
   #  The enums Qt writes inside QLayout, and the names Qt has for the
   #  combinations of its flags enums.
-  SizeConstraint = SizeConstraint
+  SizeConstraint = QLayoutSizeConstraint
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -172,6 +176,7 @@ class QLayout(QObject):
         'ritual_ZN7QLayout21closestAcceptableSizeEPK7QWidgetRK5QSize',
         CuteMixin._addressOf(w), CuteMixin._valueOf(s),
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -209,6 +214,7 @@ class QLayout(QObject):
     """
     #  const QMetaObject *QLayout::metaObject() const
     address = self.uglySide.call('ritual_ZNK7QLayout10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def spacing(self) -> int:
@@ -234,6 +240,7 @@ class QLayout(QObject):
     """
     #  QMargins QLayout::contentsMargins() const
     address = self.uglySide.call('ritual_ZNK7QLayout15contentsMarginsEv')
+    from ..QtCore import QMargins
     return QMargins._cuteOwning(address)
 
   def contentsRect(self) -> QRect:
@@ -250,6 +257,7 @@ class QLayout(QObject):
     """
     #  QRect QLayout::contentsRect() const
     address = self.uglySide.call('ritual_ZNK7QLayout12contentsRectEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def sizeConstraint(self) -> SizeConstraint:
@@ -267,7 +275,7 @@ class QLayout(QObject):
       gives.
     """
     #  SizeConstraint QLayout::sizeConstraint() const
-    return SizeConstraint(self.uglySide.call(
+    return QLayout.SizeConstraint(self.uglySide.call(
         'ritual_ZNK7QLayout14sizeConstraintEv',
     ))
 
@@ -287,7 +295,7 @@ class QLayout(QObject):
       gives.
     """
     #  SizeConstraint QLayout::horizontalSizeConstraint() const
-    return SizeConstraint(self.uglySide.call(
+    return QLayout.SizeConstraint(self.uglySide.call(
         'ritual_ZNK7QLayout24horizontalSizeConstraintEv',
     ))
 
@@ -307,7 +315,7 @@ class QLayout(QObject):
       gives.
     """
     #  SizeConstraint QLayout::verticalSizeConstraint() const
-    return SizeConstraint(self.uglySide.call(
+    return QLayout.SizeConstraint(self.uglySide.call(
         'ritual_ZNK7QLayout22verticalSizeConstraintEv',
     ))
 
@@ -326,6 +334,7 @@ class QLayout(QObject):
     """
     #  QWidget *QLayout::menuBar() const
     address = self.uglySide.call('ritual_ZNK7QLayout7menuBarEv')
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   def parentWidget(self) -> Optional[QWidget]:
@@ -343,6 +352,7 @@ class QLayout(QObject):
     """
     #  QWidget *QLayout::parentWidget() const
     address = self.uglySide.call('ritual_ZNK7QLayout12parentWidgetEv')
+    from . import QWidget
     return QWidget._cuteAt(address)
 
   def geometry(self) -> QRect:
@@ -359,6 +369,7 @@ class QLayout(QObject):
     """
     #  QRect QLayout::geometry() const
     address = self.uglySide.call('ritual_ZNK7QLayout8geometryEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def expandingDirections(self) -> Qt.Orientations:
@@ -392,6 +403,7 @@ class QLayout(QObject):
     """
     #  QSize QLayout::minimumSize() const
     address = self.uglySide.call('ritual_ZNK7QLayout11minimumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def maximumSize(self) -> QSize:
@@ -408,6 +420,7 @@ class QLayout(QObject):
     """
     #  QSize QLayout::maximumSize() const
     address = self.uglySide.call('ritual_ZNK7QLayout11maximumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(int)
@@ -432,6 +445,7 @@ class QLayout(QObject):
     """
     #  QLayoutItem *QLayout::itemAt(int index) const
     address = self.uglySide.call('ritual_ZNK7QLayout6itemAtEi', index)
+    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   @overload(QWidget)
@@ -504,7 +518,7 @@ class QLayout(QObject):
       The value standing for the combination Qt gave back.
     """
     #  QSizePolicy::ControlTypes QLayout::controlTypes() const
-    return QSizePolicy.ControlTypes(self.uglySide.call(
+    return QSizePolicyControlType(self.uglySide.call(
         'ritual_ZNK7QLayout12controlTypesEv',
     ))
 
@@ -557,6 +571,7 @@ class QLayout(QObject):
     """
     #  QSize QLayout::totalMinimumSize() const
     address = self.uglySide.call('ritual_ZNK7QLayout16totalMinimumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def totalMaximumSize(self) -> QSize:
@@ -573,6 +588,7 @@ class QLayout(QObject):
     """
     #  QSize QLayout::totalMaximumSize() const
     address = self.uglySide.call('ritual_ZNK7QLayout16totalMaximumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def totalSizeHint(self) -> QSize:
@@ -589,6 +605,7 @@ class QLayout(QObject):
     """
     #  QSize QLayout::totalSizeHint() const
     address = self.uglySide.call('ritual_ZNK7QLayout13totalSizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def isEnabled(self) -> bool:
@@ -1048,6 +1065,7 @@ class QLayout(QObject):
     """
     #  QLayoutItem *QLayout::takeAt(int index)
     address = self.uglySide.call('ritual_ZN7QLayout6takeAtEi', index)
+    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   @overload(QWidget, QWidget)
@@ -1100,6 +1118,7 @@ class QLayout(QObject):
         'ldOptionEE',
         self._addressOf(from_), self._addressOf(to), options.value,
     )
+    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   def layout(self) -> Optional[QLayout]:

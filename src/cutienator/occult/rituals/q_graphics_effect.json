@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicseffect.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QGraphicsEffect10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGraphicsEffect2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QGraphicsEffectD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QGraphicsEffect15boundingRectForERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QGraphicsEffect12boundingRectEv": ["address", "address"],
+    "ritual_ZNK15QGraphicsEffect9isEnabledEv": ["bool", "address"],
+    "ritual_ZN15QGraphicsEffect10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QGraphicsEffect6updateEv": ["nothing", "address"]
+  }
+}

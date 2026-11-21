@@ -13,18 +13,23 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ._q_abstract_item_view import QAbstractItemView
-from ..QtCore import QItemSelectionModel
-from ._q_list_view import QListView
-from ..QtCore import QMetaObject
-from ..QtCore import QModelIndex
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ._q_widget import QWidget
+from ..QtCore import Qt, QItemSelectionModelSelectionFlag
+from . import QAbstractItemView, QListView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
+  from ..QtCore import QRect
+  from . import QListWidgetItem
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QItemSelectionModel = WAIT['QItemSelectionModel']
+  QListWidgetItem = WAIT['QListWidgetItem']
+  QModelIndex = WAIT['QModelIndex']
+  QPoint = WAIT['QPoint']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -81,10 +86,6 @@ class QListWidget(QListView):
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
   """
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QListWidgetItem = WAIT['QListWidgetItem']
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -168,6 +169,7 @@ class QListWidget(QListView):
     """
     #  const QMetaObject *QListWidget::metaObject() const
     address = self.uglySide.call('ritual_ZNK11QListWidget10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   @overload(int)
@@ -192,23 +194,23 @@ class QListWidget(QListView):
     """
     #  QListWidgetItem *QListWidget::item(int row) const
     address = self.uglySide.call('ritual_ZNK11QListWidget4itemEi', row)
-    return self.QListWidgetItem._cuteAt(address)
+    from . import QListWidgetItem
+    return QListWidgetItem._cuteAt(address)
 
   @overload(QListWidgetItem)
-  def row(self, item: QListWidgetItem) -> int:
+  @overload(NoneType)
+  def row(self, item: Optional[QListWidgetItem]) -> int:
     """
     Calls Qt's 'int QListWidget::row(const QListWidgetItem *item) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#row
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  int QListWidget::row(const QListWidgetItem *item) const
     return self.uglySide.call(
@@ -240,7 +242,8 @@ class QListWidget(QListView):
     """
     #  QListWidgetItem *QListWidget::currentItem() const
     address = self.uglySide.call('ritual_ZNK11QListWidget11currentItemEv')
-    return self.QListWidgetItem._cuteAt(address)
+    from . import QListWidgetItem
+    return QListWidgetItem._cuteAt(address)
 
   def currentRow(self) -> int:
     """
@@ -276,7 +279,8 @@ class QListWidget(QListView):
     address = self.uglySide.call(
         'ritual_ZNK11QListWidget6itemAtERK6QPoint', self._valueOf(p),
     )
-    return self.QListWidgetItem._cuteAt(address)
+    from . import QListWidgetItem
+    return QListWidgetItem._cuteAt(address)
 
   @overload(int, int)
   def itemAt(self, x: int, y: int) -> Optional[QListWidgetItem]:
@@ -303,24 +307,24 @@ class QListWidget(QListView):
     """
     #  QListWidgetItem *QListWidget::itemAt(int x, int y) const
     address = self.uglySide.call('ritual_ZNK11QListWidget6itemAtEii', x, y)
-    return self.QListWidgetItem._cuteAt(address)
+    from . import QListWidgetItem
+    return QListWidgetItem._cuteAt(address)
 
   @overload(QListWidgetItem)
-  def visualItemRect(self, item: QListWidgetItem) -> QRect:
+  @overload(NoneType)
+  def visualItemRect(self, item: Optional[QListWidgetItem]) -> QRect:
     """
     Calls Qt's 'QRect QListWidget::visualItemRect(const QListWidgetItem
     *item) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#visualItemRect
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     Returns
     -------
@@ -333,6 +337,7 @@ class QListWidget(QListView):
         'ritual_ZNK11QListWidget14visualItemRectEPK15QListWidgetItem',
         self._addressOf(item),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def isSortingEnabled(self) -> bool:
@@ -345,7 +350,8 @@ class QListWidget(QListView):
     return self.uglySide.call('ritual_ZNK11QListWidget16isSortingEnabledEv')
 
   @overload(QListWidgetItem)
-  def isPersistentEditorOpen(self, item: QListWidgetItem) -> bool:
+  @overload(NoneType)
+  def isPersistentEditorOpen(self, item: Optional[QListWidgetItem]) -> bool:
     """
     Calls Qt's 'bool QListWidget::isPersistentEditorOpen(QListWidgetItem
     *item) const'.
@@ -353,14 +359,12 @@ class QListWidget(QListView):
     Qt's own words:
     https://doc.qt.io/qt-6/qlistwidget.html#isPersistentEditorOpen
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  bool QListWidget::isPersistentEditorOpen(QListWidgetItem *item) const
     return self.uglySide.call(
@@ -369,21 +373,20 @@ class QListWidget(QListView):
     )
 
   @overload(QListWidgetItem)
-  def itemWidget(self, item: QListWidgetItem) -> Optional[QWidget]:
+  @overload(NoneType)
+  def itemWidget(self, item: Optional[QListWidgetItem]) -> Optional[QWidget]:
     """
     Calls Qt's 'QWidget *QListWidget::itemWidget(QListWidgetItem *item)
     const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#itemWidget
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     Returns
     -------
@@ -400,21 +403,20 @@ class QListWidget(QListView):
     return QWidget._cuteAt(address)
 
   @overload(QListWidgetItem)
-  def indexFromItem(self, item: QListWidgetItem) -> QModelIndex:
+  @overload(NoneType)
+  def indexFromItem(self, item: Optional[QListWidgetItem]) -> QModelIndex:
     """
     Calls Qt's 'QModelIndex QListWidget::indexFromItem(const QListWidgetItem
     *item) const'.
 
     Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#indexFromItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     Returns
     -------
@@ -428,6 +430,7 @@ class QListWidget(QListView):
         'ritual_ZNK11QListWidget13indexFromItemEPK15QListWidgetItem',
         self._addressOf(item),
     )
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -458,7 +461,8 @@ class QListWidget(QListView):
         'ritual_ZNK11QListWidget13itemFromIndexERK11QModelIndex',
         self._valueOf(index),
     )
-    return self.QListWidgetItem._cuteAt(address)
+    from . import QListWidgetItem
+    return QListWidgetItem._cuteAt(address)
 
   def supportedDragActions(self) -> Qt.DropActions:
     """
@@ -509,20 +513,19 @@ class QListWidget(QListView):
     )
 
   @overload(QListWidgetItem)
-  def setCurrentItem(self, item: QListWidgetItem) -> None:
+  @overload(NoneType)
+  def setCurrentItem(self, item: Optional[QListWidgetItem]) -> None:
     """
     Calls Qt's 'void QListWidget::setCurrentItem(QListWidgetItem *item)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#setCurrentItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QListWidget::setCurrentItem(QListWidgetItem *item)
     self.uglySide.call(
@@ -530,10 +533,11 @@ class QListWidget(QListView):
         self._addressOf(item),
     )
 
-  @overload(QListWidgetItem, QItemSelectionModel.SelectionFlags)
+  @overload(QListWidgetItem, QItemSelectionModelSelectionFlag)
+  @overload(NoneType, QItemSelectionModelSelectionFlag)
   def setCurrentItem(
       self,
-      item: QListWidgetItem,
+      item: Optional[QListWidgetItem],
       command: QItemSelectionModel.SelectionFlags,
   ) -> None:
     """
@@ -542,14 +546,12 @@ class QListWidget(QListView):
 
     Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#setCurrentItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     command : QItemSelectionModel.SelectionFlags
       Passed on as its number.
@@ -578,7 +580,7 @@ class QListWidget(QListView):
     #  void QListWidget::setCurrentRow(int row)
     self.uglySide.call('ritual_ZN11QListWidget13setCurrentRowEi', row)
 
-  @overload(int, QItemSelectionModel.SelectionFlags)
+  @overload(int, QItemSelectionModelSelectionFlag)
   def setCurrentRow(
       self,
       row: int,
@@ -624,24 +626,30 @@ class QListWidget(QListView):
     self.uglySide.call('ritual_ZN11QListWidget17setSortingEnabledEb', enable)
 
   @overload(QListWidgetItem, QWidget)
-  def setItemWidget(self, item: QListWidgetItem, widget: QWidget) -> None:
+  @overload(QListWidgetItem, NoneType)
+  @overload(NoneType, QWidget)
+  @overload(NoneType, NoneType)
+  def setItemWidget(
+      self,
+      item: Optional[QListWidgetItem],
+      widget: Optional[QWidget],
+  ) -> None:
     """
     Calls Qt's 'void QListWidget::setItemWidget(QListWidgetItem *item,
     QWidget *widget)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#setItemWidget
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
-    widget : QWidget
-      Passed on as the address of its C++ object.
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QListWidget::setItemWidget(QListWidgetItem *item, QWidget
     #      *widget)
@@ -727,15 +735,13 @@ class QListWidget(QListView):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @overload(int, QListWidgetItem)
-  def insertItem(self, row: int, item: QListWidgetItem) -> None:
+  @overload(int, NoneType)
+  def insertItem(self, row: int, item: Optional[QListWidgetItem]) -> None:
     """
     Calls Qt's 'void QListWidget::insertItem(int row, QListWidgetItem
     *item)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#insertItem
-
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
 
     Parameters
     ----------
@@ -743,8 +749,9 @@ class QListWidget(QListView):
     row : int
       Passed on as it is.
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QListWidget::insertItem(int row, QListWidgetItem *item)
     self.uglySide.call(
@@ -790,20 +797,19 @@ class QListWidget(QListView):
     self.uglySide.call('ritual_ZN11QListWidget7addItemERK7QString', label)
 
   @overload(QListWidgetItem)
-  def addItem(self, item: QListWidgetItem) -> None:
+  @overload(NoneType)
+  def addItem(self, item: Optional[QListWidgetItem]) -> None:
     """
     Calls Qt's 'void QListWidget::addItem(QListWidgetItem *item)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#addItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QListWidget::addItem(QListWidgetItem *item)
     self.uglySide.call(
@@ -833,7 +839,8 @@ class QListWidget(QListView):
     """
     #  QListWidgetItem *QListWidget::takeItem(int row)
     address = self.uglySide.call('ritual_ZN11QListWidget8takeItemEi', row)
-    return self.QListWidgetItem._cuteAt(address)
+    from . import QListWidgetItem
+    return QListWidgetItem._cuteAt(address)
 
   @overload()
   @overload(Qt.SortOrder)
@@ -859,20 +866,19 @@ class QListWidget(QListView):
     )
 
   @overload(QListWidgetItem)
-  def editItem(self, item: QListWidgetItem) -> None:
+  @overload(NoneType)
+  def editItem(self, item: Optional[QListWidgetItem]) -> None:
     """
     Calls Qt's 'void QListWidget::editItem(QListWidgetItem *item)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#editItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QListWidget::editItem(QListWidgetItem *item)
     self.uglySide.call(
@@ -881,7 +887,8 @@ class QListWidget(QListView):
     )
 
   @overload(QListWidgetItem)
-  def openPersistentEditor(self, item: QListWidgetItem) -> None:
+  @overload(NoneType)
+  def openPersistentEditor(self, item: Optional[QListWidgetItem]) -> None:
     """
     Calls Qt's 'void QListWidget::openPersistentEditor(QListWidgetItem
     *item)'.
@@ -889,14 +896,12 @@ class QListWidget(QListView):
     Qt's own words:
     https://doc.qt.io/qt-6/qlistwidget.html#openPersistentEditor
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QListWidget::openPersistentEditor(QListWidgetItem *item)
     self.uglySide.call(
@@ -905,7 +910,8 @@ class QListWidget(QListView):
     )
 
   @overload(QListWidgetItem)
-  def closePersistentEditor(self, item: QListWidgetItem) -> None:
+  @overload(NoneType)
+  def closePersistentEditor(self, item: Optional[QListWidgetItem]) -> None:
     """
     Calls Qt's 'void QListWidget::closePersistentEditor(QListWidgetItem
     *item)'.
@@ -913,14 +919,12 @@ class QListWidget(QListView):
     Qt's own words:
     https://doc.qt.io/qt-6/qlistwidget.html#closePersistentEditor
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QListWidget::closePersistentEditor(QListWidgetItem *item)
     self.uglySide.call(
@@ -929,20 +933,19 @@ class QListWidget(QListView):
     )
 
   @overload(QListWidgetItem)
-  def removeItemWidget(self, item: QListWidgetItem) -> None:
+  @overload(NoneType)
+  def removeItemWidget(self, item: Optional[QListWidgetItem]) -> None:
     """
     Calls Qt's 'void QListWidget::removeItemWidget(QListWidgetItem *item)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#removeItemWidget
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QListWidget::removeItemWidget(QListWidgetItem *item)
     self.uglySide.call(
@@ -950,11 +953,15 @@ class QListWidget(QListView):
         self._addressOf(item),
     )
 
+  @overload(QListWidgetItem)
+  @overload(NoneType)
   @overload(QListWidgetItem, QAbstractItemView.ScrollHint)
+  @overload(NoneType, QAbstractItemView.ScrollHint)
   def scrollToItem(
       self,
-      item: QListWidgetItem,
-      hint: QAbstractItemView.ScrollHint,
+      item: Optional[QListWidgetItem],
+      hint: QAbstractItemView.ScrollHint = (
+          QAbstractItemView.ScrollHint.EnsureVisible),
   ) -> None:
     """
     Calls Qt's 'void QListWidget::scrollToItem(const QListWidgetItem *item,
@@ -962,17 +969,16 @@ class QListWidget(QListView):
 
     Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#scrollToItem
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    item : QListWidgetItem
-      Passed on as the address of its C++ object.
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
 
     hint : QAbstractItemView.ScrollHint
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      QAbstractItemView.ScrollHint.EnsureVisible.
     """
     #  void QListWidget::scrollToItem(const QListWidgetItem *item,
     #      QAbstractItemView::ScrollHint hint)

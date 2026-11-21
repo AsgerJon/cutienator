@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qstorageinfo.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QStorageInfoC1Ev": ["address"],
+    "ritual_ZN12QStorageInfoC1ERK7QString": ["address", "text"],
+    "ritual_ZN12QStorageInfoC1ERK4QDir": ["address", "address"],
+    "ritual_ZN12QStorageInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN12QStorageInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN12QStorageInfo7setPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QStorageInfo8rootPathEv": ["text", "address"],
+    "ritual_ZNK12QStorageInfo6deviceEv": ["address", "address"],
+    "ritual_ZNK12QStorageInfo9subvolumeEv": ["address", "address"],
+    "ritual_ZNK12QStorageInfo14fileSystemTypeEv": ["address", "address"],
+    "ritual_ZNK12QStorageInfo4nameEv": ["text", "address"],
+    "ritual_ZNK12QStorageInfo11displayNameEv": ["text", "address"],
+    "ritual_ZNK12QStorageInfo10bytesTotalEv": ["long long", "address"],
+    "ritual_ZNK12QStorageInfo9bytesFreeEv": ["long long", "address"],
+    "ritual_ZNK12QStorageInfo14bytesAvailableEv": ["long long", "address"],
+    "ritual_ZNK12QStorageInfo9blockSizeEv": ["int", "address"],
+    "ritual_ZNK12QStorageInfo6isRootEv": ["bool", "address"],
+    "ritual_ZNK12QStorageInfo10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZNK12QStorageInfo7isReadyEv": ["bool", "address"],
+    "ritual_ZNK12QStorageInfo7isValidEv": ["bool", "address"],
+    "ritual_ZN12QStorageInfo7refreshEv": ["nothing", "address"],
+    "ritual_ZN12QStorageInfo4rootEv": ["address"]
+  }
+}

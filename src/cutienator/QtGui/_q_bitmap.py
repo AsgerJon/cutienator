@@ -11,16 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_image import QImage
-from ._q_pixmap import QPixmap
-from ..QtCore import QSize
-from ._q_transform import QTransform
+from . import QPixmap
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QSize
+  from . import QImage, QTransform
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QImage = WAIT['QImage']
+  QSize = WAIT['QSize']
+  QTransform = WAIT['QTransform']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.

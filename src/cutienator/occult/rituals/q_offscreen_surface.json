@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qoffscreensurface.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QOffscreenSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QOffscreenSurface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QOffscreenSurfaceC1EP7QScreenP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QOffscreenSurfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QOffscreenSurface11surfaceTypeEv": ["int", "address"],
+    "ritual_ZN17QOffscreenSurface6createEv": ["nothing", "address"],
+    "ritual_ZN17QOffscreenSurface7destroyEv": ["nothing", "address"],
+    "ritual_ZNK17QOffscreenSurface7isValidEv": ["bool", "address"],
+    "ritual_ZN17QOffscreenSurface9setFormatERK14QSurfaceFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QOffscreenSurface6formatEv": ["address", "address"],
+    "ritual_ZNK17QOffscreenSurface15requestedFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QOffscreenSurface4sizeEv": ["address", "address"],
+    "ritual_ZNK17QOffscreenSurface6screenEv": ["address", "address"],
+    "ritual_ZN17QOffscreenSurface9setScreenEP7QScreen": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qplaintextedit.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QPlainTextDocumentLayout10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QPlainTextDocumentLayout2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QPlainTextDocumentLayoutC1EP13QTextDocument": [
+      "address", "address"
+    ],
+    "ritual_ZN24QPlainTextDocumentLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZN24QPlainTextDocumentLayout4drawEP8QPainterRKN27QAbstractTextDocumentLayout12PaintContextE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK24QPlainTextDocumentLayout7hitTestERK7QPointFN2Qt15HitTestAccuracyE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK24QPlainTextDocumentLayout9pageCountEv": ["int", "address"],
+    "ritual_ZNK24QPlainTextDocumentLayout12documentSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QPlainTextDocumentLayout17frameBoundingRectEP10QTextFrame": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QPlainTextDocumentLayout17blockBoundingRectERK10QTextBlock": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QPlainTextDocumentLayout17ensureBlockLayoutERK10QTextBlock": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QPlainTextDocumentLayout14setCursorWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QPlainTextDocumentLayout11cursorWidthEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QPlainTextDocumentLayout13requestUpdateEv": [
+      "nothing", "address"
+    ]
+  }
+}

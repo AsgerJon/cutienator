@@ -14,13 +14,12 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QMetaObject
-from ..QtCore import QSize
-from ._q_widget import QWidget
-from ._q_progress_bar_direction import Direction
+from . import QProgressBarDirection, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QSize
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -78,7 +77,7 @@ class QProgressBar(QWidget):
 
   #  The enums Qt writes inside QProgressBar, and the names Qt has for the
   #  combinations of its flags enums.
-  Direction = Direction
+  Direction = QProgressBarDirection
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -162,6 +161,7 @@ class QProgressBar(QWidget):
     """
     #  const QMetaObject *QProgressBar::metaObject() const
     address = self.uglySide.call('ritual_ZNK12QProgressBar10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def minimum(self) -> int:
@@ -246,6 +246,7 @@ class QProgressBar(QWidget):
     """
     #  QSize QProgressBar::sizeHint() const
     address = self.uglySide.call('ritual_ZNK12QProgressBar8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -264,6 +265,7 @@ class QProgressBar(QWidget):
     address = self.uglySide.call(
         'ritual_ZNK12QProgressBar15minimumSizeHintEv',
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def orientation(self) -> Qt.Orientation:
@@ -311,7 +313,7 @@ class QProgressBar(QWidget):
       no name it is the member without a name that 'Direction(number)' gives.
     """
     #  QProgressBar::Direction QProgressBar::textDirection() const
-    return Direction(self.uglySide.call(
+    return QProgressBar.Direction(self.uglySide.call(
         'ritual_ZNK12QProgressBar13textDirectionEv',
     ))
 

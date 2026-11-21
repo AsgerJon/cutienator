@@ -11,26 +11,31 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QAction
-from ._q_completer import QCompleter
-from ..QtCore import QEvent
-from ..QtGui import QIcon
-from ..QtCore import QMargins
-from ._q_menu import QMenu
-from ..QtCore import QMetaObject
-from ..QtCore import QPoint
-from ..QtCore import QSize
-from ..QtGui import QValidator
-from ..QtCore import QVariant
-from ._q_widget import QWidget
-from ._q_line_edit_action_position import ActionPosition
-from ._q_line_edit_echo_mode import EchoMode
+from . import QLineEditActionPosition, QLineEditEchoMode, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QEvent, QMargins, QMetaObject, QPoint, QSize
+  from ..QtCore import QTimerEvent, QVariant
+  from ..QtGui import QAction, QIcon, QValidator
+  from . import QCompleter, QMenu
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAction = WAIT['QAction']
+  QCompleter = WAIT['QCompleter']
+  QEvent = WAIT['QEvent']
+  QIcon = WAIT['QIcon']
+  QMargins = WAIT['QMargins']
+  QPoint = WAIT['QPoint']
+  QTimerEvent = WAIT['QTimerEvent']
+  QValidator = WAIT['QValidator']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -49,7 +54,7 @@ class QLineEdit(QWidget):
   -----------
 
   Every function of Qt's QLineEdit that has a ritual and that Python can call
-  so far, 68 names in all: 'metaObject', 'tr', 'text', 'displayText',
+  so far, 69 names in all: 'metaObject', 'tr', 'text', 'displayText',
   'placeholderText', 'setPlaceholderText', 'maxLength', 'setMaxLength',
   'setFrame', 'hasFrame', 'setClearButtonEnabled', 'isClearButtonEnabled',
   'echoMode', 'setEchoMode', 'isReadOnly', 'setReadOnly', 'setValidator',
@@ -63,16 +68,14 @@ class QLineEdit(QWidget):
   'cursorMoveStyle', 'inputMask', 'setInputMask', 'hasAcceptableInput',
   'setTextMargins', 'textMargins', 'addAction', 'setText', 'clear',
   'selectAll', 'undo', 'redo', 'cut', 'copy', 'paste', 'deselect', 'insert',
-  'createStandardContextMenu', 'inputMethodQuery', 'event'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  'createStandardContextMenu', 'inputMethodQuery', 'timerEvent', 'event'. It
+  can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QLineEdit::~QLineEdit()': the destructor: Python never removes a
     C++ QLineEdit.
-  - Qt's 'void QLineEdit::timerEvent(QTimerEvent *a0)': names 'QTimerEvent',
-    which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -97,8 +100,8 @@ class QLineEdit(QWidget):
 
   #  The enums Qt writes inside QLineEdit, and the names Qt has for the
   #  combinations of its flags enums.
-  ActionPosition = ActionPosition
-  EchoMode = EchoMode
+  ActionPosition = QLineEditActionPosition
+  EchoMode = QLineEditEchoMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -181,6 +184,7 @@ class QLineEdit(QWidget):
     """
     #  const QMetaObject *QLineEdit::metaObject() const
     address = self.uglySide.call('ritual_ZNK9QLineEdit10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def text(self) -> str:
@@ -270,7 +274,9 @@ class QLineEdit(QWidget):
       no name it is the member without a name that 'EchoMode(number)' gives.
     """
     #  EchoMode QLineEdit::echoMode() const
-    return EchoMode(self.uglySide.call('ritual_ZNK9QLineEdit8echoModeEv'))
+    return QLineEdit.EchoMode(self.uglySide.call(
+        'ritual_ZNK9QLineEdit8echoModeEv',
+    ))
 
   def isReadOnly(self) -> bool:
     """
@@ -296,6 +302,7 @@ class QLineEdit(QWidget):
     """
     #  const QValidator *QLineEdit::validator() const
     address = self.uglySide.call('ritual_ZNK9QLineEdit9validatorEv')
+    from ..QtGui import QValidator
     return QValidator._cuteAt(address)
 
   def completer(self) -> Optional[QCompleter]:
@@ -313,6 +320,7 @@ class QLineEdit(QWidget):
     """
     #  QCompleter *QLineEdit::completer() const
     address = self.uglySide.call('ritual_ZNK9QLineEdit9completerEv')
+    from . import QCompleter
     return QCompleter._cuteAt(address)
 
   def sizeHint(self) -> QSize:
@@ -329,6 +337,7 @@ class QLineEdit(QWidget):
     """
     #  QSize QLineEdit::sizeHint() const
     address = self.uglySide.call('ritual_ZNK9QLineEdit8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -345,6 +354,7 @@ class QLineEdit(QWidget):
     """
     #  QSize QLineEdit::minimumSizeHint() const
     address = self.uglySide.call('ritual_ZNK9QLineEdit15minimumSizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def cursorPosition(self) -> int:
@@ -517,6 +527,7 @@ class QLineEdit(QWidget):
     """
     #  QMargins QLineEdit::textMargins() const
     address = self.uglySide.call('ritual_ZNK9QLineEdit11textMarginsEv')
+    from ..QtCore import QMargins
     return QMargins._cuteOwning(address)
 
   @overload(Qt.InputMethodQuery)
@@ -544,6 +555,7 @@ class QLineEdit(QWidget):
         'ritual_ZNK9QLineEdit16inputMethodQueryEN2Qt16InputMethodQueryE',
         a0.value,
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(Qt.InputMethodQuery, QVariant)
@@ -581,6 +593,7 @@ class QLineEdit(QWidget):
         'riant',
         property.value, self._valueOf(argument),
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1212,6 +1225,7 @@ class QLineEdit(QWidget):
         'ritual_ZN9QLineEdit9addActionERK5QIconNS_14ActionPositionE',
         self._valueOf(icon), position.value,
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   def clear(self) -> None:
@@ -1320,7 +1334,29 @@ class QLineEdit(QWidget):
     address = self.uglySide.call(
         'ritual_ZN9QLineEdit25createStandardContextMenuEv',
     )
+    from . import QMenu
     return QMenu._cuteAt(address)
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, a0: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::timerEvent(QTimerEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#timerEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::timerEvent(QTimerEvent *a0)
+    self.uglySide.call(
+        'ritual_ZN9QLineEdit10timerEventEP11QTimerEvent',
+        self._addressOf(a0),
+    )
 
   @overload(QEvent)
   @overload(NoneType)

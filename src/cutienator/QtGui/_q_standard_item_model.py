@@ -11,19 +11,25 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ..QtCore import QAbstractItemModel
-from ..QtCore import QMetaObject
-from ..QtCore import QMimeData
-from ..QtCore import QModelIndex
-from ..QtCore import QObject
-from ._q_standard_item import QStandardItem
-from ..QtCore import QVariant
+from ..QtCore import Qt, QAbstractItemModel, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QMimeData, QModelIndex
+  from ..QtCore import QModelRoleDataSpan, QVariant
+  from . import QStandardItem
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QMimeData = WAIT['QMimeData']
+  QModelIndex = WAIT['QModelIndex']
+  QModelRoleDataSpan = WAIT['QModelRoleDataSpan']
+  QStandardItem = WAIT['QStandardItem']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -42,8 +48,8 @@ class QStandardItemModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QStandardItemModel that has a ritual and that Python
-  can call so far, 42 names in all: 'metaObject', 'tr', 'index', 'parent',
-  'rowCount', 'columnCount', 'hasChildren', 'data', 'setData',
+  can call so far, 43 names in all: 'metaObject', 'tr', 'index', 'parent',
+  'rowCount', 'columnCount', 'hasChildren', 'data', 'multiData', 'setData',
   'clearItemData', 'headerData', 'setHeaderData', 'insertRows',
   'insertColumns', 'removeRows', 'removeColumns', 'flags',
   'supportedDropActions', 'clear', 'sort', 'itemFromIndex', 'indexFromItem',
@@ -59,9 +65,6 @@ class QStandardItemModel(QAbstractItemModel):
 
   - Qt's 'QStandardItemModel::~QStandardItemModel()': the destructor: Python
     never removes a C++ QStandardItemModel.
-  - Qt's 'void QStandardItemModel::multiData(const QModelIndex &index,
-    QModelRoleDataSpan roleDataSpan) const': names 'QModelRoleDataSpan',
-    which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -169,6 +172,7 @@ class QStandardItemModel(QAbstractItemModel):
     address = self.uglySide.call(
         'ritual_ZNK18QStandardItemModel10metaObjectEv',
     )
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   @overload(int, int)
@@ -208,11 +212,13 @@ class QStandardItemModel(QAbstractItemModel):
     #  QModelIndex QStandardItemModel::index(int row, int column, const
     #      QModelIndex &parent) const
     if parent is None:
+      from ..QtCore import QModelIndex
       parent = QModelIndex()
     address = self.uglySide.call(
         'ritual_ZNK18QStandardItemModel5indexEiiRK11QModelIndex',
         row, column, self._valueOf(parent),
     )
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -241,6 +247,7 @@ class QStandardItemModel(QAbstractItemModel):
         'ritual_ZNK18QStandardItemModel6parentERK11QModelIndex',
         self._valueOf(child),
     )
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload()
@@ -262,6 +269,7 @@ class QStandardItemModel(QAbstractItemModel):
     """
     #  int QStandardItemModel::rowCount(const QModelIndex &parent) const
     if parent is None:
+      from ..QtCore import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZNK18QStandardItemModel8rowCountERK11QModelIndex',
@@ -288,6 +296,7 @@ class QStandardItemModel(QAbstractItemModel):
     """
     #  int QStandardItemModel::columnCount(const QModelIndex &parent) const
     if parent is None:
+      from ..QtCore import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZNK18QStandardItemModel11columnCountERK11QModelIndex',
@@ -314,6 +323,7 @@ class QStandardItemModel(QAbstractItemModel):
     """
     #  bool QStandardItemModel::hasChildren(const QModelIndex &parent) const
     if parent is None:
+      from ..QtCore import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZNK18QStandardItemModel11hasChildrenERK11QModelIndex',
@@ -351,6 +361,7 @@ class QStandardItemModel(QAbstractItemModel):
         'ritual_ZNK18QStandardItemModel4dataERK11QModelIndexi',
         self._valueOf(index), role,
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(int, Qt.Orientation)
@@ -391,6 +402,7 @@ class QStandardItemModel(QAbstractItemModel):
         'ritual_ZNK18QStandardItemModel10headerDataEiN2Qt11OrientationEi',
         section, orientation.value, role,
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -469,6 +481,7 @@ class QStandardItemModel(QAbstractItemModel):
         'ritual_ZNK18QStandardItemModel13itemFromIndexERK11QModelIndex',
         self._valueOf(index),
     )
+    from . import QStandardItem
     return QStandardItem._cuteAt(address)
 
   @overload(QStandardItem)
@@ -500,6 +513,7 @@ class QStandardItemModel(QAbstractItemModel):
         'ritual_ZNK18QStandardItemModel13indexFromItemEPK13QStandardItem',
         self._addressOf(item),
     )
+    from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(int)
@@ -531,6 +545,7 @@ class QStandardItemModel(QAbstractItemModel):
     address = self.uglySide.call(
         'ritual_ZNK18QStandardItemModel4itemEii', row, column,
     )
+    from . import QStandardItem
     return QStandardItem._cuteAt(address)
 
   def invisibleRootItem(self) -> Optional[QStandardItem]:
@@ -552,6 +567,7 @@ class QStandardItemModel(QAbstractItemModel):
     address = self.uglySide.call(
         'ritual_ZNK18QStandardItemModel17invisibleRootItemEv',
     )
+    from . import QStandardItem
     return QStandardItem._cuteAt(address)
 
   @overload(int)
@@ -581,6 +597,7 @@ class QStandardItemModel(QAbstractItemModel):
     address = self.uglySide.call(
         'ritual_ZNK18QStandardItemModel20horizontalHeaderItemEi', column,
     )
+    from . import QStandardItem
     return QStandardItem._cuteAt(address)
 
   @overload(int)
@@ -609,6 +626,7 @@ class QStandardItemModel(QAbstractItemModel):
     address = self.uglySide.call(
         'ritual_ZNK18QStandardItemModel18verticalHeaderItemEi', row,
     )
+    from . import QStandardItem
     return QStandardItem._cuteAt(address)
 
   def itemPrototype(self) -> Optional[QStandardItem]:
@@ -630,6 +648,7 @@ class QStandardItemModel(QAbstractItemModel):
     address = self.uglySide.call(
         'ritual_ZNK18QStandardItemModel13itemPrototypeEv',
     )
+    from . import QStandardItem
     return QStandardItem._cuteAt(address)
 
   def sortRole(self) -> int:
@@ -1012,6 +1031,37 @@ class QStandardItemModel(QAbstractItemModel):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QModelIndex, QModelRoleDataSpan)
+  def multiData(
+      self,
+      index: QModelIndex,
+      roleDataSpan: QModelRoleDataSpan,
+  ) -> None:
+    """
+    Calls Qt's 'void QStandardItemModel::multiData(const QModelIndex &index,
+    QModelRoleDataSpan roleDataSpan) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditemmodel.html#multiData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    roleDataSpan : QModelRoleDataSpan
+      Passed on as a value: Qt reads the C++ QModelRoleDataSpan, which stays
+      Python's own.
+    """
+    #  void QStandardItemModel::multiData(const QModelIndex &index,
+    #      QModelRoleDataSpan roleDataSpan) const
+    self.uglySide.call(
+        'ritual_ZNK18QStandardItemModel9multiDataERK11QModelIndex18QModelRo'
+        'leDataSpan',
+        self._valueOf(index), self._valueOf(roleDataSpan),
+    )
+
   @overload(QModelIndex)
   def clearItemData(self, index: QModelIndex) -> bool:
     """
@@ -1065,6 +1115,7 @@ class QStandardItemModel(QAbstractItemModel):
     #  bool QStandardItemModel::insertRows(int row, int count, const
     #      QModelIndex &parent)
     if parent is None:
+      from ..QtCore import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZN18QStandardItemModel10insertRowsEiiRK11QModelIndex',
@@ -1103,6 +1154,7 @@ class QStandardItemModel(QAbstractItemModel):
     #  bool QStandardItemModel::insertColumns(int column, int count, const
     #      QModelIndex &parent)
     if parent is None:
+      from ..QtCore import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZN18QStandardItemModel13insertColumnsEiiRK11QModelIndex',
@@ -1140,6 +1192,7 @@ class QStandardItemModel(QAbstractItemModel):
     #  bool QStandardItemModel::removeRows(int row, int count, const
     #      QModelIndex &parent)
     if parent is None:
+      from ..QtCore import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZN18QStandardItemModel10removeRowsEiiRK11QModelIndex',
@@ -1178,6 +1231,7 @@ class QStandardItemModel(QAbstractItemModel):
     #  bool QStandardItemModel::removeColumns(int column, int count, const
     #      QModelIndex &parent)
     if parent is None:
+      from ..QtCore import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZN18QStandardItemModel13removeColumnsEiiRK11QModelIndex',
@@ -1294,6 +1348,7 @@ class QStandardItemModel(QAbstractItemModel):
     """
     #  bool QStandardItemModel::insertRow(int row, const QModelIndex &parent)
     if parent is None:
+      from ..QtCore import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZN18QStandardItemModel9insertRowEiRK11QModelIndex',
@@ -1328,6 +1383,7 @@ class QStandardItemModel(QAbstractItemModel):
     #  bool QStandardItemModel::insertColumn(int column, const QModelIndex
     #      &parent)
     if parent is None:
+      from ..QtCore import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZN18QStandardItemModel12insertColumnEiRK11QModelIndex',
@@ -1363,6 +1419,7 @@ class QStandardItemModel(QAbstractItemModel):
     address = self.uglySide.call(
         'ritual_ZN18QStandardItemModel8takeItemEii', row, column,
     )
+    from . import QStandardItem
     return QStandardItem._cuteAt(address)
 
   @overload(int)
@@ -1392,6 +1449,7 @@ class QStandardItemModel(QAbstractItemModel):
     address = self.uglySide.call(
         'ritual_ZN18QStandardItemModel24takeHorizontalHeaderItemEi', column,
     )
+    from . import QStandardItem
     return QStandardItem._cuteAt(address)
 
   @overload(int)
@@ -1420,6 +1478,7 @@ class QStandardItemModel(QAbstractItemModel):
     address = self.uglySide.call(
         'ritual_ZN18QStandardItemModel22takeVerticalHeaderItemEi', row,
     )
+    from . import QStandardItem
     return QStandardItem._cuteAt(address)
 
   @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)

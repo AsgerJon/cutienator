@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qabstractanimation.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QAbstractAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QAbstractAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QAbstractAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QAbstractAnimation5stateEv": ["int", "address"],
+    "ritual_ZNK18QAbstractAnimation5groupEv": ["address", "address"],
+    "ritual_ZNK18QAbstractAnimation9directionEv": ["int", "address"],
+    "ritual_ZN18QAbstractAnimation12setDirectionENS_9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QAbstractAnimation11currentTimeEv": ["int", "address"],
+    "ritual_ZNK18QAbstractAnimation15currentLoopTimeEv": ["int", "address"],
+    "ritual_ZNK18QAbstractAnimation9loopCountEv": ["int", "address"],
+    "ritual_ZN18QAbstractAnimation12setLoopCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QAbstractAnimation11currentLoopEv": ["int", "address"],
+    "ritual_ZNK18QAbstractAnimation8durationEv": ["int", "address"],
+    "ritual_ZNK18QAbstractAnimation13totalDurationEv": ["int", "address"],
+    "ritual_ZN18QAbstractAnimation5startENS_14DeletionPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QAbstractAnimation5pauseEv": ["nothing", "address"],
+    "ritual_ZN18QAbstractAnimation6resumeEv": ["nothing", "address"],
+    "ritual_ZN18QAbstractAnimation9setPausedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QAbstractAnimation4stopEv": ["nothing", "address"],
+    "ritual_ZN18QAbstractAnimation14setCurrentTimeEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

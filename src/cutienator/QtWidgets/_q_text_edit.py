@@ -11,30 +11,37 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_abstract_scroll_area import QAbstractScrollArea
-from ..QtGui import QColor
-from ..QtGui import QFont
-from ._q_menu import QMenu
-from ..QtCore import QMetaObject
-from ..QtGui import QPagedPaintDevice
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ..QtCore import QRegularExpression
-from ..QtGui import QTextCharFormat
-from ..QtGui import QTextCursor
-from ..QtGui import QTextDocument
-from ..QtGui import QTextOption
-from ..QtCore import QUrl
-from ..QtCore import QVariant
-from ._q_widget import QWidget
-from ._q_text_edit_auto_formatting_flag import AutoFormattingFlag
-from ._q_text_edit_line_wrap_mode import LineWrapMode
+from ..QtGui import QTextCursorMoveMode, QTextCursorMoveOperation
+from ..QtGui import QTextDocumentFindFlag, QTextDocumentMarkdownFeature
+from ..QtGui import QTextOptionWrapMode
+from . import QAbstractScrollArea, QTextEditAutoFormattingFlag
+from . import QTextEditLineWrapMode, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QPoint, QRect, QRegularExpression, QUrl
+  from ..QtCore import QVariant
+  from ..QtGui import QColor, QFont, QPagedPaintDevice, QTextCharFormat
+  from ..QtGui import QTextCursor, QTextDocument, QTextOption
+  from . import QMenu
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QColor = WAIT['QColor']
+  QFont = WAIT['QFont']
+  QPagedPaintDevice = WAIT['QPagedPaintDevice']
+  QPoint = WAIT['QPoint']
+  QRegularExpression = WAIT['QRegularExpression']
+  QTextCharFormat = WAIT['QTextCharFormat']
+  QTextCursor = WAIT['QTextCursor']
+  QTextDocument = WAIT['QTextDocument']
+  QUrl = WAIT['QUrl']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -107,9 +114,9 @@ class QTextEdit(QAbstractScrollArea):
 
   #  The enums Qt writes inside QTextEdit, and the names Qt has for the
   #  combinations of its flags enums.
-  AutoFormattingFlag = AutoFormattingFlag
-  AutoFormatting = AutoFormattingFlag
-  LineWrapMode = LineWrapMode
+  AutoFormattingFlag = QTextEditAutoFormattingFlag
+  AutoFormatting = QTextEditAutoFormattingFlag
+  LineWrapMode = QTextEditLineWrapMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -192,6 +199,7 @@ class QTextEdit(QAbstractScrollArea):
     """
     #  const QMetaObject *QTextEdit::metaObject() const
     address = self.uglySide.call('ritual_ZNK9QTextEdit10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def document(self) -> Optional[QTextDocument]:
@@ -209,6 +217,7 @@ class QTextEdit(QAbstractScrollArea):
     """
     #  QTextDocument *QTextEdit::document() const
     address = self.uglySide.call('ritual_ZNK9QTextEdit8documentEv')
+    from ..QtGui import QTextDocument
     return QTextDocument._cuteAt(address)
 
   def placeholderText(self) -> str:
@@ -240,6 +249,7 @@ class QTextEdit(QAbstractScrollArea):
     """
     #  QTextCursor QTextEdit::textCursor() const
     address = self.uglySide.call('ritual_ZNK9QTextEdit10textCursorEv')
+    from ..QtGui import QTextCursor
     return QTextCursor._cuteOwning(address)
 
   def isReadOnly(self) -> bool:
@@ -335,6 +345,7 @@ class QTextEdit(QAbstractScrollArea):
     """
     #  QColor QTextEdit::textColor() const
     address = self.uglySide.call('ritual_ZNK9QTextEdit9textColorEv')
+    from ..QtGui import QColor
     return QColor._cuteOwning(address)
 
   def textBackgroundColor(self) -> QColor:
@@ -353,6 +364,7 @@ class QTextEdit(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK9QTextEdit19textBackgroundColorEv',
     )
+    from ..QtGui import QColor
     return QColor._cuteOwning(address)
 
   def currentFont(self) -> QFont:
@@ -369,6 +381,7 @@ class QTextEdit(QAbstractScrollArea):
     """
     #  QFont QTextEdit::currentFont() const
     address = self.uglySide.call('ritual_ZNK9QTextEdit11currentFontEv')
+    from ..QtGui import QFont
     return QFont._cuteOwning(address)
 
   def alignment(self) -> Qt.Alignment:
@@ -403,6 +416,7 @@ class QTextEdit(QAbstractScrollArea):
     """
     #  QTextCharFormat QTextEdit::currentCharFormat() const
     address = self.uglySide.call('ritual_ZNK9QTextEdit17currentCharFormatEv')
+    from ..QtGui import QTextCharFormat
     return QTextCharFormat._cuteOwning(address)
 
   def autoFormatting(self) -> AutoFormatting:
@@ -470,7 +484,7 @@ class QTextEdit(QAbstractScrollArea):
       gives.
     """
     #  LineWrapMode QTextEdit::lineWrapMode() const
-    return LineWrapMode(self.uglySide.call(
+    return QTextEdit.LineWrapMode(self.uglySide.call(
         'ritual_ZNK9QTextEdit12lineWrapModeEv',
     ))
 
@@ -501,7 +515,7 @@ class QTextEdit(QAbstractScrollArea):
       'QTextOption.WrapMode(number)' gives.
     """
     #  QTextOption::WrapMode QTextEdit::wordWrapMode() const
-    return QTextOption.WrapMode(self.uglySide.call(
+    return QTextOptionWrapMode(self.uglySide.call(
         'ritual_ZNK9QTextEdit12wordWrapModeEv',
     ))
 
@@ -536,11 +550,11 @@ class QTextEdit(QAbstractScrollArea):
     return self.uglySide.call('ritual_ZNK9QTextEdit6toHtmlEv')
 
   @overload()
-  @overload(QTextDocument.MarkdownFeatures)
+  @overload(QTextDocumentMarkdownFeature)
   def toMarkdown(
       self,
       features: QTextDocument.MarkdownFeatures = (
-          QTextDocument.MarkdownFeatures.MarkdownDialectGitHub),
+          QTextDocumentMarkdownFeature.MarkdownDialectGitHub),
   ) -> str:
     """
     Calls Qt's 'QString QTextEdit::toMarkdown(QTextDocument::MarkdownFeatures
@@ -553,7 +567,7 @@ class QTextEdit(QAbstractScrollArea):
 
     features : QTextDocument.MarkdownFeatures
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocument.MarkdownFeatures.MarkdownDialectGitHub.
+      QTextDocumentMarkdownFeature.MarkdownDialectGitHub.
 
     Returns
     -------
@@ -595,6 +609,7 @@ class QTextEdit(QAbstractScrollArea):
         'ritual_ZNK9QTextEdit17cursorForPositionERK6QPoint',
         self._valueOf(pos),
     )
+    from ..QtGui import QTextCursor
     return QTextCursor._cuteOwning(address)
 
   @overload(QTextCursor)
@@ -623,6 +638,7 @@ class QTextEdit(QAbstractScrollArea):
         'ritual_ZNK9QTextEdit10cursorRectERK11QTextCursor',
         self._valueOf(cursor),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload()
@@ -640,6 +656,7 @@ class QTextEdit(QAbstractScrollArea):
     """
     #  QRect QTextEdit::cursorRect() const
     address = self.uglySide.call('ritual_ZNK9QTextEdit10cursorRectEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(QPoint)
@@ -738,6 +755,7 @@ class QTextEdit(QAbstractScrollArea):
         'ritual_ZNK9QTextEdit16inputMethodQueryEN2Qt16InputMethodQueryE',
         property.value,
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(Qt.InputMethodQuery, QVariant)
@@ -775,6 +793,7 @@ class QTextEdit(QAbstractScrollArea):
         'riant',
         query.value, self._valueOf(argument),
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1009,7 +1028,7 @@ class QTextEdit(QAbstractScrollArea):
     #  void QTextEdit::setLineWrapColumnOrWidth(int w)
     self.uglySide.call('ritual_ZN9QTextEdit24setLineWrapColumnOrWidthEi', w)
 
-  @overload(QTextOption.WrapMode)
+  @overload(QTextOptionWrapMode)
   def setWordWrapMode(self, policy: QTextOption.WrapMode) -> None:
     """
     Calls Qt's 'void QTextEdit::setWordWrapMode(QTextOption::WrapMode
@@ -1422,11 +1441,11 @@ class QTextEdit(QAbstractScrollArea):
     )
 
   @overload(str)
-  @overload(str, QTextDocument.FindFlags)
+  @overload(str, QTextDocumentFindFlag)
   def find(
       self,
       exp: str,
-      options: QTextDocument.FindFlags = QTextDocument.FindFlags(),
+      options: QTextDocument.FindFlags = QTextDocumentFindFlag(),
   ) -> bool:
     """
     Calls Qt's 'bool QTextEdit::find(const QString &exp,
@@ -1442,7 +1461,7 @@ class QTextEdit(QAbstractScrollArea):
 
     options : QTextDocument.FindFlags
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocument.FindFlags().
+      QTextDocumentFindFlag().
     """
     #  bool QTextEdit::find(const QString &exp, QTextDocument::FindFlags
     #      options)
@@ -1453,11 +1472,11 @@ class QTextEdit(QAbstractScrollArea):
     )
 
   @overload(QRegularExpression)
-  @overload(QRegularExpression, QTextDocument.FindFlags)
+  @overload(QRegularExpression, QTextDocumentFindFlag)
   def find(
       self,
       exp: QRegularExpression,
-      options: QTextDocument.FindFlags = QTextDocument.FindFlags(),
+      options: QTextDocument.FindFlags = QTextDocumentFindFlag(),
   ) -> bool:
     """
     Calls Qt's 'bool QTextEdit::find(const QRegularExpression &exp,
@@ -1474,7 +1493,7 @@ class QTextEdit(QAbstractScrollArea):
 
     options : QTextDocument.FindFlags
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocument.FindFlags().
+      QTextDocumentFindFlag().
     """
     #  bool QTextEdit::find(const QRegularExpression &exp,
     #      QTextDocument::FindFlags options)
@@ -1521,6 +1540,7 @@ class QTextEdit(QAbstractScrollArea):
         'ritual_ZN9QTextEdit12loadResourceEiRK4QUrl',
         type, self._valueOf(name),
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   @overload()
@@ -1542,6 +1562,7 @@ class QTextEdit(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZN9QTextEdit25createStandardContextMenuEv',
     )
+    from . import QMenu
     return QMenu._cuteAt(address)
 
   @overload(QPoint)
@@ -1572,14 +1593,15 @@ class QTextEdit(QAbstractScrollArea):
         'ritual_ZN9QTextEdit25createStandardContextMenuERK6QPoint',
         self._valueOf(position),
     )
+    from . import QMenu
     return QMenu._cuteAt(address)
 
-  @overload(QTextCursor.MoveOperation)
-  @overload(QTextCursor.MoveOperation, QTextCursor.MoveMode)
+  @overload(QTextCursorMoveOperation)
+  @overload(QTextCursorMoveOperation, QTextCursorMoveMode)
   def moveCursor(
       self,
       operation: QTextCursor.MoveOperation,
-      mode: QTextCursor.MoveMode = QTextCursor.MoveMode.MoveAnchor,
+      mode: QTextCursor.MoveMode = QTextCursorMoveMode.MoveAnchor,
   ) -> None:
     """
     Calls Qt's 'void QTextEdit::moveCursor(QTextCursor::MoveOperation
@@ -1595,7 +1617,7 @@ class QTextEdit(QAbstractScrollArea):
 
     mode : QTextCursor.MoveMode
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextCursor.MoveMode.MoveAnchor.
+      QTextCursorMoveMode.MoveAnchor.
     """
     #  void QTextEdit::moveCursor(QTextCursor::MoveOperation operation,
     #      QTextCursor::MoveMode mode)

@@ -11,12 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
 from ..QtCore import QEvent
-from ..QtCore import QSize
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QSize
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QSize = WAIT['QSize']
 
 
 class QResizeEvent(QEvent):
@@ -113,6 +120,7 @@ class QResizeEvent(QEvent):
     """
     #  const QSize &QResizeEvent::size() const
     address = self.uglySide.call('ritual_ZNK12QResizeEvent4sizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def oldSize(self) -> QSize:
@@ -129,6 +137,7 @@ class QResizeEvent(QEvent):
     """
     #  const QSize &QResizeEvent::oldSize() const
     address = self.uglySide.call('ritual_ZNK12QResizeEvent7oldSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

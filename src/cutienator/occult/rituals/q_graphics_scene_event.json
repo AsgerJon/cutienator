@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QGraphicsSceneEventC1EN6QEvent4TypeE": ["address", "int"],
+    "ritual_ZN19QGraphicsSceneEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QGraphicsSceneEvent6widgetEv": ["address", "address"],
+    "ritual_ZN19QGraphicsSceneEvent9setWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsSceneEvent9timestampEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN19QGraphicsSceneEvent12setTimestampEy": [
+      "nothing", "address", "unsigned long long"
+    ]
+  }
+}

@@ -12,19 +12,27 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QBrush
-from ..QtGui import QFont
-from ..QtGui import QIcon
-from ._q_list_widget import QListWidget
-from ..QtCore import QSize
-from ..QtCore import QVariant
-from ._q_list_widget_item_item_type import ItemType
+from . import QListWidgetItemItemType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QSize, QVariant
+  from ..QtGui import QBrush, QFont, QIcon
+  from . import QListWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBrush = WAIT['QBrush']
+  QFont = WAIT['QFont']
+  QIcon = WAIT['QIcon']
+  QListWidget = WAIT['QListWidget']
+  QSize = WAIT['QSize']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -86,7 +94,7 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QListWidgetItem, and the names Qt has for the
   #  combinations of its flags enums.
-  ItemType = ItemType
+  ItemType = QListWidgetItemItemType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -149,6 +157,7 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QListWidget *QListWidgetItem::listWidget() const
     address = self.uglySide.call('ritual_ZNK15QListWidgetItem10listWidgetEv')
+    from . import QListWidget
     return QListWidget._cuteAt(address)
 
   def isSelected(self) -> bool:
@@ -215,6 +224,7 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QIcon QListWidgetItem::icon() const
     address = self.uglySide.call('ritual_ZNK15QListWidgetItem4iconEv')
+    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
   def statusTip(self) -> str:
@@ -276,6 +286,7 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QFont QListWidgetItem::font() const
     address = self.uglySide.call('ritual_ZNK15QListWidgetItem4fontEv')
+    from ..QtGui import QFont
     return QFont._cuteOwning(address)
 
   def textAlignment(self) -> int:
@@ -301,6 +312,7 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QBrush QListWidgetItem::background() const
     address = self.uglySide.call('ritual_ZNK15QListWidgetItem10backgroundEv')
+    from ..QtGui import QBrush
     return QBrush._cuteOwning(address)
 
   def foreground(self) -> QBrush:
@@ -317,6 +329,7 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QBrush QListWidgetItem::foreground() const
     address = self.uglySide.call('ritual_ZNK15QListWidgetItem10foregroundEv')
+    from ..QtGui import QBrush
     return QBrush._cuteOwning(address)
 
   def checkState(self) -> Qt.CheckState:
@@ -352,6 +365,7 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QListWidgetItem::sizeHint() const
     address = self.uglySide.call('ritual_ZNK15QListWidgetItem8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(int)
@@ -375,6 +389,7 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  QVariant QListWidgetItem::data(int role) const
     address = self.uglySide.call('ritual_ZNK15QListWidgetItem4dataEi', role)
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   def type(self) -> int:

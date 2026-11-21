@@ -1,0 +1,391 @@
+"""
+QVersionNumber binding of the Qt C++
+"""
+#  Apache-2.0 license
+#  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  QtCore/qversionnumber.h, Qt 6.12.0. Changes made here are lost.
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from worktoy.core.sentinels import THIS
+from worktoy.dispatch import overload
+
+from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
+
+
+class QVersionNumber(CuteMixin, metaclass=MetaCute):
+  """
+  The cute side of Qt's QVersionNumber: a plain Python object standing in
+  front of one C++ QVersionNumber.
+
+  C++ hands a QVersionNumber around as a copy, so every C++ QVersionNumber
+  behind a cute one is Python's own: it is removed, by the ritual named in
+  '__delete_ritual__', when the cute object goes.
+
+  What exists
+  -----------
+
+  Every function of Qt's QVersionNumber that has a ritual and that Python can
+  call so far, 12 names in all: 'isNull', 'isNormalized', 'majorVersion',
+  'minorVersion', 'microVersion', 'normalized', 'segmentAt', 'segmentCount',
+  'isPrefixOf', 'compare', 'commonPrefix', 'toString'. It can be made from
+  Python, in 4 ways; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QVersionNumber QVersionNumber::fromString(QAnyStringView string,
+    qsizetype *suffixIndex)': takes a number to change where it is.
+  - Qt's 'QVersionNumber::~QVersionNumber()': the destructor: Python removes
+    its C++ QVersionNumber by it, and has no other use for it.
+
+  What has no ritual
+  ------------------
+
+  16 of the 34 functions Qt declares: 13 takes or gives a type that cannot be
+  passed yet; 3 a template.
+
+  What to expect
+  --------------
+
+  - The C++ QVersionNumber is created at the first use, not by
+    'QVersionNumber(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - A function giving a QVersionNumber back gives a copy the ritual made for
+    Python, in a new cute QVersionNumber.
+  """
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(THIS, THIS)
+  def compare(v1: QVersionNumber, v2: QVersionNumber) -> int:
+    """
+    Calls Qt's 'int QVersionNumber::compare(const QVersionNumber &v1, const
+    QVersionNumber &v2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#compare
+
+    Parameters
+    ----------
+
+    v1 : QVersionNumber
+      Passed on as a value: Qt reads the C++ QVersionNumber, which stays
+      Python's own.
+
+    v2 : QVersionNumber
+      Passed on as a value: Qt reads the C++ QVersionNumber, which stays
+      Python's own.
+    """
+    #  int QVersionNumber::compare(const QVersionNumber &v1, const
+    #      QVersionNumber &v2)
+    return Rituals.call(
+        'ritual_ZN14QVersionNumber7compareERKS_S1_',
+        CuteMixin._valueOf(v1), CuteMixin._valueOf(v2),
+    )
+
+  @staticmethod
+  @overload(THIS, THIS)
+  def commonPrefix(v1: QVersionNumber, v2: QVersionNumber) -> QVersionNumber:
+    """
+    Calls Qt's 'QVersionNumber QVersionNumber::commonPrefix(const
+    QVersionNumber &v1, const QVersionNumber &v2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#commonPrefix
+
+    Parameters
+    ----------
+
+    v1 : QVersionNumber
+      Passed on as a value: Qt reads the C++ QVersionNumber, which stays
+      Python's own.
+
+    v2 : QVersionNumber
+      Passed on as a value: Qt reads the C++ QVersionNumber, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QVersionNumber
+      A new cute QVersionNumber around the copy Qt gave back. Python owns it.
+    """
+    #  QVersionNumber QVersionNumber::commonPrefix(const QVersionNumber &v1,
+    #      const QVersionNumber &v2)
+    address = Rituals.call(
+        'ritual_ZN14QVersionNumber12commonPrefixERKS_S1_',
+        CuteMixin._valueOf(v1), CuteMixin._valueOf(v2),
+    )
+    return QVersionNumber._cuteOwning(address)
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QVersionNumber'
+
+  #  Qt's '~QVersionNumber()'. Naming it makes this a value class: Python
+  #  owns every C++ QVersionNumber behind a cute one, and removes it by this
+  #  ritual.
+  __delete_ritual__ = 'ritual_ZN14QVersionNumberD1Ev'
+
+  #  Fallback Variables
+
+  #  Private Variables
+
+  #  Public Variables
+
+  #  Virtual Variables
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def isNull(self) -> bool:
+    """
+    Calls Qt's 'bool QVersionNumber::isNull() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#isNull
+    """
+    #  bool QVersionNumber::isNull() const
+    return self.uglySide.call('ritual_ZNK14QVersionNumber6isNullEv')
+
+  def isNormalized(self) -> bool:
+    """
+    Calls Qt's 'bool QVersionNumber::isNormalized() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#isNormalized
+    """
+    #  bool QVersionNumber::isNormalized() const
+    return self.uglySide.call('ritual_ZNK14QVersionNumber12isNormalizedEv')
+
+  def majorVersion(self) -> int:
+    """
+    Calls Qt's 'int QVersionNumber::majorVersion() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#majorVersion
+    """
+    #  int QVersionNumber::majorVersion() const
+    return self.uglySide.call('ritual_ZNK14QVersionNumber12majorVersionEv')
+
+  def minorVersion(self) -> int:
+    """
+    Calls Qt's 'int QVersionNumber::minorVersion() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#minorVersion
+    """
+    #  int QVersionNumber::minorVersion() const
+    return self.uglySide.call('ritual_ZNK14QVersionNumber12minorVersionEv')
+
+  def microVersion(self) -> int:
+    """
+    Calls Qt's 'int QVersionNumber::microVersion() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#microVersion
+    """
+    #  int QVersionNumber::microVersion() const
+    return self.uglySide.call('ritual_ZNK14QVersionNumber12microVersionEv')
+
+  def normalized(self) -> QVersionNumber:
+    """
+    Calls Qt's 'QVersionNumber QVersionNumber::normalized() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#normalized
+
+    Returns
+    -------
+
+    QVersionNumber
+      A new cute QVersionNumber around the copy Qt gave back. Python owns it.
+    """
+    #  QVersionNumber QVersionNumber::normalized() const
+    address = self.uglySide.call('ritual_ZNK14QVersionNumber10normalizedEv')
+    return QVersionNumber._cuteOwning(address)
+
+  @overload(int)
+  def segmentAt(self, index: int) -> int:
+    """
+    Calls Qt's 'int QVersionNumber::segmentAt(qsizetype index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#segmentAt
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  int QVersionNumber::segmentAt(qsizetype index) const
+    return self.uglySide.call(
+        'ritual_ZNK14QVersionNumber9segmentAtEx', index,
+    )
+
+  def segmentCount(self) -> int:
+    """
+    Calls Qt's 'qsizetype QVersionNumber::segmentCount() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#segmentCount
+    """
+    #  qsizetype QVersionNumber::segmentCount() const
+    return self.uglySide.call('ritual_ZNK14QVersionNumber12segmentCountEv')
+
+  @overload(THIS)
+  def isPrefixOf(self, other: QVersionNumber) -> bool:
+    """
+    Calls Qt's 'bool QVersionNumber::isPrefixOf(const QVersionNumber &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#isPrefixOf
+
+    Parameters
+    ----------
+
+    other : QVersionNumber
+      Passed on as a value: Qt reads the C++ QVersionNumber, which stays
+      Python's own.
+    """
+    #  bool QVersionNumber::isPrefixOf(const QVersionNumber &other) const
+    return self.uglySide.call(
+        'ritual_ZNK14QVersionNumber10isPrefixOfERKS_', self._valueOf(other),
+    )
+
+  def toString(self) -> str:
+    """
+    Calls Qt's 'QString QVersionNumber::toString() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#toString
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QVersionNumber::toString() const
+    return self.uglySide.call('ritual_ZNK14QVersionNumber8toStringEv')
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QVersionNumber::QVersionNumber()', which
+    is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#QVersionNumber
+    """
+    #  QVersionNumber::QVersionNumber()
+    self._noteCreation(QVersionNumber, lambda: Rituals.call(
+        'ritual_ZN14QVersionNumberC1Ev',
+    ))
+
+  @overload(int)
+  def __init__(self, maj: int) -> None:
+    """
+    Notes what was given, for Qt's 'QVersionNumber::QVersionNumber(int maj)',
+    which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#QVersionNumber
+
+    Parameters
+    ----------
+
+    maj : int
+      Passed on as it is.
+    """
+    #  QVersionNumber::QVersionNumber(int maj)
+    self._noteCreation(QVersionNumber, lambda: Rituals.call(
+        'ritual_ZN14QVersionNumberC1Ei', maj,
+    ))
+
+  @overload(int, int)
+  def __init__(self, maj: int, min: int) -> None:
+    """
+    Notes what was given, for Qt's 'QVersionNumber::QVersionNumber(int maj,
+    int min)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#QVersionNumber
+
+    Parameters
+    ----------
+
+    maj : int
+      Passed on as it is.
+
+    min : int
+      Passed on as it is.
+    """
+    #  QVersionNumber::QVersionNumber(int maj, int min)
+    self._noteCreation(QVersionNumber, lambda: Rituals.call(
+        'ritual_ZN14QVersionNumberC1Eii', maj, min,
+    ))
+
+  @overload(int, int, int)
+  def __init__(self, maj: int, min: int, mic: int) -> None:
+    """
+    Notes what was given, for Qt's 'QVersionNumber::QVersionNumber(int maj,
+    int min, int mic)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#QVersionNumber
+
+    Parameters
+    ----------
+
+    maj : int
+      Passed on as it is.
+
+    min : int
+      Passed on as it is.
+
+    mic : int
+      Passed on as it is.
+    """
+    #  QVersionNumber::QVersionNumber(int maj, int min, int mic)
+    self._noteCreation(QVersionNumber, lambda: Rituals.call(
+        'ritual_ZN14QVersionNumberC1Eiii', maj, min, mic,
+    ))
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

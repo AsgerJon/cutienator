@@ -11,18 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._qt import Qt
-from ._q_abstract_item_model import QAbstractItemModel
-from ._q_meta_object import QMetaObject
-from ._q_mime_data import QMimeData
-from ._q_model_index import QModelIndex
-from ._q_size import QSize
-from ._q_variant import QVariant
+from . import Qt, QAbstractItemModel
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QItemSelection, QMetaObject, QMimeData, QModelIndex, QSize
+  from . import QVariant
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QItemSelection = WAIT['QItemSelection']
+  QMimeData = WAIT['QMimeData']
+  QModelIndex = WAIT['QModelIndex']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -41,25 +46,20 @@ class QAbstractProxyModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QAbstractProxyModel that has a ritual and that
-  Python can call so far, 25 names in all: 'metaObject', 'tr',
-  'setSourceModel', 'sourceModel', 'mapToSource', 'mapFromSource', 'submit',
-  'revert', 'data', 'headerData', 'flags', 'setData', 'setHeaderData',
-  'clearItemData', 'buddy', 'canFetchMore', 'fetchMore', 'sort', 'span',
-  'hasChildren', 'sibling', 'canDropMimeData', 'dropMimeData',
-  'supportedDragActions', 'supportedDropActions'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  Python can call so far, 27 names in all: 'metaObject', 'tr',
+  'setSourceModel', 'sourceModel', 'mapToSource', 'mapFromSource',
+  'mapSelectionToSource', 'mapSelectionFromSource', 'submit', 'revert',
+  'data', 'headerData', 'flags', 'setData', 'setHeaderData', 'clearItemData',
+  'buddy', 'canFetchMore', 'fetchMore', 'sort', 'span', 'hasChildren',
+  'sibling', 'canDropMimeData', 'dropMimeData', 'supportedDragActions',
+  'supportedDropActions'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QAbstractProxyModel::~QAbstractProxyModel()': the destructor:
     Python never removes a C++ QAbstractProxyModel.
-  - Qt's 'QItemSelection QAbstractProxyModel::mapSelectionToSource(const
-    QItemSelection &selection) const': names 'QItemSelection', which has no
-    cute class yet.
-  - Qt's 'QItemSelection QAbstractProxyModel::mapSelectionFromSource(const
-    QItemSelection &selection) const': names 'QItemSelection', which has no
-    cute class yet.
 
   What has no ritual
   ------------------
@@ -169,6 +169,7 @@ class QAbstractProxyModel(QAbstractItemModel):
     address = self.uglySide.call(
         'ritual_ZNK19QAbstractProxyModel10metaObjectEv',
     )
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def sourceModel(self) -> Optional[QAbstractItemModel]:
@@ -220,6 +221,7 @@ class QAbstractProxyModel(QAbstractItemModel):
         'ritual_ZNK19QAbstractProxyModel11mapToSourceERK11QModelIndex',
         self._valueOf(proxyIndex),
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -250,7 +252,80 @@ class QAbstractProxyModel(QAbstractItemModel):
         'ritual_ZNK19QAbstractProxyModel13mapFromSourceERK11QModelIndex',
         self._valueOf(sourceIndex),
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
+
+  @overload(QItemSelection)
+  def mapSelectionToSource(
+      self,
+      selection: QItemSelection,
+  ) -> QItemSelection:
+    """
+    Calls Qt's 'QItemSelection
+    QAbstractProxyModel::mapSelectionToSource(const QItemSelection
+    &selection) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractproxymodel.html#mapSelectionToSource
+
+    Parameters
+    ----------
+
+    selection : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QItemSelection
+      A new cute QItemSelection around the copy Qt gave back. Python owns it.
+    """
+    #  QItemSelection QAbstractProxyModel::mapSelectionToSource(const
+    #      QItemSelection &selection) const
+    address = self.uglySide.call(
+        'ritual_ZNK19QAbstractProxyModel20mapSelectionToSourceERK14QItemSel'
+        'ection',
+        self._valueOf(selection),
+    )
+    from . import QItemSelection
+    return QItemSelection._cuteOwning(address)
+
+  @overload(QItemSelection)
+  def mapSelectionFromSource(
+      self,
+      selection: QItemSelection,
+  ) -> QItemSelection:
+    """
+    Calls Qt's 'QItemSelection
+    QAbstractProxyModel::mapSelectionFromSource(const QItemSelection
+    &selection) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractproxymodel.html#mapSelectionFromSource
+
+    Parameters
+    ----------
+
+    selection : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QItemSelection
+      A new cute QItemSelection around the copy Qt gave back. Python owns it.
+    """
+    #  QItemSelection QAbstractProxyModel::mapSelectionFromSource(const
+    #      QItemSelection &selection) const
+    address = self.uglySide.call(
+        'ritual_ZNK19QAbstractProxyModel22mapSelectionFromSourceERK14QItemS'
+        'election',
+        self._valueOf(selection),
+    )
+    from . import QItemSelection
+    return QItemSelection._cuteOwning(address)
 
   @overload(QModelIndex)
   @overload(QModelIndex, int)
@@ -283,6 +358,7 @@ class QAbstractProxyModel(QAbstractItemModel):
         'ritual_ZNK19QAbstractProxyModel4dataERK11QModelIndexi',
         self._valueOf(proxyIndex), role,
     )
+    from . import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(int, Qt.Orientation)
@@ -324,6 +400,7 @@ class QAbstractProxyModel(QAbstractItemModel):
         'ritual_ZNK19QAbstractProxyModel10headerDataEiN2Qt11OrientationEi',
         section, orientation.value, role,
     )
+    from . import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -380,6 +457,7 @@ class QAbstractProxyModel(QAbstractItemModel):
         'ritual_ZNK19QAbstractProxyModel5buddyERK11QModelIndex',
         self._valueOf(index),
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QModelIndex)
@@ -431,6 +509,7 @@ class QAbstractProxyModel(QAbstractItemModel):
         'ritual_ZNK19QAbstractProxyModel4spanERK11QModelIndex',
         self._valueOf(index),
     )
+    from . import QSize
     return QSize._cuteOwning(address)
 
   @overload()
@@ -453,6 +532,7 @@ class QAbstractProxyModel(QAbstractItemModel):
     """
     #  bool QAbstractProxyModel::hasChildren(const QModelIndex &parent) const
     if parent is None:
+      from . import QModelIndex
       parent = QModelIndex()
     return self.uglySide.call(
         'ritual_ZNK19QAbstractProxyModel11hasChildrenERK11QModelIndex',
@@ -492,6 +572,7 @@ class QAbstractProxyModel(QAbstractItemModel):
         'ritual_ZNK19QAbstractProxyModel7siblingEiiRK11QModelIndex',
         row, column, self._valueOf(idx),
     )
+    from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
   @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)

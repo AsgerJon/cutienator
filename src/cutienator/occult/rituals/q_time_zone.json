@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qtimezone.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QTimeZoneC1Ev": ["address"],
+    "ritual_ZN9QTimeZoneC1ENS_14InitializationE": ["address", "int"],
+    "ritual_ZN9QTimeZoneC1Ei": ["address", "int"],
+    "ritual_ZN9QTimeZoneC1ERK10QByteArray": ["address", "address"],
+    "ritual_ZN9QTimeZoneC1ERKS_": ["address", "address"],
+    "ritual_ZN9QTimeZoneD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QTimeZone7isValidEv": ["bool", "address"],
+    "ritual_ZN9QTimeZone21fromSecondsAheadOfUtcEi": ["address", "int"],
+    "ritual_ZNK9QTimeZone8timeSpecEv": ["int", "address"],
+    "ritual_ZNK9QTimeZone22fixedSecondsAheadOfUtcEv": ["int", "address"],
+    "ritual_ZN9QTimeZone18isUtcOrFixedOffsetEN2Qt8TimeSpecE": [
+      "bool", "int"
+    ],
+    "ritual_ZNK9QTimeZone18isUtcOrFixedOffsetEv": ["bool", "address"],
+    "ritual_ZNK9QTimeZone13asBackendZoneEv": ["address", "address"],
+    "ritual_ZNK9QTimeZone18hasAlternativeNameE14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK9QTimeZone2idEv": ["address", "address"],
+    "ritual_ZNK9QTimeZone7countryEv": ["unsigned short", "address"],
+    "ritual_ZNK9QTimeZone7commentEv": ["text", "address"],
+    "ritual_ZNK9QTimeZone11displayNameERK9QDateTimeNS_8NameTypeERK7QLocale": [
+      "text", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK9QTimeZone11displayNameENS_8TimeTypeENS_8NameTypeERK7QLocale": [
+      "text", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK9QTimeZone12abbreviationERK9QDateTime": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK9QTimeZone13offsetFromUtcERK9QDateTime": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK9QTimeZone18standardTimeOffsetERK9QDateTime": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK9QTimeZone18daylightTimeOffsetERK9QDateTime": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK9QTimeZone15hasDaylightTimeEv": ["bool", "address"],
+    "ritual_ZNK9QTimeZone14isDaylightTimeERK9QDateTime": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK9QTimeZone10offsetDataERK9QDateTime": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QTimeZone14hasTransitionsEv": ["bool", "address"],
+    "ritual_ZNK9QTimeZone14nextTransitionERK9QDateTime": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QTimeZone18previousTransitionERK9QDateTime": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QTimeZone16systemTimeZoneIdEv": ["address"],
+    "ritual_ZN9QTimeZone14systemTimeZoneEv": ["address"],
+    "ritual_ZN9QTimeZone3utcEv": ["address"],
+    "ritual_ZN9QTimeZone21isTimeZoneIdAvailableE14QByteArrayView": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QTimeZone17ianaIdToWindowsIdERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN9QTimeZone24windowsIdToDefaultIanaIdERK10QByteArray": [
+      "address", "address"
+    ]
+  }
+}

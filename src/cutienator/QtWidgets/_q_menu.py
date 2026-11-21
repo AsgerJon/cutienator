@@ -12,20 +12,24 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtGui import QAction
-from ..QtGui import QIcon
-from ..QtGui import QKeySequence
-from ..QtCore import QMetaObject
 from ..QtCore import QObject
-from ..QtCore import QPoint
-from ..QtCore import QRect
-from ..QtCore import QSize
-from ._q_widget import QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QMetaObject, QPoint, QRect, QSize
+  from ..QtGui import QAction, QIcon, QKeySequence
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAction = WAIT['QAction']
+  QIcon = WAIT['QIcon']
+  QKeySequence = WAIT['QKeySequence']
+  QPoint = WAIT['QPoint']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -193,6 +197,7 @@ class QMenu(QWidget):
     """
     #  const QMetaObject *QMenu::metaObject() const
     address = self.uglySide.call('ritual_ZNK5QMenu10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def isEmpty(self) -> bool:
@@ -237,6 +242,7 @@ class QMenu(QWidget):
     """
     #  QAction *QMenu::defaultAction() const
     address = self.uglySide.call('ritual_ZNK5QMenu13defaultActionEv')
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   def activeAction(self) -> Optional[QAction]:
@@ -254,6 +260,7 @@ class QMenu(QWidget):
     """
     #  QAction *QMenu::activeAction() const
     address = self.uglySide.call('ritual_ZNK5QMenu12activeActionEv')
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   def sizeHint(self) -> QSize:
@@ -270,6 +277,7 @@ class QMenu(QWidget):
     """
     #  QSize QMenu::sizeHint() const
     address = self.uglySide.call('ritual_ZNK5QMenu8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(QAction)
@@ -297,6 +305,7 @@ class QMenu(QWidget):
     address = self.uglySide.call(
         'ritual_ZNK5QMenu14actionGeometryEP7QAction', self._addressOf(a0),
     )
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   @overload(QPoint)
@@ -324,6 +333,7 @@ class QMenu(QWidget):
     address = self.uglySide.call(
         'ritual_ZNK5QMenu8actionAtERK6QPoint', self._valueOf(a0),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   def menuAction(self) -> Optional[QAction]:
@@ -341,6 +351,7 @@ class QMenu(QWidget):
     """
     #  QAction *QMenu::menuAction() const
     address = self.uglySide.call('ritual_ZNK5QMenu10menuActionEv')
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   def title(self) -> str:
@@ -372,6 +383,7 @@ class QMenu(QWidget):
     """
     #  QIcon QMenu::icon() const
     address = self.uglySide.call('ritual_ZNK5QMenu4iconEv')
+    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
   def separatorsCollapsible(self) -> bool:
@@ -669,6 +681,7 @@ class QMenu(QWidget):
         text, self._addressOf(receiver), self._bytesOf(member),
         self._valueOf(shortcut),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QIcon, str, QObject, str, QKeySequence)
@@ -726,6 +739,7 @@ class QMenu(QWidget):
         self._valueOf(icon), text, self._addressOf(receiver),
         self._bytesOf(member), self._valueOf(shortcut),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(THIS)
@@ -754,6 +768,7 @@ class QMenu(QWidget):
     address = self.uglySide.call(
         'ritual_ZN5QMenu7addMenuEPS_', self._addressOf(menu),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(str)
@@ -826,6 +841,7 @@ class QMenu(QWidget):
     """
     #  QAction *QMenu::addSeparator()
     address = self.uglySide.call('ritual_ZN5QMenu12addSeparatorEv')
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(str)
@@ -852,6 +868,7 @@ class QMenu(QWidget):
     address = self.uglySide.call(
         'ritual_ZN5QMenu10addSectionERK7QString', text,
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QIcon, str)
@@ -883,6 +900,7 @@ class QMenu(QWidget):
         'ritual_ZN5QMenu10addSectionERK5QIconRK7QString',
         self._valueOf(icon), text,
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QAction, THIS)
@@ -922,6 +940,7 @@ class QMenu(QWidget):
         'ritual_ZN5QMenu10insertMenuEP7QActionPS_',
         self._addressOf(before), self._addressOf(menu),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QAction)
@@ -951,6 +970,7 @@ class QMenu(QWidget):
         'ritual_ZN5QMenu15insertSeparatorEP7QAction',
         self._addressOf(before),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QAction, str)
@@ -988,6 +1008,7 @@ class QMenu(QWidget):
         'ritual_ZN5QMenu13insertSectionEP7QActionRK7QString',
         self._addressOf(before), text,
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QAction, QIcon, str)
@@ -1030,6 +1051,7 @@ class QMenu(QWidget):
         'ritual_ZN5QMenu13insertSectionEP7QActionRK5QIconRK7QString',
         self._addressOf(before), self._valueOf(icon), text,
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   def clear(self) -> None:
@@ -1121,6 +1143,7 @@ class QMenu(QWidget):
     """
     #  QAction *QMenu::exec()
     address = self.uglySide.call('ritual_ZN5QMenu4execEv')
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QPoint)
@@ -1159,4 +1182,5 @@ class QMenu(QWidget):
         'ritual_ZN5QMenu4execERK6QPointP7QAction',
         self._valueOf(pos), self._addressOf(at),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)

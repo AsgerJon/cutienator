@@ -14,36 +14,48 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from ..QtGui import QAction
-from ..QtGui import QBitmap
-from ..QtCore import QByteArray
-from ..QtGui import QCursor
-from ..QtGui import QFont
-from ..QtGui import QFontMetrics
-from ..QtGui import QIcon
-from ..QtGui import QKeySequence
-from ..QtCore import QLocale
-from ..QtCore import QMargins
-from ..QtCore import QMetaObject
-from ..QtCore import QObject
-from ..QtGui import QPaintDevice
-from ..QtGui import QPainter
-from ..QtGui import QPalette
-from ..QtGui import QPixmap
-from ..QtCore import QPoint
-from ..QtCore import QPointF
-from ..QtCore import QRect
-from ..QtGui import QRegion
-from ..QtGui import QScreen
-from ..QtCore import QSize
-from ._q_size_policy import QSizePolicy
-from ..QtCore import QVariant
-from ..QtGui import QWindow
-from ._q_widget_render_flag import RenderFlag
+from ..QtCore import Qt, QObject
+from ..QtGui import QPaletteColorRole
+from . import QSizePolicyPolicy, QWidgetRenderFlag
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QByteArray, QLocale, QMargins, QMetaObject, QPoint
+  from ..QtCore import QPointF, QRect, QSize, QVariant
+  from ..QtGui import QAction, QBackingStore, QBitmap, QCursor, QFont
+  from ..QtGui import QFontInfo, QFontMetrics, QIcon, QKeySequence
+  from ..QtGui import QPaintDevice, QPaintEngine, QPainter, QPalette, QPixmap
+  from ..QtGui import QRegion, QScreen, QWindow
+  from . import QGraphicsEffect, QGraphicsProxyWidget, QLayout, QSizePolicy
+  from . import QStyle
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAction = WAIT['QAction']
+  QBitmap = WAIT['QBitmap']
+  QByteArray = WAIT['QByteArray']
+  QCursor = WAIT['QCursor']
+  QFont = WAIT['QFont']
+  QGraphicsEffect = WAIT['QGraphicsEffect']
+  QIcon = WAIT['QIcon']
+  QKeySequence = WAIT['QKeySequence']
+  QLayout = WAIT['QLayout']
+  QLocale = WAIT['QLocale']
+  QMargins = WAIT['QMargins']
+  QPaintDevice = WAIT['QPaintDevice']
+  QPainter = WAIT['QPainter']
+  QPalette = WAIT['QPalette']
+  QPoint = WAIT['QPoint']
+  QPointF = WAIT['QPointF']
+  QRect = WAIT['QRect']
+  QRegion = WAIT['QRegion']
+  QScreen = WAIT['QScreen']
+  QSize = WAIT['QSize']
+  QSizePolicy = WAIT['QSizePolicy']
+  QStyle = WAIT['QStyle']
+  QWindow = WAIT['QWindow']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -63,7 +75,7 @@ class QWidget(QObject):
   -----------
 
   Every function of Qt's QWidget that has a ritual and that Python can call
-  so far, 218 names in all: 'metaObject', 'tr', 'devType', 'winId',
+  so far, 224 names in all: 'metaObject', 'tr', 'devType', 'winId',
   'createWinId', 'internalWinId', 'effectiveWinId', 'style', 'setStyle',
   'isTopLevel', 'isWindow', 'isModal', 'windowModality', 'setWindowModality',
   'isEnabled', 'isEnabledTo', 'setEnabled', 'setDisabled',
@@ -77,16 +89,17 @@ class QWidget(QObject):
   'mapToGlobal', 'mapFromGlobal', 'mapToParent', 'mapFromParent', 'mapTo',
   'mapFrom', 'window', 'nativeParentWidget', 'topLevelWidget', 'palette',
   'setPalette', 'setBackgroundRole', 'backgroundRole', 'setForegroundRole',
-  'foregroundRole', 'font', 'setFont', 'fontMetrics', 'cursor', 'setCursor',
-  'unsetCursor', 'setMouseTracking', 'hasMouseTracking', 'underMouse',
-  'setTabletTracking', 'hasTabletTracking', 'setMask', 'mask', 'clearMask',
-  'render', 'grab', 'grabGesture', 'ungrabGesture', 'setWindowTitle',
-  'setStyleSheet', 'styleSheet', 'windowTitle', 'setWindowIcon',
-  'windowIcon', 'setWindowIconText', 'windowIconText', 'setWindowRole',
-  'windowRole', 'setWindowFilePath', 'windowFilePath', 'setWindowOpacity',
-  'windowOpacity', 'isWindowModified', 'setToolTip', 'toolTip',
-  'setToolTipDuration', 'toolTipDuration', 'setStatusTip', 'statusTip',
-  'setWhatsThis', 'whatsThis', 'accessibleName', 'setAccessibleName',
+  'foregroundRole', 'font', 'setFont', 'fontMetrics', 'fontInfo', 'cursor',
+  'setCursor', 'unsetCursor', 'setMouseTracking', 'hasMouseTracking',
+  'underMouse', 'setTabletTracking', 'hasTabletTracking', 'setMask', 'mask',
+  'clearMask', 'render', 'grab', 'graphicsEffect', 'setGraphicsEffect',
+  'grabGesture', 'ungrabGesture', 'setWindowTitle', 'setStyleSheet',
+  'styleSheet', 'windowTitle', 'setWindowIcon', 'windowIcon',
+  'setWindowIconText', 'windowIconText', 'setWindowRole', 'windowRole',
+  'setWindowFilePath', 'windowFilePath', 'setWindowOpacity', 'windowOpacity',
+  'isWindowModified', 'setToolTip', 'toolTip', 'setToolTipDuration',
+  'toolTipDuration', 'setStatusTip', 'statusTip', 'setWhatsThis',
+  'whatsThis', 'accessibleName', 'setAccessibleName',
   'accessibleDescription', 'setAccessibleDescription',
   'accessibleIdentifier', 'setAccessibleIdentifier', 'setLayoutDirection',
   'layoutDirection', 'unsetLayoutDirection', 'setLocale', 'locale',
@@ -96,43 +109,32 @@ class QWidget(QObject):
   'contextMenuPolicy', 'setContextMenuPolicy', 'grabMouse', 'releaseMouse',
   'grabKeyboard', 'releaseKeyboard', 'grabShortcut', 'releaseShortcut',
   'setShortcutEnabled', 'setShortcutAutoRepeat', 'mouseGrabber',
-  'keyboardGrabber', 'updatesEnabled', 'setUpdatesEnabled', 'update',
-  'repaint', 'setVisible', 'setHidden', 'show', 'hide', 'showMinimized',
-  'showMaximized', 'showFullScreen', 'showNormal', 'close', 'raise_',
-  'lower', 'stackUnder', 'move', 'resize', 'setGeometry', 'saveGeometry',
-  'restoreGeometry', 'adjustSize', 'isVisible', 'isVisibleTo', 'isHidden',
-  'isMinimized', 'isMaximized', 'isFullScreen', 'windowState',
-  'setWindowState', 'overrideWindowState', 'sizeHint', 'minimumSizeHint',
-  'sizePolicy', 'setSizePolicy', 'heightForWidth', 'hasHeightForWidth',
-  'visibleRegion', 'setContentsMargins', 'contentsMargins', 'contentsRect',
-  'layout', 'setLayout', 'updateGeometry', 'setParent', 'scroll',
-  'focusWidget', 'nextInFocusChain', 'previousInFocusChain', 'acceptDrops',
+  'keyboardGrabber', 'updatesEnabled', 'setUpdatesEnabled',
+  'graphicsProxyWidget', 'update', 'repaint', 'setVisible', 'setHidden',
+  'show', 'hide', 'showMinimized', 'showMaximized', 'showFullScreen',
+  'showNormal', 'close', 'raise_', 'lower', 'stackUnder', 'move', 'resize',
+  'setGeometry', 'saveGeometry', 'restoreGeometry', 'adjustSize',
+  'isVisible', 'isVisibleTo', 'isHidden', 'isMinimized', 'isMaximized',
+  'isFullScreen', 'windowState', 'setWindowState', 'overrideWindowState',
+  'sizeHint', 'minimumSizeHint', 'sizePolicy', 'setSizePolicy',
+  'heightForWidth', 'hasHeightForWidth', 'visibleRegion',
+  'setContentsMargins', 'contentsMargins', 'contentsRect', 'layout',
+  'setLayout', 'updateGeometry', 'setParent', 'scroll', 'focusWidget',
+  'nextInFocusChain', 'previousInFocusChain', 'acceptDrops',
   'setAcceptDrops', 'addAction', 'insertAction', 'removeAction',
   'parentWidget', 'setWindowFlags', 'windowFlags', 'setWindowFlag',
   'overrideWindowFlags', 'windowType', 'find', 'childAt', 'setAttribute',
-  'testAttribute', 'ensurePolished', 'isAncestorOf', 'autoFillBackground',
-  'setAutoFillBackground', 'windowHandle', 'screen', 'setScreen',
-  'createWindowContainer', 'inputMethodQuery', 'inputMethodHints',
-  'setInputMethodHints'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'testAttribute', 'paintEngine', 'ensurePolished', 'isAncestorOf',
+  'autoFillBackground', 'setAutoFillBackground', 'backingStore',
+  'windowHandle', 'screen', 'setScreen', 'createWindowContainer',
+  'inputMethodQuery', 'inputMethodHints', 'setInputMethodHints'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QWidget::~QWidget()': the destructor: Python never removes a C++
     QWidget.
-  - Qt's 'QFontInfo QWidget::fontInfo() const': gives 'QFontInfo', which has
-    no cute class yet.
-  - Qt's 'QGraphicsEffect *QWidget::graphicsEffect() const': gives
-    'QGraphicsEffect', which has no cute class yet.
-  - Qt's 'void QWidget::setGraphicsEffect(QGraphicsEffect *effect)': names
-    'QGraphicsEffect', which has no cute class yet.
-  - Qt's 'QGraphicsProxyWidget *QWidget::graphicsProxyWidget() const': gives
-    'QGraphicsProxyWidget', which has no cute class yet.
-  - Qt's 'QPaintEngine *QWidget::paintEngine() const': gives 'QPaintEngine',
-    which has no cute class yet.
-  - Qt's 'QBackingStore *QWidget::backingStore() const': gives
-    'QBackingStore', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -158,13 +160,8 @@ class QWidget(QObject):
 
   #  The enums Qt writes inside QWidget, and the names Qt has for the
   #  combinations of its flags enums.
-  RenderFlag = RenderFlag
-  RenderFlags = RenderFlag
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QLayout = WAIT['QLayout']
-  QStyle = WAIT['QStyle']
+  RenderFlag = QWidgetRenderFlag
+  RenderFlags = QWidgetRenderFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -390,6 +387,7 @@ class QWidget(QObject):
     """
     #  const QMetaObject *QWidget::metaObject() const
     address = self.uglySide.call('ritual_ZNK7QWidget10metaObjectEv')
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def devType(self) -> int:
@@ -443,7 +441,8 @@ class QWidget(QObject):
     """
     #  QStyle *QWidget::style() const
     address = self.uglySide.call('ritual_ZNK7QWidget5styleEv')
-    return self.QStyle._cuteAt(address)
+    from . import QStyle
+    return QStyle._cuteAt(address)
 
   def isTopLevel(self) -> bool:
     """
@@ -534,6 +533,7 @@ class QWidget(QObject):
     """
     #  QRect QWidget::frameGeometry() const
     address = self.uglySide.call('ritual_ZNK7QWidget13frameGeometryEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def geometry(self) -> QRect:
@@ -550,6 +550,7 @@ class QWidget(QObject):
     """
     #  const QRect &QWidget::geometry() const
     address = self.uglySide.call('ritual_ZNK7QWidget8geometryEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def normalGeometry(self) -> QRect:
@@ -566,6 +567,7 @@ class QWidget(QObject):
     """
     #  QRect QWidget::normalGeometry() const
     address = self.uglySide.call('ritual_ZNK7QWidget14normalGeometryEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def x(self) -> int:
@@ -600,6 +602,7 @@ class QWidget(QObject):
     """
     #  QPoint QWidget::pos() const
     address = self.uglySide.call('ritual_ZNK7QWidget3posEv')
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def frameSize(self) -> QSize:
@@ -616,6 +619,7 @@ class QWidget(QObject):
     """
     #  QSize QWidget::frameSize() const
     address = self.uglySide.call('ritual_ZNK7QWidget9frameSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def size(self) -> QSize:
@@ -632,6 +636,7 @@ class QWidget(QObject):
     """
     #  QSize QWidget::size() const
     address = self.uglySide.call('ritual_ZNK7QWidget4sizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def width(self) -> int:
@@ -666,6 +671,7 @@ class QWidget(QObject):
     """
     #  QRect QWidget::rect() const
     address = self.uglySide.call('ritual_ZNK7QWidget4rectEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def childrenRect(self) -> QRect:
@@ -682,6 +688,7 @@ class QWidget(QObject):
     """
     #  QRect QWidget::childrenRect() const
     address = self.uglySide.call('ritual_ZNK7QWidget12childrenRectEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def childrenRegion(self) -> QRegion:
@@ -698,6 +705,7 @@ class QWidget(QObject):
     """
     #  QRegion QWidget::childrenRegion() const
     address = self.uglySide.call('ritual_ZNK7QWidget14childrenRegionEv')
+    from ..QtGui import QRegion
     return QRegion._cuteOwning(address)
 
   def minimumSize(self) -> QSize:
@@ -714,6 +722,7 @@ class QWidget(QObject):
     """
     #  QSize QWidget::minimumSize() const
     address = self.uglySide.call('ritual_ZNK7QWidget11minimumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def maximumSize(self) -> QSize:
@@ -730,6 +739,7 @@ class QWidget(QObject):
     """
     #  QSize QWidget::maximumSize() const
     address = self.uglySide.call('ritual_ZNK7QWidget11maximumSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumWidth(self) -> int:
@@ -782,6 +792,7 @@ class QWidget(QObject):
     """
     #  QSize QWidget::sizeIncrement() const
     address = self.uglySide.call('ritual_ZNK7QWidget13sizeIncrementEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def baseSize(self) -> QSize:
@@ -798,6 +809,7 @@ class QWidget(QObject):
     """
     #  QSize QWidget::baseSize() const
     address = self.uglySide.call('ritual_ZNK7QWidget8baseSizeEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(QPointF)
@@ -824,6 +836,7 @@ class QWidget(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QWidget11mapToGlobalERK7QPointF', self._valueOf(a0),
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(QPoint)
@@ -850,6 +863,7 @@ class QWidget(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QWidget11mapToGlobalERK6QPoint', self._valueOf(a0),
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @overload(QPointF)
@@ -876,6 +890,7 @@ class QWidget(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QWidget13mapFromGlobalERK7QPointF', self._valueOf(a0),
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(QPoint)
@@ -902,6 +917,7 @@ class QWidget(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QWidget13mapFromGlobalERK6QPoint', self._valueOf(a0),
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @overload(QPointF)
@@ -928,6 +944,7 @@ class QWidget(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QWidget11mapToParentERK7QPointF', self._valueOf(a0),
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(QPoint)
@@ -954,6 +971,7 @@ class QWidget(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QWidget11mapToParentERK6QPoint', self._valueOf(a0),
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @overload(QPointF)
@@ -980,6 +998,7 @@ class QWidget(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QWidget13mapFromParentERK7QPointF', self._valueOf(a0),
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(QPoint)
@@ -1006,6 +1025,7 @@ class QWidget(QObject):
     address = self.uglySide.call(
         'ritual_ZNK7QWidget13mapFromParentERK6QPoint', self._valueOf(a0),
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @overload(THIS, QPointF)
@@ -1039,6 +1059,7 @@ class QWidget(QObject):
         'ritual_ZNK7QWidget5mapToEPKS_RK7QPointF',
         self._addressOf(a0), self._valueOf(a1),
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(THIS, QPoint)
@@ -1072,6 +1093,7 @@ class QWidget(QObject):
         'ritual_ZNK7QWidget5mapToEPKS_RK6QPoint',
         self._addressOf(a0), self._valueOf(a1),
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   @overload(THIS, QPointF)
@@ -1105,6 +1127,7 @@ class QWidget(QObject):
         'ritual_ZNK7QWidget7mapFromEPKS_RK7QPointF',
         self._addressOf(a0), self._valueOf(a1),
     )
+    from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
   @overload(THIS, QPoint)
@@ -1138,6 +1161,7 @@ class QWidget(QObject):
         'ritual_ZNK7QWidget7mapFromEPKS_RK6QPoint',
         self._addressOf(a0), self._valueOf(a1),
     )
+    from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
   def window(self) -> Optional[QWidget]:
@@ -1205,6 +1229,7 @@ class QWidget(QObject):
     """
     #  const QPalette &QWidget::palette() const
     address = self.uglySide.call('ritual_ZNK7QWidget7paletteEv')
+    from ..QtGui import QPalette
     return QPalette._cuteOwning(address)
 
   def backgroundRole(self) -> QPalette.ColorRole:
@@ -1222,7 +1247,7 @@ class QWidget(QObject):
       'QPalette.ColorRole(number)' gives.
     """
     #  QPalette::ColorRole QWidget::backgroundRole() const
-    return QPalette.ColorRole(self.uglySide.call(
+    return QPaletteColorRole(self.uglySide.call(
         'ritual_ZNK7QWidget14backgroundRoleEv',
     ))
 
@@ -1241,7 +1266,7 @@ class QWidget(QObject):
       'QPalette.ColorRole(number)' gives.
     """
     #  QPalette::ColorRole QWidget::foregroundRole() const
-    return QPalette.ColorRole(self.uglySide.call(
+    return QPaletteColorRole(self.uglySide.call(
         'ritual_ZNK7QWidget14foregroundRoleEv',
     ))
 
@@ -1259,6 +1284,7 @@ class QWidget(QObject):
     """
     #  const QFont &QWidget::font() const
     address = self.uglySide.call('ritual_ZNK7QWidget4fontEv')
+    from ..QtGui import QFont
     return QFont._cuteOwning(address)
 
   def fontMetrics(self) -> QFontMetrics:
@@ -1275,7 +1301,25 @@ class QWidget(QObject):
     """
     #  QFontMetrics QWidget::fontMetrics() const
     address = self.uglySide.call('ritual_ZNK7QWidget11fontMetricsEv')
+    from ..QtGui import QFontMetrics
     return QFontMetrics._cuteOwning(address)
+
+  def fontInfo(self) -> QFontInfo:
+    """
+    Calls Qt's 'QFontInfo QWidget::fontInfo() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#fontInfo
+
+    Returns
+    -------
+
+    QFontInfo
+      A new cute QFontInfo around the copy Qt gave back. Python owns it.
+    """
+    #  QFontInfo QWidget::fontInfo() const
+    address = self.uglySide.call('ritual_ZNK7QWidget8fontInfoEv')
+    from ..QtGui import QFontInfo
+    return QFontInfo._cuteOwning(address)
 
   def cursor(self) -> QCursor:
     """
@@ -1291,6 +1335,7 @@ class QWidget(QObject):
     """
     #  QCursor QWidget::cursor() const
     address = self.uglySide.call('ritual_ZNK7QWidget6cursorEv')
+    from ..QtGui import QCursor
     return QCursor._cuteOwning(address)
 
   def hasMouseTracking(self) -> bool:
@@ -1334,7 +1379,26 @@ class QWidget(QObject):
     """
     #  QRegion QWidget::mask() const
     address = self.uglySide.call('ritual_ZNK7QWidget4maskEv')
+    from ..QtGui import QRegion
     return QRegion._cuteOwning(address)
+
+  def graphicsEffect(self) -> Optional[QGraphicsEffect]:
+    """
+    Calls Qt's 'QGraphicsEffect *QWidget::graphicsEffect() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#graphicsEffect
+
+    Returns
+    -------
+
+    Optional[QGraphicsEffect]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsEffect *QWidget::graphicsEffect() const
+    address = self.uglySide.call('ritual_ZNK7QWidget14graphicsEffectEv')
+    from . import QGraphicsEffect
+    return QGraphicsEffect._cuteAt(address)
 
   def styleSheet(self) -> str:
     """
@@ -1380,6 +1444,7 @@ class QWidget(QObject):
     """
     #  QIcon QWidget::windowIcon() const
     address = self.uglySide.call('ritual_ZNK7QWidget10windowIconEv')
+    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
   def windowIconText(self) -> str:
@@ -1577,6 +1642,7 @@ class QWidget(QObject):
     """
     #  QLocale QWidget::locale() const
     address = self.uglySide.call('ritual_ZNK7QWidget6localeEv')
+    from ..QtCore import QLocale
     return QLocale._cuteOwning(address)
 
   def isRightToLeft(self) -> bool:
@@ -1679,6 +1745,24 @@ class QWidget(QObject):
     #  bool QWidget::updatesEnabled() const
     return self.uglySide.call('ritual_ZNK7QWidget14updatesEnabledEv')
 
+  def graphicsProxyWidget(self) -> Optional[QGraphicsProxyWidget]:
+    """
+    Calls Qt's 'QGraphicsProxyWidget *QWidget::graphicsProxyWidget() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget
+
+    Returns
+    -------
+
+    Optional[QGraphicsProxyWidget]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsProxyWidget *QWidget::graphicsProxyWidget() const
+    address = self.uglySide.call('ritual_ZNK7QWidget19graphicsProxyWidgetEv')
+    from . import QGraphicsProxyWidget
+    return QGraphicsProxyWidget._cuteAt(address)
+
   def saveGeometry(self) -> QByteArray:
     """
     Calls Qt's 'QByteArray QWidget::saveGeometry() const'.
@@ -1693,6 +1777,7 @@ class QWidget(QObject):
     """
     #  QByteArray QWidget::saveGeometry() const
     address = self.uglySide.call('ritual_ZNK7QWidget12saveGeometryEv')
+    from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
 
   def isVisible(self) -> bool:
@@ -1791,6 +1876,7 @@ class QWidget(QObject):
     """
     #  QSize QWidget::sizeHint() const
     address = self.uglySide.call('ritual_ZNK7QWidget8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -1807,6 +1893,7 @@ class QWidget(QObject):
     """
     #  QSize QWidget::minimumSizeHint() const
     address = self.uglySide.call('ritual_ZNK7QWidget15minimumSizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def sizePolicy(self) -> QSizePolicy:
@@ -1823,6 +1910,7 @@ class QWidget(QObject):
     """
     #  QSizePolicy QWidget::sizePolicy() const
     address = self.uglySide.call('ritual_ZNK7QWidget10sizePolicyEv')
+    from . import QSizePolicy
     return QSizePolicy._cuteOwning(address)
 
   @overload(int)
@@ -1864,6 +1952,7 @@ class QWidget(QObject):
     """
     #  QRegion QWidget::visibleRegion() const
     address = self.uglySide.call('ritual_ZNK7QWidget13visibleRegionEv')
+    from ..QtGui import QRegion
     return QRegion._cuteOwning(address)
 
   def contentsMargins(self) -> QMargins:
@@ -1880,6 +1969,7 @@ class QWidget(QObject):
     """
     #  QMargins QWidget::contentsMargins() const
     address = self.uglySide.call('ritual_ZNK7QWidget15contentsMarginsEv')
+    from ..QtCore import QMargins
     return QMargins._cuteOwning(address)
 
   def contentsRect(self) -> QRect:
@@ -1896,6 +1986,7 @@ class QWidget(QObject):
     """
     #  QRect QWidget::contentsRect() const
     address = self.uglySide.call('ritual_ZNK7QWidget12contentsRectEv')
+    from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
   def layout(self) -> Optional[QLayout]:
@@ -1913,7 +2004,8 @@ class QWidget(QObject):
     """
     #  QLayout *QWidget::layout() const
     address = self.uglySide.call('ritual_ZNK7QWidget6layoutEv')
-    return self.QLayout._cuteAt(address)
+    from . import QLayout
+    return QLayout._cuteAt(address)
 
   def focusWidget(self) -> Optional[QWidget]:
     """
@@ -2129,6 +2221,24 @@ class QWidget(QObject):
         'ritual_ZNK7QWidget13testAttributeEN2Qt15WidgetAttributeE', a0.value,
     )
 
+  def paintEngine(self) -> Optional[QPaintEngine]:
+    """
+    Calls Qt's 'QPaintEngine *QWidget::paintEngine() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#paintEngine
+
+    Returns
+    -------
+
+    Optional[QPaintEngine]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintEngine *QWidget::paintEngine() const
+    address = self.uglySide.call('ritual_ZNK7QWidget11paintEngineEv')
+    from ..QtGui import QPaintEngine
+    return QPaintEngine._cuteAt(address)
+
   @overload(THIS)
   @overload(NoneType)
   def isAncestorOf(self, child: Optional[QWidget]) -> bool:
@@ -2158,6 +2268,24 @@ class QWidget(QObject):
     #  bool QWidget::autoFillBackground() const
     return self.uglySide.call('ritual_ZNK7QWidget18autoFillBackgroundEv')
 
+  def backingStore(self) -> Optional[QBackingStore]:
+    """
+    Calls Qt's 'QBackingStore *QWidget::backingStore() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#backingStore
+
+    Returns
+    -------
+
+    Optional[QBackingStore]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QBackingStore *QWidget::backingStore() const
+    address = self.uglySide.call('ritual_ZNK7QWidget12backingStoreEv')
+    from ..QtGui import QBackingStore
+    return QBackingStore._cuteAt(address)
+
   def windowHandle(self) -> Optional[QWindow]:
     """
     Calls Qt's 'QWindow *QWidget::windowHandle() const'.
@@ -2173,6 +2301,7 @@ class QWidget(QObject):
     """
     #  QWindow *QWidget::windowHandle() const
     address = self.uglySide.call('ritual_ZNK7QWidget12windowHandleEv')
+    from ..QtGui import QWindow
     return QWindow._cuteAt(address)
 
   def screen(self) -> Optional[QScreen]:
@@ -2190,6 +2319,7 @@ class QWidget(QObject):
     """
     #  QScreen *QWidget::screen() const
     address = self.uglySide.call('ritual_ZNK7QWidget6screenEv')
+    from ..QtGui import QScreen
     return QScreen._cuteAt(address)
 
   @overload(Qt.InputMethodQuery)
@@ -2217,6 +2347,7 @@ class QWidget(QObject):
         'ritual_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE',
         a0.value,
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   def inputMethodHints(self) -> Qt.InputMethodHints:
@@ -2241,20 +2372,19 @@ class QWidget(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @overload(QStyle)
-  def setStyle(self, a0: QStyle) -> None:
+  @overload(NoneType)
+  def setStyle(self, a0: Optional[QStyle]) -> None:
     """
     Calls Qt's 'void QWidget::setStyle(QStyle *a0)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qwidget.html#setStyle
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    a0 : QStyle
-      Passed on as the address of its C++ object.
+    a0 : Optional[QStyle]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QWidget::setStyle(QStyle *a0)
     self.uglySide.call(
@@ -2629,7 +2759,7 @@ class QWidget(QObject):
         'ritual_ZN7QWidget10setPaletteERK8QPalette', self._valueOf(a0),
     )
 
-  @overload(QPalette.ColorRole)
+  @overload(QPaletteColorRole)
   def setBackgroundRole(self, a0: QPalette.ColorRole) -> None:
     """
     Calls Qt's 'void QWidget::setBackgroundRole(QPalette::ColorRole a0)'.
@@ -2648,7 +2778,7 @@ class QWidget(QObject):
         a0.value,
     )
 
-  @overload(QPalette.ColorRole)
+  @overload(QPaletteColorRole)
   def setForegroundRole(self, a0: QPalette.ColorRole) -> None:
     """
     Calls Qt's 'void QWidget::setForegroundRole(QPalette::ColorRole a0)'.
@@ -2772,6 +2902,27 @@ class QWidget(QObject):
     #  void QWidget::setMask(const QRegion &a0)
     self.uglySide.call(
         'ritual_ZN7QWidget7setMaskERK7QRegion', self._valueOf(a0),
+    )
+
+  @overload(QGraphicsEffect)
+  @overload(NoneType)
+  def setGraphicsEffect(self, effect: Optional[QGraphicsEffect]) -> None:
+    """
+    Calls Qt's 'void QWidget::setGraphicsEffect(QGraphicsEffect *effect)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect
+
+    Parameters
+    ----------
+
+    effect : Optional[QGraphicsEffect]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::setGraphicsEffect(QGraphicsEffect *effect)
+    self.uglySide.call(
+        'ritual_ZN7QWidget17setGraphicsEffectEP15QGraphicsEffect',
+        self._addressOf(effect),
     )
 
   @overload(str)
@@ -3313,7 +3464,7 @@ class QWidget(QObject):
         'ritual_ZN7QWidget13setSizePolicyE11QSizePolicy', self._valueOf(a0),
     )
 
-  @overload(QSizePolicy.Policy, QSizePolicy.Policy)
+  @overload(QSizePolicyPolicy, QSizePolicyPolicy)
   def setSizePolicy(
       self,
       horizontal: QSizePolicy.Policy,
@@ -3398,20 +3549,19 @@ class QWidget(QObject):
     )
 
   @overload(QLayout)
-  def setLayout(self, a0: QLayout) -> None:
+  @overload(NoneType)
+  def setLayout(self, a0: Optional[QLayout]) -> None:
     """
     Calls Qt's 'void QWidget::setLayout(QLayout *a0)'.
 
     Qt's own words: https://doc.qt.io/qt-6/qwidget.html#setLayout
 
-    The signature names a class made later, so the function takes the full
-    call only: no argument may be left out, and None is taken nowhere.
-
     Parameters
     ----------
 
-    a0 : QLayout
-      Passed on as the address of its C++ object.
+    a0 : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
     #  void QWidget::setLayout(QLayout *a0)
     self.uglySide.call(
@@ -3797,6 +3947,7 @@ class QWidget(QObject):
     address = self.uglySide.call(
         'ritual_ZN7QWidget4grabERK5QRect', self._valueOf(rectangle),
     )
+    from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
 
   @overload(Qt.GestureType)
@@ -4450,6 +4601,7 @@ class QWidget(QObject):
     address = self.uglySide.call(
         'ritual_ZN7QWidget9addActionERK7QString', text,
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QIcon, str)
@@ -4481,6 +4633,7 @@ class QWidget(QObject):
         'ritual_ZN7QWidget9addActionERK5QIconRK7QString',
         self._valueOf(icon), text,
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(str, QObject, str)
@@ -4535,6 +4688,7 @@ class QWidget(QObject):
         'nTypeE',
         text, self._addressOf(receiver), self._bytesOf(member), type.value,
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QIcon, str, QObject, str)
@@ -4596,6 +4750,7 @@ class QWidget(QObject):
         self._valueOf(icon), text, self._addressOf(receiver),
         self._bytesOf(member), type.value,
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(str, QKeySequence)
@@ -4633,6 +4788,7 @@ class QWidget(QObject):
         'ritual_ZN7QWidget9addActionERK7QStringRK12QKeySequence',
         text, self._valueOf(shortcut),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QIcon, str, QKeySequence)
@@ -4674,6 +4830,7 @@ class QWidget(QObject):
         'ritual_ZN7QWidget9addActionERK5QIconRK7QStringRK12QKeySequence',
         self._valueOf(icon), text, self._valueOf(shortcut),
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(str, QKeySequence, QObject, str)
@@ -4736,6 +4893,7 @@ class QWidget(QObject):
         text, self._valueOf(shortcut), self._addressOf(receiver),
         self._bytesOf(member), type.value,
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QIcon, str, QKeySequence, QObject, str)
@@ -4802,6 +4960,7 @@ class QWidget(QObject):
         self._valueOf(icon), text, self._valueOf(shortcut),
         self._addressOf(receiver), self._bytesOf(member), type.value,
     )
+    from ..QtGui import QAction
     return QAction._cuteAt(address)
 
   @overload(QAction, QAction)

@@ -12,15 +12,20 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ._q_widget import QWidget
-from ._q_style_option_option_type import OptionType
-from ._q_style_option_style_option_type import StyleOptionType
-from ._q_style_option_style_option_version import StyleOptionVersion
+from . import QStyleOptionOptionType, QStyleOptionStyleOptionType
+from . import QStyleOptionStyleOptionVersion
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -71,9 +76,9 @@ class QStyleOption(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QStyleOption, and the names Qt has for the
   #  combinations of its flags enums.
-  OptionType = OptionType
-  StyleOptionType = StyleOptionType
-  StyleOptionVersion = StyleOptionVersion
+  OptionType = QStyleOptionOptionType
+  StyleOptionType = QStyleOptionStyleOptionType
+  StyleOptionVersion = QStyleOptionStyleOptionVersion
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

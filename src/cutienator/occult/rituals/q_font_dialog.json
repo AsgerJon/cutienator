@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qfontdialog.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QFontDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QFontDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QFontDialogC1EP7QWidget": ["address", "address"],
+    "ritual_ZN11QFontDialogC1ERK5QFontP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QFontDialogD1Ev": ["nothing", "address"],
+    "ritual_ZN11QFontDialog14setCurrentFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QFontDialog11currentFontEv": ["address", "address"],
+    "ritual_ZNK11QFontDialog12selectedFontEv": ["address", "address"],
+    "ritual_ZN11QFontDialog9setOptionENS_16FontDialogOptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK11QFontDialog10testOptionENS_16FontDialogOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN11QFontDialog10setOptionsE6QFlagsINS_16FontDialogOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QFontDialog7optionsEv": ["int", "address"],
+    "ritual_ZN11QFontDialog4openEP7QObjectPKc": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZN11QFontDialog10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN11QFontDialog7getFontEPbP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QFontDialog7getFontEPbRK5QFontP7QWidgetRK7QString6QFlagsINS_16FontDialogOptionEE": [
+      "address", "address", "address", "address", "text", "int"
+    ]
+  }
+}

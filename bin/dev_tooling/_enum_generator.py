@@ -151,6 +151,16 @@ class EnumGenerator:
     """Gives the name of the enum without its owner: 'AlignmentFlag'."""
     return self.getEnumRecord()['ownName']
 
+  def getJoinedName(self) -> str:
+    """
+    Gives the name the package of its part gives the class of the enum
+    by: what Qt writes the enum inside and its own name in one, as
+    'QtAlignmentFlag' for 'Qt::AlignmentFlag' and 'QPaletteColorRole'
+    for 'QPalette::ColorRole'. A file that needs the class asks the
+    package for it by that name, as 'from . import QtAlignmentFlag'.
+    """
+    return self.getEnumName().replace('::', '')
+
   def getFlagsName(self) -> Optional[str]:
     """
     Gives the full name Qt has for the combinations of the enum, as

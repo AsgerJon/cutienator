@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qjsonvalue.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QJsonValueC1ENS_4TypeE": ["address", "int"],
+    "ritual_ZN10QJsonValueC1Eb": ["address", "bool"],
+    "ritual_ZN10QJsonValueC1Ed": ["address", "double"],
+    "ritual_ZN10QJsonValueC1Ei": ["address", "int"],
+    "ritual_ZN10QJsonValueC1Ex": ["address", "long long"],
+    "ritual_ZN10QJsonValueC1ERK7QString": ["address", "text"],
+    "ritual_ZN10QJsonValueC1E13QLatin1String": ["address", "address"],
+    "ritual_ZN10QJsonValueC1EPKc": ["address", "chars"],
+    "ritual_ZN10QJsonValueC1ERK10QJsonArray": ["address", "address"],
+    "ritual_ZN10QJsonValueC1ERK11QJsonObject": ["address", "address"],
+    "ritual_ZN10QJsonValueD1Ev": ["nothing", "address"],
+    "ritual_ZN10QJsonValueC1ERKS_": ["address", "address"],
+    "ritual_ZN10QJsonValue11fromVariantERK8QVariant": ["address", "address"],
+    "ritual_ZNK10QJsonValue9toVariantEv": ["address", "address"],
+    "ritual_ZN10QJsonValue8fromJsonE14QByteArrayViewP15QJsonParseError": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QJsonValue6toJsonEN13QJsonDocument10JsonFormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK10QJsonValue4typeEv": ["int", "address"],
+    "ritual_ZNK10QJsonValue6isNullEv": ["bool", "address"],
+    "ritual_ZNK10QJsonValue6isBoolEv": ["bool", "address"],
+    "ritual_ZNK10QJsonValue8isDoubleEv": ["bool", "address"],
+    "ritual_ZNK10QJsonValue8isStringEv": ["bool", "address"],
+    "ritual_ZNK10QJsonValue7isArrayEv": ["bool", "address"],
+    "ritual_ZNK10QJsonValue8isObjectEv": ["bool", "address"],
+    "ritual_ZNK10QJsonValue11isUndefinedEv": ["bool", "address"],
+    "ritual_ZNK10QJsonValue6toBoolEb": ["bool", "address", "bool"],
+    "ritual_ZNK10QJsonValue5toIntEi": ["int", "address", "int"],
+    "ritual_ZNK10QJsonValue9toIntegerEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZNK10QJsonValue8toDoubleEd": ["double", "address", "double"],
+    "ritual_ZNK10QJsonValue8toStringEv": ["text", "address"],
+    "ritual_ZNK10QJsonValue8toStringERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK10QJsonValue12toStringViewE14QAnyStringView": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK10QJsonValue7toArrayEv": ["address", "address"],
+    "ritual_ZNK10QJsonValue7toArrayERK10QJsonArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QJsonValue8toObjectEv": ["address", "address"],
+    "ritual_ZNK10QJsonValue8toObjectERK11QJsonObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QJsonValueixERK7QString": ["address", "address", "text"],
+    "ritual_ZNK10QJsonValueixE11QStringView": ["address", "address", "text"],
+    "ritual_ZNK10QJsonValueixE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QJsonValueixEx": ["address", "address", "long long"]
+  }
+}

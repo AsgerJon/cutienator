@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpagelayout.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QPageLayoutC1Ev": ["address"],
+    "ritual_ZN11QPageLayoutC1ERK9QPageSizeNS_11OrientationERK9QMarginsFNS_4UnitES6_": [
+      "address", "address", "int", "address", "int", "address"
+    ],
+    "ritual_ZN11QPageLayoutC1ERKS_": ["address", "address"],
+    "ritual_ZN11QPageLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QPageLayout14isEquivalentToERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QPageLayout7isValidEv": ["bool", "address"],
+    "ritual_ZN11QPageLayout7setModeENS_4ModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QPageLayout4modeEv": ["int", "address"],
+    "ritual_ZN11QPageLayout11setPageSizeERK9QPageSizeRK9QMarginsF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK11QPageLayout8pageSizeEv": ["address", "address"],
+    "ritual_ZN11QPageLayout14setOrientationENS_11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QPageLayout11orientationEv": ["int", "address"],
+    "ritual_ZN11QPageLayout8setUnitsENS_4UnitE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QPageLayout5unitsEv": ["int", "address"],
+    "ritual_ZN11QPageLayout10setMarginsERK9QMarginsFNS_17OutOfBoundsPolicyE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN11QPageLayout13setLeftMarginEdNS_17OutOfBoundsPolicyE": [
+      "bool", "address", "double", "int"
+    ],
+    "ritual_ZN11QPageLayout14setRightMarginEdNS_17OutOfBoundsPolicyE": [
+      "bool", "address", "double", "int"
+    ],
+    "ritual_ZN11QPageLayout12setTopMarginEdNS_17OutOfBoundsPolicyE": [
+      "bool", "address", "double", "int"
+    ],
+    "ritual_ZN11QPageLayout15setBottomMarginEdNS_17OutOfBoundsPolicyE": [
+      "bool", "address", "double", "int"
+    ],
+    "ritual_ZNK11QPageLayout7marginsEv": ["address", "address"],
+    "ritual_ZNK11QPageLayout7marginsENS_4UnitE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QPageLayout13marginsPointsEv": ["address", "address"],
+    "ritual_ZNK11QPageLayout13marginsPixelsEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QPageLayout17setMinimumMarginsERK9QMarginsF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QPageLayout14minimumMarginsEv": ["address", "address"],
+    "ritual_ZNK11QPageLayout14maximumMarginsEv": ["address", "address"],
+    "ritual_ZNK11QPageLayout8fullRectEv": ["address", "address"],
+    "ritual_ZNK11QPageLayout8fullRectENS_4UnitE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QPageLayout14fullRectPointsEv": ["address", "address"],
+    "ritual_ZNK11QPageLayout14fullRectPixelsEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QPageLayout9paintRectEv": ["address", "address"],
+    "ritual_ZNK11QPageLayout9paintRectENS_4UnitE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QPageLayout15paintRectPointsEv": ["address", "address"],
+    "ritual_ZNK11QPageLayout15paintRectPixelsEi": [
+      "address", "address", "int"
+    ]
+  }
+}

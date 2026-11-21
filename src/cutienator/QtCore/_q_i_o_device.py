@@ -11,15 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ._q_byte_array import QByteArray
-from ._q_i_o_device_base import QIODeviceBase
-from ._q_meta_object import QMetaObject
-from ._q_object import QObject
+from . import QIODeviceBaseOpenModeFlag, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from . import QByteArray, QIODeviceBase, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -164,6 +168,7 @@ class QIODevice(QObject):
     """
     #  const QMetaObject *QIODevice::metaObject() const
     address = self.uglySide.call('ritual_ZNK9QIODevice10metaObjectEv')
+    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def openMode(self) -> QIODeviceBase.OpenMode:
@@ -179,7 +184,7 @@ class QIODevice(QObject):
       The value standing for the combination Qt gave back.
     """
     #  QIODeviceBase::OpenMode QIODevice::openMode() const
-    return QIODeviceBase.OpenMode(self.uglySide.call(
+    return QIODeviceBaseOpenModeFlag(self.uglySide.call(
         'ritual_ZNK9QIODevice8openModeEv',
     ))
 
@@ -433,7 +438,7 @@ class QIODevice(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QIODeviceBase.OpenMode)
+  @overload(QIODeviceBaseOpenModeFlag)
   def open(self, mode: QIODeviceBase.OpenMode) -> bool:
     """
     Calls Qt's 'bool QIODevice::open(QIODeviceBase::OpenMode mode)'.
@@ -507,6 +512,7 @@ class QIODevice(QObject):
     """
     #  QByteArray QIODevice::read(qint64 maxlen)
     address = self.uglySide.call('ritual_ZN9QIODevice4readEx', maxlen)
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   def readAll(self) -> QByteArray:
@@ -523,6 +529,7 @@ class QIODevice(QObject):
     """
     #  QByteArray QIODevice::readAll()
     address = self.uglySide.call('ritual_ZN9QIODevice7readAllEv')
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   @overload()
@@ -547,6 +554,7 @@ class QIODevice(QObject):
     """
     #  QByteArray QIODevice::readLine(qint64 maxlen)
     address = self.uglySide.call('ritual_ZN9QIODevice8readLineEx', maxlen)
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   @overload(QByteArray)
@@ -688,6 +696,7 @@ class QIODevice(QObject):
     """
     #  QByteArray QIODevice::peek(qint64 maxlen)
     address = self.uglySide.call('ritual_ZN9QIODevice4peekEx', maxlen)
+    from . import QByteArray
     return QByteArray._cuteOwning(address)
 
   @overload(int)

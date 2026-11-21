@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpainterpath.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QPainterPathStrokerC1Ev": ["address"],
+    "ritual_ZN19QPainterPathStrokerC1ERK4QPen": ["address", "address"],
+    "ritual_ZN19QPainterPathStrokerD1Ev": ["nothing", "address"],
+    "ritual_ZN19QPainterPathStroker8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QPainterPathStroker5widthEv": ["double", "address"],
+    "ritual_ZN19QPainterPathStroker11setCapStyleEN2Qt11PenCapStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QPainterPathStroker8capStyleEv": ["int", "address"],
+    "ritual_ZN19QPainterPathStroker12setJoinStyleEN2Qt12PenJoinStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QPainterPathStroker9joinStyleEv": ["int", "address"],
+    "ritual_ZN19QPainterPathStroker13setMiterLimitEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QPainterPathStroker10miterLimitEv": ["double", "address"],
+    "ritual_ZN19QPainterPathStroker17setCurveThresholdEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QPainterPathStroker14curveThresholdEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QPainterPathStroker14setDashPatternEN2Qt8PenStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QPainterPathStroker13setDashOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QPainterPathStroker10dashOffsetEv": ["double", "address"],
+    "ritual_ZNK19QPainterPathStroker12createStrokeERK12QPainterPath": [
+      "address", "address", "address"
+    ]
+  }
+}

@@ -11,21 +11,22 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtCore import QEvent
-from ..QtCore import QMetaObject
-from ..QtCore import QSize
-from ..QtCore import QVariant
-from ._q_widget import QWidget
-from ._q_abstract_spin_box_button_symbols import ButtonSymbols
-from ._q_abstract_spin_box_correction_mode import CorrectionMode
-from ._q_abstract_spin_box_step_enabled_flag import StepEnabledFlag
-from ._q_abstract_spin_box_step_type import StepType
+from . import QAbstractSpinBoxButtonSymbols, QAbstractSpinBoxCorrectionMode
+from . import QAbstractSpinBoxStepEnabledFlag, QAbstractSpinBoxStepType
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
+
+  from ..QtCore import QEvent, QMetaObject, QSize, QVariant
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -86,11 +87,11 @@ class QAbstractSpinBox(QWidget):
 
   #  The enums Qt writes inside QAbstractSpinBox, and the names Qt has for
   #  the combinations of its flags enums.
-  ButtonSymbols = ButtonSymbols
-  CorrectionMode = CorrectionMode
-  StepEnabledFlag = StepEnabledFlag
-  StepEnabled = StepEnabledFlag
-  StepType = StepType
+  ButtonSymbols = QAbstractSpinBoxButtonSymbols
+  CorrectionMode = QAbstractSpinBoxCorrectionMode
+  StepEnabledFlag = QAbstractSpinBoxStepEnabledFlag
+  StepEnabled = QAbstractSpinBoxStepEnabledFlag
+  StepType = QAbstractSpinBoxStepType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -176,6 +177,7 @@ class QAbstractSpinBox(QWidget):
     address = self.uglySide.call(
         'ritual_ZNK16QAbstractSpinBox10metaObjectEv',
     )
+    from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def buttonSymbols(self) -> ButtonSymbols:
@@ -194,7 +196,7 @@ class QAbstractSpinBox(QWidget):
       gives.
     """
     #  ButtonSymbols QAbstractSpinBox::buttonSymbols() const
-    return ButtonSymbols(self.uglySide.call(
+    return QAbstractSpinBox.ButtonSymbols(self.uglySide.call(
         'ritual_ZNK16QAbstractSpinBox13buttonSymbolsEv',
     ))
 
@@ -214,7 +216,7 @@ class QAbstractSpinBox(QWidget):
       gives.
     """
     #  CorrectionMode QAbstractSpinBox::correctionMode() const
-    return CorrectionMode(self.uglySide.call(
+    return QAbstractSpinBox.CorrectionMode(self.uglySide.call(
         'ritual_ZNK16QAbstractSpinBox14correctionModeEv',
     ))
 
@@ -357,6 +359,7 @@ class QAbstractSpinBox(QWidget):
     """
     #  QSize QAbstractSpinBox::sizeHint() const
     address = self.uglySide.call('ritual_ZNK16QAbstractSpinBox8sizeHintEv')
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   def minimumSizeHint(self) -> QSize:
@@ -376,6 +379,7 @@ class QAbstractSpinBox(QWidget):
     address = self.uglySide.call(
         'ritual_ZNK16QAbstractSpinBox15minimumSizeHintEv',
     )
+    from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
   @overload(Qt.InputMethodQuery)
@@ -406,6 +410,7 @@ class QAbstractSpinBox(QWidget):
         'eryE',
         a0.value,
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -1,0 +1,140 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsgridlayout.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QGraphicsGridLayoutC1EP19QGraphicsLayoutItem": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGraphicsGridLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZN19QGraphicsGridLayout7addItemEP19QGraphicsLayoutItemiiii6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout7addItemEP19QGraphicsLayoutItemii6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout20setHorizontalSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout17horizontalSpacingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QGraphicsGridLayout18setVerticalSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout15verticalSpacingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QGraphicsGridLayout10setSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QGraphicsGridLayout13setRowSpacingEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout10rowSpacingEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout16setColumnSpacingEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout13columnSpacingEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout19setRowStretchFactorEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout16rowStretchFactorEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout22setColumnStretchFactorEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout19columnStretchFactorEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout19setRowMinimumHeightEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout16rowMinimumHeightEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout21setRowPreferredHeightEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout18rowPreferredHeightEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout19setRowMaximumHeightEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout16rowMaximumHeightEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout17setRowFixedHeightEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN19QGraphicsGridLayout21setColumnMinimumWidthEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout18columnMinimumWidthEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout23setColumnPreferredWidthEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout20columnPreferredWidthEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout21setColumnMaximumWidthEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout18columnMaximumWidthEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout19setColumnFixedWidthEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN19QGraphicsGridLayout15setRowAlignmentEi6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout12rowAlignmentEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout18setColumnAlignmentEi6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout15columnAlignmentEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout12setAlignmentEP19QGraphicsLayoutItem6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout9alignmentEP19QGraphicsLayoutItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout8rowCountEv": ["int", "address"],
+    "ritual_ZNK19QGraphicsGridLayout11columnCountEv": ["int", "address"],
+    "ritual_ZNK19QGraphicsGridLayout6itemAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout5countEv": ["int", "address"],
+    "ritual_ZNK19QGraphicsGridLayout6itemAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout8removeAtEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsGridLayout10removeItemEP19QGraphicsLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsGridLayout10invalidateEv": ["nothing", "address"],
+    "ritual_ZN19QGraphicsGridLayout11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QGraphicsGridLayout8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ]
+  }
+}

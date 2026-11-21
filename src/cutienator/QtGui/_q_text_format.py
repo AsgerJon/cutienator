@@ -15,14 +15,20 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ._q_brush import QBrush
-from ._q_color import QColor
-from ._q_pen import QPen
-from ..QtCore import QVariant
-from ._q_text_format_format_type import FormatType
-from ._q_text_format_object_types import ObjectTypes
-from ._q_text_format_page_break_flag import PageBreakFlag
-from ._q_text_format_property import Property
+from . import QTextFormatFormatType, QTextFormatObjectTypes
+from . import QTextFormatPageBreakFlag, QTextFormatProperty
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QVariant
+  from . import QBrush, QColor, QPen, QTextBlockFormat, QTextCharFormat
+  from . import QTextFrameFormat, QTextImageFormat, QTextLength
+  from . import QTextListFormat, QTextTableCellFormat, QTextTableFormat
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBrush = WAIT['QBrush']
+  QVariant = WAIT['QVariant']
 
 
 class QTextFormat(CuteMixin, metaclass=MetaCute):
@@ -38,34 +44,24 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextFormat that has a ritual and that Python can
-  call so far, 37 names in all: 'merge', 'isValid', 'isEmpty', 'type',
+  call so far, 43 names in all: 'merge', 'isValid', 'isEmpty', 'type',
   'objectIndex', 'setObjectIndex', 'property', 'setProperty',
   'clearProperty', 'hasProperty', 'boolProperty', 'intProperty',
   'doubleProperty', 'stringProperty', 'colorProperty', 'penProperty',
-  'brushProperty', 'propertyCount', 'setObjectType', 'objectType',
-  'isCharFormat', 'isBlockFormat', 'isListFormat', 'isFrameFormat',
-  'isImageFormat', 'isTableFormat', 'isTableCellFormat', 'toBlockFormat',
-  'toCharFormat', 'setLayoutDirection', 'layoutDirection', 'setBackground',
-  'background', 'clearBackground', 'setForeground', 'foreground',
-  'clearForeground'. It can be made from Python, in 3 ways; see '__init__'.
+  'brushProperty', 'lengthProperty', 'propertyCount', 'setObjectType',
+  'objectType', 'isCharFormat', 'isBlockFormat', 'isListFormat',
+  'isFrameFormat', 'isImageFormat', 'isTableFormat', 'isTableCellFormat',
+  'toBlockFormat', 'toCharFormat', 'toListFormat', 'toTableFormat',
+  'toFrameFormat', 'toImageFormat', 'toTableCellFormat',
+  'setLayoutDirection', 'layoutDirection', 'setBackground', 'background',
+  'clearBackground', 'setForeground', 'foreground', 'clearForeground'. It can
+  be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QTextFormat::~QTextFormat()': the destructor: Python removes its
     C++ QTextFormat by it, and has no other use for it.
-  - Qt's 'QTextLength QTextFormat::lengthProperty(int propertyId) const':
-    gives 'QTextLength', which has no cute class yet.
-  - Qt's 'QTextListFormat QTextFormat::toListFormat() const': gives
-    'QTextListFormat', which has no cute class yet.
-  - Qt's 'QTextTableFormat QTextFormat::toTableFormat() const': gives
-    'QTextTableFormat', which has no cute class yet.
-  - Qt's 'QTextFrameFormat QTextFormat::toFrameFormat() const': gives
-    'QTextFrameFormat', which has no cute class yet.
-  - Qt's 'QTextImageFormat QTextFormat::toImageFormat() const': gives
-    'QTextImageFormat', which has no cute class yet.
-  - Qt's 'QTextTableCellFormat QTextFormat::toTableCellFormat() const': gives
-    'QTextTableCellFormat', which has no cute class yet.
   - Qt's 'bool QTextFormat::operator==(const QTextFormat &rhs) const': an
     operator, which is not reflected yet.
   - Qt's 'bool QTextFormat::operator!=(const QTextFormat &rhs) const': an
@@ -95,16 +91,11 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
 
   #  The enums Qt writes inside QTextFormat, and the names Qt has for the
   #  combinations of its flags enums.
-  FormatType = FormatType
-  ObjectTypes = ObjectTypes
-  PageBreakFlag = PageBreakFlag
-  PageBreakFlags = PageBreakFlag
-  Property = Property
-
-  #  The cute classes made after this one that its functions take or give;
-  #  see 'WAIT'.
-  QTextBlockFormat = WAIT['QTextBlockFormat']
-  QTextCharFormat = WAIT['QTextCharFormat']
+  FormatType = QTextFormatFormatType
+  ObjectTypes = QTextFormatObjectTypes
+  PageBreakFlag = QTextFormatPageBreakFlag
+  PageBreakFlags = QTextFormatPageBreakFlag
+  Property = QTextFormatProperty
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -193,6 +184,7 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QTextFormat8propertyEi', propertyId,
     )
+    from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(int)
@@ -314,6 +306,7 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QTextFormat13colorPropertyEi', propertyId,
     )
+    from . import QColor
     return QColor._cuteOwning(address)
 
   @overload(int)
@@ -339,6 +332,7 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QTextFormat11penPropertyEi', propertyId,
     )
+    from . import QPen
     return QPen._cuteOwning(address)
 
   @overload(int)
@@ -364,7 +358,35 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK11QTextFormat13brushPropertyEi', propertyId,
     )
+    from . import QBrush
     return QBrush._cuteOwning(address)
+
+  @overload(int)
+  def lengthProperty(self, propertyId: int) -> QTextLength:
+    """
+    Calls Qt's 'QTextLength QTextFormat::lengthProperty(int propertyId)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextformat.html#lengthProperty
+
+    Parameters
+    ----------
+
+    propertyId : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QTextLength
+      A new cute QTextLength around the copy Qt gave back. Python owns it.
+    """
+    #  QTextLength QTextFormat::lengthProperty(int propertyId) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QTextFormat14lengthPropertyEi', propertyId,
+    )
+    from . import QTextLength
+    return QTextLength._cuteOwning(address)
 
   def propertyCount(self) -> int:
     """
@@ -462,7 +484,8 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     """
     #  QTextBlockFormat QTextFormat::toBlockFormat() const
     address = self.uglySide.call('ritual_ZNK11QTextFormat13toBlockFormatEv')
-    return self.QTextBlockFormat._cuteOwning(address)
+    from . import QTextBlockFormat
+    return QTextBlockFormat._cuteOwning(address)
 
   def toCharFormat(self) -> QTextCharFormat:
     """
@@ -479,7 +502,100 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     """
     #  QTextCharFormat QTextFormat::toCharFormat() const
     address = self.uglySide.call('ritual_ZNK11QTextFormat12toCharFormatEv')
-    return self.QTextCharFormat._cuteOwning(address)
+    from . import QTextCharFormat
+    return QTextCharFormat._cuteOwning(address)
+
+  def toListFormat(self) -> QTextListFormat:
+    """
+    Calls Qt's 'QTextListFormat QTextFormat::toListFormat() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextformat.html#toListFormat
+
+    Returns
+    -------
+
+    QTextListFormat
+      A new cute QTextListFormat around the copy Qt gave back. Python owns
+      it.
+    """
+    #  QTextListFormat QTextFormat::toListFormat() const
+    address = self.uglySide.call('ritual_ZNK11QTextFormat12toListFormatEv')
+    from . import QTextListFormat
+    return QTextListFormat._cuteOwning(address)
+
+  def toTableFormat(self) -> QTextTableFormat:
+    """
+    Calls Qt's 'QTextTableFormat QTextFormat::toTableFormat() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextformat.html#toTableFormat
+
+    Returns
+    -------
+
+    QTextTableFormat
+      A new cute QTextTableFormat around the copy Qt gave back. Python owns
+      it.
+    """
+    #  QTextTableFormat QTextFormat::toTableFormat() const
+    address = self.uglySide.call('ritual_ZNK11QTextFormat13toTableFormatEv')
+    from . import QTextTableFormat
+    return QTextTableFormat._cuteOwning(address)
+
+  def toFrameFormat(self) -> QTextFrameFormat:
+    """
+    Calls Qt's 'QTextFrameFormat QTextFormat::toFrameFormat() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextformat.html#toFrameFormat
+
+    Returns
+    -------
+
+    QTextFrameFormat
+      A new cute QTextFrameFormat around the copy Qt gave back. Python owns
+      it.
+    """
+    #  QTextFrameFormat QTextFormat::toFrameFormat() const
+    address = self.uglySide.call('ritual_ZNK11QTextFormat13toFrameFormatEv')
+    from . import QTextFrameFormat
+    return QTextFrameFormat._cuteOwning(address)
+
+  def toImageFormat(self) -> QTextImageFormat:
+    """
+    Calls Qt's 'QTextImageFormat QTextFormat::toImageFormat() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextformat.html#toImageFormat
+
+    Returns
+    -------
+
+    QTextImageFormat
+      A new cute QTextImageFormat around the copy Qt gave back. Python owns
+      it.
+    """
+    #  QTextImageFormat QTextFormat::toImageFormat() const
+    address = self.uglySide.call('ritual_ZNK11QTextFormat13toImageFormatEv')
+    from . import QTextImageFormat
+    return QTextImageFormat._cuteOwning(address)
+
+  def toTableCellFormat(self) -> QTextTableCellFormat:
+    """
+    Calls Qt's 'QTextTableCellFormat QTextFormat::toTableCellFormat() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextformat.html#toTableCellFormat
+
+    Returns
+    -------
+
+    QTextTableCellFormat
+      A new cute QTextTableCellFormat around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QTextTableCellFormat QTextFormat::toTableCellFormat() const
+    address = self.uglySide.call(
+        'ritual_ZNK11QTextFormat17toTableCellFormatEv',
+    )
+    from . import QTextTableCellFormat
+    return QTextTableCellFormat._cuteOwning(address)
 
   def layoutDirection(self) -> Qt.LayoutDirection:
     """
@@ -514,6 +630,7 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     """
     #  QBrush QTextFormat::background() const
     address = self.uglySide.call('ritual_ZNK11QTextFormat10backgroundEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   def foreground(self) -> QBrush:
@@ -530,6 +647,7 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     """
     #  QBrush QTextFormat::foreground() const
     address = self.uglySide.call('ritual_ZNK11QTextFormat10foregroundEv')
+    from . import QBrush
     return QBrush._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

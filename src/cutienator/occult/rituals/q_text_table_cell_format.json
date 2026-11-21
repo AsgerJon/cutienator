@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextformat.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QTextTableCellFormatC1Ev": ["address"],
+    "ritual_ZNK20QTextTableCellFormat7isValidEv": ["bool", "address"],
+    "ritual_ZN20QTextTableCellFormat13setTopPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QTextTableCellFormat10topPaddingEv": ["double", "address"],
+    "ritual_ZN20QTextTableCellFormat16setBottomPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QTextTableCellFormat13bottomPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QTextTableCellFormat14setLeftPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QTextTableCellFormat11leftPaddingEv": ["double", "address"],
+    "ritual_ZN20QTextTableCellFormat15setRightPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QTextTableCellFormat12rightPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QTextTableCellFormat10setPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QTextTableCellFormat12setTopBorderEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QTextTableCellFormat9topBorderEv": ["double", "address"],
+    "ritual_ZN20QTextTableCellFormat15setBottomBorderEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QTextTableCellFormat12bottomBorderEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QTextTableCellFormat13setLeftBorderEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QTextTableCellFormat10leftBorderEv": ["double", "address"],
+    "ritual_ZN20QTextTableCellFormat14setRightBorderEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QTextTableCellFormat11rightBorderEv": ["double", "address"],
+    "ritual_ZN20QTextTableCellFormat9setBorderEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QTextTableCellFormat17setTopBorderStyleEN16QTextFrameFormat11BorderStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QTextTableCellFormat14topBorderStyleEv": ["int", "address"],
+    "ritual_ZN20QTextTableCellFormat20setBottomBorderStyleEN16QTextFrameFormat11BorderStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QTextTableCellFormat17bottomBorderStyleEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QTextTableCellFormat18setLeftBorderStyleEN16QTextFrameFormat11BorderStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QTextTableCellFormat15leftBorderStyleEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QTextTableCellFormat19setRightBorderStyleEN16QTextFrameFormat11BorderStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QTextTableCellFormat16rightBorderStyleEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QTextTableCellFormat14setBorderStyleEN16QTextFrameFormat11BorderStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QTextTableCellFormat17setTopBorderBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QTextTableCellFormat14topBorderBrushEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QTextTableCellFormat20setBottomBorderBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QTextTableCellFormat17bottomBorderBrushEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QTextTableCellFormat18setLeftBorderBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QTextTableCellFormat15leftBorderBrushEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QTextTableCellFormat19setRightBorderBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QTextTableCellFormat16rightBorderBrushEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QTextTableCellFormat14setBorderBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QTextTableCellFormatD1Ev": ["nothing", "address"]
+  }
+}
