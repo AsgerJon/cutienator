@@ -50,7 +50,10 @@ held = sorted(name.rpartition('._')[2] for name in sys.modules
 print('class files brought in:', ' '.join(held))
 print('waits for QFont:', 'QFont' in MetaCute.getStillWaiting())
 print('setFont is there:', hasattr(QWidget, 'setFont'))
-print('setLayout is there:', hasattr(QWidget, 'setLayout'))
+try:
+  QWidget.setFont(None, 7)
+except Exception as exception:
+  print('setFont refuses:', type(exception).__name__)
 from cutienator.QtGui import QFont
 print('waits for QFont:', 'QFont' in MetaCute.getStillWaiting())
 print('setFont is there:', hasattr(QWidget, 'setFont'))
@@ -164,13 +167,14 @@ class TestPackages(BaseTest):
     holds an enum or a class it or 'QObject' names: 'QPalette',
     'QSizePolicy' and 'QMetaObject'. It brings in no other class. A
     signature naming another class waits until a program brings that
-    class in, or a function gives an object of it."""
+    class in, or a function gives an object of it; its function is
+    on the class all the while, and refuses every call until then."""
     expected = [
       'class files brought in: '
       'q_meta_object q_object q_palette q_size_policy q_widget qt',
       'waits for QFont: True',
-      'setFont is there: False',
-      'setLayout is there: True',
+      'setFont is there: True',
+      'setFont refuses: DispatchException',
       'waits for QFont: False',
       'setFont is there: True',
       'QWidget holds QFont: True',

@@ -95,11 +95,10 @@ hands over.
 Mostly nothing. Bring in what you use, as with any binding. Four things
 are different from a binding that loads everything at once:
 
-- **A function whose every signature waits is not on its class yet.**
-  `hasattr(QWidget, 'setFont')` is `False` until `QFont` is brought in.
-  To call `setFont` you need a `QFont`, and by then it is there. A
-  function with at least one signature that does not wait, as
-  `setLayout`, which also takes `None`, is there from the start.
+- **A function whose every signature waits takes no call yet.**
+  `QWidget.setFont` is on the class from the start, but until `QFont`
+  is brought in it refuses every call with `DispatchException`. To call
+  it you need a `QFont`, and by then it takes one.
 - **A class changes when a class it waited for comes in.** The function
   is built again with the signature that came back. A function you read
   off an object earlier and kept, as `kept = widget.setFont`, still

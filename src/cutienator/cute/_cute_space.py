@@ -119,8 +119,9 @@ class CuteSpace(BaseSpace):
   - At one of worktoy's class hooks, as '__class_call__', a waiting
     signature is written with '@classmethod' above '@overload'.
   - Until its late class is made, a waiting signature is in no
-    dispatcher. A name whose every signature waits is not on the class
-    at all until then.
+    dispatcher. A name whose every signature waits is on the class all
+    the same: it refuses every call with 'DispatchException' until
+    then.
   - worktoy matches the signatures of one class in the order they were
     written, so the more special one is written first. That order is
     kept across the wait: a signature put back lands where it was
@@ -737,8 +738,9 @@ class CuteSpace(BaseSpace):
     declares with '@overload.fallback', or else the door.
 
     worktoy asks this as it builds the dispatcher of a name. A name
-    with no signature on record gets no door, since a door alone would
-    put a dispatcher where the class has none.
+    whose every signature still waits gets the door as well, so the
+    name is on the class and refuses every call until a late class is
+    made. A name with nothing on record and nothing waiting gets none.
 
     Parameters
     ----------
@@ -751,7 +753,7 @@ class CuteSpace(BaseSpace):
 
     Optional[Callable]
       The declared fallback, or the door, or None for a name with
-      nothing on record.
+      nothing on record and nothing waiting.
     """
     fallback = BaseSpace.collectFallback(self, name)
     if fallback is not None:
@@ -761,9 +763,44 @@ class CuteSpace(BaseSpace):
       self.collectFlexes(name),
       self.collectVariadics(name),
     )
-    if not any(registries):
+    if not any(registries) and not self._hasWaiting(name):
       return None
     return self._createDoor(name)
+
+  def _hasWaiting(self, name: str) -> bool:
+    """
+    Says whether a signature still waits at a name, in this body or in
+    the body of a class this one inherits the name from.
+    """
+    for space in (self, *self._getInheritedSpaces(name)):
+      if not isinstance(space, CuteSpace):
+        continue
+      for methodName, _ in space._getWaitingList():
+        if methodName == name:
+          return True
+    return False
+
+  def getOverloadNames(self) -> List[str]:
+    """
+    Gives every name the class gets a dispatcher for: each name worktoy
+    finds overloads at, and each name at which a signature still waits,
+    in this body or in the body of a class this one is built on.
+
+    worktoy asks this as the class is made. A name whose every
+    signature waits is among them, so it is on the class from the
+    start: it holds a dispatcher with the door alone, which refuses
+    every call with 'DispatchException' until a late class is made.
+    Without it the name would not be on the class at all, and reading
+    it would raise 'AttributeError'.
+    """
+    names = BaseSpace.getOverloadNames(self)
+    for space in (self, *self._getLookupSpaces()):
+      if not isinstance(space, CuteSpace):
+        continue
+      for methodName, _ in space._getWaitingList():
+        if methodName not in names:
+          names.append(methodName)
+    return names
 
   def postCompile(self, namespace: dict) -> dict:
     """

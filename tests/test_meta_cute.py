@@ -203,7 +203,8 @@ class TestMetaCute(BaseTest):
       early.meet('seven')
 
   def test_name_with_only_waiting_signatures(self) -> None:
-    """A name whose every signature waits is on the class only after."""
+    """A name whose every signature waits is on the class from the
+    start, and refuses every call until the late class is made."""
 
     class OnlyEarly(BaseObject, metaclass=MetaCute):
       OnlyLate = WAIT['OnlyLate']
@@ -212,7 +213,12 @@ class TestMetaCute(BaseTest):
       def meet(self, late: Any) -> str:
         return 'late'
 
-    self.assertFalse(hasattr(OnlyEarly, 'meet'))
+    self.assertTrue(hasattr(OnlyEarly, 'meet'))
+    self.assertTrue(callable(OnlyEarly().meet))
+    for wrong in (7, 'late', None, OnlyEarly()):
+      with self.subTest(wrong=type(wrong).__name__):
+        with self.assertRaises(DispatchException):
+          OnlyEarly().meet(wrong)
 
     class OnlyLate(BaseObject, metaclass=MetaCute):
       pass
@@ -330,7 +336,7 @@ class TestMetaCute(BaseTest):
     class PairOne(BaseObject, metaclass=MetaCute):
       pass
 
-    self.assertFalse(hasattr(PairEarly, 'join'))
+    self.assertTrue(hasattr(PairEarly, 'join'))
     self.assertIn('PairTwo', MetaCute.getStillWaiting())
     self.assertNotIn('PairOne', MetaCute.getStillWaiting())
 
@@ -467,7 +473,9 @@ class TestMetaCute(BaseTest):
     self.assertEqual(sharesOne.take(), ('NoneType', 1))
     self.assertEqual(builtOn.take(None), ('NoneType', 1))
     self.assertEqual(SharesOne.make('text'), 1)
-    self.assertFalse(hasattr(SharesOne, 'both'))
+    self.assertTrue(hasattr(SharesOne, 'both'))
+    with self.assertRaises(DispatchException):
+      sharesOne.both(7)
     with self.assertRaises(DispatchException):
       sharesOne.take(7)
 
@@ -481,7 +489,8 @@ class TestMetaCute(BaseTest):
     self.assertEqual(sharesOne.take(), ('NoneType', 1))
     self.assertEqual(SharesOne.make(late, 'text'), 2)
     self.assertEqual(BuiltOnShares.make('text'), 1)
-    self.assertFalse(hasattr(SharesOne, 'both'))
+    with self.assertRaises(DispatchException):
+      sharesOne.both(late)
     self.assertNotIn('SharedLate', MetaCute.getStillWaiting())
     self.assertIn('SharedOther', MetaCute.getStillWaiting())
 
@@ -579,7 +588,8 @@ class TestMetaCute(BaseTest):
     #  The sound class was noted first and is as if nothing had run.
     self.assertIn('WholeLate', MetaCute.getStillWaiting())
     self.assertIsInstance(WholeSound.__dict__['WholeLate'], WAIT)
-    self.assertFalse(hasattr(WholeSound, 'take'))
+    with self.assertRaises(DispatchException):
+      WholeSound().take(7)
     wholeSpace = WholeSound.getNamespace()
     self.assertEqual(len(wholeSpace.getWaitingSignatures()), 1)
     #  The faulty class is given up, and is as it was too.
@@ -593,7 +603,9 @@ class TestMetaCute(BaseTest):
     self.assertNotIn('WholeLate', MetaCute.getStillWaiting())
     self.assertIs(WholeSound.WholeLate, WholeLate)
     self.assertEqual(WholeSound().take(WholeLate()), 'took')
-    self.assertFalse(hasattr(WholeFaulty, 'take'))
+    #  The field of the faulty class was given up, so what waited there
+    #  waits for ever: the name is on the class and takes no call.
+    self.assertTrue(hasattr(WholeFaulty, 'take'))
 
   def test_a_failed_class_statement_leaves_no_class_behind(self) -> None:
     """A class whose statement fails is not noted, and waits for nothing."""

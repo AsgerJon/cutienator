@@ -123,7 +123,8 @@ class WAIT(Object):
   - Before the late class is made, the waiting signature is not there:
     nothing can be an object of a class that does not exist. The other
     signatures of the name work. A name whose every signature waits is
-    not on the class at all until then.
+    on the class all the same, and refuses every call with
+    'DispatchException' until then.
   - After, the waiting class, the classes built on it before and after,
     and the late class itself all take the late class, at the place the
     signature was written in. A wrong argument is refused with
