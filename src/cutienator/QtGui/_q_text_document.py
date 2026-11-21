@@ -1792,7 +1792,7 @@ class QTextDocument(QObject):
     #  void QTextDocument::print(QPagedPaintDevice *printer) const
     self.uglySide.call(
         'ritual_ZNK13QTextDocument5printEP17QPagedPaintDevice',
-        self._addressOf(printer),
+        self._addressOf(printer, 'QPagedPaintDevice'),
     )
 
   @overload(int, QUrl, QVariant)

@@ -759,7 +759,7 @@ class QAbstractTextDocumentLayout(QObject):
     self.uglySide.call(
         'ritual_ZN27QAbstractTextDocumentLayout14setPaintDeviceEP12QPaintDe'
         'vice',
-        self._addressOf(device),
+        self._addressOf(device, 'QPaintDevice'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

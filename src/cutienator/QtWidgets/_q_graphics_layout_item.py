@@ -119,7 +119,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       A new cute QSizePolicy around the copy Qt gave back. Python owns it.
     """
     #  QSizePolicy QGraphicsLayoutItem::sizePolicy() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem10sizePolicyEv',
     )
     return QSizePolicy._cuteOwning(address)
@@ -138,7 +139,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       A new cute QSizeF around the copy Qt gave back. Python owns it.
     """
     #  QSizeF QGraphicsLayoutItem::minimumSize() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem11minimumSizeEv',
     )
     from ..QtCore import QSizeF
@@ -152,7 +154,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumWidth
     """
     #  qreal QGraphicsLayoutItem::minimumWidth() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem12minimumWidthEv',
     )
 
@@ -164,7 +167,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumHeight
     """
     #  qreal QGraphicsLayoutItem::minimumHeight() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem13minimumHeightEv',
     )
 
@@ -182,7 +186,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       A new cute QSizeF around the copy Qt gave back. Python owns it.
     """
     #  QSizeF QGraphicsLayoutItem::preferredSize() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem13preferredSizeEv',
     )
     from ..QtCore import QSizeF
@@ -196,7 +201,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredWidth
     """
     #  qreal QGraphicsLayoutItem::preferredWidth() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem14preferredWidthEv',
     )
 
@@ -208,7 +214,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredHeight
     """
     #  qreal QGraphicsLayoutItem::preferredHeight() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem15preferredHeightEv',
     )
 
@@ -226,7 +233,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       A new cute QSizeF around the copy Qt gave back. Python owns it.
     """
     #  QSizeF QGraphicsLayoutItem::maximumSize() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem11maximumSizeEv',
     )
     from ..QtCore import QSizeF
@@ -240,7 +248,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumWidth
     """
     #  qreal QGraphicsLayoutItem::maximumWidth() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem12maximumWidthEv',
     )
 
@@ -252,7 +261,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumHeight
     """
     #  qreal QGraphicsLayoutItem::maximumHeight() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem13maximumHeightEv',
     )
 
@@ -269,8 +279,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsLayoutItem::geometry() const
-    address = self.uglySide.call(
-        'ritual_ZNK19QGraphicsLayoutItem8geometryEv',
+    address = self._callAs(
+        'QGraphicsLayoutItem', 'ritual_ZNK19QGraphicsLayoutItem8geometryEv',
     )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
@@ -289,7 +299,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsLayoutItem::contentsRect() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem12contentsRectEv',
     )
     from ..QtCore import QRectF
@@ -330,7 +341,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     if constraint is None:
       from ..QtCore import QSizeF
       constraint = QSizeF()
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem17effectiveSizeHintEN2Qt8SizeHintER'
         'K6QSizeF',
         which.value, self._valueOf(constraint),
@@ -345,7 +357,9 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty
     """
     #  bool QGraphicsLayoutItem::isEmpty() const
-    return self.uglySide.call('ritual_ZNK19QGraphicsLayoutItem7isEmptyEv')
+    return self._callAs(
+        'QGraphicsLayoutItem', 'ritual_ZNK19QGraphicsLayoutItem7isEmptyEv',
+    )
 
   def parentLayoutItem(self) -> Optional[QGraphicsLayoutItem]:
     """
@@ -363,7 +377,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsLayoutItem *QGraphicsLayoutItem::parentLayoutItem() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem16parentLayoutItemEv',
     )
     return QGraphicsLayoutItem._cuteAt(address)
@@ -375,7 +390,9 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isLayout
     """
     #  bool QGraphicsLayoutItem::isLayout() const
-    return self.uglySide.call('ritual_ZNK19QGraphicsLayoutItem8isLayoutEv')
+    return self._callAs(
+        'QGraphicsLayoutItem', 'ritual_ZNK19QGraphicsLayoutItem8isLayoutEv',
+    )
 
   def graphicsItem(self) -> Optional[QGraphicsItem]:
     """
@@ -392,7 +409,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsItem *QGraphicsLayoutItem::graphicsItem() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem12graphicsItemEv',
     )
     from . import QGraphicsItem
@@ -406,7 +424,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicslayoutitem.html#ownedByLayout
     """
     #  bool QGraphicsLayoutItem::ownedByLayout() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZNK19QGraphicsLayoutItem13ownedByLayoutEv',
     )
 
@@ -431,7 +450,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       Python's own.
     """
     #  void QGraphicsLayoutItem::setSizePolicy(const QSizePolicy &policy)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZN19QGraphicsLayoutItem13setSizePolicyERK11QSizePolicy',
         self._valueOf(policy),
     )
@@ -468,7 +488,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     """
     #  void QGraphicsLayoutItem::setSizePolicy(QSizePolicy::Policy hPolicy,
     #      QSizePolicy::Policy vPolicy, QSizePolicy::ControlType controlType)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZN19QGraphicsLayoutItem13setSizePolicyEN11QSizePolicy6Polic'
         'yES1_NS0_11ControlTypeE',
         hPolicy.value, vPolicy.value, controlType.value,
@@ -491,7 +512,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QGraphicsLayoutItem::setMinimumSize(const QSizeF &size)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZN19QGraphicsLayoutItem14setMinimumSizeERK6QSizeF',
         self._valueOf(size),
     )
@@ -514,8 +536,10 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsLayoutItem::setMinimumSize(qreal w, qreal h)
-    self.uglySide.call(
-        'ritual_ZN19QGraphicsLayoutItem14setMinimumSizeEdd', w, h,
+    self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZN19QGraphicsLayoutItem14setMinimumSizeEdd',
+        w, h,
     )
 
   @overload(float)
@@ -533,8 +557,10 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsLayoutItem::setMinimumWidth(qreal width)
-    self.uglySide.call(
-        'ritual_ZN19QGraphicsLayoutItem15setMinimumWidthEd', width,
+    self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZN19QGraphicsLayoutItem15setMinimumWidthEd',
+        width,
     )
 
   @overload(float)
@@ -552,8 +578,10 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsLayoutItem::setMinimumHeight(qreal height)
-    self.uglySide.call(
-        'ritual_ZN19QGraphicsLayoutItem16setMinimumHeightEd', height,
+    self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZN19QGraphicsLayoutItem16setMinimumHeightEd',
+        height,
     )
 
   @overload(QSizeF)
@@ -573,7 +601,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QGraphicsLayoutItem::setPreferredSize(const QSizeF &size)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZN19QGraphicsLayoutItem16setPreferredSizeERK6QSizeF',
         self._valueOf(size),
     )
@@ -597,8 +626,10 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsLayoutItem::setPreferredSize(qreal w, qreal h)
-    self.uglySide.call(
-        'ritual_ZN19QGraphicsLayoutItem16setPreferredSizeEdd', w, h,
+    self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZN19QGraphicsLayoutItem16setPreferredSizeEdd',
+        w, h,
     )
 
   @overload(float)
@@ -616,8 +647,10 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsLayoutItem::setPreferredWidth(qreal width)
-    self.uglySide.call(
-        'ritual_ZN19QGraphicsLayoutItem17setPreferredWidthEd', width,
+    self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZN19QGraphicsLayoutItem17setPreferredWidthEd',
+        width,
     )
 
   @overload(float)
@@ -635,8 +668,10 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsLayoutItem::setPreferredHeight(qreal height)
-    self.uglySide.call(
-        'ritual_ZN19QGraphicsLayoutItem18setPreferredHeightEd', height,
+    self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZN19QGraphicsLayoutItem18setPreferredHeightEd',
+        height,
     )
 
   @overload(QSizeF)
@@ -656,7 +691,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QGraphicsLayoutItem::setMaximumSize(const QSizeF &size)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZN19QGraphicsLayoutItem14setMaximumSizeERK6QSizeF',
         self._valueOf(size),
     )
@@ -679,8 +715,10 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsLayoutItem::setMaximumSize(qreal w, qreal h)
-    self.uglySide.call(
-        'ritual_ZN19QGraphicsLayoutItem14setMaximumSizeEdd', w, h,
+    self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZN19QGraphicsLayoutItem14setMaximumSizeEdd',
+        w, h,
     )
 
   @overload(float)
@@ -698,8 +736,10 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsLayoutItem::setMaximumWidth(qreal width)
-    self.uglySide.call(
-        'ritual_ZN19QGraphicsLayoutItem15setMaximumWidthEd', width,
+    self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZN19QGraphicsLayoutItem15setMaximumWidthEd',
+        width,
     )
 
   @overload(float)
@@ -717,8 +757,10 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsLayoutItem::setMaximumHeight(qreal height)
-    self.uglySide.call(
-        'ritual_ZN19QGraphicsLayoutItem16setMaximumHeightEd', height,
+    self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZN19QGraphicsLayoutItem16setMaximumHeightEd',
+        height,
     )
 
   @overload(QRectF)
@@ -737,7 +779,8 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QGraphicsLayoutItem::setGeometry(const QRectF &rect)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF',
         self._valueOf(rect),
     )
@@ -764,9 +807,10 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     """
     #  void QGraphicsLayoutItem::setParentLayoutItem(QGraphicsLayoutItem
     #      *parent)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsLayoutItem',
         'ritual_ZN19QGraphicsLayoutItem19setParentLayoutItemEPS_',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QGraphicsLayoutItem'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -809,4 +853,7 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicslayoutitem.html#updateGeometry
     """
     #  void QGraphicsLayoutItem::updateGeometry()
-    self.uglySide.call('ritual_ZN19QGraphicsLayoutItem14updateGeometryEv')
+    self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZN19QGraphicsLayoutItem14updateGeometryEv',
+    )

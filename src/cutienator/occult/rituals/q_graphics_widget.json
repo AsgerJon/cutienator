@@ -134,6 +134,7 @@
     ],
     "ritual_ZNK15QGraphicsWidget12boundingRectEv": ["address", "address"],
     "ritual_ZNK15QGraphicsWidget5shapeEv": ["address", "address"],
-    "ritual_ZN15QGraphicsWidget5closeEv": ["bool", "address"]
+    "ritual_ZN15QGraphicsWidget5closeEv": ["bool", "address"],
+    "ritual_cast_QGraphicsWidget_QGraphicsLayoutItem": ["address", "address"]
   }
 }

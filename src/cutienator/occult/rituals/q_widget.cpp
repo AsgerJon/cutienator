@@ -1869,3 +1869,9 @@ void ritual_ZN7QWidget19setInputMethodHintsE6QFlagsIN2Qt15InputMethodHintEE(
     int hints) {
   self->setInputMethodHints(QFlags<Qt::InputMethodHint>::fromInt(hints));
 }
+
+//  QWidget as the QPaintDevice it is built on
+extern "C" Q_DECL_EXPORT
+QPaintDevice *ritual_cast_QWidget_QPaintDevice(QWidget *self) {
+  return static_cast<QPaintDevice *>(self);
+}

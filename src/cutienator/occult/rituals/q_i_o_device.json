@@ -61,6 +61,7 @@
     "ritual_ZN9QIODevice19waitForBytesWrittenEi": ["bool", "address", "int"],
     "ritual_ZN9QIODevice9ungetCharEc": ["nothing", "address", "char"],
     "ritual_ZN9QIODevice7putCharEc": ["bool", "address", "char"],
-    "ritual_ZNK9QIODevice11errorStringEv": ["text", "address"]
+    "ritual_ZNK9QIODevice11errorStringEv": ["text", "address"],
+    "ritual_cast_QIODevice_QIODeviceBase": ["address", "address"]
   }
 }

@@ -663,7 +663,7 @@ class QFontMetricsF(CuteMixin, metaclass=MetaCute):
     #      *pd)
     self._noteCreation(QFontMetricsF, lambda: Rituals.call(
         'ritual_ZN13QFontMetricsFC1ERK5QFontPK12QPaintDevice',
-        self._valueOf(font), self._addressOf(pd),
+        self._valueOf(font), self._addressOf(pd, 'QPaintDevice'),
     ))
 
   @overload(QFontMetrics)

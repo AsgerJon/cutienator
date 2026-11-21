@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import QWindow
+from . import QPaintDevice, QWindow
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -32,14 +32,15 @@ else:
 NoneType = type(None)
 
 
-class QPaintDeviceWindow(QWindow):
+class QPaintDeviceWindow(QWindow, QPaintDevice):
   """
   The cute side of Qt's QPaintDeviceWindow: a plain Python object standing in
   front of one C++ QPaintDeviceWindow.
 
   It is built on the cute 'QWindow', as Qt's QPaintDeviceWindow is built on
-  Qt's QWindow, and has everything that class has. Qt's QPaintDeviceWindow is
-  built on Qt's QPaintDevice as well, which is not reflected.
+  Qt's QWindow, and has everything that class has. It is built on the cute
+  'QPaintDevice' as well, as Qt's QPaintDeviceWindow is built on Qt's
+  QPaintDevice too, and has everything that class has.
 
   What exists
   -----------
@@ -52,7 +53,7 @@ class QPaintDeviceWindow(QWindow):
   What has no ritual
   ------------------
 
-  14 of the 19 functions Qt declares: 5 protected; 4 private; 2 takes or
+  14 of the 20 functions Qt declares: 5 protected; 4 private; 2 takes or
   gives a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
@@ -125,6 +126,14 @@ class QPaintDeviceWindow(QWindow):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPaintDeviceWindow'
+
+  #  Qt's QPaintDeviceWindow is built on more than one class. The part of a
+  #  C++ QPaintDeviceWindow that belongs to a class after the first begins
+  #  somewhere inside the object, and the ritual named for that class gives
+  #  where; see 'CuteMixin._addressAs'.
+  __cast_rituals__ = {
+      'QPaintDevice': 'ritual_cast_QPaintDeviceWindow_QPaintDevice',
+  }
 
   #  Fallback Variables
 

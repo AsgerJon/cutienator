@@ -773,3 +773,9 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWindow13requestUpdateEv(QWindow *self) {
   self->requestUpdate();
 }
+
+//  QWindow as the QSurface it is built on
+extern "C" Q_DECL_EXPORT
+QSurface *ritual_cast_QWindow_QSurface(QWindow *self) {
+  return static_cast<QSurface *>(self);
+}

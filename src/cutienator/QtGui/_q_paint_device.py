@@ -152,7 +152,7 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#devType
     """
     #  int QPaintDevice::devType() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice7devTypeEv')
+    return self._callAs('QPaintDevice', 'ritual_ZNK12QPaintDevice7devTypeEv')
 
   def paintingActive(self) -> bool:
     """
@@ -161,7 +161,9 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive
     """
     #  bool QPaintDevice::paintingActive() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice14paintingActiveEv')
+    return self._callAs(
+        'QPaintDevice', 'ritual_ZNK12QPaintDevice14paintingActiveEv',
+    )
 
   def paintEngine(self) -> Optional[QPaintEngine]:
     """
@@ -177,7 +179,9 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QPaintEngine *QPaintDevice::paintEngine() const
-    address = self.uglySide.call('ritual_ZNK12QPaintDevice11paintEngineEv')
+    address = self._callAs(
+        'QPaintDevice', 'ritual_ZNK12QPaintDevice11paintEngineEv',
+    )
     from . import QPaintEngine
     return QPaintEngine._cuteAt(address)
 
@@ -188,7 +192,7 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#width
     """
     #  int QPaintDevice::width() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice5widthEv')
+    return self._callAs('QPaintDevice', 'ritual_ZNK12QPaintDevice5widthEv')
 
   def height(self) -> int:
     """
@@ -197,7 +201,7 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#height
     """
     #  int QPaintDevice::height() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice6heightEv')
+    return self._callAs('QPaintDevice', 'ritual_ZNK12QPaintDevice6heightEv')
 
   def widthMM(self) -> int:
     """
@@ -206,7 +210,7 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#widthMM
     """
     #  int QPaintDevice::widthMM() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice7widthMMEv')
+    return self._callAs('QPaintDevice', 'ritual_ZNK12QPaintDevice7widthMMEv')
 
   def heightMM(self) -> int:
     """
@@ -215,7 +219,9 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#heightMM
     """
     #  int QPaintDevice::heightMM() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice8heightMMEv')
+    return self._callAs(
+        'QPaintDevice', 'ritual_ZNK12QPaintDevice8heightMMEv',
+    )
 
   def logicalDpiX(self) -> int:
     """
@@ -224,7 +230,9 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX
     """
     #  int QPaintDevice::logicalDpiX() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice11logicalDpiXEv')
+    return self._callAs(
+        'QPaintDevice', 'ritual_ZNK12QPaintDevice11logicalDpiXEv',
+    )
 
   def logicalDpiY(self) -> int:
     """
@@ -233,7 +241,9 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY
     """
     #  int QPaintDevice::logicalDpiY() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice11logicalDpiYEv')
+    return self._callAs(
+        'QPaintDevice', 'ritual_ZNK12QPaintDevice11logicalDpiYEv',
+    )
 
   def physicalDpiX(self) -> int:
     """
@@ -242,7 +252,9 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX
     """
     #  int QPaintDevice::physicalDpiX() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice12physicalDpiXEv')
+    return self._callAs(
+        'QPaintDevice', 'ritual_ZNK12QPaintDevice12physicalDpiXEv',
+    )
 
   def physicalDpiY(self) -> int:
     """
@@ -251,7 +263,9 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY
     """
     #  int QPaintDevice::physicalDpiY() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice12physicalDpiYEv')
+    return self._callAs(
+        'QPaintDevice', 'ritual_ZNK12QPaintDevice12physicalDpiYEv',
+    )
 
   def devicePixelRatio(self) -> float:
     """
@@ -260,7 +274,9 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio
     """
     #  qreal QPaintDevice::devicePixelRatio() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice16devicePixelRatioEv')
+    return self._callAs(
+        'QPaintDevice', 'ritual_ZNK12QPaintDevice16devicePixelRatioEv',
+    )
 
   def devicePixelRatioF(self) -> float:
     """
@@ -270,8 +286,8 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF
     """
     #  qreal QPaintDevice::devicePixelRatioF() const
-    return self.uglySide.call(
-        'ritual_ZNK12QPaintDevice17devicePixelRatioFEv',
+    return self._callAs(
+        'QPaintDevice', 'ritual_ZNK12QPaintDevice17devicePixelRatioFEv',
     )
 
   def colorCount(self) -> int:
@@ -281,7 +297,9 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#colorCount
     """
     #  int QPaintDevice::colorCount() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice10colorCountEv')
+    return self._callAs(
+        'QPaintDevice', 'ritual_ZNK12QPaintDevice10colorCountEv',
+    )
 
   def depth(self) -> int:
     """
@@ -290,7 +308,7 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#depth
     """
     #  int QPaintDevice::depth() const
-    return self.uglySide.call('ritual_ZNK12QPaintDevice5depthEv')
+    return self._callAs('QPaintDevice', 'ritual_ZNK12QPaintDevice5depthEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

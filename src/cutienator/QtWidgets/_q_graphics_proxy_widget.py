@@ -14,19 +14,18 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QGraphicsWidget
+from . import QGraphicsItem, QGraphicsWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QRectF
   from ..QtGui import QPainter
-  from . import QGraphicsItem, QStyleOptionGraphicsItem, QWidget
+  from . import QStyleOptionGraphicsItem, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
-  QGraphicsItem = WAIT['QGraphicsItem']
   QPainter = WAIT['QPainter']
   QRectF = WAIT['QRectF']
   QStyleOptionGraphicsItem = WAIT['QStyleOptionGraphicsItem']
@@ -322,7 +321,7 @@ class QGraphicsProxyWidget(QGraphicsWidget):
     self._noteCreation(QGraphicsProxyWidget, lambda: Rituals.call(
         'ritual_ZN20QGraphicsProxyWidgetC1EP13QGraphicsItem6QFlagsIN2Qt10Wi'
         'ndowTypeEE',
-        self._addressOf(parent), wFlags.value,
+        self._addressOf(parent, 'QGraphicsItem'), wFlags.value,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

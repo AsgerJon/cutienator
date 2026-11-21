@@ -408,7 +408,8 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QString QAccessibleActionInterface::localizedActionName(const QString
     #      &name) const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleActionInterface',
         'ritual_ZNK26QAccessibleActionInterface19localizedActionNameERK7QSt'
         'ring',
         name,
@@ -438,7 +439,8 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QString QAccessibleActionInterface::localizedActionDescription(const
     #      QString &name) const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleActionInterface',
         'ritual_ZNK26QAccessibleActionInterface26localizedActionDescription'
         'ERK7QString',
         name,
@@ -496,7 +498,8 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
       Passed on as it is: a QString is made of it for the call.
     """
     #  void QAccessibleActionInterface::doAction(const QString &actionName)
-    self.uglySide.call(
+    self._callAs(
+        'QAccessibleActionInterface',
         'ritual_ZN26QAccessibleActionInterface8doActionERK7QString',
         actionName,
     )

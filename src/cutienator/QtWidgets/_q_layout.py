@@ -16,18 +16,17 @@ from worktoy.keenum import Kee
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from . import QSizePolicy
+from . import QLayoutItem, QSizePolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMargins, QMetaObject, QRect, QSize
-  from . import QLayoutItem, QWidget
+  from . import QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
-  QLayoutItem = WAIT['QLayoutItem']
   QMargins = WAIT['QMargins']
   QRect = WAIT['QRect']
   QSize = WAIT['QSize']
@@ -38,14 +37,15 @@ else:
 NoneType = type(None)
 
 
-class QLayout(QObject):
+class QLayout(QObject, QLayoutItem):
   """
   The cute side of Qt's QLayout: a plain Python object standing in front of
   one C++ QLayout.
 
   It is built on the cute 'QObject', as Qt's QLayout is built on Qt's
-  QObject, and has everything that class has. Qt's QLayout is built on Qt's
-  QLayoutItem as well, which is not reflected.
+  QObject, and has everything that class has. It is built on the cute
+  'QLayoutItem' as well, as Qt's QLayout is built on Qt's QLayoutItem too,
+  and has everything that class has.
 
   What exists
   -----------
@@ -77,7 +77,7 @@ class QLayout(QObject):
   What has no ritual
   ------------------
 
-  17 of the 69 functions Qt declares: 7 protected; 4 private; 2 takes or
+  17 of the 70 functions Qt declares: 7 protected; 4 private; 2 takes or
   gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1 the
   class is abstract, so C++ cannot make one.
 
@@ -199,6 +199,14 @@ class QLayout(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QLayout'
+
+  #  Qt's QLayout is built on more than one class. The part of a C++ QLayout
+  #  that belongs to a class after the first begins somewhere inside the
+  #  object, and the ritual named for that class gives where; see
+  #  'CuteMixin._addressAs'.
+  __cast_rituals__ = {
+      'QLayoutItem': 'ritual_cast_QLayout_QLayoutItem',
+  }
 
   #  Fallback Variables
 
@@ -458,7 +466,6 @@ class QLayout(QObject):
     """
     #  QLayoutItem *QLayout::itemAt(int index) const
     address = self.uglySide.call('ritual_ZNK7QLayout6itemAtEi', index)
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   @overload(QWidget)
@@ -497,7 +504,8 @@ class QLayout(QObject):
     """
     #  int QLayout::indexOf(const QLayoutItem *a0) const
     return self.uglySide.call(
-        'ritual_ZNK7QLayout7indexOfEPK11QLayoutItem', self._addressOf(a0),
+        'ritual_ZNK7QLayout7indexOfEPK11QLayoutItem',
+        self._addressOf(a0, 'QLayoutItem'),
     )
 
   def count(self) -> int:
@@ -1013,7 +1021,8 @@ class QLayout(QObject):
     """
     #  void QLayout::addItem(QLayoutItem *a0)
     self.uglySide.call(
-        'ritual_ZN7QLayout7addItemEP11QLayoutItem', self._addressOf(a0),
+        'ritual_ZN7QLayout7addItemEP11QLayoutItem',
+        self._addressOf(a0, 'QLayoutItem'),
     )
 
   @overload(QWidget)
@@ -1053,7 +1062,8 @@ class QLayout(QObject):
     """
     #  void QLayout::removeItem(QLayoutItem *a0)
     self.uglySide.call(
-        'ritual_ZN7QLayout10removeItemEP11QLayoutItem', self._addressOf(a0),
+        'ritual_ZN7QLayout10removeItemEP11QLayoutItem',
+        self._addressOf(a0, 'QLayoutItem'),
     )
 
   @overload(int)
@@ -1078,7 +1088,6 @@ class QLayout(QObject):
     """
     #  QLayoutItem *QLayout::takeAt(int index)
     address = self.uglySide.call('ritual_ZN7QLayout6takeAtEi', index)
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   @overload(QWidget, QWidget)
@@ -1131,7 +1140,6 @@ class QLayout(QObject):
         'ldOptionEE',
         self._addressOf(from_), self._addressOf(to), options.value,
     )
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   def layout(self) -> Optional[QLayout]:

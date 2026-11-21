@@ -516,7 +516,8 @@ class ClassGenerator:
     """Gives the classes the Qt class is built on that the cute class
     is not built on."""
     parents = self.getDependencyTree().getParents(self.getClassName())
-    return (*(p for p in parents if p != self.getBaseName()),)
+    reflected = (self.getBaseName(), *self.getFurtherBaseNames())
+    return (*(p for p in parents if p not in reflected),)
 
   def getEnumGenerators(self) -> Tuple[Any, ...]:
     """
@@ -773,23 +774,62 @@ class ClassGenerator:
     makeOrder = tree.getMakeOrder()
     return makeOrder.index(theirs) < makeOrder.index(mine)
 
+  def getFurtherBaseNames(self) -> Names:
+    """
+    Gives the classes of Qt after the first that the cute class is
+    built on as well, as 'QPaintDevice' for 'QWidget', in the order C++
+    names them. The cute class is built on the cute class of each, and
+    names the ritual that gives where that part of an object is; see
+    'RitualGenerator.getFurtherBases'.
+    """
+    parents = self.getDependencyTree().getParents(self.getClassName())
+    return (*(
+        parent for parent in parents[1:]
+        if parent in self.getCuteNames() and '::' not in parent
+        and self._isMadeBefore(parent)
+    ),)
+
   def _getBuiltOn(self) -> Names:
     """
-    Gives the classes of Qt the cute class is built on, the nearest
-    first: its base, the base of that, and so on. Their files are
-    brought in with the file being written whatever it names, so naming
-    them costs nothing.
+    Gives every class of Qt the cute class is built on, the nearest
+    first: what it is built on, what those are built on, and so on.
+    Their files are brought in with the file being written whatever it
+    names, so naming them costs nothing.
     """
     tree, cuteNames = self.getDependencyTree(), self.getCuteNames()
-    builtOn = []  # type: List[str]
-    baseName = self.getBaseName()
-    while baseName is not None:
-      builtOn.append(baseName)
-      parents = tree.getParents(baseName)
-      baseName = parents[0] if parents else None
-      if baseName not in cuteNames or '::' in (baseName or ''):
-        baseName = None
+    builtOn = [*filter(None, (self.getBaseName(),))]
+    builtOn.extend(self.getFurtherBaseNames())
+    for name in builtOn:
+      for parent in tree.getParents(name):
+        if parent in cuteNames and '::' not in parent:
+          if parent not in builtOn:
+            builtOn.append(parent)
     return (*builtOn,)
+
+  def _getPartNames(self) -> Names:
+    """
+    Gives every class of Qt that some cute class is built on after its
+    first, and every class those are built on: the classes whose part
+    of an object may begin somewhere inside the object, as
+    'QPaintDevice', which is such a part of a QWidget.
+
+    A function of such a class hands its ritual the address of that
+    part, through 'CuteMixin._callAs', and an object given where such a
+    class is taken is handed over as the address of that part.
+    """
+    if self.__part_names__ is None:
+      tree, cuteNames = self.getDependencyTree(), self.getCuteNames()
+      found = []  # type: List[str]
+      for className in cuteNames:
+        for parent in tree.getParents(className)[1:]:
+          if parent in cuteNames and parent not in found:
+            found.append(parent)
+      for name in found:
+        for parent in tree.getParents(name):
+          if parent in cuteNames and parent not in found:
+            found.append(parent)
+      self.__part_names__ = (*found,)
+    return self.__part_names__
 
   #  The classes that hold an enum or a class this one names, known
   #  after the functions are worked out a first time. Their files are
@@ -797,6 +837,8 @@ class ClassGenerator:
   __owners__ = None
   #  The generators of the classes written inside this one.
   __inner_generators__ = None
+  #  The classes whose part of an object may begin inside the object.
+  __part_names__ = None
 
   def _getNeeds(self) -> Dict[str, List[str]]:
     """
@@ -818,11 +860,10 @@ class ClassGenerator:
         note('top', 'CuteFlags')
       else:
         note('top', 'CuteNum', 'Kee')
-    baseName = self.getBaseName()
-    if baseName is None:
+    baseName, further = self.getBaseName(), self.getFurtherBaseNames()
+    if baseName is None and not further:
       note('top', 'CuteMixin', 'MetaCute')
-    else:
-      note('classes', baseName)
+    note('classes', baseName, *further)
     if needs['late']:
       note('top', 'WAIT')
     note('classes', *needs['owners'])
@@ -1260,11 +1301,14 @@ class ClassGenerator:
         return found
       if found is None:
         return "names '%s', which has no cute class yet" % pointed
+      #  A class other classes are built on beside another is named, so
+      #  that the address is that of its part of the object.
+      part = ", '%s'" % pointed if pointed in self._getPartNames() else ''
       if kind == 'address':
-        passed = '%s._addressOf(%s)' % (helper, name)
+        passed = '%s._addressOf(%s%s)' % (helper, name, part)
         words = 'Passed on as the address of its C++ object.'
       else:
-        passed = '%s._valueOf(%s)' % (helper, name)
+        passed = '%s._valueOf(%s%s)' % (helper, name, part)
         infoSpec = """Passed on as a value: Qt reads the C++ %s, which
         stays Python's own."""
         words = ' '.join((infoSpec % pointed).split())
@@ -1541,6 +1585,10 @@ class ClassGenerator:
       if flagsName:
         enumNames.add(flagsName.rpartition('::')[2])
     for plan in self.getRitualGenerator().getWritten():
+      if plan['kind'] == 'cast':
+        #  The ritual of a class the class is built on after the first:
+        #  the class names it in '__cast_rituals__'.
+        continue
       function = self._planFunction(plan)
       if isinstance(function, str):
         leftOut.append((plan['function'], function))
@@ -1796,6 +1844,12 @@ class ClassGenerator:
       infoSpec = """It is built on the cute '%s', as Qt's %s is built on
       Qt's %s, and has everything that class has."""
       info = infoSpec % (baseName, className, baseName)
+      for parent in self.getFurtherBaseNames():
+        infoSpec = """ It is built on the cute '%s' as well, as Qt's %s
+        is built on Qt's %s too, and has everything that class has."""
+        info = '%s%s' % (info, ' '.join(
+            (infoSpec % (parent, className, parent)).split()))
+        info = info.replace('.It is', '. It is')
       for parent in self.getUnreflectedParents():
         infoSpec = """ Qt's %s is built on Qt's %s as well, which is not
         reflected."""
@@ -1967,6 +2021,27 @@ class ClassGenerator:
       lines.extend(self._wrapWords(
           infoSpec % (className, className), '  #  '))
       lines.append('  __watched_by_qt__ = True')
+    casts = [
+        plan for plan in self.getRitualGenerator().getWritten()
+        if plan['kind'] == 'cast'
+        and plan['baseName'] in self.getFurtherBaseNames()
+    ]
+    if casts:
+      lines.append('')
+      infoSpec = """Qt's %s is built on more than one class. The part of
+      a C++ %s that belongs to a class after the first begins somewhere
+      inside the object, and the ritual named for that class gives
+      where; see 'CuteMixin._addressAs'."""
+      lines.extend(self._wrapWords(
+          infoSpec % (className, className), '  #  '))
+      lines.append('  __cast_rituals__ = {')
+      for plan in casts:
+        line = "      '%s': '%s'," % (plan['baseName'], plan['ritualName'])
+        if len(line) > _width():
+          line = "      '%s':\n          '%s'," % (
+              plan['baseName'], plan['ritualName'])
+        lines.append(line)
+      lines.append('  }')
     deleteRitual = self.getDeleteRitual()
     if deleteRitual is not None:
       lines.append('')
@@ -1992,6 +2067,7 @@ class ClassGenerator:
       ritualName: str,
       passed: List[str],
       closing: str = ')',
+      leading: str = '',
   ) -> List[str]:
     """
     Gives the lines of one call of a ritual, kept to 77 letters where
@@ -2015,10 +2091,15 @@ class ClassGenerator:
 
     closing : str
       What ends the call, as ')' or '))'.
+
+    leading : str
+      What the call is handed before the ritual, as "'QPaintDevice'"
+      for 'self._callAs', or nothing.
     """
     quoted = "'%s'" % ritualName
+    head = [leading] if leading else []
     whole = '%s%s(%s%s' % (
-        opening, called, ', '.join([quoted, *passed]), closing)
+        opening, called, ', '.join([*head, quoted, *passed]), closing)
     if len(whole) <= _width():
       return [whole]
     indent = ' ' * (len(opening) - len(opening.lstrip()))
@@ -2028,17 +2109,22 @@ class ClassGenerator:
       #  below it.
       lines = [opening]
       lines.extend(self._writeCall(
-          '%s    ' % indent, called, ritualName, passed, closing[:1]))
+          '%s    ' % indent, called, ritualName, passed, closing[:1],
+          leading))
       lines[-1] = '%s%s' % (lines[-1], closing[1:])
       return lines
     inner = '%s    ' % indent
     lines = ['%s%s(' % (opening, called)]
     rest = ', '.join(passed)
-    whole = '%s%s,' % (inner, ', '.join([quoted, *passed]))
+    whole = '%s%s,' % (inner, ', '.join([*head, quoted, *passed]))
     if len(whole) <= _width():
       lines.append(whole)
     else:
-      first = '%s%s,' % (inner, quoted)
+      first = '%s%s,' % (inner, ', '.join([*head, quoted]))
+      if len(first) > _width():
+        if head:
+          lines.append('%s%s,' % (inner, leading))
+        first = '%s%s,' % (inner, quoted)
       if len(first) > _width():
         #  A name longer than a line is written as two texts side by
         #  side, which Python reads as one.
@@ -2204,24 +2290,31 @@ class ClassGenerator:
       return lines
     called = 'Rituals.call' if kind == 'static method' else (
         'self.uglySide.call')
+    leading = ''
+    if kind == 'method' and self.getClassName() in self._getPartNames():
+      #  The object may be of a class built on this one beside another,
+      #  whose part of this class begins inside the object. The ritual
+      #  is handed the address of that part.
+      called, leading = 'self._callAs', "'%s'" % self.getClassName()
     givenKind = gives['kind']
     if givenKind == 'nothing':
-      lines.extend(self._writeCall('    ', called, ritualName, passed))
+      lines.extend(self._writeCall(
+          '    ', called, ritualName, passed, ')', leading))
     elif givenKind in ('number', 'text'):
-      lines.extend(
-          self._writeCall('    return ', called, ritualName, passed))
+      lines.extend(self._writeCall(
+          '    return ', called, ritualName, passed, ')', leading))
     elif givenKind == 'chars':
-      lines.extend(
-          self._writeCall('    chars = ', called, ritualName, passed))
+      lines.extend(self._writeCall(
+          '    chars = ', called, ritualName, passed, ')', leading))
       lines.append('    return None if chars is None else chars.decode()')
     elif givenKind in ('enum', 'flags'):
       lines.extend(self._writeCall(
           '    return %s(' % gives['maker'], called, ritualName, passed,
-          '))',
+          '))', leading,
       ))
     else:
-      lines.extend(
-          self._writeCall('    address = ', called, ritualName, passed))
+      lines.extend(self._writeCall(
+          '    address = ', called, ritualName, passed, ')', leading))
       holder = gives['holder']
       if gives['late'] and gives['bring']:
         #  The file of the class may not be brought in yet. It is
@@ -2265,12 +2358,13 @@ class ClassGenerator:
   def _getClassLines(self) -> List[str]:
     """Gives the class statement and everything below it."""
     baseName, pythonName = self.getBaseName(), self.getPythonName()
+    bases = [*filter(None, (baseName,)), *self.getFurtherBaseNames()]
     functions = self.getFunctions()
     lines = []  # type: List[str]
-    if baseName is None:
+    if not bases:
       lines.append('class %s(CuteMixin, metaclass=MetaCute):' % pythonName)
     else:
-      lines.append('class %s(%s):' % (pythonName, baseName))
+      lines.append('class %s(%s):' % (pythonName, ', '.join(bases)))
     lines.extend(self._writeClassDocstring())
     lines.extend(self._writeNames())
     for sectionName in self.__section_names__:

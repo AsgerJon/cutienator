@@ -42,3 +42,10 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QPaintDeviceWindow6updateEv(QPaintDeviceWindow *self) {
   self->update();
 }
+
+//  QPaintDeviceWindow as the QPaintDevice it is built on
+extern "C" Q_DECL_EXPORT
+QPaintDevice *ritual_cast_QPaintDeviceWindow_QPaintDevice(
+    QPaintDeviceWindow *self) {
+  return static_cast<QPaintDevice *>(self);
+}

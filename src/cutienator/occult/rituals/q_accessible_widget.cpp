@@ -128,3 +128,10 @@ void ritual_ZN17QAccessibleWidget8doActionERK7QString(
     const QString *actionName) {
   self->doAction(*actionName);
 }
+
+//  QAccessibleWidget as the QAccessibleActionInterface it is built on
+extern "C" Q_DECL_EXPORT
+QAccessibleActionInterface *ritual_cast_QAccessibleWidget_QAccessibleActionInterface(
+    QAccessibleWidget *self) {
+  return static_cast<QAccessibleActionInterface *>(self);
+}

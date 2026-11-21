@@ -186,3 +186,10 @@ void ritual_ZN10QPdfWriter15setOutputIntentERK16QPdfOutputIntent(
     const QPdfOutputIntent *intent) {
   self->setOutputIntent(*intent);
 }
+
+//  QPdfWriter as the QPagedPaintDevice it is built on
+extern "C" Q_DECL_EXPORT
+QPagedPaintDevice *ritual_cast_QPdfWriter_QPagedPaintDevice(
+    QPdfWriter *self) {
+  return static_cast<QPagedPaintDevice *>(self);
+}

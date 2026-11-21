@@ -192,7 +192,7 @@ class QStylePainter(QPainter):
     #  QStylePainter::QStylePainter(QPaintDevice *pd, QWidget *w)
     self._noteCreation(QStylePainter, lambda: Rituals.call(
         'ritual_ZN13QStylePainterC1EP12QPaintDeviceP7QWidget',
-        self._addressOf(pd), self._addressOf(w),
+        self._addressOf(pd, 'QPaintDevice'), self._addressOf(w),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -259,7 +259,7 @@ class QStylePainter(QPainter):
     #  bool QStylePainter::begin(QPaintDevice *pd, QWidget *w)
     return self.uglySide.call(
         'ritual_ZN13QStylePainter5beginEP12QPaintDeviceP7QWidget',
-        self._addressOf(pd), self._addressOf(w),
+        self._addressOf(pd, 'QPaintDevice'), self._addressOf(w),
     )
 
   @overload(QStyle.PrimitiveElement, QStyleOption)

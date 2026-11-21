@@ -287,3 +287,9 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK9QIODevice11errorStringEv(const QIODevice *self) {
   return new QString(self->errorString());
 }
+
+//  QIODevice as the QIODeviceBase it is built on
+extern "C" Q_DECL_EXPORT
+QIODeviceBase *ritual_cast_QIODevice_QIODeviceBase(QIODevice *self) {
+  return static_cast<QIODeviceBase *>(self);
+}

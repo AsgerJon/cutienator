@@ -392,7 +392,7 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     #  void QPaintEngine::setPaintDevice(QPaintDevice *device)
     self.uglySide.call(
         'ritual_ZN12QPaintEngine14setPaintDeviceEP12QPaintDevice',
-        self._addressOf(device),
+        self._addressOf(device, 'QPaintDevice'),
     )
 
   @overload(QRegion)
@@ -502,7 +502,7 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     #  bool QPaintEngine::begin(QPaintDevice *pdev)
     return self.uglySide.call(
         'ritual_ZN12QPaintEngine5beginEP12QPaintDevice',
-        self._addressOf(pdev),
+        self._addressOf(pdev, 'QPaintDevice'),
     )
 
   def end(self) -> bool:

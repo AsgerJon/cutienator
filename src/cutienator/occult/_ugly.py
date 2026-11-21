@@ -427,6 +427,49 @@ class Ugly:
     removal = weakref.finalize(self, Rituals.call, dropRitual, watcher)
     removal.atexit = False
 
+  def addPartAddress(self, address: int) -> None:
+    """
+    Tells this Ugly one more address its C++ object is known by, and
+    lets 'Ugly.at' find it by that address as well.
+
+    A C++ object of a class built on more than one class holds one
+    part for each of them, and C++ hands out the address of a part
+    where it means the object: a function giving a 'QPaintDevice *'
+    gives the address of that part of a QWidget. The cute side adds
+    the address of each such part, so that the address leads back to
+    the one cute object. 'getAddress' still gives the address
+    'setAddress' was given.
+
+    Parameters
+    ----------
+
+    address : int
+      The address of one part of the C++ object, as the ritual that
+      asks C++ for it returned it. It may be the address 'setAddress'
+      was given, when the part begins where the object begins.
+
+    Raises
+    ------
+
+    TypeException
+      'address' is not an 'int'.
+
+    ValueError
+      'address' is zero or negative, which is no place in memory.
+
+    MissingVariable
+      'setAddress' has not been called on this Ugly.
+    """
+    if isinstance(address, bool) or not isinstance(address, int):
+      raise TypeException('address', address, int)
+    if address <= 0:
+      infoSpec = """An address is a positive whole number, but received
+      %d."""
+      raise ValueError(' '.join((infoSpec % address).split()))
+    if self.__cpp_address__ is None:
+      raise MissingVariable(self, '__cpp_address__', int)
+    type(self).__by_address__[address] = self
+
   def disown(self) -> None:
     """
     Tells this Ugly that Python no longer owns its C++ object. From

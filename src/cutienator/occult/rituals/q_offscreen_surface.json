@@ -27,6 +27,7 @@
     "ritual_ZNK17QOffscreenSurface6screenEv": ["address", "address"],
     "ritual_ZN17QOffscreenSurface9setScreenEP7QScreen": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_cast_QOffscreenSurface_QSurface": ["address", "address"]
   }
 }

@@ -31,3 +31,10 @@ QVariant *ritual_ZNK19QAccessibleWidgetV214attributeValueEN11QAccessible9Attribu
     QAccessible::Attribute key) {
   return new QVariant(self->attributeValue(key));
 }
+
+//  QAccessibleWidgetV2 as the QAccessibleAttributesInterface it is built on
+extern "C" Q_DECL_EXPORT
+QAccessibleAttributesInterface *ritual_cast_QAccessibleWidgetV2_QAccessibleAttributesInterface(
+    QAccessibleWidgetV2 *self) {
+  return static_cast<QAccessibleAttributesInterface *>(self);
+}

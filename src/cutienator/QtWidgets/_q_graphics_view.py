@@ -1670,7 +1670,7 @@ class QGraphicsView(QAbstractScrollArea):
     #  void QGraphicsView::centerOn(const QGraphicsItem *item)
     self.uglySide.call(
         'ritual_ZN13QGraphicsView8centerOnEPK13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   @overload(QRectF)
@@ -1789,7 +1789,7 @@ class QGraphicsView(QAbstractScrollArea):
     #      xmargin, int ymargin)
     self.uglySide.call(
         'ritual_ZN13QGraphicsView13ensureVisibleEPK13QGraphicsItemii',
-        self._addressOf(item), xmargin, ymargin,
+        self._addressOf(item, 'QGraphicsItem'), xmargin, ymargin,
     )
 
   @overload(QRectF)
@@ -1899,7 +1899,7 @@ class QGraphicsView(QAbstractScrollArea):
     self.uglySide.call(
         'ritual_ZN13QGraphicsView9fitInViewEPK13QGraphicsItemN2Qt15AspectRa'
         'tioModeE',
-        self._addressOf(item), aspectRadioMode.value,
+        self._addressOf(item, 'QGraphicsItem'), aspectRadioMode.value,
     )
 
   @overload(QPainter)

@@ -46,6 +46,7 @@
     "ritual_ZNK10QPdfWriter12outputIntentEv": ["address", "address"],
     "ritual_ZN10QPdfWriter15setOutputIntentERK16QPdfOutputIntent": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_cast_QPdfWriter_QPagedPaintDevice": ["address", "address"]
   }
 }

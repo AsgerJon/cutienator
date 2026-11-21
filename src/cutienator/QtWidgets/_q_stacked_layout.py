@@ -14,18 +14,17 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from . import QLayout
+from . import QLayout, QLayoutItem
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QRect, QSize
-  from . import QLayoutItem, QWidget
+  from . import QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
-  QLayoutItem = WAIT['QLayoutItem']
   QRect = WAIT['QRect']
   QWidget = WAIT['QWidget']
 
@@ -316,7 +315,6 @@ class QStackedLayout(QLayout):
     """
     #  QLayoutItem *QStackedLayout::itemAt(int a0) const
     address = self.uglySide.call('ritual_ZNK14QStackedLayout6itemAtEi', a0)
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   def hasHeightForWidth(self) -> bool:
@@ -581,7 +579,7 @@ class QStackedLayout(QLayout):
     #  void QStackedLayout::addItem(QLayoutItem *item)
     self.uglySide.call(
         'ritual_ZN14QStackedLayout7addItemEP11QLayoutItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QLayoutItem'),
     )
 
   @overload(int)
@@ -606,5 +604,4 @@ class QStackedLayout(QLayout):
     """
     #  QLayoutItem *QStackedLayout::takeAt(int a0)
     address = self.uglySide.call('ritual_ZN14QStackedLayout6takeAtEi', a0)
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)

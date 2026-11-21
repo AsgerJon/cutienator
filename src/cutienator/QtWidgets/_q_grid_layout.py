@@ -14,18 +14,17 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QLayout
+from . import QLayout, QLayoutItem
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QRect, QSize
-  from . import QLayoutItem, QWidget
+  from . import QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
-  QLayoutItem = WAIT['QLayoutItem']
   QRect = WAIT['QRect']
   QWidget = WAIT['QWidget']
 
@@ -474,7 +473,6 @@ class QGridLayout(QLayout):
     """
     #  QLayoutItem *QGridLayout::itemAt(int index) const
     address = self.uglySide.call('ritual_ZNK11QGridLayout6itemAtEi', index)
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   @overload(int, int)
@@ -505,7 +503,6 @@ class QGridLayout(QLayout):
     address = self.uglySide.call(
         'ritual_ZNK11QGridLayout14itemAtPositionEii', row, column,
     )
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   def count(self) -> int:
@@ -1011,7 +1008,6 @@ class QGridLayout(QLayout):
     """
     #  QLayoutItem *QGridLayout::takeAt(int index)
     address = self.uglySide.call('ritual_ZN11QGridLayout6takeAtEi', index)
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   @overload(QLayoutItem, int, int)
@@ -1065,5 +1061,6 @@ class QGridLayout(QLayout):
     self.uglySide.call(
         'ritual_ZN11QGridLayout7addItemEP11QLayoutItemiiii6QFlagsIN2Qt13Ali'
         'gnmentFlagEE',
-        self._addressOf(item), row, column, rowSpan, columnSpan, a5.value,
+        self._addressOf(item, 'QLayoutItem'), row, column, rowSpan,
+        columnSpan, a5.value,
     )

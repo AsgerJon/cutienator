@@ -15,7 +15,7 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QGraphicsObject
+from . import QGraphicsItem, QGraphicsLayoutItem, QGraphicsObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -23,15 +23,13 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QMarginsF, QMetaObject, QRectF, QSizeF
   from ..QtGui import QAction, QFont, QKeySequence, QPainter, QPainterPath
   from ..QtGui import QPalette
-  from . import QGraphicsItem, QGraphicsLayout, QStyle
-  from . import QStyleOptionGraphicsItem, QWidget
+  from . import QGraphicsLayout, QStyle, QStyleOptionGraphicsItem, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAction = WAIT['QAction']
   QFont = WAIT['QFont']
-  QGraphicsItem = WAIT['QGraphicsItem']
   QGraphicsLayout = WAIT['QGraphicsLayout']
   QKeySequence = WAIT['QKeySequence']
   QMarginsF = WAIT['QMarginsF']
@@ -48,15 +46,15 @@ else:
 NoneType = type(None)
 
 
-class QGraphicsWidget(QGraphicsObject):
+class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   """
   The cute side of Qt's QGraphicsWidget: a plain Python object standing in
   front of one C++ QGraphicsWidget.
 
   It is built on the cute 'QGraphicsObject', as Qt's QGraphicsWidget is built
-  on Qt's QGraphicsObject, and has everything that class has. Qt's
-  QGraphicsWidget is built on Qt's QGraphicsLayoutItem as well, which is not
-  reflected.
+  on Qt's QGraphicsObject, and has everything that class has. It is built on
+  the cute 'QGraphicsLayoutItem' as well, as Qt's QGraphicsWidget is built on
+  Qt's QGraphicsLayoutItem too, and has everything that class has.
 
   What exists
   -----------
@@ -91,7 +89,7 @@ class QGraphicsWidget(QGraphicsObject):
   What has no ritual
   ------------------
 
-  39 of the 97 functions Qt declares: 26 protected; 5 takes or gives a type
+  39 of the 98 functions Qt declares: 26 protected; 5 takes or gives a type
   that cannot be passed yet; 3 private; 2 a signal; 2 forbidden; 1 a
   template.
 
@@ -198,6 +196,15 @@ class QGraphicsWidget(QGraphicsObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsWidget'
+
+  #  Qt's QGraphicsWidget is built on more than one class. The part of a C++
+  #  QGraphicsWidget that belongs to a class after the first begins somewhere
+  #  inside the object, and the ritual named for that class gives where; see
+  #  'CuteMixin._addressAs'.
+  __cast_rituals__ = {
+      'QGraphicsLayoutItem':
+          'ritual_cast_QGraphicsWidget_QGraphicsLayoutItem',
+  }
 
   #  Fallback Variables
 
@@ -1049,7 +1056,7 @@ class QGraphicsWidget(QGraphicsObject):
     self._noteCreation(QGraphicsWidget, lambda: Rituals.call(
         'ritual_ZN15QGraphicsWidgetC1EP13QGraphicsItem6QFlagsIN2Qt10WindowT'
         'ypeEE',
-        self._addressOf(parent), wFlags.value,
+        self._addressOf(parent, 'QGraphicsItem'), wFlags.value,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

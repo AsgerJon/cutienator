@@ -15,18 +15,17 @@ from worktoy.keenum import Kee
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QLayout
+from . import QLayout, QLayoutItem
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QRect, QSize
-  from . import QLayoutItem, QSpacerItem, QWidget
+  from . import QSpacerItem, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
-  QLayoutItem = WAIT['QLayoutItem']
   QRect = WAIT['QRect']
   QSpacerItem = WAIT['QSpacerItem']
   QWidget = WAIT['QWidget']
@@ -362,7 +361,6 @@ class QBoxLayout(QLayout):
     """
     #  QLayoutItem *QBoxLayout::itemAt(int a0) const
     address = self.uglySide.call('ritual_ZNK10QBoxLayout6itemAtEi', a0)
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   def count(self) -> int:
@@ -713,7 +711,8 @@ class QBoxLayout(QLayout):
     """
     #  void QBoxLayout::addItem(QLayoutItem *a0)
     self.uglySide.call(
-        'ritual_ZN10QBoxLayout7addItemEP11QLayoutItem', self._addressOf(a0),
+        'ritual_ZN10QBoxLayout7addItemEP11QLayoutItem',
+        self._addressOf(a0, 'QLayoutItem'),
     )
 
   @overload(int, int)
@@ -888,7 +887,7 @@ class QBoxLayout(QLayout):
     #  void QBoxLayout::insertItem(int index, QLayoutItem *a1)
     self.uglySide.call(
         'ritual_ZN10QBoxLayout10insertItemEiP11QLayoutItem',
-        index, self._addressOf(a1),
+        index, self._addressOf(a1, 'QLayoutItem'),
     )
 
   def invalidate(self) -> None:
@@ -922,5 +921,4 @@ class QBoxLayout(QLayout):
     """
     #  QLayoutItem *QBoxLayout::takeAt(int a0)
     address = self.uglySide.call('ritual_ZN10QBoxLayout6takeAtEi', a0)
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)

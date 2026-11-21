@@ -30,14 +30,15 @@ else:
 NoneType = type(None)
 
 
-class QIODevice(QObject):
+class QIODevice(QObject, QIODeviceBase):
   """
   The cute side of Qt's QIODevice: a plain Python object standing in front of
   one C++ QIODevice.
 
   It is built on the cute 'QObject', as Qt's QIODevice is built on Qt's
-  QObject, and has everything that class has. Qt's QIODevice is built on Qt's
-  QIODeviceBase as well, which is not reflected.
+  QObject, and has everything that class has. It is built on the cute
+  'QIODeviceBase' as well, as Qt's QIODevice is built on Qt's QIODeviceBase
+  too, and has everything that class has.
 
   What exists
   -----------
@@ -68,7 +69,7 @@ class QIODevice(QObject):
   What has no ritual
   ------------------
 
-  30 of the 74 functions Qt declares: 9 takes or gives a type that cannot be
+  30 of the 75 functions Qt declares: 9 takes or gives a type that cannot be
   passed yet; 7 protected; 6 a signal; 3 private; 2 the class is abstract, so
   C++ cannot make one; 2 forbidden; 1 a template.
 
@@ -140,6 +141,14 @@ class QIODevice(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QIODevice'
+
+  #  Qt's QIODevice is built on more than one class. The part of a C++
+  #  QIODevice that belongs to a class after the first begins somewhere
+  #  inside the object, and the ritual named for that class gives where; see
+  #  'CuteMixin._addressAs'.
+  __cast_rituals__ = {
+      'QIODeviceBase': 'ritual_cast_QIODevice_QIODeviceBase',
+  }
 
   #  Fallback Variables
 

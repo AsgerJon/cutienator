@@ -36,14 +36,15 @@ else:
 NoneType = type(None)
 
 
-class QPdfWriter(QObject):
+class QPdfWriter(QObject, QPagedPaintDevice):
   """
   The cute side of Qt's QPdfWriter: a plain Python object standing in front
   of one C++ QPdfWriter.
 
   It is built on the cute 'QObject', as Qt's QPdfWriter is built on Qt's
-  QObject, and has everything that class has. Qt's QPdfWriter is built on
-  Qt's QPagedPaintDevice as well, which is not reflected.
+  QObject, and has everything that class has. It is built on the cute
+  'QPagedPaintDevice' as well, as Qt's QPdfWriter is built on Qt's
+  QPagedPaintDevice too, and has everything that class has.
 
   What exists
   -----------
@@ -65,7 +66,7 @@ class QPdfWriter(QObject):
   What has no ritual
   ------------------
 
-  10 of the 35 functions Qt declares: 3 private; 2 takes or gives a type that
+  10 of the 36 functions Qt declares: 3 private; 2 takes or gives a type that
   cannot be passed yet; 2 protected; 2 forbidden; 1 a template.
 
   What to expect
@@ -151,6 +152,14 @@ class QPdfWriter(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPdfWriter'
+
+  #  Qt's QPdfWriter is built on more than one class. The part of a C++
+  #  QPdfWriter that belongs to a class after the first begins somewhere
+  #  inside the object, and the ritual named for that class gives where; see
+  #  'CuteMixin._addressAs'.
+  __cast_rituals__ = {
+      'QPagedPaintDevice': 'ritual_cast_QPdfWriter_QPagedPaintDevice',
+  }
 
   #  Fallback Variables
 

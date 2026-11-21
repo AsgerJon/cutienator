@@ -403,7 +403,7 @@ class QGraphicsGridLayout(QGraphicsLayout):
     #      *item) const
     return Qt.Alignment(self.uglySide.call(
         'ritual_ZNK19QGraphicsGridLayout9alignmentEP19QGraphicsLayoutItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsLayoutItem'),
     ))
 
   def rowCount(self) -> int:
@@ -968,7 +968,7 @@ class QGraphicsGridLayout(QGraphicsLayout):
     self.uglySide.call(
         'ritual_ZN19QGraphicsGridLayout12setAlignmentEP19QGraphicsLayoutIte'
         'm6QFlagsIN2Qt13AlignmentFlagEE',
-        self._addressOf(item), alignment.value,
+        self._addressOf(item, 'QGraphicsLayoutItem'), alignment.value,
     )
 
   @overload(QRectF)
@@ -1026,7 +1026,7 @@ class QGraphicsGridLayout(QGraphicsLayout):
     #  QGraphicsGridLayout::QGraphicsGridLayout(QGraphicsLayoutItem *parent)
     self._noteCreation(QGraphicsGridLayout, lambda: Rituals.call(
         'ritual_ZN19QGraphicsGridLayoutC1EP19QGraphicsLayoutItem',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QGraphicsLayoutItem'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1097,8 +1097,8 @@ class QGraphicsGridLayout(QGraphicsLayout):
     self.uglySide.call(
         'ritual_ZN19QGraphicsGridLayout7addItemEP19QGraphicsLayoutItemiiii6'
         'QFlagsIN2Qt13AlignmentFlagEE',
-        self._addressOf(item), row, column, rowSpan, columnSpan,
-        alignment.value,
+        self._addressOf(item, 'QGraphicsLayoutItem'), row, column, rowSpan,
+        columnSpan, alignment.value,
     )
 
   @overload(QGraphicsLayoutItem, int, int)
@@ -1140,7 +1140,8 @@ class QGraphicsGridLayout(QGraphicsLayout):
     self.uglySide.call(
         'ritual_ZN19QGraphicsGridLayout7addItemEP19QGraphicsLayoutItemii6QF'
         'lagsIN2Qt13AlignmentFlagEE',
-        self._addressOf(item), row, column, alignment.value,
+        self._addressOf(item, 'QGraphicsLayoutItem'), row, column,
+        alignment.value,
     )
 
   @overload(int)
@@ -1179,7 +1180,7 @@ class QGraphicsGridLayout(QGraphicsLayout):
     #  void QGraphicsGridLayout::removeItem(QGraphicsLayoutItem *item)
     self.uglySide.call(
         'ritual_ZN19QGraphicsGridLayout10removeItemEP19QGraphicsLayoutItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsLayoutItem'),
     )
 
   def invalidate(self) -> None:

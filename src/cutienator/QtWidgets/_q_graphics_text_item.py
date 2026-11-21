@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QGraphicsObject
+from . import QGraphicsItem, QGraphicsObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -22,14 +22,13 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QMetaObject, QPointF, QRectF
   from ..QtGui import QColor, QFont, QPainter, QPainterPath, QTextCursor
   from ..QtGui import QTextDocument
-  from . import QGraphicsItem, QStyleOptionGraphicsItem, QWidget
+  from . import QStyleOptionGraphicsItem, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QColor = WAIT['QColor']
   QFont = WAIT['QFont']
-  QGraphicsItem = WAIT['QGraphicsItem']
   QPainter = WAIT['QPainter']
   QPointF = WAIT['QPointF']
   QStyleOptionGraphicsItem = WAIT['QStyleOptionGraphicsItem']
@@ -324,7 +323,7 @@ class QGraphicsTextItem(QGraphicsObject):
     #  bool QGraphicsTextItem::isObscuredBy(const QGraphicsItem *item) const
     return self.uglySide.call(
         'ritual_ZNK17QGraphicsTextItem12isObscuredByEPK13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   def opaqueArea(self) -> QPainterPath:
@@ -683,7 +682,7 @@ class QGraphicsTextItem(QGraphicsObject):
     #  QGraphicsTextItem::QGraphicsTextItem(QGraphicsItem *parent)
     self._noteCreation(QGraphicsTextItem, lambda: Rituals.call(
         'ritual_ZN17QGraphicsTextItemC1EP13QGraphicsItem',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   @overload(str)
@@ -716,7 +715,7 @@ class QGraphicsTextItem(QGraphicsObject):
     #      QGraphicsItem *parent)
     self._noteCreation(QGraphicsTextItem, lambda: Rituals.call(
         'ritual_ZN17QGraphicsTextItemC1ERK7QStringP13QGraphicsItem',
-        text, self._addressOf(parent),
+        text, self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

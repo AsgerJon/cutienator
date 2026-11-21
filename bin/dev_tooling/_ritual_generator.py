@@ -412,6 +412,10 @@ class RitualGenerator:
                   if not m.get('isImplicit')]
       if 'CXXDestructorDecl' not in declared:
         written.append(self._planOwnDestructor())
+    #  A class built on more than one class gets, for each class after
+    #  the first, the ritual that gives where that part of an object is.
+    for baseName in self.getFurtherBases():
+      written.append(self._planCast(baseName))
     self.__written_rituals__ = (*written,)
     self.__unwritten_functions__ = (*unwritten,)
 
@@ -431,7 +435,8 @@ class RitualGenerator:
       A 'Tuple[Dict[str, Any], ...]'. Each ritual says:
       'ritualName': its name, as 'ritual_ZNK7QObject6parentEv'.
       'function': the Qt function it calls, as C++ writes it.
-      'kind': 'constructor', 'destructor', 'method' or 'static method'.
+      'kind': 'constructor', 'destructor', 'method', 'static method',
+      or 'cast' for a ritual of 'getFurtherBases'.
       'gives': the type the ritual gives back, as C++ writes it.
       'takes': what the ritual takes, in order, each as a name and a
       type. For a ritual on an object the first is 'self', the address
@@ -1179,6 +1184,48 @@ class RitualGenerator:
       body = ['  delete self;']
     else:
       body = self._writeBody(opening, called, passed, closing)
+    plan['text'] = self._writeRitual(plan, body)
+    return plan
+
+  def getFurtherBases(self) -> Names:
+    """
+    Gives the classes the class is built on after the first, in the
+    order C++ names them, as 'QPaintDevice' for 'QWidget', which is
+    built on 'QObject' and 'QPaintDevice'. It is empty for a class
+    built on one class or on none.
+
+    An object of such a class holds one part for each class it is built
+    on. The part of the first class begins where the object begins. The
+    part of a further class begins somewhere inside it, so a function
+    of that class has to be handed another address than the object has.
+    """
+    tree, className = self.getDependencyTree(), self.getClassName()
+    known = tree.getClassNames()
+    parents = tree.getParents(className)
+    return (*(p for p in parents[1:] if p in known),)
+
+  def _planCast(self, baseName: str) -> Record:
+    """
+    Works out the ritual that gives where the part of an object is that
+    belongs to a class it is built on after the first: it takes the
+    address of the object and gives the address of that part, as C++
+    itself works it out.
+
+    It is no function of Qt, so it has a name of its own:
+    'ritual_cast_QWidget_QPaintDevice'.
+    """
+    className = self.getClassName()
+    plan = dict(
+        ritualName='ritual_cast_%s_%s' % (
+            className.replace('::', '_'), baseName.replace('::', '_')),
+        function='%s as the %s it is built on' % (className, baseName),
+        kind='cast', gives='%s *' % baseName,
+        takes=(('self', '%s *' % className),),
+        row=('address', 'address'), needs=(), unknownTypes=(),
+        unsureNumbers=(), words=(), variadic=False,
+        name='', arguments=(), giving=None, baseName=baseName,
+    )
+    body = ['  return static_cast<%s *>(self);' % baseName]
     plan['text'] = self._writeRitual(plan, body)
     return plan
 

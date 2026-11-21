@@ -196,7 +196,7 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
     #  bool QGraphicsRectItem::isObscuredBy(const QGraphicsItem *item) const
     return self.uglySide.call(
         'ritual_ZNK17QGraphicsRectItem12isObscuredByEPK13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   def opaqueArea(self) -> QPainterPath:
@@ -313,7 +313,7 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
     #  QGraphicsRectItem::QGraphicsRectItem(QGraphicsItem *parent)
     self._noteCreation(QGraphicsRectItem, lambda: Rituals.call(
         'ritual_ZN17QGraphicsRectItemC1EP13QGraphicsItem',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   @overload(QRectF)
@@ -347,7 +347,7 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
     #      *parent)
     self._noteCreation(QGraphicsRectItem, lambda: Rituals.call(
         'ritual_ZN17QGraphicsRectItemC1ERK6QRectFP13QGraphicsItem',
-        self._valueOf(rect), self._addressOf(parent),
+        self._valueOf(rect), self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   @overload(float, float, float, float)
@@ -392,7 +392,7 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
     #      h, QGraphicsItem *parent)
     self._noteCreation(QGraphicsRectItem, lambda: Rituals.call(
         'ritual_ZN17QGraphicsRectItemC1EddddP13QGraphicsItem',
-        x, y, w, h, self._addressOf(parent),
+        x, y, w, h, self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

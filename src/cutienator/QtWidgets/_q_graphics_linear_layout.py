@@ -169,7 +169,7 @@ class QGraphicsLinearLayout(QGraphicsLayout):
     return self.uglySide.call(
         'ritual_ZNK21QGraphicsLinearLayout13stretchFactorEP19QGraphicsLayou'
         'tItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsLayoutItem'),
     )
 
   @overload(QGraphicsLayoutItem)
@@ -199,7 +199,7 @@ class QGraphicsLinearLayout(QGraphicsLayout):
     #      *item) const
     return Qt.Alignment(self.uglySide.call(
         'ritual_ZNK21QGraphicsLinearLayout9alignmentEP19QGraphicsLayoutItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsLayoutItem'),
     ))
 
   def count(self) -> int:
@@ -380,7 +380,7 @@ class QGraphicsLinearLayout(QGraphicsLayout):
     self.uglySide.call(
         'ritual_ZN21QGraphicsLinearLayout16setStretchFactorEP19QGraphicsLay'
         'outItemi',
-        self._addressOf(item), stretch,
+        self._addressOf(item, 'QGraphicsLayoutItem'), stretch,
     )
 
   @overload(QGraphicsLayoutItem, Qt.Alignment)
@@ -412,7 +412,7 @@ class QGraphicsLinearLayout(QGraphicsLayout):
     self.uglySide.call(
         'ritual_ZN21QGraphicsLinearLayout12setAlignmentEP19QGraphicsLayoutI'
         'tem6QFlagsIN2Qt13AlignmentFlagEE',
-        self._addressOf(item), alignment.value,
+        self._addressOf(item, 'QGraphicsLayoutItem'), alignment.value,
     )
 
   @overload(QRectF)
@@ -471,7 +471,7 @@ class QGraphicsLinearLayout(QGraphicsLayout):
     #      *parent)
     self._noteCreation(QGraphicsLinearLayout, lambda: Rituals.call(
         'ritual_ZN21QGraphicsLinearLayoutC1EP19QGraphicsLayoutItem',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QGraphicsLayoutItem'),
     ))
 
   @overload(Qt.Orientation)
@@ -506,7 +506,7 @@ class QGraphicsLinearLayout(QGraphicsLayout):
     self._noteCreation(QGraphicsLinearLayout, lambda: Rituals.call(
         'ritual_ZN21QGraphicsLinearLayoutC1EN2Qt11OrientationEP19QGraphicsL'
         'ayoutItem',
-        orientation.value, self._addressOf(parent),
+        orientation.value, self._addressOf(parent, 'QGraphicsLayoutItem'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -548,7 +548,7 @@ class QGraphicsLinearLayout(QGraphicsLayout):
     #  void QGraphicsLinearLayout::addItem(QGraphicsLayoutItem *item)
     self.uglySide.call(
         'ritual_ZN21QGraphicsLinearLayout7addItemEP19QGraphicsLayoutItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsLayoutItem'),
     )
 
   @overload()
@@ -600,7 +600,7 @@ class QGraphicsLinearLayout(QGraphicsLayout):
     self.uglySide.call(
         'ritual_ZN21QGraphicsLinearLayout10insertItemEiP19QGraphicsLayoutIt'
         'em',
-        index, self._addressOf(item),
+        index, self._addressOf(item, 'QGraphicsLayoutItem'),
     )
 
   @overload(int)
@@ -648,7 +648,7 @@ class QGraphicsLinearLayout(QGraphicsLayout):
     self.uglySide.call(
         'ritual_ZN21QGraphicsLinearLayout10removeItemEP19QGraphicsLayoutIte'
         'm',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsLayoutItem'),
     )
 
   @overload(int)

@@ -15,7 +15,7 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from ..QtGui import QPalette
+from ..QtGui import QPaintDevice, QPalette
 from . import QSizePolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -25,8 +25,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QPointF, QRect, QSize, QVariant
   from ..QtGui import QAction, QBackingStore, QBitmap, QCursor, QFont
   from ..QtGui import QFontInfo, QFontMetrics, QIcon, QKeySequence
-  from ..QtGui import QPaintDevice, QPaintEngine, QPainter, QPixmap, QRegion
-  from ..QtGui import QScreen, QWindow
+  from ..QtGui import QPaintEngine, QPainter, QPixmap, QRegion, QScreen
+  from ..QtGui import QWindow
   from . import QGraphicsEffect, QGraphicsProxyWidget, QLayout, QStyle
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -43,7 +43,6 @@ else:
   QLayout = WAIT['QLayout']
   QLocale = WAIT['QLocale']
   QMargins = WAIT['QMargins']
-  QPaintDevice = WAIT['QPaintDevice']
   QPainter = WAIT['QPainter']
   QPoint = WAIT['QPoint']
   QPointF = WAIT['QPointF']
@@ -59,14 +58,15 @@ else:
 NoneType = type(None)
 
 
-class QWidget(QObject):
+class QWidget(QObject, QPaintDevice):
   """
   The cute side of Qt's QWidget: a plain Python object standing in front of
   one C++ QWidget.
 
   It is built on the cute 'QObject', as Qt's QWidget is built on Qt's
-  QObject, and has everything that class has. Qt's QWidget is built on Qt's
-  QPaintDevice as well, which is not reflected.
+  QObject, and has everything that class has. It is built on the cute
+  'QPaintDevice' as well, as Qt's QWidget is built on Qt's QPaintDevice too,
+  and has everything that class has.
 
   What exists
   -----------
@@ -136,7 +136,7 @@ class QWidget(QObject):
   What has no ritual
   ------------------
 
-  62 of the 326 functions Qt declares: 39 protected; 6 takes or gives a type
+  62 of the 327 functions Qt declares: 39 protected; 6 takes or gives a type
   that cannot be passed yet; 6 private; 5 a template; 4 a signal; 2
   forbidden.
 
@@ -366,6 +366,14 @@ class QWidget(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QWidget'
+
+  #  Qt's QWidget is built on more than one class. The part of a C++ QWidget
+  #  that belongs to a class after the first begins somewhere inside the
+  #  object, and the ritual named for that class gives where; see
+  #  'CuteMixin._addressAs'.
+  __cast_rituals__ = {
+      'QPaintDevice': 'ritual_cast_QWidget_QPaintDevice',
+  }
 
   #  Fallback Variables
 
@@ -3884,7 +3892,7 @@ class QWidget(QObject):
     self.uglySide.call(
         'ritual_ZN7QWidget6renderEP12QPaintDeviceRK6QPointRK7QRegion6QFlags'
         'INS_10RenderFlagEE',
-        self._addressOf(target), self._valueOf(targetOffset),
+        self._addressOf(target, 'QPaintDevice'), self._valueOf(targetOffset),
         self._valueOf(sourceRegion), renderFlags.value,
     )
 

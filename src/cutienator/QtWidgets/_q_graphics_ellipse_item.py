@@ -220,7 +220,7 @@ class QGraphicsEllipseItem(QAbstractGraphicsShapeItem):
     #      const
     return self.uglySide.call(
         'ritual_ZNK20QGraphicsEllipseItem12isObscuredByEPK13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   def opaqueArea(self) -> QPainterPath:
@@ -376,7 +376,7 @@ class QGraphicsEllipseItem(QAbstractGraphicsShapeItem):
     #  QGraphicsEllipseItem::QGraphicsEllipseItem(QGraphicsItem *parent)
     self._noteCreation(QGraphicsEllipseItem, lambda: Rituals.call(
         'ritual_ZN20QGraphicsEllipseItemC1EP13QGraphicsItem',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   @overload(QRectF)
@@ -410,7 +410,7 @@ class QGraphicsEllipseItem(QAbstractGraphicsShapeItem):
     #      QGraphicsItem *parent)
     self._noteCreation(QGraphicsEllipseItem, lambda: Rituals.call(
         'ritual_ZN20QGraphicsEllipseItemC1ERK6QRectFP13QGraphicsItem',
-        self._valueOf(rect), self._addressOf(parent),
+        self._valueOf(rect), self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   @overload(float, float, float, float)
@@ -455,7 +455,7 @@ class QGraphicsEllipseItem(QAbstractGraphicsShapeItem):
     #      qreal h, QGraphicsItem *parent)
     self._noteCreation(QGraphicsEllipseItem, lambda: Rituals.call(
         'ritual_ZN20QGraphicsEllipseItemC1EddddP13QGraphicsItem',
-        x, y, w, h, self._addressOf(parent),
+        x, y, w, h, self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

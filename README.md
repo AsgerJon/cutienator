@@ -35,16 +35,17 @@ is, and fetches a class the first time it is asked for.
 
 ## 2. A file brings in only what its class is built on
 
-`QWidget` is built on `QObject`, so the file of `QWidget` brings in the
-file of `QObject`. It asks for `QObject` the way your program would,
-with `from ..QtCore import Qt, QObject`, and the package fetches that
-one file, so nothing comes along that was not needed.
+`QWidget` is built on `QObject` and `QPaintDevice`, as in C++, so the
+file of `QWidget` brings in the files of those two. It asks for them the
+way your program would, with `from ..QtCore import Qt, QObject`, and the
+package fetches the one file each is in, so nothing comes along that was
+not needed.
 
 An enum is written inside its class, as in C++: `QPalette.ColorRole` is
 a class in the body of `QPalette`, and has no other name. So a file
 also brings in the few classes that hold an enum it names, as `QWidget`
 brings in `QPalette` for `setBackgroundRole`. For `QWidget` that makes
-six files in all.
+seven files in all.
 
 ## 3. Every other class waits
 
@@ -122,7 +123,7 @@ in a Python of its own, the best of five:
 | `QWidget`                     |          about 4 s |               0.24 s |
 | a window, shown and closed    |          about 4 s |               0.46 s |
 | 78 classes, a large program   |          about 4 s |               0.95 s |
-| all 694 classes there are yet |          about 4 s |               4.13 s |
+| all 694 classes there are yet |          about 4 s |               4.27 s |
 
 Without the three steps every program would bring in every class,
 whatever it uses, so the first column is the last line for all of them.

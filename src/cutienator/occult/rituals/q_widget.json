@@ -462,6 +462,7 @@
     "ritual_ZNK7QWidget16inputMethodHintsEv": ["int", "address"],
     "ritual_ZN7QWidget19setInputMethodHintsE6QFlagsIN2Qt15InputMethodHintEE": [
       "nothing", "address", "int"
-    ]
+    ],
+    "ritual_cast_QWidget_QPaintDevice": ["address", "address"]
   }
 }

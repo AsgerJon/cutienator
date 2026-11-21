@@ -157,7 +157,7 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
     return self.uglySide.call(
         'ritual_ZNK26QAbstractGraphicsShapeItem12isObscuredByEPK13QGraphics'
         'Item',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   def opaqueArea(self) -> QPainterPath:

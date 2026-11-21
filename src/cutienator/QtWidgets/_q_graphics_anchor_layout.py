@@ -277,7 +277,7 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
     #      *parent)
     self._noteCreation(QGraphicsAnchorLayout, lambda: Rituals.call(
         'ritual_ZN21QGraphicsAnchorLayoutC1EP19QGraphicsLayoutItem',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QGraphicsLayoutItem'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -353,8 +353,8 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
     address = self.uglySide.call(
         'ritual_ZN21QGraphicsAnchorLayout9addAnchorEP19QGraphicsLayoutItemN'
         '2Qt11AnchorPointES1_S3_',
-        self._addressOf(firstItem), firstEdge.value,
-        self._addressOf(secondItem), secondEdge.value,
+        self._addressOf(firstItem, 'QGraphicsLayoutItem'), firstEdge.value,
+        self._addressOf(secondItem, 'QGraphicsLayoutItem'), secondEdge.value,
     )
     from . import QGraphicsAnchor
     return QGraphicsAnchor._cuteAt(address)
@@ -411,8 +411,8 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
     address = self.uglySide.call(
         'ritual_ZN21QGraphicsAnchorLayout6anchorEP19QGraphicsLayoutItemN2Qt'
         '11AnchorPointES1_S3_',
-        self._addressOf(firstItem), firstEdge.value,
-        self._addressOf(secondItem), secondEdge.value,
+        self._addressOf(firstItem, 'QGraphicsLayoutItem'), firstEdge.value,
+        self._addressOf(secondItem, 'QGraphicsLayoutItem'), secondEdge.value,
     )
     from . import QGraphicsAnchor
     return QGraphicsAnchor._cuteAt(address)
@@ -460,8 +460,9 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
     self.uglySide.call(
         'ritual_ZN21QGraphicsAnchorLayout16addCornerAnchorsEP19QGraphicsLay'
         'outItemN2Qt6CornerES1_S3_',
-        self._addressOf(firstItem), firstCorner.value,
-        self._addressOf(secondItem), secondCorner.value,
+        self._addressOf(firstItem, 'QGraphicsLayoutItem'), firstCorner.value,
+        self._addressOf(secondItem, 'QGraphicsLayoutItem'),
+        secondCorner.value,
     )
 
   @overload(QGraphicsLayoutItem, QGraphicsLayoutItem, Qt.Orientations)
@@ -501,7 +502,8 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
     self.uglySide.call(
         'ritual_ZN21QGraphicsAnchorLayout10addAnchorsEP19QGraphicsLayoutIte'
         'mS1_6QFlagsIN2Qt11OrientationEE',
-        self._addressOf(firstItem), self._addressOf(secondItem),
+        self._addressOf(firstItem, 'QGraphicsLayoutItem'),
+        self._addressOf(secondItem, 'QGraphicsLayoutItem'),
         orientations.value,
     )
 

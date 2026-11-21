@@ -183,6 +183,7 @@
     "ritual_ZN7QWindow15setMaximumWidthEi": ["nothing", "address", "int"],
     "ritual_ZN7QWindow16setMaximumHeightEi": ["nothing", "address", "int"],
     "ritual_ZN7QWindow5alertEi": ["nothing", "address", "int"],
-    "ritual_ZN7QWindow13requestUpdateEv": ["nothing", "address"]
+    "ritual_ZN7QWindow13requestUpdateEv": ["nothing", "address"],
+    "ritual_cast_QWindow_QSurface": ["address", "address"]
   }
 }

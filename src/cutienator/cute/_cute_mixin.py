@@ -13,7 +13,7 @@ from worktoy.mcls import BaseObject
 from ..occult import Rituals, Ugly
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional, Any, Callable, Tuple
+  from typing import Optional, Any, Callable, Dict, Tuple
 
 
 class CuteMixin(BaseObject):
@@ -26,12 +26,20 @@ class CuteMixin(BaseObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @staticmethod
-  def _addressOf(cuteSide: Optional[Any]) -> Optional[int]:
+  def _addressOf(
+      cuteSide: Optional[Any],
+      qtClass: Optional[str] = None,
+  ) -> Optional[int]:
     """
     Gives what a ritual takes in the place of a cute object that Qt
     takes by its address, as 'QObject *parent': the address of the C++
     object it stands for, or None for None, which C++ reads as no
     object. Asking makes the C++ object if it is not made yet.
+
+    Where Qt takes a class that other classes are built on beside
+    another, as 'QPaintDevice *', the class of Qt is named, and the
+    address is that of the part of the object belonging to it; see
+    '_addressAs'.
 
     Qt may keep an object it is handed by its address, and may remove
     it. So a C++ object that Python owned until now is Python's no
@@ -41,10 +49,12 @@ class CuteMixin(BaseObject):
       return None
     uglySide = cuteSide.uglySide
     uglySide.disown()
-    return uglySide.getAddress()
+    if qtClass is None:
+      return uglySide.getAddress()
+    return cuteSide._addressAs(qtClass)
 
   @staticmethod
-  def _valueOf(cuteSide: Any) -> int:
+  def _valueOf(cuteSide: Any, qtClass: Optional[str] = None) -> int:
     """
     Gives what a ritual takes in the place of a cute object that Qt
     takes as a value, as 'const QSize &size': the address of the C++
@@ -54,9 +64,11 @@ class CuteMixin(BaseObject):
     Qt copies a value it wants to keep, and knows nothing of the one it
     was handed once the ritual has run. So Python goes on owning its
     C++ object, and no None is taken: there is no such thing as no
-    value.
+    value. A class of Qt is named as for '_addressOf'.
     """
-    return cuteSide.uglySide.getAddress()
+    if qtClass is None:
+      return cuteSide.uglySide.getAddress()
+    return cuteSide._addressAs(qtClass)
 
   @staticmethod
   def _bytesOf(text: Optional[str]) -> Optional[bytes]:
@@ -92,6 +104,11 @@ class CuteMixin(BaseObject):
   #  and tell the removal of. True in the cute QObject and so in every
   #  class built on it.
   __watched_by_qt__: bool = False
+  #  In a class whose class of Qt is built on more than one class: for
+  #  each class of Qt after the first, the ritual that gives where the
+  #  part of an object belonging to it is. None in every other class.
+  #  See '_addressAs'.
+  __cast_rituals__: Optional[Dict[str, str]] = None
 
   #  Fallback Variables
 
@@ -150,6 +167,96 @@ class CuteMixin(BaseObject):
       raise TypeError(' '.join(info.split()))
     self.__creation_call__ = creationCall
 
+  def _findCast(self, qtClass: str) -> Optional[str]:
+    """
+    Gives the ritual that leads from the address of the C++ object to
+    the address of its part belonging to a class of Qt, or None when
+    that part begins where the object begins.
+
+    A class of Qt may be built on more than one class, as QWidget on
+    QObject and QPaintDevice. An object of it holds a part for each.
+    The part of the first begins where the object begins, and so do
+    the parts of what that one is built on first, all the way up. The
+    part of a further class begins somewhere inside the object, and
+    C++ has to be asked where: the cute class names a ritual for each
+    such class in '__cast_rituals__'. The part of a class that further
+    class is built on begins where it begins.
+    """
+    for cuteClass in type(self).__mro__:
+      casts = cuteClass.__dict__.get('__cast_rituals__', None)
+      if not casts:
+        continue
+      for baseName, ritualName in casts.items():
+        for baseClass in cuteClass.__mro__:
+          if baseClass.__dict__.get('__qt_class__', None) == baseName:
+            break
+        else:
+          continue
+        for partClass in baseClass.__mro__:
+          if partClass.__dict__.get('__qt_class__', None) == qtClass:
+            return ritualName
+    return None
+
+  def _addressAs(self, qtClass: str) -> int:
+    """
+    Gives the address of the part of the C++ object that belongs to one
+    class of Qt the object is built on, as 'QPaintDevice' for a
+    QWidget. A function of that class of Qt has to be handed this
+    address, and not the address of the object.
+
+    Parameters
+    ----------
+
+    qtClass : str
+      The class of Qt, as Qt names it: 'QPaintDevice'.
+
+    Returns
+    -------
+
+    int
+      The address of that part. It is the address of the object for a
+      class the object is built on first, all the way up.
+    """
+    address = self.uglySide.getAddress()
+    ritualName = self._findCast(qtClass)
+    if ritualName is None:
+      return address
+    return Rituals.call(ritualName, address)
+
+  def _callAs(self, qtClass: str, ritualName: str, *args: Any) -> Any:
+    """
+    Runs a ritual of one class of Qt on the C++ object, handing it the
+    address of the part of the object that belongs to that class. A
+    function of a class that others are built on beside another calls
+    its ritual this way, as the functions of QPaintDevice do, since the
+    object may be a QWidget.
+
+    Parameters
+    ----------
+
+    qtClass : str
+      The class of Qt the ritual belongs to: 'QPaintDevice'.
+
+    ritualName : str
+      The ritual.
+
+    *args : Any
+      What the ritual takes after the address.
+    """
+    return Rituals.call(ritualName, self._addressAs(qtClass), *args)
+
+  def _notePartAddresses(self, ugly: Any) -> None:
+    """
+    Tells the Ugly of this object the address of each part of the C++
+    object that begins somewhere inside it, so that an address C++
+    hands out for such a part leads back to this cute object.
+    """
+    address = ugly.getAddress()
+    for cuteClass in type(self).__mro__:
+      casts = cuteClass.__dict__.get('__cast_rituals__', None)
+      for ritualName in (casts or dict()).values():
+        ugly.addPartAddress(Rituals.call(ritualName, address))
+
   def _createUglySide(self, ) -> None:
     """
     Creates the C++ object and the Ugly standing for it, by what the
@@ -181,6 +288,7 @@ class CuteMixin(BaseObject):
     ugly.setCuteSide(self)
     self.__ugly_side__ = ugly
     self.__creation_call__ = None
+    self._notePartAddresses(ugly)
 
   @uglySide.GET
   def _getUglySide(self, **kwargs) -> object:
@@ -261,6 +369,7 @@ class CuteMixin(BaseObject):
       ugly.watch()
     ugly.setCuteSide(cuteSide)
     cuteSide.__ugly_side__ = ugly
+    cuteSide._notePartAddresses(ugly)
     return cuteSide
 
   @classmethod
@@ -312,6 +421,7 @@ class CuteMixin(BaseObject):
     ugly.setDeleteRitual(cls.__delete_ritual__)
     ugly.setCuteSide(cuteSide)
     cuteSide.__ugly_side__ = ugly
+    cuteSide._notePartAddresses(ugly)
     return cuteSide
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

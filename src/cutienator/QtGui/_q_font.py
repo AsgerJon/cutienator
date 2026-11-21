@@ -1500,7 +1500,7 @@ class QFont(CuteMixin, metaclass=MetaCute):
     #  QFont::QFont(const QFont &font, const QPaintDevice *pd)
     self._noteCreation(QFont, lambda: Rituals.call(
         'ritual_ZN5QFontC1ERKS_PK12QPaintDevice',
-        self._valueOf(font), self._addressOf(pd),
+        self._valueOf(font), self._addressOf(pd, 'QPaintDevice'),
     ))
 
   @overload(THIS)

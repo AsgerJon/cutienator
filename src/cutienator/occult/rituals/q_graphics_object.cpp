@@ -42,3 +42,10 @@ void ritual_ZN15QGraphicsObject13ungrabGestureEN2Qt11GestureTypeE(
     Qt::GestureType type) {
   self->ungrabGesture(type);
 }
+
+//  QGraphicsObject as the QGraphicsItem it is built on
+extern "C" Q_DECL_EXPORT
+QGraphicsItem *ritual_cast_QGraphicsObject_QGraphicsItem(
+    QGraphicsObject *self) {
+  return static_cast<QGraphicsItem *>(self);
+}

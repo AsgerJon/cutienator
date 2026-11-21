@@ -1601,7 +1601,8 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  QPainter::QPainter(QPaintDevice *a0)
     self._noteCreation(QPainter, lambda: Rituals.call(
-        'ritual_ZN8QPainterC1EP12QPaintDevice', self._addressOf(a0),
+        'ritual_ZN8QPainterC1EP12QPaintDevice',
+        self._addressOf(a0, 'QPaintDevice'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1641,7 +1642,8 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  bool QPainter::begin(QPaintDevice *a0)
     return self.uglySide.call(
-        'ritual_ZN8QPainter5beginEP12QPaintDevice', self._addressOf(a0),
+        'ritual_ZN8QPainter5beginEP12QPaintDevice',
+        self._addressOf(a0, 'QPaintDevice'),
     )
 
   def end(self) -> bool:

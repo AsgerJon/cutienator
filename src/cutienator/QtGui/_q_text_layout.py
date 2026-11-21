@@ -824,7 +824,8 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     #      QPaintDevice *paintdevice)
     self._noteCreation(QTextLayout, lambda: Rituals.call(
         'ritual_ZN11QTextLayoutC1ERK7QStringRK5QFontPK12QPaintDevice',
-        text, self._valueOf(font), self._addressOf(paintdevice),
+        text, self._valueOf(font), self._addressOf(paintdevice,
+        'QPaintDevice'),
     ))
 
   @overload(QTextBlock)

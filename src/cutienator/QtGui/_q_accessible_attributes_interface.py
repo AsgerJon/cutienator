@@ -105,7 +105,8 @@ class QAccessibleAttributesInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QVariant QAccessibleAttributesInterface::attributeValue(QAccessible::
     #      Attribute key) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleAttributesInterface',
         'ritual_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAcc'
         'essible9AttributeE',
         key.value,

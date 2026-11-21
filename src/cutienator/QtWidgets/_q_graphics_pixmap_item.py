@@ -251,7 +251,7 @@ class QGraphicsPixmapItem(QGraphicsItem):
     #      const
     return self.uglySide.call(
         'ritual_ZNK19QGraphicsPixmapItem12isObscuredByEPK13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   def opaqueArea(self) -> QPainterPath:
@@ -441,7 +441,7 @@ class QGraphicsPixmapItem(QGraphicsItem):
     #  QGraphicsPixmapItem::QGraphicsPixmapItem(QGraphicsItem *parent)
     self._noteCreation(QGraphicsPixmapItem, lambda: Rituals.call(
         'ritual_ZN19QGraphicsPixmapItemC1EP13QGraphicsItem',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   @overload(QPixmap)
@@ -475,7 +475,7 @@ class QGraphicsPixmapItem(QGraphicsItem):
     #      QGraphicsItem *parent)
     self._noteCreation(QGraphicsPixmapItem, lambda: Rituals.call(
         'ritual_ZN19QGraphicsPixmapItemC1ERK7QPixmapP13QGraphicsItem',
-        self._valueOf(pixmap), self._addressOf(parent),
+        self._valueOf(pixmap), self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

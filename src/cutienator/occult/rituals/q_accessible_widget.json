@@ -34,6 +34,9 @@
     ],
     "ritual_ZN17QAccessibleWidget8doActionERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_cast_QAccessibleWidget_QAccessibleActionInterface": [
+      "address", "address"
     ]
   }
 }

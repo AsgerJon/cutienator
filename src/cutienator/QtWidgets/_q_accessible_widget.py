@@ -13,7 +13,8 @@ from worktoy.dispatch import overload
 
 from ..cute import WAIT
 from ..occult import Rituals
-from ..QtGui import QAccessible, QAccessibleInterface, QAccessibleObject
+from ..QtGui import QAccessible, QAccessibleActionInterface
+from ..QtGui import QAccessibleInterface, QAccessibleObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -32,15 +33,16 @@ else:
 NoneType = type(None)
 
 
-class QAccessibleWidget(QAccessibleObject):
+class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
   """
   The cute side of Qt's QAccessibleWidget: a plain Python object standing in
   front of one C++ QAccessibleWidget.
 
   It is built on the cute 'QAccessibleObject', as Qt's QAccessibleWidget is
-  built on Qt's QAccessibleObject, and has everything that class has. Qt's
-  QAccessibleWidget is built on Qt's QAccessibleActionInterface as well,
-  which is not reflected.
+  built on Qt's QAccessibleObject, and has everything that class has. It is
+  built on the cute 'QAccessibleActionInterface' as well, as Qt's
+  QAccessibleWidget is built on Qt's QAccessibleActionInterface too, and has
+  everything that class has.
 
   What exists
   -----------
@@ -54,7 +56,7 @@ class QAccessibleWidget(QAccessibleObject):
   What has no ritual
   ------------------
 
-  10 of the 26 functions Qt declares: 4 takes or gives a type that cannot be
+  10 of the 27 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 4 protected; 2 forbidden.
 
   What to expect
@@ -81,6 +83,15 @@ class QAccessibleWidget(QAccessibleObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleWidget'
+
+  #  Qt's QAccessibleWidget is built on more than one class. The part of a
+  #  C++ QAccessibleWidget that belongs to a class after the first begins
+  #  somewhere inside the object, and the ritual named for that class gives
+  #  where; see 'CuteMixin._addressAs'.
+  __cast_rituals__ = {
+      'QAccessibleActionInterface':
+          'ritual_cast_QAccessibleWidget_QAccessibleActionInterface',
+  }
 
   #  Fallback Variables
 

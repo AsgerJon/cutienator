@@ -604,7 +604,7 @@ class QOpenGLContext(QObject):
     #  bool QOpenGLContext::makeCurrent(QSurface *surface)
     return self.uglySide.call(
         'ritual_ZN14QOpenGLContext11makeCurrentEP8QSurface',
-        self._addressOf(surface),
+        self._addressOf(surface, 'QSurface'),
     )
 
   def doneCurrent(self) -> None:
@@ -634,5 +634,5 @@ class QOpenGLContext(QObject):
     #  void QOpenGLContext::swapBuffers(QSurface *surface)
     self.uglySide.call(
         'ritual_ZN14QOpenGLContext11swapBuffersEP8QSurface',
-        self._addressOf(surface),
+        self._addressOf(surface, 'QSurface'),
     )

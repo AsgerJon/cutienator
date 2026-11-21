@@ -15,18 +15,17 @@ from worktoy.keenum import Kee
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QLayout
+from . import QLayout, QLayoutItem
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QRect, QSize
-  from . import QLayoutItem, QWidget
+  from . import QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
-  QLayoutItem = WAIT['QLayoutItem']
   QRect = WAIT['QRect']
   QWidget = WAIT['QWidget']
 
@@ -492,7 +491,6 @@ class QFormLayout(QLayout):
     address = self.uglySide.call(
         'ritual_ZNK11QFormLayout6itemAtEiNS_8ItemRoleE', row, role.value,
     )
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   @overload(int)
@@ -517,7 +515,6 @@ class QFormLayout(QLayout):
     """
     #  QLayoutItem *QFormLayout::itemAt(int index) const
     address = self.uglySide.call('ritual_ZNK11QFormLayout6itemAtEi', index)
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   @overload(QWidget)
@@ -846,7 +843,7 @@ class QFormLayout(QLayout):
     #  void QFormLayout::setItem(int row, ItemRole role, QLayoutItem *item)
     self.uglySide.call(
         'ritual_ZN11QFormLayout7setItemEiNS_8ItemRoleEP11QLayoutItem',
-        row, role.value, self._addressOf(item),
+        row, role.value, self._addressOf(item, 'QLayoutItem'),
     )
 
   @overload(int, ItemRole, QWidget)
@@ -1539,7 +1536,7 @@ class QFormLayout(QLayout):
     #  void QFormLayout::addItem(QLayoutItem *item)
     self.uglySide.call(
         'ritual_ZN11QFormLayout7addItemEP11QLayoutItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QLayoutItem'),
     )
 
   @overload(int)
@@ -1564,7 +1561,6 @@ class QFormLayout(QLayout):
     """
     #  QLayoutItem *QFormLayout::takeAt(int index)
     address = self.uglySide.call('ritual_ZN11QFormLayout6takeAtEi', index)
-    from . import QLayoutItem
     return QLayoutItem._cuteAt(address)
 
   def invalidate(self) -> None:

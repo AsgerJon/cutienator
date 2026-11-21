@@ -138,7 +138,7 @@ class QGraphicsItemGroup(QGraphicsItem):
     #  bool QGraphicsItemGroup::isObscuredBy(const QGraphicsItem *item) const
     return self.uglySide.call(
         'ritual_ZNK18QGraphicsItemGroup12isObscuredByEPK13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   def opaqueArea(self) -> QPainterPath:
@@ -207,7 +207,7 @@ class QGraphicsItemGroup(QGraphicsItem):
     #  QGraphicsItemGroup::QGraphicsItemGroup(QGraphicsItem *parent)
     self._noteCreation(QGraphicsItemGroup, lambda: Rituals.call(
         'ritual_ZN18QGraphicsItemGroupC1EP13QGraphicsItem',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -248,7 +248,7 @@ class QGraphicsItemGroup(QGraphicsItem):
     #  void QGraphicsItemGroup::addToGroup(QGraphicsItem *item)
     self.uglySide.call(
         'ritual_ZN18QGraphicsItemGroup10addToGroupEP13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   @overload(QGraphicsItem)
@@ -271,7 +271,7 @@ class QGraphicsItemGroup(QGraphicsItem):
     #  void QGraphicsItemGroup::removeFromGroup(QGraphicsItem *item)
     self.uglySide.call(
         'ritual_ZN18QGraphicsItemGroup15removeFromGroupEP13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   @overload(QPainter, QStyleOptionGraphicsItem)

@@ -426,7 +426,7 @@ class QGraphicsItemAnimation(QObject):
     #  void QGraphicsItemAnimation::setItem(QGraphicsItem *item)
     self.uglySide.call(
         'ritual_ZN22QGraphicsItemAnimation7setItemEP13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   @overload(QTimeLine)

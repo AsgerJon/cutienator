@@ -219,7 +219,7 @@ class QGraphicsSimpleTextItem(QAbstractGraphicsShapeItem):
     return self.uglySide.call(
         'ritual_ZNK23QGraphicsSimpleTextItem12isObscuredByEPK13QGraphicsIte'
         'm',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   def opaqueArea(self) -> QPainterPath:
@@ -329,7 +329,7 @@ class QGraphicsSimpleTextItem(QAbstractGraphicsShapeItem):
     #      *parent)
     self._noteCreation(QGraphicsSimpleTextItem, lambda: Rituals.call(
         'ritual_ZN23QGraphicsSimpleTextItemC1EP13QGraphicsItem',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   @overload(str)
@@ -362,7 +362,7 @@ class QGraphicsSimpleTextItem(QAbstractGraphicsShapeItem):
     #      QGraphicsItem *parent)
     self._noteCreation(QGraphicsSimpleTextItem, lambda: Rituals.call(
         'ritual_ZN23QGraphicsSimpleTextItemC1ERK7QStringP13QGraphicsItem',
-        text, self._addressOf(parent),
+        text, self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

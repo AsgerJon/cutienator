@@ -119,8 +119,8 @@ class QSurface(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  SurfaceClass QSurface::surfaceClass() const
-    return QSurface.SurfaceClass(self.uglySide.call(
-        'ritual_ZNK8QSurface12surfaceClassEv',
+    return QSurface.SurfaceClass(self._callAs(
+        'QSurface', 'ritual_ZNK8QSurface12surfaceClassEv',
     ))
 
   def format(self) -> QSurfaceFormat:
@@ -136,7 +136,7 @@ class QSurface(CuteMixin, metaclass=MetaCute):
       A new cute QSurfaceFormat around the copy Qt gave back. Python owns it.
     """
     #  QSurfaceFormat QSurface::format() const
-    address = self.uglySide.call('ritual_ZNK8QSurface6formatEv')
+    address = self._callAs('QSurface', 'ritual_ZNK8QSurface6formatEv')
     from . import QSurfaceFormat
     return QSurfaceFormat._cuteOwning(address)
 
@@ -155,8 +155,8 @@ class QSurface(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  SurfaceType QSurface::surfaceType() const
-    return QSurface.SurfaceType(self.uglySide.call(
-        'ritual_ZNK8QSurface11surfaceTypeEv',
+    return QSurface.SurfaceType(self._callAs(
+        'QSurface', 'ritual_ZNK8QSurface11surfaceTypeEv',
     ))
 
   def supportsOpenGL(self) -> bool:
@@ -166,7 +166,7 @@ class QSurface(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qsurface.html#supportsOpenGL
     """
     #  bool QSurface::supportsOpenGL() const
-    return self.uglySide.call('ritual_ZNK8QSurface14supportsOpenGLEv')
+    return self._callAs('QSurface', 'ritual_ZNK8QSurface14supportsOpenGLEv')
 
   def size(self) -> QSize:
     """
@@ -181,7 +181,7 @@ class QSurface(CuteMixin, metaclass=MetaCute):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QSurface::size() const
-    address = self.uglySide.call('ritual_ZNK8QSurface4sizeEv')
+    address = self._callAs('QSurface', 'ritual_ZNK8QSurface4sizeEv')
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 

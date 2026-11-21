@@ -376,3 +376,9 @@ QSize *ritual_ZN7QLayout21closestAcceptableSizeEPK7QWidgetRK5QSize(
     const QSize *s) {
   return new QSize(QLayout::closestAcceptableSize(w, *s));
 }
+
+//  QLayout as the QLayoutItem it is built on
+extern "C" Q_DECL_EXPORT
+QLayoutItem *ritual_cast_QLayout_QLayoutItem(QLayout *self) {
+  return static_cast<QLayoutItem *>(self);
+}

@@ -477,3 +477,10 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN15QGraphicsWidget5closeEv(QGraphicsWidget *self) {
   return self->close();
 }
+
+//  QGraphicsWidget as the QGraphicsLayoutItem it is built on
+extern "C" Q_DECL_EXPORT
+QGraphicsLayoutItem *ritual_cast_QGraphicsWidget_QGraphicsLayoutItem(
+    QGraphicsWidget *self) {
+  return static_cast<QGraphicsLayoutItem *>(self);
+}

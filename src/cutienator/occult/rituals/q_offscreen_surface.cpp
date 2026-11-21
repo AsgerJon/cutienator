@@ -102,3 +102,9 @@ void ritual_ZN17QOffscreenSurface9setScreenEP7QScreen(
     QScreen *screen) {
   self->setScreen(screen);
 }
+
+//  QOffscreenSurface as the QSurface it is built on
+extern "C" Q_DECL_EXPORT
+QSurface *ritual_cast_QOffscreenSurface_QSurface(QOffscreenSurface *self) {
+  return static_cast<QSurface *>(self);
+}

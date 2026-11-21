@@ -252,7 +252,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsScene *QGraphicsItem::scene() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem5sceneEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem5sceneEv',
+    )
     from . import QGraphicsScene
     return QGraphicsScene._cuteAt(address)
 
@@ -270,7 +272,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsItem *QGraphicsItem::parentItem() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem10parentItemEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem10parentItemEv',
+    )
     return QGraphicsItem._cuteAt(address)
 
   def topLevelItem(self) -> Optional[QGraphicsItem]:
@@ -287,7 +291,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsItem *QGraphicsItem::topLevelItem() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem12topLevelItemEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem12topLevelItemEv',
+    )
     return QGraphicsItem._cuteAt(address)
 
   def parentObject(self) -> Optional[QGraphicsObject]:
@@ -304,7 +310,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsObject *QGraphicsItem::parentObject() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem12parentObjectEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem12parentObjectEv',
+    )
     from . import QGraphicsObject
     return QGraphicsObject._cuteAt(address)
 
@@ -322,7 +330,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsWidget *QGraphicsItem::parentWidget() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem12parentWidgetEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem12parentWidgetEv',
+    )
     from . import QGraphicsWidget
     return QGraphicsWidget._cuteAt(address)
 
@@ -340,8 +350,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsWidget *QGraphicsItem::topLevelWidget() const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem14topLevelWidgetEv',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem14topLevelWidgetEv',
     )
     from . import QGraphicsWidget
     return QGraphicsWidget._cuteAt(address)
@@ -360,7 +370,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsWidget *QGraphicsItem::window() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem6windowEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem6windowEv',
+    )
     from . import QGraphicsWidget
     return QGraphicsWidget._cuteAt(address)
 
@@ -378,7 +390,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsItem *QGraphicsItem::panel() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem5panelEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem5panelEv',
+    )
     return QGraphicsItem._cuteAt(address)
 
   def isWidget(self) -> bool:
@@ -388,7 +402,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isWidget
     """
     #  bool QGraphicsItem::isWidget() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem8isWidgetEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem8isWidgetEv',
+    )
 
   def isWindow(self) -> bool:
     """
@@ -397,7 +413,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isWindow
     """
     #  bool QGraphicsItem::isWindow() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem8isWindowEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem8isWindowEv',
+    )
 
   def isPanel(self) -> bool:
     """
@@ -406,7 +424,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isPanel
     """
     #  bool QGraphicsItem::isPanel() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem7isPanelEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem7isPanelEv',
+    )
 
   def group(self) -> Optional[QGraphicsItemGroup]:
     """
@@ -422,7 +442,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsItemGroup *QGraphicsItem::group() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem5groupEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem5groupEv',
+    )
     from . import QGraphicsItemGroup
     return QGraphicsItemGroup._cuteAt(address)
 
@@ -439,8 +461,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  GraphicsItemFlags QGraphicsItem::flags() const
-    return QGraphicsItem.GraphicsItemFlags(self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem5flagsEv',
+    return QGraphicsItem.GraphicsItemFlags(self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem5flagsEv',
     ))
 
   def cacheMode(self) -> CacheMode:
@@ -457,8 +479,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no name it is the member without a name that 'CacheMode(number)' gives.
     """
     #  CacheMode QGraphicsItem::cacheMode() const
-    return QGraphicsItem.CacheMode(self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem9cacheModeEv',
+    return QGraphicsItem.CacheMode(self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem9cacheModeEv',
     ))
 
   def panelModality(self) -> PanelModality:
@@ -476,8 +498,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  PanelModality QGraphicsItem::panelModality() const
-    return QGraphicsItem.PanelModality(self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem13panelModalityEv',
+    return QGraphicsItem.PanelModality(self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem13panelModalityEv',
     ))
 
   def toolTip(self) -> str:
@@ -493,7 +515,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       The text Qt gave back.
     """
     #  QString QGraphicsItem::toolTip() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem7toolTipEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem7toolTipEv',
+    )
 
   def cursor(self) -> QCursor:
     """
@@ -508,7 +532,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QCursor around the copy Qt gave back. Python owns it.
     """
     #  QCursor QGraphicsItem::cursor() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem6cursorEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem6cursorEv',
+    )
     from ..QtGui import QCursor
     return QCursor._cuteOwning(address)
 
@@ -519,7 +545,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#hasCursor
     """
     #  bool QGraphicsItem::hasCursor() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem9hasCursorEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem9hasCursorEv',
+    )
 
   def isVisible(self) -> bool:
     """
@@ -528,7 +556,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isVisible
     """
     #  bool QGraphicsItem::isVisible() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem9isVisibleEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem9isVisibleEv',
+    )
 
   @overload(THIS)
   @overload(NoneType)
@@ -547,9 +577,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  bool QGraphicsItem::isVisibleTo(const QGraphicsItem *parent) const
-    return self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem11isVisibleToEPKS_',
-        self._addressOf(parent),
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem11isVisibleToEPKS_',
+        self._addressOf(parent, 'QGraphicsItem'),
     )
 
   def isEnabled(self) -> bool:
@@ -559,7 +589,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isEnabled
     """
     #  bool QGraphicsItem::isEnabled() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem9isEnabledEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem9isEnabledEv',
+    )
 
   def isSelected(self) -> bool:
     """
@@ -568,7 +600,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isSelected
     """
     #  bool QGraphicsItem::isSelected() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem10isSelectedEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem10isSelectedEv',
+    )
 
   def acceptDrops(self) -> bool:
     """
@@ -577,7 +611,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#acceptDrops
     """
     #  bool QGraphicsItem::acceptDrops() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem11acceptDropsEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem11acceptDropsEv',
+    )
 
   def opacity(self) -> float:
     """
@@ -586,7 +622,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#opacity
     """
     #  qreal QGraphicsItem::opacity() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem7opacityEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem7opacityEv',
+    )
 
   def effectiveOpacity(self) -> float:
     """
@@ -596,8 +634,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicsitem.html#effectiveOpacity
     """
     #  qreal QGraphicsItem::effectiveOpacity() const
-    return self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem16effectiveOpacityEv',
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem16effectiveOpacityEv',
     )
 
   def graphicsEffect(self) -> Optional[QGraphicsEffect]:
@@ -614,8 +652,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsEffect *QGraphicsItem::graphicsEffect() const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem14graphicsEffectEv',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem14graphicsEffectEv',
     )
     from . import QGraphicsEffect
     return QGraphicsEffect._cuteAt(address)
@@ -635,8 +673,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  Qt::MouseButtons QGraphicsItem::acceptedMouseButtons() const
-    return Qt.MouseButtons(self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem20acceptedMouseButtonsEv',
+    return Qt.MouseButtons(self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem20acceptedMouseButtonsEv',
     ))
 
   def acceptHoverEvents(self) -> bool:
@@ -647,8 +685,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicsitem.html#acceptHoverEvents
     """
     #  bool QGraphicsItem::acceptHoverEvents() const
-    return self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem17acceptHoverEventsEv',
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem17acceptHoverEventsEv',
     )
 
   def acceptTouchEvents(self) -> bool:
@@ -659,8 +697,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicsitem.html#acceptTouchEvents
     """
     #  bool QGraphicsItem::acceptTouchEvents() const
-    return self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem17acceptTouchEventsEv',
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem17acceptTouchEventsEv',
     )
 
   def filtersChildEvents(self) -> bool:
@@ -671,8 +709,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicsitem.html#filtersChildEvents
     """
     #  bool QGraphicsItem::filtersChildEvents() const
-    return self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem18filtersChildEventsEv',
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem18filtersChildEventsEv',
     )
 
   def handlesChildEvents(self) -> bool:
@@ -683,8 +721,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicsitem.html#handlesChildEvents
     """
     #  bool QGraphicsItem::handlesChildEvents() const
-    return self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem18handlesChildEventsEv',
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem18handlesChildEventsEv',
     )
 
   def isActive(self) -> bool:
@@ -694,7 +732,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isActive
     """
     #  bool QGraphicsItem::isActive() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem8isActiveEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem8isActiveEv',
+    )
 
   def hasFocus(self) -> bool:
     """
@@ -703,7 +743,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#hasFocus
     """
     #  bool QGraphicsItem::hasFocus() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem8hasFocusEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem8hasFocusEv',
+    )
 
   def focusProxy(self) -> Optional[QGraphicsItem]:
     """
@@ -719,7 +761,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsItem *QGraphicsItem::focusProxy() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem10focusProxyEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem10focusProxyEv',
+    )
     return QGraphicsItem._cuteAt(address)
 
   def focusItem(self) -> Optional[QGraphicsItem]:
@@ -736,7 +780,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsItem *QGraphicsItem::focusItem() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem9focusItemEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem9focusItemEv',
+    )
     return QGraphicsItem._cuteAt(address)
 
   def focusScopeItem(self) -> Optional[QGraphicsItem]:
@@ -753,8 +799,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsItem *QGraphicsItem::focusScopeItem() const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem14focusScopeItemEv',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem14focusScopeItemEv',
     )
     return QGraphicsItem._cuteAt(address)
 
@@ -771,7 +817,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QGraphicsItem::pos() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem3posEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem3posEv',
+    )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
@@ -782,7 +830,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#x
     """
     #  qreal QGraphicsItem::x() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem1xEv')
+    return self._callAs('QGraphicsItem', 'ritual_ZNK13QGraphicsItem1xEv')
 
   def y(self) -> float:
     """
@@ -791,7 +839,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#y
     """
     #  qreal QGraphicsItem::y() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem1yEv')
+    return self._callAs('QGraphicsItem', 'ritual_ZNK13QGraphicsItem1yEv')
 
   def scenePos(self) -> QPointF:
     """
@@ -806,7 +854,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QGraphicsItem::scenePos() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem8scenePosEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem8scenePosEv',
+    )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
@@ -823,7 +873,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QTransform around the copy Qt gave back. Python owns it.
     """
     #  QTransform QGraphicsItem::transform() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem9transformEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem9transformEv',
+    )
     from ..QtGui import QTransform
     return QTransform._cuteOwning(address)
 
@@ -840,8 +892,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QTransform around the copy Qt gave back. Python owns it.
     """
     #  QTransform QGraphicsItem::sceneTransform() const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem14sceneTransformEv',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem14sceneTransformEv',
     )
     from ..QtGui import QTransform
     return QTransform._cuteOwning(address)
@@ -869,7 +921,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QTransform QGraphicsItem::deviceTransform(const QTransform
     #      &viewportTransform) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem15deviceTransformERK10QTransform',
         self._valueOf(viewportTransform),
     )
@@ -883,7 +936,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#rotation
     """
     #  qreal QGraphicsItem::rotation() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem8rotationEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem8rotationEv',
+    )
 
   def scale(self) -> float:
     """
@@ -892,7 +947,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#scale
     """
     #  qreal QGraphicsItem::scale() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem5scaleEv')
+    return self._callAs('QGraphicsItem', 'ritual_ZNK13QGraphicsItem5scaleEv')
 
   def transformOriginPoint(self) -> QPointF:
     """
@@ -908,8 +963,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QGraphicsItem::transformOriginPoint() const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem20transformOriginPointEv',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem20transformOriginPointEv',
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -921,7 +976,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#zValue
     """
     #  qreal QGraphicsItem::zValue() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem6zValueEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem6zValueEv',
+    )
 
   def boundingRect(self) -> QRectF:
     """
@@ -936,7 +993,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsItem::boundingRect() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem12boundingRectEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem12boundingRectEv',
+    )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
@@ -954,8 +1013,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsItem::childrenBoundingRect() const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem20childrenBoundingRectEv',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem20childrenBoundingRectEv',
     )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
@@ -974,8 +1033,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsItem::sceneBoundingRect() const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem17sceneBoundingRectEv',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem17sceneBoundingRectEv',
     )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
@@ -993,7 +1052,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPainterPath around the copy Qt gave back. Python owns it.
     """
     #  QPainterPath QGraphicsItem::shape() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem5shapeEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem5shapeEv',
+    )
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
@@ -1004,7 +1065,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isClipped
     """
     #  bool QGraphicsItem::isClipped() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem9isClippedEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem9isClippedEv',
+    )
 
   def clipPath(self) -> QPainterPath:
     """
@@ -1019,7 +1082,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPainterPath around the copy Qt gave back. Python owns it.
     """
     #  QPainterPath QGraphicsItem::clipPath() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem8clipPathEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem8clipPathEv',
+    )
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
@@ -1038,8 +1103,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  bool QGraphicsItem::contains(const QPointF &point) const
-    return self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem8containsERK7QPointF',
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem8containsERK7QPointF',
         self._valueOf(point),
     )
 
@@ -1072,10 +1137,11 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  bool QGraphicsItem::collidesWithItem(const QGraphicsItem *other,
     #      Qt::ItemSelectionMode mode) const
-    return self.uglySide.call(
+    return self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem16collidesWithItemEPKS_N2Qt17ItemSelectio'
         'nModeE',
-        self._addressOf(other), mode.value,
+        self._addressOf(other, 'QGraphicsItem'), mode.value,
     )
 
   @overload(QPainterPath)
@@ -1105,7 +1171,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  bool QGraphicsItem::collidesWithPath(const QPainterPath &path,
     #      Qt::ItemSelectionMode mode) const
-    return self.uglySide.call(
+    return self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem16collidesWithPathERK12QPainterPathN2Qt17'
         'ItemSelectionModeE',
         self._valueOf(path), mode.value,
@@ -1130,8 +1197,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     if rect is None:
       from ..QtCore import QRectF
       rect = QRectF()
-    return self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem10isObscuredERK6QRectF',
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem10isObscuredERK6QRectF',
         self._valueOf(rect),
     )
 
@@ -1160,8 +1227,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  bool QGraphicsItem::isObscured(qreal x, qreal y, qreal w, qreal h)
     #      const
-    return self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem10isObscuredEdddd', x, y, w, h,
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem10isObscuredEdddd',
+        x, y, w, h,
     )
 
   @overload(THIS)
@@ -1181,9 +1249,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  bool QGraphicsItem::isObscuredBy(const QGraphicsItem *item) const
-    return self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem12isObscuredByEPKS_',
-        self._addressOf(item),
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem12isObscuredByEPKS_',
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   def opaqueArea(self) -> QPainterPath:
@@ -1199,7 +1267,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPainterPath around the copy Qt gave back. Python owns it.
     """
     #  QPainterPath QGraphicsItem::opaqueArea() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem10opaqueAreaEv')
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem10opaqueAreaEv',
+    )
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
@@ -1226,7 +1296,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QRegion QGraphicsItem::boundingRegion(const QTransform
     #      &itemToDeviceTransform) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem14boundingRegionERK10QTransform',
         self._valueOf(itemToDeviceTransform),
     )
@@ -1241,7 +1312,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegionGranularity
     """
     #  qreal QGraphicsItem::boundingRegionGranularity() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem25boundingRegionGranularityEv',
     )
 
@@ -1277,9 +1349,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QGraphicsItem::mapToItem(const QGraphicsItem *item, const
     #      QPointF &point) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK7QPointF',
-        self._addressOf(item), self._valueOf(point),
+        self._addressOf(item, 'QGraphicsItem'), self._valueOf(point),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1316,9 +1389,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QGraphicsItem::mapToItem(const QGraphicsItem *item, const
     #      QRectF &rect) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK6QRectF',
-        self._addressOf(item), self._valueOf(rect),
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK6QRectF',
+        self._addressOf(item, 'QGraphicsItem'), self._valueOf(rect),
     )
     from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
@@ -1355,9 +1428,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QGraphicsItem::mapToItem(const QGraphicsItem *item, const
     #      QPolygonF &polygon) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK9QPolygonF',
-        self._addressOf(item), self._valueOf(polygon),
+        self._addressOf(item, 'QGraphicsItem'), self._valueOf(polygon),
     )
     from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
@@ -1394,9 +1468,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPainterPath QGraphicsItem::mapToItem(const QGraphicsItem *item, const
     #      QPainterPath &path) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK12QPainterPath',
-        self._addressOf(item), self._valueOf(path),
+        self._addressOf(item, 'QGraphicsItem'), self._valueOf(path),
     )
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
@@ -1436,9 +1511,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QGraphicsItem::mapToItem(const QGraphicsItem *item, qreal x,
     #      qreal y) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem9mapToItemEPKS_dd',
-        self._addressOf(item), x, y,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem9mapToItemEPKS_dd',
+        self._addressOf(item, 'QGraphicsItem'), x, y,
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1486,9 +1561,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QGraphicsItem::mapToItem(const QGraphicsItem *item, qreal x,
     #      qreal y, qreal w, qreal h) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem9mapToItemEPKS_dddd',
-        self._addressOf(item), x, y, w, h,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem9mapToItemEPKS_dddd',
+        self._addressOf(item, 'QGraphicsItem'), x, y, w, h,
     )
     from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
@@ -1515,8 +1590,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QGraphicsItem::mapToParent(const QPointF &point) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem11mapToParentERK7QPointF',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem11mapToParentERK7QPointF',
         self._valueOf(point),
     )
     from ..QtCore import QPointF
@@ -1544,8 +1619,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPolygonF around the copy Qt gave back. Python owns it.
     """
     #  QPolygonF QGraphicsItem::mapToParent(const QRectF &rect) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem11mapToParentERK6QRectF',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem11mapToParentERK6QRectF',
         self._valueOf(rect),
     )
     from ..QtGui import QPolygonF
@@ -1573,7 +1648,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPolygonF around the copy Qt gave back. Python owns it.
     """
     #  QPolygonF QGraphicsItem::mapToParent(const QPolygonF &polygon) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem11mapToParentERK9QPolygonF',
         self._valueOf(polygon),
     )
@@ -1603,7 +1679,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPainterPath QGraphicsItem::mapToParent(const QPainterPath &path)
     #      const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem11mapToParentERK12QPainterPath',
         self._valueOf(path),
     )
@@ -1633,8 +1710,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QGraphicsItem::mapToParent(qreal x, qreal y) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem11mapToParentEdd', x, y,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem11mapToParentEdd', x, y,
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1670,8 +1747,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QGraphicsItem::mapToParent(qreal x, qreal y, qreal w, qreal
     #      h) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem11mapToParentEdddd', x, y, w, h,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem11mapToParentEdddd',
+        x, y, w, h,
     )
     from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
@@ -1698,8 +1776,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QGraphicsItem::mapToScene(const QPointF &point) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem10mapToSceneERK7QPointF',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem10mapToSceneERK7QPointF',
         self._valueOf(point),
     )
     from ..QtCore import QPointF
@@ -1727,8 +1805,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPolygonF around the copy Qt gave back. Python owns it.
     """
     #  QPolygonF QGraphicsItem::mapToScene(const QRectF &rect) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem10mapToSceneERK6QRectF',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem10mapToSceneERK6QRectF',
         self._valueOf(rect),
     )
     from ..QtGui import QPolygonF
@@ -1756,7 +1834,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPolygonF around the copy Qt gave back. Python owns it.
     """
     #  QPolygonF QGraphicsItem::mapToScene(const QPolygonF &polygon) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem10mapToSceneERK9QPolygonF',
         self._valueOf(polygon),
     )
@@ -1785,7 +1864,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPainterPath around the copy Qt gave back. Python owns it.
     """
     #  QPainterPath QGraphicsItem::mapToScene(const QPainterPath &path) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem10mapToSceneERK12QPainterPath',
         self._valueOf(path),
     )
@@ -1815,8 +1895,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QGraphicsItem::mapToScene(qreal x, qreal y) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem10mapToSceneEdd', x, y,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem10mapToSceneEdd', x, y,
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1852,8 +1932,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QGraphicsItem::mapToScene(qreal x, qreal y, qreal w, qreal
     #      h) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem10mapToSceneEdddd', x, y, w, h,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem10mapToSceneEdddd',
+        x, y, w, h,
     )
     from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
@@ -1890,9 +1971,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QGraphicsItem::mapRectToItem(const QGraphicsItem *item, const
     #      QRectF &rect) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem13mapRectToItemEPKS_RK6QRectF',
-        self._addressOf(item), self._valueOf(rect),
+        self._addressOf(item, 'QGraphicsItem'), self._valueOf(rect),
     )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
@@ -1940,9 +2022,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QGraphicsItem::mapRectToItem(const QGraphicsItem *item, qreal
     #      x, qreal y, qreal w, qreal h) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem13mapRectToItemEPKS_dddd',
-        self._addressOf(item), x, y, w, h,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem13mapRectToItemEPKS_dddd',
+        self._addressOf(item, 'QGraphicsItem'), x, y, w, h,
     )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
@@ -1969,7 +2051,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsItem::mapRectToParent(const QRectF &rect) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem15mapRectToParentERK6QRectF',
         self._valueOf(rect),
     )
@@ -2013,8 +2096,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QGraphicsItem::mapRectToParent(qreal x, qreal y, qreal w, qreal
     #      h) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem15mapRectToParentEdddd', x, y, w, h,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem15mapRectToParentEdddd',
+        x, y, w, h,
     )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
@@ -2041,7 +2125,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsItem::mapRectToScene(const QRectF &rect) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem14mapRectToSceneERK6QRectF',
         self._valueOf(rect),
     )
@@ -2079,8 +2164,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QGraphicsItem::mapRectToScene(qreal x, qreal y, qreal w, qreal
     #      h) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem14mapRectToSceneEdddd', x, y, w, h,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem14mapRectToSceneEdddd',
+        x, y, w, h,
     )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
@@ -2117,9 +2203,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QGraphicsItem::mapFromItem(const QGraphicsItem *item, const
     #      QPointF &point) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK7QPointF',
-        self._addressOf(item), self._valueOf(point),
+        self._addressOf(item, 'QGraphicsItem'), self._valueOf(point),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -2156,9 +2243,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QGraphicsItem::mapFromItem(const QGraphicsItem *item, const
     #      QRectF &rect) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK6QRectF',
-        self._addressOf(item), self._valueOf(rect),
+        self._addressOf(item, 'QGraphicsItem'), self._valueOf(rect),
     )
     from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
@@ -2195,9 +2283,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QGraphicsItem::mapFromItem(const QGraphicsItem *item, const
     #      QPolygonF &polygon) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK9QPolygonF',
-        self._addressOf(item), self._valueOf(polygon),
+        self._addressOf(item, 'QGraphicsItem'), self._valueOf(polygon),
     )
     from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
@@ -2234,9 +2323,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPainterPath QGraphicsItem::mapFromItem(const QGraphicsItem *item,
     #      const QPainterPath &path) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK12QPainterPath',
-        self._addressOf(item), self._valueOf(path),
+        self._addressOf(item, 'QGraphicsItem'), self._valueOf(path),
     )
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
@@ -2276,9 +2366,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QGraphicsItem::mapFromItem(const QGraphicsItem *item, qreal x,
     #      qreal y) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_dd',
-        self._addressOf(item), x, y,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_dd',
+        self._addressOf(item, 'QGraphicsItem'), x, y,
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -2326,9 +2416,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QGraphicsItem::mapFromItem(const QGraphicsItem *item, qreal
     #      x, qreal y, qreal w, qreal h) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_dddd',
-        self._addressOf(item), x, y, w, h,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_dddd',
+        self._addressOf(item, 'QGraphicsItem'), x, y, w, h,
     )
     from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
@@ -2355,7 +2445,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QGraphicsItem::mapFromParent(const QPointF &point) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem13mapFromParentERK7QPointF',
         self._valueOf(point),
     )
@@ -2384,7 +2475,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPolygonF around the copy Qt gave back. Python owns it.
     """
     #  QPolygonF QGraphicsItem::mapFromParent(const QRectF &rect) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem13mapFromParentERK6QRectF',
         self._valueOf(rect),
     )
@@ -2413,7 +2505,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPolygonF around the copy Qt gave back. Python owns it.
     """
     #  QPolygonF QGraphicsItem::mapFromParent(const QPolygonF &polygon) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem13mapFromParentERK9QPolygonF',
         self._valueOf(polygon),
     )
@@ -2443,7 +2536,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPainterPath QGraphicsItem::mapFromParent(const QPainterPath &path)
     #      const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem13mapFromParentERK12QPainterPath',
         self._valueOf(path),
     )
@@ -2474,8 +2568,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QGraphicsItem::mapFromParent(qreal x, qreal y) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem13mapFromParentEdd', x, y,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem13mapFromParentEdd', x, y,
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -2517,8 +2611,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QGraphicsItem::mapFromParent(qreal x, qreal y, qreal w,
     #      qreal h) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem13mapFromParentEdddd', x, y, w, h,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem13mapFromParentEdddd',
+        x, y, w, h,
     )
     from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
@@ -2545,7 +2640,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QGraphicsItem::mapFromScene(const QPointF &point) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem12mapFromSceneERK7QPointF',
         self._valueOf(point),
     )
@@ -2574,8 +2670,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPolygonF around the copy Qt gave back. Python owns it.
     """
     #  QPolygonF QGraphicsItem::mapFromScene(const QRectF &rect) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem12mapFromSceneERK6QRectF',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem12mapFromSceneERK6QRectF',
         self._valueOf(rect),
     )
     from ..QtGui import QPolygonF
@@ -2603,7 +2699,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPolygonF around the copy Qt gave back. Python owns it.
     """
     #  QPolygonF QGraphicsItem::mapFromScene(const QPolygonF &polygon) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem12mapFromSceneERK9QPolygonF',
         self._valueOf(polygon),
     )
@@ -2633,7 +2730,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPainterPath QGraphicsItem::mapFromScene(const QPainterPath &path)
     #      const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem12mapFromSceneERK12QPainterPath',
         self._valueOf(path),
     )
@@ -2663,8 +2761,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QGraphicsItem::mapFromScene(qreal x, qreal y) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem12mapFromSceneEdd', x, y,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem12mapFromSceneEdd', x, y,
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -2706,8 +2804,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QGraphicsItem::mapFromScene(qreal x, qreal y, qreal w, qreal
     #      h) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem12mapFromSceneEdddd', x, y, w, h,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem12mapFromSceneEdddd',
+        x, y, w, h,
     )
     from ..QtGui import QPolygonF
     return QPolygonF._cuteOwning(address)
@@ -2744,9 +2843,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QGraphicsItem::mapRectFromItem(const QGraphicsItem *item, const
     #      QRectF &rect) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem15mapRectFromItemEPKS_RK6QRectF',
-        self._addressOf(item), self._valueOf(rect),
+        self._addressOf(item, 'QGraphicsItem'), self._valueOf(rect),
     )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
@@ -2794,9 +2894,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QGraphicsItem::mapRectFromItem(const QGraphicsItem *item, qreal
     #      x, qreal y, qreal w, qreal h) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem15mapRectFromItemEPKS_dddd',
-        self._addressOf(item), x, y, w, h,
+        self._addressOf(item, 'QGraphicsItem'), x, y, w, h,
     )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
@@ -2824,7 +2925,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsItem::mapRectFromParent(const QRectF &rect) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem17mapRectFromParentERK6QRectF',
         self._valueOf(rect),
     )
@@ -2869,8 +2971,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QGraphicsItem::mapRectFromParent(qreal x, qreal y, qreal w,
     #      qreal h) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem17mapRectFromParentEdddd', x, y, w, h,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem17mapRectFromParentEdddd',
+        x, y, w, h,
     )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
@@ -2898,7 +3001,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsItem::mapRectFromScene(const QRectF &rect) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem16mapRectFromSceneERK6QRectF',
         self._valueOf(rect),
     )
@@ -2943,8 +3047,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QGraphicsItem::mapRectFromScene(qreal x, qreal y, qreal w,
     #      qreal h) const
-    address = self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem16mapRectFromSceneEdddd', x, y, w, h,
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem16mapRectFromSceneEdddd',
+        x, y, w, h,
     )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
@@ -2966,9 +3071,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  bool QGraphicsItem::isAncestorOf(const QGraphicsItem *child) const
-    return self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem12isAncestorOfEPKS_',
-        self._addressOf(child),
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem12isAncestorOfEPKS_',
+        self._addressOf(child, 'QGraphicsItem'),
     )
 
   @overload(THIS)
@@ -3000,9 +3105,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QGraphicsItem *QGraphicsItem::commonAncestorItem(const QGraphicsItem
     #      *other) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem18commonAncestorItemEPKS_',
-        self._addressOf(other),
+        self._addressOf(other, 'QGraphicsItem'),
     )
     return QGraphicsItem._cuteAt(address)
 
@@ -3013,7 +3119,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#isUnderMouse
     """
     #  bool QGraphicsItem::isUnderMouse() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem12isUnderMouseEv')
+    return self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem12isUnderMouseEv',
+    )
 
   @overload(int)
   def data(self, key: int) -> QVariant:
@@ -3035,7 +3143,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QGraphicsItem::data(int key) const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsItem4dataEi', key)
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem4dataEi', key,
+    )
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -3054,8 +3164,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  Qt::InputMethodHints QGraphicsItem::inputMethodHints() const
-    return Qt.InputMethodHints(self.uglySide.call(
-        'ritual_ZNK13QGraphicsItem16inputMethodHintsEv',
+    return Qt.InputMethodHints(self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem16inputMethodHintsEv',
     ))
 
   def type(self) -> int:
@@ -3065,7 +3175,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#type
     """
     #  int QGraphicsItem::type() const
-    return self.uglySide.call('ritual_ZNK13QGraphicsItem4typeEv')
+    return self._callAs('QGraphicsItem', 'ritual_ZNK13QGraphicsItem4typeEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -3087,9 +3197,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::setParentItem(QGraphicsItem *parent)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem13setParentItemEPS_',
-        self._addressOf(parent),
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem13setParentItemEPS_',
+        self._addressOf(parent, 'QGraphicsItem'),
     )
 
   @overload(QGraphicsItemGroup)
@@ -3108,7 +3218,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::setGroup(QGraphicsItemGroup *group)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem8setGroupEP18QGraphicsItemGroup',
         self._addressOf(group),
     )
@@ -3132,7 +3243,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is. May be left out, as in Qt: it is then True.
     """
     #  void QGraphicsItem::setFlag(GraphicsItemFlag flag, bool enabled)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem7setFlagENS_16GraphicsItemFlagEb',
         flag.value, enabled,
     )
@@ -3151,7 +3263,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as its number.
     """
     #  void QGraphicsItem::setFlags(GraphicsItemFlags flags)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem8setFlagsE6QFlagsINS_16GraphicsItemFlagEE',
         flags.value,
     )
@@ -3184,7 +3297,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     if cacheSize is None:
       from ..QtCore import QSize
       cacheSize = QSize()
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem12setCacheModeENS_9CacheModeERK5QSize',
         mode.value, self._valueOf(cacheSize),
     )
@@ -3205,7 +3319,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as its number.
     """
     #  void QGraphicsItem::setPanelModality(PanelModality panelModality)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem16setPanelModalityENS_13PanelModalityE',
         panelModality.value,
     )
@@ -3224,8 +3339,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is: a QString is made of it for the call.
     """
     #  void QGraphicsItem::setToolTip(const QString &toolTip)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem10setToolTipERK7QString', toolTip,
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem10setToolTipERK7QString',
+        toolTip,
     )
 
   @overload(QCursor)
@@ -3243,8 +3359,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QGraphicsItem::setCursor(const QCursor &cursor)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem9setCursorERK7QCursor',
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem9setCursorERK7QCursor',
         self._valueOf(cursor),
     )
 
@@ -3262,7 +3378,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setVisible(bool visible)
-    self.uglySide.call('ritual_ZN13QGraphicsItem10setVisibleEb', visible)
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem10setVisibleEb', visible,
+    )
 
   @overload(bool)
   def setEnabled(self, enabled: bool) -> None:
@@ -3278,7 +3396,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setEnabled(bool enabled)
-    self.uglySide.call('ritual_ZN13QGraphicsItem10setEnabledEb', enabled)
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem10setEnabledEb', enabled,
+    )
 
   @overload(bool)
   def setSelected(self, selected: bool) -> None:
@@ -3294,7 +3414,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setSelected(bool selected)
-    self.uglySide.call('ritual_ZN13QGraphicsItem11setSelectedEb', selected)
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem11setSelectedEb', selected,
+    )
 
   @overload(bool)
   def setAcceptDrops(self, on: bool) -> None:
@@ -3310,7 +3432,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setAcceptDrops(bool on)
-    self.uglySide.call('ritual_ZN13QGraphicsItem14setAcceptDropsEb', on)
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem14setAcceptDropsEb', on,
+    )
 
   @overload(float)
   def setOpacity(self, opacity: float) -> None:
@@ -3326,7 +3450,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setOpacity(qreal opacity)
-    self.uglySide.call('ritual_ZN13QGraphicsItem10setOpacityEd', opacity)
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem10setOpacityEd', opacity,
+    )
 
   @overload(QGraphicsEffect)
   @overload(NoneType)
@@ -3346,7 +3472,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::setGraphicsEffect(QGraphicsEffect *effect)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem17setGraphicsEffectEP15QGraphicsEffect',
         self._addressOf(effect),
     )
@@ -3367,7 +3494,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as its number.
     """
     #  void QGraphicsItem::setAcceptedMouseButtons(Qt::MouseButtons buttons)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem23setAcceptedMouseButtonsE6QFlagsIN2Qt11Mo'
         'useButtonEE',
         buttons.value,
@@ -3388,8 +3516,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setAcceptHoverEvents(bool enabled)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem20setAcceptHoverEventsEb', enabled,
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem20setAcceptHoverEventsEb',
+        enabled,
     )
 
   @overload(bool)
@@ -3407,8 +3536,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setAcceptTouchEvents(bool enabled)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem20setAcceptTouchEventsEb', enabled,
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem20setAcceptTouchEventsEb',
+        enabled,
     )
 
   @overload(bool)
@@ -3426,8 +3556,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setFiltersChildEvents(bool enabled)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem21setFiltersChildEventsEb', enabled,
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem21setFiltersChildEventsEb',
+        enabled,
     )
 
   @overload(bool)
@@ -3445,8 +3576,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setHandlesChildEvents(bool enabled)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem21setHandlesChildEventsEb', enabled,
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem21setHandlesChildEventsEb',
+        enabled,
     )
 
   @overload(bool)
@@ -3463,7 +3595,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setActive(bool active)
-    self.uglySide.call('ritual_ZN13QGraphicsItem9setActiveEb', active)
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem9setActiveEb', active,
+    )
 
   @overload()
   @overload(Qt.FocusReason)
@@ -3484,7 +3618,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Qt.FocusReason.OtherFocusReason.
     """
     #  void QGraphicsItem::setFocus(Qt::FocusReason focusReason)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem8setFocusEN2Qt11FocusReasonE',
         focusReason.value,
     )
@@ -3505,8 +3640,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::setFocusProxy(QGraphicsItem *item)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem13setFocusProxyEPS_', self._addressOf(item),
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem13setFocusProxyEPS_',
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   @overload(float)
@@ -3523,7 +3659,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setX(qreal x)
-    self.uglySide.call('ritual_ZN13QGraphicsItem4setXEd', x)
+    self._callAs('QGraphicsItem', 'ritual_ZN13QGraphicsItem4setXEd', x)
 
   @overload(float)
   def setY(self, y: float) -> None:
@@ -3539,7 +3675,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setY(qreal y)
-    self.uglySide.call('ritual_ZN13QGraphicsItem4setYEd', y)
+    self._callAs('QGraphicsItem', 'ritual_ZN13QGraphicsItem4setYEd', y)
 
   @overload(QPointF)
   def setPos(self, pos: QPointF) -> None:
@@ -3556,8 +3692,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QGraphicsItem::setPos(const QPointF &pos)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem6setPosERK7QPointF', self._valueOf(pos),
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem6setPosERK7QPointF',
+        self._valueOf(pos),
     )
 
   @overload(float, float)
@@ -3577,7 +3714,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setPos(qreal x, qreal y)
-    self.uglySide.call('ritual_ZN13QGraphicsItem6setPosEdd', x, y)
+    self._callAs('QGraphicsItem', 'ritual_ZN13QGraphicsItem6setPosEdd', x, y)
 
   @overload(QTransform)
   @overload(QTransform, bool)
@@ -3600,7 +3737,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  void QGraphicsItem::setTransform(const QTransform &matrix, bool
     #      combine)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem12setTransformERK10QTransformb',
         self._valueOf(matrix), combine,
     )
@@ -3619,7 +3757,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setRotation(qreal angle)
-    self.uglySide.call('ritual_ZN13QGraphicsItem11setRotationEd', angle)
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem11setRotationEd', angle,
+    )
 
   @overload(float)
   def setScale(self, scale: float) -> None:
@@ -3635,7 +3775,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setScale(qreal scale)
-    self.uglySide.call('ritual_ZN13QGraphicsItem8setScaleEd', scale)
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem8setScaleEd', scale,
+    )
 
   @overload(QPointF)
   def setTransformOriginPoint(self, origin: QPointF) -> None:
@@ -3654,7 +3796,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QGraphicsItem::setTransformOriginPoint(const QPointF &origin)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem23setTransformOriginPointERK7QPointF',
         self._valueOf(origin),
     )
@@ -3678,8 +3821,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setTransformOriginPoint(qreal ax, qreal ay)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem23setTransformOriginPointEdd', ax, ay,
+    self._callAs(
+        'QGraphicsItem',
+        'ritual_ZN13QGraphicsItem23setTransformOriginPointEdd',
+        ax, ay,
     )
 
   @overload(float)
@@ -3696,7 +3841,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setZValue(qreal z)
-    self.uglySide.call('ritual_ZN13QGraphicsItem9setZValueEd', z)
+    self._callAs('QGraphicsItem', 'ritual_ZN13QGraphicsItem9setZValueEd', z)
 
   @overload(float)
   def setBoundingRegionGranularity(self, granularity: float) -> None:
@@ -3714,7 +3859,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::setBoundingRegionGranularity(qreal granularity)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem28setBoundingRegionGranularityEd',
         granularity,
     )
@@ -3737,8 +3883,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QGraphicsItem::setData(int key, const QVariant &value)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem7setDataEiRK8QVariant',
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem7setDataEiRK8QVariant',
         key, self._valueOf(value),
     )
 
@@ -3758,7 +3904,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as its number.
     """
     #  void QGraphicsItem::setInputMethodHints(Qt::InputMethodHints hints)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem19setInputMethodHintsE6QFlagsIN2Qt15InputM'
         'ethodHintEE',
         hints.value,
@@ -3811,8 +3958,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QGraphicsObject *QGraphicsItem::toGraphicsObject()
-    address = self.uglySide.call(
-        'ritual_ZN13QGraphicsItem16toGraphicsObjectEv',
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem16toGraphicsObjectEv',
     )
     from . import QGraphicsObject
     return QGraphicsObject._cuteAt(address)
@@ -3824,7 +3971,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#unsetCursor
     """
     #  void QGraphicsItem::unsetCursor()
-    self.uglySide.call('ritual_ZN13QGraphicsItem11unsetCursorEv')
+    self._callAs('QGraphicsItem', 'ritual_ZN13QGraphicsItem11unsetCursorEv')
 
   def hide(self) -> None:
     """
@@ -3833,7 +3980,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#hide
     """
     #  void QGraphicsItem::hide()
-    self.uglySide.call('ritual_ZN13QGraphicsItem4hideEv')
+    self._callAs('QGraphicsItem', 'ritual_ZN13QGraphicsItem4hideEv')
 
   def show(self) -> None:
     """
@@ -3842,7 +3989,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#show
     """
     #  void QGraphicsItem::show()
-    self.uglySide.call('ritual_ZN13QGraphicsItem4showEv')
+    self._callAs('QGraphicsItem', 'ritual_ZN13QGraphicsItem4showEv')
 
   def clearFocus(self) -> None:
     """
@@ -3851,7 +3998,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#clearFocus
     """
     #  void QGraphicsItem::clearFocus()
-    self.uglySide.call('ritual_ZN13QGraphicsItem10clearFocusEv')
+    self._callAs('QGraphicsItem', 'ritual_ZN13QGraphicsItem10clearFocusEv')
 
   def grabMouse(self) -> None:
     """
@@ -3860,7 +4007,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#grabMouse
     """
     #  void QGraphicsItem::grabMouse()
-    self.uglySide.call('ritual_ZN13QGraphicsItem9grabMouseEv')
+    self._callAs('QGraphicsItem', 'ritual_ZN13QGraphicsItem9grabMouseEv')
 
   def ungrabMouse(self) -> None:
     """
@@ -3869,7 +4016,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabMouse
     """
     #  void QGraphicsItem::ungrabMouse()
-    self.uglySide.call('ritual_ZN13QGraphicsItem11ungrabMouseEv')
+    self._callAs('QGraphicsItem', 'ritual_ZN13QGraphicsItem11ungrabMouseEv')
 
   def grabKeyboard(self) -> None:
     """
@@ -3878,7 +4025,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#grabKeyboard
     """
     #  void QGraphicsItem::grabKeyboard()
-    self.uglySide.call('ritual_ZN13QGraphicsItem12grabKeyboardEv')
+    self._callAs('QGraphicsItem', 'ritual_ZN13QGraphicsItem12grabKeyboardEv')
 
   def ungrabKeyboard(self) -> None:
     """
@@ -3887,7 +4034,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabKeyboard
     """
     #  void QGraphicsItem::ungrabKeyboard()
-    self.uglySide.call('ritual_ZN13QGraphicsItem14ungrabKeyboardEv')
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem14ungrabKeyboardEv',
+    )
 
   @overload(float, float)
   def moveBy(self, dx: float, dy: float) -> None:
@@ -3906,7 +4055,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::moveBy(qreal dx, qreal dy)
-    self.uglySide.call('ritual_ZN13QGraphicsItem6moveByEdd', dx, dy)
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem6moveByEdd', dx, dy,
+    )
 
   @overload()
   @overload(QRectF)
@@ -3942,7 +4093,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     if rect is None:
       from ..QtCore import QRectF
       rect = QRectF()
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem13ensureVisibleERK6QRectFii',
         self._valueOf(rect), xmargin, ymargin,
     )
@@ -3988,8 +4140,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  void QGraphicsItem::ensureVisible(qreal x, qreal y, qreal w, qreal h,
     #      int xmargin, int ymargin)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem13ensureVisibleEddddii',
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem13ensureVisibleEddddii',
         x, y, w, h, xmargin, ymargin,
     )
 
@@ -4000,7 +4152,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#resetTransform
     """
     #  void QGraphicsItem::resetTransform()
-    self.uglySide.call('ritual_ZN13QGraphicsItem14resetTransformEv')
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem14resetTransformEv',
+    )
 
   @overload(int)
   def advance(self, phase: int) -> None:
@@ -4016,7 +4170,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QGraphicsItem::advance(int phase)
-    self.uglySide.call('ritual_ZN13QGraphicsItem7advanceEi', phase)
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem7advanceEi', phase,
+    )
 
   @overload(THIS)
   @overload(NoneType)
@@ -4035,9 +4191,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::stackBefore(const QGraphicsItem *sibling)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem11stackBeforeEPKS_',
-        self._addressOf(sibling),
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem11stackBeforeEPKS_',
+        self._addressOf(sibling, 'QGraphicsItem'),
     )
 
   @overload(QPainter, QStyleOptionGraphicsItem)
@@ -4081,7 +4237,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  void QGraphicsItem::paint(QPainter *painter, const
     #      QStyleOptionGraphicsItem *option, QWidget *widget)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem5paintEP8QPainterPK24QStyleOptionGraphicsI'
         'temP7QWidget',
         self._addressOf(painter), self._addressOf(option),
@@ -4107,8 +4264,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     if rect is None:
       from ..QtCore import QRectF
       rect = QRectF()
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem6updateERK6QRectF', self._valueOf(rect),
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem6updateERK6QRectF',
+        self._valueOf(rect),
     )
 
   @overload(float, float, float, float)
@@ -4136,8 +4294,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  void QGraphicsItem::update(qreal x, qreal y, qreal width, qreal
     #      height)
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem6updateEdddd', x, y, width, height,
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem6updateEdddd',
+        x, y, width, height,
     )
 
   @overload(float, float)
@@ -4171,8 +4330,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     if rect is None:
       from ..QtCore import QRectF
       rect = QRectF()
-    self.uglySide.call(
-        'ritual_ZN13QGraphicsItem6scrollEddRK6QRectF',
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem6scrollEddRK6QRectF',
         dx, dy, self._valueOf(rect),
     )
 
@@ -4197,9 +4356,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::installSceneEventFilter(QGraphicsItem *filterItem)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem23installSceneEventFilterEPS_',
-        self._addressOf(filterItem),
+        self._addressOf(filterItem, 'QGraphicsItem'),
     )
 
   @overload(THIS)
@@ -4223,7 +4383,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::removeSceneEventFilter(QGraphicsItem *filterItem)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsItem',
         'ritual_ZN13QGraphicsItem22removeSceneEventFilterEPS_',
-        self._addressOf(filterItem),
+        self._addressOf(filterItem, 'QGraphicsItem'),
     )

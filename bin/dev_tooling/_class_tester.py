@@ -237,20 +237,28 @@ class ClassTester:
       if not isinstance(node, ast.Call) or not node.args:
         continue
       function = node.func
-      if not isinstance(function, ast.Attribute) or function.attr != 'call':
+      if not isinstance(function, ast.Attribute):
         continue
-      first = node.args[0]
+      if function.attr not in ('call', '_callAs'):
+        continue
+      #  'self._callAs' is handed the class of Qt before the ritual, and
+      #  the address of the object as 'self.uglySide.call' is.
+      asPart = function.attr == '_callAs'
+      taken = node.args[1:] if asPart else node.args
+      if not taken:
+        continue
+      first = taken[0]
       if not isinstance(first, ast.Constant):
         continue
       if not isinstance(first.value, str):
         continue
       handed = 0
-      for arg in node.args[1:]:
+      for arg in taken[1:]:
         #  The texts a program was started with are handed over as two
         #  things, by one argument with a star.
         handed += 2 if isinstance(arg, ast.Starred) else 1
       holder = function.value
-      onObject = isinstance(holder, ast.Attribute) and (
+      onObject = asPart or isinstance(holder, ast.Attribute) and (
           holder.attr == 'uglySide')
       found.append((first.value, handed, onObject))
     return found
@@ -264,10 +272,26 @@ class ClassTester:
     shown = dict()  # type: Dict[str, str]
     #  The file holds the class and every class Qt writes inside it.
     everyOne = generator.getAllGenerators()
+    named = []  # type: List[str]
     for one in everyOne:
       for plan in one.getRitualGenerator().getWritten():
+        if plan['kind'] == 'cast':
+          #  No function of Qt: the class names it for the class it is
+          #  built on after the first, when that one has a cute class.
+          if plan['baseName'] in one.getFurtherBaseNames():
+            named.append(plan['ritualName'])
+          continue
         plans[plan['ritualName']] = plan['row']
         shown[plan['function']] = plan['ritualName']
+    texts = {
+        node.value for node in ast.walk(tree)
+        if isinstance(node, ast.Constant) and isinstance(node.value, str)
+    }
+    for ritualName in named:
+      if ritualName not in texts:
+        infoSpec = """The file of '%s' does not name the ritual '%s',
+        which gives where a part of an object is."""
+        faults.append(' '.join((infoSpec % (className, ritualName)).split()))
     called = set()
     for ritualName, handed, onObject in self._findCalls(tree):
       called.add(ritualName)

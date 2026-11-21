@@ -93,6 +93,7 @@
     "ritual_ZNK7QLayout9isEnabledEv": ["bool", "address"],
     "ritual_ZN7QLayout21closestAcceptableSizeEPK7QWidgetRK5QSize": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_cast_QLayout_QLayoutItem": ["address", "address"]
   }
 }

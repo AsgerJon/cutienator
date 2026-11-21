@@ -119,8 +119,8 @@ class QPagedPaintDevice(QPaintDevice):
       A new cute QPageLayout around the copy Qt gave back. Python owns it.
     """
     #  QPageLayout QPagedPaintDevice::pageLayout() const
-    address = self.uglySide.call(
-        'ritual_ZNK17QPagedPaintDevice10pageLayoutEv',
+    address = self._callAs(
+        'QPagedPaintDevice', 'ritual_ZNK17QPagedPaintDevice10pageLayoutEv',
     )
     return QPageLayout._cuteOwning(address)
 
@@ -137,8 +137,8 @@ class QPagedPaintDevice(QPaintDevice):
       A new cute QPageRanges around the copy Qt gave back. Python owns it.
     """
     #  QPageRanges QPagedPaintDevice::pageRanges() const
-    address = self.uglySide.call(
-        'ritual_ZNK17QPagedPaintDevice10pageRangesEv',
+    address = self._callAs(
+        'QPagedPaintDevice', 'ritual_ZNK17QPagedPaintDevice10pageRangesEv',
     )
     from . import QPageRanges
     return QPageRanges._cuteOwning(address)
@@ -164,7 +164,8 @@ class QPagedPaintDevice(QPaintDevice):
       Python's own.
     """
     #  bool QPagedPaintDevice::setPageLayout(const QPageLayout &pageLayout)
-    return self.uglySide.call(
+    return self._callAs(
+        'QPagedPaintDevice',
         'ritual_ZN17QPagedPaintDevice13setPageLayoutERK11QPageLayout',
         self._valueOf(pageLayout),
     )
@@ -185,7 +186,8 @@ class QPagedPaintDevice(QPaintDevice):
       own.
     """
     #  bool QPagedPaintDevice::setPageSize(const QPageSize &pageSize)
-    return self.uglySide.call(
+    return self._callAs(
+        'QPagedPaintDevice',
         'ritual_ZN17QPagedPaintDevice11setPageSizeERK9QPageSize',
         self._valueOf(pageSize),
     )
@@ -208,7 +210,8 @@ class QPagedPaintDevice(QPaintDevice):
     """
     #  bool QPagedPaintDevice::setPageOrientation(QPageLayout::Orientation
     #      orientation)
-    return self.uglySide.call(
+    return self._callAs(
+        'QPagedPaintDevice',
         'ritual_ZN17QPagedPaintDevice18setPageOrientationEN11QPageLayout11O'
         'rientationE',
         orientation.value,
@@ -241,7 +244,8 @@ class QPagedPaintDevice(QPaintDevice):
     """
     #  bool QPagedPaintDevice::setPageMargins(const QMarginsF &margins,
     #      QPageLayout::Unit units)
-    return self.uglySide.call(
+    return self._callAs(
+        'QPagedPaintDevice',
         'ritual_ZN17QPagedPaintDevice14setPageMarginsERK9QMarginsFN11QPageL'
         'ayout4UnitE',
         self._valueOf(margins), units.value,
@@ -264,7 +268,8 @@ class QPagedPaintDevice(QPaintDevice):
       Python's own.
     """
     #  void QPagedPaintDevice::setPageRanges(const QPageRanges &ranges)
-    self.uglySide.call(
+    self._callAs(
+        'QPagedPaintDevice',
         'ritual_ZN17QPagedPaintDevice13setPageRangesERK11QPageRanges',
         self._valueOf(ranges),
     )
@@ -308,4 +313,6 @@ class QPagedPaintDevice(QPaintDevice):
     Qt's own words: https://doc.qt.io/qt-6/qpagedpaintdevice.html#newPage
     """
     #  bool QPagedPaintDevice::newPage()
-    return self.uglySide.call('ritual_ZN17QPagedPaintDevice7newPageEv')
+    return self._callAs(
+        'QPagedPaintDevice', 'ritual_ZN17QPagedPaintDevice7newPageEv',
+    )

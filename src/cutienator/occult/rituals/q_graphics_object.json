@@ -14,6 +14,7 @@
     ],
     "ritual_ZN15QGraphicsObject13ungrabGestureEN2Qt11GestureTypeE": [
       "nothing", "address", "int"
-    ]
+    ],
+    "ritual_cast_QGraphicsObject_QGraphicsItem": ["address", "address"]
   }
 }

@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
+from . import QGraphicsItem
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -25,14 +26,15 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 NoneType = type(None)
 
 
-class QGraphicsObject(QObject):
+class QGraphicsObject(QObject, QGraphicsItem):
   """
   The cute side of Qt's QGraphicsObject: a plain Python object standing in
   front of one C++ QGraphicsObject.
 
   It is built on the cute 'QObject', as Qt's QGraphicsObject is built on Qt's
-  QObject, and has everything that class has. Qt's QGraphicsObject is built
-  on Qt's QGraphicsItem as well, which is not reflected.
+  QObject, and has everything that class has. It is built on the cute
+  'QGraphicsItem' as well, as Qt's QGraphicsObject is built on Qt's
+  QGraphicsItem too, and has everything that class has.
 
   What exists
   -----------
@@ -51,7 +53,7 @@ class QGraphicsObject(QObject):
   What has no ritual
   ------------------
 
-  20 of the 25 functions Qt declares: 12 a signal; 3 protected; 2 takes or
+  20 of the 26 functions Qt declares: 12 a signal; 3 protected; 2 takes or
   gives a type that cannot be passed yet; 1 a template; 1 private; 1 the
   class is abstract, so C++ cannot make one.
 
@@ -125,6 +127,14 @@ class QGraphicsObject(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsObject'
+
+  #  Qt's QGraphicsObject is built on more than one class. The part of a C++
+  #  QGraphicsObject that belongs to a class after the first begins somewhere
+  #  inside the object, and the ritual named for that class gives where; see
+  #  'CuteMixin._addressAs'.
+  __cast_rituals__ = {
+      'QGraphicsItem': 'ritual_cast_QGraphicsObject_QGraphicsItem',
+  }
 
   #  Fallback Variables
 

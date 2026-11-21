@@ -220,7 +220,7 @@ class QGraphicsPolygonItem(QAbstractGraphicsShapeItem):
     #      const
     return self.uglySide.call(
         'ritual_ZNK20QGraphicsPolygonItem12isObscuredByEPK13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   def opaqueArea(self) -> QPainterPath:
@@ -332,7 +332,7 @@ class QGraphicsPolygonItem(QAbstractGraphicsShapeItem):
     #  QGraphicsPolygonItem::QGraphicsPolygonItem(QGraphicsItem *parent)
     self._noteCreation(QGraphicsPolygonItem, lambda: Rituals.call(
         'ritual_ZN20QGraphicsPolygonItemC1EP13QGraphicsItem',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   @overload(QPolygonF)
@@ -366,7 +366,7 @@ class QGraphicsPolygonItem(QAbstractGraphicsShapeItem):
     #      QGraphicsItem *parent)
     self._noteCreation(QGraphicsPolygonItem, lambda: Rituals.call(
         'ritual_ZN20QGraphicsPolygonItemC1ERK9QPolygonFP13QGraphicsItem',
-        self._valueOf(polygon), self._addressOf(parent),
+        self._valueOf(polygon), self._addressOf(parent, 'QGraphicsItem'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

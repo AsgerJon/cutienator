@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import WAIT
 from ..occult import Rituals
-from ..QtGui import QAccessible
+from ..QtGui import QAccessible, QAccessibleAttributesInterface
 from . import QAccessibleWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -32,15 +32,16 @@ else:
 NoneType = type(None)
 
 
-class QAccessibleWidgetV2(QAccessibleWidget):
+class QAccessibleWidgetV2(QAccessibleWidget, QAccessibleAttributesInterface):
   """
   The cute side of Qt's QAccessibleWidgetV2: a plain Python object standing
   in front of one C++ QAccessibleWidgetV2.
 
   It is built on the cute 'QAccessibleWidget', as Qt's QAccessibleWidgetV2 is
-  built on Qt's QAccessibleWidget, and has everything that class has. Qt's
-  QAccessibleWidgetV2 is built on Qt's QAccessibleAttributesInterface as
-  well, which is not reflected.
+  built on Qt's QAccessibleWidget, and has everything that class has. It is
+  built on the cute 'QAccessibleAttributesInterface' as well, as Qt's
+  QAccessibleWidgetV2 is built on Qt's QAccessibleAttributesInterface too,
+  and has everything that class has.
 
   What exists
   -----------
@@ -52,7 +53,7 @@ class QAccessibleWidgetV2(QAccessibleWidget):
   What has no ritual
   ------------------
 
-  5 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
+  5 of the 9 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 protected.
 
   What to expect
@@ -79,6 +80,15 @@ class QAccessibleWidgetV2(QAccessibleWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleWidgetV2'
+
+  #  Qt's QAccessibleWidgetV2 is built on more than one class. The part of a
+  #  C++ QAccessibleWidgetV2 that belongs to a class after the first begins
+  #  somewhere inside the object, and the ritual named for that class gives
+  #  where; see 'CuteMixin._addressAs'.
+  __cast_rituals__ = {
+      'QAccessibleAttributesInterface':
+          'ritual_cast_QAccessibleWidgetV2_QAccessibleAttributesInterface',
+  }
 
   #  Fallback Variables
 

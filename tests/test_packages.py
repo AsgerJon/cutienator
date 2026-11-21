@@ -162,16 +162,17 @@ class TestPackages(BaseTest):
     self.assertEqual(self._runAlone(ASKED_FOR), expected)
 
   def test_a_class_file_brings_in_what_its_class_is_built_on(self) -> None:
-    """The file of 'QWidget' brings in the file of 'QObject', which it
-    is built on, the namespace 'Qt', and the file of each class that
+    """The file of 'QWidget' brings in the files of 'QObject' and
+    'QPaintDevice', which it is built on, the namespace 'Qt', and the
+    file of each class that
     holds an enum or a class it or 'QObject' names: 'QPalette',
     'QSizePolicy' and 'QMetaObject'. It brings in no other class. A
     signature naming another class waits until a program brings that
     class in, or a function gives an object of it; its function is
     on the class all the while, and refuses every call until then."""
     expected = [
-      'class files brought in: '
-      'q_meta_object q_object q_palette q_size_policy q_widget qt',
+      'class files brought in: q_meta_object q_object '
+      'q_paint_device q_palette q_size_policy q_widget qt',
       'waits for QFont: True',
       'setFont is there: True',
       'setFont refuses: DispatchException',

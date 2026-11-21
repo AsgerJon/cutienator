@@ -865,7 +865,7 @@ class QGraphicsScene(QObject):
     self.uglySide.call(
         'ritual_ZN14QGraphicsScene12setFocusItemEP13QGraphicsItemN2Qt11Focu'
         'sReasonE',
-        self._addressOf(item), focusReason.value,
+        self._addressOf(item, 'QGraphicsItem'), focusReason.value,
     )
 
   @overload()
@@ -1031,7 +1031,7 @@ class QGraphicsScene(QObject):
     #  void QGraphicsScene::setActivePanel(QGraphicsItem *item)
     self.uglySide.call(
         'ritual_ZN14QGraphicsScene14setActivePanelEP13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   @overload(QGraphicsWidget)
@@ -1322,7 +1322,7 @@ class QGraphicsScene(QObject):
     #  void QGraphicsScene::addItem(QGraphicsItem *item)
     self.uglySide.call(
         'ritual_ZN14QGraphicsScene7addItemEP13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   @overload(QRectF)
@@ -1931,7 +1931,7 @@ class QGraphicsScene(QObject):
     #  void QGraphicsScene::removeItem(QGraphicsItem *item)
     self.uglySide.call(
         'ritual_ZN14QGraphicsScene10removeItemEP13QGraphicsItem',
-        self._addressOf(item),
+        self._addressOf(item, 'QGraphicsItem'),
     )
 
   def clearFocus(self) -> None:
@@ -2100,7 +2100,7 @@ class QGraphicsScene(QObject):
     #  bool QGraphicsScene::sendEvent(QGraphicsItem *item, QEvent *event)
     return self.uglySide.call(
         'ritual_ZN14QGraphicsScene9sendEventEP13QGraphicsItemP6QEvent',
-        self._addressOf(item), self._addressOf(event),
+        self._addressOf(item, 'QGraphicsItem'), self._addressOf(event),
     )
 
   def advance(self) -> None:

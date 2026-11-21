@@ -1762,7 +1762,7 @@ class QTextEdit(QAbstractScrollArea):
     #  void QTextEdit::print(QPagedPaintDevice *printer) const
     self.uglySide.call(
         'ritual_ZNK9QTextEdit5printEP17QPagedPaintDevice',
-        self._addressOf(printer),
+        self._addressOf(printer, 'QPagedPaintDevice'),
     )
 
   def cut(self) -> None:

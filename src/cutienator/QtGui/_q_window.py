@@ -43,14 +43,15 @@ else:
 NoneType = type(None)
 
 
-class QWindow(QObject):
+class QWindow(QObject, QSurface):
   """
   The cute side of Qt's QWindow: a plain Python object standing in front of
   one C++ QWindow.
 
   It is built on the cute 'QObject', as Qt's QWindow is built on Qt's
-  QObject, and has everything that class has. Qt's QWindow is built on Qt's
-  QSurface as well, which is not reflected.
+  QObject, and has everything that class has. It is built on the cute
+  'QSurface' as well, as Qt's QWindow is built on Qt's QSurface too, and has
+  everything that class has.
 
   What exists
   -----------
@@ -89,7 +90,7 @@ class QWindow(QObject):
   What has no ritual
   ------------------
 
-  56 of the 172 functions Qt declares: 22 protected; 21 a signal; 5 takes or
+  56 of the 173 functions Qt declares: 22 protected; 21 a signal; 5 takes or
   gives a type that cannot be passed yet; 4 private; 2 a template; 2
   forbidden.
 
@@ -209,6 +210,14 @@ class QWindow(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QWindow'
+
+  #  Qt's QWindow is built on more than one class. The part of a C++ QWindow
+  #  that belongs to a class after the first begins somewhere inside the
+  #  object, and the ritual named for that class gives where; see
+  #  'CuteMixin._addressAs'.
+  __cast_rituals__ = {
+      'QSurface': 'ritual_cast_QWindow_QSurface',
+  }
 
   #  Fallback Variables
 

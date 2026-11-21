@@ -105,7 +105,9 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QLayoutItem::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK11QLayoutItem8sizeHintEv')
+    address = self._callAs(
+        'QLayoutItem', 'ritual_ZNK11QLayoutItem8sizeHintEv',
+    )
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -122,7 +124,9 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QLayoutItem::minimumSize() const
-    address = self.uglySide.call('ritual_ZNK11QLayoutItem11minimumSizeEv')
+    address = self._callAs(
+        'QLayoutItem', 'ritual_ZNK11QLayoutItem11minimumSizeEv',
+    )
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -139,7 +143,9 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QLayoutItem::maximumSize() const
-    address = self.uglySide.call('ritual_ZNK11QLayoutItem11maximumSizeEv')
+    address = self._callAs(
+        'QLayoutItem', 'ritual_ZNK11QLayoutItem11maximumSizeEv',
+    )
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -157,8 +163,8 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  Qt::Orientations QLayoutItem::expandingDirections() const
-    return Qt.Orientations(self.uglySide.call(
-        'ritual_ZNK11QLayoutItem19expandingDirectionsEv',
+    return Qt.Orientations(self._callAs(
+        'QLayoutItem', 'ritual_ZNK11QLayoutItem19expandingDirectionsEv',
     ))
 
   def geometry(self) -> QRect:
@@ -174,7 +180,9 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       A new cute QRect around the copy Qt gave back. Python owns it.
     """
     #  QRect QLayoutItem::geometry() const
-    address = self.uglySide.call('ritual_ZNK11QLayoutItem8geometryEv')
+    address = self._callAs(
+        'QLayoutItem', 'ritual_ZNK11QLayoutItem8geometryEv',
+    )
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -185,7 +193,7 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty
     """
     #  bool QLayoutItem::isEmpty() const
-    return self.uglySide.call('ritual_ZNK11QLayoutItem7isEmptyEv')
+    return self._callAs('QLayoutItem', 'ritual_ZNK11QLayoutItem7isEmptyEv')
 
   def hasHeightForWidth(self) -> bool:
     """
@@ -194,7 +202,9 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth
     """
     #  bool QLayoutItem::hasHeightForWidth() const
-    return self.uglySide.call('ritual_ZNK11QLayoutItem17hasHeightForWidthEv')
+    return self._callAs(
+        'QLayoutItem', 'ritual_ZNK11QLayoutItem17hasHeightForWidthEv',
+    )
 
   @overload(int)
   def heightForWidth(self, a0: int) -> int:
@@ -210,8 +220,8 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  int QLayoutItem::heightForWidth(int a0) const
-    return self.uglySide.call(
-        'ritual_ZNK11QLayoutItem14heightForWidthEi', a0,
+    return self._callAs(
+        'QLayoutItem', 'ritual_ZNK11QLayoutItem14heightForWidthEi', a0,
     )
 
   @overload(int)
@@ -229,8 +239,9 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  int QLayoutItem::minimumHeightForWidth(int a0) const
-    return self.uglySide.call(
-        'ritual_ZNK11QLayoutItem21minimumHeightForWidthEi', a0,
+    return self._callAs(
+        'QLayoutItem', 'ritual_ZNK11QLayoutItem21minimumHeightForWidthEi',
+        a0,
     )
 
   def widget(self) -> Optional[QWidget]:
@@ -247,7 +258,7 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QWidget *QLayoutItem::widget() const
-    address = self.uglySide.call('ritual_ZNK11QLayoutItem6widgetEv')
+    address = self._callAs('QLayoutItem', 'ritual_ZNK11QLayoutItem6widgetEv')
     from . import QWidget
     return QWidget._cuteAt(address)
 
@@ -264,8 +275,8 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  Qt::Alignment QLayoutItem::alignment() const
-    return Qt.Alignment(self.uglySide.call(
-        'ritual_ZNK11QLayoutItem9alignmentEv',
+    return Qt.Alignment(self._callAs(
+        'QLayoutItem', 'ritual_ZNK11QLayoutItem9alignmentEv',
     ))
 
   def controlTypes(self) -> QSizePolicy.ControlTypes:
@@ -281,8 +292,8 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  QSizePolicy::ControlTypes QLayoutItem::controlTypes() const
-    return QSizePolicy.ControlTypes(self.uglySide.call(
-        'ritual_ZNK11QLayoutItem12controlTypesEv',
+    return QSizePolicy.ControlTypes(self._callAs(
+        'QLayoutItem', 'ritual_ZNK11QLayoutItem12controlTypesEv',
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -303,8 +314,9 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
     """
     #  void QLayoutItem::setGeometry(const QRect &a0)
-    self.uglySide.call(
-        'ritual_ZN11QLayoutItem11setGeometryERK5QRect', self._valueOf(a0),
+    self._callAs(
+        'QLayoutItem', 'ritual_ZN11QLayoutItem11setGeometryERK5QRect',
+        self._valueOf(a0),
     )
 
   @overload(Qt.Alignment)
@@ -321,7 +333,8 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as its number.
     """
     #  void QLayoutItem::setAlignment(Qt::Alignment a)
-    self.uglySide.call(
+    self._callAs(
+        'QLayoutItem',
         'ritual_ZN11QLayoutItem12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE',
         a.value,
     )
@@ -365,7 +378,7 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qlayoutitem.html#invalidate
     """
     #  void QLayoutItem::invalidate()
-    self.uglySide.call('ritual_ZN11QLayoutItem10invalidateEv')
+    self._callAs('QLayoutItem', 'ritual_ZN11QLayoutItem10invalidateEv')
 
   def layout(self) -> Optional[QLayout]:
     """
@@ -381,7 +394,7 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QLayout *QLayoutItem::layout()
-    address = self.uglySide.call('ritual_ZN11QLayoutItem6layoutEv')
+    address = self._callAs('QLayoutItem', 'ritual_ZN11QLayoutItem6layoutEv')
     from . import QLayout
     return QLayout._cuteAt(address)
 
@@ -399,6 +412,8 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QSpacerItem *QLayoutItem::spacerItem()
-    address = self.uglySide.call('ritual_ZN11QLayoutItem10spacerItemEv')
+    address = self._callAs(
+        'QLayoutItem', 'ritual_ZN11QLayoutItem10spacerItemEv',
+    )
     from . import QSpacerItem
     return QSpacerItem._cuteAt(address)
