@@ -10,10 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
-from . import QLibraryInfoLibraryPath
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -64,9 +64,30 @@ class QLibraryInfo(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QLibraryInfo.
   """
 
-  #  The enums Qt writes inside QLibraryInfo, and the names Qt has for the
-  #  combinations of its flags enums.
-  LibraryPath = QLibraryInfoLibraryPath
+  #  The enums Qt writes inside QLibraryInfo, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class LibraryPath(CuteNum):
+    """
+    The enum 'QLibraryInfo::LibraryPath' of Qt, with the 15 names Qt gives in
+    it.
+    """
+
+    PrefixPath = Kee[int](0)
+    DocumentationPath = Kee[int](1)
+    HeadersPath = Kee[int](2)
+    LibrariesPath = Kee[int](3)
+    LibraryExecutablesPath = Kee[int](4)
+    BinariesPath = Kee[int](5)
+    PluginsPath = Kee[int](6)
+    QmlImportsPath = Kee[int](7)
+    Qml2ImportsPath = Kee[int](7)
+    ArchDataPath = Kee[int](8)
+    DataPath = Kee[int](9)
+    TranslationsPath = Kee[int](10)
+    ExamplesPath = Kee[int](11)
+    TestsPath = Kee[int](12)
+    SettingsPath = Kee[int](100)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

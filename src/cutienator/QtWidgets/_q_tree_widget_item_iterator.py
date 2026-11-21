@@ -13,9 +13,8 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, MetaCute, WAIT
 from ..occult import Rituals
-from . import QTreeWidgetItemIteratorIteratorFlag
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -83,10 +82,38 @@ class QTreeWidgetItemIterator(CuteMixin, metaclass=MetaCute):
     made for Python, in a new cute QTreeWidgetItemIterator.
   """
 
-  #  The enums Qt writes inside QTreeWidgetItemIterator, and the names Qt has
-  #  for the combinations of its flags enums.
-  IteratorFlag = QTreeWidgetItemIteratorIteratorFlag
-  IteratorFlags = QTreeWidgetItemIteratorIteratorFlag
+  #  The enums Qt writes inside QTreeWidgetItemIterator, each a class in here
+  #  as in C++, and the names Qt has for the combinations of its flags enums.
+
+  class IteratorFlag(CuteFlags):
+    """
+    The flags enum 'QTreeWidgetItemIterator::IteratorFlag' of Qt, with the 20
+    names Qt gives in it. Qt names the type of its combinations
+    'QTreeWidgetItemIterator::IteratorFlags'.
+    """
+
+    All = 0x0
+    Hidden = 0x1
+    NotHidden = 0x2
+    Selected = 0x4
+    Unselected = 0x8
+    Selectable = 0x10
+    NotSelectable = 0x20
+    DragEnabled = 0x40
+    DragDisabled = 0x80
+    DropEnabled = 0x100
+    DropDisabled = 0x200
+    HasChildren = 0x400
+    NoChildren = 0x800
+    Checked = 0x1000
+    NotChecked = 0x2000
+    Enabled = 0x4000
+    Disabled = 0x8000
+    Editable = 0x10000
+    NotEditable = 0x20000
+    UserFlag = 0x1000000
+
+  IteratorFlags = IteratorFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

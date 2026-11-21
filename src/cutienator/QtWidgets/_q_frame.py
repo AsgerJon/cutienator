@@ -10,11 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QFrameShadow, QFrameShape, QFrameStyleMask, QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -76,11 +77,34 @@ class QFrame(QWidget):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QFrame, and the names Qt has for the
-  #  combinations of its flags enums.
-  Shadow = QFrameShadow
-  Shape = QFrameShape
-  StyleMask = QFrameStyleMask
+  #  The enums Qt writes inside QFrame, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class Shadow(CuteNum):
+    """The enum 'QFrame::Shadow' of Qt, with the 3 names Qt gives in it."""
+
+    Plain = Kee[int](16)
+    Raised = Kee[int](32)
+    Sunken = Kee[int](48)
+
+  class Shape(CuteNum):
+    """The enum 'QFrame::Shape' of Qt, with the 7 names Qt gives in it."""
+
+    NoFrame = Kee[int](0)
+    Box = Kee[int](1)
+    Panel = Kee[int](2)
+    WinPanel = Kee[int](3)
+    HLine = Kee[int](4)
+    VLine = Kee[int](5)
+    StyledPanel = Kee[int](6)
+
+  class StyleMask(CuteNum):
+    """
+    The enum 'QFrame::StyleMask' of Qt, with the 2 names Qt gives in it.
+    """
+
+    Shadow_Mask = Kee[int](240)
+    Shape_Mask = Kee[int](15)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

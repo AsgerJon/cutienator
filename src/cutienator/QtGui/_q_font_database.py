@@ -10,14 +10,14 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import QCharScript
-from . import QFontDatabaseSystemFont, QFontDatabaseWritingSystem
+from ..QtCore import QChar
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from ..QtCore import QByteArray, QChar
+  from ..QtCore import QByteArray
   from . import QFont, QFontInfo
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -76,10 +76,62 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QFontDatabase.
   """
 
-  #  The enums Qt writes inside QFontDatabase, and the names Qt has for the
-  #  combinations of its flags enums.
-  SystemFont = QFontDatabaseSystemFont
-  WritingSystem = QFontDatabaseWritingSystem
+  #  The enums Qt writes inside QFontDatabase, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class SystemFont(CuteNum):
+    """
+    The enum 'QFontDatabase::SystemFont' of Qt, with the 4 names Qt gives in
+    it.
+    """
+
+    GeneralFont = Kee[int](0)
+    FixedFont = Kee[int](1)
+    TitleFont = Kee[int](2)
+    SmallestReadableFont = Kee[int](3)
+
+  class WritingSystem(CuteNum):
+    """
+    The enum 'QFontDatabase::WritingSystem' of Qt, with the 36 names Qt gives
+    in it.
+    """
+
+    Any = Kee[int](0)
+    Latin = Kee[int](1)
+    Greek = Kee[int](2)
+    Cyrillic = Kee[int](3)
+    Armenian = Kee[int](4)
+    Hebrew = Kee[int](5)
+    Arabic = Kee[int](6)
+    Syriac = Kee[int](7)
+    Thaana = Kee[int](8)
+    Devanagari = Kee[int](9)
+    Bengali = Kee[int](10)
+    Gurmukhi = Kee[int](11)
+    Gujarati = Kee[int](12)
+    Oriya = Kee[int](13)
+    Tamil = Kee[int](14)
+    Telugu = Kee[int](15)
+    Kannada = Kee[int](16)
+    Malayalam = Kee[int](17)
+    Sinhala = Kee[int](18)
+    Thai = Kee[int](19)
+    Lao = Kee[int](20)
+    Tibetan = Kee[int](21)
+    Myanmar = Kee[int](22)
+    Georgian = Kee[int](23)
+    Khmer = Kee[int](24)
+    SimplifiedChinese = Kee[int](25)
+    TraditionalChinese = Kee[int](26)
+    Japanese = Kee[int](27)
+    Korean = Kee[int](28)
+    Vietnamese = Kee[int](29)
+    Symbol = Kee[int](30)
+    Other = Kee[int](30)
+    Ogham = Kee[int](31)
+    Runic = Kee[int](32)
+    Nko = Kee[int](33)
+    WritingSystemsCount = Kee[int](34)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -529,7 +581,7 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
     )
 
   @staticmethod
-  @overload(QCharScript, str)
+  @overload(QChar.Script, str)
   def addApplicationFallbackFontFamily(
       script: QChar.Script,
       familyName: str,
@@ -560,7 +612,7 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
     )
 
   @staticmethod
-  @overload(QCharScript, str)
+  @overload(QChar.Script, str)
   def removeApplicationFallbackFontFamily(
       script: QChar.Script,
       familyName: str,

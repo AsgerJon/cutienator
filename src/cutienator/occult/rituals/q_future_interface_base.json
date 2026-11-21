@@ -1,0 +1,136 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qfutureinterface.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QFutureInterfaceBaseC1ENS_5StateE": ["address", "int"],
+    "ritual_ZN20QFutureInterfaceBaseC1ERKS_": ["address", "address"],
+    "ritual_ZN20QFutureInterfaceBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN20QFutureInterfaceBase13reportStartedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase14reportFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase14reportCanceledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase15reportExceptionERK10QException": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase18reportResultsReadyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QFutureInterfaceBase11setRunnableEP9QRunnable": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase13setThreadPoolEP11QThreadPool": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase10threadPoolEv": ["address", "address"],
+    "ritual_ZN20QFutureInterfaceBase13setFilterModeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QFutureInterfaceBase16setProgressRangeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase15progressMinimumEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase15progressMaximumEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase22isProgressUpdateNeededEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase16setProgressValueEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase13progressValueEv": ["int", "address"],
+    "ritual_ZN20QFutureInterfaceBase23setProgressValueAndTextEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase12progressTextEv": ["text", "address"],
+    "ritual_ZN20QFutureInterfaceBase22setExpectedResultCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QFutureInterfaceBase19expectedResultCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase11resultCountEv": ["int", "address"],
+    "ritual_ZNK20QFutureInterfaceBase10queryStateENS_5StateE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase9isRunningEv": ["bool", "address"],
+    "ritual_ZNK20QFutureInterfaceBase9isStartedEv": ["bool", "address"],
+    "ritual_ZNK20QFutureInterfaceBase10isCanceledEv": ["bool", "address"],
+    "ritual_ZNK20QFutureInterfaceBase10isFinishedEv": ["bool", "address"],
+    "ritual_ZNK20QFutureInterfaceBase8isPausedEv": ["bool", "address"],
+    "ritual_ZN20QFutureInterfaceBase9setPausedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QFutureInterfaceBase12togglePausedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase12isSuspendingEv": ["bool", "address"],
+    "ritual_ZNK20QFutureInterfaceBase11isSuspendedEv": ["bool", "address"],
+    "ritual_ZNK20QFutureInterfaceBase11isThrottledEv": ["bool", "address"],
+    "ritual_ZNK20QFutureInterfaceBase15isResultReadyAtEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase7isValidEv": ["bool", "address"],
+    "ritual_ZNK20QFutureInterfaceBase9loadStateEv": ["int", "address"],
+    "ritual_ZN20QFutureInterfaceBase6cancelEv": ["nothing", "address"],
+    "ritual_ZN20QFutureInterfaceBase15cancelAndFinishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase11cancelChainEv": ["nothing", "address"],
+    "ritual_ZN20QFutureInterfaceBase30setAddResultsIfCanceledEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase29isAddResultsIfCanceledEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase12setSuspendedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QFutureInterfaceBase15toggleSuspendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase15reportSuspendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase12setThrottledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QFutureInterfaceBase15waitForFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase17waitForNextResultEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase13waitForResultEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QFutureInterfaceBase13waitForResumeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase18suspendIfRequestedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase12hasExceptionEv": ["bool", "address"],
+    "ritual_ZNK20QFutureInterfaceBase15resultStoreBaseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QFutureInterfaceBaseeqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QFutureInterfaceBaseneERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase15isChainCanceledEv": [
+      "bool", "address"
+    ]
+  }
+}

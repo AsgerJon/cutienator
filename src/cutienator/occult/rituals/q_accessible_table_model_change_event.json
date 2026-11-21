@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QAccessibleTableModelChangeEventC1EP7QObjectNS_15ModelChangeTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN32QAccessibleTableModelChangeEventC1EP20QAccessibleInterfaceNS_15ModelChangeTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN32QAccessibleTableModelChangeEventD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QAccessibleTableModelChangeEvent18setModelChangeTypeENS_15ModelChangeTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK32QAccessibleTableModelChangeEvent15modelChangeTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN32QAccessibleTableModelChangeEvent11setFirstRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN32QAccessibleTableModelChangeEvent14setFirstColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN32QAccessibleTableModelChangeEvent10setLastRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN32QAccessibleTableModelChangeEvent13setLastColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK32QAccessibleTableModelChangeEvent8firstRowEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK32QAccessibleTableModelChangeEvent11firstColumnEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK32QAccessibleTableModelChangeEvent7lastRowEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK32QAccessibleTableModelChangeEvent10lastColumnEv": [
+      "int", "address"
+    ]
+  }
+}

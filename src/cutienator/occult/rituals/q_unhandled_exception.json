@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qexception.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QUnhandledExceptionD1Ev": ["nothing", "address"],
+    "ritual_ZN19QUnhandledExceptionC1ERKS_": ["address", "address"],
+    "ritual_ZNK19QUnhandledException5raiseEv": ["nothing", "address"],
+    "ritual_ZNK19QUnhandledException5cloneEv": ["address", "address"]
+  }
+}

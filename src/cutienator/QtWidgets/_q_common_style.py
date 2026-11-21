@@ -14,16 +14,16 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QIconMode
-from . import QSizePolicyControlType, QStyle
+from ..QtGui import QIcon
+from . import QSizePolicy, QStyle
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPoint, QRect, QSize
-  from ..QtGui import QIcon, QPainter, QPixmap
-  from . import QApplication, QSizePolicy, QStyleOption, QStyleOptionComplex
-  from . import QWidget
+  from ..QtGui import QPainter, QPixmap
+  from . import QApplication, QStyleHintReturn, QStyleOption
+  from . import QStyleOptionComplex, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -33,6 +33,7 @@ else:
   QPixmap = WAIT['QPixmap']
   QPoint = WAIT['QPoint']
   QSize = WAIT['QSize']
+  QStyleHintReturn = WAIT['QStyleHintReturn']
   QStyleOption = WAIT['QStyleOption']
   QStyleOptionComplex = WAIT['QStyleOptionComplex']
   QWidget = WAIT['QWidget']
@@ -54,21 +55,18 @@ class QCommonStyle(QStyle):
   -----------
 
   Every function of Qt's QCommonStyle that has a ritual and that Python can
-  call so far, 16 names in all: 'metaObject', 'tr', 'drawPrimitive',
+  call so far, 17 names in all: 'metaObject', 'tr', 'drawPrimitive',
   'drawControl', 'subElementRect', 'drawComplexControl',
   'hitTestComplexControl', 'subControlRect', 'sizeFromContents',
-  'pixelMetric', 'standardIcon', 'standardPixmap', 'generatedIconPixmap',
-  'layoutSpacing', 'polish', 'unpolish'. It can be made from Python, in 1
-  way; see '__init__'.
+  'pixelMetric', 'styleHint', 'standardIcon', 'standardPixmap',
+  'generatedIconPixmap', 'layoutSpacing', 'polish', 'unpolish'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QCommonStyle::~QCommonStyle()': the destructor: Python never
     removes a C++ QCommonStyle.
-  - Qt's 'int QCommonStyle::styleHint(StyleHint sh, const QStyleOption *opt,
-    const QWidget *w, QStyleHintReturn *shret) const': names
-    'QStyleHintReturn', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -435,6 +433,61 @@ class QCommonStyle(QStyle):
         m.value, self._addressOf(opt), self._addressOf(widget),
     )
 
+  @overload(QStyle.StyleHint)
+  @overload(QStyle.StyleHint, QStyleOption)
+  @overload(QStyle.StyleHint, NoneType)
+  @overload(QStyle.StyleHint, QStyleOption, QWidget)
+  @overload(QStyle.StyleHint, QStyleOption, NoneType)
+  @overload(QStyle.StyleHint, NoneType, QWidget)
+  @overload(QStyle.StyleHint, NoneType, NoneType)
+  @overload(QStyle.StyleHint, QStyleOption, QWidget, QStyleHintReturn)
+  @overload(QStyle.StyleHint, QStyleOption, QWidget, NoneType)
+  @overload(QStyle.StyleHint, QStyleOption, NoneType, QStyleHintReturn)
+  @overload(QStyle.StyleHint, QStyleOption, NoneType, NoneType)
+  @overload(QStyle.StyleHint, NoneType, QWidget, QStyleHintReturn)
+  @overload(QStyle.StyleHint, NoneType, QWidget, NoneType)
+  @overload(QStyle.StyleHint, NoneType, NoneType, QStyleHintReturn)
+  @overload(QStyle.StyleHint, NoneType, NoneType, NoneType)
+  def styleHint(
+      self,
+      sh: QStyle.StyleHint,
+      opt: Optional[QStyleOption] = None,
+      w: Optional[QWidget] = None,
+      shret: Optional[QStyleHintReturn] = None,
+  ) -> int:
+    """
+    Calls Qt's 'int QCommonStyle::styleHint(StyleHint sh, const QStyleOption
+    *opt, const QWidget *w, QStyleHintReturn *shret) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcommonstyle.html#styleHint
+
+    Parameters
+    ----------
+
+    sh : QStyle.StyleHint
+      Passed on as its number.
+
+    opt : Optional[QStyleOption]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    w : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    shret : Optional[QStyleHintReturn]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  int QCommonStyle::styleHint(StyleHint sh, const QStyleOption *opt,
+    #      const QWidget *w, QStyleHintReturn *shret) const
+    return self.uglySide.call(
+        'ritual_ZNK12QCommonStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOp'
+        'tionPK7QWidgetP16QStyleHintReturn',
+        sh.value, self._addressOf(opt), self._addressOf(w),
+        self._addressOf(shret),
+    )
+
   @overload(QStyle.StandardPixmap)
   @overload(QStyle.StandardPixmap, QStyleOption)
   @overload(QStyle.StandardPixmap, NoneType)
@@ -481,7 +534,6 @@ class QCommonStyle(QStyle):
         '12QStyleOptionPK7QWidget',
         standardIcon.value, self._addressOf(opt), self._addressOf(widget),
     )
-    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
   @overload(QStyle.StandardPixmap)
@@ -533,8 +585,8 @@ class QCommonStyle(QStyle):
     from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
 
-  @overload(QIconMode, QPixmap, QStyleOption)
-  @overload(QIconMode, QPixmap, NoneType)
+  @overload(QIcon.Mode, QPixmap, QStyleOption)
+  @overload(QIcon.Mode, QPixmap, NoneType)
   def generatedIconPixmap(
       self,
       iconMode: QIcon.Mode,
@@ -578,29 +630,29 @@ class QCommonStyle(QStyle):
     from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
 
-  @overload(QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation)
+  @overload(QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation)
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       QStyleOption,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       NoneType,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       QStyleOption, QWidget,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       QStyleOption, NoneType,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       NoneType, QWidget,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       NoneType, NoneType,
   )
   def layoutSpacing(

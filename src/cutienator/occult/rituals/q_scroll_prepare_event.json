@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QScrollPrepareEvent5cloneEv": ["address", "address"],
+    "ritual_ZN19QScrollPrepareEventD1Ev": ["nothing", "address"],
+    "ritual_ZN19QScrollPrepareEventC1ERK7QPointF": ["address", "address"],
+    "ritual_ZNK19QScrollPrepareEvent8startPosEv": ["address", "address"],
+    "ritual_ZNK19QScrollPrepareEvent12viewportSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QScrollPrepareEvent15contentPosRangeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QScrollPrepareEvent10contentPosEv": ["address", "address"],
+    "ritual_ZN19QScrollPrepareEvent15setViewportSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QScrollPrepareEvent18setContentPosRangeERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QScrollPrepareEvent13setContentPosERK7QPointF": [
+      "nothing", "address", "address"
+    ]
+  }
+}

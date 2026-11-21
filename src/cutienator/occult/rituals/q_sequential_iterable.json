@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qsequentialiterable.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSequentialIterableC1Ev": ["address"],
+    "ritual_ZNK19QSequentialIterable2atEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN19QSequentialIterable3setExRK8QVariant": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN19QSequentialIterable8addValueERK8QVariantNS_8PositionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QSequentialIterable11removeValueENS_8PositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QSequentialIterable13valueMetaTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSequentialIterable22canRandomAccessIterateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QSequentialIterableD1Ev": ["nothing", "address"]
+  }
+}

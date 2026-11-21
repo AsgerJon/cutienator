@@ -11,13 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteFlags, CuteNum
 from ..occult import Rituals
-from . import QStyleOption, QStyleOptionViewItemPosition
-from . import QStyleOptionViewItemStyleOptionType
-from . import QStyleOptionViewItemStyleOptionVersion
-from . import QStyleOptionViewItemViewItemFeature
-from . import QStyleOptionViewItemViewItemPosition
+from . import QStyleOption
 
 
 class QStyleOptionViewItem(QStyleOption):
@@ -65,14 +63,65 @@ class QStyleOptionViewItem(QStyleOption):
     made for Python, in a new cute QStyleOptionViewItem.
   """
 
-  #  The enums Qt writes inside QStyleOptionViewItem, and the names Qt has
-  #  for the combinations of its flags enums.
-  Position = QStyleOptionViewItemPosition
-  StyleOptionType = QStyleOptionViewItemStyleOptionType
-  StyleOptionVersion = QStyleOptionViewItemStyleOptionVersion
-  ViewItemFeature = QStyleOptionViewItemViewItemFeature
-  ViewItemFeatures = QStyleOptionViewItemViewItemFeature
-  ViewItemPosition = QStyleOptionViewItemViewItemPosition
+  #  The enums Qt writes inside QStyleOptionViewItem, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class Position(CuteNum):
+    """
+    The enum 'QStyleOptionViewItem::Position' of Qt, with the 4 names Qt
+    gives in it.
+    """
+
+    Left = Kee[int](0)
+    Right = Kee[int](1)
+    Top = Kee[int](2)
+    Bottom = Kee[int](3)
+
+  class StyleOptionType(CuteNum):
+    """
+    The enum 'QStyleOptionViewItem::StyleOptionType' of Qt, with the 1 names
+    Qt gives in it.
+    """
+
+    Type = Kee[int](10)
+
+  class StyleOptionVersion(CuteNum):
+    """
+    The enum 'QStyleOptionViewItem::StyleOptionVersion' of Qt, with the 1
+    names Qt gives in it.
+    """
+
+    Version = Kee[int](1)
+
+  class ViewItemFeature(CuteFlags):
+    """
+    The flags enum 'QStyleOptionViewItem::ViewItemFeature' of Qt, with the 8
+    names Qt gives in it. Qt names the type of its combinations
+    'QStyleOptionViewItem::ViewItemFeatures'.
+    """
+
+    NULL = 0x0
+    WrapText = 0x1
+    Alternate = 0x2
+    HasCheckIndicator = 0x4
+    HasDisplay = 0x8
+    HasDecoration = 0x10
+    IsDecoratedRootColumn = 0x20
+    IsDecorationForRootColumn = 0x40
+
+  ViewItemFeatures = ViewItemFeature
+
+  class ViewItemPosition(CuteNum):
+    """
+    The enum 'QStyleOptionViewItem::ViewItemPosition' of Qt, with the 5 names
+    Qt gives in it.
+    """
+
+    Invalid = Kee[int](0)
+    Beginning = Kee[int](1)
+    Middle = Kee[int](2)
+    End = Kee[int](3)
+    OnlyOne = Kee[int](4)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

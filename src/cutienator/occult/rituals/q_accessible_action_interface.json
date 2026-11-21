@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QAccessibleActionInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QAccessibleActionInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN26QAccessibleActionInterface8doActionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QAccessibleActionInterface11pressActionEv": ["text"],
+    "ritual_ZN26QAccessibleActionInterface14increaseActionEv": ["text"],
+    "ritual_ZN26QAccessibleActionInterface14decreaseActionEv": ["text"],
+    "ritual_ZN26QAccessibleActionInterface14showMenuActionEv": ["text"],
+    "ritual_ZN26QAccessibleActionInterface14setFocusActionEv": ["text"],
+    "ritual_ZN26QAccessibleActionInterface18showOnScreenActionEv": ["text"],
+    "ritual_ZN26QAccessibleActionInterface12toggleActionEv": ["text"],
+    "ritual_ZN26QAccessibleActionInterface16scrollLeftActionEv": ["text"],
+    "ritual_ZN26QAccessibleActionInterface17scrollRightActionEv": ["text"],
+    "ritual_ZN26QAccessibleActionInterface14scrollUpActionEv": ["text"],
+    "ritual_ZN26QAccessibleActionInterface16scrollDownActionEv": ["text"],
+    "ritual_ZN26QAccessibleActionInterface14nextPageActionEv": ["text"],
+    "ritual_ZN26QAccessibleActionInterface18previousPageActionEv": ["text"]
+  }
+}

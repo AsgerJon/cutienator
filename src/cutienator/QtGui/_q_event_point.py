@@ -12,15 +12,14 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, MetaCute, WAIT
 from ..occult import Rituals
-from . import QEventPointState
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QPointF, QSizeF
-  from . import QPointingDevice, QVector2D
+  from . import QPointingDevice, QPointingDeviceUniqueId, QVector2D
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -46,16 +45,16 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QEventPoint that has a ritual and that Python can
-  call so far, 38 names in all: 'position', 'pressPosition', 'grabPosition',
+  call so far, 39 names in all: 'position', 'pressPosition', 'grabPosition',
   'lastPosition', 'scenePosition', 'scenePressPosition', 'sceneGrabPosition',
   'sceneLastPosition', 'globalPosition', 'globalPressPosition',
   'globalGrabPosition', 'globalLastPosition', 'normalizedPosition', 'pos',
   'startPos', 'scenePos', 'startScenePos', 'screenPos', 'startScreenPos',
   'startNormalizedPos', 'normalizedPos', 'lastPos', 'lastScenePos',
   'lastScreenPos', 'lastNormalizedPos', 'velocity', 'state', 'device', 'id',
-  'timestamp', 'lastTimestamp', 'pressTimestamp', 'timeHeld', 'pressure',
-  'rotation', 'ellipseDiameters', 'isAccepted', 'setAccepted'. It can be made
-  from Python, in 3 ways; see '__init__'.
+  'uniqueId', 'timestamp', 'lastTimestamp', 'pressTimestamp', 'timeHeld',
+  'pressure', 'rotation', 'ellipseDiameters', 'isAccepted', 'setAccepted'. It
+  can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,8 +65,6 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     operator, which is not reflected yet.
   - Qt's 'QEventPoint::~QEventPoint()': the destructor: Python removes its
     C++ QEventPoint by it, and has no other use for it.
-  - Qt's 'QPointingDeviceUniqueId QEventPoint::uniqueId() const': gives
-    'QPointingDeviceUniqueId', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -89,10 +86,22 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QEventPoint.
   """
 
-  #  The enums Qt writes inside QEventPoint, and the names Qt has for the
-  #  combinations of its flags enums.
-  State = QEventPointState
-  States = QEventPointState
+  #  The enums Qt writes inside QEventPoint, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class State(CuteFlags, number='unsigned char'):
+    """
+    The flags enum 'QEventPoint::State' of Qt, with the 5 names Qt gives in
+    it. Qt names the type of its combinations 'QEventPoint::States'.
+    """
+
+    Unknown = 0x0
+    Stationary = 0x4
+    Pressed = 0x1
+    Updated = 0x2
+    Released = 0x8
+
+  States = State
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -632,6 +641,24 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     """
     #  int QEventPoint::id() const
     return self.uglySide.call('ritual_ZNK11QEventPoint2idEv')
+
+  def uniqueId(self) -> QPointingDeviceUniqueId:
+    """
+    Calls Qt's 'QPointingDeviceUniqueId QEventPoint::uniqueId() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qeventpoint.html#uniqueId
+
+    Returns
+    -------
+
+    QPointingDeviceUniqueId
+      A new cute QPointingDeviceUniqueId around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QPointingDeviceUniqueId QEventPoint::uniqueId() const
+    address = self.uglySide.call('ritual_ZNK11QEventPoint8uniqueIdEv')
+    from . import QPointingDeviceUniqueId
+    return QPointingDeviceUniqueId._cuteOwning(address)
 
   def timestamp(self) -> int:
     """

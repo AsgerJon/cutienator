@@ -10,11 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import WAIT
+from ..cute import CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QGraphicsItem, QGraphicsPixmapItemShapeMode
+from . import QGraphicsItem
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -79,9 +80,18 @@ class QGraphicsPixmapItem(QGraphicsItem):
   - Python never removes the C++ QGraphicsPixmapItem.
   """
 
-  #  The enums Qt writes inside QGraphicsPixmapItem, and the names Qt has for
-  #  the combinations of its flags enums.
-  ShapeMode = QGraphicsPixmapItemShapeMode
+  #  The enums Qt writes inside QGraphicsPixmapItem, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class ShapeMode(CuteNum):
+    """
+    The enum 'QGraphicsPixmapItem::ShapeMode' of Qt, with the 3 names Qt
+    gives in it.
+    """
+
+    MaskShape = Kee[int](0)
+    BoundingRectShape = Kee[int](1)
+    HeuristicMaskShape = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

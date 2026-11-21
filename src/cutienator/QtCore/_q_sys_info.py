@@ -9,9 +9,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from ..cute import CuteMixin, MetaCute
+from worktoy.keenum import Kee
+
+from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
-from . import QSysInfoEndian, QSysInfoSizes
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QByteArray
@@ -55,10 +56,20 @@ class QSysInfo(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QSysInfo.
   """
 
-  #  The enums Qt writes inside QSysInfo, and the names Qt has for the
-  #  combinations of its flags enums.
-  Endian = QSysInfoEndian
-  Sizes = QSysInfoSizes
+  #  The enums Qt writes inside QSysInfo, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class Endian(CuteNum):
+    """The enum 'QSysInfo::Endian' of Qt, with the 3 names Qt gives in it."""
+
+    BigEndian = Kee[int](0)
+    LittleEndian = Kee[int](1)
+    ByteOrder = Kee[int](1)
+
+  class Sizes(CuteNum):
+    """The enum 'QSysInfo::Sizes' of Qt, with the 1 names Qt gives in it."""
+
+    WordSize = Kee[int](64)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

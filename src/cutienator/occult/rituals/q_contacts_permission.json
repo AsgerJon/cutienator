@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qpermissions.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QContactsPermission13setAccessModeENS_10AccessModeE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK19QContactsPermission10accessModeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN19QContactsPermissionC1Ev": ["address"],
+    "ritual_ZN19QContactsPermissionC1ERKS_": ["address", "address"],
+    "ritual_ZN19QContactsPermissionD1Ev": ["nothing", "address"]
+  }
+}

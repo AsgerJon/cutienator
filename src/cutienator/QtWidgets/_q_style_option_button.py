@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteFlags, CuteNum
 from ..occult import Rituals
-from . import QStyleOption, QStyleOptionButtonButtonFeature
-from . import QStyleOptionButtonStyleOptionType
-from . import QStyleOptionButtonStyleOptionVersion
+from . import QStyleOption
 
 
 class QStyleOptionButton(QStyleOption):
@@ -62,12 +62,40 @@ class QStyleOptionButton(QStyleOption):
     for Python, in a new cute QStyleOptionButton.
   """
 
-  #  The enums Qt writes inside QStyleOptionButton, and the names Qt has for
-  #  the combinations of its flags enums.
-  ButtonFeature = QStyleOptionButtonButtonFeature
-  ButtonFeatures = QStyleOptionButtonButtonFeature
-  StyleOptionType = QStyleOptionButtonStyleOptionType
-  StyleOptionVersion = QStyleOptionButtonStyleOptionVersion
+  #  The enums Qt writes inside QStyleOptionButton, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class ButtonFeature(CuteFlags):
+    """
+    The flags enum 'QStyleOptionButton::ButtonFeature' of Qt, with the 6
+    names Qt gives in it. Qt names the type of its combinations
+    'QStyleOptionButton::ButtonFeatures'.
+    """
+
+    NULL = 0x0
+    Flat = 0x1
+    HasMenu = 0x2
+    DefaultButton = 0x4
+    AutoDefaultButton = 0x8
+    CommandLinkButton = 0x10
+
+  ButtonFeatures = ButtonFeature
+
+  class StyleOptionType(CuteNum):
+    """
+    The enum 'QStyleOptionButton::StyleOptionType' of Qt, with the 1 names Qt
+    gives in it.
+    """
+
+    Type = Kee[int](2)
+
+  class StyleOptionVersion(CuteNum):
+    """
+    The enum 'QStyleOptionButton::StyleOptionVersion' of Qt, with the 1 names
+    Qt gives in it.
+    """
+
+    Version = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

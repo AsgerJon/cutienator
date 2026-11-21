@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QScrollEvent5cloneEv": ["address", "address"],
+    "ritual_ZN12QScrollEventD1Ev": ["nothing", "address"],
+    "ritual_ZN12QScrollEventC1ERK7QPointFS2_NS_11ScrollStateE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK12QScrollEvent10contentPosEv": ["address", "address"],
+    "ritual_ZNK12QScrollEvent17overshootDistanceEv": ["address", "address"],
+    "ritual_ZNK12QScrollEvent11scrollStateEv": ["int", "address"]
+  }
+}

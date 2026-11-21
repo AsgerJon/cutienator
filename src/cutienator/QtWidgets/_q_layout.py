@@ -11,17 +11,18 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from . import QLayoutSizeConstraint, QSizePolicyControlType
+from . import QSizePolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMargins, QMetaObject, QRect, QSize
-  from . import QLayoutItem, QSizePolicy, QWidget
+  from . import QLayoutItem, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -95,9 +96,21 @@ class QLayout(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QLayout, and the names Qt has for the
-  #  combinations of its flags enums.
-  SizeConstraint = QLayoutSizeConstraint
+  #  The enums Qt writes inside QLayout, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class SizeConstraint(CuteNum):
+    """
+    The enum 'QLayout::SizeConstraint' of Qt, with the 6 names Qt gives in
+    it.
+    """
+
+    SetDefaultConstraint = Kee[int](0)
+    SetNoConstraint = Kee[int](1)
+    SetMinimumSize = Kee[int](2)
+    SetFixedSize = Kee[int](3)
+    SetMaximumSize = Kee[int](4)
+    SetMinAndMaxSize = Kee[int](5)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -518,7 +531,7 @@ class QLayout(QObject):
       The value standing for the combination Qt gave back.
     """
     #  QSizePolicy::ControlTypes QLayout::controlTypes() const
-    return QSizePolicyControlType(self.uglySide.call(
+    return QSizePolicy.ControlTypes(self.uglySide.call(
         'ritual_ZNK7QLayout12controlTypesEv',
     ))
 

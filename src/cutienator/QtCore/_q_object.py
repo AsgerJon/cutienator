@@ -14,21 +14,18 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt
+from . import Qt, QMetaObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QBindingStorage, QEvent, QMetaMethod, QMetaObject, QThread
-  from . import QVariant
-  QMetaObjectConnection = QMetaObject.Connection
+  from . import QBindingStorage, QEvent, QMetaMethod, QThread, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QEvent = WAIT['QEvent']
   QMetaMethod = WAIT['QMetaMethod']
-  QMetaObjectConnection = WAIT['Connection']
   QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -224,7 +221,6 @@ class QObject(CuteMixin, metaclass=MetaCute):
         CuteMixin._addressOf(sender), CuteMixin._bytesOf(signal),
         CuteMixin._addressOf(receiver), CuteMixin._bytesOf(member), a4.value,
     )
-    from . import QMetaObject
     return QMetaObject.Connection._cuteOwning(address)
 
   @staticmethod
@@ -290,7 +286,6 @@ class QObject(CuteMixin, metaclass=MetaCute):
         CuteMixin._addressOf(receiver), CuteMixin._valueOf(method),
         type.value,
     )
-    from . import QMetaObject
     return QMetaObject.Connection._cuteOwning(address)
 
   @staticmethod
@@ -393,7 +388,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     )
 
   @staticmethod
-  @overload(QMetaObjectConnection)
+  @overload(QMetaObject.Connection)
   def disconnect(a0: QMetaObject.Connection) -> bool:
     """
     Calls Qt's 'bool QObject::disconnect(const QMetaObject::Connection &a0)'.
@@ -452,7 +447,6 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  const QMetaObject *QObject::metaObject() const
     address = self.uglySide.call('ritual_ZNK7QObject10metaObjectEv')
-    from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
   def objectName(self) -> str:

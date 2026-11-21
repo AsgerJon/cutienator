@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
 
@@ -20,13 +20,14 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPointF, QRectF, QSizeF
-  from . import QPaintDevice, QTextBlock, QTextDocument, QTextFormat
-  from . import QTextFrame
+  from . import QPaintDevice, QPainter, QTextBlock, QTextDocument
+  from . import QTextFormat, QTextFrame, QTextObjectInterface
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QPaintDevice = WAIT['QPaintDevice']
+  QPainter = WAIT['QPainter']
   QPointF = WAIT['QPointF']
   QTextBlock = WAIT['QTextBlock']
   QTextFrame = WAIT['QTextFrame']
@@ -48,24 +49,18 @@ class QAbstractTextDocumentLayout(QObject):
   -----------
 
   Every function of Qt's QAbstractTextDocumentLayout that has a ritual and
-  that Python can call so far, 16 names in all: 'metaObject', 'tr',
+  that Python can call so far, 18 names in all: 'metaObject', 'tr', 'draw',
   'hitTest', 'anchorAt', 'imageAt', 'formatAt', 'blockWithMarkerAt',
   'pageCount', 'documentSize', 'frameBoundingRect', 'blockBoundingRect',
   'setPaintDevice', 'paintDevice', 'document', 'registerHandler',
-  'unregisterHandler'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'unregisterHandler', 'handlerForObject'. None can be made from Python: one
+  comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QAbstractTextDocumentLayout::~QAbstractTextDocumentLayout()': the
     destructor: Python never removes a C++ QAbstractTextDocumentLayout.
-  - Qt's 'void QAbstractTextDocumentLayout::draw(QPainter *painter, const
-    PaintContext &context)': names
-    'QAbstractTextDocumentLayout::PaintContext', which has no cute class yet.
-  - Qt's 'QTextObjectInterface
-    *QAbstractTextDocumentLayout::handlerForObject(int objectType) const':
-    gives 'QTextObjectInterface', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -89,6 +84,240 @@ class QAbstractTextDocumentLayout(QObject):
     call on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
   """
+
+  #  The classes Qt writes inside QAbstractTextDocumentLayout, each a class
+  #  in here as in C++.
+
+  class PaintContext(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QAbstractTextDocumentLayout::PaintContext: a plain
+    Python object standing in front of one C++
+    QAbstractTextDocumentLayout::PaintContext.
+
+    C++ hands a QAbstractTextDocumentLayout::PaintContext around as a copy,
+    so every C++ QAbstractTextDocumentLayout::PaintContext behind a cute one
+    is Python's own: it is removed, by the ritual named in
+    '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QAbstractTextDocumentLayout::PaintContext yet. It can
+    be made from Python, in 1 way; see '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QAbstractTextDocumentLayout::PaintContext::~PaintContext()': the
+      destructor: Python removes its C++
+      QAbstractTextDocumentLayout::PaintContext by it, and has no other use
+      for it.
+
+    What to expect
+    --------------
+
+    - The C++ QAbstractTextDocumentLayout::PaintContext is created at the
+      first use, not by 'QAbstractTextDocumentLayout::PaintContext(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QAbstractTextDocumentLayout::PaintContext back
+      gives a copy the ritual made for Python, in a new cute
+      QAbstractTextDocumentLayout::PaintContext.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QAbstractTextDocumentLayout::PaintContext'
+
+    #  Qt's '~QAbstractTextDocumentLayout::PaintContext()'. Naming it makes
+    #  this a value class: Python owns every C++
+    #  QAbstractTextDocumentLayout::PaintContext behind a cute one, and
+    #  removes it by this ritual.
+    __delete_ritual__ = (
+        'ritual_ZN27QAbstractTextDocumentLayout12PaintContextD1Ev')
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's
+      'QAbstractTextDocumentLayout::PaintContext::PaintContext()', which is
+      called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html
+      """
+      #  QAbstractTextDocumentLayout::PaintContext::PaintContext()
+      self._noteCreation(
+          QAbstractTextDocumentLayout.PaintContext, lambda: Rituals.call(
+              'ritual_ZN27QAbstractTextDocumentLayout12PaintContextC1Ev',
+          ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  class Selection(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QAbstractTextDocumentLayout::Selection: a plain
+    Python object standing in front of one C++
+    QAbstractTextDocumentLayout::Selection.
+
+    C++ hands a QAbstractTextDocumentLayout::Selection around as a copy, so
+    every C++ QAbstractTextDocumentLayout::Selection behind a cute one is
+    Python's own: it is removed, by the ritual named in '__delete_ritual__',
+    when the cute object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QAbstractTextDocumentLayout::Selection yet. None can
+    be made from Python: one comes out of a function of another class that
+    gives one back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QAbstractTextDocumentLayout::Selection::~Selection()': the
+      destructor: Python removes its C++
+      QAbstractTextDocumentLayout::Selection by it, and has no other use for
+      it.
+
+    What to expect
+    --------------
+
+    - The C++ QAbstractTextDocumentLayout::Selection is created at the first
+      use, not by 'QAbstractTextDocumentLayout::Selection(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QAbstractTextDocumentLayout::Selection back gives a
+      copy the ritual made for Python, in a new cute
+      QAbstractTextDocumentLayout::Selection.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QAbstractTextDocumentLayout::Selection'
+
+    #  Qt's '~QAbstractTextDocumentLayout::Selection()'. Naming it makes this
+    #  a value class: Python owns every C++
+    #  QAbstractTextDocumentLayout::Selection behind a cute one, and removes
+    #  it by this ritual.
+    __delete_ritual__ = (
+        'ritual_ZN27QAbstractTextDocumentLayout9SelectionD1Ev')
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -470,6 +699,41 @@ class QAbstractTextDocumentLayout(QObject):
     from . import QTextDocument
     return QTextDocument._cuteAt(address)
 
+  @overload(int)
+  def handlerForObject(
+      self,
+      objectType: int,
+  ) -> Optional[QTextObjectInterface]:
+    """
+    Calls Qt's 'QTextObjectInterface
+    *QAbstractTextDocumentLayout::handlerForObject(int objectType) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#handlerForObject
+
+    Parameters
+    ----------
+
+    objectType : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Optional[QTextObjectInterface]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextObjectInterface
+    #      *QAbstractTextDocumentLayout::handlerForObject(int objectType)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK27QAbstractTextDocumentLayout16handlerForObjectEi',
+        objectType,
+    )
+    from . import QTextObjectInterface
+    return QTextObjectInterface._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -529,6 +793,35 @@ class QAbstractTextDocumentLayout(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QPainter, PaintContext)
+  @overload(NoneType, PaintContext)
+  def draw(self, painter: Optional[QPainter], context: PaintContext) -> None:
+    """
+    Calls Qt's 'void QAbstractTextDocumentLayout::draw(QPainter *painter,
+    const PaintContext &context)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#draw
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    context : PaintContext
+      Passed on as a value: Qt reads the C++
+      QAbstractTextDocumentLayout::PaintContext, which stays Python's own.
+    """
+    #  void QAbstractTextDocumentLayout::draw(QPainter *painter, const
+    #      PaintContext &context)
+    self.uglySide.call(
+        'ritual_ZN27QAbstractTextDocumentLayout4drawEP8QPainterRKNS_12Paint'
+        'ContextE',
+        self._addressOf(painter), self._valueOf(context),
+    )
 
   @overload(int, QObject)
   @overload(int, NoneType)

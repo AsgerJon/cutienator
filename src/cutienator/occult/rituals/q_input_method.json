@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qinputmethod.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QInputMethod10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QInputMethod2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZNK12QInputMethod18inputItemTransformEv": ["address", "address"],
+    "ritual_ZN12QInputMethod21setInputItemTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QInputMethod18inputItemRectangleEv": ["address", "address"],
+    "ritual_ZN12QInputMethod21setInputItemRectangleERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QInputMethod15cursorRectangleEv": ["address", "address"],
+    "ritual_ZNK12QInputMethod15anchorRectangleEv": ["address", "address"],
+    "ritual_ZNK12QInputMethod17keyboardRectangleEv": ["address", "address"],
+    "ritual_ZNK12QInputMethod22inputItemClipRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QInputMethod9isVisibleEv": ["bool", "address"],
+    "ritual_ZN12QInputMethod10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZNK12QInputMethod11isAnimatingEv": ["bool", "address"],
+    "ritual_ZNK12QInputMethod6localeEv": ["address", "address"],
+    "ritual_ZNK12QInputMethod14inputDirectionEv": ["int", "address"],
+    "ritual_ZN12QInputMethod16queryFocusObjectEN2Qt16InputMethodQueryERK8QVariant": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN12QInputMethod4showEv": ["nothing", "address"],
+    "ritual_ZN12QInputMethod4hideEv": ["nothing", "address"],
+    "ritual_ZN12QInputMethod6updateE6QFlagsIN2Qt16InputMethodQueryEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QInputMethod5resetEv": ["nothing", "address"],
+    "ritual_ZN12QInputMethod6commitEv": ["nothing", "address"],
+    "ritual_ZN12QInputMethod12invokeActionENS_6ActionEi": [
+      "nothing", "address", "int", "int"
+    ]
+  }
+}

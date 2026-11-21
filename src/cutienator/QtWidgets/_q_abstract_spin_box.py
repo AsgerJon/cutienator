@@ -10,12 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QAbstractSpinBoxButtonSymbols, QAbstractSpinBoxCorrectionMode
-from . import QAbstractSpinBoxStepEnabledFlag, QAbstractSpinBoxStepType
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -85,13 +84,49 @@ class QAbstractSpinBox(QWidget):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QAbstractSpinBox, and the names Qt has for
-  #  the combinations of its flags enums.
-  ButtonSymbols = QAbstractSpinBoxButtonSymbols
-  CorrectionMode = QAbstractSpinBoxCorrectionMode
-  StepEnabledFlag = QAbstractSpinBoxStepEnabledFlag
-  StepEnabled = QAbstractSpinBoxStepEnabledFlag
-  StepType = QAbstractSpinBoxStepType
+  #  The enums Qt writes inside QAbstractSpinBox, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ButtonSymbols(CuteNum):
+    """
+    The enum 'QAbstractSpinBox::ButtonSymbols' of Qt, with the 3 names Qt
+    gives in it.
+    """
+
+    UpDownArrows = Kee[int](0)
+    PlusMinus = Kee[int](1)
+    NoButtons = Kee[int](2)
+
+  class CorrectionMode(CuteNum):
+    """
+    The enum 'QAbstractSpinBox::CorrectionMode' of Qt, with the 2 names Qt
+    gives in it.
+    """
+
+    CorrectToPreviousValue = Kee[int](0)
+    CorrectToNearestValue = Kee[int](1)
+
+  class StepEnabledFlag(CuteFlags):
+    """
+    The flags enum 'QAbstractSpinBox::StepEnabledFlag' of Qt, with the 3
+    names Qt gives in it. Qt names the type of its combinations
+    'QAbstractSpinBox::StepEnabled'.
+    """
+
+    StepNone = 0x0
+    StepUpEnabled = 0x1
+    StepDownEnabled = 0x2
+
+  StepEnabled = StepEnabledFlag
+
+  class StepType(CuteNum):
+    """
+    The enum 'QAbstractSpinBox::StepType' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    DefaultStepType = Kee[int](0)
+    AdaptiveDecimalStepType = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

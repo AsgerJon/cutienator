@@ -14,20 +14,19 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..QtCore import Qt
-from . import QSizePolicyControlType, QSizePolicyPolicy
+from . import QSizePolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QRectF, QSizeF
-  from . import QGraphicsItem, QSizePolicy
+  from . import QGraphicsItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QRectF = WAIT['QRectF']
   QSizeF = WAIT['QSizeF']
-  QSizePolicy = WAIT['QSizePolicy']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -123,7 +122,6 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK19QGraphicsLayoutItem10sizePolicyEv',
     )
-    from . import QSizePolicy
     return QSizePolicy._cuteOwning(address)
 
   def minimumSize(self) -> QSizeF:
@@ -438,14 +436,14 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
         self._valueOf(policy),
     )
 
-  @overload(QSizePolicyPolicy, QSizePolicyPolicy)
-  @overload(QSizePolicyPolicy, QSizePolicyPolicy, QSizePolicyControlType)
+  @overload(QSizePolicy.Policy, QSizePolicy.Policy)
+  @overload(QSizePolicy.Policy, QSizePolicy.Policy, QSizePolicy.ControlType)
   def setSizePolicy(
       self,
       hPolicy: QSizePolicy.Policy,
       vPolicy: QSizePolicy.Policy,
       controlType: QSizePolicy.ControlType = (
-          QSizePolicyControlType.DefaultType),
+          QSizePolicy.ControlType.DefaultType),
   ) -> None:
     """
     Calls Qt's 'void QGraphicsLayoutItem::setSizePolicy(QSizePolicy::Policy
@@ -466,7 +464,7 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
 
     controlType : QSizePolicy.ControlType
       Passed on as its number. May be left out, as in Qt: it is then
-      QSizePolicyControlType.DefaultType.
+      QSizePolicy.ControlType.DefaultType.
     """
     #  void QGraphicsLayoutItem::setSizePolicy(QSizePolicy::Policy hPolicy,
     #      QSizePolicy::Policy vPolicy, QSizePolicy::ControlType controlType)

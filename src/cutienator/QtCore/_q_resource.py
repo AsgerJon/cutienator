@@ -10,10 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QResourceCompression
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -64,9 +64,17 @@ class QResource(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QResource.
   """
 
-  #  The enums Qt writes inside QResource, and the names Qt has for the
-  #  combinations of its flags enums.
-  Compression = QResourceCompression
+  #  The enums Qt writes inside QResource, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Compression(CuteNum):
+    """
+    The enum 'QResource::Compression' of Qt, with the 3 names Qt gives in it.
+    """
+
+    NoCompression = Kee[int](0)
+    ZlibCompression = Kee[int](1)
+    ZstdCompression = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

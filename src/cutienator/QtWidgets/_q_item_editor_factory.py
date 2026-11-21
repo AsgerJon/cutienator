@@ -19,11 +19,12 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QByteArray
-  from . import QWidget
+  from . import QItemEditorCreatorBase, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QItemEditorCreatorBase = WAIT['QItemEditorCreatorBase']
   QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -44,18 +45,15 @@ class QItemEditorFactory(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QItemEditorFactory that has a ritual and that Python
-  can call so far, 4 names in all: 'createEditor', 'valuePropertyName',
-  'defaultFactory', 'setDefaultFactory'. It can be made from Python, in 1
-  way; see '__init__'.
+  can call so far, 5 names in all: 'createEditor', 'valuePropertyName',
+  'registerEditor', 'defaultFactory', 'setDefaultFactory'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QItemEditorFactory::~QItemEditorFactory()': the destructor: Python
     removes its C++ QItemEditorFactory by it, and has no other use for it.
-  - Qt's 'void QItemEditorFactory::registerEditor(int userType,
-    QItemEditorCreatorBase *creator)': names 'QItemEditorCreatorBase', which
-    has no cute class yet.
 
   What to expect
   --------------
@@ -263,3 +261,35 @@ class QItemEditorFactory(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int, QItemEditorCreatorBase)
+  @overload(int, NoneType)
+  def registerEditor(
+      self,
+      userType: int,
+      creator: Optional[QItemEditorCreatorBase],
+  ) -> None:
+    """
+    Calls Qt's 'void QItemEditorFactory::registerEditor(int userType,
+    QItemEditorCreatorBase *creator)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qitemeditorfactory.html#registerEditor
+
+    Parameters
+    ----------
+
+    userType : int
+      Passed on as it is.
+
+    creator : Optional[QItemEditorCreatorBase]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QItemEditorFactory::registerEditor(int userType,
+    #      QItemEditorCreatorBase *creator)
+    self.uglySide.call(
+        'ritual_ZN18QItemEditorFactory14registerEditorEiP22QItemEditorCreat'
+        'orBase',
+        userType, self._addressOf(creator),
+    )

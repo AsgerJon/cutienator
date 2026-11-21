@@ -21,26 +21,24 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
 class EnumGenerator:
   """
-  Writes the Python file of one enum of Qt into the cutienator package:
-  a class based on 'CuteNum', or on 'CuteFlags' for an enum Qt combines
-  into flags, holding every name Qt gives in the enum with its number.
+  Writes the class of one enum of Qt: a class based on 'CuteNum', or on
+  'CuteFlags' for an enum Qt combines into flags, holding every name Qt
+  gives in the enum with its number. The class is written inside the
+  class or namespace Qt writes the enum inside, where C++, PySide6 and
+  PyQt have it, as 'Qt.AlignmentFlag' and 'QWidget.RenderFlag'.
 
     generator = EnumGenerator()
     generator.setDependencyTree(tree)
     generator.setEnumName('Qt::AlignmentFlag')
-    generator.setWorkFolder('src/cutienator')
-    generator.write()     # src/cutienator/QtCore/_qt_alignment_flag.py
+    generator.getNestedLines()    # the lines of 'class AlignmentFlag'
 
   What to expect
   --------------
 
-  - The file lies in the folder of the part of Qt the enum is written
-    in, and is named after the owner of the enum and the enum, as
-    '_qt_alignment_flag.py'. The owner is the class or namespace Qt
-    writes the enum inside. The class in the file is named as Qt names
-    the enum.
-  - Nothing binds the class to its owner: the file of the owner does
-    that. 'NamespaceGenerator' writes such a file for a namespace.
+  - It writes no file. 'ClassGenerator' puts the lines into the body of
+    the class Qt writes the enum inside, and 'NamespaceGenerator' into
+    the body of a namespace. The class is named as Qt names the enum,
+    and has no other name anywhere.
   - The names are written as Qt writes them, in its order. Where a
     name is a word of Python, the word of C stands in: 'NULL', 'TRUE',
     'FALSE'.
@@ -151,16 +149,6 @@ class EnumGenerator:
     """Gives the name of the enum without its owner: 'AlignmentFlag'."""
     return self.getEnumRecord()['ownName']
 
-  def getJoinedName(self) -> str:
-    """
-    Gives the name the package of its part gives the class of the enum
-    by: what Qt writes the enum inside and its own name in one, as
-    'QtAlignmentFlag' for 'Qt::AlignmentFlag' and 'QPaletteColorRole'
-    for 'QPalette::ColorRole'. A file that needs the class asks the
-    package for it by that name, as 'from . import QtAlignmentFlag'.
-    """
-    return self.getEnumName().replace('::', '')
-
   def getFlagsName(self) -> Optional[str]:
     """
     Gives the full name Qt has for the combinations of the enum, as
@@ -263,28 +251,6 @@ class EnumGenerator:
       return 'numbers not known'
     return None
 
-  def getFileStem(self) -> str:
-    """
-    Gives the name of the file without its ending: the owner and the
-    enum, as '_qt_alignment_flag', or the enum alone when it has no
-    owner.
-    """
-    ownerName, ownName = self.getOwnerName(), self.getOwnName()
-    if not ownerName:
-      return '_%s' % self.getStem(ownName)
-    return '_%s_%s' % (self.getStem(ownerName), self.getStem(ownName))
-
-  def getEnumFile(self) -> str:
-    """
-    Gives the full path of the file, as
-    '/some/folder/QtCore/_qt_alignment_flag.py'.
-
-    Found for you. Having the path does not mean the file is there;
-    'write' makes it.
-    """
-    name = '%s.py' % self.getFileStem()
-    return os.path.join(self.getWorkFolder(), self.getPartName(), name)
-
   def _getHeading(self) -> str:
     """Says who wrote a file, from what, and that it is written anew."""
     headerPath = self.getEnumRecord()['headerPath']
@@ -304,16 +270,11 @@ class EnumGenerator:
     written = hex(number) if number >= 0 else str(number)
     return '  %s = %s' % (name, written)
 
-  def getEnumText(self) -> str:
+  def getNestedLines(self, width: int = 77) -> List[str]:
     """
-    Gives the whole text of the file, without writing it.
-
-    Raises
-    ------
-
-    ValueError
-      The enum is refused; see 'findRefusal'. Or a name cannot be
-      written; see 'getMembers'.
+    Gives the class of the enum as the lines that stand in the body of
+    the class or namespace Qt writes the enum inside, where C++,
+    PySide6 and PyQt have it: 'QCalendarWidget.VerticalHeaderFormat'.
     """
     enumName, ownName = self.getEnumName(), self.getOwnName()
     refusal = self.findRefusal()
@@ -322,22 +283,15 @@ class EnumGenerator:
       raise ValueError(infoSpec % (enumName, refusal))
     members, flagsName = self.getMembers(), self.getFlagsName()
     if flagsName is None:
-      kind, base, statement = 'enum', 'CuteNum', 'CuteNum'
-      imports = ['from worktoy.keenum import Kee', '']
+      kind, statement = 'enum', 'CuteNum'
     else:
-      kind, base, statement = 'flags enum', 'CuteFlags', 'CuteFlags'
-      imports = []
+      kind, statement = 'flags enum', 'CuteFlags'
       numberName = self.getNumberName()
       if numberName != 'int':
         statement = """CuteFlags, number='%s'""" % numberName
     scoped = True if self.getEnumRecord()['scoped'] else False
     if scoped:
-      #  C++ keeps the names of an 'enum class' inside the enum, so the
-      #  class that holds it does not get them.
       statement = '%s, scoped=True' % statement
-    infoSpec = """%s stands for the %s '%s' of Qt."""
-    summary = textwrap.wrap(infoSpec % (ownName, kind, enumName), 77)
-    heading = textwrap.wrap(self._getHeading(), 73)
     infoSpec = """The %s '%s' of Qt, with the %d names Qt gives in it."""
     about = infoSpec % (kind, enumName, len(members))
     if flagsName is not None:
@@ -347,27 +301,19 @@ class EnumGenerator:
       infoSpec = """%s C++ keeps these names inside the enum, so the
       class that holds the enum does not have them."""
       about = ' '.join((infoSpec % about).split())
-    lines = [
-      '"""',
-      *summary,
-      '"""',
-      '#  Apache-2.0 license',
-      '#  Copyright (c) 2026 Asger Jon Vistisen',
-      *('#  %s' % line for line in heading),
-      'from __future__ import annotations',
-      '',
-      *imports,
-      'from ..cute import %s' % base,
-      '',
-      '',
-      'class %s(%s):' % (ownName, statement),
-      '  """',
-      *('  %s' % line for line in textwrap.wrap(about, 75)),
-      '  """',
-      '',
-      *(self._getMemberLine(name, number) for name, number in members),
-    ]
-    return '%s\n' % '\n'.join(lines)
+    lines = ['  class %s(%s):' % (ownName, statement)]
+    wrapped = textwrap.wrap(about, width - 4)
+    if len(wrapped) == 1 and len(wrapped[0]) <= width - 10:
+      lines.append('    """%s"""' % wrapped[0])
+    else:
+      lines.append('    """')
+      lines.extend('    %s' % line for line in wrapped)
+      lines.append('    """')
+    lines.append('')
+    for name, number in members:
+      written = self._getMemberLine(name, number)
+      lines.extend('  %s' % line for line in written.split('\n'))
+    return lines
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -444,28 +390,3 @@ class EnumGenerator:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-  def write(self) -> str:
-    """
-    Writes the file of the enum, replacing one written before.
-
-    Returns
-    -------
-
-    str
-      The full path of the file, which now exists.
-
-    Raises
-    ------
-
-    MissingVariable
-      One of the three setters has not been called.
-
-    ValueError
-      The enum is refused, or a name cannot be written; see
-      'getEnumText'.
-    """
-    enumFile = self.getEnumFile()
-    with open(enumFile, 'w') as file:
-      file.write(self.getEnumText())
-    return enumFile

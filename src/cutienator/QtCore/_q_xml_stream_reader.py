@@ -10,21 +10,23 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QXmlStreamReaderError, QXmlStreamReaderReadElementTextBehaviour
-from . import QXmlStreamReaderTokenType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QIODevice
+  from . import QIODevice, QXmlStreamAttributes, QXmlStreamEntityResolver
+  from . import QXmlStreamNamespaceDeclaration
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QIODevice = WAIT['QIODevice']
+  QXmlStreamEntityResolver = WAIT['QXmlStreamEntityResolver']
+  QXmlStreamNamespaceDeclaration = WAIT['QXmlStreamNamespaceDeclaration']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -40,7 +42,7 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QXmlStreamReader that has a ritual and that Python
-  can call so far, 48 names in all: 'setDevice', 'device', 'addData',
+  can call so far, 52 names in all: 'setDevice', 'device', 'addData',
   'clear', 'atEnd', 'readNext', 'readNextStartElement', 'skipCurrentElement',
   'readRawInnerData', 'tokenType', 'tokenString', 'setNamespaceProcessing',
   'namespaceProcessing', 'isStartDocument', 'isEndDocument',
@@ -48,28 +50,19 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
   'isCDATA', 'isComment', 'isDTD', 'isEntityReference',
   'isProcessingInstruction', 'isStandaloneDocument',
   'hasStandaloneDeclaration', 'documentVersion', 'documentEncoding',
-  'lineNumber', 'columnNumber', 'characterOffset', 'readElementText', 'name',
-  'namespaceUri', 'qualifiedName', 'prefix', 'processingInstructionTarget',
-  'processingInstructionData', 'text', 'dtdName', 'dtdPublicId',
-  'dtdSystemId', 'entityExpansionLimit', 'setEntityExpansionLimit',
-  'raiseError', 'errorString', 'error', 'hasError'. It can be made from
-  Python, in 3 ways; see '__init__'.
+  'lineNumber', 'columnNumber', 'characterOffset', 'attributes',
+  'readElementText', 'name', 'namespaceUri', 'qualifiedName', 'prefix',
+  'processingInstructionTarget', 'processingInstructionData', 'text',
+  'addExtraNamespaceDeclaration', 'dtdName', 'dtdPublicId', 'dtdSystemId',
+  'entityExpansionLimit', 'setEntityExpansionLimit', 'raiseError',
+  'errorString', 'error', 'hasError', 'setEntityResolver', 'entityResolver'.
+  It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QXmlStreamReader::~QXmlStreamReader()': the destructor: Python
     never removes a C++ QXmlStreamReader.
-  - Qt's 'QXmlStreamAttributes QXmlStreamReader::attributes() const': gives
-    'QXmlStreamAttributes', which has no cute class yet.
-  - Qt's 'void QXmlStreamReader::addExtraNamespaceDeclaration(const
-    QXmlStreamNamespaceDeclaration &extraNamespaceDeclaraction)': names
-    'QXmlStreamNamespaceDeclaration', which has no cute class yet.
-  - Qt's 'void QXmlStreamReader::setEntityResolver(QXmlStreamEntityResolver
-    *resolver)': names 'QXmlStreamEntityResolver', which has no cute class
-    yet.
-  - Qt's 'QXmlStreamEntityResolver *QXmlStreamReader::entityResolver()
-    const': gives 'QXmlStreamEntityResolver', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -90,11 +83,48 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QXmlStreamReader.
   """
 
-  #  The enums Qt writes inside QXmlStreamReader, and the names Qt has for
-  #  the combinations of its flags enums.
-  Error = QXmlStreamReaderError
-  ReadElementTextBehaviour = QXmlStreamReaderReadElementTextBehaviour
-  TokenType = QXmlStreamReaderTokenType
+  #  The enums Qt writes inside QXmlStreamReader, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class Error(CuteNum):
+    """
+    The enum 'QXmlStreamReader::Error' of Qt, with the 5 names Qt gives in
+    it.
+    """
+
+    NoError = Kee[int](0)
+    UnexpectedElementError = Kee[int](1)
+    CustomError = Kee[int](2)
+    NotWellFormedError = Kee[int](3)
+    PrematureEndOfDocumentError = Kee[int](4)
+
+  class ReadElementTextBehaviour(CuteNum):
+    """
+    The enum 'QXmlStreamReader::ReadElementTextBehaviour' of Qt, with the 3
+    names Qt gives in it.
+    """
+
+    ErrorOnUnexpectedElement = Kee[int](0)
+    IncludeChildElements = Kee[int](1)
+    SkipChildElements = Kee[int](2)
+
+  class TokenType(CuteNum):
+    """
+    The enum 'QXmlStreamReader::TokenType' of Qt, with the 11 names Qt gives
+    in it.
+    """
+
+    NoToken = Kee[int](0)
+    Invalid = Kee[int](1)
+    StartDocument = Kee[int](2)
+    EndDocument = Kee[int](3)
+    StartElement = Kee[int](4)
+    EndElement = Kee[int](5)
+    Characters = Kee[int](6)
+    Comment = Kee[int](7)
+    DTD = Kee[int](8)
+    EntityReference = Kee[int](9)
+    ProcessingInstruction = Kee[int](10)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -396,6 +426,26 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK16QXmlStreamReader15characterOffsetEv',
     )
 
+  def attributes(self) -> QXmlStreamAttributes:
+    """
+    Calls Qt's 'QXmlStreamAttributes QXmlStreamReader::attributes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qxmlstreamreader.html#attributes
+
+    Returns
+    -------
+
+    QXmlStreamAttributes
+      A new cute QXmlStreamAttributes around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QXmlStreamAttributes QXmlStreamReader::attributes() const
+    address = self.uglySide.call(
+        'ritual_ZNK16QXmlStreamReader10attributesEv',
+    )
+    from . import QXmlStreamAttributes
+    return QXmlStreamAttributes._cuteOwning(address)
+
   def name(self) -> str:
     """
     Calls Qt's 'QStringView QXmlStreamReader::name() const'.
@@ -611,6 +661,28 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
     #  bool QXmlStreamReader::hasError() const
     return self.uglySide.call('ritual_ZNK16QXmlStreamReader8hasErrorEv')
 
+  def entityResolver(self) -> Optional[QXmlStreamEntityResolver]:
+    """
+    Calls Qt's 'QXmlStreamEntityResolver *QXmlStreamReader::entityResolver()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qxmlstreamreader.html#entityResolver
+
+    Returns
+    -------
+
+    Optional[QXmlStreamEntityResolver]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QXmlStreamEntityResolver *QXmlStreamReader::entityResolver() const
+    address = self.uglySide.call(
+        'ritual_ZNK16QXmlStreamReader14entityResolverEv',
+    )
+    from . import QXmlStreamEntityResolver
+    return QXmlStreamEntityResolver._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -672,6 +744,34 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
     #  void QXmlStreamReader::setEntityExpansionLimit(int limit)
     self.uglySide.call(
         'ritual_ZN16QXmlStreamReader23setEntityExpansionLimitEi', limit,
+    )
+
+  @overload(QXmlStreamEntityResolver)
+  @overload(NoneType)
+  def setEntityResolver(
+      self,
+      resolver: Optional[QXmlStreamEntityResolver],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QXmlStreamReader::setEntityResolver(QXmlStreamEntityResolver *resolver)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qxmlstreamreader.html#setEntityResolver
+
+    Parameters
+    ----------
+
+    resolver : Optional[QXmlStreamEntityResolver]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QXmlStreamReader::setEntityResolver(QXmlStreamEntityResolver
+    #      *resolver)
+    self.uglySide.call(
+        'ritual_ZN16QXmlStreamReader17setEntityResolverEP24QXmlStreamEntity'
+        'Resolver',
+        self._addressOf(resolver),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -882,6 +982,33 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
         'ritual_ZN16QXmlStreamReader15readElementTextENS_24ReadElementTextB'
         'ehaviourE',
         behaviour.value,
+    )
+
+  @overload(QXmlStreamNamespaceDeclaration)
+  def addExtraNamespaceDeclaration(
+      self,
+      extraNamespaceDeclaraction: QXmlStreamNamespaceDeclaration,
+  ) -> None:
+    """
+    Calls Qt's 'void QXmlStreamReader::addExtraNamespaceDeclaration(const
+    QXmlStreamNamespaceDeclaration &extraNamespaceDeclaraction)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qxmlstreamreader.html#addExtraNamespaceDeclaration
+
+    Parameters
+    ----------
+
+    extraNamespaceDeclaraction : QXmlStreamNamespaceDeclaration
+      Passed on as a value: Qt reads the C++ QXmlStreamNamespaceDeclaration,
+      which stays Python's own.
+    """
+    #  void QXmlStreamReader::addExtraNamespaceDeclaration(const
+    #      QXmlStreamNamespaceDeclaration &extraNamespaceDeclaraction)
+    self.uglySide.call(
+        'ritual_ZN16QXmlStreamReader28addExtraNamespaceDeclarationERK30QXml'
+        'StreamNamespaceDeclaration',
+        self._valueOf(extraNamespaceDeclaraction),
     )
 
   @overload()

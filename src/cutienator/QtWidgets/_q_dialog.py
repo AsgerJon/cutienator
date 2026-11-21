@@ -10,11 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, CuteNum
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QDialogDialogCode, QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -70,9 +71,16 @@ class QDialog(QWidget):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QDialog, and the names Qt has for the
-  #  combinations of its flags enums.
-  DialogCode = QDialogDialogCode
+  #  The enums Qt writes inside QDialog, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class DialogCode(CuteNum):
+    """
+    The enum 'QDialog::DialogCode' of Qt, with the 2 names Qt gives in it.
+    """
+
+    Rejected = Kee[int](0)
+    Accepted = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

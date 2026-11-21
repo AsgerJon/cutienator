@@ -13,20 +13,18 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QItemSelectionModelSelectionFlag
+from ..QtCore import Qt, QItemSelectionModel
 from . import QAbstractItemView, QTreeView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
-  from ..QtCore import QRect
+  from ..QtCore import QMetaObject, QModelIndex, QPoint, QRect
   from . import QTreeWidgetItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
-  QItemSelectionModel = WAIT['QItemSelectionModel']
   QModelIndex = WAIT['QModelIndex']
   QPoint = WAIT['QPoint']
   QTreeWidgetItem = WAIT['QTreeWidgetItem']
@@ -743,8 +741,8 @@ class QTreeWidget(QTreeView):
         self._addressOf(item), column,
     )
 
-  @overload(QTreeWidgetItem, int, QItemSelectionModelSelectionFlag)
-  @overload(NoneType, int, QItemSelectionModelSelectionFlag)
+  @overload(QTreeWidgetItem, int, QItemSelectionModel.SelectionFlags)
+  @overload(NoneType, int, QItemSelectionModel.SelectionFlags)
   def setCurrentItem(
       self,
       item: Optional[QTreeWidgetItem],

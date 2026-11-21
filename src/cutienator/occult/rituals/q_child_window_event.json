@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QChildWindowEvent5cloneEv": ["address", "address"],
+    "ritual_ZN17QChildWindowEventD1Ev": ["nothing", "address"],
+    "ritual_ZN17QChildWindowEventC1EN6QEvent4TypeEP7QWindow": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK17QChildWindowEvent5childEv": ["address", "address"]
+  }
+}

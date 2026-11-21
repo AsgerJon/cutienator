@@ -11,20 +11,12 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QEvent
-from . import QInputDeviceDeviceType
+from . import QInputDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
-
-  from . import QInputDevice
-else:
-  #  The cute classes this file names and is not built on. Each is brought in
-  #  by the program that uses it, and a signature naming it waits until then;
-  #  see 'WAIT'.
-  QInputDevice = WAIT['QInputDevice']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -127,7 +119,6 @@ class QInputEvent(QEvent):
     """
     #  const QInputDevice *QInputEvent::device() const
     address = self.uglySide.call('ritual_ZNK11QInputEvent6deviceEv')
-    from . import QInputDevice
     return QInputDevice._cuteAt(address)
 
   def deviceType(self) -> QInputDevice.DeviceType:
@@ -145,7 +136,7 @@ class QInputEvent(QEvent):
       'QInputDevice.DeviceType(number)' gives.
     """
     #  QInputDevice::DeviceType QInputEvent::deviceType() const
-    return QInputDeviceDeviceType(self.uglySide.call(
+    return QInputDevice.DeviceType(self.uglySide.call(
         'ritual_ZNK11QInputEvent10deviceTypeEv',
     ))
 

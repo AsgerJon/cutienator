@@ -11,10 +11,9 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, CuteFlags
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QInputDeviceCapability, QInputDeviceDeviceType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -71,12 +70,55 @@ class QInputDevice(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QInputDevice, and the names Qt has for the
-  #  combinations of its flags enums.
-  Capability = QInputDeviceCapability
-  Capabilities = QInputDeviceCapability
-  DeviceType = QInputDeviceDeviceType
-  DeviceTypes = QInputDeviceDeviceType
+  #  The enums Qt writes inside QInputDevice, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Capability(CuteFlags, scoped=True):
+    """
+    The flags enum 'QInputDevice::Capability' of Qt, with the 16 names Qt
+    gives in it. Qt names the type of its combinations
+    'QInputDevice::Capabilities'. C++ keeps these names inside the enum, so
+    the class that holds the enum does not have them.
+    """
+
+    NULL = 0x0
+    Position = 0x1
+    Area = 0x2
+    Pressure = 0x4
+    Velocity = 0x8
+    NormalizedPosition = 0x20
+    MouseEmulation = 0x40
+    PixelScroll = 0x80
+    Scroll = 0x100
+    Hover = 0x200
+    Rotation = 0x400
+    XTilt = 0x800
+    YTilt = 0x1000
+    TangentialPressure = 0x2000
+    ZPosition = 0x4000
+    All = 0x7fffffff
+
+  Capabilities = Capability
+
+  class DeviceType(CuteFlags, scoped=True):
+    """
+    The flags enum 'QInputDevice::DeviceType' of Qt, with the 9 names Qt
+    gives in it. Qt names the type of its combinations
+    'QInputDevice::DeviceTypes'. C++ keeps these names inside the enum, so
+    the class that holds the enum does not have them.
+    """
+
+    Unknown = 0x0
+    Mouse = 0x1
+    TouchScreen = 0x2
+    TouchPad = 0x4
+    Puck = 0x8
+    Stylus = 0x10
+    Airbrush = 0x20
+    Keyboard = 0x1000
+    AllDevices = 0x7fffffff
+
+  DeviceTypes = DeviceType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

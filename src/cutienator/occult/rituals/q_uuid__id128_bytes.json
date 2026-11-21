@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/quuid.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK5QUuid10Id128Bytescv14QByteArrayViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN5QUuid10Id128BytesD1Ev": ["nothing", "address"]
+  }
+}

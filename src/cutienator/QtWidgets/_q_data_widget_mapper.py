@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from . import QDataWidgetMapperSubmitPolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -86,9 +86,17 @@ class QDataWidgetMapper(QObject):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QDataWidgetMapper, and the names Qt has for
-  #  the combinations of its flags enums.
-  SubmitPolicy = QDataWidgetMapperSubmitPolicy
+  #  The enums Qt writes inside QDataWidgetMapper, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class SubmitPolicy(CuteNum):
+    """
+    The enum 'QDataWidgetMapper::SubmitPolicy' of Qt, with the 2 names Qt
+    gives in it.
+    """
+
+    AutoSubmit = Kee[int](0)
+    ManualSubmit = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

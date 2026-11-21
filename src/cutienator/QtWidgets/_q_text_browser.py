@@ -13,14 +13,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtGui import QTextDocumentResourceType
+from ..QtGui import QTextDocument
 from . import QTextEdit, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QUrl, QVariant
-  from ..QtGui import QTextDocument
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -198,7 +197,7 @@ class QTextBrowser(QTextEdit):
       'QTextDocument.ResourceType(number)' gives.
     """
     #  QTextDocument::ResourceType QTextBrowser::sourceType() const
-    return QTextDocumentResourceType(self.uglySide.call(
+    return QTextDocument.ResourceType(self.uglySide.call(
         'ritual_ZNK12QTextBrowser10sourceTypeEv',
     ))
 
@@ -359,12 +358,12 @@ class QTextBrowser(QTextEdit):
     self.uglySide.call('ritual_ZN12QTextBrowser12setOpenLinksEb', open)
 
   @overload(QUrl)
-  @overload(QUrl, QTextDocumentResourceType)
+  @overload(QUrl, QTextDocument.ResourceType)
   def setSource(
       self,
       name: QUrl,
       type: QTextDocument.ResourceType = (
-          QTextDocumentResourceType.UnknownResource),
+          QTextDocument.ResourceType.UnknownResource),
   ) -> None:
     """
     Calls Qt's 'void QTextBrowser::setSource(const QUrl &name,
@@ -380,7 +379,7 @@ class QTextBrowser(QTextEdit):
 
     type : QTextDocument.ResourceType
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocumentResourceType.UnknownResource.
+      QTextDocument.ResourceType.UnknownResource.
     """
     #  void QTextBrowser::setSource(const QUrl &name,
     #      QTextDocument::ResourceType type)

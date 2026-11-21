@@ -1,0 +1,132 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcborvalue.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QCborValueC1Ev": ["address"],
+    "ritual_ZN10QCborValueC1ENS_4TypeE": ["address", "int"],
+    "ritual_ZN10QCborValueC1Eb": ["address", "bool"],
+    "ritual_ZN10QCborValueC1Ei": ["address", "int"],
+    "ritual_ZN10QCborValueC1Ej": ["address", "unsigned int"],
+    "ritual_ZN10QCborValueC1Ex": ["address", "long long"],
+    "ritual_ZN10QCborValueC1Ed": ["address", "double"],
+    "ritual_ZN10QCborValueC1E15QCborSimpleType": [
+      "address", "unsigned char"
+    ],
+    "ritual_ZN10QCborValueC1ERK10QByteArray": ["address", "address"],
+    "ritual_ZN10QCborValueC1ERK7QString": ["address", "text"],
+    "ritual_ZN10QCborValueC1E11QStringView": ["address", "text"],
+    "ritual_ZN10QCborValueC1E13QLatin1String": ["address", "address"],
+    "ritual_ZN10QCborValueC1EPKc": ["address", "chars"],
+    "ritual_ZN10QCborValueC1ERK10QCborArray": ["address", "address"],
+    "ritual_ZN10QCborValueC1ERK8QCborMap": ["address", "address"],
+    "ritual_ZN10QCborValueC1E8QCborTagRKS_": [
+      "address", "unsigned long long", "address"
+    ],
+    "ritual_ZN10QCborValueC1E14QCborKnownTagsRKS_": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN10QCborValueC1ERK9QDateTime": ["address", "address"],
+    "ritual_ZN10QCborValueC1ERK4QUrl": ["address", "address"],
+    "ritual_ZN10QCborValueC1ERK18QRegularExpression": ["address", "address"],
+    "ritual_ZN10QCborValueC1ERK5QUuid": ["address", "address"],
+    "ritual_ZN10QCborValueD1Ev": ["nothing", "address"],
+    "ritual_ZN10QCborValueC1ERKS_": ["address", "address"],
+    "ritual_ZNK10QCborValue4typeEv": ["int", "address"],
+    "ritual_ZNK10QCborValue9isIntegerEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue11isByteArrayEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue8isStringEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue7isArrayEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue5isMapEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue5isTagEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue7isFalseEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue6isTrueEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue6isBoolEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue6isNullEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue11isUndefinedEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue8isDoubleEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue10isDateTimeEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue5isUrlEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue19isRegularExpressionEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue6isUuidEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue9isInvalidEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue11isContainerEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue12isSimpleTypeEv": ["bool", "address"],
+    "ritual_ZNK10QCborValue12isSimpleTypeE15QCborSimpleType": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZNK10QCborValue12toSimpleTypeE15QCborSimpleType": [
+      "unsigned char", "address", "unsigned char"
+    ],
+    "ritual_ZNK10QCborValue9toIntegerEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZNK10QCborValue6toBoolEb": ["bool", "address", "bool"],
+    "ritual_ZNK10QCborValue8toDoubleEd": ["double", "address", "double"],
+    "ritual_ZNK10QCborValue3tagE8QCborTag": [
+      "unsigned long long", "address", "unsigned long long"
+    ],
+    "ritual_ZNK10QCborValue11taggedValueERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QCborValue11toByteArrayERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QCborValue8toStringERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK10QCborValue12toStringViewE14QAnyStringView": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK10QCborValue10toDateTimeERK9QDateTime": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QCborValue5toUrlERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QCborValue19toRegularExpressionERK18QRegularExpression": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QCborValue6toUuidERK5QUuid": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QCborValue7toArrayEv": ["address", "address"],
+    "ritual_ZNK10QCborValue7toArrayERK10QCborArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QCborValue5toMapEv": ["address", "address"],
+    "ritual_ZNK10QCborValue5toMapERK8QCborMap": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QCborValueixERK7QString": ["address", "address", "text"],
+    "ritual_ZNK10QCborValueixE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QCborValueixEx": ["address", "address", "long long"],
+    "ritual_ZN10QCborValueixEx": ["address", "address", "long long"],
+    "ritual_ZN10QCborValueixE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QCborValueixERK7QString": ["address", "address", "text"],
+    "ritual_ZNK10QCborValue7compareERKS_": ["int", "address", "address"],
+    "ritual_ZN10QCborValue11fromVariantERK8QVariant": ["address", "address"],
+    "ritual_ZNK10QCborValue9toVariantEv": ["address", "address"],
+    "ritual_ZN10QCborValue13fromJsonValueERK10QJsonValue": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QCborValue11toJsonValueEv": ["address", "address"],
+    "ritual_ZN10QCborValue8fromCborERK10QByteArrayP16QCborParserError": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QCborValue8fromCborEPKcxP16QCborParserError": [
+      "address", "chars", "long long", "address"
+    ],
+    "ritual_ZNK10QCborValue6toCborE6QFlagsINS_14EncodingOptionEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK10QCborValue20toDiagnosticNotationE6QFlagsINS_24DiagnosticNotationOptionEE": [
+      "text", "address", "int"
+    ]
+  }
+}

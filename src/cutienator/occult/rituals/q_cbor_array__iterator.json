@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcborarray.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QCborArray8IteratorC1Ev": ["address"],
+    "ritual_ZN10QCborArray8IteratorC1ERKS0_": ["address", "address"],
+    "ritual_ZNK10QCborArray8IteratordeEv": ["address", "address"],
+    "ritual_ZN10QCborArray8IteratorptEv": ["address", "address"],
+    "ritual_ZNK10QCborArray8IteratorptEv": ["address", "address"],
+    "ritual_ZNK10QCborArray8IteratorixEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN10QCborArray8IteratorppEi": ["address", "address", "int"],
+    "ritual_ZN10QCborArray8IteratormmEi": ["address", "address", "int"],
+    "ritual_ZNK10QCborArray8IteratorplEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK10QCborArray8IteratormiEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK10QCborArray8IteratormiES0_": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN10QCborArray8IteratorD1Ev": ["nothing", "address"]
+  }
+}

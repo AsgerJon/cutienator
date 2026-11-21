@@ -11,10 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QGraphicsBlurEffectBlurHint, QGraphicsEffect
+from . import QGraphicsEffect
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -75,10 +75,21 @@ class QGraphicsBlurEffect(QGraphicsEffect):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QGraphicsBlurEffect, and the names Qt has for
-  #  the combinations of its flags enums.
-  BlurHint = QGraphicsBlurEffectBlurHint
-  BlurHints = QGraphicsBlurEffectBlurHint
+  #  The enums Qt writes inside QGraphicsBlurEffect, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class BlurHint(CuteFlags):
+    """
+    The flags enum 'QGraphicsBlurEffect::BlurHint' of Qt, with the 3 names Qt
+    gives in it. Qt names the type of its combinations
+    'QGraphicsBlurEffect::BlurHints'.
+    """
+
+    PerformanceHint = 0x0
+    QualityHint = 0x1
+    AnimationHint = 0x2
+
+  BlurHints = BlurHint
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QIconMode, QIconState, QIconThemeIcon
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -85,11 +85,181 @@ class QIcon(CuteMixin, metaclass=MetaCute):
     in a new cute QIcon.
   """
 
-  #  The enums Qt writes inside QIcon, and the names Qt has for the
-  #  combinations of its flags enums.
-  Mode = QIconMode
-  State = QIconState
-  ThemeIcon = QIconThemeIcon
+  #  The enums Qt writes inside QIcon, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class Mode(CuteNum):
+    """The enum 'QIcon::Mode' of Qt, with the 4 names Qt gives in it."""
+
+    Normal = Kee[int](0)
+    Disabled = Kee[int](1)
+    Active = Kee[int](2)
+    Selected = Kee[int](3)
+
+  class State(CuteNum):
+    """The enum 'QIcon::State' of Qt, with the 2 names Qt gives in it."""
+
+    On = Kee[int](0)
+    Off = Kee[int](1)
+
+  class ThemeIcon(CuteNum, scoped=True):
+    """
+    The enum 'QIcon::ThemeIcon' of Qt, with the 151 names Qt gives in it. C++
+    keeps these names inside the enum, so the class that holds the enum does
+    not have them.
+    """
+
+    AddressBookNew = Kee[int](0)
+    ApplicationExit = Kee[int](1)
+    AppointmentNew = Kee[int](2)
+    CallStart = Kee[int](3)
+    CallStop = Kee[int](4)
+    ContactNew = Kee[int](5)
+    DocumentNew = Kee[int](6)
+    DocumentOpen = Kee[int](7)
+    DocumentOpenRecent = Kee[int](8)
+    DocumentPageSetup = Kee[int](9)
+    DocumentPrint = Kee[int](10)
+    DocumentPrintPreview = Kee[int](11)
+    DocumentProperties = Kee[int](12)
+    DocumentRevert = Kee[int](13)
+    DocumentSave = Kee[int](14)
+    DocumentSaveAs = Kee[int](15)
+    DocumentSend = Kee[int](16)
+    EditClear = Kee[int](17)
+    EditCopy = Kee[int](18)
+    EditCut = Kee[int](19)
+    EditDelete = Kee[int](20)
+    EditFind = Kee[int](21)
+    EditPaste = Kee[int](22)
+    EditRedo = Kee[int](23)
+    EditSelectAll = Kee[int](24)
+    EditUndo = Kee[int](25)
+    FolderNew = Kee[int](26)
+    FormatIndentLess = Kee[int](27)
+    FormatIndentMore = Kee[int](28)
+    FormatJustifyCenter = Kee[int](29)
+    FormatJustifyFill = Kee[int](30)
+    FormatJustifyLeft = Kee[int](31)
+    FormatJustifyRight = Kee[int](32)
+    FormatTextDirectionLtr = Kee[int](33)
+    FormatTextDirectionRtl = Kee[int](34)
+    FormatTextBold = Kee[int](35)
+    FormatTextItalic = Kee[int](36)
+    FormatTextUnderline = Kee[int](37)
+    FormatTextStrikethrough = Kee[int](38)
+    GoDown = Kee[int](39)
+    GoHome = Kee[int](40)
+    GoNext = Kee[int](41)
+    GoPrevious = Kee[int](42)
+    GoUp = Kee[int](43)
+    HelpAbout = Kee[int](44)
+    HelpFaq = Kee[int](45)
+    InsertImage = Kee[int](46)
+    InsertLink = Kee[int](47)
+    InsertText = Kee[int](48)
+    ListAdd = Kee[int](49)
+    ListRemove = Kee[int](50)
+    MailForward = Kee[int](51)
+    MailMarkImportant = Kee[int](52)
+    MailMarkRead = Kee[int](53)
+    MailMarkUnread = Kee[int](54)
+    MailMessageNew = Kee[int](55)
+    MailReplyAll = Kee[int](56)
+    MailReplySender = Kee[int](57)
+    MailSend = Kee[int](58)
+    MediaEject = Kee[int](59)
+    MediaPlaybackPause = Kee[int](60)
+    MediaPlaybackStart = Kee[int](61)
+    MediaPlaybackStop = Kee[int](62)
+    MediaRecord = Kee[int](63)
+    MediaSeekBackward = Kee[int](64)
+    MediaSeekForward = Kee[int](65)
+    MediaSkipBackward = Kee[int](66)
+    MediaSkipForward = Kee[int](67)
+    ObjectRotateLeft = Kee[int](68)
+    ObjectRotateRight = Kee[int](69)
+    ProcessStop = Kee[int](70)
+    SystemLockScreen = Kee[int](71)
+    SystemLogOut = Kee[int](72)
+    SystemSearch = Kee[int](73)
+    SystemReboot = Kee[int](74)
+    SystemShutdown = Kee[int](75)
+    ToolsCheckSpelling = Kee[int](76)
+    ViewFullscreen = Kee[int](77)
+    ViewRefresh = Kee[int](78)
+    ViewRestore = Kee[int](79)
+    WindowClose = Kee[int](80)
+    WindowNew = Kee[int](81)
+    ZoomFitBest = Kee[int](82)
+    ZoomIn = Kee[int](83)
+    ZoomOut = Kee[int](84)
+    AudioCard = Kee[int](85)
+    AudioInputMicrophone = Kee[int](86)
+    Battery = Kee[int](87)
+    CameraPhoto = Kee[int](88)
+    CameraVideo = Kee[int](89)
+    CameraWeb = Kee[int](90)
+    Computer = Kee[int](91)
+    DriveHarddisk = Kee[int](92)
+    DriveOptical = Kee[int](93)
+    InputGaming = Kee[int](94)
+    InputKeyboard = Kee[int](95)
+    InputMouse = Kee[int](96)
+    InputTablet = Kee[int](97)
+    MediaFlash = Kee[int](98)
+    MediaOptical = Kee[int](99)
+    MediaTape = Kee[int](100)
+    MultimediaPlayer = Kee[int](101)
+    NetworkWired = Kee[int](102)
+    NetworkWireless = Kee[int](103)
+    Phone = Kee[int](104)
+    Printer = Kee[int](105)
+    Scanner = Kee[int](106)
+    VideoDisplay = Kee[int](107)
+    AppointmentMissed = Kee[int](108)
+    AppointmentSoon = Kee[int](109)
+    AudioVolumeHigh = Kee[int](110)
+    AudioVolumeLow = Kee[int](111)
+    AudioVolumeMedium = Kee[int](112)
+    AudioVolumeMuted = Kee[int](113)
+    BatteryCaution = Kee[int](114)
+    BatteryLow = Kee[int](115)
+    DialogError = Kee[int](116)
+    DialogInformation = Kee[int](117)
+    DialogPassword = Kee[int](118)
+    DialogQuestion = Kee[int](119)
+    DialogWarning = Kee[int](120)
+    FolderDragAccept = Kee[int](121)
+    FolderOpen = Kee[int](122)
+    FolderVisiting = Kee[int](123)
+    ImageLoading = Kee[int](124)
+    ImageMissing = Kee[int](125)
+    MailAttachment = Kee[int](126)
+    MailUnread = Kee[int](127)
+    MailRead = Kee[int](128)
+    MailReplied = Kee[int](129)
+    MediaPlaylistRepeat = Kee[int](130)
+    MediaPlaylistShuffle = Kee[int](131)
+    NetworkOffline = Kee[int](132)
+    PrinterPrinting = Kee[int](133)
+    SecurityHigh = Kee[int](134)
+    SecurityLow = Kee[int](135)
+    SoftwareUpdateAvailable = Kee[int](136)
+    SoftwareUpdateUrgent = Kee[int](137)
+    SyncError = Kee[int](138)
+    SyncSynchronizing = Kee[int](139)
+    UserAvailable = Kee[int](140)
+    UserOffline = Kee[int](141)
+    WeatherClear = Kee[int](142)
+    WeatherClearNight = Kee[int](143)
+    WeatherFewClouds = Kee[int](144)
+    WeatherFewCloudsNight = Kee[int](145)
+    WeatherFog = Kee[int](146)
+    WeatherShowers = Kee[int](147)
+    WeatherSnow = Kee[int](148)
+    WeatherStorm = Kee[int](149)
+    NThemeIcons = Kee[int](150)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

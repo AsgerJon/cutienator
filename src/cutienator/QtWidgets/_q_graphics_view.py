@@ -10,32 +10,27 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QPainterRenderHint
-from . import QAbstractScrollArea, QGraphicsSceneSceneLayer
-from . import QGraphicsViewCacheModeFlag, QGraphicsViewDragMode
-from . import QGraphicsViewOptimizationFlag, QGraphicsViewViewportAnchor
-from . import QGraphicsViewViewportUpdateMode, QWidget
+from ..QtGui import QPainter
+from . import QAbstractScrollArea, QGraphicsScene, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPoint, QPointF, QRect, QRectF, QSize
   from ..QtCore import QVariant
-  from ..QtGui import QBrush, QPainter, QPainterPath, QPolygon, QPolygonF
-  from ..QtGui import QTransform
-  from . import QGraphicsItem, QGraphicsScene
+  from ..QtGui import QBrush, QPainterPath, QPolygon, QPolygonF, QTransform
+  from . import QGraphicsItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QBrush = WAIT['QBrush']
   QGraphicsItem = WAIT['QGraphicsItem']
-  QGraphicsScene = WAIT['QGraphicsScene']
-  QPainter = WAIT['QPainter']
   QPainterPath = WAIT['QPainterPath']
   QPoint = WAIT['QPoint']
   QPointF = WAIT['QPointF']
@@ -108,15 +103,65 @@ class QGraphicsView(QAbstractScrollArea):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QGraphicsView, and the names Qt has for the
-  #  combinations of its flags enums.
-  CacheModeFlag = QGraphicsViewCacheModeFlag
-  CacheMode = QGraphicsViewCacheModeFlag
-  DragMode = QGraphicsViewDragMode
-  OptimizationFlag = QGraphicsViewOptimizationFlag
-  OptimizationFlags = QGraphicsViewOptimizationFlag
-  ViewportAnchor = QGraphicsViewViewportAnchor
-  ViewportUpdateMode = QGraphicsViewViewportUpdateMode
+  #  The enums Qt writes inside QGraphicsView, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class CacheModeFlag(CuteFlags):
+    """
+    The flags enum 'QGraphicsView::CacheModeFlag' of Qt, with the 2 names Qt
+    gives in it. Qt names the type of its combinations
+    'QGraphicsView::CacheMode'.
+    """
+
+    CacheNone = 0x0
+    CacheBackground = 0x1
+
+  CacheMode = CacheModeFlag
+
+  class DragMode(CuteNum):
+    """
+    The enum 'QGraphicsView::DragMode' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    NoDrag = Kee[int](0)
+    ScrollHandDrag = Kee[int](1)
+    RubberBandDrag = Kee[int](2)
+
+  class OptimizationFlag(CuteFlags):
+    """
+    The flags enum 'QGraphicsView::OptimizationFlag' of Qt, with the 3 names
+    Qt gives in it. Qt names the type of its combinations
+    'QGraphicsView::OptimizationFlags'.
+    """
+
+    DontSavePainterState = 0x1
+    DontAdjustForAntialiasing = 0x2
+    IndirectPainting = 0x4
+
+  OptimizationFlags = OptimizationFlag
+
+  class ViewportAnchor(CuteNum):
+    """
+    The enum 'QGraphicsView::ViewportAnchor' of Qt, with the 3 names Qt gives
+    in it.
+    """
+
+    NoAnchor = Kee[int](0)
+    AnchorViewCenter = Kee[int](1)
+    AnchorUnderMouse = Kee[int](2)
+
+  class ViewportUpdateMode(CuteNum):
+    """
+    The enum 'QGraphicsView::ViewportUpdateMode' of Qt, with the 5 names Qt
+    gives in it.
+    """
+
+    FullViewportUpdate = Kee[int](0)
+    MinimalViewportUpdate = Kee[int](1)
+    SmartViewportUpdate = Kee[int](2)
+    NoViewportUpdate = Kee[int](3)
+    BoundingRectViewportUpdate = Kee[int](4)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -233,7 +278,7 @@ class QGraphicsView(QAbstractScrollArea):
       The value standing for the combination Qt gave back.
     """
     #  QPainter::RenderHints QGraphicsView::renderHints() const
-    return QPainterRenderHint(self.uglySide.call(
+    return QPainter.RenderHints(self.uglySide.call(
         'ritual_ZNK13QGraphicsView11renderHintsEv',
     ))
 
@@ -431,7 +476,6 @@ class QGraphicsView(QAbstractScrollArea):
     """
     #  QGraphicsScene *QGraphicsView::scene() const
     address = self.uglySide.call('ritual_ZNK13QGraphicsView5sceneEv')
-    from . import QGraphicsScene
     return QGraphicsScene._cuteAt(address)
 
   def sceneRect(self) -> QRectF:
@@ -990,8 +1034,8 @@ class QGraphicsView(QAbstractScrollArea):
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QPainterRenderHint)
-  @overload(QPainterRenderHint, bool)
+  @overload(QPainter.RenderHint)
+  @overload(QPainter.RenderHint, bool)
   def setRenderHint(
       self,
       hint: QPainter.RenderHint,
@@ -1019,7 +1063,7 @@ class QGraphicsView(QAbstractScrollArea):
         hint.value, enabled,
     )
 
-  @overload(QPainterRenderHint)
+  @overload(QPainter.RenderHints)
   def setRenderHints(self, hints: QPainter.RenderHints) -> None:
     """
     Calls Qt's 'void QGraphicsView::setRenderHints(QPainter::RenderHints
@@ -1916,12 +1960,12 @@ class QGraphicsView(QAbstractScrollArea):
 
   @overload()
   @overload(QRectF)
-  @overload(QRectF, QGraphicsSceneSceneLayer)
+  @overload(QRectF, QGraphicsScene.SceneLayers)
   def invalidateScene(
       self,
       rect: Optional[QRectF] = None,
       layers: QGraphicsScene.SceneLayers = (
-          QGraphicsSceneSceneLayer.AllLayers),
+          QGraphicsScene.SceneLayers.AllLayers),
   ) -> None:
     """
     Calls Qt's 'void QGraphicsView::invalidateScene(const QRectF &rect,
@@ -1938,7 +1982,7 @@ class QGraphicsView(QAbstractScrollArea):
 
     layers : QGraphicsScene.SceneLayers
       Passed on as its number. May be left out, as in Qt: it is then
-      QGraphicsSceneSceneLayer.AllLayers.
+      QGraphicsScene.SceneLayers.AllLayers.
     """
     #  void QGraphicsView::invalidateScene(const QRectF &rect,
     #      QGraphicsScene::SceneLayers layers)

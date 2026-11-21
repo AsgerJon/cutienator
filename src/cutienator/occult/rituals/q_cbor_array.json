@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcborarray.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QCborArrayC1Ev": ["address"],
+    "ritual_ZN10QCborArrayC1ERKS_": ["address", "address"],
+    "ritual_ZN10QCborArrayD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QCborArray11toCborValueEv": ["address", "address"],
+    "ritual_ZNK10QCborArray4sizeEv": ["long long", "address"],
+    "ritual_ZNK10QCborArray7isEmptyEv": ["bool", "address"],
+    "ritual_ZN10QCborArray5clearEv": ["nothing", "address"],
+    "ritual_ZNK10QCborArray2atEx": ["address", "address", "long long"],
+    "ritual_ZNK10QCborArray5firstEv": ["address", "address"],
+    "ritual_ZNK10QCborArray4lastEv": ["address", "address"],
+    "ritual_ZNK10QCborArrayixEx": ["address", "address", "long long"],
+    "ritual_ZN10QCborArray5firstEv": ["address", "address"],
+    "ritual_ZN10QCborArray4lastEv": ["address", "address"],
+    "ritual_ZN10QCborArrayixEx": ["address", "address", "long long"],
+    "ritual_ZN10QCborArray6insertExRK10QCborValue": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN10QCborArray7prependERK10QCborValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QCborArray6appendERK10QCborValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QCborArray7extractENS_13ConstIteratorE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QCborArray7extractENS_8IteratorE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QCborArray8removeAtEx": ["nothing", "address", "long long"],
+    "ritual_ZN10QCborArray6takeAtEx": ["address", "address", "long long"],
+    "ritual_ZN10QCborArray11removeFirstEv": ["nothing", "address"],
+    "ritual_ZN10QCborArray10removeLastEv": ["nothing", "address"],
+    "ritual_ZN10QCborArray9takeFirstEv": ["address", "address"],
+    "ritual_ZN10QCborArray8takeLastEv": ["address", "address"],
+    "ritual_ZNK10QCborArray8containsERK10QCborValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10QCborArray7compareERKS_": ["int", "address", "address"],
+    "ritual_ZN10QCborArray9push_backERK10QCborValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QCborArray10push_frontERK10QCborValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QCborArray9pop_frontEv": ["nothing", "address"],
+    "ritual_ZN10QCborArray8pop_backEv": ["nothing", "address"],
+    "ritual_ZNK10QCborArray5emptyEv": ["bool", "address"],
+    "ritual_ZNK10QCborArrayplERK10QCborValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QCborArray13fromJsonArrayERK10QJsonArray": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QCborArray11toJsonArrayEv": ["address", "address"]
+  }
+}

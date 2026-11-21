@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qjsonobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QJsonObject8iteratorC1Ev": ["address"],
+    "ritual_ZN11QJsonObject8iteratorC1EPS_x": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN11QJsonObject8iteratorC1ERKS0_": ["address", "address"],
+    "ritual_ZNK11QJsonObject8iterator3keyEv": ["text", "address"],
+    "ritual_ZNK11QJsonObject8iterator7keyViewEv": ["text", "address"],
+    "ritual_ZNK11QJsonObject8iterator5valueEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject8iteratordeEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject8iteratorptEv": ["address", "address"],
+    "ritual_ZN11QJsonObject8iteratorptEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject8iteratorixEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN11QJsonObject8iteratorppEi": ["address", "address", "int"],
+    "ritual_ZN11QJsonObject8iteratormmEi": ["address", "address", "int"],
+    "ritual_ZNK11QJsonObject8iteratorplEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK11QJsonObject8iteratormiEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK11QJsonObject8iteratormiES0_": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN11QJsonObject8iteratorD1Ev": ["nothing", "address"]
+  }
+}

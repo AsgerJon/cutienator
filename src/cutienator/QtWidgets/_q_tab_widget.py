@@ -10,11 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QTabWidgetTabPosition, QTabWidgetTabShape, QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -87,10 +88,27 @@ class QTabWidget(QWidget):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QTabWidget, and the names Qt has for the
-  #  combinations of its flags enums.
-  TabPosition = QTabWidgetTabPosition
-  TabShape = QTabWidgetTabShape
+  #  The enums Qt writes inside QTabWidget, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class TabPosition(CuteNum):
+    """
+    The enum 'QTabWidget::TabPosition' of Qt, with the 4 names Qt gives in
+    it.
+    """
+
+    North = Kee[int](0)
+    South = Kee[int](1)
+    West = Kee[int](2)
+    East = Kee[int](3)
+
+  class TabShape(CuteNum):
+    """
+    The enum 'QTabWidget::TabShape' of Qt, with the 2 names Qt gives in it.
+    """
+
+    Rounded = Kee[int](0)
+    Triangular = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

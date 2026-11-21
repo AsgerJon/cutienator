@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qvariant.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QVariantConstPointerC1E8QVariant": ["address", "address"],
+    "ritual_ZNK20QVariantConstPointerdeEv": ["address", "address"],
+    "ritual_ZNK20QVariantConstPointerptEv": ["address", "address"],
+    "ritual_ZN20QVariantConstPointerD1Ev": ["nothing", "address"]
+  }
+}

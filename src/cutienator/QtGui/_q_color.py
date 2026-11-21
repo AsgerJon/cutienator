@@ -10,20 +10,22 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QColorNameFormat, QColorSpec
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
+  from ..QtCore import QLatin1String
   from . import QRgba64
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QLatin1String = WAIT['QLatin1String']
   QRgba64 = WAIT['QRgba64']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -57,19 +59,15 @@ class QColor(CuteMixin, metaclass=MetaCute):
   'convertTo', 'fromRgb', 'fromRgba', 'fromRgbF', 'fromRgba64', 'fromHsv',
   'fromHsvF', 'fromCmyk', 'fromCmykF', 'fromHsl', 'fromHslF', 'lighter',
   'darker', 'isValidColor', 'isValidColorName'. It can be made from Python,
-  in 9 ways; see '__init__'.
+  in 10 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QColor::QColor(QStringView name)': takes in Python what
     'QColor::QColor(const QString &name)' takes.
-  - Qt's 'QColor::QColor(QLatin1StringView name)': names 'QLatin1String',
-    which has no cute class yet.
   - Qt's 'void QColor::setNamedColor(QStringView name)': takes in Python what
     'void QColor::setNamedColor(const QString &name)' takes.
-  - Qt's 'void QColor::setNamedColor(QLatin1StringView name)': names
-    'QLatin1String', which has no cute class yet.
   - Qt's 'void QColor::getRgb(int *r, int *g, int *b, int *a) const': takes a
     number to change where it is.
   - Qt's 'void QColor::getRgbF(float *r, float *g, float *b, float *a)
@@ -94,8 +92,6 @@ class QColor(CuteMixin, metaclass=MetaCute):
     not reflected yet.
   - Qt's 'bool QColor::isValidColor(QStringView a0)': takes in Python what
     'bool QColor::isValidColor(const QString &name)' takes.
-  - Qt's 'bool QColor::isValidColor(QLatin1StringView a0)': names
-    'QLatin1String', which has no cute class yet.
   - Qt's 'QColor::~QColor()': the destructor: Python removes its C++ QColor
     by it, and has no other use for it.
 
@@ -118,10 +114,26 @@ class QColor(CuteMixin, metaclass=MetaCute):
     in a new cute QColor.
   """
 
-  #  The enums Qt writes inside QColor, and the names Qt has for the
-  #  combinations of its flags enums.
-  NameFormat = QColorNameFormat
-  Spec = QColorSpec
+  #  The enums Qt writes inside QColor, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class NameFormat(CuteNum):
+    """
+    The enum 'QColor::NameFormat' of Qt, with the 2 names Qt gives in it.
+    """
+
+    HexRgb = Kee[int](0)
+    HexArgb = Kee[int](1)
+
+  class Spec(CuteNum):
+    """The enum 'QColor::Spec' of Qt, with the 6 names Qt gives in it."""
+
+    Invalid = Kee[int](0)
+    Rgb = Kee[int](1)
+    Hsv = Kee[int](2)
+    Cmyk = Kee[int](3)
+    Hsl = Kee[int](4)
+    ExtendedRgb = Kee[int](5)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -563,6 +575,27 @@ class QColor(CuteMixin, metaclass=MetaCute):
     """
     #  bool QColor::isValidColor(const QString &name)
     return Rituals.call('ritual_ZN6QColor12isValidColorERK7QString', name)
+
+  @staticmethod
+  @overload(QLatin1String)
+  def isValidColor(a0: QLatin1String) -> bool:
+    """
+    Calls Qt's 'bool QColor::isValidColor(QLatin1StringView a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolor.html#isValidColor
+
+    Parameters
+    ----------
+
+    a0 : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+    """
+    #  bool QColor::isValidColor(QLatin1StringView a0)
+    return Rituals.call(
+        'ritual_ZN6QColor12isValidColorE13QLatin1String',
+        CuteMixin._valueOf(a0),
+    )
 
   @staticmethod
   @overload(str)
@@ -1154,6 +1187,26 @@ class QColor(CuteMixin, metaclass=MetaCute):
     #  void QColor::setNamedColor(const QString &name)
     self.uglySide.call('ritual_ZN6QColor13setNamedColorERK7QString', name)
 
+  @overload(QLatin1String)
+  def setNamedColor(self, name: QLatin1String) -> None:
+    """
+    Calls Qt's 'void QColor::setNamedColor(QLatin1StringView name)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolor.html#setNamedColor
+
+    Parameters
+    ----------
+
+    name : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+    """
+    #  void QColor::setNamedColor(QLatin1StringView name)
+    self.uglySide.call(
+        'ritual_ZN6QColor13setNamedColorE13QLatin1String',
+        self._valueOf(name),
+    )
+
   @overload(int)
   def setAlpha(self, alpha: int) -> None:
     """
@@ -1701,6 +1754,26 @@ class QColor(CuteMixin, metaclass=MetaCute):
     #  QColor::QColor(const char *aname)
     self._noteCreation(QColor, lambda: Rituals.call(
         'ritual_ZN6QColorC1EPKc', self._bytesOf(aname),
+    ))
+
+  @overload(QLatin1String)
+  def __init__(self, name: QLatin1String) -> None:
+    """
+    Notes what was given, for Qt's 'QColor::QColor(QLatin1StringView name)',
+    which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolor.html#QColor
+
+    Parameters
+    ----------
+
+    name : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+    """
+    #  QColor::QColor(QLatin1StringView name)
+    self._noteCreation(QColor, lambda: Rituals.call(
+        'ritual_ZN6QColorC1E13QLatin1String', self._valueOf(name),
     ))
 
   @overload(Spec)

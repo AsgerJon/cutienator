@@ -1,0 +1,10 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpageranges.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QPageRanges5Range8containsEi": ["bool", "address", "int"],
+    "ritual_ZN11QPageRanges5RangeD1Ev": ["nothing", "address"]
+  }
+}

@@ -13,14 +13,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import QWidget, QWizardWizardButton, QWizardWizardPixmap
+from . import QWidget, QWizard
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
   from ..QtGui import QPixmap
-  from . import QWizard
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -195,7 +194,7 @@ class QWizardPage(QWidget):
     #  QString QWizardPage::subTitle() const
     return self.uglySide.call('ritual_ZNK11QWizardPage8subTitleEv')
 
-  @overload(QWizardWizardPixmap)
+  @overload(QWizard.WizardPixmap)
   def pixmap(self, which: QWizard.WizardPixmap) -> QPixmap:
     """
     Calls Qt's 'QPixmap QWizardPage::pixmap(QWizard::WizardPixmap which)
@@ -241,7 +240,7 @@ class QWizardPage(QWidget):
     #  bool QWizardPage::isCommitPage() const
     return self.uglySide.call('ritual_ZNK11QWizardPage12isCommitPageEv')
 
-  @overload(QWizardWizardButton)
+  @overload(QWizard.WizardButton)
   def buttonText(self, which: QWizard.WizardButton) -> str:
     """
     Calls Qt's 'QString QWizardPage::buttonText(QWizard::WizardButton which)
@@ -323,7 +322,7 @@ class QWizardPage(QWidget):
         'ritual_ZN11QWizardPage11setSubTitleERK7QString', subTitle,
     )
 
-  @overload(QWizardWizardPixmap, QPixmap)
+  @overload(QWizard.WizardPixmap, QPixmap)
   def setPixmap(self, which: QWizard.WizardPixmap, pixmap: QPixmap) -> None:
     """
     Calls Qt's 'void QWizardPage::setPixmap(QWizard::WizardPixmap which,
@@ -381,7 +380,7 @@ class QWizardPage(QWidget):
     #  void QWizardPage::setCommitPage(bool commitPage)
     self.uglySide.call('ritual_ZN11QWizardPage13setCommitPageEb', commitPage)
 
-  @overload(QWizardWizardButton, str)
+  @overload(QWizard.WizardButton, str)
   def setButtonText(self, which: QWizard.WizardButton, text: str) -> None:
     """
     Calls Qt's 'void QWizardPage::setButtonText(QWizard::WizardButton which,

@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qundoview.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QUndoView10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QUndoView2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QUndoViewC1EP7QWidget": ["address", "address"],
+    "ritual_ZN9QUndoViewC1EP10QUndoStackP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QUndoViewC1EP10QUndoGroupP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QUndoViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QUndoView5stackEv": ["address", "address"],
+    "ritual_ZNK9QUndoView5groupEv": ["address", "address"],
+    "ritual_ZN9QUndoView13setEmptyLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QUndoView10emptyLabelEv": ["text", "address"],
+    "ritual_ZN9QUndoView12setCleanIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QUndoView9cleanIconEv": ["address", "address"],
+    "ritual_ZN9QUndoView8setStackEP10QUndoStack": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QUndoView8setGroupEP10QUndoGroup": [
+      "nothing", "address", "address"
+    ]
+  }
+}

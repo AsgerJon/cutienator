@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QAccessibleInterface7isValidEv": ["bool", "address"],
+    "ritual_ZNK20QAccessibleInterface6objectEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleInterface6windowEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleInterface10focusChildEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleInterface7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK20QAccessibleInterface6parentEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleInterface5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QAccessibleInterface10childCountEv": ["int", "address"],
+    "ritual_ZNK20QAccessibleInterface12indexOfChildEPKS_": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleInterface4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK20QAccessibleInterface4rectEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleInterface4roleEv": ["int", "address"],
+    "ritual_ZNK20QAccessibleInterface5stateEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleInterface15foregroundColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleInterface15backgroundColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleInterface13textInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleInterface21editableTextInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleInterface14valueInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleInterface15actionInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleInterface14imageInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleInterface14tableInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleInterface18tableCellInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleInterface18hyperlinkInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleInterface18selectionInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleInterface19attributesInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleInterface17viewportInterfaceEv": [
+      "address", "address"
+    ]
+  }
+}

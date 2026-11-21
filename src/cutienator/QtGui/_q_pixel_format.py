@@ -10,13 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
-from . import QPixelFormatAlphaPosition, QPixelFormatAlphaPremultiplied
-from . import QPixelFormatAlphaUsage, QPixelFormatByteOrder
-from . import QPixelFormatColorModel, QPixelFormatTypeInterpretation
-from . import QPixelFormatYUVLayout
 
 
 class QPixelFormat(CuteMixin, metaclass=MetaCute):
@@ -66,15 +63,95 @@ class QPixelFormat(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QPixelFormat.
   """
 
-  #  The enums Qt writes inside QPixelFormat, and the names Qt has for the
-  #  combinations of its flags enums.
-  AlphaPosition = QPixelFormatAlphaPosition
-  AlphaPremultiplied = QPixelFormatAlphaPremultiplied
-  AlphaUsage = QPixelFormatAlphaUsage
-  ByteOrder = QPixelFormatByteOrder
-  ColorModel = QPixelFormatColorModel
-  TypeInterpretation = QPixelFormatTypeInterpretation
-  YUVLayout = QPixelFormatYUVLayout
+  #  The enums Qt writes inside QPixelFormat, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class AlphaPosition(CuteNum):
+    """
+    The enum 'QPixelFormat::AlphaPosition' of Qt, with the 2 names Qt gives
+    in it.
+    """
+
+    AtBeginning = Kee[int](0)
+    AtEnd = Kee[int](1)
+
+  class AlphaPremultiplied(CuteNum):
+    """
+    The enum 'QPixelFormat::AlphaPremultiplied' of Qt, with the 2 names Qt
+    gives in it.
+    """
+
+    NotPremultiplied = Kee[int](0)
+    Premultiplied = Kee[int](1)
+
+  class AlphaUsage(CuteNum):
+    """
+    The enum 'QPixelFormat::AlphaUsage' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    UsesAlpha = Kee[int](0)
+    IgnoresAlpha = Kee[int](1)
+
+  class ByteOrder(CuteNum):
+    """
+    The enum 'QPixelFormat::ByteOrder' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    LittleEndian = Kee[int](0)
+    BigEndian = Kee[int](1)
+    CurrentSystemEndian = Kee[int](2)
+
+  class ColorModel(CuteNum):
+    """
+    The enum 'QPixelFormat::ColorModel' of Qt, with the 9 names Qt gives in
+    it.
+    """
+
+    RGB = Kee[int](0)
+    BGR = Kee[int](1)
+    Indexed = Kee[int](2)
+    Grayscale = Kee[int](3)
+    CMYK = Kee[int](4)
+    HSL = Kee[int](5)
+    HSV = Kee[int](6)
+    YUV = Kee[int](7)
+    Alpha = Kee[int](8)
+
+  class TypeInterpretation(CuteNum):
+    """
+    The enum 'QPixelFormat::TypeInterpretation' of Qt, with the 4 names Qt
+    gives in it.
+    """
+
+    UnsignedInteger = Kee[int](0)
+    UnsignedShort = Kee[int](1)
+    UnsignedByte = Kee[int](2)
+    FloatingPoint = Kee[int](3)
+
+  class YUVLayout(CuteNum):
+    """
+    The enum 'QPixelFormat::YUVLayout' of Qt, with the 16 names Qt gives in
+    it.
+    """
+
+    YUV444 = Kee[int](0)
+    YUV422 = Kee[int](1)
+    YUV411 = Kee[int](2)
+    YUV420P = Kee[int](3)
+    YUV420SP = Kee[int](4)
+    YV12 = Kee[int](5)
+    UYVY = Kee[int](6)
+    YUYV = Kee[int](7)
+    NV12 = Kee[int](8)
+    NV21 = Kee[int](9)
+    IMC1 = Kee[int](10)
+    IMC2 = Kee[int](11)
+    IMC3 = Kee[int](12)
+    IMC4 = Kee[int](13)
+    Y8 = Kee[int](14)
+    Y16 = Kee[int](15)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qchar.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QLatin1CharC1Ec": ["address", "char"],
+    "ritual_ZNK11QLatin1Char8toLatin1Ev": ["char", "address"],
+    "ritual_ZN11QLatin1CharD1Ev": ["nothing", "address"]
+  }
+}

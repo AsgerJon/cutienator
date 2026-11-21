@@ -10,12 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QSizePolicyControlType, QSizePolicyPolicy
-from . import QSizePolicyPolicyFlag
 
 
 class QSizePolicy(CuteMixin, metaclass=MetaCute):
@@ -72,12 +71,57 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QSizePolicy.
   """
 
-  #  The enums Qt writes inside QSizePolicy, and the names Qt has for the
-  #  combinations of its flags enums.
-  ControlType = QSizePolicyControlType
-  ControlTypes = QSizePolicyControlType
-  Policy = QSizePolicyPolicy
-  PolicyFlag = QSizePolicyPolicyFlag
+  #  The enums Qt writes inside QSizePolicy, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class ControlType(CuteFlags):
+    """
+    The flags enum 'QSizePolicy::ControlType' of Qt, with the 15 names Qt
+    gives in it. Qt names the type of its combinations
+    'QSizePolicy::ControlTypes'.
+    """
+
+    DefaultType = 0x1
+    ButtonBox = 0x2
+    CheckBox = 0x4
+    ComboBox = 0x8
+    Frame = 0x10
+    GroupBox = 0x20
+    Label = 0x40
+    Line = 0x80
+    LineEdit = 0x100
+    PushButton = 0x200
+    RadioButton = 0x400
+    Slider = 0x800
+    SpinBox = 0x1000
+    TabWidget = 0x2000
+    ToolButton = 0x4000
+
+  ControlTypes = ControlType
+
+  class Policy(CuteNum):
+    """
+    The enum 'QSizePolicy::Policy' of Qt, with the 7 names Qt gives in it.
+    """
+
+    Fixed = Kee[int](0)
+    Minimum = Kee[int](1)
+    Maximum = Kee[int](4)
+    Preferred = Kee[int](5)
+    MinimumExpanding = Kee[int](3)
+    Expanding = Kee[int](7)
+    Ignored = Kee[int](13)
+
+  class PolicyFlag(CuteNum):
+    """
+    The enum 'QSizePolicy::PolicyFlag' of Qt, with the 4 names Qt gives in
+    it.
+    """
+
+    GrowFlag = Kee[int](1)
+    ExpandFlag = Kee[int](2)
+    ShrinkFlag = Kee[int](4)
+    IgnoreFlag = Kee[int](8)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

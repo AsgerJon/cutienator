@@ -11,18 +11,16 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QMainWindowDockOption, QTabWidgetTabPosition
-from . import QTabWidgetTabShape, QWidget
+from . import QTabWidget, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QByteArray, QMetaObject, QPoint, QSize
-  from . import QDockWidget, QMenu, QMenuBar, QStatusBar, QTabWidget
-  from . import QToolBar
+  from . import QDockWidget, QMenu, QMenuBar, QStatusBar, QToolBar
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -95,10 +93,23 @@ class QMainWindow(QWidget):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QMainWindow, and the names Qt has for the
-  #  combinations of its flags enums.
-  DockOption = QMainWindowDockOption
-  DockOptions = QMainWindowDockOption
+  #  The enums Qt writes inside QMainWindow, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class DockOption(CuteFlags):
+    """
+    The flags enum 'QMainWindow::DockOption' of Qt, with the 6 names Qt gives
+    in it. Qt names the type of its combinations 'QMainWindow::DockOptions'.
+    """
+
+    AnimatedDocks = 0x1
+    AllowNestedDocks = 0x2
+    AllowTabbedDocks = 0x4
+    ForceTabbedDocks = 0x8
+    VerticalTabs = 0x10
+    GroupedDragging = 0x20
+
+  DockOptions = DockOption
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -266,7 +277,7 @@ class QMainWindow(QWidget):
       'QTabWidget.TabShape(number)' gives.
     """
     #  QTabWidget::TabShape QMainWindow::tabShape() const
-    return QTabWidgetTabShape(self.uglySide.call(
+    return QTabWidget.TabShape(self.uglySide.call(
         'ritual_ZNK11QMainWindow8tabShapeEv',
     ))
 
@@ -294,7 +305,7 @@ class QMainWindow(QWidget):
     """
     #  QTabWidget::TabPosition QMainWindow::tabPosition(Qt::DockWidgetArea
     #      area) const
-    return QTabWidgetTabPosition(self.uglySide.call(
+    return QTabWidget.TabPosition(self.uglySide.call(
         'ritual_ZNK11QMainWindow11tabPositionEN2Qt14DockWidgetAreaE',
         area.value,
     ))
@@ -618,7 +629,7 @@ class QMainWindow(QWidget):
     #  void QMainWindow::setDocumentMode(bool enabled)
     self.uglySide.call('ritual_ZN11QMainWindow15setDocumentModeEb', enabled)
 
-  @overload(QTabWidgetTabShape)
+  @overload(QTabWidget.TabShape)
   def setTabShape(self, tabShape: QTabWidget.TabShape) -> None:
     """
     Calls Qt's 'void QMainWindow::setTabShape(QTabWidget::TabShape
@@ -638,7 +649,7 @@ class QMainWindow(QWidget):
         tabShape.value,
     )
 
-  @overload(Qt.DockWidgetAreas, QTabWidgetTabPosition)
+  @overload(Qt.DockWidgetAreas, QTabWidget.TabPosition)
   def setTabPosition(
       self,
       areas: Qt.DockWidgetAreas,

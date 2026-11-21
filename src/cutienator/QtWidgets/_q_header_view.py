@@ -10,11 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QAbstractItemView, QHeaderViewResizeMode, QWidget
+from . import QAbstractItemView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -98,9 +99,20 @@ class QHeaderView(QAbstractItemView):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QHeaderView, and the names Qt has for the
-  #  combinations of its flags enums.
-  ResizeMode = QHeaderViewResizeMode
+  #  The enums Qt writes inside QHeaderView, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class ResizeMode(CuteNum):
+    """
+    The enum 'QHeaderView::ResizeMode' of Qt, with the 5 names Qt gives in
+    it.
+    """
+
+    Interactive = Kee[int](0)
+    Stretch = Kee[int](1)
+    Fixed = Kee[int](2)
+    ResizeToContents = Kee[int](3)
+    Custom = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

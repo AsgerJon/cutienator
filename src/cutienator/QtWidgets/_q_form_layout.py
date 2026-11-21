@@ -10,12 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QFormLayoutFieldGrowthPolicy, QFormLayoutItemRole
-from . import QFormLayoutRowWrapPolicy, QFormLayoutTakeRowResult, QLayout
+from . import QLayout
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -86,14 +86,142 @@ class QFormLayout(QLayout):
     and nothing reaches C++.
   """
 
-  #  The classes Qt writes inside QFormLayout.
-  TakeRowResult = QFormLayoutTakeRowResult
+  #  The enums Qt writes inside QFormLayout, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
 
-  #  The enums Qt writes inside QFormLayout, and the names Qt has for the
-  #  combinations of its flags enums.
-  FieldGrowthPolicy = QFormLayoutFieldGrowthPolicy
-  ItemRole = QFormLayoutItemRole
-  RowWrapPolicy = QFormLayoutRowWrapPolicy
+  class FieldGrowthPolicy(CuteNum):
+    """
+    The enum 'QFormLayout::FieldGrowthPolicy' of Qt, with the 3 names Qt
+    gives in it.
+    """
+
+    FieldsStayAtSizeHint = Kee[int](0)
+    ExpandingFieldsGrow = Kee[int](1)
+    AllNonFixedFieldsGrow = Kee[int](2)
+
+  class ItemRole(CuteNum):
+    """
+    The enum 'QFormLayout::ItemRole' of Qt, with the 3 names Qt gives in it.
+    """
+
+    LabelRole = Kee[int](0)
+    FieldRole = Kee[int](1)
+    SpanningRole = Kee[int](2)
+
+  class RowWrapPolicy(CuteNum):
+    """
+    The enum 'QFormLayout::RowWrapPolicy' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    DontWrapRows = Kee[int](0)
+    WrapLongRows = Kee[int](1)
+    WrapAllRows = Kee[int](2)
+
+  #  The classes Qt writes inside QFormLayout, each a class in here as in
+  #  C++.
+
+  class TakeRowResult(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QFormLayout::TakeRowResult: a plain Python object
+    standing in front of one C++ QFormLayout::TakeRowResult.
+
+    C++ hands a QFormLayout::TakeRowResult around as a copy, so every C++
+    QFormLayout::TakeRowResult behind a cute one is Python's own: it is
+    removed, by the ritual named in '__delete_ritual__', when the cute object
+    goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QFormLayout::TakeRowResult yet. None can be made from
+    Python: one comes out of a function of another class that gives one back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QFormLayout::TakeRowResult::~TakeRowResult()': the destructor:
+      Python removes its C++ QFormLayout::TakeRowResult by it, and has no
+      other use for it.
+
+    What to expect
+    --------------
+
+    - The C++ QFormLayout::TakeRowResult is created at the first use, not by
+      'QFormLayout::TakeRowResult(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QFormLayout::TakeRowResult back gives a copy the
+      ritual made for Python, in a new cute QFormLayout::TakeRowResult.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QFormLayout::TakeRowResult'
+
+    #  Qt's '~QFormLayout::TakeRowResult()'. Naming it makes this a value
+    #  class: Python owns every C++ QFormLayout::TakeRowResult behind a cute
+    #  one, and removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN11QFormLayout13TakeRowResultD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1336,7 +1464,7 @@ class QFormLayout(QLayout):
     """
     #  TakeRowResult QFormLayout::takeRow(int row)
     address = self.uglySide.call('ritual_ZN11QFormLayout7takeRowEi', row)
-    return QFormLayoutTakeRowResult._cuteOwning(address)
+    return QFormLayout.TakeRowResult._cuteOwning(address)
 
   @overload(QWidget)
   @overload(NoneType)
@@ -1364,7 +1492,7 @@ class QFormLayout(QLayout):
     address = self.uglySide.call(
         'ritual_ZN11QFormLayout7takeRowEP7QWidget', self._addressOf(widget),
     )
-    return QFormLayoutTakeRowResult._cuteOwning(address)
+    return QFormLayout.TakeRowResult._cuteOwning(address)
 
   @overload(QLayout)
   def takeRow(self, layout: Optional[QLayout]) -> TakeRowResult:
@@ -1391,7 +1519,7 @@ class QFormLayout(QLayout):
     address = self.uglySide.call(
         'ritual_ZN11QFormLayout7takeRowEP7QLayout', self._addressOf(layout),
     )
-    return QFormLayoutTakeRowResult._cuteOwning(address)
+    return QFormLayout.TakeRowResult._cuteOwning(address)
 
   @overload(QLayoutItem)
   @overload(NoneType)

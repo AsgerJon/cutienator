@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import WAIT
+from ..cute import CuteNum, WAIT
 from ..occult import Rituals
-from . import QTextFormat, QTextFrameFormatBorderStyle
-from . import QTextFrameFormatPosition
+from . import QTextFormat
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QBrush, QTextLength
@@ -75,10 +75,36 @@ class QTextFrameFormat(QTextFormat):
     for Python, in a new cute QTextFrameFormat.
   """
 
-  #  The enums Qt writes inside QTextFrameFormat, and the names Qt has for
-  #  the combinations of its flags enums.
-  BorderStyle = QTextFrameFormatBorderStyle
-  Position = QTextFrameFormatPosition
+  #  The enums Qt writes inside QTextFrameFormat, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class BorderStyle(CuteNum):
+    """
+    The enum 'QTextFrameFormat::BorderStyle' of Qt, with the 11 names Qt
+    gives in it.
+    """
+
+    BorderStyle_None = Kee[int](0)
+    BorderStyle_Dotted = Kee[int](1)
+    BorderStyle_Dashed = Kee[int](2)
+    BorderStyle_Solid = Kee[int](3)
+    BorderStyle_Double = Kee[int](4)
+    BorderStyle_DotDash = Kee[int](5)
+    BorderStyle_DotDotDash = Kee[int](6)
+    BorderStyle_Groove = Kee[int](7)
+    BorderStyle_Ridge = Kee[int](8)
+    BorderStyle_Inset = Kee[int](9)
+    BorderStyle_Outset = Kee[int](10)
+
+  class Position(CuteNum):
+    """
+    The enum 'QTextFrameFormat::Position' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    InFlow = Kee[int](0)
+    FloatLeft = Kee[int](1)
+    FloatRight = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

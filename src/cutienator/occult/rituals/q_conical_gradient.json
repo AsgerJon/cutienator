@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qbrush.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QConicalGradientC1Ev": ["address"],
+    "ritual_ZN16QConicalGradientC1ERK7QPointFd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN16QConicalGradientC1Eddd": [
+      "address", "double", "double", "double"
+    ],
+    "ritual_ZN16QConicalGradientD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QConicalGradient6centerEv": ["address", "address"],
+    "ritual_ZN16QConicalGradient9setCenterERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QConicalGradient9setCenterEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK16QConicalGradient5angleEv": ["double", "address"],
+    "ritual_ZN16QConicalGradient8setAngleEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

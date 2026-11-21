@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QActionGroupExclusionPolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -79,9 +79,19 @@ class QActionGroup(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QActionGroup, and the names Qt has for the
-  #  combinations of its flags enums.
-  ExclusionPolicy = QActionGroupExclusionPolicy
+  #  The enums Qt writes inside QActionGroup, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class ExclusionPolicy(CuteNum, scoped=True):
+    """
+    The enum 'QActionGroup::ExclusionPolicy' of Qt, with the 3 names Qt gives
+    in it. C++ keeps these names inside the enum, so the class that holds the
+    enum does not have them.
+    """
+
+    NULL = Kee[int](0)
+    Exclusive = Kee[int](1)
+    ExclusiveOptional = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

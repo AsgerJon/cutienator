@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qtemporarydir.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QTemporaryDirC1Ev": ["address"],
+    "ritual_ZN13QTemporaryDirC1ERK7QString": ["address", "text"],
+    "ritual_ZN13QTemporaryDirD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QTemporaryDir7isValidEv": ["bool", "address"],
+    "ritual_ZNK13QTemporaryDir11errorStringEv": ["text", "address"],
+    "ritual_ZNK13QTemporaryDir10autoRemoveEv": ["bool", "address"],
+    "ritual_ZN13QTemporaryDir13setAutoRemoveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QTemporaryDir6removeEv": ["bool", "address"],
+    "ritual_ZNK13QTemporaryDir4pathEv": ["text", "address"],
+    "ritual_ZNK13QTemporaryDir8filePathERK7QString": [
+      "text", "address", "text"
+    ]
+  }
+}

@@ -11,11 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..QtCore import Qt
-from . import QGraphicsItemCacheMode, QGraphicsItemGraphicsItemChange
-from . import QGraphicsItemGraphicsItemFlag, QGraphicsItemPanelModality
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -122,13 +121,98 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QGraphicsItem.
   """
 
-  #  The enums Qt writes inside QGraphicsItem, and the names Qt has for the
-  #  combinations of its flags enums.
-  CacheMode = QGraphicsItemCacheMode
-  GraphicsItemChange = QGraphicsItemGraphicsItemChange
-  GraphicsItemFlag = QGraphicsItemGraphicsItemFlag
-  GraphicsItemFlags = QGraphicsItemGraphicsItemFlag
-  PanelModality = QGraphicsItemPanelModality
+  #  The enums Qt writes inside QGraphicsItem, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class CacheMode(CuteNum):
+    """
+    The enum 'QGraphicsItem::CacheMode' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    NoCache = Kee[int](0)
+    ItemCoordinateCache = Kee[int](1)
+    DeviceCoordinateCache = Kee[int](2)
+
+  class GraphicsItemChange(CuteNum):
+    """
+    The enum 'QGraphicsItem::GraphicsItemChange' of Qt, with the 33 names Qt
+    gives in it.
+    """
+
+    ItemPositionChange = Kee[int](0)
+    ItemVisibleChange = Kee[int](2)
+    ItemEnabledChange = Kee[int](3)
+    ItemSelectedChange = Kee[int](4)
+    ItemParentChange = Kee[int](5)
+    ItemChildAddedChange = Kee[int](6)
+    ItemChildRemovedChange = Kee[int](7)
+    ItemTransformChange = Kee[int](8)
+    ItemPositionHasChanged = Kee[int](9)
+    ItemTransformHasChanged = Kee[int](10)
+    ItemSceneChange = Kee[int](11)
+    ItemVisibleHasChanged = Kee[int](12)
+    ItemEnabledHasChanged = Kee[int](13)
+    ItemSelectedHasChanged = Kee[int](14)
+    ItemParentHasChanged = Kee[int](15)
+    ItemSceneHasChanged = Kee[int](16)
+    ItemCursorChange = Kee[int](17)
+    ItemCursorHasChanged = Kee[int](18)
+    ItemToolTipChange = Kee[int](19)
+    ItemToolTipHasChanged = Kee[int](20)
+    ItemFlagsChange = Kee[int](21)
+    ItemFlagsHaveChanged = Kee[int](22)
+    ItemZValueChange = Kee[int](23)
+    ItemZValueHasChanged = Kee[int](24)
+    ItemOpacityChange = Kee[int](25)
+    ItemOpacityHasChanged = Kee[int](26)
+    ItemScenePositionHasChanged = Kee[int](27)
+    ItemRotationChange = Kee[int](28)
+    ItemRotationHasChanged = Kee[int](29)
+    ItemScaleChange = Kee[int](30)
+    ItemScaleHasChanged = Kee[int](31)
+    ItemTransformOriginPointChange = Kee[int](32)
+    ItemTransformOriginPointHasChanged = Kee[int](33)
+
+  class GraphicsItemFlag(CuteFlags):
+    """
+    The flags enum 'QGraphicsItem::GraphicsItemFlag' of Qt, with the 20 names
+    Qt gives in it. Qt names the type of its combinations
+    'QGraphicsItem::GraphicsItemFlags'.
+    """
+
+    ItemIsMovable = 0x1
+    ItemIsSelectable = 0x2
+    ItemIsFocusable = 0x4
+    ItemClipsToShape = 0x8
+    ItemClipsChildrenToShape = 0x10
+    ItemIgnoresTransformations = 0x20
+    ItemIgnoresParentOpacity = 0x40
+    ItemDoesntPropagateOpacityToChildren = 0x80
+    ItemStacksBehindParent = 0x100
+    ItemUsesExtendedStyleOption = 0x200
+    ItemHasNoContents = 0x400
+    ItemSendsGeometryChanges = 0x800
+    ItemAcceptsInputMethod = 0x1000
+    ItemNegativeZStacksBehindParent = 0x2000
+    ItemIsPanel = 0x4000
+    ItemIsFocusScope = 0x8000
+    ItemSendsScenePositionChanges = 0x10000
+    ItemStopsClickFocusPropagation = 0x20000
+    ItemStopsFocusHandling = 0x40000
+    ItemContainsChildrenInShape = 0x80000
+
+  GraphicsItemFlags = GraphicsItemFlag
+
+  class PanelModality(CuteNum):
+    """
+    The enum 'QGraphicsItem::PanelModality' of Qt, with the 3 names Qt gives
+    in it.
+    """
+
+    NonModal = Kee[int](0)
+    PanelModal = Kee[int](1)
+    SceneModal = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

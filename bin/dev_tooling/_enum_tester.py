@@ -1,4 +1,4 @@
-"""EnumTester verifies the enum files an 'EnumGenerator' wrote."""
+"""EnumTester verifies the numbers 'EnumGenerator' has for some enums."""
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
@@ -21,12 +21,12 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
 class EnumTester:
   """
-  Verifies the files that 'EnumGenerator' wrote for some enums of Qt.
+  Verifies the numbers 'EnumGenerator' writes for some enums of Qt.
   This is the tester side of the tooling. It takes nothing the generator
   says on trust: it asks the compiler for every number.
 
     tester = EnumTester()
-    tester.setEnumGenerators(*generators)    # after each 'write()'
+    tester.setEnumGenerators(*generators)
     tester.test()
     tester.passed()      # True when no fault was found
     tester.getFaults()   # each fault, in words
@@ -36,13 +36,12 @@ class EnumTester:
   What it checks
   --------------
 
-  1. The file of each enum on disk is what its generator would write
-     now.
-  2. A small C++ program, compiled by 'clang++' against Qt's own
-     headers and run once, prints the number of every name of every
-     enum. Each has to be the number the file holds. The generator
-     took its numbers from what the compiler wrote down while the
-     headers were read; this asks the compiler itself.
+  A small C++ program, compiled by 'clang++' against Qt's own headers
+  and run once, prints the number of every name of every enum. Each has
+  to be the number the generator writes. The generator took its numbers
+  from what the compiler wrote down while the headers were read; this
+  asks the compiler itself. That the class of an enum stands in the
+  file of its class as the generator writes it is for 'ClassTester'.
 
   All enums are asked for in one program, so the test takes one run of
   the compiler however many enums it is given.
@@ -210,18 +209,6 @@ class EnumTester:
       The compiler could not be asked; see '_askCompiler'.
     """
     faults = []  # type: List[str]
-    for generator in self.getEnumGenerators():
-      enumName, enumFile = generator.getEnumName(), generator.getEnumFile()
-      if not os.path.isfile(enumFile):
-        infoSpec = """The enum '%s' has no file at '%s'."""
-        faults.append(infoSpec % (enumName, enumFile))
-        continue
-      with open(enumFile) as file:
-        onDisk = file.read()
-      if onDisk != generator.getEnumText():
-        infoSpec = """The file of the enum '%s' is not what its generator
-        would write now."""
-        faults.append(' '.join((infoSpec % enumName).split()))
     asked = self._askCompiler()
     for generator in self.getEnumGenerators():
       enumName = generator.getEnumName()
@@ -231,7 +218,9 @@ class EnumTester:
           infoSpec = """The compiler printed no number for '%s'."""
           faults.append(infoSpec % fullName)
         elif (asked[fullName] - number) % (1 << 64):
-          infoSpec = """'%s' is %d in the file and %d to the compiler."""
-          faults.append(infoSpec % (fullName, number, asked[fullName]))
+          infoSpec = """'%s' is %d to the generator and %d to the
+          compiler."""
+          info = infoSpec % (fullName, number, asked[fullName])
+          faults.append(' '.join(info.split()))
     self.__found_faults__ = (*faults,)
     return self.__found_faults__

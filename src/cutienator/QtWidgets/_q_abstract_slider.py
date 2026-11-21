@@ -10,11 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, CuteNum
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QAbstractSliderSliderAction, QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -74,9 +75,23 @@ class QAbstractSlider(QWidget):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QAbstractSlider, and the names Qt has for the
-  #  combinations of its flags enums.
-  SliderAction = QAbstractSliderSliderAction
+  #  The enums Qt writes inside QAbstractSlider, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class SliderAction(CuteNum):
+    """
+    The enum 'QAbstractSlider::SliderAction' of Qt, with the 8 names Qt gives
+    in it.
+    """
+
+    SliderNoAction = Kee[int](0)
+    SliderSingleStepAdd = Kee[int](1)
+    SliderSingleStepSub = Kee[int](2)
+    SliderPageStepAdd = Kee[int](3)
+    SliderPageStepSub = Kee[int](4)
+    SliderToMinimum = Kee[int](5)
+    SliderToMaximum = Kee[int](6)
+    SliderMove = Kee[int](7)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

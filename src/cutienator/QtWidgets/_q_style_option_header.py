@@ -11,13 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteNum
 from ..occult import Rituals
-from . import QStyleOption, QStyleOptionHeaderSectionPosition
-from . import QStyleOptionHeaderSelectedPosition
-from . import QStyleOptionHeaderSortIndicator
-from . import QStyleOptionHeaderStyleOptionType
-from . import QStyleOptionHeaderStyleOptionVersion
+from . import QStyleOption
 
 
 class QStyleOptionHeader(QStyleOption):
@@ -64,13 +62,56 @@ class QStyleOptionHeader(QStyleOption):
     for Python, in a new cute QStyleOptionHeader.
   """
 
-  #  The enums Qt writes inside QStyleOptionHeader, and the names Qt has for
-  #  the combinations of its flags enums.
-  SectionPosition = QStyleOptionHeaderSectionPosition
-  SelectedPosition = QStyleOptionHeaderSelectedPosition
-  SortIndicator = QStyleOptionHeaderSortIndicator
-  StyleOptionType = QStyleOptionHeaderStyleOptionType
-  StyleOptionVersion = QStyleOptionHeaderStyleOptionVersion
+  #  The enums Qt writes inside QStyleOptionHeader, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class SectionPosition(CuteNum):
+    """
+    The enum 'QStyleOptionHeader::SectionPosition' of Qt, with the 4 names Qt
+    gives in it.
+    """
+
+    Beginning = Kee[int](0)
+    Middle = Kee[int](1)
+    End = Kee[int](2)
+    OnlyOneSection = Kee[int](3)
+
+  class SelectedPosition(CuteNum):
+    """
+    The enum 'QStyleOptionHeader::SelectedPosition' of Qt, with the 4 names
+    Qt gives in it.
+    """
+
+    NotAdjacent = Kee[int](0)
+    NextIsSelected = Kee[int](1)
+    PreviousIsSelected = Kee[int](2)
+    NextAndPreviousAreSelected = Kee[int](3)
+
+  class SortIndicator(CuteNum):
+    """
+    The enum 'QStyleOptionHeader::SortIndicator' of Qt, with the 3 names Qt
+    gives in it.
+    """
+
+    NULL = Kee[int](0)
+    SortUp = Kee[int](1)
+    SortDown = Kee[int](2)
+
+  class StyleOptionType(CuteNum):
+    """
+    The enum 'QStyleOptionHeader::StyleOptionType' of Qt, with the 1 names Qt
+    gives in it.
+    """
+
+    Type = Kee[int](8)
+
+  class StyleOptionVersion(CuteNum):
+    """
+    The enum 'QStyleOptionHeader::StyleOptionVersion' of Qt, with the 1 names
+    Qt gives in it.
+    """
+
+    Version = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

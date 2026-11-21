@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
-from . import QSystemSemaphoreAccessMode
-from . import QSystemSemaphoreSystemSemaphoreError
+from . import QNativeIpcKey
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -33,35 +33,16 @@ class QSystemSemaphore(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QSystemSemaphore that has a ritual and that Python
-  can call so far, 7 names in all: 'tr', 'setKey', 'key', 'acquire',
-  'release', 'error', 'errorString'. It can be made from Python, in 1 way;
-  see '__init__'.
+  can call so far, 12 names in all: 'tr', 'setNativeKey', 'nativeIpcKey',
+  'setKey', 'key', 'acquire', 'release', 'error', 'errorString',
+  'isKeyTypeSupported', 'platformSafeKey', 'legacyNativeKey'. It can be made
+  from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QSystemSemaphore::QSystemSemaphore(const QNativeIpcKey &key, int
-    initialValue, AccessMode a2)': names 'QNativeIpcKey', which has no cute
-    class yet.
   - Qt's 'QSystemSemaphore::~QSystemSemaphore()': the destructor: Python
     never removes a C++ QSystemSemaphore.
-  - Qt's 'void QSystemSemaphore::setNativeKey(const QNativeIpcKey &key, int
-    initialValue, AccessMode a2)': names 'QNativeIpcKey', which has no cute
-    class yet.
-  - Qt's 'void QSystemSemaphore::setNativeKey(const QString &key, int
-    initialValue, AccessMode mode, QNativeIpcKey::Type type)': names the enum
-    'QNativeIpcKey::Type', whose class cannot be named here.
-  - Qt's 'QNativeIpcKey QSystemSemaphore::nativeIpcKey() const': gives
-    'QNativeIpcKey', which has no cute class yet.
-  - Qt's 'bool QSystemSemaphore::isKeyTypeSupported(QNativeIpcKey::Type
-    type)': names the enum 'QNativeIpcKey::Type', whose class cannot be named
-    here.
-  - Qt's 'QNativeIpcKey QSystemSemaphore::platformSafeKey(const QString &key,
-    QNativeIpcKey::Type type)': names the enum 'QNativeIpcKey::Type', whose
-    class cannot be named here.
-  - Qt's 'QNativeIpcKey QSystemSemaphore::legacyNativeKey(const QString &key,
-    QNativeIpcKey::Type type)': names the enum 'QNativeIpcKey::Type', whose
-    class cannot be named here.
 
   What has no ritual
   ------------------
@@ -82,10 +63,31 @@ class QSystemSemaphore(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QSystemSemaphore.
   """
 
-  #  The enums Qt writes inside QSystemSemaphore, and the names Qt has for
-  #  the combinations of its flags enums.
-  AccessMode = QSystemSemaphoreAccessMode
-  SystemSemaphoreError = QSystemSemaphoreSystemSemaphoreError
+  #  The enums Qt writes inside QSystemSemaphore, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class AccessMode(CuteNum):
+    """
+    The enum 'QSystemSemaphore::AccessMode' of Qt, with the 2 names Qt gives
+    in it.
+    """
+
+    Open = Kee[int](0)
+    Create = Kee[int](1)
+
+  class SystemSemaphoreError(CuteNum):
+    """
+    The enum 'QSystemSemaphore::SystemSemaphoreError' of Qt, with the 7 names
+    Qt gives in it.
+    """
+
+    NoError = Kee[int](0)
+    PermissionDenied = Kee[int](1)
+    KeyError = Kee[int](2)
+    AlreadyExists = Kee[int](3)
+    NotFound = Kee[int](4)
+    OutOfResources = Kee[int](5)
+    UnknownError = Kee[int](6)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -140,6 +142,97 @@ class QSystemSemaphore(CuteMixin, metaclass=MetaCute):
         n,
     )
 
+  @staticmethod
+  @overload(QNativeIpcKey.Type)
+  def isKeyTypeSupported(type: QNativeIpcKey.Type) -> bool:
+    """
+    Calls Qt's 'bool QSystemSemaphore::isKeyTypeSupported(QNativeIpcKey::Type
+    type)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsystemsemaphore.html#isKeyTypeSupported
+
+    Parameters
+    ----------
+
+    type : QNativeIpcKey.Type
+      Passed on as its number.
+    """
+    #  bool QSystemSemaphore::isKeyTypeSupported(QNativeIpcKey::Type type)
+    return Rituals.call(
+        'ritual_ZN16QSystemSemaphore18isKeyTypeSupportedEN13QNativeIpcKey4T'
+        'ypeE',
+        type.value,
+    )
+
+  @staticmethod
+  @overload(str, QNativeIpcKey.Type)
+  def platformSafeKey(key: str, type: QNativeIpcKey.Type) -> QNativeIpcKey:
+    """
+    Calls Qt's 'QNativeIpcKey QSystemSemaphore::platformSafeKey(const QString
+    &key, QNativeIpcKey::Type type)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsystemsemaphore.html#platformSafeKey
+
+    Parameters
+    ----------
+
+    key : str
+      Passed on as it is: a QString is made of it for the call.
+
+    type : QNativeIpcKey.Type
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QNativeIpcKey
+      A new cute QNativeIpcKey around the copy Qt gave back. Python owns it.
+    """
+    #  QNativeIpcKey QSystemSemaphore::platformSafeKey(const QString &key,
+    #      QNativeIpcKey::Type type)
+    address = Rituals.call(
+        'ritual_ZN16QSystemSemaphore15platformSafeKeyERK7QStringN13QNativeI'
+        'pcKey4TypeE',
+        key, type.value,
+    )
+    return QNativeIpcKey._cuteOwning(address)
+
+  @staticmethod
+  @overload(str, QNativeIpcKey.Type)
+  def legacyNativeKey(key: str, type: QNativeIpcKey.Type) -> QNativeIpcKey:
+    """
+    Calls Qt's 'QNativeIpcKey QSystemSemaphore::legacyNativeKey(const QString
+    &key, QNativeIpcKey::Type type)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsystemsemaphore.html#legacyNativeKey
+
+    Parameters
+    ----------
+
+    key : str
+      Passed on as it is: a QString is made of it for the call.
+
+    type : QNativeIpcKey.Type
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QNativeIpcKey
+      A new cute QNativeIpcKey around the copy Qt gave back. Python owns it.
+    """
+    #  QNativeIpcKey QSystemSemaphore::legacyNativeKey(const QString &key,
+    #      QNativeIpcKey::Type type)
+    address = Rituals.call(
+        'ritual_ZN16QSystemSemaphore15legacyNativeKeyERK7QStringN13QNativeI'
+        'pcKey4TypeE',
+        key, type.value,
+    )
+    return QNativeIpcKey._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -159,6 +252,24 @@ class QSystemSemaphore(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def nativeIpcKey(self) -> QNativeIpcKey:
+    """
+    Calls Qt's 'QNativeIpcKey QSystemSemaphore::nativeIpcKey() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsystemsemaphore.html#nativeIpcKey
+
+    Returns
+    -------
+
+    QNativeIpcKey
+      A new cute QNativeIpcKey around the copy Qt gave back. Python owns it.
+    """
+    #  QNativeIpcKey QSystemSemaphore::nativeIpcKey() const
+    address = self.uglySide.call(
+        'ritual_ZNK16QSystemSemaphore12nativeIpcKeyEv',
+    )
+    return QNativeIpcKey._cuteOwning(address)
 
   def key(self) -> str:
     """
@@ -213,6 +324,80 @@ class QSystemSemaphore(CuteMixin, metaclass=MetaCute):
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QNativeIpcKey)
+  @overload(QNativeIpcKey, int)
+  @overload(QNativeIpcKey, int, AccessMode)
+  def setNativeKey(
+      self,
+      key: QNativeIpcKey,
+      initialValue: int = 0,
+      a2: AccessMode = AccessMode.Open,
+  ) -> None:
+    """
+    Calls Qt's 'void QSystemSemaphore::setNativeKey(const QNativeIpcKey &key,
+    int initialValue, AccessMode a2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey
+
+    Parameters
+    ----------
+
+    key : QNativeIpcKey
+      Passed on as a value: Qt reads the C++ QNativeIpcKey, which stays
+      Python's own.
+
+    initialValue : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    a2 : AccessMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      AccessMode.Open.
+    """
+    #  void QSystemSemaphore::setNativeKey(const QNativeIpcKey &key, int
+    #      initialValue, AccessMode a2)
+    self.uglySide.call(
+        'ritual_ZN16QSystemSemaphore12setNativeKeyERK13QNativeIpcKeyiNS_10A'
+        'ccessModeE',
+        self._valueOf(key), initialValue, a2.value,
+    )
+
+  @overload(str, int, AccessMode, QNativeIpcKey.Type)
+  def setNativeKey(
+      self,
+      key: str,
+      initialValue: int,
+      mode: AccessMode,
+      type: QNativeIpcKey.Type,
+  ) -> None:
+    """
+    Calls Qt's 'void QSystemSemaphore::setNativeKey(const QString &key, int
+    initialValue, AccessMode mode, QNativeIpcKey::Type type)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey
+
+    Parameters
+    ----------
+
+    key : str
+      Passed on as it is: a QString is made of it for the call.
+
+    initialValue : int
+      Passed on as it is.
+
+    mode : AccessMode
+      Passed on as its number.
+
+    type : QNativeIpcKey.Type
+      Passed on as its number.
+    """
+    #  void QSystemSemaphore::setNativeKey(const QString &key, int
+    #      initialValue, AccessMode mode, QNativeIpcKey::Type type)
+    self.uglySide.call(
+        'ritual_ZN16QSystemSemaphore12setNativeKeyERK7QStringiNS_10AccessMo'
+        'deEN13QNativeIpcKey4TypeE',
+        key, initialValue, mode.value, type.value,
+    )
+
   @overload(str)
   @overload(str, int)
   @overload(str, int, AccessMode)
@@ -259,6 +444,44 @@ class QSystemSemaphore(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QNativeIpcKey)
+  @overload(QNativeIpcKey, int)
+  @overload(QNativeIpcKey, int, AccessMode)
+  def __init__(
+      self,
+      key: QNativeIpcKey,
+      initialValue: int = 0,
+      a2: AccessMode = AccessMode.Open,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QSystemSemaphore::QSystemSemaphore(const
+    QNativeIpcKey &key, int initialValue, AccessMode a2)', which is called at
+    the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsystemsemaphore.html#QSystemSemaphore
+
+    Parameters
+    ----------
+
+    key : QNativeIpcKey
+      Passed on as a value: Qt reads the C++ QNativeIpcKey, which stays
+      Python's own.
+
+    initialValue : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    a2 : AccessMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      AccessMode.Open.
+    """
+    #  QSystemSemaphore::QSystemSemaphore(const QNativeIpcKey &key, int
+    #      initialValue, AccessMode a2)
+    self._noteCreation(QSystemSemaphore, lambda: Rituals.call(
+        'ritual_ZN16QSystemSemaphoreC1ERK13QNativeIpcKeyiNS_10AccessModeE',
+        self._valueOf(key), initialValue, a2.value,
+    ))
 
   @overload(str)
   @overload(str, int)

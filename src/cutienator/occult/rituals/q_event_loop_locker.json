@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qeventloop.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QEventLoopLockerC1Ev": ["address"],
+    "ritual_ZN16QEventLoopLockerC1EP10QEventLoop": ["address", "address"],
+    "ritual_ZN16QEventLoopLockerC1EP7QThread": ["address", "address"],
+    "ritual_ZN16QEventLoopLockerD1Ev": ["nothing", "address"]
+  }
+}

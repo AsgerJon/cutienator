@@ -11,10 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, CuteFlags
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QDockWidgetDockWidgetFeature, QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -73,10 +73,25 @@ class QDockWidget(QWidget):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QDockWidget, and the names Qt has for the
-  #  combinations of its flags enums.
-  DockWidgetFeature = QDockWidgetDockWidgetFeature
-  DockWidgetFeatures = QDockWidgetDockWidgetFeature
+  #  The enums Qt writes inside QDockWidget, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class DockWidgetFeature(CuteFlags):
+    """
+    The flags enum 'QDockWidget::DockWidgetFeature' of Qt, with the 7 names
+    Qt gives in it. Qt names the type of its combinations
+    'QDockWidget::DockWidgetFeatures'.
+    """
+
+    DockWidgetClosable = 0x1
+    DockWidgetMovable = 0x2
+    DockWidgetFloatable = 0x4
+    DockWidgetVerticalTitleBar = 0x8
+    DockWidgetFeatureMask = 0xf
+    NoDockWidgetFeatures = 0x0
+    Reserved = 0xff
+
+  DockWidgetFeatures = DockWidgetFeature
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

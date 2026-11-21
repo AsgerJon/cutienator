@@ -11,10 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QLineFIntersectionType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -70,9 +70,18 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     in a new cute QLineF.
   """
 
-  #  The enums Qt writes inside QLineF, and the names Qt has for the
-  #  combinations of its flags enums.
-  IntersectionType = QLineFIntersectionType
+  #  The enums Qt writes inside QLineF, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class IntersectionType(CuteNum):
+    """
+    The enum 'QLineF::IntersectionType' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    NoIntersection = Kee[int](0)
+    BoundedIntersection = Kee[int](1)
+    UnboundedIntersection = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

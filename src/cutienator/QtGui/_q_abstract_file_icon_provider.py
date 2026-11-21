@@ -10,11 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QAbstractFileIconProviderIconType
-from . import QAbstractFileIconProviderOption
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QFileInfo
@@ -63,11 +62,34 @@ class QAbstractFileIconProvider(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QAbstractFileIconProvider.
   """
 
-  #  The enums Qt writes inside QAbstractFileIconProvider, and the names Qt
-  #  has for the combinations of its flags enums.
-  IconType = QAbstractFileIconProviderIconType
-  Option = QAbstractFileIconProviderOption
-  Options = QAbstractFileIconProviderOption
+  #  The enums Qt writes inside QAbstractFileIconProvider, each a class in
+  #  here as in C++, and the names Qt has for the combinations of its flags
+  #  enums.
+
+  class IconType(CuteNum):
+    """
+    The enum 'QAbstractFileIconProvider::IconType' of Qt, with the 7 names Qt
+    gives in it.
+    """
+
+    Computer = Kee[int](0)
+    Desktop = Kee[int](1)
+    Trashcan = Kee[int](2)
+    Network = Kee[int](3)
+    Drive = Kee[int](4)
+    Folder = Kee[int](5)
+    File = Kee[int](6)
+
+  class Option(CuteFlags):
+    """
+    The flags enum 'QAbstractFileIconProvider::Option' of Qt, with the 1
+    names Qt gives in it. Qt names the type of its combinations
+    'QAbstractFileIconProvider::Options'.
+    """
+
+    DontUseCustomDirectoryIcons = 0x1
+
+  Options = Option
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

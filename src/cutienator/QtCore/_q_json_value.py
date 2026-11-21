@@ -11,21 +11,26 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QJsonValueType
+from . import QJsonDocument
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QJsonArray, QJsonObject, QVariant
+  from . import QByteArray, QByteArrayView, QJsonArray, QJsonObject
+  from . import QJsonParseError, QLatin1String, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QByteArrayView = WAIT['QByteArrayView']
   QJsonArray = WAIT['QJsonArray']
   QJsonObject = WAIT['QJsonObject']
+  QJsonParseError = WAIT['QJsonParseError']
+  QLatin1String = WAIT['QLatin1String']
   QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -46,26 +51,19 @@ class QJsonValue(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QJsonValue that has a ritual and that Python can
-  call so far, 18 names in all: 'fromVariant', 'toVariant', 'type', 'isNull',
-  'isBool', 'isDouble', 'isString', 'isArray', 'isObject', 'isUndefined',
-  'toBool', 'toInt', 'toInteger', 'toDouble', 'toString', 'toStringView',
-  'toArray', 'toObject'. It can be made from Python, in 9 ways; see
-  '__init__'.
+  call so far, 20 names in all: 'fromVariant', 'toVariant', 'fromJson',
+  'toJson', 'type', 'isNull', 'isBool', 'isDouble', 'isString', 'isArray',
+  'isObject', 'isUndefined', 'toBool', 'toInt', 'toInteger', 'toDouble',
+  'toString', 'toStringView', 'toArray', 'toObject'. It can be made from
+  Python, in 10 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QJsonValue::QJsonValue(qint64 v)': takes in Python what
     'QJsonValue::QJsonValue(int n)' takes.
-  - Qt's 'QJsonValue::QJsonValue(QLatin1StringView s)': names
-    'QLatin1String', which has no cute class yet.
   - Qt's 'QJsonValue::~QJsonValue()': the destructor: Python removes its C++
     QJsonValue by it, and has no other use for it.
-  - Qt's 'QJsonValue QJsonValue::fromJson(QByteArrayView json,
-    QJsonParseError *error)': names 'QJsonParseError', which has no cute
-    class yet.
-  - Qt's 'QByteArray QJsonValue::toJson(JsonFormat format) const': names the
-    enum 'QJsonDocument::JsonFormat', whose class cannot be named here.
   - Qt's 'const QJsonValue QJsonValue::operator[](const QString &key) const':
     an operator, which is not reflected yet.
   - Qt's 'const QJsonValue QJsonValue::operator[](QStringView key) const': an
@@ -94,9 +92,19 @@ class QJsonValue(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QJsonValue.
   """
 
-  #  The enums Qt writes inside QJsonValue, and the names Qt has for the
-  #  combinations of its flags enums.
-  Type = QJsonValueType
+  #  The enums Qt writes inside QJsonValue, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Type(CuteNum):
+    """The enum 'QJsonValue::Type' of Qt, with the 7 names Qt gives in it."""
+
+    Null = Kee[int](0)
+    Bool = Kee[int](1)
+    Double = Kee[int](2)
+    String = Kee[int](3)
+    Array = Kee[int](4)
+    Object = Kee[int](5)
+    Undefined = Kee[int](128)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -127,6 +135,45 @@ class QJsonValue(CuteMixin, metaclass=MetaCute):
     address = Rituals.call(
         'ritual_ZN10QJsonValue11fromVariantERK8QVariant',
         CuteMixin._valueOf(variant),
+    )
+    return QJsonValue._cuteOwning(address)
+
+  @staticmethod
+  @overload(QByteArrayView)
+  @overload(QByteArrayView, QJsonParseError)
+  @overload(QByteArrayView, NoneType)
+  def fromJson(
+      json: QByteArrayView,
+      error: Optional[QJsonParseError] = None,
+  ) -> QJsonValue:
+    """
+    Calls Qt's 'QJsonValue QJsonValue::fromJson(QByteArrayView json,
+    QJsonParseError *error)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalue.html#fromJson
+
+    Parameters
+    ----------
+
+    json : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+
+    error : Optional[QJsonParseError]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    Returns
+    -------
+
+    QJsonValue
+      A new cute QJsonValue around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonValue QJsonValue::fromJson(QByteArrayView json, QJsonParseError
+    #      *error)
+    address = Rituals.call(
+        'ritual_ZN10QJsonValue8fromJsonE14QByteArrayViewP15QJsonParseError',
+        CuteMixin._valueOf(json), CuteMixin._addressOf(error),
     )
     return QJsonValue._cuteOwning(address)
 
@@ -170,6 +217,38 @@ class QJsonValue(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK10QJsonValue9toVariantEv')
     from . import QVariant
     return QVariant._cuteOwning(address)
+
+  @overload()
+  @overload(QJsonDocument.JsonFormat)
+  def toJson(
+      self,
+      format: QJsonDocument.JsonFormat = QJsonDocument.JsonFormat.Indented,
+  ) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray QJsonValue::toJson(JsonFormat format) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalue.html#toJson
+
+    Parameters
+    ----------
+
+    format : QJsonDocument.JsonFormat
+      Passed on as its number. May be left out, as in Qt: it is then
+      QJsonDocument.JsonFormat.Indented.
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QJsonValue::toJson(JsonFormat format) const
+    address = self.uglySide.call(
+        'ritual_ZNK10QJsonValue6toJsonEN13QJsonDocument10JsonFormatE',
+        format.value,
+    )
+    from . import QByteArray
+    return QByteArray._cuteOwning(address)
 
   def type(self) -> Type:
     """
@@ -602,6 +681,26 @@ class QJsonValue(CuteMixin, metaclass=MetaCute):
     #  QJsonValue::QJsonValue(const QString &s)
     self._noteCreation(QJsonValue, lambda: Rituals.call(
         'ritual_ZN10QJsonValueC1ERK7QString', s,
+    ))
+
+  @overload(QLatin1String)
+  def __init__(self, s: QLatin1String) -> None:
+    """
+    Notes what was given, for Qt's 'QJsonValue::QJsonValue(QLatin1StringView
+    s)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalue.html#QJsonValue
+
+    Parameters
+    ----------
+
+    s : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+    """
+    #  QJsonValue::QJsonValue(QLatin1StringView s)
+    self._noteCreation(QJsonValue, lambda: Rituals.call(
+        'ritual_ZN10QJsonValueC1E13QLatin1String', self._valueOf(s),
     ))
 
   @overload(NoneType)

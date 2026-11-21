@@ -11,10 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteNum
 from ..occult import Rituals
-from . import QStyleOptionComplex, QStyleOptionGroupBoxStyleOptionType
-from . import QStyleOptionGroupBoxStyleOptionVersion
+from . import QStyleOptionComplex
 
 
 class QStyleOptionGroupBox(QStyleOptionComplex):
@@ -62,10 +63,24 @@ class QStyleOptionGroupBox(QStyleOptionComplex):
     made for Python, in a new cute QStyleOptionGroupBox.
   """
 
-  #  The enums Qt writes inside QStyleOptionGroupBox, and the names Qt has
-  #  for the combinations of its flags enums.
-  StyleOptionType = QStyleOptionGroupBoxStyleOptionType
-  StyleOptionVersion = QStyleOptionGroupBoxStyleOptionVersion
+  #  The enums Qt writes inside QStyleOptionGroupBox, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class StyleOptionType(CuteNum):
+    """
+    The enum 'QStyleOptionGroupBox::StyleOptionType' of Qt, with the 1 names
+    Qt gives in it.
+    """
+
+    Type = Kee[int](983046)
+
+  class StyleOptionVersion(CuteNum):
+    """
+    The enum 'QStyleOptionGroupBox::StyleOptionVersion' of Qt, with the 1
+    names Qt gives in it.
+    """
+
+    Version = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

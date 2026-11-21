@@ -13,14 +13,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QItemSelectionModelSelectionFlag
+from ..QtCore import Qt, QItemSelectionModel
 from . import QAbstractItemView, QTableView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
-  from ..QtCore import QRect
+  from ..QtCore import QMetaObject, QModelIndex, QPoint, QRect
   from . import QTableWidgetItem, QTableWidgetSelectionRange
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -804,8 +803,8 @@ class QTableWidget(QTableView):
         self._addressOf(item),
     )
 
-  @overload(QTableWidgetItem, QItemSelectionModelSelectionFlag)
-  @overload(NoneType, QItemSelectionModelSelectionFlag)
+  @overload(QTableWidgetItem, QItemSelectionModel.SelectionFlags)
+  @overload(NoneType, QItemSelectionModel.SelectionFlags)
   def setCurrentItem(
       self,
       item: Optional[QTableWidgetItem],
@@ -856,7 +855,7 @@ class QTableWidget(QTableView):
         'ritual_ZN12QTableWidget14setCurrentCellEii', row, column,
     )
 
-  @overload(int, int, QItemSelectionModelSelectionFlag)
+  @overload(int, int, QItemSelectionModel.SelectionFlags)
   def setCurrentCell(
       self,
       row: int,

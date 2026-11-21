@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qarraydata.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QArrayData17allocatedCapacityEv": ["long long", "address"],
+    "ritual_ZNK10QArrayData22constAllocatedCapacityEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN10QArrayData3refEv": ["bool", "address"],
+    "ritual_ZN10QArrayData5derefEv": ["bool", "address"],
+    "ritual_ZNK10QArrayData8isSharedEv": ["bool", "address"],
+    "ritual_ZN10QArrayData11needsDetachEv": ["bool", "address"],
+    "ritual_ZNK10QArrayData14detachCapacityEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZN10QArrayData10deallocateEPS_xx": [
+      "nothing", "address", "long long", "long long"
+    ]
+  }
+}

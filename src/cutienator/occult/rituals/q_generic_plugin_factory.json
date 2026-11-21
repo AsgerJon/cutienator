@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qgenericpluginfactory.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN21QGenericPluginFactory6createERK7QStringS2_": [
+      "address", "text", "text"
+    ],
+    "ritual_ZN21QGenericPluginFactoryD1Ev": ["nothing", "address"]
+  }
+}

@@ -11,10 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QMetaTypeType, QMetaTypeTypeFlag
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -95,11 +95,130 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QMetaType.
   """
 
-  #  The enums Qt writes inside QMetaType, and the names Qt has for the
-  #  combinations of its flags enums.
-  Type = QMetaTypeType
-  TypeFlag = QMetaTypeTypeFlag
-  TypeFlags = QMetaTypeTypeFlag
+  #  The enums Qt writes inside QMetaType, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Type(CuteNum):
+    """The enum 'QMetaType::Type' of Qt, with the 92 names Qt gives in it."""
+
+    Bool = Kee[int](1)
+    Int = Kee[int](2)
+    UInt = Kee[int](3)
+    LongLong = Kee[int](4)
+    ULongLong = Kee[int](5)
+    Double = Kee[int](6)
+    Long = Kee[int](32)
+    Short = Kee[int](33)
+    Char = Kee[int](34)
+    Char16 = Kee[int](56)
+    Char32 = Kee[int](57)
+    ULong = Kee[int](35)
+    UShort = Kee[int](36)
+    UChar = Kee[int](37)
+    Float = Kee[int](38)
+    SChar = Kee[int](40)
+    Nullptr = Kee[int](51)
+    QCborSimpleType = Kee[int](52)
+    Void = Kee[int](43)
+    VoidStar = Kee[int](31)
+    QChar = Kee[int](7)
+    QString = Kee[int](10)
+    QByteArray = Kee[int](12)
+    QBitArray = Kee[int](13)
+    QDate = Kee[int](14)
+    QTime = Kee[int](15)
+    QDateTime = Kee[int](16)
+    QUrl = Kee[int](17)
+    QLocale = Kee[int](18)
+    QRect = Kee[int](19)
+    QRectF = Kee[int](20)
+    QSize = Kee[int](21)
+    QSizeF = Kee[int](22)
+    QLine = Kee[int](23)
+    QLineF = Kee[int](24)
+    QPoint = Kee[int](25)
+    QPointF = Kee[int](26)
+    QEasingCurve = Kee[int](29)
+    QUuid = Kee[int](30)
+    QVariant = Kee[int](41)
+    QRegularExpression = Kee[int](44)
+    QJsonValue = Kee[int](45)
+    QJsonObject = Kee[int](46)
+    QJsonArray = Kee[int](47)
+    QJsonDocument = Kee[int](48)
+    QCborValue = Kee[int](53)
+    QCborArray = Kee[int](54)
+    QCborMap = Kee[int](55)
+    Float16 = Kee[int](63)
+    QModelIndex = Kee[int](42)
+    QPersistentModelIndex = Kee[int](50)
+    QObjectStar = Kee[int](39)
+    QVariantMap = Kee[int](8)
+    QVariantList = Kee[int](9)
+    QVariantHash = Kee[int](28)
+    QVariantPair = Kee[int](58)
+    QByteArrayList = Kee[int](49)
+    QStringList = Kee[int](11)
+    QFont = Kee[int](4096)
+    QPixmap = Kee[int](4097)
+    QBrush = Kee[int](4098)
+    QColor = Kee[int](4099)
+    QPalette = Kee[int](4100)
+    QIcon = Kee[int](4101)
+    QImage = Kee[int](4102)
+    QPolygon = Kee[int](4103)
+    QRegion = Kee[int](4104)
+    QBitmap = Kee[int](4105)
+    QCursor = Kee[int](4106)
+    QKeySequence = Kee[int](4107)
+    QPen = Kee[int](4108)
+    QTextLength = Kee[int](4109)
+    QTextFormat = Kee[int](4110)
+    QTransform = Kee[int](4112)
+    QMatrix4x4 = Kee[int](4113)
+    QVector2D = Kee[int](4114)
+    QVector3D = Kee[int](4115)
+    QVector4D = Kee[int](4116)
+    QQuaternion = Kee[int](4117)
+    QPolygonF = Kee[int](4118)
+    QColorSpace = Kee[int](4119)
+    QSizePolicy = Kee[int](8192)
+    FirstCoreType = Kee[int](1)
+    LastCoreType = Kee[int](63)
+    FirstGuiType = Kee[int](4096)
+    LastGuiType = Kee[int](4119)
+    FirstWidgetsType = Kee[int](8192)
+    LastWidgetsType = Kee[int](8192)
+    HighestInternalId = Kee[int](8192)
+    QReal = Kee[int](6)
+    UnknownType = Kee[int](0)
+    User = Kee[int](65536)
+
+  class TypeFlag(CuteFlags):
+    """
+    The flags enum 'QMetaType::TypeFlag' of Qt, with the 17 names Qt gives in
+    it. Qt names the type of its combinations 'QMetaType::TypeFlags'.
+    """
+
+    NeedsConstruction = 0x1
+    NeedsDestruction = 0x2
+    RelocatableType = 0x4
+    MovableType = 0x4
+    PointerToQObject = 0x8
+    IsEnumeration = 0x10
+    SharedPointerToQObject = 0x20
+    WeakPointerToQObject = 0x40
+    TrackingPointerToQObject = 0x80
+    IsUnsignedEnumeration = 0x100
+    IsGadget = 0x200
+    PointerToGadget = 0x400
+    IsPointer = 0x800
+    IsQmlList = 0x1000
+    IsConst = 0x2000
+    NeedsCopyConstruction = 0x4000
+    NeedsMoveConstruction = 0x8000
+
+  TypeFlags = TypeFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

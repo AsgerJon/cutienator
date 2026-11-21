@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qdirlisting.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QDirListing14const_iteratorC1Ev": ["address"],
+    "ritual_ZN11QDirListing14const_iteratorppEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

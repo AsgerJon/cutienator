@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qcolumnview.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QColumnView10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QColumnView2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QColumnViewC1EP7QWidget": ["address", "address"],
+    "ritual_ZN11QColumnViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QColumnView7indexAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QColumnView8scrollToERK11QModelIndexN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QColumnView8sizeHintEv": ["address", "address"],
+    "ritual_ZNK11QColumnView10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QColumnView8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QColumnView17setSelectionModelEP19QItemSelectionModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QColumnView12setRootIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QColumnView9selectAllEv": ["nothing", "address"],
+    "ritual_ZN11QColumnView21setResizeGripsVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QColumnView18resizeGripsVisibleEv": ["bool", "address"],
+    "ritual_ZN11QColumnView23setPreviewColumnVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QColumnView22isPreviewColumnVisibleEv": ["bool", "address"],
+    "ritual_ZNK11QColumnView13previewWidgetEv": ["address", "address"],
+    "ritual_ZN11QColumnView16setPreviewWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ]
+  }
+}

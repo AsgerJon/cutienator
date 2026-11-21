@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qstringmatcher.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QStringMatcherC1Ev": ["address"],
+    "ritual_ZN14QStringMatcherC1ERK7QStringN2Qt15CaseSensitivityE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN14QStringMatcherC1EPK5QCharxN2Qt15CaseSensitivityE": [
+      "address", "address", "long long", "int"
+    ],
+    "ritual_ZN14QStringMatcherC1E11QStringViewN2Qt15CaseSensitivityE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN14QStringMatcherC1ERKS_": ["address", "address"],
+    "ritual_ZN14QStringMatcherD1Ev": ["nothing", "address"],
+    "ritual_ZN14QStringMatcher10setPatternERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QStringMatcher18setCaseSensitivityEN2Qt15CaseSensitivityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QStringMatcher7indexInERK7QStringx": [
+      "long long", "address", "text", "long long"
+    ],
+    "ritual_ZNK14QStringMatcher7indexInEPK5QCharxx": [
+      "long long", "address", "address", "long long", "long long"
+    ],
+    "ritual_ZNK14QStringMatcher7indexInE11QStringViewx": [
+      "long long", "address", "text", "long long"
+    ],
+    "ritual_ZNK14QStringMatcher7patternEv": ["text", "address"],
+    "ritual_ZNK14QStringMatcher11patternViewEv": ["text", "address"],
+    "ritual_ZNK14QStringMatcher15caseSensitivityEv": ["int", "address"]
+  }
+}

@@ -11,16 +11,16 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt, QLocaleCountry, QTimeZoneInitialization, QTimeZoneNameType
-from . import QTimeZoneTimeType
+from . import Qt, QLocale
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QByteArrayView, QDateTime, QLocale
+  from . import QByteArray, QByteArrayView, QDateTime
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -28,7 +28,6 @@ else:
   QByteArray = WAIT['QByteArray']
   QByteArrayView = WAIT['QByteArrayView']
   QDateTime = WAIT['QDateTime']
-  QLocale = WAIT['QLocale']
 
 
 class QTimeZone(CuteMixin, metaclass=MetaCute):
@@ -44,14 +43,15 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTimeZone that has a ritual and that Python can call
-  so far, 24 names in all: 'isValid', 'fromSecondsAheadOfUtc', 'timeSpec',
+  so far, 27 names in all: 'isValid', 'fromSecondsAheadOfUtc', 'timeSpec',
   'fixedSecondsAheadOfUtc', 'isUtcOrFixedOffset', 'asBackendZone',
   'hasAlternativeName', 'id', 'country', 'comment', 'displayName',
   'abbreviation', 'offsetFromUtc', 'standardTimeOffset',
-  'daylightTimeOffset', 'hasDaylightTime', 'isDaylightTime',
-  'hasTransitions', 'systemTimeZoneId', 'systemTimeZone', 'utc',
-  'isTimeZoneIdAvailable', 'ianaIdToWindowsId', 'windowsIdToDefaultIanaId'.
-  It can be made from Python, in 5 ways; see '__init__'.
+  'daylightTimeOffset', 'hasDaylightTime', 'isDaylightTime', 'offsetData',
+  'hasTransitions', 'nextTransition', 'previousTransition',
+  'systemTimeZoneId', 'systemTimeZone', 'utc', 'isTimeZoneIdAvailable',
+  'ianaIdToWindowsId', 'windowsIdToDefaultIanaId'. It can be made from
+  Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,14 +60,6 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
     QTimeZone by it, and has no other use for it.
   - Qt's 'bool QTimeZone::isUtcOrFixedOffset() const': another kind of method
     than most functions of its name, and one name is one kind of method.
-  - Qt's 'OffsetData QTimeZone::offsetData(const QDateTime &forDateTime)
-    const': gives 'QTimeZone::OffsetData', which has no cute class yet.
-  - Qt's 'OffsetData QTimeZone::nextTransition(const QDateTime
-    &afterDateTime) const': gives 'QTimeZone::OffsetData', which has no cute
-    class yet.
-  - Qt's 'OffsetData QTimeZone::previousTransition(const QDateTime
-    &beforeDateTime) const': gives 'QTimeZone::OffsetData', which has no cute
-    class yet.
 
   What has no ritual
   ------------------
@@ -88,11 +80,139 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QTimeZone.
   """
 
-  #  The enums Qt writes inside QTimeZone, and the names Qt has for the
-  #  combinations of its flags enums.
-  Initialization = QTimeZoneInitialization
-  NameType = QTimeZoneNameType
-  TimeType = QTimeZoneTimeType
+  #  The enums Qt writes inside QTimeZone, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Initialization(CuteNum):
+    """
+    The enum 'QTimeZone::Initialization' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    LocalTime = Kee[int](0)
+    UTC = Kee[int](1)
+
+  class NameType(CuteNum):
+    """
+    The enum 'QTimeZone::NameType' of Qt, with the 4 names Qt gives in it.
+    """
+
+    DefaultName = Kee[int](0)
+    LongName = Kee[int](1)
+    ShortName = Kee[int](2)
+    OffsetName = Kee[int](3)
+
+  class TimeType(CuteNum):
+    """
+    The enum 'QTimeZone::TimeType' of Qt, with the 3 names Qt gives in it.
+    """
+
+    StandardTime = Kee[int](0)
+    DaylightTime = Kee[int](1)
+    GenericTime = Kee[int](2)
+
+  #  The classes Qt writes inside QTimeZone, each a class in here as in C++.
+
+  class OffsetData(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QTimeZone::OffsetData: a plain Python object
+    standing in front of one C++ QTimeZone::OffsetData.
+
+    C++ hands a QTimeZone::OffsetData around as a copy, so every C++
+    QTimeZone::OffsetData behind a cute one is Python's own: it is removed,
+    by the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QTimeZone::OffsetData yet. None can be made from
+    Python: one comes out of a function of another class that gives one back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QTimeZone::OffsetData::~OffsetData()': the destructor: Python
+      removes its C++ QTimeZone::OffsetData by it, and has no other use for
+      it.
+
+    What to expect
+    --------------
+
+    - The C++ QTimeZone::OffsetData is created at the first use, not by
+      'QTimeZone::OffsetData(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QTimeZone::OffsetData back gives a copy the ritual
+      made for Python, in a new cute QTimeZone::OffsetData.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QTimeZone::OffsetData'
+
+    #  Qt's '~QTimeZone::OffsetData()'. Naming it makes this a value class:
+    #  Python owns every C++ QTimeZone::OffsetData behind a cute one, and
+    #  removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN9QTimeZone10OffsetDataD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -412,7 +532,7 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  QLocale::Country QTimeZone::country() const
-    return QLocaleCountry(self.uglySide.call(
+    return QLocale.Country(self.uglySide.call(
         'ritual_ZNK9QTimeZone7countryEv',
     ))
 
@@ -470,7 +590,6 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
     #  QString QTimeZone::displayName(const QDateTime &atDateTime, NameType
     #      nameType, const QLocale &locale) const
     if locale is None:
-      from . import QLocale
       locale = QLocale()
     return self.uglySide.call(
         'ritual_ZNK9QTimeZone11displayNameERK9QDateTimeNS_8NameTypeERK7QLoc'
@@ -516,7 +635,6 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
     #  QString QTimeZone::displayName(TimeType timeType, NameType nameType,
     #      const QLocale &locale) const
     if locale is None:
-      from . import QLocale
       locale = QLocale()
     return self.uglySide.call(
         'ritual_ZNK9QTimeZone11displayNameENS_8TimeTypeENS_8NameTypeERK7QLo'
@@ -644,6 +762,35 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
         self._valueOf(atDateTime),
     )
 
+  @overload(QDateTime)
+  def offsetData(self, forDateTime: QDateTime) -> OffsetData:
+    """
+    Calls Qt's 'OffsetData QTimeZone::offsetData(const QDateTime
+    &forDateTime) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimezone.html#offsetData
+
+    Parameters
+    ----------
+
+    forDateTime : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    OffsetData
+      A new cute QTimeZone::OffsetData around the copy Qt gave back. Python
+      owns it.
+    """
+    #  OffsetData QTimeZone::offsetData(const QDateTime &forDateTime) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QTimeZone10offsetDataERK9QDateTime',
+        self._valueOf(forDateTime),
+    )
+    return QTimeZone.OffsetData._cuteOwning(address)
+
   def hasTransitions(self) -> bool:
     """
     Calls Qt's 'bool QTimeZone::hasTransitions() const'.
@@ -652,6 +799,66 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
     """
     #  bool QTimeZone::hasTransitions() const
     return self.uglySide.call('ritual_ZNK9QTimeZone14hasTransitionsEv')
+
+  @overload(QDateTime)
+  def nextTransition(self, afterDateTime: QDateTime) -> OffsetData:
+    """
+    Calls Qt's 'OffsetData QTimeZone::nextTransition(const QDateTime
+    &afterDateTime) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimezone.html#nextTransition
+
+    Parameters
+    ----------
+
+    afterDateTime : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    OffsetData
+      A new cute QTimeZone::OffsetData around the copy Qt gave back. Python
+      owns it.
+    """
+    #  OffsetData QTimeZone::nextTransition(const QDateTime &afterDateTime)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK9QTimeZone14nextTransitionERK9QDateTime',
+        self._valueOf(afterDateTime),
+    )
+    return QTimeZone.OffsetData._cuteOwning(address)
+
+  @overload(QDateTime)
+  def previousTransition(self, beforeDateTime: QDateTime) -> OffsetData:
+    """
+    Calls Qt's 'OffsetData QTimeZone::previousTransition(const QDateTime
+    &beforeDateTime) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimezone.html#previousTransition
+
+    Parameters
+    ----------
+
+    beforeDateTime : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    OffsetData
+      A new cute QTimeZone::OffsetData around the copy Qt gave back. Python
+      owns it.
+    """
+    #  OffsetData QTimeZone::previousTransition(const QDateTime
+    #      &beforeDateTime) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QTimeZone18previousTransitionERK9QDateTime',
+        self._valueOf(beforeDateTime),
+    )
+    return QTimeZone.OffsetData._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

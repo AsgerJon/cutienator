@@ -1,0 +1,19 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtGui/qaccessible_base.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/QtGui>
+#include <QtGui/qtestsupport_gui.h>
+#include <QtGui/qvulkanfunctions.h>
+#include <QtGui/qvulkaninstance.h>
+#include <QtGui/qvulkanwindow.h>
+
+//  QAccessible::State::State()
+extern "C" Q_DECL_EXPORT
+QAccessible::State *ritual_ZN11QAccessible5StateC1Ev() {
+  return new QAccessible::State();
+}
+
+//  QAccessible::State::~State()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QAccessible5StateD1Ev(QAccessible::State *self) {
+  delete self;
+}

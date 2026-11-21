@@ -11,16 +11,17 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QOpenGLContextOpenGLModuleType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QByteArray, QMetaObject
+  from . import QOpenGLContextGroup, QOpenGLExtraFunctions, QOpenGLFunctions
   from . import QScreen, QSurface, QSurfaceFormat
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -48,24 +49,19 @@ class QOpenGLContext(QObject):
   -----------
 
   Every function of Qt's QOpenGLContext that has a ritual and that Python can
-  call so far, 21 names in all: 'metaObject', 'tr', 'setFormat',
+  call so far, 24 names in all: 'metaObject', 'tr', 'setFormat',
   'setShareContext', 'setScreen', 'create', 'isValid', 'format',
-  'shareContext', 'screen', 'makeCurrent', 'doneCurrent', 'swapBuffers',
-  'surface', 'currentContext', 'areSharing', 'hasExtension',
-  'openGLModuleType', 'isOpenGLES', 'supportsThreadedOpenGL',
-  'globalShareContext'. It can be made from Python, in 1 way; see '__init__'.
+  'shareContext', 'shareGroup', 'screen', 'makeCurrent', 'doneCurrent',
+  'swapBuffers', 'surface', 'currentContext', 'areSharing', 'functions',
+  'extraFunctions', 'hasExtension', 'openGLModuleType', 'isOpenGLES',
+  'supportsThreadedOpenGL', 'globalShareContext'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QOpenGLContext::~QOpenGLContext()': the destructor: Python never
     removes a C++ QOpenGLContext.
-  - Qt's 'QOpenGLContextGroup *QOpenGLContext::shareGroup() const': gives
-    'QOpenGLContextGroup', which has no cute class yet.
-  - Qt's 'QOpenGLFunctions *QOpenGLContext::functions() const': gives
-    'QOpenGLFunctions', which has no cute class yet.
-  - Qt's 'QOpenGLExtraFunctions *QOpenGLContext::extraFunctions() const':
-    gives 'QOpenGLExtraFunctions', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -89,9 +85,17 @@ class QOpenGLContext(QObject):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QOpenGLContext, and the names Qt has for the
-  #  combinations of its flags enums.
-  OpenGLModuleType = QOpenGLContextOpenGLModuleType
+  #  The enums Qt writes inside QOpenGLContext, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class OpenGLModuleType(CuteNum):
+    """
+    The enum 'QOpenGLContext::OpenGLModuleType' of Qt, with the 2 names Qt
+    gives in it.
+    """
+
+    LibGL = Kee[int](0)
+    LibGLES = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -327,6 +331,24 @@ class QOpenGLContext(QObject):
     )
     return QOpenGLContext._cuteAt(address)
 
+  def shareGroup(self) -> Optional[QOpenGLContextGroup]:
+    """
+    Calls Qt's 'QOpenGLContextGroup *QOpenGLContext::shareGroup() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglcontext.html#shareGroup
+
+    Returns
+    -------
+
+    Optional[QOpenGLContextGroup]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QOpenGLContextGroup *QOpenGLContext::shareGroup() const
+    address = self.uglySide.call('ritual_ZNK14QOpenGLContext10shareGroupEv')
+    from . import QOpenGLContextGroup
+    return QOpenGLContextGroup._cuteAt(address)
+
   def screen(self) -> Optional[QScreen]:
     """
     Calls Qt's 'QScreen *QOpenGLContext::screen() const'.
@@ -362,6 +384,45 @@ class QOpenGLContext(QObject):
     address = self.uglySide.call('ritual_ZNK14QOpenGLContext7surfaceEv')
     from . import QSurface
     return QSurface._cuteAt(address)
+
+  def functions(self) -> Optional[QOpenGLFunctions]:
+    """
+    Calls Qt's 'QOpenGLFunctions *QOpenGLContext::functions() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglcontext.html#functions
+
+    Returns
+    -------
+
+    Optional[QOpenGLFunctions]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QOpenGLFunctions *QOpenGLContext::functions() const
+    address = self.uglySide.call('ritual_ZNK14QOpenGLContext9functionsEv')
+    from . import QOpenGLFunctions
+    return QOpenGLFunctions._cuteAt(address)
+
+  def extraFunctions(self) -> Optional[QOpenGLExtraFunctions]:
+    """
+    Calls Qt's 'QOpenGLExtraFunctions *QOpenGLContext::extraFunctions()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglcontext.html#extraFunctions
+
+    Returns
+    -------
+
+    Optional[QOpenGLExtraFunctions]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QOpenGLExtraFunctions *QOpenGLContext::extraFunctions() const
+    address = self.uglySide.call(
+        'ritual_ZNK14QOpenGLContext14extraFunctionsEv',
+    )
+    from . import QOpenGLExtraFunctions
+    return QOpenGLExtraFunctions._cuteAt(address)
 
   @overload(QByteArray)
   def hasExtension(self, extension: QByteArray) -> bool:

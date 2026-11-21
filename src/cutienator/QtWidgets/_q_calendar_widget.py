@@ -10,13 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QCalendarWidgetHorizontalHeaderFormat
-from . import QCalendarWidgetSelectionMode
-from . import QCalendarWidgetVerticalHeaderFormat, QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -93,11 +92,37 @@ class QCalendarWidget(QWidget):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QCalendarWidget, and the names Qt has for the
-  #  combinations of its flags enums.
-  HorizontalHeaderFormat = QCalendarWidgetHorizontalHeaderFormat
-  SelectionMode = QCalendarWidgetSelectionMode
-  VerticalHeaderFormat = QCalendarWidgetVerticalHeaderFormat
+  #  The enums Qt writes inside QCalendarWidget, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class HorizontalHeaderFormat(CuteNum):
+    """
+    The enum 'QCalendarWidget::HorizontalHeaderFormat' of Qt, with the 4
+    names Qt gives in it.
+    """
+
+    NoHorizontalHeader = Kee[int](0)
+    SingleLetterDayNames = Kee[int](1)
+    ShortDayNames = Kee[int](2)
+    LongDayNames = Kee[int](3)
+
+  class SelectionMode(CuteNum):
+    """
+    The enum 'QCalendarWidget::SelectionMode' of Qt, with the 2 names Qt
+    gives in it.
+    """
+
+    NoSelection = Kee[int](0)
+    SingleSelection = Kee[int](1)
+
+  class VerticalHeaderFormat(CuteNum):
+    """
+    The enum 'QCalendarWidget::VerticalHeaderFormat' of Qt, with the 2 names
+    Qt gives in it.
+    """
+
+    NoVerticalHeader = Kee[int](0)
+    ISOWeekNumbers = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

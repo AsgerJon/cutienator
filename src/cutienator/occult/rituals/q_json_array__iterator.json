@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qjsonarray.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QJsonArray8iteratorC1Ev": ["address"],
+    "ritual_ZN10QJsonArray8iteratorC1EPS_x": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN10QJsonArray8iteratorC1ERKS0_": ["address", "address"],
+    "ritual_ZNK10QJsonArray8iteratordeEv": ["address", "address"],
+    "ritual_ZNK10QJsonArray8iteratorptEv": ["address", "address"],
+    "ritual_ZN10QJsonArray8iteratorptEv": ["address", "address"],
+    "ritual_ZNK10QJsonArray8iteratorixEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN10QJsonArray8iteratorppEi": ["address", "address", "int"],
+    "ritual_ZN10QJsonArray8iteratormmEi": ["address", "address", "int"],
+    "ritual_ZNK10QJsonArray8iteratorplEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK10QJsonArray8iteratormiEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK10QJsonArray8iteratormiES0_": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN10QJsonArray8iteratorD1Ev": ["nothing", "address"]
+  }
+}

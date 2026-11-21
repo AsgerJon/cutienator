@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qstringconverter_base.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QStringConverter7isValidEv": ["bool", "address"],
+    "ritual_ZN16QStringConverter10resetStateEv": ["nothing", "address"],
+    "ritual_ZNK16QStringConverter8hasErrorEv": ["bool", "address"],
+    "ritual_ZNK16QStringConverter4nameEv": ["chars", "address"],
+    "ritual_ZN16QStringConverter15nameForEncodingENS_8EncodingE": [
+      "chars", "int"
+    ]
+  }
+}

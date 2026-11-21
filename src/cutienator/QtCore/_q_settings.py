@@ -10,10 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from . import QObject, QSettingsFormat, QSettingsScope, QSettingsStatus
+from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -77,11 +78,48 @@ class QSettings(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QSettings, and the names Qt has for the
-  #  combinations of its flags enums.
-  Format = QSettingsFormat
-  Scope = QSettingsScope
-  Status = QSettingsStatus
+  #  The enums Qt writes inside QSettings, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Format(CuteNum):
+    """
+    The enum 'QSettings::Format' of Qt, with the 19 names Qt gives in it.
+    """
+
+    NativeFormat = Kee[int](0)
+    IniFormat = Kee[int](1)
+    InvalidFormat = Kee[int](16)
+    CustomFormat1 = Kee[int](17)
+    CustomFormat2 = Kee[int](18)
+    CustomFormat3 = Kee[int](19)
+    CustomFormat4 = Kee[int](20)
+    CustomFormat5 = Kee[int](21)
+    CustomFormat6 = Kee[int](22)
+    CustomFormat7 = Kee[int](23)
+    CustomFormat8 = Kee[int](24)
+    CustomFormat9 = Kee[int](25)
+    CustomFormat10 = Kee[int](26)
+    CustomFormat11 = Kee[int](27)
+    CustomFormat12 = Kee[int](28)
+    CustomFormat13 = Kee[int](29)
+    CustomFormat14 = Kee[int](30)
+    CustomFormat15 = Kee[int](31)
+    CustomFormat16 = Kee[int](32)
+
+  class Scope(CuteNum):
+    """The enum 'QSettings::Scope' of Qt, with the 2 names Qt gives in it."""
+
+    UserScope = Kee[int](0)
+    SystemScope = Kee[int](1)
+
+  class Status(CuteNum):
+    """
+    The enum 'QSettings::Status' of Qt, with the 3 names Qt gives in it.
+    """
+
+    NoError = Kee[int](0)
+    AccessError = Kee[int](1)
+    FormatError = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

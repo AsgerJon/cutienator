@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmetacontainer.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QMetaContainerC1Ev": ["address"],
+    "ritual_ZN14QMetaContainerC1EPKN22QtMetaContainerPrivate23QMetaContainerInterfaceE": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QMetaContainer16hasInputIteratorEv": ["bool", "address"],
+    "ritual_ZNK14QMetaContainer18hasForwardIteratorEv": ["bool", "address"],
+    "ritual_ZNK14QMetaContainer24hasBidirectionalIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QMetaContainer23hasRandomAccessIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QMetaContainer7hasSizeEv": ["bool", "address"],
+    "ritual_ZNK14QMetaContainer8canClearEv": ["bool", "address"],
+    "ritual_ZNK14QMetaContainer11hasIteratorEv": ["bool", "address"],
+    "ritual_ZNK14QMetaContainer16hasConstIteratorEv": ["bool", "address"],
+    "ritual_ZN14QMetaContainerD1Ev": ["nothing", "address"]
+  }
+}

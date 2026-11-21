@@ -112,22 +112,34 @@ class TestPackages(BaseTest):
     self.assertIs(QtCore.QSize, QtCore.QSize)
     self.assertIn('QSize', vars(QtCore))
 
-  def test_a_package_gives_what_qt_writes_inside_a_class(self) -> None:
-    """An enum, and a class Qt writes inside another, is given by what
-    Qt writes it inside and its own name in one. That is how the file
-    of a class asks for it. None of them is among the names listed."""
-    self.assertIs(QtCore.QEventType, QtCore.QEvent.Type)
-    self.assertIs(QtCore.QtAlignmentFlag, QtCore.Qt.AlignmentFlag)
-    self.assertIs(QtCore.QtAlignmentFlag, QtCore.Qt.Alignment)
-    self.assertIs(QtGui.QPaletteColorRole, QtGui.QPalette.ColorRole)
-    self.assertIs(
-        QtCore.QMetaObjectConnection, QtCore.QMetaObject.Connection)
+  def test_what_qt_writes_inside_a_class_stands_inside_it(self) -> None:
+    """An enum, and a class Qt writes inside another, stands inside its
+    class and is named as C++ names it. It has no other name: the
+    package of its part does not know it."""
+    connection = QtCore.QMetaObject.Connection
+    self.assertEqual(connection.__qualname__, 'QMetaObject.Connection')
+    self.assertEqual(connection.__qt_class__, 'QMetaObject::Connection')
+    named = (
+        (QtCore.QEvent.Type, 'QEvent.Type'),
+        (QtCore.Qt.AlignmentFlag, 'Qt.AlignmentFlag'),
+        (QtGui.QPalette.ColorRole, 'QPalette.ColorRole'),
+        (QtWidgets.QWidget.RenderFlag, 'QWidget.RenderFlag'),
+    )
+    for enumClass, qualifiedName in named:
+      with self.subTest(named=qualifiedName):
+        self.assertEqual(enumClass.__qualname__, qualifiedName)
+    self.assertIs(QtCore.Qt.Alignment, QtCore.Qt.AlignmentFlag)
+    widget = QtWidgets.QWidget
+    self.assertIs(widget.RenderFlags, widget.RenderFlag)
+    unknown = (
+        'Connection', 'Type', 'AlignmentFlag', 'QEventType',
+        'QMetaObjectConnection', 'QtAlignmentFlag', 'QPaletteColorRole',
+    )
     for package in (QtCore, QtGui, QtWidgets):
-      for name, (_, heldName) in package.__inner_files__.items():
+      for name in unknown:
         with self.subTest(package=package.__name__, name=name):
-          self.assertNotIn(name, package.__all__)
-          self.assertNotIn(name, dir(package))
-          self.assertEqual(getattr(package, name).__name__, heldName)
+          with self.assertRaises(AttributeError):
+            getattr(package, name)
 
   def test_a_name_that_is_no_class_is_refused(self) -> None:
     """As for any module: 'AttributeError', and so 'ImportError'."""
@@ -148,11 +160,14 @@ class TestPackages(BaseTest):
 
   def test_a_class_file_brings_in_what_its_class_is_built_on(self) -> None:
     """The file of 'QWidget' brings in the file of 'QObject', which it
-    is built on, and the namespace 'Qt', and the file of no other
-    class. A signature naming another class waits until a program
-    brings that class in, or a function gives an object of it."""
+    is built on, the namespace 'Qt', and the file of each class that
+    holds an enum or a class it or 'QObject' names: 'QPalette',
+    'QSizePolicy' and 'QMetaObject'. It brings in no other class. A
+    signature naming another class waits until a program brings that
+    class in, or a function gives an object of it."""
     expected = [
-      'class files brought in: q_object q_widget qt',
+      'class files brought in: '
+      'q_meta_object q_object q_palette q_size_policy q_widget qt',
       'waits for QFont: True',
       'setFont is there: False',
       'setLayout is there: True',

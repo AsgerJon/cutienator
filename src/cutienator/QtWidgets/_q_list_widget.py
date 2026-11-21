@@ -13,20 +13,18 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QItemSelectionModelSelectionFlag
+from ..QtCore import Qt, QItemSelectionModel
 from . import QAbstractItemView, QListView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
-  from ..QtCore import QRect
+  from ..QtCore import QMetaObject, QModelIndex, QPoint, QRect
   from . import QListWidgetItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
-  QItemSelectionModel = WAIT['QItemSelectionModel']
   QListWidgetItem = WAIT['QListWidgetItem']
   QModelIndex = WAIT['QModelIndex']
   QPoint = WAIT['QPoint']
@@ -533,8 +531,8 @@ class QListWidget(QListView):
         self._addressOf(item),
     )
 
-  @overload(QListWidgetItem, QItemSelectionModelSelectionFlag)
-  @overload(NoneType, QItemSelectionModelSelectionFlag)
+  @overload(QListWidgetItem, QItemSelectionModel.SelectionFlags)
+  @overload(NoneType, QItemSelectionModel.SelectionFlags)
   def setCurrentItem(
       self,
       item: Optional[QListWidgetItem],
@@ -580,7 +578,7 @@ class QListWidget(QListView):
     #  void QListWidget::setCurrentRow(int row)
     self.uglySide.call('ritual_ZN11QListWidget13setCurrentRowEi', row)
 
-  @overload(int, QItemSelectionModelSelectionFlag)
+  @overload(int, QItemSelectionModel.SelectionFlags)
   def setCurrentRow(
       self,
       row: int,

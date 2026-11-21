@@ -13,13 +13,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..QtCore import Qt
-from . import QSizePolicyControlType
+from . import QSizePolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QRect, QSize
-  from . import QLayout, QSizePolicy, QSpacerItem, QWidget
+  from . import QLayout, QSpacerItem, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -281,7 +281,7 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  QSizePolicy::ControlTypes QLayoutItem::controlTypes() const
-    return QSizePolicyControlType(self.uglySide.call(
+    return QSizePolicy.ControlTypes(self.uglySide.call(
         'ritual_ZNK11QLayoutItem12controlTypesEv',
     ))
 

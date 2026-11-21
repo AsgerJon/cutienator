@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qchronotimer.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QChronoTimer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QChronoTimer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QChronoTimerC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QChronoTimerD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QChronoTimer8isActiveEv": ["bool", "address"],
+    "ritual_ZNK12QChronoTimer2idEv": ["int", "address"],
+    "ritual_ZN12QChronoTimer12setTimerTypeEN2Qt9TimerTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QChronoTimer9timerTypeEv": ["int", "address"],
+    "ritual_ZN12QChronoTimer13setSingleShotEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QChronoTimer12isSingleShotEv": ["bool", "address"],
+    "ritual_ZN12QChronoTimer5startEv": ["nothing", "address"],
+    "ritual_ZN12QChronoTimer4stopEv": ["nothing", "address"]
+  }
+}

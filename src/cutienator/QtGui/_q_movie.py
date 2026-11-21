@@ -10,17 +10,18 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QImageReaderImageReaderError, QMovieCacheMode, QMovieMovieState
+from . import QImageReader
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QByteArray, QIODevice, QMetaObject, QRect, QSize
-  from . import QColor, QImage, QImageReader, QPixmap
+  from . import QColor, QImage, QPixmap
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -83,10 +84,25 @@ class QMovie(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QMovie, and the names Qt has for the
-  #  combinations of its flags enums.
-  CacheMode = QMovieCacheMode
-  MovieState = QMovieMovieState
+  #  The enums Qt writes inside QMovie, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class CacheMode(CuteNum):
+    """
+    The enum 'QMovie::CacheMode' of Qt, with the 2 names Qt gives in it.
+    """
+
+    CacheNone = Kee[int](0)
+    CacheAll = Kee[int](1)
+
+  class MovieState(CuteNum):
+    """
+    The enum 'QMovie::MovieState' of Qt, with the 3 names Qt gives in it.
+    """
+
+    NotRunning = Kee[int](0)
+    Paused = Kee[int](1)
+    Running = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -331,7 +347,7 @@ class QMovie(QObject):
       'QImageReader.ImageReaderError(number)' gives.
     """
     #  QImageReader::ImageReaderError QMovie::lastError() const
-    return QImageReaderImageReaderError(self.uglySide.call(
+    return QImageReader.ImageReaderError(self.uglySide.call(
         'ritual_ZNK6QMovie9lastErrorEv',
     ))
 

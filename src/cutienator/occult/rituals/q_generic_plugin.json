@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qgenericplugin.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QGenericPlugin10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QGenericPlugin2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QGenericPluginD1Ev": ["nothing", "address"],
+    "ritual_ZN14QGenericPlugin6createERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ]
+  }
+}

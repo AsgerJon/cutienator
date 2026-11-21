@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QAccessibleTextSelectionEventC1EP7QObjectii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN29QAccessibleTextSelectionEventC1EP20QAccessibleInterfaceii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN29QAccessibleTextSelectionEventD1Ev": ["nothing", "address"],
+    "ritual_ZN29QAccessibleTextSelectionEvent12setSelectionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK29QAccessibleTextSelectionEvent14selectionStartEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QAccessibleTextSelectionEvent12selectionEndEv": [
+      "int", "address"
+    ]
+  }
+}

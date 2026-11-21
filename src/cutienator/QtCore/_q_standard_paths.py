@@ -10,10 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute
 from ..occult import Rituals
-from . import QStandardPathsLocateOption, QStandardPathsStandardLocation
 
 
 class QStandardPaths(CuteMixin, metaclass=MetaCute):
@@ -48,11 +48,50 @@ class QStandardPaths(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QStandardPaths.
   """
 
-  #  The enums Qt writes inside QStandardPaths, and the names Qt has for the
-  #  combinations of its flags enums.
-  LocateOption = QStandardPathsLocateOption
-  LocateOptions = QStandardPathsLocateOption
-  StandardLocation = QStandardPathsStandardLocation
+  #  The enums Qt writes inside QStandardPaths, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class LocateOption(CuteFlags):
+    """
+    The flags enum 'QStandardPaths::LocateOption' of Qt, with the 2 names Qt
+    gives in it. Qt names the type of its combinations
+    'QStandardPaths::LocateOptions'.
+    """
+
+    LocateFile = 0x0
+    LocateDirectory = 0x1
+
+  LocateOptions = LocateOption
+
+  class StandardLocation(CuteNum):
+    """
+    The enum 'QStandardPaths::StandardLocation' of Qt, with the 23 names Qt
+    gives in it.
+    """
+
+    DesktopLocation = Kee[int](0)
+    DocumentsLocation = Kee[int](1)
+    FontsLocation = Kee[int](2)
+    ApplicationsLocation = Kee[int](3)
+    MusicLocation = Kee[int](4)
+    MoviesLocation = Kee[int](5)
+    PicturesLocation = Kee[int](6)
+    TempLocation = Kee[int](7)
+    HomeLocation = Kee[int](8)
+    AppLocalDataLocation = Kee[int](9)
+    CacheLocation = Kee[int](10)
+    GenericDataLocation = Kee[int](11)
+    RuntimeLocation = Kee[int](12)
+    ConfigLocation = Kee[int](13)
+    DownloadLocation = Kee[int](14)
+    GenericCacheLocation = Kee[int](15)
+    GenericConfigLocation = Kee[int](16)
+    AppDataLocation = Kee[int](17)
+    AppConfigLocation = Kee[int](18)
+    PublicShareLocation = Kee[int](19)
+    TemplatesLocation = Kee[int](20)
+    StateLocation = Kee[int](21)
+    GenericStateLocation = Kee[int](22)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -11,15 +11,15 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt, QEventLoopProcessEventsFlag, QObject
+from . import Qt, QEventLoop, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QAbstractNativeEventFilter, QEventLoop, QMetaObject
-  from . import QSocketNotifier, QThread
+  from . import QAbstractNativeEventFilter, QMetaObject, QSocketNotifier
+  from . import QThread
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -81,6 +81,267 @@ class QAbstractEventDispatcher(QObject):
     on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
   """
+
+  #  The classes Qt writes inside QAbstractEventDispatcher, each a class in
+  #  here as in C++.
+
+  class TimerInfo(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QAbstractEventDispatcher::TimerInfo: a plain Python
+    object standing in front of one C++ QAbstractEventDispatcher::TimerInfo.
+
+    C++ hands a QAbstractEventDispatcher::TimerInfo around as a copy, so
+    every C++ QAbstractEventDispatcher::TimerInfo behind a cute one is
+    Python's own: it is removed, by the ritual named in '__delete_ritual__',
+    when the cute object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QAbstractEventDispatcher::TimerInfo yet. It can be
+    made from Python, in 2 ways; see '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QAbstractEventDispatcher::TimerInfo::~TimerInfo()': the
+      destructor: Python removes its C++ QAbstractEventDispatcher::TimerInfo
+      by it, and has no other use for it.
+
+    What to expect
+    --------------
+
+    - The C++ QAbstractEventDispatcher::TimerInfo is created at the first
+      use, not by 'QAbstractEventDispatcher::TimerInfo(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QAbstractEventDispatcher::TimerInfo back gives a
+      copy the ritual made for Python, in a new cute
+      QAbstractEventDispatcher::TimerInfo.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QAbstractEventDispatcher::TimerInfo'
+
+    #  Qt's '~QAbstractEventDispatcher::TimerInfo()'. Naming it makes this a
+    #  value class: Python owns every C++ QAbstractEventDispatcher::TimerInfo
+    #  behind a cute one, and removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN24QAbstractEventDispatcher9TimerInfoD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's
+      'QAbstractEventDispatcher::TimerInfo::TimerInfo()', which is called at
+      the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html
+      """
+      #  QAbstractEventDispatcher::TimerInfo::TimerInfo()
+      self._noteCreation(
+          QAbstractEventDispatcher.TimerInfo, lambda: Rituals.call(
+              'ritual_ZN24QAbstractEventDispatcher9TimerInfoC1Ev',
+          ))
+
+    @overload(int, int, Qt.TimerType)
+    def __init__(self, id: int, i: int, t: Qt.TimerType) -> None:
+      """
+      Notes what was given, for Qt's
+      'QAbstractEventDispatcher::TimerInfo::TimerInfo(int id, int i,
+      Qt::TimerType t)', which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html
+
+      Parameters
+      ----------
+
+      id : int
+        Passed on as it is.
+
+      i : int
+        Passed on as it is.
+
+      t : Qt.TimerType
+        Passed on as its number.
+      """
+      #  QAbstractEventDispatcher::TimerInfo::TimerInfo(int id, int i,
+      #      Qt::TimerType t)
+      self._noteCreation(
+          QAbstractEventDispatcher.TimerInfo, lambda: Rituals.call(
+              'ritual_ZN24QAbstractEventDispatcher9TimerInfoC1EiiN2Qt9Timer'
+              'TypeE',
+              id, i, t.value,
+          ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  class TimerInfoV2(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QAbstractEventDispatcher::TimerInfoV2: a plain
+    Python object standing in front of one C++
+    QAbstractEventDispatcher::TimerInfoV2.
+
+    C++ hands a QAbstractEventDispatcher::TimerInfoV2 around as a copy, so
+    every C++ QAbstractEventDispatcher::TimerInfoV2 behind a cute one is
+    Python's own: it is removed, by the ritual named in '__delete_ritual__',
+    when the cute object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QAbstractEventDispatcher::TimerInfoV2 yet. None can
+    be made from Python: one comes out of a function of another class that
+    gives one back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QAbstractEventDispatcher::TimerInfoV2::~TimerInfoV2()': the
+      destructor: Python removes its C++
+      QAbstractEventDispatcher::TimerInfoV2 by it, and has no other use for
+      it.
+
+    What to expect
+    --------------
+
+    - The C++ QAbstractEventDispatcher::TimerInfoV2 is created at the first
+      use, not by 'QAbstractEventDispatcher::TimerInfoV2(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QAbstractEventDispatcher::TimerInfoV2 back gives a
+      copy the ritual made for Python, in a new cute
+      QAbstractEventDispatcher::TimerInfoV2.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QAbstractEventDispatcher::TimerInfoV2'
+
+    #  Qt's '~QAbstractEventDispatcher::TimerInfoV2()'. Naming it makes this
+    #  a value class: Python owns every C++
+    #  QAbstractEventDispatcher::TimerInfoV2 behind a cute one, and removes
+    #  it by this ritual.
+    __delete_ritual__ = (
+        'ritual_ZN24QAbstractEventDispatcher11TimerInfoV2D1Ev')
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -244,7 +505,7 @@ class QAbstractEventDispatcher(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QEventLoopProcessEventsFlag)
+  @overload(QEventLoop.ProcessEventsFlags)
   def processEvents(self, flags: QEventLoop.ProcessEventsFlags) -> bool:
     """
     Calls Qt's 'bool

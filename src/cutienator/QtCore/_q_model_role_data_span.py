@@ -11,13 +11,22 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QVariant
+  from . import QModelRoleData, QVariant
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QModelRoleData = WAIT['QModelRoleData']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QModelRoleDataSpan(CuteMixin, metaclass=MetaCute):
@@ -33,21 +42,12 @@ class QModelRoleDataSpan(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QModelRoleDataSpan that has a ritual and that Python
-  can call so far, 3 names in all: 'size', 'length', 'dataForRole'. It can be
-  made from Python, in 1 way; see '__init__'.
+  can call so far, 6 names in all: 'size', 'length', 'data', 'begin', 'end',
+  'dataForRole'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QModelRoleDataSpan::QModelRoleDataSpan(QModelRoleData
-    *modelRoleData, qsizetype len)': names 'QModelRoleData', which has no
-    cute class yet.
-  - Qt's 'QModelRoleData *QModelRoleDataSpan::data() const': gives
-    'QModelRoleData', which has no cute class yet.
-  - Qt's 'QModelRoleData *QModelRoleDataSpan::begin() const': gives
-    'QModelRoleData', which has no cute class yet.
-  - Qt's 'QModelRoleData *QModelRoleDataSpan::end() const': gives
-    'QModelRoleData', which has no cute class yet.
   - Qt's 'QModelRoleDataSpan::~QModelRoleDataSpan()': the destructor: Python
     removes its C++ QModelRoleDataSpan by it, and has no other use for it.
 
@@ -118,6 +118,60 @@ class QModelRoleDataSpan(CuteMixin, metaclass=MetaCute):
     #  qsizetype QModelRoleDataSpan::length() const
     return self.uglySide.call('ritual_ZNK18QModelRoleDataSpan6lengthEv')
 
+  def data(self) -> Optional[QModelRoleData]:
+    """
+    Calls Qt's 'QModelRoleData *QModelRoleDataSpan::data() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmodelroledataspan.html#data
+
+    Returns
+    -------
+
+    Optional[QModelRoleData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QModelRoleData *QModelRoleDataSpan::data() const
+    address = self.uglySide.call('ritual_ZNK18QModelRoleDataSpan4dataEv')
+    from . import QModelRoleData
+    return QModelRoleData._cuteAt(address)
+
+  def begin(self) -> Optional[QModelRoleData]:
+    """
+    Calls Qt's 'QModelRoleData *QModelRoleDataSpan::begin() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmodelroledataspan.html#begin
+
+    Returns
+    -------
+
+    Optional[QModelRoleData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QModelRoleData *QModelRoleDataSpan::begin() const
+    address = self.uglySide.call('ritual_ZNK18QModelRoleDataSpan5beginEv')
+    from . import QModelRoleData
+    return QModelRoleData._cuteAt(address)
+
+  def end(self) -> Optional[QModelRoleData]:
+    """
+    Calls Qt's 'QModelRoleData *QModelRoleDataSpan::end() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmodelroledataspan.html#end
+
+    Returns
+    -------
+
+    Optional[QModelRoleData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QModelRoleData *QModelRoleDataSpan::end() const
+    address = self.uglySide.call('ritual_ZNK18QModelRoleDataSpan3endEv')
+    from . import QModelRoleData
+    return QModelRoleData._cuteAt(address)
+
   @overload(int)
   def dataForRole(self, role: int) -> Optional[QVariant]:
     """
@@ -175,6 +229,38 @@ class QModelRoleDataSpan(CuteMixin, metaclass=MetaCute):
     #  QModelRoleDataSpan::QModelRoleDataSpan()
     self._noteCreation(QModelRoleDataSpan, lambda: Rituals.call(
         'ritual_ZN18QModelRoleDataSpanC1Ev',
+    ))
+
+  @overload(QModelRoleData, int)
+  @overload(NoneType, int)
+  def __init__(
+      self,
+      modelRoleData: Optional[QModelRoleData],
+      len: int,
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QModelRoleDataSpan::QModelRoleDataSpan(QModelRoleData *modelRoleData,
+    qsizetype len)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmodelroledataspan.html#QModelRoleDataSpan
+
+    Parameters
+    ----------
+
+    modelRoleData : Optional[QModelRoleData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    len : int
+      Passed on as it is.
+    """
+    #  QModelRoleDataSpan::QModelRoleDataSpan(QModelRoleData *modelRoleData,
+    #      qsizetype len)
+    self._noteCreation(QModelRoleDataSpan, lambda: Rituals.call(
+        'ritual_ZN18QModelRoleDataSpanC1EP14QModelRoleDatax',
+        self._addressOf(modelRoleData), len,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

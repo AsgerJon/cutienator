@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QPaletteColorGroup, QPaletteColorRole
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QBrush, QColor
@@ -80,10 +80,50 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QPalette.
   """
 
-  #  The enums Qt writes inside QPalette, and the names Qt has for the
-  #  combinations of its flags enums.
-  ColorGroup = QPaletteColorGroup
-  ColorRole = QPaletteColorRole
+  #  The enums Qt writes inside QPalette, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class ColorGroup(CuteNum):
+    """
+    The enum 'QPalette::ColorGroup' of Qt, with the 7 names Qt gives in it.
+    """
+
+    Active = Kee[int](0)
+    Disabled = Kee[int](1)
+    Inactive = Kee[int](2)
+    NColorGroups = Kee[int](3)
+    Current = Kee[int](4)
+    All = Kee[int](5)
+    Normal = Kee[int](0)
+
+  class ColorRole(CuteNum):
+    """
+    The enum 'QPalette::ColorRole' of Qt, with the 23 names Qt gives in it.
+    """
+
+    WindowText = Kee[int](0)
+    Button = Kee[int](1)
+    Light = Kee[int](2)
+    Midlight = Kee[int](3)
+    Dark = Kee[int](4)
+    Mid = Kee[int](5)
+    Text = Kee[int](6)
+    BrightText = Kee[int](7)
+    ButtonText = Kee[int](8)
+    Base = Kee[int](9)
+    Window = Kee[int](10)
+    Shadow = Kee[int](11)
+    Highlight = Kee[int](12)
+    HighlightedText = Kee[int](13)
+    Link = Kee[int](14)
+    LinkVisited = Kee[int](15)
+    AlternateBase = Kee[int](16)
+    NoRole = Kee[int](17)
+    ToolTipBase = Kee[int](18)
+    ToolTipText = Kee[int](19)
+    PlaceholderText = Kee[int](20)
+    Accent = Kee[int](21)
+    NColorRoles = Kee[int](22)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

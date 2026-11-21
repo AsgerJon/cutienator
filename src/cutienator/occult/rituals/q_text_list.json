@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextlist.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QTextList10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QTextList2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QTextListC1EP13QTextDocument": ["address", "address"],
+    "ritual_ZN9QTextListD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QTextList5countEv": ["int", "address"],
+    "ritual_ZNK9QTextList4itemEi": ["address", "address", "int"],
+    "ritual_ZNK9QTextList10itemNumberERK10QTextBlock": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK9QTextList8itemTextERK10QTextBlock": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN9QTextList10removeItemEi": ["nothing", "address", "int"],
+    "ritual_ZN9QTextList6removeERK10QTextBlock": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTextList3addERK10QTextBlock": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTextList9setFormatERK15QTextListFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QTextList6formatEv": ["address", "address"]
+  }
+}

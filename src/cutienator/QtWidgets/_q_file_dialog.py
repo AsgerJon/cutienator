@@ -10,19 +10,17 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QDirFilter, QObject
-from . import QDialog, QFileDialogAcceptMode, QFileDialogDialogLabel
-from . import QFileDialogFileMode, QFileDialogOption, QFileDialogViewMode
-from . import QWidget
+from ..QtCore import Qt, QDir, QObject
+from . import QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QAbstractProxyModel, QByteArray, QDir, QMetaObject
-  from ..QtCore import QUrl
+  from ..QtCore import QAbstractProxyModel, QByteArray, QMetaObject, QUrl
   from ..QtGui import QAbstractFileIconProvider
   from . import QAbstractItemDelegate
 else:
@@ -33,7 +31,6 @@ else:
   QAbstractItemDelegate = WAIT['QAbstractItemDelegate']
   QAbstractProxyModel = WAIT['QAbstractProxyModel']
   QByteArray = WAIT['QByteArray']
-  QDir = WAIT['QDir']
   QUrl = WAIT['QUrl']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -101,14 +98,63 @@ class QFileDialog(QDialog):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QFileDialog, and the names Qt has for the
-  #  combinations of its flags enums.
-  AcceptMode = QFileDialogAcceptMode
-  DialogLabel = QFileDialogDialogLabel
-  FileMode = QFileDialogFileMode
-  Option = QFileDialogOption
-  Options = QFileDialogOption
-  ViewMode = QFileDialogViewMode
+  #  The enums Qt writes inside QFileDialog, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class AcceptMode(CuteNum):
+    """
+    The enum 'QFileDialog::AcceptMode' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    AcceptOpen = Kee[int](0)
+    AcceptSave = Kee[int](1)
+
+  class DialogLabel(CuteNum):
+    """
+    The enum 'QFileDialog::DialogLabel' of Qt, with the 5 names Qt gives in
+    it.
+    """
+
+    LookIn = Kee[int](0)
+    FileName = Kee[int](1)
+    FileType = Kee[int](2)
+    Accept = Kee[int](3)
+    Reject = Kee[int](4)
+
+  class FileMode(CuteNum):
+    """
+    The enum 'QFileDialog::FileMode' of Qt, with the 4 names Qt gives in it.
+    """
+
+    AnyFile = Kee[int](0)
+    ExistingFile = Kee[int](1)
+    Directory = Kee[int](2)
+    ExistingFiles = Kee[int](3)
+
+  class Option(CuteFlags):
+    """
+    The flags enum 'QFileDialog::Option' of Qt, with the 7 names Qt gives in
+    it. Qt names the type of its combinations 'QFileDialog::Options'.
+    """
+
+    ShowDirsOnly = 0x1
+    DontResolveSymlinks = 0x2
+    DontConfirmOverwrite = 0x4
+    DontUseNativeDialog = 0x8
+    ReadOnly = 0x10
+    HideNameFilterDetails = 0x20
+    DontUseCustomDirectoryIcons = 0x40
+
+  Options = Option
+
+  class ViewMode(CuteNum):
+    """
+    The enum 'QFileDialog::ViewMode' of Qt, with the 2 names Qt gives in it.
+    """
+
+    Detail = Kee[int](0)
+    List = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -303,7 +349,6 @@ class QFileDialog(QDialog):
     """
     #  QDir QFileDialog::directory() const
     address = self.uglySide.call('ritual_ZNK11QFileDialog9directoryEv')
-    from ..QtCore import QDir
     return QDir._cuteOwning(address)
 
   def directoryUrl(self) -> QUrl:
@@ -372,7 +417,9 @@ class QFileDialog(QDialog):
       The value standing for the combination Qt gave back.
     """
     #  QDir::Filters QFileDialog::filter() const
-    return QDirFilter(self.uglySide.call('ritual_ZNK11QFileDialog6filterEv'))
+    return QDir.Filters(self.uglySide.call(
+        'ritual_ZNK11QFileDialog6filterEv',
+    ))
 
   def viewMode(self) -> ViewMode:
     """
@@ -653,7 +700,7 @@ class QFileDialog(QDialog):
         'ritual_ZN11QFileDialog13setNameFilterERK7QString', filter,
     )
 
-  @overload(QDirFilter)
+  @overload(QDir.Filters)
   def setFilter(self, filters: QDir.Filters) -> None:
     """
     Calls Qt's 'void QFileDialog::setFilter(QDir::Filters filters)'.

@@ -11,12 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteNum
 from ..occult import Rituals
-from . import QStyleOption, QStyleOptionMenuItemCheckType
-from . import QStyleOptionMenuItemMenuItemType
-from . import QStyleOptionMenuItemStyleOptionType
-from . import QStyleOptionMenuItemStyleOptionVersion
+from . import QStyleOption
 
 
 class QStyleOptionMenuItem(QStyleOption):
@@ -64,12 +63,49 @@ class QStyleOptionMenuItem(QStyleOption):
     made for Python, in a new cute QStyleOptionMenuItem.
   """
 
-  #  The enums Qt writes inside QStyleOptionMenuItem, and the names Qt has
-  #  for the combinations of its flags enums.
-  CheckType = QStyleOptionMenuItemCheckType
-  MenuItemType = QStyleOptionMenuItemMenuItemType
-  StyleOptionType = QStyleOptionMenuItemStyleOptionType
-  StyleOptionVersion = QStyleOptionMenuItemStyleOptionVersion
+  #  The enums Qt writes inside QStyleOptionMenuItem, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class CheckType(CuteNum):
+    """
+    The enum 'QStyleOptionMenuItem::CheckType' of Qt, with the 3 names Qt
+    gives in it.
+    """
+
+    NotCheckable = Kee[int](0)
+    Exclusive = Kee[int](1)
+    NonExclusive = Kee[int](2)
+
+  class MenuItemType(CuteNum):
+    """
+    The enum 'QStyleOptionMenuItem::MenuItemType' of Qt, with the 8 names Qt
+    gives in it.
+    """
+
+    Normal = Kee[int](0)
+    DefaultItem = Kee[int](1)
+    Separator = Kee[int](2)
+    SubMenu = Kee[int](3)
+    Scroller = Kee[int](4)
+    TearOff = Kee[int](5)
+    Margin = Kee[int](6)
+    EmptyArea = Kee[int](7)
+
+  class StyleOptionType(CuteNum):
+    """
+    The enum 'QStyleOptionMenuItem::StyleOptionType' of Qt, with the 1 names
+    Qt gives in it.
+    """
+
+    Type = Kee[int](4)
+
+  class StyleOptionVersion(CuteNum):
+    """
+    The enum 'QStyleOptionMenuItem::StyleOptionVersion' of Qt, with the 1
+    names Qt gives in it.
+    """
+
+    Version = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

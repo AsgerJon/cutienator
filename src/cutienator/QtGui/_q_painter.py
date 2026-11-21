@@ -10,18 +10,18 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QGradientPreset, QPainterCompositionMode
-from . import QPainterPixmapFragmentHint, QPainterRenderHint
+from . import QGradient
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QLine, QLineF, QPoint, QPointF, QRect, QRectF
-  from . import QBrush, QColor, QFont, QFontInfo, QFontMetrics, QGradient
+  from . import QBrush, QColor, QFont, QFontInfo, QFontMetrics, QGlyphRun
   from . import QImage, QPaintDevice, QPaintEngine, QPainterPath, QPen
   from . import QPicture, QPixmap, QPolygon, QPolygonF, QRegion, QStaticText
   from . import QTextItem, QTextOption, QTransform
@@ -32,6 +32,7 @@ else:
   QBrush = WAIT['QBrush']
   QColor = WAIT['QColor']
   QFont = WAIT['QFont']
+  QGlyphRun = WAIT['QGlyphRun']
   QImage = WAIT['QImage']
   QLine = WAIT['QLine']
   QLineF = WAIT['QLineF']
@@ -66,7 +67,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPainter that has a ritual and that Python can call
-  so far, 88 names in all: 'device', 'begin', 'end', 'isActive',
+  so far, 90 names in all: 'device', 'begin', 'end', 'isActive',
   'setCompositionMode', 'compositionMode', 'font', 'setFont', 'fontMetrics',
   'fontInfo', 'setPen', 'pen', 'setBrush', 'brush', 'setBackgroundMode',
   'backgroundMode', 'brushOrigin', 'brushOriginF', 'setBrushOrigin',
@@ -81,22 +82,18 @@ class QPainter(CuteMixin, metaclass=MetaCute):
   'drawPoints', 'drawLine', 'drawLines', 'drawRect', 'drawRects',
   'drawEllipse', 'drawPolyline', 'drawPolygon', 'drawConvexPolygon',
   'drawArc', 'drawPie', 'drawChord', 'drawRoundedRect', 'drawTiledPixmap',
-  'drawPicture', 'drawPixmap', 'drawImage', 'setLayoutDirection',
-  'layoutDirection', 'drawStaticText', 'drawText', 'boundingRect',
-  'drawTextItem', 'fillRect', 'eraseRect', 'setRenderHint', 'setRenderHints',
-  'renderHints', 'testRenderHint', 'paintEngine', 'beginNativePainting',
-  'endNativePainting'. It can be made from Python, in 2 ways; see '__init__'.
+  'drawPicture', 'drawPixmap', 'drawPixmapFragments', 'drawImage',
+  'setLayoutDirection', 'layoutDirection', 'drawGlyphRun', 'drawStaticText',
+  'drawText', 'boundingRect', 'drawTextItem', 'fillRect', 'eraseRect',
+  'setRenderHint', 'setRenderHints', 'renderHints', 'testRenderHint',
+  'paintEngine', 'beginNativePainting', 'endNativePainting'. It can be made
+  from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPainter::~QPainter()': the destructor: Python never removes a C++
     QPainter.
-  - Qt's 'void QPainter::drawPixmapFragments(const PixmapFragment *fragments,
-    int fragmentCount, const QPixmap &pixmap, PixmapFragmentHints hints)':
-    names 'QPainter::PixmapFragment', which has no cute class yet.
-  - Qt's 'void QPainter::drawGlyphRun(const QPointF &position, const
-    QGlyphRun &glyphRun)': names 'QGlyphRun', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -117,13 +114,256 @@ class QPainter(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QPainter.
   """
 
-  #  The enums Qt writes inside QPainter, and the names Qt has for the
-  #  combinations of its flags enums.
-  CompositionMode = QPainterCompositionMode
-  PixmapFragmentHint = QPainterPixmapFragmentHint
-  PixmapFragmentHints = QPainterPixmapFragmentHint
-  RenderHint = QPainterRenderHint
-  RenderHints = QPainterRenderHint
+  #  The enums Qt writes inside QPainter, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class CompositionMode(CuteNum):
+    """
+    The enum 'QPainter::CompositionMode' of Qt, with the 39 names Qt gives in
+    it.
+    """
+
+    CompositionMode_SourceOver = Kee[int](0)
+    CompositionMode_DestinationOver = Kee[int](1)
+    CompositionMode_Clear = Kee[int](2)
+    CompositionMode_Source = Kee[int](3)
+    CompositionMode_Destination = Kee[int](4)
+    CompositionMode_SourceIn = Kee[int](5)
+    CompositionMode_DestinationIn = Kee[int](6)
+    CompositionMode_SourceOut = Kee[int](7)
+    CompositionMode_DestinationOut = Kee[int](8)
+    CompositionMode_SourceAtop = Kee[int](9)
+    CompositionMode_DestinationAtop = Kee[int](10)
+    CompositionMode_Xor = Kee[int](11)
+    CompositionMode_Plus = Kee[int](12)
+    CompositionMode_Multiply = Kee[int](13)
+    CompositionMode_Screen = Kee[int](14)
+    CompositionMode_Overlay = Kee[int](15)
+    CompositionMode_Darken = Kee[int](16)
+    CompositionMode_Lighten = Kee[int](17)
+    CompositionMode_ColorDodge = Kee[int](18)
+    CompositionMode_ColorBurn = Kee[int](19)
+    CompositionMode_HardLight = Kee[int](20)
+    CompositionMode_SoftLight = Kee[int](21)
+    CompositionMode_Difference = Kee[int](22)
+    CompositionMode_Exclusion = Kee[int](23)
+    RasterOp_SourceOrDestination = Kee[int](24)
+    RasterOp_SourceAndDestination = Kee[int](25)
+    RasterOp_SourceXorDestination = Kee[int](26)
+    RasterOp_NotSourceAndNotDestination = Kee[int](27)
+    RasterOp_NotSourceOrNotDestination = Kee[int](28)
+    RasterOp_NotSourceXorDestination = Kee[int](29)
+    RasterOp_NotSource = Kee[int](30)
+    RasterOp_NotSourceAndDestination = Kee[int](31)
+    RasterOp_SourceAndNotDestination = Kee[int](32)
+    RasterOp_NotSourceOrDestination = Kee[int](33)
+    RasterOp_SourceOrNotDestination = Kee[int](34)
+    RasterOp_ClearDestination = Kee[int](35)
+    RasterOp_SetDestination = Kee[int](36)
+    RasterOp_NotDestination = Kee[int](37)
+    NCompositionModes = Kee[int](38)
+
+  class PixmapFragmentHint(CuteFlags):
+    """
+    The flags enum 'QPainter::PixmapFragmentHint' of Qt, with the 1 names Qt
+    gives in it. Qt names the type of its combinations
+    'QPainter::PixmapFragmentHints'.
+    """
+
+    OpaqueHint = 0x1
+
+  PixmapFragmentHints = PixmapFragmentHint
+
+  class RenderHint(CuteFlags):
+    """
+    The flags enum 'QPainter::RenderHint' of Qt, with the 6 names Qt gives in
+    it. Qt names the type of its combinations 'QPainter::RenderHints'.
+    """
+
+    Antialiasing = 0x1
+    TextAntialiasing = 0x2
+    SmoothPixmapTransform = 0x4
+    VerticalSubpixelPositioning = 0x8
+    LosslessImageRendering = 0x40
+    NonCosmeticBrushPatterns = 0x80
+
+  RenderHints = RenderHint
+
+  #  The classes Qt writes inside QPainter, each a class in here as in C++.
+
+  class PixmapFragment(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QPainter::PixmapFragment: a plain Python object
+    standing in front of one C++ QPainter::PixmapFragment.
+
+    C++ hands a QPainter::PixmapFragment around as a copy, so every C++
+    QPainter::PixmapFragment behind a cute one is Python's own: it is
+    removed, by the ritual named in '__delete_ritual__', when the cute object
+    goes.
+
+    What exists
+    -----------
+
+    Every function of Qt's QPainter::PixmapFragment that has a ritual and
+    that Python can call so far, 1 name in all: 'create'. None can be made
+    from Python: one comes out of a function of another class that gives one
+    back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QPainter::PixmapFragment::~PixmapFragment()': the destructor:
+      Python removes its C++ QPainter::PixmapFragment by it, and has no other
+      use for it.
+
+    What to expect
+    --------------
+
+    - The C++ QPainter::PixmapFragment is created at the first use, not by
+      'QPainter::PixmapFragment(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QPainter::PixmapFragment back gives a copy the
+      ritual made for Python, in a new cute QPainter::PixmapFragment.
+    """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QPointF = WAIT['QPointF']
+      QRectF = WAIT['QRectF']
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    @overload(QPointF, QRectF)
+    @overload(QPointF, QRectF, float)
+    @overload(QPointF, QRectF, float, float)
+    @overload(QPointF, QRectF, float, float, float)
+    @overload(QPointF, QRectF, float, float, float, float)
+    def create(
+        pos: QPointF,
+        sourceRect: QRectF,
+        scaleX: float = 1.0,
+        scaleY: float = 1.0,
+        rotation: float = 0.0,
+        opacity: float = 1.0,
+    ) -> QPainter.PixmapFragment:
+      """
+      Calls Qt's 'PixmapFragment QPainter::PixmapFragment::create(const
+      QPointF &pos, const QRectF &sourceRect, qreal scaleX, qreal scaleY,
+      qreal rotation, qreal opacity)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#create
+
+      Parameters
+      ----------
+
+      pos : QPointF
+        Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+        own.
+
+      sourceRect : QRectF
+        Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+        own.
+
+      scaleX : float
+        Passed on as it is. May be left out, as in Qt: it is then 1.0.
+
+      scaleY : float
+        Passed on as it is. May be left out, as in Qt: it is then 1.0.
+
+      rotation : float
+        Passed on as it is. May be left out, as in Qt: it is then 0.0.
+
+      opacity : float
+        Passed on as it is. May be left out, as in Qt: it is then 1.0.
+
+      Returns
+      -------
+
+      QPainter.PixmapFragment
+        A new cute QPainter::PixmapFragment around the copy Qt gave back.
+        Python owns it.
+      """
+      #  PixmapFragment QPainter::PixmapFragment::create(const QPointF &pos,
+      #      const QRectF &sourceRect, qreal scaleX, qreal scaleY, qreal
+      #      rotation, qreal opacity)
+      address = Rituals.call(
+          'ritual_ZN8QPainter14PixmapFragment6createERK7QPointFRK6QRectFddd'
+          'd',
+          CuteMixin._valueOf(pos), CuteMixin._valueOf(sourceRect), scaleX,
+          scaleY, rotation, opacity,
+      )
+      return QPainter.PixmapFragment._cuteOwning(address)
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QPainter::PixmapFragment'
+
+    #  Qt's '~QPainter::PixmapFragment()'. Naming it makes this a value
+    #  class: Python owns every C++ QPainter::PixmapFragment behind a cute
+    #  one, and removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN8QPainter14PixmapFragmentD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -3496,6 +3736,52 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         x, y, w, h, self._valueOf(pm),
     )
 
+  @overload(PixmapFragment, int, QPixmap)
+  @overload(NoneType, int, QPixmap)
+  @overload(PixmapFragment, int, QPixmap, PixmapFragmentHints)
+  @overload(NoneType, int, QPixmap, PixmapFragmentHints)
+  def drawPixmapFragments(
+      self,
+      fragments: Optional[PixmapFragment],
+      fragmentCount: int,
+      pixmap: QPixmap,
+      hints: PixmapFragmentHints = PixmapFragmentHints(),
+  ) -> None:
+    """
+    Calls Qt's 'void QPainter::drawPixmapFragments(const PixmapFragment
+    *fragments, int fragmentCount, const QPixmap &pixmap, PixmapFragmentHints
+    hints)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawPixmapFragments
+
+    Parameters
+    ----------
+
+    fragments : Optional[PixmapFragment]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    fragmentCount : int
+      Passed on as it is.
+
+    pixmap : QPixmap
+      Passed on as a value: Qt reads the C++ QPixmap, which stays Python's
+      own.
+
+    hints : PixmapFragmentHints
+      Passed on as its number. May be left out, as in Qt: it is then
+      PixmapFragmentHints().
+    """
+    #  void QPainter::drawPixmapFragments(const PixmapFragment *fragments,
+    #      int fragmentCount, const QPixmap &pixmap, PixmapFragmentHints
+    #      hints)
+    self.uglySide.call(
+        'ritual_ZN8QPainter19drawPixmapFragmentsEPKNS_14PixmapFragmentEiRK7'
+        'QPixmap6QFlagsINS_18PixmapFragmentHintEE',
+        self._addressOf(fragments), fragmentCount, self._valueOf(pixmap),
+        hints.value,
+    )
+
   @overload(QRectF, QImage, QRectF)
   @overload(QRectF, QImage, QRectF, Qt.ImageConversionFlags)
   def drawImage(
@@ -3823,6 +4109,32 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         'ritual_ZN8QPainter9drawImageEiiRK6QImageiiii6QFlagsIN2Qt19ImageCon'
         'versionFlagEE',
         x, y, self._valueOf(image), sx, sy, sw, sh, flags.value,
+    )
+
+  @overload(QPointF, QGlyphRun)
+  def drawGlyphRun(self, position: QPointF, glyphRun: QGlyphRun) -> None:
+    """
+    Calls Qt's 'void QPainter::drawGlyphRun(const QPointF &position, const
+    QGlyphRun &glyphRun)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawGlyphRun
+
+    Parameters
+    ----------
+
+    position : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    glyphRun : QGlyphRun
+      Passed on as a value: Qt reads the C++ QGlyphRun, which stays Python's
+      own.
+    """
+    #  void QPainter::drawGlyphRun(const QPointF &position, const QGlyphRun
+    #      &glyphRun)
+    self.uglySide.call(
+        'ritual_ZN8QPainter12drawGlyphRunERK7QPointFRK9QGlyphRun',
+        self._valueOf(position), self._valueOf(glyphRun),
     )
 
   @overload(QPointF, QStaticText)
@@ -4774,7 +5086,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         self._valueOf(r), style.value,
     )
 
-  @overload(int, int, int, int, QGradientPreset)
+  @overload(int, int, int, int, QGradient.Preset)
   def fillRect(
       self,
       x: int,
@@ -4814,7 +5126,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         x, y, w, h, preset.value,
     )
 
-  @overload(QRect, QGradientPreset)
+  @overload(QRect, QGradient.Preset)
   def fillRect(self, r: QRect, preset: QGradient.Preset) -> None:
     """
     Calls Qt's 'void QPainter::fillRect(const QRect &r, QGradient::Preset
@@ -4837,7 +5149,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         self._valueOf(r), preset.value,
     )
 
-  @overload(QRectF, QGradientPreset)
+  @overload(QRectF, QGradient.Preset)
   def fillRect(self, r: QRectF, preset: QGradient.Preset) -> None:
     """
     Calls Qt's 'void QPainter::fillRect(const QRectF &r, QGradient::Preset

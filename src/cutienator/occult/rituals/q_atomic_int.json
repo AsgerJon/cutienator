@@ -1,0 +1,10 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qatomic.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QAtomicIntC1Ei": ["address", "int"],
+    "ritual_ZN10QAtomicIntD1Ev": ["nothing", "address"]
+  }
+}

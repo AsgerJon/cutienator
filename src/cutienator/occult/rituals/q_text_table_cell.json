@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtexttable.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QTextTableCellC1Ev": ["address"],
+    "ritual_ZN14QTextTableCellD1Ev": ["nothing", "address"],
+    "ritual_ZN14QTextTableCellC1ERKS_": ["address", "address"],
+    "ritual_ZN14QTextTableCell9setFormatERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QTextTableCell6formatEv": ["address", "address"],
+    "ritual_ZNK14QTextTableCell3rowEv": ["int", "address"],
+    "ritual_ZNK14QTextTableCell6columnEv": ["int", "address"],
+    "ritual_ZNK14QTextTableCell7rowSpanEv": ["int", "address"],
+    "ritual_ZNK14QTextTableCell10columnSpanEv": ["int", "address"],
+    "ritual_ZNK14QTextTableCell7isValidEv": ["bool", "address"],
+    "ritual_ZNK14QTextTableCell19firstCursorPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QTextTableCell18lastCursorPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QTextTableCell13firstPositionEv": ["int", "address"],
+    "ritual_ZNK14QTextTableCell12lastPositionEv": ["int", "address"],
+    "ritual_ZNK14QTextTableCelleqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK14QTextTableCellneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK14QTextTableCell5beginEv": ["address", "address"],
+    "ritual_ZNK14QTextTableCell3endEv": ["address", "address"],
+    "ritual_ZNK14QTextTableCell20tableCellFormatIndexEv": ["int", "address"]
+  }
+}

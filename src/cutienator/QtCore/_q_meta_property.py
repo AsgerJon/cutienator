@@ -13,19 +13,18 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QVariantType
+from . import QVariant
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from . import QMetaEnum, QMetaMethod, QMetaObject, QMetaType, QObject
-  from . import QVariant
+  from . import QUntypedBindable
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QObject = WAIT['QObject']
-  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -45,21 +44,19 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMetaProperty that has a ritual and that Python can
-  call so far, 35 names in all: 'name', 'typeName', 'type', 'userType',
+  call so far, 36 names in all: 'name', 'typeName', 'type', 'userType',
   'typeId', 'metaType', 'propertyIndex', 'relativePropertyIndex',
   'isReadable', 'isWritable', 'isResettable', 'isDesignable', 'isScriptable',
   'isStored', 'isUser', 'isConstant', 'isFinal', 'isVirtual', 'isOverride',
   'isRequired', 'isBindable', 'isFlagType', 'isEnumType', 'enumerator',
   'hasNotifySignal', 'notifySignal', 'notifySignalIndex', 'revision', 'read',
-  'write', 'reset', 'hasStdCppSet', 'isAlias', 'isValid',
+  'write', 'reset', 'bindable', 'hasStdCppSet', 'isAlias', 'isValid',
   'enclosingMetaObject'. It can be made from Python, in 1 way; see
   '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QUntypedBindable QMetaProperty::bindable(QObject *object) const':
-    gives 'QUntypedBindable', which has no cute class yet.
   - Qt's 'QMetaProperty::~QMetaProperty()': the destructor: Python removes
     its C++ QMetaProperty by it, and has no other use for it.
 
@@ -159,7 +156,7 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  QVariant::Type QMetaProperty::type() const
-    return QVariantType(self.uglySide.call(
+    return QVariant.Type(self.uglySide.call(
         'ritual_ZNK13QMetaProperty4typeEv',
     ))
 
@@ -443,7 +440,6 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK13QMetaProperty4readEPK7QObject', self._addressOf(obj),
     )
-    from . import QVariant
     return QVariant._cuteOwning(address)
 
   @overload(QObject, QVariant)
@@ -491,6 +487,37 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK13QMetaProperty5resetEP7QObject', self._addressOf(obj),
     )
+
+  @overload(QObject)
+  @overload(NoneType)
+  def bindable(self, object: Optional[QObject]) -> QUntypedBindable:
+    """
+    Calls Qt's 'QUntypedBindable QMetaProperty::bindable(QObject *object)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetaproperty.html#bindable
+
+    Parameters
+    ----------
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    QUntypedBindable
+      A new cute QUntypedBindable around the copy Qt gave back. Python owns
+      it.
+    """
+    #  QUntypedBindable QMetaProperty::bindable(QObject *object) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QMetaProperty8bindableEP7QObject',
+        self._addressOf(object),
+    )
+    from . import QUntypedBindable
+    return QUntypedBindable._cuteOwning(address)
 
   def hasStdCppSet(self) -> bool:
     """

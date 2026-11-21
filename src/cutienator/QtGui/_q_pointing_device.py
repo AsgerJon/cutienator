@@ -10,17 +10,23 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QInputDevice, QPointingDeviceGrabTransition
-from . import QPointingDevicePointerType
+from . import QInputDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
+  from . import QPointingDeviceUniqueId
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPointingDeviceUniqueId = WAIT['QPointingDeviceUniqueId']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -39,23 +45,16 @@ class QPointingDevice(QInputDevice):
   -----------
 
   Every function of Qt's QPointingDevice that has a ritual and that Python
-  can call so far, 9 names in all: 'metaObject', 'tr', 'setType',
+  can call so far, 10 names in all: 'metaObject', 'tr', 'setType',
   'setCapabilities', 'setMaximumTouchPoints', 'pointerType', 'maximumPoints',
-  'buttonCount', 'primaryPointingDevice'. It can be made from Python, in 1
-  way; see '__init__'.
+  'buttonCount', 'uniqueId', 'primaryPointingDevice'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPointingDevice::~QPointingDevice()': the destructor: Python never
     removes a C++ QPointingDevice.
-  - Qt's 'QPointingDevice::QPointingDevice(const QString &name, qint64
-    systemId, QInputDevice::DeviceType devType, PointerType pType,
-    Capabilities caps, int maxPoints, int buttonCount, const QString
-    &seatName, QPointingDeviceUniqueId uniqueId, QObject *parent)': names
-    'QPointingDeviceUniqueId', which has no cute class yet.
-  - Qt's 'QPointingDeviceUniqueId QPointingDevice::uniqueId() const': gives
-    'QPointingDeviceUniqueId', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -80,11 +79,41 @@ class QPointingDevice(QInputDevice):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QPointingDevice, and the names Qt has for the
-  #  combinations of its flags enums.
-  GrabTransition = QPointingDeviceGrabTransition
-  PointerType = QPointingDevicePointerType
-  PointerTypes = QPointingDevicePointerType
+  #  The enums Qt writes inside QPointingDevice, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class GrabTransition(CuteNum):
+    """
+    The enum 'QPointingDevice::GrabTransition' of Qt, with the 7 names Qt
+    gives in it.
+    """
+
+    GrabPassive = Kee[int](1)
+    UngrabPassive = Kee[int](2)
+    CancelGrabPassive = Kee[int](3)
+    OverrideGrabPassive = Kee[int](4)
+    GrabExclusive = Kee[int](16)
+    UngrabExclusive = Kee[int](32)
+    CancelGrabExclusive = Kee[int](48)
+
+  class PointerType(CuteFlags, scoped=True):
+    """
+    The flags enum 'QPointingDevice::PointerType' of Qt, with the 8 names Qt
+    gives in it. Qt names the type of its combinations
+    'QPointingDevice::PointerTypes'. C++ keeps these names inside the enum,
+    so the class that holds the enum does not have them.
+    """
+
+    Unknown = 0x0
+    Generic = 0x1
+    Finger = 0x2
+    Pen = 0x4
+    Eraser = 0x8
+    Cursor = 0x10
+    Palm = 0x20
+    AllPointerTypes = 0x7fff
+
+  PointerTypes = PointerType
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -241,6 +270,24 @@ class QPointingDevice(QInputDevice):
     #  int QPointingDevice::buttonCount() const
     return self.uglySide.call('ritual_ZNK15QPointingDevice11buttonCountEv')
 
+  def uniqueId(self) -> QPointingDeviceUniqueId:
+    """
+    Calls Qt's 'QPointingDeviceUniqueId QPointingDevice::uniqueId() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointingdevice.html#uniqueId
+
+    Returns
+    -------
+
+    QPointingDeviceUniqueId
+      A new cute QPointingDeviceUniqueId around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QPointingDeviceUniqueId QPointingDevice::uniqueId() const
+    address = self.uglySide.call('ritual_ZNK15QPointingDevice8uniqueIdEv')
+    from . import QPointingDeviceUniqueId
+    return QPointingDeviceUniqueId._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -338,6 +385,104 @@ class QPointingDevice(QInputDevice):
     #  QPointingDevice::QPointingDevice(QObject *parent)
     self._noteCreation(QPointingDevice, lambda: Rituals.call(
         'ritual_ZN15QPointingDeviceC1EP7QObject', self._addressOf(parent),
+    ))
+
+  @overload(
+      str, int, QInputDevice.DeviceType, PointerType,
+      QInputDevice.Capabilities, int, int,
+  )
+  @overload(
+      str, int, QInputDevice.DeviceType, PointerType,
+      QInputDevice.Capabilities, int, int, str,
+  )
+  @overload(
+      str, int, QInputDevice.DeviceType, PointerType,
+      QInputDevice.Capabilities, int, int, str, QPointingDeviceUniqueId,
+  )
+  @overload(
+      str, int, QInputDevice.DeviceType, PointerType,
+      QInputDevice.Capabilities, int, int, str, QPointingDeviceUniqueId,
+      QObject,
+  )
+  @overload(
+      str, int, QInputDevice.DeviceType, PointerType,
+      QInputDevice.Capabilities, int, int, str, QPointingDeviceUniqueId,
+      NoneType,
+  )
+  def __init__(
+      self,
+      name: str,
+      systemId: int,
+      devType: QInputDevice.DeviceType,
+      pType: PointerType,
+      caps: QInputDevice.Capabilities,
+      maxPoints: int,
+      buttonCount: int,
+      seatName: str = '',
+      uniqueId: Optional[QPointingDeviceUniqueId] = None,
+      parent: Optional[QObject] = None,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QPointingDevice::QPointingDevice(const
+    QString &name, qint64 systemId, QInputDevice::DeviceType devType,
+    PointerType pType, Capabilities caps, int maxPoints, int buttonCount,
+    const QString &seatName, QPointingDeviceUniqueId uniqueId, QObject
+    *parent)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpointingdevice.html#QPointingDevice
+
+    Parameters
+    ----------
+
+    name : str
+      Passed on as it is: a QString is made of it for the call.
+
+    systemId : int
+      Passed on as it is.
+
+    devType : QInputDevice.DeviceType
+      Passed on as its number.
+
+    pType : PointerType
+      Passed on as its number.
+
+    caps : QInputDevice.Capabilities
+      Passed on as its number.
+
+    maxPoints : int
+      Passed on as it is.
+
+    buttonCount : int
+      Passed on as it is.
+
+    seatName : str
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
+
+    uniqueId : Optional[QPointingDeviceUniqueId]
+      Passed on as a value: Qt reads the C++ QPointingDeviceUniqueId, which
+      stays Python's own. May be left out, as in Qt: a new
+      'QPointingDeviceUniqueId()' is then passed on.
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QPointingDevice::QPointingDevice(const QString &name, qint64 systemId,
+    #      QInputDevice::DeviceType devType, PointerType pType, Capabilities
+    #      caps, int maxPoints, int buttonCount, const QString &seatName,
+    #      QPointingDeviceUniqueId uniqueId, QObject *parent)
+    if uniqueId is None:
+      from . import QPointingDeviceUniqueId
+      uniqueId = QPointingDeviceUniqueId()
+    self._noteCreation(QPointingDevice, lambda: Rituals.call(
+        'ritual_ZN15QPointingDeviceC1ERK7QStringxN12QInputDevice10DeviceTyp'
+        'eENS_11PointerTypeE6QFlagsINS3_10CapabilityEEiiS2_23QPointingDevic'
+        'eUniqueIdP7QObject',
+        name, systemId, devType.value, pType.value, caps.value, maxPoints,
+        buttonCount, seatName, self._valueOf(uniqueId),
+        self._addressOf(parent),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

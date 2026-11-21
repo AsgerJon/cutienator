@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QRegionRegionType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -99,9 +99,16 @@ class QRegion(CuteMixin, metaclass=MetaCute):
     in a new cute QRegion.
   """
 
-  #  The enums Qt writes inside QRegion, and the names Qt has for the
-  #  combinations of its flags enums.
-  RegionType = QRegionRegionType
+  #  The enums Qt writes inside QRegion, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class RegionType(CuteNum):
+    """
+    The enum 'QRegion::RegionType' of Qt, with the 2 names Qt gives in it.
+    """
+
+    Rectangle = Kee[int](0)
+    Ellipse = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

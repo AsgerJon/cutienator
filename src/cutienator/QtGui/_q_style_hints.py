@@ -19,6 +19,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QChar, QMetaObject
+  from . import QAccessibilityHints
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,7 +38,7 @@ class QStyleHints(QObject):
   -----------
 
   Every function of Qt's QStyleHints that has a ritual and that Python can
-  call so far, 44 names in all: 'metaObject', 'tr',
+  call so far, 45 names in all: 'metaObject', 'tr',
   'setMouseDoubleClickInterval', 'mouseDoubleClickInterval',
   'mouseDoubleClickDistance', 'touchDoubleTapDistance',
   'setMousePressAndHoldInterval', 'mousePressAndHoldInterval',
@@ -53,15 +54,9 @@ class QStyleHints(QObject):
   'singleClickActivation', 'useHoverEffects', 'setUseHoverEffects',
   'wheelScrollLines', 'setWheelScrollLines',
   'setMouseQuickSelectionThreshold', 'mouseQuickSelectionThreshold',
-  'colorScheme', 'setColorScheme', 'unsetColorScheme',
+  'colorScheme', 'setColorScheme', 'unsetColorScheme', 'accessibility',
   'toolTipWakeUpDelayAsMSec'. None can be made from Python: one comes out of
   a function of another class that gives one back.
-
-  What has a ritual and is left out, and why
-  ------------------------------------------
-
-  - Qt's 'const QAccessibilityHints *QStyleHints::accessibility() const':
-    gives 'QAccessibilityHints', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -482,6 +477,25 @@ class QStyleHints(QObject):
     return Qt.ColorScheme(self.uglySide.call(
         'ritual_ZNK11QStyleHints11colorSchemeEv',
     ))
+
+  def accessibility(self) -> Optional[QAccessibilityHints]:
+    """
+    Calls Qt's 'const QAccessibilityHints *QStyleHints::accessibility()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstylehints.html#accessibility
+
+    Returns
+    -------
+
+    Optional[QAccessibilityHints]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QAccessibilityHints *QStyleHints::accessibility() const
+    address = self.uglySide.call('ritual_ZNK11QStyleHints13accessibilityEv')
+    from . import QAccessibilityHints
+    return QAccessibilityHints._cuteAt(address)
 
   def toolTipWakeUpDelayAsMSec(self) -> int:
     """

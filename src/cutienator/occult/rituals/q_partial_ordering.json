@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcompare.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QPartialOrderingC1EN2Qt16partial_orderingE": [
+      "address", "address"
+    ],
+    "ritual_ZN16QPartialOrderingC1EN2Qt13weak_orderingE": [
+      "address", "address"
+    ],
+    "ritual_ZN16QPartialOrderingC1EN2Qt15strong_orderingE": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QPartialOrderingcvN2Qt16partial_orderingEEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QPartialOrderingD1Ev": ["nothing", "address"]
+  }
+}

@@ -11,10 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QColorDialogColorDialogOption, QDialog, QWidget
+from . import QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -78,10 +78,22 @@ class QColorDialog(QDialog):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QColorDialog, and the names Qt has for the
-  #  combinations of its flags enums.
-  ColorDialogOption = QColorDialogColorDialogOption
-  ColorDialogOptions = QColorDialogColorDialogOption
+  #  The enums Qt writes inside QColorDialog, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class ColorDialogOption(CuteFlags):
+    """
+    The flags enum 'QColorDialog::ColorDialogOption' of Qt, with the 4 names
+    Qt gives in it. Qt names the type of its combinations
+    'QColorDialog::ColorDialogOptions'.
+    """
+
+    ShowAlphaChannel = 0x1
+    NoButtons = 0x2
+    DontUseNativeDialog = 0x4
+    NoEyeDropperButton = 0x8
+
+  ColorDialogOptions = ColorDialogOption
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

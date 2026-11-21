@@ -10,12 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
-from . import QCharCategory, QCharCombiningClass, QCharDecomposition
-from . import QCharDirection, QCharJoiningType, QCharScript
-from . import QCharSpecialCharacter, QCharUnicodeVersion
 
 
 class QChar(CuteMixin, metaclass=MetaCute):
@@ -69,16 +67,370 @@ class QChar(CuteMixin, metaclass=MetaCute):
     in a new cute QChar.
   """
 
-  #  The enums Qt writes inside QChar, and the names Qt has for the
-  #  combinations of its flags enums.
-  Category = QCharCategory
-  CombiningClass = QCharCombiningClass
-  Decomposition = QCharDecomposition
-  Direction = QCharDirection
-  JoiningType = QCharJoiningType
-  Script = QCharScript
-  SpecialCharacter = QCharSpecialCharacter
-  UnicodeVersion = QCharUnicodeVersion
+  #  The enums Qt writes inside QChar, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class Category(CuteNum):
+    """The enum 'QChar::Category' of Qt, with the 30 names Qt gives in it."""
+
+    Mark_NonSpacing = Kee[int](0)
+    Mark_SpacingCombining = Kee[int](1)
+    Mark_Enclosing = Kee[int](2)
+    Number_DecimalDigit = Kee[int](3)
+    Number_Letter = Kee[int](4)
+    Number_Other = Kee[int](5)
+    Separator_Space = Kee[int](6)
+    Separator_Line = Kee[int](7)
+    Separator_Paragraph = Kee[int](8)
+    Other_Control = Kee[int](9)
+    Other_Format = Kee[int](10)
+    Other_Surrogate = Kee[int](11)
+    Other_PrivateUse = Kee[int](12)
+    Other_NotAssigned = Kee[int](13)
+    Letter_Uppercase = Kee[int](14)
+    Letter_Lowercase = Kee[int](15)
+    Letter_Titlecase = Kee[int](16)
+    Letter_Modifier = Kee[int](17)
+    Letter_Other = Kee[int](18)
+    Punctuation_Connector = Kee[int](19)
+    Punctuation_Dash = Kee[int](20)
+    Punctuation_Open = Kee[int](21)
+    Punctuation_Close = Kee[int](22)
+    Punctuation_InitialQuote = Kee[int](23)
+    Punctuation_FinalQuote = Kee[int](24)
+    Punctuation_Other = Kee[int](25)
+    Symbol_Math = Kee[int](26)
+    Symbol_Currency = Kee[int](27)
+    Symbol_Modifier = Kee[int](28)
+    Symbol_Other = Kee[int](29)
+
+  class CombiningClass(CuteNum):
+    """
+    The enum 'QChar::CombiningClass' of Qt, with the 19 names Qt gives in it.
+    """
+
+    Combining_BelowLeftAttached = Kee[int](200)
+    Combining_BelowAttached = Kee[int](202)
+    Combining_BelowRightAttached = Kee[int](204)
+    Combining_LeftAttached = Kee[int](208)
+    Combining_RightAttached = Kee[int](210)
+    Combining_AboveLeftAttached = Kee[int](212)
+    Combining_AboveAttached = Kee[int](214)
+    Combining_AboveRightAttached = Kee[int](216)
+    Combining_BelowLeft = Kee[int](218)
+    Combining_Below = Kee[int](220)
+    Combining_BelowRight = Kee[int](222)
+    Combining_Left = Kee[int](224)
+    Combining_Right = Kee[int](226)
+    Combining_AboveLeft = Kee[int](228)
+    Combining_Above = Kee[int](230)
+    Combining_AboveRight = Kee[int](232)
+    Combining_DoubleBelow = Kee[int](233)
+    Combining_DoubleAbove = Kee[int](234)
+    Combining_IotaSubscript = Kee[int](240)
+
+  class Decomposition(CuteNum):
+    """
+    The enum 'QChar::Decomposition' of Qt, with the 18 names Qt gives in it.
+    """
+
+    NoDecomposition = Kee[int](0)
+    Canonical = Kee[int](1)
+    Font = Kee[int](2)
+    NoBreak = Kee[int](3)
+    Initial = Kee[int](4)
+    Medial = Kee[int](5)
+    Final = Kee[int](6)
+    Isolated = Kee[int](7)
+    Circle = Kee[int](8)
+    Super = Kee[int](9)
+    Sub = Kee[int](10)
+    Vertical = Kee[int](11)
+    Wide = Kee[int](12)
+    Narrow = Kee[int](13)
+    Small = Kee[int](14)
+    Square = Kee[int](15)
+    Compat = Kee[int](16)
+    Fraction = Kee[int](17)
+
+  class Direction(CuteNum):
+    """
+    The enum 'QChar::Direction' of Qt, with the 23 names Qt gives in it.
+    """
+
+    DirL = Kee[int](0)
+    DirR = Kee[int](1)
+    DirEN = Kee[int](2)
+    DirES = Kee[int](3)
+    DirET = Kee[int](4)
+    DirAN = Kee[int](5)
+    DirCS = Kee[int](6)
+    DirB = Kee[int](7)
+    DirS = Kee[int](8)
+    DirWS = Kee[int](9)
+    DirON = Kee[int](10)
+    DirLRE = Kee[int](11)
+    DirLRO = Kee[int](12)
+    DirAL = Kee[int](13)
+    DirRLE = Kee[int](14)
+    DirRLO = Kee[int](15)
+    DirPDF = Kee[int](16)
+    DirNSM = Kee[int](17)
+    DirBN = Kee[int](18)
+    DirLRI = Kee[int](19)
+    DirRLI = Kee[int](20)
+    DirFSI = Kee[int](21)
+    DirPDI = Kee[int](22)
+
+  class JoiningType(CuteNum):
+    """
+    The enum 'QChar::JoiningType' of Qt, with the 6 names Qt gives in it.
+    """
+
+    Joining_None = Kee[int](0)
+    Joining_Causing = Kee[int](1)
+    Joining_Dual = Kee[int](2)
+    Joining_Right = Kee[int](3)
+    Joining_Left = Kee[int](4)
+    Joining_Transparent = Kee[int](5)
+
+  class Script(CuteNum):
+    """The enum 'QChar::Script' of Qt, with the 176 names Qt gives in it."""
+
+    Script_Unknown = Kee[int](0)
+    Script_Inherited = Kee[int](1)
+    Script_Common = Kee[int](2)
+    Script_Latin = Kee[int](3)
+    Script_Greek = Kee[int](4)
+    Script_Cyrillic = Kee[int](5)
+    Script_Armenian = Kee[int](6)
+    Script_Hebrew = Kee[int](7)
+    Script_Arabic = Kee[int](8)
+    Script_Syriac = Kee[int](9)
+    Script_Thaana = Kee[int](10)
+    Script_Devanagari = Kee[int](11)
+    Script_Bengali = Kee[int](12)
+    Script_Gurmukhi = Kee[int](13)
+    Script_Gujarati = Kee[int](14)
+    Script_Oriya = Kee[int](15)
+    Script_Tamil = Kee[int](16)
+    Script_Telugu = Kee[int](17)
+    Script_Kannada = Kee[int](18)
+    Script_Malayalam = Kee[int](19)
+    Script_Sinhala = Kee[int](20)
+    Script_Thai = Kee[int](21)
+    Script_Lao = Kee[int](22)
+    Script_Tibetan = Kee[int](23)
+    Script_Myanmar = Kee[int](24)
+    Script_Georgian = Kee[int](25)
+    Script_Hangul = Kee[int](26)
+    Script_Ethiopic = Kee[int](27)
+    Script_Cherokee = Kee[int](28)
+    Script_CanadianAboriginal = Kee[int](29)
+    Script_Ogham = Kee[int](30)
+    Script_Runic = Kee[int](31)
+    Script_Khmer = Kee[int](32)
+    Script_Mongolian = Kee[int](33)
+    Script_Hiragana = Kee[int](34)
+    Script_Katakana = Kee[int](35)
+    Script_Bopomofo = Kee[int](36)
+    Script_Han = Kee[int](37)
+    Script_Yi = Kee[int](38)
+    Script_OldItalic = Kee[int](39)
+    Script_Gothic = Kee[int](40)
+    Script_Deseret = Kee[int](41)
+    Script_Tagalog = Kee[int](42)
+    Script_Hanunoo = Kee[int](43)
+    Script_Buhid = Kee[int](44)
+    Script_Tagbanwa = Kee[int](45)
+    Script_Coptic = Kee[int](46)
+    Script_Limbu = Kee[int](47)
+    Script_TaiLe = Kee[int](48)
+    Script_LinearB = Kee[int](49)
+    Script_Ugaritic = Kee[int](50)
+    Script_Shavian = Kee[int](51)
+    Script_Osmanya = Kee[int](52)
+    Script_Cypriot = Kee[int](53)
+    Script_Braille = Kee[int](54)
+    Script_Buginese = Kee[int](55)
+    Script_NewTaiLue = Kee[int](56)
+    Script_Glagolitic = Kee[int](57)
+    Script_Tifinagh = Kee[int](58)
+    Script_SylotiNagri = Kee[int](59)
+    Script_OldPersian = Kee[int](60)
+    Script_Kharoshthi = Kee[int](61)
+    Script_Balinese = Kee[int](62)
+    Script_Cuneiform = Kee[int](63)
+    Script_Phoenician = Kee[int](64)
+    Script_PhagsPa = Kee[int](65)
+    Script_Nko = Kee[int](66)
+    Script_Sundanese = Kee[int](67)
+    Script_Lepcha = Kee[int](68)
+    Script_OlChiki = Kee[int](69)
+    Script_Vai = Kee[int](70)
+    Script_Saurashtra = Kee[int](71)
+    Script_KayahLi = Kee[int](72)
+    Script_Rejang = Kee[int](73)
+    Script_Lycian = Kee[int](74)
+    Script_Carian = Kee[int](75)
+    Script_Lydian = Kee[int](76)
+    Script_Cham = Kee[int](77)
+    Script_TaiTham = Kee[int](78)
+    Script_TaiViet = Kee[int](79)
+    Script_Avestan = Kee[int](80)
+    Script_EgyptianHieroglyphs = Kee[int](81)
+    Script_Samaritan = Kee[int](82)
+    Script_Lisu = Kee[int](83)
+    Script_Bamum = Kee[int](84)
+    Script_Javanese = Kee[int](85)
+    Script_MeeteiMayek = Kee[int](86)
+    Script_ImperialAramaic = Kee[int](87)
+    Script_OldSouthArabian = Kee[int](88)
+    Script_InscriptionalParthian = Kee[int](89)
+    Script_InscriptionalPahlavi = Kee[int](90)
+    Script_OldTurkic = Kee[int](91)
+    Script_Kaithi = Kee[int](92)
+    Script_Batak = Kee[int](93)
+    Script_Brahmi = Kee[int](94)
+    Script_Mandaic = Kee[int](95)
+    Script_Chakma = Kee[int](96)
+    Script_MeroiticCursive = Kee[int](97)
+    Script_MeroiticHieroglyphs = Kee[int](98)
+    Script_Miao = Kee[int](99)
+    Script_Sharada = Kee[int](100)
+    Script_SoraSompeng = Kee[int](101)
+    Script_Takri = Kee[int](102)
+    Script_CaucasianAlbanian = Kee[int](103)
+    Script_BassaVah = Kee[int](104)
+    Script_Duployan = Kee[int](105)
+    Script_Elbasan = Kee[int](106)
+    Script_Grantha = Kee[int](107)
+    Script_PahawhHmong = Kee[int](108)
+    Script_Khojki = Kee[int](109)
+    Script_LinearA = Kee[int](110)
+    Script_Mahajani = Kee[int](111)
+    Script_Manichaean = Kee[int](112)
+    Script_MendeKikakui = Kee[int](113)
+    Script_Modi = Kee[int](114)
+    Script_Mro = Kee[int](115)
+    Script_OldNorthArabian = Kee[int](116)
+    Script_Nabataean = Kee[int](117)
+    Script_Palmyrene = Kee[int](118)
+    Script_PauCinHau = Kee[int](119)
+    Script_OldPermic = Kee[int](120)
+    Script_PsalterPahlavi = Kee[int](121)
+    Script_Siddham = Kee[int](122)
+    Script_Khudawadi = Kee[int](123)
+    Script_Tirhuta = Kee[int](124)
+    Script_WarangCiti = Kee[int](125)
+    Script_Ahom = Kee[int](126)
+    Script_AnatolianHieroglyphs = Kee[int](127)
+    Script_Hatran = Kee[int](128)
+    Script_Multani = Kee[int](129)
+    Script_OldHungarian = Kee[int](130)
+    Script_SignWriting = Kee[int](131)
+    Script_Adlam = Kee[int](132)
+    Script_Bhaiksuki = Kee[int](133)
+    Script_Marchen = Kee[int](134)
+    Script_Newa = Kee[int](135)
+    Script_Osage = Kee[int](136)
+    Script_Tangut = Kee[int](137)
+    Script_MasaramGondi = Kee[int](138)
+    Script_Nushu = Kee[int](139)
+    Script_Soyombo = Kee[int](140)
+    Script_ZanabazarSquare = Kee[int](141)
+    Script_Dogra = Kee[int](142)
+    Script_GunjalaGondi = Kee[int](143)
+    Script_HanifiRohingya = Kee[int](144)
+    Script_Makasar = Kee[int](145)
+    Script_Medefaidrin = Kee[int](146)
+    Script_OldSogdian = Kee[int](147)
+    Script_Sogdian = Kee[int](148)
+    Script_Elymaic = Kee[int](149)
+    Script_Nandinagari = Kee[int](150)
+    Script_NyiakengPuachueHmong = Kee[int](151)
+    Script_Wancho = Kee[int](152)
+    Script_Chorasmian = Kee[int](153)
+    Script_DivesAkuru = Kee[int](154)
+    Script_KhitanSmallScript = Kee[int](155)
+    Script_Yezidi = Kee[int](156)
+    Script_CyproMinoan = Kee[int](157)
+    Script_OldUyghur = Kee[int](158)
+    Script_Tangsa = Kee[int](159)
+    Script_Toto = Kee[int](160)
+    Script_Vithkuqi = Kee[int](161)
+    Script_Kawi = Kee[int](162)
+    Script_NagMundari = Kee[int](163)
+    Script_Garay = Kee[int](164)
+    Script_GurungKhema = Kee[int](165)
+    Script_KiratRai = Kee[int](166)
+    Script_OlOnal = Kee[int](167)
+    Script_Sunuwar = Kee[int](168)
+    Script_Todhri = Kee[int](169)
+    Script_TuluTigalari = Kee[int](170)
+    Script_Sidetic = Kee[int](171)
+    Script_TaiYo = Kee[int](172)
+    Script_TolongSiki = Kee[int](173)
+    Script_BeriaErfe = Kee[int](174)
+    ScriptCount = Kee[int](175)
+
+  class SpecialCharacter(CuteNum):
+    """
+    The enum 'QChar::SpecialCharacter' of Qt, with the 16 names Qt gives in
+    it.
+    """
+
+    Null = Kee[int](0)
+    Tabulation = Kee[int](9)
+    LineFeed = Kee[int](10)
+    FormFeed = Kee[int](12)
+    CarriageReturn = Kee[int](13)
+    Space = Kee[int](32)
+    Nbsp = Kee[int](160)
+    SoftHyphen = Kee[int](173)
+    ReplacementCharacter = Kee[int](65533)
+    ObjectReplacementCharacter = Kee[int](65532)
+    ByteOrderMark = Kee[int](65279)
+    ByteOrderSwapped = Kee[int](65534)
+    ParagraphSeparator = Kee[int](8233)
+    LineSeparator = Kee[int](8232)
+    VisualTabCharacter = Kee[int](8594)
+    LastValidCodePoint = Kee[int](1114111)
+
+  class UnicodeVersion(CuteNum):
+    """
+    The enum 'QChar::UnicodeVersion' of Qt, with the 29 names Qt gives in it.
+    """
+
+    Unicode_Unassigned = Kee[int](0)
+    Unicode_1_1 = Kee[int](1)
+    Unicode_2_0 = Kee[int](2)
+    Unicode_2_1_2 = Kee[int](3)
+    Unicode_3_0 = Kee[int](4)
+    Unicode_3_1 = Kee[int](5)
+    Unicode_3_2 = Kee[int](6)
+    Unicode_4_0 = Kee[int](7)
+    Unicode_4_1 = Kee[int](8)
+    Unicode_5_0 = Kee[int](9)
+    Unicode_5_1 = Kee[int](10)
+    Unicode_5_2 = Kee[int](11)
+    Unicode_6_0 = Kee[int](12)
+    Unicode_6_1 = Kee[int](13)
+    Unicode_6_2 = Kee[int](14)
+    Unicode_6_3 = Kee[int](15)
+    Unicode_7_0 = Kee[int](16)
+    Unicode_8_0 = Kee[int](17)
+    Unicode_9_0 = Kee[int](18)
+    Unicode_10_0 = Kee[int](19)
+    Unicode_11_0 = Kee[int](20)
+    Unicode_12_0 = Kee[int](21)
+    Unicode_12_1 = Kee[int](22)
+    Unicode_13_0 = Kee[int](23)
+    Unicode_14_0 = Kee[int](24)
+    Unicode_15_0 = Kee[int](25)
+    Unicode_15_1 = Kee[int](26)
+    Unicode_16_0 = Kee[int](27)
+    Unicode_17_0 = Kee[int](28)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

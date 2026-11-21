@@ -14,13 +14,13 @@ from worktoy.dispatch import overload
 from ..cute import WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QEvent
-from . import QInputEvent, QKeySequenceStandardKey
+from . import QInputEvent, QKeySequence
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QKeyCombination
-  from . import QInputDevice, QKeySequence
+  from . import QInputDevice
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -122,7 +122,7 @@ class QKeyEvent(QInputEvent):
     #  int QKeyEvent::key() const
     return self.uglySide.call('ritual_ZNK9QKeyEvent3keyEv')
 
-  @overload(QKeySequenceStandardKey)
+  @overload(QKeySequence.StandardKey)
   def matches(self, key: QKeySequence.StandardKey) -> bool:
     """
     Calls Qt's 'bool QKeyEvent::matches(QKeySequence::StandardKey key)

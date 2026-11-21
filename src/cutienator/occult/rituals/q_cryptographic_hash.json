@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcryptographichash.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN18QCryptographicHashC1ENS_9AlgorithmE": ["address", "int"],
+    "ritual_ZN18QCryptographicHashD1Ev": ["nothing", "address"],
+    "ritual_ZN18QCryptographicHash5resetEv": ["nothing", "address"],
+    "ritual_ZNK18QCryptographicHash9algorithmEv": ["int", "address"],
+    "ritual_ZN18QCryptographicHash7addDataEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN18QCryptographicHash7addDataE14QByteArrayView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCryptographicHash7addDataEP9QIODevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QCryptographicHash6resultEv": ["address", "address"],
+    "ritual_ZNK18QCryptographicHash10resultViewEv": ["address", "address"],
+    "ritual_ZN18QCryptographicHash4hashE14QByteArrayViewNS_9AlgorithmE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QCryptographicHash10hashLengthENS_9AlgorithmE": [
+      "int", "int"
+    ],
+    "ritual_ZN18QCryptographicHash17supportsAlgorithmENS_9AlgorithmE": [
+      "bool", "int"
+    ]
+  }
+}

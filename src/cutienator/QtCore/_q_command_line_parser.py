@@ -10,12 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QCommandLineParserMessageType
-from . import QCommandLineParserOptionsAfterPositionalArgumentsMode
-from . import QCommandLineParserSingleDashWordOptionMode
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -73,12 +71,36 @@ class QCommandLineParser(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QCommandLineParser.
   """
 
-  #  The enums Qt writes inside QCommandLineParser, and the names Qt has for
-  #  the combinations of its flags enums.
-  MessageType = QCommandLineParserMessageType
-  OptionsAfterPositionalArgumentsMode = (
-      QCommandLineParserOptionsAfterPositionalArgumentsMode)
-  SingleDashWordOptionMode = QCommandLineParserSingleDashWordOptionMode
+  #  The enums Qt writes inside QCommandLineParser, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class MessageType(CuteNum, scoped=True):
+    """
+    The enum 'QCommandLineParser::MessageType' of Qt, with the 2 names Qt
+    gives in it. C++ keeps these names inside the enum, so the class that
+    holds the enum does not have them.
+    """
+
+    Information = Kee[int](0)
+    Error = Kee[int](1)
+
+  class OptionsAfterPositionalArgumentsMode(CuteNum):
+    """
+    The enum 'QCommandLineParser::OptionsAfterPositionalArgumentsMode' of Qt,
+    with the 2 names Qt gives in it.
+    """
+
+    ParseAsOptions = Kee[int](0)
+    ParseAsPositionalArguments = Kee[int](1)
+
+  class SingleDashWordOptionMode(CuteNum):
+    """
+    The enum 'QCommandLineParser::SingleDashWordOptionMode' of Qt, with the 2
+    names Qt gives in it.
+    """
+
+    ParseAsCompactedShortOptions = Kee[int](0)
+    ParseAsLongOptions = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

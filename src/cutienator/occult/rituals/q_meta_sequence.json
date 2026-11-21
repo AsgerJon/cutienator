@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmetacontainer.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QMetaSequenceC1Ev": ["address"],
+    "ritual_ZN13QMetaSequenceC1EPKN22QtMetaContainerPrivate22QMetaSequenceInterfaceE": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QMetaSequence13valueMetaTypeEv": ["address", "address"],
+    "ritual_ZNK13QMetaSequence10isSortableEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence18canAddValueAtBeginEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence16canAddValueAtEndEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence21canRemoveValueAtBeginEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13QMetaSequence19canRemoveValueAtEndEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence18canGetValueAtIndexEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence18canSetValueAtIndexEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence11canAddValueEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence14canRemoveValueEv": ["bool", "address"],
+    "ritual_ZNK13QMetaSequence21canGetValueAtIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13QMetaSequence21canSetValueAtIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13QMetaSequence24canInsertValueAtIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13QMetaSequence23canEraseValueAtIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13QMetaSequence23canEraseRangeAtIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13QMetaSequence26canGetValueAtConstIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13QMetaSequence5ifaceEv": ["address", "address"],
+    "ritual_ZN13QMetaSequenceD1Ev": ["nothing", "address"]
+  }
+}

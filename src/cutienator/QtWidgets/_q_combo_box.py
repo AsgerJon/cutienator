@@ -10,12 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QComboBoxInsertPolicy, QComboBoxLabelDrawingMode
-from . import QComboBoxSizeAdjustPolicy, QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -104,11 +104,42 @@ class QComboBox(QWidget):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QComboBox, and the names Qt has for the
-  #  combinations of its flags enums.
-  InsertPolicy = QComboBoxInsertPolicy
-  LabelDrawingMode = QComboBoxLabelDrawingMode
-  SizeAdjustPolicy = QComboBoxSizeAdjustPolicy
+  #  The enums Qt writes inside QComboBox, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class InsertPolicy(CuteNum):
+    """
+    The enum 'QComboBox::InsertPolicy' of Qt, with the 7 names Qt gives in
+    it.
+    """
+
+    NoInsert = Kee[int](0)
+    InsertAtTop = Kee[int](1)
+    InsertAtCurrent = Kee[int](2)
+    InsertAtBottom = Kee[int](3)
+    InsertAfterCurrent = Kee[int](4)
+    InsertBeforeCurrent = Kee[int](5)
+    InsertAlphabetically = Kee[int](6)
+
+  class LabelDrawingMode(CuteNum, scoped=True):
+    """
+    The enum 'QComboBox::LabelDrawingMode' of Qt, with the 2 names Qt gives
+    in it. C++ keeps these names inside the enum, so the class that holds the
+    enum does not have them.
+    """
+
+    UseStyle = Kee[int](0)
+    UseDelegate = Kee[int](1)
+
+  class SizeAdjustPolicy(CuteNum):
+    """
+    The enum 'QComboBox::SizeAdjustPolicy' of Qt, with the 3 names Qt gives
+    in it.
+    """
+
+    AdjustToContents = Kee[int](0)
+    AdjustToContentsOnFirstShow = Kee[int](1)
+    AdjustToMinimumContentsLengthWithIcon = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -10,10 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QTextLineCursorPosition, QTextLineEdge
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -79,10 +79,23 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QTextLine.
   """
 
-  #  The enums Qt writes inside QTextLine, and the names Qt has for the
-  #  combinations of its flags enums.
-  CursorPosition = QTextLineCursorPosition
-  Edge = QTextLineEdge
+  #  The enums Qt writes inside QTextLine, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class CursorPosition(CuteNum):
+    """
+    The enum 'QTextLine::CursorPosition' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    CursorBetweenCharacters = Kee[int](0)
+    CursorOnCharacter = Kee[int](1)
+
+  class Edge(CuteNum):
+    """The enum 'QTextLine::Edge' of Qt, with the 2 names Qt gives in it."""
+
+    Leading = Kee[int](0)
+    Trailing = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

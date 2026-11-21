@@ -10,11 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import WAIT
+from ..cute import CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QContextMenuEventReason, QInputEvent
+from . import QInputEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -67,9 +68,18 @@ class QContextMenuEvent(QInputEvent):
   - Python never removes the C++ QContextMenuEvent.
   """
 
-  #  The enums Qt writes inside QContextMenuEvent, and the names Qt has for
-  #  the combinations of its flags enums.
-  Reason = QContextMenuEventReason
+  #  The enums Qt writes inside QContextMenuEvent, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class Reason(CuteNum):
+    """
+    The enum 'QContextMenuEvent::Reason' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    Mouse = Kee[int](0)
+    Keyboard = Kee[int](1)
+    Other = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

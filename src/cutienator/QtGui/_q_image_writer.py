@@ -10,17 +10,17 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QImageIOHandlerImageOption, QImageIOHandlerTransformation
-from . import QImageWriterImageWriterError
+from . import QImageIOHandler
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QByteArray, QIODevice
-  from . import QImage, QImageIOHandler
+  from . import QImage
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -76,9 +76,19 @@ class QImageWriter(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QImageWriter.
   """
 
-  #  The enums Qt writes inside QImageWriter, and the names Qt has for the
-  #  combinations of its flags enums.
-  ImageWriterError = QImageWriterImageWriterError
+  #  The enums Qt writes inside QImageWriter, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class ImageWriterError(CuteNum):
+    """
+    The enum 'QImageWriter::ImageWriterError' of Qt, with the 4 names Qt
+    gives in it.
+    """
+
+    UnknownError = Kee[int](0)
+    DeviceError = Kee[int](1)
+    UnsupportedFormatError = Kee[int](2)
+    InvalidImageError = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -273,7 +283,7 @@ class QImageWriter(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  QImageIOHandler::Transformations QImageWriter::transformation() const
-    return QImageIOHandlerTransformation(self.uglySide.call(
+    return QImageIOHandler.Transformations(self.uglySide.call(
         'ritual_ZNK12QImageWriter14transformationEv',
     ))
 
@@ -320,7 +330,7 @@ class QImageWriter(CuteMixin, metaclass=MetaCute):
     #  QString QImageWriter::errorString() const
     return self.uglySide.call('ritual_ZNK12QImageWriter11errorStringEv')
 
-  @overload(QImageIOHandlerImageOption)
+  @overload(QImageIOHandler.ImageOption)
   def supportsOption(self, option: QImageIOHandler.ImageOption) -> bool:
     """
     Calls Qt's 'bool
@@ -498,7 +508,7 @@ class QImageWriter(CuteMixin, metaclass=MetaCute):
         'ritual_ZN12QImageWriter23setProgressiveScanWriteEb', progressive,
     )
 
-  @overload(QImageIOHandlerTransformation)
+  @overload(QImageIOHandler.Transformations)
   def setTransformation(
       self,
       orientation: QImageIOHandler.Transformations,

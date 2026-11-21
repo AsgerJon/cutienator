@@ -10,11 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..QtCore import Qt
-from . import QPaintEngineDirtyFlag, QPaintEnginePaintEngineFeature
-from . import QPaintEnginePolygonDrawMode, QPaintEngineType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -92,14 +91,98 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QPaintEngine.
   """
 
-  #  The enums Qt writes inside QPaintEngine, and the names Qt has for the
-  #  combinations of its flags enums.
-  DirtyFlag = QPaintEngineDirtyFlag
-  DirtyFlags = QPaintEngineDirtyFlag
-  PaintEngineFeature = QPaintEnginePaintEngineFeature
-  PaintEngineFeatures = QPaintEnginePaintEngineFeature
-  PolygonDrawMode = QPaintEnginePolygonDrawMode
-  Type = QPaintEngineType
+  #  The enums Qt writes inside QPaintEngine, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class DirtyFlag(CuteFlags):
+    """
+    The flags enum 'QPaintEngine::DirtyFlag' of Qt, with the 14 names Qt
+    gives in it. Qt names the type of its combinations
+    'QPaintEngine::DirtyFlags'.
+    """
+
+    DirtyPen = 0x1
+    DirtyBrush = 0x2
+    DirtyBrushOrigin = 0x4
+    DirtyFont = 0x8
+    DirtyBackground = 0x10
+    DirtyBackgroundMode = 0x20
+    DirtyTransform = 0x40
+    DirtyClipRegion = 0x80
+    DirtyClipPath = 0x100
+    DirtyHints = 0x200
+    DirtyCompositionMode = 0x400
+    DirtyClipEnabled = 0x800
+    DirtyOpacity = 0x1000
+    AllDirty = 0xffff
+
+  DirtyFlags = DirtyFlag
+
+  class PaintEngineFeature(CuteFlags, number='unsigned int'):
+    """
+    The flags enum 'QPaintEngine::PaintEngineFeature' of Qt, with the 20
+    names Qt gives in it. Qt names the type of its combinations
+    'QPaintEngine::PaintEngineFeatures'.
+    """
+
+    PrimitiveTransform = 0x1
+    PatternTransform = 0x2
+    PixmapTransform = 0x4
+    PatternBrush = 0x8
+    LinearGradientFill = 0x10
+    RadialGradientFill = 0x20
+    ConicalGradientFill = 0x40
+    AlphaBlend = 0x80
+    PorterDuff = 0x100
+    PainterPaths = 0x200
+    Antialiasing = 0x400
+    BrushStroke = 0x800
+    ConstantOpacity = 0x1000
+    MaskedBrush = 0x2000
+    PerspectiveTransform = 0x4000
+    BlendModes = 0x8000
+    ObjectBoundingModeGradients = 0x10000
+    RasterOpModes = 0x20000
+    PaintOutsidePaintEvent = 0x20000000
+    AllFeatures = 0xffffffff
+
+  PaintEngineFeatures = PaintEngineFeature
+
+  class PolygonDrawMode(CuteNum):
+    """
+    The enum 'QPaintEngine::PolygonDrawMode' of Qt, with the 4 names Qt gives
+    in it.
+    """
+
+    OddEvenMode = Kee[int](0)
+    WindingMode = Kee[int](1)
+    ConvexMode = Kee[int](2)
+    PolylineMode = Kee[int](3)
+
+  class Type(CuteNum):
+    """
+    The enum 'QPaintEngine::Type' of Qt, with the 19 names Qt gives in it.
+    """
+
+    X11 = Kee[int](0)
+    Windows = Kee[int](1)
+    QuickDraw = Kee[int](2)
+    CoreGraphics = Kee[int](3)
+    MacPrinter = Kee[int](4)
+    QWindowSystem = Kee[int](5)
+    OpenGL = Kee[int](6)
+    Picture = Kee[int](7)
+    SVG = Kee[int](8)
+    Raster = Kee[int](9)
+    Direct3D = Kee[int](10)
+    Pdf = Kee[int](11)
+    OpenVG = Kee[int](12)
+    OpenGL2 = Kee[int](13)
+    PaintBuffer = Kee[int](14)
+    Blitter = Kee[int](15)
+    Direct2D = Kee[int](16)
+    User = Kee[int](50)
+    MaxUser = Kee[int](100)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

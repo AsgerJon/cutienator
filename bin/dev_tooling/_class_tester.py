@@ -193,17 +193,6 @@ class ClassTester:
       raise FileNotFoundError(' '.join((infoSpec % classFile).split()))
     with open(classFile) as file:
       onDisk = file.read()
-    for enumGenerator in generator.getEnumGenerators():
-      enumFile = enumGenerator.getEnumFile()
-      held = None  # type: Optional[str]
-      if os.path.isfile(enumFile):
-        with open(enumFile) as file:
-          held = file.read()
-      if held != enumGenerator.getEnumText():
-        infoSpec = """The enum file '%s' is not what the generator would
-        write now. It is missing, was changed by hand, or was written
-        from other records."""
-        faults.append(' '.join((infoSpec % enumFile).split()))
     if onDisk != generator.getClassText():
       infoSpec = """The file '%s' is not what the generator would write
       now. It was changed by hand, or written from other records."""
@@ -273,9 +262,12 @@ class ClassTester:
     className = generator.getClassName()
     plans = dict()  # type: Dict[str, Tuple[str, ...]]
     shown = dict()  # type: Dict[str, str]
-    for plan in generator.getRitualGenerator().getWritten():
-      plans[plan['ritualName']] = plan['row']
-      shown[plan['function']] = plan['ritualName']
+    #  The file holds the class and every class Qt writes inside it.
+    everyOne = generator.getAllGenerators()
+    for one in everyOne:
+      for plan in one.getRitualGenerator().getWritten():
+        plans[plan['ritualName']] = plan['row']
+        shown[plan['function']] = plan['ritualName']
     called = set()
     for ritualName, handed, onObject in self._findCalls(tree):
       called.add(ritualName)
@@ -293,7 +285,8 @@ class ClassTester:
             className, ritualName, handed + (1 if onObject else 0), taken)
         faults.append(' '.join(info.split()))
     leftOut = set()
-    for function, _ in generator.getLeftOut():
+    listed = [pair for one in everyOne for pair in one.getLeftOut()]
+    for function, _ in listed:
       if function not in shown:
         infoSpec = """The generator lists '%s' as left out, and the class
         '%s' has no ritual for it."""
@@ -315,12 +308,17 @@ class ClassTester:
     """Looks for two functions of one name given the same signature."""
     generator = self.getClassGenerator()
     taken = dict()  # type: Dict[Tuple, str]
-    for function in generator.getFunctions():
+    functions = [
+        (one.getClassName(), function)
+        for one in generator.getAllGenerators()
+        for function in one.getFunctions()
+    ]
+    for holderName, function in functions:
       pairs = zip(function['signatures'], function['signatureKeys'])
       for signature, known in pairs:
         #  A signature goes by the classes it takes, whatever names the
         #  file writes them by.
-        key = (function['pythonName'], known)
+        key = (holderName, function['pythonName'], known)
         if key in taken:
           infoSpec = """'%s' and '%s' are both given the signature (%s)
           at the name '%s'."""
@@ -341,10 +339,19 @@ class ClassTester:
     pythonName = generator.getPythonName()
     codeSpec = """import importlib
 module = importlib.import_module(%r)
-cls = getattr(module, %r)
-assert cls.__qt_class__ == %r, cls.__qt_class__
+for dotted, qtName in %r:
+  cls = module
+  for name in dotted.split('.'):
+    cls = getattr(cls, name)
+  assert cls.__qt_class__ == qtName, cls.__qt_class__
+  assert cls.__qualname__ == dotted, cls.__qualname__
 """
-    code = codeSpec % (moduleName, pythonName, generator.getClassName())
+    #  The class, and each class Qt writes inside it, where C++ has it.
+    expected = [
+        (one.getDottedName(), one.getClassName())
+        for one in generator.getAllGenerators()
+    ]
+    code = codeSpec % (moduleName, expected)
     environment = dict(os.environ)
     known = environment.get('PYTHONPATH', '')
     folders = [os.path.dirname(workFolder), *known.split(os.pathsep)]

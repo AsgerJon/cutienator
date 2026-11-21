@@ -7,6 +7,7 @@ import collections
 import keyword
 import os
 import textwrap
+import threading
 from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
@@ -20,6 +21,16 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   Records = Tuple[Record, ...]
   Reasons = Tuple[Tuple[str, str], ...]
   Names = Tuple[str, ...]
+
+
+#  How many letters a line may have right now, kept for each thread: 77,
+#  and two less for each class the one being written stands inside.
+_LOCAL = threading.local()
+
+
+def _width() -> int:
+  """Gives how many letters a line may have right now."""
+  return getattr(_LOCAL, 'width', 77)
 
 
 class ClassGenerator:
@@ -107,13 +118,17 @@ class ClassGenerator:
     'Qt', the cute way: it asks the package of their part, as
     'from ..QtCore import Qt, QObject'. The package brings in the one
     file each is in, the first time it is asked for. So bringing in
-    one class brings in the files of the classes it is built on and
-    no others.
-  - The enums and the classes Qt writes inside the class are parts of
-    it in files of their own beside it. The package gives each by what
-    Qt writes it inside and its own name in one, and the file asks the
-    package for it, as 'from . import QWidgetRenderFlag'. The body
-    binds it under its own name, as 'RenderFlag = QWidgetRenderFlag'.
+    one class brings in the files of the classes it is built on, and
+    of the classes holding what it names, and no others.
+  - The enums and the classes Qt writes inside the class are written
+    inside it, where C++, PySide6 and PyQt have them: 'class
+    RenderFlag(CuteFlags)' in the body of 'QWidget', so its only name
+    is 'QWidget.RenderFlag'. Nothing of Qt has a name Qt does not give
+    it.
+  - An enum or a class Qt writes inside another class is reached
+    through that class, as 'QPalette.ColorRole' and
+    'QMetaObject.Connection', so the file of that class is brought in:
+    'from ..QtGui import QPalette'. Such a class is no late class.
   - Each late class a signature takes is bound to a 'WAIT' there, as
     "QFont = WAIT['QFont']", under 'else:' of 'if TYPE_CHECKING:'.
     Under 'if TYPE_CHECKING:' stands the import of every late class
@@ -122,10 +137,6 @@ class ClassGenerator:
     and Python does not run them, so they bring nothing in. Why a
     call never meets a signature that still waits is told in the
     docstring of 'cutienator.cute.WAIT'.
-  - An enum Qt writes inside a late class is a file of its own beside
-    that class, and is asked of the package in the same way, without
-    the class: 'from ..QtGui import QPaletteColorRole'. The annotation
-    keeps Qt's way of writing it, 'QPalette.ColorRole'.
   - Each constructor of Qt is one '__init__', which notes what it was
     given. The C++ object is made at the first use. Qt's application,
     'QCoreApplication' and every class built on it, is made at once:
@@ -149,17 +160,17 @@ class ClassGenerator:
     Qt class is built on. A second one, as 'QPaintDevice' for
     'QWidget', is not reflected.
   - A class Qt writes inside another, as 'QMetaObject::Connection', is
-    a cute class in a file of its own, named after both, as
-    '_q_meta_object__connection.py'. It is named 'Connection', the
-    class it is written inside holds it under that name, and it is
-    made before that class. To other classes it is a late class,
-    bound at the top of the file under the two names in one, as
-    "QMetaObjectConnection = WAIT['Connection']", beside
-    'QMetaObjectConnection = QMetaObject.Connection' for a type
-    checker, and written 'QMetaObject.Connection' in an annotation.
+    a cute class written inside the cute class of that class, in its
+    file, with lines two letters shorter. It has no file of its own,
+    and 'getClassText' and 'write' refuse it: the generator of the
+    class around it writes it, through 'getNestedLines'.
+  - The body of a class written inside another does not see the names
+    of the body around it, as Python has it. What it waits for it
+    binds itself, under 'if not TYPE_CHECKING:', the class around it
+    included. A function of it naming an enum of the class around it,
+    or a class beside it, is left out, and the docstring says so.
   - The getters decide and write nothing. Only 'write' touches a file,
-    and it replaces the file whole, and the files of the enums of the
-    class with it.
+    and it replaces the file whole.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -180,10 +191,11 @@ class ClassGenerator:
     return ''.join(stem)
 
   @staticmethod
-  def _wrapWords(words: str, indent: str, width: int = 77) -> List[str]:
-    """Gives words as lines of at most 'width' letters, each indented."""
+  def _wrapWords(words: str, indent: str, width: int = 0) -> List[str]:
+    """Gives words as lines of at most 'width' letters, each indented:
+    as many as a line may have right now when none is given."""
     return textwrap.wrap(
-        ' '.join(words.split()), width, initial_indent=indent,
+        ' '.join(words.split()), width or _width(), initial_indent=indent,
         subsequent_indent=indent, break_long_words=False,
         break_on_hyphens=False,
     ) or [indent.rstrip()]
@@ -212,9 +224,9 @@ class ClassGenerator:
     lines, line = [], first
     for word in shown.split():
       pieces = [word]
-      while len(later) + len(pieces[-1]) > 77:
+      while len(later) + len(pieces[-1]) > _width():
         long = pieces.pop()
-        room = 77 - len(later)
+        room = _width() - len(later)
         cut = max(long.rfind('(', 0, room), long.rfind('::', 0, room - 1))
         if cut <= 0:
           pieces.append(long)
@@ -223,7 +235,7 @@ class ClassGenerator:
         pieces.extend((long[:cut], long[cut:]))
       for index, piece in enumerate(pieces):
         glue = '' if index or line in (first, later) else ' '
-        if len(line) + len(glue) + len(piece) > 77:
+        if len(line) + len(glue) + len(piece) > _width():
           if line.strip() and line not in (first, later):
             lines.append(line)
             line, glue = later, ''
@@ -373,6 +385,47 @@ class ClassGenerator:
     className = className or self.getClassName()
     return className.rpartition('::')[2]
 
+  def getDottedName(self, className: Optional[str] = None) -> str:
+    """
+    Gives the name by which Python reaches the cute class of a class of
+    Qt from the top of its file, as C++, PySide6 and PyQt have it:
+    'QSize' for 'QSize', and 'QMetaObject.Connection' for
+    'QMetaObject::Connection'. It is that of the class being written
+    when none is named.
+    """
+    className = className or self.getClassName()
+    return className.replace('::', '.')
+
+  def isNested(self) -> bool:
+    """Says whether Qt writes the class inside another class. Such a
+    class is written inside the cute class of that class, in its file."""
+    return True if '::' in self.getClassName() else False
+
+  def getInnerGenerators(self) -> Tuple[Any, ...]:
+    """
+    Gives the generator of each class Qt writes right inside this one,
+    in alphabetical order. Each writes its class into the body of this
+    one. Made for you, once, and kept.
+    """
+    if self.__inner_generators__ is None:
+      generators = []
+      for innerName in self.getInnerNames():
+        generator = type(self)()
+        generator.setDependencyTree(self.getDependencyTree())
+        generator.setClassName(innerName)
+        generator.setCuteNames(*self.getCuteNames())
+        generators.append(generator)
+      self.__inner_generators__ = (*generators,)
+    return self.__inner_generators__
+
+  def getAllGenerators(self) -> Tuple[Any, ...]:
+    """Gives this generator and that of every class written inside
+    its class, however deep, each once."""
+    found = [self]
+    for generator in self.getInnerGenerators():
+      found.extend(generator.getAllGenerators())
+    return (*found,)
+
   def getOwnerName(self, className: Optional[str] = None) -> str:
     """
     Gives the class Qt writes a class inside, as 'QMetaObject' for
@@ -406,7 +459,10 @@ class ClassGenerator:
     '_q_size' for 'QSize': that of the class being written when none
     is named.
     """
-    return '_%s' % self.getStem(className or self.getClassName())
+    className = className or self.getClassName()
+    #  A class written inside another has no file of its own: it stands
+    #  in the file of the outermost class around it.
+    return '_%s' % self.getStem(className.split('::')[0])
 
   def getClassFile(self) -> str:
     """
@@ -515,6 +571,12 @@ class ClassGenerator:
     if self.__made_functions__ is None:
       if kwargs.get('_recursion', False):
         raise RecursionError
+      #  Worked out twice: the first time tells which classes have an
+      #  enum this one names, and those are no late classes the second
+      #  time.
+      self.__owners__ = ()
+      self._createFunctions()
+      self.__owners__ = (*self.__needed_names__['owners'],)
       self._createFunctions()
       return self.getFunctions(_recursion=True)
     return self.__made_functions__
@@ -729,6 +791,50 @@ class ClassGenerator:
         baseName = None
     return (*builtOn,)
 
+  #  The classes that hold an enum or a class this one names, known
+  #  after the functions are worked out a first time. Their files are
+  #  brought in.
+  __owners__ = None
+  #  The generators of the classes written inside this one.
+  __inner_generators__ = None
+
+  def _getNeeds(self) -> Dict[str, List[str]]:
+    """
+    Gives the names the file needs for this class and for every class
+    written inside it: what the top of the file brings in, and what it
+    shows a type checker. What a class written inside another waits for
+    is not among 'late': such a class binds its own 'WAIT' lines.
+    """
+    self.getFunctions()
+    needs = collections.defaultdict(list)  # type: Dict[str, List[str]]
+
+    def note(kind: str, *names: str) -> None:
+      needs[kind].extend(n for n in names if n and n not in needs[kind])
+
+    for kind, names in self.__needed_names__.items():
+      note(kind, *names)
+    for generator in self.getEnumGenerators():
+      if generator.isFlags():
+        note('top', 'CuteFlags')
+      else:
+        note('top', 'CuteNum', 'Kee')
+    baseName = self.getBaseName()
+    if baseName is None:
+      note('top', 'CuteMixin', 'MetaCute')
+    else:
+      note('classes', baseName)
+    if needs['late']:
+      note('top', 'WAIT')
+    note('classes', *needs['owners'])
+    for generator in self.getInnerGenerators():
+      inner = generator._getNeeds()
+      for kind in ('top', 'typing', 'classes', 'namespace'):
+        note(kind, *inner[kind])
+      #  What the class inside waits for is shown to a type checker by
+      #  the file, beside what its annotations name.
+      note('hinted', *inner['hinted'], *inner['late'])
+    return needs
+
   def _note(self, kind: str, name: str) -> None:
     """Notes a name the file needs: a class to import ('classes'), a
     late class a signature takes ('late'), a class an annotation names
@@ -752,41 +858,62 @@ class ClassGenerator:
       an annotation writes it; 'late': whether it is a late class;
       'bring': the class whose file holds it, or ''; 'hint': the class
       a type checker has to be shown for the annotation, or '';
-      'holder': what a function writes to reach the class.
+      'holder': what a function writes to reach the class. Or the
+      reason, in words, when the class cannot be named from here.
     """
     className = self.getClassName()
     if otherName == className:
-      name = self.getPythonName()
+      name = self.getDottedName()
       return dict(
           entry='THIS', name=name, late=False, bring='', hint='',
           holder=name)
     if otherName not in self.getCuteNames():
       return None
+    mine, theirs = className.split('::')[0], otherName.split('::')[0]
+    if className.startswith('%s::' % otherName):
+      #  A class this one is written inside is made after it, in this
+      #  very file, so it waits and nothing is brought in for it.
+      if '::' in otherName:
+        return 'names a class it is written two deep inside'
+      return dict(
+          entry=otherName, name=otherName, late=True, bring='', hint='',
+          holder=otherName)
     ownerName = self.getOwnerName(otherName)
     if not ownerName:
       #  A class this one is not built on is a late class: its file is
-      #  brought in by the program that uses it, not by this one.
-      late = otherName not in self._getBuiltOn()
+      #  brought in by the program that uses it, not by this one. A
+      #  class that holds an enum or a class this one names is brought
+      #  in for that already.
+      late = otherName not in self._getBuiltOn() and (
+          otherName not in (self.__owners__ or ()))
+      if mine == theirs:
+        late = True
       return dict(
           entry=otherName, name=otherName, late=late, bring=otherName,
           hint=otherName, holder=otherName)
     name = self.getPythonName(otherName)
+    dotted = self.getDottedName(otherName)
     if ownerName == className:
-      #  A class written inside this one is brought in by this file,
-      #  and bound in the body under its own name. A function reaches
-      #  it by the name the file brought it in under.
+      #  A class written inside this one stands in the body under its
+      #  own name. A function reaches it through the class.
       return dict(
           entry=name, name=name, late=False, bring='', hint='',
-          holder=otherName.replace('::', ''))
-    if '::' in ownerName or ownerName not in self.getCuteNames():
-      return None
-    #  A class written inside another class is a late class as well. The
-    #  file names it by the two names in one, and reads as Qt writes it.
-    entry = '%s%s' % (ownerName, name)
-    shown = '%s.%s' % (ownerName, name)
+          holder=dotted)
+    if mine == theirs:
+      #  Written inside the same class as this one, beside it or deeper:
+      #  a class body does not see the names of the body around it.
+      infoSpec = """names '%s', which stands beside this class inside
+      '%s' and cannot be named from here"""
+      return ' '.join((infoSpec % (otherName, mine)).split())
+    for depth in range(1, otherName.count('::') + 1):
+      if '::'.join(otherName.split('::')[:depth]) not in self.getCuteNames():
+        return None
+    #  A class written inside another class is reached through that
+    #  class, as Qt writes it, so the file of that class is brought in.
+    self._note('owners', theirs)
     return dict(
-        entry=entry, name=shown, late=True, bring=otherName,
-        hint=ownerName, holder=shown)
+        entry=dotted, name=dotted, late=False, bring='', hint='',
+        holder=dotted)
 
   def _findEnum(self, enumName: str, flags: bool) -> Optional[Record]:
     """
@@ -807,7 +934,7 @@ class ClassGenerator:
 
     Optional[Record]
       None for an enum the body cannot name. Else 'entry': the class as
-      a signature writes it, as 'Qt.WindowFlags' or 'QPaletteColorRole';
+      a signature writes it, as 'Qt.WindowFlags' or 'QPalette.ColorRole';
       'shown': the class as an annotation writes it, as
       'QPalette.ColorRole'; 'owner': the class it is reached through,
       or '' for the namespace 'Qt', for an enum of the class being
@@ -840,18 +967,18 @@ class ClassGenerator:
       return None
     if ownerName not in self.getCuteNames():
       return None
-    if ownerName in self._getBuiltOn():
-      entry = '%s.%s' % (ownerName, ownName)
-      return dict(
-          entry=entry, shown=entry, owner=ownerName, generator=generator)
-    #  The class holding the enum is a late class. The enum is a file of
-    #  its own beside it, which is brought in without the class, under
-    #  the two names in one.
-    self._note('enums', enumName)
-    self._note('hinted', ownerName)
-    entry = generator.getJoinedName()
-    shown = '%s.%s' % (ownerName, ownName)
-    return dict(entry=entry, shown=shown, owner='', generator=generator)
+    className = self.getClassName()
+    if ownerName.split('::')[0] == className.split('::')[0]:
+      #  An enum of the class this one is written inside, or of a class
+      #  beside it: a class body does not see the names of the body
+      #  around it, and that class is not made yet.
+      return None
+    #  The enum stands inside its class, as Qt writes it, so the file of
+    #  that class is brought in for it.
+    self._note('owners', ownerName.split('::')[0])
+    entry = '%s.%s' % (self.getDottedName(ownerName), ownName)
+    return dict(
+        entry=entry, shown=entry, owner=ownerName, generator=generator)
 
   def _findEnumNumber(self, referenced: Record) -> Optional[int]:
     """
@@ -1129,6 +1256,8 @@ class ClassGenerator:
       else:
         pointed = passing['className']
       found = self._findClass(pointed)
+      if isinstance(found, str):
+        return found
       if found is None:
         return "names '%s', which has no cute class yet" % pointed
       if kind == 'address':
@@ -1205,7 +1334,7 @@ class ClassGenerator:
         #  An enum of this class, and the name Qt has for the
         #  combinations of a flags enum of it, are bound in the body of
         #  the class alone, so a function reaches them through the class.
-        maker = '%s.%s' % (self.getPythonName(), maker)
+        maker = '%s.%s' % (self.getDottedName(), maker)
       return dict(
           kind=kind, annotation=found['shown'], words=words,
           entry=found['entry'], maker=maker,
@@ -1221,6 +1350,8 @@ class ClassGenerator:
       else:
         pointed = giving['className']
       found = self._findClass(pointed)
+      if isinstance(found, str):
+        return found.replace('names', 'gives', 1)
       if found is None:
         return "gives '%s', which has no cute class yet" % pointed
       if kind == 'value' and not self._canBeOwned(pointed):
@@ -1503,17 +1634,18 @@ class ClassGenerator:
         self._note('typing', 'Optional')
       if static and parameter['kind'] in ('address', 'value', 'chars'):
         self._note('top', 'CuteMixin')
-      if parameter.get('bring'):
-        kind = 'late' if parameter['late'] else 'classes'
-        self._note(kind, parameter['bring'])
-        if parameter['late'] and parameter['hint']:
+      if parameter.get('late'):
+        self._note('late', parameter['entry'])
+        if parameter['hint']:
           self._note('hinted', parameter['hint'])
+      elif parameter.get('bring'):
+        self._note('classes', parameter['bring'])
     gives = function['gives']
-    if gives and gives.get('bring'):
-      if gives['late']:
+    if gives and gives.get('late'):
+      if gives['hint']:
         self._note('hinted', gives['hint'])
-      else:
-        self._note('classes', gives['bring'])
+    elif gives and gives.get('bring'):
+      self._note('classes', gives['bring'])
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  WRITING  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1532,9 +1664,8 @@ class ClassGenerator:
 
   def _writeImports(self) -> List[str]:
     """Gives the lines at the top of the file that bring in names."""
-    needed = self.__needed_names__
-    className, baseName = self.getClassName(), self.getBaseName()
-    here = self.getPartName()
+    needed = self._getNeeds()
+    className = self.getClassName()
     lines = ['from __future__ import annotations', '']
     lines.extend(('from typing import TYPE_CHECKING', ''))
     top = needed['top']
@@ -1543,50 +1674,35 @@ class ClassGenerator:
       worktoy.append('from worktoy.core.sentinels import THIS')
     if 'overload' in top:
       worktoy.append('from worktoy.dispatch import overload')
+    if 'Kee' in top:
+      worktoy.append('from worktoy.keenum import Kee')
     if worktoy:
       lines.extend((*worktoy, ''))
-    cute = []
-    if baseName is None or 'CuteMixin' in top:
-      cute.append('CuteMixin')
-    if baseName is None:
-      cute.append('MetaCute')
-    if needed['late']:
-      cute.append('WAIT')
+    cute = [name for name in (
+        'CuteMixin', 'CuteFlags', 'CuteNum', 'MetaCute', 'WAIT',
+    ) if name in top]
     ours = []
     if cute:
       ours.append('from ..cute import %s' % ', '.join(cute))
     if 'Rituals' in top:
       ours.append('from ..occult import Rituals')
     classes = [n for n in needed['classes'] if n != className]
-    if baseName is not None and baseName not in classes:
-      classes.insert(0, baseName)
-    #  The namespace 'Qt' and the classes this one is built on are asked
-    #  of the package of their part, the cute way. The package brings in
+    #  The namespace 'Qt', the classes this one is built on, and each
+    #  class that holds an enum or a class this file names, are asked of
+    #  the package of their part, the cute way. The package brings in
     #  the one file each of them is in, and no other.
-    #  The enums and the classes Qt writes inside this class, and each
-    #  enum of another class a signature names, are asked of the package
-    #  as well, by the name the package gives them: what Qt writes them
-    #  inside and their own name in one.
-    joined = dict()  # type: Dict[str, List[str]]
-    for innerName in self.getInnerNames():
-      joined.setdefault(here, []).append(innerName.replace('::', ''))
-    for generator in self.getEnumGenerators():
-      joined.setdefault(here, []).append(generator.getJoinedName())
-    for enumName in needed['enums']:
-      there = self.getPartName(enumName.rpartition('::')[0])
-      joined.setdefault(there, []).append(enumName.replace('::', ''))
     for partName in self.__part_order__:
-      names = [n for n in classes if self.getPartName(n) == partName]
-      names = sorted({*names, *joined.get(partName, [])})
+      names = sorted(n for n in classes if self.getPartName(n) == partName)
       if partName == 'QtCore' and 'Qt' in needed['namespace']:
         names.insert(0, 'Qt')
       ours.extend(self._writeAsking(partName, names, ''))
     lines.extend(ours)
     typing = sorted(needed['typing'])
-    late = sorted(needed['late'])
+    #  What this class waits for. A class written inside it binds its
+    #  own 'WAIT' lines, in its body.
+    late = sorted(self.__needed_names__['late'])
     #  What the annotations name and the file does not bring in.
-    hinted = {name for name in late if '::' not in name}
-    hinted.update(name for name in needed['hinted'] if name)
+    hinted = {*late, *needed['hinted']}
     hinted = sorted(hinted - {className, *classes})
     if typing or hinted:
       lines.append('')
@@ -1601,13 +1717,6 @@ class ClassGenerator:
     for partName in self.__part_order__:
       names = [n for n in hinted if self.getPartName(n) == partName]
       lines.extend(self._writeAsking(partName, names, '  '))
-    for lateName in late:
-      if '::' in lateName:
-        #  A class Qt writes inside another is reached through that
-        #  class, as Qt writes it.
-        lines.append('  %s = %s.%s' % (
-            lateName.replace('::', ''), self.getOwnerName(lateName),
-            self.getPythonName(lateName)))
     if late:
       lines.append('else:')
       infoSpec = """The cute classes this file names and is not built on.
@@ -1615,9 +1724,7 @@ class ClassGenerator:
       naming it waits until then; see 'WAIT'."""
       lines.extend(self._wrapWords(infoSpec, '  #  '))
       for lateName in late:
-        entry = lateName.replace('::', '')
-        lines.append("  %s = WAIT['%s']" % (
-            entry, self.getPythonName(lateName)))
+        lines.append("  %s = WAIT['%s']" % (lateName, lateName))
     if 'NoneType' in top:
       lines.append('')
       infoSpec = """The class of None, for a signature that takes None in
@@ -1648,7 +1755,7 @@ class ClassGenerator:
     lines = []  # type: List[str]
     for name in names:
       longer = '%s, %s' % (line, name) if line else name
-      if line and len(opening) + len(longer) > 77:
+      if line and len(opening) + len(longer) > _width():
         lines.append('%s%s' % (opening, line))
         longer = name
       line = longer
@@ -1770,12 +1877,7 @@ class ClassGenerator:
         lines.extend(('', '  %s' % paragraph[0]))
         lines.extend(('  %s' % ('-' * len(paragraph[0])), ''))
       elif isinstance(paragraph, tuple):
-        wrapped = textwrap.wrap(
-            ' '.join(paragraph[1].split()), 77, initial_indent='  - ',
-            subsequent_indent='    ', break_long_words=False,
-            break_on_hyphens=False,
-        )
-        lines.extend(wrapped)
+        lines.extend(self._wrapCpp(paragraph[1], '  - ', '    '))
       else:
         if previous is not None and not isinstance(previous, tuple):
           lines.append('')
@@ -1787,7 +1889,7 @@ class ClassGenerator:
   @staticmethod
   def _writeBanner(sectionName: str) -> List[str]:
     """Gives the three lines that head one section of a class body."""
-    full = '  %s#' % ('# ' * 37)
+    full = '  %s#' % ('# ' * ((_width() - 3) // 2))
     head = '  #  %s  ' % sectionName
     if len(head) % 2:
       head = '%s ' % head
@@ -1805,28 +1907,41 @@ class ClassGenerator:
     what the body has bound on a line above it.
     """
     className, lines = self.getClassName(), []  # type: str, List[str]
-    innerNames = self.getInnerNames()
-    if innerNames:
-      infoSpec = """The classes Qt writes inside %s."""
+    late = sorted(self.__needed_names__['late'])
+    if self.isNested() and late:
+      infoSpec = """The cute classes this class names and is not built on.
+      Each waits until it is made; see 'WAIT'. A type checker reads the
+      imports at the top of the file instead."""
       lines.append('')
-      lines.extend(self._wrapWords(infoSpec % className, '  #  '))
-      for innerName in innerNames:
-        name = self.getPythonName(innerName)
-        lines.extend(self._writeBinding(name, innerName.replace('::', '')))
+      lines.extend(self._wrapWords(infoSpec, '  #  '))
+      lines.append('  if not TYPE_CHECKING:')
+      for lateName in late:
+        lines.append("    %s = WAIT['%s']" % (lateName, lateName))
     generators = self.getEnumGenerators()
     if generators:
-      infoSpec = """The enums Qt writes inside %s, and the names Qt has
-      for the combinations of its flags enums."""
+      infoSpec = """The enums Qt writes inside %s, each a class in here
+      as in C++, and the names Qt has for the combinations of its flags
+      enums."""
       lines.append('')
       lines.extend(self._wrapWords(infoSpec % className, '  #  '))
       for generator in generators:
-        ownName, joinedName = generator.getOwnName(), (
-            generator.getJoinedName())
-        lines.extend(self._writeBinding(ownName, joinedName))
+        ownName = generator.getOwnName()
+        lines.append('')
+        lines.extend(generator.getNestedLines(_width()))
         flagsName = generator.getFlagsName()
         if flagsName:
           shortName = flagsName.rpartition('::')[2]
-          lines.extend(self._writeBinding(shortName, joinedName))
+          lines.append('')
+          lines.extend(self._writeBinding(shortName, ownName))
+    inner = self.getInnerGenerators()
+    if inner:
+      infoSpec = """The classes Qt writes inside %s, each a class in here
+      as in C++."""
+      lines.append('')
+      lines.extend(self._wrapWords(infoSpec % className, '  #  '))
+      for generator in inner:
+        lines.append('')
+        lines.extend(generator.getNestedLines())
     return lines
 
   @staticmethod
@@ -1834,7 +1949,7 @@ class ClassGenerator:
     """Gives the line of the class body that binds a name to what the
     package gave, on two lines when one would be too long."""
     line = '  %s = %s' % (name, joinedName)
-    if len(line) <= 77:
+    if len(line) <= _width():
       return [line]
     return ['  %s = (' % name, '      %s)' % joinedName]
 
@@ -1861,7 +1976,7 @@ class ClassGenerator:
       info = infoSpec % (className, className)
       lines.extend(self._wrapWords(info, '  #  '))
       line = "  __delete_ritual__ = '%s'" % deleteRitual
-      if len(line) > 77:
+      if len(line) > _width():
         line = "  __delete_ritual__ = (\n      '%s')" % deleteRitual
       lines.append(line)
     lines.extend((
@@ -1904,21 +2019,30 @@ class ClassGenerator:
     quoted = "'%s'" % ritualName
     whole = '%s%s(%s%s' % (
         opening, called, ', '.join([quoted, *passed]), closing)
-    if len(whole) <= 77:
+    if len(whole) <= _width():
       return [whole]
     indent = ' ' * (len(opening) - len(opening.lstrip()))
+    if opening.endswith('(') and len('%s%s(' % (opening, called)) > _width():
+      #  What stands before the call fills the line, as the name of a
+      #  class and of an enum of it. The call goes on lines of its own
+      #  below it.
+      lines = [opening]
+      lines.extend(self._writeCall(
+          '%s    ' % indent, called, ritualName, passed, closing[:1]))
+      lines[-1] = '%s%s' % (lines[-1], closing[1:])
+      return lines
     inner = '%s    ' % indent
     lines = ['%s%s(' % (opening, called)]
     rest = ', '.join(passed)
     whole = '%s%s,' % (inner, ', '.join([quoted, *passed]))
-    if len(whole) <= 77:
+    if len(whole) <= _width():
       lines.append(whole)
     else:
       first = '%s%s,' % (inner, quoted)
-      if len(first) > 77:
+      if len(first) > _width():
         #  A name longer than a line is written as two texts side by
         #  side, which Python reads as one.
-        room = 77 - len(inner) - 3
+        room = _width() - len(inner) - 3
         pieces = [
             ritualName[i:i + room] for i in range(0, len(ritualName), room)
         ]
@@ -1928,7 +2052,7 @@ class ClassGenerator:
       lines.append(first)
       if rest:
         packed = textwrap.wrap(
-            '%s,' % rest, 77, initial_indent=inner,
+            '%s,' % rest, _width(), initial_indent=inner,
             subsequent_indent=inner, break_long_words=False,
             break_on_hyphens=False,
         )
@@ -1945,12 +2069,12 @@ class ClassGenerator:
     if function['overloaded']:
       for signature in function['signatures']:
         line = '  @overload(%s)' % ', '.join(signature)
-        if len(line) <= 77:
+        if len(line) <= _width():
           lines.append(line)
           continue
         lines.append('  @overload(')
         lines.extend(textwrap.wrap(
-            '%s,' % ', '.join(signature), 77, initial_indent='      ',
+            '%s,' % ', '.join(signature), _width(), initial_indent='      ',
             subsequent_indent='      ', break_long_words=False,
         ))
         lines.append('  )')
@@ -1969,13 +2093,13 @@ class ClassGenerator:
     annotation = 'None' if gives is None else gives['annotation']
     whole = '  def %s(%s) -> %s:' % (
         function['pythonName'], ', '.join(shown), annotation)
-    if len(whole) <= 77:
+    if len(whole) <= _width():
       lines.append(whole)
     else:
       lines.append('  def %s(' % function['pythonName'])
       for text in shown:
         line = '      %s,' % text
-        if len(line) > 77 and ' = ' in text:
+        if len(line) > _width() and ' = ' in text:
           #  A default too long for the line goes on a line of its own.
           named, _, default = text.partition(' = ')
           lines.append('      %s = (' % named)
@@ -2004,10 +2128,10 @@ class ClassGenerator:
     link = 'https://doc.qt.io/qt-6/%s.html#%s' % (stem, anchor)
     whole = "    Qt's own words: %s" % link
     lines.append('')
-    if len(whole) <= 77:
+    if len(whole) <= _width():
       lines.append(whole)
     else:
-      if len(link) > 73:
+      if len(link) > _width() - 4:
         #  A link cannot be broken, so one too long for a line is given
         #  as the page alone, without the place on it.
         link = link.partition('#')[0]
@@ -2050,7 +2174,7 @@ class ClassGenerator:
 
   def _writeBody(self, function: Record) -> List[str]:
     """Gives the lines of one function below its docstring."""
-    plan, className = function['plan'], self.getPythonName()
+    plan, className = function['plan'], self.getDottedName()
     kind, gives = function['kind'], function['gives']
     lines = self._wrapCpp(plan['function'], '    #  ', '    #      ')
     stacked = len(function['signatures']) > 1
@@ -2060,16 +2184,20 @@ class ClassGenerator:
       if default is not None and 'made' in default:
         name = parameter['name']
         lines.append('    if %s is None:' % name)
-        if parameter['late']:
+        if parameter['late'] and parameter['bring']:
           lines.append(self._writeBringing(parameter['bring'], '      '))
         lines.append('      %s = %s' % (name, default['made']))
       passed.append(parameter['passed'])
     ritualName = plan['ritualName']
     if kind == 'constructor':
+      opening = '    self._noteCreation(%s, lambda: ' % className
+      if len('%sRituals.call(' % opening) > _width():
+        #  The name of the class fills the line, so it goes on a line of
+        #  its own below.
+        lines.append('    self._noteCreation(')
+        opening = '        %s, lambda: ' % className
       lines.extend(self._writeCall(
-          '    self._noteCreation(%s, lambda: ' % className,
-          'Rituals.call', ritualName, passed, '))',
-      ))
+          opening, 'Rituals.call', ritualName, passed, '))'))
       if self.isApplication():
         #  Reading the ugly side is the first use.
         lines.append('    self._getUglySide()')
@@ -2095,7 +2223,7 @@ class ClassGenerator:
       lines.extend(
           self._writeCall('    address = ', called, ritualName, passed))
       holder = gives['holder']
-      if gives['late']:
+      if gives['late'] and gives['bring']:
         #  The file of the class may not be brought in yet. It is
         #  brought in here, at the first call.
         lines.append(self._writeBringing(gives['bring'], '    '))
@@ -2118,15 +2246,27 @@ class ClassGenerator:
     the names the file brings in, and the class with its docstring and
     its sections.
     """
-    className, baseName = self.getClassName(), self.getBaseName()
-    pythonName = self.getPythonName()
-    functions = self.getFunctions()
+    if self.isNested():
+      infoSpec = """Qt writes '%s' inside another class, so it has no
+      file of its own: the generator of '%s' writes it."""
+      className = self.getClassName()
+      info = infoSpec % (className, className.split('::')[0])
+      raise ValueError(' '.join(info.split()))
+    className = self.getClassName()
     lines = ['"""', '%s binding of the Qt C++' % className, '"""']
     lines.extend(('#  Apache-2.0 license',
                   '#  Copyright (c) 2026 Asger Jon Vistisen'))
     lines.extend(self._getHeading())
     lines.extend(self._writeImports())
     lines.extend(('', ''))
+    lines.extend(self._getClassLines())
+    return '%s\n' % '\n'.join(lines)
+
+  def _getClassLines(self) -> List[str]:
+    """Gives the class statement and everything below it."""
+    baseName, pythonName = self.getBaseName(), self.getPythonName()
+    functions = self.getFunctions()
+    lines = []  # type: List[str]
     if baseName is None:
       lines.append('class %s(CuteMixin, metaclass=MetaCute):' % pythonName)
     else:
@@ -2144,7 +2284,22 @@ class ClassGenerator:
           continue
         lines.append('')
         lines.extend(self._writeFunction(function))
-    return '%s\n' % '\n'.join(lines)
+    return '\n'.join(lines).split('\n')
+
+  def getNestedLines(self) -> List[str]:
+    """
+    Gives the class as the lines that stand in the body of the class Qt
+    writes it inside, where C++, PySide6 and PyQt have it:
+    'QMetaObject.Connection'. Its lines are two letters shorter, and
+    stand two letters further in.
+    """
+    held = _width()
+    _LOCAL.width = held - 2
+    try:
+      lines = self._getClassLines()
+    finally:
+      _LOCAL.width = held
+    return ['  %s' % line if line.strip() else '' for line in lines]
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2185,8 +2340,6 @@ class ClassGenerator:
     """
     classFile = self.getClassFile()
     text = self.getClassText()
-    for generator in self.getEnumGenerators():
-      generator.write()
     with open(classFile, 'w') as file:
       file.write(text)
     return classFile

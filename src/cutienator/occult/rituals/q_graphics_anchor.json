@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsanchorlayout.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QGraphicsAnchor10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGraphicsAnchor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QGraphicsAnchor10setSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QGraphicsAnchor12unsetSpacingEv": ["nothing", "address"],
+    "ritual_ZNK15QGraphicsAnchor7spacingEv": ["double", "address"],
+    "ritual_ZN15QGraphicsAnchor13setSizePolicyEN11QSizePolicy6PolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QGraphicsAnchor10sizePolicyEv": ["int", "address"],
+    "ritual_ZN15QGraphicsAnchorD1Ev": ["nothing", "address"]
+  }
+}

@@ -10,11 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QAbstractScrollAreaSizeAdjustPolicy, QFrame, QWidget
+from . import QFrame, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -82,9 +83,18 @@ class QAbstractScrollArea(QFrame):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QAbstractScrollArea, and the names Qt has for
-  #  the combinations of its flags enums.
-  SizeAdjustPolicy = QAbstractScrollAreaSizeAdjustPolicy
+  #  The enums Qt writes inside QAbstractScrollArea, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class SizeAdjustPolicy(CuteNum):
+    """
+    The enum 'QAbstractScrollArea::SizeAdjustPolicy' of Qt, with the 3 names
+    Qt gives in it.
+    """
+
+    AdjustIgnored = Kee[int](0)
+    AdjustToContentsOnFirstShow = Kee[int](1)
+    AdjustToContents = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

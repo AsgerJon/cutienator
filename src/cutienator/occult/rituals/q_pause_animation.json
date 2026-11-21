@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qpauseanimation.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QPauseAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QPauseAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QPauseAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QPauseAnimationC1EiP7QObject": ["address", "int", "address"],
+    "ritual_ZN15QPauseAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QPauseAnimation8durationEv": ["int", "address"],
+    "ritual_ZN15QPauseAnimation11setDurationEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

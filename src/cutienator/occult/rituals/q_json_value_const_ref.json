@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qjsonvalue.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QJsonValueConstRefC1ERKS_": ["address", "address"],
+    "ritual_ZNK18QJsonValueConstRefcv10QJsonValueEv": ["address", "address"],
+    "ritual_ZNK18QJsonValueConstRef9toVariantEv": ["address", "address"],
+    "ritual_ZNK18QJsonValueConstRef4typeEv": ["int", "address"],
+    "ritual_ZNK18QJsonValueConstRef6isNullEv": ["bool", "address"],
+    "ritual_ZNK18QJsonValueConstRef6isBoolEv": ["bool", "address"],
+    "ritual_ZNK18QJsonValueConstRef8isDoubleEv": ["bool", "address"],
+    "ritual_ZNK18QJsonValueConstRef8isStringEv": ["bool", "address"],
+    "ritual_ZNK18QJsonValueConstRef7isArrayEv": ["bool", "address"],
+    "ritual_ZNK18QJsonValueConstRef8isObjectEv": ["bool", "address"],
+    "ritual_ZNK18QJsonValueConstRef11isUndefinedEv": ["bool", "address"],
+    "ritual_ZNK18QJsonValueConstRef6toBoolEb": ["bool", "address", "bool"],
+    "ritual_ZNK18QJsonValueConstRef5toIntEi": ["int", "address", "int"],
+    "ritual_ZNK18QJsonValueConstRef9toIntegerEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZNK18QJsonValueConstRef8toDoubleEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK18QJsonValueConstRef8toStringERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK18QJsonValueConstRef12toStringViewE14QAnyStringView": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK18QJsonValueConstRef7toArrayEv": ["address", "address"],
+    "ritual_ZNK18QJsonValueConstRef8toObjectEv": ["address", "address"],
+    "ritual_ZNK18QJsonValueConstRefixE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK18QJsonValueConstRefixE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QJsonValueConstRefixEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN18QJsonValueConstRefD1Ev": ["nothing", "address"]
+  }
+}

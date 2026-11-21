@@ -11,12 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QTextFormatFormatType, QTextFormatObjectTypes
-from . import QTextFormatPageBreakFlag, QTextFormatProperty
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QVariant
@@ -89,13 +88,169 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QTextFormat.
   """
 
-  #  The enums Qt writes inside QTextFormat, and the names Qt has for the
-  #  combinations of its flags enums.
-  FormatType = QTextFormatFormatType
-  ObjectTypes = QTextFormatObjectTypes
-  PageBreakFlag = QTextFormatPageBreakFlag
-  PageBreakFlags = QTextFormatPageBreakFlag
-  Property = QTextFormatProperty
+  #  The enums Qt writes inside QTextFormat, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class FormatType(CuteNum):
+    """
+    The enum 'QTextFormat::FormatType' of Qt, with the 6 names Qt gives in
+    it.
+    """
+
+    InvalidFormat = Kee[int](-1)
+    BlockFormat = Kee[int](1)
+    CharFormat = Kee[int](2)
+    ListFormat = Kee[int](3)
+    FrameFormat = Kee[int](5)
+    UserFormat = Kee[int](100)
+
+  class ObjectTypes(CuteNum):
+    """
+    The enum 'QTextFormat::ObjectTypes' of Qt, with the 5 names Qt gives in
+    it.
+    """
+
+    NoObject = Kee[int](0)
+    ImageObject = Kee[int](1)
+    TableObject = Kee[int](2)
+    TableCellObject = Kee[int](3)
+    UserObject = Kee[int](4096)
+
+  class PageBreakFlag(CuteFlags):
+    """
+    The flags enum 'QTextFormat::PageBreakFlag' of Qt, with the 3 names Qt
+    gives in it. Qt names the type of its combinations
+    'QTextFormat::PageBreakFlags'.
+    """
+
+    PageBreak_Auto = 0x0
+    PageBreak_AlwaysBefore = 0x1
+    PageBreak_AlwaysAfter = 0x10
+
+  PageBreakFlags = PageBreakFlag
+
+  class Property(CuteNum):
+    """
+    The enum 'QTextFormat::Property' of Qt, with the 116 names Qt gives in
+    it.
+    """
+
+    ObjectIndex = Kee[int](0)
+    CssFloat = Kee[int](2048)
+    LayoutDirection = Kee[int](2049)
+    OutlinePen = Kee[int](2064)
+    BackgroundBrush = Kee[int](2080)
+    ForegroundBrush = Kee[int](2081)
+    BackgroundImageUrl = Kee[int](2083)
+    BlockAlignment = Kee[int](4112)
+    BlockTopMargin = Kee[int](4144)
+    BlockBottomMargin = Kee[int](4145)
+    BlockLeftMargin = Kee[int](4146)
+    BlockRightMargin = Kee[int](4147)
+    TextIndent = Kee[int](4148)
+    TabPositions = Kee[int](4149)
+    BlockIndent = Kee[int](4160)
+    LineHeight = Kee[int](4168)
+    LineHeightType = Kee[int](4169)
+    BlockNonBreakableLines = Kee[int](4176)
+    BlockTrailingHorizontalRulerWidth = Kee[int](4192)
+    HeadingLevel = Kee[int](4208)
+    BlockQuoteLevel = Kee[int](4224)
+    BlockCodeLanguage = Kee[int](4240)
+    BlockCodeFence = Kee[int](4241)
+    BlockMarker = Kee[int](4256)
+    FirstFontProperty = Kee[int](8160)
+    FontCapitalization = Kee[int](8160)
+    FontLetterSpacing = Kee[int](8161)
+    FontWordSpacing = Kee[int](8162)
+    FontStyleHint = Kee[int](8163)
+    FontStyleStrategy = Kee[int](8164)
+    FontKerning = Kee[int](8165)
+    FontHintingPreference = Kee[int](8166)
+    FontFamilies = Kee[int](8167)
+    FontStyleName = Kee[int](8168)
+    FontLetterSpacingType = Kee[int](8169)
+    FontStretch = Kee[int](8170)
+    FontFamily = Kee[int](8192)
+    FontPointSize = Kee[int](8193)
+    FontSizeAdjustment = Kee[int](8194)
+    FontSizeIncrement = Kee[int](8194)
+    FontWeight = Kee[int](8195)
+    FontItalic = Kee[int](8196)
+    FontUnderline = Kee[int](8197)
+    FontOverline = Kee[int](8198)
+    FontStrikeOut = Kee[int](8199)
+    FontFixedPitch = Kee[int](8200)
+    FontPixelSize = Kee[int](8201)
+    FontFeatures = Kee[int](8208)
+    FontVariableAxes = Kee[int](8209)
+    LastFontProperty = Kee[int](8209)
+    TextUnderlineColor = Kee[int](8224)
+    TextVerticalAlignment = Kee[int](8225)
+    TextOutline = Kee[int](8226)
+    TextUnderlineStyle = Kee[int](8227)
+    TextToolTip = Kee[int](8228)
+    TextSuperScriptBaseline = Kee[int](8229)
+    TextSubScriptBaseline = Kee[int](8230)
+    TextBaselineOffset = Kee[int](8231)
+    IsAnchor = Kee[int](8240)
+    AnchorHref = Kee[int](8241)
+    AnchorName = Kee[int](8242)
+    OldFontLetterSpacingType = Kee[int](8243)
+    OldFontStretch = Kee[int](8244)
+    OldTextUnderlineColor = Kee[int](8208)
+    OldFontFamily = Kee[int](8192)
+    ObjectType = Kee[int](12032)
+    ListStyle = Kee[int](12288)
+    ListIndent = Kee[int](12289)
+    ListNumberPrefix = Kee[int](12290)
+    ListNumberSuffix = Kee[int](12291)
+    ListStart = Kee[int](12292)
+    FrameBorder = Kee[int](16384)
+    FrameMargin = Kee[int](16385)
+    FramePadding = Kee[int](16386)
+    FrameWidth = Kee[int](16387)
+    FrameHeight = Kee[int](16388)
+    FrameTopMargin = Kee[int](16389)
+    FrameBottomMargin = Kee[int](16390)
+    FrameLeftMargin = Kee[int](16391)
+    FrameRightMargin = Kee[int](16392)
+    FrameBorderBrush = Kee[int](16393)
+    FrameBorderStyle = Kee[int](16400)
+    TableColumns = Kee[int](16640)
+    TableColumnWidthConstraints = Kee[int](16641)
+    TableCellSpacing = Kee[int](16642)
+    TableCellPadding = Kee[int](16643)
+    TableHeaderRowCount = Kee[int](16644)
+    TableBorderCollapse = Kee[int](16645)
+    TableCellRowSpan = Kee[int](18448)
+    TableCellColumnSpan = Kee[int](18449)
+    TableCellTopPadding = Kee[int](18450)
+    TableCellBottomPadding = Kee[int](18451)
+    TableCellLeftPadding = Kee[int](18452)
+    TableCellRightPadding = Kee[int](18453)
+    TableCellTopBorder = Kee[int](18454)
+    TableCellBottomBorder = Kee[int](18455)
+    TableCellLeftBorder = Kee[int](18456)
+    TableCellRightBorder = Kee[int](18457)
+    TableCellTopBorderStyle = Kee[int](18458)
+    TableCellBottomBorderStyle = Kee[int](18459)
+    TableCellLeftBorderStyle = Kee[int](18460)
+    TableCellRightBorderStyle = Kee[int](18461)
+    TableCellTopBorderBrush = Kee[int](18462)
+    TableCellBottomBorderBrush = Kee[int](18463)
+    TableCellLeftBorderBrush = Kee[int](18464)
+    TableCellRightBorderBrush = Kee[int](18465)
+    ImageName = Kee[int](20480)
+    ImageTitle = Kee[int](20481)
+    ImageAltText = Kee[int](20482)
+    ImageWidth = Kee[int](20496)
+    ImageHeight = Kee[int](20497)
+    ImageQuality = Kee[int](20500)
+    ImageMaxWidth = Kee[int](20501)
+    FullWidthSelection = Kee[int](24576)
+    PageBreakPolicy = Kee[int](28672)
+    UserProperty = Kee[int](1048576)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

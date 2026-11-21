@@ -11,11 +11,9 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
 from . import Qt, QAbstractItemModel, QAbstractProxyModel, QObject
-from . import QSortFilterProxyModelDataChangeRelevanceFlag
-from . import QSortFilterProxyModelDirection
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -95,12 +93,37 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QSortFilterProxyModel, and the names Qt has
-  #  for the combinations of its flags enums.
-  DataChangeRelevanceFlag = QSortFilterProxyModelDataChangeRelevanceFlag
-  DataChangeRelevanceFlags = QSortFilterProxyModelDataChangeRelevanceFlag
-  Direction = QSortFilterProxyModelDirection
-  Directions = QSortFilterProxyModelDirection
+  #  The enums Qt writes inside QSortFilterProxyModel, each a class in here
+  #  as in C++, and the names Qt has for the combinations of its flags enums.
+
+  class DataChangeRelevanceFlag(CuteFlags, scoped=True):
+    """
+    The flags enum 'QSortFilterProxyModel::DataChangeRelevanceFlag' of Qt,
+    with the 4 names Qt gives in it. Qt names the type of its combinations
+    'QSortFilterProxyModel::DataChangeRelevanceFlags'. C++ keeps these names
+    inside the enum, so the class that holds the enum does not have them.
+    """
+
+    NotRelevant = 0x0
+    RelevantForFiltering = 0x1
+    RelevantForSorting = 0x2
+    RelevantForFilteringAndSorting = 0x3
+
+  DataChangeRelevanceFlags = DataChangeRelevanceFlag
+
+  class Direction(CuteFlags, scoped=True):
+    """
+    The flags enum 'QSortFilterProxyModel::Direction' of Qt, with the 3 names
+    Qt gives in it. Qt names the type of its combinations
+    'QSortFilterProxyModel::Directions'. C++ keeps these names inside the
+    enum, so the class that holds the enum does not have them.
+    """
+
+    Rows = 0x1
+    Columns = 0x2
+    Both = 0x3
+
+  Directions = Direction
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

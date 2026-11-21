@@ -11,19 +11,18 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QTextCursorMoveMode, QTextCursorMoveOperation
-from . import QTextCursorSelectionType, QTextDocumentMarkdownFeature
-from . import QTextFrameFormatPosition, QTextListFormatStyle
+from . import QTextDocument, QTextFrameFormat, QTextListFormat
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from . import QImage, QTextBlock, QTextBlockFormat, QTextCharFormat
-  from . import QTextDocument, QTextDocumentFragment, QTextFrame
-  from . import QTextFrameFormat, QTextImageFormat, QTextListFormat
+  from . import QTextDocumentFragment, QTextFrame, QTextImageFormat
+  from . import QTextList, QTextTable, QTextTableFormat
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -32,11 +31,10 @@ else:
   QTextBlock = WAIT['QTextBlock']
   QTextBlockFormat = WAIT['QTextBlockFormat']
   QTextCharFormat = WAIT['QTextCharFormat']
-  QTextDocument = WAIT['QTextDocument']
   QTextDocumentFragment = WAIT['QTextDocumentFragment']
   QTextFrame = WAIT['QTextFrame']
-  QTextFrameFormat = WAIT['QTextFrameFormat']
   QTextImageFormat = WAIT['QTextImageFormat']
+  QTextTableFormat = WAIT['QTextTableFormat']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -56,7 +54,7 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextCursor that has a ritual and that Python can
-  call so far, 52 names in all: 'isNull', 'setPosition', 'position',
+  call so far, 57 names in all: 'isNull', 'setPosition', 'position',
   'positionInBlock', 'anchor', 'insertText', 'movePosition',
   'visualNavigation', 'setVisualNavigation', 'setVerticalMovementX',
   'verticalMovementX', 'setKeepPositionOnInsert', 'keepPositionOnInsert',
@@ -66,11 +64,12 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
   'charFormat', 'setCharFormat', 'mergeCharFormat', 'blockFormat',
   'setBlockFormat', 'mergeBlockFormat', 'blockCharFormat',
   'setBlockCharFormat', 'mergeBlockCharFormat', 'atBlockStart', 'atBlockEnd',
-  'atStart', 'atEnd', 'insertBlock', 'insertFrame', 'currentFrame',
-  'insertFragment', 'insertHtml', 'insertMarkdown', 'insertImage',
-  'beginEditBlock', 'joinPreviousEditBlock', 'endEditBlock', 'isCopyOf',
-  'blockNumber', 'columnNumber', 'document'. It can be made from Python, in 5
-  ways; see '__init__'.
+  'atStart', 'atEnd', 'insertBlock', 'insertList', 'createList',
+  'currentList', 'insertTable', 'currentTable', 'insertFrame',
+  'currentFrame', 'insertFragment', 'insertHtml', 'insertMarkdown',
+  'insertImage', 'beginEditBlock', 'joinPreviousEditBlock', 'endEditBlock',
+  'isCopyOf', 'blockNumber', 'columnNumber', 'document'. It can be made from
+  Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -80,23 +79,6 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
   - Qt's 'void QTextCursor::selectedTableCells(int *firstRow, int *numRows,
     int *firstColumn, int *numColumns) const': takes a number to change where
     it is.
-  - Qt's 'QTextList *QTextCursor::insertList(const QTextListFormat &format)':
-    gives 'QTextList', which has no cute class yet.
-  - Qt's 'QTextList *QTextCursor::insertList(QTextListFormat::Style style)':
-    gives 'QTextList', which has no cute class yet.
-  - Qt's 'QTextList *QTextCursor::createList(const QTextListFormat &format)':
-    gives 'QTextList', which has no cute class yet.
-  - Qt's 'QTextList *QTextCursor::createList(QTextListFormat::Style style)':
-    gives 'QTextList', which has no cute class yet.
-  - Qt's 'QTextList *QTextCursor::currentList() const': gives 'QTextList',
-    which has no cute class yet.
-  - Qt's 'QTextTable *QTextCursor::insertTable(int rows, int cols, const
-    QTextTableFormat &format)': gives 'QTextTable', which has no cute class
-    yet.
-  - Qt's 'QTextTable *QTextCursor::insertTable(int rows, int cols)': gives
-    'QTextTable', which has no cute class yet.
-  - Qt's 'QTextTable *QTextCursor::currentTable() const': gives 'QTextTable',
-    which has no cute class yet.
   - Qt's 'bool QTextCursor::operator!=(const QTextCursor &rhs) const': an
     operator, which is not reflected yet.
   - Qt's 'bool QTextCursor::operator<(const QTextCursor &rhs) const': an
@@ -130,11 +112,59 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QTextCursor.
   """
 
-  #  The enums Qt writes inside QTextCursor, and the names Qt has for the
-  #  combinations of its flags enums.
-  MoveMode = QTextCursorMoveMode
-  MoveOperation = QTextCursorMoveOperation
-  SelectionType = QTextCursorSelectionType
+  #  The enums Qt writes inside QTextCursor, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class MoveMode(CuteNum):
+    """
+    The enum 'QTextCursor::MoveMode' of Qt, with the 2 names Qt gives in it.
+    """
+
+    MoveAnchor = Kee[int](0)
+    KeepAnchor = Kee[int](1)
+
+  class MoveOperation(CuteNum):
+    """
+    The enum 'QTextCursor::MoveOperation' of Qt, with the 25 names Qt gives
+    in it.
+    """
+
+    NoMove = Kee[int](0)
+    Start = Kee[int](1)
+    Up = Kee[int](2)
+    StartOfLine = Kee[int](3)
+    StartOfBlock = Kee[int](4)
+    StartOfWord = Kee[int](5)
+    PreviousBlock = Kee[int](6)
+    PreviousCharacter = Kee[int](7)
+    PreviousWord = Kee[int](8)
+    Left = Kee[int](9)
+    WordLeft = Kee[int](10)
+    End = Kee[int](11)
+    Down = Kee[int](12)
+    EndOfLine = Kee[int](13)
+    EndOfWord = Kee[int](14)
+    EndOfBlock = Kee[int](15)
+    NextBlock = Kee[int](16)
+    NextCharacter = Kee[int](17)
+    NextWord = Kee[int](18)
+    Right = Kee[int](19)
+    WordRight = Kee[int](20)
+    NextCell = Kee[int](21)
+    PreviousCell = Kee[int](22)
+    NextRow = Kee[int](23)
+    PreviousRow = Kee[int](24)
+
+  class SelectionType(CuteNum):
+    """
+    The enum 'QTextCursor::SelectionType' of Qt, with the 4 names Qt gives in
+    it.
+    """
+
+    WordUnderCursor = Kee[int](0)
+    LineUnderCursor = Kee[int](1)
+    BlockUnderCursor = Kee[int](2)
+    Document = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -411,6 +441,42 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
     #  bool QTextCursor::atEnd() const
     return self.uglySide.call('ritual_ZNK11QTextCursor5atEndEv')
 
+  def currentList(self) -> Optional[QTextList]:
+    """
+    Calls Qt's 'QTextList *QTextCursor::currentList() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#currentList
+
+    Returns
+    -------
+
+    Optional[QTextList]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextList *QTextCursor::currentList() const
+    address = self.uglySide.call('ritual_ZNK11QTextCursor11currentListEv')
+    from . import QTextList
+    return QTextList._cuteAt(address)
+
+  def currentTable(self) -> Optional[QTextTable]:
+    """
+    Calls Qt's 'QTextTable *QTextCursor::currentTable() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#currentTable
+
+    Returns
+    -------
+
+    Optional[QTextTable]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextTable *QTextCursor::currentTable() const
+    address = self.uglySide.call('ritual_ZNK11QTextCursor12currentTableEv')
+    from . import QTextTable
+    return QTextTable._cuteAt(address)
+
   def currentFrame(self) -> Optional[QTextFrame]:
     """
     Calls Qt's 'QTextFrame *QTextCursor::currentFrame() const'.
@@ -481,7 +547,6 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
     """
     #  QTextDocument *QTextCursor::document() const
     address = self.uglySide.call('ritual_ZNK11QTextCursor8documentEv')
-    from . import QTextDocument
     return QTextDocument._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1019,6 +1084,196 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
         self._valueOf(format), self._valueOf(charFormat),
     )
 
+  @overload(QTextListFormat)
+  def insertList(self, format: QTextListFormat) -> Optional[QTextList]:
+    """
+    Calls Qt's 'QTextList *QTextCursor::insertList(const QTextListFormat
+    &format)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#insertList
+
+    Parameters
+    ----------
+
+    format : QTextListFormat
+      Passed on as a value: Qt reads the C++ QTextListFormat, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Optional[QTextList]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextList *QTextCursor::insertList(const QTextListFormat &format)
+    address = self.uglySide.call(
+        'ritual_ZN11QTextCursor10insertListERK15QTextListFormat',
+        self._valueOf(format),
+    )
+    from . import QTextList
+    return QTextList._cuteAt(address)
+
+  @overload(QTextListFormat.Style)
+  def insertList(self, style: QTextListFormat.Style) -> Optional[QTextList]:
+    """
+    Calls Qt's 'QTextList *QTextCursor::insertList(QTextListFormat::Style
+    style)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#insertList
+
+    Parameters
+    ----------
+
+    style : QTextListFormat.Style
+      Passed on as its number.
+
+    Returns
+    -------
+
+    Optional[QTextList]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextList *QTextCursor::insertList(QTextListFormat::Style style)
+    address = self.uglySide.call(
+        'ritual_ZN11QTextCursor10insertListEN15QTextListFormat5StyleE',
+        style.value,
+    )
+    from . import QTextList
+    return QTextList._cuteAt(address)
+
+  @overload(QTextListFormat)
+  def createList(self, format: QTextListFormat) -> Optional[QTextList]:
+    """
+    Calls Qt's 'QTextList *QTextCursor::createList(const QTextListFormat
+    &format)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#createList
+
+    Parameters
+    ----------
+
+    format : QTextListFormat
+      Passed on as a value: Qt reads the C++ QTextListFormat, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Optional[QTextList]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextList *QTextCursor::createList(const QTextListFormat &format)
+    address = self.uglySide.call(
+        'ritual_ZN11QTextCursor10createListERK15QTextListFormat',
+        self._valueOf(format),
+    )
+    from . import QTextList
+    return QTextList._cuteAt(address)
+
+  @overload(QTextListFormat.Style)
+  def createList(self, style: QTextListFormat.Style) -> Optional[QTextList]:
+    """
+    Calls Qt's 'QTextList *QTextCursor::createList(QTextListFormat::Style
+    style)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#createList
+
+    Parameters
+    ----------
+
+    style : QTextListFormat.Style
+      Passed on as its number.
+
+    Returns
+    -------
+
+    Optional[QTextList]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextList *QTextCursor::createList(QTextListFormat::Style style)
+    address = self.uglySide.call(
+        'ritual_ZN11QTextCursor10createListEN15QTextListFormat5StyleE',
+        style.value,
+    )
+    from . import QTextList
+    return QTextList._cuteAt(address)
+
+  @overload(int, int, QTextTableFormat)
+  def insertTable(
+      self,
+      rows: int,
+      cols: int,
+      format: QTextTableFormat,
+  ) -> Optional[QTextTable]:
+    """
+    Calls Qt's 'QTextTable *QTextCursor::insertTable(int rows, int cols,
+    const QTextTableFormat &format)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#insertTable
+
+    Parameters
+    ----------
+
+    rows : int
+      Passed on as it is.
+
+    cols : int
+      Passed on as it is.
+
+    format : QTextTableFormat
+      Passed on as a value: Qt reads the C++ QTextTableFormat, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Optional[QTextTable]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextTable *QTextCursor::insertTable(int rows, int cols, const
+    #      QTextTableFormat &format)
+    address = self.uglySide.call(
+        'ritual_ZN11QTextCursor11insertTableEiiRK16QTextTableFormat',
+        rows, cols, self._valueOf(format),
+    )
+    from . import QTextTable
+    return QTextTable._cuteAt(address)
+
+  @overload(int, int)
+  def insertTable(self, rows: int, cols: int) -> Optional[QTextTable]:
+    """
+    Calls Qt's 'QTextTable *QTextCursor::insertTable(int rows, int cols)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#insertTable
+
+    Parameters
+    ----------
+
+    rows : int
+      Passed on as it is.
+
+    cols : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Optional[QTextTable]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextTable *QTextCursor::insertTable(int rows, int cols)
+    address = self.uglySide.call(
+        'ritual_ZN11QTextCursor11insertTableEii', rows, cols,
+    )
+    from . import QTextTable
+    return QTextTable._cuteAt(address)
+
   @overload(QTextFrameFormat)
   def insertFrame(self, format: QTextFrameFormat) -> Optional[QTextFrame]:
     """
@@ -1088,12 +1343,12 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
     self.uglySide.call('ritual_ZN11QTextCursor10insertHtmlERK7QString', html)
 
   @overload(str)
-  @overload(str, QTextDocumentMarkdownFeature)
+  @overload(str, QTextDocument.MarkdownFeatures)
   def insertMarkdown(
       self,
       markdown: str,
       features: QTextDocument.MarkdownFeatures = (
-          QTextDocumentMarkdownFeature.MarkdownDialectGitHub),
+          QTextDocument.MarkdownFeatures.MarkdownDialectGitHub),
   ) -> None:
     """
     Calls Qt's 'void QTextCursor::insertMarkdown(const QString &markdown,
@@ -1109,7 +1364,7 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
 
     features : QTextDocument.MarkdownFeatures
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocumentMarkdownFeature.MarkdownDialectGitHub.
+      QTextDocument.MarkdownFeatures.MarkdownDialectGitHub.
     """
     #  void QTextCursor::insertMarkdown(const QString &markdown,
     #      QTextDocument::MarkdownFeatures features)
@@ -1119,7 +1374,7 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
         markdown, features.value,
     )
 
-  @overload(QTextImageFormat, QTextFrameFormatPosition)
+  @overload(QTextImageFormat, QTextFrameFormat.Position)
   def insertImage(
       self,
       format: QTextImageFormat,

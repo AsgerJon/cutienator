@@ -10,16 +10,16 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QAbstractItemModel, QDirFilter, QObject
-from . import QFileSystemModelOption, QFileSystemModelRoles
+from ..QtCore import Qt, QAbstractItemModel, QDir, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QDateTime, QDir, QFileInfo, QMetaObject, QMimeData
+  from ..QtCore import QDateTime, QFileInfo, QMetaObject, QMimeData
   from ..QtCore import QModelIndex, QTimeZone, QVariant
   from . import QAbstractFileIconProvider, QIcon
 else:
@@ -88,11 +88,33 @@ class QFileSystemModel(QAbstractItemModel):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QFileSystemModel, and the names Qt has for
-  #  the combinations of its flags enums.
-  Option = QFileSystemModelOption
-  Options = QFileSystemModelOption
-  Roles = QFileSystemModelRoles
+  #  The enums Qt writes inside QFileSystemModel, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class Option(CuteFlags):
+    """
+    The flags enum 'QFileSystemModel::Option' of Qt, with the 3 names Qt
+    gives in it. Qt names the type of its combinations
+    'QFileSystemModel::Options'.
+    """
+
+    DontWatchForChanges = 0x1
+    DontResolveSymlinks = 0x2
+    DontUseCustomDirectoryIcons = 0x4
+
+  Options = Option
+
+  class Roles(CuteNum):
+    """
+    The enum 'QFileSystemModel::Roles' of Qt, with the 5 names Qt gives in
+    it.
+    """
+
+    FileIconRole = Kee[int](1)
+    FileInfoRole = Kee[int](252)
+    FilePathRole = Kee[int](257)
+    FileNameRole = Kee[int](258)
+    FilePermissions = Kee[int](259)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -603,7 +625,6 @@ class QFileSystemModel(QAbstractItemModel):
     address = self.uglySide.call(
         'ritual_ZNK16QFileSystemModel13rootDirectoryEv',
     )
-    from ..QtCore import QDir
     return QDir._cuteOwning(address)
 
   def iconProvider(self) -> Optional[QAbstractFileIconProvider]:
@@ -640,7 +661,7 @@ class QFileSystemModel(QAbstractItemModel):
       The value standing for the combination Qt gave back.
     """
     #  QDir::Filters QFileSystemModel::filter() const
-    return QDirFilter(self.uglySide.call(
+    return QDir.Filters(self.uglySide.call(
         'ritual_ZNK16QFileSystemModel6filterEv',
     ))
 
@@ -1052,7 +1073,7 @@ class QFileSystemModel(QAbstractItemModel):
         self._addressOf(provider),
     )
 
-  @overload(QDirFilter)
+  @overload(QDir.Filters)
   def setFilter(self, filters: QDir.Filters) -> None:
     """
     Calls Qt's 'void QFileSystemModel::setFilter(QDir::Filters filters)'.

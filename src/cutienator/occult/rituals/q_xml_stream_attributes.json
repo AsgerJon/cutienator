@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qxmlstream.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QXmlStreamAttributesC1Ev": ["address"],
+    "ritual_ZNK20QXmlStreamAttributes5valueE14QAnyStringViewS0_": [
+      "text", "address", "text", "text"
+    ],
+    "ritual_ZNK20QXmlStreamAttributes5valueE14QAnyStringView": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN20QXmlStreamAttributes6appendERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
+    "ritual_ZN20QXmlStreamAttributes6appendERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZNK20QXmlStreamAttributes12hasAttributeE14QAnyStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK20QXmlStreamAttributes12hasAttributeE14QAnyStringViewS0_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZN20QXmlStreamAttributesD1Ev": ["nothing", "address"]
+  }
+}

@@ -16,12 +16,18 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
   from . import QJsonValue
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QJsonValue = WAIT['QJsonValue']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QJsonArray(CuteMixin, metaclass=MetaCute):
@@ -37,9 +43,10 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QJsonArray that has a ritual and that Python can
-  call so far, 20 names in all: 'size', 'count', 'isEmpty', 'at', 'first',
+  call so far, 27 names in all: 'size', 'count', 'isEmpty', 'at', 'first',
   'last', 'prepend', 'append', 'removeAt', 'takeAt', 'removeFirst',
-  'removeLast', 'insert', 'replace', 'contains', 'push_back', 'push_front',
+  'removeLast', 'insert', 'replace', 'contains', 'begin', 'constBegin',
+  'cbegin', 'end', 'constEnd', 'cend', 'erase', 'push_back', 'push_front',
   'pop_front', 'pop_back', 'empty'. It can be made from Python, in 2 ways;
   see '__init__'.
 
@@ -52,26 +59,10 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     which is not reflected yet.
   - Qt's 'QJsonValue QJsonArray::operator[](qsizetype i) const': an operator,
     which is not reflected yet.
-  - Qt's 'iterator QJsonArray::begin()': gives 'QJsonArray::iterator', which
-    has no cute class yet.
-  - Qt's 'const_iterator QJsonArray::begin() const': gives
-    'QJsonArray::const_iterator', which has no cute class yet.
-  - Qt's 'const_iterator QJsonArray::constBegin() const': gives
-    'QJsonArray::const_iterator', which has no cute class yet.
-  - Qt's 'const_iterator QJsonArray::cbegin() const': gives
-    'QJsonArray::const_iterator', which has no cute class yet.
-  - Qt's 'iterator QJsonArray::end()': gives 'QJsonArray::iterator', which
-    has no cute class yet.
-  - Qt's 'const_iterator QJsonArray::end() const': gives
-    'QJsonArray::const_iterator', which has no cute class yet.
-  - Qt's 'const_iterator QJsonArray::constEnd() const': gives
-    'QJsonArray::const_iterator', which has no cute class yet.
-  - Qt's 'const_iterator QJsonArray::cend() const': gives
-    'QJsonArray::const_iterator', which has no cute class yet.
-  - Qt's 'iterator QJsonArray::insert(iterator before, const QJsonValue
-    &value)': names 'QJsonArray::iterator', which has no cute class yet.
-  - Qt's 'iterator QJsonArray::erase(iterator it)': names
-    'QJsonArray::iterator', which has no cute class yet.
+  - Qt's 'const_iterator QJsonArray::begin() const': takes in Python what
+    'iterator QJsonArray::begin()' takes.
+  - Qt's 'const_iterator QJsonArray::end() const': takes in Python what
+    'iterator QJsonArray::end()' takes.
   - Qt's 'QJsonArray QJsonArray::operator+(const QJsonValue &v) const': an
     operator, which is not reflected yet.
 
@@ -93,6 +84,403 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
   - A function giving a QJsonArray back gives a copy the ritual made for
     Python, in a new cute QJsonArray.
   """
+
+  #  The classes Qt writes inside QJsonArray, each a class in here as in C++.
+
+  class const_iterator(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QJsonArray::const_iterator: a plain Python object
+    standing in front of one C++ QJsonArray::const_iterator.
+
+    C++ hands a QJsonArray::const_iterator around as a copy, so every C++
+    QJsonArray::const_iterator behind a cute one is Python's own: it is
+    removed, by the ritual named in '__delete_ritual__', when the cute object
+    goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QJsonArray::const_iterator yet. It can be made from
+    Python, in 3 ways; see '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QJsonArray::const_iterator::const_iterator(const iterator &o)':
+      names 'QJsonArray::iterator', which stands beside this class inside
+      'QJsonArray' and cannot be named from here.
+    - Qt's 'const QJsonValueConstRef QJsonArray::const_iterator::operator*()
+      const': an operator, which is not reflected yet.
+    - Qt's 'const QJsonValueConstRef
+      *QJsonArray::const_iterator::operator->() const': an operator, which is
+      not reflected yet.
+    - Qt's 'QJsonValueConstRef
+      QJsonArray::const_iterator::operator[](qsizetype j) const': an
+      operator, which is not reflected yet.
+    - Qt's 'const_iterator QJsonArray::const_iterator::operator++(int a0)':
+      an operator, which is not reflected yet.
+    - Qt's 'const_iterator QJsonArray::const_iterator::operator--(int a0)':
+      an operator, which is not reflected yet.
+    - Qt's 'const_iterator QJsonArray::const_iterator::operator+(qsizetype j)
+      const': an operator, which is not reflected yet.
+    - Qt's 'const_iterator QJsonArray::const_iterator::operator-(qsizetype j)
+      const': an operator, which is not reflected yet.
+    - Qt's 'qsizetype QJsonArray::const_iterator::operator-(const_iterator j)
+      const': an operator, which is not reflected yet.
+    - Qt's 'QJsonArray::const_iterator::~const_iterator()': the destructor:
+      Python removes its C++ QJsonArray::const_iterator by it, and has no
+      other use for it.
+
+    What has no ritual
+    ------------------
+
+    7 of the 20 functions Qt declares: 5 takes or gives a type that cannot be
+    passed yet; 2 private.
+
+    What to expect
+    --------------
+
+    - The C++ QJsonArray::const_iterator is created at the first use, not by
+      'QJsonArray::const_iterator(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QJsonArray::const_iterator back gives a copy the
+      ritual made for Python, in a new cute QJsonArray::const_iterator.
+    """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QJsonArray = WAIT['QJsonArray']
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QJsonArray::const_iterator'
+
+    #  Qt's '~QJsonArray::const_iterator()'. Naming it makes this a value
+    #  class: Python owns every C++ QJsonArray::const_iterator behind a cute
+    #  one, and removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN10QJsonArray14const_iteratorD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's
+      'QJsonArray::const_iterator::const_iterator()', which is called at the
+      first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#const_iterator
+      """
+      #  QJsonArray::const_iterator::const_iterator()
+      self._noteCreation(QJsonArray.const_iterator, lambda: Rituals.call(
+          'ritual_ZN10QJsonArray14const_iteratorC1Ev',
+      ))
+
+    @overload(QJsonArray, int)
+    @overload(NoneType, int)
+    def __init__(self, array: Optional[QJsonArray], index: int) -> None:
+      """
+      Notes what was given, for Qt's
+      'QJsonArray::const_iterator::const_iterator(const QJsonArray *array,
+      qsizetype index)', which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#const_iterator
+
+      Parameters
+      ----------
+
+      array : Optional[QJsonArray]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+
+      index : int
+        Passed on as it is.
+      """
+      #  QJsonArray::const_iterator::const_iterator(const QJsonArray *array,
+      #      qsizetype index)
+      self._noteCreation(QJsonArray.const_iterator, lambda: Rituals.call(
+          'ritual_ZN10QJsonArray14const_iteratorC1EPKS_x',
+          self._addressOf(array), index,
+      ))
+
+    @overload(THIS)
+    def __init__(self, other: QJsonArray.const_iterator) -> None:
+      """
+      Notes what was given, for Qt's
+      'QJsonArray::const_iterator::const_iterator(const const_iterator
+      &other)', which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#const_iterator
+
+      Parameters
+      ----------
+
+      other : QJsonArray.const_iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::const_iterator,
+        which stays Python's own.
+      """
+      #  QJsonArray::const_iterator::const_iterator(const const_iterator
+      #      &other)
+      self._noteCreation(QJsonArray.const_iterator, lambda: Rituals.call(
+          'ritual_ZN10QJsonArray14const_iteratorC1ERKS0_',
+          self._valueOf(other),
+      ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  class iterator(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QJsonArray::iterator: a plain Python object
+    standing in front of one C++ QJsonArray::iterator.
+
+    C++ hands a QJsonArray::iterator around as a copy, so every C++
+    QJsonArray::iterator behind a cute one is Python's own: it is removed, by
+    the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QJsonArray::iterator yet. It can be made from Python,
+    in 3 ways; see '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QJsonValueRef QJsonArray::iterator::operator*() const': an
+      operator, which is not reflected yet.
+    - Qt's 'const QJsonValueConstRef *QJsonArray::iterator::operator->()
+      const': an operator, which is not reflected yet.
+    - Qt's 'QJsonValueRef *QJsonArray::iterator::operator->()': an operator,
+      which is not reflected yet.
+    - Qt's 'QJsonValueRef QJsonArray::iterator::operator[](qsizetype j)
+      const': an operator, which is not reflected yet.
+    - Qt's 'iterator QJsonArray::iterator::operator++(int a0)': an operator,
+      which is not reflected yet.
+    - Qt's 'iterator QJsonArray::iterator::operator--(int a0)': an operator,
+      which is not reflected yet.
+    - Qt's 'iterator QJsonArray::iterator::operator+(qsizetype j) const': an
+      operator, which is not reflected yet.
+    - Qt's 'iterator QJsonArray::iterator::operator-(qsizetype j) const': an
+      operator, which is not reflected yet.
+    - Qt's 'qsizetype QJsonArray::iterator::operator-(iterator j) const': an
+      operator, which is not reflected yet.
+    - Qt's 'QJsonArray::iterator::~iterator()': the destructor: Python
+      removes its C++ QJsonArray::iterator by it, and has no other use for
+      it.
+
+    What has no ritual
+    ------------------
+
+    9 of the 22 functions Qt declares: 5 takes or gives a type that cannot be
+    passed yet; 4 private.
+
+    What to expect
+    --------------
+
+    - The C++ QJsonArray::iterator is created at the first use, not by
+      'QJsonArray::iterator(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QJsonArray::iterator back gives a copy the ritual
+      made for Python, in a new cute QJsonArray::iterator.
+    """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QJsonArray = WAIT['QJsonArray']
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QJsonArray::iterator'
+
+    #  Qt's '~QJsonArray::iterator()'. Naming it makes this a value class:
+    #  Python owns every C++ QJsonArray::iterator behind a cute one, and
+    #  removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN10QJsonArray8iteratorD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's 'QJsonArray::iterator::iterator()',
+      which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#iterator
+      """
+      #  QJsonArray::iterator::iterator()
+      self._noteCreation(QJsonArray.iterator, lambda: Rituals.call(
+          'ritual_ZN10QJsonArray8iteratorC1Ev',
+      ))
+
+    @overload(QJsonArray, int)
+    @overload(NoneType, int)
+    def __init__(self, array: Optional[QJsonArray], index: int) -> None:
+      """
+      Notes what was given, for Qt's
+      'QJsonArray::iterator::iterator(QJsonArray *array, qsizetype index)',
+      which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#iterator
+
+      Parameters
+      ----------
+
+      array : Optional[QJsonArray]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+
+      index : int
+        Passed on as it is.
+      """
+      #  QJsonArray::iterator::iterator(QJsonArray *array, qsizetype index)
+      self._noteCreation(QJsonArray.iterator, lambda: Rituals.call(
+          'ritual_ZN10QJsonArray8iteratorC1EPS_x',
+          self._addressOf(array), index,
+      ))
+
+    @overload(THIS)
+    def __init__(self, other: QJsonArray.iterator) -> None:
+      """
+      Notes what was given, for Qt's 'QJsonArray::iterator::iterator(const
+      iterator &other)', which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#iterator
+
+      Parameters
+      ----------
+
+      other : QJsonArray.iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::iterator, which
+        stays Python's own.
+      """
+      #  QJsonArray::iterator::iterator(const iterator &other)
+      self._noteCreation(QJsonArray.iterator, lambda: Rituals.call(
+          'ritual_ZN10QJsonArray8iteratorC1ERKS0_', self._valueOf(other),
+      ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -226,6 +614,74 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK10QJsonArray8containsERK10QJsonValue',
         self._valueOf(element),
     )
+
+  def constBegin(self) -> const_iterator:
+    """
+    Calls Qt's 'const_iterator QJsonArray::constBegin() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#constBegin
+
+    Returns
+    -------
+
+    const_iterator
+      A new cute QJsonArray::const_iterator around the copy Qt gave back.
+      Python owns it.
+    """
+    #  const_iterator QJsonArray::constBegin() const
+    address = self.uglySide.call('ritual_ZNK10QJsonArray10constBeginEv')
+    return QJsonArray.const_iterator._cuteOwning(address)
+
+  def cbegin(self) -> const_iterator:
+    """
+    Calls Qt's 'const_iterator QJsonArray::cbegin() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#cbegin
+
+    Returns
+    -------
+
+    const_iterator
+      A new cute QJsonArray::const_iterator around the copy Qt gave back.
+      Python owns it.
+    """
+    #  const_iterator QJsonArray::cbegin() const
+    address = self.uglySide.call('ritual_ZNK10QJsonArray6cbeginEv')
+    return QJsonArray.const_iterator._cuteOwning(address)
+
+  def constEnd(self) -> const_iterator:
+    """
+    Calls Qt's 'const_iterator QJsonArray::constEnd() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#constEnd
+
+    Returns
+    -------
+
+    const_iterator
+      A new cute QJsonArray::const_iterator around the copy Qt gave back.
+      Python owns it.
+    """
+    #  const_iterator QJsonArray::constEnd() const
+    address = self.uglySide.call('ritual_ZNK10QJsonArray8constEndEv')
+    return QJsonArray.const_iterator._cuteOwning(address)
+
+  def cend(self) -> const_iterator:
+    """
+    Calls Qt's 'const_iterator QJsonArray::cend() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#cend
+
+    Returns
+    -------
+
+    const_iterator
+      A new cute QJsonArray::const_iterator around the copy Qt gave back.
+      Python owns it.
+    """
+    #  const_iterator QJsonArray::cend() const
+    address = self.uglySide.call('ritual_ZNK10QJsonArray4cendEv')
+    return QJsonArray.const_iterator._cuteOwning(address)
 
   def empty(self) -> bool:
     """
@@ -425,6 +881,39 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
         i, self._valueOf(value),
     )
 
+  @overload(iterator, QJsonValue)
+  def insert(self, before: iterator, value: QJsonValue) -> iterator:
+    """
+    Calls Qt's 'iterator QJsonArray::insert(iterator before, const QJsonValue
+    &value)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#insert
+
+    Parameters
+    ----------
+
+    before : iterator
+      Passed on as a value: Qt reads the C++ QJsonArray::iterator, which
+      stays Python's own.
+
+    value : QJsonValue
+      Passed on as a value: Qt reads the C++ QJsonValue, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    iterator
+      A new cute QJsonArray::iterator around the copy Qt gave back. Python
+      owns it.
+    """
+    #  iterator QJsonArray::insert(iterator before, const QJsonValue &value)
+    address = self.uglySide.call(
+        'ritual_ZN10QJsonArray6insertENS_8iteratorERK10QJsonValue',
+        self._valueOf(before), self._valueOf(value),
+    )
+    return QJsonArray.iterator._cuteOwning(address)
+
   @overload(int, QJsonValue)
   def replace(self, i: int, value: QJsonValue) -> None:
     """
@@ -448,6 +937,67 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
         'ritual_ZN10QJsonArray7replaceExRK10QJsonValue',
         i, self._valueOf(value),
     )
+
+  def begin(self) -> iterator:
+    """
+    Calls Qt's 'iterator QJsonArray::begin()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#begin
+
+    Returns
+    -------
+
+    iterator
+      A new cute QJsonArray::iterator around the copy Qt gave back. Python
+      owns it.
+    """
+    #  iterator QJsonArray::begin()
+    address = self.uglySide.call('ritual_ZN10QJsonArray5beginEv')
+    return QJsonArray.iterator._cuteOwning(address)
+
+  def end(self) -> iterator:
+    """
+    Calls Qt's 'iterator QJsonArray::end()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#end
+
+    Returns
+    -------
+
+    iterator
+      A new cute QJsonArray::iterator around the copy Qt gave back. Python
+      owns it.
+    """
+    #  iterator QJsonArray::end()
+    address = self.uglySide.call('ritual_ZN10QJsonArray3endEv')
+    return QJsonArray.iterator._cuteOwning(address)
+
+  @overload(iterator)
+  def erase(self, it: iterator) -> iterator:
+    """
+    Calls Qt's 'iterator QJsonArray::erase(iterator it)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#erase
+
+    Parameters
+    ----------
+
+    it : iterator
+      Passed on as a value: Qt reads the C++ QJsonArray::iterator, which
+      stays Python's own.
+
+    Returns
+    -------
+
+    iterator
+      A new cute QJsonArray::iterator around the copy Qt gave back. Python
+      owns it.
+    """
+    #  iterator QJsonArray::erase(iterator it)
+    address = self.uglySide.call(
+        'ritual_ZN10QJsonArray5eraseENS_8iteratorE', self._valueOf(it),
+    )
+    return QJsonArray.iterator._cuteOwning(address)
 
   @overload(QJsonValue)
   def push_back(self, t: QJsonValue) -> None:

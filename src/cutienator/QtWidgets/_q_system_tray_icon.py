@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QSystemTrayIconActivationReason, QSystemTrayIconMessageIcon
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -80,10 +80,31 @@ class QSystemTrayIcon(QObject):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QSystemTrayIcon, and the names Qt has for the
-  #  combinations of its flags enums.
-  ActivationReason = QSystemTrayIconActivationReason
-  MessageIcon = QSystemTrayIconMessageIcon
+  #  The enums Qt writes inside QSystemTrayIcon, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ActivationReason(CuteNum):
+    """
+    The enum 'QSystemTrayIcon::ActivationReason' of Qt, with the 5 names Qt
+    gives in it.
+    """
+
+    Unknown = Kee[int](0)
+    Context = Kee[int](1)
+    DoubleClick = Kee[int](2)
+    Trigger = Kee[int](3)
+    MiddleClick = Kee[int](4)
+
+  class MessageIcon(CuteNum):
+    """
+    The enum 'QSystemTrayIcon::MessageIcon' of Qt, with the 4 names Qt gives
+    in it.
+    """
+
+    NoIcon = Kee[int](0)
+    Information = Kee[int](1)
+    Warning = Kee[int](2)
+    Critical = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

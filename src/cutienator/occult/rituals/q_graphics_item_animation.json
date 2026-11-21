@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicsitemanimation.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QGraphicsItemAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QGraphicsItemAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QGraphicsItemAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZN22QGraphicsItemAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QGraphicsItemAnimation4itemEv": ["address", "address"],
+    "ritual_ZN22QGraphicsItemAnimation7setItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QGraphicsItemAnimation8timeLineEv": ["address", "address"],
+    "ritual_ZN22QGraphicsItemAnimation11setTimeLineEP9QTimeLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QGraphicsItemAnimation5posAtEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN22QGraphicsItemAnimation8setPosAtEdRK7QPointF": [
+      "nothing", "address", "double", "address"
+    ],
+    "ritual_ZNK22QGraphicsItemAnimation11transformAtEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK22QGraphicsItemAnimation10rotationAtEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZN22QGraphicsItemAnimation13setRotationAtEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK22QGraphicsItemAnimation14xTranslationAtEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK22QGraphicsItemAnimation14yTranslationAtEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZN22QGraphicsItemAnimation16setTranslationAtEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZNK22QGraphicsItemAnimation15verticalScaleAtEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK22QGraphicsItemAnimation17horizontalScaleAtEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZN22QGraphicsItemAnimation10setScaleAtEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZNK22QGraphicsItemAnimation15verticalShearAtEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK22QGraphicsItemAnimation17horizontalShearAtEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZN22QGraphicsItemAnimation10setShearAtEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN22QGraphicsItemAnimation5clearEv": ["nothing", "address"],
+    "ritual_ZN22QGraphicsItemAnimation7setStepEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

@@ -11,10 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteNum
 from ..occult import Rituals
-from . import QStyleOptionComplex, QStyleOptionSliderStyleOptionType
-from . import QStyleOptionSliderStyleOptionVersion
+from . import QStyleOptionComplex
 
 
 class QStyleOptionSlider(QStyleOptionComplex):
@@ -61,10 +62,24 @@ class QStyleOptionSlider(QStyleOptionComplex):
     for Python, in a new cute QStyleOptionSlider.
   """
 
-  #  The enums Qt writes inside QStyleOptionSlider, and the names Qt has for
-  #  the combinations of its flags enums.
-  StyleOptionType = QStyleOptionSliderStyleOptionType
-  StyleOptionVersion = QStyleOptionSliderStyleOptionVersion
+  #  The enums Qt writes inside QStyleOptionSlider, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class StyleOptionType(CuteNum):
+    """
+    The enum 'QStyleOptionSlider::StyleOptionType' of Qt, with the 1 names Qt
+    gives in it.
+    """
+
+    Type = Kee[int](983041)
+
+  class StyleOptionVersion(CuteNum):
+    """
+    The enum 'QStyleOptionSlider::StyleOptionVersion' of Qt, with the 1 names
+    Qt gives in it.
+    """
+
+    Version = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

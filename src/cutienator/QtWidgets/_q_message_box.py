@@ -10,12 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from . import QDialog, QMessageBoxButtonRole, QMessageBoxIcon
-from . import QMessageBoxOption, QMessageBoxStandardButton, QWidget
+from . import QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -112,14 +112,86 @@ class QMessageBox(QDialog):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QMessageBox, and the names Qt has for the
-  #  combinations of its flags enums.
-  ButtonRole = QMessageBoxButtonRole
-  Icon = QMessageBoxIcon
-  Option = QMessageBoxOption
-  Options = QMessageBoxOption
-  StandardButton = QMessageBoxStandardButton
-  StandardButtons = QMessageBoxStandardButton
+  #  The enums Qt writes inside QMessageBox, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class ButtonRole(CuteNum):
+    """
+    The enum 'QMessageBox::ButtonRole' of Qt, with the 11 names Qt gives in
+    it.
+    """
+
+    InvalidRole = Kee[int](-1)
+    AcceptRole = Kee[int](0)
+    RejectRole = Kee[int](1)
+    DestructiveRole = Kee[int](2)
+    ActionRole = Kee[int](3)
+    HelpRole = Kee[int](4)
+    YesRole = Kee[int](5)
+    NoRole = Kee[int](6)
+    ResetRole = Kee[int](7)
+    ApplyRole = Kee[int](8)
+    NRoles = Kee[int](9)
+
+  class Icon(CuteNum):
+    """
+    The enum 'QMessageBox::Icon' of Qt, with the 5 names Qt gives in it.
+    """
+
+    NoIcon = Kee[int](0)
+    Information = Kee[int](1)
+    Warning = Kee[int](2)
+    Critical = Kee[int](3)
+    Question = Kee[int](4)
+
+  class Option(CuteFlags, scoped=True):
+    """
+    The flags enum 'QMessageBox::Option' of Qt, with the 1 names Qt gives in
+    it. Qt names the type of its combinations 'QMessageBox::Options'. C++
+    keeps these names inside the enum, so the class that holds the enum does
+    not have them.
+    """
+
+    DontUseNativeDialog = 0x1
+
+  Options = Option
+
+  class StandardButton(CuteFlags):
+    """
+    The flags enum 'QMessageBox::StandardButton' of Qt, with the 27 names Qt
+    gives in it. Qt names the type of its combinations
+    'QMessageBox::StandardButtons'.
+    """
+
+    NoButton = 0x0
+    Ok = 0x400
+    Save = 0x800
+    SaveAll = 0x1000
+    Open = 0x2000
+    Yes = 0x4000
+    YesToAll = 0x8000
+    No = 0x10000
+    NoToAll = 0x20000
+    Abort = 0x40000
+    Retry = 0x80000
+    Ignore = 0x100000
+    Close = 0x200000
+    Cancel = 0x400000
+    Discard = 0x800000
+    Help = 0x1000000
+    Apply = 0x2000000
+    Reset = 0x4000000
+    RestoreDefaults = 0x8000000
+    FirstButton = 0x400
+    LastButton = 0x8000000
+    YesAll = 0x8000
+    NoAll = 0x20000
+    Default = 0x100
+    Escape = 0x200
+    FlagMask = 0x300
+    ButtonMask = -769
+
+  StandardButtons = StandardButton
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

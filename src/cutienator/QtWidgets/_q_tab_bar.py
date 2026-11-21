@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QTabBarButtonPosition, QTabBarSelectionBehavior, QTabBarShape
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -91,11 +91,39 @@ class QTabBar(QWidget):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QTabBar, and the names Qt has for the
-  #  combinations of its flags enums.
-  ButtonPosition = QTabBarButtonPosition
-  SelectionBehavior = QTabBarSelectionBehavior
-  Shape = QTabBarShape
+  #  The enums Qt writes inside QTabBar, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class ButtonPosition(CuteNum):
+    """
+    The enum 'QTabBar::ButtonPosition' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    LeftSide = Kee[int](0)
+    RightSide = Kee[int](1)
+
+  class SelectionBehavior(CuteNum):
+    """
+    The enum 'QTabBar::SelectionBehavior' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    SelectLeftTab = Kee[int](0)
+    SelectRightTab = Kee[int](1)
+    SelectPreviousTab = Kee[int](2)
+
+  class Shape(CuteNum):
+    """The enum 'QTabBar::Shape' of Qt, with the 8 names Qt gives in it."""
+
+    RoundedNorth = Kee[int](0)
+    RoundedSouth = Kee[int](1)
+    RoundedWest = Kee[int](2)
+    RoundedEast = Kee[int](3)
+    TriangularNorth = Kee[int](4)
+    TriangularSouth = Kee[int](5)
+    TriangularWest = Kee[int](6)
+    TriangularEast = Kee[int](7)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

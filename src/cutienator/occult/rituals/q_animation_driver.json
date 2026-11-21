@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qabstractanimation.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QAnimationDriver10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QAnimationDriver2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QAnimationDriverC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QAnimationDriverD1Ev": ["nothing", "address"],
+    "ritual_ZN16QAnimationDriver7advanceEv": ["nothing", "address"],
+    "ritual_ZN16QAnimationDriver7installEv": ["nothing", "address"],
+    "ritual_ZN16QAnimationDriver9uninstallEv": ["nothing", "address"],
+    "ritual_ZNK16QAnimationDriver9isRunningEv": ["bool", "address"],
+    "ritual_ZNK16QAnimationDriver7elapsedEv": ["long long", "address"]
+  }
+}

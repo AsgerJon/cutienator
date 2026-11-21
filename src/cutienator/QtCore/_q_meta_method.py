@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt, QMetaMethodAccess, QMetaMethodAttributes
-from . import QMetaMethodMethodType
+from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -82,11 +82,38 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QMetaMethod.
   """
 
-  #  The enums Qt writes inside QMetaMethod, and the names Qt has for the
-  #  combinations of its flags enums.
-  Access = QMetaMethodAccess
-  Attributes = QMetaMethodAttributes
-  MethodType = QMetaMethodMethodType
+  #  The enums Qt writes inside QMetaMethod, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Access(CuteNum):
+    """
+    The enum 'QMetaMethod::Access' of Qt, with the 3 names Qt gives in it.
+    """
+
+    Private = Kee[int](0)
+    Protected = Kee[int](1)
+    Public = Kee[int](2)
+
+  class Attributes(CuteNum):
+    """
+    The enum 'QMetaMethod::Attributes' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    Compatibility = Kee[int](1)
+    Cloned = Kee[int](2)
+    Scriptable = Kee[int](4)
+
+  class MethodType(CuteNum):
+    """
+    The enum 'QMetaMethod::MethodType' of Qt, with the 4 names Qt gives in
+    it.
+    """
+
+    Method = Kee[int](0)
+    Signal = Kee[int](1)
+    Slot = Kee[int](2)
+    Constructor = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

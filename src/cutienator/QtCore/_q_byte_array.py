@@ -11,10 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt, QByteArrayBase64DecodingStatus, QByteArrayBase64Option
+from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -44,17 +45,17 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QByteArray that has a ritual and that Python can
-  call so far, 56 names in all: 'isEmpty', 'resize', 'resizeForOverwrite',
+  call so far, 57 names in all: 'isEmpty', 'resize', 'resizeForOverwrite',
   'capacity', 'reserve', 'squeeze', 'data', 'constData', 'detach',
   'isDetached', 'isSharedWith', 'clear', 'indexOf', 'lastIndexOf',
   'contains', 'count', 'compare', 'left', 'right', 'mid', 'first', 'last',
   'sliced', 'chopped', 'startsWith', 'endsWith', 'isUpper', 'isLower',
   'isValidUtf8', 'truncate', 'chop', 'toLower', 'toUpper', 'trimmed',
   'simplified', 'repeated', 'toBase64', 'number', 'fromRawData',
-  'fromBase64', 'fromHex', 'begin', 'cbegin', 'constBegin', 'end', 'cend',
-  'constEnd', 'push_back', 'push_front', 'shrink_to_fit', 'max_size',
-  'maxSize', 'size', 'length', 'isNull', 'nullTerminated'. It can be made
-  from Python, in 5 ways; see '__init__'.
+  'fromBase64Encoding', 'fromBase64', 'fromHex', 'begin', 'cbegin',
+  'constBegin', 'end', 'cend', 'constEnd', 'push_back', 'push_front',
+  'shrink_to_fit', 'max_size', 'maxSize', 'size', 'length', 'isNull',
+  'nullTerminated'. It can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -128,9 +129,6 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     Python what 'QByteArray QByteArray::number(int a0, int base)' takes.
   - Qt's 'QByteArray QByteArray::number(double a0, char format, int
     precision)': takes a single letter as C has it.
-  - Qt's 'FromBase64Result QByteArray::fromBase64Encoding(const QByteArray
-    &base64, Base64Options options)': gives 'QByteArray::FromBase64Result',
-    which has no cute class yet.
   - Qt's 'QByteArray QByteArray::fromPercentEncoding(const QByteArray
     &pctEncoded, char percent)': takes a single letter as C has it.
   - Qt's 'void QByteArray::push_back(char c)': takes a single letter as C has
@@ -158,11 +156,151 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QByteArray.
   """
 
-  #  The enums Qt writes inside QByteArray, and the names Qt has for the
-  #  combinations of its flags enums.
-  Base64DecodingStatus = QByteArrayBase64DecodingStatus
-  Base64Option = QByteArrayBase64Option
-  Base64Options = QByteArrayBase64Option
+  #  The enums Qt writes inside QByteArray, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Base64DecodingStatus(CuteNum, scoped=True):
+    """
+    The enum 'QByteArray::Base64DecodingStatus' of Qt, with the 4 names Qt
+    gives in it. C++ keeps these names inside the enum, so the class that
+    holds the enum does not have them.
+    """
+
+    Ok = Kee[int](0)
+    IllegalInputLength = Kee[int](1)
+    IllegalCharacter = Kee[int](2)
+    IllegalPadding = Kee[int](3)
+
+  class Base64Option(CuteFlags):
+    """
+    The flags enum 'QByteArray::Base64Option' of Qt, with the 6 names Qt
+    gives in it. Qt names the type of its combinations
+    'QByteArray::Base64Options'.
+    """
+
+    Base64Encoding = 0x0
+    Base64UrlEncoding = 0x1
+    KeepTrailingEquals = 0x0
+    OmitTrailingEquals = 0x2
+    IgnoreBase64DecodingErrors = 0x0
+    AbortOnBase64DecodingErrors = 0x4
+
+  Base64Options = Base64Option
+
+  #  The classes Qt writes inside QByteArray, each a class in here as in C++.
+
+  class FromBase64Result(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QByteArray::FromBase64Result: a plain Python object
+    standing in front of one C++ QByteArray::FromBase64Result.
+
+    C++ hands a QByteArray::FromBase64Result around as a copy, so every C++
+    QByteArray::FromBase64Result behind a cute one is Python's own: it is
+    removed, by the ritual named in '__delete_ritual__', when the cute object
+    goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QByteArray::FromBase64Result yet. None can be made
+    from Python: one comes out of a function of another class that gives one
+    back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'bool QByteArray::FromBase64Result::operator bool() const': an
+      operator, which is not reflected yet.
+    - Qt's 'const QByteArray &QByteArray::FromBase64Result::operator*()
+      const': an operator, which is not reflected yet.
+    - Qt's 'QByteArray::FromBase64Result::~FromBase64Result()': the
+      destructor: Python removes its C++ QByteArray::FromBase64Result by it,
+      and has no other use for it.
+
+    What has no ritual
+    ------------------
+
+    4 of the 7 functions Qt declares: 2 takes or gives a type that cannot be
+    passed yet; 2 can only be called on a value about to be thrown away.
+
+    What to expect
+    --------------
+
+    - The C++ QByteArray::FromBase64Result is created at the first use, not
+      by 'QByteArray::FromBase64Result(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QByteArray::FromBase64Result back gives a copy the
+      ritual made for Python, in a new cute QByteArray::FromBase64Result.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QByteArray::FromBase64Result'
+
+    #  Qt's '~QByteArray::FromBase64Result()'. Naming it makes this a value
+    #  class: Python owns every C++ QByteArray::FromBase64Result behind a
+    #  cute one, and removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN10QByteArray16FromBase64ResultD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -227,6 +365,46 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
         CuteMixin._bytesOf(data), size,
     )
     return QByteArray._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS)
+  @overload(THIS, Base64Options)
+  def fromBase64Encoding(
+      base64: QByteArray,
+      options: Base64Options = Base64Options.Base64Encoding,
+  ) -> FromBase64Result:
+    """
+    Calls Qt's 'FromBase64Result QByteArray::fromBase64Encoding(const
+    QByteArray &base64, Base64Options options)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#fromBase64Encoding
+
+    Parameters
+    ----------
+
+    base64 : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+
+    options : Base64Options
+      Passed on as its number. May be left out, as in Qt: it is then
+      Base64Options.Base64Encoding.
+
+    Returns
+    -------
+
+    FromBase64Result
+      A new cute QByteArray::FromBase64Result around the copy Qt gave back.
+      Python owns it.
+    """
+    #  FromBase64Result QByteArray::fromBase64Encoding(const QByteArray
+    #      &base64, Base64Options options)
+    address = Rituals.call(
+        'ritual_ZN10QByteArray18fromBase64EncodingERKS_6QFlagsINS_12Base64O'
+        'ptionEE',
+        CuteMixin._valueOf(base64), options.value,
+    )
+    return QByteArray.FromBase64Result._cuteOwning(address)
 
   @staticmethod
   @overload(THIS)

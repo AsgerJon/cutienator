@@ -10,10 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
-from . import QTextLengthType
 
 
 class QTextLength(CuteMixin, metaclass=MetaCute):
@@ -58,9 +58,17 @@ class QTextLength(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QTextLength.
   """
 
-  #  The enums Qt writes inside QTextLength, and the names Qt has for the
-  #  combinations of its flags enums.
-  Type = QTextLengthType
+  #  The enums Qt writes inside QTextLength, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Type(CuteNum):
+    """
+    The enum 'QTextLength::Type' of Qt, with the 3 names Qt gives in it.
+    """
+
+    VariableLength = Kee[int](0)
+    FixedLength = Kee[int](1)
+    PercentageLength = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

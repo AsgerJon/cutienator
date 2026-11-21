@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qabstracteventdispatcher.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QAbstractEventDispatcher9TimerInfoC1Ev": ["address"],
+    "ritual_ZN24QAbstractEventDispatcher9TimerInfoC1EiiN2Qt9TimerTypeE": [
+      "address", "int", "int", "int"
+    ],
+    "ritual_ZN24QAbstractEventDispatcher9TimerInfoD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

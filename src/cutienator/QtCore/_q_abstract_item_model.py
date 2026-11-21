@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from . import Qt, QAbstractItemModelCheckIndexOption
-from . import QAbstractItemModelLayoutChangeHint, QObject
+from . import Qt, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -87,11 +87,33 @@ class QAbstractItemModel(QObject):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QAbstractItemModel, and the names Qt has for
-  #  the combinations of its flags enums.
-  CheckIndexOption = QAbstractItemModelCheckIndexOption
-  CheckIndexOptions = QAbstractItemModelCheckIndexOption
-  LayoutChangeHint = QAbstractItemModelLayoutChangeHint
+  #  The enums Qt writes inside QAbstractItemModel, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class CheckIndexOption(CuteFlags, scoped=True):
+    """
+    The flags enum 'QAbstractItemModel::CheckIndexOption' of Qt, with the 4
+    names Qt gives in it. Qt names the type of its combinations
+    'QAbstractItemModel::CheckIndexOptions'. C++ keeps these names inside the
+    enum, so the class that holds the enum does not have them.
+    """
+
+    NoOption = 0x0
+    IndexIsValid = 0x1
+    DoNotUseParent = 0x2
+    ParentIsInvalid = 0x4
+
+  CheckIndexOptions = CheckIndexOption
+
+  class LayoutChangeHint(CuteNum):
+    """
+    The enum 'QAbstractItemModel::LayoutChangeHint' of Qt, with the 3 names
+    Qt gives in it.
+    """
+
+    NoLayoutChangeHint = Kee[int](0)
+    VerticalSortHint = Kee[int](1)
+    HorizontalSortHint = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

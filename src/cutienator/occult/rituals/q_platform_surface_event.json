@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QPlatformSurfaceEvent5cloneEv": ["address", "address"],
+    "ritual_ZN21QPlatformSurfaceEventD1Ev": ["nothing", "address"],
+    "ritual_ZN21QPlatformSurfaceEventC1ENS_16SurfaceEventTypeE": [
+      "address", "int"
+    ],
+    "ritual_ZNK21QPlatformSurfaceEvent16surfaceEventTypeEv": [
+      "int", "address"
+    ]
+  }
+}

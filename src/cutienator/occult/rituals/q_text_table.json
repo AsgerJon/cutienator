@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtexttable.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QTextTable10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QTextTable2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QTextTableC1EP13QTextDocument": ["address", "address"],
+    "ritual_ZN10QTextTableD1Ev": ["nothing", "address"],
+    "ritual_ZN10QTextTable6resizeEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN10QTextTable10insertRowsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QTextTable13insertColumnsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QTextTable10appendRowsEi": ["nothing", "address", "int"],
+    "ritual_ZN10QTextTable13appendColumnsEi": ["nothing", "address", "int"],
+    "ritual_ZN10QTextTable10removeRowsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QTextTable13removeColumnsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QTextTable10mergeCellsEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN10QTextTable10mergeCellsERK11QTextCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QTextTable9splitCellEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK10QTextTable4rowsEv": ["int", "address"],
+    "ritual_ZNK10QTextTable7columnsEv": ["int", "address"],
+    "ritual_ZNK10QTextTable6cellAtEii": ["address", "address", "int", "int"],
+    "ritual_ZNK10QTextTable6cellAtEi": ["address", "address", "int"],
+    "ritual_ZNK10QTextTable6cellAtERK11QTextCursor": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTextTable8rowStartERK11QTextCursor": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTextTable6rowEndERK11QTextCursor": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QTextTable9setFormatERK16QTextTableFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QTextTable6formatEv": ["address", "address"]
+  }
+}

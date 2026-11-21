@@ -11,10 +11,9 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QMatrix4x4Flag
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QPoint, QPointF, QRect, QRectF
@@ -90,10 +89,24 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QMatrix4x4.
   """
 
-  #  The enums Qt writes inside QMatrix4x4, and the names Qt has for the
-  #  combinations of its flags enums.
-  Flag = QMatrix4x4Flag
-  Flags = QMatrix4x4Flag
+  #  The enums Qt writes inside QMatrix4x4, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Flag(CuteFlags):
+    """
+    The flags enum 'QMatrix4x4::Flag' of Qt, with the 7 names Qt gives in it.
+    Qt names the type of its combinations 'QMatrix4x4::Flags'.
+    """
+
+    Identity = 0x0
+    Translation = 0x1
+    Scale = 0x2
+    Rotation2D = 0x4
+    Rotation = 0x8
+    Perspective = 0x10
+    General = 0x1f
+
+  Flags = Flag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

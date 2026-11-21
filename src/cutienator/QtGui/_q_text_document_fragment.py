@@ -14,18 +14,17 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QTextDocumentMarkdownFeature
+from . import QTextDocument
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QTextCursor, QTextDocument
+  from . import QTextCursor
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QTextCursor = WAIT['QTextCursor']
-  QTextDocument = WAIT['QTextDocument']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -154,11 +153,11 @@ class QTextDocumentFragment(CuteMixin, metaclass=MetaCute):
 
   @staticmethod
   @overload(str)
-  @overload(str, QTextDocumentMarkdownFeature)
+  @overload(str, QTextDocument.MarkdownFeatures)
   def fromMarkdown(
       markdown: str,
       features: QTextDocument.MarkdownFeatures = (
-          QTextDocumentMarkdownFeature.MarkdownDialectGitHub),
+          QTextDocument.MarkdownFeatures.MarkdownDialectGitHub),
   ) -> QTextDocumentFragment:
     """
     Calls Qt's 'QTextDocumentFragment
@@ -176,7 +175,7 @@ class QTextDocumentFragment(CuteMixin, metaclass=MetaCute):
 
     features : QTextDocument.MarkdownFeatures
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocumentMarkdownFeature.MarkdownDialectGitHub.
+      QTextDocument.MarkdownFeatures.MarkdownDialectGitHub.
 
     Returns
     -------
@@ -280,11 +279,11 @@ class QTextDocumentFragment(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call('ritual_ZNK21QTextDocumentFragment6toHtmlEv')
 
   @overload()
-  @overload(QTextDocumentMarkdownFeature)
+  @overload(QTextDocument.MarkdownFeatures)
   def toMarkdown(
       self,
       features: QTextDocument.MarkdownFeatures = (
-          QTextDocumentMarkdownFeature.MarkdownDialectGitHub),
+          QTextDocument.MarkdownFeatures.MarkdownDialectGitHub),
   ) -> str:
     """
     Calls Qt's 'QString
@@ -299,7 +298,7 @@ class QTextDocumentFragment(CuteMixin, metaclass=MetaCute):
 
     features : QTextDocument.MarkdownFeatures
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocumentMarkdownFeature.MarkdownDialectGitHub.
+      QTextDocument.MarkdownFeatures.MarkdownDialectGitHub.
 
     Returns
     -------

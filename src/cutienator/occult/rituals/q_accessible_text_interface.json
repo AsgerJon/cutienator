@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QAccessibleTextInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QAccessibleTextInterface9selectionEiPiS0_": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK24QAccessibleTextInterface14selectionCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QAccessibleTextInterface12addSelectionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN24QAccessibleTextInterface15removeSelectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QAccessibleTextInterface12setSelectionEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK24QAccessibleTextInterface14cursorPositionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QAccessibleTextInterface17setCursorPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QAccessibleTextInterface4textEii": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK24QAccessibleTextInterface16textBeforeOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_": [
+      "text", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK24QAccessibleTextInterface15textAfterOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_": [
+      "text", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK24QAccessibleTextInterface12textAtOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_": [
+      "text", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK24QAccessibleTextInterface14characterCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QAccessibleTextInterface13characterRectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK24QAccessibleTextInterface13offsetAtPointERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN24QAccessibleTextInterface17scrollToSubstringEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK24QAccessibleTextInterface10attributesEiPiS0_": [
+      "text", "address", "int", "address", "address"
+    ]
+  }
+}

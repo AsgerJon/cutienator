@@ -10,15 +10,16 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
-from . import QIconEngineIconEngineHook, QIconMode, QIconState
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
+from . import QIcon
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QRect, QSize
-  from . import QIcon, QPainter, QPixmap
+  from . import QPainter, QPixmap
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -73,9 +74,124 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QIconEngine.
   """
 
-  #  The enums Qt writes inside QIconEngine, and the names Qt has for the
-  #  combinations of its flags enums.
-  IconEngineHook = QIconEngineIconEngineHook
+  #  The enums Qt writes inside QIconEngine, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class IconEngineHook(CuteNum):
+    """
+    The enum 'QIconEngine::IconEngineHook' of Qt, with the 2 names Qt gives
+    in it.
+    """
+
+    IsNullHook = Kee[int](3)
+    ScaledPixmapHook = Kee[int](4)
+
+  #  The classes Qt writes inside QIconEngine, each a class in here as in
+  #  C++.
+
+  class ScaledPixmapArgument(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QIconEngine::ScaledPixmapArgument: a plain Python
+    object standing in front of one C++ QIconEngine::ScaledPixmapArgument.
+
+    C++ hands a QIconEngine::ScaledPixmapArgument around as a copy, so every
+    C++ QIconEngine::ScaledPixmapArgument behind a cute one is Python's own:
+    it is removed, by the ritual named in '__delete_ritual__', when the cute
+    object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QIconEngine::ScaledPixmapArgument yet. None can be
+    made from Python: one comes out of a function of another class that gives
+    one back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QIconEngine::ScaledPixmapArgument::~ScaledPixmapArgument()': the
+      destructor: Python removes its C++ QIconEngine::ScaledPixmapArgument by
+      it, and has no other use for it.
+
+    What to expect
+    --------------
+
+    - The C++ QIconEngine::ScaledPixmapArgument is created at the first use,
+      not by 'QIconEngine::ScaledPixmapArgument(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QIconEngine::ScaledPixmapArgument back gives a copy
+      the ritual made for Python, in a new cute
+      QIconEngine::ScaledPixmapArgument.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QIconEngine::ScaledPixmapArgument'
+
+    #  Qt's '~QIconEngine::ScaledPixmapArgument()'. Naming it makes this a
+    #  value class: Python owns every C++ QIconEngine::ScaledPixmapArgument
+    #  behind a cute one, and removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN11QIconEngine20ScaledPixmapArgumentD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -169,8 +285,8 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QPainter, QRect, QIconMode, QIconState)
-  @overload(NoneType, QRect, QIconMode, QIconState)
+  @overload(QPainter, QRect, QIcon.Mode, QIcon.State)
+  @overload(NoneType, QRect, QIcon.Mode, QIcon.State)
   def paint(
       self,
       painter: Optional[QPainter],
@@ -209,7 +325,7 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
         state.value,
     )
 
-  @overload(QSize, QIconMode, QIconState)
+  @overload(QSize, QIcon.Mode, QIcon.State)
   def actualSize(
       self,
       size: QSize,
@@ -250,7 +366,7 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
-  @overload(QSize, QIconMode, QIconState)
+  @overload(QSize, QIcon.Mode, QIcon.State)
   def pixmap(
       self,
       size: QSize,
@@ -290,7 +406,7 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
     from . import QPixmap
     return QPixmap._cuteOwning(address)
 
-  @overload(QPixmap, QIconMode, QIconState)
+  @overload(QPixmap, QIcon.Mode, QIcon.State)
   def addPixmap(
       self,
       pixmap: QPixmap,
@@ -324,7 +440,7 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
         self._valueOf(pixmap), mode.value, state.value,
     )
 
-  @overload(str, QSize, QIconMode, QIconState)
+  @overload(str, QSize, QIcon.Mode, QIcon.State)
   def addFile(
       self,
       fileName: str,
@@ -385,7 +501,7 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
     #  bool QIconEngine::isNull()
     return self.uglySide.call('ritual_ZN11QIconEngine6isNullEv')
 
-  @overload(QSize, QIconMode, QIconState, float)
+  @overload(QSize, QIcon.Mode, QIcon.State, float)
   def scaledPixmap(
       self,
       size: QSize,

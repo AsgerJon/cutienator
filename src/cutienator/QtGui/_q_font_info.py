@@ -12,17 +12,9 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from . import QFontStyle, QFontStyleHint
-
-if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QFont
-else:
-  #  The cute classes this file names and is not built on. Each is brought in
-  #  by the program that uses it, and a signature naming it waits until then;
-  #  see 'WAIT'.
-  QFont = WAIT['QFont']
+from . import QFont
 
 
 class QFontInfo(CuteMixin, metaclass=MetaCute):
@@ -177,7 +169,7 @@ class QFontInfo(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  QFont::Style QFontInfo::style() const
-    return QFontStyle(self.uglySide.call('ritual_ZNK9QFontInfo5styleEv'))
+    return QFont.Style(self.uglySide.call('ritual_ZNK9QFontInfo5styleEv'))
 
   def weight(self) -> int:
     """
@@ -248,7 +240,7 @@ class QFontInfo(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  QFont::StyleHint QFontInfo::styleHint() const
-    return QFontStyleHint(self.uglySide.call(
+    return QFont.StyleHint(self.uglySide.call(
         'ritual_ZNK9QFontInfo9styleHintEv',
     ))
 

@@ -11,15 +11,13 @@ from typing import TYPE_CHECKING
 
 from ..cute import CuteMixin, MetaCute
 from ..QtCore import Qt
-from . import QPaintEngineDirtyFlag, QPainterCompositionMode
-from . import QPainterRenderHint
+from . import QPaintEngine, QPainter
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QPointF
-  from . import QBrush, QFont, QPaintEngine, QPainter, QPainterPath, QPen
-  from . import QRegion, QTransform
+  from . import QBrush, QFont, QPainterPath, QPen, QRegion, QTransform
 
 
 class QPaintEngineState(CuteMixin, metaclass=MetaCute):
@@ -104,7 +102,7 @@ class QPaintEngineState(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  QPaintEngine::DirtyFlags QPaintEngineState::state() const
-    return QPaintEngineDirtyFlag(self.uglySide.call(
+    return QPaintEngine.DirtyFlags(self.uglySide.call(
         'ritual_ZNK17QPaintEngineState5stateEv',
     ))
 
@@ -316,7 +314,7 @@ class QPaintEngineState(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  QPainter::RenderHints QPaintEngineState::renderHints() const
-    return QPainterRenderHint(self.uglySide.call(
+    return QPainter.RenderHints(self.uglySide.call(
         'ritual_ZNK17QPaintEngineState11renderHintsEv',
     ))
 
@@ -337,7 +335,7 @@ class QPaintEngineState(CuteMixin, metaclass=MetaCute):
       'QPainter.CompositionMode(number)' gives.
     """
     #  QPainter::CompositionMode QPaintEngineState::compositionMode() const
-    return QPainterCompositionMode(self.uglySide.call(
+    return QPainter.CompositionMode(self.uglySide.call(
         'ritual_ZNK17QPaintEngineState15compositionModeEv',
     ))
 
@@ -365,7 +363,6 @@ class QPaintEngineState(CuteMixin, metaclass=MetaCute):
     """
     #  QPainter *QPaintEngineState::painter() const
     address = self.uglySide.call('ritual_ZNK17QPaintEngineState7painterEv')
-    from . import QPainter
     return QPainter._cuteAt(address)
 
   def brushNeedsResolving(self) -> bool:

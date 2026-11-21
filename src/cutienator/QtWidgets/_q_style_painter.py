@@ -13,22 +13,20 @@ from worktoy.dispatch import overload
 
 from ..cute import WAIT
 from ..occult import Rituals
-from ..QtGui import QPainter, QPaletteColorRole
-from . import QStyleComplexControl, QStyleControlElement
-from . import QStylePrimitiveElement
+from ..QtGui import QPainter, QPalette
+from . import QStyle
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QRect
-  from ..QtGui import QPaintDevice, QPalette, QPixmap
-  from . import QStyle, QStyleOption, QStyleOptionComplex, QWidget
+  from ..QtGui import QPaintDevice, QPixmap
+  from . import QStyleOption, QStyleOptionComplex, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QPaintDevice = WAIT['QPaintDevice']
-  QPalette = WAIT['QPalette']
   QPixmap = WAIT['QPixmap']
   QRect = WAIT['QRect']
   QStyleOption = WAIT['QStyleOption']
@@ -113,7 +111,6 @@ class QStylePainter(QPainter):
     """
     #  QStyle *QStylePainter::style() const
     address = self.uglySide.call('ritual_ZNK13QStylePainter5styleEv')
-    from . import QStyle
     return QStyle._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -265,7 +262,7 @@ class QStylePainter(QPainter):
         self._addressOf(pd), self._addressOf(w),
     )
 
-  @overload(QStylePrimitiveElement, QStyleOption)
+  @overload(QStyle.PrimitiveElement, QStyleOption)
   def drawPrimitive(
       self,
       pe: QStyle.PrimitiveElement,
@@ -295,7 +292,7 @@ class QStylePainter(QPainter):
         pe.value, self._valueOf(opt),
     )
 
-  @overload(QStyleControlElement, QStyleOption)
+  @overload(QStyle.ControlElement, QStyleOption)
   def drawControl(
       self,
       ce: QStyle.ControlElement,
@@ -325,7 +322,7 @@ class QStylePainter(QPainter):
         ce.value, self._valueOf(opt),
     )
 
-  @overload(QStyleComplexControl, QStyleOptionComplex)
+  @overload(QStyle.ComplexControl, QStyleOptionComplex)
   def drawComplexControl(
       self,
       cc: QStyle.ComplexControl,
@@ -357,7 +354,7 @@ class QStylePainter(QPainter):
     )
 
   @overload(QRect, int, QPalette, bool, str)
-  @overload(QRect, int, QPalette, bool, str, QPaletteColorRole)
+  @overload(QRect, int, QPalette, bool, str, QPalette.ColorRole)
   def drawItemText(
       self,
       r: QRect,
@@ -365,7 +362,7 @@ class QStylePainter(QPainter):
       pal: QPalette,
       enabled: bool,
       text: str,
-      textRole: QPalette.ColorRole = QPaletteColorRole.NoRole,
+      textRole: QPalette.ColorRole = QPalette.ColorRole.NoRole,
   ) -> None:
     """
     Calls Qt's 'void QStylePainter::drawItemText(const QRect &r, int flags,
@@ -395,7 +392,7 @@ class QStylePainter(QPainter):
 
     textRole : QPalette.ColorRole
       Passed on as its number. May be left out, as in Qt: it is then
-      QPaletteColorRole.NoRole.
+      QPalette.ColorRole.NoRole.
     """
     #  void QStylePainter::drawItemText(const QRect &r, int flags, const
     #      QPalette &pal, bool enabled, const QString &text,

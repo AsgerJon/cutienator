@@ -12,9 +12,8 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteFlags, MetaCute
 from ..occult import Rituals
-from . import QCommandLineOptionFlag
 
 
 class QCommandLineOption(CuteMixin, metaclass=MetaCute):
@@ -60,10 +59,21 @@ class QCommandLineOption(CuteMixin, metaclass=MetaCute):
     for Python, in a new cute QCommandLineOption.
   """
 
-  #  The enums Qt writes inside QCommandLineOption, and the names Qt has for
-  #  the combinations of its flags enums.
-  Flag = QCommandLineOptionFlag
-  Flags = QCommandLineOptionFlag
+  #  The enums Qt writes inside QCommandLineOption, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class Flag(CuteFlags):
+    """
+    The flags enum 'QCommandLineOption::Flag' of Qt, with the 3 names Qt
+    gives in it. Qt names the type of its combinations
+    'QCommandLineOption::Flags'.
+    """
+
+    HiddenFromHelp = 0x1
+    ShortOptionStyle = 0x2
+    IgnoreOptionsAfter = 0x4
+
+  Flags = Flag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

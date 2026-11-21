@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, CuteNum
 from ..occult import Rituals
-from . import QObject, QSharedMemoryAccessMode
-from . import QSharedMemorySharedMemoryError
+from . import QNativeIpcKey, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -38,33 +38,17 @@ class QSharedMemory(QObject):
   -----------
 
   Every function of Qt's QSharedMemory that has a ritual and that Python can
-  call so far, 14 names in all: 'metaObject', 'tr', 'setKey', 'key',
-  'nativeKey', 'create', 'size', 'attach', 'isAttached', 'detach', 'lock',
-  'unlock', 'error', 'errorString'. It can be made from Python, in 2 ways;
-  see '__init__'.
+  call so far, 19 names in all: 'metaObject', 'tr', 'setKey', 'key',
+  'setNativeKey', 'nativeKey', 'nativeIpcKey', 'create', 'size', 'attach',
+  'isAttached', 'detach', 'lock', 'unlock', 'error', 'errorString',
+  'isKeyTypeSupported', 'platformSafeKey', 'legacyNativeKey'. It can be made
+  from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QSharedMemory::QSharedMemory(const QNativeIpcKey &key, QObject
-    *parent)': names 'QNativeIpcKey', which has no cute class yet.
   - Qt's 'QSharedMemory::~QSharedMemory()': the destructor: Python never
     removes a C++ QSharedMemory.
-  - Qt's 'void QSharedMemory::setNativeKey(const QNativeIpcKey &key)': names
-    'QNativeIpcKey', which has no cute class yet.
-  - Qt's 'void QSharedMemory::setNativeKey(const QString &key,
-    QNativeIpcKey::Type type)': names the enum 'QNativeIpcKey::Type', whose
-    class cannot be named here.
-  - Qt's 'QNativeIpcKey QSharedMemory::nativeIpcKey() const': gives
-    'QNativeIpcKey', which has no cute class yet.
-  - Qt's 'bool QSharedMemory::isKeyTypeSupported(QNativeIpcKey::Type type)':
-    names the enum 'QNativeIpcKey::Type', whose class cannot be named here.
-  - Qt's 'QNativeIpcKey QSharedMemory::platformSafeKey(const QString &key,
-    QNativeIpcKey::Type type)': names the enum 'QNativeIpcKey::Type', whose
-    class cannot be named here.
-  - Qt's 'QNativeIpcKey QSharedMemory::legacyNativeKey(const QString &key,
-    QNativeIpcKey::Type type)': names the enum 'QNativeIpcKey::Type', whose
-    class cannot be named here.
 
   What has no ritual
   ------------------
@@ -88,10 +72,33 @@ class QSharedMemory(QObject):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QSharedMemory, and the names Qt has for the
-  #  combinations of its flags enums.
-  AccessMode = QSharedMemoryAccessMode
-  SharedMemoryError = QSharedMemorySharedMemoryError
+  #  The enums Qt writes inside QSharedMemory, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class AccessMode(CuteNum):
+    """
+    The enum 'QSharedMemory::AccessMode' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    ReadOnly = Kee[int](0)
+    ReadWrite = Kee[int](1)
+
+  class SharedMemoryError(CuteNum):
+    """
+    The enum 'QSharedMemory::SharedMemoryError' of Qt, with the 9 names Qt
+    gives in it.
+    """
+
+    NoError = Kee[int](0)
+    PermissionDenied = Kee[int](1)
+    InvalidSize = Kee[int](2)
+    KeyError = Kee[int](3)
+    AlreadyExists = Kee[int](4)
+    NotFound = Kee[int](5)
+    LockError = Kee[int](6)
+    OutOfResources = Kee[int](7)
+    UnknownError = Kee[int](8)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -139,6 +146,95 @@ class QSharedMemory(QObject):
         'ritual_ZN13QSharedMemory2trEPKcS1_i',
         CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
     )
+
+  @staticmethod
+  @overload(QNativeIpcKey.Type)
+  def isKeyTypeSupported(type: QNativeIpcKey.Type) -> bool:
+    """
+    Calls Qt's 'bool QSharedMemory::isKeyTypeSupported(QNativeIpcKey::Type
+    type)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsharedmemory.html#isKeyTypeSupported
+
+    Parameters
+    ----------
+
+    type : QNativeIpcKey.Type
+      Passed on as its number.
+    """
+    #  bool QSharedMemory::isKeyTypeSupported(QNativeIpcKey::Type type)
+    return Rituals.call(
+        'ritual_ZN13QSharedMemory18isKeyTypeSupportedEN13QNativeIpcKey4Type'
+        'E',
+        type.value,
+    )
+
+  @staticmethod
+  @overload(str, QNativeIpcKey.Type)
+  def platformSafeKey(key: str, type: QNativeIpcKey.Type) -> QNativeIpcKey:
+    """
+    Calls Qt's 'QNativeIpcKey QSharedMemory::platformSafeKey(const QString
+    &key, QNativeIpcKey::Type type)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsharedmemory.html#platformSafeKey
+
+    Parameters
+    ----------
+
+    key : str
+      Passed on as it is: a QString is made of it for the call.
+
+    type : QNativeIpcKey.Type
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QNativeIpcKey
+      A new cute QNativeIpcKey around the copy Qt gave back. Python owns it.
+    """
+    #  QNativeIpcKey QSharedMemory::platformSafeKey(const QString &key,
+    #      QNativeIpcKey::Type type)
+    address = Rituals.call(
+        'ritual_ZN13QSharedMemory15platformSafeKeyERK7QStringN13QNativeIpcK'
+        'ey4TypeE',
+        key, type.value,
+    )
+    return QNativeIpcKey._cuteOwning(address)
+
+  @staticmethod
+  @overload(str, QNativeIpcKey.Type)
+  def legacyNativeKey(key: str, type: QNativeIpcKey.Type) -> QNativeIpcKey:
+    """
+    Calls Qt's 'QNativeIpcKey QSharedMemory::legacyNativeKey(const QString
+    &key, QNativeIpcKey::Type type)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsharedmemory.html#legacyNativeKey
+
+    Parameters
+    ----------
+
+    key : str
+      Passed on as it is: a QString is made of it for the call.
+
+    type : QNativeIpcKey.Type
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QNativeIpcKey
+      A new cute QNativeIpcKey around the copy Qt gave back. Python owns it.
+    """
+    #  QNativeIpcKey QSharedMemory::legacyNativeKey(const QString &key,
+    #      QNativeIpcKey::Type type)
+    address = Rituals.call(
+        'ritual_ZN13QSharedMemory15legacyNativeKeyERK7QStringN13QNativeIpcK'
+        'ey4TypeE',
+        key, type.value,
+    )
+    return QNativeIpcKey._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -207,6 +303,22 @@ class QSharedMemory(QObject):
     """
     #  QString QSharedMemory::nativeKey() const
     return self.uglySide.call('ritual_ZNK13QSharedMemory9nativeKeyEv')
+
+  def nativeIpcKey(self) -> QNativeIpcKey:
+    """
+    Calls Qt's 'QNativeIpcKey QSharedMemory::nativeIpcKey() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsharedmemory.html#nativeIpcKey
+
+    Returns
+    -------
+
+    QNativeIpcKey
+      A new cute QNativeIpcKey around the copy Qt gave back. Python owns it.
+    """
+    #  QNativeIpcKey QSharedMemory::nativeIpcKey() const
+    address = self.uglySide.call('ritual_ZNK13QSharedMemory12nativeIpcKeyEv')
+    return QNativeIpcKey._cuteOwning(address)
 
   def size(self) -> int:
     """
@@ -280,6 +392,51 @@ class QSharedMemory(QObject):
     #  void QSharedMemory::setKey(const QString &key)
     self.uglySide.call('ritual_ZN13QSharedMemory6setKeyERK7QString', key)
 
+  @overload(QNativeIpcKey)
+  def setNativeKey(self, key: QNativeIpcKey) -> None:
+    """
+    Calls Qt's 'void QSharedMemory::setNativeKey(const QNativeIpcKey &key)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsharedmemory.html#setNativeKey
+
+    Parameters
+    ----------
+
+    key : QNativeIpcKey
+      Passed on as a value: Qt reads the C++ QNativeIpcKey, which stays
+      Python's own.
+    """
+    #  void QSharedMemory::setNativeKey(const QNativeIpcKey &key)
+    self.uglySide.call(
+        'ritual_ZN13QSharedMemory12setNativeKeyERK13QNativeIpcKey',
+        self._valueOf(key),
+    )
+
+  @overload(str, QNativeIpcKey.Type)
+  def setNativeKey(self, key: str, type: QNativeIpcKey.Type) -> None:
+    """
+    Calls Qt's 'void QSharedMemory::setNativeKey(const QString &key,
+    QNativeIpcKey::Type type)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsharedmemory.html#setNativeKey
+
+    Parameters
+    ----------
+
+    key : str
+      Passed on as it is: a QString is made of it for the call.
+
+    type : QNativeIpcKey.Type
+      Passed on as its number.
+    """
+    #  void QSharedMemory::setNativeKey(const QString &key,
+    #      QNativeIpcKey::Type type)
+    self.uglySide.call(
+        'ritual_ZN13QSharedMemory12setNativeKeyERK7QStringN13QNativeIpcKey4'
+        'TypeE',
+        key, type.value,
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -312,6 +469,38 @@ class QSharedMemory(QObject):
     #  QSharedMemory::QSharedMemory(QObject *parent)
     self._noteCreation(QSharedMemory, lambda: Rituals.call(
         'ritual_ZN13QSharedMemoryC1EP7QObject', self._addressOf(parent),
+    ))
+
+  @overload(QNativeIpcKey)
+  @overload(QNativeIpcKey, QObject)
+  @overload(QNativeIpcKey, NoneType)
+  def __init__(
+      self,
+      key: QNativeIpcKey,
+      parent: Optional[QObject] = None,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QSharedMemory::QSharedMemory(const
+    QNativeIpcKey &key, QObject *parent)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsharedmemory.html#QSharedMemory
+
+    Parameters
+    ----------
+
+    key : QNativeIpcKey
+      Passed on as a value: Qt reads the C++ QNativeIpcKey, which stays
+      Python's own.
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QSharedMemory::QSharedMemory(const QNativeIpcKey &key, QObject
+    #      *parent)
+    self._noteCreation(QSharedMemory, lambda: Rituals.call(
+        'ritual_ZN13QSharedMemoryC1ERK13QNativeIpcKeyP7QObject',
+        self._valueOf(key), self._addressOf(parent),
     ))
 
   @overload(str)

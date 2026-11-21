@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qjsonobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QJsonObject14const_iteratorC1Ev": ["address"],
+    "ritual_ZN11QJsonObject14const_iteratorC1EPKS_x": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN11QJsonObject14const_iteratorC1ERKNS_8iteratorE": [
+      "address", "address"
+    ],
+    "ritual_ZN11QJsonObject14const_iteratorC1ERKS0_": ["address", "address"],
+    "ritual_ZNK11QJsonObject14const_iterator3keyEv": ["text", "address"],
+    "ritual_ZNK11QJsonObject14const_iterator7keyViewEv": ["text", "address"],
+    "ritual_ZNK11QJsonObject14const_iterator5valueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QJsonObject14const_iteratordeEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject14const_iteratorptEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject14const_iteratorixEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN11QJsonObject14const_iteratorppEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QJsonObject14const_iteratormmEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QJsonObject14const_iteratorplEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK11QJsonObject14const_iteratormiEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK11QJsonObject14const_iteratormiES0_": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN11QJsonObject14const_iteratorD1Ev": ["nothing", "address"]
+  }
+}

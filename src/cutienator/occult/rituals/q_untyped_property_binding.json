@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qproperty.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QUntypedPropertyBindingC1Ev": ["address"],
+    "ritual_ZN23QUntypedPropertyBindingC1ERKS_": ["address", "address"],
+    "ritual_ZN23QUntypedPropertyBindingD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QUntypedPropertyBinding6isNullEv": ["bool", "address"],
+    "ritual_ZNK23QUntypedPropertyBinding5errorEv": ["address", "address"],
+    "ritual_ZNK23QUntypedPropertyBinding13valueMetaTypeEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QPainterPathElementType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -47,13 +47,13 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPainterPath that has a ritual and that Python can
-  call so far, 44 names in all: 'clear', 'reserve', 'capacity',
+  call so far, 45 names in all: 'clear', 'reserve', 'capacity',
   'closeSubpath', 'moveTo', 'lineTo', 'arcMoveTo', 'arcTo', 'cubicTo',
   'quadTo', 'currentPosition', 'addRect', 'addEllipse', 'addPolygon',
   'addText', 'addPath', 'addRegion', 'addRoundedRect', 'connectPath',
   'contains', 'intersects', 'translate', 'translated', 'boundingRect',
   'controlPointRect', 'fillRule', 'setFillRule', 'isEmpty', 'toReversed',
-  'toFillPolygon', 'elementCount', 'setElementPositionAt',
+  'toFillPolygon', 'elementCount', 'elementAt', 'setElementPositionAt',
   'isCachingEnabled', 'setCachingEnabled', 'length', 'percentAtLength',
   'pointAtPercent', 'angleAtPercent', 'slopeAtPercent', 'trimmed', 'united',
   'intersected', 'subtracted', 'simplified'. It can be made from Python, in 3
@@ -64,8 +64,6 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QPainterPath::~QPainterPath()': the destructor: Python removes its
     C++ QPainterPath by it, and has no other use for it.
-  - Qt's 'QPainterPath::Element QPainterPath::elementAt(int i) const': gives
-    'QPainterPath::Element', which has no cute class yet.
   - Qt's 'bool QPainterPath::operator==(const QPainterPath &other) const': an
     operator, which is not reflected yet.
   - Qt's 'bool QPainterPath::operator!=(const QPainterPath &other) const': an
@@ -99,9 +97,167 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QPainterPath.
   """
 
-  #  The enums Qt writes inside QPainterPath, and the names Qt has for the
-  #  combinations of its flags enums.
-  ElementType = QPainterPathElementType
+  #  The enums Qt writes inside QPainterPath, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class ElementType(CuteNum):
+    """
+    The enum 'QPainterPath::ElementType' of Qt, with the 4 names Qt gives in
+    it.
+    """
+
+    MoveToElement = Kee[int](0)
+    LineToElement = Kee[int](1)
+    CurveToElement = Kee[int](2)
+    CurveToDataElement = Kee[int](3)
+
+  #  The classes Qt writes inside QPainterPath, each a class in here as in
+  #  C++.
+
+  class Element(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QPainterPath::Element: a plain Python object
+    standing in front of one C++ QPainterPath::Element.
+
+    C++ hands a QPainterPath::Element around as a copy, so every C++
+    QPainterPath::Element behind a cute one is Python's own: it is removed,
+    by the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    Every function of Qt's QPainterPath::Element that has a ritual and that
+    Python can call so far, 3 names in all: 'isMoveTo', 'isLineTo',
+    'isCurveTo'. None can be made from Python: one comes out of a function of
+    another class that gives one back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QPointF QPainterPath::Element::operator QPointF() const': an
+      operator, which is not reflected yet.
+    - Qt's 'bool QPainterPath::Element::operator==(const Element &e) const':
+      an operator, which is not reflected yet.
+    - Qt's 'bool QPainterPath::Element::operator!=(const Element &e) const':
+      an operator, which is not reflected yet.
+    - Qt's 'QPainterPath::Element::~Element()': the destructor: Python
+      removes its C++ QPainterPath::Element by it, and has no other use for
+      it.
+
+    What to expect
+    --------------
+
+    - The C++ QPainterPath::Element is created at the first use, not by
+      'QPainterPath::Element(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QPainterPath::Element back gives a copy the ritual
+      made for Python, in a new cute QPainterPath::Element.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QPainterPath::Element'
+
+    #  Qt's '~QPainterPath::Element()'. Naming it makes this a value class:
+    #  Python owns every C++ QPainterPath::Element behind a cute one, and
+    #  removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN12QPainterPath7ElementD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    def isMoveTo(self) -> bool:
+      """
+      Calls Qt's 'bool QPainterPath::Element::isMoveTo() const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qpainterpath-element.html#isMoveTo
+      """
+      #  bool QPainterPath::Element::isMoveTo() const
+      return self.uglySide.call(
+          'ritual_ZNK12QPainterPath7Element8isMoveToEv',
+      )
+
+    def isLineTo(self) -> bool:
+      """
+      Calls Qt's 'bool QPainterPath::Element::isLineTo() const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qpainterpath-element.html#isLineTo
+      """
+      #  bool QPainterPath::Element::isLineTo() const
+      return self.uglySide.call(
+          'ritual_ZNK12QPainterPath7Element8isLineToEv',
+      )
+
+    def isCurveTo(self) -> bool:
+      """
+      Calls Qt's 'bool QPainterPath::Element::isCurveTo() const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qpainterpath-element.html#isCurveTo
+      """
+      #  bool QPainterPath::Element::isCurveTo() const
+      return self.uglySide.call(
+          'ritual_ZNK12QPainterPath7Element9isCurveToEv',
+      )
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -433,6 +589,30 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     """
     #  int QPainterPath::elementCount() const
     return self.uglySide.call('ritual_ZNK12QPainterPath12elementCountEv')
+
+  @overload(int)
+  def elementAt(self, i: int) -> Element:
+    """
+    Calls Qt's 'QPainterPath::Element QPainterPath::elementAt(int i) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#elementAt
+
+    Parameters
+    ----------
+
+    i : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Element
+      A new cute QPainterPath::Element around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QPainterPath::Element QPainterPath::elementAt(int i) const
+    address = self.uglySide.call('ritual_ZNK12QPainterPath9elementAtEi', i)
+    return QPainterPath.Element._cuteOwning(address)
 
   def isCachingEnabled(self) -> bool:
     """

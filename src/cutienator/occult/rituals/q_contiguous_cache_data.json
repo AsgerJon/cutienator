@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcontiguouscache.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QContiguousCacheData12allocateDataExx": [
+      "address", "long long", "long long"
+    ],
+    "ritual_ZN20QContiguousCacheData8freeDataEPS_": ["nothing", "address"]
+  }
+}

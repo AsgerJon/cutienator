@@ -19,8 +19,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QEvent, QMetaObject, QPoint
-  from . import QClipboard, QCursor, QFont, QIcon, QPalette, QScreen
-  from . import QStyleHints, QWindow
+  from . import QClipboard, QCursor, QFont, QIcon, QInputMethod, QPalette
+  from . import QScreen, QStyleHints, QWindow
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -49,7 +49,7 @@ class QGuiApplication(QCoreApplication):
   -----------
 
   Every function of Qt's QGuiApplication that has a ritual and that Python
-  can call so far, 48 names in all: 'metaObject', 'tr',
+  can call so far, 49 names in all: 'metaObject', 'tr',
   'setApplicationDisplayName', 'applicationDisplayName', 'setBadgeNumber',
   'setDesktopFileName', 'desktopFileName', 'topLevelAt', 'setWindowIcon',
   'windowIcon', 'platformName', 'modalWindow', 'focusWindow', 'focusObject',
@@ -59,19 +59,17 @@ class QGuiApplication(QCoreApplication):
   'keyboardModifiers', 'queryKeyboardModifiers', 'mouseButtons',
   'setLayoutDirection', 'layoutDirection', 'isRightToLeft', 'isLeftToRight',
   'styleHints', 'setDesktopSettingsAware', 'desktopSettingsAware',
-  'setQuitOnLastWindowClosed', 'quitOnLastWindowClosed', 'applicationState',
-  'setHighDpiScaleFactorRoundingPolicy', 'highDpiScaleFactorRoundingPolicy',
-  'exec', 'notify', 'isSessionRestored', 'sessionId', 'sessionKey',
-  'isSavingSession', 'sync'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'inputMethod', 'setQuitOnLastWindowClosed', 'quitOnLastWindowClosed',
+  'applicationState', 'setHighDpiScaleFactorRoundingPolicy',
+  'highDpiScaleFactorRoundingPolicy', 'exec', 'notify', 'isSessionRestored',
+  'sessionId', 'sessionKey', 'isSavingSession', 'sync'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QGuiApplication::~QGuiApplication()': the destructor: Python never
     removes a C++ QGuiApplication.
-  - Qt's 'QInputMethod *QGuiApplication::inputMethod()': gives
-    'QInputMethod', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -752,6 +750,25 @@ class QGuiApplication(QCoreApplication):
     """
     #  bool QGuiApplication::desktopSettingsAware()
     return Rituals.call('ritual_ZN15QGuiApplication20desktopSettingsAwareEv')
+
+  @staticmethod
+  def inputMethod() -> Optional[QInputMethod]:
+    """
+    Calls Qt's 'QInputMethod *QGuiApplication::inputMethod()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qguiapplication.html#inputMethod
+
+    Returns
+    -------
+
+    Optional[QInputMethod]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QInputMethod *QGuiApplication::inputMethod()
+    address = Rituals.call('ritual_ZN15QGuiApplication11inputMethodEv')
+    from . import QInputMethod
+    return QInputMethod._cuteAt(address)
 
   @staticmethod
   @overload(bool)

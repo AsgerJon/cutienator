@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from . import QGraphicsSceneItemIndexMethod, QGraphicsSceneSceneLayer
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -113,11 +113,31 @@ class QGraphicsScene(QObject):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QGraphicsScene, and the names Qt has for the
-  #  combinations of its flags enums.
-  ItemIndexMethod = QGraphicsSceneItemIndexMethod
-  SceneLayer = QGraphicsSceneSceneLayer
-  SceneLayers = QGraphicsSceneSceneLayer
+  #  The enums Qt writes inside QGraphicsScene, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ItemIndexMethod(CuteNum):
+    """
+    The enum 'QGraphicsScene::ItemIndexMethod' of Qt, with the 2 names Qt
+    gives in it.
+    """
+
+    BspTreeIndex = Kee[int](0)
+    NoIndex = Kee[int](-1)
+
+  class SceneLayer(CuteFlags):
+    """
+    The flags enum 'QGraphicsScene::SceneLayer' of Qt, with the 4 names Qt
+    gives in it. Qt names the type of its combinations
+    'QGraphicsScene::SceneLayers'.
+    """
+
+    ItemLayer = 0x1
+    BackgroundLayer = 0x2
+    ForegroundLayer = 0x4
+    AllLayers = 0xffff
+
+  SceneLayers = SceneLayer
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

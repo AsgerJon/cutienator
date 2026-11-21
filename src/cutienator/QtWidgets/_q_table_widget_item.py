@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QTableWidgetItemItemType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -87,9 +87,17 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
     for Python, in a new cute QTableWidgetItem.
   """
 
-  #  The enums Qt writes inside QTableWidgetItem, and the names Qt has for
-  #  the combinations of its flags enums.
-  ItemType = QTableWidgetItemItemType
+  #  The enums Qt writes inside QTableWidgetItem, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ItemType(CuteNum):
+    """
+    The enum 'QTableWidgetItem::ItemType' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    Type = Kee[int](0)
+    UserType = Kee[int](1000)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

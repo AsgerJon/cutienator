@@ -10,10 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
-from . import QLockFileLockError
 
 
 class QLockFile(CuteMixin, metaclass=MetaCute):
@@ -55,9 +55,18 @@ class QLockFile(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QLockFile.
   """
 
-  #  The enums Qt writes inside QLockFile, and the names Qt has for the
-  #  combinations of its flags enums.
-  LockError = QLockFileLockError
+  #  The enums Qt writes inside QLockFile, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class LockError(CuteNum):
+    """
+    The enum 'QLockFile::LockError' of Qt, with the 4 names Qt gives in it.
+    """
+
+    NoError = Kee[int](0)
+    LockFailedError = Kee[int](1)
+    PermissionError = Kee[int](2)
+    UnknownError = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qlatin1stringmatcher.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN20QLatin1StringMatcherC1Ev": ["address"],
+    "ritual_ZN20QLatin1StringMatcherC1E13QLatin1StringN2Qt15CaseSensitivityE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QLatin1StringMatcherD1Ev": ["nothing", "address"],
+    "ritual_ZN20QLatin1StringMatcher10setPatternE13QLatin1String": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QLatin1StringMatcher7patternEv": ["address", "address"],
+    "ritual_ZN20QLatin1StringMatcher18setCaseSensitivityEN2Qt15CaseSensitivityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QLatin1StringMatcher15caseSensitivityEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QLatin1StringMatcher7indexInE13QLatin1Stringx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZNK20QLatin1StringMatcher7indexInE11QStringViewx": [
+      "long long", "address", "text", "long long"
+    ]
+  }
+}

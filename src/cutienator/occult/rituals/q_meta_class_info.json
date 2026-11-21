@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmetaobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QMetaClassInfoC1Ev": ["address"],
+    "ritual_ZNK14QMetaClassInfo4nameEv": ["chars", "address"],
+    "ritual_ZNK14QMetaClassInfo5valueEv": ["chars", "address"],
+    "ritual_ZNK14QMetaClassInfo19enclosingMetaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QMetaClassInfoD1Ev": ["nothing", "address"]
+  }
+}

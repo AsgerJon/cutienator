@@ -11,26 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QFontDatabaseWritingSystem, QFontHintingPreference, QFontStyle
-from . import QRawFontAntialiasingType, QRawFontLayoutFlag
+from . import QFont, QFontDatabase
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QByteArray, QChar, QRectF
-  from . import QFont, QFontDatabase, QImage, QPainterPath, QTransform
-  QFontTag = QFont.Tag
+  from . import QImage, QPainterPath, QTransform
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
   QChar = WAIT['QChar']
-  QFont = WAIT['QFont']
-  QFontTag = WAIT['Tag']
   QTransform = WAIT['QTransform']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -92,11 +89,29 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QRawFont.
   """
 
-  #  The enums Qt writes inside QRawFont, and the names Qt has for the
-  #  combinations of its flags enums.
-  AntialiasingType = QRawFontAntialiasingType
-  LayoutFlag = QRawFontLayoutFlag
-  LayoutFlags = QRawFontLayoutFlag
+  #  The enums Qt writes inside QRawFont, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class AntialiasingType(CuteNum):
+    """
+    The enum 'QRawFont::AntialiasingType' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    PixelAntialiasing = Kee[int](0)
+    SubPixelAntialiasing = Kee[int](1)
+
+  class LayoutFlag(CuteFlags):
+    """
+    The flags enum 'QRawFont::LayoutFlag' of Qt, with the 3 names Qt gives in
+    it. Qt names the type of its combinations 'QRawFont::LayoutFlags'.
+    """
+
+    SeparateAdvances = 0x0
+    KernedAdvances = 0x1
+    UseDesignMetrics = 0x2
+
+  LayoutFlags = LayoutFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -104,11 +119,11 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
 
   @staticmethod
   @overload(QFont)
-  @overload(QFont, QFontDatabaseWritingSystem)
+  @overload(QFont, QFontDatabase.WritingSystem)
   def fromFont(
       font: QFont,
       writingSystem: QFontDatabase.WritingSystem = (
-          QFontDatabaseWritingSystem.Any),
+          QFontDatabase.WritingSystem.Any),
   ) -> QRawFont:
     """
     Calls Qt's 'QRawFont QRawFont::fromFont(const QFont &font,
@@ -124,7 +139,7 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
 
     writingSystem : QFontDatabase.WritingSystem
       Passed on as its number. May be left out, as in Qt: it is then
-      QFontDatabaseWritingSystem.Any.
+      QFontDatabase.WritingSystem.Any.
 
     Returns
     -------
@@ -228,7 +243,7 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  QFont::Style QRawFont::style() const
-    return QFontStyle(self.uglySide.call('ritual_ZNK8QRawFont5styleEv'))
+    return QFont.Style(self.uglySide.call('ritual_ZNK8QRawFont5styleEv'))
 
   def weight(self) -> int:
     """
@@ -366,7 +381,7 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
       'QFont.HintingPreference(number)' gives.
     """
     #  QFont::HintingPreference QRawFont::hintingPreference() const
-    return QFontHintingPreference(self.uglySide.call(
+    return QFont.HintingPreference(self.uglySide.call(
         'ritual_ZNK8QRawFont17hintingPreferenceEv',
     ))
 
@@ -546,7 +561,7 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
     from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
 
-  @overload(QFontTag)
+  @overload(QFont.Tag)
   def fontTable(self, tag: QFont.Tag) -> QByteArray:
     """
     Calls Qt's 'QByteArray QRawFont::fontTable(QFont::Tag tag) const'.
@@ -619,13 +634,13 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
     ))
 
   @overload(str, float)
-  @overload(str, float, QFontHintingPreference)
+  @overload(str, float, QFont.HintingPreference)
   def __init__(
       self,
       fileName: str,
       pixelSize: float,
       hintingPreference: QFont.HintingPreference = (
-          QFontHintingPreference.PreferDefaultHinting),
+          QFont.HintingPreference.PreferDefaultHinting),
   ) -> None:
     """
     Notes what was given, for Qt's 'QRawFont::QRawFont(const QString
@@ -645,7 +660,7 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
 
     hintingPreference : QFont.HintingPreference
       Passed on as its number. May be left out, as in Qt: it is then
-      QFontHintingPreference.PreferDefaultHinting.
+      QFont.HintingPreference.PreferDefaultHinting.
     """
     #  QRawFont::QRawFont(const QString &fileName, qreal pixelSize,
     #      QFont::HintingPreference hintingPreference)
@@ -655,13 +670,13 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
     ))
 
   @overload(QByteArray, float)
-  @overload(QByteArray, float, QFontHintingPreference)
+  @overload(QByteArray, float, QFont.HintingPreference)
   def __init__(
       self,
       fontData: QByteArray,
       pixelSize: float,
       hintingPreference: QFont.HintingPreference = (
-          QFontHintingPreference.PreferDefaultHinting),
+          QFont.HintingPreference.PreferDefaultHinting),
   ) -> None:
     """
     Notes what was given, for Qt's 'QRawFont::QRawFont(const QByteArray
@@ -682,7 +697,7 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
 
     hintingPreference : QFont.HintingPreference
       Passed on as its number. May be left out, as in Qt: it is then
-      QFontHintingPreference.PreferDefaultHinting.
+      QFont.HintingPreference.PreferDefaultHinting.
     """
     #  QRawFont::QRawFont(const QByteArray &fontData, qreal pixelSize,
     #      QFont::HintingPreference hintingPreference)
@@ -731,7 +746,7 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(str, float, QFontHintingPreference)
+  @overload(str, float, QFont.HintingPreference)
   def loadFromFile(
       self,
       fileName: str,
@@ -764,7 +779,7 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
         fileName, pixelSize, hintingPreference.value,
     )
 
-  @overload(QByteArray, float, QFontHintingPreference)
+  @overload(QByteArray, float, QFont.HintingPreference)
   def loadFromData(
       self,
       fontData: QByteArray,

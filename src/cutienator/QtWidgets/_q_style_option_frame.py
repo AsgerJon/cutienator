@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteFlags, CuteNum
 from ..occult import Rituals
-from . import QStyleOption, QStyleOptionFrameFrameFeature
-from . import QStyleOptionFrameStyleOptionType
-from . import QStyleOptionFrameStyleOptionVersion
+from . import QStyleOption
 
 
 class QStyleOptionFrame(QStyleOption):
@@ -62,12 +62,37 @@ class QStyleOptionFrame(QStyleOption):
     for Python, in a new cute QStyleOptionFrame.
   """
 
-  #  The enums Qt writes inside QStyleOptionFrame, and the names Qt has for
-  #  the combinations of its flags enums.
-  FrameFeature = QStyleOptionFrameFrameFeature
-  FrameFeatures = QStyleOptionFrameFrameFeature
-  StyleOptionType = QStyleOptionFrameStyleOptionType
-  StyleOptionVersion = QStyleOptionFrameStyleOptionVersion
+  #  The enums Qt writes inside QStyleOptionFrame, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class FrameFeature(CuteFlags):
+    """
+    The flags enum 'QStyleOptionFrame::FrameFeature' of Qt, with the 3 names
+    Qt gives in it. Qt names the type of its combinations
+    'QStyleOptionFrame::FrameFeatures'.
+    """
+
+    NULL = 0x0
+    Flat = 0x1
+    Rounded = 0x2
+
+  FrameFeatures = FrameFeature
+
+  class StyleOptionType(CuteNum):
+    """
+    The enum 'QStyleOptionFrame::StyleOptionType' of Qt, with the 1 names Qt
+    gives in it.
+    """
+
+    Type = Kee[int](5)
+
+  class StyleOptionVersion(CuteNum):
+    """
+    The enum 'QStyleOptionFrame::StyleOptionVersion' of Qt, with the 1 names
+    Qt gives in it.
+    """
+
+    Version = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -10,11 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QLineEditActionPosition, QLineEditEchoMode, QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -98,10 +99,27 @@ class QLineEdit(QWidget):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QLineEdit, and the names Qt has for the
-  #  combinations of its flags enums.
-  ActionPosition = QLineEditActionPosition
-  EchoMode = QLineEditEchoMode
+  #  The enums Qt writes inside QLineEdit, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class ActionPosition(CuteNum):
+    """
+    The enum 'QLineEdit::ActionPosition' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    LeadingPosition = Kee[int](0)
+    TrailingPosition = Kee[int](1)
+
+  class EchoMode(CuteNum):
+    """
+    The enum 'QLineEdit::EchoMode' of Qt, with the 4 names Qt gives in it.
+    """
+
+    Normal = Kee[int](0)
+    NoEcho = Kee[int](1)
+    Password = Kee[int](2)
+    PasswordEchoOnEdit = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

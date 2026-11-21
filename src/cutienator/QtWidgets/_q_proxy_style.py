@@ -14,16 +14,16 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QIconMode, QPaletteColorRole
-from . import QCommonStyle, QSizePolicyControlType, QStyle
+from ..QtGui import QIcon, QPalette
+from . import QCommonStyle, QSizePolicy, QStyle
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPoint, QRect, QSize
-  from ..QtGui import QFontMetrics, QIcon, QPainter, QPalette, QPixmap
-  from . import QApplication, QSizePolicy, QStyleOption, QStyleOptionComplex
-  from . import QWidget
+  from ..QtGui import QFontMetrics, QPainter, QPixmap
+  from . import QApplication, QStyleHintReturn, QStyleOption
+  from . import QStyleOptionComplex, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -31,11 +31,11 @@ else:
   QApplication = WAIT['QApplication']
   QFontMetrics = WAIT['QFontMetrics']
   QPainter = WAIT['QPainter']
-  QPalette = WAIT['QPalette']
   QPixmap = WAIT['QPixmap']
   QPoint = WAIT['QPoint']
   QRect = WAIT['QRect']
   QSize = WAIT['QSize']
+  QStyleHintReturn = WAIT['QStyleHintReturn']
   QStyleOption = WAIT['QStyleOption']
   QStyleOptionComplex = WAIT['QStyleOptionComplex']
   QWidget = WAIT['QWidget']
@@ -57,22 +57,20 @@ class QProxyStyle(QCommonStyle):
   -----------
 
   Every function of Qt's QProxyStyle that has a ritual and that Python can
-  call so far, 23 names in all: 'metaObject', 'tr', 'baseStyle',
+  call so far, 24 names in all: 'metaObject', 'tr', 'baseStyle',
   'setBaseStyle', 'drawPrimitive', 'drawControl', 'drawComplexControl',
   'drawItemText', 'drawItemPixmap', 'sizeFromContents', 'subElementRect',
   'subControlRect', 'itemTextRect', 'itemPixmapRect',
-  'hitTestComplexControl', 'pixelMetric', 'layoutSpacing', 'standardIcon',
-  'standardPixmap', 'generatedIconPixmap', 'standardPalette', 'polish',
-  'unpolish'. It can be made from Python, in 2 ways; see '__init__'.
+  'hitTestComplexControl', 'styleHint', 'pixelMetric', 'layoutSpacing',
+  'standardIcon', 'standardPixmap', 'generatedIconPixmap', 'standardPalette',
+  'polish', 'unpolish'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QProxyStyle::~QProxyStyle()': the destructor: Python never removes
     a C++ QProxyStyle.
-  - Qt's 'int QProxyStyle::styleHint(StyleHint hint, const QStyleOption
-    *option, const QWidget *widget, QStyleHintReturn *returnData) const':
-    names 'QStyleHintReturn', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -495,6 +493,61 @@ class QProxyStyle(QCommonStyle):
         self._addressOf(widget),
     ))
 
+  @overload(QStyle.StyleHint)
+  @overload(QStyle.StyleHint, QStyleOption)
+  @overload(QStyle.StyleHint, NoneType)
+  @overload(QStyle.StyleHint, QStyleOption, QWidget)
+  @overload(QStyle.StyleHint, QStyleOption, NoneType)
+  @overload(QStyle.StyleHint, NoneType, QWidget)
+  @overload(QStyle.StyleHint, NoneType, NoneType)
+  @overload(QStyle.StyleHint, QStyleOption, QWidget, QStyleHintReturn)
+  @overload(QStyle.StyleHint, QStyleOption, QWidget, NoneType)
+  @overload(QStyle.StyleHint, QStyleOption, NoneType, QStyleHintReturn)
+  @overload(QStyle.StyleHint, QStyleOption, NoneType, NoneType)
+  @overload(QStyle.StyleHint, NoneType, QWidget, QStyleHintReturn)
+  @overload(QStyle.StyleHint, NoneType, QWidget, NoneType)
+  @overload(QStyle.StyleHint, NoneType, NoneType, QStyleHintReturn)
+  @overload(QStyle.StyleHint, NoneType, NoneType, NoneType)
+  def styleHint(
+      self,
+      hint: QStyle.StyleHint,
+      option: Optional[QStyleOption] = None,
+      widget: Optional[QWidget] = None,
+      returnData: Optional[QStyleHintReturn] = None,
+  ) -> int:
+    """
+    Calls Qt's 'int QProxyStyle::styleHint(StyleHint hint, const QStyleOption
+    *option, const QWidget *widget, QStyleHintReturn *returnData) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qproxystyle.html#styleHint
+
+    Parameters
+    ----------
+
+    hint : QStyle.StyleHint
+      Passed on as its number.
+
+    option : Optional[QStyleOption]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    returnData : Optional[QStyleHintReturn]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  int QProxyStyle::styleHint(StyleHint hint, const QStyleOption *option,
+    #      const QWidget *widget, QStyleHintReturn *returnData) const
+    return self.uglySide.call(
+        'ritual_ZNK11QProxyStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOpt'
+        'ionPK7QWidgetP16QStyleHintReturn',
+        hint.value, self._addressOf(option), self._addressOf(widget),
+        self._addressOf(returnData),
+    )
+
   @overload(QStyle.PixelMetric)
   @overload(QStyle.PixelMetric, QStyleOption)
   @overload(QStyle.PixelMetric, NoneType)
@@ -536,29 +589,29 @@ class QProxyStyle(QCommonStyle):
         metric.value, self._addressOf(option), self._addressOf(widget),
     )
 
-  @overload(QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation)
+  @overload(QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation)
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       QStyleOption,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       NoneType,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       QStyleOption, QWidget,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       QStyleOption, NoneType,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       NoneType, QWidget,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       NoneType, NoneType,
   )
   def layoutSpacing(
@@ -652,7 +705,6 @@ class QProxyStyle(QCommonStyle):
         '2QStyleOptionPK7QWidget',
         standardIcon.value, self._addressOf(option), self._addressOf(widget),
     )
-    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
   @overload(QStyle.StandardPixmap, QStyleOption)
@@ -703,8 +755,8 @@ class QProxyStyle(QCommonStyle):
     from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
 
-  @overload(QIconMode, QPixmap, QStyleOption)
-  @overload(QIconMode, QPixmap, NoneType)
+  @overload(QIcon.Mode, QPixmap, QStyleOption)
+  @overload(QIcon.Mode, QPixmap, NoneType)
   def generatedIconPixmap(
       self,
       iconMode: QIcon.Mode,
@@ -764,7 +816,6 @@ class QProxyStyle(QCommonStyle):
     address = self.uglySide.call(
         'ritual_ZNK11QProxyStyle15standardPaletteEv',
     )
-    from ..QtGui import QPalette
     return QPalette._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1029,8 +1080,8 @@ class QProxyStyle(QCommonStyle):
 
   @overload(QPainter, QRect, int, QPalette, bool, str)
   @overload(NoneType, QRect, int, QPalette, bool, str)
-  @overload(QPainter, QRect, int, QPalette, bool, str, QPaletteColorRole)
-  @overload(NoneType, QRect, int, QPalette, bool, str, QPaletteColorRole)
+  @overload(QPainter, QRect, int, QPalette, bool, str, QPalette.ColorRole)
+  @overload(NoneType, QRect, int, QPalette, bool, str, QPalette.ColorRole)
   def drawItemText(
       self,
       painter: Optional[QPainter],
@@ -1039,7 +1090,7 @@ class QProxyStyle(QCommonStyle):
       pal: QPalette,
       enabled: bool,
       text: str,
-      textRole: QPalette.ColorRole = QPaletteColorRole.NoRole,
+      textRole: QPalette.ColorRole = QPalette.ColorRole.NoRole,
   ) -> None:
     """
     Calls Qt's 'void QProxyStyle::drawItemText(QPainter *painter, const QRect
@@ -1073,7 +1124,7 @@ class QProxyStyle(QCommonStyle):
 
     textRole : QPalette.ColorRole
       Passed on as its number. May be left out, as in Qt: it is then
-      QPaletteColorRole.NoRole.
+      QPalette.ColorRole.NoRole.
     """
     #  void QProxyStyle::drawItemText(QPainter *painter, const QRect &rect,
     #      int flags, const QPalette &pal, bool enabled, const QString &text,

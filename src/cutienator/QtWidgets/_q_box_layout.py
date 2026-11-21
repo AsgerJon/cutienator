@@ -10,11 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QBoxLayoutDirection, QLayout
+from . import QLayout
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -84,9 +85,20 @@ class QBoxLayout(QLayout):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QBoxLayout, and the names Qt has for the
-  #  combinations of its flags enums.
-  Direction = QBoxLayoutDirection
+  #  The enums Qt writes inside QBoxLayout, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Direction(CuteNum):
+    """
+    The enum 'QBoxLayout::Direction' of Qt, with the 6 names Qt gives in it.
+    """
+
+    LeftToRight = Kee[int](0)
+    RightToLeft = Kee[int](1)
+    TopToBottom = Kee[int](2)
+    BottomToTop = Kee[int](3)
+    Down = Kee[int](2)
+    Up = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

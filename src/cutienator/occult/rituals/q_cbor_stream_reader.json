@@ -1,0 +1,97 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcborstreamreader.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QCborStreamReaderC1Ev": ["address"],
+    "ritual_ZN17QCborStreamReaderC1EPKcx": ["address", "chars", "long long"],
+    "ritual_ZN17QCborStreamReaderC1ERK10QByteArray": ["address", "address"],
+    "ritual_ZN17QCborStreamReaderC1EP9QIODevice": ["address", "address"],
+    "ritual_ZN17QCborStreamReaderD1Ev": ["nothing", "address"],
+    "ritual_ZN17QCborStreamReader9setDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QCborStreamReader6deviceEv": ["address", "address"],
+    "ritual_ZN17QCborStreamReader7addDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QCborStreamReader7addDataEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN17QCborStreamReader7reparseEv": ["nothing", "address"],
+    "ritual_ZN17QCborStreamReader5clearEv": ["nothing", "address"],
+    "ritual_ZN17QCborStreamReader5resetEv": ["nothing", "address"],
+    "ritual_ZNK17QCborStreamReader9lastErrorEv": ["address", "address"],
+    "ritual_ZNK17QCborStreamReader13currentOffsetEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK17QCborStreamReader7isValidEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader14containerDepthEv": ["int", "address"],
+    "ritual_ZNK17QCborStreamReader19parentContainerTypeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK17QCborStreamReader7hasNextEv": ["bool", "address"],
+    "ritual_ZN17QCborStreamReader4nextEi": ["bool", "address", "int"],
+    "ritual_ZNK17QCborStreamReader4typeEv": ["unsigned char", "address"],
+    "ritual_ZNK17QCborStreamReader17isUnsignedIntegerEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QCborStreamReader17isNegativeIntegerEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QCborStreamReader9isIntegerEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader11isByteArrayEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader8isStringEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader7isArrayEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader5isMapEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader5isTagEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader12isSimpleTypeEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader9isFloat16Ev": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader7isFloatEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader8isDoubleEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader9isInvalidEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader12isSimpleTypeE15QCborSimpleType": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZNK17QCborStreamReader7isFalseEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader6isTrueEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader6isBoolEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader6isNullEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader11isUndefinedEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader13isLengthKnownEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader6lengthEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK17QCborStreamReader11isContainerEv": ["bool", "address"],
+    "ritual_ZN17QCborStreamReader14enterContainerEv": ["bool", "address"],
+    "ritual_ZN17QCborStreamReader14leaveContainerEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader22currentStringChunkSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK17QCborStreamReader6toBoolEv": ["bool", "address"],
+    "ritual_ZNK17QCborStreamReader5toTagEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK17QCborStreamReader17toUnsignedIntegerEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK17QCborStreamReader17toNegativeIntegerEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK17QCborStreamReader12toSimpleTypeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK17QCborStreamReader9toFloat16Ev": ["address", "address"],
+    "ritual_ZNK17QCborStreamReader7toFloatEv": ["float", "address"],
+    "ritual_ZNK17QCborStreamReader8toDoubleEv": ["double", "address"],
+    "ritual_ZNK17QCborStreamReader9toIntegerEv": ["long long", "address"],
+    "ritual_ZN17QCborStreamReader13readAllStringEv": ["text", "address"],
+    "ritual_ZN17QCborStreamReader17readAllUtf8StringEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QCborStreamReader16readAllByteArrayEv": [
+      "address", "address"
+    ]
+  }
+}

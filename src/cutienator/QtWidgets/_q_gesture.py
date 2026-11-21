@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from . import QGestureGestureCancelPolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -75,9 +75,17 @@ class QGesture(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QGesture, and the names Qt has for the
-  #  combinations of its flags enums.
-  GestureCancelPolicy = QGestureGestureCancelPolicy
+  #  The enums Qt writes inside QGesture, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class GestureCancelPolicy(CuteNum):
+    """
+    The enum 'QGesture::GestureCancelPolicy' of Qt, with the 2 names Qt gives
+    in it.
+    """
+
+    CancelNone = Kee[int](0)
+    CancelAllInContext = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

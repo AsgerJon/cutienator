@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcborcommon.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QCborErrorcvNS_4CodeEEv": ["int", "address"],
+    "ritual_ZNK10QCborError8toStringEv": ["text", "address"],
+    "ritual_ZN10QCborErrorD1Ev": ["nothing", "address"]
+  }
+}

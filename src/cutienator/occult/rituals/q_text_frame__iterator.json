@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QTextFrame8iteratorC1Ev": ["address"],
+    "ritual_ZNK10QTextFrame8iterator11parentFrameEv": ["address", "address"],
+    "ritual_ZNK10QTextFrame8iterator12currentFrameEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QTextFrame8iterator12currentBlockEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QTextFrame8iterator5atEndEv": ["bool", "address"],
+    "ritual_ZNK10QTextFrame8iteratoreqERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10QTextFrame8iteratorneERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QTextFrame8iteratorppEi": ["address", "address", "int"],
+    "ritual_ZN10QTextFrame8iteratormmEi": ["address", "address", "int"],
+    "ritual_ZN10QTextFrame8iteratorD1Ev": ["nothing", "address"]
+  }
+}

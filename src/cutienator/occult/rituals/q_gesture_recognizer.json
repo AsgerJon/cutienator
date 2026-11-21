@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgesturerecognizer.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN18QGestureRecognizerD1Ev": ["nothing", "address"],
+    "ritual_ZN18QGestureRecognizer6createEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QGestureRecognizer5resetEP8QGesture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QGestureRecognizer18registerRecognizerEPS_": [
+      "int", "address"
+    ],
+    "ritual_ZN18QGestureRecognizer20unregisterRecognizerEN2Qt11GestureTypeE": [
+      "nothing", "int"
+    ]
+  }
+}

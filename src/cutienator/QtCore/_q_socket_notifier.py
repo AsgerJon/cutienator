@@ -10,10 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, CuteNum
 from ..occult import Rituals
-from . import QObject, QSocketNotifierType
+from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -69,9 +70,17 @@ class QSocketNotifier(QObject):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QSocketNotifier, and the names Qt has for the
-  #  combinations of its flags enums.
-  Type = QSocketNotifierType
+  #  The enums Qt writes inside QSocketNotifier, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class Type(CuteNum):
+    """
+    The enum 'QSocketNotifier::Type' of Qt, with the 3 names Qt gives in it.
+    """
+
+    Read = Kee[int](0)
+    Write = Kee[int](1)
+    Exception = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

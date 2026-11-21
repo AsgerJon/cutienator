@@ -13,12 +13,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin
 from ..occult import Rituals
-from . import QFileDevice, QIODeviceBaseOpenModeFlag, QObject
+from . import QFileDevice, QIODeviceBase, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QIODeviceBase, QMetaObject
+  from . import QMetaObject
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -296,7 +296,7 @@ class QSaveFile(QFileDevice):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QIODeviceBaseOpenModeFlag)
+  @overload(QIODeviceBase.OpenMode)
   def open(self, flags: QIODeviceBase.OpenMode) -> bool:
     """
     Calls Qt's 'bool QSaveFile::open(OpenMode flags)'.

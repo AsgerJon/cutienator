@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QTransformTransformationType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QLine, QLineF, QPoint, QPointF, QRect, QRectF
@@ -95,9 +95,21 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QTransform.
   """
 
-  #  The enums Qt writes inside QTransform, and the names Qt has for the
-  #  combinations of its flags enums.
-  TransformationType = QTransformTransformationType
+  #  The enums Qt writes inside QTransform, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class TransformationType(CuteNum):
+    """
+    The enum 'QTransform::TransformationType' of Qt, with the 6 names Qt
+    gives in it.
+    """
+
+    TxNone = Kee[int](0)
+    TxTranslate = Kee[int](1)
+    TxScale = Kee[int](2)
+    TxRotate = Kee[int](4)
+    TxShear = Kee[int](8)
+    TxProject = Kee[int](16)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextoption.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QTextOption3TabC1Ev": ["address"],
+    "ritual_ZN11QTextOption3TabC1EdNS_7TabTypeE5QChar": [
+      "address", "double", "int", "address"
+    ],
+    "ritual_ZNK11QTextOption3TabeqERKS0_": ["bool", "address", "address"],
+    "ritual_ZNK11QTextOption3TabneERKS0_": ["bool", "address", "address"],
+    "ritual_ZN11QTextOption3TabD1Ev": ["nothing", "address"]
+  }
+}

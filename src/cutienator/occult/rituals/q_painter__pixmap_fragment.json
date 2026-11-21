@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpainter.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QPainter14PixmapFragment6createERK7QPointFRK6QRectFdddd": [
+      "address", "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN8QPainter14PixmapFragmentD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmetacontainer.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QMetaAssociationC1Ev": ["address"],
+    "ritual_ZN16QMetaAssociationC1EPKN22QtMetaContainerPrivate25QMetaAssociationInterfaceE": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QMetaAssociation11keyMetaTypeEv": ["address", "address"],
+    "ritual_ZNK16QMetaAssociation14mappedMetaTypeEv": ["address", "address"],
+    "ritual_ZNK16QMetaAssociation12canInsertKeyEv": ["bool", "address"],
+    "ritual_ZNK16QMetaAssociation12canRemoveKeyEv": ["bool", "address"],
+    "ritual_ZNK16QMetaAssociation14canContainsKeyEv": ["bool", "address"],
+    "ritual_ZNK16QMetaAssociation17canGetMappedAtKeyEv": ["bool", "address"],
+    "ritual_ZNK16QMetaAssociation17canSetMappedAtKeyEv": ["bool", "address"],
+    "ritual_ZNK16QMetaAssociation19canGetKeyAtIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QMetaAssociation24canGetKeyAtConstIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QMetaAssociation22canGetMappedAtIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QMetaAssociation27canGetMappedAtConstIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QMetaAssociation22canSetMappedAtIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QMetaAssociation22canCreateIteratorAtKeyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QMetaAssociation27canCreateConstIteratorAtKeyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QMetaAssociation5ifaceEv": ["address", "address"],
+    "ritual_ZN16QMetaAssociationD1Ev": ["nothing", "address"]
+  }
+}

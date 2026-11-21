@@ -1,0 +1,38 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtCore/qpermissions.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qpermissions.h>
+
+//  void QCalendarPermission::setAccessMode(AccessMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QCalendarPermission13setAccessModeENS_10AccessModeE(
+    QCalendarPermission *self,
+    QCalendarPermission::AccessMode mode) {
+  self->setAccessMode(mode);
+}
+
+//  AccessMode QCalendarPermission::accessMode() const
+extern "C" Q_DECL_EXPORT
+QCalendarPermission::AccessMode ritual_ZNK19QCalendarPermission10accessModeEv(
+    const QCalendarPermission *self) {
+  return self->accessMode();
+}
+
+//  QCalendarPermission::QCalendarPermission()
+extern "C" Q_DECL_EXPORT
+QCalendarPermission *ritual_ZN19QCalendarPermissionC1Ev() {
+  return new QCalendarPermission();
+}
+
+//  QCalendarPermission::QCalendarPermission(const QCalendarPermission
+//      &other)
+extern "C" Q_DECL_EXPORT
+QCalendarPermission *ritual_ZN19QCalendarPermissionC1ERKS_(
+    const QCalendarPermission *other) {
+  return new QCalendarPermission(*other);
+}
+
+//  QCalendarPermission::~QCalendarPermission()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QCalendarPermissionD1Ev(QCalendarPermission *self) {
+  delete self;
+}

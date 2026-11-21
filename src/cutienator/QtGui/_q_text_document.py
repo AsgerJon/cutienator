@@ -10,27 +10,26 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from . import QTextDocumentFindFlag, QTextDocumentMarkdownFeature
-from . import QTextDocumentMetaInformation, QTextDocumentResourceType
-from . import QTextDocumentStacks
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QChar, QMetaObject, QRectF, QRegularExpression, QSizeF
   from ..QtCore import QUrl, QVariant
-  from . import QAbstractTextDocumentLayout, QFont, QPagedPaintDevice
-  from . import QPainter, QTextBlock, QTextCursor, QTextFormat, QTextFrame
-  from . import QTextObject, QTextOption
+  from . import QAbstractTextDocumentLayout, QAbstractUndoItem, QFont
+  from . import QPagedPaintDevice, QPainter, QTextBlock, QTextCursor
+  from . import QTextFormat, QTextFrame, QTextObject, QTextOption
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAbstractTextDocumentLayout = WAIT['QAbstractTextDocumentLayout']
+  QAbstractUndoItem = WAIT['QAbstractUndoItem']
   QFont = WAIT['QFont']
   QPagedPaintDevice = WAIT['QPagedPaintDevice']
   QPainter = WAIT['QPainter']
@@ -60,7 +59,7 @@ class QTextDocument(QObject):
   -----------
 
   Every function of Qt's QTextDocument that has a ritual and that Python can
-  call so far, 83 names in all: 'metaObject', 'tr', 'clone', 'isEmpty',
+  call so far, 84 names in all: 'metaObject', 'tr', 'clone', 'isEmpty',
   'clear', 'setUndoRedoEnabled', 'isUndoRedoEnabled', 'isUndoAvailable',
   'isRedoAvailable', 'availableUndoSteps', 'availableRedoSteps', 'revision',
   'setDocumentLayout', 'documentLayout', 'setMetaInformation',
@@ -79,16 +78,14 @@ class QTextDocument(QObject):
   'characterCount', 'setDefaultStyleSheet', 'defaultStyleSheet', 'undo',
   'redo', 'clearUndoRedoStacks', 'maximumBlockCount', 'setMaximumBlockCount',
   'defaultTextOption', 'setDefaultTextOption', 'baseUrl', 'setBaseUrl',
-  'defaultCursorMoveStyle', 'setDefaultCursorMoveStyle', 'setModified'. It
-  can be made from Python, in 2 ways; see '__init__'.
+  'defaultCursorMoveStyle', 'setDefaultCursorMoveStyle', 'appendUndoItem',
+  'setModified'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QTextDocument::~QTextDocument()': the destructor: Python never
     removes a C++ QTextDocument.
-  - Qt's 'void QTextDocument::appendUndoItem(QAbstractUndoItem *a0)': names
-    'QAbstractUndoItem', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -113,15 +110,66 @@ class QTextDocument(QObject):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QTextDocument, and the names Qt has for the
-  #  combinations of its flags enums.
-  FindFlag = QTextDocumentFindFlag
-  FindFlags = QTextDocumentFindFlag
-  MarkdownFeature = QTextDocumentMarkdownFeature
-  MarkdownFeatures = QTextDocumentMarkdownFeature
-  MetaInformation = QTextDocumentMetaInformation
-  ResourceType = QTextDocumentResourceType
-  Stacks = QTextDocumentStacks
+  #  The enums Qt writes inside QTextDocument, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class FindFlag(CuteFlags):
+    """
+    The flags enum 'QTextDocument::FindFlag' of Qt, with the 3 names Qt gives
+    in it. Qt names the type of its combinations 'QTextDocument::FindFlags'.
+    """
+
+    FindBackward = 0x1
+    FindCaseSensitively = 0x2
+    FindWholeWords = 0x4
+
+  FindFlags = FindFlag
+
+  class MarkdownFeature(CuteFlags):
+    """
+    The flags enum 'QTextDocument::MarkdownFeature' of Qt, with the 3 names
+    Qt gives in it. Qt names the type of its combinations
+    'QTextDocument::MarkdownFeatures'.
+    """
+
+    MarkdownNoHTML = 0x60
+    MarkdownDialectCommonMark = 0x0
+    MarkdownDialectGitHub = 0x104f0c
+
+  MarkdownFeatures = MarkdownFeature
+
+  class MetaInformation(CuteNum):
+    """
+    The enum 'QTextDocument::MetaInformation' of Qt, with the 4 names Qt
+    gives in it.
+    """
+
+    DocumentTitle = Kee[int](0)
+    DocumentUrl = Kee[int](1)
+    CssMedia = Kee[int](2)
+    FrontMatter = Kee[int](3)
+
+  class ResourceType(CuteNum):
+    """
+    The enum 'QTextDocument::ResourceType' of Qt, with the 6 names Qt gives
+    in it.
+    """
+
+    UnknownResource = Kee[int](0)
+    HtmlResource = Kee[int](1)
+    ImageResource = Kee[int](2)
+    StyleSheetResource = Kee[int](3)
+    MarkdownResource = Kee[int](4)
+    UserResource = Kee[int](100)
+
+  class Stacks(CuteNum):
+    """
+    The enum 'QTextDocument::Stacks' of Qt, with the 3 names Qt gives in it.
+    """
+
+    UndoStack = Kee[int](1)
+    RedoStack = Kee[int](2)
+    UndoAndRedoStacks = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1928,4 +1976,25 @@ class QTextDocument(QObject):
     self.uglySide.call(
         'ritual_ZN13QTextDocument19clearUndoRedoStacksENS_6StacksE',
         historyToClear.value,
+    )
+
+  @overload(QAbstractUndoItem)
+  @overload(NoneType)
+  def appendUndoItem(self, a0: Optional[QAbstractUndoItem]) -> None:
+    """
+    Calls Qt's 'void QTextDocument::appendUndoItem(QAbstractUndoItem *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#appendUndoItem
+
+    Parameters
+    ----------
+
+    a0 : Optional[QAbstractUndoItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTextDocument::appendUndoItem(QAbstractUndoItem *a0)
+    self.uglySide.call(
+        'ritual_ZN13QTextDocument14appendUndoItemEP17QAbstractUndoItem',
+        self._addressOf(a0),
     )

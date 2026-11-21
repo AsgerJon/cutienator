@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qstringconverter.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QStringDecoderC1EN16QStringConverter8EncodingE6QFlagsIN20QStringConverterBase4FlagEE": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN14QStringDecoderC1Ev": ["address"],
+    "ritual_ZN14QStringDecoderC1E14QAnyStringView6QFlagsIN20QStringConverterBase4FlagEE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZNK14QStringDecoder13requiredSpaceEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZN14QStringDecoder14appendToBufferEP5QChar14QByteArrayView": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

@@ -11,10 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
-from . import QElapsedTimerClockType
 
 
 class QElapsedTimer(CuteMixin, metaclass=MetaCute):
@@ -61,9 +61,20 @@ class QElapsedTimer(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QElapsedTimer.
   """
 
-  #  The enums Qt writes inside QElapsedTimer, and the names Qt has for the
-  #  combinations of its flags enums.
-  ClockType = QElapsedTimerClockType
+  #  The enums Qt writes inside QElapsedTimer, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ClockType(CuteNum):
+    """
+    The enum 'QElapsedTimer::ClockType' of Qt, with the 5 names Qt gives in
+    it.
+    """
+
+    SystemTime = Kee[int](0)
+    MonotonicClock = Kee[int](1)
+    TickCounter = Kee[int](2)
+    MachAbsoluteTime = Kee[int](3)
+    PerformanceCounter = Kee[int](4)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

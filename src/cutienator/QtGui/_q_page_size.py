@@ -11,10 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QPageSizePageSizeId, QPageSizeSizeMatchPolicy, QPageSizeUnit
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QRect, QRectF, QSize, QSizeF
@@ -95,11 +95,160 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QPageSize.
   """
 
-  #  The enums Qt writes inside QPageSize, and the names Qt has for the
-  #  combinations of its flags enums.
-  PageSizeId = QPageSizePageSizeId
-  SizeMatchPolicy = QPageSizeSizeMatchPolicy
-  Unit = QPageSizeUnit
+  #  The enums Qt writes inside QPageSize, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class PageSizeId(CuteNum):
+    """
+    The enum 'QPageSize::PageSizeId' of Qt, with the 125 names Qt gives in
+    it.
+    """
+
+    Letter = Kee[int](0)
+    Legal = Kee[int](1)
+    Executive = Kee[int](2)
+    A0 = Kee[int](3)
+    A1 = Kee[int](4)
+    A2 = Kee[int](5)
+    A3 = Kee[int](6)
+    A4 = Kee[int](7)
+    A5 = Kee[int](8)
+    A6 = Kee[int](9)
+    A7 = Kee[int](10)
+    A8 = Kee[int](11)
+    A9 = Kee[int](12)
+    A10 = Kee[int](13)
+    B0 = Kee[int](14)
+    B1 = Kee[int](15)
+    B2 = Kee[int](16)
+    B3 = Kee[int](17)
+    B4 = Kee[int](18)
+    B5 = Kee[int](19)
+    B6 = Kee[int](20)
+    B7 = Kee[int](21)
+    B8 = Kee[int](22)
+    B9 = Kee[int](23)
+    B10 = Kee[int](24)
+    C5E = Kee[int](25)
+    Comm10E = Kee[int](26)
+    DLE = Kee[int](27)
+    Folio = Kee[int](28)
+    Ledger = Kee[int](29)
+    Tabloid = Kee[int](30)
+    Custom = Kee[int](31)
+    A3Extra = Kee[int](32)
+    A4Extra = Kee[int](33)
+    A4Plus = Kee[int](34)
+    A4Small = Kee[int](35)
+    A5Extra = Kee[int](36)
+    B5Extra = Kee[int](37)
+    JisB0 = Kee[int](38)
+    JisB1 = Kee[int](39)
+    JisB2 = Kee[int](40)
+    JisB3 = Kee[int](41)
+    JisB4 = Kee[int](42)
+    JisB5 = Kee[int](43)
+    JisB6 = Kee[int](44)
+    JisB7 = Kee[int](45)
+    JisB8 = Kee[int](46)
+    JisB9 = Kee[int](47)
+    JisB10 = Kee[int](48)
+    AnsiC = Kee[int](49)
+    AnsiD = Kee[int](50)
+    AnsiE = Kee[int](51)
+    LegalExtra = Kee[int](52)
+    LetterExtra = Kee[int](53)
+    LetterPlus = Kee[int](54)
+    LetterSmall = Kee[int](55)
+    TabloidExtra = Kee[int](56)
+    ArchA = Kee[int](57)
+    ArchB = Kee[int](58)
+    ArchC = Kee[int](59)
+    ArchD = Kee[int](60)
+    ArchE = Kee[int](61)
+    Imperial7x9 = Kee[int](62)
+    Imperial8x10 = Kee[int](63)
+    Imperial9x11 = Kee[int](64)
+    Imperial9x12 = Kee[int](65)
+    Imperial10x11 = Kee[int](66)
+    Imperial10x13 = Kee[int](67)
+    Imperial10x14 = Kee[int](68)
+    Imperial12x11 = Kee[int](69)
+    Imperial15x11 = Kee[int](70)
+    ExecutiveStandard = Kee[int](71)
+    Note = Kee[int](72)
+    Quarto = Kee[int](73)
+    Statement = Kee[int](74)
+    SuperA = Kee[int](75)
+    SuperB = Kee[int](76)
+    Postcard = Kee[int](77)
+    DoublePostcard = Kee[int](78)
+    Prc16K = Kee[int](79)
+    Prc32K = Kee[int](80)
+    Prc32KBig = Kee[int](81)
+    FanFoldUS = Kee[int](82)
+    FanFoldGerman = Kee[int](83)
+    FanFoldGermanLegal = Kee[int](84)
+    EnvelopeB4 = Kee[int](85)
+    EnvelopeB5 = Kee[int](86)
+    EnvelopeB6 = Kee[int](87)
+    EnvelopeC0 = Kee[int](88)
+    EnvelopeC1 = Kee[int](89)
+    EnvelopeC2 = Kee[int](90)
+    EnvelopeC3 = Kee[int](91)
+    EnvelopeC4 = Kee[int](92)
+    EnvelopeC6 = Kee[int](93)
+    EnvelopeC65 = Kee[int](94)
+    EnvelopeC7 = Kee[int](95)
+    Envelope9 = Kee[int](96)
+    Envelope11 = Kee[int](97)
+    Envelope12 = Kee[int](98)
+    Envelope14 = Kee[int](99)
+    EnvelopeMonarch = Kee[int](100)
+    EnvelopePersonal = Kee[int](101)
+    EnvelopeChou3 = Kee[int](102)
+    EnvelopeChou4 = Kee[int](103)
+    EnvelopeInvite = Kee[int](104)
+    EnvelopeItalian = Kee[int](105)
+    EnvelopeKaku2 = Kee[int](106)
+    EnvelopeKaku3 = Kee[int](107)
+    EnvelopePrc1 = Kee[int](108)
+    EnvelopePrc2 = Kee[int](109)
+    EnvelopePrc3 = Kee[int](110)
+    EnvelopePrc4 = Kee[int](111)
+    EnvelopePrc5 = Kee[int](112)
+    EnvelopePrc6 = Kee[int](113)
+    EnvelopePrc7 = Kee[int](114)
+    EnvelopePrc8 = Kee[int](115)
+    EnvelopePrc9 = Kee[int](116)
+    EnvelopePrc10 = Kee[int](117)
+    EnvelopeYou4 = Kee[int](118)
+    LastPageSize = Kee[int](118)
+    AnsiA = Kee[int](0)
+    AnsiB = Kee[int](29)
+    EnvelopeC5 = Kee[int](25)
+    EnvelopeDL = Kee[int](27)
+    Envelope10 = Kee[int](26)
+
+  class SizeMatchPolicy(CuteNum):
+    """
+    The enum 'QPageSize::SizeMatchPolicy' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    FuzzyMatch = Kee[int](0)
+    FuzzyOrientationMatch = Kee[int](1)
+    ExactMatch = Kee[int](2)
+
+  class Unit(CuteNum):
+    """The enum 'QPageSize::Unit' of Qt, with the 6 names Qt gives in it."""
+
+    Millimeter = Kee[int](0)
+    Point = Kee[int](1)
+    Inch = Kee[int](2)
+    Pica = Kee[int](3)
+    Didot = Kee[int](4)
+    Cicero = Kee[int](5)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

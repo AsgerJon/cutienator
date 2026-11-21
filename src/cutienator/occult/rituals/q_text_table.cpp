@@ -1,0 +1,185 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtGui/qtexttable.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtexttable.h>
+#include <QtCore/qstring.h>
+#include <QtGui/qtextcursor.h>
+#include <QtGui/qtextformat.h>
+
+//  const QMetaObject *QTextTable::metaObject() const
+extern "C" Q_DECL_EXPORT
+const QMetaObject *ritual_ZNK10QTextTable10metaObjectEv(
+    const QTextTable *self) {
+  return self->metaObject();
+}
+
+//  QString QTextTable::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN10QTextTable2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QTextTable::tr(s, c, n));
+}
+
+//  QTextTable::QTextTable(QTextDocument *doc)
+extern "C" Q_DECL_EXPORT
+QTextTable *ritual_ZN10QTextTableC1EP13QTextDocument(QTextDocument *doc) {
+  return new QTextTable(doc);
+}
+
+//  QTextTable::~QTextTable()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTextTableD1Ev(QTextTable *self) {
+  delete self;
+}
+
+//  void QTextTable::resize(int rows, int cols)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTextTable6resizeEii(QTextTable *self, int rows, int cols) {
+  self->resize(rows, cols);
+}
+
+//  void QTextTable::insertRows(int pos, int num)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTextTable10insertRowsEii(
+    QTextTable *self,
+    int pos,
+    int num) {
+  self->insertRows(pos, num);
+}
+
+//  void QTextTable::insertColumns(int pos, int num)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTextTable13insertColumnsEii(
+    QTextTable *self,
+    int pos,
+    int num) {
+  self->insertColumns(pos, num);
+}
+
+//  void QTextTable::appendRows(int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTextTable10appendRowsEi(QTextTable *self, int count) {
+  self->appendRows(count);
+}
+
+//  void QTextTable::appendColumns(int count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTextTable13appendColumnsEi(QTextTable *self, int count) {
+  self->appendColumns(count);
+}
+
+//  void QTextTable::removeRows(int pos, int num)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTextTable10removeRowsEii(
+    QTextTable *self,
+    int pos,
+    int num) {
+  self->removeRows(pos, num);
+}
+
+//  void QTextTable::removeColumns(int pos, int num)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTextTable13removeColumnsEii(
+    QTextTable *self,
+    int pos,
+    int num) {
+  self->removeColumns(pos, num);
+}
+
+//  void QTextTable::mergeCells(int row, int col, int numRows, int numCols)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTextTable10mergeCellsEiiii(
+    QTextTable *self,
+    int row,
+    int col,
+    int numRows,
+    int numCols) {
+  self->mergeCells(row, col, numRows, numCols);
+}
+
+//  void QTextTable::mergeCells(const QTextCursor &cursor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTextTable10mergeCellsERK11QTextCursor(
+    QTextTable *self,
+    const QTextCursor *cursor) {
+  self->mergeCells(*cursor);
+}
+
+//  void QTextTable::splitCell(int row, int col, int numRows, int numCols)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTextTable9splitCellEiiii(
+    QTextTable *self,
+    int row,
+    int col,
+    int numRows,
+    int numCols) {
+  self->splitCell(row, col, numRows, numCols);
+}
+
+//  int QTextTable::rows() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10QTextTable4rowsEv(const QTextTable *self) {
+  return self->rows();
+}
+
+//  int QTextTable::columns() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10QTextTable7columnsEv(const QTextTable *self) {
+  return self->columns();
+}
+
+//  QTextTableCell QTextTable::cellAt(int row, int col) const
+extern "C" Q_DECL_EXPORT
+QTextTableCell *ritual_ZNK10QTextTable6cellAtEii(
+    const QTextTable *self,
+    int row,
+    int col) {
+  return new QTextTableCell(self->cellAt(row, col));
+}
+
+//  QTextTableCell QTextTable::cellAt(int position) const
+extern "C" Q_DECL_EXPORT
+QTextTableCell *ritual_ZNK10QTextTable6cellAtEi(
+    const QTextTable *self,
+    int position) {
+  return new QTextTableCell(self->cellAt(position));
+}
+
+//  QTextTableCell QTextTable::cellAt(const QTextCursor &c) const
+extern "C" Q_DECL_EXPORT
+QTextTableCell *ritual_ZNK10QTextTable6cellAtERK11QTextCursor(
+    const QTextTable *self,
+    const QTextCursor *c) {
+  return new QTextTableCell(self->cellAt(*c));
+}
+
+//  QTextCursor QTextTable::rowStart(const QTextCursor &c) const
+extern "C" Q_DECL_EXPORT
+QTextCursor *ritual_ZNK10QTextTable8rowStartERK11QTextCursor(
+    const QTextTable *self,
+    const QTextCursor *c) {
+  return new QTextCursor(self->rowStart(*c));
+}
+
+//  QTextCursor QTextTable::rowEnd(const QTextCursor &c) const
+extern "C" Q_DECL_EXPORT
+QTextCursor *ritual_ZNK10QTextTable6rowEndERK11QTextCursor(
+    const QTextTable *self,
+    const QTextCursor *c) {
+  return new QTextCursor(self->rowEnd(*c));
+}
+
+//  void QTextTable::setFormat(const QTextTableFormat &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTextTable9setFormatERK16QTextTableFormat(
+    QTextTable *self,
+    const QTextTableFormat *format) {
+  self->setFormat(*format);
+}
+
+//  QTextTableFormat QTextTable::format() const
+extern "C" Q_DECL_EXPORT
+QTextTableFormat *ritual_ZNK10QTextTable6formatEv(const QTextTable *self) {
+  return new QTextTableFormat(self->format());
+}

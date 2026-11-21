@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qfuturewatcher.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QFutureWatcherBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QFutureWatcherBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK18QFutureWatcherBase13progressValueEv": ["int", "address"],
+    "ritual_ZNK18QFutureWatcherBase15progressMinimumEv": ["int", "address"],
+    "ritual_ZNK18QFutureWatcherBase15progressMaximumEv": ["int", "address"],
+    "ritual_ZNK18QFutureWatcherBase12progressTextEv": ["text", "address"],
+    "ritual_ZNK18QFutureWatcherBase9isStartedEv": ["bool", "address"],
+    "ritual_ZNK18QFutureWatcherBase10isFinishedEv": ["bool", "address"],
+    "ritual_ZNK18QFutureWatcherBase9isRunningEv": ["bool", "address"],
+    "ritual_ZNK18QFutureWatcherBase10isCanceledEv": ["bool", "address"],
+    "ritual_ZNK18QFutureWatcherBase8isPausedEv": ["bool", "address"],
+    "ritual_ZNK18QFutureWatcherBase12isSuspendingEv": ["bool", "address"],
+    "ritual_ZNK18QFutureWatcherBase11isSuspendedEv": ["bool", "address"],
+    "ritual_ZN18QFutureWatcherBase15waitForFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFutureWatcherBase22setPendingResultsLimitEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QFutureWatcherBase5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QFutureWatcherBase6cancelEv": ["nothing", "address"],
+    "ritual_ZN18QFutureWatcherBase12setSuspendedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QFutureWatcherBase7suspendEv": ["nothing", "address"],
+    "ritual_ZN18QFutureWatcherBase6resumeEv": ["nothing", "address"],
+    "ritual_ZN18QFutureWatcherBase15toggleSuspendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFutureWatcherBase9setPausedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QFutureWatcherBase5pauseEv": ["nothing", "address"],
+    "ritual_ZN18QFutureWatcherBase12togglePausedEv": ["nothing", "address"]
+  }
+}

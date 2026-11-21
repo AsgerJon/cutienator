@@ -20,11 +20,12 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPointF, QRectF, QSizeF
-  from ..QtGui import QTextBlock, QTextDocument, QTextFrame
+  from ..QtGui import QPainter, QTextBlock, QTextDocument, QTextFrame
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QPainter = WAIT['QPainter']
   QPointF = WAIT['QPointF']
   QTextBlock = WAIT['QTextBlock']
   QTextDocument = WAIT['QTextDocument']
@@ -48,19 +49,16 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
   -----------
 
   Every function of Qt's QPlainTextDocumentLayout that has a ritual and that
-  Python can call so far, 11 names in all: 'metaObject', 'tr', 'hitTest',
-  'pageCount', 'documentSize', 'frameBoundingRect', 'blockBoundingRect',
-  'ensureBlockLayout', 'setCursorWidth', 'cursorWidth', 'requestUpdate'. It
-  can be made from Python, in 1 way; see '__init__'.
+  Python can call so far, 12 names in all: 'metaObject', 'tr', 'draw',
+  'hitTest', 'pageCount', 'documentSize', 'frameBoundingRect',
+  'blockBoundingRect', 'ensureBlockLayout', 'setCursorWidth', 'cursorWidth',
+  'requestUpdate'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPlainTextDocumentLayout::~QPlainTextDocumentLayout()': the
     destructor: Python never removes a C++ QPlainTextDocumentLayout.
-  - Qt's 'void QPlainTextDocumentLayout::draw(QPainter *a0, const
-    PaintContext &a1)': names 'QAbstractTextDocumentLayout::PaintContext',
-    which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -389,6 +387,38 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QPainter, QAbstractTextDocumentLayout.PaintContext)
+  @overload(NoneType, QAbstractTextDocumentLayout.PaintContext)
+  def draw(
+      self,
+      a0: Optional[QPainter],
+      a1: QAbstractTextDocumentLayout.PaintContext,
+  ) -> None:
+    """
+    Calls Qt's 'void QPlainTextDocumentLayout::draw(QPainter *a0, const
+    PaintContext &a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#draw
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a1 : QAbstractTextDocumentLayout.PaintContext
+      Passed on as a value: Qt reads the C++
+      QAbstractTextDocumentLayout::PaintContext, which stays Python's own.
+    """
+    #  void QPlainTextDocumentLayout::draw(QPainter *a0, const PaintContext
+    #      &a1)
+    self.uglySide.call(
+        'ritual_ZN24QPlainTextDocumentLayout4drawEP8QPainterRKN27QAbstractT'
+        'extDocumentLayout12PaintContextE',
+        self._addressOf(a0), self._valueOf(a1),
+    )
 
   @overload(QTextBlock)
   def ensureBlockLayout(self, block: QTextBlock) -> None:

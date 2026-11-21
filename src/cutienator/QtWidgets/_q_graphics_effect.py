@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QGraphicsEffectChangeFlag, QGraphicsEffectPixmapPadMode
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -76,11 +76,32 @@ class QGraphicsEffect(QObject):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QGraphicsEffect, and the names Qt has for the
-  #  combinations of its flags enums.
-  ChangeFlag = QGraphicsEffectChangeFlag
-  ChangeFlags = QGraphicsEffectChangeFlag
-  PixmapPadMode = QGraphicsEffectPixmapPadMode
+  #  The enums Qt writes inside QGraphicsEffect, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ChangeFlag(CuteFlags):
+    """
+    The flags enum 'QGraphicsEffect::ChangeFlag' of Qt, with the 4 names Qt
+    gives in it. Qt names the type of its combinations
+    'QGraphicsEffect::ChangeFlags'.
+    """
+
+    SourceAttached = 0x1
+    SourceDetached = 0x2
+    SourceBoundingRectChanged = 0x4
+    SourceInvalidated = 0x8
+
+  ChangeFlags = ChangeFlag
+
+  class PixmapPadMode(CuteNum):
+    """
+    The enum 'QGraphicsEffect::PixmapPadMode' of Qt, with the 3 names Qt
+    gives in it.
+    """
+
+    NoPad = Kee[int](0)
+    PadToTransparentBorder = Kee[int](1)
+    PadToEffectiveBoundingRect = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

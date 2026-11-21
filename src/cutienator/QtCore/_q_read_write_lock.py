@@ -10,9 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteNum
 from ..occult import Rituals
-from . import QBasicReadWriteLock, QReadWriteLockRecursionMode
+from . import QBasicReadWriteLock
 
 
 class QReadWriteLock(QBasicReadWriteLock):
@@ -54,9 +56,17 @@ class QReadWriteLock(QBasicReadWriteLock):
   - Python never removes the C++ QReadWriteLock.
   """
 
-  #  The enums Qt writes inside QReadWriteLock, and the names Qt has for the
-  #  combinations of its flags enums.
-  RecursionMode = QReadWriteLockRecursionMode
+  #  The enums Qt writes inside QReadWriteLock, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class RecursionMode(CuteNum):
+    """
+    The enum 'QReadWriteLock::RecursionMode' of Qt, with the 2 names Qt gives
+    in it.
+    """
+
+    NonRecursive = Kee[int](0)
+    Recursive = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

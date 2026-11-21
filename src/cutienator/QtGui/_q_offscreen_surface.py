@@ -14,13 +14,13 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QSurfaceSurfaceType
+from . import QSurface
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QSize
-  from . import QScreen, QSurface, QSurfaceFormat
+  from . import QScreen, QSurfaceFormat
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -181,7 +181,7 @@ class QOffscreenSurface(QObject):
       'QSurface.SurfaceType(number)' gives.
     """
     #  SurfaceType QOffscreenSurface::surfaceType() const
-    return QSurfaceSurfaceType(self.uglySide.call(
+    return QSurface.SurfaceType(self.uglySide.call(
         'ritual_ZNK17QOffscreenSurface11surfaceTypeEv',
     ))
 

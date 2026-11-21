@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qtipccommon.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QNativeIpcKey22legacyDefaultTypeForOsEv": ["unsigned short"],
+    "ritual_ZN13QNativeIpcKeyC1Ev": ["address"],
+    "ritual_ZN13QNativeIpcKeyC1ENS_4TypeE": ["address", "unsigned short"],
+    "ritual_ZN13QNativeIpcKeyC1ERK7QStringNS_4TypeE": [
+      "address", "text", "unsigned short"
+    ],
+    "ritual_ZN13QNativeIpcKeyC1ERKS_": ["address", "address"],
+    "ritual_ZN13QNativeIpcKeyD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QNativeIpcKey7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK13QNativeIpcKey7isValidEv": ["bool", "address"],
+    "ritual_ZNK13QNativeIpcKey4typeEv": ["unsigned short", "address"],
+    "ritual_ZN13QNativeIpcKey7setTypeENS_4TypeE": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK13QNativeIpcKey9nativeKeyEv": ["text", "address"],
+    "ritual_ZN13QNativeIpcKey12setNativeKeyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QNativeIpcKey8toStringEv": ["text", "address"],
+    "ritual_ZN13QNativeIpcKey10fromStringERK7QString": ["address", "text"]
+  }
+}

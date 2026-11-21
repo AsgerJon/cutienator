@@ -13,10 +13,10 @@ from worktoy.dispatch import overload
 
 from ..cute import WAIT
 from ..occult import Rituals
-from . import QTextCharFormat, QTextFrameFormatBorderStyle
+from . import QTextCharFormat, QTextFrameFormat
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QBrush, QTextFrameFormat
+  from . import QBrush
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -229,7 +229,7 @@ class QTextTableCellFormat(QTextCharFormat):
     """
     #  QTextFrameFormat::BorderStyle QTextTableCellFormat::topBorderStyle()
     #      const
-    return QTextFrameFormatBorderStyle(self.uglySide.call(
+    return QTextFrameFormat.BorderStyle(self.uglySide.call(
         'ritual_ZNK20QTextTableCellFormat14topBorderStyleEv',
     ))
 
@@ -251,7 +251,7 @@ class QTextTableCellFormat(QTextCharFormat):
     """
     #  QTextFrameFormat::BorderStyle
     #      QTextTableCellFormat::bottomBorderStyle() const
-    return QTextFrameFormatBorderStyle(self.uglySide.call(
+    return QTextFrameFormat.BorderStyle(self.uglySide.call(
         'ritual_ZNK20QTextTableCellFormat17bottomBorderStyleEv',
     ))
 
@@ -273,7 +273,7 @@ class QTextTableCellFormat(QTextCharFormat):
     """
     #  QTextFrameFormat::BorderStyle QTextTableCellFormat::leftBorderStyle()
     #      const
-    return QTextFrameFormatBorderStyle(self.uglySide.call(
+    return QTextFrameFormat.BorderStyle(self.uglySide.call(
         'ritual_ZNK20QTextTableCellFormat15leftBorderStyleEv',
     ))
 
@@ -295,7 +295,7 @@ class QTextTableCellFormat(QTextCharFormat):
     """
     #  QTextFrameFormat::BorderStyle QTextTableCellFormat::rightBorderStyle()
     #      const
-    return QTextFrameFormatBorderStyle(self.uglySide.call(
+    return QTextFrameFormat.BorderStyle(self.uglySide.call(
         'ritual_ZNK20QTextTableCellFormat16rightBorderStyleEv',
     ))
 
@@ -571,7 +571,7 @@ class QTextTableCellFormat(QTextCharFormat):
     #  void QTextTableCellFormat::setBorder(qreal width)
     self.uglySide.call('ritual_ZN20QTextTableCellFormat9setBorderEd', width)
 
-  @overload(QTextFrameFormatBorderStyle)
+  @overload(QTextFrameFormat.BorderStyle)
   def setTopBorderStyle(self, style: QTextFrameFormat.BorderStyle) -> None:
     """
     Calls Qt's 'void
@@ -595,7 +595,7 @@ class QTextTableCellFormat(QTextCharFormat):
         style.value,
     )
 
-  @overload(QTextFrameFormatBorderStyle)
+  @overload(QTextFrameFormat.BorderStyle)
   def setBottomBorderStyle(
       self,
       style: QTextFrameFormat.BorderStyle,
@@ -622,7 +622,7 @@ class QTextTableCellFormat(QTextCharFormat):
         style.value,
     )
 
-  @overload(QTextFrameFormatBorderStyle)
+  @overload(QTextFrameFormat.BorderStyle)
   def setLeftBorderStyle(self, style: QTextFrameFormat.BorderStyle) -> None:
     """
     Calls Qt's 'void
@@ -646,7 +646,7 @@ class QTextTableCellFormat(QTextCharFormat):
         style.value,
     )
 
-  @overload(QTextFrameFormatBorderStyle)
+  @overload(QTextFrameFormat.BorderStyle)
   def setRightBorderStyle(self, style: QTextFrameFormat.BorderStyle) -> None:
     """
     Calls Qt's 'void
@@ -670,7 +670,7 @@ class QTextTableCellFormat(QTextCharFormat):
         style.value,
     )
 
-  @overload(QTextFrameFormatBorderStyle)
+  @overload(QTextFrameFormat.BorderStyle)
   def setBorderStyle(self, style: QTextFrameFormat.BorderStyle) -> None:
     """
     Calls Qt's 'void

@@ -11,11 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QPageLayoutMode, QPageLayoutOrientation
-from . import QPageLayoutOutOfBoundsPolicy, QPageLayoutUnit
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QMargins, QMarginsF, QRect, QRectF
@@ -76,12 +75,47 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QPageLayout.
   """
 
-  #  The enums Qt writes inside QPageLayout, and the names Qt has for the
-  #  combinations of its flags enums.
-  Mode = QPageLayoutMode
-  Orientation = QPageLayoutOrientation
-  OutOfBoundsPolicy = QPageLayoutOutOfBoundsPolicy
-  Unit = QPageLayoutUnit
+  #  The enums Qt writes inside QPageLayout, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Mode(CuteNum):
+    """
+    The enum 'QPageLayout::Mode' of Qt, with the 2 names Qt gives in it.
+    """
+
+    StandardMode = Kee[int](0)
+    FullPageMode = Kee[int](1)
+
+  class Orientation(CuteNum):
+    """
+    The enum 'QPageLayout::Orientation' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    Portrait = Kee[int](0)
+    Landscape = Kee[int](1)
+
+  class OutOfBoundsPolicy(CuteNum, scoped=True):
+    """
+    The enum 'QPageLayout::OutOfBoundsPolicy' of Qt, with the 2 names Qt
+    gives in it. C++ keeps these names inside the enum, so the class that
+    holds the enum does not have them.
+    """
+
+    Reject = Kee[int](0)
+    Clamp = Kee[int](1)
+
+  class Unit(CuteNum):
+    """
+    The enum 'QPageLayout::Unit' of Qt, with the 6 names Qt gives in it.
+    """
+
+    Millimeter = Kee[int](0)
+    Point = Kee[int](1)
+    Inch = Kee[int](2)
+    Pica = Kee[int](3)
+    Didot = Kee[int](4)
+    Cicero = Kee[int](5)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

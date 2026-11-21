@@ -9,8 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from ..cute import CuteMixin, MetaCute
-from . import QTextItemRenderFlag
+from ..cute import CuteMixin, CuteFlags, MetaCute
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QFont
@@ -52,10 +51,22 @@ class QTextItem(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QTextItem.
   """
 
-  #  The enums Qt writes inside QTextItem, and the names Qt has for the
-  #  combinations of its flags enums.
-  RenderFlag = QTextItemRenderFlag
-  RenderFlags = QTextItemRenderFlag
+  #  The enums Qt writes inside QTextItem, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class RenderFlag(CuteFlags, number='unsigned int'):
+    """
+    The flags enum 'QTextItem::RenderFlag' of Qt, with the 5 names Qt gives
+    in it. Qt names the type of its combinations 'QTextItem::RenderFlags'.
+    """
+
+    RightToLeft = 0x1
+    Overline = 0x10
+    Underline = 0x20
+    StrikeOut = 0x40
+    Dummy = 0xffffffff
+
+  RenderFlags = RenderFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

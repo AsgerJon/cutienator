@@ -11,12 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute
 from ..occult import Rituals
-from . import Qt, QRegularExpressionMatchOption, QRegularExpressionMatchType
-from . import QRegularExpressionPatternOption
-from . import QRegularExpressionWildcardConversionOption
+from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QRegularExpressionMatch, QRegularExpressionMatchIterator
@@ -88,15 +87,64 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
     for Python, in a new cute QRegularExpression.
   """
 
-  #  The enums Qt writes inside QRegularExpression, and the names Qt has for
-  #  the combinations of its flags enums.
-  MatchOption = QRegularExpressionMatchOption
-  MatchOptions = QRegularExpressionMatchOption
-  MatchType = QRegularExpressionMatchType
-  PatternOption = QRegularExpressionPatternOption
-  PatternOptions = QRegularExpressionPatternOption
-  WildcardConversionOption = QRegularExpressionWildcardConversionOption
-  WildcardConversionOptions = QRegularExpressionWildcardConversionOption
+  #  The enums Qt writes inside QRegularExpression, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class MatchOption(CuteFlags):
+    """
+    The flags enum 'QRegularExpression::MatchOption' of Qt, with the 4 names
+    Qt gives in it. Qt names the type of its combinations
+    'QRegularExpression::MatchOptions'.
+    """
+
+    NoMatchOption = 0x0
+    AnchorAtOffsetMatchOption = 0x1
+    AnchoredMatchOption = 0x1
+    DontCheckSubjectStringMatchOption = 0x2
+
+  MatchOptions = MatchOption
+
+  class MatchType(CuteNum):
+    """
+    The enum 'QRegularExpression::MatchType' of Qt, with the 4 names Qt gives
+    in it.
+    """
+
+    NormalMatch = Kee[int](0)
+    PartialPreferCompleteMatch = Kee[int](1)
+    PartialPreferFirstMatch = Kee[int](2)
+    NoMatch = Kee[int](3)
+
+  class PatternOption(CuteFlags):
+    """
+    The flags enum 'QRegularExpression::PatternOption' of Qt, with the 8
+    names Qt gives in it. Qt names the type of its combinations
+    'QRegularExpression::PatternOptions'.
+    """
+
+    NoPatternOption = 0x0
+    CaseInsensitiveOption = 0x1
+    DotMatchesEverythingOption = 0x2
+    MultilineOption = 0x4
+    ExtendedPatternSyntaxOption = 0x8
+    InvertedGreedinessOption = 0x10
+    DontCaptureOption = 0x20
+    UseUnicodePropertiesOption = 0x40
+
+  PatternOptions = PatternOption
+
+  class WildcardConversionOption(CuteFlags):
+    """
+    The flags enum 'QRegularExpression::WildcardConversionOption' of Qt, with
+    the 3 names Qt gives in it. Qt names the type of its combinations
+    'QRegularExpression::WildcardConversionOptions'.
+    """
+
+    DefaultWildcardConversion = 0x0
+    UnanchoredWildcardConversion = 0x1
+    NonPathWildcardConversion = 0x2
+
+  WildcardConversionOptions = WildcardConversionOption
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

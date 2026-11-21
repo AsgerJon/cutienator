@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QStaticTextPerformanceHint
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -79,9 +79,17 @@ class QStaticText(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QStaticText.
   """
 
-  #  The enums Qt writes inside QStaticText, and the names Qt has for the
-  #  combinations of its flags enums.
-  PerformanceHint = QStaticTextPerformanceHint
+  #  The enums Qt writes inside QStaticText, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class PerformanceHint(CuteNum):
+    """
+    The enum 'QStaticText::PerformanceHint' of Qt, with the 2 names Qt gives
+    in it.
+    """
+
+    ModerateCaching = Kee[int](0)
+    AggressiveCaching = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -13,19 +13,18 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import QObject, QThreadPriority, QThreadQualityOfService
+from . import QObject, QThread
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QDeadlineTimer, QMetaObject, QRunnable, QThread
+  from . import QDeadlineTimer, QMetaObject, QRunnable
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QDeadlineTimer = WAIT['QDeadlineTimer']
   QRunnable = WAIT['QRunnable']
-  QThread = WAIT['QThread']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -234,7 +233,7 @@ class QThreadPool(QObject):
       gives.
     """
     #  QThread::Priority QThreadPool::threadPriority() const
-    return QThreadPriority(self.uglySide.call(
+    return QThread.Priority(self.uglySide.call(
         'ritual_ZNK11QThreadPool14threadPriorityEv',
     ))
 
@@ -253,7 +252,7 @@ class QThreadPool(QObject):
       'QThread.QualityOfService(number)' gives.
     """
     #  QThread::QualityOfService QThreadPool::serviceLevel() const
-    return QThreadQualityOfService(self.uglySide.call(
+    return QThread.QualityOfService(self.uglySide.call(
         'ritual_ZNK11QThreadPool12serviceLevelEv',
     ))
 
@@ -334,7 +333,7 @@ class QThreadPool(QObject):
     #  void QThreadPool::setStackSize(uint stackSize)
     self.uglySide.call('ritual_ZN11QThreadPool12setStackSizeEj', stackSize)
 
-  @overload(QThreadPriority)
+  @overload(QThread.Priority)
   def setThreadPriority(self, priority: QThread.Priority) -> None:
     """
     Calls Qt's 'void QThreadPool::setThreadPriority(QThread::Priority
@@ -354,7 +353,7 @@ class QThreadPool(QObject):
         priority.value,
     )
 
-  @overload(QThreadQualityOfService)
+  @overload(QThread.QualityOfService)
   def setServiceLevel(self, serviceLevel: QThread.QualityOfService) -> None:
     """
     Calls Qt's 'void QThreadPool::setServiceLevel(QThread::QualityOfService

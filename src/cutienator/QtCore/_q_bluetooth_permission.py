@@ -12,9 +12,8 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteFlags, MetaCute
 from ..occult import Rituals
-from . import QBluetoothPermissionCommunicationMode
 
 
 class QBluetoothPermission(CuteMixin, metaclass=MetaCute):
@@ -61,10 +60,21 @@ class QBluetoothPermission(CuteMixin, metaclass=MetaCute):
     made for Python, in a new cute QBluetoothPermission.
   """
 
-  #  The enums Qt writes inside QBluetoothPermission, and the names Qt has
-  #  for the combinations of its flags enums.
-  CommunicationMode = QBluetoothPermissionCommunicationMode
-  CommunicationModes = QBluetoothPermissionCommunicationMode
+  #  The enums Qt writes inside QBluetoothPermission, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class CommunicationMode(CuteFlags, number='unsigned char'):
+    """
+    The flags enum 'QBluetoothPermission::CommunicationMode' of Qt, with the
+    3 names Qt gives in it. Qt names the type of its combinations
+    'QBluetoothPermission::CommunicationModes'.
+    """
+
+    Access = 0x1
+    Advertise = 0x2
+    Default = 0x3
+
+  CommunicationModes = CommunicationMode
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

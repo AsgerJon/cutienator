@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpointingdevice.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QPointingDeviceUniqueIdC1Ev": ["address"],
+    "ritual_ZN23QPointingDeviceUniqueId13fromNumericIdEx": [
+      "address", "long long"
+    ],
+    "ritual_ZNK23QPointingDeviceUniqueId7isValidEv": ["bool", "address"],
+    "ritual_ZNK23QPointingDeviceUniqueId9numericIdEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN23QPointingDeviceUniqueIdD1Ev": ["nothing", "address"]
+  }
+}

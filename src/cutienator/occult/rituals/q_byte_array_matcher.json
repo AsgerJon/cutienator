@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qbytearraymatcher.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QByteArrayMatcherC1Ev": ["address"],
+    "ritual_ZN17QByteArrayMatcherC1ERK10QByteArray": ["address", "address"],
+    "ritual_ZN17QByteArrayMatcherC1E14QByteArrayView": [
+      "address", "address"
+    ],
+    "ritual_ZN17QByteArrayMatcherC1EPKcx": ["address", "chars", "long long"],
+    "ritual_ZN17QByteArrayMatcherC1ERKS_": ["address", "address"],
+    "ritual_ZN17QByteArrayMatcherD1Ev": ["nothing", "address"],
+    "ritual_ZN17QByteArrayMatcher10setPatternERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QByteArrayMatcher7indexInEPKcxx": [
+      "long long", "address", "chars", "long long", "long long"
+    ],
+    "ritual_ZNK17QByteArrayMatcher7indexInE14QByteArrayViewx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZNK17QByteArrayMatcher7patternEv": ["address", "address"]
+  }
+}

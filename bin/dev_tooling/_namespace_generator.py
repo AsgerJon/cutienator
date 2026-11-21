@@ -146,31 +146,30 @@ class NamespaceGenerator:
     """Gives the whole text of the file, without writing it."""
     namespaceName = self.getNamespaceName()
     ownName = namespaceName.split('::')[-1]
+    #  Each enum is a class written inside the namespace, as C++ has it:
+    #  'Qt.AlignmentFlag'.
     joinedNames, bindings, flagsCount = [], [], 0
+    bases = set()
     for enumName in self.getEnumNames():
       generator = self.getEnumGenerator(enumName)
       enumOwnName = generator.getOwnName()
-      joinedName = generator.getJoinedName()
-      joinedNames.append(joinedName)
-      bindings.append('  %s = %s' % (enumOwnName, joinedName))
+      joinedNames.append(enumName)
+      bases.add('CuteFlags' if generator.isFlags() else 'CuteNum')
+      if bindings:
+        bindings.append('')
+      bindings.extend(generator.getNestedLines())
       flagsName = generator.getFlagsName()
       if flagsName is None:
         continue
       flagsOwner, _, flagsOwnName = flagsName.rpartition('::')
       if flagsOwner == namespaceName:
-        bindings.append('  %s = %s' % (flagsOwnName, joinedName))
+        bindings.append('')
+        bindings.append('  %s = %s' % (flagsOwnName, enumOwnName))
         flagsCount += 1
-    #  Each enum is asked of the package of the part, the cute way, by
-    #  the name the package gives it. As many names stand on a line as
-    #  fit, and the import is written again for the rest.
-    imports, line = [], ''
-    for joinedName in joinedNames:
-      longer = '%s, %s' % (line, joinedName) if line else joinedName
-      if line and len('from . import ') + len(longer) > 77:
-        imports.append('from . import %s' % line)
-        longer = joinedName
-      line = longer
-    imports.append('from . import %s' % line)
+    imports = []
+    if 'CuteNum' in bases:
+      imports.extend(('from worktoy.keenum import Kee', ''))
+    imports.append('from ..cute import %s' % ', '.join(sorted(bases)))
     infoSpec = """Written by dev_tooling.NamespaceGenerator from the
     records of Qt %s. Changes made here are lost."""
     heading = ' '.join((infoSpec % QtPart.getQtVersion()).split())
@@ -243,20 +242,16 @@ class NamespaceGenerator:
 
   def write(self) -> Names:
     """
-    Writes the file of the namespace and the file of each of its enums,
-    replacing those written before.
+    Writes the file of the namespace, replacing the one written before.
+    Its enums are classes written inside it, so they have no files.
 
     Returns
     -------
 
     Names
-      The full path of each file written: the file of the namespace
-      first, then those of the enums.
+      The full path of the file written.
     """
     namespaceFile = self.getNamespaceFile()
     with open(namespaceFile, 'w') as file:
       file.write(self.getNamespaceText())
-    written = [namespaceFile]
-    for enumName in self.getEnumNames():
-      written.append(self.getEnumGenerator(enumName).write())
-    return (*written,)
+    return (namespaceFile,)

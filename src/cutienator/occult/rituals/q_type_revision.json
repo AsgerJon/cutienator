@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qtyperevision.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QTypeRevision4zeroEv": ["address"],
+    "ritual_ZN13QTypeRevisionC1Ev": ["address"],
+    "ritual_ZNK13QTypeRevision15hasMajorVersionEv": ["bool", "address"],
+    "ritual_ZNK13QTypeRevision12majorVersionEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK13QTypeRevision15hasMinorVersionEv": ["bool", "address"],
+    "ritual_ZNK13QTypeRevision12minorVersionEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK13QTypeRevision7isValidEv": ["bool", "address"],
+    "ritual_ZN13QTypeRevisionD1Ev": ["nothing", "address"]
+  }
+}

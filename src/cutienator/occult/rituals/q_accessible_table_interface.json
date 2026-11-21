@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QAccessibleTableInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QAccessibleTableInterface7captionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleTableInterface7summaryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleTableInterface6cellAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK25QAccessibleTableInterface17selectedCellCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK25QAccessibleTableInterface17columnDescriptionEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK25QAccessibleTableInterface14rowDescriptionEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK25QAccessibleTableInterface19selectedColumnCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK25QAccessibleTableInterface16selectedRowCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK25QAccessibleTableInterface11columnCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK25QAccessibleTableInterface8rowCountEv": ["int", "address"],
+    "ritual_ZNK25QAccessibleTableInterface16isColumnSelectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK25QAccessibleTableInterface13isRowSelectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN25QAccessibleTableInterface9selectRowEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN25QAccessibleTableInterface12selectColumnEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN25QAccessibleTableInterface11unselectRowEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN25QAccessibleTableInterface14unselectColumnEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN25QAccessibleTableInterface11modelChangeEP32QAccessibleTableModelChangeEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

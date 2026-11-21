@@ -11,10 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteNum
 from ..occult import Rituals
-from . import QStyleOption, QStyleOptionFocusRectStyleOptionType
-from . import QStyleOptionFocusRectStyleOptionVersion
+from . import QStyleOption
 
 
 class QStyleOptionFocusRect(QStyleOption):
@@ -62,10 +63,24 @@ class QStyleOptionFocusRect(QStyleOption):
     made for Python, in a new cute QStyleOptionFocusRect.
   """
 
-  #  The enums Qt writes inside QStyleOptionFocusRect, and the names Qt has
-  #  for the combinations of its flags enums.
-  StyleOptionType = QStyleOptionFocusRectStyleOptionType
-  StyleOptionVersion = QStyleOptionFocusRectStyleOptionVersion
+  #  The enums Qt writes inside QStyleOptionFocusRect, each a class in here
+  #  as in C++, and the names Qt has for the combinations of its flags enums.
+
+  class StyleOptionType(CuteNum):
+    """
+    The enum 'QStyleOptionFocusRect::StyleOptionType' of Qt, with the 1 names
+    Qt gives in it.
+    """
+
+    Type = Kee[int](1)
+
+  class StyleOptionVersion(CuteNum):
+    """
+    The enum 'QStyleOptionFocusRect::StyleOptionVersion' of Qt, with the 1
+    names Qt gives in it.
+    """
+
+    Version = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

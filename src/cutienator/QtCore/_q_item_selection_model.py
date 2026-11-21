@@ -11,9 +11,9 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
-from . import QItemSelectionModelSelectionFlag, QObject
+from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -82,10 +82,29 @@ class QItemSelectionModel(QObject):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QItemSelectionModel, and the names Qt has for
-  #  the combinations of its flags enums.
-  SelectionFlag = QItemSelectionModelSelectionFlag
-  SelectionFlags = QItemSelectionModelSelectionFlag
+  #  The enums Qt writes inside QItemSelectionModel, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class SelectionFlag(CuteFlags):
+    """
+    The flags enum 'QItemSelectionModel::SelectionFlag' of Qt, with the 11
+    names Qt gives in it. Qt names the type of its combinations
+    'QItemSelectionModel::SelectionFlags'.
+    """
+
+    NoUpdate = 0x0
+    Clear = 0x1
+    Select = 0x2
+    Deselect = 0x4
+    Toggle = 0x8
+    Current = 0x10
+    Rows = 0x20
+    Columns = 0x40
+    SelectCurrent = 0x12
+    ToggleCurrent = 0x18
+    ClearAndSelect = 0x3
+
+  SelectionFlags = SelectionFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -13,12 +13,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import QFileDevice, QIODeviceBaseOpenModeFlag, QObject
+from . import QFileDevice, QIODeviceBase, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QIODeviceBase, QMetaObject
+  from . import QByteArray, QMetaObject
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -537,7 +537,7 @@ class QFile(QFileDevice):
     #  bool QFile::link(const QString &newName)
     return self.uglySide.call('ritual_ZN5QFile4linkERK7QString', newName)
 
-  @overload(QIODeviceBaseOpenModeFlag)
+  @overload(QIODeviceBase.OpenMode)
   def open(self, flags: QIODeviceBase.OpenMode) -> bool:
     """
     Calls Qt's 'bool QFile::open(OpenMode flags)'.
@@ -556,7 +556,7 @@ class QFile(QFileDevice):
         flags.value,
     )
 
-  @overload(QIODeviceBaseOpenModeFlag, QFileDevice.Permissions)
+  @overload(QIODeviceBase.OpenMode, QFileDevice.Permissions)
   def open(
       self,
       flags: QIODeviceBase.OpenMode,
@@ -583,8 +583,8 @@ class QFile(QFileDevice):
         flags.value, permissions.value,
     )
 
-  @overload(int, QIODeviceBaseOpenModeFlag)
-  @overload(int, QIODeviceBaseOpenModeFlag, QFileDevice.FileHandleFlags)
+  @overload(int, QIODeviceBase.OpenMode)
+  @overload(int, QIODeviceBase.OpenMode, QFileDevice.FileHandleFlags)
   def open(
       self,
       fd: int,

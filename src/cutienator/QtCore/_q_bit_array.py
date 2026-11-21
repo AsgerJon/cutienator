@@ -14,12 +14,10 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from . import QSysInfoEndian
+from . import QSysInfo
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
-
-  from . import QSysInfo
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.

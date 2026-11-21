@@ -14,10 +14,10 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QFileDevicePermission
+from . import QFileDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QDateTime, QDir, QFileDevice, QTimeZone
+  from . import QDateTime, QDir, QTimeZone
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -576,7 +576,7 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
     #  uint QFileInfo::groupId() const
     return self.uglySide.call('ritual_ZNK9QFileInfo7groupIdEv')
 
-  @overload(QFileDevicePermission)
+  @overload(QFileDevice.Permissions)
   def permission(self, permissions: QFileDevice.Permissions) -> bool:
     """
     Calls Qt's 'bool QFileInfo::permission(QFile::Permissions permissions)

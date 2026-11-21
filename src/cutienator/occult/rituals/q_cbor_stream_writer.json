@@ -1,0 +1,77 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcborstreamwriter.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QCborStreamWriterC1EP9QIODevice": ["address", "address"],
+    "ritual_ZN17QCborStreamWriterC1EP10QByteArray": ["address", "address"],
+    "ritual_ZN17QCborStreamWriterD1Ev": ["nothing", "address"],
+    "ritual_ZN17QCborStreamWriter9setDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QCborStreamWriter6deviceEv": ["address", "address"],
+    "ritual_ZN17QCborStreamWriter6appendEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendE20QCborNegativeInteger": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendE14QByteArrayView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendE13QLatin1String": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendE8QCborTag": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendE14QCborKnownTags": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendE15QCborSimpleType": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendE8qfloat16": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendEf": ["nothing", "address", "float"],
+    "ritual_ZN17QCborStreamWriter6appendEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN17QCborStreamWriter16appendByteStringEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN17QCborStreamWriter16appendTextStringEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendEb": ["nothing", "address", "bool"],
+    "ritual_ZN17QCborStreamWriter10appendNullEv": ["nothing", "address"],
+    "ritual_ZN17QCborStreamWriter15appendUndefinedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendEi": ["nothing", "address", "int"],
+    "ritual_ZN17QCborStreamWriter6appendEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN17QCborStreamWriter6appendEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN17QCborStreamWriter10startArrayEv": ["nothing", "address"],
+    "ritual_ZN17QCborStreamWriter10startArrayEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN17QCborStreamWriter8endArrayEv": ["bool", "address"],
+    "ritual_ZN17QCborStreamWriter8startMapEv": ["nothing", "address"],
+    "ritual_ZN17QCborStreamWriter8startMapEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN17QCborStreamWriter6endMapEv": ["bool", "address"]
+  }
+}

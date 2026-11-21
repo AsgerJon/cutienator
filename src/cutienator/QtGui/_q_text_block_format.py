@@ -10,10 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteNum
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QTextBlockFormatLineHeightTypes, QTextBlockFormatMarkerType
 from . import QTextFormat
 
 
@@ -68,10 +69,31 @@ class QTextBlockFormat(QTextFormat):
     for Python, in a new cute QTextBlockFormat.
   """
 
-  #  The enums Qt writes inside QTextBlockFormat, and the names Qt has for
-  #  the combinations of its flags enums.
-  LineHeightTypes = QTextBlockFormatLineHeightTypes
-  MarkerType = QTextBlockFormatMarkerType
+  #  The enums Qt writes inside QTextBlockFormat, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class LineHeightTypes(CuteNum):
+    """
+    The enum 'QTextBlockFormat::LineHeightTypes' of Qt, with the 5 names Qt
+    gives in it.
+    """
+
+    SingleHeight = Kee[int](0)
+    ProportionalHeight = Kee[int](1)
+    FixedHeight = Kee[int](2)
+    MinimumHeight = Kee[int](3)
+    LineDistanceHeight = Kee[int](4)
+
+  class MarkerType(CuteNum, scoped=True):
+    """
+    The enum 'QTextBlockFormat::MarkerType' of Qt, with the 3 names Qt gives
+    in it. C++ keeps these names inside the enum, so the class that holds the
+    enum does not have them.
+    """
+
+    NoMarker = Kee[int](0)
+    Unchecked = Kee[int](1)
+    Checked = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

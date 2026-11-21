@@ -11,13 +11,14 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QSysInfoEndian, QUuidStringFormat, QUuidVariant, QUuidVersion
+from . import QSysInfo
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QByteArray, QByteArrayView, QSysInfo
+  from . import QByteArray, QByteArrayView
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -38,17 +39,13 @@ class QUuid(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QUuid that has a ritual and that Python can call so
-  far, 9 names in all: 'fromString', 'toString', 'toByteArray', 'toRfc4122',
-  'fromRfc4122', 'createUuid', 'createUuidV5', 'createUuidV3',
-  'createUuidV7'. It can be made from Python, in 3 ways; see '__init__'.
+  far, 10 names in all: 'fromString', 'toString', 'toByteArray', 'toBytes',
+  'toRfc4122', 'fromRfc4122', 'createUuid', 'createUuidV5', 'createUuidV3',
+  'createUuidV7'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QUuid::QUuid(Id128Bytes id128, QSysInfo::Endian order)': names
-    'QUuid::Id128Bytes', which has no cute class yet.
-  - Qt's 'Id128Bytes QUuid::toBytes(QSysInfo::Endian order) const': gives
-    'QUuid::Id128Bytes', which has no cute class yet.
   - Qt's 'bool QUuid::isNull(Qt::Disambiguated_t a0) const': names
     'Qt::Disambiguated_t', which has no cute class yet.
   - Qt's 'Variant QUuid::variant(Qt::Disambiguated_t a0) const': names
@@ -77,11 +74,142 @@ class QUuid(CuteMixin, metaclass=MetaCute):
     in a new cute QUuid.
   """
 
-  #  The enums Qt writes inside QUuid, and the names Qt has for the
-  #  combinations of its flags enums.
-  StringFormat = QUuidStringFormat
-  Variant = QUuidVariant
-  Version = QUuidVersion
+  #  The enums Qt writes inside QUuid, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class StringFormat(CuteNum):
+    """
+    The enum 'QUuid::StringFormat' of Qt, with the 3 names Qt gives in it.
+    """
+
+    WithBraces = Kee[int](0)
+    WithoutBraces = Kee[int](1)
+    Id128 = Kee[int](3)
+
+  class Variant(CuteNum):
+    """The enum 'QUuid::Variant' of Qt, with the 5 names Qt gives in it."""
+
+    VarUnknown = Kee[int](-1)
+    NCS = Kee[int](0)
+    DCE = Kee[int](2)
+    Microsoft = Kee[int](6)
+    Reserved = Kee[int](7)
+
+  class Version(CuteNum):
+    """The enum 'QUuid::Version' of Qt, with the 8 names Qt gives in it."""
+
+    VerUnknown = Kee[int](-1)
+    Time = Kee[int](1)
+    EmbeddedPOSIX = Kee[int](2)
+    Md5 = Kee[int](3)
+    Name = Kee[int](3)
+    Random = Kee[int](4)
+    Sha1 = Kee[int](5)
+    UnixEpoch = Kee[int](7)
+
+  #  The classes Qt writes inside QUuid, each a class in here as in C++.
+
+  class Id128Bytes(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QUuid::Id128Bytes: a plain Python object standing
+    in front of one C++ QUuid::Id128Bytes.
+
+    C++ hands a QUuid::Id128Bytes around as a copy, so every C++
+    QUuid::Id128Bytes behind a cute one is Python's own: it is removed, by
+    the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QUuid::Id128Bytes yet. None can be made from Python:
+    one comes out of a function of another class that gives one back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QByteArrayView QUuid::Id128Bytes::operator QByteArrayView()
+      const': an operator, which is not reflected yet.
+    - Qt's 'QUuid::Id128Bytes::~Id128Bytes()': the destructor: Python removes
+      its C++ QUuid::Id128Bytes by it, and has no other use for it.
+
+    What to expect
+    --------------
+
+    - The C++ QUuid::Id128Bytes is created at the first use, not by
+      'QUuid::Id128Bytes(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QUuid::Id128Bytes back gives a copy the ritual made
+      for Python, in a new cute QUuid::Id128Bytes.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QUuid::Id128Bytes'
+
+    #  Qt's '~QUuid::Id128Bytes()'. Naming it makes this a value class:
+    #  Python owns every C++ QUuid::Id128Bytes behind a cute one, and removes
+    #  it by this ritual.
+    __delete_ritual__ = 'ritual_ZN5QUuid10Id128BytesD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -320,6 +448,37 @@ class QUuid(CuteMixin, metaclass=MetaCute):
     from . import QByteArray
     return QByteArray._cuteOwning(address)
 
+  @overload()
+  @overload(QSysInfo.Endian)
+  def toBytes(
+      self,
+      order: QSysInfo.Endian = QSysInfo.Endian.BigEndian,
+  ) -> Id128Bytes:
+    """
+    Calls Qt's 'Id128Bytes QUuid::toBytes(QSysInfo::Endian order) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/quuid.html#toBytes
+
+    Parameters
+    ----------
+
+    order : QSysInfo.Endian
+      Passed on as its number. May be left out, as in Qt: it is then
+      QSysInfo.Endian.BigEndian.
+
+    Returns
+    -------
+
+    Id128Bytes
+      A new cute QUuid::Id128Bytes around the copy Qt gave back. Python owns
+      it.
+    """
+    #  Id128Bytes QUuid::toBytes(QSysInfo::Endian order) const
+    address = self.uglySide.call(
+        'ritual_ZNK5QUuid7toBytesEN8QSysInfo6EndianE', order.value,
+    )
+    return QUuid.Id128Bytes._cuteOwning(address)
+
   def toRfc4122(self) -> QByteArray:
     """
     Calls Qt's 'QByteArray QUuid::toRfc4122() const'.
@@ -427,6 +586,36 @@ class QUuid(CuteMixin, metaclass=MetaCute):
     self._noteCreation(QUuid, lambda: Rituals.call(
         'ritual_ZN5QUuidC1Ejtthhhhhhhh',
         l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8,
+    ))
+
+  @overload(Id128Bytes)
+  @overload(Id128Bytes, QSysInfo.Endian)
+  def __init__(
+      self,
+      id128: Id128Bytes,
+      order: QSysInfo.Endian = QSysInfo.Endian.BigEndian,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QUuid::QUuid(Id128Bytes id128,
+    QSysInfo::Endian order)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/quuid.html#QUuid
+
+    Parameters
+    ----------
+
+    id128 : Id128Bytes
+      Passed on as a value: Qt reads the C++ QUuid::Id128Bytes, which stays
+      Python's own.
+
+    order : QSysInfo.Endian
+      Passed on as its number. May be left out, as in Qt: it is then
+      QSysInfo.Endian.BigEndian.
+    """
+    #  QUuid::QUuid(Id128Bytes id128, QSysInfo::Endian order)
+    self._noteCreation(QUuid, lambda: Rituals.call(
+        'ritual_ZN5QUuidC1ENS_10Id128BytesEN8QSysInfo6EndianE',
+        self._valueOf(id128), order.value,
     ))
 
   @overload(str)

@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qdebug.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QDebugC1EP9QIODevice": ["address", "address"],
+    "ritual_ZN6QDebugC1EP7QString": ["address", "address"],
+    "ritual_ZN6QDebugC1EP10QByteArray": ["address", "address"],
+    "ritual_ZN6QDebugC1E9QtMsgType": ["address", "int"],
+    "ritual_ZN6QDebugC1ERKS_": ["address", "address"],
+    "ritual_ZN6QDebugD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QDebug9verbosityEv": ["int", "address"],
+    "ritual_ZN6QDebug12setVerbosityEi": ["nothing", "address", "int"],
+    "ritual_ZNK6QDebug16autoInsertSpacesEv": ["bool", "address"],
+    "ritual_ZN6QDebug19setAutoInsertSpacesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK6QDebug12quoteStringsEv": ["bool", "address"],
+    "ritual_ZN6QDebug15setQuoteStringsEb": ["nothing", "address", "bool"]
+  }
+}

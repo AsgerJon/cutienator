@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QAccessibleViewportInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QAccessibleViewportInterface11contentSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QAccessibleViewportInterface8positionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QAccessibleViewportInterface12viewportSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QAccessibleViewportInterface9isIndexedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QAccessibleViewportInterface11setPositionE7QPointF": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qassociativeiterable.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QAssociativeConstIterator3keyEv": ["address", "address"],
+    "ritual_ZNK25QAssociativeConstIterator5valueEv": ["address", "address"],
+    "ritual_ZNK25QAssociativeConstIteratordeEv": ["address", "address"],
+    "ritual_ZNK25QAssociativeConstIteratorptEv": ["address", "address"],
+    "ritual_ZN25QAssociativeConstIteratorD1Ev": ["nothing", "address"]
+  }
+}

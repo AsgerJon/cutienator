@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qcolormap.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QColormap10initializeEv": ["nothing"],
+    "ritual_ZN9QColormap7cleanupEv": ["nothing"],
+    "ritual_ZN9QColormap8instanceEi": ["address", "int"],
+    "ritual_ZN9QColormapC1ERKS_": ["address", "address"],
+    "ritual_ZN9QColormapD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QColormap4modeEv": ["int", "address"],
+    "ritual_ZNK9QColormap5depthEv": ["int", "address"],
+    "ritual_ZNK9QColormap4sizeEv": ["int", "address"],
+    "ritual_ZNK9QColormap5pixelERK6QColor": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK9QColormap7colorAtEj": ["address", "address", "unsigned int"]
+  }
+}

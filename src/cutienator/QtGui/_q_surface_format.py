@@ -11,12 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QSurfaceFormatColorSpace, QSurfaceFormatFormatOption
-from . import QSurfaceFormatOpenGLContextProfile
-from . import QSurfaceFormatRenderableType, QSurfaceFormatSwapBehavior
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QColorSpace
@@ -78,14 +76,64 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QSurfaceFormat.
   """
 
-  #  The enums Qt writes inside QSurfaceFormat, and the names Qt has for the
-  #  combinations of its flags enums.
-  ColorSpace = QSurfaceFormatColorSpace
-  FormatOption = QSurfaceFormatFormatOption
-  FormatOptions = QSurfaceFormatFormatOption
-  OpenGLContextProfile = QSurfaceFormatOpenGLContextProfile
-  RenderableType = QSurfaceFormatRenderableType
-  SwapBehavior = QSurfaceFormatSwapBehavior
+  #  The enums Qt writes inside QSurfaceFormat, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ColorSpace(CuteNum):
+    """
+    The enum 'QSurfaceFormat::ColorSpace' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    DefaultColorSpace = Kee[int](0)
+    sRGBColorSpace = Kee[int](1)
+
+  class FormatOption(CuteFlags):
+    """
+    The flags enum 'QSurfaceFormat::FormatOption' of Qt, with the 5 names Qt
+    gives in it. Qt names the type of its combinations
+    'QSurfaceFormat::FormatOptions'.
+    """
+
+    StereoBuffers = 0x1
+    DebugContext = 0x2
+    DeprecatedFunctions = 0x4
+    ResetNotification = 0x8
+    ProtectedContent = 0x10
+
+  FormatOptions = FormatOption
+
+  class OpenGLContextProfile(CuteNum):
+    """
+    The enum 'QSurfaceFormat::OpenGLContextProfile' of Qt, with the 3 names
+    Qt gives in it.
+    """
+
+    NoProfile = Kee[int](0)
+    CoreProfile = Kee[int](1)
+    CompatibilityProfile = Kee[int](2)
+
+  class RenderableType(CuteNum):
+    """
+    The enum 'QSurfaceFormat::RenderableType' of Qt, with the 4 names Qt
+    gives in it.
+    """
+
+    DefaultRenderableType = Kee[int](0)
+    OpenGL = Kee[int](1)
+    OpenGLES = Kee[int](2)
+    OpenVG = Kee[int](4)
+
+  class SwapBehavior(CuteNum):
+    """
+    The enum 'QSurfaceFormat::SwapBehavior' of Qt, with the 4 names Qt gives
+    in it.
+    """
+
+    DefaultSwapBehavior = Kee[int](0)
+    SingleBuffer = Kee[int](1)
+    DoubleBuffer = Kee[int](2)
+    TripleBuffer = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

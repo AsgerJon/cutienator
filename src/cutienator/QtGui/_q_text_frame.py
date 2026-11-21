@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from . import QTextObject
 
@@ -19,13 +19,15 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
-  from . import QTextCursor, QTextDocument, QTextFrameFormat
+  from . import QTextBlock, QTextCursor, QTextDocument, QTextFrameFormat
+  from . import QTextFrameLayoutData
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QTextDocument = WAIT['QTextDocument']
   QTextFrameFormat = WAIT['QTextFrameFormat']
+  QTextFrameLayoutData = WAIT['QTextFrameLayoutData']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,24 +46,17 @@ class QTextFrame(QTextObject):
   -----------
 
   Every function of Qt's QTextFrame that has a ritual and that Python can
-  call so far, 9 names in all: 'metaObject', 'tr', 'setFrameFormat',
+  call so far, 13 names in all: 'metaObject', 'tr', 'setFrameFormat',
   'frameFormat', 'firstCursorPosition', 'lastCursorPosition',
-  'firstPosition', 'lastPosition', 'parentFrame'. It can be made from Python,
-  in 1 way; see '__init__'.
+  'firstPosition', 'lastPosition', 'layoutData', 'setLayoutData',
+  'parentFrame', 'begin', 'end'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QTextFrame::~QTextFrame()': the destructor: Python never removes a
     C++ QTextFrame.
-  - Qt's 'QTextFrameLayoutData *QTextFrame::layoutData() const': gives
-    'QTextFrameLayoutData', which has no cute class yet.
-  - Qt's 'void QTextFrame::setLayoutData(QTextFrameLayoutData *data)': names
-    'QTextFrameLayoutData', which has no cute class yet.
-  - Qt's 'iterator QTextFrame::begin() const': gives 'QTextFrame::iterator',
-    which has no cute class yet.
-  - Qt's 'iterator QTextFrame::end() const': gives 'QTextFrame::iterator',
-    which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -83,6 +78,208 @@ class QTextFrame(QTextObject):
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
   """
+
+  #  The classes Qt writes inside QTextFrame, each a class in here as in C++.
+
+  class iterator(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QTextFrame::iterator: a plain Python object
+    standing in front of one C++ QTextFrame::iterator.
+
+    C++ hands a QTextFrame::iterator around as a copy, so every C++
+    QTextFrame::iterator behind a cute one is Python's own: it is removed, by
+    the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    Every function of Qt's QTextFrame::iterator that has a ritual and that
+    Python can call so far, 4 names in all: 'parentFrame', 'currentFrame',
+    'currentBlock', 'atEnd'. It can be made from Python, in 1 way; see
+    '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'bool QTextFrame::iterator::operator==(const iterator &o) const':
+      an operator, which is not reflected yet.
+    - Qt's 'bool QTextFrame::iterator::operator!=(const iterator &o) const':
+      an operator, which is not reflected yet.
+    - Qt's 'iterator QTextFrame::iterator::operator++(int a0)': an operator,
+      which is not reflected yet.
+    - Qt's 'iterator QTextFrame::iterator::operator--(int a0)': an operator,
+      which is not reflected yet.
+    - Qt's 'QTextFrame::iterator::~iterator()': the destructor: Python
+      removes its C++ QTextFrame::iterator by it, and has no other use for
+      it.
+
+    What has no ritual
+    ------------------
+
+    3 of the 13 functions Qt declares: 2 takes or gives a type that cannot be
+    passed yet; 1 private.
+
+    What to expect
+    --------------
+
+    - The C++ QTextFrame::iterator is created at the first use, not by
+      'QTextFrame::iterator(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QTextFrame::iterator back gives a copy the ritual
+      made for Python, in a new cute QTextFrame::iterator.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QTextFrame::iterator'
+
+    #  Qt's '~QTextFrame::iterator()'. Naming it makes this a value class:
+    #  Python owns every C++ QTextFrame::iterator behind a cute one, and
+    #  removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN10QTextFrame8iteratorD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    def parentFrame(self) -> Optional[QTextFrame]:
+      """
+      Calls Qt's 'QTextFrame *QTextFrame::iterator::parentFrame() const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextframe-iterator.html#parentFrame
+
+      Returns
+      -------
+
+      Optional[QTextFrame]
+        The cute object standing for what Qt gave back. None when Qt gave
+        back no object.
+      """
+      #  QTextFrame *QTextFrame::iterator::parentFrame() const
+      address = self.uglySide.call(
+          'ritual_ZNK10QTextFrame8iterator11parentFrameEv',
+      )
+      return QTextFrame._cuteAt(address)
+
+    def currentFrame(self) -> Optional[QTextFrame]:
+      """
+      Calls Qt's 'QTextFrame *QTextFrame::iterator::currentFrame() const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextframe-iterator.html#currentFrame
+
+      Returns
+      -------
+
+      Optional[QTextFrame]
+        The cute object standing for what Qt gave back. None when Qt gave
+        back no object.
+      """
+      #  QTextFrame *QTextFrame::iterator::currentFrame() const
+      address = self.uglySide.call(
+          'ritual_ZNK10QTextFrame8iterator12currentFrameEv',
+      )
+      return QTextFrame._cuteAt(address)
+
+    def currentBlock(self) -> QTextBlock:
+      """
+      Calls Qt's 'QTextBlock QTextFrame::iterator::currentBlock() const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextframe-iterator.html#currentBlock
+
+      Returns
+      -------
+
+      QTextBlock
+        A new cute QTextBlock around the copy Qt gave back. Python owns it.
+      """
+      #  QTextBlock QTextFrame::iterator::currentBlock() const
+      address = self.uglySide.call(
+          'ritual_ZNK10QTextFrame8iterator12currentBlockEv',
+      )
+      from . import QTextBlock
+      return QTextBlock._cuteOwning(address)
+
+    def atEnd(self) -> bool:
+      """
+      Calls Qt's 'bool QTextFrame::iterator::atEnd() const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qtextframe-iterator.html#atEnd
+      """
+      #  bool QTextFrame::iterator::atEnd() const
+      return self.uglySide.call('ritual_ZNK10QTextFrame8iterator5atEndEv')
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's 'QTextFrame::iterator::iterator()',
+      which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextframe-iterator.html#iterator
+      """
+      #  QTextFrame::iterator::iterator()
+      self._noteCreation(QTextFrame.iterator, lambda: Rituals.call(
+          'ritual_ZN10QTextFrame8iteratorC1Ev',
+      ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -243,6 +440,24 @@ class QTextFrame(QTextObject):
     #  int QTextFrame::lastPosition() const
     return self.uglySide.call('ritual_ZNK10QTextFrame12lastPositionEv')
 
+  def layoutData(self) -> Optional[QTextFrameLayoutData]:
+    """
+    Calls Qt's 'QTextFrameLayoutData *QTextFrame::layoutData() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextframe.html#layoutData
+
+    Returns
+    -------
+
+    Optional[QTextFrameLayoutData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextFrameLayoutData *QTextFrame::layoutData() const
+    address = self.uglySide.call('ritual_ZNK10QTextFrame10layoutDataEv')
+    from . import QTextFrameLayoutData
+    return QTextFrameLayoutData._cuteAt(address)
+
   def parentFrame(self) -> Optional[QTextFrame]:
     """
     Calls Qt's 'QTextFrame *QTextFrame::parentFrame() const'.
@@ -259,6 +474,40 @@ class QTextFrame(QTextObject):
     #  QTextFrame *QTextFrame::parentFrame() const
     address = self.uglySide.call('ritual_ZNK10QTextFrame11parentFrameEv')
     return QTextFrame._cuteAt(address)
+
+  def begin(self) -> iterator:
+    """
+    Calls Qt's 'iterator QTextFrame::begin() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextframe.html#begin
+
+    Returns
+    -------
+
+    iterator
+      A new cute QTextFrame::iterator around the copy Qt gave back. Python
+      owns it.
+    """
+    #  iterator QTextFrame::begin() const
+    address = self.uglySide.call('ritual_ZNK10QTextFrame5beginEv')
+    return QTextFrame.iterator._cuteOwning(address)
+
+  def end(self) -> iterator:
+    """
+    Calls Qt's 'iterator QTextFrame::end() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextframe.html#end
+
+    Returns
+    -------
+
+    iterator
+      A new cute QTextFrame::iterator around the copy Qt gave back. Python
+      owns it.
+    """
+    #  iterator QTextFrame::end() const
+    address = self.uglySide.call('ritual_ZNK10QTextFrame3endEv')
+    return QTextFrame.iterator._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -283,6 +532,27 @@ class QTextFrame(QTextObject):
     self.uglySide.call(
         'ritual_ZN10QTextFrame14setFrameFormatERK16QTextFrameFormat',
         self._valueOf(format),
+    )
+
+  @overload(QTextFrameLayoutData)
+  @overload(NoneType)
+  def setLayoutData(self, data: Optional[QTextFrameLayoutData]) -> None:
+    """
+    Calls Qt's 'void QTextFrame::setLayoutData(QTextFrameLayoutData *data)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextframe.html#setLayoutData
+
+    Parameters
+    ----------
+
+    data : Optional[QTextFrameLayoutData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTextFrame::setLayoutData(QTextFrameLayoutData *data)
+    self.uglySide.call(
+        'ritual_ZN10QTextFrame13setLayoutDataEP20QTextFrameLayoutData',
+        self._addressOf(data),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

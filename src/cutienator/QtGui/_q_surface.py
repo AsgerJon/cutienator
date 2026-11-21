@@ -9,8 +9,9 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from ..cute import CuteMixin, MetaCute
-from . import QSurfaceSurfaceClass, QSurfaceSurfaceType
+from worktoy.keenum import Kee
+
+from ..cute import CuteMixin, CuteNum, MetaCute
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QSize
@@ -55,10 +56,29 @@ class QSurface(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QSurface.
   """
 
-  #  The enums Qt writes inside QSurface, and the names Qt has for the
-  #  combinations of its flags enums.
-  SurfaceClass = QSurfaceSurfaceClass
-  SurfaceType = QSurfaceSurfaceType
+  #  The enums Qt writes inside QSurface, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class SurfaceClass(CuteNum):
+    """
+    The enum 'QSurface::SurfaceClass' of Qt, with the 2 names Qt gives in it.
+    """
+
+    Window = Kee[int](0)
+    Offscreen = Kee[int](1)
+
+  class SurfaceType(CuteNum):
+    """
+    The enum 'QSurface::SurfaceType' of Qt, with the 7 names Qt gives in it.
+    """
+
+    RasterSurface = Kee[int](0)
+    OpenGLSurface = Kee[int](1)
+    RasterGLSurface = Kee[int](2)
+    OpenVGSurface = Kee[int](3)
+    VulkanSurface = Kee[int](4)
+    MetalSurface = Kee[int](5)
+    Direct3DSurface = Kee[int](6)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

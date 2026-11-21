@@ -11,10 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
-from . import QProcessEnvironmentInitialization
 
 
 class QProcessEnvironment(CuteMixin, metaclass=MetaCute):
@@ -61,9 +61,16 @@ class QProcessEnvironment(CuteMixin, metaclass=MetaCute):
     for Python, in a new cute QProcessEnvironment.
   """
 
-  #  The enums Qt writes inside QProcessEnvironment, and the names Qt has for
-  #  the combinations of its flags enums.
-  Initialization = QProcessEnvironmentInitialization
+  #  The enums Qt writes inside QProcessEnvironment, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class Initialization(CuteNum):
+    """
+    The enum 'QProcessEnvironment::Initialization' of Qt, with the 1 names Qt
+    gives in it.
+    """
+
+    InheritFromParent = Kee[int](0)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

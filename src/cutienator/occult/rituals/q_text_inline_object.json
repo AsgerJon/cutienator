@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtextlayout.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QTextInlineObjectC1Ev": ["address"],
+    "ritual_ZNK17QTextInlineObject7isValidEv": ["bool", "address"],
+    "ritual_ZNK17QTextInlineObject4rectEv": ["address", "address"],
+    "ritual_ZNK17QTextInlineObject5widthEv": ["double", "address"],
+    "ritual_ZNK17QTextInlineObject6ascentEv": ["double", "address"],
+    "ritual_ZNK17QTextInlineObject7descentEv": ["double", "address"],
+    "ritual_ZNK17QTextInlineObject6heightEv": ["double", "address"],
+    "ritual_ZNK17QTextInlineObject13textDirectionEv": ["int", "address"],
+    "ritual_ZN17QTextInlineObject8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN17QTextInlineObject9setAscentEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN17QTextInlineObject10setDescentEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17QTextInlineObject12textPositionEv": ["int", "address"],
+    "ritual_ZNK17QTextInlineObject11formatIndexEv": ["int", "address"],
+    "ritual_ZNK17QTextInlineObject6formatEv": ["address", "address"],
+    "ritual_ZN17QTextInlineObjectD1Ev": ["nothing", "address"]
+  }
+}

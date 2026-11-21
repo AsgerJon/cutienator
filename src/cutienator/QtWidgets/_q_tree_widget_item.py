@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QTreeWidgetItemChildIndicatorPolicy, QTreeWidgetItemItemType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -100,10 +100,27 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QTreeWidgetItem.
   """
 
-  #  The enums Qt writes inside QTreeWidgetItem, and the names Qt has for the
-  #  combinations of its flags enums.
-  ChildIndicatorPolicy = QTreeWidgetItemChildIndicatorPolicy
-  ItemType = QTreeWidgetItemItemType
+  #  The enums Qt writes inside QTreeWidgetItem, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ChildIndicatorPolicy(CuteNum):
+    """
+    The enum 'QTreeWidgetItem::ChildIndicatorPolicy' of Qt, with the 3 names
+    Qt gives in it.
+    """
+
+    ShowIndicator = Kee[int](0)
+    DontShowIndicator = Kee[int](1)
+    DontShowIndicatorWhenChildless = Kee[int](2)
+
+  class ItemType(CuteNum):
+    """
+    The enum 'QTreeWidgetItem::ItemType' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    Type = Kee[int](0)
+    UserType = Kee[int](1000)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -14,10 +14,10 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from . import QRegularExpressionMatchOption, QRegularExpressionMatchType
+from . import QRegularExpression
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QRegularExpression, QRegularExpressionMatch
+  from . import QRegularExpressionMatch
 
 
 class QRegularExpressionMatchIterator(CuteMixin, metaclass=MetaCute):
@@ -162,7 +162,6 @@ class QRegularExpressionMatchIterator(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(
         'ritual_ZNK31QRegularExpressionMatchIterator17regularExpressionEv',
     )
-    from . import QRegularExpression
     return QRegularExpression._cuteOwning(address)
 
   def matchType(self) -> QRegularExpression.MatchType:
@@ -183,7 +182,7 @@ class QRegularExpressionMatchIterator(CuteMixin, metaclass=MetaCute):
     """
     #  QRegularExpression::MatchType
     #      QRegularExpressionMatchIterator::matchType() const
-    return QRegularExpressionMatchType(self.uglySide.call(
+    return QRegularExpression.MatchType(self.uglySide.call(
         'ritual_ZNK31QRegularExpressionMatchIterator9matchTypeEv',
     ))
 
@@ -203,7 +202,7 @@ class QRegularExpressionMatchIterator(CuteMixin, metaclass=MetaCute):
     """
     #  QRegularExpression::MatchOptions
     #      QRegularExpressionMatchIterator::matchOptions() const
-    return QRegularExpressionMatchOption(self.uglySide.call(
+    return QRegularExpression.MatchOptions(self.uglySide.call(
         'ritual_ZNK31QRegularExpressionMatchIterator12matchOptionsEv',
     ))
 

@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpainterstateguard.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QPainterStateGuardC1EP8QPainterNS_12InitialStateE": [
+      "address", "address", "unsigned char"
+    ],
+    "ritual_ZN18QPainterStateGuardD1Ev": ["nothing", "address"],
+    "ritual_ZN18QPainterStateGuard4saveEv": ["nothing", "address"],
+    "ritual_ZN18QPainterStateGuard7restoreEv": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QActionEvent5cloneEv": ["address", "address"],
+    "ritual_ZN12QActionEventD1Ev": ["nothing", "address"],
+    "ritual_ZN12QActionEventC1EiP7QActionS1_": [
+      "address", "int", "address", "address"
+    ],
+    "ritual_ZNK12QActionEvent6actionEv": ["address", "address"],
+    "ritual_ZNK12QActionEvent6beforeEv": ["address", "address"]
+  }
+}

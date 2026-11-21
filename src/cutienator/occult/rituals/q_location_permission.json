@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qpermissions.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QLocationPermission11setAccuracyENS_8AccuracyE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK19QLocationPermission8accuracyEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN19QLocationPermission15setAvailabilityENS_12AvailabilityE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK19QLocationPermission12availabilityEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN19QLocationPermissionC1Ev": ["address"],
+    "ritual_ZN19QLocationPermissionC1ERKS_": ["address", "address"],
+    "ritual_ZN19QLocationPermissionD1Ev": ["nothing", "address"]
+  }
+}

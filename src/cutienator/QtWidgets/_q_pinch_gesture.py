@@ -11,10 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QGesture, QPinchGestureChangeFlag
+from . import QGesture
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -81,10 +81,21 @@ class QPinchGesture(QGesture):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QPinchGesture, and the names Qt has for the
-  #  combinations of its flags enums.
-  ChangeFlag = QPinchGestureChangeFlag
-  ChangeFlags = QPinchGestureChangeFlag
+  #  The enums Qt writes inside QPinchGesture, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ChangeFlag(CuteFlags):
+    """
+    The flags enum 'QPinchGesture::ChangeFlag' of Qt, with the 3 names Qt
+    gives in it. Qt names the type of its combinations
+    'QPinchGesture::ChangeFlags'.
+    """
+
+    ScaleFactorChanged = 0x1
+    RotationAngleChanged = 0x2
+    CenterPointChanged = 0x4
+
+  ChangeFlags = ChangeFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

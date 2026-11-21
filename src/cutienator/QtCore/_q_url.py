@@ -11,12 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QUrlAceProcessingOption, QUrlComponentFormattingOption
-from . import QUrlParsingMode, QUrlUrlFormattingOption
-from . import QUrlUserInputResolutionOption
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -79,16 +77,79 @@ class QUrl(CuteMixin, metaclass=MetaCute):
     a new cute QUrl.
   """
 
-  #  The enums Qt writes inside QUrl, and the names Qt has for the
-  #  combinations of its flags enums.
-  AceProcessingOption = QUrlAceProcessingOption
-  AceProcessingOptions = QUrlAceProcessingOption
-  ComponentFormattingOption = QUrlComponentFormattingOption
-  ComponentFormattingOptions = QUrlComponentFormattingOption
-  ParsingMode = QUrlParsingMode
-  UrlFormattingOption = QUrlUrlFormattingOption
-  UserInputResolutionOption = QUrlUserInputResolutionOption
-  UserInputResolutionOptions = QUrlUserInputResolutionOption
+  #  The enums Qt writes inside QUrl, each a class in here as in C++, and the
+  #  names Qt has for the combinations of its flags enums.
+
+  class AceProcessingOption(CuteFlags, number='unsigned int'):
+    """
+    The flags enum 'QUrl::AceProcessingOption' of Qt, with the 2 names Qt
+    gives in it. Qt names the type of its combinations
+    'QUrl::AceProcessingOptions'.
+    """
+
+    IgnoreIDNWhitelist = 0x1
+    AceTransitionalProcessing = 0x2
+
+  AceProcessingOptions = AceProcessingOption
+
+  class ComponentFormattingOption(CuteFlags, number='unsigned int'):
+    """
+    The flags enum 'QUrl::ComponentFormattingOption' of Qt, with the 8 names
+    Qt gives in it. Qt names the type of its combinations
+    'QUrl::ComponentFormattingOptions'.
+    """
+
+    PrettyDecoded = 0x0
+    EncodeSpaces = 0x100000
+    EncodeUnicode = 0x200000
+    EncodeDelimiters = 0xc00000
+    EncodeReserved = 0x1000000
+    DecodeReserved = 0x2000000
+    FullyEncoded = 0x1f00000
+    FullyDecoded = 0x7f00000
+
+  ComponentFormattingOptions = ComponentFormattingOption
+
+  class ParsingMode(CuteNum):
+    """
+    The enum 'QUrl::ParsingMode' of Qt, with the 3 names Qt gives in it.
+    """
+
+    TolerantMode = Kee[int](0)
+    StrictMode = Kee[int](1)
+    DecodedMode = Kee[int](2)
+
+  class UrlFormattingOption(CuteNum):
+    """
+    The enum 'QUrl::UrlFormattingOption' of Qt, with the 13 names Qt gives in
+    it.
+    """
+
+    NULL = Kee[int](0)
+    RemoveScheme = Kee[int](1)
+    RemovePassword = Kee[int](2)
+    RemoveUserInfo = Kee[int](6)
+    RemovePort = Kee[int](8)
+    RemoveAuthority = Kee[int](30)
+    RemovePath = Kee[int](32)
+    RemoveQuery = Kee[int](64)
+    RemoveFragment = Kee[int](128)
+    PreferLocalFile = Kee[int](512)
+    StripTrailingSlash = Kee[int](1024)
+    RemoveFilename = Kee[int](2048)
+    NormalizePathSegments = Kee[int](4096)
+
+  class UserInputResolutionOption(CuteFlags):
+    """
+    The flags enum 'QUrl::UserInputResolutionOption' of Qt, with the 2 names
+    Qt gives in it. Qt names the type of its combinations
+    'QUrl::UserInputResolutionOptions'.
+    """
+
+    DefaultResolution = 0x0
+    AssumeLocalFile = 0x1
+
+  UserInputResolutionOptions = UserInputResolutionOption
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

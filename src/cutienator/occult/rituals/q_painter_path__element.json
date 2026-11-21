@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qpainterpath.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QPainterPath7Element8isMoveToEv": ["bool", "address"],
+    "ritual_ZNK12QPainterPath7Element8isLineToEv": ["bool", "address"],
+    "ritual_ZNK12QPainterPath7Element9isCurveToEv": ["bool", "address"],
+    "ritual_ZNK12QPainterPath7Elementcv7QPointFEv": ["address", "address"],
+    "ritual_ZNK12QPainterPath7ElementeqERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QPainterPath7ElementneERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QPainterPath7ElementD1Ev": ["nothing", "address"]
+  }
+}

@@ -10,11 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, CuteNum
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QProgressBarDirection, QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -75,9 +76,17 @@ class QProgressBar(QWidget):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QProgressBar, and the names Qt has for the
-  #  combinations of its flags enums.
-  Direction = QProgressBarDirection
+  #  The enums Qt writes inside QProgressBar, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Direction(CuteNum):
+    """
+    The enum 'QProgressBar::Direction' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    TopToBottom = Kee[int](0)
+    BottomToTop = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

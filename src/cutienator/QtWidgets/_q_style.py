@@ -10,24 +10,21 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from ..QtGui import QIconMode, QPaletteColorRole
-from . import QSizePolicyControlType, QStyleComplexControl
-from . import QStyleContentsType, QStyleControlElement, QStylePixelMetric
-from . import QStylePrimitiveElement, QStyleRequestSoftwareInputPanel
-from . import QStyleStandardPixmap, QStyleStateFlag, QStyleStyleHint
-from . import QStyleSubControl, QStyleSubElement
+from ..QtGui import QIcon, QPalette
+from . import QSizePolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPoint, QRect, QSize
-  from ..QtGui import QFontMetrics, QIcon, QPainter, QPalette, QPixmap
-  from . import QApplication, QSizePolicy, QStyleOption, QStyleOptionComplex
-  from . import QWidget
+  from ..QtGui import QFontMetrics, QPainter, QPixmap
+  from . import QApplication, QStyleHintReturn, QStyleOption
+  from . import QStyleOptionComplex, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -35,11 +32,11 @@ else:
   QApplication = WAIT['QApplication']
   QFontMetrics = WAIT['QFontMetrics']
   QPainter = WAIT['QPainter']
-  QPalette = WAIT['QPalette']
   QPixmap = WAIT['QPixmap']
   QPoint = WAIT['QPoint']
   QRect = WAIT['QRect']
   QSize = WAIT['QSize']
+  QStyleHintReturn = WAIT['QStyleHintReturn']
   QStyleOption = WAIT['QStyleOption']
   QStyleOptionComplex = WAIT['QStyleOptionComplex']
   QWidget = WAIT['QWidget']
@@ -61,12 +58,12 @@ class QStyle(QObject):
   -----------
 
   Every function of Qt's QStyle that has a ritual and that Python can call so
-  far, 30 names in all: 'metaObject', 'tr', 'name', 'polish', 'unpolish',
+  far, 31 names in all: 'metaObject', 'tr', 'name', 'polish', 'unpolish',
   'itemTextRect', 'itemPixmapRect', 'drawItemText', 'drawItemPixmap',
   'standardPalette', 'drawPrimitive', 'drawControl', 'subElementRect',
   'drawComplexControl', 'hitTestComplexControl', 'subControlRect',
-  'pixelMetric', 'sizeFromContents', 'standardPixmap', 'standardIcon',
-  'generatedIconPixmap', 'visualRect', 'visualPos',
+  'pixelMetric', 'sizeFromContents', 'styleHint', 'standardPixmap',
+  'standardIcon', 'generatedIconPixmap', 'visualRect', 'visualPos',
   'sliderPositionFromValue', 'sliderValueFromPosition', 'visualAlignment',
   'alignedRect', 'layoutSpacing', 'combinedLayoutSpacing', 'proxy'. None can
   be made from Python: one comes out of a function of another class that
@@ -77,9 +74,6 @@ class QStyle(QObject):
 
   - Qt's 'QStyle::~QStyle()': the destructor: Python never removes a C++
     QStyle.
-  - Qt's 'int QStyle::styleHint(StyleHint stylehint, const QStyleOption *opt,
-    const QWidget *widget, QStyleHintReturn *returnData) const': names
-    'QStyleHintReturn', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -103,21 +97,655 @@ class QStyle(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QStyle, and the names Qt has for the
-  #  combinations of its flags enums.
-  ComplexControl = QStyleComplexControl
-  ContentsType = QStyleContentsType
-  ControlElement = QStyleControlElement
-  PixelMetric = QStylePixelMetric
-  PrimitiveElement = QStylePrimitiveElement
-  RequestSoftwareInputPanel = QStyleRequestSoftwareInputPanel
-  StandardPixmap = QStyleStandardPixmap
-  StateFlag = QStyleStateFlag
-  State = QStyleStateFlag
-  StyleHint = QStyleStyleHint
-  SubControl = QStyleSubControl
-  SubControls = QStyleSubControl
-  SubElement = QStyleSubElement
+  #  The enums Qt writes inside QStyle, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class ComplexControl(CuteNum):
+    """
+    The enum 'QStyle::ComplexControl' of Qt, with the 10 names Qt gives in
+    it.
+    """
+
+    CC_SpinBox = Kee[int](0)
+    CC_ComboBox = Kee[int](1)
+    CC_ScrollBar = Kee[int](2)
+    CC_Slider = Kee[int](3)
+    CC_ToolButton = Kee[int](4)
+    CC_TitleBar = Kee[int](5)
+    CC_Dial = Kee[int](6)
+    CC_GroupBox = Kee[int](7)
+    CC_MdiControls = Kee[int](8)
+    CC_CustomBase = Kee[int](4026531840)
+
+  class ContentsType(CuteNum):
+    """
+    The enum 'QStyle::ContentsType' of Qt, with the 24 names Qt gives in it.
+    """
+
+    CT_PushButton = Kee[int](0)
+    CT_CheckBox = Kee[int](1)
+    CT_RadioButton = Kee[int](2)
+    CT_ToolButton = Kee[int](3)
+    CT_ComboBox = Kee[int](4)
+    CT_Splitter = Kee[int](5)
+    CT_ProgressBar = Kee[int](6)
+    CT_MenuItem = Kee[int](7)
+    CT_MenuBarItem = Kee[int](8)
+    CT_MenuBar = Kee[int](9)
+    CT_Menu = Kee[int](10)
+    CT_TabBarTab = Kee[int](11)
+    CT_Slider = Kee[int](12)
+    CT_ScrollBar = Kee[int](13)
+    CT_LineEdit = Kee[int](14)
+    CT_SpinBox = Kee[int](15)
+    CT_SizeGrip = Kee[int](16)
+    CT_TabWidget = Kee[int](17)
+    CT_DialogButtons = Kee[int](18)
+    CT_HeaderSection = Kee[int](19)
+    CT_GroupBox = Kee[int](20)
+    CT_MdiControls = Kee[int](21)
+    CT_ItemViewItem = Kee[int](22)
+    CT_CustomBase = Kee[int](4026531840)
+
+  class ControlElement(CuteNum):
+    """
+    The enum 'QStyle::ControlElement' of Qt, with the 48 names Qt gives in
+    it.
+    """
+
+    CE_PushButton = Kee[int](0)
+    CE_PushButtonBevel = Kee[int](1)
+    CE_PushButtonLabel = Kee[int](2)
+    CE_CheckBox = Kee[int](3)
+    CE_CheckBoxLabel = Kee[int](4)
+    CE_RadioButton = Kee[int](5)
+    CE_RadioButtonLabel = Kee[int](6)
+    CE_TabBarTab = Kee[int](7)
+    CE_TabBarTabShape = Kee[int](8)
+    CE_TabBarTabLabel = Kee[int](9)
+    CE_ProgressBar = Kee[int](10)
+    CE_ProgressBarGroove = Kee[int](11)
+    CE_ProgressBarContents = Kee[int](12)
+    CE_ProgressBarLabel = Kee[int](13)
+    CE_MenuItem = Kee[int](14)
+    CE_MenuScroller = Kee[int](15)
+    CE_MenuVMargin = Kee[int](16)
+    CE_MenuHMargin = Kee[int](17)
+    CE_MenuTearoff = Kee[int](18)
+    CE_MenuEmptyArea = Kee[int](19)
+    CE_MenuBarItem = Kee[int](20)
+    CE_MenuBarEmptyArea = Kee[int](21)
+    CE_ToolButtonLabel = Kee[int](22)
+    CE_Header = Kee[int](23)
+    CE_HeaderSection = Kee[int](24)
+    CE_HeaderLabel = Kee[int](25)
+    CE_ToolBoxTab = Kee[int](26)
+    CE_SizeGrip = Kee[int](27)
+    CE_Splitter = Kee[int](28)
+    CE_RubberBand = Kee[int](29)
+    CE_DockWidgetTitle = Kee[int](30)
+    CE_ScrollBarAddLine = Kee[int](31)
+    CE_ScrollBarSubLine = Kee[int](32)
+    CE_ScrollBarAddPage = Kee[int](33)
+    CE_ScrollBarSubPage = Kee[int](34)
+    CE_ScrollBarSlider = Kee[int](35)
+    CE_ScrollBarFirst = Kee[int](36)
+    CE_ScrollBarLast = Kee[int](37)
+    CE_FocusFrame = Kee[int](38)
+    CE_ComboBoxLabel = Kee[int](39)
+    CE_ToolBar = Kee[int](40)
+    CE_ToolBoxTabShape = Kee[int](41)
+    CE_ToolBoxTabLabel = Kee[int](42)
+    CE_HeaderEmptyArea = Kee[int](43)
+    CE_ColumnViewGrip = Kee[int](44)
+    CE_ItemViewItem = Kee[int](45)
+    CE_ShapedFrame = Kee[int](46)
+    CE_CustomBase = Kee[int](4026531840)
+
+  class PixelMetric(CuteNum):
+    """
+    The enum 'QStyle::PixelMetric' of Qt, with the 96 names Qt gives in it.
+    """
+
+    PM_ButtonMargin = Kee[int](0)
+    PM_ButtonDefaultIndicator = Kee[int](1)
+    PM_MenuButtonIndicator = Kee[int](2)
+    PM_ButtonShiftHorizontal = Kee[int](3)
+    PM_ButtonShiftVertical = Kee[int](4)
+    PM_DefaultFrameWidth = Kee[int](5)
+    PM_SpinBoxFrameWidth = Kee[int](6)
+    PM_ComboBoxFrameWidth = Kee[int](7)
+    PM_MaximumDragDistance = Kee[int](8)
+    PM_ScrollBarExtent = Kee[int](9)
+    PM_ScrollBarSliderMin = Kee[int](10)
+    PM_SliderThickness = Kee[int](11)
+    PM_SliderControlThickness = Kee[int](12)
+    PM_SliderLength = Kee[int](13)
+    PM_SliderTickmarkOffset = Kee[int](14)
+    PM_SliderSpaceAvailable = Kee[int](15)
+    PM_DockWidgetSeparatorExtent = Kee[int](16)
+    PM_DockWidgetHandleExtent = Kee[int](17)
+    PM_DockWidgetFrameWidth = Kee[int](18)
+    PM_TabBarTabOverlap = Kee[int](19)
+    PM_TabBarTabHSpace = Kee[int](20)
+    PM_TabBarTabVSpace = Kee[int](21)
+    PM_TabBarBaseHeight = Kee[int](22)
+    PM_TabBarBaseOverlap = Kee[int](23)
+    PM_ProgressBarChunkWidth = Kee[int](24)
+    PM_SplitterWidth = Kee[int](25)
+    PM_TitleBarHeight = Kee[int](26)
+    PM_MenuScrollerHeight = Kee[int](27)
+    PM_MenuHMargin = Kee[int](28)
+    PM_MenuVMargin = Kee[int](29)
+    PM_MenuPanelWidth = Kee[int](30)
+    PM_MenuTearoffHeight = Kee[int](31)
+    PM_MenuDesktopFrameWidth = Kee[int](32)
+    PM_MenuBarPanelWidth = Kee[int](33)
+    PM_MenuBarItemSpacing = Kee[int](34)
+    PM_MenuBarVMargin = Kee[int](35)
+    PM_MenuBarHMargin = Kee[int](36)
+    PM_IndicatorWidth = Kee[int](37)
+    PM_IndicatorHeight = Kee[int](38)
+    PM_ExclusiveIndicatorWidth = Kee[int](39)
+    PM_ExclusiveIndicatorHeight = Kee[int](40)
+    PM_DialogButtonsSeparator = Kee[int](41)
+    PM_DialogButtonsButtonWidth = Kee[int](42)
+    PM_DialogButtonsButtonHeight = Kee[int](43)
+    PM_MdiSubWindowFrameWidth = Kee[int](44)
+    PM_MdiSubWindowMinimizedWidth = Kee[int](45)
+    PM_HeaderMargin = Kee[int](46)
+    PM_HeaderMarkSize = Kee[int](47)
+    PM_HeaderGripMargin = Kee[int](48)
+    PM_TabBarTabShiftHorizontal = Kee[int](49)
+    PM_TabBarTabShiftVertical = Kee[int](50)
+    PM_TabBarScrollButtonWidth = Kee[int](51)
+    PM_ToolBarFrameWidth = Kee[int](52)
+    PM_ToolBarHandleExtent = Kee[int](53)
+    PM_ToolBarItemSpacing = Kee[int](54)
+    PM_ToolBarItemMargin = Kee[int](55)
+    PM_ToolBarSeparatorExtent = Kee[int](56)
+    PM_ToolBarExtensionExtent = Kee[int](57)
+    PM_SpinBoxSliderHeight = Kee[int](58)
+    PM_ToolBarIconSize = Kee[int](59)
+    PM_ListViewIconSize = Kee[int](60)
+    PM_IconViewIconSize = Kee[int](61)
+    PM_SmallIconSize = Kee[int](62)
+    PM_LargeIconSize = Kee[int](63)
+    PM_FocusFrameVMargin = Kee[int](64)
+    PM_FocusFrameHMargin = Kee[int](65)
+    PM_ToolTipLabelFrameWidth = Kee[int](66)
+    PM_CheckBoxLabelSpacing = Kee[int](67)
+    PM_TabBarIconSize = Kee[int](68)
+    PM_SizeGripSize = Kee[int](69)
+    PM_DockWidgetTitleMargin = Kee[int](70)
+    PM_MessageBoxIconSize = Kee[int](71)
+    PM_ButtonIconSize = Kee[int](72)
+    PM_DockWidgetTitleBarButtonMargin = Kee[int](73)
+    PM_RadioButtonLabelSpacing = Kee[int](74)
+    PM_LayoutLeftMargin = Kee[int](75)
+    PM_LayoutTopMargin = Kee[int](76)
+    PM_LayoutRightMargin = Kee[int](77)
+    PM_LayoutBottomMargin = Kee[int](78)
+    PM_LayoutHorizontalSpacing = Kee[int](79)
+    PM_LayoutVerticalSpacing = Kee[int](80)
+    PM_TabBar_ScrollButtonOverlap = Kee[int](81)
+    PM_TextCursorWidth = Kee[int](82)
+    PM_TabCloseIndicatorWidth = Kee[int](83)
+    PM_TabCloseIndicatorHeight = Kee[int](84)
+    PM_ScrollView_ScrollBarSpacing = Kee[int](85)
+    PM_ScrollView_ScrollBarOverlap = Kee[int](86)
+    PM_SubMenuOverlap = Kee[int](87)
+    PM_TreeViewIndentation = Kee[int](88)
+    PM_HeaderDefaultSectionSizeHorizontal = Kee[int](89)
+    PM_HeaderDefaultSectionSizeVertical = Kee[int](90)
+    PM_TitleBarButtonIconSize = Kee[int](91)
+    PM_TitleBarButtonSize = Kee[int](92)
+    PM_LineEditIconSize = Kee[int](93)
+    PM_LineEditIconMargin = Kee[int](94)
+    PM_CustomBase = Kee[int](4026531840)
+
+  class PrimitiveElement(CuteNum):
+    """
+    The enum 'QStyle::PrimitiveElement' of Qt, with the 52 names Qt gives in
+    it.
+    """
+
+    PE_Frame = Kee[int](0)
+    PE_FrameDefaultButton = Kee[int](1)
+    PE_FrameDockWidget = Kee[int](2)
+    PE_FrameFocusRect = Kee[int](3)
+    PE_FrameGroupBox = Kee[int](4)
+    PE_FrameLineEdit = Kee[int](5)
+    PE_FrameMenu = Kee[int](6)
+    PE_FrameStatusBarItem = Kee[int](7)
+    PE_FrameTabWidget = Kee[int](8)
+    PE_FrameWindow = Kee[int](9)
+    PE_FrameButtonBevel = Kee[int](10)
+    PE_FrameButtonTool = Kee[int](11)
+    PE_FrameTabBarBase = Kee[int](12)
+    PE_PanelButtonCommand = Kee[int](13)
+    PE_PanelButtonBevel = Kee[int](14)
+    PE_PanelButtonTool = Kee[int](15)
+    PE_PanelMenuBar = Kee[int](16)
+    PE_PanelToolBar = Kee[int](17)
+    PE_PanelLineEdit = Kee[int](18)
+    PE_IndicatorArrowDown = Kee[int](19)
+    PE_IndicatorArrowLeft = Kee[int](20)
+    PE_IndicatorArrowRight = Kee[int](21)
+    PE_IndicatorArrowUp = Kee[int](22)
+    PE_IndicatorBranch = Kee[int](23)
+    PE_IndicatorButtonDropDown = Kee[int](24)
+    PE_IndicatorItemViewItemCheck = Kee[int](25)
+    PE_IndicatorCheckBox = Kee[int](26)
+    PE_IndicatorDockWidgetResizeHandle = Kee[int](27)
+    PE_IndicatorHeaderArrow = Kee[int](28)
+    PE_IndicatorMenuCheckMark = Kee[int](29)
+    PE_IndicatorProgressChunk = Kee[int](30)
+    PE_IndicatorRadioButton = Kee[int](31)
+    PE_IndicatorSpinDown = Kee[int](32)
+    PE_IndicatorSpinMinus = Kee[int](33)
+    PE_IndicatorSpinPlus = Kee[int](34)
+    PE_IndicatorSpinUp = Kee[int](35)
+    PE_IndicatorToolBarHandle = Kee[int](36)
+    PE_IndicatorToolBarSeparator = Kee[int](37)
+    PE_PanelTipLabel = Kee[int](38)
+    PE_IndicatorTabTear = Kee[int](39)
+    PE_IndicatorTabTearLeft = Kee[int](39)
+    PE_PanelScrollAreaCorner = Kee[int](40)
+    PE_Widget = Kee[int](41)
+    PE_IndicatorColumnViewArrow = Kee[int](42)
+    PE_IndicatorItemViewItemDrop = Kee[int](43)
+    PE_PanelItemViewItem = Kee[int](44)
+    PE_PanelItemViewRow = Kee[int](45)
+    PE_PanelStatusBar = Kee[int](46)
+    PE_IndicatorTabClose = Kee[int](47)
+    PE_PanelMenu = Kee[int](48)
+    PE_IndicatorTabTearRight = Kee[int](49)
+    PE_CustomBase = Kee[int](251658240)
+
+  class RequestSoftwareInputPanel(CuteNum):
+    """
+    The enum 'QStyle::RequestSoftwareInputPanel' of Qt, with the 2 names Qt
+    gives in it.
+    """
+
+    RSIP_OnMouseClickAndAlreadyFocused = Kee[int](0)
+    RSIP_OnMouseClick = Kee[int](1)
+
+  class StandardPixmap(CuteNum):
+    """
+    The enum 'QStyle::StandardPixmap' of Qt, with the 85 names Qt gives in
+    it.
+    """
+
+    SP_TitleBarMenuButton = Kee[int](0)
+    SP_TitleBarMinButton = Kee[int](1)
+    SP_TitleBarMaxButton = Kee[int](2)
+    SP_TitleBarCloseButton = Kee[int](3)
+    SP_TitleBarNormalButton = Kee[int](4)
+    SP_TitleBarShadeButton = Kee[int](5)
+    SP_TitleBarUnshadeButton = Kee[int](6)
+    SP_TitleBarContextHelpButton = Kee[int](7)
+    SP_DockWidgetCloseButton = Kee[int](8)
+    SP_MessageBoxInformation = Kee[int](9)
+    SP_MessageBoxWarning = Kee[int](10)
+    SP_MessageBoxCritical = Kee[int](11)
+    SP_MessageBoxQuestion = Kee[int](12)
+    SP_DesktopIcon = Kee[int](13)
+    SP_TrashIcon = Kee[int](14)
+    SP_ComputerIcon = Kee[int](15)
+    SP_DriveFDIcon = Kee[int](16)
+    SP_DriveHDIcon = Kee[int](17)
+    SP_DriveCDIcon = Kee[int](18)
+    SP_DriveDVDIcon = Kee[int](19)
+    SP_DriveNetIcon = Kee[int](20)
+    SP_DirOpenIcon = Kee[int](21)
+    SP_DirClosedIcon = Kee[int](22)
+    SP_DirLinkIcon = Kee[int](23)
+    SP_DirLinkOpenIcon = Kee[int](24)
+    SP_FileIcon = Kee[int](25)
+    SP_FileLinkIcon = Kee[int](26)
+    SP_ToolBarHorizontalExtensionButton = Kee[int](27)
+    SP_ToolBarVerticalExtensionButton = Kee[int](28)
+    SP_FileDialogStart = Kee[int](29)
+    SP_FileDialogEnd = Kee[int](30)
+    SP_FileDialogToParent = Kee[int](31)
+    SP_FileDialogNewFolder = Kee[int](32)
+    SP_FileDialogDetailedView = Kee[int](33)
+    SP_FileDialogInfoView = Kee[int](34)
+    SP_FileDialogContentsView = Kee[int](35)
+    SP_FileDialogListView = Kee[int](36)
+    SP_FileDialogBack = Kee[int](37)
+    SP_DirIcon = Kee[int](38)
+    SP_DialogOkButton = Kee[int](39)
+    SP_DialogCancelButton = Kee[int](40)
+    SP_DialogHelpButton = Kee[int](41)
+    SP_DialogOpenButton = Kee[int](42)
+    SP_DialogSaveButton = Kee[int](43)
+    SP_DialogCloseButton = Kee[int](44)
+    SP_DialogApplyButton = Kee[int](45)
+    SP_DialogResetButton = Kee[int](46)
+    SP_DialogDiscardButton = Kee[int](47)
+    SP_DialogYesButton = Kee[int](48)
+    SP_DialogNoButton = Kee[int](49)
+    SP_ArrowUp = Kee[int](50)
+    SP_ArrowDown = Kee[int](51)
+    SP_ArrowLeft = Kee[int](52)
+    SP_ArrowRight = Kee[int](53)
+    SP_ArrowBack = Kee[int](54)
+    SP_ArrowForward = Kee[int](55)
+    SP_DirHomeIcon = Kee[int](56)
+    SP_CommandLink = Kee[int](57)
+    SP_VistaShield = Kee[int](58)
+    SP_BrowserReload = Kee[int](59)
+    SP_BrowserStop = Kee[int](60)
+    SP_MediaPlay = Kee[int](61)
+    SP_MediaStop = Kee[int](62)
+    SP_MediaPause = Kee[int](63)
+    SP_MediaSkipForward = Kee[int](64)
+    SP_MediaSkipBackward = Kee[int](65)
+    SP_MediaSeekForward = Kee[int](66)
+    SP_MediaSeekBackward = Kee[int](67)
+    SP_MediaVolume = Kee[int](68)
+    SP_MediaVolumeMuted = Kee[int](69)
+    SP_LineEditClearButton = Kee[int](70)
+    SP_DialogYesToAllButton = Kee[int](71)
+    SP_DialogNoToAllButton = Kee[int](72)
+    SP_DialogSaveAllButton = Kee[int](73)
+    SP_DialogAbortButton = Kee[int](74)
+    SP_DialogRetryButton = Kee[int](75)
+    SP_DialogIgnoreButton = Kee[int](76)
+    SP_RestoreDefaultsButton = Kee[int](77)
+    SP_TabCloseButton = Kee[int](78)
+    SP_TabScrollLeftButton = Kee[int](79)
+    SP_TabScrollRightButton = Kee[int](80)
+    SP_TabScrollUpButton = Kee[int](81)
+    SP_TabScrollDownButton = Kee[int](82)
+    NStandardPixmap = Kee[int](83)
+    SP_CustomBase = Kee[int](4026531840)
+
+  class StateFlag(CuteFlags):
+    """
+    The flags enum 'QStyle::StateFlag' of Qt, with the 28 names Qt gives in
+    it. Qt names the type of its combinations 'QStyle::State'.
+    """
+
+    State_None = 0x0
+    State_Enabled = 0x1
+    State_Raised = 0x2
+    State_Sunken = 0x4
+    State_Off = 0x8
+    State_NoChange = 0x10
+    State_On = 0x20
+    State_DownArrow = 0x40
+    State_Horizontal = 0x80
+    State_HasFocus = 0x100
+    State_Top = 0x200
+    State_Bottom = 0x400
+    State_FocusAtBorder = 0x800
+    State_AutoRaise = 0x1000
+    State_MouseOver = 0x2000
+    State_UpArrow = 0x4000
+    State_Selected = 0x8000
+    State_Active = 0x10000
+    State_Window = 0x20000
+    State_Open = 0x40000
+    State_Children = 0x80000
+    State_Item = 0x100000
+    State_Sibling = 0x200000
+    State_Editing = 0x400000
+    State_KeyboardFocusChange = 0x800000
+    State_ReadOnly = 0x2000000
+    State_Small = 0x4000000
+    State_Mini = 0x8000000
+
+  State = StateFlag
+
+  class StyleHint(CuteNum):
+    """
+    The enum 'QStyle::StyleHint' of Qt, with the 123 names Qt gives in it.
+    """
+
+    SH_EtchDisabledText = Kee[int](0)
+    SH_DitherDisabledText = Kee[int](1)
+    SH_ScrollBar_MiddleClickAbsolutePosition = Kee[int](2)
+    SH_ScrollBar_ScrollWhenPointerLeavesControl = Kee[int](3)
+    SH_TabBar_SelectMouseType = Kee[int](4)
+    SH_TabBar_Alignment = Kee[int](5)
+    SH_Header_ArrowAlignment = Kee[int](6)
+    SH_Slider_SnapToValue = Kee[int](7)
+    SH_Slider_SloppyKeyEvents = Kee[int](8)
+    SH_ProgressDialog_CenterCancelButton = Kee[int](9)
+    SH_ProgressDialog_TextLabelAlignment = Kee[int](10)
+    SH_PrintDialog_RightAlignButtons = Kee[int](11)
+    SH_MainWindow_SpaceBelowMenuBar = Kee[int](12)
+    SH_FontDialog_SelectAssociatedText = Kee[int](13)
+    SH_Menu_AllowActiveAndDisabled = Kee[int](14)
+    SH_Menu_SpaceActivatesItem = Kee[int](15)
+    SH_Menu_SubMenuPopupDelay = Kee[int](16)
+    SH_ScrollView_FrameOnlyAroundContents = Kee[int](17)
+    SH_MenuBar_AltKeyNavigation = Kee[int](18)
+    SH_ComboBox_ListMouseTracking = Kee[int](19)
+    SH_ComboBox_ListMouseTracking_Current = Kee[int](19)
+    SH_Menu_MouseTracking = Kee[int](20)
+    SH_MenuBar_MouseTracking = Kee[int](21)
+    SH_ItemView_ChangeHighlightOnFocus = Kee[int](22)
+    SH_Widget_ShareActivation = Kee[int](23)
+    SH_Workspace_FillSpaceOnMaximize = Kee[int](24)
+    SH_ComboBox_Popup = Kee[int](25)
+    SH_TitleBar_NoBorder = Kee[int](26)
+    SH_Slider_StopMouseOverSlider = Kee[int](27)
+    SH_BlinkCursorWhenTextSelected = Kee[int](28)
+    SH_RichText_FullWidthSelection = Kee[int](29)
+    SH_Menu_Scrollable = Kee[int](30)
+    SH_GroupBox_TextLabelVerticalAlignment = Kee[int](31)
+    SH_GroupBox_TextLabelColor = Kee[int](32)
+    SH_Menu_SloppySubMenus = Kee[int](33)
+    SH_Table_GridLineColor = Kee[int](34)
+    SH_LineEdit_PasswordCharacter = Kee[int](35)
+    SH_DialogButtons_DefaultButton = Kee[int](36)
+    SH_ToolBox_SelectedPageTitleBold = Kee[int](37)
+    SH_TabBar_PreferNoArrows = Kee[int](38)
+    SH_ScrollBar_LeftClickAbsolutePosition = Kee[int](39)
+    SH_ListViewExpand_SelectMouseType = Kee[int](40)
+    SH_UnderlineShortcut = Kee[int](41)
+    SH_SpinBox_AnimateButton = Kee[int](42)
+    SH_SpinBox_KeyPressAutoRepeatRate = Kee[int](43)
+    SH_SpinBox_ClickAutoRepeatRate = Kee[int](44)
+    SH_Menu_FillScreenWithScroll = Kee[int](45)
+    SH_ToolTipLabel_Opacity = Kee[int](46)
+    SH_DrawMenuBarSeparator = Kee[int](47)
+    SH_TitleBar_ModifyNotification = Kee[int](48)
+    SH_Button_FocusPolicy = Kee[int](49)
+    SH_MessageBox_UseBorderForButtonSpacing = Kee[int](50)
+    SH_TitleBar_AutoRaise = Kee[int](51)
+    SH_ToolButton_PopupDelay = Kee[int](52)
+    SH_FocusFrame_Mask = Kee[int](53)
+    SH_RubberBand_Mask = Kee[int](54)
+    SH_WindowFrame_Mask = Kee[int](55)
+    SH_SpinControls_DisableOnBounds = Kee[int](56)
+    SH_Dial_BackgroundRole = Kee[int](57)
+    SH_ComboBox_LayoutDirection = Kee[int](58)
+    SH_ItemView_EllipsisLocation = Kee[int](59)
+    SH_ItemView_ShowDecorationSelected = Kee[int](60)
+    SH_ItemView_ActivateItemOnSingleClick = Kee[int](61)
+    SH_ScrollBar_ContextMenu = Kee[int](62)
+    SH_ScrollBar_RollBetweenButtons = Kee[int](63)
+    SH_Slider_AbsoluteSetButtons = Kee[int](64)
+    SH_Slider_PageSetButtons = Kee[int](65)
+    SH_Menu_KeyboardSearch = Kee[int](66)
+    SH_TabBar_ElideMode = Kee[int](67)
+    SH_DialogButtonLayout = Kee[int](68)
+    SH_ComboBox_PopupFrameStyle = Kee[int](69)
+    SH_MessageBox_TextInteractionFlags = Kee[int](70)
+    SH_DialogButtonBox_ButtonsHaveIcons = Kee[int](71)
+    SH_MessageBox_CenterButtons = Kee[int](72)
+    SH_Menu_SelectionWrap = Kee[int](73)
+    SH_ItemView_MovementWithoutUpdatingSelection = Kee[int](74)
+    SH_ToolTip_Mask = Kee[int](75)
+    SH_FocusFrame_AboveWidget = Kee[int](76)
+    SH_TextControl_FocusIndicatorTextCharFormat = Kee[int](77)
+    SH_WizardStyle = Kee[int](78)
+    SH_ItemView_ArrowKeysNavigateIntoChildren = Kee[int](79)
+    SH_Menu_Mask = Kee[int](80)
+    SH_Menu_FlashTriggeredItem = Kee[int](81)
+    SH_Menu_FadeOutOnHide = Kee[int](82)
+    SH_SpinBox_ClickAutoRepeatThreshold = Kee[int](83)
+    SH_ItemView_PaintAlternatingRowColorsForEmptyArea = Kee[int](84)
+    SH_FormLayoutWrapPolicy = Kee[int](85)
+    SH_TabWidget_DefaultTabPosition = Kee[int](86)
+    SH_ToolBar_Movable = Kee[int](87)
+    SH_FormLayoutFieldGrowthPolicy = Kee[int](88)
+    SH_FormLayoutFormAlignment = Kee[int](89)
+    SH_FormLayoutLabelAlignment = Kee[int](90)
+    SH_ItemView_DrawDelegateFrame = Kee[int](91)
+    SH_TabBar_CloseButtonPosition = Kee[int](92)
+    SH_DockWidget_ButtonsHaveFrame = Kee[int](93)
+    SH_ToolButtonStyle = Kee[int](94)
+    SH_RequestSoftwareInputPanel = Kee[int](95)
+    SH_ScrollBar_Transient = Kee[int](96)
+    SH_Menu_SupportsSections = Kee[int](97)
+    SH_ToolTip_WakeUpDelay = Kee[int](98)
+    SH_ToolTip_FallAsleepDelay = Kee[int](99)
+    SH_Widget_Animate = Kee[int](100)
+    SH_Splitter_OpaqueResize = Kee[int](101)
+    SH_ComboBox_UseNativePopup = Kee[int](102)
+    SH_LineEdit_PasswordMaskDelay = Kee[int](103)
+    SH_TabBar_ChangeCurrentDelay = Kee[int](104)
+    SH_Menu_SubMenuUniDirection = Kee[int](105)
+    SH_Menu_SubMenuUniDirectionFailCount = Kee[int](106)
+    SH_Menu_SubMenuSloppySelectOtherActions = Kee[int](107)
+    SH_Menu_SubMenuSloppyCloseTimeout = Kee[int](108)
+    SH_Menu_SubMenuResetWhenReenteringParent = Kee[int](109)
+    SH_Menu_SubMenuDontStartSloppyOnLeave = Kee[int](110)
+    SH_ItemView_ScrollMode = Kee[int](111)
+    SH_TitleBar_ShowToolTipsOnButtons = Kee[int](112)
+    SH_Widget_Animation_Duration = Kee[int](113)
+    SH_ComboBox_AllowWheelScrolling = Kee[int](114)
+    SH_SpinBox_ButtonsInsideFrame = Kee[int](115)
+    SH_SpinBox_StepModifier = Kee[int](116)
+    SH_TabBar_AllowWheelScrolling = Kee[int](117)
+    SH_Table_AlwaysDrawLeftTopGridLines = Kee[int](118)
+    SH_SpinBox_SelectOnStep = Kee[int](119)
+    SH_ComboBox_ListMouseTracking_Active = Kee[int](120)
+    SH_CustomBase = Kee[int](4026531840)
+
+  class SubControl(CuteFlags, number='unsigned int'):
+    """
+    The flags enum 'QStyle::SubControl' of Qt, with the 43 names Qt gives in
+    it. Qt names the type of its combinations 'QStyle::SubControls'.
+    """
+
+    SC_None = 0x0
+    SC_ScrollBarAddLine = 0x1
+    SC_ScrollBarSubLine = 0x2
+    SC_ScrollBarAddPage = 0x4
+    SC_ScrollBarSubPage = 0x8
+    SC_ScrollBarFirst = 0x10
+    SC_ScrollBarLast = 0x20
+    SC_ScrollBarSlider = 0x40
+    SC_ScrollBarGroove = 0x80
+    SC_SpinBoxUp = 0x1
+    SC_SpinBoxDown = 0x2
+    SC_SpinBoxFrame = 0x4
+    SC_SpinBoxEditField = 0x8
+    SC_ComboBoxFrame = 0x1
+    SC_ComboBoxEditField = 0x2
+    SC_ComboBoxArrow = 0x4
+    SC_ComboBoxListBoxPopup = 0x8
+    SC_SliderGroove = 0x1
+    SC_SliderHandle = 0x2
+    SC_SliderTickmarks = 0x4
+    SC_ToolButton = 0x1
+    SC_ToolButtonMenu = 0x2
+    SC_TitleBarSysMenu = 0x1
+    SC_TitleBarMinButton = 0x2
+    SC_TitleBarMaxButton = 0x4
+    SC_TitleBarCloseButton = 0x8
+    SC_TitleBarNormalButton = 0x10
+    SC_TitleBarShadeButton = 0x20
+    SC_TitleBarUnshadeButton = 0x40
+    SC_TitleBarContextHelpButton = 0x80
+    SC_TitleBarLabel = 0x100
+    SC_DialGroove = 0x1
+    SC_DialHandle = 0x2
+    SC_DialTickmarks = 0x4
+    SC_GroupBoxCheckBox = 0x1
+    SC_GroupBoxLabel = 0x2
+    SC_GroupBoxContents = 0x4
+    SC_GroupBoxFrame = 0x8
+    SC_MdiMinButton = 0x1
+    SC_MdiNormalButton = 0x2
+    SC_MdiCloseButton = 0x4
+    SC_CustomBase = 0xf0000000
+    SC_All = 0xffffffff
+
+  SubControls = SubControl
+
+  class SubElement(CuteNum):
+    """
+    The enum 'QStyle::SubElement' of Qt, with the 59 names Qt gives in it.
+    """
+
+    SE_PushButtonContents = Kee[int](0)
+    SE_PushButtonFocusRect = Kee[int](1)
+    SE_CheckBoxIndicator = Kee[int](2)
+    SE_CheckBoxContents = Kee[int](3)
+    SE_CheckBoxFocusRect = Kee[int](4)
+    SE_CheckBoxClickRect = Kee[int](5)
+    SE_RadioButtonIndicator = Kee[int](6)
+    SE_RadioButtonContents = Kee[int](7)
+    SE_RadioButtonFocusRect = Kee[int](8)
+    SE_RadioButtonClickRect = Kee[int](9)
+    SE_ComboBoxFocusRect = Kee[int](10)
+    SE_SliderFocusRect = Kee[int](11)
+    SE_ProgressBarGroove = Kee[int](12)
+    SE_ProgressBarContents = Kee[int](13)
+    SE_ProgressBarLabel = Kee[int](14)
+    SE_ToolBoxTabContents = Kee[int](15)
+    SE_HeaderLabel = Kee[int](16)
+    SE_HeaderArrow = Kee[int](17)
+    SE_TabWidgetTabBar = Kee[int](18)
+    SE_TabWidgetTabPane = Kee[int](19)
+    SE_TabWidgetTabContents = Kee[int](20)
+    SE_TabWidgetLeftCorner = Kee[int](21)
+    SE_TabWidgetRightCorner = Kee[int](22)
+    SE_ItemViewItemCheckIndicator = Kee[int](23)
+    SE_TabBarTearIndicator = Kee[int](24)
+    SE_TabBarTearIndicatorLeft = Kee[int](24)
+    SE_TreeViewDisclosureItem = Kee[int](25)
+    SE_LineEditContents = Kee[int](26)
+    SE_FrameContents = Kee[int](27)
+    SE_DockWidgetCloseButton = Kee[int](28)
+    SE_DockWidgetFloatButton = Kee[int](29)
+    SE_DockWidgetTitleBarText = Kee[int](30)
+    SE_DockWidgetIcon = Kee[int](31)
+    SE_CheckBoxLayoutItem = Kee[int](32)
+    SE_ComboBoxLayoutItem = Kee[int](33)
+    SE_DateTimeEditLayoutItem = Kee[int](34)
+    SE_LabelLayoutItem = Kee[int](35)
+    SE_ProgressBarLayoutItem = Kee[int](36)
+    SE_PushButtonLayoutItem = Kee[int](37)
+    SE_RadioButtonLayoutItem = Kee[int](38)
+    SE_SliderLayoutItem = Kee[int](39)
+    SE_SpinBoxLayoutItem = Kee[int](40)
+    SE_ToolButtonLayoutItem = Kee[int](41)
+    SE_FrameLayoutItem = Kee[int](42)
+    SE_GroupBoxLayoutItem = Kee[int](43)
+    SE_TabWidgetLayoutItem = Kee[int](44)
+    SE_ItemViewItemDecoration = Kee[int](45)
+    SE_ItemViewItemText = Kee[int](46)
+    SE_ItemViewItemFocusRect = Kee[int](47)
+    SE_TabBarTabLeftButton = Kee[int](48)
+    SE_TabBarTabRightButton = Kee[int](49)
+    SE_TabBarTabText = Kee[int](50)
+    SE_ShapedFrameContents = Kee[int](51)
+    SE_ToolBarHandle = Kee[int](52)
+    SE_TabBarScrollLeftButton = Kee[int](53)
+    SE_TabBarScrollRightButton = Kee[int](54)
+    SE_TabBarTearIndicatorRight = Kee[int](55)
+    SE_PushButtonBevel = Kee[int](56)
+    SE_CustomBase = Kee[int](4026531840)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -566,7 +1194,6 @@ class QStyle(QObject):
     """
     #  QPalette QStyle::standardPalette() const
     address = self.uglySide.call('ritual_ZNK6QStyle15standardPaletteEv')
-    from ..QtGui import QPalette
     return QPalette._cuteOwning(address)
 
   @overload(SubElement, QStyleOption)
@@ -820,6 +1447,61 @@ class QStyle(QObject):
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
+  @overload(StyleHint)
+  @overload(StyleHint, QStyleOption)
+  @overload(StyleHint, NoneType)
+  @overload(StyleHint, QStyleOption, QWidget)
+  @overload(StyleHint, QStyleOption, NoneType)
+  @overload(StyleHint, NoneType, QWidget)
+  @overload(StyleHint, NoneType, NoneType)
+  @overload(StyleHint, QStyleOption, QWidget, QStyleHintReturn)
+  @overload(StyleHint, QStyleOption, QWidget, NoneType)
+  @overload(StyleHint, QStyleOption, NoneType, QStyleHintReturn)
+  @overload(StyleHint, QStyleOption, NoneType, NoneType)
+  @overload(StyleHint, NoneType, QWidget, QStyleHintReturn)
+  @overload(StyleHint, NoneType, QWidget, NoneType)
+  @overload(StyleHint, NoneType, NoneType, QStyleHintReturn)
+  @overload(StyleHint, NoneType, NoneType, NoneType)
+  def styleHint(
+      self,
+      stylehint: StyleHint,
+      opt: Optional[QStyleOption] = None,
+      widget: Optional[QWidget] = None,
+      returnData: Optional[QStyleHintReturn] = None,
+  ) -> int:
+    """
+    Calls Qt's 'int QStyle::styleHint(StyleHint stylehint, const QStyleOption
+    *opt, const QWidget *widget, QStyleHintReturn *returnData) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstyle.html#styleHint
+
+    Parameters
+    ----------
+
+    stylehint : StyleHint
+      Passed on as its number.
+
+    opt : Optional[QStyleOption]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    returnData : Optional[QStyleHintReturn]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  int QStyle::styleHint(StyleHint stylehint, const QStyleOption *opt,
+    #      const QWidget *widget, QStyleHintReturn *returnData) const
+    return self.uglySide.call(
+        'ritual_ZNK6QStyle9styleHintENS_9StyleHintEPK12QStyleOptionPK7QWidg'
+        'etP16QStyleHintReturn',
+        stylehint.value, self._addressOf(opt), self._addressOf(widget),
+        self._addressOf(returnData),
+    )
+
   @overload(StandardPixmap)
   @overload(StandardPixmap, QStyleOption)
   @overload(StandardPixmap, NoneType)
@@ -915,11 +1597,10 @@ class QStyle(QObject):
         'onPK7QWidget',
         standardIcon.value, self._addressOf(option), self._addressOf(widget),
     )
-    from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
-  @overload(QIconMode, QPixmap, QStyleOption)
-  @overload(QIconMode, QPixmap, NoneType)
+  @overload(QIcon.Mode, QPixmap, QStyleOption)
+  @overload(QIcon.Mode, QPixmap, NoneType)
   def generatedIconPixmap(
       self,
       iconMode: QIcon.Mode,
@@ -962,29 +1643,29 @@ class QStyle(QObject):
     from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
 
-  @overload(QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation)
+  @overload(QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation)
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       QStyleOption,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       NoneType,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       QStyleOption, QWidget,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       QStyleOption, NoneType,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       NoneType, QWidget,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlType, QSizePolicy.ControlType, Qt.Orientation,
       NoneType, NoneType,
   )
   def layoutSpacing(
@@ -1032,29 +1713,31 @@ class QStyle(QObject):
         self._addressOf(option), self._addressOf(widget),
     )
 
-  @overload(QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation)
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
+  )
+  @overload(
+      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
       QStyleOption,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
       NoneType,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
       QStyleOption, QWidget,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
       QStyleOption, NoneType,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
       NoneType, QWidget,
   )
   @overload(
-      QSizePolicyControlType, QSizePolicyControlType, Qt.Orientation,
+      QSizePolicy.ControlTypes, QSizePolicy.ControlTypes, Qt.Orientation,
       NoneType, NoneType,
   )
   def combinedLayoutSpacing(
@@ -1237,8 +1920,8 @@ class QStyle(QObject):
 
   @overload(QPainter, QRect, int, QPalette, bool, str)
   @overload(NoneType, QRect, int, QPalette, bool, str)
-  @overload(QPainter, QRect, int, QPalette, bool, str, QPaletteColorRole)
-  @overload(NoneType, QRect, int, QPalette, bool, str, QPaletteColorRole)
+  @overload(QPainter, QRect, int, QPalette, bool, str, QPalette.ColorRole)
+  @overload(NoneType, QRect, int, QPalette, bool, str, QPalette.ColorRole)
   def drawItemText(
       self,
       painter: Optional[QPainter],
@@ -1247,7 +1930,7 @@ class QStyle(QObject):
       pal: QPalette,
       enabled: bool,
       text: str,
-      textRole: QPalette.ColorRole = QPaletteColorRole.NoRole,
+      textRole: QPalette.ColorRole = QPalette.ColorRole.NoRole,
   ) -> None:
     """
     Calls Qt's 'void QStyle::drawItemText(QPainter *painter, const QRect
@@ -1281,7 +1964,7 @@ class QStyle(QObject):
 
     textRole : QPalette.ColorRole
       Passed on as its number. May be left out, as in Qt: it is then
-      QPaletteColorRole.NoRole.
+      QPalette.ColorRole.NoRole.
     """
     #  void QStyle::drawItemText(QPainter *painter, const QRect &rect, int
     #      flags, const QPalette &pal, bool enabled, const QString &text,

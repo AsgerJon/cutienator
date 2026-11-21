@@ -10,24 +10,22 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QImageFormat, QImageIOHandlerImageOption
-from . import QImageIOHandlerTransformation
+from . import QImage
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QByteArray, QIODevice, QRect, QSize, QVariant
-  from . import QImage
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
   QIODevice = WAIT['QIODevice']
-  QImage = WAIT['QImage']
   QSize = WAIT['QSize']
   QVariant = WAIT['QVariant']
 
@@ -80,19 +78,60 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QImageIOHandler.
   """
 
-  #  The enums Qt writes inside QImageIOHandler, and the names Qt has for the
-  #  combinations of its flags enums.
-  ImageOption = QImageIOHandlerImageOption
-  Transformation = QImageIOHandlerTransformation
-  Transformations = QImageIOHandlerTransformation
+  #  The enums Qt writes inside QImageIOHandler, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ImageOption(CuteNum):
+    """
+    The enum 'QImageIOHandler::ImageOption' of Qt, with the 19 names Qt gives
+    in it.
+    """
+
+    Size = Kee[int](0)
+    ClipRect = Kee[int](1)
+    Description = Kee[int](2)
+    ScaledClipRect = Kee[int](3)
+    ScaledSize = Kee[int](4)
+    CompressionRatio = Kee[int](5)
+    Gamma = Kee[int](6)
+    Quality = Kee[int](7)
+    Name = Kee[int](8)
+    SubType = Kee[int](9)
+    IncrementalReading = Kee[int](10)
+    Endianness = Kee[int](11)
+    Animation = Kee[int](12)
+    BackgroundColor = Kee[int](13)
+    ImageFormat = Kee[int](14)
+    SupportedSubTypes = Kee[int](15)
+    OptimizedWrite = Kee[int](16)
+    ProgressiveScanWrite = Kee[int](17)
+    ImageTransformation = Kee[int](18)
+
+  class Transformation(CuteFlags):
+    """
+    The flags enum 'QImageIOHandler::Transformation' of Qt, with the 8 names
+    Qt gives in it. Qt names the type of its combinations
+    'QImageIOHandler::Transformations'.
+    """
+
+    TransformationNone = 0x0
+    TransformationMirror = 0x1
+    TransformationFlip = 0x2
+    TransformationRotate180 = 0x3
+    TransformationRotate90 = 0x4
+    TransformationMirrorAndRotate90 = 0x5
+    TransformationFlipAndRotate90 = 0x6
+    TransformationRotate270 = 0x7
+
+  Transformations = Transformation
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @staticmethod
-  @overload(QSize, QImageFormat, QImage)
-  @overload(QSize, QImageFormat, NoneType)
+  @overload(QSize, QImage.Format, QImage)
+  @overload(QSize, QImage.Format, NoneType)
   def allocateImage(
       size: QSize,
       format: QImage.Format,

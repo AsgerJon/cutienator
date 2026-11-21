@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessiblebridge.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QAccessibleBridgeD1Ev": ["nothing", "address"],
+    "ritual_ZN17QAccessibleBridge13setRootObjectEP20QAccessibleInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAccessibleBridge25notifyAccessibilityUpdateEP16QAccessibleEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

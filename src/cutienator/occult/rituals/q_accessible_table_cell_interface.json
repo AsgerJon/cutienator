@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QAccessibleTableCellInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK29QAccessibleTableCellInterface10isSelectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QAccessibleTableCellInterface11columnIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QAccessibleTableCellInterface8rowIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QAccessibleTableCellInterface12columnExtentEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QAccessibleTableCellInterface9rowExtentEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QAccessibleTableCellInterface5tableEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -10,18 +10,18 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from . import QActionActionEvent, QActionMenuRole, QActionPriority
-from . import QKeySequenceStandardKey
+from . import QKeySequence
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QVariant
-  from . import QActionGroup, QFont, QIcon, QKeySequence
+  from . import QActionGroup, QFont, QIcon
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -29,7 +29,6 @@ else:
   QActionGroup = WAIT['QActionGroup']
   QFont = WAIT['QFont']
   QIcon = WAIT['QIcon']
-  QKeySequence = WAIT['QKeySequence']
   QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -91,11 +90,38 @@ class QAction(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QAction, and the names Qt has for the
-  #  combinations of its flags enums.
-  ActionEvent = QActionActionEvent
-  MenuRole = QActionMenuRole
-  Priority = QActionPriority
+  #  The enums Qt writes inside QAction, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class ActionEvent(CuteNum):
+    """
+    The enum 'QAction::ActionEvent' of Qt, with the 2 names Qt gives in it.
+    """
+
+    Trigger = Kee[int](0)
+    Hover = Kee[int](1)
+
+  class MenuRole(CuteNum):
+    """
+    The enum 'QAction::MenuRole' of Qt, with the 7 names Qt gives in it.
+    """
+
+    NoRole = Kee[int](0)
+    TextHeuristicRole = Kee[int](1)
+    ApplicationSpecificRole = Kee[int](2)
+    AboutQtRole = Kee[int](3)
+    AboutRole = Kee[int](4)
+    PreferencesRole = Kee[int](5)
+    QuitRole = Kee[int](6)
+
+  class Priority(CuteNum):
+    """
+    The enum 'QAction::Priority' of Qt, with the 3 names Qt gives in it.
+    """
+
+    LowPriority = Kee[int](0)
+    NormalPriority = Kee[int](128)
+    HighPriority = Kee[int](256)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -332,7 +358,6 @@ class QAction(QObject):
     """
     #  QKeySequence QAction::shortcut() const
     address = self.uglySide.call('ritual_ZNK7QAction8shortcutEv')
-    from . import QKeySequence
     return QKeySequence._cuteOwning(address)
 
   def shortcutContext(self) -> Qt.ShortcutContext:
@@ -651,7 +676,7 @@ class QAction(QObject):
         self._valueOf(shortcut),
     )
 
-  @overload(QKeySequenceStandardKey)
+  @overload(QKeySequence.StandardKey)
   def setShortcuts(self, a0: QKeySequence.StandardKey) -> None:
     """
     Calls Qt's 'void QAction::setShortcuts(QKeySequence::StandardKey a0)'.

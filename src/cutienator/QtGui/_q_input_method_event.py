@@ -10,10 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
 from ..QtCore import QEvent
-from . import QInputMethodEventAttributeType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -60,9 +61,133 @@ class QInputMethodEvent(QEvent):
   - Python never removes the C++ QInputMethodEvent.
   """
 
-  #  The enums Qt writes inside QInputMethodEvent, and the names Qt has for
-  #  the combinations of its flags enums.
-  AttributeType = QInputMethodEventAttributeType
+  #  The enums Qt writes inside QInputMethodEvent, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class AttributeType(CuteNum):
+    """
+    The enum 'QInputMethodEvent::AttributeType' of Qt, with the 6 names Qt
+    gives in it.
+    """
+
+    TextFormat = Kee[int](0)
+    Cursor = Kee[int](1)
+    Language = Kee[int](2)
+    Ruby = Kee[int](3)
+    Selection = Kee[int](4)
+    MimeData = Kee[int](5)
+
+  #  The classes Qt writes inside QInputMethodEvent, each a class in here as
+  #  in C++.
+
+  class Attribute(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QInputMethodEvent::Attribute: a plain Python object
+    standing in front of one C++ QInputMethodEvent::Attribute.
+
+    C++ hands a QInputMethodEvent::Attribute around as a copy, so every C++
+    QInputMethodEvent::Attribute behind a cute one is Python's own: it is
+    removed, by the ritual named in '__delete_ritual__', when the cute object
+    goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QInputMethodEvent::Attribute yet. None can be made
+    from Python: one comes out of a function of another class that gives one
+    back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QInputMethodEvent::Attribute::Attribute(AttributeType typ, int s,
+      int l, QVariant val)': names the enum
+      'QInputMethodEvent::AttributeType', whose class cannot be named here.
+    - Qt's 'QInputMethodEvent::Attribute::Attribute(AttributeType typ, int s,
+      int l)': names the enum 'QInputMethodEvent::AttributeType', whose class
+      cannot be named here.
+    - Qt's 'QInputMethodEvent::Attribute::~Attribute()': the destructor:
+      Python removes its C++ QInputMethodEvent::Attribute by it, and has no
+      other use for it.
+
+    What to expect
+    --------------
+
+    - The C++ QInputMethodEvent::Attribute is created at the first use, not
+      by 'QInputMethodEvent::Attribute(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QInputMethodEvent::Attribute back gives a copy the
+      ritual made for Python, in a new cute QInputMethodEvent::Attribute.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QInputMethodEvent::Attribute'
+
+    #  Qt's '~QInputMethodEvent::Attribute()'. Naming it makes this a value
+    #  class: Python owns every C++ QInputMethodEvent::Attribute behind a
+    #  cute one, and removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN17QInputMethodEvent9AttributeD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

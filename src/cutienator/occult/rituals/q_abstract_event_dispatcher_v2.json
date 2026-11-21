@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qabstracteventdispatcher.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QAbstractEventDispatcherV210metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QAbstractEventDispatcherV22trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QAbstractEventDispatcherV2D1Ev": ["nothing", "address"],
+    "ritual_ZN26QAbstractEventDispatcherV215unregisterTimerEN2Qt7TimerIdE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN26QAbstractEventDispatcherV225processEventsWithDeadlineE6QFlagsIN10QEventLoop17ProcessEventsFlagEE14QDeadlineTimer": [
+      "bool", "address", "int", "address"
+    ]
+  }
+}

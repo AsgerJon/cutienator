@@ -10,10 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from . import QObject, QThreadPriority, QThreadQualityOfService
+from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -80,10 +81,33 @@ class QThread(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QThread, and the names Qt has for the
-  #  combinations of its flags enums.
-  Priority = QThreadPriority
-  QualityOfService = QThreadQualityOfService
+  #  The enums Qt writes inside QThread, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class Priority(CuteNum):
+    """
+    The enum 'QThread::Priority' of Qt, with the 8 names Qt gives in it.
+    """
+
+    IdlePriority = Kee[int](0)
+    LowestPriority = Kee[int](1)
+    LowPriority = Kee[int](2)
+    NormalPriority = Kee[int](3)
+    HighPriority = Kee[int](4)
+    HighestPriority = Kee[int](5)
+    TimeCriticalPriority = Kee[int](6)
+    InheritPriority = Kee[int](7)
+
+  class QualityOfService(CuteNum, scoped=True):
+    """
+    The enum 'QThread::QualityOfService' of Qt, with the 3 names Qt gives in
+    it. C++ keeps these names inside the enum, so the class that holds the
+    enum does not have them.
+    """
+
+    Auto = Kee[int](0)
+    High = Kee[int](1)
+    Eco = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

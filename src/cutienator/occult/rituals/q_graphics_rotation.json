@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicstransform.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QGraphicsRotation10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QGraphicsRotation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QGraphicsRotationC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QGraphicsRotationD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QGraphicsRotation6originEv": ["address", "address"],
+    "ritual_ZN17QGraphicsRotation9setOriginERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QGraphicsRotation5angleEv": ["double", "address"],
+    "ritual_ZN17QGraphicsRotation8setAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17QGraphicsRotation4axisEv": ["address", "address"],
+    "ritual_ZN17QGraphicsRotation7setAxisERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QGraphicsRotation7setAxisEN2Qt4AxisE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QGraphicsRotation7applyToEP10QMatrix4x4": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QTextOptionFlag, QTextOptionTabType, QTextOptionWrapMode
 
 
 class QTextOption(CuteMixin, metaclass=MetaCute):
@@ -62,12 +62,169 @@ class QTextOption(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QTextOption.
   """
 
-  #  The enums Qt writes inside QTextOption, and the names Qt has for the
-  #  combinations of its flags enums.
-  Flag = QTextOptionFlag
-  Flags = QTextOptionFlag
-  TabType = QTextOptionTabType
-  WrapMode = QTextOptionWrapMode
+  #  The enums Qt writes inside QTextOption, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Flag(CuteFlags, number='unsigned int'):
+    """
+    The flags enum 'QTextOption::Flag' of Qt, with the 8 names Qt gives in
+    it. Qt names the type of its combinations 'QTextOption::Flags'.
+    """
+
+    ShowTabsAndSpaces = 0x1
+    ShowLineAndParagraphSeparators = 0x2
+    AddSpaceForLineAndParagraphSeparators = 0x4
+    SuppressColors = 0x8
+    ShowDocumentTerminator = 0x10
+    ShowDefaultIgnorables = 0x20
+    DisableEmojiParsing = 0x40
+    IncludeTrailingSpaces = 0x80000000
+
+  Flags = Flag
+
+  class TabType(CuteNum):
+    """
+    The enum 'QTextOption::TabType' of Qt, with the 4 names Qt gives in it.
+    """
+
+    LeftTab = Kee[int](0)
+    RightTab = Kee[int](1)
+    CenterTab = Kee[int](2)
+    DelimiterTab = Kee[int](3)
+
+  class WrapMode(CuteNum):
+    """
+    The enum 'QTextOption::WrapMode' of Qt, with the 5 names Qt gives in it.
+    """
+
+    NoWrap = Kee[int](0)
+    WordWrap = Kee[int](1)
+    ManualWrap = Kee[int](2)
+    WrapAnywhere = Kee[int](3)
+    WrapAtWordBoundaryOrAnywhere = Kee[int](4)
+
+  #  The classes Qt writes inside QTextOption, each a class in here as in
+  #  C++.
+
+  class Tab(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QTextOption::Tab: a plain Python object standing in
+    front of one C++ QTextOption::Tab.
+
+    C++ hands a QTextOption::Tab around as a copy, so every C++
+    QTextOption::Tab behind a cute one is Python's own: it is removed, by the
+    ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QTextOption::Tab yet. It can be made from Python, in
+    1 way; see '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QTextOption::Tab::Tab(qreal pos, TabType tabType, QChar delim)':
+      names the enum 'QTextOption::TabType', whose class cannot be named
+      here.
+    - Qt's 'bool QTextOption::Tab::operator==(const Tab &other) const': an
+      operator, which is not reflected yet.
+    - Qt's 'bool QTextOption::Tab::operator!=(const Tab &other) const': an
+      operator, which is not reflected yet.
+    - Qt's 'QTextOption::Tab::~Tab()': the destructor: Python removes its C++
+      QTextOption::Tab by it, and has no other use for it.
+
+    What to expect
+    --------------
+
+    - The C++ QTextOption::Tab is created at the first use, not by
+      'QTextOption::Tab(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QTextOption::Tab back gives a copy the ritual made
+      for Python, in a new cute QTextOption::Tab.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QTextOption::Tab'
+
+    #  Qt's '~QTextOption::Tab()'. Naming it makes this a value class: Python
+    #  owns every C++ QTextOption::Tab behind a cute one, and removes it by
+    #  this ritual.
+    __delete_ritual__ = 'ritual_ZN11QTextOption3TabD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's 'QTextOption::Tab::Tab()', which is
+      called at the first use.
+
+      Qt's own words: https://doc.qt.io/qt-6/qtextoption-tab.html#Tab
+      """
+      #  QTextOption::Tab::Tab()
+      self._noteCreation(QTextOption.Tab, lambda: Rituals.call(
+          'ritual_ZN11QTextOption3TabC1Ev',
+      ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qsequentialanimationgroup.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QSequentialAnimationGroup10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QSequentialAnimationGroup2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QSequentialAnimationGroupC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN25QSequentialAnimationGroupD1Ev": ["nothing", "address"],
+    "ritual_ZN25QSequentialAnimationGroup8addPauseEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN25QSequentialAnimationGroup11insertPauseEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK25QSequentialAnimationGroup16currentAnimationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QSequentialAnimationGroup8durationEv": ["int", "address"]
+  }
+}

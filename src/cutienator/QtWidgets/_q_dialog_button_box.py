@@ -10,12 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QDialogButtonBoxButtonLayout, QDialogButtonBoxButtonRole
-from . import QDialogButtonBoxStandardButton, QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -82,12 +82,69 @@ class QDialogButtonBox(QWidget):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QDialogButtonBox, and the names Qt has for
-  #  the combinations of its flags enums.
-  ButtonLayout = QDialogButtonBoxButtonLayout
-  ButtonRole = QDialogButtonBoxButtonRole
-  StandardButton = QDialogButtonBoxStandardButton
-  StandardButtons = QDialogButtonBoxStandardButton
+  #  The enums Qt writes inside QDialogButtonBox, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ButtonLayout(CuteNum):
+    """
+    The enum 'QDialogButtonBox::ButtonLayout' of Qt, with the 5 names Qt
+    gives in it.
+    """
+
+    WinLayout = Kee[int](0)
+    MacLayout = Kee[int](1)
+    KdeLayout = Kee[int](2)
+    GnomeLayout = Kee[int](3)
+    AndroidLayout = Kee[int](4)
+
+  class ButtonRole(CuteNum):
+    """
+    The enum 'QDialogButtonBox::ButtonRole' of Qt, with the 11 names Qt gives
+    in it.
+    """
+
+    InvalidRole = Kee[int](-1)
+    AcceptRole = Kee[int](0)
+    RejectRole = Kee[int](1)
+    DestructiveRole = Kee[int](2)
+    ActionRole = Kee[int](3)
+    HelpRole = Kee[int](4)
+    YesRole = Kee[int](5)
+    NoRole = Kee[int](6)
+    ResetRole = Kee[int](7)
+    ApplyRole = Kee[int](8)
+    NRoles = Kee[int](9)
+
+  class StandardButton(CuteFlags):
+    """
+    The flags enum 'QDialogButtonBox::StandardButton' of Qt, with the 21
+    names Qt gives in it. Qt names the type of its combinations
+    'QDialogButtonBox::StandardButtons'.
+    """
+
+    NoButton = 0x0
+    Ok = 0x400
+    Save = 0x800
+    SaveAll = 0x1000
+    Open = 0x2000
+    Yes = 0x4000
+    YesToAll = 0x8000
+    No = 0x10000
+    NoToAll = 0x20000
+    Abort = 0x40000
+    Retry = 0x80000
+    Ignore = 0x100000
+    Close = 0x200000
+    Cancel = 0x400000
+    Discard = 0x800000
+    Help = 0x1000000
+    Apply = 0x2000000
+    Reset = 0x4000000
+    RestoreDefaults = 0x8000000
+    FirstButton = 0x400
+    LastButton = 0x8000000
+
+  StandardButtons = StandardButton
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

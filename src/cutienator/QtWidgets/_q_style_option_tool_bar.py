@@ -11,12 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteFlags, CuteNum
 from ..occult import Rituals
-from . import QStyleOption, QStyleOptionToolBarStyleOptionType
-from . import QStyleOptionToolBarStyleOptionVersion
-from . import QStyleOptionToolBarToolBarFeature
-from . import QStyleOptionToolBarToolBarPosition
+from . import QStyleOption
 
 
 class QStyleOptionToolBar(QStyleOption):
@@ -64,13 +63,47 @@ class QStyleOptionToolBar(QStyleOption):
     for Python, in a new cute QStyleOptionToolBar.
   """
 
-  #  The enums Qt writes inside QStyleOptionToolBar, and the names Qt has for
-  #  the combinations of its flags enums.
-  StyleOptionType = QStyleOptionToolBarStyleOptionType
-  StyleOptionVersion = QStyleOptionToolBarStyleOptionVersion
-  ToolBarFeature = QStyleOptionToolBarToolBarFeature
-  ToolBarFeatures = QStyleOptionToolBarToolBarFeature
-  ToolBarPosition = QStyleOptionToolBarToolBarPosition
+  #  The enums Qt writes inside QStyleOptionToolBar, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class StyleOptionType(CuteNum):
+    """
+    The enum 'QStyleOptionToolBar::StyleOptionType' of Qt, with the 1 names
+    Qt gives in it.
+    """
+
+    Type = Kee[int](14)
+
+  class StyleOptionVersion(CuteNum):
+    """
+    The enum 'QStyleOptionToolBar::StyleOptionVersion' of Qt, with the 1
+    names Qt gives in it.
+    """
+
+    Version = Kee[int](1)
+
+  class ToolBarFeature(CuteFlags):
+    """
+    The flags enum 'QStyleOptionToolBar::ToolBarFeature' of Qt, with the 2
+    names Qt gives in it. Qt names the type of its combinations
+    'QStyleOptionToolBar::ToolBarFeatures'.
+    """
+
+    NULL = 0x0
+    Movable = 0x1
+
+  ToolBarFeatures = ToolBarFeature
+
+  class ToolBarPosition(CuteNum):
+    """
+    The enum 'QStyleOptionToolBar::ToolBarPosition' of Qt, with the 4 names
+    Qt gives in it.
+    """
+
+    Beginning = Kee[int](0)
+    Middle = Kee[int](1)
+    End = Kee[int](2)
+    OnlyOne = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

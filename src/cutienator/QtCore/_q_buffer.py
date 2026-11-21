@@ -13,12 +13,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import QIODevice, QIODeviceBaseOpenModeFlag, QObject
+from . import QIODevice, QIODeviceBase, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QIODeviceBase, QMetaObject
+  from . import QByteArray, QMetaObject
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -379,7 +379,7 @@ class QBuffer(QIODevice):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QIODeviceBaseOpenModeFlag)
+  @overload(QIODeviceBase.OpenMode)
   def open(self, openMode: QIODeviceBase.OpenMode) -> bool:
     """
     Calls Qt's 'bool QBuffer::open(OpenMode openMode)'.

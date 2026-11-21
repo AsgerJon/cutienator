@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcalendar.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QCalendar12YearMonthDayC1Ev": ["address"],
+    "ritual_ZN9QCalendar12YearMonthDayC1Eiii": [
+      "address", "int", "int", "int"
+    ],
+    "ritual_ZNK9QCalendar12YearMonthDay7isValidEv": ["bool", "address"],
+    "ritual_ZN9QCalendar12YearMonthDayD1Ev": ["nothing", "address"]
+  }
+}

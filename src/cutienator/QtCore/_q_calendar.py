@@ -10,20 +10,20 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QCalendarSystem, QLocaleFormatType
+from . import QLocale
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QDate, QDateTime, QLocale, QTime
+  from . import QDate, QDateTime, QTime
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QDate = WAIT['QDate']
   QDateTime = WAIT['QDateTime']
-  QLocale = WAIT['QLocale']
   QTime = WAIT['QTime']
 
 
@@ -40,26 +40,17 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCalendar that has a ritual and that Python can call
-  so far, 23 names in all: 'isValid', 'daysInMonth', 'daysInYear',
+  so far, 25 names in all: 'isValid', 'daysInMonth', 'daysInYear',
   'monthsInYear', 'isDateValid', 'isLeapYear', 'isGregorian', 'isLunar',
   'isLuniSolar', 'isSolar', 'isProleptic', 'hasYearZero',
   'maximumDaysInMonth', 'minimumDaysInMonth', 'maximumMonthsInYear', 'name',
-  'dateFromParts', 'dayOfWeek', 'monthName', 'standaloneMonthName',
-  'weekDayName', 'standaloneWeekDayName', 'dateTimeToString'. It can be made
-  from Python, in 3 ways; see '__init__'.
+  'dateFromParts', 'matchCenturyToWeekday', 'partsFromDate', 'dayOfWeek',
+  'monthName', 'standaloneMonthName', 'weekDayName', 'standaloneWeekDayName',
+  'dateTimeToString'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QCalendar::QCalendar(SystemId id)': names 'QCalendar::SystemId',
-    which has no cute class yet.
-  - Qt's 'QDate QCalendar::dateFromParts(const YearMonthDay &parts) const':
-    names 'QCalendar::YearMonthDay', which has no cute class yet.
-  - Qt's 'QDate QCalendar::matchCenturyToWeekday(const YearMonthDay &parts,
-    int dow) const': names 'QCalendar::YearMonthDay', which has no cute class
-    yet.
-  - Qt's 'YearMonthDay QCalendar::partsFromDate(QDate date) const': gives
-    'QCalendar::YearMonthDay', which has no cute class yet.
   - Qt's 'QCalendar::~QCalendar()': the destructor: Python removes its C++
     QCalendar by it, and has no other use for it.
 
@@ -82,9 +73,312 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QCalendar.
   """
 
-  #  The enums Qt writes inside QCalendar, and the names Qt has for the
-  #  combinations of its flags enums.
-  System = QCalendarSystem
+  #  The enums Qt writes inside QCalendar, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class System(CuteNum, scoped=True):
+    """
+    The enum 'QCalendar::System' of Qt, with the 7 names Qt gives in it. C++
+    keeps these names inside the enum, so the class that holds the enum does
+    not have them.
+    """
+
+    Gregorian = Kee[int](0)
+    Julian = Kee[int](8)
+    Milankovic = Kee[int](9)
+    Jalali = Kee[int](10)
+    IslamicCivil = Kee[int](11)
+    Last = Kee[int](11)
+    User = Kee[int](-1)
+
+  #  The classes Qt writes inside QCalendar, each a class in here as in C++.
+
+  class SystemId(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QCalendar::SystemId: a plain Python object standing
+    in front of one C++ QCalendar::SystemId.
+
+    C++ hands a QCalendar::SystemId around as a copy, so every C++
+    QCalendar::SystemId behind a cute one is Python's own: it is removed, by
+    the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    Every function of Qt's QCalendar::SystemId that has a ritual and that
+    Python can call so far, 1 name in all: 'isValid'. It can be made from
+    Python, in 1 way; see '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QCalendar::SystemId::~SystemId()': the destructor: Python removes
+      its C++ QCalendar::SystemId by it, and has no other use for it.
+
+    What has no ritual
+    ------------------
+
+    4 of the 7 functions Qt declares: 3 private; 1 takes or gives a type that
+    cannot be passed yet.
+
+    What to expect
+    --------------
+
+    - The C++ QCalendar::SystemId is created at the first use, not by
+      'QCalendar::SystemId(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QCalendar::SystemId back gives a copy the ritual
+      made for Python, in a new cute QCalendar::SystemId.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QCalendar::SystemId'
+
+    #  Qt's '~QCalendar::SystemId()'. Naming it makes this a value class:
+    #  Python owns every C++ QCalendar::SystemId behind a cute one, and
+    #  removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN9QCalendar8SystemIdD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    def isValid(self) -> bool:
+      """
+      Calls Qt's 'bool QCalendar::SystemId::isValid() const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qcalendar-systemid.html#isValid
+      """
+      #  bool QCalendar::SystemId::isValid() const
+      return self.uglySide.call('ritual_ZNK9QCalendar8SystemId7isValidEv')
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's 'QCalendar::SystemId::SystemId()', which
+      is called at the first use.
+
+      Qt's own words: https://doc.qt.io/qt-6/qcalendar-systemid.html#SystemId
+      """
+      #  QCalendar::SystemId::SystemId()
+      self._noteCreation(QCalendar.SystemId, lambda: Rituals.call(
+          'ritual_ZN9QCalendar8SystemIdC1Ev',
+      ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  class YearMonthDay(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QCalendar::YearMonthDay: a plain Python object
+    standing in front of one C++ QCalendar::YearMonthDay.
+
+    C++ hands a QCalendar::YearMonthDay around as a copy, so every C++
+    QCalendar::YearMonthDay behind a cute one is Python's own: it is removed,
+    by the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    Every function of Qt's QCalendar::YearMonthDay that has a ritual and that
+    Python can call so far, 1 name in all: 'isValid'. It can be made from
+    Python, in 2 ways; see '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QCalendar::YearMonthDay::~YearMonthDay()': the destructor: Python
+      removes its C++ QCalendar::YearMonthDay by it, and has no other use for
+      it.
+
+    What to expect
+    --------------
+
+    - The C++ QCalendar::YearMonthDay is created at the first use, not by
+      'QCalendar::YearMonthDay(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QCalendar::YearMonthDay back gives a copy the
+      ritual made for Python, in a new cute QCalendar::YearMonthDay.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QCalendar::YearMonthDay'
+
+    #  Qt's '~QCalendar::YearMonthDay()'. Naming it makes this a value class:
+    #  Python owns every C++ QCalendar::YearMonthDay behind a cute one, and
+    #  removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN9QCalendar12YearMonthDayD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    def isValid(self) -> bool:
+      """
+      Calls Qt's 'bool QCalendar::YearMonthDay::isValid() const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#isValid
+      """
+      #  bool QCalendar::YearMonthDay::isValid() const
+      return self.uglySide.call(
+          'ritual_ZNK9QCalendar12YearMonthDay7isValidEv',
+      )
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's
+      'QCalendar::YearMonthDay::YearMonthDay()', which is called at the first
+      use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#YearMonthDay
+      """
+      #  QCalendar::YearMonthDay::YearMonthDay()
+      self._noteCreation(QCalendar.YearMonthDay, lambda: Rituals.call(
+          'ritual_ZN9QCalendar12YearMonthDayC1Ev',
+      ))
+
+    @overload(int)
+    @overload(int, int)
+    @overload(int, int, int)
+    def __init__(self, y: int, m: int = 1, d: int = 1) -> None:
+      """
+      Notes what was given, for Qt's
+      'QCalendar::YearMonthDay::YearMonthDay(int y, int m, int d)', which is
+      called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#YearMonthDay
+
+      Parameters
+      ----------
+
+      y : int
+        Passed on as it is.
+
+      m : int
+        Passed on as it is. May be left out, as in Qt: it is then 1.
+
+      d : int
+        Passed on as it is. May be left out, as in Qt: it is then 1.
+      """
+      #  QCalendar::YearMonthDay::YearMonthDay(int y, int m, int d)
+      self._noteCreation(QCalendar.YearMonthDay, lambda: Rituals.call(
+          'ritual_ZN9QCalendar12YearMonthDayC1Eiii', y, m, d,
+      ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -347,6 +641,95 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
     from . import QDate
     return QDate._cuteOwning(address)
 
+  @overload(YearMonthDay)
+  def dateFromParts(self, parts: YearMonthDay) -> QDate:
+    """
+    Calls Qt's 'QDate QCalendar::dateFromParts(const YearMonthDay &parts)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendar.html#dateFromParts
+
+    Parameters
+    ----------
+
+    parts : YearMonthDay
+      Passed on as a value: Qt reads the C++ QCalendar::YearMonthDay, which
+      stays Python's own.
+
+    Returns
+    -------
+
+    QDate
+      A new cute QDate around the copy Qt gave back. Python owns it.
+    """
+    #  QDate QCalendar::dateFromParts(const YearMonthDay &parts) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QCalendar13dateFromPartsERKNS_12YearMonthDayE',
+        self._valueOf(parts),
+    )
+    from . import QDate
+    return QDate._cuteOwning(address)
+
+  @overload(YearMonthDay, int)
+  def matchCenturyToWeekday(self, parts: YearMonthDay, dow: int) -> QDate:
+    """
+    Calls Qt's 'QDate QCalendar::matchCenturyToWeekday(const YearMonthDay
+    &parts, int dow) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcalendar.html#matchCenturyToWeekday
+
+    Parameters
+    ----------
+
+    parts : YearMonthDay
+      Passed on as a value: Qt reads the C++ QCalendar::YearMonthDay, which
+      stays Python's own.
+
+    dow : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QDate
+      A new cute QDate around the copy Qt gave back. Python owns it.
+    """
+    #  QDate QCalendar::matchCenturyToWeekday(const YearMonthDay &parts, int
+    #      dow) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QCalendar21matchCenturyToWeekdayERKNS_12YearMonthDayEi',
+        self._valueOf(parts), dow,
+    )
+    from . import QDate
+    return QDate._cuteOwning(address)
+
+  @overload(QDate)
+  def partsFromDate(self, date: QDate) -> YearMonthDay:
+    """
+    Calls Qt's 'YearMonthDay QCalendar::partsFromDate(QDate date) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendar.html#partsFromDate
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+
+    Returns
+    -------
+
+    YearMonthDay
+      A new cute QCalendar::YearMonthDay around the copy Qt gave back. Python
+      owns it.
+    """
+    #  YearMonthDay QCalendar::partsFromDate(QDate date) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QCalendar13partsFromDateE5QDate', self._valueOf(date),
+    )
+    return QCalendar.YearMonthDay._cuteOwning(address)
+
   @overload(QDate)
   def dayOfWeek(self, date: QDate) -> int:
     """
@@ -367,13 +750,13 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
 
   @overload(QLocale, int)
   @overload(QLocale, int, int)
-  @overload(QLocale, int, int, QLocaleFormatType)
+  @overload(QLocale, int, int, QLocale.FormatType)
   def monthName(
       self,
       locale: QLocale,
       month: int,
       year: int = -2147483648,
-      format: QLocale.FormatType = QLocaleFormatType.LongFormat,
+      format: QLocale.FormatType = QLocale.FormatType.LongFormat,
   ) -> str:
     """
     Calls Qt's 'QString QCalendar::monthName(const QLocale &locale, int
@@ -396,7 +779,7 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
 
     format : QLocale.FormatType
       Passed on as its number. May be left out, as in Qt: it is then
-      QLocaleFormatType.LongFormat.
+      QLocale.FormatType.LongFormat.
 
     Returns
     -------
@@ -413,13 +796,13 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
 
   @overload(QLocale, int)
   @overload(QLocale, int, int)
-  @overload(QLocale, int, int, QLocaleFormatType)
+  @overload(QLocale, int, int, QLocale.FormatType)
   def standaloneMonthName(
       self,
       locale: QLocale,
       month: int,
       year: int = -2147483648,
-      format: QLocale.FormatType = QLocaleFormatType.LongFormat,
+      format: QLocale.FormatType = QLocale.FormatType.LongFormat,
   ) -> str:
     """
     Calls Qt's 'QString QCalendar::standaloneMonthName(const QLocale &locale,
@@ -442,7 +825,7 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
 
     format : QLocale.FormatType
       Passed on as its number. May be left out, as in Qt: it is then
-      QLocaleFormatType.LongFormat.
+      QLocale.FormatType.LongFormat.
 
     Returns
     -------
@@ -459,12 +842,12 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
     )
 
   @overload(QLocale, int)
-  @overload(QLocale, int, QLocaleFormatType)
+  @overload(QLocale, int, QLocale.FormatType)
   def weekDayName(
       self,
       locale: QLocale,
       day: int,
-      format: QLocale.FormatType = QLocaleFormatType.LongFormat,
+      format: QLocale.FormatType = QLocale.FormatType.LongFormat,
   ) -> str:
     """
     Calls Qt's 'QString QCalendar::weekDayName(const QLocale &locale, int
@@ -484,7 +867,7 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
 
     format : QLocale.FormatType
       Passed on as its number. May be left out, as in Qt: it is then
-      QLocaleFormatType.LongFormat.
+      QLocale.FormatType.LongFormat.
 
     Returns
     -------
@@ -500,12 +883,12 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
     )
 
   @overload(QLocale, int)
-  @overload(QLocale, int, QLocaleFormatType)
+  @overload(QLocale, int, QLocale.FormatType)
   def standaloneWeekDayName(
       self,
       locale: QLocale,
       day: int,
-      format: QLocale.FormatType = QLocaleFormatType.LongFormat,
+      format: QLocale.FormatType = QLocale.FormatType.LongFormat,
   ) -> str:
     """
     Calls Qt's 'QString QCalendar::standaloneWeekDayName(const QLocale
@@ -526,7 +909,7 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
 
     format : QLocale.FormatType
       Passed on as its number. May be left out, as in Qt: it is then
-      QLocaleFormatType.LongFormat.
+      QLocale.FormatType.LongFormat.
 
     Returns
     -------
@@ -659,6 +1042,26 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
     #  QCalendar::QCalendar(QAnyStringView name)
     self._noteCreation(QCalendar, lambda: Rituals.call(
         'ritual_ZN9QCalendarC1E14QAnyStringView', name,
+    ))
+
+  @overload(SystemId)
+  def __init__(self, id: SystemId) -> None:
+    """
+    Notes what was given, for Qt's 'QCalendar::QCalendar(SystemId id)', which
+    is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendar.html#QCalendar
+
+    Parameters
+    ----------
+
+    id : SystemId
+      Passed on as a value: Qt reads the C++ QCalendar::SystemId, which stays
+      Python's own.
+    """
+    #  QCalendar::QCalendar(SystemId id)
+    self._noteCreation(QCalendar, lambda: Rituals.call(
+        'ritual_ZN9QCalendarC1ENS_8SystemIdE', self._valueOf(id),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

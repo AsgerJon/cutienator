@@ -10,14 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QAbstractItemViewDragDropMode, QAbstractItemViewEditTrigger
-from . import QAbstractItemViewScrollHint, QAbstractItemViewScrollMode
-from . import QAbstractItemViewSelectionBehavior
-from . import QAbstractItemViewSelectionMode, QAbstractScrollArea, QWidget
+from . import QAbstractScrollArea, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -107,15 +105,79 @@ class QAbstractItemView(QAbstractScrollArea):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QAbstractItemView, and the names Qt has for
-  #  the combinations of its flags enums.
-  DragDropMode = QAbstractItemViewDragDropMode
-  EditTrigger = QAbstractItemViewEditTrigger
-  EditTriggers = QAbstractItemViewEditTrigger
-  ScrollHint = QAbstractItemViewScrollHint
-  ScrollMode = QAbstractItemViewScrollMode
-  SelectionBehavior = QAbstractItemViewSelectionBehavior
-  SelectionMode = QAbstractItemViewSelectionMode
+  #  The enums Qt writes inside QAbstractItemView, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class DragDropMode(CuteNum):
+    """
+    The enum 'QAbstractItemView::DragDropMode' of Qt, with the 5 names Qt
+    gives in it.
+    """
+
+    NoDragDrop = Kee[int](0)
+    DragOnly = Kee[int](1)
+    DropOnly = Kee[int](2)
+    DragDrop = Kee[int](3)
+    InternalMove = Kee[int](4)
+
+  class EditTrigger(CuteFlags):
+    """
+    The flags enum 'QAbstractItemView::EditTrigger' of Qt, with the 7 names
+    Qt gives in it. Qt names the type of its combinations
+    'QAbstractItemView::EditTriggers'.
+    """
+
+    NoEditTriggers = 0x0
+    CurrentChanged = 0x1
+    DoubleClicked = 0x2
+    SelectedClicked = 0x4
+    EditKeyPressed = 0x8
+    AnyKeyPressed = 0x10
+    AllEditTriggers = 0x1f
+
+  EditTriggers = EditTrigger
+
+  class ScrollHint(CuteNum):
+    """
+    The enum 'QAbstractItemView::ScrollHint' of Qt, with the 4 names Qt gives
+    in it.
+    """
+
+    EnsureVisible = Kee[int](0)
+    PositionAtTop = Kee[int](1)
+    PositionAtBottom = Kee[int](2)
+    PositionAtCenter = Kee[int](3)
+
+  class ScrollMode(CuteNum):
+    """
+    The enum 'QAbstractItemView::ScrollMode' of Qt, with the 2 names Qt gives
+    in it.
+    """
+
+    ScrollPerItem = Kee[int](0)
+    ScrollPerPixel = Kee[int](1)
+
+  class SelectionBehavior(CuteNum):
+    """
+    The enum 'QAbstractItemView::SelectionBehavior' of Qt, with the 3 names
+    Qt gives in it.
+    """
+
+    SelectItems = Kee[int](0)
+    SelectRows = Kee[int](1)
+    SelectColumns = Kee[int](2)
+
+  class SelectionMode(CuteNum):
+    """
+    The enum 'QAbstractItemView::SelectionMode' of Qt, with the 5 names Qt
+    gives in it.
+    """
+
+    NoSelection = Kee[int](0)
+    SingleSelection = Kee[int](1)
+    MultiSelection = Kee[int](2)
+    ExtendedSelection = Kee[int](3)
+    ContiguousSelection = Kee[int](4)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -10,11 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QAbstractSlider, QSliderTickPosition, QWidget
+from . import QAbstractSlider, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -74,9 +75,20 @@ class QSlider(QAbstractSlider):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QSlider, and the names Qt has for the
-  #  combinations of its flags enums.
-  TickPosition = QSliderTickPosition
+  #  The enums Qt writes inside QSlider, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class TickPosition(CuteNum):
+    """
+    The enum 'QSlider::TickPosition' of Qt, with the 6 names Qt gives in it.
+    """
+
+    NoTicks = Kee[int](0)
+    TicksAbove = Kee[int](1)
+    TicksLeft = Kee[int](1)
+    TicksBelow = Kee[int](2)
+    TicksRight = Kee[int](2)
+    TicksBothSides = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

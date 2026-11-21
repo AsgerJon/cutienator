@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qaccessiblewidget.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QAccessibleWidgetC1EP7QWidgetN11QAccessible4RoleE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QAccessibleWidgetC1EP7QWidgetN11QAccessible4RoleERK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZNK17QAccessibleWidget7isValidEv": ["bool", "address"],
+    "ritual_ZNK17QAccessibleWidget6windowEv": ["address", "address"],
+    "ritual_ZNK17QAccessibleWidget10childCountEv": ["int", "address"],
+    "ritual_ZNK17QAccessibleWidget12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK17QAccessibleWidget10focusChildEv": ["address", "address"],
+    "ritual_ZNK17QAccessibleWidget4rectEv": ["address", "address"],
+    "ritual_ZNK17QAccessibleWidget6parentEv": ["address", "address"],
+    "ritual_ZNK17QAccessibleWidget5childEi": ["address", "address", "int"],
+    "ritual_ZNK17QAccessibleWidget4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK17QAccessibleWidget4roleEv": ["int", "address"],
+    "ritual_ZNK17QAccessibleWidget5stateEv": ["address", "address"],
+    "ritual_ZNK17QAccessibleWidget15foregroundColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QAccessibleWidget15backgroundColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QAccessibleWidget8doActionERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

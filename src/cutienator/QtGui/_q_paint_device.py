@@ -10,10 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
-from . import QPaintDevicePaintDeviceMetric
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -61,9 +61,29 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QPaintDevice.
   """
 
-  #  The enums Qt writes inside QPaintDevice, and the names Qt has for the
-  #  combinations of its flags enums.
-  PaintDeviceMetric = QPaintDevicePaintDeviceMetric
+  #  The enums Qt writes inside QPaintDevice, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class PaintDeviceMetric(CuteNum):
+    """
+    The enum 'QPaintDevice::PaintDeviceMetric' of Qt, with the 14 names Qt
+    gives in it.
+    """
+
+    PdmWidth = Kee[int](1)
+    PdmHeight = Kee[int](2)
+    PdmWidthMM = Kee[int](3)
+    PdmHeightMM = Kee[int](4)
+    PdmNumColors = Kee[int](5)
+    PdmDepth = Kee[int](6)
+    PdmDpiX = Kee[int](7)
+    PdmDpiY = Kee[int](8)
+    PdmPhysicalDpiX = Kee[int](9)
+    PdmPhysicalDpiY = Kee[int](10)
+    PdmDevicePixelRatio = Kee[int](11)
+    PdmDevicePixelRatioScaled = Kee[int](12)
+    PdmDevicePixelRatioF_EncodedA = Kee[int](13)
+    PdmDevicePixelRatioF_EncodedB = Kee[int](14)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

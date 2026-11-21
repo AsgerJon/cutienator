@@ -13,14 +13,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import Qt, QEventLoopProcessEventsFlag, QObject
+from . import Qt, QEventLoop, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from . import QAbstractEventDispatcher, QAbstractNativeEventFilter
-  from . import QDeadlineTimer, QEvent, QEventLoop, QMetaObject, QPermission
-  from . import QTranslator
+  from . import QDeadlineTimer, QEvent, QMetaObject, QPermission, QTranslator
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -418,10 +417,10 @@ class QCoreApplication(QObject):
 
   @staticmethod
   @overload()
-  @overload(QEventLoopProcessEventsFlag)
+  @overload(QEventLoop.ProcessEventsFlags)
   def processEvents(
       flags: QEventLoop.ProcessEventsFlags = (
-          QEventLoopProcessEventsFlag.AllEvents),
+          QEventLoop.ProcessEventsFlags.AllEvents),
   ) -> None:
     """
     Calls Qt's 'void
@@ -435,7 +434,7 @@ class QCoreApplication(QObject):
 
     flags : QEventLoop.ProcessEventsFlags
       Passed on as its number. May be left out, as in Qt: it is then
-      QEventLoopProcessEventsFlag.AllEvents.
+      QEventLoop.ProcessEventsFlags.AllEvents.
     """
     #  void QCoreApplication::processEvents(QEventLoop::ProcessEventsFlags
     #      flags)
@@ -446,7 +445,7 @@ class QCoreApplication(QObject):
     )
 
   @staticmethod
-  @overload(QEventLoopProcessEventsFlag, int)
+  @overload(QEventLoop.ProcessEventsFlags, int)
   def processEvents(
       flags: QEventLoop.ProcessEventsFlags,
       maxtime: int,
@@ -477,7 +476,7 @@ class QCoreApplication(QObject):
     )
 
   @staticmethod
-  @overload(QEventLoopProcessEventsFlag, QDeadlineTimer)
+  @overload(QEventLoop.ProcessEventsFlags, QDeadlineTimer)
   def processEvents(
       flags: QEventLoop.ProcessEventsFlags,
       deadline: QDeadlineTimer,

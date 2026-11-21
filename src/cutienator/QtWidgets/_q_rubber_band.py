@@ -10,10 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from . import QRubberBandShape, QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -75,9 +76,16 @@ class QRubberBand(QWidget):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QRubberBand, and the names Qt has for the
-  #  combinations of its flags enums.
-  Shape = QRubberBandShape
+  #  The enums Qt writes inside QRubberBand, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Shape(CuteNum):
+    """
+    The enum 'QRubberBand::Shape' of Qt, with the 2 names Qt gives in it.
+    """
+
+    Line = Kee[int](0)
+    Rectangle = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

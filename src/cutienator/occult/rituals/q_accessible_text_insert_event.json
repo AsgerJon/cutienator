@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QAccessibleTextInsertEventC1EP7QObjectiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZN26QAccessibleTextInsertEventC1EP20QAccessibleInterfaceiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZN26QAccessibleTextInsertEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QAccessibleTextInsertEvent12textInsertedEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK26QAccessibleTextInsertEvent14changePositionEv": [
+      "int", "address"
+    ]
+  }
+}

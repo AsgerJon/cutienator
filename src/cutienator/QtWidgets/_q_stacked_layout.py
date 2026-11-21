@@ -10,10 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from . import QLayout, QStackedLayoutStackingMode
+from . import QLayout
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -80,9 +81,17 @@ class QStackedLayout(QLayout):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QStackedLayout, and the names Qt has for the
-  #  combinations of its flags enums.
-  StackingMode = QStackedLayoutStackingMode
+  #  The enums Qt writes inside QStackedLayout, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class StackingMode(CuteNum):
+    """
+    The enum 'QStackedLayout::StackingMode' of Qt, with the 2 names Qt gives
+    in it.
+    """
+
+    StackOne = Kee[int](0)
+    StackAll = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

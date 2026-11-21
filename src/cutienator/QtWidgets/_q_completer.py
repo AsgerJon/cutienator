@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from . import QCompleterCompletionMode, QCompleterModelSorting
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -86,10 +86,28 @@ class QCompleter(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QCompleter, and the names Qt has for the
-  #  combinations of its flags enums.
-  CompletionMode = QCompleterCompletionMode
-  ModelSorting = QCompleterModelSorting
+  #  The enums Qt writes inside QCompleter, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class CompletionMode(CuteNum):
+    """
+    The enum 'QCompleter::CompletionMode' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    PopupCompletion = Kee[int](0)
+    UnfilteredPopupCompletion = Kee[int](1)
+    InlineCompletion = Kee[int](2)
+
+  class ModelSorting(CuteNum):
+    """
+    The enum 'QCompleter::ModelSorting' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    UnsortedModel = Kee[int](0)
+    CaseSensitivelySortedModel = Kee[int](1)
+    CaseInsensitivelySortedModel = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

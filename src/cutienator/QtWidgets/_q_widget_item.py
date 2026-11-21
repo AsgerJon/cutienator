@@ -14,13 +14,13 @@ from worktoy.dispatch import overload
 from ..cute import WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QLayoutItem, QSizePolicyControlType
+from . import QLayoutItem, QSizePolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QRect, QSize
-  from . import QSizePolicy, QWidget
+  from . import QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -270,7 +270,7 @@ class QWidgetItem(QLayoutItem):
       The value standing for the combination Qt gave back.
     """
     #  QSizePolicy::ControlTypes QWidgetItem::controlTypes() const
-    return QSizePolicyControlType(self.uglySide.call(
+    return QSizePolicy.ControlTypes(self.uglySide.call(
         'ritual_ZNK11QWidgetItem12controlTypesEv',
     ))
 

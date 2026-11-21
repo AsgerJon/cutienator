@@ -10,21 +10,20 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QTextCursorMoveMode, QTextCursorMoveOperation
-from ..QtGui import QTextDocumentFindFlag, QTextOptionWrapMode
-from . import QAbstractScrollArea, QPlainTextEditLineWrapMode, QWidget
+from ..QtGui import QTextCursor, QTextDocument, QTextOption
+from . import QAbstractScrollArea, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPoint, QRect, QRegularExpression, QUrl
   from ..QtCore import QVariant
-  from ..QtGui import QPagedPaintDevice, QTextCharFormat, QTextCursor
-  from ..QtGui import QTextDocument, QTextOption
+  from ..QtGui import QPagedPaintDevice, QTextCharFormat
   from . import QMenu
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -34,8 +33,6 @@ else:
   QPoint = WAIT['QPoint']
   QRegularExpression = WAIT['QRegularExpression']
   QTextCharFormat = WAIT['QTextCharFormat']
-  QTextCursor = WAIT['QTextCursor']
-  QTextDocument = WAIT['QTextDocument']
   QUrl = WAIT['QUrl']
   QVariant = WAIT['QVariant']
 
@@ -104,9 +101,17 @@ class QPlainTextEdit(QAbstractScrollArea):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QPlainTextEdit, and the names Qt has for the
-  #  combinations of its flags enums.
-  LineWrapMode = QPlainTextEditLineWrapMode
+  #  The enums Qt writes inside QPlainTextEdit, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class LineWrapMode(CuteNum):
+    """
+    The enum 'QPlainTextEdit::LineWrapMode' of Qt, with the 2 names Qt gives
+    in it.
+    """
+
+    NoWrap = Kee[int](0)
+    WidgetWidth = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -208,7 +213,6 @@ class QPlainTextEdit(QAbstractScrollArea):
     """
     #  QTextDocument *QPlainTextEdit::document() const
     address = self.uglySide.call('ritual_ZNK14QPlainTextEdit8documentEv')
-    from ..QtGui import QTextDocument
     return QTextDocument._cuteAt(address)
 
   def placeholderText(self) -> str:
@@ -243,7 +247,6 @@ class QPlainTextEdit(QAbstractScrollArea):
     """
     #  QTextCursor QPlainTextEdit::textCursor() const
     address = self.uglySide.call('ritual_ZNK14QPlainTextEdit10textCursorEv')
-    from ..QtGui import QTextCursor
     return QTextCursor._cuteOwning(address)
 
   def isReadOnly(self) -> bool:
@@ -380,7 +383,7 @@ class QPlainTextEdit(QAbstractScrollArea):
       'QTextOption.WrapMode(number)' gives.
     """
     #  QTextOption::WrapMode QPlainTextEdit::wordWrapMode() const
-    return QTextOptionWrapMode(self.uglySide.call(
+    return QTextOption.WrapMode(self.uglySide.call(
         'ritual_ZNK14QPlainTextEdit12wordWrapModeEv',
     ))
 
@@ -447,7 +450,6 @@ class QPlainTextEdit(QAbstractScrollArea):
         'ritual_ZNK14QPlainTextEdit17cursorForPositionERK6QPoint',
         self._valueOf(pos),
     )
-    from ..QtGui import QTextCursor
     return QTextCursor._cuteOwning(address)
 
   @overload(QTextCursor)
@@ -866,7 +868,7 @@ class QPlainTextEdit(QAbstractScrollArea):
         mode.value,
     )
 
-  @overload(QTextOptionWrapMode)
+  @overload(QTextOption.WrapMode)
   def setWordWrapMode(self, policy: QTextOption.WrapMode) -> None:
     """
     Calls Qt's 'void QPlainTextEdit::setWordWrapMode(QTextOption::WrapMode
@@ -1103,11 +1105,11 @@ class QPlainTextEdit(QAbstractScrollArea):
     )
 
   @overload(str)
-  @overload(str, QTextDocumentFindFlag)
+  @overload(str, QTextDocument.FindFlags)
   def find(
       self,
       exp: str,
-      options: QTextDocument.FindFlags = QTextDocumentFindFlag(),
+      options: QTextDocument.FindFlags = QTextDocument.FindFlags(),
   ) -> bool:
     """
     Calls Qt's 'bool QPlainTextEdit::find(const QString &exp,
@@ -1123,7 +1125,7 @@ class QPlainTextEdit(QAbstractScrollArea):
 
     options : QTextDocument.FindFlags
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocumentFindFlag().
+      QTextDocument.FindFlags().
     """
     #  bool QPlainTextEdit::find(const QString &exp, QTextDocument::FindFlags
     #      options)
@@ -1134,11 +1136,11 @@ class QPlainTextEdit(QAbstractScrollArea):
     )
 
   @overload(QRegularExpression)
-  @overload(QRegularExpression, QTextDocumentFindFlag)
+  @overload(QRegularExpression, QTextDocument.FindFlags)
   def find(
       self,
       exp: QRegularExpression,
-      options: QTextDocument.FindFlags = QTextDocumentFindFlag(),
+      options: QTextDocument.FindFlags = QTextDocument.FindFlags(),
   ) -> bool:
     """
     Calls Qt's 'bool QPlainTextEdit::find(const QRegularExpression &exp,
@@ -1155,7 +1157,7 @@ class QPlainTextEdit(QAbstractScrollArea):
 
     options : QTextDocument.FindFlags
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocumentFindFlag().
+      QTextDocument.FindFlags().
     """
     #  bool QPlainTextEdit::find(const QRegularExpression &exp,
     #      QTextDocument::FindFlags options)
@@ -1260,12 +1262,12 @@ class QPlainTextEdit(QAbstractScrollArea):
     from . import QMenu
     return QMenu._cuteAt(address)
 
-  @overload(QTextCursorMoveOperation)
-  @overload(QTextCursorMoveOperation, QTextCursorMoveMode)
+  @overload(QTextCursor.MoveOperation)
+  @overload(QTextCursor.MoveOperation, QTextCursor.MoveMode)
   def moveCursor(
       self,
       operation: QTextCursor.MoveOperation,
-      mode: QTextCursor.MoveMode = QTextCursorMoveMode.MoveAnchor,
+      mode: QTextCursor.MoveMode = QTextCursor.MoveMode.MoveAnchor,
   ) -> None:
     """
     Calls Qt's 'void QPlainTextEdit::moveCursor(QTextCursor::MoveOperation
@@ -1281,7 +1283,7 @@ class QPlainTextEdit(QAbstractScrollArea):
 
     mode : QTextCursor.MoveMode
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextCursorMoveMode.MoveAnchor.
+      QTextCursor.MoveMode.MoveAnchor.
     """
     #  void QPlainTextEdit::moveCursor(QTextCursor::MoveOperation operation,
     #      QTextCursor::MoveMode mode)

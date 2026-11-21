@@ -10,18 +10,17 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, CuteFlags, CuteNum
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from . import QDialog, QInputDialogInputDialogOption, QInputDialogInputMode
-from . import QLineEditEchoMode, QWidget
+from . import QDialog, QLineEdit, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QSize
-  from . import QLineEdit
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -95,11 +94,31 @@ class QInputDialog(QDialog):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QInputDialog, and the names Qt has for the
-  #  combinations of its flags enums.
-  InputDialogOption = QInputDialogInputDialogOption
-  InputDialogOptions = QInputDialogInputDialogOption
-  InputMode = QInputDialogInputMode
+  #  The enums Qt writes inside QInputDialog, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class InputDialogOption(CuteFlags):
+    """
+    The flags enum 'QInputDialog::InputDialogOption' of Qt, with the 3 names
+    Qt gives in it. Qt names the type of its combinations
+    'QInputDialog::InputDialogOptions'.
+    """
+
+    NoButtons = 0x1
+    UseListViewForComboBoxItems = 0x2
+    UsePlainTextEditForTextInput = 0x4
+
+  InputDialogOptions = InputDialogOption
+
+  class InputMode(CuteNum):
+    """
+    The enum 'QInputDialog::InputMode' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    TextInput = Kee[int](0)
+    IntInput = Kee[int](1)
+    DoubleInput = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -286,7 +305,7 @@ class QInputDialog(QDialog):
       'QLineEdit.EchoMode(number)' gives.
     """
     #  QLineEdit::EchoMode QInputDialog::textEchoMode() const
-    return QLineEditEchoMode(self.uglySide.call(
+    return QLineEdit.EchoMode(self.uglySide.call(
         'ritual_ZNK12QInputDialog12textEchoModeEv',
     ))
 
@@ -551,7 +570,7 @@ class QInputDialog(QDialog):
         'ritual_ZN12QInputDialog12setTextValueERK7QString', text,
     )
 
-  @overload(QLineEditEchoMode)
+  @overload(QLineEdit.EchoMode)
   def setTextEchoMode(self, mode: QLineEdit.EchoMode) -> None:
     """
     Calls Qt's 'void QInputDialog::setTextEchoMode(QLineEdit::EchoMode

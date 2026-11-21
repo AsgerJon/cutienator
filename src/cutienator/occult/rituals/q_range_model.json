@@ -1,0 +1,116 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qrangemodel.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QRangeModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QRangeModel2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QRangeModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QRangeModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK11QRangeModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QRangeModel7siblingEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK11QRangeModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK11QRangeModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK11QRangeModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK11QRangeModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN11QRangeModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti": [
+      "bool", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZNK11QRangeModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN11QRangeModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN11QRangeModel13clearItemDataERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QRangeModel13insertColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN11QRangeModel13removeColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN11QRangeModel11moveColumnsERK11QModelIndexiiS2_i": [
+      "bool", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN11QRangeModel10insertRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN11QRangeModel10removeRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN11QRangeModel8moveRowsERK11QModelIndexiiS2_i": [
+      "bool", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN11QRangeModel14resetRoleNamesEv": ["nothing", "address"],
+    "ritual_ZNK11QRangeModel12canFetchMoreERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QRangeModel9fetchMoreERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QRangeModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QRangeModel5buddyERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QRangeModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZN11QRangeModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZNK11QRangeModel9multiDataERK11QModelIndex18QModelRoleDataSpan": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QRangeModel4sortEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK11QRangeModel12sortCollatorEv": ["address", "address"],
+    "ritual_ZN11QRangeModel15setSortCollatorERK9QCollator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QRangeModel17resetSortCollatorEv": ["nothing", "address"],
+    "ritual_ZNK11QRangeModel8sortRoleEv": ["int", "address"],
+    "ritual_ZN11QRangeModel11setSortRoleEi": ["nothing", "address", "int"],
+    "ritual_ZN11QRangeModel13resetSortRoleEv": ["nothing", "address"],
+    "ritual_ZNK11QRangeModel4spanERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QRangeModel20supportedDragActionsEv": ["int", "address"],
+    "ritual_ZN11QRangeModel23setSupportedDragActionsE6QFlagsIN2Qt10DropActionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QRangeModel25resetSupportedDragActionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK11QRangeModel20supportedDropActionsEv": ["int", "address"],
+    "ritual_ZN11QRangeModel23setSupportedDropActionsE6QFlagsIN2Qt10DropActionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QRangeModel25resetSupportedDropActionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK11QRangeModel17autoConnectPolicyEv": ["int", "address"],
+    "ritual_ZN11QRangeModel20setAutoConnectPolicyENS_17AutoConnectPolicyE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

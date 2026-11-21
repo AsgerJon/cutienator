@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qoperatingsystemversion.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN33QOperatingSystemVersionUnexportedC1E27QOperatingSystemVersionBase": [
+      "address", "address"
+    ],
+    "ritual_ZN33QOperatingSystemVersionUnexportedD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

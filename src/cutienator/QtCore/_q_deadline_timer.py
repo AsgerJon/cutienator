@@ -11,10 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
-from . import Qt, QDeadlineTimerForeverConstant
+from . import Qt
 
 
 class QDeadlineTimer(CuteMixin, metaclass=MetaCute):
@@ -62,9 +63,17 @@ class QDeadlineTimer(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QDeadlineTimer.
   """
 
-  #  The enums Qt writes inside QDeadlineTimer, and the names Qt has for the
-  #  combinations of its flags enums.
-  ForeverConstant = QDeadlineTimerForeverConstant
+  #  The enums Qt writes inside QDeadlineTimer, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ForeverConstant(CuteNum, scoped=True):
+    """
+    The enum 'QDeadlineTimer::ForeverConstant' of Qt, with the 1 names Qt
+    gives in it. C++ keeps these names inside the enum, so the class that
+    holds the enum does not have them.
+    """
+
+    Forever = Kee[int](0)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

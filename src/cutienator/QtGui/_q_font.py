@@ -11,17 +11,15 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QFontCapitalization, QFontHintingPreference
-from . import QFontResolveProperties, QFontSpacingType, QFontStretch
-from . import QFontStyle, QFontStyleHint, QFontStyleStrategy, QFontTag
-from . import QFontWeight
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
+  from ..QtCore import QByteArray
   from . import QPaintDevice
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -98,20 +96,296 @@ class QFont(CuteMixin, metaclass=MetaCute):
     in a new cute QFont.
   """
 
-  #  The classes Qt writes inside QFont.
-  Tag = QFontTag
+  #  The enums Qt writes inside QFont, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
 
-  #  The enums Qt writes inside QFont, and the names Qt has for the
-  #  combinations of its flags enums.
-  Capitalization = QFontCapitalization
-  HintingPreference = QFontHintingPreference
-  ResolveProperties = QFontResolveProperties
-  SpacingType = QFontSpacingType
-  Stretch = QFontStretch
-  Style = QFontStyle
-  StyleHint = QFontStyleHint
-  StyleStrategy = QFontStyleStrategy
-  Weight = QFontWeight
+  class Capitalization(CuteNum):
+    """
+    The enum 'QFont::Capitalization' of Qt, with the 5 names Qt gives in it.
+    """
+
+    MixedCase = Kee[int](0)
+    AllUppercase = Kee[int](1)
+    AllLowercase = Kee[int](2)
+    SmallCaps = Kee[int](3)
+    Capitalize = Kee[int](4)
+
+  class HintingPreference(CuteNum):
+    """
+    The enum 'QFont::HintingPreference' of Qt, with the 4 names Qt gives in
+    it.
+    """
+
+    PreferDefaultHinting = Kee[int](0)
+    PreferNoHinting = Kee[int](1)
+    PreferVerticalHinting = Kee[int](2)
+    PreferFullHinting = Kee[int](3)
+
+  class ResolveProperties(CuteNum):
+    """
+    The enum 'QFont::ResolveProperties' of Qt, with the 22 names Qt gives in
+    it.
+    """
+
+    NoPropertiesResolved = Kee[int](0)
+    FamilyResolved = Kee[int](1)
+    SizeResolved = Kee[int](2)
+    StyleHintResolved = Kee[int](4)
+    StyleStrategyResolved = Kee[int](8)
+    WeightResolved = Kee[int](16)
+    StyleResolved = Kee[int](32)
+    UnderlineResolved = Kee[int](64)
+    OverlineResolved = Kee[int](128)
+    StrikeOutResolved = Kee[int](256)
+    FixedPitchResolved = Kee[int](512)
+    StretchResolved = Kee[int](1024)
+    KerningResolved = Kee[int](2048)
+    CapitalizationResolved = Kee[int](4096)
+    LetterSpacingResolved = Kee[int](8192)
+    WordSpacingResolved = Kee[int](16384)
+    HintingPreferenceResolved = Kee[int](32768)
+    StyleNameResolved = Kee[int](65536)
+    FamiliesResolved = Kee[int](131072)
+    FeaturesResolved = Kee[int](262144)
+    VariableAxesResolved = Kee[int](524288)
+    AllPropertiesResolved = Kee[int](1048575)
+
+  class SpacingType(CuteNum):
+    """
+    The enum 'QFont::SpacingType' of Qt, with the 2 names Qt gives in it.
+    """
+
+    PercentageSpacing = Kee[int](0)
+    AbsoluteSpacing = Kee[int](1)
+
+  class Stretch(CuteNum):
+    """The enum 'QFont::Stretch' of Qt, with the 10 names Qt gives in it."""
+
+    AnyStretch = Kee[int](0)
+    UltraCondensed = Kee[int](50)
+    ExtraCondensed = Kee[int](62)
+    Condensed = Kee[int](75)
+    SemiCondensed = Kee[int](87)
+    Unstretched = Kee[int](100)
+    SemiExpanded = Kee[int](112)
+    Expanded = Kee[int](125)
+    ExtraExpanded = Kee[int](150)
+    UltraExpanded = Kee[int](200)
+
+  class Style(CuteNum):
+    """The enum 'QFont::Style' of Qt, with the 3 names Qt gives in it."""
+
+    StyleNormal = Kee[int](0)
+    StyleItalic = Kee[int](1)
+    StyleOblique = Kee[int](2)
+
+  class StyleHint(CuteNum):
+    """
+    The enum 'QFont::StyleHint' of Qt, with the 13 names Qt gives in it.
+    """
+
+    Helvetica = Kee[int](0)
+    SansSerif = Kee[int](0)
+    Times = Kee[int](1)
+    Serif = Kee[int](1)
+    Courier = Kee[int](2)
+    TypeWriter = Kee[int](2)
+    OldEnglish = Kee[int](3)
+    Decorative = Kee[int](3)
+    System = Kee[int](4)
+    AnyStyle = Kee[int](5)
+    Cursive = Kee[int](6)
+    Monospace = Kee[int](7)
+    Fantasy = Kee[int](8)
+
+  class StyleStrategy(CuteNum):
+    """
+    The enum 'QFont::StyleStrategy' of Qt, with the 14 names Qt gives in it.
+    """
+
+    PreferDefault = Kee[int](1)
+    PreferBitmap = Kee[int](2)
+    PreferDevice = Kee[int](4)
+    PreferOutline = Kee[int](8)
+    ForceOutline = Kee[int](16)
+    PreferMatch = Kee[int](32)
+    PreferQuality = Kee[int](64)
+    PreferAntialias = Kee[int](128)
+    NoAntialias = Kee[int](256)
+    NoSubpixelAntialias = Kee[int](2048)
+    PreferNoShaping = Kee[int](4096)
+    ContextFontMerging = Kee[int](8192)
+    PreferTypoLineMetrics = Kee[int](16384)
+    NoFontMerging = Kee[int](32768)
+
+  class Weight(CuteNum):
+    """The enum 'QFont::Weight' of Qt, with the 9 names Qt gives in it."""
+
+    Thin = Kee[int](100)
+    ExtraLight = Kee[int](200)
+    Light = Kee[int](300)
+    Normal = Kee[int](400)
+    Medium = Kee[int](500)
+    DemiBold = Kee[int](600)
+    Bold = Kee[int](700)
+    ExtraBold = Kee[int](800)
+    Black = Kee[int](900)
+
+  #  The classes Qt writes inside QFont, each a class in here as in C++.
+
+  class Tag(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QFont::Tag: a plain Python object standing in front
+    of one C++ QFont::Tag.
+
+    C++ hands a QFont::Tag around as a copy, so every C++ QFont::Tag behind a
+    cute one is Python's own: it is removed, by the ritual named in
+    '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    Every function of Qt's QFont::Tag that has a ritual and that Python can
+    call so far, 3 names in all: 'isValid', 'value', 'toString'. It can be
+    made from Python, in 1 way; see '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QFont::Tag::~Tag()': the destructor: Python removes its C++
+      QFont::Tag by it, and has no other use for it.
+
+    What has no ritual
+    ------------------
+
+    3 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
+    passed yet; 1 a template.
+
+    What to expect
+    --------------
+
+    - The C++ QFont::Tag is created at the first use, not by
+      'QFont::Tag(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QFont::Tag back gives a copy the ritual made for
+      Python, in a new cute QFont::Tag.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QFont::Tag'
+
+    #  Qt's '~QFont::Tag()'. Naming it makes this a value class: Python owns
+    #  every C++ QFont::Tag behind a cute one, and removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN5QFont3TagD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    def isValid(self) -> bool:
+      """
+      Calls Qt's 'bool QFont::Tag::isValid() const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfont-tag.html#isValid
+      """
+      #  bool QFont::Tag::isValid() const
+      return self.uglySide.call('ritual_ZNK5QFont3Tag7isValidEv')
+
+    def value(self) -> int:
+      """
+      Calls Qt's 'quint32 QFont::Tag::value() const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfont-tag.html#value
+      """
+      #  quint32 QFont::Tag::value() const
+      return self.uglySide.call('ritual_ZNK5QFont3Tag5valueEv')
+
+    def toString(self) -> QByteArray:
+      """
+      Calls Qt's 'QByteArray QFont::Tag::toString() const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfont-tag.html#toString
+
+      Returns
+      -------
+
+      QByteArray
+        A new cute QByteArray around the copy Qt gave back. Python owns it.
+      """
+      #  QByteArray QFont::Tag::toString() const
+      address = self.uglySide.call('ritual_ZNK5QFont3Tag8toStringEv')
+      from ..QtCore import QByteArray
+      return QByteArray._cuteOwning(address)
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's 'QFont::Tag::Tag()', which is called at
+      the first use.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfont-tag.html#Tag
+      """
+      #  QFont::Tag::Tag()
+      self._noteCreation(QFont.Tag, lambda: Rituals.call(
+          'ritual_ZN5QFont3TagC1Ev',
+      ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

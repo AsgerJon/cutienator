@@ -11,17 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from . import QSurfaceSurfaceType, QWindowAncestorMode, QWindowVisibility
+from . import QSurface
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMargins, QMetaObject, QPoint, QPointF, QRect, QSize
-  from . import QCursor, QIcon, QRegion, QScreen, QSurface, QSurfaceFormat
+  from . import QAccessibleInterface, QCursor, QIcon, QRegion, QScreen
+  from . import QSurfaceFormat
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -54,7 +56,7 @@ class QWindow(QObject):
   -----------
 
   Every function of Qt's QWindow that has a ritual and that Python can call
-  so far, 106 names in all: 'metaObject', 'tr', 'setSurfaceType',
+  so far, 107 names in all: 'metaObject', 'tr', 'setSurfaceType',
   'surfaceType', 'isVisible', 'visibility', 'setVisibility', 'create',
   'winId', 'parent', 'setParent', 'isTopLevel', 'isModal', 'modality',
   'setModality', 'setFormat', 'format', 'requestedFormat', 'setFlags',
@@ -69,12 +71,12 @@ class QWindow(QObject):
   'setFramePosition', 'safeAreaMargins', 'width', 'height', 'x', 'y', 'size',
   'position', 'setPosition', 'resize', 'setFilePath', 'filePath', 'setIcon',
   'icon', 'destroy', 'setKeyboardGrabEnabled', 'setMouseGrabEnabled',
-  'screen', 'setScreen', 'focusObject', 'mapToGlobal', 'mapFromGlobal',
-  'cursor', 'setCursor', 'unsetCursor', 'fromWinId', 'requestActivate',
-  'setVisible', 'show', 'hide', 'showMinimized', 'showMaximized',
-  'showFullScreen', 'showNormal', 'close', 'raise_', 'lower',
-  'startSystemResize', 'startSystemMove', 'setTitle', 'setX', 'setY',
-  'setWidth', 'setHeight', 'setGeometry', 'setMinimumWidth',
+  'screen', 'setScreen', 'accessibleRoot', 'focusObject', 'mapToGlobal',
+  'mapFromGlobal', 'cursor', 'setCursor', 'unsetCursor', 'fromWinId',
+  'requestActivate', 'setVisible', 'show', 'hide', 'showMinimized',
+  'showMaximized', 'showFullScreen', 'showNormal', 'close', 'raise_',
+  'lower', 'startSystemResize', 'startSystemMove', 'setTitle', 'setX',
+  'setY', 'setWidth', 'setHeight', 'setGeometry', 'setMinimumWidth',
   'setMinimumHeight', 'setMaximumWidth', 'setMaximumHeight', 'alert',
   'requestUpdate'. It can be made from Python, in 2 ways; see '__init__'.
 
@@ -83,8 +85,6 @@ class QWindow(QObject):
 
   - Qt's 'QWindow::~QWindow()': the destructor: Python never removes a C++
     QWindow.
-  - Qt's 'QAccessibleInterface *QWindow::accessibleRoot() const': gives
-    'QAccessibleInterface', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -108,10 +108,28 @@ class QWindow(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QWindow, and the names Qt has for the
-  #  combinations of its flags enums.
-  AncestorMode = QWindowAncestorMode
-  Visibility = QWindowVisibility
+  #  The enums Qt writes inside QWindow, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class AncestorMode(CuteNum):
+    """
+    The enum 'QWindow::AncestorMode' of Qt, with the 2 names Qt gives in it.
+    """
+
+    ExcludeTransients = Kee[int](0)
+    IncludeTransients = Kee[int](1)
+
+  class Visibility(CuteNum):
+    """
+    The enum 'QWindow::Visibility' of Qt, with the 6 names Qt gives in it.
+    """
+
+    Hidden = Kee[int](0)
+    AutomaticVisibility = Kee[int](1)
+    Windowed = Kee[int](2)
+    Minimized = Kee[int](3)
+    Maximized = Kee[int](4)
+    FullScreen = Kee[int](5)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -237,7 +255,7 @@ class QWindow(QObject):
       'QSurface.SurfaceType(number)' gives.
     """
     #  SurfaceType QWindow::surfaceType() const
-    return QSurfaceSurfaceType(self.uglySide.call(
+    return QSurface.SurfaceType(self.uglySide.call(
         'ritual_ZNK7QWindow11surfaceTypeEv',
     ))
 
@@ -894,6 +912,24 @@ class QWindow(QObject):
     from . import QScreen
     return QScreen._cuteAt(address)
 
+  def accessibleRoot(self) -> Optional[QAccessibleInterface]:
+    """
+    Calls Qt's 'QAccessibleInterface *QWindow::accessibleRoot() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#accessibleRoot
+
+    Returns
+    -------
+
+    Optional[QAccessibleInterface]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAccessibleInterface *QWindow::accessibleRoot() const
+    address = self.uglySide.call('ritual_ZNK7QWindow14accessibleRootEv')
+    from . import QAccessibleInterface
+    return QAccessibleInterface._cuteAt(address)
+
   def focusObject(self) -> Optional[QObject]:
     """
     Calls Qt's 'QObject *QWindow::focusObject() const'.
@@ -1040,7 +1076,7 @@ class QWindow(QObject):
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QSurfaceSurfaceType)
+  @overload(QSurface.SurfaceType)
   def setSurfaceType(self, surfaceType: QSurface.SurfaceType) -> None:
     """
     Calls Qt's 'void QWindow::setSurfaceType(SurfaceType surfaceType)'.

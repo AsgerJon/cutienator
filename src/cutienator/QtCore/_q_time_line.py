@@ -10,10 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from . import QObject, QTimeLineDirection, QTimeLineState
+from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -77,10 +78,23 @@ class QTimeLine(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QTimeLine, and the names Qt has for the
-  #  combinations of its flags enums.
-  Direction = QTimeLineDirection
-  State = QTimeLineState
+  #  The enums Qt writes inside QTimeLine, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Direction(CuteNum):
+    """
+    The enum 'QTimeLine::Direction' of Qt, with the 2 names Qt gives in it.
+    """
+
+    Forward = Kee[int](0)
+    Backward = Kee[int](1)
+
+  class State(CuteNum):
+    """The enum 'QTimeLine::State' of Qt, with the 3 names Qt gives in it."""
+
+    NotRunning = Kee[int](0)
+    Paused = Kee[int](1)
+    Running = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

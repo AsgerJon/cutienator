@@ -11,11 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute
 from ..occult import Rituals
-from . import QTextBoundaryFinderBoundaryReason
-from . import QTextBoundaryFinderBoundaryType
 
 
 class QTextBoundaryFinder(CuteMixin, metaclass=MetaCute):
@@ -69,11 +68,35 @@ class QTextBoundaryFinder(CuteMixin, metaclass=MetaCute):
     for Python, in a new cute QTextBoundaryFinder.
   """
 
-  #  The enums Qt writes inside QTextBoundaryFinder, and the names Qt has for
-  #  the combinations of its flags enums.
-  BoundaryReason = QTextBoundaryFinderBoundaryReason
-  BoundaryReasons = QTextBoundaryFinderBoundaryReason
-  BoundaryType = QTextBoundaryFinderBoundaryType
+  #  The enums Qt writes inside QTextBoundaryFinder, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class BoundaryReason(CuteFlags):
+    """
+    The flags enum 'QTextBoundaryFinder::BoundaryReason' of Qt, with the 6
+    names Qt gives in it. Qt names the type of its combinations
+    'QTextBoundaryFinder::BoundaryReasons'.
+    """
+
+    NotAtBoundary = 0x0
+    BreakOpportunity = 0x1f
+    StartOfItem = 0x20
+    EndOfItem = 0x40
+    MandatoryBreak = 0x80
+    SoftHyphen = 0x100
+
+  BoundaryReasons = BoundaryReason
+
+  class BoundaryType(CuteNum):
+    """
+    The enum 'QTextBoundaryFinder::BoundaryType' of Qt, with the 4 names Qt
+    gives in it.
+    """
+
+    Grapheme = Kee[int](0)
+    Word = Kee[int](1)
+    Sentence = Kee[int](2)
+    Line = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

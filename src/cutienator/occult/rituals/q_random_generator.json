@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qrandom.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QRandomGeneratorC1Ej": ["address", "unsigned int"],
+    "ritual_ZN16QRandomGeneratorC1ERKS_": ["address", "address"],
+    "ritual_ZN16QRandomGeneratorD1Ev": ["nothing", "address"],
+    "ritual_ZN16QRandomGenerator8generateEv": ["unsigned int", "address"],
+    "ritual_ZN16QRandomGenerator10generate64Ev": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN16QRandomGenerator14generateDoubleEv": ["double", "address"],
+    "ritual_ZN16QRandomGenerator7boundedEd": ["double", "address", "double"],
+    "ritual_ZN16QRandomGenerator7boundedEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN16QRandomGenerator7boundedEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN16QRandomGenerator7boundedEi": ["int", "address", "int"],
+    "ritual_ZN16QRandomGenerator7boundedEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN16QRandomGenerator7boundedEy": [
+      "unsigned long long", "address", "unsigned long long"
+    ],
+    "ritual_ZN16QRandomGenerator7boundedEyy": [
+      "unsigned long long", "address", "unsigned long long",
+      "unsigned long long"
+    ],
+    "ritual_ZN16QRandomGenerator7boundedEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZN16QRandomGenerator7boundedExx": [
+      "long long", "address", "long long", "long long"
+    ],
+    "ritual_ZN16QRandomGenerator7boundedEix": [
+      "long long", "address", "int", "long long"
+    ],
+    "ritual_ZN16QRandomGenerator7boundedExi": [
+      "long long", "address", "long long", "int"
+    ],
+    "ritual_ZN16QRandomGenerator7boundedEjy": [
+      "unsigned long long", "address", "unsigned int", "unsigned long long"
+    ],
+    "ritual_ZN16QRandomGenerator7boundedEyj": [
+      "unsigned long long", "address", "unsigned long long", "unsigned int"
+    ],
+    "ritual_ZN16QRandomGenerator8generateEPjS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QRandomGeneratorclEv": ["unsigned int", "address"],
+    "ritual_ZN16QRandomGenerator4seedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN16QRandomGenerator7discardEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN16QRandomGenerator3minEv": ["unsigned int"],
+    "ritual_ZN16QRandomGenerator3maxEv": ["unsigned int"],
+    "ritual_ZN16QRandomGenerator6systemEv": ["address"],
+    "ritual_ZN16QRandomGenerator6globalEv": ["address"],
+    "ritual_ZN16QRandomGenerator14securelySeededEv": ["address"]
+  }
+}

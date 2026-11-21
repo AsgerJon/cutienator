@@ -1,0 +1,89 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtCore/qproperty.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qproperty.h>
+#include <QtCore/qmetatype.h>
+
+//  QUntypedBindable::QUntypedBindable()
+extern "C" Q_DECL_EXPORT
+QUntypedBindable *ritual_ZN16QUntypedBindableC1Ev() {
+  return new QUntypedBindable();
+}
+
+//  bool QUntypedBindable::isValid() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QUntypedBindable7isValidEv(const QUntypedBindable *self) {
+  return self->isValid();
+}
+
+//  bool QUntypedBindable::isBindable() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QUntypedBindable10isBindableEv(
+    const QUntypedBindable *self) {
+  return self->isBindable();
+}
+
+//  bool QUntypedBindable::isReadOnly() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QUntypedBindable10isReadOnlyEv(
+    const QUntypedBindable *self) {
+  return self->isReadOnly();
+}
+
+//  QUntypedPropertyBinding QUntypedBindable::makeBinding(const
+//      QPropertyBindingSourceLocation &location) const
+extern "C" Q_DECL_EXPORT
+QUntypedPropertyBinding *ritual_ZNK16QUntypedBindable11makeBindingERK30QPropertyBindingSourceLocation(
+    const QUntypedBindable *self,
+    const QPropertyBindingSourceLocation *location) {
+  return new QUntypedPropertyBinding(self->makeBinding(*location));
+}
+
+//  QUntypedPropertyBinding QUntypedBindable::takeBinding()
+extern "C" Q_DECL_EXPORT
+QUntypedPropertyBinding *ritual_ZN16QUntypedBindable11takeBindingEv(
+    QUntypedBindable *self) {
+  return new QUntypedPropertyBinding(self->takeBinding());
+}
+
+//  void QUntypedBindable::observe(QPropertyObserver *observer) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QUntypedBindable7observeEP17QPropertyObserver(
+    const QUntypedBindable *self,
+    QPropertyObserver *observer) {
+  self->observe(observer);
+}
+
+//  QUntypedPropertyBinding QUntypedBindable::binding() const
+extern "C" Q_DECL_EXPORT
+QUntypedPropertyBinding *ritual_ZNK16QUntypedBindable7bindingEv(
+    const QUntypedBindable *self) {
+  return new QUntypedPropertyBinding(self->binding());
+}
+
+//  bool QUntypedBindable::setBinding(const QUntypedPropertyBinding &binding)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QUntypedBindable10setBindingERK23QUntypedPropertyBinding(
+    QUntypedBindable *self,
+    const QUntypedPropertyBinding *binding) {
+  return self->setBinding(*binding);
+}
+
+//  bool QUntypedBindable::hasBinding() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QUntypedBindable10hasBindingEv(
+    const QUntypedBindable *self) {
+  return self->hasBinding();
+}
+
+//  QMetaType QUntypedBindable::metaType() const
+extern "C" Q_DECL_EXPORT
+QMetaType *ritual_ZNK16QUntypedBindable8metaTypeEv(
+    const QUntypedBindable *self) {
+  return new QMetaType(self->metaType());
+}
+
+//  QUntypedBindable::~QUntypedBindable()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QUntypedBindableD1Ev(QUntypedBindable *self) {
+  delete self;
+}

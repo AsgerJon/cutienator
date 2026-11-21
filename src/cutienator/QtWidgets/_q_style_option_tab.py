@@ -11,12 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteFlags, CuteNum
 from ..occult import Rituals
-from . import QStyleOption, QStyleOptionTabCornerWidget
-from . import QStyleOptionTabSelectedPosition, QStyleOptionTabStyleOptionType
-from . import QStyleOptionTabStyleOptionVersion, QStyleOptionTabTabFeature
-from . import QStyleOptionTabTabPosition
+from . import QStyleOption
 
 
 class QStyleOptionTab(QStyleOption):
@@ -63,16 +62,72 @@ class QStyleOptionTab(QStyleOption):
     Python, in a new cute QStyleOptionTab.
   """
 
-  #  The enums Qt writes inside QStyleOptionTab, and the names Qt has for the
-  #  combinations of its flags enums.
-  CornerWidget = QStyleOptionTabCornerWidget
-  CornerWidgets = QStyleOptionTabCornerWidget
-  SelectedPosition = QStyleOptionTabSelectedPosition
-  StyleOptionType = QStyleOptionTabStyleOptionType
-  StyleOptionVersion = QStyleOptionTabStyleOptionVersion
-  TabFeature = QStyleOptionTabTabFeature
-  TabFeatures = QStyleOptionTabTabFeature
-  TabPosition = QStyleOptionTabTabPosition
+  #  The enums Qt writes inside QStyleOptionTab, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class CornerWidget(CuteFlags):
+    """
+    The flags enum 'QStyleOptionTab::CornerWidget' of Qt, with the 3 names Qt
+    gives in it. Qt names the type of its combinations
+    'QStyleOptionTab::CornerWidgets'.
+    """
+
+    NoCornerWidgets = 0x0
+    LeftCornerWidget = 0x1
+    RightCornerWidget = 0x2
+
+  CornerWidgets = CornerWidget
+
+  class SelectedPosition(CuteNum):
+    """
+    The enum 'QStyleOptionTab::SelectedPosition' of Qt, with the 3 names Qt
+    gives in it.
+    """
+
+    NotAdjacent = Kee[int](0)
+    NextIsSelected = Kee[int](1)
+    PreviousIsSelected = Kee[int](2)
+
+  class StyleOptionType(CuteNum):
+    """
+    The enum 'QStyleOptionTab::StyleOptionType' of Qt, with the 1 names Qt
+    gives in it.
+    """
+
+    Type = Kee[int](3)
+
+  class StyleOptionVersion(CuteNum):
+    """
+    The enum 'QStyleOptionTab::StyleOptionVersion' of Qt, with the 1 names Qt
+    gives in it.
+    """
+
+    Version = Kee[int](1)
+
+  class TabFeature(CuteFlags):
+    """
+    The flags enum 'QStyleOptionTab::TabFeature' of Qt, with the 3 names Qt
+    gives in it. Qt names the type of its combinations
+    'QStyleOptionTab::TabFeatures'.
+    """
+
+    NULL = 0x0
+    HasFrame = 0x1
+    MinimumSizeHint = 0x2
+
+  TabFeatures = TabFeature
+
+  class TabPosition(CuteNum):
+    """
+    The enum 'QStyleOptionTab::TabPosition' of Qt, with the 5 names Qt gives
+    in it.
+    """
+
+    Beginning = Kee[int](0)
+    Middle = Kee[int](1)
+    End = Kee[int](2)
+    OnlyOneTab = Kee[int](3)
+    Moving = Kee[int](4)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -10,23 +10,25 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QPagedPaintDevicePdfVersion, QPdfWriterColorModel
+from . import QPagedPaintDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QByteArray, QIODevice, QMetaObject, QUuid
-  from . import QPagedPaintDevice
+  from . import QPdfOutputIntent
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
   QIODevice = WAIT['QIODevice']
+  QPdfOutputIntent = WAIT['QPdfOutputIntent']
   QUuid = WAIT['QUuid']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -47,22 +49,18 @@ class QPdfWriter(QObject):
   -----------
 
   Every function of Qt's QPdfWriter that has a ritual and that Python can
-  call so far, 20 names in all: 'metaObject', 'tr', 'setPdfVersion',
+  call so far, 22 names in all: 'metaObject', 'tr', 'setPdfVersion',
   'pdfVersion', 'title', 'setTitle', 'creator', 'setCreator', 'documentId',
   'setDocumentId', 'author', 'setAuthor', 'newPage', 'setResolution',
   'resolution', 'setDocumentXmpMetadata', 'documentXmpMetadata',
-  'addFileAttachment', 'colorModel', 'setColorModel'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  'addFileAttachment', 'colorModel', 'setColorModel', 'outputIntent',
+  'setOutputIntent'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPdfWriter::~QPdfWriter()': the destructor: Python never removes a
     C++ QPdfWriter.
-  - Qt's 'QPdfOutputIntent QPdfWriter::outputIntent() const': gives
-    'QPdfOutputIntent', which has no cute class yet.
-  - Qt's 'void QPdfWriter::setOutputIntent(const QPdfOutputIntent &intent)':
-    names 'QPdfOutputIntent', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -85,9 +83,20 @@ class QPdfWriter(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QPdfWriter, and the names Qt has for the
-  #  combinations of its flags enums.
-  ColorModel = QPdfWriterColorModel
+  #  The enums Qt writes inside QPdfWriter, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class ColorModel(CuteNum, scoped=True):
+    """
+    The enum 'QPdfWriter::ColorModel' of Qt, with the 4 names Qt gives in it.
+    C++ keeps these names inside the enum, so the class that holds the enum
+    does not have them.
+    """
+
+    RGB = Kee[int](0)
+    Grayscale = Kee[int](1)
+    CMYK = Kee[int](2)
+    Auto = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -188,7 +197,7 @@ class QPdfWriter(QObject):
       'QPagedPaintDevice.PdfVersion(number)' gives.
     """
     #  PdfVersion QPdfWriter::pdfVersion() const
-    return QPagedPaintDevicePdfVersion(self.uglySide.call(
+    return QPagedPaintDevice.PdfVersion(self.uglySide.call(
         'ritual_ZNK10QPdfWriter10pdfVersionEv',
     ))
 
@@ -302,11 +311,29 @@ class QPdfWriter(QObject):
         'ritual_ZNK10QPdfWriter10colorModelEv',
     ))
 
+  def outputIntent(self) -> QPdfOutputIntent:
+    """
+    Calls Qt's 'QPdfOutputIntent QPdfWriter::outputIntent() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpdfwriter.html#outputIntent
+
+    Returns
+    -------
+
+    QPdfOutputIntent
+      A new cute QPdfOutputIntent around the copy Qt gave back. Python owns
+      it.
+    """
+    #  QPdfOutputIntent QPdfWriter::outputIntent() const
+    address = self.uglySide.call('ritual_ZNK10QPdfWriter12outputIntentEv')
+    from . import QPdfOutputIntent
+    return QPdfOutputIntent._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QPagedPaintDevicePdfVersion)
+  @overload(QPagedPaintDevice.PdfVersion)
   def setPdfVersion(self, version: QPagedPaintDevice.PdfVersion) -> None:
     """
     Calls Qt's 'void QPdfWriter::setPdfVersion(PdfVersion version)'.
@@ -449,6 +476,27 @@ class QPdfWriter(QObject):
     #  void QPdfWriter::setColorModel(ColorModel model)
     self.uglySide.call(
         'ritual_ZN10QPdfWriter13setColorModelENS_10ColorModelE', model.value,
+    )
+
+  @overload(QPdfOutputIntent)
+  def setOutputIntent(self, intent: QPdfOutputIntent) -> None:
+    """
+    Calls Qt's 'void QPdfWriter::setOutputIntent(const QPdfOutputIntent
+    &intent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpdfwriter.html#setOutputIntent
+
+    Parameters
+    ----------
+
+    intent : QPdfOutputIntent
+      Passed on as a value: Qt reads the C++ QPdfOutputIntent, which stays
+      Python's own.
+    """
+    #  void QPdfWriter::setOutputIntent(const QPdfOutputIntent &intent)
+    self.uglySide.call(
+        'ritual_ZN10QPdfWriter15setOutputIntentERK16QPdfOutputIntent',
+        self._valueOf(intent),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

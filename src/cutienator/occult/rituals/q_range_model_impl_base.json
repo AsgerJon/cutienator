@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qrangemodel_impl.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QRangeModelImplBase17getImplementationEP11QRangeModel": [
+      "address", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase17getImplementationEPK11QRangeModel": [
+      "address", "address"
+    ]
+  }
+}

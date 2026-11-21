@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qfontvariableaxis.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QFontVariableAxisC1Ev": ["address"],
+    "ritual_ZN17QFontVariableAxisC1ERKS_": ["address", "address"],
+    "ritual_ZN17QFontVariableAxisD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QFontVariableAxis3tagEv": ["address", "address"],
+    "ritual_ZN17QFontVariableAxis6setTagEN5QFont3TagE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QFontVariableAxis4nameEv": ["text", "address"],
+    "ritual_ZN17QFontVariableAxis7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QFontVariableAxis12minimumValueEv": ["double", "address"],
+    "ritual_ZN17QFontVariableAxis15setMinimumValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17QFontVariableAxis12maximumValueEv": ["double", "address"],
+    "ritual_ZN17QFontVariableAxis15setMaximumValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17QFontVariableAxis12defaultValueEv": ["double", "address"],
+    "ritual_ZN17QFontVariableAxis15setDefaultValueEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

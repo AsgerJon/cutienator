@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qglyphrun.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QGlyphRunC1Ev": ["address"],
+    "ritual_ZN9QGlyphRunC1ERKS_": ["address", "address"],
+    "ritual_ZN9QGlyphRunD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QGlyphRun7rawFontEv": ["address", "address"],
+    "ritual_ZN9QGlyphRun10setRawFontERK8QRawFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QGlyphRun5clearEv": ["nothing", "address"],
+    "ritual_ZNK9QGlyphRuneqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK9QGlyphRunneERKS_": ["bool", "address", "address"],
+    "ritual_ZN9QGlyphRun11setOverlineEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QGlyphRun8overlineEv": ["bool", "address"],
+    "ritual_ZN9QGlyphRun12setUnderlineEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QGlyphRun9underlineEv": ["bool", "address"],
+    "ritual_ZN9QGlyphRun12setStrikeOutEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QGlyphRun9strikeOutEv": ["bool", "address"],
+    "ritual_ZN9QGlyphRun14setRightToLeftEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QGlyphRun13isRightToLeftEv": ["bool", "address"],
+    "ritual_ZN9QGlyphRun7setFlagENS_12GlyphRunFlagEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN9QGlyphRun8setFlagsE6QFlagsINS_12GlyphRunFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QGlyphRun5flagsEv": ["int", "address"],
+    "ritual_ZN9QGlyphRun15setBoundingRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QGlyphRun12boundingRectEv": ["address", "address"],
+    "ritual_ZN9QGlyphRun15setSourceStringERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QGlyphRun12sourceStringEv": ["text", "address"],
+    "ritual_ZNK9QGlyphRun7isEmptyEv": ["bool", "address"]
+  }
+}

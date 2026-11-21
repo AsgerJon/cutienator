@@ -11,17 +11,12 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, MetaCute
 from ..occult import Rituals
-from . import QDirFilter, QDirIteratorIteratorFlag
+from . import QDir
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QDir, QFileInfo
-else:
-  #  The cute classes this file names and is not built on. Each is brought in
-  #  by the program that uses it, and a signature naming it waits until then;
-  #  see 'WAIT'.
-  QDir = WAIT['QDir']
+  from . import QFileInfo
 
 
 class QDirIterator(CuteMixin, metaclass=MetaCute):
@@ -62,10 +57,21 @@ class QDirIterator(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QDirIterator.
   """
 
-  #  The enums Qt writes inside QDirIterator, and the names Qt has for the
-  #  combinations of its flags enums.
-  IteratorFlag = QDirIteratorIteratorFlag
-  IteratorFlags = QDirIteratorIteratorFlag
+  #  The enums Qt writes inside QDirIterator, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class IteratorFlag(CuteFlags):
+    """
+    The flags enum 'QDirIterator::IteratorFlag' of Qt, with the 3 names Qt
+    gives in it. Qt names the type of its combinations
+    'QDirIterator::IteratorFlags'.
+    """
+
+    NoIteratorFlags = 0x0
+    FollowSymlinks = 0x1
+    Subdirectories = 0x2
+
+  IteratorFlags = IteratorFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -236,8 +242,8 @@ class QDirIterator(CuteMixin, metaclass=MetaCute):
         path, flags.value,
     ))
 
-  @overload(str, QDirFilter)
-  @overload(str, QDirFilter, IteratorFlags)
+  @overload(str, QDir.Filters)
+  @overload(str, QDir.Filters, IteratorFlags)
   def __init__(
       self,
       path: str,

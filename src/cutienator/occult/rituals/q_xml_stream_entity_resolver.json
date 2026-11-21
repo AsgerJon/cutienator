@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qxmlstream.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QXmlStreamEntityResolverC1Ev": ["address"],
+    "ritual_ZN24QXmlStreamEntityResolverD1Ev": ["nothing", "address"],
+    "ritual_ZN24QXmlStreamEntityResolver13resolveEntityERK7QStringS2_": [
+      "text", "address", "text", "text"
+    ],
+    "ritual_ZN24QXmlStreamEntityResolver23resolveUndeclaredEntityERK7QString": [
+      "text", "address", "text"
+    ]
+  }
+}

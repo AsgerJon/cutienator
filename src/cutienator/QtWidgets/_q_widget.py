@@ -12,11 +12,11 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from ..QtGui import QPaletteColorRole
-from . import QSizePolicyPolicy, QWidgetRenderFlag
+from ..QtGui import QPalette
+from . import QSizePolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -25,10 +25,9 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QPointF, QRect, QSize, QVariant
   from ..QtGui import QAction, QBackingStore, QBitmap, QCursor, QFont
   from ..QtGui import QFontInfo, QFontMetrics, QIcon, QKeySequence
-  from ..QtGui import QPaintDevice, QPaintEngine, QPainter, QPalette, QPixmap
-  from ..QtGui import QRegion, QScreen, QWindow
-  from . import QGraphicsEffect, QGraphicsProxyWidget, QLayout, QSizePolicy
-  from . import QStyle
+  from ..QtGui import QPaintDevice, QPaintEngine, QPainter, QPixmap, QRegion
+  from ..QtGui import QScreen, QWindow
+  from . import QGraphicsEffect, QGraphicsProxyWidget, QLayout, QStyle
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -46,14 +45,12 @@ else:
   QMargins = WAIT['QMargins']
   QPaintDevice = WAIT['QPaintDevice']
   QPainter = WAIT['QPainter']
-  QPalette = WAIT['QPalette']
   QPoint = WAIT['QPoint']
   QPointF = WAIT['QPointF']
   QRect = WAIT['QRect']
   QRegion = WAIT['QRegion']
   QScreen = WAIT['QScreen']
   QSize = WAIT['QSize']
-  QSizePolicy = WAIT['QSizePolicy']
   QStyle = WAIT['QStyle']
   QWindow = WAIT['QWindow']
 
@@ -158,10 +155,20 @@ class QWidget(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QWidget, and the names Qt has for the
-  #  combinations of its flags enums.
-  RenderFlag = QWidgetRenderFlag
-  RenderFlags = QWidgetRenderFlag
+  #  The enums Qt writes inside QWidget, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class RenderFlag(CuteFlags):
+    """
+    The flags enum 'QWidget::RenderFlag' of Qt, with the 3 names Qt gives in
+    it. Qt names the type of its combinations 'QWidget::RenderFlags'.
+    """
+
+    DrawWindowBackground = 0x1
+    DrawChildren = 0x2
+    IgnoreMask = 0x4
+
+  RenderFlags = RenderFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1229,7 +1236,6 @@ class QWidget(QObject):
     """
     #  const QPalette &QWidget::palette() const
     address = self.uglySide.call('ritual_ZNK7QWidget7paletteEv')
-    from ..QtGui import QPalette
     return QPalette._cuteOwning(address)
 
   def backgroundRole(self) -> QPalette.ColorRole:
@@ -1247,7 +1253,7 @@ class QWidget(QObject):
       'QPalette.ColorRole(number)' gives.
     """
     #  QPalette::ColorRole QWidget::backgroundRole() const
-    return QPaletteColorRole(self.uglySide.call(
+    return QPalette.ColorRole(self.uglySide.call(
         'ritual_ZNK7QWidget14backgroundRoleEv',
     ))
 
@@ -1266,7 +1272,7 @@ class QWidget(QObject):
       'QPalette.ColorRole(number)' gives.
     """
     #  QPalette::ColorRole QWidget::foregroundRole() const
-    return QPaletteColorRole(self.uglySide.call(
+    return QPalette.ColorRole(self.uglySide.call(
         'ritual_ZNK7QWidget14foregroundRoleEv',
     ))
 
@@ -1910,7 +1916,6 @@ class QWidget(QObject):
     """
     #  QSizePolicy QWidget::sizePolicy() const
     address = self.uglySide.call('ritual_ZNK7QWidget10sizePolicyEv')
-    from . import QSizePolicy
     return QSizePolicy._cuteOwning(address)
 
   @overload(int)
@@ -2759,7 +2764,7 @@ class QWidget(QObject):
         'ritual_ZN7QWidget10setPaletteERK8QPalette', self._valueOf(a0),
     )
 
-  @overload(QPaletteColorRole)
+  @overload(QPalette.ColorRole)
   def setBackgroundRole(self, a0: QPalette.ColorRole) -> None:
     """
     Calls Qt's 'void QWidget::setBackgroundRole(QPalette::ColorRole a0)'.
@@ -2778,7 +2783,7 @@ class QWidget(QObject):
         a0.value,
     )
 
-  @overload(QPaletteColorRole)
+  @overload(QPalette.ColorRole)
   def setForegroundRole(self, a0: QPalette.ColorRole) -> None:
     """
     Calls Qt's 'void QWidget::setForegroundRole(QPalette::ColorRole a0)'.
@@ -3464,7 +3469,7 @@ class QWidget(QObject):
         'ritual_ZN7QWidget13setSizePolicyE11QSizePolicy', self._valueOf(a0),
     )
 
-  @overload(QSizePolicyPolicy, QSizePolicyPolicy)
+  @overload(QSizePolicy.Policy, QSizePolicy.Policy)
   def setSizePolicy(
       self,
       horizontal: QSizePolicy.Policy,

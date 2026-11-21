@@ -11,10 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QMdiSubWindowSubWindowOption, QWidget
+from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -81,10 +81,22 @@ class QMdiSubWindow(QWidget):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QMdiSubWindow, and the names Qt has for the
-  #  combinations of its flags enums.
-  SubWindowOption = QMdiSubWindowSubWindowOption
-  SubWindowOptions = QMdiSubWindowSubWindowOption
+  #  The enums Qt writes inside QMdiSubWindow, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class SubWindowOption(CuteFlags):
+    """
+    The flags enum 'QMdiSubWindow::SubWindowOption' of Qt, with the 4 names
+    Qt gives in it. Qt names the type of its combinations
+    'QMdiSubWindow::SubWindowOptions'.
+    """
+
+    AllowOutsideAreaHorizontally = 0x1
+    AllowOutsideAreaVertically = 0x2
+    RubberBandResize = 0x4
+    RubberBandMove = 0x8
+
+  SubWindowOptions = SubWindowOption
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

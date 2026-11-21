@@ -1,0 +1,101 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcborvalue.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QCborValueConstRefC1ERKS_": ["address", "address"],
+    "ritual_ZNK18QCborValueConstRefcv10QCborValueEv": ["address", "address"],
+    "ritual_ZNK18QCborValueConstRef4typeEv": ["int", "address"],
+    "ritual_ZNK18QCborValueConstRef9isIntegerEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef11isByteArrayEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef8isStringEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef7isArrayEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef5isMapEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef5isTagEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef7isFalseEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef6isTrueEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef6isBoolEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef6isNullEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef11isUndefinedEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef8isDoubleEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef10isDateTimeEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef5isUrlEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef19isRegularExpressionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QCborValueConstRef6isUuidEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef9isInvalidEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef11isContainerEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef12isSimpleTypeEv": ["bool", "address"],
+    "ritual_ZNK18QCborValueConstRef12isSimpleTypeE15QCborSimpleType": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZNK18QCborValueConstRef12toSimpleTypeE15QCborSimpleType": [
+      "unsigned char", "address", "unsigned char"
+    ],
+    "ritual_ZNK18QCborValueConstRef3tagE8QCborTag": [
+      "unsigned long long", "address", "unsigned long long"
+    ],
+    "ritual_ZNK18QCborValueConstRef11taggedValueERK10QCborValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QCborValueConstRef9toIntegerEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZNK18QCborValueConstRef6toBoolEb": ["bool", "address", "bool"],
+    "ritual_ZNK18QCborValueConstRef8toDoubleEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK18QCborValueConstRef11toByteArrayERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QCborValueConstRef8toStringERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK18QCborValueConstRef12toStringViewE14QAnyStringView": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK18QCborValueConstRef10toDateTimeERK9QDateTime": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QCborValueConstRef5toUrlERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QCborValueConstRef19toRegularExpressionERK18QRegularExpression": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QCborValueConstRef6toUuidERK5QUuid": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QCborValueConstRef7toArrayEv": ["address", "address"],
+    "ritual_ZNK18QCborValueConstRef7toArrayERK10QCborArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QCborValueConstRef5toMapEv": ["address", "address"],
+    "ritual_ZNK18QCborValueConstRef5toMapERK8QCborMap": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QCborValueConstRefixERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK18QCborValueConstRefixE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QCborValueConstRefixEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK18QCborValueConstRef7compareERK10QCborValue": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK18QCborValueConstRef9toVariantEv": ["address", "address"],
+    "ritual_ZNK18QCborValueConstRef11toJsonValueEv": ["address", "address"],
+    "ritual_ZNK18QCborValueConstRef6toCborE6QFlagsIN10QCborValue14EncodingOptionEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18QCborValueConstRef20toDiagnosticNotationE6QFlagsIN10QCborValue24DiagnosticNotationOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN18QCborValueConstRefD1Ev": ["nothing", "address"]
+  }
+}

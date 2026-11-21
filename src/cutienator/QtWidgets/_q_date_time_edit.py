@@ -11,10 +11,10 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QAbstractSpinBox, QDateTimeEditSection, QWidget
+from . import QAbstractSpinBox, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -95,10 +95,28 @@ class QDateTimeEdit(QAbstractSpinBox):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QDateTimeEdit, and the names Qt has for the
-  #  combinations of its flags enums.
-  Section = QDateTimeEditSection
-  Sections = QDateTimeEditSection
+  #  The enums Qt writes inside QDateTimeEdit, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class Section(CuteFlags):
+    """
+    The flags enum 'QDateTimeEdit::Section' of Qt, with the 11 names Qt gives
+    in it. Qt names the type of its combinations 'QDateTimeEdit::Sections'.
+    """
+
+    NoSection = 0x0
+    AmPmSection = 0x1
+    MSecSection = 0x2
+    SecondSection = 0x4
+    MinuteSection = 0x8
+    HourSection = 0x10
+    DaySection = 0x100
+    MonthSection = 0x200
+    YearSection = 0x400
+    TimeSections_Mask = 0x1f
+    DateSections_Mask = 0x700
+
+  Sections = Section
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

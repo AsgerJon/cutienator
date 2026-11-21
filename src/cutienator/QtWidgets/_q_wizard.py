@@ -10,12 +10,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QDialog, QWidget, QWizardWizardButton, QWizardWizardOption
-from . import QWizardWizardPixmap, QWizardWizardStyle
+from . import QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -88,13 +88,76 @@ class QWizard(QDialog):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QWizard, and the names Qt has for the
-  #  combinations of its flags enums.
-  WizardButton = QWizardWizardButton
-  WizardOption = QWizardWizardOption
-  WizardOptions = QWizardWizardOption
-  WizardPixmap = QWizardWizardPixmap
-  WizardStyle = QWizardWizardStyle
+  #  The enums Qt writes inside QWizard, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class WizardButton(CuteNum):
+    """
+    The enum 'QWizard::WizardButton' of Qt, with the 13 names Qt gives in it.
+    """
+
+    BackButton = Kee[int](0)
+    NextButton = Kee[int](1)
+    CommitButton = Kee[int](2)
+    FinishButton = Kee[int](3)
+    CancelButton = Kee[int](4)
+    HelpButton = Kee[int](5)
+    CustomButton1 = Kee[int](6)
+    CustomButton2 = Kee[int](7)
+    CustomButton3 = Kee[int](8)
+    Stretch = Kee[int](9)
+    NoButton = Kee[int](-1)
+    NStandardButtons = Kee[int](6)
+    NButtons = Kee[int](9)
+
+  class WizardOption(CuteFlags):
+    """
+    The flags enum 'QWizard::WizardOption' of Qt, with the 18 names Qt gives
+    in it. Qt names the type of its combinations 'QWizard::WizardOptions'.
+    """
+
+    IndependentPages = 0x1
+    IgnoreSubTitles = 0x2
+    ExtendedWatermarkPixmap = 0x4
+    NoDefaultButton = 0x8
+    NoBackButtonOnStartPage = 0x10
+    NoBackButtonOnLastPage = 0x20
+    DisabledBackButtonOnLastPage = 0x40
+    HaveNextButtonOnLastPage = 0x80
+    HaveFinishButtonOnEarlyPages = 0x100
+    NoCancelButton = 0x200
+    CancelButtonOnLeft = 0x400
+    HaveHelpButton = 0x800
+    HelpButtonOnRight = 0x1000
+    HaveCustomButton1 = 0x2000
+    HaveCustomButton2 = 0x4000
+    HaveCustomButton3 = 0x8000
+    NoCancelButtonOnLastPage = 0x10000
+    StretchBanner = 0x20000
+
+  WizardOptions = WizardOption
+
+  class WizardPixmap(CuteNum):
+    """
+    The enum 'QWizard::WizardPixmap' of Qt, with the 5 names Qt gives in it.
+    """
+
+    WatermarkPixmap = Kee[int](0)
+    LogoPixmap = Kee[int](1)
+    BannerPixmap = Kee[int](2)
+    BackgroundPixmap = Kee[int](3)
+    NPixmaps = Kee[int](4)
+
+  class WizardStyle(CuteNum):
+    """
+    The enum 'QWizard::WizardStyle' of Qt, with the 5 names Qt gives in it.
+    """
+
+    ClassicStyle = Kee[int](0)
+    ModernStyle = Kee[int](1)
+    MacStyle = Kee[int](2)
+    AeroStyle = Kee[int](3)
+    NStyles = Kee[int](4)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

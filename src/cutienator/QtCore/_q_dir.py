@@ -12,9 +12,8 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, CuteFlags, MetaCute
 from ..occult import Rituals
-from . import QDirFilter, QDirSortFlag
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QChar
@@ -73,12 +72,58 @@ class QDir(CuteMixin, metaclass=MetaCute):
     a new cute QDir.
   """
 
-  #  The enums Qt writes inside QDir, and the names Qt has for the
-  #  combinations of its flags enums.
-  Filter = QDirFilter
-  Filters = QDirFilter
-  SortFlag = QDirSortFlag
-  SortFlags = QDirSortFlag
+  #  The enums Qt writes inside QDir, each a class in here as in C++, and the
+  #  names Qt has for the combinations of its flags enums.
+
+  class Filter(CuteFlags):
+    """
+    The flags enum 'QDir::Filter' of Qt, with the 20 names Qt gives in it. Qt
+    names the type of its combinations 'QDir::Filters'.
+    """
+
+    Dirs = 0x1
+    Files = 0x2
+    Drives = 0x4
+    NoSymLinks = 0x8
+    AllEntries = 0x7
+    TypeMask = 0xf
+    Readable = 0x10
+    Writable = 0x20
+    Executable = 0x40
+    PermissionMask = 0x70
+    Modified = 0x80
+    Hidden = 0x100
+    System = 0x200
+    AccessMask = 0x3f0
+    AllDirs = 0x400
+    CaseSensitive = 0x800
+    NoDot = 0x2000
+    NoDotDot = 0x4000
+    NoDotAndDotDot = 0x6000
+    NoFilter = -1
+
+  Filters = Filter
+
+  class SortFlag(CuteFlags):
+    """
+    The flags enum 'QDir::SortFlag' of Qt, with the 12 names Qt gives in it.
+    Qt names the type of its combinations 'QDir::SortFlags'.
+    """
+
+    Name = 0x0
+    Time = 0x1
+    Size = 0x2
+    Unsorted = 0x3
+    SortByMask = 0x3
+    DirsFirst = 0x4
+    Reversed = 0x8
+    IgnoreCase = 0x10
+    DirsLast = 0x20
+    LocaleAware = 0x40
+    Type = 0x80
+    NoSort = -1
+
+  SortFlags = SortFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

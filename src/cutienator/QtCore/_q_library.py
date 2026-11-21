@@ -11,9 +11,9 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, CuteFlags
 from ..occult import Rituals
-from . import QLibraryLoadHint, QObject
+from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -69,10 +69,22 @@ class QLibrary(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QLibrary, and the names Qt has for the
-  #  combinations of its flags enums.
-  LoadHint = QLibraryLoadHint
-  LoadHints = QLibraryLoadHint
+  #  The enums Qt writes inside QLibrary, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class LoadHint(CuteFlags):
+    """
+    The flags enum 'QLibrary::LoadHint' of Qt, with the 5 names Qt gives in
+    it. Qt names the type of its combinations 'QLibrary::LoadHints'.
+    """
+
+    ResolveAllSymbolsHint = 0x1
+    ExportExternalSymbolsHint = 0x2
+    LoadArchiveMemberHint = 0x4
+    PreventUnloadHint = 0x8
+    DeepBindHint = 0x10
+
+  LoadHints = LoadHint
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

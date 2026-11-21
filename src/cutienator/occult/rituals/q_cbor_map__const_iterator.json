@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcbormap.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QCborMap13ConstIteratorC1Ev": ["address"],
+    "ritual_ZN8QCborMap13ConstIteratorC1ERKS0_": ["address", "address"],
+    "ritual_ZN8QCborMap13ConstIteratorD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QCborMap13ConstIteratorptEv": ["address", "address"],
+    "ritual_ZNK8QCborMap13ConstIterator3keyEv": ["address", "address"],
+    "ritual_ZNK8QCborMap13ConstIterator6keyRefEv": ["address", "address"],
+    "ritual_ZNK8QCborMap13ConstIterator5valueEv": ["address", "address"],
+    "ritual_ZN8QCborMap13ConstIteratorppEi": ["address", "address", "int"],
+    "ritual_ZN8QCborMap13ConstIteratormmEi": ["address", "address", "int"],
+    "ritual_ZNK8QCborMap13ConstIteratorplEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK8QCborMap13ConstIteratormiEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK8QCborMap13ConstIteratormiES0_": [
+      "long long", "address", "address"
+    ]
+  }
+}

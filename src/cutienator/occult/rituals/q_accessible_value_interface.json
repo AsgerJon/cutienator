@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QAccessibleValueInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QAccessibleValueInterface12currentValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QAccessibleValueInterface15setCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleValueInterface12maximumValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleValueInterface12minimumValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleValueInterface15minimumStepSizeEv": [
+      "address", "address"
+    ]
+  }
+}

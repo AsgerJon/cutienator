@@ -10,20 +10,19 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QAbstractScrollArea, QMdiAreaAreaOption, QMdiAreaViewMode
-from . import QMdiAreaWindowOrder, QTabWidgetTabPosition, QTabWidgetTabShape
-from . import QWidget
+from . import QAbstractScrollArea, QTabWidget, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QSize
   from ..QtGui import QBrush
-  from . import QMdiSubWindow, QTabWidget
+  from . import QMdiSubWindow
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -87,12 +86,35 @@ class QMdiArea(QAbstractScrollArea):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QMdiArea, and the names Qt has for the
-  #  combinations of its flags enums.
-  AreaOption = QMdiAreaAreaOption
-  AreaOptions = QMdiAreaAreaOption
-  ViewMode = QMdiAreaViewMode
-  WindowOrder = QMdiAreaWindowOrder
+  #  The enums Qt writes inside QMdiArea, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class AreaOption(CuteFlags):
+    """
+    The flags enum 'QMdiArea::AreaOption' of Qt, with the 1 names Qt gives in
+    it. Qt names the type of its combinations 'QMdiArea::AreaOptions'.
+    """
+
+    DontMaximizeSubWindowOnActivation = 0x1
+
+  AreaOptions = AreaOption
+
+  class ViewMode(CuteNum):
+    """
+    The enum 'QMdiArea::ViewMode' of Qt, with the 2 names Qt gives in it.
+    """
+
+    SubWindowView = Kee[int](0)
+    TabbedView = Kee[int](1)
+
+  class WindowOrder(CuteNum):
+    """
+    The enum 'QMdiArea::WindowOrder' of Qt, with the 3 names Qt gives in it.
+    """
+
+    CreationOrder = Kee[int](0)
+    StackingOrder = Kee[int](1)
+    ActivationHistoryOrder = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -362,7 +384,7 @@ class QMdiArea(QAbstractScrollArea):
       'QTabWidget.TabShape(number)' gives.
     """
     #  QTabWidget::TabShape QMdiArea::tabShape() const
-    return QTabWidgetTabShape(self.uglySide.call(
+    return QTabWidget.TabShape(self.uglySide.call(
         'ritual_ZNK8QMdiArea8tabShapeEv',
     ))
 
@@ -381,7 +403,7 @@ class QMdiArea(QAbstractScrollArea):
       'QTabWidget.TabPosition(number)' gives.
     """
     #  QTabWidget::TabPosition QMdiArea::tabPosition() const
-    return QTabWidgetTabPosition(self.uglySide.call(
+    return QTabWidget.TabPosition(self.uglySide.call(
         'ritual_ZNK8QMdiArea11tabPositionEv',
     ))
 
@@ -516,7 +538,7 @@ class QMdiArea(QAbstractScrollArea):
     #  void QMdiArea::setTabsMovable(bool movable)
     self.uglySide.call('ritual_ZN8QMdiArea14setTabsMovableEb', movable)
 
-  @overload(QTabWidgetTabShape)
+  @overload(QTabWidget.TabShape)
   def setTabShape(self, shape: QTabWidget.TabShape) -> None:
     """
     Calls Qt's 'void QMdiArea::setTabShape(QTabWidget::TabShape shape)'.
@@ -535,7 +557,7 @@ class QMdiArea(QAbstractScrollArea):
         shape.value,
     )
 
-  @overload(QTabWidgetTabPosition)
+  @overload(QTabWidget.TabPosition)
   def setTabPosition(self, position: QTabWidget.TabPosition) -> None:
     """
     Calls Qt's 'void QMdiArea::setTabPosition(QTabWidget::TabPosition

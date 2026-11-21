@@ -10,9 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteNum
 from ..occult import Rituals
-from . import QTextFormat, QTextListFormatStyle
+from . import QTextFormat
 
 
 class QTextListFormat(QTextFormat):
@@ -61,9 +63,23 @@ class QTextListFormat(QTextFormat):
     Python, in a new cute QTextListFormat.
   """
 
-  #  The enums Qt writes inside QTextListFormat, and the names Qt has for the
-  #  combinations of its flags enums.
-  Style = QTextListFormatStyle
+  #  The enums Qt writes inside QTextListFormat, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class Style(CuteNum):
+    """
+    The enum 'QTextListFormat::Style' of Qt, with the 9 names Qt gives in it.
+    """
+
+    ListDisc = Kee[int](-1)
+    ListCircle = Kee[int](-2)
+    ListSquare = Kee[int](-3)
+    ListDecimal = Kee[int](-4)
+    ListLowerAlpha = Kee[int](-5)
+    ListUpperAlpha = Kee[int](-6)
+    ListLowerRoman = Kee[int](-7)
+    ListUpperRoman = Kee[int](-8)
+    ListStyleUndefined = Kee[int](0)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

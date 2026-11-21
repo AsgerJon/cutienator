@@ -11,16 +11,16 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
-from ..QtGui import QFontDatabaseWritingSystem
-from . import QComboBox, QFontComboBoxFontFilter, QWidget
+from ..QtGui import QFontDatabase
+from . import QComboBox, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QSize
-  from ..QtGui import QFont, QFontDatabase
+  from ..QtGui import QFont
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -78,10 +78,23 @@ class QFontComboBox(QComboBox):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QFontComboBox, and the names Qt has for the
-  #  combinations of its flags enums.
-  FontFilter = QFontComboBoxFontFilter
-  FontFilters = QFontComboBoxFontFilter
+  #  The enums Qt writes inside QFontComboBox, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class FontFilter(CuteFlags):
+    """
+    The flags enum 'QFontComboBox::FontFilter' of Qt, with the 5 names Qt
+    gives in it. Qt names the type of its combinations
+    'QFontComboBox::FontFilters'.
+    """
+
+    AllFonts = 0x0
+    ScalableFonts = 0x1
+    NonScalableFonts = 0x2
+    MonospacedFonts = 0x4
+    ProportionalFonts = 0x8
+
+  FontFilters = FontFilter
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -184,7 +197,7 @@ class QFontComboBox(QComboBox):
       'QFontDatabase.WritingSystem(number)' gives.
     """
     #  QFontDatabase::WritingSystem QFontComboBox::writingSystem() const
-    return QFontDatabaseWritingSystem(self.uglySide.call(
+    return QFontDatabase.WritingSystem(self.uglySide.call(
         'ritual_ZNK13QFontComboBox13writingSystemEv',
     ))
 
@@ -239,7 +252,7 @@ class QFontComboBox(QComboBox):
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
-  @overload(QFontDatabaseWritingSystem)
+  @overload(QFontDatabase.WritingSystem)
   def sampleTextForSystem(
       self,
       writingSystem: QFontDatabase.WritingSystem,
@@ -305,7 +318,7 @@ class QFontComboBox(QComboBox):
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QFontDatabaseWritingSystem)
+  @overload(QFontDatabase.WritingSystem)
   def setWritingSystem(self, a0: QFontDatabase.WritingSystem) -> None:
     """
     Calls Qt's 'void
@@ -346,7 +359,7 @@ class QFontComboBox(QComboBox):
         filters.value,
     )
 
-  @overload(QFontDatabaseWritingSystem, str)
+  @overload(QFontDatabase.WritingSystem, str)
   def setSampleTextForSystem(
       self,
       writingSystem: QFontDatabase.WritingSystem,

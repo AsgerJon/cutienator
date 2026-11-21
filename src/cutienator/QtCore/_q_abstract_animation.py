@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, CuteNum
 from ..occult import Rituals
-from . import QAbstractAnimationDeletionPolicy, QAbstractAnimationDirection
-from . import QAbstractAnimationState, QObject
+from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -74,11 +74,36 @@ class QAbstractAnimation(QObject):
     'RuntimeError', and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QAbstractAnimation, and the names Qt has for
-  #  the combinations of its flags enums.
-  DeletionPolicy = QAbstractAnimationDeletionPolicy
-  Direction = QAbstractAnimationDirection
-  State = QAbstractAnimationState
+  #  The enums Qt writes inside QAbstractAnimation, each a class in here as
+  #  in C++, and the names Qt has for the combinations of its flags enums.
+
+  class DeletionPolicy(CuteNum):
+    """
+    The enum 'QAbstractAnimation::DeletionPolicy' of Qt, with the 2 names Qt
+    gives in it.
+    """
+
+    KeepWhenStopped = Kee[int](0)
+    DeleteWhenStopped = Kee[int](1)
+
+  class Direction(CuteNum):
+    """
+    The enum 'QAbstractAnimation::Direction' of Qt, with the 2 names Qt gives
+    in it.
+    """
+
+    Forward = Kee[int](0)
+    Backward = Kee[int](1)
+
+  class State(CuteNum):
+    """
+    The enum 'QAbstractAnimation::State' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    Stopped = Kee[int](0)
+    Paused = Kee[int](1)
+    Running = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -12,13 +12,13 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import WAIT
-from . import QInputEvent, QPointingDevicePointerType
+from . import QInputEvent, QPointingDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QObject
-  from . import QEventPoint, QPointingDevice
+  from . import QEventPoint
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -136,7 +136,6 @@ class QPointerEvent(QInputEvent):
     address = self.uglySide.call(
         'ritual_ZNK13QPointerEvent14pointingDeviceEv',
     )
-    from . import QPointingDevice
     return QPointingDevice._cuteAt(address)
 
   def pointerType(self) -> QPointingDevice.PointerType:
@@ -155,7 +154,7 @@ class QPointerEvent(QInputEvent):
       'QPointingDevice.PointerType(number)' gives.
     """
     #  QPointingDevice::PointerType QPointerEvent::pointerType() const
-    return QPointingDevicePointerType(self.uglySide.call(
+    return QPointingDevice.PointerType(self.uglySide.call(
         'ritual_ZNK13QPointerEvent11pointerTypeEv',
     ))
 

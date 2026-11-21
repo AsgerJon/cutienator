@@ -14,12 +14,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QItemSelectionModelSelectionFlag
+from . import QItemSelectionModel
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QItemSelectionModel, QItemSelectionRange, QModelIndex
+  from . import QItemSelectionRange, QModelIndex
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -250,7 +250,7 @@ class QItemSelection(CuteMixin, metaclass=MetaCute):
         self._valueOf(topLeft), self._valueOf(bottomRight),
     )
 
-  @overload(THIS, QItemSelectionModelSelectionFlag)
+  @overload(THIS, QItemSelectionModel.SelectionFlags)
   def merge(
       self,
       other: QItemSelection,

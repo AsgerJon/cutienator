@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QInputMethodEvent9AttributeC1ENS_13AttributeTypeEii8QVariant": [
+      "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZN17QInputMethodEvent9AttributeC1ENS_13AttributeTypeEii": [
+      "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QInputMethodEvent9AttributeD1Ev": ["nothing", "address"]
+  }
+}

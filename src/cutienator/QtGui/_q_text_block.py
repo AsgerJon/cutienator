@@ -20,7 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from . import QTextBlockFormat, QTextBlockUserData, QTextCharFormat
-  from . import QTextDocument, QTextLayout
+  from . import QTextDocument, QTextFragment, QTextLayout, QTextList
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,13 +45,13 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextBlock that has a ritual and that Python can
-  call so far, 28 names in all: 'isValid', 'position', 'length', 'contains',
+  call so far, 31 names in all: 'isValid', 'position', 'length', 'contains',
   'layout', 'clearLayout', 'blockFormat', 'blockFormatIndex', 'charFormat',
-  'charFormatIndex', 'textDirection', 'text', 'document', 'userData',
-  'setUserData', 'userState', 'setUserState', 'revision', 'setRevision',
-  'isVisible', 'setVisible', 'blockNumber', 'firstLineNumber',
-  'setLineCount', 'lineCount', 'next', 'previous', 'fragmentIndex'. It can be
-  made from Python, in 2 ways; see '__init__'.
+  'charFormatIndex', 'textDirection', 'text', 'document', 'textList',
+  'userData', 'setUserData', 'userState', 'setUserState', 'revision',
+  'setRevision', 'isVisible', 'setVisible', 'blockNumber', 'firstLineNumber',
+  'setLineCount', 'lineCount', 'begin', 'end', 'next', 'previous',
+  'fragmentIndex'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -62,12 +62,6 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
     operator, which is not reflected yet.
   - Qt's 'bool QTextBlock::operator<(const QTextBlock &o) const': an
     operator, which is not reflected yet.
-  - Qt's 'QTextList *QTextBlock::textList() const': gives 'QTextList', which
-    has no cute class yet.
-  - Qt's 'iterator QTextBlock::begin() const': gives 'QTextBlock::iterator',
-    which has no cute class yet.
-  - Qt's 'iterator QTextBlock::end() const': gives 'QTextBlock::iterator',
-    which has no cute class yet.
   - Qt's 'QTextBlock::~QTextBlock()': the destructor: Python removes its C++
     QTextBlock by it, and has no other use for it.
 
@@ -89,6 +83,168 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
   - A function giving a QTextBlock back gives a copy the ritual made for
     Python, in a new cute QTextBlock.
   """
+
+  #  The classes Qt writes inside QTextBlock, each a class in here as in C++.
+
+  class iterator(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QTextBlock::iterator: a plain Python object
+    standing in front of one C++ QTextBlock::iterator.
+
+    C++ hands a QTextBlock::iterator around as a copy, so every C++
+    QTextBlock::iterator behind a cute one is Python's own: it is removed, by
+    the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    Every function of Qt's QTextBlock::iterator that has a ritual and that
+    Python can call so far, 2 names in all: 'fragment', 'atEnd'. It can be
+    made from Python, in 1 way; see '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'bool QTextBlock::iterator::operator==(const iterator &o) const':
+      an operator, which is not reflected yet.
+    - Qt's 'bool QTextBlock::iterator::operator!=(const iterator &o) const':
+      an operator, which is not reflected yet.
+    - Qt's 'iterator QTextBlock::iterator::operator++(int a0)': an operator,
+      which is not reflected yet.
+    - Qt's 'iterator QTextBlock::iterator::operator--(int a0)': an operator,
+      which is not reflected yet.
+    - Qt's 'QTextBlock::iterator::~iterator()': the destructor: Python
+      removes its C++ QTextBlock::iterator by it, and has no other use for
+      it.
+
+    What has no ritual
+    ------------------
+
+    3 of the 11 functions Qt declares: 2 takes or gives a type that cannot be
+    passed yet; 1 private.
+
+    What to expect
+    --------------
+
+    - The C++ QTextBlock::iterator is created at the first use, not by
+      'QTextBlock::iterator(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QTextBlock::iterator back gives a copy the ritual
+      made for Python, in a new cute QTextBlock::iterator.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QTextBlock::iterator'
+
+    #  Qt's '~QTextBlock::iterator()'. Naming it makes this a value class:
+    #  Python owns every C++ QTextBlock::iterator behind a cute one, and
+    #  removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN10QTextBlock8iteratorD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    def fragment(self) -> QTextFragment:
+      """
+      Calls Qt's 'QTextFragment QTextBlock::iterator::fragment() const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextblock-iterator.html#fragment
+
+      Returns
+      -------
+
+      QTextFragment
+        A new cute QTextFragment around the copy Qt gave back. Python owns
+        it.
+      """
+      #  QTextFragment QTextBlock::iterator::fragment() const
+      address = self.uglySide.call(
+          'ritual_ZNK10QTextBlock8iterator8fragmentEv',
+      )
+      from . import QTextFragment
+      return QTextFragment._cuteOwning(address)
+
+    def atEnd(self) -> bool:
+      """
+      Calls Qt's 'bool QTextBlock::iterator::atEnd() const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qtextblock-iterator.html#atEnd
+      """
+      #  bool QTextBlock::iterator::atEnd() const
+      return self.uglySide.call('ritual_ZNK10QTextBlock8iterator5atEndEv')
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's 'QTextBlock::iterator::iterator()',
+      which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextblock-iterator.html#iterator
+      """
+      #  QTextBlock::iterator::iterator()
+      self._noteCreation(QTextBlock.iterator, lambda: Rituals.call(
+          'ritual_ZN10QTextBlock8iteratorC1Ev',
+      ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -285,6 +441,24 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
     from . import QTextDocument
     return QTextDocument._cuteAt(address)
 
+  def textList(self) -> Optional[QTextList]:
+    """
+    Calls Qt's 'QTextList *QTextBlock::textList() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextblock.html#textList
+
+    Returns
+    -------
+
+    Optional[QTextList]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextList *QTextBlock::textList() const
+    address = self.uglySide.call('ritual_ZNK10QTextBlock8textListEv')
+    from . import QTextList
+    return QTextList._cuteAt(address)
+
   def userData(self) -> Optional[QTextBlockUserData]:
     """
     Calls Qt's 'QTextBlockUserData *QTextBlock::userData() const'.
@@ -356,6 +530,40 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
     """
     #  int QTextBlock::lineCount() const
     return self.uglySide.call('ritual_ZNK10QTextBlock9lineCountEv')
+
+  def begin(self) -> iterator:
+    """
+    Calls Qt's 'iterator QTextBlock::begin() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextblock.html#begin
+
+    Returns
+    -------
+
+    iterator
+      A new cute QTextBlock::iterator around the copy Qt gave back. Python
+      owns it.
+    """
+    #  iterator QTextBlock::begin() const
+    address = self.uglySide.call('ritual_ZNK10QTextBlock5beginEv')
+    return QTextBlock.iterator._cuteOwning(address)
+
+  def end(self) -> iterator:
+    """
+    Calls Qt's 'iterator QTextBlock::end() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextblock.html#end
+
+    Returns
+    -------
+
+    iterator
+      A new cute QTextBlock::iterator around the copy Qt gave back. Python
+      owns it.
+    """
+    #  iterator QTextBlock::end() const
+    address = self.uglySide.call('ritual_ZNK10QTextBlock3endEv')
+    return QTextBlock.iterator._cuteOwning(address)
 
   def next(self) -> QTextBlock:
     """

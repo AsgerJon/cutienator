@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessibleobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QAccessibleApplicationC1Ev": ["address"],
+    "ritual_ZNK22QAccessibleApplication6windowEv": ["address", "address"],
+    "ritual_ZNK22QAccessibleApplication10childCountEv": ["int", "address"],
+    "ritual_ZNK22QAccessibleApplication12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK22QAccessibleApplication10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QAccessibleApplication6parentEv": ["address", "address"],
+    "ritual_ZNK22QAccessibleApplication5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK22QAccessibleApplication4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK22QAccessibleApplication4roleEv": ["int", "address"],
+    "ritual_ZNK22QAccessibleApplication5stateEv": ["address", "address"]
+  }
+}

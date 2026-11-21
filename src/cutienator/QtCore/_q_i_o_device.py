@@ -13,12 +13,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import QIODeviceBaseOpenModeFlag, QObject
+from . import QIODeviceBase, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QIODeviceBase, QMetaObject
+  from . import QByteArray, QMetaObject
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -184,7 +184,7 @@ class QIODevice(QObject):
       The value standing for the combination Qt gave back.
     """
     #  QIODeviceBase::OpenMode QIODevice::openMode() const
-    return QIODeviceBaseOpenModeFlag(self.uglySide.call(
+    return QIODeviceBase.OpenMode(self.uglySide.call(
         'ritual_ZNK9QIODevice8openModeEv',
     ))
 
@@ -438,7 +438,7 @@ class QIODevice(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @overload(QIODeviceBaseOpenModeFlag)
+  @overload(QIODeviceBase.OpenMode)
   def open(self, mode: QIODeviceBase.OpenMode) -> bool:
     """
     Calls Qt's 'bool QIODevice::open(QIODeviceBase::OpenMode mode)'.

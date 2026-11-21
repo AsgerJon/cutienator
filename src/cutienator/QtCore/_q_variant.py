@@ -11,19 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QVariantType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from . import QBitArray, QByteArray, QChar, QDate, QDateTime, QEasingCurve
-  from . import QJsonArray, QJsonObject, QJsonValue, QLine, QLineF, QLocale
-  from . import QMetaType, QModelIndex, QPersistentModelIndex, QPoint
-  from . import QPointF, QRect, QRectF, QRegularExpression, QSize, QSizeF
-  from . import QTime, QUrl, QUuid
+  from . import QJsonArray, QJsonDocument, QJsonObject, QJsonValue
+  from . import QLatin1String, QLine, QLineF, QLocale, QMetaType, QModelIndex
+  from . import QPartialOrdering, QPersistentModelIndex, QPoint, QPointF
+  from . import QRect, QRectF, QRegularExpression, QSize, QSizeF, QTime, QUrl
+  from . import QUuid
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -35,8 +36,10 @@ else:
   QDateTime = WAIT['QDateTime']
   QEasingCurve = WAIT['QEasingCurve']
   QJsonArray = WAIT['QJsonArray']
+  QJsonDocument = WAIT['QJsonDocument']
   QJsonObject = WAIT['QJsonObject']
   QJsonValue = WAIT['QJsonValue']
+  QLatin1String = WAIT['QLatin1String']
   QLine = WAIT['QLine']
   QLineF = WAIT['QLineF']
   QLocale = WAIT['QLocale']
@@ -72,15 +75,15 @@ class QVariant(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QVariant that has a ritual and that Python can call
-  so far, 42 names in all: 'userType', 'typeId', 'typeName', 'metaType',
+  so far, 44 names in all: 'userType', 'typeId', 'typeName', 'metaType',
   'canConvert', 'convert', 'canView', 'isValid', 'isNull', 'clear', 'detach',
   'isDetached', 'toBool', 'toByteArray', 'toBitArray', 'toString', 'toChar',
   'toDate', 'toTime', 'toDateTime', 'toPoint', 'toPointF', 'toRect',
   'toSize', 'toSizeF', 'toLine', 'toLineF', 'toRectF', 'toLocale',
   'toRegularExpression', 'toEasingCurve', 'toUuid', 'toUrl', 'toJsonValue',
-  'toJsonObject', 'toJsonArray', 'toModelIndex', 'toPersistentModelIndex',
-  'type', 'typeToName', 'nameToType', 'setValue'. It can be made from Python,
-  in 32 ways; see '__init__'.
+  'toJsonObject', 'toJsonArray', 'toJsonDocument', 'toModelIndex',
+  'toPersistentModelIndex', 'type', 'typeToName', 'nameToType', 'setValue',
+  'compare'. It can be made from Python, in 34 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -95,10 +98,6 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     'QVariant::QVariant(int i)' takes.
   - Qt's 'QVariant::QVariant(float f)': takes in Python what
     'QVariant::QVariant(double d)' takes.
-  - Qt's 'QVariant::QVariant(const QJsonDocument &jsonDocument)': names
-    'QJsonDocument', which has no cute class yet.
-  - Qt's 'QVariant::QVariant(QLatin1StringView string)': names
-    'QLatin1String', which has no cute class yet.
   - Qt's 'int QVariant::toInt(bool *ok) const': takes a number to change
     where it is.
   - Qt's 'uint QVariant::toUInt(bool *ok) const': takes a number to change
@@ -113,10 +112,6 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     where it is.
   - Qt's 'qreal QVariant::toReal(bool *ok) const': takes a number to change
     where it is.
-  - Qt's 'QJsonDocument QVariant::toJsonDocument() const': gives
-    'QJsonDocument', which has no cute class yet.
-  - Qt's 'QPartialOrdering QVariant::compare(const QVariant &lhs, const
-    QVariant &rhs)': gives 'QPartialOrdering', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -137,9 +132,324 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QVariant.
   """
 
-  #  The enums Qt writes inside QVariant, and the names Qt has for the
-  #  combinations of its flags enums.
-  Type = QVariantType
+  #  The enums Qt writes inside QVariant, each a class in here as in C++, and
+  #  the names Qt has for the combinations of its flags enums.
+
+  class Type(CuteNum):
+    """The enum 'QVariant::Type' of Qt, with the 60 names Qt gives in it."""
+
+    Invalid = Kee[int](0)
+    Bool = Kee[int](1)
+    Int = Kee[int](2)
+    UInt = Kee[int](3)
+    LongLong = Kee[int](4)
+    ULongLong = Kee[int](5)
+    Double = Kee[int](6)
+    Char = Kee[int](7)
+    Map = Kee[int](8)
+    List = Kee[int](9)
+    String = Kee[int](10)
+    StringList = Kee[int](11)
+    ByteArray = Kee[int](12)
+    BitArray = Kee[int](13)
+    Date = Kee[int](14)
+    Time = Kee[int](15)
+    DateTime = Kee[int](16)
+    Url = Kee[int](17)
+    Locale = Kee[int](18)
+    Rect = Kee[int](19)
+    RectF = Kee[int](20)
+    Size = Kee[int](21)
+    SizeF = Kee[int](22)
+    Line = Kee[int](23)
+    LineF = Kee[int](24)
+    Point = Kee[int](25)
+    PointF = Kee[int](26)
+    RegularExpression = Kee[int](44)
+    Hash = Kee[int](28)
+    EasingCurve = Kee[int](29)
+    Uuid = Kee[int](30)
+    ModelIndex = Kee[int](42)
+    PersistentModelIndex = Kee[int](50)
+    LastCoreType = Kee[int](63)
+    Font = Kee[int](4096)
+    Pixmap = Kee[int](4097)
+    Brush = Kee[int](4098)
+    Color = Kee[int](4099)
+    Palette = Kee[int](4100)
+    Image = Kee[int](4102)
+    Polygon = Kee[int](4103)
+    Region = Kee[int](4104)
+    Bitmap = Kee[int](4105)
+    Cursor = Kee[int](4106)
+    KeySequence = Kee[int](4107)
+    Pen = Kee[int](4108)
+    TextLength = Kee[int](4109)
+    TextFormat = Kee[int](4110)
+    Transform = Kee[int](4112)
+    Matrix4x4 = Kee[int](4113)
+    Vector2D = Kee[int](4114)
+    Vector3D = Kee[int](4115)
+    Vector4D = Kee[int](4116)
+    Quaternion = Kee[int](4117)
+    PolygonF = Kee[int](4118)
+    Icon = Kee[int](4101)
+    LastGuiType = Kee[int](4119)
+    SizePolicy = Kee[int](8192)
+    UserType = Kee[int](65536)
+    LastType = Kee[int](4294967295)
+
+  #  The classes Qt writes inside QVariant, each a class in here as in C++.
+
+  class Private(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QVariant::Private: a plain Python object standing
+    in front of one C++ QVariant::Private.
+
+    C++ hands a QVariant::Private around as a copy, so every C++
+    QVariant::Private behind a cute one is Python's own: it is removed, by
+    the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    Every function of Qt's QVariant::Private that has a ritual and that
+    Python can call so far, 1 name in all: 'type'. It can be made from
+    Python, in 1 way; see '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'bool QVariant::Private::canUseInternalSpace(const
+      QtPrivate::QMetaTypeInterface *type)': names
+      'QtPrivate::QMetaTypeInterface', which has no cute class yet.
+    - Qt's 'const QtPrivate::QMetaTypeInterface
+      *QVariant::Private::typeInterface() const': gives
+      'QtPrivate::QMetaTypeInterface', which has no cute class yet.
+    - Qt's 'QVariant::Private::~Private()': the destructor: Python removes
+      its C++ QVariant::Private by it, and has no other use for it.
+
+    What has no ritual
+    ------------------
+
+    6 of the 11 functions Qt declares: 4 a template; 1 declared and nowhere
+    to be found; 1 takes or gives a type that cannot be passed yet.
+
+    What to expect
+    --------------
+
+    - The C++ QVariant::Private is created at the first use, not by
+      'QVariant::Private(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QVariant::Private back gives a copy the ritual made
+      for Python, in a new cute QVariant::Private.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QVariant::Private'
+
+    #  Qt's '~QVariant::Private()'. Naming it makes this a value class:
+    #  Python owns every C++ QVariant::Private behind a cute one, and removes
+    #  it by this ritual.
+    __delete_ritual__ = 'ritual_ZN8QVariant7PrivateD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    def type(self) -> QMetaType:
+      """
+      Calls Qt's 'QMetaType QVariant::Private::type() const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qvariant-private.html#type
+
+      Returns
+      -------
+
+      QMetaType
+        A new cute QMetaType around the copy Qt gave back. Python owns it.
+      """
+      #  QMetaType QVariant::Private::type() const
+      address = self.uglySide.call('ritual_ZNK8QVariant7Private4typeEv')
+      from . import QMetaType
+      return QMetaType._cuteOwning(address)
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's 'QVariant::Private::Private()', which is
+      called at the first use.
+
+      Qt's own words: https://doc.qt.io/qt-6/qvariant-private.html#Private
+      """
+      #  QVariant::Private::Private()
+      self._noteCreation(QVariant.Private, lambda: Rituals.call(
+          'ritual_ZN8QVariant7PrivateC1Ev',
+      ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  class PrivateShared(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QVariant::PrivateShared: a plain Python object
+    standing in front of one C++ QVariant::PrivateShared.
+
+    C++ hands a QVariant::PrivateShared around as a copy, so every C++
+    QVariant::PrivateShared behind a cute one is Python's own: it is removed,
+    by the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QVariant::PrivateShared yet. None can be made from
+    Python: one comes out of a function of another class that gives one back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QVariant::PrivateShared::~PrivateShared()': the destructor:
+      Python removes its C++ QVariant::PrivateShared by it, and has no other
+      use for it.
+
+    What has no ritual
+    ------------------
+
+    7 of the 8 functions Qt declares: 4 declared and nowhere to be found; 2
+    takes or gives a type that cannot be passed yet; 1 private.
+
+    What to expect
+    --------------
+
+    - The C++ QVariant::PrivateShared is created at the first use, not by
+      'QVariant::PrivateShared(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QVariant::PrivateShared back gives a copy the
+      ritual made for Python, in a new cute QVariant::PrivateShared.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QVariant::PrivateShared'
+
+    #  Qt's '~QVariant::PrivateShared()'. Naming it makes this a value class:
+    #  Python owns every C++ QVariant::PrivateShared behind a cute one, and
+    #  removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN8QVariant13PrivateSharedD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -195,6 +505,42 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     return QVariant.Type(Rituals.call(
         'ritual_ZN8QVariant10nameToTypeEPKc', CuteMixin._bytesOf(name),
     ))
+
+  @staticmethod
+  @overload(THIS, THIS)
+  def compare(lhs: QVariant, rhs: QVariant) -> QPartialOrdering:
+    """
+    Calls Qt's 'QPartialOrdering QVariant::compare(const QVariant &lhs, const
+    QVariant &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#compare
+
+    Parameters
+    ----------
+
+    lhs : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    rhs : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPartialOrdering
+      A new cute QPartialOrdering around the copy Qt gave back. Python owns
+      it.
+    """
+    #  QPartialOrdering QVariant::compare(const QVariant &lhs, const QVariant
+    #      &rhs)
+    address = Rituals.call(
+        'ritual_ZN8QVariant7compareERKS_S1_',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
+    from . import QPartialOrdering
+    return QPartialOrdering._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -755,6 +1101,23 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK8QVariant11toJsonArrayEv')
     from . import QJsonArray
     return QJsonArray._cuteOwning(address)
+
+  def toJsonDocument(self) -> QJsonDocument:
+    """
+    Calls Qt's 'QJsonDocument QVariant::toJsonDocument() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toJsonDocument
+
+    Returns
+    -------
+
+    QJsonDocument
+      A new cute QJsonDocument around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonDocument QVariant::toJsonDocument() const
+    address = self.uglySide.call('ritual_ZNK8QVariant14toJsonDocumentEv')
+    from . import QJsonDocument
+    return QJsonDocument._cuteOwning(address)
 
   def toModelIndex(self) -> QModelIndex:
     """
@@ -1407,6 +1770,27 @@ class QVariant(CuteMixin, metaclass=MetaCute):
         'ritual_ZN8QVariantC1ERK12QEasingCurve', self._valueOf(easing),
     ))
 
+  @overload(QJsonDocument)
+  def __init__(self, jsonDocument: QJsonDocument) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(const QJsonDocument
+    &jsonDocument)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    jsonDocument : QJsonDocument
+      Passed on as a value: Qt reads the C++ QJsonDocument, which stays
+      Python's own.
+    """
+    #  QVariant::QVariant(const QJsonDocument &jsonDocument)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1ERK13QJsonDocument',
+        self._valueOf(jsonDocument),
+    ))
+
   @overload(QPersistentModelIndex)
   def __init__(self, modelIndex: QPersistentModelIndex) -> None:
     """
@@ -1445,6 +1829,26 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     #  QVariant::QVariant(const char *str)
     self._noteCreation(QVariant, lambda: Rituals.call(
         'ritual_ZN8QVariantC1EPKc', self._bytesOf(str),
+    ))
+
+  @overload(QLatin1String)
+  def __init__(self, string: QLatin1String) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(QLatin1StringView
+    string)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    string : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+    """
+    #  QVariant::QVariant(QLatin1StringView string)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1E13QLatin1String', self._valueOf(string),
     ))
 
   @overload(Type)

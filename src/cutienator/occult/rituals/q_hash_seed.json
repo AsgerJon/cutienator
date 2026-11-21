@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qhashfunctions.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QHashSeedC1Em": ["address", "size_t"],
+    "ritual_ZN9QHashSeed10globalSeedEv": ["address"],
+    "ritual_ZN9QHashSeed26setDeterministicGlobalSeedEv": ["nothing"],
+    "ritual_ZN9QHashSeed21resetRandomGlobalSeedEv": ["nothing"],
+    "ritual_ZN9QHashSeedD1Ev": ["nothing", "address"]
+  }
+}

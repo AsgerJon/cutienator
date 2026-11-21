@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qsemaphore.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSemaphoreReleaserC1Ev": ["address"],
+    "ritual_ZN18QSemaphoreReleaserC1EP10QSemaphorei": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QSemaphoreReleaserD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QSemaphoreReleaser9semaphoreEv": ["address", "address"],
+    "ritual_ZN18QSemaphoreReleaser6cancelEv": ["address", "address"]
+  }
+}

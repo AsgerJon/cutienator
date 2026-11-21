@@ -10,22 +10,24 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
-from . import QScrollerInput, QScrollerScrollerGestureType, QScrollerState
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPointF, QRectF
+  from . import QScrollerProperties
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QPointF = WAIT['QPointF']
   QRectF = WAIT['QRectF']
+  QScrollerProperties = WAIT['QScrollerProperties']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,22 +46,19 @@ class QScroller(QObject):
   -----------
 
   Every function of Qt's QScroller that has a ritual and that Python can call
-  so far, 19 names in all: 'metaObject', 'tr', 'hasScroller', 'scroller',
+  so far, 21 names in all: 'metaObject', 'tr', 'hasScroller', 'scroller',
   'grabGesture', 'grabbedGesture', 'ungrabGesture', 'target', 'state',
   'handleInput', 'stop', 'velocity', 'finalPosition', 'pixelPerMeter',
-  'setSnapPositionsX', 'setSnapPositionsY', 'scrollTo', 'ensureVisible',
-  'resendPrepareEvent'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'scrollerProperties', 'setSnapPositionsX', 'setSnapPositionsY',
+  'setScrollerProperties', 'scrollTo', 'ensureVisible', 'resendPrepareEvent'.
+  None can be made from Python: one comes out of a function of another class
+  that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'const QScroller *QScroller::scroller(const QObject *target)': takes
     in Python what 'QScroller *QScroller::scroller(QObject *target)' takes.
-  - Qt's 'QScrollerProperties QScroller::scrollerProperties() const': gives
-    'QScrollerProperties', which has no cute class yet.
-  - Qt's 'void QScroller::setScrollerProperties(const QScrollerProperties
-    &prop)': names 'QScrollerProperties', which has no cute class yet.
 
   What has no ritual
   ------------------
@@ -82,11 +81,34 @@ class QScroller(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QScroller, and the names Qt has for the
-  #  combinations of its flags enums.
-  Input = QScrollerInput
-  ScrollerGestureType = QScrollerScrollerGestureType
-  State = QScrollerState
+  #  The enums Qt writes inside QScroller, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Input(CuteNum):
+    """The enum 'QScroller::Input' of Qt, with the 3 names Qt gives in it."""
+
+    InputPress = Kee[int](1)
+    InputMove = Kee[int](2)
+    InputRelease = Kee[int](3)
+
+  class ScrollerGestureType(CuteNum):
+    """
+    The enum 'QScroller::ScrollerGestureType' of Qt, with the 4 names Qt
+    gives in it.
+    """
+
+    TouchGesture = Kee[int](0)
+    LeftMouseButtonGesture = Kee[int](1)
+    RightMouseButtonGesture = Kee[int](2)
+    MiddleMouseButtonGesture = Kee[int](3)
+
+  class State(CuteNum):
+    """The enum 'QScroller::State' of Qt, with the 4 names Qt gives in it."""
+
+    Inactive = Kee[int](0)
+    Pressed = Kee[int](1)
+    Dragging = Kee[int](2)
+    Scrolling = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -404,6 +426,26 @@ class QScroller(QObject):
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
 
+  def scrollerProperties(self) -> QScrollerProperties:
+    """
+    Calls Qt's 'QScrollerProperties QScroller::scrollerProperties() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscroller.html#scrollerProperties
+
+    Returns
+    -------
+
+    QScrollerProperties
+      A new cute QScrollerProperties around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QScrollerProperties QScroller::scrollerProperties() const
+    address = self.uglySide.call(
+        'ritual_ZNK9QScroller18scrollerPropertiesEv',
+    )
+    from . import QScrollerProperties
+    return QScrollerProperties._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -450,6 +492,28 @@ class QScroller(QObject):
     #  void QScroller::setSnapPositionsY(qreal first, qreal interval)
     self.uglySide.call(
         'ritual_ZN9QScroller17setSnapPositionsYEdd', first, interval,
+    )
+
+  @overload(QScrollerProperties)
+  def setScrollerProperties(self, prop: QScrollerProperties) -> None:
+    """
+    Calls Qt's 'void QScroller::setScrollerProperties(const
+    QScrollerProperties &prop)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qscroller.html#setScrollerProperties
+
+    Parameters
+    ----------
+
+    prop : QScrollerProperties
+      Passed on as a value: Qt reads the C++ QScrollerProperties, which stays
+      Python's own.
+    """
+    #  void QScroller::setScrollerProperties(const QScrollerProperties &prop)
+    self.uglySide.call(
+        'ritual_ZN9QScroller21setScrollerPropertiesERK19QScrollerProperties',
+        self._valueOf(prop),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

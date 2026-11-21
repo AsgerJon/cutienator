@@ -10,10 +10,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QMimeDatabaseMatchMode
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -71,9 +71,18 @@ class QMimeDatabase(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QMimeDatabase.
   """
 
-  #  The enums Qt writes inside QMimeDatabase, and the names Qt has for the
-  #  combinations of its flags enums.
-  MatchMode = QMimeDatabaseMatchMode
+  #  The enums Qt writes inside QMimeDatabase, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class MatchMode(CuteNum):
+    """
+    The enum 'QMimeDatabase::MatchMode' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    MatchDefault = Kee[int](0)
+    MatchExtension = Kee[int](1)
+    MatchContent = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

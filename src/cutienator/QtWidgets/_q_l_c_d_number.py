@@ -10,10 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, CuteNum
 from ..occult import Rituals
-from . import QFrame, QLCDNumberMode, QLCDNumberSegmentStyle, QWidget
+from . import QFrame, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -71,10 +72,26 @@ class QLCDNumber(QFrame):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QLCDNumber, and the names Qt has for the
-  #  combinations of its flags enums.
-  Mode = QLCDNumberMode
-  SegmentStyle = QLCDNumberSegmentStyle
+  #  The enums Qt writes inside QLCDNumber, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class Mode(CuteNum):
+    """The enum 'QLCDNumber::Mode' of Qt, with the 4 names Qt gives in it."""
+
+    Hex = Kee[int](0)
+    Dec = Kee[int](1)
+    Oct = Kee[int](2)
+    Bin = Kee[int](3)
+
+  class SegmentStyle(CuteNum):
+    """
+    The enum 'QLCDNumber::SegmentStyle' of Qt, with the 3 names Qt gives in
+    it.
+    """
+
+    Outline = Kee[int](0)
+    Filled = Kee[int](1)
+    Flat = Kee[int](2)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

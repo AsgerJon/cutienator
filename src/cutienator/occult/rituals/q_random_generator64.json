@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qrandom.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QRandomGenerator648generateEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN18QRandomGenerator64clEv": ["unsigned long long", "address"],
+    "ritual_ZN18QRandomGenerator64C1Ej": ["address", "unsigned int"],
+    "ritual_ZN18QRandomGenerator64C1ERK16QRandomGenerator": [
+      "address", "address"
+    ],
+    "ritual_ZN18QRandomGenerator647discardEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN18QRandomGenerator643minEv": ["unsigned long long"],
+    "ritual_ZN18QRandomGenerator643maxEv": ["unsigned long long"],
+    "ritual_ZN18QRandomGenerator646systemEv": ["address"],
+    "ritual_ZN18QRandomGenerator646globalEv": ["address"],
+    "ritual_ZN18QRandomGenerator6414securelySeededEv": ["address"],
+    "ritual_ZN18QRandomGenerator64D1Ev": ["nothing", "address"]
+  }
+}

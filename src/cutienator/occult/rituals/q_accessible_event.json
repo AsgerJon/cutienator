@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QAccessibleEventC1EP7QObjectN11QAccessible5EventE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QAccessibleEventC1EP20QAccessibleInterfaceN11QAccessible5EventE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QAccessibleEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QAccessibleEvent4typeEv": ["int", "address"],
+    "ritual_ZNK16QAccessibleEvent6objectEv": ["address", "address"],
+    "ritual_ZNK16QAccessibleEvent8uniqueIdEv": ["unsigned int", "address"],
+    "ritual_ZN16QAccessibleEvent8setChildEi": ["nothing", "address", "int"],
+    "ritual_ZNK16QAccessibleEvent5childEv": ["int", "address"],
+    "ritual_ZNK16QAccessibleEvent19accessibleInterfaceEv": [
+      "address", "address"
+    ]
+  }
+}

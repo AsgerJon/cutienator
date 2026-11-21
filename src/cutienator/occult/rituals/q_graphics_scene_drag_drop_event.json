@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN27QGraphicsSceneDragDropEventC1EN6QEvent4TypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN27QGraphicsSceneDragDropEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QGraphicsSceneDragDropEvent3posEv": ["address", "address"],
+    "ritual_ZN27QGraphicsSceneDragDropEvent6setPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QGraphicsSceneDragDropEvent8scenePosEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QGraphicsSceneDragDropEvent11setScenePosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QGraphicsSceneDragDropEvent9screenPosEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QGraphicsSceneDragDropEvent12setScreenPosERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QGraphicsSceneDragDropEvent7buttonsEv": ["int", "address"],
+    "ritual_ZN27QGraphicsSceneDragDropEvent10setButtonsE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QGraphicsSceneDragDropEvent9modifiersEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QGraphicsSceneDragDropEvent12setModifiersE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QGraphicsSceneDragDropEvent15possibleActionsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QGraphicsSceneDragDropEvent18setPossibleActionsE6QFlagsIN2Qt10DropActionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QGraphicsSceneDragDropEvent14proposedActionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QGraphicsSceneDragDropEvent17setProposedActionEN2Qt10DropActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QGraphicsSceneDragDropEvent20acceptProposedActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QGraphicsSceneDragDropEvent10dropActionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QGraphicsSceneDragDropEvent13setDropActionEN2Qt10DropActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QGraphicsSceneDragDropEvent6sourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QGraphicsSceneDragDropEvent9setSourceEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QGraphicsSceneDragDropEvent8mimeDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QGraphicsSceneDragDropEvent11setMimeDataEPK9QMimeData": [
+      "nothing", "address", "address"
+    ]
+  }
+}

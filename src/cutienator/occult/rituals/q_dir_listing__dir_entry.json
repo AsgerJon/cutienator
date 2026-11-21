@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qdirlisting.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QDirListing8DirEntry8fileNameEv": ["text", "address"],
+    "ritual_ZNK11QDirListing8DirEntry8baseNameEv": ["text", "address"],
+    "ritual_ZNK11QDirListing8DirEntry16completeBaseNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK11QDirListing8DirEntry6suffixEv": ["text", "address"],
+    "ritual_ZNK11QDirListing8DirEntry10bundleNameEv": ["text", "address"],
+    "ritual_ZNK11QDirListing8DirEntry14completeSuffixEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK11QDirListing8DirEntry8filePathEv": ["text", "address"],
+    "ritual_ZNK11QDirListing8DirEntry5isDirEv": ["bool", "address"],
+    "ritual_ZNK11QDirListing8DirEntry6isFileEv": ["bool", "address"],
+    "ritual_ZNK11QDirListing8DirEntry9isSymLinkEv": ["bool", "address"],
+    "ritual_ZNK11QDirListing8DirEntry6existsEv": ["bool", "address"],
+    "ritual_ZNK11QDirListing8DirEntry8isHiddenEv": ["bool", "address"],
+    "ritual_ZNK11QDirListing8DirEntry10isReadableEv": ["bool", "address"],
+    "ritual_ZNK11QDirListing8DirEntry10isWritableEv": ["bool", "address"],
+    "ritual_ZNK11QDirListing8DirEntry12isExecutableEv": ["bool", "address"],
+    "ritual_ZNK11QDirListing8DirEntry8fileInfoEv": ["address", "address"],
+    "ritual_ZNK11QDirListing8DirEntry17canonicalFilePathEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK11QDirListing8DirEntry16absoluteFilePathEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK11QDirListing8DirEntry12absolutePathEv": ["text", "address"],
+    "ritual_ZNK11QDirListing8DirEntry4sizeEv": ["long long", "address"],
+    "ritual_ZNK11QDirListing8DirEntry9birthTimeERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QDirListing8DirEntry18metadataChangeTimeERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QDirListing8DirEntry12lastModifiedERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QDirListing8DirEntry8lastReadERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QDirListing8DirEntry8fileTimeEN11QFileDevice8FileTimeERK9QTimeZone": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN11QDirListing8DirEntryD1Ev": ["nothing", "address"]
+  }
+}

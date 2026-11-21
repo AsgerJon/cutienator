@@ -11,9 +11,9 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
-from . import QEventLoopProcessEventsFlag, QObject
+from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -74,10 +74,26 @@ class QEventLoop(QObject):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QEventLoop, and the names Qt has for the
-  #  combinations of its flags enums.
-  ProcessEventsFlag = QEventLoopProcessEventsFlag
-  ProcessEventsFlags = QEventLoopProcessEventsFlag
+  #  The enums Qt writes inside QEventLoop, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class ProcessEventsFlag(CuteFlags):
+    """
+    The flags enum 'QEventLoop::ProcessEventsFlag' of Qt, with the 8 names Qt
+    gives in it. Qt names the type of its combinations
+    'QEventLoop::ProcessEventsFlags'.
+    """
+
+    AllEvents = 0x0
+    ExcludeUserInputEvents = 0x1
+    ExcludeSocketNotifiers = 0x2
+    WaitForMoreEvents = 0x4
+    X11ExcludeTimers = 0x8
+    EventLoopExec = 0x20
+    DialogExec = 0x40
+    ApplicationExec = 0x80
+
+  ProcessEventsFlags = ProcessEventsFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

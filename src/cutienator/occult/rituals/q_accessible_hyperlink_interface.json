@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QAccessibleHyperlinkInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK29QAccessibleHyperlinkInterface6anchorEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK29QAccessibleHyperlinkInterface12anchorTargetEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK29QAccessibleHyperlinkInterface10startIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QAccessibleHyperlinkInterface8endIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QAccessibleHyperlinkInterface7isValidEv": [
+      "bool", "address"
+    ]
+  }
+}

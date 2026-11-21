@@ -10,12 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from . import QFileDeviceFileError, QFileDeviceFileHandleFlag
-from . import QFileDeviceFileTime, QFileDeviceMemoryMapFlag
-from . import QFileDevicePermission, QIODevice
+from . import QIODevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -80,16 +79,86 @@ class QFileDevice(QIODevice):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QFileDevice, and the names Qt has for the
-  #  combinations of its flags enums.
-  FileError = QFileDeviceFileError
-  FileHandleFlag = QFileDeviceFileHandleFlag
-  FileHandleFlags = QFileDeviceFileHandleFlag
-  FileTime = QFileDeviceFileTime
-  MemoryMapFlag = QFileDeviceMemoryMapFlag
-  MemoryMapFlags = QFileDeviceMemoryMapFlag
-  Permission = QFileDevicePermission
-  Permissions = QFileDevicePermission
+  #  The enums Qt writes inside QFileDevice, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class FileError(CuteNum):
+    """
+    The enum 'QFileDevice::FileError' of Qt, with the 15 names Qt gives in
+    it.
+    """
+
+    NoError = Kee[int](0)
+    ReadError = Kee[int](1)
+    WriteError = Kee[int](2)
+    FatalError = Kee[int](3)
+    ResourceError = Kee[int](4)
+    OpenError = Kee[int](5)
+    AbortError = Kee[int](6)
+    TimeOutError = Kee[int](7)
+    UnspecifiedError = Kee[int](8)
+    RemoveError = Kee[int](9)
+    RenameError = Kee[int](10)
+    PositionError = Kee[int](11)
+    ResizeError = Kee[int](12)
+    PermissionsError = Kee[int](13)
+    CopyError = Kee[int](14)
+
+  class FileHandleFlag(CuteFlags):
+    """
+    The flags enum 'QFileDevice::FileHandleFlag' of Qt, with the 2 names Qt
+    gives in it. Qt names the type of its combinations
+    'QFileDevice::FileHandleFlags'.
+    """
+
+    AutoCloseHandle = 0x1
+    DontCloseHandle = 0x0
+
+  FileHandleFlags = FileHandleFlag
+
+  class FileTime(CuteNum):
+    """
+    The enum 'QFileDevice::FileTime' of Qt, with the 4 names Qt gives in it.
+    """
+
+    FileAccessTime = Kee[int](0)
+    FileBirthTime = Kee[int](1)
+    FileMetadataChangeTime = Kee[int](2)
+    FileModificationTime = Kee[int](3)
+
+  class MemoryMapFlag(CuteFlags):
+    """
+    The flags enum 'QFileDevice::MemoryMapFlag' of Qt, with the 2 names Qt
+    gives in it. Qt names the type of its combinations
+    'QFileDevice::MemoryMapFlags'.
+    """
+
+    NoOptions = 0x0
+    MapPrivateOption = 0x1
+
+  MemoryMapFlags = MemoryMapFlag
+
+  class Permission(CuteFlags):
+    """
+    The flags enum 'QFileDevice::Permission' of Qt, with the 12 names Qt
+    gives in it. Qt names the type of its combinations
+    'QFileDevice::Permissions'.
+    """
+
+    ReadOwner = 0x4000
+    WriteOwner = 0x2000
+    ExeOwner = 0x1000
+    ReadUser = 0x400
+    WriteUser = 0x200
+    ExeUser = 0x100
+    ReadGroup = 0x40
+    WriteGroup = 0x20
+    ExeGroup = 0x10
+    ReadOther = 0x4
+    WriteOther = 0x2
+    ExeOther = 0x1
+
+  Permissions = Permission
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

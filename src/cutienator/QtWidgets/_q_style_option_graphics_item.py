@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from . import QStyleOption, QStyleOptionGraphicsItemStyleOptionType
-from . import QStyleOptionGraphicsItemStyleOptionVersion
+from . import QStyleOption
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QTransform
@@ -72,10 +72,25 @@ class QStyleOptionGraphicsItem(QStyleOption):
     made for Python, in a new cute QStyleOptionGraphicsItem.
   """
 
-  #  The enums Qt writes inside QStyleOptionGraphicsItem, and the names Qt
-  #  has for the combinations of its flags enums.
-  StyleOptionType = QStyleOptionGraphicsItemStyleOptionType
-  StyleOptionVersion = QStyleOptionGraphicsItemStyleOptionVersion
+  #  The enums Qt writes inside QStyleOptionGraphicsItem, each a class in
+  #  here as in C++, and the names Qt has for the combinations of its flags
+  #  enums.
+
+  class StyleOptionType(CuteNum):
+    """
+    The enum 'QStyleOptionGraphicsItem::StyleOptionType' of Qt, with the 1
+    names Qt gives in it.
+    """
+
+    Type = Kee[int](15)
+
+  class StyleOptionVersion(CuteNum):
+    """
+    The enum 'QStyleOptionGraphicsItem::StyleOptionVersion' of Qt, with the 1
+    names Qt gives in it.
+    """
+
+    Version = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmessageauthenticationcode.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QMessageAuthenticationCodeC1EN18QCryptographicHash9AlgorithmE14QByteArrayView": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN26QMessageAuthenticationCodeD1Ev": ["nothing", "address"],
+    "ritual_ZN26QMessageAuthenticationCode5resetEv": ["nothing", "address"],
+    "ritual_ZN26QMessageAuthenticationCode6setKeyE14QByteArrayView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QMessageAuthenticationCode7addDataEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN26QMessageAuthenticationCode7addDataE14QByteArrayView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QMessageAuthenticationCode7addDataEP9QIODevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK26QMessageAuthenticationCode10resultViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QMessageAuthenticationCode6resultEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QMessageAuthenticationCode4hashE14QByteArrayViewS0_N18QCryptographicHash9AlgorithmE": [
+      "address", "address", "address", "int"
+    ]
+  }
+}

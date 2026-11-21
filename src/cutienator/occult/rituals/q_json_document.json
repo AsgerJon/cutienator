@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qjsondocument.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QJsonDocumentC1Ev": ["address"],
+    "ritual_ZN13QJsonDocumentC1ERK11QJsonObject": ["address", "address"],
+    "ritual_ZN13QJsonDocumentC1ERK10QJsonArray": ["address", "address"],
+    "ritual_ZN13QJsonDocumentD1Ev": ["nothing", "address"],
+    "ritual_ZN13QJsonDocumentC1ERKS_": ["address", "address"],
+    "ritual_ZN13QJsonDocument11fromVariantERK8QVariant": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QJsonDocument9toVariantEv": ["address", "address"],
+    "ritual_ZN13QJsonDocument8fromJsonERK10QByteArrayP15QJsonParseError": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QJsonDocument6toJsonENS_10JsonFormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13QJsonDocument7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK13QJsonDocument7isArrayEv": ["bool", "address"],
+    "ritual_ZNK13QJsonDocument8isObjectEv": ["bool", "address"],
+    "ritual_ZNK13QJsonDocument6objectEv": ["address", "address"],
+    "ritual_ZNK13QJsonDocument5arrayEv": ["address", "address"],
+    "ritual_ZN13QJsonDocument9setObjectERK11QJsonObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QJsonDocument8setArrayERK10QJsonArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QJsonDocumentixERK7QString": ["address", "address", "text"],
+    "ritual_ZNK13QJsonDocumentixE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13QJsonDocumentixE13QLatin1String": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QJsonDocumentixEx": ["address", "address", "long long"],
+    "ritual_ZNK13QJsonDocument6isNullEv": ["bool", "address"]
+  }
+}

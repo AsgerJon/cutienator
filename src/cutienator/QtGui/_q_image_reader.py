@@ -10,17 +10,17 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QImageFormat, QImageIOHandlerImageOption
-from . import QImageIOHandlerTransformation, QImageReaderImageReaderError
+from . import QImage, QImageIOHandler
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QByteArray, QIODevice, QRect, QSize
-  from . import QColor, QImage, QImageIOHandler
+  from . import QColor
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -28,7 +28,6 @@ else:
   QByteArray = WAIT['QByteArray']
   QColor = WAIT['QColor']
   QIODevice = WAIT['QIODevice']
-  QImage = WAIT['QImage']
   QRect = WAIT['QRect']
   QSize = WAIT['QSize']
 
@@ -88,9 +87,20 @@ class QImageReader(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QImageReader.
   """
 
-  #  The enums Qt writes inside QImageReader, and the names Qt has for the
-  #  combinations of its flags enums.
-  ImageReaderError = QImageReaderImageReaderError
+  #  The enums Qt writes inside QImageReader, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class ImageReaderError(CuteNum):
+    """
+    The enum 'QImageReader::ImageReaderError' of Qt, with the 5 names Qt
+    gives in it.
+    """
+
+    UnknownError = Kee[int](0)
+    FileNotFoundError = Kee[int](1)
+    DeviceError = Kee[int](2)
+    UnsupportedFormatError = Kee[int](3)
+    InvalidDataError = Kee[int](4)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -490,7 +500,7 @@ class QImageReader(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  QImageIOHandler::Transformations QImageReader::transformation() const
-    return QImageIOHandlerTransformation(self.uglySide.call(
+    return QImageIOHandler.Transformations(self.uglySide.call(
         'ritual_ZNK12QImageReader14transformationEv',
     ))
 
@@ -621,7 +631,7 @@ class QImageReader(CuteMixin, metaclass=MetaCute):
     #  QString QImageReader::errorString() const
     return self.uglySide.call('ritual_ZNK12QImageReader11errorStringEv')
 
-  @overload(QImageIOHandlerImageOption)
+  @overload(QImageIOHandler.ImageOption)
   def supportsOption(self, option: QImageIOHandler.ImageOption) -> bool:
     """
     Calls Qt's 'bool
@@ -985,7 +995,6 @@ class QImageReader(CuteMixin, metaclass=MetaCute):
     """
     #  QImage QImageReader::read()
     address = self.uglySide.call('ritual_ZN12QImageReader4readEv')
-    from . import QImage
     return QImage._cuteOwning(address)
 
   @overload(QImage)

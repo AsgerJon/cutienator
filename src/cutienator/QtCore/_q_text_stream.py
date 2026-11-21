@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import WAIT
+from ..cute import CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from . import QIODeviceBase, QTextStreamFieldAlignment, QTextStreamNumberFlag
-from . import QTextStreamRealNumberNotation, QTextStreamStatus
+from . import QIODeviceBase, QStringConverter
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -46,11 +46,12 @@ class QTextStream(QIODeviceBase):
   -----------
 
   Every function of Qt's QTextStream that has a ritual and that Python can
-  call so far, 34 names in all: 'setAutoDetectUnicode', 'autoDetectUnicode',
-  'setGenerateByteOrderMark', 'generateByteOrderMark', 'setLocale', 'locale',
-  'setDevice', 'device', 'status', 'setStatus', 'resetStatus', 'atEnd',
-  'reset', 'flush', 'seek', 'pos', 'skipWhiteSpace', 'readLine', 'readAll',
-  'read', 'setFieldAlignment', 'fieldAlignment', 'setPadChar', 'padChar',
+  call so far, 36 names in all: 'setEncoding', 'encoding',
+  'setAutoDetectUnicode', 'autoDetectUnicode', 'setGenerateByteOrderMark',
+  'generateByteOrderMark', 'setLocale', 'locale', 'setDevice', 'device',
+  'status', 'setStatus', 'resetStatus', 'atEnd', 'reset', 'flush', 'seek',
+  'pos', 'skipWhiteSpace', 'readLine', 'readAll', 'read',
+  'setFieldAlignment', 'fieldAlignment', 'setPadChar', 'padChar',
   'setFieldWidth', 'fieldWidth', 'setNumberFlags', 'numberFlags',
   'setIntegerBase', 'integerBase', 'setRealNumberNotation',
   'realNumberNotation', 'setRealNumberPrecision', 'realNumberPrecision'. It
@@ -66,11 +67,6 @@ class QTextStream(QIODeviceBase):
     *array, OpenMode openMode)' takes.
   - Qt's 'QTextStream::~QTextStream()': the destructor: Python never removes
     a C++ QTextStream.
-  - Qt's 'void QTextStream::setEncoding(QStringConverter::Encoding
-    encoding)': names the enum 'QStringConverter::Encoding', whose class
-    cannot be named here.
-  - Qt's 'QStringConverter::Encoding QTextStream::encoding() const': gives
-    the enum 'QStringConverter::Encoding', whose class cannot be named here.
   - Qt's 'void QTextStream::setString(QString *string, OpenMode openMode)':
     names 'QString', which has no cute class yet.
   - Qt's 'QString *QTextStream::string() const': gives 'QString', which has
@@ -99,13 +95,53 @@ class QTextStream(QIODeviceBase):
   - Python never removes the C++ QTextStream.
   """
 
-  #  The enums Qt writes inside QTextStream, and the names Qt has for the
-  #  combinations of its flags enums.
-  FieldAlignment = QTextStreamFieldAlignment
-  NumberFlag = QTextStreamNumberFlag
-  NumberFlags = QTextStreamNumberFlag
-  RealNumberNotation = QTextStreamRealNumberNotation
-  Status = QTextStreamStatus
+  #  The enums Qt writes inside QTextStream, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class FieldAlignment(CuteNum):
+    """
+    The enum 'QTextStream::FieldAlignment' of Qt, with the 4 names Qt gives
+    in it.
+    """
+
+    AlignLeft = Kee[int](0)
+    AlignRight = Kee[int](1)
+    AlignCenter = Kee[int](2)
+    AlignAccountingStyle = Kee[int](3)
+
+  class NumberFlag(CuteFlags):
+    """
+    The flags enum 'QTextStream::NumberFlag' of Qt, with the 5 names Qt gives
+    in it. Qt names the type of its combinations 'QTextStream::NumberFlags'.
+    """
+
+    ShowBase = 0x1
+    ForcePoint = 0x2
+    ForceSign = 0x4
+    UppercaseBase = 0x8
+    UppercaseDigits = 0x10
+
+  NumberFlags = NumberFlag
+
+  class RealNumberNotation(CuteNum):
+    """
+    The enum 'QTextStream::RealNumberNotation' of Qt, with the 3 names Qt
+    gives in it.
+    """
+
+    SmartNotation = Kee[int](0)
+    FixedNotation = Kee[int](1)
+    ScientificNotation = Kee[int](2)
+
+  class Status(CuteNum):
+    """
+    The enum 'QTextStream::Status' of Qt, with the 4 names Qt gives in it.
+    """
+
+    Ok = Kee[int](0)
+    ReadPastEnd = Kee[int](1)
+    ReadCorruptData = Kee[int](2)
+    WriteFailed = Kee[int](3)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -130,6 +166,25 @@ class QTextStream(QIODeviceBase):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def encoding(self) -> QStringConverter.Encoding:
+    """
+    Calls Qt's 'QStringConverter::Encoding QTextStream::encoding() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextstream.html#encoding
+
+    Returns
+    -------
+
+    QStringConverter.Encoding
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that
+      'QStringConverter.Encoding(number)' gives.
+    """
+    #  QStringConverter::Encoding QTextStream::encoding() const
+    return QStringConverter.Encoding(self.uglySide.call(
+        'ritual_ZNK11QTextStream8encodingEv',
+    ))
 
   def autoDetectUnicode(self) -> bool:
     """
@@ -329,6 +384,26 @@ class QTextStream(QIODeviceBase):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QStringConverter.Encoding)
+  def setEncoding(self, encoding: QStringConverter.Encoding) -> None:
+    """
+    Calls Qt's 'void QTextStream::setEncoding(QStringConverter::Encoding
+    encoding)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextstream.html#setEncoding
+
+    Parameters
+    ----------
+
+    encoding : QStringConverter.Encoding
+      Passed on as its number.
+    """
+    #  void QTextStream::setEncoding(QStringConverter::Encoding encoding)
+    self.uglySide.call(
+        'ritual_ZN11QTextStream11setEncodingEN16QStringConverter8EncodingE',
+        encoding.value,
+    )
 
   @overload(bool)
   def setAutoDetectUnicode(self, enabled: bool) -> None:

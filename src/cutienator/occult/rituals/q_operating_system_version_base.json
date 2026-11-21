@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qoperatingsystemversion.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN27QOperatingSystemVersionBaseC1ENS_6OSTypeEiii": [
+      "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN27QOperatingSystemVersionBase7currentEv": ["address"],
+    "ritual_ZN27QOperatingSystemVersionBase4nameES_": ["text", "address"],
+    "ritual_ZN27QOperatingSystemVersionBase11currentTypeEv": ["int"],
+    "ritual_ZNK27QOperatingSystemVersionBase7versionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QOperatingSystemVersionBase12majorVersionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QOperatingSystemVersionBase12minorVersionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QOperatingSystemVersionBase12microVersionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QOperatingSystemVersionBase12segmentCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QOperatingSystemVersionBase4typeEv": ["int", "address"],
+    "ritual_ZNK27QOperatingSystemVersionBase4nameEv": ["text", "address"],
+    "ritual_ZN27QOperatingSystemVersionBaseD1Ev": ["nothing", "address"]
+  }
+}

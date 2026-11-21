@@ -11,10 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt, QDateTimeTransitionResolution, QDateTimeYearRange
+from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QCalendar, QDate, QTime, QTimeZone
@@ -111,10 +112,34 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     Python, in a new cute QDateTime.
   """
 
-  #  The enums Qt writes inside QDateTime, and the names Qt has for the
-  #  combinations of its flags enums.
-  TransitionResolution = QDateTimeTransitionResolution
-  YearRange = QDateTimeYearRange
+  #  The enums Qt writes inside QDateTime, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class TransitionResolution(CuteNum, scoped=True):
+    """
+    The enum 'QDateTime::TransitionResolution' of Qt, with the 8 names Qt
+    gives in it. C++ keeps these names inside the enum, so the class that
+    holds the enum does not have them.
+    """
+
+    Reject = Kee[int](0)
+    RelativeToBefore = Kee[int](1)
+    RelativeToAfter = Kee[int](2)
+    PreferBefore = Kee[int](3)
+    PreferAfter = Kee[int](4)
+    PreferStandard = Kee[int](5)
+    PreferDaylightSaving = Kee[int](6)
+    LegacyBehavior = Kee[int](1)
+
+  class YearRange(CuteNum, scoped=True):
+    """
+    The enum 'QDateTime::YearRange' of Qt, with the 2 names Qt gives in it.
+    C++ keeps these names inside the enum, so the class that holds the enum
+    does not have them.
+    """
+
+    First = Kee[int](-292275056)
+    Last = Kee[int](292278994)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

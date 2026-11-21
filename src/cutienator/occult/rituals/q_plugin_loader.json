@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qpluginloader.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QPluginLoader10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QPluginLoader2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QPluginLoaderC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QPluginLoaderC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN13QPluginLoaderD1Ev": ["nothing", "address"],
+    "ritual_ZN13QPluginLoader8instanceEv": ["address", "address"],
+    "ritual_ZNK13QPluginLoader8metaDataEv": ["address", "address"],
+    "ritual_ZN13QPluginLoader4loadEv": ["bool", "address"],
+    "ritual_ZN13QPluginLoader6unloadEv": ["bool", "address"],
+    "ritual_ZNK13QPluginLoader8isLoadedEv": ["bool", "address"],
+    "ritual_ZN13QPluginLoader11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QPluginLoader8fileNameEv": ["text", "address"],
+    "ritual_ZNK13QPluginLoader11errorStringEv": ["text", "address"],
+    "ritual_ZN13QPluginLoader12setLoadHintsE6QFlagsIN8QLibrary8LoadHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QPluginLoader9loadHintsEv": ["int", "address"]
+  }
+}

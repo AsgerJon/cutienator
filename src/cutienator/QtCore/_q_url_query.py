@@ -14,16 +14,15 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QUrlComponentFormattingOption
+from . import QUrl
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QChar, QUrl
+  from . import QChar
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QChar = WAIT['QChar']
-  QUrl = WAIT['QUrl']
 
 
 class QUrlQuery(CuteMixin, metaclass=MetaCute):
@@ -117,11 +116,11 @@ class QUrlQuery(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call('ritual_ZNK9QUrlQuery10isDetachedEv')
 
   @overload()
-  @overload(QUrlComponentFormattingOption)
+  @overload(QUrl.ComponentFormattingOptions)
   def query(
       self,
       encoding: QUrl.ComponentFormattingOptions = (
-          QUrlComponentFormattingOption.PrettyDecoded),
+          QUrl.ComponentFormattingOptions.PrettyDecoded),
   ) -> str:
     """
     Calls Qt's 'QString QUrlQuery::query(QUrl::ComponentFormattingOptions
@@ -134,7 +133,7 @@ class QUrlQuery(CuteMixin, metaclass=MetaCute):
 
     encoding : QUrl.ComponentFormattingOptions
       Passed on as its number. May be left out, as in Qt: it is then
-      QUrlComponentFormattingOption.PrettyDecoded.
+      QUrl.ComponentFormattingOptions.PrettyDecoded.
 
     Returns
     -------
@@ -151,11 +150,11 @@ class QUrlQuery(CuteMixin, metaclass=MetaCute):
     )
 
   @overload()
-  @overload(QUrlComponentFormattingOption)
+  @overload(QUrl.ComponentFormattingOptions)
   def toString(
       self,
       encoding: QUrl.ComponentFormattingOptions = (
-          QUrlComponentFormattingOption.PrettyDecoded),
+          QUrl.ComponentFormattingOptions.PrettyDecoded),
   ) -> str:
     """
     Calls Qt's 'QString QUrlQuery::toString(QUrl::ComponentFormattingOptions
@@ -168,7 +167,7 @@ class QUrlQuery(CuteMixin, metaclass=MetaCute):
 
     encoding : QUrl.ComponentFormattingOptions
       Passed on as its number. May be left out, as in Qt: it is then
-      QUrlComponentFormattingOption.PrettyDecoded.
+      QUrl.ComponentFormattingOptions.PrettyDecoded.
 
     Returns
     -------
@@ -241,12 +240,12 @@ class QUrlQuery(CuteMixin, metaclass=MetaCute):
     )
 
   @overload(str)
-  @overload(str, QUrlComponentFormattingOption)
+  @overload(str, QUrl.ComponentFormattingOptions)
   def queryItemValue(
       self,
       key: str,
       encoding: QUrl.ComponentFormattingOptions = (
-          QUrlComponentFormattingOption.PrettyDecoded),
+          QUrl.ComponentFormattingOptions.PrettyDecoded),
   ) -> str:
     """
     Calls Qt's 'QString QUrlQuery::queryItemValue(const QString &key,
@@ -262,7 +261,7 @@ class QUrlQuery(CuteMixin, metaclass=MetaCute):
 
     encoding : QUrl.ComponentFormattingOptions
       Passed on as its number. May be left out, as in Qt: it is then
-      QUrlComponentFormattingOption.PrettyDecoded.
+      QUrl.ComponentFormattingOptions.PrettyDecoded.
 
     Returns
     -------

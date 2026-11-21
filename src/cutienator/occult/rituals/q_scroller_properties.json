@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qscrollerproperties.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QScrollerPropertiesC1Ev": ["address"],
+    "ritual_ZN19QScrollerPropertiesC1ERKS_": ["address", "address"],
+    "ritual_ZN19QScrollerPropertiesD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QScrollerPropertieseqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK19QScrollerPropertiesneERKS_": ["bool", "address", "address"],
+    "ritual_ZN19QScrollerProperties28setDefaultScrollerPropertiesERKS_": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QScrollerProperties30unsetDefaultScrollerPropertiesEv": [
+      "nothing"
+    ],
+    "ritual_ZNK19QScrollerProperties12scrollMetricENS_12ScrollMetricE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QScrollerProperties15setScrollMetricENS_12ScrollMetricERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

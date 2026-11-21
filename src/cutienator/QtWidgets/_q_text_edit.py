@@ -10,15 +10,13 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QTextCursorMoveMode, QTextCursorMoveOperation
-from ..QtGui import QTextDocumentFindFlag, QTextDocumentMarkdownFeature
-from ..QtGui import QTextOptionWrapMode
-from . import QAbstractScrollArea, QTextEditAutoFormattingFlag
-from . import QTextEditLineWrapMode, QWidget
+from ..QtGui import QTextCursor, QTextDocument, QTextOption
+from . import QAbstractScrollArea, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -26,7 +24,6 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QMetaObject, QPoint, QRect, QRegularExpression, QUrl
   from ..QtCore import QVariant
   from ..QtGui import QColor, QFont, QPagedPaintDevice, QTextCharFormat
-  from ..QtGui import QTextCursor, QTextDocument, QTextOption
   from . import QMenu
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -38,8 +35,6 @@ else:
   QPoint = WAIT['QPoint']
   QRegularExpression = WAIT['QRegularExpression']
   QTextCharFormat = WAIT['QTextCharFormat']
-  QTextCursor = WAIT['QTextCursor']
-  QTextDocument = WAIT['QTextDocument']
   QUrl = WAIT['QUrl']
   QVariant = WAIT['QVariant']
 
@@ -112,11 +107,136 @@ class QTextEdit(QAbstractScrollArea):
     and nothing reaches C++.
   """
 
-  #  The enums Qt writes inside QTextEdit, and the names Qt has for the
-  #  combinations of its flags enums.
-  AutoFormattingFlag = QTextEditAutoFormattingFlag
-  AutoFormatting = QTextEditAutoFormattingFlag
-  LineWrapMode = QTextEditLineWrapMode
+  #  The enums Qt writes inside QTextEdit, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class AutoFormattingFlag(CuteFlags, number='unsigned int'):
+    """
+    The flags enum 'QTextEdit::AutoFormattingFlag' of Qt, with the 3 names Qt
+    gives in it. Qt names the type of its combinations
+    'QTextEdit::AutoFormatting'.
+    """
+
+    AutoNone = 0x0
+    AutoBulletList = 0x1
+    AutoAll = 0xffffffff
+
+  AutoFormatting = AutoFormattingFlag
+
+  class LineWrapMode(CuteNum):
+    """
+    The enum 'QTextEdit::LineWrapMode' of Qt, with the 4 names Qt gives in
+    it.
+    """
+
+    NoWrap = Kee[int](0)
+    WidgetWidth = Kee[int](1)
+    FixedPixelWidth = Kee[int](2)
+    FixedColumnWidth = Kee[int](3)
+
+  #  The classes Qt writes inside QTextEdit, each a class in here as in C++.
+
+  class ExtraSelection(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QTextEdit::ExtraSelection: a plain Python object
+    standing in front of one C++ QTextEdit::ExtraSelection.
+
+    C++ hands a QTextEdit::ExtraSelection around as a copy, so every C++
+    QTextEdit::ExtraSelection behind a cute one is Python's own: it is
+    removed, by the ritual named in '__delete_ritual__', when the cute object
+    goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QTextEdit::ExtraSelection yet. None can be made from
+    Python: one comes out of a function of another class that gives one back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QTextEdit::ExtraSelection::~ExtraSelection()': the destructor:
+      Python removes its C++ QTextEdit::ExtraSelection by it, and has no
+      other use for it.
+
+    What to expect
+    --------------
+
+    - The C++ QTextEdit::ExtraSelection is created at the first use, not by
+      'QTextEdit::ExtraSelection(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QTextEdit::ExtraSelection back gives a copy the
+      ritual made for Python, in a new cute QTextEdit::ExtraSelection.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QTextEdit::ExtraSelection'
+
+    #  Qt's '~QTextEdit::ExtraSelection()'. Naming it makes this a value
+    #  class: Python owns every C++ QTextEdit::ExtraSelection behind a cute
+    #  one, and removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN9QTextEdit14ExtraSelectionD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -217,7 +337,6 @@ class QTextEdit(QAbstractScrollArea):
     """
     #  QTextDocument *QTextEdit::document() const
     address = self.uglySide.call('ritual_ZNK9QTextEdit8documentEv')
-    from ..QtGui import QTextDocument
     return QTextDocument._cuteAt(address)
 
   def placeholderText(self) -> str:
@@ -249,7 +368,6 @@ class QTextEdit(QAbstractScrollArea):
     """
     #  QTextCursor QTextEdit::textCursor() const
     address = self.uglySide.call('ritual_ZNK9QTextEdit10textCursorEv')
-    from ..QtGui import QTextCursor
     return QTextCursor._cuteOwning(address)
 
   def isReadOnly(self) -> bool:
@@ -515,7 +633,7 @@ class QTextEdit(QAbstractScrollArea):
       'QTextOption.WrapMode(number)' gives.
     """
     #  QTextOption::WrapMode QTextEdit::wordWrapMode() const
-    return QTextOptionWrapMode(self.uglySide.call(
+    return QTextOption.WrapMode(self.uglySide.call(
         'ritual_ZNK9QTextEdit12wordWrapModeEv',
     ))
 
@@ -550,11 +668,11 @@ class QTextEdit(QAbstractScrollArea):
     return self.uglySide.call('ritual_ZNK9QTextEdit6toHtmlEv')
 
   @overload()
-  @overload(QTextDocumentMarkdownFeature)
+  @overload(QTextDocument.MarkdownFeatures)
   def toMarkdown(
       self,
       features: QTextDocument.MarkdownFeatures = (
-          QTextDocumentMarkdownFeature.MarkdownDialectGitHub),
+          QTextDocument.MarkdownFeatures.MarkdownDialectGitHub),
   ) -> str:
     """
     Calls Qt's 'QString QTextEdit::toMarkdown(QTextDocument::MarkdownFeatures
@@ -567,7 +685,7 @@ class QTextEdit(QAbstractScrollArea):
 
     features : QTextDocument.MarkdownFeatures
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocumentMarkdownFeature.MarkdownDialectGitHub.
+      QTextDocument.MarkdownFeatures.MarkdownDialectGitHub.
 
     Returns
     -------
@@ -609,7 +727,6 @@ class QTextEdit(QAbstractScrollArea):
         'ritual_ZNK9QTextEdit17cursorForPositionERK6QPoint',
         self._valueOf(pos),
     )
-    from ..QtGui import QTextCursor
     return QTextCursor._cuteOwning(address)
 
   @overload(QTextCursor)
@@ -1028,7 +1145,7 @@ class QTextEdit(QAbstractScrollArea):
     #  void QTextEdit::setLineWrapColumnOrWidth(int w)
     self.uglySide.call('ritual_ZN9QTextEdit24setLineWrapColumnOrWidthEi', w)
 
-  @overload(QTextOptionWrapMode)
+  @overload(QTextOption.WrapMode)
   def setWordWrapMode(self, policy: QTextOption.WrapMode) -> None:
     """
     Calls Qt's 'void QTextEdit::setWordWrapMode(QTextOption::WrapMode
@@ -1441,11 +1558,11 @@ class QTextEdit(QAbstractScrollArea):
     )
 
   @overload(str)
-  @overload(str, QTextDocumentFindFlag)
+  @overload(str, QTextDocument.FindFlags)
   def find(
       self,
       exp: str,
-      options: QTextDocument.FindFlags = QTextDocumentFindFlag(),
+      options: QTextDocument.FindFlags = QTextDocument.FindFlags(),
   ) -> bool:
     """
     Calls Qt's 'bool QTextEdit::find(const QString &exp,
@@ -1461,7 +1578,7 @@ class QTextEdit(QAbstractScrollArea):
 
     options : QTextDocument.FindFlags
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocumentFindFlag().
+      QTextDocument.FindFlags().
     """
     #  bool QTextEdit::find(const QString &exp, QTextDocument::FindFlags
     #      options)
@@ -1472,11 +1589,11 @@ class QTextEdit(QAbstractScrollArea):
     )
 
   @overload(QRegularExpression)
-  @overload(QRegularExpression, QTextDocumentFindFlag)
+  @overload(QRegularExpression, QTextDocument.FindFlags)
   def find(
       self,
       exp: QRegularExpression,
-      options: QTextDocument.FindFlags = QTextDocumentFindFlag(),
+      options: QTextDocument.FindFlags = QTextDocument.FindFlags(),
   ) -> bool:
     """
     Calls Qt's 'bool QTextEdit::find(const QRegularExpression &exp,
@@ -1493,7 +1610,7 @@ class QTextEdit(QAbstractScrollArea):
 
     options : QTextDocument.FindFlags
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextDocumentFindFlag().
+      QTextDocument.FindFlags().
     """
     #  bool QTextEdit::find(const QRegularExpression &exp,
     #      QTextDocument::FindFlags options)
@@ -1596,12 +1713,12 @@ class QTextEdit(QAbstractScrollArea):
     from . import QMenu
     return QMenu._cuteAt(address)
 
-  @overload(QTextCursorMoveOperation)
-  @overload(QTextCursorMoveOperation, QTextCursorMoveMode)
+  @overload(QTextCursor.MoveOperation)
+  @overload(QTextCursor.MoveOperation, QTextCursor.MoveMode)
   def moveCursor(
       self,
       operation: QTextCursor.MoveOperation,
-      mode: QTextCursor.MoveMode = QTextCursorMoveMode.MoveAnchor,
+      mode: QTextCursor.MoveMode = QTextCursor.MoveMode.MoveAnchor,
   ) -> None:
     """
     Calls Qt's 'void QTextEdit::moveCursor(QTextCursor::MoveOperation
@@ -1617,7 +1734,7 @@ class QTextEdit(QAbstractScrollArea):
 
     mode : QTextCursor.MoveMode
       Passed on as its number. May be left out, as in Qt: it is then
-      QTextCursorMoveMode.MoveAnchor.
+      QTextCursor.MoveMode.MoveAnchor.
     """
     #  void QTextEdit::moveCursor(QTextCursor::MoveOperation operation,
     #      QTextCursor::MoveMode mode)

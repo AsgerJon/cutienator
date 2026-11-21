@@ -1,0 +1,9 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qbindingstorage.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QBindingStatusD1Ev": ["nothing", "address"]
+  }
+}

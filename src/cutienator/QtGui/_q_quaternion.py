@@ -45,13 +45,13 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QQuaternion that has a ritual and that Python can
-  call so far, 30 names in all: 'isNull', 'isIdentity', 'vector',
+  call so far, 31 names in all: 'isNull', 'isIdentity', 'vector',
   'setVector', 'x', 'y', 'z', 'scalar', 'setX', 'setY', 'setZ', 'setScalar',
   'dotProduct', 'length', 'lengthSquared', 'normalized', 'normalize',
   'inverted', 'conjugated', 'rotatedVector', 'toVector4D',
-  'fromAxisAndAngle', 'toEulerAngles', 'fromEulerAngles', 'getAxes',
-  'fromAxes', 'fromDirection', 'rotationTo', 'slerp', 'nlerp'. It can be made
-  from Python, in 5 ways; see '__init__'.
+  'fromAxisAndAngle', 'toEulerAngles', 'fromEulerAngles', 'toAxes',
+  'fromAxes', 'getAxes', 'fromDirection', 'rotationTo', 'slerp', 'nlerp'. It
+  can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,10 +64,6 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
     float *angle) const': takes a number to change where it is.
   - Qt's 'void QQuaternion::getEulerAngles(float *pitch, float *yaw, float
     *roll) const': takes a number to change where it is.
-  - Qt's 'Axes QQuaternion::toAxes() const': gives 'QQuaternion::Axes', which
-    has no cute class yet.
-  - Qt's 'QQuaternion QQuaternion::fromAxes(Axes axes)': names
-    'QQuaternion::Axes', which has no cute class yet.
   - Qt's 'QQuaternion::~QQuaternion()': the destructor: Python removes its
     C++ QQuaternion by it, and has no other use for it.
 
@@ -90,6 +86,266 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
   - A function giving a QQuaternion back gives a copy the ritual made for
     Python, in a new cute QQuaternion.
   """
+
+  #  The classes Qt writes inside QQuaternion, each a class in here as in
+  #  C++.
+
+  class Axes(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QQuaternion::Axes: a plain Python object standing
+    in front of one C++ QQuaternion::Axes.
+
+    C++ hands a QQuaternion::Axes around as a copy, so every C++
+    QQuaternion::Axes behind a cute one is Python's own: it is removed, by
+    the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QQuaternion::Axes yet. None can be made from Python:
+    one comes out of a function of another class that gives one back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QQuaternion::Axes::~Axes()': the destructor: Python removes its
+      C++ QQuaternion::Axes by it, and has no other use for it.
+
+    What to expect
+    --------------
+
+    - The C++ QQuaternion::Axes is created at the first use, not by
+      'QQuaternion::Axes(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QQuaternion::Axes back gives a copy the ritual made
+      for Python, in a new cute QQuaternion::Axes.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QQuaternion::Axes'
+
+    #  Qt's '~QQuaternion::Axes()'. Naming it makes this a value class:
+    #  Python owns every C++ QQuaternion::Axes behind a cute one, and removes
+    #  it by this ritual.
+    __delete_ritual__ = 'ritual_ZN11QQuaternion4AxesD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  class Axis(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QQuaternion::Axis: a plain Python object standing
+    in front of one C++ QQuaternion::Axis.
+
+    C++ hands a QQuaternion::Axis around as a copy, so every C++
+    QQuaternion::Axis behind a cute one is Python's own: it is removed, by
+    the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    Every function of Qt's QQuaternion::Axis that has a ritual and that
+    Python can call so far, 2 names in all: 'fromVector3D', 'toVector3D'.
+    None can be made from Python: one comes out of a function of another
+    class that gives one back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QQuaternion::Axis::~Axis()': the destructor: Python removes its
+      C++ QQuaternion::Axis by it, and has no other use for it.
+
+    What to expect
+    --------------
+
+    - The C++ QQuaternion::Axis is created at the first use, not by
+      'QQuaternion::Axis(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QQuaternion::Axis back gives a copy the ritual made
+      for Python, in a new cute QQuaternion::Axis.
+    """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QVector3D = WAIT['QVector3D']
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    @overload(QVector3D)
+    def fromVector3D(v: QVector3D) -> QQuaternion.Axis:
+      """
+      Calls Qt's 'Axis QQuaternion::Axis::fromVector3D(QVector3D v)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qquaternion-axis.html#fromVector3D
+
+      Parameters
+      ----------
+
+      v : QVector3D
+        Passed on as a value: Qt reads the C++ QVector3D, which stays
+        Python's own.
+
+      Returns
+      -------
+
+      QQuaternion.Axis
+        A new cute QQuaternion::Axis around the copy Qt gave back. Python
+        owns it.
+      """
+      #  Axis QQuaternion::Axis::fromVector3D(QVector3D v)
+      address = Rituals.call(
+          'ritual_ZN11QQuaternion4Axis12fromVector3DE9QVector3D',
+          CuteMixin._valueOf(v),
+      )
+      return QQuaternion.Axis._cuteOwning(address)
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QQuaternion::Axis'
+
+    #  Qt's '~QQuaternion::Axis()'. Naming it makes this a value class:
+    #  Python owns every C++ QQuaternion::Axis behind a cute one, and removes
+    #  it by this ritual.
+    __delete_ritual__ = 'ritual_ZN11QQuaternion4AxisD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    def toVector3D(self) -> QVector3D:
+      """
+      Calls Qt's 'QVector3D QQuaternion::Axis::toVector3D() const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qquaternion-axis.html#toVector3D
+
+      Returns
+      -------
+
+      QVector3D
+        A new cute QVector3D around the copy Qt gave back. Python owns it.
+      """
+      #  QVector3D QQuaternion::Axis::toVector3D() const
+      address = self.uglySide.call(
+          'ritual_ZNK11QQuaternion4Axis10toVector3DEv',
+      )
+      from . import QVector3D
+      return QVector3D._cuteOwning(address)
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -228,6 +484,34 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
     #      roll)
     address = Rituals.call(
         'ritual_ZN11QQuaternion15fromEulerAnglesEfff', pitch, yaw, roll,
+    )
+    return QQuaternion._cuteOwning(address)
+
+  @staticmethod
+  @overload(Axes)
+  def fromAxes(axes: Axes) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion QQuaternion::fromAxes(Axes axes)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#fromAxes
+
+    Parameters
+    ----------
+
+    axes : Axes
+      Passed on as a value: Qt reads the C++ QQuaternion::Axes, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QQuaternion
+      A new cute QQuaternion around the copy Qt gave back. Python owns it.
+    """
+    #  QQuaternion QQuaternion::fromAxes(Axes axes)
+    address = Rituals.call(
+        'ritual_ZN11QQuaternion8fromAxesENS_4AxesE',
+        CuteMixin._valueOf(axes),
     )
     return QQuaternion._cuteOwning(address)
 
@@ -639,6 +923,23 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK11QQuaternion13toEulerAnglesEv')
     from . import QVector3D
     return QVector3D._cuteOwning(address)
+
+  def toAxes(self) -> Axes:
+    """
+    Calls Qt's 'Axes QQuaternion::toAxes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#toAxes
+
+    Returns
+    -------
+
+    Axes
+      A new cute QQuaternion::Axes around the copy Qt gave back. Python owns
+      it.
+    """
+    #  Axes QQuaternion::toAxes() const
+    address = self.uglySide.call('ritual_ZNK11QQuaternion6toAxesEv')
+    return QQuaternion.Axes._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

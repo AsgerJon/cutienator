@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qobjectcleanuphandler.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QObjectCleanupHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QObjectCleanupHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QObjectCleanupHandlerC1Ev": ["address"],
+    "ritual_ZN21QObjectCleanupHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN21QObjectCleanupHandler3addEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QObjectCleanupHandler6removeEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QObjectCleanupHandler7isEmptyEv": ["bool", "address"],
+    "ritual_ZN21QObjectCleanupHandler5clearEv": ["nothing", "address"]
+  }
+}

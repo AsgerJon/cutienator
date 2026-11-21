@@ -10,11 +10,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QTextLayoutCursorMode, QTextLayoutGlyphRunRetrievalFlag
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -84,11 +84,138 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QTextLayout.
   """
 
-  #  The enums Qt writes inside QTextLayout, and the names Qt has for the
-  #  combinations of its flags enums.
-  CursorMode = QTextLayoutCursorMode
-  GlyphRunRetrievalFlag = QTextLayoutGlyphRunRetrievalFlag
-  GlyphRunRetrievalFlags = QTextLayoutGlyphRunRetrievalFlag
+  #  The enums Qt writes inside QTextLayout, each a class in here as in C++,
+  #  and the names Qt has for the combinations of its flags enums.
+
+  class CursorMode(CuteNum):
+    """
+    The enum 'QTextLayout::CursorMode' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    SkipCharacters = Kee[int](0)
+    SkipWords = Kee[int](1)
+
+  class GlyphRunRetrievalFlag(CuteFlags, number='unsigned short'):
+    """
+    The flags enum 'QTextLayout::GlyphRunRetrievalFlag' of Qt, with the 6
+    names Qt gives in it. Qt names the type of its combinations
+    'QTextLayout::GlyphRunRetrievalFlags'.
+    """
+
+    RetrieveGlyphIndexes = 0x1
+    RetrieveGlyphPositions = 0x2
+    RetrieveStringIndexes = 0x4
+    RetrieveString = 0x8
+    DefaultRetrievalFlags = 0x3
+    RetrieveAll = 0xffff
+
+  GlyphRunRetrievalFlags = GlyphRunRetrievalFlag
+
+  #  The classes Qt writes inside QTextLayout, each a class in here as in
+  #  C++.
+
+  class FormatRange(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QTextLayout::FormatRange: a plain Python object
+    standing in front of one C++ QTextLayout::FormatRange.
+
+    C++ hands a QTextLayout::FormatRange around as a copy, so every C++
+    QTextLayout::FormatRange behind a cute one is Python's own: it is
+    removed, by the ritual named in '__delete_ritual__', when the cute object
+    goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QTextLayout::FormatRange yet. None can be made from
+    Python: one comes out of a function of another class that gives one back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QTextLayout::FormatRange::~FormatRange()': the destructor: Python
+      removes its C++ QTextLayout::FormatRange by it, and has no other use
+      for it.
+
+    What to expect
+    --------------
+
+    - The C++ QTextLayout::FormatRange is created at the first use, not by
+      'QTextLayout::FormatRange(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QTextLayout::FormatRange back gives a copy the
+      ritual made for Python, in a new cute QTextLayout::FormatRange.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QTextLayout::FormatRange'
+
+    #  Qt's '~QTextLayout::FormatRange()'. Naming it makes this a value
+    #  class: Python owns every C++ QTextLayout::FormatRange behind a cute
+    #  one, and removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN11QTextLayout11FormatRangeD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

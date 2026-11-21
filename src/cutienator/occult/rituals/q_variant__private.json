@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qvariant.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QVariant7Private19canUseInternalSpaceEPKN9QtPrivate18QMetaTypeInterfaceE": [
+      "bool", "address"
+    ],
+    "ritual_ZN8QVariant7PrivateC1Ev": ["address"],
+    "ritual_ZNK8QVariant7Private13typeInterfaceEv": ["address", "address"],
+    "ritual_ZNK8QVariant7Private4typeEv": ["address", "address"],
+    "ritual_ZN8QVariant7PrivateD1Ev": ["nothing", "address"]
+  }
+}

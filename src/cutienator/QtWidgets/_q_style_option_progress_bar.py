@@ -11,10 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
+from ..cute import CuteNum
 from ..occult import Rituals
-from . import QStyleOption, QStyleOptionProgressBarStyleOptionType
-from . import QStyleOptionProgressBarStyleOptionVersion
+from . import QStyleOption
 
 
 class QStyleOptionProgressBar(QStyleOption):
@@ -62,10 +63,24 @@ class QStyleOptionProgressBar(QStyleOption):
     made for Python, in a new cute QStyleOptionProgressBar.
   """
 
-  #  The enums Qt writes inside QStyleOptionProgressBar, and the names Qt has
-  #  for the combinations of its flags enums.
-  StyleOptionType = QStyleOptionProgressBarStyleOptionType
-  StyleOptionVersion = QStyleOptionProgressBarStyleOptionVersion
+  #  The enums Qt writes inside QStyleOptionProgressBar, each a class in here
+  #  as in C++, and the names Qt has for the combinations of its flags enums.
+
+  class StyleOptionType(CuteNum):
+    """
+    The enum 'QStyleOptionProgressBar::StyleOptionType' of Qt, with the 1
+    names Qt gives in it.
+    """
+
+    Type = Kee[int](6)
+
+  class StyleOptionVersion(CuteNum):
+    """
+    The enum 'QStyleOptionProgressBar::StyleOptionVersion' of Qt, with the 1
+    names Qt gives in it.
+    """
+
+    Version = Kee[int](1)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

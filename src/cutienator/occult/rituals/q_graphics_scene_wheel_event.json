@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN24QGraphicsSceneWheelEventC1EN6QEvent4TypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN24QGraphicsSceneWheelEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QGraphicsSceneWheelEvent3posEv": ["address", "address"],
+    "ritual_ZN24QGraphicsSceneWheelEvent6setPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QGraphicsSceneWheelEvent8scenePosEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QGraphicsSceneWheelEvent11setScenePosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QGraphicsSceneWheelEvent9screenPosEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QGraphicsSceneWheelEvent12setScreenPosERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QGraphicsSceneWheelEvent7buttonsEv": ["int", "address"],
+    "ritual_ZN24QGraphicsSceneWheelEvent10setButtonsE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QGraphicsSceneWheelEvent9modifiersEv": ["int", "address"],
+    "ritual_ZN24QGraphicsSceneWheelEvent12setModifiersE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QGraphicsSceneWheelEvent5deltaEv": ["int", "address"],
+    "ritual_ZN24QGraphicsSceneWheelEvent8setDeltaEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QGraphicsSceneWheelEvent11orientationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QGraphicsSceneWheelEvent14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QGraphicsSceneWheelEvent5phaseEv": ["int", "address"],
+    "ritual_ZN24QGraphicsSceneWheelEvent8setPhaseEN2Qt11ScrollPhaseE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QGraphicsSceneWheelEvent10pixelDeltaEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QGraphicsSceneWheelEvent13setPixelDeltaE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QGraphicsSceneWheelEvent10isInvertedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QGraphicsSceneWheelEvent11setInvertedEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

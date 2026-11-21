@@ -9,8 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from ..cute import CuteMixin, MetaCute
-from . import QIODeviceBaseOpenModeFlag
+from ..cute import CuteMixin, CuteFlags, MetaCute
 
 
 class QIODeviceBase(CuteMixin, metaclass=MetaCute):
@@ -42,10 +41,28 @@ class QIODeviceBase(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QIODeviceBase.
   """
 
-  #  The enums Qt writes inside QIODeviceBase, and the names Qt has for the
-  #  combinations of its flags enums.
-  OpenModeFlag = QIODeviceBaseOpenModeFlag
-  OpenMode = QIODeviceBaseOpenModeFlag
+  #  The enums Qt writes inside QIODeviceBase, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class OpenModeFlag(CuteFlags):
+    """
+    The flags enum 'QIODeviceBase::OpenModeFlag' of Qt, with the 10 names Qt
+    gives in it. Qt names the type of its combinations
+    'QIODeviceBase::OpenMode'.
+    """
+
+    NotOpen = 0x0
+    ReadOnly = 0x1
+    WriteOnly = 0x2
+    ReadWrite = 0x3
+    Append = 0x4
+    Truncate = 0x8
+    Text = 0x10
+    Unbuffered = 0x20
+    NewOnly = 0x40
+    ExistingOnly = 0x80
+
+  OpenMode = OpenModeFlag
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

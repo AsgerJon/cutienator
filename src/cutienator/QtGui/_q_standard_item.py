@@ -11,11 +11,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
+from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, MetaCute, WAIT
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from . import QStandardItemItemType
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -89,9 +89,17 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   - Python never removes the C++ QStandardItem.
   """
 
-  #  The enums Qt writes inside QStandardItem, and the names Qt has for the
-  #  combinations of its flags enums.
-  ItemType = QStandardItemItemType
+  #  The enums Qt writes inside QStandardItem, each a class in here as in
+  #  C++, and the names Qt has for the combinations of its flags enums.
+
+  class ItemType(CuteNum):
+    """
+    The enum 'QStandardItem::ItemType' of Qt, with the 2 names Qt gives in
+    it.
+    """
+
+    Type = Kee[int](0)
+    UserType = Kee[int](1000)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
