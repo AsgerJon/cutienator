@@ -75,7 +75,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QVariant that has a ritual and that Python can call
-  so far, 44 names in all: 'userType', 'typeId', 'typeName', 'metaType',
+  so far, 46 names in all: 'userType', 'typeId', 'typeName', 'metaType',
   'canConvert', 'convert', 'canView', 'isValid', 'isNull', 'clear', 'detach',
   'isDetached', 'toBool', 'toByteArray', 'toBitArray', 'toString', 'toChar',
   'toDate', 'toTime', 'toDateTime', 'toPoint', 'toPointF', 'toRect',
@@ -83,7 +83,8 @@ class QVariant(CuteMixin, metaclass=MetaCute):
   'toRegularExpression', 'toEasingCurve', 'toUuid', 'toUrl', 'toJsonValue',
   'toJsonObject', 'toJsonArray', 'toJsonDocument', 'toModelIndex',
   'toPersistentModelIndex', 'type', 'typeToName', 'nameToType', 'setValue',
-  'compare'. It can be made from Python, in 34 ways; see '__init__'.
+  'compare', '__eq__', '__ne__'. It can be made from Python, in 34 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -116,7 +117,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  76 of the 168 functions Qt declares: 39 takes or gives a type that cannot
+  76 of the 170 functions Qt declares: 39 takes or gives a type that cannot
   be passed yet; 21 a template; 6 forbidden; 5 private; 5 protected.
 
   What to expect
@@ -1204,6 +1205,64 @@ class QVariant(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QVariant) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QVariant &lhs, const QVariant &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+    """
+    #  bool operator==(const QVariant &lhs, const QVariant &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK8QVariantS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QVariant) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QVariant &lhs, const QVariant &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QVariant &lhs, const QVariant &rhs)
+    return Rituals.call(
+        'ritual_ZneRK8QVariantS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -19,12 +19,13 @@ from ..occult import Rituals
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QByteArray
+  from ..QtCore import QByteArray, QDebug
   from . import QPaintDevice
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QDebug = WAIT['QDebug']
   QPaintDevice = WAIT['QPaintDevice']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -45,7 +46,7 @@ class QFont(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFont that has a ritual and that Python can call so
-  far, 70 names in all: 'family', 'setFamily', 'styleName', 'setStyleName',
+  far, 74 names in all: 'family', 'setFamily', 'styleName', 'setStyleName',
   'pointSize', 'setPointSize', 'pointSizeF', 'setPointSizeF', 'pixelSize',
   'setPixelSize', 'weight', 'setWeight', 'bold', 'setBold', 'setStyle',
   'style', 'italic', 'setItalic', 'underline', 'setUnderline', 'overline',
@@ -57,30 +58,24 @@ class QFont(CuteMixin, metaclass=MetaCute):
   'hintingPreference', 'setFeature', 'unsetFeature', 'featureValue',
   'isFeatureSet', 'clearFeatures', 'setVariableAxis', 'unsetVariableAxis',
   'isVariableAxisSet', 'variableAxisValue', 'clearVariableAxes',
-  'exactMatch', 'isCopyOf', 'key', 'toString', 'fromString', 'substitute',
-  'insertSubstitution', 'removeSubstitutions', 'initialize', 'cleanup',
-  'cacheStatistics', 'defaultFamily', 'resolve', 'resolveMask',
-  'setResolveMask', 'setLegacyWeight', 'legacyWeight'. It can be made from
-  Python, in 4 ways; see '__init__'.
+  'exactMatch', '__eq__', '__ne__', '__lt__', 'isCopyOf', 'key', 'toString',
+  'fromString', 'substitute', 'insertSubstitution', 'removeSubstitutions',
+  'initialize', 'cleanup', 'cacheStatistics', 'defaultFamily', 'resolve',
+  'resolveMask', 'setResolveMask', 'setLegacyWeight', 'legacyWeight',
+  '__rlshift__'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QFont::~QFont()': the destructor: Python removes its C++ QFont by
     it, and has no other use for it.
-  - Qt's 'bool QFont::operator==(const QFont &a0) const': an operator, which
-    is not reflected yet.
-  - Qt's 'bool QFont::operator!=(const QFont &a0) const': an operator, which
-    is not reflected yet.
-  - Qt's 'bool QFont::operator<(const QFont &a0) const': an operator, which
-    is not reflected yet.
-  - Qt's 'QVariant QFont::operator QVariant() const': an operator, which is
-    not reflected yet.
+  - Qt's 'QVariant QFont::operator QVariant() const': an operator Python has
+    no name for.
 
   What has no ritual
   ------------------
 
-  17 of the 96 functions Qt declares: 12 takes or gives a type that cannot be
+  19 of the 99 functions Qt declares: 14 takes or gives a type that cannot be
   passed yet; 3 private; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
@@ -246,8 +241,9 @@ class QFont(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QFont::Tag that has a ritual and that Python can
-    call so far, 3 names in all: 'isValid', 'value', 'toString'. It can be
-    made from Python, in 1 way; see '__init__'.
+    call so far, 10 names in all: 'isValid', 'value', 'toString',
+    '__rlshift__', '__eq__', '__ne__', '__lt__', '__gt__', '__le__',
+    '__ge__'. It can be made from Python, in 1 way; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -258,7 +254,7 @@ class QFont(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    3 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
+    5 of the 17 functions Qt declares: 4 takes or gives a type that cannot be
     passed yet; 1 a template.
 
     What to expect
@@ -274,6 +270,12 @@ class QFont(CuteMixin, metaclass=MetaCute):
     - A function giving a QFont::Tag back gives a copy the ritual made for
       Python, in a new cute QFont::Tag.
     """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QDebug = WAIT['QDebug']
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -349,6 +351,223 @@ class QFont(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(QDebug)
+    def __rlshift__(self, debug: QDebug) -> QDebug:
+      """
+      Calls Qt's 'QDebug operator<<(QDebug debug, Tag tag)'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfont-tag.html#operator<<
+
+      Parameters
+      ----------
+
+      debug : QDebug
+        Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+        own.
+
+      Returns
+      -------
+
+      QDebug
+        A new cute QDebug around the copy Qt gave back. Python owns it.
+      """
+      #  QDebug operator<<(QDebug debug, Tag tag)
+      address = Rituals.call(
+          'ritual_Zls6QDebugN5QFont3TagE',
+          CuteMixin._valueOf(debug), CuteMixin._valueOf(self),
+      )
+      from ..QtCore import QDebug
+      return QDebug._cuteOwning(address)
+
+    @overload.fallback
+    def __rlshift__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __eq__(self, rhs: QFont.Tag) -> bool:
+      """
+      Calls Qt's 'bool operator==(const QFont::Tag &lhs, const QFont::Tag
+      &rhs)'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfont-tag.html#operator==
+
+      Parameters
+      ----------
+
+      rhs : QFont.Tag
+        Passed on as a value: Qt reads the C++ QFont::Tag, which stays
+        Python's own.
+      """
+      #  bool operator==(const QFont::Tag &lhs, const QFont::Tag &rhs)
+      return Rituals.call(
+          'ritual_ZeqRKN5QFont3TagES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, rhs: QFont.Tag) -> bool:
+      """
+      Calls Qt's 'bool operator!=(const QFont::Tag &lhs, const QFont::Tag
+      &rhs)'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfont-tag.html#operator!=
+
+      Parameters
+      ----------
+
+      rhs : QFont.Tag
+        Passed on as a value: Qt reads the C++ QFont::Tag, which stays
+        Python's own.
+      """
+      #  bool operator!=(const QFont::Tag &lhs, const QFont::Tag &rhs)
+      return Rituals.call(
+          'ritual_ZneRKN5QFont3TagES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __lt__(self, rhs: QFont.Tag) -> bool:
+      """
+      Calls Qt's 'bool operator<(const QFont::Tag &lhs, const QFont::Tag
+      &rhs)'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfont-tag.html#operator<
+
+      Parameters
+      ----------
+
+      rhs : QFont.Tag
+        Passed on as a value: Qt reads the C++ QFont::Tag, which stays
+        Python's own.
+      """
+      #  bool operator<(const QFont::Tag &lhs, const QFont::Tag &rhs)
+      return Rituals.call(
+          'ritual_ZltRKN5QFont3TagES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __lt__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __gt__(self, rhs: QFont.Tag) -> bool:
+      """
+      Calls Qt's 'bool operator>(const QFont::Tag &lhs, const QFont::Tag
+      &rhs)'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfont-tag.html#operator>
+
+      Parameters
+      ----------
+
+      rhs : QFont.Tag
+        Passed on as a value: Qt reads the C++ QFont::Tag, which stays
+        Python's own.
+      """
+      #  bool operator>(const QFont::Tag &lhs, const QFont::Tag &rhs)
+      return Rituals.call(
+          'ritual_ZgtRKN5QFont3TagES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __gt__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __le__(self, rhs: QFont.Tag) -> bool:
+      """
+      Calls Qt's 'bool operator<=(const QFont::Tag &lhs, const QFont::Tag
+      &rhs)'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfont-tag.html#operator<=
+
+      Parameters
+      ----------
+
+      rhs : QFont.Tag
+        Passed on as a value: Qt reads the C++ QFont::Tag, which stays
+        Python's own.
+      """
+      #  bool operator<=(const QFont::Tag &lhs, const QFont::Tag &rhs)
+      return Rituals.call(
+          'ritual_ZleRKN5QFont3TagES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __le__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ge__(self, rhs: QFont.Tag) -> bool:
+      """
+      Calls Qt's 'bool operator>=(const QFont::Tag &lhs, const QFont::Tag
+      &rhs)'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfont-tag.html#operator>=
+
+      Parameters
+      ----------
+
+      rhs : QFont.Tag
+        Passed on as a value: Qt reads the C++ QFont::Tag, which stays
+        Python's own.
+      """
+      #  bool operator>=(const QFont::Tag &lhs, const QFont::Tag &rhs)
+      return Rituals.call(
+          'ritual_ZgeRKN5QFont3TagES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ge__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1424,6 +1643,118 @@ class QFont(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, a0: QFont) -> bool:
+    """
+    Calls Qt's 'bool QFont::operator==(const QFont &a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#operator==
+
+    Parameters
+    ----------
+
+    a0 : QFont
+      Passed on as a value: Qt reads the C++ QFont, which stays Python's own.
+    """
+    #  bool QFont::operator==(const QFont &a0) const
+    return self.uglySide.call('ritual_ZNK5QFonteqERKS_', self._valueOf(a0))
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, a0: QFont) -> bool:
+    """
+    Calls Qt's 'bool QFont::operator!=(const QFont &a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#operator!=
+
+    Parameters
+    ----------
+
+    a0 : QFont
+      Passed on as a value: Qt reads the C++ QFont, which stays Python's own.
+    """
+    #  bool QFont::operator!=(const QFont &a0) const
+    return self.uglySide.call('ritual_ZNK5QFontneERKS_', self._valueOf(a0))
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, a0: QFont) -> bool:
+    """
+    Calls Qt's 'bool QFont::operator<(const QFont &a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#operator<
+
+    Parameters
+    ----------
+
+    a0 : QFont
+      Passed on as a value: Qt reads the C++ QFont, which stays Python's own.
+    """
+    #  bool QFont::operator<(const QFont &a0) const
+    return self.uglySide.call('ritual_ZNK5QFontltERKS_', self._valueOf(a0))
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QDebug)
+  def __rlshift__(self, a0: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug a0, const QFont &a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#operator<<
+
+    Parameters
+    ----------
+
+    a0 : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug a0, const QFont &a1)
+    address = Rituals.call(
+        'ritual_Zls6QDebugRK5QFont',
+        CuteMixin._valueOf(a0), CuteMixin._valueOf(self),
+    )
+    from ..QtCore import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -42,6 +42,20 @@
     "ritual_ZNK11QQuaternion13rotatedVectorERK9QVector3D": [
       "address", "address", "address"
     ],
+    "ritual_ZN11QQuaternionpLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN11QQuaternionmIERKS_": ["nothing", "address", "address"],
+    "ritual_ZN11QQuaternionmLEf": ["nothing", "address", "float"],
+    "ritual_ZN11QQuaternionmLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN11QQuaterniondVEf": ["nothing", "address", "float"],
+    "ritual_ZeqRK11QQuaternionS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QQuaternionS1_": ["bool", "address", "address"],
+    "ritual_ZplRK11QQuaternionS1_": ["address", "address", "address"],
+    "ritual_ZmiRK11QQuaternionS1_": ["address", "address", "address"],
+    "ritual_ZmlfRK11QQuaternion": ["address", "float", "address"],
+    "ritual_ZmlRK11QQuaternionf": ["address", "address", "float"],
+    "ritual_ZmlRK11QQuaternionS1_": ["address", "address", "address"],
+    "ritual_ZngRK11QQuaternion": ["address", "address"],
+    "ritual_ZdvRK11QQuaternionf": ["address", "address", "float"],
     "ritual_ZNK11QQuaternion10toVector4DEv": ["address", "address"],
     "ritual_ZNK11QQuaternioncv8QVariantEv": ["address", "address"],
     "ritual_ZNK11QQuaternion15getAxisAndAngleEP9QVector3DPf": [

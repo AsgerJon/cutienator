@@ -29,6 +29,12 @@
     "ritual_ZNK5QUuid6isNullEN2Qt15Disambiguated_tE": [
       "bool", "address", "address"
     ],
+    "ritual_ZeqRK5QUuidS1_": ["bool", "address", "address"],
+    "ritual_ZneRK5QUuidS1_": ["bool", "address", "address"],
+    "ritual_ZltRK5QUuidS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK5QUuidS1_": ["bool", "address", "address"],
+    "ritual_ZleRK5QUuidS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK5QUuidS1_": ["bool", "address", "address"],
     "ritual_ZN5QUuid10createUuidEv": ["address"],
     "ritual_ZN5QUuid12createUuidV5ES_14QByteArrayView": [
       "address", "address", "address"

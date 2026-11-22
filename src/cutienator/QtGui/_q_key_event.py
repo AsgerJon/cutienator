@@ -54,11 +54,15 @@ class QKeyEvent(QInputEvent):
 
   - Qt's 'QKeyEvent::~QKeyEvent()': the destructor: Python never removes a
     C++ QKeyEvent.
+  - Qt's 'bool operator==(QKeyEvent *e, QKeySequence::StandardKey key)': an
+    operator between other classes, written inside this one.
+  - Qt's 'bool operator==(QKeySequence::StandardKey key, QKeyEvent *e)': an
+    operator between other classes, written inside this one.
 
   What has no ritual
   ------------------
 
-  4 of the 18 functions Qt declares: 2 protected; 2 forbidden.
+  4 of the 20 functions Qt declares: 2 protected; 2 forbidden.
 
   What to expect
   --------------

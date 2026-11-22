@@ -3,6 +3,7 @@
 #include <QtCore/qmetatype.h>
 #include <QtCore/qnamespace.h>
 #include <QtCore/qbytearrayview.h>
+#include <QtCore/qdebug.h>
 
 //  int QMetaType::type(const char *typeName)
 extern "C" Q_DECL_EXPORT
@@ -178,6 +179,24 @@ extern "C" Q_DECL_EXPORT
 QMetaType *ritual_ZN9QMetaType8fromNameE14QByteArrayView(
     const QByteArrayView *name) {
   return new QMetaType(QMetaType::fromName(*name));
+}
+
+//  bool operator==(const QMetaType &lhs, const QMetaType &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK9QMetaTypeS1_(const QMetaType *lhs, const QMetaType *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QMetaType &lhs, const QMetaType &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK9QMetaTypeS1_(const QMetaType *lhs, const QMetaType *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  QDebug operator<<(QDebug d, QMetaType m)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebug9QMetaType(const QDebug *d, const QMetaType *m) {
+  return new QDebug(operator<<(*d, *m));
 }
 
 //  bool QMetaType::hasRegisteredDebugStreamOperator() const

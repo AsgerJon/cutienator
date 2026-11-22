@@ -13,6 +13,12 @@
     "ritual_ZNK17QInputMethodEvent13preeditStringEv": ["text", "address"],
     "ritual_ZNK17QInputMethodEvent12commitStringEv": ["text", "address"],
     "ritual_ZNK17QInputMethodEvent16replacementStartEv": ["int", "address"],
-    "ritual_ZNK17QInputMethodEvent17replacementLengthEv": ["int", "address"]
+    "ritual_ZNK17QInputMethodEvent17replacementLengthEv": ["int", "address"],
+    "ritual_ZeqRKN17QInputMethodEvent9AttributeES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN17QInputMethodEvent9AttributeES2_": [
+      "bool", "address", "address"
+    ]
   }
 }

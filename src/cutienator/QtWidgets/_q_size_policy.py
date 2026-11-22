@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
@@ -30,11 +31,11 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QSizePolicy that has a ritual and that Python can
-  call so far, 19 names in all: 'horizontalPolicy', 'verticalPolicy',
+  call so far, 21 names in all: 'horizontalPolicy', 'verticalPolicy',
   'controlType', 'setHorizontalPolicy', 'setVerticalPolicy',
   'setControlType', 'expandingDirections', 'setHeightForWidth',
-  'hasHeightForWidth', 'setWidthForHeight', 'hasWidthForHeight',
-  'horizontalStretch', 'verticalStretch', 'setHorizontalStretch',
+  'hasHeightForWidth', 'setWidthForHeight', 'hasWidthForHeight', '__eq__',
+  '__ne__', 'horizontalStretch', 'verticalStretch', 'setHorizontalStretch',
   'setVerticalStretch', 'retainSizeWhenHidden', 'setRetainSizeWhenHidden',
   'transpose', 'transposed'. It can be made from Python, in 2 ways; see
   '__init__'.
@@ -42,20 +43,16 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'bool QSizePolicy::operator==(const QSizePolicy &s) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QSizePolicy::operator!=(const QSizePolicy &s) const': an
-    operator, which is not reflected yet.
-  - Qt's 'QVariant QSizePolicy::operator QVariant() const': an operator,
-    which is not reflected yet.
+  - Qt's 'QVariant QSizePolicy::operator QVariant() const': an operator
+    Python has no name for.
   - Qt's 'QSizePolicy::~QSizePolicy()': the destructor: Python removes its
     C++ QSizePolicy by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  6 of the 31 functions Qt declares: 4 private; 1 declared and nowhere to be
-  found; 1 a template.
+  8 of the 33 functions Qt declares: 4 private; 2 takes or gives a type that
+  cannot be passed yet; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------
@@ -444,6 +441,62 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, s: QSizePolicy) -> bool:
+    """
+    Calls Qt's 'bool QSizePolicy::operator==(const QSizePolicy &s) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsizepolicy.html#operator==
+
+    Parameters
+    ----------
+
+    s : QSizePolicy
+      Passed on as a value: Qt reads the C++ QSizePolicy, which stays
+      Python's own.
+    """
+    #  bool QSizePolicy::operator==(const QSizePolicy &s) const
+    return self.uglySide.call(
+        'ritual_ZNK11QSizePolicyeqERKS_', self._valueOf(s),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, s: QSizePolicy) -> bool:
+    """
+    Calls Qt's 'bool QSizePolicy::operator!=(const QSizePolicy &s) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsizepolicy.html#operator!=
+
+    Parameters
+    ----------
+
+    s : QSizePolicy
+      Passed on as a value: Qt reads the C++ QSizePolicy, which stays
+      Python's own.
+    """
+    #  bool QSizePolicy::operator!=(const QSizePolicy &s) const
+    return self.uglySide.call(
+        'ritual_ZNK11QSizePolicyneERKS_', self._valueOf(s),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

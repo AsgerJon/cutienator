@@ -61,6 +61,13 @@
     "ritual_ZNK7QRegionanERK5QRect": ["address", "address", "address"],
     "ritual_ZNK7QRegionmiERKS_": ["address", "address", "address"],
     "ritual_ZNK7QRegioneoERKS_": ["address", "address", "address"],
+    "ritual_ZN7QRegionoRERKS_": ["nothing", "address", "address"],
+    "ritual_ZN7QRegionpLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN7QRegionpLERK5QRect": ["nothing", "address", "address"],
+    "ritual_ZN7QRegionaNERKS_": ["nothing", "address", "address"],
+    "ritual_ZN7QRegionaNERK5QRect": ["nothing", "address", "address"],
+    "ritual_ZN7QRegionmIERKS_": ["nothing", "address", "address"],
+    "ritual_ZN7QRegioneOERKS_": ["nothing", "address", "address"],
     "ritual_ZNK7QRegioneqERKS_": ["bool", "address", "address"],
     "ritual_ZNK7QRegionneERKS_": ["bool", "address", "address"],
     "ritual_ZNK7QRegioncv8QVariantEv": ["address", "address"]

@@ -129,6 +129,42 @@ void ritual_ZN9QVector3D9normalizeEv(QVector3D *self) {
   self->normalize();
 }
 
+//  QVector3D &QVector3D::operator+=(QVector3D vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector3DpLES_(QVector3D *self, const QVector3D *vector) {
+  self->operator+=(*vector);
+}
+
+//  QVector3D &QVector3D::operator-=(QVector3D vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector3DmIES_(QVector3D *self, const QVector3D *vector) {
+  self->operator-=(*vector);
+}
+
+//  QVector3D &QVector3D::operator*=(float factor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector3DmLEf(QVector3D *self, float factor) {
+  self->operator*=(factor);
+}
+
+//  QVector3D &QVector3D::operator*=(QVector3D vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector3DmLES_(QVector3D *self, const QVector3D *vector) {
+  self->operator*=(*vector);
+}
+
+//  QVector3D &QVector3D::operator/=(float divisor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector3DdVEf(QVector3D *self, float divisor) {
+  self->operator/=(divisor);
+}
+
+//  QVector3D &QVector3D::operator/=(QVector3D vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector3DdVES_(QVector3D *self, const QVector3D *vector) {
+  self->operator/=(*vector);
+}
+
 //  float QVector3D::dotProduct(QVector3D v1, QVector3D v2)
 extern "C" Q_DECL_EXPORT
 float ritual_ZN9QVector3D10dotProductES_S_(
@@ -184,6 +220,18 @@ QVector3D *ritual_ZNK9QVector3D9unprojectERK10QMatrix4x4S2_RK5QRect(
   return new QVector3D(self->unproject(*modelView, *projection, *viewport));
 }
 
+//  bool operator==(QVector3D v1, QVector3D v2)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zeq9QVector3DS_(const QVector3D *v1, const QVector3D *v2) {
+  return operator==(*v1, *v2);
+}
+
+//  bool operator!=(QVector3D v1, QVector3D v2)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zne9QVector3DS_(const QVector3D *v1, const QVector3D *v2) {
+  return operator!=(*v1, *v2);
+}
+
 //  float QVector3D::distanceToPoint(QVector3D point) const
 extern "C" Q_DECL_EXPORT
 float ritual_ZNK9QVector3D15distanceToPointES_(
@@ -222,6 +270,56 @@ float ritual_ZNK9QVector3D14distanceToLineES_S_(
   return self->distanceToLine(*point, *direction);
 }
 
+//  QVector3D operator+(QVector3D v1, QVector3D v2)
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_Zpl9QVector3DS_(const QVector3D *v1, const QVector3D *v2) {
+  return new QVector3D(operator+(*v1, *v2));
+}
+
+//  QVector3D operator-(QVector3D v1, QVector3D v2)
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_Zmi9QVector3DS_(const QVector3D *v1, const QVector3D *v2) {
+  return new QVector3D(operator-(*v1, *v2));
+}
+
+//  QVector3D operator*(float factor, QVector3D vector)
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_Zmlf9QVector3D(float factor, const QVector3D *vector) {
+  return new QVector3D(operator*(factor, *vector));
+}
+
+//  QVector3D operator*(QVector3D vector, float factor)
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_Zml9QVector3Df(const QVector3D *vector, float factor) {
+  return new QVector3D(operator*(*vector, factor));
+}
+
+//  QVector3D operator*(QVector3D v1, QVector3D v2)
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_Zml9QVector3DS_(const QVector3D *v1, const QVector3D *v2) {
+  return new QVector3D(operator*(*v1, *v2));
+}
+
+//  QVector3D operator-(QVector3D vector)
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_Zng9QVector3D(const QVector3D *vector) {
+  return new QVector3D(operator-(*vector));
+}
+
+//  QVector3D operator/(QVector3D vector, float divisor)
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_Zdv9QVector3Df(const QVector3D *vector, float divisor) {
+  return new QVector3D(operator/(*vector, divisor));
+}
+
+//  QVector3D operator/(QVector3D vector, QVector3D divisor)
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_Zdv9QVector3DS_(
+    const QVector3D *vector,
+    const QVector3D *divisor) {
+  return new QVector3D(operator/(*vector, *divisor));
+}
+
 //  QVector2D QVector3D::toVector2D() const
 extern "C" Q_DECL_EXPORT
 QVector2D *ritual_ZNK9QVector3D10toVector2DEv(const QVector3D *self) {
@@ -250,6 +348,14 @@ QPointF *ritual_ZNK9QVector3D8toPointFEv(const QVector3D *self) {
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK9QVector3Dcv8QVariantEv(const QVector3D *self) {
   return new QVariant(self->operator QVariant());
+}
+
+//  QVector3D operator*(const QVector3D &vector, const QMatrix4x4 &matrix)
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZmlRK9QVector3DRK10QMatrix4x4(
+    const QVector3D *vector,
+    const QMatrix4x4 *matrix) {
+  return new QVector3D(operator*(*vector, *matrix));
 }
 
 //  QVector3D::~QVector3D()

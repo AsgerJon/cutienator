@@ -43,6 +43,8 @@
     "ritual_ZN9QCollator14defaultCompareE11QStringViewS0_": [
       "int", "text", "text"
     ],
-    "ritual_ZN9QCollator14defaultSortKeyE11QStringView": ["address", "text"]
+    "ritual_ZN9QCollator14defaultSortKeyE11QStringView": ["address", "text"],
+    "ritual_ZeqRK9QCollatorS1_": ["bool", "address", "address"],
+    "ritual_ZneRK9QCollatorS1_": ["bool", "address", "address"]
   }
 }

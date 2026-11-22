@@ -8,6 +8,13 @@
     "ritual_ZNK5QFont3Tag7isValidEv": ["bool", "address"],
     "ritual_ZNK5QFont3Tag5valueEv": ["unsigned int", "address"],
     "ritual_ZNK5QFont3Tag8toStringEv": ["address", "address"],
+    "ritual_Zls6QDebugN5QFont3TagE": ["address", "address", "address"],
+    "ritual_ZeqRKN5QFont3TagES2_": ["bool", "address", "address"],
+    "ritual_ZneRKN5QFont3TagES2_": ["bool", "address", "address"],
+    "ritual_ZltRKN5QFont3TagES2_": ["bool", "address", "address"],
+    "ritual_ZgtRKN5QFont3TagES2_": ["bool", "address", "address"],
+    "ritual_ZleRKN5QFont3TagES2_": ["bool", "address", "address"],
+    "ritual_ZgeRKN5QFont3TagES2_": ["bool", "address", "address"],
     "ritual_ZN5QFont3TagD1Ev": ["nothing", "address"]
   }
 }

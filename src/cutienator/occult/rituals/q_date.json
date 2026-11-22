@@ -108,6 +108,12 @@
     "ritual_ZN5QDate10isLeapYearEi": ["bool", "int"],
     "ritual_ZN5QDate13fromJulianDayEx": ["address", "long long"],
     "ritual_ZNK5QDate11toJulianDayEv": ["long long", "address"],
+    "ritual_ZeqRK5QDateS1_": ["bool", "address", "address"],
+    "ritual_ZneRK5QDateS1_": ["bool", "address", "address"],
+    "ritual_ZltRK5QDateS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK5QDateS1_": ["bool", "address", "address"],
+    "ritual_ZleRK5QDateS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK5QDateS1_": ["bool", "address", "address"],
     "ritual_ZN5QDateD1Ev": ["nothing", "address"]
   }
 }

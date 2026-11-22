@@ -31,6 +31,17 @@
     "ritual_ZNK5QSize9boundedToERKS_": ["address", "address", "address"],
     "ritual_ZNK5QSize7grownByE8QMargins": ["address", "address", "address"],
     "ritual_ZNK5QSize8shrunkByE8QMargins": ["address", "address", "address"],
+    "ritual_ZN5QSizepLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN5QSizemIERKS_": ["nothing", "address", "address"],
+    "ritual_ZN5QSizemLEd": ["nothing", "address", "double"],
+    "ritual_ZN5QSizedVEd": ["nothing", "address", "double"],
+    "ritual_ZeqRK5QSizeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK5QSizeS1_": ["bool", "address", "address"],
+    "ritual_ZplRK5QSizeS1_": ["address", "address", "address"],
+    "ritual_ZmiRK5QSizeS1_": ["address", "address", "address"],
+    "ritual_ZmlRK5QSized": ["address", "address", "double"],
+    "ritual_ZmldRK5QSize": ["address", "double", "address"],
+    "ritual_ZdvRK5QSized": ["address", "address", "double"],
     "ritual_ZNK5QSize7toSizeFEv": ["address", "address"],
     "ritual_ZN5QSizeD1Ev": ["nothing", "address"]
   }

@@ -167,6 +167,10 @@
     "ritual_ZNK12QPainterPathanERKS_": ["address", "address", "address"],
     "ritual_ZNK12QPainterPathorERKS_": ["address", "address", "address"],
     "ritual_ZNK12QPainterPathplERKS_": ["address", "address", "address"],
-    "ritual_ZNK12QPainterPathmiERKS_": ["address", "address", "address"]
+    "ritual_ZNK12QPainterPathmiERKS_": ["address", "address", "address"],
+    "ritual_ZN12QPainterPathaNERKS_": ["nothing", "address", "address"],
+    "ritual_ZN12QPainterPathoRERKS_": ["nothing", "address", "address"],
+    "ritual_ZN12QPainterPathpLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN12QPainterPathmIERKS_": ["nothing", "address", "address"]
   }
 }

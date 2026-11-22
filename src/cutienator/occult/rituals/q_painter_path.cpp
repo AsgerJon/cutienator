@@ -609,3 +609,35 @@ QPainterPath *ritual_ZNK12QPainterPathmiERKS_(
     const QPainterPath *other) {
   return new QPainterPath(self->operator-(*other));
 }
+
+//  QPainterPath &QPainterPath::operator&=(const QPainterPath &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QPainterPathaNERKS_(
+    QPainterPath *self,
+    const QPainterPath *other) {
+  self->operator&=(*other);
+}
+
+//  QPainterPath &QPainterPath::operator|=(const QPainterPath &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QPainterPathoRERKS_(
+    QPainterPath *self,
+    const QPainterPath *other) {
+  self->operator|=(*other);
+}
+
+//  QPainterPath &QPainterPath::operator+=(const QPainterPath &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QPainterPathpLERKS_(
+    QPainterPath *self,
+    const QPainterPath *other) {
+  self->operator+=(*other);
+}
+
+//  QPainterPath &QPainterPath::operator-=(const QPainterPath &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QPainterPathmIERKS_(
+    QPainterPath *self,
+    const QPainterPath *other) {
+  self->operator-=(*other);
+}

@@ -46,6 +46,54 @@ bool ritual_ZNK13QTypeRevision7isValidEv(const QTypeRevision *self) {
   return self->isValid();
 }
 
+//  bool operator==(const QTypeRevision &lhs, const QTypeRevision &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK13QTypeRevisionS1_(
+    const QTypeRevision *lhs,
+    const QTypeRevision *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QTypeRevision &lhs, const QTypeRevision &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK13QTypeRevisionS1_(
+    const QTypeRevision *lhs,
+    const QTypeRevision *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QTypeRevision &lhs, const QTypeRevision &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK13QTypeRevisionS1_(
+    const QTypeRevision *lhs,
+    const QTypeRevision *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QTypeRevision &lhs, const QTypeRevision &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK13QTypeRevisionS1_(
+    const QTypeRevision *lhs,
+    const QTypeRevision *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QTypeRevision &lhs, const QTypeRevision &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK13QTypeRevisionS1_(
+    const QTypeRevision *lhs,
+    const QTypeRevision *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QTypeRevision &lhs, const QTypeRevision &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK13QTypeRevisionS1_(
+    const QTypeRevision *lhs,
+    const QTypeRevision *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
 //  QTypeRevision::~QTypeRevision()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QTypeRevisionD1Ev(QTypeRevision *self) {

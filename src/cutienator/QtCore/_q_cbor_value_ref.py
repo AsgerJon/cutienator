@@ -20,7 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from . import QByteArray, QCborArray, QCborMap, QDateTime, QJsonValue
-  from . import QRegularExpression, QUrl, QUuid, QVariant
+  from . import QLatin1String, QRegularExpression, QUrl, QUuid, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -29,6 +29,7 @@ else:
   QCborArray = WAIT['QCborArray']
   QCborMap = WAIT['QCborMap']
   QDateTime = WAIT['QDateTime']
+  QLatin1String = WAIT['QLatin1String']
   QRegularExpression = WAIT['QRegularExpression']
   QUrl = WAIT['QUrl']
   QUuid = WAIT['QUuid']
@@ -50,10 +51,10 @@ class QCborValueRef(QCborValueConstRef):
   -----------
 
   Every function of Qt's QCborValueRef that has a ritual and that Python can
-  call so far, 37 names in all: 'type', 'isInteger', 'isByteArray',
-  'isString', 'isArray', 'isMap', 'isTag', 'isFalse', 'isTrue', 'isBool',
-  'isNull', 'isUndefined', 'isDouble', 'isDateTime', 'isUrl',
-  'isRegularExpression', 'isUuid', 'isInvalid', 'isContainer',
+  call so far, 38 names in all: '__getitem__', 'type', 'isInteger',
+  'isByteArray', 'isString', 'isArray', 'isMap', 'isTag', 'isFalse',
+  'isTrue', 'isBool', 'isNull', 'isUndefined', 'isDouble', 'isDateTime',
+  'isUrl', 'isRegularExpression', 'isUuid', 'isInvalid', 'isContainer',
   'isSimpleType', 'taggedValue', 'toInteger', 'toBool', 'toDouble',
   'toByteArray', 'toString', 'toDateTime', 'toUrl', 'toRegularExpression',
   'toUuid', 'toArray', 'toMap', 'compare', 'toVariant', 'toJsonValue',
@@ -63,14 +64,8 @@ class QCborValueRef(QCborValueConstRef):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QCborValueRef QCborValueRef::operator[](qint64 key)': an operator,
-    which is not reflected yet.
-  - Qt's 'QCborValueRef QCborValueRef::operator[](QLatin1StringView key)': an
-    operator, which is not reflected yet.
-  - Qt's 'QCborValueRef QCborValueRef::operator[](const QString &key)': an
-    operator, which is not reflected yet.
-  - Qt's 'QCborValue QCborValueRef::operator QCborValue() const': an
-    operator, which is not reflected yet.
+  - Qt's 'QCborValue QCborValueRef::operator QCborValue() const': an operator
+    Python has no name for.
   - Qt's 'bool QCborValueRef::isSimpleType(QCborSimpleType st) const': names
     the enum 'QCborSimpleType', whose class cannot be named here.
   - Qt's 'QCborSimpleType QCborValueRef::toSimpleType(QCborSimpleType
@@ -79,11 +74,14 @@ class QCborValueRef(QCborValueConstRef):
   - Qt's 'QCborTag QCborValueRef::tag(QCborTag defaultValue) const': names
     the enum 'QCborTag', whose class cannot be named here.
   - Qt's 'const QCborValue QCborValueRef::operator[](const QString &key)
-    const': an operator, which is not reflected yet.
+    const': takes in Python what 'QCborValueRef
+    QCborValueRef::operator[](const QString &key)' takes.
   - Qt's 'const QCborValue QCborValueRef::operator[](QLatin1StringView key)
-    const': an operator, which is not reflected yet.
-  - Qt's 'const QCborValue QCborValueRef::operator[](qint64 key) const': an
-    operator, which is not reflected yet.
+    const': takes in Python what 'QCborValueRef
+    QCborValueRef::operator[](QLatin1StringView key)' takes.
+  - Qt's 'const QCborValue QCborValueRef::operator[](qint64 key) const':
+    takes in Python what 'QCborValueRef QCborValueRef::operator[](qint64
+    key)' takes.
   - Qt's 'QCborValueRef::~QCborValueRef()': the destructor: Python removes
     its C++ QCborValueRef by it, and has no other use for it.
 
@@ -784,6 +782,81 @@ class QCborValueRef(QCborValueConstRef):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def __getitem__(self, key: int) -> QCborValueRef:
+    """
+    Calls Qt's 'QCborValueRef QCborValueRef::operator[](qint64 key)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueref.html#operator[]
+
+    Parameters
+    ----------
+
+    key : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QCborValueRef
+      A new cute QCborValueRef around the copy Qt gave back. Python owns it.
+    """
+    #  QCborValueRef QCborValueRef::operator[](qint64 key)
+    address = self.uglySide.call('ritual_ZN13QCborValueRefixEx', key)
+    return QCborValueRef._cuteOwning(address)
+
+  @overload(QLatin1String)
+  def __getitem__(self, key: QLatin1String) -> QCborValueRef:
+    """
+    Calls Qt's 'QCborValueRef QCborValueRef::operator[](QLatin1StringView
+    key)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueref.html#operator[]
+
+    Parameters
+    ----------
+
+    key : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QCborValueRef
+      A new cute QCborValueRef around the copy Qt gave back. Python owns it.
+    """
+    #  QCborValueRef QCborValueRef::operator[](QLatin1StringView key)
+    address = self.uglySide.call(
+        'ritual_ZN13QCborValueRefixE13QLatin1String', self._valueOf(key),
+    )
+    return QCborValueRef._cuteOwning(address)
+
+  @overload(str)
+  def __getitem__(self, key: str) -> QCborValueRef:
+    """
+    Calls Qt's 'QCborValueRef QCborValueRef::operator[](const QString &key)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueref.html#operator[]
+
+    Parameters
+    ----------
+
+    key : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QCborValueRef
+      A new cute QCborValueRef around the copy Qt gave back. Python owns it.
+    """
+    #  QCborValueRef QCborValueRef::operator[](const QString &key)
+    address = self.uglySide.call(
+        'ritual_ZN13QCborValueRefixERK7QString', key,
+    )
+    return QCborValueRef._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

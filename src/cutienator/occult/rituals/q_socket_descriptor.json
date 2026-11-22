@@ -7,6 +7,8 @@
     "ritual_ZN17QSocketDescriptorC1Ei": ["address", "int"],
     "ritual_ZNK17QSocketDescriptorcviEv": ["int", "address"],
     "ritual_ZNK17QSocketDescriptor7isValidEv": ["bool", "address"],
+    "ritual_ZeqRK17QSocketDescriptorS1_": ["bool", "address", "address"],
+    "ritual_ZneRK17QSocketDescriptorS1_": ["bool", "address", "address"],
     "ritual_ZN17QSocketDescriptorD1Ev": ["nothing", "address"]
   }
 }

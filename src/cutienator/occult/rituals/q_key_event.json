@@ -24,6 +24,12 @@
     "ritual_ZNK9QKeyEvent5countEv": ["int", "address"],
     "ritual_ZNK9QKeyEvent14nativeScanCodeEv": ["unsigned int", "address"],
     "ritual_ZNK9QKeyEvent16nativeVirtualKeyEv": ["unsigned int", "address"],
-    "ritual_ZNK9QKeyEvent15nativeModifiersEv": ["unsigned int", "address"]
+    "ritual_ZNK9QKeyEvent15nativeModifiersEv": ["unsigned int", "address"],
+    "ritual_ZeqP9QKeyEventN12QKeySequence11StandardKeyE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZeqN12QKeySequence11StandardKeyEP9QKeyEvent": [
+      "bool", "int", "address"
+    ]
   }
 }

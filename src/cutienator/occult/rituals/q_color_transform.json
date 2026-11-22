@@ -16,6 +16,8 @@
     ],
     "ritual_ZNK15QColorTransform3mapERK6QColor": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_ZeqRK15QColorTransformS1_": ["bool", "address", "address"],
+    "ritual_ZneRK15QColorTransformS1_": ["bool", "address", "address"]
   }
 }

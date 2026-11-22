@@ -225,6 +225,12 @@ bool ritual_ZNK10QTransformneERKS_(
   return self->operator!=(*a0);
 }
 
+//  QTransform &QTransform::operator*=(const QTransform &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTransformmLERKS_(QTransform *self, const QTransform *a0) {
+  self->operator*=(*a0);
+}
+
 //  QTransform QTransform::operator*(const QTransform &o) const
 extern "C" Q_DECL_EXPORT
 QTransform *ritual_ZNK10QTransformmlERKS_(
@@ -353,6 +359,30 @@ void ritual_ZNK10QTransform3mapEddPdS0_(
     qreal *tx,
     qreal *ty) {
   self->map(x, y, tx, ty);
+}
+
+//  QTransform &QTransform::operator*=(qreal div)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTransformmLEd(QTransform *self, qreal div) {
+  self->operator*=(div);
+}
+
+//  QTransform &QTransform::operator/=(qreal div)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTransformdVEd(QTransform *self, qreal div) {
+  self->operator/=(div);
+}
+
+//  QTransform &QTransform::operator+=(qreal div)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTransformpLEd(QTransform *self, qreal div) {
+  self->operator+=(div);
+}
+
+//  QTransform &QTransform::operator-=(qreal div)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTransformmIEd(QTransform *self, qreal div) {
+  self->operator-=(div);
 }
 
 //  QTransform QTransform::fromTranslate(qreal dx, qreal dy)

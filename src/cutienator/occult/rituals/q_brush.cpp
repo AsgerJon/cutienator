@@ -187,6 +187,30 @@ bool ritual_ZNK6QBrushneERKS_(const QBrush *self, const QBrush *b) {
   return self->operator!=(*b);
 }
 
+//  bool operator==(const QBrush &lhs, const QColor &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK6QBrushRK6QColor(const QBrush *lhs, const QColor *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QBrush &lhs, const QColor &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK6QBrushRK6QColor(const QBrush *lhs, const QColor *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QColor &lhs, const QBrush &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK6QColorRK6QBrush(const QColor *lhs, const QBrush *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QColor &lhs, const QBrush &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK6QColorRK6QBrush(const QColor *lhs, const QBrush *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  bool QBrush::isDetached() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK6QBrush10isDetachedEv(const QBrush *self) {

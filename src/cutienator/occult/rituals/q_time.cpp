@@ -173,6 +173,42 @@ bool ritual_ZN5QTime7isValidEiiii(int h, int m, int s, int ms) {
   return QTime::isValid(h, m, s, ms);
 }
 
+//  bool operator==(const QTime &lhs, const QTime &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK5QTimeS1_(const QTime *lhs, const QTime *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QTime &lhs, const QTime &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK5QTimeS1_(const QTime *lhs, const QTime *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QTime &lhs, const QTime &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK5QTimeS1_(const QTime *lhs, const QTime *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QTime &lhs, const QTime &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK5QTimeS1_(const QTime *lhs, const QTime *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QTime &lhs, const QTime &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK5QTimeS1_(const QTime *lhs, const QTime *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QTime &lhs, const QTime &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK5QTimeS1_(const QTime *lhs, const QTime *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
 //  QTime::~QTime()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QTimeD1Ev(QTime *self) {

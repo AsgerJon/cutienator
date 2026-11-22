@@ -48,24 +48,20 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRawFont that has a ritual and that Python can call
-  so far, 28 names in all: 'isValid', 'glyphCount', 'familyName',
-  'styleName', 'style', 'weight', 'alphaMapForGlyph', 'pathForGlyph',
-  'boundingRect', 'setPixelSize', 'pixelSize', 'hintingPreference', 'ascent',
-  'capHeight', 'descent', 'leading', 'xHeight', 'averageCharWidth',
-  'maxCharWidth', 'lineThickness', 'underlinePosition', 'unitsPerEm',
-  'glyphName', 'loadFromFile', 'loadFromData', 'supportsCharacter',
-  'fontTable', 'fromFont'. It can be made from Python, in 4 ways; see
-  '__init__'.
+  so far, 30 names in all: 'isValid', '__eq__', '__ne__', 'glyphCount',
+  'familyName', 'styleName', 'style', 'weight', 'alphaMapForGlyph',
+  'pathForGlyph', 'boundingRect', 'setPixelSize', 'pixelSize',
+  'hintingPreference', 'ascent', 'capHeight', 'descent', 'leading',
+  'xHeight', 'averageCharWidth', 'maxCharWidth', 'lineThickness',
+  'underlinePosition', 'unitsPerEm', 'glyphName', 'loadFromFile',
+  'loadFromData', 'supportsCharacter', 'fontTable', 'fromFont'. It can be
+  made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QRawFont::~QRawFont()': the destructor: Python removes its C++
     QRawFont by it, and has no other use for it.
-  - Qt's 'bool QRawFont::operator==(const QRawFont &other) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QRawFont::operator!=(const QRawFont &other) const': an
-    operator, which is not reflected yet.
   - Qt's 'bool QRawFont::glyphIndexesForChars(const QChar *chars, int
     numChars, quint32 *glyphIndexes, int *numGlyphs) const': takes a number
     to change where it is.
@@ -615,6 +611,62 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, other: QRawFont) -> bool:
+    """
+    Calls Qt's 'bool QRawFont::operator==(const QRawFont &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrawfont.html#operator==
+
+    Parameters
+    ----------
+
+    other : QRawFont
+      Passed on as a value: Qt reads the C++ QRawFont, which stays Python's
+      own.
+    """
+    #  bool QRawFont::operator==(const QRawFont &other) const
+    return self.uglySide.call(
+        'ritual_ZNK8QRawFonteqERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, other: QRawFont) -> bool:
+    """
+    Calls Qt's 'bool QRawFont::operator!=(const QRawFont &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrawfont.html#operator!=
+
+    Parameters
+    ----------
+
+    other : QRawFont
+      Passed on as a value: Qt reads the C++ QRawFont, which stays Python's
+      own.
+    """
+    #  bool QRawFont::operator!=(const QRawFont &other) const
+    return self.uglySide.call(
+        'ritual_ZNK8QRawFontneERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

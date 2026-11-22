@@ -30,10 +30,10 @@ class QSequentialConstIterator(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QVariant QSequentialConstIterator::operator*() const': an operator,
-    which is not reflected yet.
+  - Qt's 'QVariant QSequentialConstIterator::operator*() const': an operator
+    Python has no name for.
   - Qt's 'QVariantConstPointer QSequentialConstIterator::operator->() const':
-    an operator, which is not reflected yet.
+    an operator Python has no name for.
   - Qt's 'QSequentialConstIterator::~QSequentialConstIterator()': the
     destructor: Python removes its C++ QSequentialConstIterator by it, and
     has no other use for it.

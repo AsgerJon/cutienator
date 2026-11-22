@@ -32,6 +32,9 @@
     ],
     "ritual_ZN12QEasingCurve15fromCubicBezierE7QPointFS0_": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_Zls6QDebugRK12QEasingCurve": ["address", "address", "address"],
+    "ritual_ZeqRK12QEasingCurveS1_": ["bool", "address", "address"],
+    "ritual_ZneRK12QEasingCurveS1_": ["bool", "address", "address"]
   }
 }

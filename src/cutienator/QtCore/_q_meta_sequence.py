@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..occult import Rituals
@@ -34,14 +35,14 @@ class QMetaSequence(QMetaContainer):
   -----------
 
   Every function of Qt's QMetaSequence that has a ritual and that Python can
-  call so far, 16 names in all: 'valueMetaType', 'isSortable',
+  call so far, 18 names in all: 'valueMetaType', 'isSortable',
   'canAddValueAtBegin', 'canAddValueAtEnd', 'canRemoveValueAtBegin',
   'canRemoveValueAtEnd', 'canGetValueAtIndex', 'canSetValueAtIndex',
   'canAddValue', 'canRemoveValue', 'canGetValueAtIterator',
   'canSetValueAtIterator', 'canInsertValueAtIterator',
   'canEraseValueAtIterator', 'canEraseRangeAtIterator',
-  'canGetValueAtConstIterator'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'canGetValueAtConstIterator', '__eq__', '__ne__'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,7 +61,7 @@ class QMetaSequence(QMetaContainer):
   What has no ritual
   ------------------
 
-  16 of the 36 functions Qt declares: 14 takes or gives a type that cannot be
+  16 of the 38 functions Qt declares: 14 takes or gives a type that cannot be
   passed yet; 1 a template; 1 private.
 
   What to expect
@@ -307,6 +308,66 @@ class QMetaSequence(QMetaContainer):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QMetaSequence) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QMetaSequence &lhs, const QMetaSequence
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetasequence.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QMetaSequence
+      Passed on as a value: Qt reads the C++ QMetaSequence, which stays
+      Python's own.
+    """
+    #  bool operator==(const QMetaSequence &lhs, const QMetaSequence &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK13QMetaSequenceS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QMetaSequence) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QMetaSequence &lhs, const QMetaSequence
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetasequence.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QMetaSequence
+      Passed on as a value: Qt reads the C++ QMetaSequence, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QMetaSequence &lhs, const QMetaSequence &rhs)
+    return Rituals.call(
+        'ritual_ZneRK13QMetaSequenceS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

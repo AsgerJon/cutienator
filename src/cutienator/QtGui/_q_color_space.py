@@ -17,13 +17,14 @@ from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from ..QtCore import QByteArray, QPointF
+  from ..QtCore import QByteArray, QDebug, QPointF
   from . import QColorTransform
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
+  QDebug = WAIT['QDebug']
   QPointF = WAIT['QPointF']
 
 
@@ -40,26 +41,26 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QColorSpace that has a ritual and that Python can
-  call so far, 20 names in all: 'primaries', 'transferFunction', 'gamma',
+  call so far, 23 names in all: 'primaries', 'transferFunction', 'gamma',
   'description', 'setDescription', 'setTransferFunction',
   'withTransferFunction', 'setPrimaries', 'setWhitePoint', 'whitePoint',
   'setPrimaryPoints', 'primaryPoints', 'transformModel', 'colorModel',
-  'detach', 'isValid', 'isValidTarget', 'fromIccProfile', 'iccProfile',
-  'transformationToColorSpace'. It can be made from Python, in 8 ways; see
-  '__init__'.
+  'detach', 'isValid', 'isValidTarget', '__eq__', '__ne__', 'fromIccProfile',
+  'iccProfile', 'transformationToColorSpace', '__rlshift__'. It can be made
+  from Python, in 8 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QColorSpace::~QColorSpace()': the destructor: Python removes its
     C++ QColorSpace by it, and has no other use for it.
-  - Qt's 'QVariant QColorSpace::operator QVariant() const': an operator,
-    which is not reflected yet.
+  - Qt's 'QVariant QColorSpace::operator QVariant() const': an operator
+    Python has no name for.
 
   What has no ritual
   ------------------
 
-  16 of the 47 functions Qt declares: 12 takes or gives a type that cannot be
+  16 of the 50 functions Qt declares: 12 takes or gives a type that cannot be
   passed yet; 2 private; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
@@ -731,6 +732,106 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, colorSpace2: QColorSpace) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QColorSpace &colorSpace1, const
+    QColorSpace &colorSpace2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolorspace.html#operator==
+
+    Parameters
+    ----------
+
+    colorSpace2 : QColorSpace
+      Passed on as a value: Qt reads the C++ QColorSpace, which stays
+      Python's own.
+    """
+    #  bool operator==(const QColorSpace &colorSpace1, const QColorSpace
+    #      &colorSpace2)
+    return Rituals.call(
+        'ritual_ZeqRK11QColorSpaceS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(colorSpace2),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, colorSpace2: QColorSpace) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QColorSpace &colorSpace1, const
+    QColorSpace &colorSpace2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolorspace.html#operator!=
+
+    Parameters
+    ----------
+
+    colorSpace2 : QColorSpace
+      Passed on as a value: Qt reads the C++ QColorSpace, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QColorSpace &colorSpace1, const QColorSpace
+    #      &colorSpace2)
+    return Rituals.call(
+        'ritual_ZneRK11QColorSpaceS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(colorSpace2),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QDebug)
+  def __rlshift__(self, dbg: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug dbg, const QColorSpace
+    &colorSpace)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolorspace.html#operator<<
+
+    Parameters
+    ----------
+
+    dbg : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug dbg, const QColorSpace &colorSpace)
+    address = Rituals.call(
+        'ritual_Zls6QDebugRK11QColorSpace',
+        CuteMixin._valueOf(dbg), CuteMixin._valueOf(self),
+    )
+    from ..QtCore import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

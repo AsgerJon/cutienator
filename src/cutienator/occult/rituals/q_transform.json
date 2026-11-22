@@ -42,6 +42,7 @@
     "ritual_ZNK10QTransform10transposedEv": ["address", "address"],
     "ritual_ZNK10QTransformeqERKS_": ["bool", "address", "address"],
     "ritual_ZNK10QTransformneERKS_": ["bool", "address", "address"],
+    "ritual_ZN10QTransformmLERKS_": ["nothing", "address", "address"],
     "ritual_ZNK10QTransformmlERKS_": ["address", "address", "address"],
     "ritual_ZNK10QTransformcv8QVariantEv": ["address", "address"],
     "ritual_ZN10QTransform5resetEv": ["nothing", "address"],
@@ -82,6 +83,10 @@
     "ritual_ZNK10QTransform3mapEddPdS0_": [
       "nothing", "address", "double", "double", "address", "address"
     ],
+    "ritual_ZN10QTransformmLEd": ["nothing", "address", "double"],
+    "ritual_ZN10QTransformdVEd": ["nothing", "address", "double"],
+    "ritual_ZN10QTransformpLEd": ["nothing", "address", "double"],
+    "ritual_ZN10QTransformmIEd": ["nothing", "address", "double"],
     "ritual_ZN10QTransform13fromTranslateEdd": [
       "address", "double", "double"
     ],

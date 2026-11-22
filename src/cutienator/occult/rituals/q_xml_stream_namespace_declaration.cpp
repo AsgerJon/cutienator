@@ -33,6 +33,24 @@ QString *ritual_ZNK30QXmlStreamNamespaceDeclaration12namespaceUriEv(
   return new QString(self->namespaceUri().toString());
 }
 
+//  bool operator==(const QXmlStreamNamespaceDeclaration &lhs, const
+//      QXmlStreamNamespaceDeclaration &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK30QXmlStreamNamespaceDeclarationS1_(
+    const QXmlStreamNamespaceDeclaration *lhs,
+    const QXmlStreamNamespaceDeclaration *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QXmlStreamNamespaceDeclaration &lhs, const
+//      QXmlStreamNamespaceDeclaration &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK30QXmlStreamNamespaceDeclarationS1_(
+    const QXmlStreamNamespaceDeclaration *lhs,
+    const QXmlStreamNamespaceDeclaration *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QXmlStreamNamespaceDeclaration::~QXmlStreamNamespaceDeclaration()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QXmlStreamNamespaceDeclarationD1Ev(

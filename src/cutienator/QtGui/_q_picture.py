@@ -64,7 +64,7 @@ class QPicture(QPaintDevice):
   What has no ritual
   ------------------
 
-  9 of the 27 functions Qt declares: 4 takes or gives a type that cannot be
+  11 of the 29 functions Qt declares: 6 takes or gives a type that cannot be
   passed yet; 3 private; 2 protected.
 
   What to expect

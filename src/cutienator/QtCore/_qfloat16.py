@@ -30,29 +30,443 @@ class qfloat16(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's qfloat16 that has a ritual and that Python can call
-  so far, 14 names in all: 'isInf', 'isNaN', 'isFinite', 'fpClassify',
+  so far, 30 names in all: 'isInf', 'isNaN', 'isFinite', 'fpClassify',
   'copySign', '_limit_epsilon', '_limit_min', '_limit_denorm_min',
   '_limit_max', '_limit_lowest', '_limit_infinity', '_limit_quiet_NaN',
-  '_limit_signaling_NaN', 'isNormal'. It can be made from Python, in 3 ways;
-  see '__init__'.
+  '_limit_signaling_NaN', 'isNormal', '__pos__', '__neg__', '__add__',
+  '__sub__', '__mul__', '__truediv__', '__radd__', '__rsub__', '__rmul__',
+  '__rtruediv__', '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__'.
+  It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'float qfloat16::operator float() const': an operator, which is not
-    reflected yet.
-  - Qt's 'qfloat16 qfloat16::operator++(int a0)': an operator, which is not
-    reflected yet.
-  - Qt's 'qfloat16 qfloat16::operator--(int a0)': an operator, which is not
-    reflected yet.
+  - Qt's 'float qfloat16::operator float() const': an operator Python has no
+    name for.
+  - Qt's 'qfloat16 qfloat16::operator++(int a0)': an operator Python has no
+    name for.
+  - Qt's 'qfloat16 qfloat16::operator--(int a0)': an operator Python has no
+    name for.
+  - Qt's 'float operator+(qfloat16 lhs, float rhs)': takes in Python what
+    'double operator+(qfloat16 lhs, double rhs)' takes.
+  - Qt's 'float operator+(float lhs, qfloat16 rhs)': takes in Python what
+    'double operator+(double lhs, qfloat16 rhs)' takes.
+  - Qt's 'float operator-(qfloat16 lhs, float rhs)': takes in Python what
+    'double operator-(qfloat16 lhs, double rhs)' takes.
+  - Qt's 'float operator-(float lhs, qfloat16 rhs)': takes in Python what
+    'double operator-(double lhs, qfloat16 rhs)' takes.
+  - Qt's 'float operator*(qfloat16 lhs, float rhs)': takes in Python what
+    'double operator*(qfloat16 lhs, double rhs)' takes.
+  - Qt's 'float operator*(float lhs, qfloat16 rhs)': takes in Python what
+    'double operator*(double lhs, qfloat16 rhs)' takes.
+  - Qt's 'float operator/(qfloat16 lhs, float rhs)': takes in Python what
+    'double operator/(qfloat16 lhs, double rhs)' takes.
+  - Qt's 'float operator/(float lhs, qfloat16 rhs)': takes in Python what
+    'double operator/(double lhs, qfloat16 rhs)' takes.
+  - Qt's 'bool operator==(const double &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const double &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator<(const double &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator>(const double &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const double &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const double &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qfloat16 &lhs, const float &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qfloat16 &lhs, const float &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qfloat16 &lhs, const float &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qfloat16 &lhs, const float &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qfloat16 &lhs, const float &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qfloat16 &lhs, const float &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator==(const float &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const float &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator<(const float &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator>(const float &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const float &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const float &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const double &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qint8 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qint8 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qint8 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qint8 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qint8 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qint8 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qfloat16 &lhs, const quint8 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qfloat16 &lhs, const quint8 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qfloat16 &lhs, const quint8 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qfloat16 &lhs, const quint8 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qfloat16 &lhs, const quint8 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qfloat16 &lhs, const quint8 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const quint8 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const quint8 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const quint8 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const quint8 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const quint8 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const quint8 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qfloat16 &lhs, const qint16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qfloat16 &lhs, const qint16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qfloat16 &lhs, const qint16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qfloat16 &lhs, const qint16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qfloat16 &lhs, const qint16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qfloat16 &lhs, const qint16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qint16 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qint16 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qint16 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qint16 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qint16 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qint16 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qfloat16 &lhs, const quint16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qfloat16 &lhs, const quint16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qfloat16 &lhs, const quint16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qfloat16 &lhs, const quint16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qfloat16 &lhs, const quint16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qfloat16 &lhs, const quint16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const quint16 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const quint16 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const quint16 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const quint16 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const quint16 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const quint16 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qfloat16 &lhs, const qint32 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qfloat16 &lhs, const qint32 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qfloat16 &lhs, const qint32 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qfloat16 &lhs, const qint32 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qfloat16 &lhs, const qint32 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qfloat16 &lhs, const qint32 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qint32 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qint32 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qint32 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qint32 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qint32 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qint32 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qfloat16 &lhs, const quint32 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qfloat16 &lhs, const quint32 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qfloat16 &lhs, const quint32 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qfloat16 &lhs, const quint32 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qfloat16 &lhs, const quint32 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qfloat16 &lhs, const quint32 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const quint32 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const quint32 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const quint32 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const quint32 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const quint32 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const quint32 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qfloat16 &lhs, const long &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qfloat16 &lhs, const long &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qfloat16 &lhs, const long &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qfloat16 &lhs, const long &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qfloat16 &lhs, const long &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qfloat16 &lhs, const long &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const long &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const long &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const long &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const long &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const long &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const long &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qfloat16 &lhs, const unsigned long &rhs)':
+    takes in Python what 'bool operator==(const qfloat16 &lhs, const qint8
+    &rhs)' takes.
+  - Qt's 'bool operator!=(const qfloat16 &lhs, const unsigned long &rhs)':
+    takes in Python what 'bool operator!=(const qfloat16 &lhs, const qint8
+    &rhs)' takes.
+  - Qt's 'bool operator<(const qfloat16 &lhs, const unsigned long &rhs)':
+    takes in Python what 'bool operator<(const qfloat16 &lhs, const qint8
+    &rhs)' takes.
+  - Qt's 'bool operator>(const qfloat16 &lhs, const unsigned long &rhs)':
+    takes in Python what 'bool operator>(const qfloat16 &lhs, const qint8
+    &rhs)' takes.
+  - Qt's 'bool operator<=(const qfloat16 &lhs, const unsigned long &rhs)':
+    takes in Python what 'bool operator<=(const qfloat16 &lhs, const qint8
+    &rhs)' takes.
+  - Qt's 'bool operator>=(const qfloat16 &lhs, const unsigned long &rhs)':
+    takes in Python what 'bool operator>=(const qfloat16 &lhs, const qint8
+    &rhs)' takes.
+  - Qt's 'bool operator==(const unsigned long &lhs, const qfloat16 &rhs)':
+    takes in Python what 'bool operator==(const qfloat16 &lhs, const qint8
+    &rhs)' takes.
+  - Qt's 'bool operator!=(const unsigned long &lhs, const qfloat16 &rhs)':
+    takes in Python what 'bool operator!=(const qfloat16 &lhs, const qint8
+    &rhs)' takes.
+  - Qt's 'bool operator<(const unsigned long &lhs, const qfloat16 &rhs)':
+    takes in Python what 'bool operator>(const qfloat16 &lhs, const qint8
+    &rhs)' takes.
+  - Qt's 'bool operator>(const unsigned long &lhs, const qfloat16 &rhs)':
+    takes in Python what 'bool operator<(const qfloat16 &lhs, const qint8
+    &rhs)' takes.
+  - Qt's 'bool operator<=(const unsigned long &lhs, const qfloat16 &rhs)':
+    takes in Python what 'bool operator>=(const qfloat16 &lhs, const qint8
+    &rhs)' takes.
+  - Qt's 'bool operator>=(const unsigned long &lhs, const qfloat16 &rhs)':
+    takes in Python what 'bool operator<=(const qfloat16 &lhs, const qint8
+    &rhs)' takes.
+  - Qt's 'bool operator==(const qfloat16 &lhs, const qint64 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qfloat16 &lhs, const qint64 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qfloat16 &lhs, const qint64 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qfloat16 &lhs, const qint64 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qfloat16 &lhs, const qint64 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qfloat16 &lhs, const qint64 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qint64 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qint64 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qint64 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qint64 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qint64 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qint64 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const qfloat16 &lhs, const quint64 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const qfloat16 &lhs, const quint64 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const qfloat16 &lhs, const quint64 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const qfloat16 &lhs, const quint64 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const qfloat16 &lhs, const quint64 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const qfloat16 &lhs, const quint64 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator==(const quint64 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const quint64 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<(const quint64 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>(const quint64 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const quint64 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const quint64 &lhs, const qfloat16 &rhs)': takes in
+    Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
+    takes.
   - Qt's 'qfloat16::~qfloat16()': the destructor: Python removes its C++
     qfloat16 by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  4 of the 25 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 private.
+  40 of the 241 functions Qt declares: 38 takes or gives a type that cannot
+  be passed yet; 1 a template; 1 private.
 
   What to expect
   --------------
@@ -313,6 +727,896 @@ class qfloat16(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def __pos__(self) -> qfloat16:
+    """
+    Calls Qt's 'qfloat16 operator+(qfloat16 a)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator+
+
+    Returns
+    -------
+
+    qfloat16
+      A new cute qfloat16 around the copy Qt gave back. Python owns it.
+    """
+    #  qfloat16 operator+(qfloat16 a)
+    address = Rituals.call('ritual_Zps8qfloat16', CuteMixin._valueOf(self))
+    return qfloat16._cuteOwning(address)
+
+  def __neg__(self) -> qfloat16:
+    """
+    Calls Qt's 'qfloat16 operator-(qfloat16 a)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator-
+
+    Returns
+    -------
+
+    qfloat16
+      A new cute qfloat16 around the copy Qt gave back. Python owns it.
+    """
+    #  qfloat16 operator-(qfloat16 a)
+    address = Rituals.call('ritual_Zng8qfloat16', CuteMixin._valueOf(self))
+    return qfloat16._cuteOwning(address)
+
+  @overload(THIS)
+  def __add__(self, b: qfloat16) -> qfloat16:
+    """
+    Calls Qt's 'qfloat16 operator+(qfloat16 a, qfloat16 b)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator+
+
+    Parameters
+    ----------
+
+    b : qfloat16
+      Passed on as a value: Qt reads the C++ qfloat16, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    qfloat16
+      A new cute qfloat16 around the copy Qt gave back. Python owns it.
+    """
+    #  qfloat16 operator+(qfloat16 a, qfloat16 b)
+    address = Rituals.call(
+        'ritual_Zpl8qfloat16S_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(b),
+    )
+    return qfloat16._cuteOwning(address)
+
+  @overload(float)
+  def __add__(self, rhs: float) -> float:
+    """
+    Calls Qt's 'double operator+(qfloat16 lhs, double rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator+
+
+    Parameters
+    ----------
+
+    rhs : float
+      Passed on as it is.
+    """
+    #  double operator+(qfloat16 lhs, double rhs)
+    return Rituals.call(
+        'ritual_Zpl8qfloat16d', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(int)
+  def __add__(self, rhs: int) -> float:
+    """
+    Calls Qt's 'double operator+(qfloat16 lhs, int rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator+
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  double operator+(qfloat16 lhs, int rhs)
+    return Rituals.call(
+        'ritual_Zpl8qfloat16i', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload.fallback
+  def __add__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __sub__(self, b: qfloat16) -> qfloat16:
+    """
+    Calls Qt's 'qfloat16 operator-(qfloat16 a, qfloat16 b)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator-
+
+    Parameters
+    ----------
+
+    b : qfloat16
+      Passed on as a value: Qt reads the C++ qfloat16, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    qfloat16
+      A new cute qfloat16 around the copy Qt gave back. Python owns it.
+    """
+    #  qfloat16 operator-(qfloat16 a, qfloat16 b)
+    address = Rituals.call(
+        'ritual_Zmi8qfloat16S_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(b),
+    )
+    return qfloat16._cuteOwning(address)
+
+  @overload(float)
+  def __sub__(self, rhs: float) -> float:
+    """
+    Calls Qt's 'double operator-(qfloat16 lhs, double rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator-
+
+    Parameters
+    ----------
+
+    rhs : float
+      Passed on as it is.
+    """
+    #  double operator-(qfloat16 lhs, double rhs)
+    return Rituals.call(
+        'ritual_Zmi8qfloat16d', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(int)
+  def __sub__(self, rhs: int) -> float:
+    """
+    Calls Qt's 'double operator-(qfloat16 lhs, int rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator-
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  double operator-(qfloat16 lhs, int rhs)
+    return Rituals.call(
+        'ritual_Zmi8qfloat16i', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload.fallback
+  def __sub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __mul__(self, b: qfloat16) -> qfloat16:
+    """
+    Calls Qt's 'qfloat16 operator*(qfloat16 a, qfloat16 b)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator*
+
+    Parameters
+    ----------
+
+    b : qfloat16
+      Passed on as a value: Qt reads the C++ qfloat16, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    qfloat16
+      A new cute qfloat16 around the copy Qt gave back. Python owns it.
+    """
+    #  qfloat16 operator*(qfloat16 a, qfloat16 b)
+    address = Rituals.call(
+        'ritual_Zml8qfloat16S_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(b),
+    )
+    return qfloat16._cuteOwning(address)
+
+  @overload(float)
+  def __mul__(self, rhs: float) -> float:
+    """
+    Calls Qt's 'double operator*(qfloat16 lhs, double rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator*
+
+    Parameters
+    ----------
+
+    rhs : float
+      Passed on as it is.
+    """
+    #  double operator*(qfloat16 lhs, double rhs)
+    return Rituals.call(
+        'ritual_Zml8qfloat16d', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(int)
+  def __mul__(self, rhs: int) -> float:
+    """
+    Calls Qt's 'double operator*(qfloat16 lhs, int rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator*
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  double operator*(qfloat16 lhs, int rhs)
+    return Rituals.call(
+        'ritual_Zml8qfloat16i', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload.fallback
+  def __mul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __truediv__(self, b: qfloat16) -> qfloat16:
+    """
+    Calls Qt's 'qfloat16 operator/(qfloat16 a, qfloat16 b)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator/
+
+    Parameters
+    ----------
+
+    b : qfloat16
+      Passed on as a value: Qt reads the C++ qfloat16, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    qfloat16
+      A new cute qfloat16 around the copy Qt gave back. Python owns it.
+    """
+    #  qfloat16 operator/(qfloat16 a, qfloat16 b)
+    address = Rituals.call(
+        'ritual_Zdv8qfloat16S_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(b),
+    )
+    return qfloat16._cuteOwning(address)
+
+  @overload(float)
+  def __truediv__(self, rhs: float) -> float:
+    """
+    Calls Qt's 'double operator/(qfloat16 lhs, double rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator/
+
+    Parameters
+    ----------
+
+    rhs : float
+      Passed on as it is.
+    """
+    #  double operator/(qfloat16 lhs, double rhs)
+    return Rituals.call(
+        'ritual_Zdv8qfloat16d', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(int)
+  def __truediv__(self, rhs: int) -> float:
+    """
+    Calls Qt's 'double operator/(qfloat16 lhs, int rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator/
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  double operator/(qfloat16 lhs, int rhs)
+    return Rituals.call(
+        'ritual_Zdv8qfloat16i', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload.fallback
+  def __truediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __radd__(self, lhs: float) -> float:
+    """
+    Calls Qt's 'double operator+(double lhs, qfloat16 rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator+
+
+    Parameters
+    ----------
+
+    lhs : float
+      Passed on as it is.
+    """
+    #  double operator+(double lhs, qfloat16 rhs)
+    return Rituals.call(
+        'ritual_Zpld8qfloat16', lhs, CuteMixin._valueOf(self),
+    )
+
+  @overload(int)
+  def __radd__(self, lhs: int) -> float:
+    """
+    Calls Qt's 'double operator+(int lhs, qfloat16 rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator+
+
+    Parameters
+    ----------
+
+    lhs : int
+      Passed on as it is.
+    """
+    #  double operator+(int lhs, qfloat16 rhs)
+    return Rituals.call(
+        'ritual_Zpli8qfloat16', lhs, CuteMixin._valueOf(self),
+    )
+
+  @overload.fallback
+  def __radd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __rsub__(self, lhs: float) -> float:
+    """
+    Calls Qt's 'double operator-(double lhs, qfloat16 rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator-
+
+    Parameters
+    ----------
+
+    lhs : float
+      Passed on as it is.
+    """
+    #  double operator-(double lhs, qfloat16 rhs)
+    return Rituals.call(
+        'ritual_Zmid8qfloat16', lhs, CuteMixin._valueOf(self),
+    )
+
+  @overload(int)
+  def __rsub__(self, lhs: int) -> float:
+    """
+    Calls Qt's 'double operator-(int lhs, qfloat16 rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator-
+
+    Parameters
+    ----------
+
+    lhs : int
+      Passed on as it is.
+    """
+    #  double operator-(int lhs, qfloat16 rhs)
+    return Rituals.call(
+        'ritual_Zmii8qfloat16', lhs, CuteMixin._valueOf(self),
+    )
+
+  @overload.fallback
+  def __rsub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __rmul__(self, lhs: float) -> float:
+    """
+    Calls Qt's 'double operator*(double lhs, qfloat16 rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator*
+
+    Parameters
+    ----------
+
+    lhs : float
+      Passed on as it is.
+    """
+    #  double operator*(double lhs, qfloat16 rhs)
+    return Rituals.call(
+        'ritual_Zmld8qfloat16', lhs, CuteMixin._valueOf(self),
+    )
+
+  @overload(int)
+  def __rmul__(self, lhs: int) -> float:
+    """
+    Calls Qt's 'double operator*(int lhs, qfloat16 rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator*
+
+    Parameters
+    ----------
+
+    lhs : int
+      Passed on as it is.
+    """
+    #  double operator*(int lhs, qfloat16 rhs)
+    return Rituals.call(
+        'ritual_Zmli8qfloat16', lhs, CuteMixin._valueOf(self),
+    )
+
+  @overload.fallback
+  def __rmul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __rtruediv__(self, lhs: float) -> float:
+    """
+    Calls Qt's 'double operator/(double lhs, qfloat16 rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator/
+
+    Parameters
+    ----------
+
+    lhs : float
+      Passed on as it is.
+    """
+    #  double operator/(double lhs, qfloat16 rhs)
+    return Rituals.call(
+        'ritual_Zdvd8qfloat16', lhs, CuteMixin._valueOf(self),
+    )
+
+  @overload(int)
+  def __rtruediv__(self, lhs: int) -> float:
+    """
+    Calls Qt's 'double operator/(int lhs, qfloat16 rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator/
+
+    Parameters
+    ----------
+
+    lhs : int
+      Passed on as it is.
+    """
+    #  double operator/(int lhs, qfloat16 rhs)
+    return Rituals.call(
+        'ritual_Zdvi8qfloat16', lhs, CuteMixin._valueOf(self),
+    )
+
+  @overload.fallback
+  def __rtruediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, rhs: qfloat16) -> bool:
+    """
+    Calls Qt's 'bool operator==(const qfloat16 &lhs, const qfloat16 &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : qfloat16
+      Passed on as a value: Qt reads the C++ qfloat16, which stays Python's
+      own.
+    """
+    #  bool operator==(const qfloat16 &lhs, const qfloat16 &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK8qfloat16S1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(float)
+  def __eq__(self, rhs: float) -> bool:
+    """
+    Calls Qt's 'bool operator==(const qfloat16 &lhs, const double &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : float
+      Passed on as it is.
+    """
+    #  bool operator==(const qfloat16 &lhs, const double &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK8qfloat16RKd', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(int)
+  def __eq__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator==(const qfloat16 &lhs, const qint8 &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator==(const qfloat16 &lhs, const qint8 &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK8qfloat16RKa', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: qfloat16) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const qfloat16 &lhs, const qfloat16 &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : qfloat16
+      Passed on as a value: Qt reads the C++ qfloat16, which stays Python's
+      own.
+    """
+    #  bool operator!=(const qfloat16 &lhs, const qfloat16 &rhs)
+    return Rituals.call(
+        'ritual_ZneRK8qfloat16S1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(float)
+  def __ne__(self, rhs: float) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const qfloat16 &lhs, const double &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : float
+      Passed on as it is.
+    """
+    #  bool operator!=(const qfloat16 &lhs, const double &rhs)
+    return Rituals.call(
+        'ritual_ZneRK8qfloat16RKd', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(int)
+  def __ne__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const qfloat16 &lhs, const qint8 &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator!=(const qfloat16 &lhs, const qint8 &rhs)
+    return Rituals.call(
+        'ritual_ZneRK8qfloat16RKa', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: qfloat16) -> bool:
+    """
+    Calls Qt's 'bool operator<(const qfloat16 &lhs, const qfloat16 &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : qfloat16
+      Passed on as a value: Qt reads the C++ qfloat16, which stays Python's
+      own.
+    """
+    #  bool operator<(const qfloat16 &lhs, const qfloat16 &rhs)
+    return Rituals.call(
+        'ritual_ZltRK8qfloat16S1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(float)
+  def __lt__(self, rhs: float) -> bool:
+    """
+    Calls Qt's 'bool operator<(const qfloat16 &lhs, const double &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : float
+      Passed on as it is.
+    """
+    #  bool operator<(const qfloat16 &lhs, const double &rhs)
+    return Rituals.call(
+        'ritual_ZltRK8qfloat16RKd', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(int)
+  def __lt__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator<(const qfloat16 &lhs, const qint8 &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator<(const qfloat16 &lhs, const qint8 &rhs)
+    return Rituals.call(
+        'ritual_ZltRK8qfloat16RKa', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: qfloat16) -> bool:
+    """
+    Calls Qt's 'bool operator>(const qfloat16 &lhs, const qfloat16 &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : qfloat16
+      Passed on as a value: Qt reads the C++ qfloat16, which stays Python's
+      own.
+    """
+    #  bool operator>(const qfloat16 &lhs, const qfloat16 &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK8qfloat16S1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(float)
+  def __gt__(self, rhs: float) -> bool:
+    """
+    Calls Qt's 'bool operator>(const qfloat16 &lhs, const double &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : float
+      Passed on as it is.
+    """
+    #  bool operator>(const qfloat16 &lhs, const double &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK8qfloat16RKd', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(int)
+  def __gt__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator>(const qfloat16 &lhs, const qint8 &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator>(const qfloat16 &lhs, const qint8 &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK8qfloat16RKa', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: qfloat16) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const qfloat16 &lhs, const qfloat16 &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : qfloat16
+      Passed on as a value: Qt reads the C++ qfloat16, which stays Python's
+      own.
+    """
+    #  bool operator<=(const qfloat16 &lhs, const qfloat16 &rhs)
+    return Rituals.call(
+        'ritual_ZleRK8qfloat16S1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(float)
+  def __le__(self, rhs: float) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const qfloat16 &lhs, const double &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : float
+      Passed on as it is.
+    """
+    #  bool operator<=(const qfloat16 &lhs, const double &rhs)
+    return Rituals.call(
+        'ritual_ZleRK8qfloat16RKd', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(int)
+  def __le__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator<=(const qfloat16 &lhs, const qint8 &rhs)
+    return Rituals.call(
+        'ritual_ZleRK8qfloat16RKa', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: qfloat16) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const qfloat16 &lhs, const qfloat16 &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : qfloat16
+      Passed on as a value: Qt reads the C++ qfloat16, which stays Python's
+      own.
+    """
+    #  bool operator>=(const qfloat16 &lhs, const qfloat16 &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK8qfloat16S1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(float)
+  def __ge__(self, rhs: float) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const qfloat16 &lhs, const double &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : float
+      Passed on as it is.
+    """
+    #  bool operator>=(const qfloat16 &lhs, const double &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK8qfloat16RKd', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(int)
+  def __ge__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const qfloat16 &lhs, const qint8 &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfloat16.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator>=(const qfloat16 &lhs, const qint8 &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK8qfloat16RKa', CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

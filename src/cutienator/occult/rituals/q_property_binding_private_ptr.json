@@ -11,6 +11,12 @@
     ],
     "ritual_ZN26QPropertyBindingPrivatePtrC1ERKS_": ["address", "address"],
     "ritual_ZNK26QPropertyBindingPrivatePtrcvbEv": ["bool", "address"],
-    "ritual_ZNK26QPropertyBindingPrivatePtrntEv": ["bool", "address"]
+    "ritual_ZNK26QPropertyBindingPrivatePtrntEv": ["bool", "address"],
+    "ritual_ZeqRK26QPropertyBindingPrivatePtrS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK26QPropertyBindingPrivatePtrS1_": [
+      "bool", "address", "address"
+    ]
   }
 }

@@ -95,3 +95,19 @@ QNativeIpcKey *ritual_ZN13QNativeIpcKey10fromStringERK7QString(
     const QString *string) {
   return new QNativeIpcKey(QNativeIpcKey::fromString(*string));
 }
+
+//  bool operator==(const QNativeIpcKey &lhs, const QNativeIpcKey &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK13QNativeIpcKeyS1_(
+    const QNativeIpcKey *lhs,
+    const QNativeIpcKey *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QNativeIpcKey &lhs, const QNativeIpcKey &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK13QNativeIpcKeyS1_(
+    const QNativeIpcKey *lhs,
+    const QNativeIpcKey *rhs) {
+  return operator!=(*lhs, *rhs);
+}

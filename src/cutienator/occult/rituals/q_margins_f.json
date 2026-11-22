@@ -18,7 +18,19 @@
     "ritual_ZN9QMarginsF6setTopEd": ["nothing", "address", "double"],
     "ritual_ZN9QMarginsF8setRightEd": ["nothing", "address", "double"],
     "ritual_ZN9QMarginsF9setBottomEd": ["nothing", "address", "double"],
+    "ritual_ZN9QMarginsFpLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN9QMarginsFmIERKS_": ["nothing", "address", "address"],
+    "ritual_ZN9QMarginsFpLEd": ["nothing", "address", "double"],
+    "ritual_ZN9QMarginsFmIEd": ["nothing", "address", "double"],
+    "ritual_ZN9QMarginsFmLEd": ["nothing", "address", "double"],
+    "ritual_ZN9QMarginsFdVEd": ["nothing", "address", "double"],
     "ritual_ZNK9QMarginsF9toMarginsEv": ["address", "address"],
+    "ritual_ZeqRK9QMarginsFS1_": ["bool", "address", "address"],
+    "ritual_ZneRK9QMarginsFS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK9QMarginsFRK8QMargins": ["bool", "address", "address"],
+    "ritual_ZneRK9QMarginsFRK8QMargins": ["bool", "address", "address"],
+    "ritual_ZeqRK8QMarginsRK9QMarginsF": ["bool", "address", "address"],
+    "ritual_ZneRK8QMarginsRK9QMarginsF": ["bool", "address", "address"],
     "ritual_ZN9QMarginsFD1Ev": ["nothing", "address"]
   }
 }

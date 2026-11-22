@@ -220,6 +220,42 @@ QLine *ritual_ZNK6QLineF6toLineEv(const QLineF *self) {
   return new QLine(self->toLine());
 }
 
+//  bool operator==(const QLineF &lhs, const QLineF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK6QLineFS1_(const QLineF *lhs, const QLineF *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QLineF &lhs, const QLineF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK6QLineFS1_(const QLineF *lhs, const QLineF *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QLineF &lhs, const QLine &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK6QLineFRK5QLine(const QLineF *lhs, const QLine *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QLineF &lhs, const QLine &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK6QLineFRK5QLine(const QLineF *lhs, const QLine *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QLine &lhs, const QLineF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK5QLineRK6QLineF(const QLine *lhs, const QLineF *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QLine &lhs, const QLineF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK5QLineRK6QLineF(const QLine *lhs, const QLineF *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QLineF::~QLineF()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QLineFD1Ev(QLineF *self) {

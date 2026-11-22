@@ -6,6 +6,7 @@
 #include <QtCore/qbytearray.h>
 #include <QtGui/qcolortransform.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qdebug.h>
 
 //  QColorSpace::QColorSpace()
 extern "C" Q_DECL_EXPORT
@@ -228,6 +229,24 @@ bool ritual_ZNK11QColorSpace13isValidTargetEv(const QColorSpace *self) {
   return self->isValidTarget();
 }
 
+//  bool operator==(const QColorSpace &colorSpace1, const QColorSpace
+//      &colorSpace2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK11QColorSpaceS1_(
+    const QColorSpace *colorSpace1,
+    const QColorSpace *colorSpace2) {
+  return operator==(*colorSpace1, *colorSpace2);
+}
+
+//  bool operator!=(const QColorSpace &colorSpace1, const QColorSpace
+//      &colorSpace2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK11QColorSpaceS1_(
+    const QColorSpace *colorSpace1,
+    const QColorSpace *colorSpace2) {
+  return operator!=(*colorSpace1, *colorSpace2);
+}
+
 //  QColorSpace QColorSpace::fromIccProfile(const QByteArray &iccProfile)
 extern "C" Q_DECL_EXPORT
 QColorSpace *ritual_ZN11QColorSpace14fromIccProfileERK10QByteArray(
@@ -254,4 +273,12 @@ QColorTransform *ritual_ZNK11QColorSpace26transformationToColorSpaceERKS_(
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK11QColorSpacecv8QVariantEv(const QColorSpace *self) {
   return new QVariant(self->operator QVariant());
+}
+
+//  QDebug operator<<(QDebug dbg, const QColorSpace &colorSpace)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK11QColorSpace(
+    const QDebug *dbg,
+    const QColorSpace *colorSpace) {
+  return new QDebug(operator<<(*dbg, *colorSpace));
 }

@@ -29,8 +29,9 @@ class QCollatorSortKey(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCollatorSortKey that has a ritual and that Python
-  can call so far, 1 name in all: 'compare'. It can be made from Python, in 1
-  way; see '__init__'.
+  can call so far, 7 names in all: 'compare', '__eq__', '__ne__', '__lt__',
+  '__gt__', '__le__', '__ge__'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -41,7 +42,7 @@ class QCollatorSortKey(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 9 functions Qt declares: 4 takes or gives a type that cannot be
+  6 of the 15 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 1 forbidden; 1 protected.
 
   What to expect
@@ -118,6 +119,192 @@ class QCollatorSortKey(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QCollatorSortKey) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QCollatorSortKey &lhs, const
+    QCollatorSortKey &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcollatorsortkey.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QCollatorSortKey
+      Passed on as a value: Qt reads the C++ QCollatorSortKey, which stays
+      Python's own.
+    """
+    #  bool operator==(const QCollatorSortKey &lhs, const QCollatorSortKey
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK16QCollatorSortKeyS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QCollatorSortKey) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QCollatorSortKey &lhs, const
+    QCollatorSortKey &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcollatorsortkey.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QCollatorSortKey
+      Passed on as a value: Qt reads the C++ QCollatorSortKey, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QCollatorSortKey &lhs, const QCollatorSortKey
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZneRK16QCollatorSortKeyS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QCollatorSortKey) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QCollatorSortKey &lhs, const
+    QCollatorSortKey &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcollatorsortkey.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QCollatorSortKey
+      Passed on as a value: Qt reads the C++ QCollatorSortKey, which stays
+      Python's own.
+    """
+    #  bool operator<(const QCollatorSortKey &lhs, const QCollatorSortKey
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZltRK16QCollatorSortKeyS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QCollatorSortKey) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QCollatorSortKey &lhs, const
+    QCollatorSortKey &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcollatorsortkey.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QCollatorSortKey
+      Passed on as a value: Qt reads the C++ QCollatorSortKey, which stays
+      Python's own.
+    """
+    #  bool operator>(const QCollatorSortKey &lhs, const QCollatorSortKey
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK16QCollatorSortKeyS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QCollatorSortKey) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QCollatorSortKey &lhs, const
+    QCollatorSortKey &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcollatorsortkey.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QCollatorSortKey
+      Passed on as a value: Qt reads the C++ QCollatorSortKey, which stays
+      Python's own.
+    """
+    #  bool operator<=(const QCollatorSortKey &lhs, const QCollatorSortKey
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZleRK16QCollatorSortKeyS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QCollatorSortKey) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QCollatorSortKey &lhs, const
+    QCollatorSortKey &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcollatorsortkey.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QCollatorSortKey
+      Passed on as a value: Qt reads the C++ QCollatorSortKey, which stays
+      Python's own.
+    """
+    #  bool operator>=(const QCollatorSortKey &lhs, const QCollatorSortKey
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK16QCollatorSortKeyS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -39,7 +39,7 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFileInfo that has a ritual and that Python can call
-  so far, 51 names in all: 'setFile', 'exists', 'refresh', 'filePath',
+  so far, 53 names in all: 'setFile', 'exists', 'refresh', 'filePath',
   'absoluteFilePath', 'canonicalFilePath', 'fileName', 'baseName',
   'completeBaseName', 'suffix', 'bundleName', 'completeSuffix', 'path',
   'absolutePath', 'canonicalPath', 'dir', 'absoluteDir', 'isReadable',
@@ -49,7 +49,8 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
   'isRoot', 'isBundle', 'symLinkTarget', 'readSymLink', 'junctionTarget',
   'owner', 'ownerId', 'group', 'groupId', 'permission', 'size', 'birthTime',
   'metadataChangeTime', 'lastModified', 'lastRead', 'caching', 'setCaching',
-  'stat'. It can be made from Python, in 4 ways; see '__init__'.
+  'stat', '__eq__', '__ne__'. It can be made from Python, in 4 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,7 +61,7 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  24 of the 86 functions Qt declares: 19 takes or gives a type that cannot be
+  24 of the 88 functions Qt declares: 19 takes or gives a type that cannot be
   passed yet; 3 a template; 2 private.
 
   What to expect
@@ -881,6 +882,64 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QFileInfo) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QFileInfo &lhs, const QFileInfo &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfileinfo.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QFileInfo
+      Passed on as a value: Qt reads the C++ QFileInfo, which stays Python's
+      own.
+    """
+    #  bool operator==(const QFileInfo &lhs, const QFileInfo &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK9QFileInfoS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QFileInfo) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QFileInfo &lhs, const QFileInfo &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfileinfo.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QFileInfo
+      Passed on as a value: Qt reads the C++ QFileInfo, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QFileInfo &lhs, const QFileInfo &rhs)
+    return Rituals.call(
+        'ritual_ZneRK9QFileInfoS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

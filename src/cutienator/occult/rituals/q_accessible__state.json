@@ -5,6 +5,7 @@
   ],
   "rows": {
     "ritual_ZN11QAccessible5StateC1Ev": ["address"],
+    "ritual_ZeqRKN11QAccessible5StateES2_": ["bool", "address", "address"],
     "ritual_ZN11QAccessible5StateD1Ev": ["nothing", "address"]
   }
 }

@@ -176,6 +176,56 @@ QJsonValue *ritual_ZNK18QJsonValueConstRefixEx(
   return new QJsonValue(self->operator[](i));
 }
 
+//  bool operator==(const QJsonValueConstRef &lhs, const QJsonValueConstRef
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK18QJsonValueConstRefS1_(
+    const QJsonValueConstRef *lhs,
+    const QJsonValueConstRef *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonValueConstRef &lhs, const QJsonValueConstRef
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK18QJsonValueConstRefS1_(
+    const QJsonValueConstRef *lhs,
+    const QJsonValueConstRef *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QJsonValueConstRef &lhs, const QJsonValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK18QJsonValueConstRefRK10QJsonValue(
+    const QJsonValueConstRef *lhs,
+    const QJsonValue *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonValueConstRef &lhs, const QJsonValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK18QJsonValueConstRefRK10QJsonValue(
+    const QJsonValueConstRef *lhs,
+    const QJsonValue *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QJsonValue &lhs, const QJsonValueConstRef &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK10QJsonValueRK18QJsonValueConstRef(
+    const QJsonValue *lhs,
+    const QJsonValueConstRef *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonValue &lhs, const QJsonValueConstRef &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK10QJsonValueRK18QJsonValueConstRef(
+    const QJsonValue *lhs,
+    const QJsonValueConstRef *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QJsonValueConstRef::~QJsonValueConstRef()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QJsonValueConstRefD1Ev(QJsonValueConstRef *self) {

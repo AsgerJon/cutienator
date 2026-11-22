@@ -13,6 +13,12 @@
     "ritual_ZNK8QCborMap13ConstIterator5valueEv": ["address", "address"],
     "ritual_ZN8QCborMap13ConstIteratorppEi": ["address", "address", "int"],
     "ritual_ZN8QCborMap13ConstIteratormmEi": ["address", "address", "int"],
+    "ritual_ZN8QCborMap13ConstIteratorpLEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN8QCborMap13ConstIteratormIEx": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZNK8QCborMap13ConstIteratorplEx": [
       "address", "address", "long long"
     ],
@@ -21,6 +27,24 @@
     ],
     "ritual_ZNK8QCborMap13ConstIteratormiES0_": [
       "long long", "address", "address"
+    ],
+    "ritual_ZeqRKN8QCborMap13ConstIteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN8QCborMap13ConstIteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRKN8QCborMap13ConstIteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRKN8QCborMap13ConstIteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRKN8QCborMap13ConstIteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRKN8QCborMap13ConstIteratorES2_": [
+      "bool", "address", "address"
     ]
   }
 }

@@ -42,15 +42,16 @@ class QUrl(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QUrl that has a ritual and that Python can call so
-  far, 42 names in all: 'setUrl', 'fromEncoded', 'fromUserInput', 'isValid',
+  far, 48 names in all: 'setUrl', 'fromEncoded', 'fromUserInput', 'isValid',
   'errorString', 'isEmpty', 'clear', 'setScheme', 'scheme', 'setAuthority',
   'authority', 'setUserInfo', 'userInfo', 'setUserName', 'userName',
   'setPassword', 'password', 'setHost', 'host', 'setPort', 'port', 'setPath',
   'path', 'fileName', 'hasQuery', 'setQuery', 'query', 'hasFragment',
   'fragment', 'setFragment', 'resolved', 'isRelative', 'isParentOf',
   'isLocalFile', 'fromLocalFile', 'toLocalFile', 'detach', 'isDetached',
-  'fromPercentEncoding', 'toPercentEncoding', 'fromAce', 'toAce'. It can be
-  made from Python, in 3 ways; see '__init__'.
+  'fromPercentEncoding', 'toPercentEncoding', 'fromAce', 'toAce', '__eq__',
+  '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made from
+  Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -61,7 +62,7 @@ class QUrl(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  17 of the 64 functions Qt declares: 16 takes or gives a type that cannot be
+  17 of the 70 functions Qt declares: 16 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -1211,6 +1212,174 @@ class QUrl(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QUrl) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QUrl &lhs, const QUrl &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurl.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  bool operator==(const QUrl &lhs, const QUrl &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK4QUrlS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QUrl) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QUrl &lhs, const QUrl &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurl.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  bool operator!=(const QUrl &lhs, const QUrl &rhs)
+    return Rituals.call(
+        'ritual_ZneRK4QUrlS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QUrl) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QUrl &lhs, const QUrl &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurl.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  bool operator<(const QUrl &lhs, const QUrl &rhs)
+    return Rituals.call(
+        'ritual_ZltRK4QUrlS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QUrl) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QUrl &lhs, const QUrl &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurl.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  bool operator>(const QUrl &lhs, const QUrl &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK4QUrlS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QUrl) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QUrl &lhs, const QUrl &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurl.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  bool operator<=(const QUrl &lhs, const QUrl &rhs)
+    return Rituals.call(
+        'ritual_ZleRK4QUrlS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QUrl) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QUrl &lhs, const QUrl &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurl.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  bool operator>=(const QUrl &lhs, const QUrl &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK4QUrlS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

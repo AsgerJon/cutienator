@@ -179,6 +179,112 @@ QVector3D *ritual_ZNK11QQuaternion13rotatedVectorERK9QVector3D(
   return new QVector3D(self->rotatedVector(*vector));
 }
 
+//  QQuaternion &QQuaternion::operator+=(const QQuaternion &quaternion)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaternionpLERKS_(
+    QQuaternion *self,
+    const QQuaternion *quaternion) {
+  self->operator+=(*quaternion);
+}
+
+//  QQuaternion &QQuaternion::operator-=(const QQuaternion &quaternion)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaternionmIERKS_(
+    QQuaternion *self,
+    const QQuaternion *quaternion) {
+  self->operator-=(*quaternion);
+}
+
+//  QQuaternion &QQuaternion::operator*=(float factor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaternionmLEf(QQuaternion *self, float factor) {
+  self->operator*=(factor);
+}
+
+//  QQuaternion &QQuaternion::operator*=(const QQuaternion &quaternion)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaternionmLERKS_(
+    QQuaternion *self,
+    const QQuaternion *quaternion) {
+  self->operator*=(*quaternion);
+}
+
+//  QQuaternion &QQuaternion::operator/=(float divisor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQuaterniondVEf(QQuaternion *self, float divisor) {
+  self->operator/=(divisor);
+}
+
+//  bool operator==(const QQuaternion &q1, const QQuaternion &q2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK11QQuaternionS1_(
+    const QQuaternion *q1,
+    const QQuaternion *q2) {
+  return operator==(*q1, *q2);
+}
+
+//  bool operator!=(const QQuaternion &q1, const QQuaternion &q2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK11QQuaternionS1_(
+    const QQuaternion *q1,
+    const QQuaternion *q2) {
+  return operator!=(*q1, *q2);
+}
+
+//  QQuaternion operator+(const QQuaternion &q1, const QQuaternion &q2)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZplRK11QQuaternionS1_(
+    const QQuaternion *q1,
+    const QQuaternion *q2) {
+  return new QQuaternion(operator+(*q1, *q2));
+}
+
+//  QQuaternion operator-(const QQuaternion &q1, const QQuaternion &q2)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZmiRK11QQuaternionS1_(
+    const QQuaternion *q1,
+    const QQuaternion *q2) {
+  return new QQuaternion(operator-(*q1, *q2));
+}
+
+//  QQuaternion operator*(float factor, const QQuaternion &quaternion)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZmlfRK11QQuaternion(
+    float factor,
+    const QQuaternion *quaternion) {
+  return new QQuaternion(operator*(factor, *quaternion));
+}
+
+//  QQuaternion operator*(const QQuaternion &quaternion, float factor)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZmlRK11QQuaternionf(
+    const QQuaternion *quaternion,
+    float factor) {
+  return new QQuaternion(operator*(*quaternion, factor));
+}
+
+//  QQuaternion operator*(const QQuaternion &q1, const QQuaternion &q2)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZmlRK11QQuaternionS1_(
+    const QQuaternion *q1,
+    const QQuaternion *q2) {
+  return new QQuaternion(operator*(*q1, *q2));
+}
+
+//  QQuaternion operator-(const QQuaternion &quaternion)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZngRK11QQuaternion(const QQuaternion *quaternion) {
+  return new QQuaternion(operator-(*quaternion));
+}
+
+//  QQuaternion operator/(const QQuaternion &quaternion, float divisor)
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_ZdvRK11QQuaternionf(
+    const QQuaternion *quaternion,
+    float divisor) {
+  return new QQuaternion(operator/(*quaternion, divisor));
+}
+
 //  QVector4D QQuaternion::toVector4D() const
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZNK11QQuaternion10toVector4DEv(const QQuaternion *self) {

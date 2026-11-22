@@ -12,6 +12,12 @@
     "ritual_ZNK29QXmlStreamNotationDeclaration8publicIdEv": [
       "text", "address"
     ],
+    "ritual_ZeqRK29QXmlStreamNotationDeclarationS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK29QXmlStreamNotationDeclarationS1_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN29QXmlStreamNotationDeclarationD1Ev": ["nothing", "address"]
   }
 }

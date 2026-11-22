@@ -5,6 +5,8 @@
   ],
   "rows": {
     "ritual_ZN15QHashDummyValueC1Ev": ["address"],
+    "ritual_Zeq15QHashDummyValueS_": ["bool", "address", "address"],
+    "ritual_Zne15QHashDummyValueS_": ["bool", "address", "address"],
     "ritual_ZN15QHashDummyValueD1Ev": ["nothing", "address"]
   }
 }

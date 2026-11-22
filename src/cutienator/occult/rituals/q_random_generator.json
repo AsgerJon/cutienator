@@ -7,6 +7,8 @@
     "ritual_ZN16QRandomGeneratorC1Ej": ["address", "unsigned int"],
     "ritual_ZN16QRandomGeneratorC1ERKS_": ["address", "address"],
     "ritual_ZN16QRandomGeneratorD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK16QRandomGeneratorS1_": ["bool", "address", "address"],
+    "ritual_ZneRK16QRandomGeneratorS1_": ["bool", "address", "address"],
     "ritual_ZN16QRandomGenerator8generateEv": ["unsigned int", "address"],
     "ritual_ZN16QRandomGenerator10generate64Ev": [
       "unsigned long long", "address"

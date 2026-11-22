@@ -45,10 +45,12 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QQuaternion that has a ritual and that Python can
-  call so far, 31 names in all: 'isNull', 'isIdentity', 'vector',
+  call so far, 43 names in all: 'isNull', 'isIdentity', 'vector',
   'setVector', 'x', 'y', 'z', 'scalar', 'setX', 'setY', 'setZ', 'setScalar',
   'dotProduct', 'length', 'lengthSquared', 'normalized', 'normalize',
-  'inverted', 'conjugated', 'rotatedVector', 'toVector4D',
+  'inverted', 'conjugated', 'rotatedVector', '__iadd__', '__isub__',
+  '__imul__', '__itruediv__', '__eq__', '__ne__', '__add__', '__sub__',
+  '__rmul__', '__mul__', '__neg__', '__truediv__', 'toVector4D',
   'fromAxisAndAngle', 'toEulerAngles', 'fromEulerAngles', 'toAxes',
   'fromAxes', 'getAxes', 'fromDirection', 'rotationTo', 'slerp', 'nlerp'. It
   can be made from Python, in 5 ways; see '__init__'.
@@ -56,8 +58,8 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QVariant QQuaternion::operator QVariant() const': an operator,
-    which is not reflected yet.
+  - Qt's 'QVariant QQuaternion::operator QVariant() const': an operator
+    Python has no name for.
   - Qt's 'void QQuaternion::getAxisAndAngle(QVector3D *axis, float *angle)
     const': takes a number to change where it is.
   - Qt's 'void QQuaternion::getAxisAndAngle(float *x, float *y, float *z,
@@ -70,7 +72,7 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  10 of the 54 functions Qt declares: 9 takes or gives a type that cannot be
+  5 of the 63 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 1 a template.
 
   What to expect
@@ -212,6 +214,11 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
 
     - Qt's 'QQuaternion::Axis::~Axis()': the destructor: Python removes its
       C++ QQuaternion::Axis by it, and has no other use for it.
+
+    What has no ritual
+    ------------------
+
+    2 of the 5 functions Qt declares: 2 forbidden.
 
     What to expect
     --------------
@@ -1058,6 +1065,424 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __iadd__(self, quaternion: QQuaternion) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion &QQuaternion::operator+=(const QQuaternion
+    &quaternion)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator+=
+
+    Parameters
+    ----------
+
+    quaternion : QQuaternion
+      Passed on as a value: Qt reads the C++ QQuaternion, which stays
+      Python's own.
+    """
+    #  QQuaternion &QQuaternion::operator+=(const QQuaternion &quaternion)
+    self.uglySide.call(
+        'ritual_ZN11QQuaternionpLERKS_', self._valueOf(quaternion),
+    )
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __isub__(self, quaternion: QQuaternion) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion &QQuaternion::operator-=(const QQuaternion
+    &quaternion)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator-=
+
+    Parameters
+    ----------
+
+    quaternion : QQuaternion
+      Passed on as a value: Qt reads the C++ QQuaternion, which stays
+      Python's own.
+    """
+    #  QQuaternion &QQuaternion::operator-=(const QQuaternion &quaternion)
+    self.uglySide.call(
+        'ritual_ZN11QQuaternionmIERKS_', self._valueOf(quaternion),
+    )
+    return self
+
+  @overload.fallback
+  def __isub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __imul__(self, factor: float) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion &QQuaternion::operator*=(float factor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator*=
+
+    Parameters
+    ----------
+
+    factor : float
+      Passed on as it is.
+    """
+    #  QQuaternion &QQuaternion::operator*=(float factor)
+    self.uglySide.call('ritual_ZN11QQuaternionmLEf', factor)
+    return self
+
+  @overload(THIS)
+  def __imul__(self, quaternion: QQuaternion) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion &QQuaternion::operator*=(const QQuaternion
+    &quaternion)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator*=
+
+    Parameters
+    ----------
+
+    quaternion : QQuaternion
+      Passed on as a value: Qt reads the C++ QQuaternion, which stays
+      Python's own.
+    """
+    #  QQuaternion &QQuaternion::operator*=(const QQuaternion &quaternion)
+    self.uglySide.call(
+        'ritual_ZN11QQuaternionmLERKS_', self._valueOf(quaternion),
+    )
+    return self
+
+  @overload.fallback
+  def __imul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __itruediv__(self, divisor: float) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion &QQuaternion::operator/=(float divisor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator/=
+
+    Parameters
+    ----------
+
+    divisor : float
+      Passed on as it is.
+    """
+    #  QQuaternion &QQuaternion::operator/=(float divisor)
+    self.uglySide.call('ritual_ZN11QQuaterniondVEf', divisor)
+    return self
+
+  @overload.fallback
+  def __itruediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, q2: QQuaternion) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QQuaternion &q1, const QQuaternion
+    &q2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator==
+
+    Parameters
+    ----------
+
+    q2 : QQuaternion
+      Passed on as a value: Qt reads the C++ QQuaternion, which stays
+      Python's own.
+    """
+    #  bool operator==(const QQuaternion &q1, const QQuaternion &q2)
+    return Rituals.call(
+        'ritual_ZeqRK11QQuaternionS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(q2),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, q2: QQuaternion) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QQuaternion &q1, const QQuaternion
+    &q2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator!=
+
+    Parameters
+    ----------
+
+    q2 : QQuaternion
+      Passed on as a value: Qt reads the C++ QQuaternion, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QQuaternion &q1, const QQuaternion &q2)
+    return Rituals.call(
+        'ritual_ZneRK11QQuaternionS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(q2),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __add__(self, q2: QQuaternion) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion operator+(const QQuaternion &q1, const
+    QQuaternion &q2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator+
+
+    Parameters
+    ----------
+
+    q2 : QQuaternion
+      Passed on as a value: Qt reads the C++ QQuaternion, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QQuaternion
+      A new cute QQuaternion around the copy Qt gave back. Python owns it.
+    """
+    #  QQuaternion operator+(const QQuaternion &q1, const QQuaternion &q2)
+    address = Rituals.call(
+        'ritual_ZplRK11QQuaternionS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(q2),
+    )
+    return QQuaternion._cuteOwning(address)
+
+  @overload.fallback
+  def __add__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __sub__(self, q2: QQuaternion) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion operator-(const QQuaternion &q1, const
+    QQuaternion &q2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator-
+
+    Parameters
+    ----------
+
+    q2 : QQuaternion
+      Passed on as a value: Qt reads the C++ QQuaternion, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QQuaternion
+      A new cute QQuaternion around the copy Qt gave back. Python owns it.
+    """
+    #  QQuaternion operator-(const QQuaternion &q1, const QQuaternion &q2)
+    address = Rituals.call(
+        'ritual_ZmiRK11QQuaternionS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(q2),
+    )
+    return QQuaternion._cuteOwning(address)
+
+  @overload.fallback
+  def __sub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __rmul__(self, factor: float) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion operator*(float factor, const QQuaternion
+    &quaternion)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator*
+
+    Parameters
+    ----------
+
+    factor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QQuaternion
+      A new cute QQuaternion around the copy Qt gave back. Python owns it.
+    """
+    #  QQuaternion operator*(float factor, const QQuaternion &quaternion)
+    address = Rituals.call(
+        'ritual_ZmlfRK11QQuaternion', factor, CuteMixin._valueOf(self),
+    )
+    return QQuaternion._cuteOwning(address)
+
+  @overload.fallback
+  def __rmul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __mul__(self, factor: float) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion operator*(const QQuaternion &quaternion, float
+    factor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator*
+
+    Parameters
+    ----------
+
+    factor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QQuaternion
+      A new cute QQuaternion around the copy Qt gave back. Python owns it.
+    """
+    #  QQuaternion operator*(const QQuaternion &quaternion, float factor)
+    address = Rituals.call(
+        'ritual_ZmlRK11QQuaternionf', CuteMixin._valueOf(self), factor,
+    )
+    return QQuaternion._cuteOwning(address)
+
+  @overload(THIS)
+  def __mul__(self, q2: QQuaternion) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion operator*(const QQuaternion &q1, const
+    QQuaternion &q2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator*
+
+    Parameters
+    ----------
+
+    q2 : QQuaternion
+      Passed on as a value: Qt reads the C++ QQuaternion, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QQuaternion
+      A new cute QQuaternion around the copy Qt gave back. Python owns it.
+    """
+    #  QQuaternion operator*(const QQuaternion &q1, const QQuaternion &q2)
+    address = Rituals.call(
+        'ritual_ZmlRK11QQuaternionS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(q2),
+    )
+    return QQuaternion._cuteOwning(address)
+
+  @overload.fallback
+  def __mul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  def __neg__(self) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion operator-(const QQuaternion &quaternion)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator-
+
+    Returns
+    -------
+
+    QQuaternion
+      A new cute QQuaternion around the copy Qt gave back. Python owns it.
+    """
+    #  QQuaternion operator-(const QQuaternion &quaternion)
+    address = Rituals.call(
+        'ritual_ZngRK11QQuaternion', CuteMixin._valueOf(self),
+    )
+    return QQuaternion._cuteOwning(address)
+
+  @overload(float)
+  def __truediv__(self, divisor: float) -> QQuaternion:
+    """
+    Calls Qt's 'QQuaternion operator/(const QQuaternion &quaternion, float
+    divisor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquaternion.html#operator/
+
+    Parameters
+    ----------
+
+    divisor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QQuaternion
+      A new cute QQuaternion around the copy Qt gave back. Python owns it.
+    """
+    #  QQuaternion operator/(const QQuaternion &quaternion, float divisor)
+    address = Rituals.call(
+        'ritual_ZdvRK11QQuaternionf', CuteMixin._valueOf(self), divisor,
+    )
+    return QQuaternion._cuteOwning(address)
+
+  @overload.fallback
+  def __truediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

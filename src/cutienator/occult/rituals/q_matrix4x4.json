@@ -28,8 +28,30 @@
     "ritual_ZNK10QMatrix4x411determinantEv": ["double", "address"],
     "ritual_ZNK10QMatrix4x48invertedEPb": ["address", "address", "address"],
     "ritual_ZNK10QMatrix4x410transposedEv": ["address", "address"],
+    "ritual_ZN10QMatrix4x4pLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN10QMatrix4x4mIERKS_": ["nothing", "address", "address"],
+    "ritual_ZN10QMatrix4x4mLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN10QMatrix4x4mLEf": ["nothing", "address", "float"],
+    "ritual_ZN10QMatrix4x4dVEf": ["nothing", "address", "float"],
     "ritual_ZNK10QMatrix4x4eqERKS_": ["bool", "address", "address"],
     "ritual_ZNK10QMatrix4x4neERKS_": ["bool", "address", "address"],
+    "ritual_ZplRK10QMatrix4x4S1_": ["address", "address", "address"],
+    "ritual_ZmiRK10QMatrix4x4S1_": ["address", "address", "address"],
+    "ritual_ZmlRK10QMatrix4x4S1_": ["address", "address", "address"],
+    "ritual_ZmlRK10QMatrix4x4RK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZmlRK10QMatrix4x4RK9QVector4D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZmlRK6QPointRK10QMatrix4x4": ["address", "address", "address"],
+    "ritual_ZmlRK7QPointFRK10QMatrix4x4": ["address", "address", "address"],
+    "ritual_ZngRK10QMatrix4x4": ["address", "address"],
+    "ritual_ZmlRK10QMatrix4x4RK6QPoint": ["address", "address", "address"],
+    "ritual_ZmlRK10QMatrix4x4RK7QPointF": ["address", "address", "address"],
+    "ritual_ZmlfRK10QMatrix4x4": ["address", "float", "address"],
+    "ritual_ZmlRK10QMatrix4x4f": ["address", "address", "float"],
+    "ritual_ZdvRK10QMatrix4x4f": ["address", "address", "float"],
     "ritual_ZN10QMatrix4x45scaleERK9QVector3D": [
       "nothing", "address", "address"
     ],
@@ -114,6 +136,7 @@
     ],
     "ritual_ZN10QMatrix4x48optimizeEv": ["nothing", "address"],
     "ritual_ZNK10QMatrix4x4cv8QVariantEv": ["address", "address"],
+    "ritual_Zls6QDebugRK10QMatrix4x4": ["address", "address", "address"],
     "ritual_ZN10QMatrix4x415projectedRotateEfffff": [
       "nothing", "address", "float", "float", "float", "float", "float"
     ],

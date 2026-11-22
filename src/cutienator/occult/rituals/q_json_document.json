@@ -38,6 +38,9 @@
       "address", "address", "address"
     ],
     "ritual_ZNK13QJsonDocumentixEx": ["address", "address", "long long"],
-    "ritual_ZNK13QJsonDocument6isNullEv": ["bool", "address"]
+    "ritual_ZNK13QJsonDocument6isNullEv": ["bool", "address"],
+    "ritual_Zls6QDebugRK13QJsonDocument": ["address", "address", "address"],
+    "ritual_ZeqRK13QJsonDocumentS1_": ["bool", "address", "address"],
+    "ritual_ZneRK13QJsonDocumentS1_": ["bool", "address", "address"]
   }
 }

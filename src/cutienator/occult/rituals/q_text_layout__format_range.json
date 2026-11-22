@@ -4,6 +4,12 @@
     "QtGui/qtextlayout.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZeqRKN11QTextLayout11FormatRangeES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN11QTextLayout11FormatRangeES2_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN11QTextLayout11FormatRangeD1Ev": ["nothing", "address"]
   }
 }

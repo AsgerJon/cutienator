@@ -76,3 +76,15 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK9QMimeType12filterStringEv(const QMimeType *self) {
   return new QString(self->filterString());
 }
+
+//  bool operator==(const QMimeType &lhs, const QMimeType &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK9QMimeTypeS1_(const QMimeType *lhs, const QMimeType *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QMimeType &lhs, const QMimeType &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK9QMimeTypeS1_(const QMimeType *lhs, const QMimeType *rhs) {
+  return operator!=(*lhs, *rhs);
+}

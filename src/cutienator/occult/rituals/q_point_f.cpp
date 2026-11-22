@@ -62,12 +62,114 @@ QPointF *ritual_ZNK7QPointF10transposedEv(const QPointF *self) {
   return new QPointF(self->transposed());
 }
 
+//  QPointF &QPointF::operator+=(const QPointF &p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QPointFpLERKS_(QPointF *self, const QPointF *p) {
+  self->operator+=(*p);
+}
+
+//  QPointF &QPointF::operator-=(const QPointF &p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QPointFmIERKS_(QPointF *self, const QPointF *p) {
+  self->operator-=(*p);
+}
+
+//  QPointF &QPointF::operator*=(qreal c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QPointFmLEd(QPointF *self, qreal c) {
+  self->operator*=(c);
+}
+
+//  QPointF &QPointF::operator/=(qreal c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QPointFdVEd(QPointF *self, qreal c) {
+  self->operator/=(c);
+}
+
 //  qreal QPointF::dotProduct(const QPointF &p1, const QPointF &p2)
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZN7QPointF10dotProductERKS_S1_(
     const QPointF *p1,
     const QPointF *p2) {
   return QPointF::dotProduct(*p1, *p2);
+}
+
+//  bool operator==(const QPointF &lhs, const QPointF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK7QPointFS1_(const QPointF *lhs, const QPointF *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QPointF &lhs, const QPointF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK7QPointFS1_(const QPointF *lhs, const QPointF *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QPointF &lhs, const QPoint &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK7QPointFRK6QPoint(const QPointF *lhs, const QPoint *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QPointF &lhs, const QPoint &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK7QPointFRK6QPoint(const QPointF *lhs, const QPoint *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QPoint &lhs, const QPointF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK6QPointRK7QPointF(const QPoint *lhs, const QPointF *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QPoint &lhs, const QPointF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK6QPointRK7QPointF(const QPoint *lhs, const QPointF *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  QPointF operator+(const QPointF &p1, const QPointF &p2)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZplRK7QPointFS1_(const QPointF *p1, const QPointF *p2) {
+  return new QPointF(operator+(*p1, *p2));
+}
+
+//  QPointF operator-(const QPointF &p1, const QPointF &p2)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZmiRK7QPointFS1_(const QPointF *p1, const QPointF *p2) {
+  return new QPointF(operator-(*p1, *p2));
+}
+
+//  QPointF operator*(const QPointF &p, qreal c)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZmlRK7QPointFd(const QPointF *p, qreal c) {
+  return new QPointF(operator*(*p, c));
+}
+
+//  QPointF operator*(qreal c, const QPointF &p)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZmldRK7QPointF(qreal c, const QPointF *p) {
+  return new QPointF(operator*(c, *p));
+}
+
+//  QPointF operator+(const QPointF &p)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZpsRK7QPointF(const QPointF *p) {
+  return new QPointF(operator+(*p));
+}
+
+//  QPointF operator-(const QPointF &p)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZngRK7QPointF(const QPointF *p) {
+  return new QPointF(operator-(*p));
+}
+
+//  QPointF operator/(const QPointF &p, qreal divisor)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZdvRK7QPointFd(const QPointF *p, qreal divisor) {
+  return new QPointF(operator/(*p, divisor));
 }
 
 //  QPoint QPointF::toPoint() const

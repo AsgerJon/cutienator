@@ -34,15 +34,13 @@ class QRandomGenerator64(QRandomGenerator):
   -----------
 
   Every function of Qt's QRandomGenerator64 that has a ritual and that Python
-  can call so far, 7 names in all: 'generate', 'discard', 'min', 'max',
-  'system', 'global_', 'securelySeeded'. It can be made from Python, in 2
-  ways; see '__init__'.
+  can call so far, 8 names in all: 'generate', '__call__', 'discard', 'min',
+  'max', 'system', 'global_', 'securelySeeded'. It can be made from Python,
+  in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'result_type QRandomGenerator64::operator()()': an operator, which
-    is not reflected yet.
   - Qt's 'QRandomGenerator64::~QRandomGenerator64()': the destructor: Python
     removes its C++ QRandomGenerator64 by it, and has no other use for it.
 
@@ -181,6 +179,15 @@ class QRandomGenerator64(QRandomGenerator):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def __call__(self) -> int:
+    """
+    Calls Qt's 'result_type QRandomGenerator64::operator()()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrandomgenerator64.html#operator()
+    """
+    #  result_type QRandomGenerator64::operator()()
+    return self.uglySide.call('ritual_ZN18QRandomGenerator64clEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

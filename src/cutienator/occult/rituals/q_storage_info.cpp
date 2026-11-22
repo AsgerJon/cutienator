@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qdir.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qdebug.h>
 
 //  QStorageInfo::QStorageInfo()
 extern "C" Q_DECL_EXPORT
@@ -138,4 +139,28 @@ void ritual_ZN12QStorageInfo7refreshEv(QStorageInfo *self) {
 extern "C" Q_DECL_EXPORT
 QStorageInfo *ritual_ZN12QStorageInfo4rootEv() {
   return new QStorageInfo(QStorageInfo::root());
+}
+
+//  bool operator==(const QStorageInfo &lhs, const QStorageInfo &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK12QStorageInfoS1_(
+    const QStorageInfo *lhs,
+    const QStorageInfo *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QStorageInfo &lhs, const QStorageInfo &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK12QStorageInfoS1_(
+    const QStorageInfo *lhs,
+    const QStorageInfo *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  QDebug operator<<(QDebug a0, const QStorageInfo &a1)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK12QStorageInfo(
+    const QDebug *a0,
+    const QStorageInfo *a1) {
+  return new QDebug(operator<<(*a0, *a1));
 }

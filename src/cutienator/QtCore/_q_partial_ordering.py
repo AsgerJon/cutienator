@@ -9,7 +9,11 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
+from worktoy.dispatch import overload
+
 from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
 
 
 class QPartialOrdering(CuteMixin, metaclass=MetaCute):
@@ -24,12 +28,49 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
   What exists
   -----------
 
-  No function of Qt's QPartialOrdering yet. None can be made from Python: one
-  comes out of a function of another class that gives one back.
+  Every function of Qt's QPartialOrdering that has a ritual and that Python
+  can call so far, 2 names in all: '__eq__', '__ne__'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'bool operator==(QPartialOrdering lhs,
+    QtPrivate::CompareAgainstLiteralZero a1)': names
+    'QtPrivate::CompareAgainstLiteralZero', which has no cute class yet.
+  - Qt's 'bool operator!=(QPartialOrdering lhs,
+    QtPrivate::CompareAgainstLiteralZero a1)': names
+    'QtPrivate::CompareAgainstLiteralZero', which has no cute class yet.
+  - Qt's 'bool operator<(QPartialOrdering lhs,
+    QtPrivate::CompareAgainstLiteralZero a1)': names
+    'QtPrivate::CompareAgainstLiteralZero', which has no cute class yet.
+  - Qt's 'bool operator<=(QPartialOrdering lhs,
+    QtPrivate::CompareAgainstLiteralZero a1)': names
+    'QtPrivate::CompareAgainstLiteralZero', which has no cute class yet.
+  - Qt's 'bool operator>(QPartialOrdering lhs,
+    QtPrivate::CompareAgainstLiteralZero a1)': names
+    'QtPrivate::CompareAgainstLiteralZero', which has no cute class yet.
+  - Qt's 'bool operator>=(QPartialOrdering lhs,
+    QtPrivate::CompareAgainstLiteralZero a1)': names
+    'QtPrivate::CompareAgainstLiteralZero', which has no cute class yet.
+  - Qt's 'bool operator==(QtPrivate::CompareAgainstLiteralZero a0,
+    QPartialOrdering rhs)': names 'QtPrivate::CompareAgainstLiteralZero',
+    which has no cute class yet.
+  - Qt's 'bool operator!=(QtPrivate::CompareAgainstLiteralZero a0,
+    QPartialOrdering rhs)': names 'QtPrivate::CompareAgainstLiteralZero',
+    which has no cute class yet.
+  - Qt's 'bool operator<(QtPrivate::CompareAgainstLiteralZero a0,
+    QPartialOrdering rhs)': names 'QtPrivate::CompareAgainstLiteralZero',
+    which has no cute class yet.
+  - Qt's 'bool operator<=(QtPrivate::CompareAgainstLiteralZero a0,
+    QPartialOrdering rhs)': names 'QtPrivate::CompareAgainstLiteralZero',
+    which has no cute class yet.
+  - Qt's 'bool operator>(QtPrivate::CompareAgainstLiteralZero a0,
+    QPartialOrdering rhs)': names 'QtPrivate::CompareAgainstLiteralZero',
+    which has no cute class yet.
+  - Qt's 'bool operator>=(QtPrivate::CompareAgainstLiteralZero a0,
+    QPartialOrdering rhs)': names 'QtPrivate::CompareAgainstLiteralZero',
+    which has no cute class yet.
   - Qt's 'QPartialOrdering::QPartialOrdering(Qt::partial_ordering order)':
     names 'Qt::partial_ordering', which has no cute class yet.
   - Qt's 'QPartialOrdering::QPartialOrdering(Qt::weak_ordering stdorder)':
@@ -37,14 +78,22 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
   - Qt's 'QPartialOrdering::QPartialOrdering(Qt::strong_ordering stdorder)':
     names 'Qt::strong_ordering', which has no cute class yet.
   - Qt's 'Qt::partial_ordering QPartialOrdering::operator partial_ordering()
-    const': an operator, which is not reflected yet.
+    const': an operator Python has no name for.
+  - Qt's 'bool operator==(QPartialOrdering lhs, Qt::partial_ordering rhs)':
+    names 'Qt::partial_ordering', which has no cute class yet.
+  - Qt's 'bool operator!=(QPartialOrdering lhs, Qt::partial_ordering rhs)':
+    names 'Qt::partial_ordering', which has no cute class yet.
+  - Qt's 'bool operator==(Qt::partial_ordering lhs, QPartialOrdering rhs)':
+    names 'Qt::partial_ordering', which has no cute class yet.
+  - Qt's 'bool operator!=(Qt::partial_ordering lhs, QPartialOrdering rhs)':
+    names 'Qt::partial_ordering', which has no cute class yet.
   - Qt's 'QPartialOrdering::~QPartialOrdering()': the destructor: Python
     removes its C++ QPartialOrdering by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  3 of the 8 functions Qt declares: 3 private.
+  3 of the 26 functions Qt declares: 3 private.
 
   What to expect
   --------------
@@ -100,6 +149,64 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QPartialOrdering) -> bool:
+    """
+    Calls Qt's 'bool operator==(QPartialOrdering lhs, QPartialOrdering rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpartialordering.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QPartialOrdering
+      Passed on as a value: Qt reads the C++ QPartialOrdering, which stays
+      Python's own.
+    """
+    #  bool operator==(QPartialOrdering lhs, QPartialOrdering rhs)
+    return Rituals.call(
+        'ritual_Zeq16QPartialOrderingS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QPartialOrdering) -> bool:
+    """
+    Calls Qt's 'bool operator!=(QPartialOrdering lhs, QPartialOrdering rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpartialordering.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QPartialOrdering
+      Passed on as a value: Qt reads the C++ QPartialOrdering, which stays
+      Python's own.
+    """
+    #  bool operator!=(QPartialOrdering lhs, QPartialOrdering rhs)
+    return Rituals.call(
+        'ritual_Zne16QPartialOrderingS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

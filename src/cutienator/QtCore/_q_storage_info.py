@@ -16,11 +16,12 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QByteArray, QDir
+  from . import QByteArray, QDebug, QDir
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QDebug = WAIT['QDebug']
   QDir = WAIT['QDir']
 
 
@@ -37,11 +38,11 @@ class QStorageInfo(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QStorageInfo that has a ritual and that Python can
-  call so far, 17 names in all: 'setPath', 'rootPath', 'device', 'subvolume',
+  call so far, 20 names in all: 'setPath', 'rootPath', 'device', 'subvolume',
   'fileSystemType', 'name', 'displayName', 'bytesTotal', 'bytesFree',
   'bytesAvailable', 'blockSize', 'isRoot', 'isReadOnly', 'isReady',
-  'isValid', 'refresh', 'root'. It can be made from Python, in 4 ways; see
-  '__init__'.
+  'isValid', 'refresh', 'root', '__eq__', '__ne__', '__rlshift__'. It can be
+  made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -52,7 +53,7 @@ class QStorageInfo(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 28 functions Qt declares: 5 takes or gives a type that cannot be
+  6 of the 31 functions Qt declares: 5 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -311,6 +312,103 @@ class QStorageInfo(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QStorageInfo) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QStorageInfo &lhs, const QStorageInfo
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstorageinfo.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QStorageInfo
+      Passed on as a value: Qt reads the C++ QStorageInfo, which stays
+      Python's own.
+    """
+    #  bool operator==(const QStorageInfo &lhs, const QStorageInfo &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK12QStorageInfoS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QStorageInfo) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QStorageInfo &lhs, const QStorageInfo
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstorageinfo.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QStorageInfo
+      Passed on as a value: Qt reads the C++ QStorageInfo, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QStorageInfo &lhs, const QStorageInfo &rhs)
+    return Rituals.call(
+        'ritual_ZneRK12QStorageInfoS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QDebug)
+  def __rlshift__(self, a0: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug a0, const QStorageInfo &a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstorageinfo.html#operator<<
+
+    Parameters
+    ----------
+
+    a0 : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug a0, const QStorageInfo &a1)
+    address = Rituals.call(
+        'ritual_Zls6QDebugRK12QStorageInfo',
+        CuteMixin._valueOf(a0), CuteMixin._valueOf(self),
+    )
+    from . import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

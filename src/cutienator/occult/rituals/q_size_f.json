@@ -36,6 +36,21 @@
     "ritual_ZNK6QSizeF8shrunkByE9QMarginsF": [
       "address", "address", "address"
     ],
+    "ritual_ZN6QSizeFpLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN6QSizeFmIERKS_": ["nothing", "address", "address"],
+    "ritual_ZN6QSizeFmLEd": ["nothing", "address", "double"],
+    "ritual_ZN6QSizeFdVEd": ["nothing", "address", "double"],
+    "ritual_ZeqRK6QSizeFS1_": ["bool", "address", "address"],
+    "ritual_ZneRK6QSizeFS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK6QSizeFRK5QSize": ["bool", "address", "address"],
+    "ritual_ZneRK6QSizeFRK5QSize": ["bool", "address", "address"],
+    "ritual_ZeqRK5QSizeRK6QSizeF": ["bool", "address", "address"],
+    "ritual_ZneRK5QSizeRK6QSizeF": ["bool", "address", "address"],
+    "ritual_ZplRK6QSizeFS1_": ["address", "address", "address"],
+    "ritual_ZmiRK6QSizeFS1_": ["address", "address", "address"],
+    "ritual_ZmlRK6QSizeFd": ["address", "address", "double"],
+    "ritual_ZmldRK6QSizeF": ["address", "double", "address"],
+    "ritual_ZdvRK6QSizeFd": ["address", "address", "double"],
     "ritual_ZNK6QSizeF6toSizeEv": ["address", "address"],
     "ritual_ZN6QSizeFD1Ev": ["nothing", "address"]
   }

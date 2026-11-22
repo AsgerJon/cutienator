@@ -91,6 +91,54 @@ bool ritual_ZNK11QModelIndex7isValidEv(const QModelIndex *self) {
   return self->isValid();
 }
 
+//  bool operator==(const QModelIndex &lhs, const QModelIndex &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK11QModelIndexS1_(
+    const QModelIndex *lhs,
+    const QModelIndex *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QModelIndex &lhs, const QModelIndex &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK11QModelIndexS1_(
+    const QModelIndex *lhs,
+    const QModelIndex *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QModelIndex &lhs, const QModelIndex &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK11QModelIndexS1_(
+    const QModelIndex *lhs,
+    const QModelIndex *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QModelIndex &lhs, const QModelIndex &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK11QModelIndexS1_(
+    const QModelIndex *lhs,
+    const QModelIndex *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QModelIndex &lhs, const QModelIndex &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK11QModelIndexS1_(
+    const QModelIndex *lhs,
+    const QModelIndex *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QModelIndex &lhs, const QModelIndex &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK11QModelIndexS1_(
+    const QModelIndex *lhs,
+    const QModelIndex *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
 //  QModelIndex::~QModelIndex()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QModelIndexD1Ev(QModelIndex *self) {

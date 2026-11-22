@@ -396,6 +396,18 @@ QRect *ritual_ZNK5QRectanERKS_(const QRect *self, const QRect *r) {
   return new QRect(self->operator&(*r));
 }
 
+//  QRect &QRect::operator|=(const QRect &r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QRectoRERKS_(QRect *self, const QRect *r) {
+  self->operator|=(*r);
+}
+
+//  QRect &QRect::operator&=(const QRect &r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QRectaNERKS_(QRect *self, const QRect *r) {
+  self->operator&=(*r);
+}
+
 //  bool QRect::contains(const QRect &r, bool proper) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK5QRect8containsERKS_b(
@@ -466,12 +478,36 @@ QRect *ritual_ZNK5QRect14marginsRemovedERK8QMargins(
   return new QRect(self->marginsRemoved(*margins));
 }
 
+//  QRect &QRect::operator+=(const QMargins &margins)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QRectpLERK8QMargins(QRect *self, const QMargins *margins) {
+  self->operator+=(*margins);
+}
+
+//  QRect &QRect::operator-=(const QMargins &margins)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QRectmIERK8QMargins(QRect *self, const QMargins *margins) {
+  self->operator-=(*margins);
+}
+
 //  QRect QRect::span(const QPoint &p1, const QPoint &p2)
 extern "C" Q_DECL_EXPORT
 QRect *ritual_ZN5QRect4spanERK6QPointS2_(
     const QPoint *p1,
     const QPoint *p2) {
   return new QRect(QRect::span(*p1, *p2));
+}
+
+//  bool operator==(const QRect &lhs, const QRect &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK5QRectS1_(const QRect *lhs, const QRect *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QRect &lhs, const QRect &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK5QRectS1_(const QRect *lhs, const QRect *rhs) {
+  return operator!=(*lhs, *rhs);
 }
 
 //  QRectF QRect::toRectF() const

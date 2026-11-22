@@ -18,11 +18,12 @@ from ..QtCore import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QPoint, QPointF
-  from . import QVector2D, QVector3D
+  from . import QMatrix4x4, QVector2D, QVector3D
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QMatrix4x4 = WAIT['QMatrix4x4']
   QPoint = WAIT['QPoint']
   QPointF = WAIT['QPointF']
   QVector2D = WAIT['QVector2D']
@@ -42,27 +43,28 @@ class QVector4D(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QVector4D that has a ritual and that Python can call
-  so far, 20 names in all: 'isNull', 'x', 'y', 'z', 'w', 'setX', 'setY',
-  'setZ', 'setW', 'length', 'lengthSquared', 'normalized', 'normalize',
-  'dotProduct', 'toVector2D', 'toVector2DAffine', 'toVector3D',
-  'toVector3DAffine', 'toPoint', 'toPointF'. It can be made from Python, in 9
-  ways; see '__init__'.
+  so far, 33 names in all: 'isNull', 'x', 'y', 'z', 'w', 'setX', 'setY',
+  'setZ', 'setW', '__getitem__', 'length', 'lengthSquared', 'normalized',
+  'normalize', '__iadd__', '__isub__', '__imul__', '__itruediv__',
+  'dotProduct', '__eq__', '__ne__', '__add__', '__sub__', '__rmul__',
+  '__mul__', '__neg__', '__truediv__', 'toVector2D', 'toVector2DAffine',
+  'toVector3D', 'toVector3DAffine', 'toPoint', 'toPointF'. It can be made
+  from Python, in 9 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'float QVector4D::operator[](int i) const': an operator, which is
-    not reflected yet.
-  - Qt's 'QVariant QVector4D::operator QVariant() const': an operator, which
-    is not reflected yet.
+  - Qt's 'QVariant QVector4D::operator QVariant() const': an operator Python
+    has no name for.
   - Qt's 'QVector4D::~QVector4D()': the destructor: Python removes its C++
     QVector4D by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  7 of the 39 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet.
+  2 of the 51 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet; 1 written with the class 'QMatrix4x4', which declares it as
+  well and stands first in it.
 
   What to expect
   --------------
@@ -386,6 +388,494 @@ class QVector4D(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def __getitem__(self, i: int) -> float:
+    """
+    Calls Qt's 'float QVector4D::operator[](int i) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator[]
+
+    Parameters
+    ----------
+
+    i : int
+      Passed on as it is.
+    """
+    #  float QVector4D::operator[](int i) const
+    return self.uglySide.call('ritual_ZNK9QVector4DixEi', i)
+
+  @overload(THIS)
+  def __iadd__(self, vector: QVector4D) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D &QVector4D::operator+=(QVector4D vector)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator+=
+
+    Parameters
+    ----------
+
+    vector : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+    """
+    #  QVector4D &QVector4D::operator+=(QVector4D vector)
+    self.uglySide.call('ritual_ZN9QVector4DpLES_', self._valueOf(vector))
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __isub__(self, vector: QVector4D) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D &QVector4D::operator-=(QVector4D vector)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator-=
+
+    Parameters
+    ----------
+
+    vector : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+    """
+    #  QVector4D &QVector4D::operator-=(QVector4D vector)
+    self.uglySide.call('ritual_ZN9QVector4DmIES_', self._valueOf(vector))
+    return self
+
+  @overload.fallback
+  def __isub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __imul__(self, factor: float) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D &QVector4D::operator*=(float factor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator*=
+
+    Parameters
+    ----------
+
+    factor : float
+      Passed on as it is.
+    """
+    #  QVector4D &QVector4D::operator*=(float factor)
+    self.uglySide.call('ritual_ZN9QVector4DmLEf', factor)
+    return self
+
+  @overload(THIS)
+  def __imul__(self, vector: QVector4D) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D &QVector4D::operator*=(QVector4D vector)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator*=
+
+    Parameters
+    ----------
+
+    vector : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+    """
+    #  QVector4D &QVector4D::operator*=(QVector4D vector)
+    self.uglySide.call('ritual_ZN9QVector4DmLES_', self._valueOf(vector))
+    return self
+
+  @overload.fallback
+  def __imul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __itruediv__(self, divisor: float) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D &QVector4D::operator/=(float divisor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator/=
+
+    Parameters
+    ----------
+
+    divisor : float
+      Passed on as it is.
+    """
+    #  QVector4D &QVector4D::operator/=(float divisor)
+    self.uglySide.call('ritual_ZN9QVector4DdVEf', divisor)
+    return self
+
+  @overload(THIS)
+  def __itruediv__(self, vector: QVector4D) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D &QVector4D::operator/=(QVector4D vector)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator/=
+
+    Parameters
+    ----------
+
+    vector : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+    """
+    #  QVector4D &QVector4D::operator/=(QVector4D vector)
+    self.uglySide.call('ritual_ZN9QVector4DdVES_', self._valueOf(vector))
+    return self
+
+  @overload.fallback
+  def __itruediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, v2: QVector4D) -> bool:
+    """
+    Calls Qt's 'bool operator==(QVector4D v1, QVector4D v2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator==
+
+    Parameters
+    ----------
+
+    v2 : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+    """
+    #  bool operator==(QVector4D v1, QVector4D v2)
+    return Rituals.call(
+        'ritual_Zeq9QVector4DS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(v2),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, v2: QVector4D) -> bool:
+    """
+    Calls Qt's 'bool operator!=(QVector4D v1, QVector4D v2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator!=
+
+    Parameters
+    ----------
+
+    v2 : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+    """
+    #  bool operator!=(QVector4D v1, QVector4D v2)
+    return Rituals.call(
+        'ritual_Zne9QVector4DS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(v2),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __add__(self, v2: QVector4D) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D operator+(QVector4D v1, QVector4D v2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator+
+
+    Parameters
+    ----------
+
+    v2 : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D operator+(QVector4D v1, QVector4D v2)
+    address = Rituals.call(
+        'ritual_Zpl9QVector4DS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(v2),
+    )
+    return QVector4D._cuteOwning(address)
+
+  @overload.fallback
+  def __add__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __sub__(self, v2: QVector4D) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D operator-(QVector4D v1, QVector4D v2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator-
+
+    Parameters
+    ----------
+
+    v2 : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D operator-(QVector4D v1, QVector4D v2)
+    address = Rituals.call(
+        'ritual_Zmi9QVector4DS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(v2),
+    )
+    return QVector4D._cuteOwning(address)
+
+  @overload.fallback
+  def __sub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __rmul__(self, factor: float) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D operator*(float factor, QVector4D vector)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator*
+
+    Parameters
+    ----------
+
+    factor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D operator*(float factor, QVector4D vector)
+    address = Rituals.call(
+        'ritual_Zmlf9QVector4D', factor, CuteMixin._valueOf(self),
+    )
+    return QVector4D._cuteOwning(address)
+
+  @overload.fallback
+  def __rmul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __mul__(self, factor: float) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D operator*(QVector4D vector, float factor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator*
+
+    Parameters
+    ----------
+
+    factor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D operator*(QVector4D vector, float factor)
+    address = Rituals.call(
+        'ritual_Zml9QVector4Df', CuteMixin._valueOf(self), factor,
+    )
+    return QVector4D._cuteOwning(address)
+
+  @overload(THIS)
+  def __mul__(self, v2: QVector4D) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D operator*(QVector4D v1, QVector4D v2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator*
+
+    Parameters
+    ----------
+
+    v2 : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D operator*(QVector4D v1, QVector4D v2)
+    address = Rituals.call(
+        'ritual_Zml9QVector4DS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(v2),
+    )
+    return QVector4D._cuteOwning(address)
+
+  @overload(QMatrix4x4)
+  def __mul__(self, matrix: QMatrix4x4) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D operator*(const QVector4D &vector, const QMatrix4x4
+    &matrix)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator*
+
+    Parameters
+    ----------
+
+    matrix : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D operator*(const QVector4D &vector, const QMatrix4x4 &matrix)
+    address = Rituals.call(
+        'ritual_ZmlRK9QVector4DRK10QMatrix4x4',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(matrix),
+    )
+    return QVector4D._cuteOwning(address)
+
+  @overload.fallback
+  def __mul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  def __neg__(self) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D operator-(QVector4D vector)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator-
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D operator-(QVector4D vector)
+    address = Rituals.call('ritual_Zng9QVector4D', CuteMixin._valueOf(self))
+    return QVector4D._cuteOwning(address)
+
+  @overload(float)
+  def __truediv__(self, divisor: float) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D operator/(QVector4D vector, float divisor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator/
+
+    Parameters
+    ----------
+
+    divisor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D operator/(QVector4D vector, float divisor)
+    address = Rituals.call(
+        'ritual_Zdv9QVector4Df', CuteMixin._valueOf(self), divisor,
+    )
+    return QVector4D._cuteOwning(address)
+
+  @overload(THIS)
+  def __truediv__(self, divisor: QVector4D) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D operator/(QVector4D vector, QVector4D divisor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvector4d.html#operator/
+
+    Parameters
+    ----------
+
+    divisor : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D operator/(QVector4D vector, QVector4D divisor)
+    address = Rituals.call(
+        'ritual_Zdv9QVector4DS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(divisor),
+    )
+    return QVector4D._cuteOwning(address)
+
+  @overload.fallback
+  def __truediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

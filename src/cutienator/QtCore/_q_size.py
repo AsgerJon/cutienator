@@ -38,10 +38,12 @@ class QSize(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QSize that has a ritual and that Python can call so
-  far, 16 names in all: 'isNull', 'isEmpty', 'isValid', 'width', 'height',
+  far, 27 names in all: 'isNull', 'isEmpty', 'isValid', 'width', 'height',
   'setWidth', 'setHeight', 'transpose', 'transposed', 'scale', 'scaled',
-  'expandedTo', 'boundedTo', 'grownBy', 'shrunkBy', 'toSizeF'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  'expandedTo', 'boundedTo', 'grownBy', 'shrunkBy', '__iadd__', '__isub__',
+  '__imul__', '__itruediv__', '__eq__', '__ne__', '__add__', '__sub__',
+  '__mul__', '__rmul__', '__truediv__', 'toSizeF'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -52,7 +54,7 @@ class QSize(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 28 functions Qt declares: 6 takes or gives a type that cannot be
+  3 of the 35 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -381,6 +383,338 @@ class QSize(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __iadd__(self, a0: QSize) -> QSize:
+    """
+    Calls Qt's 'QSize &QSize::operator+=(const QSize &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#operator+=
+
+    Parameters
+    ----------
+
+    a0 : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+    """
+    #  QSize &QSize::operator+=(const QSize &a0)
+    self.uglySide.call('ritual_ZN5QSizepLERKS_', self._valueOf(a0))
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __isub__(self, a0: QSize) -> QSize:
+    """
+    Calls Qt's 'QSize &QSize::operator-=(const QSize &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#operator-=
+
+    Parameters
+    ----------
+
+    a0 : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+    """
+    #  QSize &QSize::operator-=(const QSize &a0)
+    self.uglySide.call('ritual_ZN5QSizemIERKS_', self._valueOf(a0))
+    return self
+
+  @overload.fallback
+  def __isub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __imul__(self, c: float) -> QSize:
+    """
+    Calls Qt's 'QSize &QSize::operator*=(qreal c)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#operator*=
+
+    Parameters
+    ----------
+
+    c : float
+      Passed on as it is.
+    """
+    #  QSize &QSize::operator*=(qreal c)
+    self.uglySide.call('ritual_ZN5QSizemLEd', c)
+    return self
+
+  @overload.fallback
+  def __imul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __itruediv__(self, c: float) -> QSize:
+    """
+    Calls Qt's 'QSize &QSize::operator/=(qreal c)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#operator/=
+
+    Parameters
+    ----------
+
+    c : float
+      Passed on as it is.
+    """
+    #  QSize &QSize::operator/=(qreal c)
+    self.uglySide.call('ritual_ZN5QSizedVEd', c)
+    return self
+
+  @overload.fallback
+  def __itruediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, rhs: QSize) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QSize &lhs, const QSize &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+    """
+    #  bool operator==(const QSize &lhs, const QSize &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK5QSizeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QSize) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QSize &lhs, const QSize &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+    """
+    #  bool operator!=(const QSize &lhs, const QSize &rhs)
+    return Rituals.call(
+        'ritual_ZneRK5QSizeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __add__(self, s2: QSize) -> QSize:
+    """
+    Calls Qt's 'QSize operator+(const QSize &s1, const QSize &s2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#operator+
+
+    Parameters
+    ----------
+
+    s2 : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize operator+(const QSize &s1, const QSize &s2)
+    address = Rituals.call(
+        'ritual_ZplRK5QSizeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(s2),
+    )
+    return QSize._cuteOwning(address)
+
+  @overload.fallback
+  def __add__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __sub__(self, s2: QSize) -> QSize:
+    """
+    Calls Qt's 'QSize operator-(const QSize &s1, const QSize &s2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#operator-
+
+    Parameters
+    ----------
+
+    s2 : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize operator-(const QSize &s1, const QSize &s2)
+    address = Rituals.call(
+        'ritual_ZmiRK5QSizeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(s2),
+    )
+    return QSize._cuteOwning(address)
+
+  @overload.fallback
+  def __sub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __mul__(self, c: float) -> QSize:
+    """
+    Calls Qt's 'QSize operator*(const QSize &s, qreal c)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#operator*
+
+    Parameters
+    ----------
+
+    c : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize operator*(const QSize &s, qreal c)
+    address = Rituals.call(
+        'ritual_ZmlRK5QSized', CuteMixin._valueOf(self), c,
+    )
+    return QSize._cuteOwning(address)
+
+  @overload.fallback
+  def __mul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __rmul__(self, c: float) -> QSize:
+    """
+    Calls Qt's 'QSize operator*(qreal c, const QSize &s)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#operator*
+
+    Parameters
+    ----------
+
+    c : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize operator*(qreal c, const QSize &s)
+    address = Rituals.call(
+        'ritual_ZmldRK5QSize', c, CuteMixin._valueOf(self),
+    )
+    return QSize._cuteOwning(address)
+
+  @overload.fallback
+  def __rmul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __truediv__(self, c: float) -> QSize:
+    """
+    Calls Qt's 'QSize operator/(const QSize &s, qreal c)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsize.html#operator/
+
+    Parameters
+    ----------
+
+    c : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize operator/(const QSize &s, qreal c)
+    address = Rituals.call(
+        'ritual_ZdvRK5QSized', CuteMixin._valueOf(self), c,
+    )
+    return QSize._cuteOwning(address)
+
+  @overload.fallback
+  def __truediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

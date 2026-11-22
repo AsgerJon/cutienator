@@ -171,6 +171,13 @@ class RitualGenerator:
     ValueError
       The text has no pair of brackets holding what the function takes.
     """
+    #  The compiler may write 'noexcept(true)' where the header says
+    #  'noexcept' with a condition. It is the word 'noexcept' here.
+    marker = functionType.rfind(' noexcept(')
+    if marker >= 0 and functionType.endswith(')'):
+      inside = functionType[marker + len(' noexcept('):-1]
+      if inside.count('(') == inside.count(')'):
+        functionType = '%s noexcept' % functionType[:marker]
     close = functionType.rfind(')')
     depth, start = 0, -1
     for index in range(close, -1, -1):
@@ -221,6 +228,13 @@ class RitualGenerator:
   #  The class of Qt that is text, and the classes of Qt that look at
   #  text held elsewhere. A ritual takes a 'QString' for each of them.
   __text_name__ = 'QString'
+  #  The operators that change the object they are called on and give
+  #  that very object back, as 'a += b'.
+  __in_place_operators__ = (
+      'operator+=', 'operator-=', 'operator*=', 'operator/=',
+      'operator%=', 'operator&=', 'operator|=', 'operator^=',
+      'operator<<=', 'operator>>=',
+  )
   __view_names__ = ('QAnyStringView', 'QStringView')
 
   #  How C++ reads the type of the combinations of a flags enum, as
@@ -397,6 +411,34 @@ class RitualGenerator:
         infoSpec = """a template: a pattern and no single function"""
         unwritten.append((self._showTemplate(member), infoSpec))
         continue
+      if kind == 'FriendDecl':
+        #  A function Qt writes inside the class with 'friend' in front
+        #  belongs to no object: it takes everything it works on as
+        #  arguments. Qt writes most operators that way, as
+        #  'operator+(const QPoint &p1, const QPoint &p2)', and those
+        #  are taken. The other friends are helpers of Qt's own.
+        for friend in member.get('inner', ()):
+          if not isinstance(friend, dict) or friend.get('isImplicit'):
+            continue
+          if friend.get('kind') != 'FunctionDecl':
+            continue
+          if not friend.get('name', '').startswith('operator'):
+            continue
+          plan = self._planFunction(friend, friend=True)
+          reason = self._findReason(plan, friend, 'public', (), False, ())
+          owner = self._findFriendOwner(friend, plan)
+          if not reason and owner != className:
+            #  Two classes may each declare one and the same operator, as
+            #  'QVector4D * QMatrix4x4'. It is one function of C++, so it
+            #  gets one ritual, with the class that stands first in it.
+            infoSpec = """written with the class '%s', which declares it
+            as well and stands first in it"""
+            reason = ' '.join((infoSpec % owner).split())
+          if reason:
+            unwritten.append((plan['function'], reason))
+          else:
+            written.append(plan)
+        continue
       if kind not in self.__function_kinds__:
         continue
       plan = self._planFunction(member)
@@ -419,6 +461,37 @@ class RitualGenerator:
     self.__written_rituals__ = (*written,)
     self.__unwritten_functions__ = (*unwritten,)
 
+  def _findFriendOwner(self, friend: Record, plan: Record) -> str:
+    """
+    Gives the class an operator written with 'friend' gets its ritual
+    with: of the classes that declare it in their body, the one that
+    stands first among its arguments. For an operator no other class
+    declares, that is this class.
+    """
+    className, tree = self.getClassName(), self.getDependencyTree()
+    compilerName = friend.get('mangledName', None)
+    if compilerName is None:
+      return className
+    for argument in plan['arguments']:
+      otherName = argument['passing'].get('className', None)
+      if argument['passing'].get('kind') != 'value' or otherName is None:
+        continue
+      if otherName == className:
+        return className
+      try:
+        record = tree.getClassRecord(otherName)
+      except ValueError:
+        continue
+      for member in record.get('inner', ()):
+        if member.get('kind') != 'FriendDecl':
+          continue
+        for declared in member.get('inner', ()):
+          if not isinstance(declared, dict):
+            continue
+          if declared.get('mangledName', None) == compilerName:
+            return otherName
+    return className
+
   def getWritten(self, **kwargs) -> Rituals:
     """
     Gives the rituals of the class: one for each function the generator
@@ -436,7 +509,8 @@ class RitualGenerator:
       'ritualName': its name, as 'ritual_ZNK7QObject6parentEv'.
       'function': the Qt function it calls, as C++ writes it.
       'kind': 'constructor', 'destructor', 'method', 'static method',
-      or 'cast' for a ritual of 'getFurtherBases'.
+      'friend' for an operator Qt writes with 'friend' in the class, or
+      'cast' for a ritual of 'getFurtherBases'.
       'gives': the type the ritual gives back, as C++ writes it.
       'takes': what the ritual takes, in order, each as a name and a
       type. For a ritual on an object the first is 'self', the address
@@ -1029,14 +1103,19 @@ class RitualGenerator:
     """Names a template of the class, as 'QObject::findChild'."""
     return '%s::%s' % (self.getClassName(), member.get('name', ''))
 
-  def _planFunction(self, member: Record) -> Record:
+  def _planFunction(self, member: Record, **kwargs) -> Record:
     """
     Works out the ritual of one function of the class, whether or not
     it can be written: its name, what it takes and gives, its row and
-    its text.
+    its text. The keyword 'friend=True' says the function is one Qt
+    writes inside the class with 'friend' in front, which belongs to
+    no object and is called by its bare name.
     """
     className = self.getClassName()
-    kind = self.__function_kinds__[member['kind']]
+    if kwargs.get('friend', False):
+      kind = 'friend'
+    else:
+      kind = self.__function_kinds__[member['kind']]
     if kind == 'method' and member.get('storageClass') == 'static':
       kind = 'static method'
     functionType = member['type']['qualType']
@@ -1066,8 +1145,11 @@ class RitualGenerator:
             default = child
       arguments.append((name, cppType['qualType'], plain, default))
     shown = ', '.join(self._joinType(t, n) for n, t, _, _ in arguments)
-    shown = '%s::%s(%s)' % (className, member['name'], shown)
-    if kind in ('method', 'static method'):
+    if kind == 'friend':
+      shown = '%s(%s)' % (member['name'], shown)
+    else:
+      shown = '%s::%s(%s)' % (className, member['name'], shown)
+    if kind in ('method', 'static method', 'friend'):
       shown = self._joinType(given, shown)
     if 'const' in words:
       shown = '%s const' % shown
@@ -1118,6 +1200,7 @@ class RitualGenerator:
       row.append(passing['word'])
     opening, closing = '', ');'
     giving = None  # type: Optional[Record]
+    inPlace = False
     if kind == 'constructor':
       given, gives = '%s *' % className, 'address'
       opening, called = 'return ', 'new %s' % className
@@ -1132,13 +1215,21 @@ class RitualGenerator:
         #  after that type, and the header may shorten the name of the
         #  type as it may anywhere inside the class.
         ownName = 'operator %s' % self._spellOutside(plainGiven)
-      if kind == 'static method':
+      if kind == 'friend':
+        #  C++ finds it by what it is handed, so the bare name is called.
+        called = ownName
+      elif kind == 'static method':
         called = '%s::%s' % (className, ownName)
       else:
         const = 'const ' if 'const' in words else ''
         takes.insert(0, ('self', '%s%s *' % (const, className)))
         row.insert(0, 'address')
         called = 'self->%s' % ownName
+        ownType = '%s &' % className
+        if ownName in self.__in_place_operators__ and given == ownType:
+          #  'a += b' changes 'a' and gives 'a' itself back. The ritual
+          #  gives nothing, and the cute function gives its object.
+          given, plainGiven, inPlace = 'void', 'void', True
       giving = self._findPassing(given, self._spellOutside(plainGiven))
       if giving and giving['kind'] in ('number address', 'texts address'):
         #  The number itself, to be changed where it is, is not given
@@ -1179,6 +1270,7 @@ class RitualGenerator:
         unsureNumbers=(*dict.fromkeys(unsure),),
         words=(*words,), variadic='...' in taken,
         name=member['name'], arguments=(*noted,), giving=giving,
+        inPlace=inPlace,
     )
     if kind == 'destructor':
       body = ['  delete self;']

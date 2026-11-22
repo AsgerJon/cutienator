@@ -635,6 +635,444 @@ QLatin1String *ritual_ZNK13QLatin1String7trimmedEv(
   return new QLatin1String(self->trimmed());
 }
 
+//  bool operator==(const QLatin1StringView &lhs, const QLatin1StringView
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK13QLatin1StringS1_(
+    const QLatin1String *lhs,
+    const QLatin1String *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QLatin1StringView &lhs, const QLatin1StringView
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK13QLatin1StringS1_(
+    const QLatin1String *lhs,
+    const QLatin1String *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QLatin1StringView &lhs, const QLatin1StringView
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK13QLatin1StringS1_(
+    const QLatin1String *lhs,
+    const QLatin1String *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QLatin1StringView &lhs, const QLatin1StringView
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK13QLatin1StringS1_(
+    const QLatin1String *lhs,
+    const QLatin1String *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QLatin1StringView &lhs, const QLatin1StringView
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK13QLatin1StringS1_(
+    const QLatin1String *lhs,
+    const QLatin1String *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QLatin1StringView &lhs, const QLatin1StringView
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK13QLatin1StringS1_(
+    const QLatin1String *lhs,
+    const QLatin1String *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const QLatin1StringView &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK13QLatin1StringRK5QChar(
+    const QLatin1String *lhs,
+    const QChar *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QLatin1StringView &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK13QLatin1StringRK5QChar(
+    const QLatin1String *lhs,
+    const QChar *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QLatin1StringView &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK13QLatin1StringRK5QChar(
+    const QLatin1String *lhs,
+    const QChar *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QLatin1StringView &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK13QLatin1StringRK5QChar(
+    const QLatin1String *lhs,
+    const QChar *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QLatin1StringView &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK13QLatin1StringRK5QChar(
+    const QLatin1String *lhs,
+    const QChar *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QLatin1StringView &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK13QLatin1StringRK5QChar(
+    const QLatin1String *lhs,
+    const QChar *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const QChar &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK5QCharRK13QLatin1String(
+    const QChar *lhs,
+    const QLatin1String *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QChar &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK5QCharRK13QLatin1String(
+    const QChar *lhs,
+    const QLatin1String *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QChar &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK5QCharRK13QLatin1String(
+    const QChar *lhs,
+    const QLatin1String *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QChar &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK5QCharRK13QLatin1String(
+    const QChar *lhs,
+    const QLatin1String *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QChar &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK5QCharRK13QLatin1String(
+    const QChar *lhs,
+    const QLatin1String *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QChar &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK5QCharRK13QLatin1String(
+    const QChar *lhs,
+    const QLatin1String *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const QLatin1StringView &lhs, const QStringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK13QLatin1StringRK11QStringView(
+    const QLatin1String *lhs,
+    const QString *rhs) {
+  return operator==(*lhs, QStringView(*rhs));
+}
+
+//  bool operator!=(const QLatin1StringView &lhs, const QStringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK13QLatin1StringRK11QStringView(
+    const QLatin1String *lhs,
+    const QString *rhs) {
+  return operator!=(*lhs, QStringView(*rhs));
+}
+
+//  bool operator<(const QLatin1StringView &lhs, const QStringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK13QLatin1StringRK11QStringView(
+    const QLatin1String *lhs,
+    const QString *rhs) {
+  return operator<(*lhs, QStringView(*rhs));
+}
+
+//  bool operator>(const QLatin1StringView &lhs, const QStringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK13QLatin1StringRK11QStringView(
+    const QLatin1String *lhs,
+    const QString *rhs) {
+  return operator>(*lhs, QStringView(*rhs));
+}
+
+//  bool operator<=(const QLatin1StringView &lhs, const QStringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK13QLatin1StringRK11QStringView(
+    const QLatin1String *lhs,
+    const QString *rhs) {
+  return operator<=(*lhs, QStringView(*rhs));
+}
+
+//  bool operator>=(const QLatin1StringView &lhs, const QStringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK13QLatin1StringRK11QStringView(
+    const QLatin1String *lhs,
+    const QString *rhs) {
+  return operator>=(*lhs, QStringView(*rhs));
+}
+
+//  bool operator==(const QStringView &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK11QStringViewRK13QLatin1String(
+    const QString *lhs,
+    const QLatin1String *rhs) {
+  return operator==(QStringView(*lhs), *rhs);
+}
+
+//  bool operator!=(const QStringView &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK11QStringViewRK13QLatin1String(
+    const QString *lhs,
+    const QLatin1String *rhs) {
+  return operator!=(QStringView(*lhs), *rhs);
+}
+
+//  bool operator<(const QStringView &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK11QStringViewRK13QLatin1String(
+    const QString *lhs,
+    const QLatin1String *rhs) {
+  return operator<(QStringView(*lhs), *rhs);
+}
+
+//  bool operator>(const QStringView &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK11QStringViewRK13QLatin1String(
+    const QString *lhs,
+    const QLatin1String *rhs) {
+  return operator>(QStringView(*lhs), *rhs);
+}
+
+//  bool operator<=(const QStringView &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK11QStringViewRK13QLatin1String(
+    const QString *lhs,
+    const QLatin1String *rhs) {
+  return operator<=(QStringView(*lhs), *rhs);
+}
+
+//  bool operator>=(const QStringView &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK11QStringViewRK13QLatin1String(
+    const QString *lhs,
+    const QLatin1String *rhs) {
+  return operator>=(QStringView(*lhs), *rhs);
+}
+
+//  bool operator==(const QLatin1StringView &lhs, const QByteArrayView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK13QLatin1StringRK14QByteArrayView(
+    const QLatin1String *lhs,
+    const QByteArrayView *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QLatin1StringView &lhs, const QByteArrayView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK13QLatin1StringRK14QByteArrayView(
+    const QLatin1String *lhs,
+    const QByteArrayView *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QLatin1StringView &lhs, const QByteArrayView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK13QLatin1StringRK14QByteArrayView(
+    const QLatin1String *lhs,
+    const QByteArrayView *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QLatin1StringView &lhs, const QByteArrayView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK13QLatin1StringRK14QByteArrayView(
+    const QLatin1String *lhs,
+    const QByteArrayView *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QLatin1StringView &lhs, const QByteArrayView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK13QLatin1StringRK14QByteArrayView(
+    const QLatin1String *lhs,
+    const QByteArrayView *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QLatin1StringView &lhs, const QByteArrayView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK13QLatin1StringRK14QByteArrayView(
+    const QLatin1String *lhs,
+    const QByteArrayView *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const QByteArrayView &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK14QByteArrayViewRK13QLatin1String(
+    const QByteArrayView *lhs,
+    const QLatin1String *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QByteArrayView &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK14QByteArrayViewRK13QLatin1String(
+    const QByteArrayView *lhs,
+    const QLatin1String *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QByteArrayView &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK14QByteArrayViewRK13QLatin1String(
+    const QByteArrayView *lhs,
+    const QLatin1String *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QByteArrayView &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK14QByteArrayViewRK13QLatin1String(
+    const QByteArrayView *lhs,
+    const QLatin1String *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QByteArrayView &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK14QByteArrayViewRK13QLatin1String(
+    const QByteArrayView *lhs,
+    const QLatin1String *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QByteArrayView &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK14QByteArrayViewRK13QLatin1String(
+    const QByteArrayView *lhs,
+    const QLatin1String *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const QLatin1StringView &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK13QLatin1StringRK10QByteArray(
+    const QLatin1String *lhs,
+    const QByteArray *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QLatin1StringView &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK13QLatin1StringRK10QByteArray(
+    const QLatin1String *lhs,
+    const QByteArray *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QLatin1StringView &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK13QLatin1StringRK10QByteArray(
+    const QLatin1String *lhs,
+    const QByteArray *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QLatin1StringView &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK13QLatin1StringRK10QByteArray(
+    const QLatin1String *lhs,
+    const QByteArray *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QLatin1StringView &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK13QLatin1StringRK10QByteArray(
+    const QLatin1String *lhs,
+    const QByteArray *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QLatin1StringView &lhs, const QByteArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK13QLatin1StringRK10QByteArray(
+    const QLatin1String *lhs,
+    const QByteArray *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const QByteArray &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK10QByteArrayRK13QLatin1String(
+    const QByteArray *lhs,
+    const QLatin1String *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QByteArray &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK10QByteArrayRK13QLatin1String(
+    const QByteArray *lhs,
+    const QLatin1String *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QByteArray &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK10QByteArrayRK13QLatin1String(
+    const QByteArray *lhs,
+    const QLatin1String *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QByteArray &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK10QByteArrayRK13QLatin1String(
+    const QByteArray *lhs,
+    const QLatin1String *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QByteArray &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK10QByteArrayRK13QLatin1String(
+    const QByteArray *lhs,
+    const QLatin1String *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QByteArray &lhs, const QLatin1StringView &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK10QByteArrayRK13QLatin1String(
+    const QByteArray *lhs,
+    const QLatin1String *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
 //  QLatin1String::~QLatin1String()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QLatin1StringD1Ev(QLatin1String *self) {

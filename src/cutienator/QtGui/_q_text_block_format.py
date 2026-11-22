@@ -52,7 +52,7 @@ class QTextBlockFormat(QTextFormat):
   What has no ritual
   ------------------
 
-  3 of the 32 functions Qt declares: 2 takes or gives a type that cannot be
+  5 of the 34 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 1 protected.
 
   What to expect

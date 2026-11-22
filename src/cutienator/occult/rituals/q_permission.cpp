@@ -2,6 +2,7 @@
 //  QtCore/qpermissions.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qpermissions.h>
 #include <QtCore/qmetatype.h>
+#include <QtCore/qdebug.h>
 
 //  QPermission::QPermission()
 extern "C" Q_DECL_EXPORT
@@ -20,6 +21,14 @@ Qt::PermissionStatus ritual_ZNK11QPermission6statusEv(
 extern "C" Q_DECL_EXPORT
 QMetaType *ritual_ZNK11QPermission4typeEv(const QPermission *self) {
   return new QMetaType(self->type());
+}
+
+//  QDebug operator<<(QDebug debug, const QPermission &a1)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK11QPermission(
+    const QDebug *debug,
+    const QPermission *a1) {
+  return new QDebug(operator<<(*debug, *a1));
 }
 
 //  QPermission::~QPermission()

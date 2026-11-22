@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
@@ -37,20 +38,16 @@ class QGradient(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QGradient that has a ritual and that Python can call
-  so far, 8 names in all: 'type', 'setSpread', 'spread', 'setColorAt',
+  so far, 10 names in all: 'type', 'setSpread', 'spread', 'setColorAt',
   'coordinateMode', 'setCoordinateMode', 'interpolationMode',
-  'setInterpolationMode'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'setInterpolationMode', '__eq__', '__ne__'. It can be made from Python, in
+  2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QGradient::~QGradient()': the destructor: Python removes its C++
     QGradient by it, and has no other use for it.
-  - Qt's 'bool QGradient::operator==(const QGradient &gradient) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QGradient::operator!=(const QGradient &other) const': an
-    operator, which is not reflected yet.
 
   What has no ritual
   ------------------
@@ -582,6 +579,62 @@ class QGradient(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, gradient: QGradient) -> bool:
+    """
+    Calls Qt's 'bool QGradient::operator==(const QGradient &gradient) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgradient.html#operator==
+
+    Parameters
+    ----------
+
+    gradient : QGradient
+      Passed on as a value: Qt reads the C++ QGradient, which stays Python's
+      own.
+    """
+    #  bool QGradient::operator==(const QGradient &gradient) const
+    return self.uglySide.call(
+        'ritual_ZNK9QGradienteqERKS_', self._valueOf(gradient),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, other: QGradient) -> bool:
+    """
+    Calls Qt's 'bool QGradient::operator!=(const QGradient &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgradient.html#operator!=
+
+    Parameters
+    ----------
+
+    other : QGradient
+      Passed on as a value: Qt reads the C++ QGradient, which stays Python's
+      own.
+    """
+    #  bool QGradient::operator!=(const QGradient &other) const
+    return self.uglySide.call(
+        'ritual_ZNK9QGradientneERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

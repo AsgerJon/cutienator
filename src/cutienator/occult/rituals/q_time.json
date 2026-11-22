@@ -41,6 +41,12 @@
     ],
     "ritual_ZN5QTime10fromStringERK7QStringS2_": ["address", "text", "text"],
     "ritual_ZN5QTime7isValidEiiii": ["bool", "int", "int", "int", "int"],
+    "ritual_ZeqRK5QTimeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK5QTimeS1_": ["bool", "address", "address"],
+    "ritual_ZltRK5QTimeS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK5QTimeS1_": ["bool", "address", "address"],
+    "ritual_ZleRK5QTimeS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK5QTimeS1_": ["bool", "address", "address"],
     "ritual_ZN5QTimeD1Ev": ["nothing", "address"]
   }
 }

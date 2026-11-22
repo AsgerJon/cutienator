@@ -5,6 +5,9 @@
   ],
   "rows": {
     "ritual_ZNK11QPageRanges5Range8containsEi": ["bool", "address", "int"],
+    "ritual_ZeqN11QPageRanges5RangeES0_": ["bool", "address", "address"],
+    "ritual_ZneN11QPageRanges5RangeES0_": ["bool", "address", "address"],
+    "ritual_ZltN11QPageRanges5RangeES0_": ["bool", "address", "address"],
     "ritual_ZN11QPageRanges5RangeD1Ev": ["nothing", "address"]
   }
 }

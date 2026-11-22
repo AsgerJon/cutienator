@@ -49,41 +49,25 @@ class QRegion(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRegion that has a ritual and that Python can call
-  so far, 17 names in all: 'isEmpty', 'isNull', 'begin', 'cbegin', 'end',
+  so far, 29 names in all: 'isEmpty', 'isNull', 'begin', 'cbegin', 'end',
   'cend', 'contains', 'translate', 'translated', 'united', 'intersected',
   'subtracted', 'xored', 'intersects', 'boundingRect', 'setRects',
-  'rectCount'. It can be made from Python, in 6 ways; see '__init__'.
+  'rectCount', '__or__', '__add__', '__and__', '__sub__', '__xor__',
+  '__ior__', '__iadd__', '__iand__', '__isub__', '__ixor__', '__eq__',
+  '__ne__'. It can be made from Python, in 6 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QRegion::~QRegion()': the destructor: Python removes its C++
     QRegion by it, and has no other use for it.
-  - Qt's 'QRegion QRegion::operator|(const QRegion &r) const': an operator,
-    which is not reflected yet.
-  - Qt's 'QRegion QRegion::operator+(const QRegion &r) const': an operator,
-    which is not reflected yet.
-  - Qt's 'QRegion QRegion::operator+(const QRect &r) const': an operator,
-    which is not reflected yet.
-  - Qt's 'QRegion QRegion::operator&(const QRegion &r) const': an operator,
-    which is not reflected yet.
-  - Qt's 'QRegion QRegion::operator&(const QRect &r) const': an operator,
-    which is not reflected yet.
-  - Qt's 'QRegion QRegion::operator-(const QRegion &r) const': an operator,
-    which is not reflected yet.
-  - Qt's 'QRegion QRegion::operator^(const QRegion &r) const': an operator,
-    which is not reflected yet.
-  - Qt's 'bool QRegion::operator==(const QRegion &r) const': an operator,
-    which is not reflected yet.
-  - Qt's 'bool QRegion::operator!=(const QRegion &r) const': an operator,
-    which is not reflected yet.
-  - Qt's 'QVariant QRegion::operator QVariant() const': an operator, which is
-    not reflected yet.
+  - Qt's 'QVariant QRegion::operator QVariant() const': an operator Python
+    has no name for.
 
   What has no ritual
   ------------------
 
-  21 of the 61 functions Qt declares: 17 takes or gives a type that cannot be
+  16 of the 63 functions Qt declares: 12 takes or gives a type that cannot be
   passed yet; 4 private.
 
   What to expect
@@ -568,6 +552,452 @@ class QRegion(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __or__(self, r: QRegion) -> QRegion:
+    """
+    Calls Qt's 'QRegion QRegion::operator|(const QRegion &r) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator|
+
+    Parameters
+    ----------
+
+    r : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QRegion::operator|(const QRegion &r) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QRegionorERKS_', self._valueOf(r),
+    )
+    return QRegion._cuteOwning(address)
+
+  @overload.fallback
+  def __or__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __add__(self, r: QRegion) -> QRegion:
+    """
+    Calls Qt's 'QRegion QRegion::operator+(const QRegion &r) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator+
+
+    Parameters
+    ----------
+
+    r : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QRegion::operator+(const QRegion &r) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QRegionplERKS_', self._valueOf(r),
+    )
+    return QRegion._cuteOwning(address)
+
+  @overload(QRect)
+  def __add__(self, r: QRect) -> QRegion:
+    """
+    Calls Qt's 'QRegion QRegion::operator+(const QRect &r) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator+
+
+    Parameters
+    ----------
+
+    r : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QRegion::operator+(const QRect &r) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QRegionplERK5QRect', self._valueOf(r),
+    )
+    return QRegion._cuteOwning(address)
+
+  @overload.fallback
+  def __add__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __and__(self, r: QRegion) -> QRegion:
+    """
+    Calls Qt's 'QRegion QRegion::operator&(const QRegion &r) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator&
+
+    Parameters
+    ----------
+
+    r : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QRegion::operator&(const QRegion &r) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QRegionanERKS_', self._valueOf(r),
+    )
+    return QRegion._cuteOwning(address)
+
+  @overload(QRect)
+  def __and__(self, r: QRect) -> QRegion:
+    """
+    Calls Qt's 'QRegion QRegion::operator&(const QRect &r) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator&
+
+    Parameters
+    ----------
+
+    r : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QRegion::operator&(const QRect &r) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QRegionanERK5QRect', self._valueOf(r),
+    )
+    return QRegion._cuteOwning(address)
+
+  @overload.fallback
+  def __and__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __sub__(self, r: QRegion) -> QRegion:
+    """
+    Calls Qt's 'QRegion QRegion::operator-(const QRegion &r) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator-
+
+    Parameters
+    ----------
+
+    r : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QRegion::operator-(const QRegion &r) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QRegionmiERKS_', self._valueOf(r),
+    )
+    return QRegion._cuteOwning(address)
+
+  @overload.fallback
+  def __sub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __xor__(self, r: QRegion) -> QRegion:
+    """
+    Calls Qt's 'QRegion QRegion::operator^(const QRegion &r) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator^
+
+    Parameters
+    ----------
+
+    r : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QRegion::operator^(const QRegion &r) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QRegioneoERKS_', self._valueOf(r),
+    )
+    return QRegion._cuteOwning(address)
+
+  @overload.fallback
+  def __xor__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ior__(self, r: QRegion) -> QRegion:
+    """
+    Calls Qt's 'QRegion &QRegion::operator|=(const QRegion &r)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator|=
+
+    Parameters
+    ----------
+
+    r : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+    """
+    #  QRegion &QRegion::operator|=(const QRegion &r)
+    self.uglySide.call('ritual_ZN7QRegionoRERKS_', self._valueOf(r))
+    return self
+
+  @overload.fallback
+  def __ior__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __iadd__(self, r: QRegion) -> QRegion:
+    """
+    Calls Qt's 'QRegion &QRegion::operator+=(const QRegion &r)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator+=
+
+    Parameters
+    ----------
+
+    r : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+    """
+    #  QRegion &QRegion::operator+=(const QRegion &r)
+    self.uglySide.call('ritual_ZN7QRegionpLERKS_', self._valueOf(r))
+    return self
+
+  @overload(QRect)
+  def __iadd__(self, r: QRect) -> QRegion:
+    """
+    Calls Qt's 'QRegion &QRegion::operator+=(const QRect &r)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator+=
+
+    Parameters
+    ----------
+
+    r : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  QRegion &QRegion::operator+=(const QRect &r)
+    self.uglySide.call('ritual_ZN7QRegionpLERK5QRect', self._valueOf(r))
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __iand__(self, r: QRegion) -> QRegion:
+    """
+    Calls Qt's 'QRegion &QRegion::operator&=(const QRegion &r)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator&=
+
+    Parameters
+    ----------
+
+    r : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+    """
+    #  QRegion &QRegion::operator&=(const QRegion &r)
+    self.uglySide.call('ritual_ZN7QRegionaNERKS_', self._valueOf(r))
+    return self
+
+  @overload(QRect)
+  def __iand__(self, r: QRect) -> QRegion:
+    """
+    Calls Qt's 'QRegion &QRegion::operator&=(const QRect &r)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator&=
+
+    Parameters
+    ----------
+
+    r : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  QRegion &QRegion::operator&=(const QRect &r)
+    self.uglySide.call('ritual_ZN7QRegionaNERK5QRect', self._valueOf(r))
+    return self
+
+  @overload.fallback
+  def __iand__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __isub__(self, r: QRegion) -> QRegion:
+    """
+    Calls Qt's 'QRegion &QRegion::operator-=(const QRegion &r)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator-=
+
+    Parameters
+    ----------
+
+    r : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+    """
+    #  QRegion &QRegion::operator-=(const QRegion &r)
+    self.uglySide.call('ritual_ZN7QRegionmIERKS_', self._valueOf(r))
+    return self
+
+  @overload.fallback
+  def __isub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ixor__(self, r: QRegion) -> QRegion:
+    """
+    Calls Qt's 'QRegion &QRegion::operator^=(const QRegion &r)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator^=
+
+    Parameters
+    ----------
+
+    r : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+    """
+    #  QRegion &QRegion::operator^=(const QRegion &r)
+    self.uglySide.call('ritual_ZN7QRegioneOERKS_', self._valueOf(r))
+    return self
+
+  @overload.fallback
+  def __ixor__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, r: QRegion) -> bool:
+    """
+    Calls Qt's 'bool QRegion::operator==(const QRegion &r) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator==
+
+    Parameters
+    ----------
+
+    r : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+    """
+    #  bool QRegion::operator==(const QRegion &r) const
+    return self.uglySide.call('ritual_ZNK7QRegioneqERKS_', self._valueOf(r))
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, r: QRegion) -> bool:
+    """
+    Calls Qt's 'bool QRegion::operator!=(const QRegion &r) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#operator!=
+
+    Parameters
+    ----------
+
+    r : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+    """
+    #  bool QRegion::operator!=(const QRegion &r) const
+    return self.uglySide.call('ritual_ZNK7QRegionneERKS_', self._valueOf(r))
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

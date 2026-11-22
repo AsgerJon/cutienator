@@ -42,14 +42,14 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPageLayout that has a ritual and that Python can
-  call so far, 27 names in all: 'isEquivalentTo', 'isValid', 'setMode',
+  call so far, 29 names in all: 'isEquivalentTo', 'isValid', 'setMode',
   'mode', 'setPageSize', 'pageSize', 'setOrientation', 'orientation',
   'setUnits', 'units', 'setMargins', 'setLeftMargin', 'setRightMargin',
   'setTopMargin', 'setBottomMargin', 'margins', 'marginsPoints',
   'marginsPixels', 'setMinimumMargins', 'minimumMargins', 'maximumMargins',
   'fullRect', 'fullRectPoints', 'fullRectPixels', 'paintRect',
-  'paintRectPoints', 'paintRectPixels'. It can be made from Python, in 3
-  ways; see '__init__'.
+  'paintRectPoints', 'paintRectPixels', '__eq__', '__ne__'. It can be made
+  from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,7 +60,7 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 38 functions Qt declares: 3 takes or gives a type that cannot be
+  4 of the 40 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -819,6 +819,66 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QPageLayout) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QPageLayout &lhs, const QPageLayout
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagelayout.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QPageLayout
+      Passed on as a value: Qt reads the C++ QPageLayout, which stays
+      Python's own.
+    """
+    #  bool operator==(const QPageLayout &lhs, const QPageLayout &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK11QPageLayoutS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QPageLayout) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QPageLayout &lhs, const QPageLayout
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagelayout.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QPageLayout
+      Passed on as a value: Qt reads the C++ QPageLayout, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QPageLayout &lhs, const QPageLayout &rhs)
+    return Rituals.call(
+        'ritual_ZneRK11QPageLayoutS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -11,12 +11,17 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QMetaType
+  from . import QDebug, QMetaType
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QDebug = WAIT['QDebug']
 
 
 class QPermission(CuteMixin, metaclass=MetaCute):
@@ -32,8 +37,8 @@ class QPermission(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPermission that has a ritual and that Python can
-  call so far, 2 names in all: 'status', 'type'. It can be made from Python,
-  in 1 way; see '__init__'.
+  call so far, 3 names in all: 'status', 'type', '__rlshift__'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -44,7 +49,7 @@ class QPermission(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 7 functions Qt declares: 2 a template; 1 private.
+  3 of the 8 functions Qt declares: 2 a template; 1 private.
 
   What to expect
   --------------
@@ -135,6 +140,43 @@ class QPermission(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QDebug)
+  def __rlshift__(self, debug: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug debug, const QPermission &a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpermission.html#operator<<
+
+    Parameters
+    ----------
+
+    debug : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug debug, const QPermission &a1)
+    address = Rituals.call(
+        'ritual_Zls6QDebugRK11QPermission',
+        CuteMixin._valueOf(debug), CuteMixin._valueOf(self),
+    )
+    from . import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

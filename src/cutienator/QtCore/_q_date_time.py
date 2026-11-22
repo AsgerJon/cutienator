@@ -18,13 +18,14 @@ from ..occult import Rituals
 from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QCalendar, QDate, QTime, QTimeZone
+  from . import QCalendar, QDate, QDebug, QTime, QTimeZone
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QCalendar = WAIT['QCalendar']
   QDate = WAIT['QDate']
+  QDebug = WAIT['QDebug']
   QTime = WAIT['QTime']
   QTimeZone = WAIT['QTimeZone']
 
@@ -42,7 +43,7 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QDateTime that has a ritual and that Python can call
-  so far, 40 names in all: 'isNull', 'isValid', 'date', 'time', 'timeSpec',
+  so far, 47 names in all: 'isNull', 'isValid', 'date', 'time', 'timeSpec',
   'offsetFromUtc', 'timeRepresentation', 'timeZone', 'timeZoneAbbreviation',
   'isDaylightTime', 'toMSecsSinceEpoch', 'toSecsSinceEpoch', 'setDate',
   'setTime', 'setTimeSpec', 'setOffsetFromUtc', 'setTimeZone',
@@ -51,7 +52,8 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
   'toLocalTime', 'toUTC', 'toOffsetFromUtc', 'toTimeZone', 'daysTo',
   'secsTo', 'msecsTo', 'currentDateTime', 'currentDateTimeUtc', 'fromString',
   'fromMSecsSinceEpoch', 'fromSecsSinceEpoch', 'currentMSecsSinceEpoch',
-  'currentSecsSinceEpoch'. It can be made from Python, in 5 ways; see
+  'currentSecsSinceEpoch', '__eq__', '__ne__', '__lt__', '__gt__', '__le__',
+  '__ge__', '__rlshift__'. It can be made from Python, in 5 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
@@ -96,7 +98,7 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  9 of the 74 functions Qt declares: 8 takes or gives a type that cannot be
+  15 of the 87 functions Qt declares: 14 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -1297,6 +1299,217 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QDateTime) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QDateTime &lhs, const QDateTime &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+    """
+    #  bool operator==(const QDateTime &lhs, const QDateTime &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK9QDateTimeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QDateTime) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QDateTime &lhs, const QDateTime &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QDateTime &lhs, const QDateTime &rhs)
+    return Rituals.call(
+        'ritual_ZneRK9QDateTimeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QDateTime) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QDateTime &lhs, const QDateTime &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+    """
+    #  bool operator<(const QDateTime &lhs, const QDateTime &rhs)
+    return Rituals.call(
+        'ritual_ZltRK9QDateTimeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QDateTime) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QDateTime &lhs, const QDateTime &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+    """
+    #  bool operator>(const QDateTime &lhs, const QDateTime &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK9QDateTimeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QDateTime) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QDateTime &lhs, const QDateTime &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+    """
+    #  bool operator<=(const QDateTime &lhs, const QDateTime &rhs)
+    return Rituals.call(
+        'ritual_ZleRK9QDateTimeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QDateTime) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QDateTime &lhs, const QDateTime &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+    """
+    #  bool operator>=(const QDateTime &lhs, const QDateTime &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK9QDateTimeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QDebug)
+  def __rlshift__(self, a0: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug a0, const QDateTime &a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#operator<<
+
+    Parameters
+    ----------
+
+    a0 : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug a0, const QDateTime &a1)
+    address = Rituals.call(
+        'ritual_Zls6QDebugRK9QDateTime',
+        CuteMixin._valueOf(a0), CuteMixin._valueOf(self),
+    )
+    from . import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

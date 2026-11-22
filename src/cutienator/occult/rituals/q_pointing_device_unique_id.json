@@ -12,6 +12,8 @@
     "ritual_ZNK23QPointingDeviceUniqueId9numericIdEv": [
       "long long", "address"
     ],
+    "ritual_Zeq23QPointingDeviceUniqueIdS_": ["bool", "address", "address"],
+    "ritual_Zne23QPointingDeviceUniqueIdS_": ["bool", "address", "address"],
     "ritual_ZN23QPointingDeviceUniqueIdD1Ev": ["nothing", "address"]
   }
 }

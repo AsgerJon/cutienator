@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
@@ -94,21 +95,17 @@ class QTextFrame(QTextObject):
     -----------
 
     Every function of Qt's QTextFrame::iterator that has a ritual and that
-    Python can call so far, 4 names in all: 'parentFrame', 'currentFrame',
-    'currentBlock', 'atEnd'. It can be made from Python, in 1 way; see
-    '__init__'.
+    Python can call so far, 6 names in all: 'parentFrame', 'currentFrame',
+    'currentBlock', 'atEnd', '__eq__', '__ne__'. It can be made from Python,
+    in 1 way; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
-    - Qt's 'bool QTextFrame::iterator::operator==(const iterator &o) const':
-      an operator, which is not reflected yet.
-    - Qt's 'bool QTextFrame::iterator::operator!=(const iterator &o) const':
-      an operator, which is not reflected yet.
-    - Qt's 'iterator QTextFrame::iterator::operator++(int a0)': an operator,
-      which is not reflected yet.
-    - Qt's 'iterator QTextFrame::iterator::operator--(int a0)': an operator,
-      which is not reflected yet.
+    - Qt's 'iterator QTextFrame::iterator::operator++(int a0)': an operator
+      Python has no name for.
+    - Qt's 'iterator QTextFrame::iterator::operator--(int a0)': an operator
+      Python has no name for.
     - Qt's 'QTextFrame::iterator::~iterator()': the destructor: Python
       removes its C++ QTextFrame::iterator by it, and has no other use for
       it.
@@ -242,6 +239,66 @@ class QTextFrame(QTextObject):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(THIS)
+    def __eq__(self, o: QTextFrame.iterator) -> bool:
+      """
+      Calls Qt's 'bool QTextFrame::iterator::operator==(const iterator &o)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextframe-iterator.html#operator==
+
+      Parameters
+      ----------
+
+      o : QTextFrame.iterator
+        Passed on as a value: Qt reads the C++ QTextFrame::iterator, which
+        stays Python's own.
+      """
+      #  bool QTextFrame::iterator::operator==(const iterator &o) const
+      return self.uglySide.call(
+          'ritual_ZNK10QTextFrame8iteratoreqERKS0_', self._valueOf(o),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, o: QTextFrame.iterator) -> bool:
+      """
+      Calls Qt's 'bool QTextFrame::iterator::operator!=(const iterator &o)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextframe-iterator.html#operator!=
+
+      Parameters
+      ----------
+
+      o : QTextFrame.iterator
+        Passed on as a value: Qt reads the C++ QTextFrame::iterator, which
+        stays Python's own.
+      """
+      #  bool QTextFrame::iterator::operator!=(const iterator &o) const
+      return self.uglySide.call(
+          'ritual_ZNK10QTextFrame8iteratorneERKS0_', self._valueOf(o),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

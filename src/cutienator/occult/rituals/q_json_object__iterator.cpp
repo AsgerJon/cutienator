@@ -108,12 +108,172 @@ QJsonObject::iterator *ritual_ZNK11QJsonObject8iteratormiEx(
   return new QJsonObject::iterator(self->operator-(j));
 }
 
+//  iterator &QJsonObject::iterator::operator+=(qsizetype j)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QJsonObject8iteratorpLEx(
+    QJsonObject::iterator *self,
+    qsizetype j) {
+  self->operator+=(j);
+}
+
+//  iterator &QJsonObject::iterator::operator-=(qsizetype j)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QJsonObject8iteratormIEx(
+    QJsonObject::iterator *self,
+    qsizetype j) {
+  self->operator-=(j);
+}
+
 //  qsizetype QJsonObject::iterator::operator-(iterator j) const
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK11QJsonObject8iteratormiES0_(
     const QJsonObject::iterator *self,
     const QJsonObject::iterator *j) {
   return self->operator-(*j);
+}
+
+//  bool operator==(const iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKN11QJsonObject8iteratorES2_(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKN11QJsonObject8iteratorES2_(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKN11QJsonObject8iteratorES2_(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKN11QJsonObject8iteratorES2_(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKN11QJsonObject8iteratorES2_(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKN11QJsonObject8iteratorES2_(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const iterator &lhs, const const_iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKN11QJsonObject8iteratorERKNS_14const_iteratorE(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::const_iterator *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const iterator &lhs, const const_iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKN11QJsonObject8iteratorERKNS_14const_iteratorE(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::const_iterator *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const iterator &lhs, const const_iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKN11QJsonObject8iteratorERKNS_14const_iteratorE(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::const_iterator *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const iterator &lhs, const const_iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKN11QJsonObject8iteratorERKNS_14const_iteratorE(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::const_iterator *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const iterator &lhs, const const_iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKN11QJsonObject8iteratorERKNS_14const_iteratorE(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::const_iterator *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const iterator &lhs, const const_iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKN11QJsonObject8iteratorERKNS_14const_iteratorE(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::const_iterator *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const const_iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKN11QJsonObject14const_iteratorERKNS_8iteratorE(
+    const QJsonObject::const_iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const const_iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKN11QJsonObject14const_iteratorERKNS_8iteratorE(
+    const QJsonObject::const_iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const const_iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKN11QJsonObject14const_iteratorERKNS_8iteratorE(
+    const QJsonObject::const_iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const const_iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKN11QJsonObject14const_iteratorERKNS_8iteratorE(
+    const QJsonObject::const_iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const const_iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKN11QJsonObject14const_iteratorERKNS_8iteratorE(
+    const QJsonObject::const_iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const const_iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKN11QJsonObject14const_iteratorERKNS_8iteratorE(
+    const QJsonObject::const_iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return operator>=(*lhs, *rhs);
 }
 
 //  QJsonObject::iterator::~iterator()

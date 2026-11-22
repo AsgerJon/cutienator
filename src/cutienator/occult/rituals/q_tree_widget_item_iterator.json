@@ -14,7 +14,9 @@
     ],
     "ritual_ZN23QTreeWidgetItemIteratorD1Ev": ["nothing", "address"],
     "ritual_ZN23QTreeWidgetItemIteratorppEi": ["address", "address", "int"],
+    "ritual_ZN23QTreeWidgetItemIteratorpLEi": ["nothing", "address", "int"],
     "ritual_ZN23QTreeWidgetItemIteratormmEi": ["address", "address", "int"],
+    "ritual_ZN23QTreeWidgetItemIteratormIEi": ["nothing", "address", "int"],
     "ritual_ZNK23QTreeWidgetItemIteratordeEv": ["address", "address"]
   }
 }

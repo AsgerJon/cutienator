@@ -72,7 +72,7 @@ class QTextCharFormat(QTextFormat):
   What has no ritual
   ------------------
 
-  8 of the 74 functions Qt declares: 7 takes or gives a type that cannot be
+  10 of the 76 functions Qt declares: 9 takes or gives a type that cannot be
   passed yet; 1 protected.
 
   What to expect

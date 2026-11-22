@@ -74,15 +74,15 @@ class QPixmap(QPaintDevice):
 
   - Qt's 'QPixmap::~QPixmap()': the destructor: Python removes its C++
     QPixmap by it, and has no other use for it.
-  - Qt's 'QVariant QPixmap::operator QVariant() const': an operator, which is
-    not reflected yet.
-  - Qt's 'bool QPixmap::operator!() const': an operator, which is not
-    reflected yet.
+  - Qt's 'QVariant QPixmap::operator QVariant() const': an operator Python
+    has no name for.
+  - Qt's 'bool QPixmap::operator!() const': an operator Python has no name
+    for.
 
   What has no ritual
   ------------------
 
-  17 of the 66 functions Qt declares: 10 takes or gives a type that cannot be
+  18 of the 67 functions Qt declares: 11 takes or gives a type that cannot be
   passed yet; 3 private; 2 forbidden; 2 protected.
 
   What to expect

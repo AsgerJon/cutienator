@@ -123,6 +123,22 @@ const QtMetaContainerPrivate::QMetaAssociationInterface *ritual_ZNK16QMetaAssoci
   return self->iface();
 }
 
+//  bool operator==(const QMetaAssociation &lhs, const QMetaAssociation &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK16QMetaAssociationS1_(
+    const QMetaAssociation *lhs,
+    const QMetaAssociation *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QMetaAssociation &lhs, const QMetaAssociation &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK16QMetaAssociationS1_(
+    const QMetaAssociation *lhs,
+    const QMetaAssociation *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QMetaAssociation::~QMetaAssociation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QMetaAssociationD1Ev(QMetaAssociation *self) {

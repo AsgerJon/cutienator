@@ -152,3 +152,15 @@ QCollatorSortKey *ritual_ZN9QCollator14defaultSortKeyE11QStringView(
     const QString *key) {
   return new QCollatorSortKey(QCollator::defaultSortKey(QStringView(*key)));
 }
+
+//  bool operator==(const QCollator &lhs, const QCollator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK9QCollatorS1_(const QCollator *lhs, const QCollator *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QCollator &lhs, const QCollator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK9QCollatorS1_(const QCollator *lhs, const QCollator *rhs) {
+  return operator!=(*lhs, *rhs);
+}

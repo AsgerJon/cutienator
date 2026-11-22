@@ -17,11 +17,12 @@ from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QPointF
+  from . import QDebug, QPointF
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QDebug = WAIT['QDebug']
   QPointF = WAIT['QPointF']
 
 
@@ -38,10 +39,11 @@ class QEasingCurve(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QEasingCurve that has a ritual and that Python can
-  call so far, 12 names in all: 'amplitude', 'setAmplitude', 'period',
+  call so far, 15 names in all: 'amplitude', 'setAmplitude', 'period',
   'setPeriod', 'overshoot', 'setOvershoot', 'addCubicBezierSegment',
-  'addTCBSegment', 'type', 'setType', 'valueForProgress', 'fromCubicBezier'.
-  It can be made from Python, in 2 ways; see '__init__'.
+  'addTCBSegment', 'type', 'setType', 'valueForProgress', 'fromCubicBezier',
+  '__rlshift__', '__eq__', '__ne__'. It can be made from Python, in 2 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -52,7 +54,7 @@ class QEasingCurve(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  10 of the 25 functions Qt declares: 7 takes or gives a type that cannot be
+  12 of the 30 functions Qt declares: 9 takes or gives a type that cannot be
   passed yet; 1 declared and nowhere to be found; 1 a template; 1 private.
 
   What to expect
@@ -328,6 +330,103 @@ class QEasingCurve(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QDebug)
+  def __rlshift__(self, debug: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug debug, const QEasingCurve &item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qeasingcurve.html#operator<<
+
+    Parameters
+    ----------
+
+    debug : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug debug, const QEasingCurve &item)
+    address = Rituals.call(
+        'ritual_Zls6QDebugRK12QEasingCurve',
+        CuteMixin._valueOf(debug), CuteMixin._valueOf(self),
+    )
+    from . import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, rhs: QEasingCurve) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QEasingCurve &lhs, const QEasingCurve
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qeasingcurve.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QEasingCurve
+      Passed on as a value: Qt reads the C++ QEasingCurve, which stays
+      Python's own.
+    """
+    #  bool operator==(const QEasingCurve &lhs, const QEasingCurve &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK12QEasingCurveS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QEasingCurve) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QEasingCurve &lhs, const QEasingCurve
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qeasingcurve.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QEasingCurve
+      Passed on as a value: Qt reads the C++ QEasingCurve, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QEasingCurve &lhs, const QEasingCurve &rhs)
+    return Rituals.call(
+        'ritual_ZneRK12QEasingCurveS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

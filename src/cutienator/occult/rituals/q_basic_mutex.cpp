@@ -8,6 +8,12 @@ QBasicMutex *ritual_ZN11QBasicMutexC1Ev() {
   return new QBasicMutex();
 }
 
+//  void QBasicMutex::lock()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QBasicMutex4lockEv(QBasicMutex *self) {
+  self->lock();
+}
+
 //  void QBasicMutex::unlock()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QBasicMutex6unlockEv(QBasicMutex *self) {

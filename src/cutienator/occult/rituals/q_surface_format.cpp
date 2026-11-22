@@ -2,6 +2,7 @@
 //  QtGui/qsurfaceformat.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qsurfaceformat.h>
 #include <QtGui/qcolorspace.h>
+#include <QtCore/qdebug.h>
 
 //  QSurfaceFormat::QSurfaceFormat()
 extern "C" Q_DECL_EXPORT
@@ -314,4 +315,28 @@ void ritual_ZN14QSurfaceFormat16setDefaultFormatERKS_(
 extern "C" Q_DECL_EXPORT
 QSurfaceFormat *ritual_ZN14QSurfaceFormat13defaultFormatEv() {
   return new QSurfaceFormat(QSurfaceFormat::defaultFormat());
+}
+
+//  bool operator==(const QSurfaceFormat &lhs, const QSurfaceFormat &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK14QSurfaceFormatS1_(
+    const QSurfaceFormat *lhs,
+    const QSurfaceFormat *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QSurfaceFormat &lhs, const QSurfaceFormat &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK14QSurfaceFormatS1_(
+    const QSurfaceFormat *lhs,
+    const QSurfaceFormat *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  QDebug operator<<(QDebug a0, const QSurfaceFormat &a1)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK14QSurfaceFormat(
+    const QDebug *a0,
+    const QSurfaceFormat *a1) {
+  return new QDebug(operator<<(*a0, *a1));
 }

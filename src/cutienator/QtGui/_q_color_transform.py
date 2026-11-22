@@ -38,8 +38,8 @@ class QColorTransform(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QColorTransform that has a ritual and that Python
-  can call so far, 2 names in all: 'isIdentity', 'map'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  can call so far, 4 names in all: 'isIdentity', 'map', '__eq__', '__ne__'.
+  It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -50,7 +50,7 @@ class QColorTransform(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 14 functions Qt declares: 6 takes or gives a type that cannot be
+  7 of the 16 functions Qt declares: 6 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -186,6 +186,68 @@ class QColorTransform(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, ct2: QColorTransform) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QColorTransform &ct1, const
+    QColorTransform &ct2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolortransform.html#operator==
+
+    Parameters
+    ----------
+
+    ct2 : QColorTransform
+      Passed on as a value: Qt reads the C++ QColorTransform, which stays
+      Python's own.
+    """
+    #  bool operator==(const QColorTransform &ct1, const QColorTransform
+    #      &ct2)
+    return Rituals.call(
+        'ritual_ZeqRK15QColorTransformS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(ct2),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, ct2: QColorTransform) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QColorTransform &ct1, const
+    QColorTransform &ct2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolortransform.html#operator!=
+
+    Parameters
+    ----------
+
+    ct2 : QColorTransform
+      Passed on as a value: Qt reads the C++ QColorTransform, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QColorTransform &ct1, const QColorTransform
+    #      &ct2)
+    return Rituals.call(
+        'ritual_ZneRK15QColorTransformS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(ct2),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

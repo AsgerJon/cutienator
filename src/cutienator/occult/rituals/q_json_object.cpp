@@ -5,6 +5,7 @@
 #include <QtCore/qjsonvalue.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qlatin1stringview.h>
+#include <QtCore/qdebug.h>
 
 //  QJsonObject::QJsonObject()
 extern "C" Q_DECL_EXPORT
@@ -358,4 +359,92 @@ QJsonObject::iterator *ritual_ZN11QJsonObject6insertE13QLatin1StringRK10QJsonVal
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QJsonObject5emptyEv(const QJsonObject *self) {
   return self->empty();
+}
+
+//  bool operator==(const QJsonObject &lhs, const QJsonObject &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK11QJsonObjectS1_(
+    const QJsonObject *lhs,
+    const QJsonObject *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonObject &lhs, const QJsonObject &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK11QJsonObjectS1_(
+    const QJsonObject *lhs,
+    const QJsonObject *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QJsonObject &lhs, const QJsonValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK11QJsonObjectRK10QJsonValue(
+    const QJsonObject *lhs,
+    const QJsonValue *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonObject &lhs, const QJsonValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK11QJsonObjectRK10QJsonValue(
+    const QJsonObject *lhs,
+    const QJsonValue *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QJsonValue &lhs, const QJsonObject &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK10QJsonValueRK11QJsonObject(
+    const QJsonValue *lhs,
+    const QJsonObject *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonValue &lhs, const QJsonObject &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK10QJsonValueRK11QJsonObject(
+    const QJsonValue *lhs,
+    const QJsonObject *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QJsonObject &lhs, const QJsonValueConstRef &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK11QJsonObjectRK18QJsonValueConstRef(
+    const QJsonObject *lhs,
+    const QJsonValueConstRef *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonObject &lhs, const QJsonValueConstRef &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK11QJsonObjectRK18QJsonValueConstRef(
+    const QJsonObject *lhs,
+    const QJsonValueConstRef *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QJsonValueConstRef &lhs, const QJsonObject &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK18QJsonValueConstRefRK11QJsonObject(
+    const QJsonValueConstRef *lhs,
+    const QJsonObject *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonValueConstRef &lhs, const QJsonObject &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK18QJsonValueConstRefRK11QJsonObject(
+    const QJsonValueConstRef *lhs,
+    const QJsonObject *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  QDebug operator<<(QDebug a0, const QJsonObject &a1)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK11QJsonObject(
+    const QDebug *a0,
+    const QJsonObject *a1) {
+  return new QDebug(operator<<(*a0, *a1));
 }

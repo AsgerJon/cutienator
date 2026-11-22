@@ -599,3 +599,15 @@ QPartialOrdering *ritual_ZN8QVariant7compareERKS_S1_(
     const QVariant *rhs) {
   return new QPartialOrdering(QVariant::compare(*lhs, *rhs));
 }
+
+//  bool operator==(const QVariant &lhs, const QVariant &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8QVariantS1_(const QVariant *lhs, const QVariant *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QVariant &lhs, const QVariant &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8QVariantS1_(const QVariant *lhs, const QVariant *rhs) {
+  return operator!=(*lhs, *rhs);
+}

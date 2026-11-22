@@ -5,6 +5,7 @@
   ],
   "rows": {
     "ritual_ZN11QBasicMutexC1Ev": ["address"],
+    "ritual_ZN11QBasicMutex4lockEv": ["nothing", "address"],
     "ritual_ZN11QBasicMutex6unlockEv": ["nothing", "address"],
     "ritual_ZN11QBasicMutex7tryLockEv": ["bool", "address"],
     "ritual_ZN11QBasicMutex8try_lockEv": ["bool", "address"]

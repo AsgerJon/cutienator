@@ -60,3 +60,21 @@ int ritual_ZNK17QInputMethodEvent17replacementLengthEv(
     const QInputMethodEvent *self) {
   return self->replacementLength();
 }
+
+//  bool operator==(const QInputMethodEvent::Attribute &lhs, const
+//      QInputMethodEvent::Attribute &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKN17QInputMethodEvent9AttributeES2_(
+    const QInputMethodEvent::Attribute *lhs,
+    const QInputMethodEvent::Attribute *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QInputMethodEvent::Attribute &lhs, const
+//      QInputMethodEvent::Attribute &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKN17QInputMethodEvent9AttributeES2_(
+    const QInputMethodEvent::Attribute *lhs,
+    const QInputMethodEvent::Attribute *rhs) {
+  return operator!=(*lhs, *rhs);
+}

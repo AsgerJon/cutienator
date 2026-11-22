@@ -7,6 +7,8 @@
     "ritual_ZN11QPageRangesC1Ev": ["address"],
     "ritual_ZN11QPageRangesD1Ev": ["nothing", "address"],
     "ritual_ZN11QPageRangesC1ERKS_": ["address", "address"],
+    "ritual_ZeqRK11QPageRangesS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QPageRangesS1_": ["bool", "address", "address"],
     "ritual_ZN11QPageRanges7addPageEi": ["nothing", "address", "int"],
     "ritual_ZN11QPageRanges8addRangeEii": [
       "nothing", "address", "int", "int"

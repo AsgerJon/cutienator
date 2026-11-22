@@ -6,6 +6,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qlocale.h>
+#include <QtCore/qdebug.h>
 
 //  QTimeZone::QTimeZone()
 extern "C" Q_DECL_EXPORT
@@ -253,4 +254,24 @@ extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN9QTimeZone24windowsIdToDefaultIanaIdERK10QByteArray(
     const QByteArray *windowsId) {
   return new QByteArray(QTimeZone::windowsIdToDefaultIanaId(*windowsId));
+}
+
+//  bool operator==(const QTimeZone &lhs, const QTimeZone &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK9QTimeZoneS1_(const QTimeZone *lhs, const QTimeZone *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QTimeZone &lhs, const QTimeZone &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK9QTimeZoneS1_(const QTimeZone *lhs, const QTimeZone *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  QDebug operator<<(QDebug dbg, const QTimeZone &tz)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK9QTimeZone(
+    const QDebug *dbg,
+    const QTimeZone *tz) {
+  return new QDebug(operator<<(*dbg, *tz));
 }

@@ -41,10 +41,10 @@ class QVariantConstPointer(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QVariant QVariantConstPointer::operator*() const': an operator,
-    which is not reflected yet.
+  - Qt's 'QVariant QVariantConstPointer::operator*() const': an operator
+    Python has no name for.
   - Qt's 'const QVariant *QVariantConstPointer::operator->() const': an
-    operator, which is not reflected yet.
+    operator Python has no name for.
   - Qt's 'QVariantConstPointer::~QVariantConstPointer()': the destructor:
     Python removes its C++ QVariantConstPointer by it, and has no other use
     for it.

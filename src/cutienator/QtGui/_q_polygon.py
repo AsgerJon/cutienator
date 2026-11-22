@@ -48,8 +48,8 @@ class QPolygon(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QVariant QPolygon::operator QVariant() const': an operator, which
-    is not reflected yet.
+  - Qt's 'QVariant QPolygon::operator QVariant() const': an operator Python
+    has no name for.
   - Qt's 'void QPolygon::point(int i, int *x, int *y) const': takes a number
     to change where it is.
   - Qt's 'QPolygon::~QPolygon()': the destructor: Python removes its C++

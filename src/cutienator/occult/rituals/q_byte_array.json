@@ -101,6 +101,12 @@
     "ritual_ZNK10QByteArray14rightJustifiedExcb": [
       "address", "address", "long long", "char", "bool"
     ],
+    "ritual_ZN10QByteArraypLEc": ["nothing", "address", "char"],
+    "ritual_ZN10QByteArraypLEPKc": ["nothing", "address", "chars"],
+    "ritual_ZN10QByteArraypLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN10QByteArraypLE14QByteArrayView": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK10QByteArray8repeatedEx": ["address", "address", "long long"],
     "ritual_ZNK10QByteArray7toShortEPbi": [
       "short", "address", "address", "int"
@@ -187,6 +193,36 @@
     "ritual_ZNK10QByteArray5countEv": ["long long", "address"],
     "ritual_ZNK10QByteArray6lengthEv": ["long long", "address"],
     "ritual_ZNK10QByteArray6isNullEv": ["bool", "address"],
-    "ritual_ZNKR10QByteArray14nullTerminatedEv": ["address", "address"]
+    "ritual_ZNKR10QByteArray14nullTerminatedEv": ["address", "address"],
+    "ritual_ZeqRK10QByteArrayS1_": ["bool", "address", "address"],
+    "ritual_ZneRK10QByteArrayS1_": ["bool", "address", "address"],
+    "ritual_ZltRK10QByteArrayS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK10QByteArrayS1_": ["bool", "address", "address"],
+    "ritual_ZleRK10QByteArrayS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK10QByteArrayS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK10QByteArrayRKc": ["bool", "address", "char"],
+    "ritual_ZneRK10QByteArrayRKc": ["bool", "address", "char"],
+    "ritual_ZltRK10QByteArrayRKc": ["bool", "address", "char"],
+    "ritual_ZgtRK10QByteArrayRKc": ["bool", "address", "char"],
+    "ritual_ZleRK10QByteArrayRKc": ["bool", "address", "char"],
+    "ritual_ZgeRK10QByteArrayRKc": ["bool", "address", "char"],
+    "ritual_ZeqRKcRK10QByteArray": ["bool", "char", "address"],
+    "ritual_ZneRKcRK10QByteArray": ["bool", "char", "address"],
+    "ritual_ZltRKcRK10QByteArray": ["bool", "char", "address"],
+    "ritual_ZgtRKcRK10QByteArray": ["bool", "char", "address"],
+    "ritual_ZleRKcRK10QByteArray": ["bool", "char", "address"],
+    "ritual_ZgeRKcRK10QByteArray": ["bool", "char", "address"],
+    "ritual_ZeqRK10QByteArrayRK5QChar": ["bool", "address", "address"],
+    "ritual_ZneRK10QByteArrayRK5QChar": ["bool", "address", "address"],
+    "ritual_ZltRK10QByteArrayRK5QChar": ["bool", "address", "address"],
+    "ritual_ZgtRK10QByteArrayRK5QChar": ["bool", "address", "address"],
+    "ritual_ZleRK10QByteArrayRK5QChar": ["bool", "address", "address"],
+    "ritual_ZgeRK10QByteArrayRK5QChar": ["bool", "address", "address"],
+    "ritual_ZeqRK5QCharRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZneRK5QCharRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZltRK5QCharRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZgtRK5QCharRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZleRK5QCharRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZgeRK5QCharRK10QByteArray": ["bool", "address", "address"]
   }
 }

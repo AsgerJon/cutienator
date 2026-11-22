@@ -23,6 +23,8 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK13QNativeIpcKey8toStringEv": ["text", "address"],
-    "ritual_ZN13QNativeIpcKey10fromStringERK7QString": ["address", "text"]
+    "ritual_ZN13QNativeIpcKey10fromStringERK7QString": ["address", "text"],
+    "ritual_ZeqRK13QNativeIpcKeyS1_": ["bool", "address", "address"],
+    "ritual_ZneRK13QNativeIpcKeyS1_": ["bool", "address", "address"]
   }
 }

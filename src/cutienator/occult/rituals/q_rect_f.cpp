@@ -426,6 +426,18 @@ QRectF *ritual_ZNK6QRectFanERKS_(const QRectF *self, const QRectF *r) {
   return new QRectF(self->operator&(*r));
 }
 
+//  QRectF &QRectF::operator|=(const QRectF &r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QRectFoRERKS_(QRectF *self, const QRectF *r) {
+  self->operator|=(*r);
+}
+
+//  QRectF &QRectF::operator&=(const QRectF &r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QRectFaNERKS_(QRectF *self, const QRectF *r) {
+  self->operator&=(*r);
+}
+
 //  bool QRectF::contains(const QRectF &r) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK6QRectF8containsERKS_(const QRectF *self, const QRectF *r) {
@@ -484,6 +496,58 @@ QRectF *ritual_ZNK6QRectF14marginsRemovedERK9QMarginsF(
     const QRectF *self,
     const QMarginsF *margins) {
   return new QRectF(self->marginsRemoved(*margins));
+}
+
+//  QRectF &QRectF::operator+=(const QMarginsF &margins)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QRectFpLERK9QMarginsF(
+    QRectF *self,
+    const QMarginsF *margins) {
+  self->operator+=(*margins);
+}
+
+//  QRectF &QRectF::operator-=(const QMarginsF &margins)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QRectFmIERK9QMarginsF(
+    QRectF *self,
+    const QMarginsF *margins) {
+  self->operator-=(*margins);
+}
+
+//  bool operator==(const QRectF &lhs, const QRectF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK6QRectFS1_(const QRectF *lhs, const QRectF *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QRectF &lhs, const QRectF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK6QRectFS1_(const QRectF *lhs, const QRectF *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QRectF &lhs, const QRect &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK6QRectFRK5QRect(const QRectF *lhs, const QRect *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QRectF &lhs, const QRect &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK6QRectFRK5QRect(const QRectF *lhs, const QRect *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QRect &lhs, const QRectF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK5QRectRK6QRectF(const QRect *lhs, const QRectF *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QRect &lhs, const QRectF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK5QRectRK6QRectF(const QRect *lhs, const QRectF *rhs) {
+  return operator!=(*lhs, *rhs);
 }
 
 //  QRect QRectF::toRect() const

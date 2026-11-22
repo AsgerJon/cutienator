@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..occult import Rituals
@@ -34,13 +35,13 @@ class QMetaAssociation(QMetaContainer):
   -----------
 
   Every function of Qt's QMetaAssociation that has a ritual and that Python
-  can call so far, 14 names in all: 'keyMetaType', 'mappedMetaType',
+  can call so far, 16 names in all: 'keyMetaType', 'mappedMetaType',
   'canInsertKey', 'canRemoveKey', 'canContainsKey', 'canGetMappedAtKey',
   'canSetMappedAtKey', 'canGetKeyAtIterator', 'canGetKeyAtConstIterator',
   'canGetMappedAtIterator', 'canGetMappedAtConstIterator',
   'canSetMappedAtIterator', 'canCreateIteratorAtKey',
-  'canCreateConstIteratorAtKey'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'canCreateConstIteratorAtKey', '__eq__', '__ne__'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,7 +60,7 @@ class QMetaAssociation(QMetaContainer):
   What has no ritual
   ------------------
 
-  14 of the 32 functions Qt declares: 12 takes or gives a type that cannot be
+  14 of the 34 functions Qt declares: 12 takes or gives a type that cannot be
   passed yet; 1 a template; 1 private.
 
   What to expect
@@ -293,6 +294,68 @@ class QMetaAssociation(QMetaContainer):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QMetaAssociation) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QMetaAssociation &lhs, const
+    QMetaAssociation &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetaassociation.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QMetaAssociation
+      Passed on as a value: Qt reads the C++ QMetaAssociation, which stays
+      Python's own.
+    """
+    #  bool operator==(const QMetaAssociation &lhs, const QMetaAssociation
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK16QMetaAssociationS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QMetaAssociation) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QMetaAssociation &lhs, const
+    QMetaAssociation &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetaassociation.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QMetaAssociation
+      Passed on as a value: Qt reads the C++ QMetaAssociation, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QMetaAssociation &lhs, const QMetaAssociation
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZneRK16QMetaAssociationS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

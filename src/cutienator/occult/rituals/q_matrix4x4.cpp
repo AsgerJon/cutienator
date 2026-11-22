@@ -3,10 +3,11 @@
 #include <QtGui/qmatrix4x4.h>
 #include <QtGui/qtransform.h>
 #include <QtGui/qvectornd.h>
+#include <QtCore/qpoint.h>
 #include <QtGui/qquaternion.h>
 #include <QtCore/qrect.h>
-#include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qdebug.h>
 
 //  QMatrix4x4::QMatrix4x4()
 extern "C" Q_DECL_EXPORT
@@ -153,6 +154,42 @@ QMatrix4x4 *ritual_ZNK10QMatrix4x410transposedEv(const QMatrix4x4 *self) {
   return new QMatrix4x4(self->transposed());
 }
 
+//  QMatrix4x4 &QMatrix4x4::operator+=(const QMatrix4x4 &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QMatrix4x4pLERKS_(
+    QMatrix4x4 *self,
+    const QMatrix4x4 *other) {
+  self->operator+=(*other);
+}
+
+//  QMatrix4x4 &QMatrix4x4::operator-=(const QMatrix4x4 &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QMatrix4x4mIERKS_(
+    QMatrix4x4 *self,
+    const QMatrix4x4 *other) {
+  self->operator-=(*other);
+}
+
+//  QMatrix4x4 &QMatrix4x4::operator*=(const QMatrix4x4 &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QMatrix4x4mLERKS_(
+    QMatrix4x4 *self,
+    const QMatrix4x4 *other) {
+  self->operator*=(*other);
+}
+
+//  QMatrix4x4 &QMatrix4x4::operator*=(float factor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QMatrix4x4mLEf(QMatrix4x4 *self, float factor) {
+  self->operator*=(factor);
+}
+
+//  QMatrix4x4 &QMatrix4x4::operator/=(float divisor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QMatrix4x4dVEf(QMatrix4x4 *self, float divisor) {
+  self->operator/=(divisor);
+}
+
 //  bool QMatrix4x4::operator==(const QMatrix4x4 &other) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10QMatrix4x4eqERKS_(
@@ -167,6 +204,108 @@ bool ritual_ZNK10QMatrix4x4neERKS_(
     const QMatrix4x4 *self,
     const QMatrix4x4 *other) {
   return self->operator!=(*other);
+}
+
+//  QMatrix4x4 operator+(const QMatrix4x4 &m1, const QMatrix4x4 &m2)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZplRK10QMatrix4x4S1_(
+    const QMatrix4x4 *m1,
+    const QMatrix4x4 *m2) {
+  return new QMatrix4x4(operator+(*m1, *m2));
+}
+
+//  QMatrix4x4 operator-(const QMatrix4x4 &m1, const QMatrix4x4 &m2)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZmiRK10QMatrix4x4S1_(
+    const QMatrix4x4 *m1,
+    const QMatrix4x4 *m2) {
+  return new QMatrix4x4(operator-(*m1, *m2));
+}
+
+//  QMatrix4x4 operator*(const QMatrix4x4 &m1, const QMatrix4x4 &m2)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZmlRK10QMatrix4x4S1_(
+    const QMatrix4x4 *m1,
+    const QMatrix4x4 *m2) {
+  return new QMatrix4x4(operator*(*m1, *m2));
+}
+
+//  QVector3D operator*(const QMatrix4x4 &matrix, const QVector3D &vector)
+extern "C" Q_DECL_EXPORT
+QVector3D *ritual_ZmlRK10QMatrix4x4RK9QVector3D(
+    const QMatrix4x4 *matrix,
+    const QVector3D *vector) {
+  return new QVector3D(operator*(*matrix, *vector));
+}
+
+//  QVector4D operator*(const QMatrix4x4 &matrix, const QVector4D &vector)
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_ZmlRK10QMatrix4x4RK9QVector4D(
+    const QMatrix4x4 *matrix,
+    const QVector4D *vector) {
+  return new QVector4D(operator*(*matrix, *vector));
+}
+
+//  QPoint operator*(const QPoint &point, const QMatrix4x4 &matrix)
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZmlRK6QPointRK10QMatrix4x4(
+    const QPoint *point,
+    const QMatrix4x4 *matrix) {
+  return new QPoint(operator*(*point, *matrix));
+}
+
+//  QPointF operator*(const QPointF &point, const QMatrix4x4 &matrix)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZmlRK7QPointFRK10QMatrix4x4(
+    const QPointF *point,
+    const QMatrix4x4 *matrix) {
+  return new QPointF(operator*(*point, *matrix));
+}
+
+//  QMatrix4x4 operator-(const QMatrix4x4 &matrix)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZngRK10QMatrix4x4(const QMatrix4x4 *matrix) {
+  return new QMatrix4x4(operator-(*matrix));
+}
+
+//  QPoint operator*(const QMatrix4x4 &matrix, const QPoint &point)
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZmlRK10QMatrix4x4RK6QPoint(
+    const QMatrix4x4 *matrix,
+    const QPoint *point) {
+  return new QPoint(operator*(*matrix, *point));
+}
+
+//  QPointF operator*(const QMatrix4x4 &matrix, const QPointF &point)
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZmlRK10QMatrix4x4RK7QPointF(
+    const QMatrix4x4 *matrix,
+    const QPointF *point) {
+  return new QPointF(operator*(*matrix, *point));
+}
+
+//  QMatrix4x4 operator*(float factor, const QMatrix4x4 &matrix)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZmlfRK10QMatrix4x4(
+    float factor,
+    const QMatrix4x4 *matrix) {
+  return new QMatrix4x4(operator*(factor, *matrix));
+}
+
+//  QMatrix4x4 operator*(const QMatrix4x4 &matrix, float factor)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZmlRK10QMatrix4x4f(
+    const QMatrix4x4 *matrix,
+    float factor) {
+  return new QMatrix4x4(operator*(*matrix, factor));
+}
+
+//  QMatrix4x4 operator/(const QMatrix4x4 &matrix, float divisor)
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZdvRK10QMatrix4x4f(
+    const QMatrix4x4 *matrix,
+    float divisor) {
+  return new QMatrix4x4(operator/(*matrix, divisor));
 }
 
 //  void QMatrix4x4::scale(const QVector3D &vector)
@@ -434,6 +573,14 @@ void ritual_ZN10QMatrix4x48optimizeEv(QMatrix4x4 *self) {
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK10QMatrix4x4cv8QVariantEv(const QMatrix4x4 *self) {
   return new QVariant(self->operator QVariant());
+}
+
+//  QDebug operator<<(QDebug dbg, const QMatrix4x4 &m)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK10QMatrix4x4(
+    const QDebug *dbg,
+    const QMatrix4x4 *m) {
+  return new QDebug(operator<<(*dbg, *m));
 }
 
 //  void QMatrix4x4::projectedRotate(float angle, float x, float y, float z,

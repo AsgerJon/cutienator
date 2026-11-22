@@ -14,8 +14,54 @@
     "ritual_ZNK8QCborMap8Iterator5valueEv": ["address", "address"],
     "ritual_ZN8QCborMap8IteratorppEi": ["address", "address", "int"],
     "ritual_ZN8QCborMap8IteratormmEi": ["address", "address", "int"],
+    "ritual_ZN8QCborMap8IteratorpLEx": ["nothing", "address", "long long"],
+    "ritual_ZN8QCborMap8IteratormIEx": ["nothing", "address", "long long"],
     "ritual_ZNK8QCborMap8IteratorplEx": ["address", "address", "long long"],
     "ritual_ZNK8QCborMap8IteratormiEx": ["address", "address", "long long"],
-    "ritual_ZNK8QCborMap8IteratormiES0_": ["long long", "address", "address"]
+    "ritual_ZNK8QCborMap8IteratormiES0_": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZeqRKN8QCborMap8IteratorES2_": ["bool", "address", "address"],
+    "ritual_ZneRKN8QCborMap8IteratorES2_": ["bool", "address", "address"],
+    "ritual_ZltRKN8QCborMap8IteratorES2_": ["bool", "address", "address"],
+    "ritual_ZgtRKN8QCborMap8IteratorES2_": ["bool", "address", "address"],
+    "ritual_ZleRKN8QCborMap8IteratorES2_": ["bool", "address", "address"],
+    "ritual_ZgeRKN8QCborMap8IteratorES2_": ["bool", "address", "address"],
+    "ritual_ZeqRKN8QCborMap8IteratorERKNS_13ConstIteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN8QCborMap8IteratorERKNS_13ConstIteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRKN8QCborMap8IteratorERKNS_13ConstIteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRKN8QCborMap8IteratorERKNS_13ConstIteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRKN8QCborMap8IteratorERKNS_13ConstIteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRKN8QCborMap8IteratorERKNS_13ConstIteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRKN8QCborMap13ConstIteratorERKNS_8IteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN8QCborMap13ConstIteratorERKNS_8IteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRKN8QCborMap13ConstIteratorERKNS_8IteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRKN8QCborMap13ConstIteratorERKNS_8IteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRKN8QCborMap13ConstIteratorERKNS_8IteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRKN8QCborMap13ConstIteratorERKNS_8IteratorE": [
+      "bool", "address", "address"
+    ]
   }
 }

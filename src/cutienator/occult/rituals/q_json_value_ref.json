@@ -42,6 +42,20 @@
       "address", "address", "address"
     ],
     "ritual_ZNK13QJsonValueRefixEx": ["address", "address", "long long"],
+    "ritual_ZeqRK13QJsonValueRefS1_": ["bool", "address", "address"],
+    "ritual_ZneRK13QJsonValueRefS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK13QJsonValueRefRK18QJsonValueConstRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK13QJsonValueRefRK18QJsonValueConstRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK18QJsonValueConstRefRK13QJsonValueRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK18QJsonValueConstRefRK13QJsonValueRef": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN13QJsonValueRefD1Ev": ["nothing", "address"]
   }
 }

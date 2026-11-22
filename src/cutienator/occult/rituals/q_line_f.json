@@ -53,6 +53,12 @@
       "nothing", "address", "double", "double", "double", "double"
     ],
     "ritual_ZNK6QLineF6toLineEv": ["address", "address"],
+    "ritual_ZeqRK6QLineFS1_": ["bool", "address", "address"],
+    "ritual_ZneRK6QLineFS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK6QLineFRK5QLine": ["bool", "address", "address"],
+    "ritual_ZneRK6QLineFRK5QLine": ["bool", "address", "address"],
+    "ritual_ZeqRK5QLineRK6QLineF": ["bool", "address", "address"],
+    "ritual_ZneRK5QLineRK6QLineF": ["bool", "address", "address"],
     "ritual_ZN6QLineFD1Ev": ["nothing", "address"]
   }
 }

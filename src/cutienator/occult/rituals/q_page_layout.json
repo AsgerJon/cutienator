@@ -73,6 +73,8 @@
     "ritual_ZNK11QPageLayout15paintRectPointsEv": ["address", "address"],
     "ritual_ZNK11QPageLayout15paintRectPixelsEi": [
       "address", "address", "int"
-    ]
+    ],
+    "ritual_ZeqRK11QPageLayoutS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QPageLayoutS1_": ["bool", "address", "address"]
   }
 }

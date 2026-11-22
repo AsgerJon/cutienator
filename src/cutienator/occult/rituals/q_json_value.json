@@ -58,6 +58,9 @@
     "ritual_ZNK10QJsonValueixE13QLatin1String": [
       "address", "address", "address"
     ],
-    "ritual_ZNK10QJsonValueixEx": ["address", "address", "long long"]
+    "ritual_ZNK10QJsonValueixEx": ["address", "address", "long long"],
+    "ritual_ZeqRK10QJsonValueS1_": ["bool", "address", "address"],
+    "ritual_ZneRK10QJsonValueS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK10QJsonValue": ["address", "address", "address"]
   }
 }

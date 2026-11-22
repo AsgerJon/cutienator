@@ -9,7 +9,11 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
+from worktoy.dispatch import overload
+
 from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
 
 
 class QLatin1Char(CuteMixin, metaclass=MetaCute):
@@ -24,8 +28,10 @@ class QLatin1Char(CuteMixin, metaclass=MetaCute):
   What exists
   -----------
 
-  No function of Qt's QLatin1Char yet. None can be made from Python: one
-  comes out of a function of another class that gives one back.
+  Every function of Qt's QLatin1Char that has a ritual and that Python can
+  call so far, 6 names in all: '__eq__', '__ne__', '__lt__', '__gt__',
+  '__le__', '__ge__'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -34,13 +40,37 @@ class QLatin1Char(CuteMixin, metaclass=MetaCute):
     it.
   - Qt's 'char QLatin1Char::toLatin1() const': gives a single letter as C has
     it.
+  - Qt's 'bool operator==(const QLatin1Char &lhs, const char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator!=(const QLatin1Char &lhs, const char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator<(const QLatin1Char &lhs, const char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator>(const QLatin1Char &lhs, const char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator<=(const QLatin1Char &lhs, const char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator>=(const QLatin1Char &lhs, const char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator==(const char &lhs, const QLatin1Char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator!=(const char &lhs, const QLatin1Char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator<(const char &lhs, const QLatin1Char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator>(const char &lhs, const QLatin1Char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator<=(const char &lhs, const QLatin1Char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator>=(const char &lhs, const QLatin1Char &rhs)': takes a
+    single letter as C has it.
   - Qt's 'QLatin1Char::~QLatin1Char()': the destructor: Python removes its
     C++ QLatin1Char by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  2 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
+  2 of the 23 functions Qt declares: 1 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -96,6 +126,186 @@ class QLatin1Char(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QLatin1Char) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QLatin1Char &lhs, const QLatin1Char
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1char.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QLatin1Char
+      Passed on as a value: Qt reads the C++ QLatin1Char, which stays
+      Python's own.
+    """
+    #  bool operator==(const QLatin1Char &lhs, const QLatin1Char &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK11QLatin1CharS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QLatin1Char) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QLatin1Char &lhs, const QLatin1Char
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1char.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QLatin1Char
+      Passed on as a value: Qt reads the C++ QLatin1Char, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QLatin1Char &lhs, const QLatin1Char &rhs)
+    return Rituals.call(
+        'ritual_ZneRK11QLatin1CharS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QLatin1Char) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QLatin1Char &lhs, const QLatin1Char
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1char.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QLatin1Char
+      Passed on as a value: Qt reads the C++ QLatin1Char, which stays
+      Python's own.
+    """
+    #  bool operator<(const QLatin1Char &lhs, const QLatin1Char &rhs)
+    return Rituals.call(
+        'ritual_ZltRK11QLatin1CharS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QLatin1Char) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QLatin1Char &lhs, const QLatin1Char
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1char.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QLatin1Char
+      Passed on as a value: Qt reads the C++ QLatin1Char, which stays
+      Python's own.
+    """
+    #  bool operator>(const QLatin1Char &lhs, const QLatin1Char &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK11QLatin1CharS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QLatin1Char) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QLatin1Char &lhs, const QLatin1Char
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1char.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QLatin1Char
+      Passed on as a value: Qt reads the C++ QLatin1Char, which stays
+      Python's own.
+    """
+    #  bool operator<=(const QLatin1Char &lhs, const QLatin1Char &rhs)
+    return Rituals.call(
+        'ritual_ZleRK11QLatin1CharS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QLatin1Char) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QLatin1Char &lhs, const QLatin1Char
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1char.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QLatin1Char
+      Passed on as a value: Qt reads the C++ QLatin1Char, which stays
+      Python's own.
+    """
+    #  bool operator>=(const QLatin1Char &lhs, const QLatin1Char &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK11QLatin1CharS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

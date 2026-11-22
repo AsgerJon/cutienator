@@ -20,13 +20,14 @@ from . import QJsonDocument
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QByteArrayView, QJsonArray, QJsonObject
+  from . import QByteArray, QByteArrayView, QDebug, QJsonArray, QJsonObject
   from . import QJsonParseError, QLatin1String, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArrayView = WAIT['QByteArrayView']
+  QDebug = WAIT['QDebug']
   QJsonArray = WAIT['QJsonArray']
   QJsonObject = WAIT['QJsonObject']
   QJsonParseError = WAIT['QJsonParseError']
@@ -51,11 +52,12 @@ class QJsonValue(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QJsonValue that has a ritual and that Python can
-  call so far, 20 names in all: 'fromVariant', 'toVariant', 'fromJson',
+  call so far, 24 names in all: 'fromVariant', 'toVariant', 'fromJson',
   'toJson', 'type', 'isNull', 'isBool', 'isDouble', 'isString', 'isArray',
   'isObject', 'isUndefined', 'toBool', 'toInt', 'toInteger', 'toDouble',
-  'toString', 'toStringView', 'toArray', 'toObject'. It can be made from
-  Python, in 10 ways; see '__init__'.
+  'toString', 'toStringView', 'toArray', 'toObject', '__getitem__', '__eq__',
+  '__ne__', '__rlshift__'. It can be made from Python, in 10 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,19 +66,14 @@ class QJsonValue(CuteMixin, metaclass=MetaCute):
     'QJsonValue::QJsonValue(int n)' takes.
   - Qt's 'QJsonValue::~QJsonValue()': the destructor: Python removes its C++
     QJsonValue by it, and has no other use for it.
-  - Qt's 'const QJsonValue QJsonValue::operator[](const QString &key) const':
-    an operator, which is not reflected yet.
-  - Qt's 'const QJsonValue QJsonValue::operator[](QStringView key) const': an
-    operator, which is not reflected yet.
-  - Qt's 'const QJsonValue QJsonValue::operator[](QLatin1StringView key)
-    const': an operator, which is not reflected yet.
-  - Qt's 'const QJsonValue QJsonValue::operator[](qsizetype i) const': an
-    operator, which is not reflected yet.
+  - Qt's 'const QJsonValue QJsonValue::operator[](QStringView key) const':
+    takes in Python what 'const QJsonValue QJsonValue::operator[](const
+    QString &key) const' takes.
 
   What has no ritual
   ------------------
 
-  7 of the 46 functions Qt declares: 6 takes or gives a type that cannot be
+  8 of the 50 functions Qt declares: 7 takes or gives a type that cannot be
   passed yet; 1 forbidden.
 
   What to expect
@@ -581,6 +578,177 @@ class QJsonValue(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(str)
+  def __getitem__(self, key: str) -> QJsonValue:
+    """
+    Calls Qt's 'const QJsonValue QJsonValue::operator[](const QString &key)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalue.html#operator[]
+
+    Parameters
+    ----------
+
+    key : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QJsonValue
+      A new cute QJsonValue around the copy Qt gave back. Python owns it.
+    """
+    #  const QJsonValue QJsonValue::operator[](const QString &key) const
+    address = self.uglySide.call('ritual_ZNK10QJsonValueixERK7QString', key)
+    return QJsonValue._cuteOwning(address)
+
+  @overload(QLatin1String)
+  def __getitem__(self, key: QLatin1String) -> QJsonValue:
+    """
+    Calls Qt's 'const QJsonValue QJsonValue::operator[](QLatin1StringView
+    key) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalue.html#operator[]
+
+    Parameters
+    ----------
+
+    key : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QJsonValue
+      A new cute QJsonValue around the copy Qt gave back. Python owns it.
+    """
+    #  const QJsonValue QJsonValue::operator[](QLatin1StringView key) const
+    address = self.uglySide.call(
+        'ritual_ZNK10QJsonValueixE13QLatin1String', self._valueOf(key),
+    )
+    return QJsonValue._cuteOwning(address)
+
+  @overload(int)
+  def __getitem__(self, i: int) -> QJsonValue:
+    """
+    Calls Qt's 'const QJsonValue QJsonValue::operator[](qsizetype i) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalue.html#operator[]
+
+    Parameters
+    ----------
+
+    i : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QJsonValue
+      A new cute QJsonValue around the copy Qt gave back. Python owns it.
+    """
+    #  const QJsonValue QJsonValue::operator[](qsizetype i) const
+    address = self.uglySide.call('ritual_ZNK10QJsonValueixEx', i)
+    return QJsonValue._cuteOwning(address)
+
+  @overload(THIS)
+  def __eq__(self, rhs: QJsonValue) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QJsonValue &lhs, const QJsonValue
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalue.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QJsonValue
+      Passed on as a value: Qt reads the C++ QJsonValue, which stays Python's
+      own.
+    """
+    #  bool operator==(const QJsonValue &lhs, const QJsonValue &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK10QJsonValueS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QJsonValue) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QJsonValue &lhs, const QJsonValue
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalue.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QJsonValue
+      Passed on as a value: Qt reads the C++ QJsonValue, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QJsonValue &lhs, const QJsonValue &rhs)
+    return Rituals.call(
+        'ritual_ZneRK10QJsonValueS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QDebug)
+  def __rlshift__(self, a0: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug a0, const QJsonValue &a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalue.html#operator<<
+
+    Parameters
+    ----------
+
+    a0 : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug a0, const QJsonValue &a1)
+    address = Rituals.call(
+        'ritual_Zls6QDebugRK10QJsonValue',
+        CuteMixin._valueOf(a0), CuteMixin._valueOf(self),
+    )
+    from . import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

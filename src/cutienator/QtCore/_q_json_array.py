@@ -18,11 +18,12 @@ from ..occult import Rituals
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QJsonValue
+  from . import QDebug, QJsonValue, QJsonValueConstRef, QJsonValueRef
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QDebug = WAIT['QDebug']
   QJsonValue = WAIT['QJsonValue']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -43,11 +44,12 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QJsonArray that has a ritual and that Python can
-  call so far, 27 names in all: 'size', 'count', 'isEmpty', 'at', 'first',
+  call so far, 33 names in all: 'size', 'count', 'isEmpty', 'at', 'first',
   'last', 'prepend', 'append', 'removeAt', 'takeAt', 'removeFirst',
-  'removeLast', 'insert', 'replace', 'contains', 'begin', 'constBegin',
-  'cbegin', 'end', 'constEnd', 'cend', 'erase', 'push_back', 'push_front',
-  'pop_front', 'pop_back', 'empty'. It can be made from Python, in 2 ways;
+  'removeLast', 'insert', 'replace', 'contains', '__getitem__', 'begin',
+  'constBegin', 'cbegin', 'end', 'constEnd', 'cend', 'erase', '__add__',
+  '__iadd__', 'push_back', 'push_front', 'pop_front', 'pop_back', 'empty',
+  '__rlshift__', '__eq__', '__ne__'. It can be made from Python, in 2 ways;
   see '__init__'.
 
   What has a ritual and is left out, and why
@@ -55,21 +57,23 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QJsonArray::~QJsonArray()': the destructor: Python removes its C++
     QJsonArray by it, and has no other use for it.
-  - Qt's 'QJsonValueRef QJsonArray::operator[](qsizetype i)': an operator,
-    which is not reflected yet.
-  - Qt's 'QJsonValue QJsonArray::operator[](qsizetype i) const': an operator,
-    which is not reflected yet.
+  - Qt's 'QJsonValue QJsonArray::operator[](qsizetype i) const': takes in
+    Python what 'QJsonValueRef QJsonArray::operator[](qsizetype i)' takes.
   - Qt's 'const_iterator QJsonArray::begin() const': takes in Python what
     'iterator QJsonArray::begin()' takes.
   - Qt's 'const_iterator QJsonArray::end() const': takes in Python what
     'iterator QJsonArray::end()' takes.
-  - Qt's 'QJsonArray QJsonArray::operator+(const QJsonValue &v) const': an
-    operator, which is not reflected yet.
+  - Qt's 'bool operator==(const QJsonValue &lhs, const QJsonArray &rhs)':
+    takes in Python what 'bool operator==(const QJsonArray &lhs, const
+    QJsonValue &rhs)' takes.
+  - Qt's 'bool operator!=(const QJsonValue &lhs, const QJsonArray &rhs)':
+    takes in Python what 'bool operator!=(const QJsonArray &lhs, const
+    QJsonValue &rhs)' takes.
 
   What has no ritual
   ------------------
 
-  12 of the 48 functions Qt declares: 10 takes or gives a type that cannot be
+  11 of the 55 functions Qt declares: 9 takes or gives a type that cannot be
   passed yet; 2 private.
 
   What to expect
@@ -100,8 +104,11 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QJsonArray::const_iterator yet. It can be made from
-    Python, in 3 ways; see '__init__'.
+    Every function of Qt's QJsonArray::const_iterator that has a ritual and
+    that Python can call so far, 11 names in all: '__getitem__', '__iadd__',
+    '__isub__', '__add__', '__sub__', '__eq__', '__ne__', '__lt__', '__gt__',
+    '__le__', '__ge__'. It can be made from Python, in 3 ways; see
+    '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -110,23 +117,14 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
       names 'QJsonArray::iterator', which stands beside this class inside
       'QJsonArray' and cannot be named from here.
     - Qt's 'const QJsonValueConstRef QJsonArray::const_iterator::operator*()
-      const': an operator, which is not reflected yet.
+      const': an operator Python has no name for.
     - Qt's 'const QJsonValueConstRef
-      *QJsonArray::const_iterator::operator->() const': an operator, which is
-      not reflected yet.
-    - Qt's 'QJsonValueConstRef
-      QJsonArray::const_iterator::operator[](qsizetype j) const': an
-      operator, which is not reflected yet.
+      *QJsonArray::const_iterator::operator->() const': an operator Python
+      has no name for.
     - Qt's 'const_iterator QJsonArray::const_iterator::operator++(int a0)':
-      an operator, which is not reflected yet.
+      an operator Python has no name for.
     - Qt's 'const_iterator QJsonArray::const_iterator::operator--(int a0)':
-      an operator, which is not reflected yet.
-    - Qt's 'const_iterator QJsonArray::const_iterator::operator+(qsizetype j)
-      const': an operator, which is not reflected yet.
-    - Qt's 'const_iterator QJsonArray::const_iterator::operator-(qsizetype j)
-      const': an operator, which is not reflected yet.
-    - Qt's 'qsizetype QJsonArray::const_iterator::operator-(const_iterator j)
-      const': an operator, which is not reflected yet.
+      an operator Python has no name for.
     - Qt's 'QJsonArray::const_iterator::~const_iterator()': the destructor:
       Python removes its C++ QJsonArray::const_iterator by it, and has no
       other use for it.
@@ -134,7 +132,7 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    7 of the 20 functions Qt declares: 5 takes or gives a type that cannot be
+    5 of the 26 functions Qt declares: 3 takes or gives a type that cannot be
     passed yet; 2 private.
 
     What to expect
@@ -197,6 +195,380 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(int)
+    def __getitem__(self, j: int) -> QJsonValueConstRef:
+      """
+      Calls Qt's 'QJsonValueConstRef
+      QJsonArray::const_iterator::operator[](qsizetype j) const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#operator[]
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      QJsonValueConstRef
+        A new cute QJsonValueConstRef around the copy Qt gave back. Python
+        owns it.
+      """
+      #  QJsonValueConstRef QJsonArray::const_iterator::operator[](qsizetype
+      #      j) const
+      address = self.uglySide.call(
+          'ritual_ZNK10QJsonArray14const_iteratorixEx', j,
+      )
+      from . import QJsonValueConstRef
+      return QJsonValueConstRef._cuteOwning(address)
+
+    @overload(int)
+    def __iadd__(self, j: int) -> QJsonArray.const_iterator:
+      """
+      Calls Qt's 'const_iterator
+      &QJsonArray::const_iterator::operator+=(qsizetype j)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#operator+=
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+      """
+      #  const_iterator &QJsonArray::const_iterator::operator+=(qsizetype j)
+      self.uglySide.call('ritual_ZN10QJsonArray14const_iteratorpLEx', j)
+      return self
+
+    @overload.fallback
+    def __iadd__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(int)
+    def __isub__(self, j: int) -> QJsonArray.const_iterator:
+      """
+      Calls Qt's 'const_iterator
+      &QJsonArray::const_iterator::operator-=(qsizetype j)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#operator-=
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+      """
+      #  const_iterator &QJsonArray::const_iterator::operator-=(qsizetype j)
+      self.uglySide.call('ritual_ZN10QJsonArray14const_iteratormIEx', j)
+      return self
+
+    @overload.fallback
+    def __isub__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(int)
+    def __add__(self, j: int) -> QJsonArray.const_iterator:
+      """
+      Calls Qt's 'const_iterator
+      QJsonArray::const_iterator::operator+(qsizetype j) const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#operator+
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      QJsonArray.const_iterator
+        A new cute QJsonArray::const_iterator around the copy Qt gave back.
+        Python owns it.
+      """
+      #  const_iterator QJsonArray::const_iterator::operator+(qsizetype j)
+      #      const
+      address = self.uglySide.call(
+          'ritual_ZNK10QJsonArray14const_iteratorplEx', j,
+      )
+      return QJsonArray.const_iterator._cuteOwning(address)
+
+    @overload.fallback
+    def __add__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(int)
+    def __sub__(self, j: int) -> QJsonArray.const_iterator:
+      """
+      Calls Qt's 'const_iterator
+      QJsonArray::const_iterator::operator-(qsizetype j) const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#operator-
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      QJsonArray.const_iterator
+        A new cute QJsonArray::const_iterator around the copy Qt gave back.
+        Python owns it.
+      """
+      #  const_iterator QJsonArray::const_iterator::operator-(qsizetype j)
+      #      const
+      address = self.uglySide.call(
+          'ritual_ZNK10QJsonArray14const_iteratormiEx', j,
+      )
+      return QJsonArray.const_iterator._cuteOwning(address)
+
+    @overload(THIS)
+    def __sub__(self, j: QJsonArray.const_iterator) -> int:
+      """
+      Calls Qt's 'qsizetype
+      QJsonArray::const_iterator::operator-(const_iterator j) const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#operator-
+
+      Parameters
+      ----------
+
+      j : QJsonArray.const_iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::const_iterator,
+        which stays Python's own.
+      """
+      #  qsizetype QJsonArray::const_iterator::operator-(const_iterator j)
+      #      const
+      return self.uglySide.call(
+          'ritual_ZNK10QJsonArray14const_iteratormiES0_', self._valueOf(j),
+      )
+
+    @overload.fallback
+    def __sub__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __eq__(self, rhs: QJsonArray.const_iterator) -> bool:
+      """
+      Calls Qt's 'bool operator==(const const_iterator &lhs, const
+      const_iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#operator==
+
+      Parameters
+      ----------
+
+      rhs : QJsonArray.const_iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::const_iterator,
+        which stays Python's own.
+      """
+      #  bool operator==(const const_iterator &lhs, const const_iterator
+      #      &rhs)
+      return Rituals.call(
+          'ritual_ZeqRKN10QJsonArray14const_iteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, rhs: QJsonArray.const_iterator) -> bool:
+      """
+      Calls Qt's 'bool operator!=(const const_iterator &lhs, const
+      const_iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#operator!=
+
+      Parameters
+      ----------
+
+      rhs : QJsonArray.const_iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::const_iterator,
+        which stays Python's own.
+      """
+      #  bool operator!=(const const_iterator &lhs, const const_iterator
+      #      &rhs)
+      return Rituals.call(
+          'ritual_ZneRKN10QJsonArray14const_iteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __lt__(self, rhs: QJsonArray.const_iterator) -> bool:
+      """
+      Calls Qt's 'bool operator<(const const_iterator &lhs, const
+      const_iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#operator<
+
+      Parameters
+      ----------
+
+      rhs : QJsonArray.const_iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::const_iterator,
+        which stays Python's own.
+      """
+      #  bool operator<(const const_iterator &lhs, const const_iterator &rhs)
+      return Rituals.call(
+          'ritual_ZltRKN10QJsonArray14const_iteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __lt__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __gt__(self, rhs: QJsonArray.const_iterator) -> bool:
+      """
+      Calls Qt's 'bool operator>(const const_iterator &lhs, const
+      const_iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#operator>
+
+      Parameters
+      ----------
+
+      rhs : QJsonArray.const_iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::const_iterator,
+        which stays Python's own.
+      """
+      #  bool operator>(const const_iterator &lhs, const const_iterator &rhs)
+      return Rituals.call(
+          'ritual_ZgtRKN10QJsonArray14const_iteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __gt__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __le__(self, rhs: QJsonArray.const_iterator) -> bool:
+      """
+      Calls Qt's 'bool operator<=(const const_iterator &lhs, const
+      const_iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#operator<=
+
+      Parameters
+      ----------
+
+      rhs : QJsonArray.const_iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::const_iterator,
+        which stays Python's own.
+      """
+      #  bool operator<=(const const_iterator &lhs, const const_iterator
+      #      &rhs)
+      return Rituals.call(
+          'ritual_ZleRKN10QJsonArray14const_iteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __le__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ge__(self, rhs: QJsonArray.const_iterator) -> bool:
+      """
+      Calls Qt's 'bool operator>=(const const_iterator &lhs, const
+      const_iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html#operator>=
+
+      Parameters
+      ----------
+
+      rhs : QJsonArray.const_iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::const_iterator,
+        which stays Python's own.
+      """
+      #  bool operator>=(const const_iterator &lhs, const const_iterator
+      #      &rhs)
+      return Rituals.call(
+          'ritual_ZgeRKN10QJsonArray14const_iteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ge__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -301,30 +673,61 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QJsonArray::iterator yet. It can be made from Python,
-    in 3 ways; see '__init__'.
+    Every function of Qt's QJsonArray::iterator that has a ritual and that
+    Python can call so far, 11 names in all: '__getitem__', '__iadd__',
+    '__isub__', '__add__', '__sub__', '__eq__', '__ne__', '__lt__', '__gt__',
+    '__le__', '__ge__'. It can be made from Python, in 3 ways; see
+    '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
     - Qt's 'QJsonValueRef QJsonArray::iterator::operator*() const': an
-      operator, which is not reflected yet.
+      operator Python has no name for.
     - Qt's 'const QJsonValueConstRef *QJsonArray::iterator::operator->()
-      const': an operator, which is not reflected yet.
-    - Qt's 'QJsonValueRef *QJsonArray::iterator::operator->()': an operator,
-      which is not reflected yet.
-    - Qt's 'QJsonValueRef QJsonArray::iterator::operator[](qsizetype j)
-      const': an operator, which is not reflected yet.
-    - Qt's 'iterator QJsonArray::iterator::operator++(int a0)': an operator,
-      which is not reflected yet.
-    - Qt's 'iterator QJsonArray::iterator::operator--(int a0)': an operator,
-      which is not reflected yet.
-    - Qt's 'iterator QJsonArray::iterator::operator+(qsizetype j) const': an
-      operator, which is not reflected yet.
-    - Qt's 'iterator QJsonArray::iterator::operator-(qsizetype j) const': an
-      operator, which is not reflected yet.
-    - Qt's 'qsizetype QJsonArray::iterator::operator-(iterator j) const': an
-      operator, which is not reflected yet.
+      const': an operator Python has no name for.
+    - Qt's 'QJsonValueRef *QJsonArray::iterator::operator->()': an operator
+      Python has no name for.
+    - Qt's 'iterator QJsonArray::iterator::operator++(int a0)': an operator
+      Python has no name for.
+    - Qt's 'iterator QJsonArray::iterator::operator--(int a0)': an operator
+      Python has no name for.
+    - Qt's 'bool operator==(const iterator &lhs, const const_iterator &rhs)':
+      names 'QJsonArray::const_iterator', which stands beside this class
+      inside 'QJsonArray' and cannot be named from here.
+    - Qt's 'bool operator!=(const iterator &lhs, const const_iterator &rhs)':
+      names 'QJsonArray::const_iterator', which stands beside this class
+      inside 'QJsonArray' and cannot be named from here.
+    - Qt's 'bool operator<(const iterator &lhs, const const_iterator &rhs)':
+      names 'QJsonArray::const_iterator', which stands beside this class
+      inside 'QJsonArray' and cannot be named from here.
+    - Qt's 'bool operator>(const iterator &lhs, const const_iterator &rhs)':
+      names 'QJsonArray::const_iterator', which stands beside this class
+      inside 'QJsonArray' and cannot be named from here.
+    - Qt's 'bool operator<=(const iterator &lhs, const const_iterator &rhs)':
+      names 'QJsonArray::const_iterator', which stands beside this class
+      inside 'QJsonArray' and cannot be named from here.
+    - Qt's 'bool operator>=(const iterator &lhs, const const_iterator &rhs)':
+      names 'QJsonArray::const_iterator', which stands beside this class
+      inside 'QJsonArray' and cannot be named from here.
+    - Qt's 'bool operator==(const const_iterator &lhs, const iterator &rhs)':
+      names 'QJsonArray::const_iterator', which stands beside this class
+      inside 'QJsonArray' and cannot be named from here.
+    - Qt's 'bool operator!=(const const_iterator &lhs, const iterator &rhs)':
+      names 'QJsonArray::const_iterator', which stands beside this class
+      inside 'QJsonArray' and cannot be named from here.
+    - Qt's 'bool operator<(const const_iterator &lhs, const iterator &rhs)':
+      names 'QJsonArray::const_iterator', which stands beside this class
+      inside 'QJsonArray' and cannot be named from here.
+    - Qt's 'bool operator>(const const_iterator &lhs, const iterator &rhs)':
+      names 'QJsonArray::const_iterator', which stands beside this class
+      inside 'QJsonArray' and cannot be named from here.
+    - Qt's 'bool operator<=(const const_iterator &lhs, const iterator &rhs)':
+      names 'QJsonArray::const_iterator', which stands beside this class
+      inside 'QJsonArray' and cannot be named from here.
+    - Qt's 'bool operator>=(const const_iterator &lhs, const iterator &rhs)':
+      names 'QJsonArray::const_iterator', which stands beside this class
+      inside 'QJsonArray' and cannot be named from here.
     - Qt's 'QJsonArray::iterator::~iterator()': the destructor: Python
       removes its C++ QJsonArray::iterator by it, and has no other use for
       it.
@@ -332,8 +735,8 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    9 of the 22 functions Qt declares: 5 takes or gives a type that cannot be
-    passed yet; 4 private.
+    7 of the 40 functions Qt declares: 4 private; 3 takes or gives a type
+    that cannot be passed yet.
 
     What to expect
     --------------
@@ -395,6 +798,358 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(int)
+    def __getitem__(self, j: int) -> QJsonValueRef:
+      """
+      Calls Qt's 'QJsonValueRef QJsonArray::iterator::operator[](qsizetype j)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator[]
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      QJsonValueRef
+        A new cute QJsonValueRef around the copy Qt gave back. Python owns
+        it.
+      """
+      #  QJsonValueRef QJsonArray::iterator::operator[](qsizetype j) const
+      address = self.uglySide.call('ritual_ZNK10QJsonArray8iteratorixEx', j)
+      from . import QJsonValueRef
+      return QJsonValueRef._cuteOwning(address)
+
+    @overload(int)
+    def __iadd__(self, j: int) -> QJsonArray.iterator:
+      """
+      Calls Qt's 'iterator &QJsonArray::iterator::operator+=(qsizetype j)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator+=
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+      """
+      #  iterator &QJsonArray::iterator::operator+=(qsizetype j)
+      self.uglySide.call('ritual_ZN10QJsonArray8iteratorpLEx', j)
+      return self
+
+    @overload.fallback
+    def __iadd__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(int)
+    def __isub__(self, j: int) -> QJsonArray.iterator:
+      """
+      Calls Qt's 'iterator &QJsonArray::iterator::operator-=(qsizetype j)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator-=
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+      """
+      #  iterator &QJsonArray::iterator::operator-=(qsizetype j)
+      self.uglySide.call('ritual_ZN10QJsonArray8iteratormIEx', j)
+      return self
+
+    @overload.fallback
+    def __isub__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(int)
+    def __add__(self, j: int) -> QJsonArray.iterator:
+      """
+      Calls Qt's 'iterator QJsonArray::iterator::operator+(qsizetype j)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator+
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      QJsonArray.iterator
+        A new cute QJsonArray::iterator around the copy Qt gave back. Python
+        owns it.
+      """
+      #  iterator QJsonArray::iterator::operator+(qsizetype j) const
+      address = self.uglySide.call('ritual_ZNK10QJsonArray8iteratorplEx', j)
+      return QJsonArray.iterator._cuteOwning(address)
+
+    @overload.fallback
+    def __add__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(int)
+    def __sub__(self, j: int) -> QJsonArray.iterator:
+      """
+      Calls Qt's 'iterator QJsonArray::iterator::operator-(qsizetype j)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator-
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      QJsonArray.iterator
+        A new cute QJsonArray::iterator around the copy Qt gave back. Python
+        owns it.
+      """
+      #  iterator QJsonArray::iterator::operator-(qsizetype j) const
+      address = self.uglySide.call('ritual_ZNK10QJsonArray8iteratormiEx', j)
+      return QJsonArray.iterator._cuteOwning(address)
+
+    @overload(THIS)
+    def __sub__(self, j: QJsonArray.iterator) -> int:
+      """
+      Calls Qt's 'qsizetype QJsonArray::iterator::operator-(iterator j)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator-
+
+      Parameters
+      ----------
+
+      j : QJsonArray.iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::iterator, which
+        stays Python's own.
+      """
+      #  qsizetype QJsonArray::iterator::operator-(iterator j) const
+      return self.uglySide.call(
+          'ritual_ZNK10QJsonArray8iteratormiES0_', self._valueOf(j),
+      )
+
+    @overload.fallback
+    def __sub__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __eq__(self, rhs: QJsonArray.iterator) -> bool:
+      """
+      Calls Qt's 'bool operator==(const iterator &lhs, const iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator==
+
+      Parameters
+      ----------
+
+      rhs : QJsonArray.iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::iterator, which
+        stays Python's own.
+      """
+      #  bool operator==(const iterator &lhs, const iterator &rhs)
+      return Rituals.call(
+          'ritual_ZeqRKN10QJsonArray8iteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, rhs: QJsonArray.iterator) -> bool:
+      """
+      Calls Qt's 'bool operator!=(const iterator &lhs, const iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator!=
+
+      Parameters
+      ----------
+
+      rhs : QJsonArray.iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::iterator, which
+        stays Python's own.
+      """
+      #  bool operator!=(const iterator &lhs, const iterator &rhs)
+      return Rituals.call(
+          'ritual_ZneRKN10QJsonArray8iteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __lt__(self, rhs: QJsonArray.iterator) -> bool:
+      """
+      Calls Qt's 'bool operator<(const iterator &lhs, const iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator<
+
+      Parameters
+      ----------
+
+      rhs : QJsonArray.iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::iterator, which
+        stays Python's own.
+      """
+      #  bool operator<(const iterator &lhs, const iterator &rhs)
+      return Rituals.call(
+          'ritual_ZltRKN10QJsonArray8iteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __lt__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __gt__(self, rhs: QJsonArray.iterator) -> bool:
+      """
+      Calls Qt's 'bool operator>(const iterator &lhs, const iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator>
+
+      Parameters
+      ----------
+
+      rhs : QJsonArray.iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::iterator, which
+        stays Python's own.
+      """
+      #  bool operator>(const iterator &lhs, const iterator &rhs)
+      return Rituals.call(
+          'ritual_ZgtRKN10QJsonArray8iteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __gt__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __le__(self, rhs: QJsonArray.iterator) -> bool:
+      """
+      Calls Qt's 'bool operator<=(const iterator &lhs, const iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator<=
+
+      Parameters
+      ----------
+
+      rhs : QJsonArray.iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::iterator, which
+        stays Python's own.
+      """
+      #  bool operator<=(const iterator &lhs, const iterator &rhs)
+      return Rituals.call(
+          'ritual_ZleRKN10QJsonArray8iteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __le__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ge__(self, rhs: QJsonArray.iterator) -> bool:
+      """
+      Calls Qt's 'bool operator>=(const iterator &lhs, const iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator>=
+
+      Parameters
+      ----------
+
+      rhs : QJsonArray.iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::iterator, which
+        stays Python's own.
+      """
+      #  bool operator>=(const iterator &lhs, const iterator &rhs)
+      return Rituals.call(
+          'ritual_ZgeRKN10QJsonArray8iteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ge__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -703,6 +1458,233 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def __getitem__(self, i: int) -> QJsonValueRef:
+    """
+    Calls Qt's 'QJsonValueRef QJsonArray::operator[](qsizetype i)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#operator[]
+
+    Parameters
+    ----------
+
+    i : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QJsonValueRef
+      A new cute QJsonValueRef around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonValueRef QJsonArray::operator[](qsizetype i)
+    address = self.uglySide.call('ritual_ZN10QJsonArrayixEx', i)
+    from . import QJsonValueRef
+    return QJsonValueRef._cuteOwning(address)
+
+  @overload(QJsonValue)
+  def __add__(self, v: QJsonValue) -> QJsonArray:
+    """
+    Calls Qt's 'QJsonArray QJsonArray::operator+(const QJsonValue &v) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#operator+
+
+    Parameters
+    ----------
+
+    v : QJsonValue
+      Passed on as a value: Qt reads the C++ QJsonValue, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QJsonArray
+      A new cute QJsonArray around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonArray QJsonArray::operator+(const QJsonValue &v) const
+    address = self.uglySide.call(
+        'ritual_ZNK10QJsonArrayplERK10QJsonValue', self._valueOf(v),
+    )
+    return QJsonArray._cuteOwning(address)
+
+  @overload.fallback
+  def __add__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QJsonValue)
+  def __iadd__(self, v: QJsonValue) -> QJsonArray:
+    """
+    Calls Qt's 'QJsonArray &QJsonArray::operator+=(const QJsonValue &v)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#operator+=
+
+    Parameters
+    ----------
+
+    v : QJsonValue
+      Passed on as a value: Qt reads the C++ QJsonValue, which stays Python's
+      own.
+    """
+    #  QJsonArray &QJsonArray::operator+=(const QJsonValue &v)
+    self.uglySide.call(
+        'ritual_ZN10QJsonArraypLERK10QJsonValue', self._valueOf(v),
+    )
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QDebug)
+  def __rlshift__(self, a0: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug a0, const QJsonArray &a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#operator<<
+
+    Parameters
+    ----------
+
+    a0 : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug a0, const QJsonArray &a1)
+    address = Rituals.call(
+        'ritual_Zls6QDebugRK10QJsonArray',
+        CuteMixin._valueOf(a0), CuteMixin._valueOf(self),
+    )
+    from . import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, rhs: QJsonArray) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QJsonArray &lhs, const QJsonArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QJsonArray
+      Passed on as a value: Qt reads the C++ QJsonArray, which stays Python's
+      own.
+    """
+    #  bool operator==(const QJsonArray &lhs, const QJsonArray &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK10QJsonArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QJsonValue)
+  def __eq__(self, rhs: QJsonValue) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QJsonArray &lhs, const QJsonValue
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QJsonValue
+      Passed on as a value: Qt reads the C++ QJsonValue, which stays Python's
+      own.
+    """
+    #  bool operator==(const QJsonArray &lhs, const QJsonValue &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK10QJsonArrayRK10QJsonValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QJsonArray) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QJsonArray &lhs, const QJsonArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QJsonArray
+      Passed on as a value: Qt reads the C++ QJsonArray, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QJsonArray &lhs, const QJsonArray &rhs)
+    return Rituals.call(
+        'ritual_ZneRK10QJsonArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QJsonValue)
+  def __ne__(self, rhs: QJsonValue) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QJsonArray &lhs, const QJsonValue
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QJsonValue
+      Passed on as a value: Qt reads the C++ QJsonValue, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QJsonArray &lhs, const QJsonValue &rhs)
+    return Rituals.call(
+        'ritual_ZneRK10QJsonArrayRK10QJsonValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

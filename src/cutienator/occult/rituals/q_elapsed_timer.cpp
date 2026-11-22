@@ -87,6 +87,54 @@ qint64 ritual_ZNK13QElapsedTimer6secsToERKS_(
   return self->secsTo(*other);
 }
 
+//  bool operator<(const QElapsedTimer &lhs, const QElapsedTimer &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK13QElapsedTimerS1_(
+    const QElapsedTimer *lhs,
+    const QElapsedTimer *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator==(const QElapsedTimer &lhs, const QElapsedTimer &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK13QElapsedTimerS1_(
+    const QElapsedTimer *lhs,
+    const QElapsedTimer *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QElapsedTimer &lhs, const QElapsedTimer &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK13QElapsedTimerS1_(
+    const QElapsedTimer *lhs,
+    const QElapsedTimer *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator>(const QElapsedTimer &lhs, const QElapsedTimer &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK13QElapsedTimerS1_(
+    const QElapsedTimer *lhs,
+    const QElapsedTimer *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QElapsedTimer &lhs, const QElapsedTimer &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK13QElapsedTimerS1_(
+    const QElapsedTimer *lhs,
+    const QElapsedTimer *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QElapsedTimer &lhs, const QElapsedTimer &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK13QElapsedTimerS1_(
+    const QElapsedTimer *lhs,
+    const QElapsedTimer *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
 //  QElapsedTimer::~QElapsedTimer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QElapsedTimerD1Ev(QElapsedTimer *self) {

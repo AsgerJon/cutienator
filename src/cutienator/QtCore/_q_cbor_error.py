@@ -33,8 +33,8 @@ class QCborError(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'Code QCborError::operator QCborError::Code() const': an operator,
-    which is not reflected yet.
+  - Qt's 'Code QCborError::operator QCborError::Code() const': an operator
+    Python has no name for.
   - Qt's 'QCborError::~QCborError()': the destructor: Python removes its C++
     QCborError by it, and has no other use for it.
 

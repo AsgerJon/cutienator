@@ -42,7 +42,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLocale that has a ritual and that Python can call
-  so far, 54 names in all: 'language', 'script', 'country', 'name',
+  so far, 56 names in all: 'language', 'script', 'country', 'name',
   'bcp47Name', 'nativeLanguageName', 'nativeTerritoryName',
   'nativeCountryName', 'toString', 'dateFormat', 'timeFormat',
   'dateTimeFormat', 'toTime', 'toDate', 'toDateTime', 'decimalPoint',
@@ -54,8 +54,8 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   'languageToCode', 'codeToLanguage', 'territoryToCode', 'countryToCode',
   'codeToCountry', 'scriptToCode', 'codeToScript', 'languageToString',
   'territoryToString', 'countryToString', 'scriptToString', 'setDefault',
-  'c', 'system', 'setNumberOptions', 'numberOptions', 'quoteString'. It can
-  be made from Python, in 5 ways; see '__init__'.
+  'c', 'system', 'setNumberOptions', 'numberOptions', 'quoteString',
+  '__eq__', '__ne__'. It can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -158,7 +158,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  23 of the 141 functions Qt declares: 18 takes or gives a type that cannot
+  27 of the 147 functions Qt declares: 22 takes or gives a type that cannot
   be passed yet; 3 private; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
@@ -3119,6 +3119,64 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QLocale) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QLocale &lhs, const QLocale &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QLocale
+      Passed on as a value: Qt reads the C++ QLocale, which stays Python's
+      own.
+    """
+    #  bool operator==(const QLocale &lhs, const QLocale &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK7QLocaleS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QLocale) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QLocale &lhs, const QLocale &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QLocale
+      Passed on as a value: Qt reads the C++ QLocale, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QLocale &lhs, const QLocale &rhs)
+    return Rituals.call(
+        'ritual_ZneRK7QLocaleS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

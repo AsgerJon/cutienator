@@ -3,6 +3,7 @@
 #include <QtGui/qfontvariableaxis.h>
 #include <QtGui/qfont.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qdebug.h>
 
 //  QFontVariableAxis::QFontVariableAxis()
 extern "C" Q_DECL_EXPORT
@@ -96,4 +97,12 @@ void ritual_ZN17QFontVariableAxis15setDefaultValueEd(
     QFontVariableAxis *self,
     qreal defaultValue) {
   self->setDefaultValue(defaultValue);
+}
+
+//  QDebug operator<<(QDebug debug, const QFontVariableAxis &axis)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK17QFontVariableAxis(
+    const QDebug *debug,
+    const QFontVariableAxis *axis) {
+  return new QDebug(operator<<(*debug, *axis));
 }

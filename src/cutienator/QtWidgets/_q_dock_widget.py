@@ -50,11 +50,13 @@ class QDockWidget(QWidget):
 
   - Qt's 'QDockWidget::~QDockWidget()': the destructor: Python never removes
     a C++ QDockWidget.
+  - Qt's 'QDebug operator<<(QDebug dbg, const QDockWidget *dockWidget)': an
+    operator between other classes, written inside this one.
 
   What has no ritual
   ------------------
 
-  18 of the 37 functions Qt declares: 5 a signal; 5 protected; 3 private; 2
+  18 of the 38 functions Qt declares: 5 a signal; 5 protected; 3 private; 2
   takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect

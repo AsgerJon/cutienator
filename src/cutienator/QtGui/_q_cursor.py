@@ -48,22 +48,22 @@ class QCursor(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCursor that has a ritual and that Python can call
-  so far, 8 names in all: 'shape', 'setShape', 'bitmap', 'mask', 'pixmap',
-  'hotSpot', 'pos', 'setPos'. It can be made from Python, in 5 ways; see
-  '__init__'.
+  so far, 10 names in all: 'shape', 'setShape', 'bitmap', 'mask', 'pixmap',
+  'hotSpot', 'pos', 'setPos', '__eq__', '__ne__'. It can be made from Python,
+  in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QCursor::~QCursor()': the destructor: Python removes its C++
     QCursor by it, and has no other use for it.
-  - Qt's 'QVariant QCursor::operator QVariant() const': an operator, which is
-    not reflected yet.
+  - Qt's 'QVariant QCursor::operator QVariant() const': an operator Python
+    has no name for.
 
   What has no ritual
   ------------------
 
-  4 of the 25 functions Qt declares: 4 takes or gives a type that cannot be
+  4 of the 27 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -415,6 +415,64 @@ class QCursor(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QCursor) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QCursor &lhs, const QCursor &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcursor.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QCursor
+      Passed on as a value: Qt reads the C++ QCursor, which stays Python's
+      own.
+    """
+    #  bool operator==(const QCursor &lhs, const QCursor &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK7QCursorS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QCursor) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QCursor &lhs, const QCursor &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcursor.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QCursor
+      Passed on as a value: Qt reads the C++ QCursor, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QCursor &lhs, const QCursor &rhs)
+    return Rituals.call(
+        'ritual_ZneRK7QCursorS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

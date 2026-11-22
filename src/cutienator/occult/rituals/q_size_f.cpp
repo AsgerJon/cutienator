@@ -145,6 +145,96 @@ QSizeF *ritual_ZNK6QSizeF8shrunkByE9QMarginsF(
   return new QSizeF(self->shrunkBy(*m));
 }
 
+//  QSizeF &QSizeF::operator+=(const QSizeF &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QSizeFpLERKS_(QSizeF *self, const QSizeF *a0) {
+  self->operator+=(*a0);
+}
+
+//  QSizeF &QSizeF::operator-=(const QSizeF &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QSizeFmIERKS_(QSizeF *self, const QSizeF *a0) {
+  self->operator-=(*a0);
+}
+
+//  QSizeF &QSizeF::operator*=(qreal c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QSizeFmLEd(QSizeF *self, qreal c) {
+  self->operator*=(c);
+}
+
+//  QSizeF &QSizeF::operator/=(qreal c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QSizeFdVEd(QSizeF *self, qreal c) {
+  self->operator/=(c);
+}
+
+//  bool operator==(const QSizeF &lhs, const QSizeF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK6QSizeFS1_(const QSizeF *lhs, const QSizeF *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QSizeF &lhs, const QSizeF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK6QSizeFS1_(const QSizeF *lhs, const QSizeF *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QSizeF &lhs, const QSize &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK6QSizeFRK5QSize(const QSizeF *lhs, const QSize *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QSizeF &lhs, const QSize &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK6QSizeFRK5QSize(const QSizeF *lhs, const QSize *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QSize &lhs, const QSizeF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK5QSizeRK6QSizeF(const QSize *lhs, const QSizeF *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QSize &lhs, const QSizeF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK5QSizeRK6QSizeF(const QSize *lhs, const QSizeF *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  QSizeF operator+(const QSizeF &s1, const QSizeF &s2)
+extern "C" Q_DECL_EXPORT
+QSizeF *ritual_ZplRK6QSizeFS1_(const QSizeF *s1, const QSizeF *s2) {
+  return new QSizeF(operator+(*s1, *s2));
+}
+
+//  QSizeF operator-(const QSizeF &s1, const QSizeF &s2)
+extern "C" Q_DECL_EXPORT
+QSizeF *ritual_ZmiRK6QSizeFS1_(const QSizeF *s1, const QSizeF *s2) {
+  return new QSizeF(operator-(*s1, *s2));
+}
+
+//  QSizeF operator*(const QSizeF &s, qreal c)
+extern "C" Q_DECL_EXPORT
+QSizeF *ritual_ZmlRK6QSizeFd(const QSizeF *s, qreal c) {
+  return new QSizeF(operator*(*s, c));
+}
+
+//  QSizeF operator*(qreal c, const QSizeF &s)
+extern "C" Q_DECL_EXPORT
+QSizeF *ritual_ZmldRK6QSizeF(qreal c, const QSizeF *s) {
+  return new QSizeF(operator*(c, *s));
+}
+
+//  QSizeF operator/(const QSizeF &s, qreal c)
+extern "C" Q_DECL_EXPORT
+QSizeF *ritual_ZdvRK6QSizeFd(const QSizeF *s, qreal c) {
+  return new QSizeF(operator/(*s, c));
+}
+
 //  QSize QSizeF::toSize() const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK6QSizeF6toSizeEv(const QSizeF *self) {

@@ -40,6 +40,20 @@
     "ritual_ZNK18QJsonValueConstRefixEx": [
       "address", "address", "long long"
     ],
+    "ritual_ZeqRK18QJsonValueConstRefS1_": ["bool", "address", "address"],
+    "ritual_ZneRK18QJsonValueConstRefS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK18QJsonValueConstRefRK10QJsonValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK18QJsonValueConstRefRK10QJsonValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK10QJsonValueRK18QJsonValueConstRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK10QJsonValueRK18QJsonValueConstRef": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN18QJsonValueConstRefD1Ev": ["nothing", "address"]
   }
 }

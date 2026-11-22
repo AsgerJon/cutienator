@@ -30,9 +30,10 @@ class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QNativeIpcKey that has a ritual and that Python can
-  call so far, 9 names in all: 'legacyDefaultTypeForOs', 'isEmpty',
+  call so far, 11 names in all: 'legacyDefaultTypeForOs', 'isEmpty',
   'isValid', 'type', 'setType', 'nativeKey', 'setNativeKey', 'toString',
-  'fromString'. It can be made from Python, in 4 ways; see '__init__'.
+  'fromString', '__eq__', '__ne__'. It can be made from Python, in 4 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -43,7 +44,7 @@ class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  15 of the 29 functions Qt declares: 9 private; 4 takes or gives a type that
+  15 of the 31 functions Qt declares: 9 private; 4 takes or gives a type that
   cannot be passed yet; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
@@ -263,6 +264,66 @@ class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QNativeIpcKey) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QNativeIpcKey &lhs, const QNativeIpcKey
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qnativeipckey.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QNativeIpcKey
+      Passed on as a value: Qt reads the C++ QNativeIpcKey, which stays
+      Python's own.
+    """
+    #  bool operator==(const QNativeIpcKey &lhs, const QNativeIpcKey &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK13QNativeIpcKeyS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QNativeIpcKey) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QNativeIpcKey &lhs, const QNativeIpcKey
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qnativeipckey.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QNativeIpcKey
+      Passed on as a value: Qt reads the C++ QNativeIpcKey, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QNativeIpcKey &lhs, const QNativeIpcKey &rhs)
+    return Rituals.call(
+        'ritual_ZneRK13QNativeIpcKeyS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

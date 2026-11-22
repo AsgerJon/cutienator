@@ -431,6 +431,20 @@ class RitualTester:
     count, compilerNames = 0, set()  # type: int, Set[str]
     declaresDestructor = False
     for member in record.get('inner', ()):
+      if member.get('kind') == 'FriendDecl':
+        #  An operator Qt writes inside the class with 'friend' in front
+        #  counts as a function declared for the class.
+        for friend in member.get('inner', ()):
+          if not isinstance(friend, dict) or friend.get('isImplicit'):
+            continue
+          if friend.get('kind') != 'FunctionDecl':
+            continue
+          if not friend.get('name', '').startswith('operator'):
+            continue
+          count += 1
+          if 'mangledName' in friend:
+            compilerNames.add(friend['mangledName'])
+        continue
       if member.get('kind') not in self.__counted_kinds__:
         continue
       if member.get('isImplicit'):

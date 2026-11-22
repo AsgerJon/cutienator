@@ -45,24 +45,21 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QEventPoint that has a ritual and that Python can
-  call so far, 39 names in all: 'position', 'pressPosition', 'grabPosition',
-  'lastPosition', 'scenePosition', 'scenePressPosition', 'sceneGrabPosition',
-  'sceneLastPosition', 'globalPosition', 'globalPressPosition',
-  'globalGrabPosition', 'globalLastPosition', 'normalizedPosition', 'pos',
-  'startPos', 'scenePos', 'startScenePos', 'screenPos', 'startScreenPos',
-  'startNormalizedPos', 'normalizedPos', 'lastPos', 'lastScenePos',
-  'lastScreenPos', 'lastNormalizedPos', 'velocity', 'state', 'device', 'id',
-  'uniqueId', 'timestamp', 'lastTimestamp', 'pressTimestamp', 'timeHeld',
-  'pressure', 'rotation', 'ellipseDiameters', 'isAccepted', 'setAccepted'. It
-  can be made from Python, in 3 ways; see '__init__'.
+  call so far, 41 names in all: '__eq__', '__ne__', 'position',
+  'pressPosition', 'grabPosition', 'lastPosition', 'scenePosition',
+  'scenePressPosition', 'sceneGrabPosition', 'sceneLastPosition',
+  'globalPosition', 'globalPressPosition', 'globalGrabPosition',
+  'globalLastPosition', 'normalizedPosition', 'pos', 'startPos', 'scenePos',
+  'startScenePos', 'screenPos', 'startScreenPos', 'startNormalizedPos',
+  'normalizedPos', 'lastPos', 'lastScenePos', 'lastScreenPos',
+  'lastNormalizedPos', 'velocity', 'state', 'device', 'id', 'uniqueId',
+  'timestamp', 'lastTimestamp', 'pressTimestamp', 'timeHeld', 'pressure',
+  'rotation', 'ellipseDiameters', 'isAccepted', 'setAccepted'. It can be made
+  from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'bool QEventPoint::operator==(const QEventPoint &other) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QEventPoint::operator!=(const QEventPoint &other) const': an
-    operator, which is not reflected yet.
   - Qt's 'QEventPoint::~QEventPoint()': the destructor: Python removes its
     C++ QEventPoint by it, and has no other use for it.
 
@@ -770,6 +767,64 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, other: QEventPoint) -> bool:
+    """
+    Calls Qt's 'bool QEventPoint::operator==(const QEventPoint &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qeventpoint.html#operator==
+
+    Parameters
+    ----------
+
+    other : QEventPoint
+      Passed on as a value: Qt reads the C++ QEventPoint, which stays
+      Python's own.
+    """
+    #  bool QEventPoint::operator==(const QEventPoint &other) const
+    return self.uglySide.call(
+        'ritual_ZNK11QEventPointeqERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, other: QEventPoint) -> bool:
+    """
+    Calls Qt's 'bool QEventPoint::operator!=(const QEventPoint &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qeventpoint.html#operator!=
+
+    Parameters
+    ----------
+
+    other : QEventPoint
+      Passed on as a value: Qt reads the C++ QEventPoint, which stays
+      Python's own.
+    """
+    #  bool QEventPoint::operator!=(const QEventPoint &other) const
+    return self.uglySide.call(
+        'ritual_ZNK11QEventPointneERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
@@ -36,10 +37,10 @@ class QLine(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLine that has a ritual and that Python can call so
-  far, 17 names in all: 'isNull', 'p1', 'p2', 'x1', 'y1', 'x2', 'y2', 'dx',
+  far, 19 names in all: 'isNull', 'p1', 'p2', 'x1', 'y1', 'x2', 'y2', 'dx',
   'dy', 'translate', 'translated', 'center', 'setP1', 'setP2', 'setPoints',
-  'setLine', 'toLineF'. It can be made from Python, in 3 ways; see
-  '__init__'.
+  'setLine', 'toLineF', '__eq__', '__ne__'. It can be made from Python, in 3
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -365,6 +366,62 @@ class QLine(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QLine) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QLine &lhs, const QLine &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qline.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QLine
+      Passed on as a value: Qt reads the C++ QLine, which stays Python's own.
+    """
+    #  bool operator==(const QLine &lhs, const QLine &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK5QLineS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QLine) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QLine &lhs, const QLine &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qline.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QLine
+      Passed on as a value: Qt reads the C++ QLine, which stays Python's own.
+    """
+    #  bool operator!=(const QLine &lhs, const QLine &rhs)
+    return Rituals.call(
+        'ritual_ZneRK5QLineS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

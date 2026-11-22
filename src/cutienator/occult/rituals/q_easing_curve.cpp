@@ -2,6 +2,7 @@
 //  QtCore/qeasingcurve.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qeasingcurve.h>
 #include <QtCore/qpoint.h>
+#include <QtCore/qdebug.h>
 
 //  QEasingCurve::QEasingCurve(Type type)
 extern "C" Q_DECL_EXPORT
@@ -113,4 +114,28 @@ QEasingCurve *ritual_ZN12QEasingCurve15fromCubicBezierE7QPointFS0_(
     const QPointF *c1,
     const QPointF *c2) {
   return new QEasingCurve(QEasingCurve::fromCubicBezier(*c1, *c2));
+}
+
+//  QDebug operator<<(QDebug debug, const QEasingCurve &item)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK12QEasingCurve(
+    const QDebug *debug,
+    const QEasingCurve *item) {
+  return new QDebug(operator<<(*debug, *item));
+}
+
+//  bool operator==(const QEasingCurve &lhs, const QEasingCurve &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK12QEasingCurveS1_(
+    const QEasingCurve *lhs,
+    const QEasingCurve *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QEasingCurve &lhs, const QEasingCurve &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK12QEasingCurveS1_(
+    const QEasingCurve *lhs,
+    const QEasingCurve *rhs) {
+  return operator!=(*lhs, *rhs);
 }

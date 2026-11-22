@@ -40,6 +40,9 @@
     ],
     "ritual_ZNK9QMetaType14underlyingTypeEv": ["address", "address"],
     "ritual_ZN9QMetaType8fromNameE14QByteArrayView": ["address", "address"],
+    "ritual_ZeqRK9QMetaTypeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK9QMetaTypeS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebug9QMetaType": ["address", "address", "address"],
     "ritual_ZNK9QMetaType32hasRegisteredDebugStreamOperatorEv": [
       "bool", "address"
     ],

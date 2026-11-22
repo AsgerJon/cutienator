@@ -29,9 +29,10 @@ class QMimeType(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMimeType that has a ritual and that Python can call
-  so far, 9 names in all: 'isValid', 'isDefault', 'name', 'comment',
+  so far, 11 names in all: 'isValid', 'isDefault', 'name', 'comment',
   'genericIconName', 'iconName', 'preferredSuffix', 'inherits',
-  'filterString'. It can be made from Python, in 2 ways; see '__init__'.
+  'filterString', '__eq__', '__ne__'. It can be made from Python, in 2 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -42,7 +43,7 @@ class QMimeType(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  12 of the 24 functions Qt declares: 9 takes or gives a type that cannot be
+  12 of the 26 functions Qt declares: 9 takes or gives a type that cannot be
   passed yet; 1 declared and nowhere to be found; 1 a template; 1 private.
 
   What to expect
@@ -223,6 +224,64 @@ class QMimeType(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QMimeType) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QMimeType &lhs, const QMimeType &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QMimeType
+      Passed on as a value: Qt reads the C++ QMimeType, which stays Python's
+      own.
+    """
+    #  bool operator==(const QMimeType &lhs, const QMimeType &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK9QMimeTypeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QMimeType) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QMimeType &lhs, const QMimeType &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QMimeType
+      Passed on as a value: Qt reads the C++ QMimeType, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QMimeType &lhs, const QMimeType &rhs)
+    return Rituals.call(
+        'ritual_ZneRK9QMimeTypeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

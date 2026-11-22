@@ -381,3 +381,39 @@ QByteArray *ritual_ZN4QUrl5toAceERK7QString6QFlagsINS_19AceProcessingOptionEE(
           *domain,
           QFlags<QUrl::AceProcessingOption>::fromInt(options)));
 }
+
+//  bool operator==(const QUrl &lhs, const QUrl &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK4QUrlS1_(const QUrl *lhs, const QUrl *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QUrl &lhs, const QUrl &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK4QUrlS1_(const QUrl *lhs, const QUrl *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QUrl &lhs, const QUrl &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK4QUrlS1_(const QUrl *lhs, const QUrl *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QUrl &lhs, const QUrl &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK4QUrlS1_(const QUrl *lhs, const QUrl *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QUrl &lhs, const QUrl &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK4QUrlS1_(const QUrl *lhs, const QUrl *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QUrl &lhs, const QUrl &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK4QUrlS1_(const QUrl *lhs, const QUrl *rhs) {
+  return operator>=(*lhs, *rhs);
+}

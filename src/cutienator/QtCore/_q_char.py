@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
@@ -29,15 +30,16 @@ class QChar(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QChar that has a ritual and that Python can call so
-  far, 37 names in all: 'category', 'direction', 'joiningType',
+  far, 43 names in all: 'category', 'direction', 'joiningType',
   'combiningClass', 'mirroredChar', 'hasMirrored', 'decomposition',
   'decompositionTag', 'digitValue', 'toLower', 'toUpper', 'toTitleCase',
   'toCaseFolded', 'script', 'unicodeVersion', 'isNull', 'isPrint', 'isSpace',
   'isMark', 'isPunct', 'isSymbol', 'isLetter', 'isNumber',
   'isLetterOrNumber', 'isDigit', 'isLower', 'isUpper', 'isTitleCase',
   'isNonCharacter', 'isHighSurrogate', 'isLowSurrogate', 'isSurrogate',
-  'cell', 'row', 'setCell', 'setRow', 'currentUnicodeVersion'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  'cell', 'row', 'setCell', 'setRow', 'currentUnicodeVersion', '__eq__',
+  '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,8 +53,8 @@ class QChar(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  50 of the 92 functions Qt declares: 40 takes or gives a type that cannot be
-  passed yet; 6 private; 4 a template.
+  62 of the 110 functions Qt declares: 52 takes or gives a type that cannot
+  be passed yet; 6 private; 4 a template.
 
   What to expect
   --------------
@@ -923,6 +925,174 @@ class QChar(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QChar &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator==(const QChar &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK5QCharS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QChar &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator!=(const QChar &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZneRK5QCharS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QChar &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator<(const QChar &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZltRK5QCharS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QChar &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator>(const QChar &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK5QCharS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QChar &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator<=(const QChar &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZleRK5QCharS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QChar &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator>=(const QChar &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK5QCharS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

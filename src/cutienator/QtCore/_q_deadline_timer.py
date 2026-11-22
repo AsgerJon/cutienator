@@ -31,11 +31,12 @@ class QDeadlineTimer(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QDeadlineTimer that has a ritual and that Python can
-  call so far, 14 names in all: 'isForever', 'hasExpired', 'timerType',
+  call so far, 25 names in all: 'isForever', 'hasExpired', 'timerType',
   'setTimerType', 'remainingTime', 'remainingTimeNSecs', 'setRemainingTime',
   'setPreciseRemainingTime', 'deadline', 'deadlineNSecs', 'setDeadline',
-  'setPreciseDeadline', 'addNSecs', 'current'. It can be made from Python, in
-  4 ways; see '__init__'.
+  'setPreciseDeadline', 'addNSecs', 'current', '__add__', '__radd__',
+  '__sub__', '__iadd__', '__isub__', '__eq__', '__ne__', '__lt__', '__gt__',
+  '__le__', '__ge__'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -46,7 +47,7 @@ class QDeadlineTimer(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  12 of the 31 functions Qt declares: 7 a template; 4 takes or gives a type
+  10 of the 41 functions Qt declares: 7 a template; 2 takes or gives a type
   that cannot be passed yet; 1 private.
 
   What to expect
@@ -408,6 +409,360 @@ class QDeadlineTimer(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def __add__(self, msecs: int) -> QDeadlineTimer:
+    """
+    Calls Qt's 'QDeadlineTimer operator+(QDeadlineTimer dt, qint64 msecs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdeadlinetimer.html#operator+
+
+    Parameters
+    ----------
+
+    msecs : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QDeadlineTimer
+      A new cute QDeadlineTimer around the copy Qt gave back. Python owns it.
+    """
+    #  QDeadlineTimer operator+(QDeadlineTimer dt, qint64 msecs)
+    address = Rituals.call(
+        'ritual_Zpl14QDeadlineTimerx', CuteMixin._valueOf(self), msecs,
+    )
+    return QDeadlineTimer._cuteOwning(address)
+
+  @overload.fallback
+  def __add__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(int)
+  def __radd__(self, msecs: int) -> QDeadlineTimer:
+    """
+    Calls Qt's 'QDeadlineTimer operator+(qint64 msecs, QDeadlineTimer dt)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdeadlinetimer.html#operator+
+
+    Parameters
+    ----------
+
+    msecs : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QDeadlineTimer
+      A new cute QDeadlineTimer around the copy Qt gave back. Python owns it.
+    """
+    #  QDeadlineTimer operator+(qint64 msecs, QDeadlineTimer dt)
+    address = Rituals.call(
+        'ritual_Zplx14QDeadlineTimer', msecs, CuteMixin._valueOf(self),
+    )
+    return QDeadlineTimer._cuteOwning(address)
+
+  @overload.fallback
+  def __radd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(int)
+  def __sub__(self, msecs: int) -> QDeadlineTimer:
+    """
+    Calls Qt's 'QDeadlineTimer operator-(QDeadlineTimer dt, qint64 msecs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdeadlinetimer.html#operator-
+
+    Parameters
+    ----------
+
+    msecs : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QDeadlineTimer
+      A new cute QDeadlineTimer around the copy Qt gave back. Python owns it.
+    """
+    #  QDeadlineTimer operator-(QDeadlineTimer dt, qint64 msecs)
+    address = Rituals.call(
+        'ritual_Zmi14QDeadlineTimerx', CuteMixin._valueOf(self), msecs,
+    )
+    return QDeadlineTimer._cuteOwning(address)
+
+  @overload(THIS)
+  def __sub__(self, dt2: QDeadlineTimer) -> int:
+    """
+    Calls Qt's 'qint64 operator-(QDeadlineTimer dt1, QDeadlineTimer dt2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdeadlinetimer.html#operator-
+
+    Parameters
+    ----------
+
+    dt2 : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+    """
+    #  qint64 operator-(QDeadlineTimer dt1, QDeadlineTimer dt2)
+    return Rituals.call(
+        'ritual_Zmi14QDeadlineTimerS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(dt2),
+    )
+
+  @overload.fallback
+  def __sub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(int)
+  def __iadd__(self, msecs: int) -> QDeadlineTimer:
+    """
+    Calls Qt's 'QDeadlineTimer &QDeadlineTimer::operator+=(qint64 msecs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdeadlinetimer.html#operator+=
+
+    Parameters
+    ----------
+
+    msecs : int
+      Passed on as it is.
+    """
+    #  QDeadlineTimer &QDeadlineTimer::operator+=(qint64 msecs)
+    self.uglySide.call('ritual_ZN14QDeadlineTimerpLEx', msecs)
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(int)
+  def __isub__(self, msecs: int) -> QDeadlineTimer:
+    """
+    Calls Qt's 'QDeadlineTimer &QDeadlineTimer::operator-=(qint64 msecs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdeadlinetimer.html#operator-=
+
+    Parameters
+    ----------
+
+    msecs : int
+      Passed on as it is.
+    """
+    #  QDeadlineTimer &QDeadlineTimer::operator-=(qint64 msecs)
+    self.uglySide.call('ritual_ZN14QDeadlineTimermIEx', msecs)
+    return self
+
+  @overload.fallback
+  def __isub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, rhs: QDeadlineTimer) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QDeadlineTimer &lhs, const
+    QDeadlineTimer &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdeadlinetimer.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+    """
+    #  bool operator==(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK14QDeadlineTimerS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QDeadlineTimer) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QDeadlineTimer &lhs, const
+    QDeadlineTimer &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdeadlinetimer.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
+    return Rituals.call(
+        'ritual_ZneRK14QDeadlineTimerS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QDeadlineTimer) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QDeadlineTimer &lhs, const
+    QDeadlineTimer &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdeadlinetimer.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+    """
+    #  bool operator<(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
+    return Rituals.call(
+        'ritual_ZltRK14QDeadlineTimerS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QDeadlineTimer) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QDeadlineTimer &lhs, const
+    QDeadlineTimer &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdeadlinetimer.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+    """
+    #  bool operator>(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK14QDeadlineTimerS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QDeadlineTimer) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QDeadlineTimer &lhs, const
+    QDeadlineTimer &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdeadlinetimer.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+    """
+    #  bool operator<=(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
+    return Rituals.call(
+        'ritual_ZleRK14QDeadlineTimerS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QDeadlineTimer) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QDeadlineTimer &lhs, const
+    QDeadlineTimer &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdeadlinetimer.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+    """
+    #  bool operator>=(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK14QDeadlineTimerS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

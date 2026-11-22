@@ -3,6 +3,7 @@
 #include <QtGui/qfont.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qdebug.h>
 
 //  QFont::QFont()
 extern "C" Q_DECL_EXPORT
@@ -520,4 +521,10 @@ void ritual_ZN5QFont15setLegacyWeightEi(QFont *self, int legacyWeight) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK5QFont12legacyWeightEv(const QFont *self) {
   return self->legacyWeight();
+}
+
+//  QDebug operator<<(QDebug a0, const QFont &a1)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK5QFont(const QDebug *a0, const QFont *a1) {
+  return new QDebug(operator<<(*a0, *a1));
 }

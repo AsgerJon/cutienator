@@ -31,7 +31,23 @@
     "ritual_ZNK9QVector4D13lengthSquaredEv": ["float", "address"],
     "ritual_ZNK9QVector4D10normalizedEv": ["address", "address"],
     "ritual_ZN9QVector4D9normalizeEv": ["nothing", "address"],
+    "ritual_ZN9QVector4DpLES_": ["nothing", "address", "address"],
+    "ritual_ZN9QVector4DmIES_": ["nothing", "address", "address"],
+    "ritual_ZN9QVector4DmLEf": ["nothing", "address", "float"],
+    "ritual_ZN9QVector4DmLES_": ["nothing", "address", "address"],
+    "ritual_ZN9QVector4DdVEf": ["nothing", "address", "float"],
+    "ritual_ZN9QVector4DdVES_": ["nothing", "address", "address"],
     "ritual_ZN9QVector4D10dotProductES_S_": ["float", "address", "address"],
+    "ritual_Zeq9QVector4DS_": ["bool", "address", "address"],
+    "ritual_Zne9QVector4DS_": ["bool", "address", "address"],
+    "ritual_Zpl9QVector4DS_": ["address", "address", "address"],
+    "ritual_Zmi9QVector4DS_": ["address", "address", "address"],
+    "ritual_Zmlf9QVector4D": ["address", "float", "address"],
+    "ritual_Zml9QVector4Df": ["address", "address", "float"],
+    "ritual_Zml9QVector4DS_": ["address", "address", "address"],
+    "ritual_Zng9QVector4D": ["address", "address"],
+    "ritual_Zdv9QVector4Df": ["address", "address", "float"],
+    "ritual_Zdv9QVector4DS_": ["address", "address", "address"],
     "ritual_ZNK9QVector4D10toVector2DEv": ["address", "address"],
     "ritual_ZNK9QVector4D16toVector2DAffineEv": ["address", "address"],
     "ritual_ZNK9QVector4D10toVector3DEv": ["address", "address"],
@@ -39,6 +55,9 @@
     "ritual_ZNK9QVector4D7toPointEv": ["address", "address"],
     "ritual_ZNK9QVector4D8toPointFEv": ["address", "address"],
     "ritual_ZNK9QVector4Dcv8QVariantEv": ["address", "address"],
+    "ritual_ZmlRK9QVector4DRK10QMatrix4x4": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QVector4DD1Ev": ["nothing", "address"]
   }
 }

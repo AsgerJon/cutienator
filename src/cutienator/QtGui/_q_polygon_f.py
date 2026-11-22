@@ -49,8 +49,8 @@ class QPolygonF(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QVariant QPolygonF::operator QVariant() const': an operator, which
-    is not reflected yet.
+  - Qt's 'QVariant QPolygonF::operator QVariant() const': an operator Python
+    has no name for.
   - Qt's 'QPolygonF::~QPolygonF()': the destructor: Python removes its C++
     QPolygonF by it, and has no other use for it.
 

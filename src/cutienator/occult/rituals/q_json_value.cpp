@@ -10,6 +10,7 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qstringview.h>
+#include <QtCore/qdebug.h>
 
 //  QJsonValue::QJsonValue(Type a0)
 extern "C" Q_DECL_EXPORT
@@ -274,4 +275,28 @@ QJsonValue *ritual_ZNK10QJsonValueixE13QLatin1String(
 extern "C" Q_DECL_EXPORT
 QJsonValue *ritual_ZNK10QJsonValueixEx(const QJsonValue *self, qsizetype i) {
   return new QJsonValue(self->operator[](i));
+}
+
+//  bool operator==(const QJsonValue &lhs, const QJsonValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK10QJsonValueS1_(
+    const QJsonValue *lhs,
+    const QJsonValue *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonValue &lhs, const QJsonValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK10QJsonValueS1_(
+    const QJsonValue *lhs,
+    const QJsonValue *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  QDebug operator<<(QDebug a0, const QJsonValue &a1)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK10QJsonValue(
+    const QDebug *a0,
+    const QJsonValue *a1) {
+  return new QDebug(operator<<(*a0, *a1));
 }

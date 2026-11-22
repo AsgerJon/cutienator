@@ -540,3 +540,51 @@ QString *ritual_ZNK10QCborValue20toDiagnosticNotationE6QFlagsINS_24DiagnosticNot
       self->toDiagnosticNotation(
           QFlags<QCborValue::DiagnosticNotationOption>::fromInt(opts)));
 }
+
+//  bool operator==(const QCborValue &lhs, const QCborValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK10QCborValueS1_(
+    const QCborValue *lhs,
+    const QCborValue *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QCborValue &lhs, const QCborValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK10QCborValueS1_(
+    const QCborValue *lhs,
+    const QCborValue *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QCborValue &lhs, const QCborValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK10QCborValueS1_(
+    const QCborValue *lhs,
+    const QCborValue *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QCborValue &lhs, const QCborValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK10QCborValueS1_(
+    const QCborValue *lhs,
+    const QCborValue *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QCborValue &lhs, const QCborValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK10QCborValueS1_(
+    const QCborValue *lhs,
+    const QCborValue *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QCborValue &lhs, const QCborValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK10QCborValueS1_(
+    const QCborValue *lhs,
+    const QCborValue *rhs) {
+  return operator>=(*lhs, *rhs);
+}

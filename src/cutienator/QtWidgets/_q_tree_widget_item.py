@@ -52,7 +52,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTreeWidgetItem that has a ritual and that Python
-  can call so far, 51 names in all: 'clone', 'treeWidget', 'setSelected',
+  can call so far, 52 names in all: 'clone', 'treeWidget', 'setSelected',
   'isSelected', 'setHidden', 'isHidden', 'setExpanded', 'isExpanded',
   'setFirstColumnSpanned', 'isFirstColumnSpanned', 'setDisabled',
   'isDisabled', 'setChildIndicatorPolicy', 'childIndicatorPolicy', 'flags',
@@ -60,8 +60,8 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   'setStatusTip', 'toolTip', 'setToolTip', 'whatsThis', 'setWhatsThis',
   'font', 'setFont', 'textAlignment', 'setTextAlignment', 'background',
   'setBackground', 'foreground', 'setForeground', 'checkState',
-  'setCheckState', 'sizeHint', 'setSizeHint', 'data', 'setData', 'parent',
-  'child', 'childCount', 'columnCount', 'indexOfChild', 'addChild',
+  'setCheckState', 'sizeHint', 'setSizeHint', 'data', 'setData', '__lt__',
+  'parent', 'child', 'childCount', 'columnCount', 'indexOfChild', 'addChild',
   'insertChild', 'removeChild', 'takeChild', 'type', 'sortChildren'. It can
   be made from Python, in 5 ways; see '__init__'.
 
@@ -77,8 +77,6 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     alignment)': takes in Python what 'void
     QTreeWidgetItem::setTextAlignment(int column, Qt::AlignmentFlag
     alignment)' takes.
-  - Qt's 'bool QTreeWidgetItem::operator<(const QTreeWidgetItem &other)
-    const': an operator, which is not reflected yet.
 
   What has no ritual
   ------------------
@@ -1113,6 +1111,35 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __lt__(self, other: QTreeWidgetItem) -> bool:
+    """
+    Calls Qt's 'bool QTreeWidgetItem::operator<(const QTreeWidgetItem &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidgetitem.html#operator<
+
+    Parameters
+    ----------
+
+    other : QTreeWidgetItem
+      Passed on as a value: Qt reads the C++ QTreeWidgetItem, which stays
+      Python's own.
+    """
+    #  bool QTreeWidgetItem::operator<(const QTreeWidgetItem &other) const
+    return self.uglySide.call(
+        'ritual_ZNK15QTreeWidgetItemltERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

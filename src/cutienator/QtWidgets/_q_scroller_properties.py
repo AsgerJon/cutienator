@@ -38,9 +38,10 @@ class QScrollerProperties(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QScrollerProperties that has a ritual and that
-  Python can call so far, 4 names in all: 'setDefaultScrollerProperties',
-  'unsetDefaultScrollerProperties', 'scrollMetric', 'setScrollMetric'. It can
-  be made from Python, in 2 ways; see '__init__'.
+  Python can call so far, 6 names in all: '__eq__', '__ne__',
+  'setDefaultScrollerProperties', 'unsetDefaultScrollerProperties',
+  'scrollMetric', 'setScrollMetric'. It can be made from Python, in 2 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -48,10 +49,6 @@ class QScrollerProperties(CuteMixin, metaclass=MetaCute):
   - Qt's 'QScrollerProperties::~QScrollerProperties()': the destructor:
     Python removes its C++ QScrollerProperties by it, and has no other use
     for it.
-  - Qt's 'bool QScrollerProperties::operator==(const QScrollerProperties &sp)
-    const': an operator, which is not reflected yet.
-  - Qt's 'bool QScrollerProperties::operator!=(const QScrollerProperties &sp)
-    const': an operator, which is not reflected yet.
 
   What has no ritual
   ------------------
@@ -258,6 +255,68 @@ class QScrollerProperties(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, sp: QScrollerProperties) -> bool:
+    """
+    Calls Qt's 'bool QScrollerProperties::operator==(const
+    QScrollerProperties &sp) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qscrollerproperties.html#operator==
+
+    Parameters
+    ----------
+
+    sp : QScrollerProperties
+      Passed on as a value: Qt reads the C++ QScrollerProperties, which stays
+      Python's own.
+    """
+    #  bool QScrollerProperties::operator==(const QScrollerProperties &sp)
+    #      const
+    return self.uglySide.call(
+        'ritual_ZNK19QScrollerPropertieseqERKS_', self._valueOf(sp),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, sp: QScrollerProperties) -> bool:
+    """
+    Calls Qt's 'bool QScrollerProperties::operator!=(const
+    QScrollerProperties &sp) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qscrollerproperties.html#operator!=
+
+    Parameters
+    ----------
+
+    sp : QScrollerProperties
+      Passed on as a value: Qt reads the C++ QScrollerProperties, which stays
+      Python's own.
+    """
+    #  bool QScrollerProperties::operator!=(const QScrollerProperties &sp)
+    #      const
+    return self.uglySide.call(
+        'ritual_ZNK19QScrollerPropertiesneERKS_', self._valueOf(sp),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -31,6 +31,22 @@ qint64 ritual_ZNK23QPointingDeviceUniqueId9numericIdEv(
   return self->numericId();
 }
 
+//  bool operator==(QPointingDeviceUniqueId lhs, QPointingDeviceUniqueId rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zeq23QPointingDeviceUniqueIdS_(
+    const QPointingDeviceUniqueId *lhs,
+    const QPointingDeviceUniqueId *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(QPointingDeviceUniqueId lhs, QPointingDeviceUniqueId rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zne23QPointingDeviceUniqueIdS_(
+    const QPointingDeviceUniqueId *lhs,
+    const QPointingDeviceUniqueId *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QPointingDeviceUniqueId::~QPointingDeviceUniqueId()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QPointingDeviceUniqueIdD1Ev(QPointingDeviceUniqueId *self) {

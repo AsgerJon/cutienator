@@ -37,20 +37,28 @@ class QPointF(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPointF that has a ritual and that Python can call
-  so far, 9 names in all: 'manhattanLength', 'isNull', 'x', 'y', 'setX',
-  'setY', 'transposed', 'dotProduct', 'toPoint'. It can be made from Python,
-  in 3 ways; see '__init__'.
+  so far, 22 names in all: 'manhattanLength', 'isNull', 'x', 'y', 'setX',
+  'setY', 'transposed', '__iadd__', '__isub__', '__imul__', '__itruediv__',
+  'dotProduct', '__eq__', '__ne__', '__add__', '__sub__', '__mul__',
+  '__rmul__', '__pos__', '__neg__', '__truediv__', 'toPoint'. It can be made
+  from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'bool operator==(const QPoint &lhs, const QPointF &rhs)': takes in
+    Python what 'bool operator==(const QPointF &lhs, const QPoint &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const QPoint &lhs, const QPointF &rhs)': takes in
+    Python what 'bool operator!=(const QPointF &lhs, const QPoint &rhs)'
+    takes.
   - Qt's 'QPointF::~QPointF()': the destructor: Python removes its C++
     QPointF by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  6 of the 19 functions Qt declares: 6 takes or gives a type that cannot be
+  2 of the 32 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -232,6 +240,416 @@ class QPointF(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __iadd__(self, p: QPointF) -> QPointF:
+    """
+    Calls Qt's 'QPointF &QPointF::operator+=(const QPointF &p)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator+=
+
+    Parameters
+    ----------
+
+    p : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+    """
+    #  QPointF &QPointF::operator+=(const QPointF &p)
+    self.uglySide.call('ritual_ZN7QPointFpLERKS_', self._valueOf(p))
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __isub__(self, p: QPointF) -> QPointF:
+    """
+    Calls Qt's 'QPointF &QPointF::operator-=(const QPointF &p)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator-=
+
+    Parameters
+    ----------
+
+    p : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+    """
+    #  QPointF &QPointF::operator-=(const QPointF &p)
+    self.uglySide.call('ritual_ZN7QPointFmIERKS_', self._valueOf(p))
+    return self
+
+  @overload.fallback
+  def __isub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __imul__(self, c: float) -> QPointF:
+    """
+    Calls Qt's 'QPointF &QPointF::operator*=(qreal c)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator*=
+
+    Parameters
+    ----------
+
+    c : float
+      Passed on as it is.
+    """
+    #  QPointF &QPointF::operator*=(qreal c)
+    self.uglySide.call('ritual_ZN7QPointFmLEd', c)
+    return self
+
+  @overload.fallback
+  def __imul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __itruediv__(self, c: float) -> QPointF:
+    """
+    Calls Qt's 'QPointF &QPointF::operator/=(qreal c)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator/=
+
+    Parameters
+    ----------
+
+    c : float
+      Passed on as it is.
+    """
+    #  QPointF &QPointF::operator/=(qreal c)
+    self.uglySide.call('ritual_ZN7QPointFdVEd', c)
+    return self
+
+  @overload.fallback
+  def __itruediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, rhs: QPointF) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QPointF &lhs, const QPointF &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+    """
+    #  bool operator==(const QPointF &lhs, const QPointF &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK7QPointFS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QPoint)
+  def __eq__(self, rhs: QPoint) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QPointF &lhs, const QPoint &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+    """
+    #  bool operator==(const QPointF &lhs, const QPoint &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK7QPointFRK6QPoint',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QPointF) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QPointF &lhs, const QPointF &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QPointF &lhs, const QPointF &rhs)
+    return Rituals.call(
+        'ritual_ZneRK7QPointFS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QPoint)
+  def __ne__(self, rhs: QPoint) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QPointF &lhs, const QPoint &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QPointF &lhs, const QPoint &rhs)
+    return Rituals.call(
+        'ritual_ZneRK7QPointFRK6QPoint',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __add__(self, p2: QPointF) -> QPointF:
+    """
+    Calls Qt's 'QPointF operator+(const QPointF &p1, const QPointF &p2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator+
+
+    Parameters
+    ----------
+
+    p2 : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF operator+(const QPointF &p1, const QPointF &p2)
+    address = Rituals.call(
+        'ritual_ZplRK7QPointFS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(p2),
+    )
+    return QPointF._cuteOwning(address)
+
+  @overload.fallback
+  def __add__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __sub__(self, p2: QPointF) -> QPointF:
+    """
+    Calls Qt's 'QPointF operator-(const QPointF &p1, const QPointF &p2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator-
+
+    Parameters
+    ----------
+
+    p2 : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF operator-(const QPointF &p1, const QPointF &p2)
+    address = Rituals.call(
+        'ritual_ZmiRK7QPointFS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(p2),
+    )
+    return QPointF._cuteOwning(address)
+
+  @overload.fallback
+  def __sub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __mul__(self, c: float) -> QPointF:
+    """
+    Calls Qt's 'QPointF operator*(const QPointF &p, qreal c)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator*
+
+    Parameters
+    ----------
+
+    c : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF operator*(const QPointF &p, qreal c)
+    address = Rituals.call(
+        'ritual_ZmlRK7QPointFd', CuteMixin._valueOf(self), c,
+    )
+    return QPointF._cuteOwning(address)
+
+  @overload.fallback
+  def __mul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __rmul__(self, c: float) -> QPointF:
+    """
+    Calls Qt's 'QPointF operator*(qreal c, const QPointF &p)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator*
+
+    Parameters
+    ----------
+
+    c : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF operator*(qreal c, const QPointF &p)
+    address = Rituals.call(
+        'ritual_ZmldRK7QPointF', c, CuteMixin._valueOf(self),
+    )
+    return QPointF._cuteOwning(address)
+
+  @overload.fallback
+  def __rmul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  def __pos__(self) -> QPointF:
+    """
+    Calls Qt's 'QPointF operator+(const QPointF &p)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator+
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF operator+(const QPointF &p)
+    address = Rituals.call('ritual_ZpsRK7QPointF', CuteMixin._valueOf(self))
+    return QPointF._cuteOwning(address)
+
+  def __neg__(self) -> QPointF:
+    """
+    Calls Qt's 'QPointF operator-(const QPointF &p)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator-
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF operator-(const QPointF &p)
+    address = Rituals.call('ritual_ZngRK7QPointF', CuteMixin._valueOf(self))
+    return QPointF._cuteOwning(address)
+
+  @overload(float)
+  def __truediv__(self, divisor: float) -> QPointF:
+    """
+    Calls Qt's 'QPointF operator/(const QPointF &p, qreal divisor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointf.html#operator/
+
+    Parameters
+    ----------
+
+    divisor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF operator/(const QPointF &p, qreal divisor)
+    address = Rituals.call(
+        'ritual_ZdvRK7QPointFd', CuteMixin._valueOf(self), divisor,
+    )
+    return QPointF._cuteOwning(address)
+
+  @overload.fallback
+  def __truediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

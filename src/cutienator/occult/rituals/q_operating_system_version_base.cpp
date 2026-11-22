@@ -85,6 +85,42 @@ QString *ritual_ZNK27QOperatingSystemVersionBase4nameEv(
   return new QString(self->name());
 }
 
+//  bool operator>(QOperatingSystemVersionBase lhs,
+//      QOperatingSystemVersionBase rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zgt27QOperatingSystemVersionBaseS_(
+    const QOperatingSystemVersionBase *lhs,
+    const QOperatingSystemVersionBase *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator>=(QOperatingSystemVersionBase lhs,
+//      QOperatingSystemVersionBase rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zge27QOperatingSystemVersionBaseS_(
+    const QOperatingSystemVersionBase *lhs,
+    const QOperatingSystemVersionBase *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator<(QOperatingSystemVersionBase lhs,
+//      QOperatingSystemVersionBase rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zlt27QOperatingSystemVersionBaseS_(
+    const QOperatingSystemVersionBase *lhs,
+    const QOperatingSystemVersionBase *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator<=(QOperatingSystemVersionBase lhs,
+//      QOperatingSystemVersionBase rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zle27QOperatingSystemVersionBaseS_(
+    const QOperatingSystemVersionBase *lhs,
+    const QOperatingSystemVersionBase *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
 //  QOperatingSystemVersionBase::~QOperatingSystemVersionBase()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QOperatingSystemVersionBaseD1Ev(

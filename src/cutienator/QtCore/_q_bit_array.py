@@ -19,6 +19,8 @@ from . import QSysInfo
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
+  from . import QBitRef
+
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
 NoneType = type(None)
@@ -37,18 +39,17 @@ class QBitArray(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QBitArray that has a ritual and that Python can call
-  so far, 17 names in all: 'size', 'count', 'isEmpty', 'isNull', 'resize',
-  'detach', 'isDetached', 'clear', 'testBit', 'setBit', 'clearBit',
-  'toggleBit', 'at', 'fill', 'truncate', 'bits', 'fromBits'. It can be made
-  from Python, in 3 ways; see '__init__'.
+  so far, 27 names in all: '__and__', '__or__', '__xor__', '__invert__',
+  'size', 'count', 'isEmpty', 'isNull', 'resize', 'detach', 'isDetached',
+  'clear', 'testBit', 'setBit', 'clearBit', 'toggleBit', 'at', '__getitem__',
+  '__iand__', '__ior__', '__ixor__', 'fill', 'truncate', 'bits', 'fromBits',
+  '__eq__', '__ne__'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QBitRef QBitArray::operator[](qsizetype i)': an operator, which is
-    not reflected yet.
-  - Qt's 'bool QBitArray::operator[](qsizetype i) const': an operator, which
-    is not reflected yet.
+  - Qt's 'bool QBitArray::operator[](qsizetype i) const': takes in Python
+    what 'QBitRef QBitArray::operator[](qsizetype i)' takes.
   - Qt's 'quint32 QBitArray::toUInt32(QSysInfo::Endian endianness, bool *ok)
     const': takes a number to change where it is.
   - Qt's 'QBitArray::~QBitArray()': the destructor: Python removes its C++
@@ -57,7 +58,7 @@ class QBitArray(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  15 of the 42 functions Qt declares: 12 takes or gives a type that cannot be
+  23 of the 59 functions Qt declares: 20 takes or gives a type that cannot be
   passed yet; 2 private; 1 a template.
 
   What to expect
@@ -288,6 +289,296 @@ class QBitArray(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __and__(self, a2: QBitArray) -> QBitArray:
+    """
+    Calls Qt's 'QBitArray operator&(const QBitArray &a1, const QBitArray
+    &a2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbitarray.html#operator&
+
+    Parameters
+    ----------
+
+    a2 : QBitArray
+      Passed on as a value: Qt reads the C++ QBitArray, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QBitArray
+      A new cute QBitArray around the copy Qt gave back. Python owns it.
+    """
+    #  QBitArray operator&(const QBitArray &a1, const QBitArray &a2)
+    address = Rituals.call(
+        'ritual_ZanRK9QBitArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(a2),
+    )
+    return QBitArray._cuteOwning(address)
+
+  @overload.fallback
+  def __and__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __or__(self, a2: QBitArray) -> QBitArray:
+    """
+    Calls Qt's 'QBitArray operator|(const QBitArray &a1, const QBitArray
+    &a2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbitarray.html#operator|
+
+    Parameters
+    ----------
+
+    a2 : QBitArray
+      Passed on as a value: Qt reads the C++ QBitArray, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QBitArray
+      A new cute QBitArray around the copy Qt gave back. Python owns it.
+    """
+    #  QBitArray operator|(const QBitArray &a1, const QBitArray &a2)
+    address = Rituals.call(
+        'ritual_ZorRK9QBitArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(a2),
+    )
+    return QBitArray._cuteOwning(address)
+
+  @overload.fallback
+  def __or__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __xor__(self, a2: QBitArray) -> QBitArray:
+    """
+    Calls Qt's 'QBitArray operator^(const QBitArray &a1, const QBitArray
+    &a2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbitarray.html#operator^
+
+    Parameters
+    ----------
+
+    a2 : QBitArray
+      Passed on as a value: Qt reads the C++ QBitArray, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QBitArray
+      A new cute QBitArray around the copy Qt gave back. Python owns it.
+    """
+    #  QBitArray operator^(const QBitArray &a1, const QBitArray &a2)
+    address = Rituals.call(
+        'ritual_ZeoRK9QBitArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(a2),
+    )
+    return QBitArray._cuteOwning(address)
+
+  @overload.fallback
+  def __xor__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  def __invert__(self) -> QBitArray:
+    """
+    Calls Qt's 'QBitArray operator~(QBitArray a)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbitarray.html#operator~
+
+    Returns
+    -------
+
+    QBitArray
+      A new cute QBitArray around the copy Qt gave back. Python owns it.
+    """
+    #  QBitArray operator~(QBitArray a)
+    address = Rituals.call('ritual_Zco9QBitArray', CuteMixin._valueOf(self))
+    return QBitArray._cuteOwning(address)
+
+  @overload(int)
+  def __getitem__(self, i: int) -> QBitRef:
+    """
+    Calls Qt's 'QBitRef QBitArray::operator[](qsizetype i)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbitarray.html#operator[]
+
+    Parameters
+    ----------
+
+    i : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QBitRef
+      A new cute QBitRef around the copy Qt gave back. Python owns it.
+    """
+    #  QBitRef QBitArray::operator[](qsizetype i)
+    address = self.uglySide.call('ritual_ZN9QBitArrayixEx', i)
+    from . import QBitRef
+    return QBitRef._cuteOwning(address)
+
+  @overload(THIS)
+  def __iand__(self, a0: QBitArray) -> QBitArray:
+    """
+    Calls Qt's 'QBitArray &QBitArray::operator&=(const QBitArray &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbitarray.html#operator&=
+
+    Parameters
+    ----------
+
+    a0 : QBitArray
+      Passed on as a value: Qt reads the C++ QBitArray, which stays Python's
+      own.
+    """
+    #  QBitArray &QBitArray::operator&=(const QBitArray &a0)
+    self.uglySide.call('ritual_ZN9QBitArrayaNERKS_', self._valueOf(a0))
+    return self
+
+  @overload.fallback
+  def __iand__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ior__(self, a0: QBitArray) -> QBitArray:
+    """
+    Calls Qt's 'QBitArray &QBitArray::operator|=(const QBitArray &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbitarray.html#operator|=
+
+    Parameters
+    ----------
+
+    a0 : QBitArray
+      Passed on as a value: Qt reads the C++ QBitArray, which stays Python's
+      own.
+    """
+    #  QBitArray &QBitArray::operator|=(const QBitArray &a0)
+    self.uglySide.call('ritual_ZN9QBitArrayoRERKS_', self._valueOf(a0))
+    return self
+
+  @overload.fallback
+  def __ior__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ixor__(self, a0: QBitArray) -> QBitArray:
+    """
+    Calls Qt's 'QBitArray &QBitArray::operator^=(const QBitArray &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbitarray.html#operator^=
+
+    Parameters
+    ----------
+
+    a0 : QBitArray
+      Passed on as a value: Qt reads the C++ QBitArray, which stays Python's
+      own.
+    """
+    #  QBitArray &QBitArray::operator^=(const QBitArray &a0)
+    self.uglySide.call('ritual_ZN9QBitArrayeOERKS_', self._valueOf(a0))
+    return self
+
+  @overload.fallback
+  def __ixor__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, rhs: QBitArray) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QBitArray &lhs, const QBitArray &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbitarray.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QBitArray
+      Passed on as a value: Qt reads the C++ QBitArray, which stays Python's
+      own.
+    """
+    #  bool operator==(const QBitArray &lhs, const QBitArray &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK9QBitArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QBitArray) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QBitArray &lhs, const QBitArray &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbitarray.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QBitArray
+      Passed on as a value: Qt reads the C++ QBitArray, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QBitArray &lhs, const QBitArray &rhs)
+    return Rituals.call(
+        'ritual_ZneRK9QBitArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

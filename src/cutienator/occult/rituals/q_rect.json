@@ -95,6 +95,8 @@
     "ritual_ZN5QRect7setSizeERK5QSize": ["nothing", "address", "address"],
     "ritual_ZNK5QRectorERKS_": ["address", "address", "address"],
     "ritual_ZNK5QRectanERKS_": ["address", "address", "address"],
+    "ritual_ZN5QRectoRERKS_": ["nothing", "address", "address"],
+    "ritual_ZN5QRectaNERKS_": ["nothing", "address", "address"],
     "ritual_ZNK5QRect8containsERKS_b": [
       "bool", "address", "address", "bool"
     ],
@@ -114,7 +116,11 @@
     "ritual_ZNK5QRect14marginsRemovedERK8QMargins": [
       "address", "address", "address"
     ],
+    "ritual_ZN5QRectpLERK8QMargins": ["nothing", "address", "address"],
+    "ritual_ZN5QRectmIERK8QMargins": ["nothing", "address", "address"],
     "ritual_ZN5QRect4spanERK6QPointS2_": ["address", "address", "address"],
+    "ritual_ZeqRK5QRectS1_": ["bool", "address", "address"],
+    "ritual_ZneRK5QRectS1_": ["bool", "address", "address"],
     "ritual_ZNK5QRect7toRectFEv": ["address", "address"],
     "ritual_ZN5QRectD1Ev": ["nothing", "address"]
   }

@@ -228,3 +228,15 @@ QSize *ritual_ZN9QPageSize10sizePixelsENS_10PageSizeIdEi(
     int resolution) {
   return new QSize(QPageSize::sizePixels(pageSizeId, resolution));
 }
+
+//  bool operator==(const QPageSize &lhs, const QPageSize &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK9QPageSizeS1_(const QPageSize *lhs, const QPageSize *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QPageSize &lhs, const QPageSize &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK9QPageSizeS1_(const QPageSize *lhs, const QPageSize *rhs) {
+  return operator!=(*lhs, *rhs);
+}

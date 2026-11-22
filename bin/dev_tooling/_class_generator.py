@@ -267,6 +267,30 @@ class ClassGenerator:
   #  for each tree; see '_findConstantNumber'.
   __constant_lock__ = threading.RLock()
   __constant_numbers__ = dict()  # type: Dict[int, Dict[str, Set[Any]]]
+  #  The name Python has for each operator of C++ that takes two: the
+  #  one asked of what stands on the left, and the one asked of what
+  #  stands on the right when the left has said it cannot. For a
+  #  comparison the second is the comparison turned round.
+  __binary_operators__ = {
+      '+': ('__add__', '__radd__'), '-': ('__sub__', '__rsub__'),
+      '*': ('__mul__', '__rmul__'), '/': ('__truediv__', '__rtruediv__'),
+      '%': ('__mod__', '__rmod__'), '&': ('__and__', '__rand__'),
+      '|': ('__or__', '__ror__'), '^': ('__xor__', '__rxor__'),
+      '<<': ('__lshift__', '__rlshift__'),
+      '>>': ('__rshift__', '__rrshift__'),
+      '==': ('__eq__', '__eq__'), '!=': ('__ne__', '__ne__'),
+      '<': ('__lt__', '__gt__'), '<=': ('__le__', '__ge__'),
+      '>': ('__gt__', '__lt__'), '>=': ('__ge__', '__le__'),
+  }
+  #  The same for an operator that takes one, and for one that changes
+  #  the object it is called on.
+  __unary_operators__ = {'-': '__neg__', '+': '__pos__', '~': '__invert__'}
+  __in_place_operators__ = {
+      '+=': '__iadd__', '-=': '__isub__', '*=': '__imul__',
+      '/=': '__itruediv__', '%=': '__imod__', '&=': '__iand__',
+      '|=': '__ior__', '^=': '__ixor__', '<<=': '__ilshift__',
+      '>>=': '__irshift__',
+  }
   #  What a number type built into C++ is in Python.
   __python_numbers__ = dict(
       bool='bool', float='float', double='float',
@@ -1649,13 +1673,25 @@ class ClassGenerator:
       infoSpec = """the destructor: Python removes its C++ %s by it, and
       has no other use for it"""
       return ' '.join((infoSpec % self.getClassName()).split())
+    operator = None  # type: Optional[Record]
     if name.startswith('operator'):
-      return 'an operator, which is not reflected yet'
+      operator = self._planOperator(plan)
+      if isinstance(operator, str):
+        return operator
     if name.startswith('qt_'):
       return "one of Qt's own inner workings"
     static = kind != 'method'
     parameters = []  # type: List[Record]
     arguments = [*plan['arguments']]
+    selfPassed = ''
+    if operator is not None and operator['selfIndex'] is not None:
+      #  Qt writes the operator as a function of no object, and hands it
+      #  the object as an argument. In Python that argument is 'self'.
+      taken = dict(arguments.pop(operator['selfIndex']), name='self')
+      own = self._planParameter(taken, True)
+      if isinstance(own, str):
+        return own
+      selfPassed = own['passed']
     while arguments:
       argument = arguments.pop(0)
       passing = argument['passing']
@@ -1690,6 +1726,8 @@ class ClassGenerator:
       if isinstance(gives, str):
         return gives
     pythonName = '__init__' if kind == 'constructor' else name
+    if operator is not None:
+      pythonName = operator['pythonName']
     if keyword.iskeyword(pythonName):
       pythonName = '%s_' % pythonName
     #  What Qt fills in, from the last argument backwards for as long as
@@ -1708,13 +1746,78 @@ class ClassGenerator:
         parameter['nullable'] = True
     return dict(
         pythonName=pythonName, plan=plan, kind=kind,
-        parameters=parameters, gives=gives,
+        parameters=parameters, gives=gives, operator=operator,
+        selfPassed=selfPassed, inPlace=plan.get('inPlace', False),
     )
+
+  def _planOperator(self, plan: Record) -> Any:
+    """
+    Says which name Python has for an operator of Qt, and which of its
+    arguments is the object in Python.
+
+    Python has solved operators already, and the cute class goes by
+    it: 'a + b' asks 'a.__add__(b)', and when that gives
+    'NotImplemented' it asks 'b.__radd__(a)'. An operator Qt writes
+    with 'friend' inside the class is a function of no object, taking
+    both sides as arguments. Where the class stands first it is the
+    plain name, and where it stands second the name Python asks the
+    right side for.
+
+    Returns
+    -------
+
+    Union[Record, str]
+      The reason, in words, when Python has no name for the operator.
+      Else 'pythonName': the name, as '__add__'; and 'selfIndex': the
+      place of the argument that is 'self' in Python, or None for an
+      operator Qt writes as a function of the object.
+    """
+    kind, symbol = plan['kind'], plan['name'][len('operator'):].strip()
+    count, className = len(plan['arguments']), self.getClassName()
+    binary, unary = self.__binary_operators__, self.__unary_operators__
+    noName = 'an operator Python has no name for'
+    if kind == 'friend':
+      own = [
+          argument['passing'].get('kind') == 'value'
+          and argument['passing'].get('className') == className
+          for argument in plan['arguments']
+      ]
+      if count == 1 and own[0] and symbol in unary:
+        return dict(pythonName=unary[symbol], selfIndex=0)
+      if count != 2 or symbol not in binary:
+        return noName
+      if own[0]:
+        return dict(pythonName=binary[symbol][0], selfIndex=0)
+      if own[1]:
+        return dict(pythonName=binary[symbol][1], selfIndex=1)
+      return 'an operator between other classes, written inside this one'
+    if kind != 'method':
+      return noName
+    if symbol == '=':
+      return 'assignment: Python binds a name and has no operator for it'
+    if symbol in self.__in_place_operators__ and count == 1:
+      if not plan.get('inPlace', False):
+        return noName
+      name = self.__in_place_operators__[symbol]
+      return dict(pythonName=name, selfIndex=None)
+    if count == 1 and symbol in binary:
+      return dict(pythonName=binary[symbol][0], selfIndex=None)
+    if count == 0 and symbol in unary:
+      return dict(pythonName=unary[symbol], selfIndex=None)
+    if symbol == '[]' and count == 1:
+      return dict(pythonName='__getitem__', selfIndex=None)
+    if symbol == '()':
+      return dict(pythonName='__call__', selfIndex=None)
+    if symbol == 'bool' and count == 0:
+      return dict(pythonName='__bool__', selfIndex=None)
+    return noName
 
   @staticmethod
   def _findSection(function: Record) -> str:
     """Gives the section of the class body a function stands in."""
     plan = function['plan']
+    if function.get('operator') is not None:
+      return 'Python API'
     if function['kind'] == 'constructor':
       return 'CONSTRUCTORS'
     if function['kind'] == 'static method':
@@ -1828,6 +1931,10 @@ class ClassGenerator:
       kept = []
       for function in group:
         shown, kind = function['plan']['function'], function['kind']
+        if kind != 'static method':
+          #  An operator Qt writes with 'friend' is called on an object
+          #  in Python, as a function of the object is.
+          kind = 'method'
         pairs = [*zip(function['signatures'], function['signatureKeys'])]
         fresh = [(s, k) for s, k in pairs if (kind, k) not in taken]
         if not fresh:
@@ -1854,11 +1961,20 @@ class ClassGenerator:
             place = index
             break
         ordered.insert(place, function)
+      #  A name Python asks one side of an operator for gets a function
+      #  that says 'NotImplemented' to what no signature takes, so that
+      #  Python goes on to ask the other side; see '_writeFallback'.
+      pairs = self.__binary_operators__.values()
+      asked = [name for pair in pairs for name in pair]
+      asked.extend(self.__in_place_operators__.values())
+      fallback = True if ordered and pythonName in asked else False
       for function in ordered:
         function['section'] = ordered[0]['section']
         function['overloaded'] = True if (
             len(ordered) > 1 or function['signatures'] != [()]
-            or function['kind'] == 'constructor') else False
+            or function['kind'] == 'constructor' or fallback) else False
+      if fallback:
+        ordered[-1]['fallbackAfter'] = True
       functions.extend(ordered)
     written = self.getRitualGenerator().getWritten()
     declared = [plan['function'] for plan in written]
@@ -2383,6 +2499,9 @@ class ClassGenerator:
       shown.append(text)
     gives = function['gives']
     annotation = 'None' if gives is None else gives['annotation']
+    if function.get('inPlace'):
+      #  'a += b' gives 'a' itself back, in C++ and in Python.
+      annotation = self.getDottedName()
     whole = '  def %s(%s) -> %s:' % (
         function['pythonName'], ', '.join(shown), annotation)
     if len(whole) <= _width():
@@ -2505,8 +2624,12 @@ class ClassGenerator:
         #  Reading the ugly side is the first use.
         lines.append('    self._getUglySide()')
       return lines
-    called = 'Rituals.call' if kind == 'static method' else (
+    called = 'Rituals.call' if kind in ('static method', 'friend') else (
         'self.uglySide.call')
+    if kind == 'friend':
+      #  The ritual takes the object where Qt's operator takes it.
+      place = function['operator']['selfIndex']
+      passed = [*passed[:place], function['selfPassed'], *passed[place:]]
     leading = ''
     if kind == 'method' and self.getClassName() in self._getPartNames():
       #  The object may be of a class built on this one beside another,
@@ -2539,14 +2662,42 @@ class ClassGenerator:
         lines.append(self._writeBringing(gives['bring'], '    '))
       maker = '_cuteAt' if givenKind == 'address' else '_cuteOwning'
       lines.append('    return %s.%s(address)' % (holder, maker))
+    if function.get('inPlace'):
+      lines.append('    return self')
     return lines
+
+  @staticmethod
+  def _writeFallback(pythonName: str) -> List[str]:
+    """
+    Gives the lines of the function that answers, at a name Python asks
+    one side of an operator for, a call no signature takes.
+
+    Python has a word for that answer: 'NotImplemented'. Python then
+    asks the other side, and when that cannot either, 'a + b' raises
+    'TypeError' and 'a == b' is False. It stands where the door stands
+    at every other overloaded name.
+    """
+    return [
+        '',
+        '  @overload.fallback',
+        '  def %s(self, *args: object) -> object:' % pythonName,
+        '    """',
+        '    Tells Python that no function of this name takes what it was',
+        "    handed, with Python's own word for it. Python then asks the",
+        '    other side of the operator.',
+        '    """',
+        '    return NotImplemented',
+    ]
 
   def _writeFunction(self, function: Record) -> List[str]:
     """Gives every line of one function of the class body."""
-    return [
+    lines = [
         *self._writeDef(function), *self._writeDocstring(function),
         *self._writeBody(function),
     ]
+    if function.get('fallbackAfter'):
+      lines.extend(self._writeFallback(function['pythonName']))
+    return lines
 
   def getClassText(self) -> str:
     """

@@ -15,6 +15,12 @@
       "unsigned char", "address"
     ],
     "ritual_ZNK13QTypeRevision7isValidEv": ["bool", "address"],
+    "ritual_ZeqRK13QTypeRevisionS1_": ["bool", "address", "address"],
+    "ritual_ZneRK13QTypeRevisionS1_": ["bool", "address", "address"],
+    "ritual_ZltRK13QTypeRevisionS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK13QTypeRevisionS1_": ["bool", "address", "address"],
+    "ritual_ZleRK13QTypeRevisionS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK13QTypeRevisionS1_": ["bool", "address", "address"],
     "ritual_ZN13QTypeRevisionD1Ev": ["nothing", "address"]
   }
 }

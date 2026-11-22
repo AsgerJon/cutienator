@@ -16,6 +16,12 @@
       "text", "address"
     ],
     "ritual_ZNK27QXmlStreamEntityDeclaration5valueEv": ["text", "address"],
+    "ritual_ZeqRK27QXmlStreamEntityDeclarationS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK27QXmlStreamEntityDeclarationS1_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN27QXmlStreamEntityDeclarationD1Ev": ["nothing", "address"]
   }
 }

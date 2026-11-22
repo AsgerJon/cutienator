@@ -46,7 +46,7 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFutureInterfaceBase that has a ritual and that
-  Python can call so far, 50 names in all: 'reportStarted', 'reportFinished',
+  Python can call so far, 52 names in all: 'reportStarted', 'reportFinished',
   'reportCanceled', 'reportException', 'reportResultsReady', 'setRunnable',
   'setThreadPool', 'threadPool', 'setFilterMode', 'setProgressRange',
   'progressMinimum', 'progressMaximum', 'isProgressUpdateNeeded',
@@ -59,8 +59,8 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
   'setAddResultsIfCanceledEnabled', 'isAddResultsIfCanceledEnabled',
   'setSuspended', 'toggleSuspended', 'reportSuspended', 'setThrottled',
   'waitForFinished', 'waitForNextResult', 'waitForResult', 'waitForResume',
-  'suspendIfRequested', 'hasException', 'isChainCanceled'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  'suspendIfRequested', 'hasException', '__eq__', '__ne__',
+  'isChainCanceled'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -71,10 +71,6 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
   - Qt's 'const QtPrivate::ResultStoreBase
     &QFutureInterfaceBase::resultStoreBase() const': gives
     'QtPrivate::ResultStoreBase', which has no cute class yet.
-  - Qt's 'bool QFutureInterfaceBase::operator==(const QFutureInterfaceBase
-    &other) const': an operator, which is not reflected yet.
-  - Qt's 'bool QFutureInterfaceBase::operator!=(const QFutureInterfaceBase
-    &other) const': an operator, which is not reflected yet.
 
   What has no ritual
   ------------------
@@ -672,6 +668,68 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, other: QFutureInterfaceBase) -> bool:
+    """
+    Calls Qt's 'bool QFutureInterfaceBase::operator==(const
+    QFutureInterfaceBase &other) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator==
+
+    Parameters
+    ----------
+
+    other : QFutureInterfaceBase
+      Passed on as a value: Qt reads the C++ QFutureInterfaceBase, which
+      stays Python's own.
+    """
+    #  bool QFutureInterfaceBase::operator==(const QFutureInterfaceBase
+    #      &other) const
+    return self.uglySide.call(
+        'ritual_ZNK20QFutureInterfaceBaseeqERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, other: QFutureInterfaceBase) -> bool:
+    """
+    Calls Qt's 'bool QFutureInterfaceBase::operator!=(const
+    QFutureInterfaceBase &other) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator!=
+
+    Parameters
+    ----------
+
+    other : QFutureInterfaceBase
+      Passed on as a value: Qt reads the C++ QFutureInterfaceBase, which
+      stays Python's own.
+    """
+    #  bool QFutureInterfaceBase::operator!=(const QFutureInterfaceBase
+    #      &other) const
+    return self.uglySide.call(
+        'ritual_ZNK20QFutureInterfaceBaseneERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
@@ -46,7 +47,7 @@ class QColor(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QColor that has a ritual and that Python can call so
-  far, 78 names in all: 'fromString', 'isValid', 'name', 'setNamedColor',
+  far, 80 names in all: 'fromString', 'isValid', 'name', 'setNamedColor',
   'spec', 'alpha', 'setAlpha', 'alphaF', 'setAlphaF', 'red', 'green', 'blue',
   'setRed', 'setGreen', 'setBlue', 'redF', 'greenF', 'blueF', 'setRedF',
   'setGreenF', 'setBlueF', 'setRgb', 'setRgbF', 'rgba64', 'setRgba64',
@@ -58,8 +59,8 @@ class QColor(CuteMixin, metaclass=MetaCute):
   'setHsl', 'setHslF', 'toRgb', 'toHsv', 'toCmyk', 'toHsl', 'toExtendedRgb',
   'convertTo', 'fromRgb', 'fromRgba', 'fromRgbF', 'fromRgba64', 'fromHsv',
   'fromHsvF', 'fromCmyk', 'fromCmykF', 'fromHsl', 'fromHslF', 'lighter',
-  'darker', 'isValidColor', 'isValidColorName'. It can be made from Python,
-  in 10 ways; see '__init__'.
+  'darker', '__eq__', '__ne__', 'isValidColor', 'isValidColorName'. It can be
+  made from Python, in 10 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -84,12 +85,8 @@ class QColor(CuteMixin, metaclass=MetaCute):
     number to change where it is.
   - Qt's 'void QColor::getHslF(float *h, float *s, float *l, float *a)
     const': takes a number to change where it is.
-  - Qt's 'bool QColor::operator==(const QColor &c) const': an operator, which
-    is not reflected yet.
-  - Qt's 'bool QColor::operator!=(const QColor &c) const': an operator, which
-    is not reflected yet.
-  - Qt's 'QVariant QColor::operator QVariant() const': an operator, which is
-    not reflected yet.
+  - Qt's 'QVariant QColor::operator QVariant() const': an operator Python has
+    no name for.
   - Qt's 'bool QColor::isValidColor(QStringView a0)': takes in Python what
     'bool QColor::isValidColor(const QString &name)' takes.
   - Qt's 'QColor::~QColor()': the destructor: Python removes its C++ QColor
@@ -98,7 +95,7 @@ class QColor(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 112 functions Qt declares: 2 takes or gives a type that cannot be
+  6 of the 114 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 2 private.
 
   What to expect
@@ -1616,6 +1613,58 @@ class QColor(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, c: QColor) -> bool:
+    """
+    Calls Qt's 'bool QColor::operator==(const QColor &c) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolor.html#operator==
+
+    Parameters
+    ----------
+
+    c : QColor
+      Passed on as a value: Qt reads the C++ QColor, which stays Python's
+      own.
+    """
+    #  bool QColor::operator==(const QColor &c) const
+    return self.uglySide.call('ritual_ZNK6QColoreqERKS_', self._valueOf(c))
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, c: QColor) -> bool:
+    """
+    Calls Qt's 'bool QColor::operator!=(const QColor &c) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolor.html#operator!=
+
+    Parameters
+    ----------
+
+    c : QColor
+      Passed on as a value: Qt reads the C++ QColor, which stays Python's
+      own.
+    """
+    #  bool QColor::operator!=(const QColor &c) const
+    return self.uglySide.call('ritual_ZNK6QColorneERKS_', self._valueOf(c))
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -396,3 +396,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN9QFileInfo4statEv(QFileInfo *self) {
   self->stat();
 }
+
+//  bool operator==(const QFileInfo &lhs, const QFileInfo &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK9QFileInfoS1_(const QFileInfo *lhs, const QFileInfo *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QFileInfo &lhs, const QFileInfo &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK9QFileInfoS1_(const QFileInfo *lhs, const QFileInfo *rhs) {
+  return operator!=(*lhs, *rhs);
+}

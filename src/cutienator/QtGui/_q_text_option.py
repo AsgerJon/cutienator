@@ -118,8 +118,9 @@ class QTextOption(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QTextOption::Tab yet. It can be made from Python, in
-    1 way; see '__init__'.
+    Every function of Qt's QTextOption::Tab that has a ritual and that Python
+    can call so far, 2 names in all: '__eq__', '__ne__'. It can be made from
+    Python, in 1 way; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -127,10 +128,6 @@ class QTextOption(CuteMixin, metaclass=MetaCute):
     - Qt's 'QTextOption::Tab::Tab(qreal pos, TabType tabType, QChar delim)':
       names the enum 'QTextOption::TabType', whose class cannot be named
       here.
-    - Qt's 'bool QTextOption::Tab::operator==(const Tab &other) const': an
-      operator, which is not reflected yet.
-    - Qt's 'bool QTextOption::Tab::operator!=(const Tab &other) const': an
-      operator, which is not reflected yet.
     - Qt's 'QTextOption::Tab::~Tab()': the destructor: Python removes its C++
       QTextOption::Tab by it, and has no other use for it.
 
@@ -188,6 +185,62 @@ class QTextOption(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(THIS)
+    def __eq__(self, other: QTextOption.Tab) -> bool:
+      """
+      Calls Qt's 'bool QTextOption::Tab::operator==(const Tab &other) const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qtextoption-tab.html#operator==
+
+      Parameters
+      ----------
+
+      other : QTextOption.Tab
+        Passed on as a value: Qt reads the C++ QTextOption::Tab, which stays
+        Python's own.
+      """
+      #  bool QTextOption::Tab::operator==(const Tab &other) const
+      return self.uglySide.call(
+          'ritual_ZNK11QTextOption3TabeqERKS0_', self._valueOf(other),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, other: QTextOption.Tab) -> bool:
+      """
+      Calls Qt's 'bool QTextOption::Tab::operator!=(const Tab &other) const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qtextoption-tab.html#operator!=
+
+      Parameters
+      ----------
+
+      other : QTextOption.Tab
+        Passed on as a value: Qt reads the C++ QTextOption::Tab, which stays
+        Python's own.
+      """
+      #  bool QTextOption::Tab::operator!=(const Tab &other) const
+      return self.uglySide.call(
+          'ritual_ZNK11QTextOption3TabneERKS0_', self._valueOf(other),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

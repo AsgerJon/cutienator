@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
@@ -464,8 +465,9 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QAccessible::State yet. It can be made from Python,
-    in 1 way; see '__init__'.
+    Every function of Qt's QAccessible::State that has a ritual and that
+    Python can call so far, 1 name in all: '__eq__'. It can be made from
+    Python, in 1 way; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -527,6 +529,38 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(THIS)
+    def __eq__(self, second: QAccessible.State) -> bool:
+      """
+      Calls Qt's 'bool operator==(const QAccessible::State &first, const
+      QAccessible::State &second)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qaccessible-state.html#operator==
+
+      Parameters
+      ----------
+
+      second : QAccessible.State
+        Passed on as a value: Qt reads the C++ QAccessible::State, which
+        stays Python's own.
+      """
+      #  bool operator==(const QAccessible::State &first, const
+      #      QAccessible::State &second)
+      return Rituals.call(
+          'ritual_ZeqRKN11QAccessible5StateES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(second),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

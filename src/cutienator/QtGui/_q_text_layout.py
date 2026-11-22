@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
@@ -128,8 +129,10 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QTextLayout::FormatRange yet. None can be made from
-    Python: one comes out of a function of another class that gives one back.
+    Every function of Qt's QTextLayout::FormatRange that has a ritual and
+    that Python can call so far, 2 names in all: '__eq__', '__ne__'. None can
+    be made from Python: one comes out of a function of another class that
+    gives one back.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -192,6 +195,68 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(THIS)
+    def __eq__(self, rhs: QTextLayout.FormatRange) -> bool:
+      """
+      Calls Qt's 'bool operator==(const FormatRange &lhs, const FormatRange
+      &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextlayout-formatrange.html#operator==
+
+      Parameters
+      ----------
+
+      rhs : QTextLayout.FormatRange
+        Passed on as a value: Qt reads the C++ QTextLayout::FormatRange,
+        which stays Python's own.
+      """
+      #  bool operator==(const FormatRange &lhs, const FormatRange &rhs)
+      return Rituals.call(
+          'ritual_ZeqRKN11QTextLayout11FormatRangeES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, rhs: QTextLayout.FormatRange) -> bool:
+      """
+      Calls Qt's 'bool operator!=(const FormatRange &lhs, const FormatRange
+      &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextlayout-formatrange.html#operator!=
+
+      Parameters
+      ----------
+
+      rhs : QTextLayout.FormatRange
+        Passed on as a value: Qt reads the C++ QTextLayout::FormatRange,
+        which stays Python's own.
+      """
+      #  bool operator!=(const FormatRange &lhs, const FormatRange &rhs)
+      return Rituals.call(
+          'ritual_ZneRKN11QTextLayout11FormatRangeES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

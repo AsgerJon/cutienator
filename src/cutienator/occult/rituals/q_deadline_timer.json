@@ -40,6 +40,18 @@
       "address", "address", "long long"
     ],
     "ritual_ZN14QDeadlineTimer7currentEN2Qt9TimerTypeE": ["address", "int"],
+    "ritual_Zpl14QDeadlineTimerx": ["address", "address", "long long"],
+    "ritual_Zplx14QDeadlineTimer": ["address", "long long", "address"],
+    "ritual_Zmi14QDeadlineTimerx": ["address", "address", "long long"],
+    "ritual_Zmi14QDeadlineTimerS_": ["long long", "address", "address"],
+    "ritual_ZN14QDeadlineTimerpLEx": ["nothing", "address", "long long"],
+    "ritual_ZN14QDeadlineTimermIEx": ["nothing", "address", "long long"],
+    "ritual_ZeqRK14QDeadlineTimerS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QDeadlineTimerS1_": ["bool", "address", "address"],
+    "ritual_ZltRK14QDeadlineTimerS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK14QDeadlineTimerS1_": ["bool", "address", "address"],
+    "ritual_ZleRK14QDeadlineTimerS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK14QDeadlineTimerS1_": ["bool", "address", "address"],
     "ritual_ZN14QDeadlineTimerD1Ev": ["nothing", "address"]
   }
 }

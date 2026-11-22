@@ -11,8 +11,17 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
 from . import QBasicMutex
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QDeadlineTimer
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QDeadlineTimer = WAIT['QDeadlineTimer']
 
 
 class QMutex(QBasicMutex):
@@ -27,8 +36,8 @@ class QMutex(QBasicMutex):
   -----------
 
   Every function of Qt's QMutex that has a ritual and that Python can call so
-  far, 1 name in all: 'try_lock'. It can be made from Python, in 1 way; see
-  '__init__'.
+  far, 2 names in all: 'try_lock', 'tryLock'. It can be made from Python, in
+  1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -39,8 +48,7 @@ class QMutex(QBasicMutex):
   What has no ritual
   ------------------
 
-  4 of the 7 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 a template.
+  2 of the 7 functions Qt declares: 2 a template.
 
   What to expect
   --------------
@@ -133,3 +141,38 @@ class QMutex(QBasicMutex):
     """
     #  bool QMutex::try_lock()
     return self.uglySide.call('ritual_ZN6QMutex8try_lockEv')
+
+  @overload(int)
+  def tryLock(self, timeout: int) -> bool:
+    """
+    Calls Qt's 'bool QMutex::tryLock(int timeout)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmutex.html#tryLock
+
+    Parameters
+    ----------
+
+    timeout : int
+      Passed on as it is.
+    """
+    #  bool QMutex::tryLock(int timeout)
+    return self.uglySide.call('ritual_ZN6QMutex7tryLockEi', timeout)
+
+  @overload(QDeadlineTimer)
+  def tryLock(self, timeout: QDeadlineTimer) -> bool:
+    """
+    Calls Qt's 'bool QMutex::tryLock(QDeadlineTimer timeout)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmutex.html#tryLock
+
+    Parameters
+    ----------
+
+    timeout : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+    """
+    #  bool QMutex::tryLock(QDeadlineTimer timeout)
+    return self.uglySide.call(
+        'ritual_ZN6QMutex7tryLockE14QDeadlineTimer', self._valueOf(timeout),
+    )

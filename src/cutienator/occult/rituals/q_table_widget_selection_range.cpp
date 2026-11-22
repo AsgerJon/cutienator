@@ -19,6 +19,24 @@ QTableWidgetSelectionRange *ritual_ZN26QTableWidgetSelectionRangeC1Eiiii(
   return new QTableWidgetSelectionRange(top, left, bottom, right);
 }
 
+//  bool operator==(const QTableWidgetSelectionRange &lhs, const
+//      QTableWidgetSelectionRange &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK26QTableWidgetSelectionRangeS1_(
+    const QTableWidgetSelectionRange *lhs,
+    const QTableWidgetSelectionRange *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QTableWidgetSelectionRange &lhs, const
+//      QTableWidgetSelectionRange &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK26QTableWidgetSelectionRangeS1_(
+    const QTableWidgetSelectionRange *lhs,
+    const QTableWidgetSelectionRange *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  int QTableWidgetSelectionRange::topRow() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK26QTableWidgetSelectionRange6topRowEv(

@@ -31,6 +31,12 @@
     "ritual_ZN14QVersionNumber10fromStringE14QAnyStringViewPx": [
       "address", "text", "address"
     ],
+    "ritual_ZeqRK14QVersionNumberS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QVersionNumberS1_": ["bool", "address", "address"],
+    "ritual_ZltRK14QVersionNumberS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK14QVersionNumberS1_": ["bool", "address", "address"],
+    "ritual_ZleRK14QVersionNumberS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK14QVersionNumberS1_": ["bool", "address", "address"],
     "ritual_ZN14QVersionNumberD1Ev": ["nothing", "address"]
   }
 }

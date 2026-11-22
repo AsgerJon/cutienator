@@ -24,6 +24,12 @@
     "ritual_ZNK9QVector3D13lengthSquaredEv": ["float", "address"],
     "ritual_ZNK9QVector3D10normalizedEv": ["address", "address"],
     "ritual_ZN9QVector3D9normalizeEv": ["nothing", "address"],
+    "ritual_ZN9QVector3DpLES_": ["nothing", "address", "address"],
+    "ritual_ZN9QVector3DmIES_": ["nothing", "address", "address"],
+    "ritual_ZN9QVector3DmLEf": ["nothing", "address", "float"],
+    "ritual_ZN9QVector3DmLES_": ["nothing", "address", "address"],
+    "ritual_ZN9QVector3DdVEf": ["nothing", "address", "float"],
+    "ritual_ZN9QVector3DdVES_": ["nothing", "address", "address"],
     "ritual_ZN9QVector3D10dotProductES_S_": ["float", "address", "address"],
     "ritual_ZN9QVector3D12crossProductES_S_": [
       "address", "address", "address"
@@ -38,6 +44,8 @@
     "ritual_ZNK9QVector3D9unprojectERK10QMatrix4x4S2_RK5QRect": [
       "address", "address", "address", "address", "address"
     ],
+    "ritual_Zeq9QVector3DS_": ["bool", "address", "address"],
+    "ritual_Zne9QVector3DS_": ["bool", "address", "address"],
     "ritual_ZNK9QVector3D15distanceToPointES_": [
       "float", "address", "address"
     ],
@@ -50,11 +58,22 @@
     "ritual_ZNK9QVector3D14distanceToLineES_S_": [
       "float", "address", "address", "address"
     ],
+    "ritual_Zpl9QVector3DS_": ["address", "address", "address"],
+    "ritual_Zmi9QVector3DS_": ["address", "address", "address"],
+    "ritual_Zmlf9QVector3D": ["address", "float", "address"],
+    "ritual_Zml9QVector3Df": ["address", "address", "float"],
+    "ritual_Zml9QVector3DS_": ["address", "address", "address"],
+    "ritual_Zng9QVector3D": ["address", "address"],
+    "ritual_Zdv9QVector3Df": ["address", "address", "float"],
+    "ritual_Zdv9QVector3DS_": ["address", "address", "address"],
     "ritual_ZNK9QVector3D10toVector2DEv": ["address", "address"],
     "ritual_ZNK9QVector3D10toVector4DEv": ["address", "address"],
     "ritual_ZNK9QVector3D7toPointEv": ["address", "address"],
     "ritual_ZNK9QVector3D8toPointFEv": ["address", "address"],
     "ritual_ZNK9QVector3Dcv8QVariantEv": ["address", "address"],
+    "ritual_ZmlRK9QVector3DRK10QMatrix4x4": [
+      "address", "address", "address"
+    ],
     "ritual_ZN9QVector3DD1Ev": ["nothing", "address"]
   }
 }

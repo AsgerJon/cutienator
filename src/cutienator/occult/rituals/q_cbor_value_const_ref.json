@@ -96,6 +96,48 @@
     "ritual_ZNK18QCborValueConstRef20toDiagnosticNotationE6QFlagsIN10QCborValue24DiagnosticNotationOptionEE": [
       "text", "address", "int"
     ],
+    "ritual_ZeqRK18QCborValueConstRefS1_": ["bool", "address", "address"],
+    "ritual_ZneRK18QCborValueConstRefS1_": ["bool", "address", "address"],
+    "ritual_ZltRK18QCborValueConstRefS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK18QCborValueConstRefS1_": ["bool", "address", "address"],
+    "ritual_ZleRK18QCborValueConstRefS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK18QCborValueConstRefS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK18QCborValueConstRefRK10QCborValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK18QCborValueConstRefRK10QCborValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRK18QCborValueConstRefRK10QCborValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRK18QCborValueConstRefRK10QCborValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRK18QCborValueConstRefRK10QCborValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRK18QCborValueConstRefRK10QCborValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK10QCborValueRK18QCborValueConstRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK10QCborValueRK18QCborValueConstRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRK10QCborValueRK18QCborValueConstRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRK10QCborValueRK18QCborValueConstRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRK10QCborValueRK18QCborValueConstRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRK10QCborValueRK18QCborValueConstRef": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN18QCborValueConstRefD1Ev": ["nothing", "address"]
   }
 }

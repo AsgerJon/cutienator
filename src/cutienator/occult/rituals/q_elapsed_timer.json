@@ -25,6 +25,12 @@
     "ritual_ZNK13QElapsedTimer6secsToERKS_": [
       "long long", "address", "address"
     ],
+    "ritual_ZltRK13QElapsedTimerS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK13QElapsedTimerS1_": ["bool", "address", "address"],
+    "ritual_ZneRK13QElapsedTimerS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK13QElapsedTimerS1_": ["bool", "address", "address"],
+    "ritual_ZleRK13QElapsedTimerS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK13QElapsedTimerS1_": ["bool", "address", "address"],
     "ritual_ZN13QElapsedTimerD1Ev": ["nothing", "address"]
   }
 }

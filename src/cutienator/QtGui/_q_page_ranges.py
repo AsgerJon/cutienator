@@ -29,9 +29,10 @@ class QPageRanges(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPageRanges that has a ritual and that Python can
-  call so far, 10 names in all: 'addPage', 'addRange', 'clear', 'toString',
-  'fromString', 'contains', 'isEmpty', 'firstPage', 'lastPage', 'detach'. It
-  can be made from Python, in 2 ways; see '__init__'.
+  call so far, 12 names in all: '__eq__', '__ne__', 'addPage', 'addRange',
+  'clear', 'toString', 'fromString', 'contains', 'isEmpty', 'firstPage',
+  'lastPage', 'detach'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -42,7 +43,7 @@ class QPageRanges(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 19 functions Qt declares: 5 takes or gives a type that cannot be
+  6 of the 21 functions Qt declares: 5 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -75,8 +76,9 @@ class QPageRanges(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QPageRanges::Range that has a ritual and that
-    Python can call so far, 1 name in all: 'contains'. None can be made from
-    Python: one comes out of a function of another class that gives one back.
+    Python can call so far, 4 names in all: 'contains', '__eq__', '__ne__',
+    '__lt__'. None can be made from Python: one comes out of a function of
+    another class that gives one back.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -156,6 +158,95 @@ class QPageRanges(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(THIS)
+    def __eq__(self, rhs: QPageRanges.Range) -> bool:
+      """
+      Calls Qt's 'bool operator==(Range lhs, Range rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qpageranges-range.html#operator==
+
+      Parameters
+      ----------
+
+      rhs : QPageRanges.Range
+        Passed on as a value: Qt reads the C++ QPageRanges::Range, which
+        stays Python's own.
+      """
+      #  bool operator==(Range lhs, Range rhs)
+      return Rituals.call(
+          'ritual_ZeqN11QPageRanges5RangeES0_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, rhs: QPageRanges.Range) -> bool:
+      """
+      Calls Qt's 'bool operator!=(Range lhs, Range rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qpageranges-range.html#operator!=
+
+      Parameters
+      ----------
+
+      rhs : QPageRanges.Range
+        Passed on as a value: Qt reads the C++ QPageRanges::Range, which
+        stays Python's own.
+      """
+      #  bool operator!=(Range lhs, Range rhs)
+      return Rituals.call(
+          'ritual_ZneN11QPageRanges5RangeES0_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __lt__(self, rhs: QPageRanges.Range) -> bool:
+      """
+      Calls Qt's 'bool operator<(Range lhs, Range rhs)'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qpageranges-range.html#operator<
+
+      Parameters
+      ----------
+
+      rhs : QPageRanges.Range
+        Passed on as a value: Qt reads the C++ QPageRanges::Range, which
+        stays Python's own.
+      """
+      #  bool operator<(Range lhs, Range rhs)
+      return Rituals.call(
+          'ritual_ZltN11QPageRanges5RangeES0_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __lt__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -306,6 +397,66 @@ class QPageRanges(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QPageRanges) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QPageRanges &lhs, const QPageRanges
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpageranges.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QPageRanges
+      Passed on as a value: Qt reads the C++ QPageRanges, which stays
+      Python's own.
+    """
+    #  bool operator==(const QPageRanges &lhs, const QPageRanges &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK11QPageRangesS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QPageRanges) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QPageRanges &lhs, const QPageRanges
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpageranges.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QPageRanges
+      Passed on as a value: Qt reads the C++ QPageRanges, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QPageRanges &lhs, const QPageRanges &rhs)
+    return Rituals.call(
+        'ritual_ZneRK11QPageRangesS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

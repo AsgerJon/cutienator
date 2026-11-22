@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
@@ -28,8 +29,9 @@ class QPointingDeviceUniqueId(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPointingDeviceUniqueId that has a ritual and that
-  Python can call so far, 3 names in all: 'fromNumericId', 'isValid',
-  'numericId'. It can be made from Python, in 1 way; see '__init__'.
+  Python can call so far, 5 names in all: 'fromNumericId', 'isValid',
+  'numericId', '__eq__', '__ne__'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -41,7 +43,7 @@ class QPointingDeviceUniqueId(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 8 functions Qt declares: 1 declared and nowhere to be found; 1 a
+  3 of the 10 functions Qt declares: 1 declared and nowhere to be found; 1 a
   template; 1 private.
 
   What to expect
@@ -152,6 +154,70 @@ class QPointingDeviceUniqueId(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QPointingDeviceUniqueId) -> bool:
+    """
+    Calls Qt's 'bool operator==(QPointingDeviceUniqueId lhs,
+    QPointingDeviceUniqueId rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpointingdeviceuniqueid.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QPointingDeviceUniqueId
+      Passed on as a value: Qt reads the C++ QPointingDeviceUniqueId, which
+      stays Python's own.
+    """
+    #  bool operator==(QPointingDeviceUniqueId lhs, QPointingDeviceUniqueId
+    #      rhs)
+    return Rituals.call(
+        'ritual_Zeq23QPointingDeviceUniqueIdS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QPointingDeviceUniqueId) -> bool:
+    """
+    Calls Qt's 'bool operator!=(QPointingDeviceUniqueId lhs,
+    QPointingDeviceUniqueId rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpointingdeviceuniqueid.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QPointingDeviceUniqueId
+      Passed on as a value: Qt reads the C++ QPointingDeviceUniqueId, which
+      stays Python's own.
+    """
+    #  bool operator!=(QPointingDeviceUniqueId lhs, QPointingDeviceUniqueId
+    #      rhs)
+    return Rituals.call(
+        'ritual_Zne23QPointingDeviceUniqueIdS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -33,16 +33,16 @@ class QFlag(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'int QFlag::operator int() const': an operator, which is not
-    reflected yet.
+  - Qt's 'int QFlag::operator int() const': an operator Python has no name
+    for.
   - Qt's 'QFlag::QFlag(uint value)': takes in Python what 'QFlag::QFlag(int
     value)' takes.
   - Qt's 'QFlag::QFlag(short value)': takes in Python what 'QFlag::QFlag(int
     value)' takes.
   - Qt's 'QFlag::QFlag(ushort value)': takes in Python what 'QFlag::QFlag(int
     value)' takes.
-  - Qt's 'uint QFlag::operator unsigned int() const': an operator, which is
-    not reflected yet.
+  - Qt's 'uint QFlag::operator unsigned int() const': an operator Python has
+    no name for.
   - Qt's 'QFlag::~QFlag()': the destructor: Python removes its C++ QFlag by
     it, and has no other use for it.
 

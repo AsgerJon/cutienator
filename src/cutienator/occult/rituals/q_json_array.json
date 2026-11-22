@@ -51,6 +51,9 @@
     "ritual_ZNK10QJsonArrayplERK10QJsonValue": [
       "address", "address", "address"
     ],
+    "ritual_ZN10QJsonArraypLERK10QJsonValue": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10QJsonArray9push_backERK10QJsonValue": [
       "nothing", "address", "address"
     ],
@@ -59,6 +62,13 @@
     ],
     "ritual_ZN10QJsonArray9pop_frontEv": ["nothing", "address"],
     "ritual_ZN10QJsonArray8pop_backEv": ["nothing", "address"],
-    "ritual_ZNK10QJsonArray5emptyEv": ["bool", "address"]
+    "ritual_ZNK10QJsonArray5emptyEv": ["bool", "address"],
+    "ritual_Zls6QDebugRK10QJsonArray": ["address", "address", "address"],
+    "ritual_ZeqRK10QJsonArrayS1_": ["bool", "address", "address"],
+    "ritual_ZneRK10QJsonArrayS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK10QJsonArrayRK10QJsonValue": ["bool", "address", "address"],
+    "ritual_ZneRK10QJsonArrayRK10QJsonValue": ["bool", "address", "address"],
+    "ritual_ZeqRK10QJsonValueRK10QJsonArray": ["bool", "address", "address"],
+    "ritual_ZneRK10QJsonValueRK10QJsonArray": ["bool", "address", "address"]
   }
 }

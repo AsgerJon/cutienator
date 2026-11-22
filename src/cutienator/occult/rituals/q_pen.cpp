@@ -200,3 +200,27 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN4QPen10isDetachedEv(QPen *self) {
   return self->isDetached();
 }
+
+//  bool operator==(const QPen &lhs, const QColor &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK4QPenRK6QColor(const QPen *lhs, const QColor *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QPen &lhs, const QColor &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK4QPenRK6QColor(const QPen *lhs, const QColor *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QColor &lhs, const QPen &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK6QColorRK4QPen(const QColor *lhs, const QPen *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QColor &lhs, const QPen &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK6QColorRK4QPen(const QColor *lhs, const QPen *rhs) {
+  return operator!=(*lhs, *rhs);
+}

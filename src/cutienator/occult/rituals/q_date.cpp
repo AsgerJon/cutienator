@@ -462,6 +462,42 @@ qint64 ritual_ZNK5QDate11toJulianDayEv(const QDate *self) {
   return self->toJulianDay();
 }
 
+//  bool operator==(const QDate &lhs, const QDate &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK5QDateS1_(const QDate *lhs, const QDate *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QDate &lhs, const QDate &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK5QDateS1_(const QDate *lhs, const QDate *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QDate &lhs, const QDate &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK5QDateS1_(const QDate *lhs, const QDate *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QDate &lhs, const QDate &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK5QDateS1_(const QDate *lhs, const QDate *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QDate &lhs, const QDate &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK5QDateS1_(const QDate *lhs, const QDate *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QDate &lhs, const QDate &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK5QDateS1_(const QDate *lhs, const QDate *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
 //  QDate::~QDate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QDateD1Ev(QDate *self) {

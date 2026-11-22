@@ -30,6 +30,8 @@
     "ritual_ZN19QProcessEnvironment6insertERKS_": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN19QProcessEnvironment17systemEnvironmentEv": ["address"]
+    "ritual_ZN19QProcessEnvironment17systemEnvironmentEv": ["address"],
+    "ritual_ZeqRK19QProcessEnvironmentS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QProcessEnvironmentS1_": ["bool", "address", "address"]
   }
 }

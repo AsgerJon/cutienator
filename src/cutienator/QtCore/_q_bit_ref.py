@@ -24,16 +24,15 @@ class QBitRef(CuteMixin, metaclass=MetaCute):
   What exists
   -----------
 
-  No function of Qt's QBitRef yet. None can be made from Python: one comes
+  Every function of Qt's QBitRef that has a ritual and that Python can call
+  so far, 1 name in all: '__bool__'. None can be made from Python: one comes
   out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'bool QBitRef::operator bool() const': an operator, which is not
-    reflected yet.
-  - Qt's 'bool QBitRef::operator!() const': an operator, which is not
-    reflected yet.
+  - Qt's 'bool QBitRef::operator!() const': an operator Python has no name
+    for.
   - Qt's 'QBitRef::~QBitRef()': the destructor: Python removes its C++
     QBitRef by it, and has no other use for it.
 
@@ -95,6 +94,15 @@ class QBitRef(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def __bool__(self) -> bool:
+    """
+    Calls Qt's 'bool QBitRef::operator bool() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbitref.html#operator bool
+    """
+    #  bool QBitRef::operator bool() const
+    return self.uglySide.call('ritual_ZNK7QBitRefcvbEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

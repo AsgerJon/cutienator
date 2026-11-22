@@ -23,6 +23,12 @@
     "ritual_ZN10QJsonArray14const_iteratormmEi": [
       "address", "address", "int"
     ],
+    "ritual_ZN10QJsonArray14const_iteratorpLEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN10QJsonArray14const_iteratormIEx": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZNK10QJsonArray14const_iteratorplEx": [
       "address", "address", "long long"
     ],
@@ -31,6 +37,24 @@
     ],
     "ritual_ZNK10QJsonArray14const_iteratormiES0_": [
       "long long", "address", "address"
+    ],
+    "ritual_ZeqRKN10QJsonArray14const_iteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN10QJsonArray14const_iteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRKN10QJsonArray14const_iteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRKN10QJsonArray14const_iteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRKN10QJsonArray14const_iteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRKN10QJsonArray14const_iteratorES2_": [
+      "bool", "address", "address"
     ],
     "ritual_ZN10QJsonArray14const_iteratorD1Ev": ["nothing", "address"]
   }

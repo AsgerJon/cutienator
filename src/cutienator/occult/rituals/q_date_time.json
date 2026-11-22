@@ -130,6 +130,13 @@
     "ritual_ZN9QDateTime19fromMSecsSinceEpochEx": ["address", "long long"],
     "ritual_ZN9QDateTime18fromSecsSinceEpochEx": ["address", "long long"],
     "ritual_ZN9QDateTime22currentMSecsSinceEpochEv": ["long long"],
-    "ritual_ZN9QDateTime21currentSecsSinceEpochEv": ["long long"]
+    "ritual_ZN9QDateTime21currentSecsSinceEpochEv": ["long long"],
+    "ritual_ZeqRK9QDateTimeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK9QDateTimeS1_": ["bool", "address", "address"],
+    "ritual_ZltRK9QDateTimeS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK9QDateTimeS1_": ["bool", "address", "address"],
+    "ritual_ZleRK9QDateTimeS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK9QDateTimeS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK9QDateTime": ["address", "address", "address"]
   }
 }

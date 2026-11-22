@@ -31,6 +31,51 @@
     ],
     "ritual_ZNK21QPersistentModelIndex5flagsEv": ["int", "address"],
     "ritual_ZNK21QPersistentModelIndex5modelEv": ["address", "address"],
-    "ritual_ZNK21QPersistentModelIndex7isValidEv": ["bool", "address"]
+    "ritual_ZNK21QPersistentModelIndex7isValidEv": ["bool", "address"],
+    "ritual_ZeqRK21QPersistentModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZneRK21QPersistentModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZltRK21QPersistentModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK21QPersistentModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZleRK21QPersistentModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK21QPersistentModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK21QPersistentModelIndexRK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK21QPersistentModelIndexRK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRK21QPersistentModelIndexRK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRK21QPersistentModelIndexRK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRK21QPersistentModelIndexRK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRK21QPersistentModelIndexRK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK11QModelIndexRK21QPersistentModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK11QModelIndexRK21QPersistentModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRK11QModelIndexRK21QPersistentModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRK11QModelIndexRK21QPersistentModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRK11QModelIndexRK21QPersistentModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRK11QModelIndexRK21QPersistentModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_Zls6QDebugRK21QPersistentModelIndex": [
+      "address", "address", "address"
+    ]
   }
 }

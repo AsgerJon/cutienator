@@ -276,3 +276,21 @@ QRegularExpression *ritual_ZN18QRegularExpression12fromWildcardE11QStringViewN2Q
           cs,
           QFlags<QRegularExpression::WildcardConversionOption>::fromInt(options)));
 }
+
+//  bool operator==(const QRegularExpression &lhs, const QRegularExpression
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK18QRegularExpressionS1_(
+    const QRegularExpression *lhs,
+    const QRegularExpression *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QRegularExpression &lhs, const QRegularExpression
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK18QRegularExpressionS1_(
+    const QRegularExpression *lhs,
+    const QRegularExpression *rhs) {
+  return operator!=(*lhs, *rhs);
+}

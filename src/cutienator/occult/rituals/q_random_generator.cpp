@@ -21,6 +21,24 @@ void ritual_ZN16QRandomGeneratorD1Ev(QRandomGenerator *self) {
   delete self;
 }
 
+//  bool operator==(const QRandomGenerator &rng1, const QRandomGenerator
+//      &rng2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK16QRandomGeneratorS1_(
+    const QRandomGenerator *rng1,
+    const QRandomGenerator *rng2) {
+  return operator==(*rng1, *rng2);
+}
+
+//  bool operator!=(const QRandomGenerator &rng1, const QRandomGenerator
+//      &rng2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK16QRandomGeneratorS1_(
+    const QRandomGenerator *rng1,
+    const QRandomGenerator *rng2) {
+  return operator!=(*rng1, *rng2);
+}
+
 //  quint32 QRandomGenerator::generate()
 extern "C" Q_DECL_EXPORT
 quint32 ritual_ZN16QRandomGenerator8generateEv(QRandomGenerator *self) {

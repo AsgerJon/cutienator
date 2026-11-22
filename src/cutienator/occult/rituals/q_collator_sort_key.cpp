@@ -22,3 +22,51 @@ int ritual_ZNK16QCollatorSortKey7compareERKS_(
     const QCollatorSortKey *key) {
   return self->compare(*key);
 }
+
+//  bool operator==(const QCollatorSortKey &lhs, const QCollatorSortKey &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK16QCollatorSortKeyS1_(
+    const QCollatorSortKey *lhs,
+    const QCollatorSortKey *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QCollatorSortKey &lhs, const QCollatorSortKey &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK16QCollatorSortKeyS1_(
+    const QCollatorSortKey *lhs,
+    const QCollatorSortKey *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QCollatorSortKey &lhs, const QCollatorSortKey &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK16QCollatorSortKeyS1_(
+    const QCollatorSortKey *lhs,
+    const QCollatorSortKey *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QCollatorSortKey &lhs, const QCollatorSortKey &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK16QCollatorSortKeyS1_(
+    const QCollatorSortKey *lhs,
+    const QCollatorSortKey *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QCollatorSortKey &lhs, const QCollatorSortKey &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK16QCollatorSortKeyS1_(
+    const QCollatorSortKey *lhs,
+    const QCollatorSortKey *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QCollatorSortKey &lhs, const QCollatorSortKey &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK16QCollatorSortKeyS1_(
+    const QCollatorSortKey *lhs,
+    const QCollatorSortKey *rhs) {
+  return operator>=(*lhs, *rhs);
+}

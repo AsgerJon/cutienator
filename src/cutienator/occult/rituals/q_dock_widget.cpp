@@ -2,6 +2,7 @@
 //  QtWidgets/qdockwidget.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qdockwidget.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qdebug.h>
 
 //  const QMetaObject *QDockWidget::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -138,6 +139,14 @@ bool ritual_ZNK11QDockWidget13isAreaAllowedEN2Qt14DockWidgetAreaE(
     const QDockWidget *self,
     Qt::DockWidgetArea area) {
   return self->isAreaAllowed(area);
+}
+
+//  QDebug operator<<(QDebug dbg, const QDockWidget *dockWidget)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugPK11QDockWidget(
+    const QDebug *dbg,
+    const QDockWidget *dockWidget) {
+  return new QDebug(operator<<(*dbg, dockWidget));
 }
 
 //  QAction *QDockWidget::toggleViewAction() const

@@ -5,6 +5,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qcalendar.h>
 #include <QtCore/qstringview.h>
+#include <QtCore/qdebug.h>
 
 //  QDateTime::QDateTime()
 extern "C" Q_DECL_EXPORT
@@ -559,4 +560,48 @@ qint64 ritual_ZN9QDateTime22currentMSecsSinceEpochEv() {
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZN9QDateTime21currentSecsSinceEpochEv() {
   return QDateTime::currentSecsSinceEpoch();
+}
+
+//  bool operator==(const QDateTime &lhs, const QDateTime &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK9QDateTimeS1_(const QDateTime *lhs, const QDateTime *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QDateTime &lhs, const QDateTime &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK9QDateTimeS1_(const QDateTime *lhs, const QDateTime *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QDateTime &lhs, const QDateTime &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK9QDateTimeS1_(const QDateTime *lhs, const QDateTime *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QDateTime &lhs, const QDateTime &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK9QDateTimeS1_(const QDateTime *lhs, const QDateTime *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QDateTime &lhs, const QDateTime &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK9QDateTimeS1_(const QDateTime *lhs, const QDateTime *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QDateTime &lhs, const QDateTime &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK9QDateTimeS1_(const QDateTime *lhs, const QDateTime *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  QDebug operator<<(QDebug a0, const QDateTime &a1)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK9QDateTime(
+    const QDebug *a0,
+    const QDateTime *a1) {
+  return new QDebug(operator<<(*a0, *a1));
 }

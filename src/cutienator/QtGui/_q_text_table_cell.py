@@ -38,21 +38,17 @@ class QTextTableCell(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextTableCell that has a ritual and that Python can
-  call so far, 14 names in all: 'setFormat', 'format', 'row', 'column',
+  call so far, 16 names in all: 'setFormat', 'format', 'row', 'column',
   'rowSpan', 'columnSpan', 'isValid', 'firstCursorPosition',
-  'lastCursorPosition', 'firstPosition', 'lastPosition', 'begin', 'end',
-  'tableCellFormatIndex'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'lastCursorPosition', 'firstPosition', 'lastPosition', '__eq__', '__ne__',
+  'begin', 'end', 'tableCellFormatIndex'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QTextTableCell::~QTextTableCell()': the destructor: Python removes
     its C++ QTextTableCell by it, and has no other use for it.
-  - Qt's 'bool QTextTableCell::operator==(const QTextTableCell &other)
-    const': an operator, which is not reflected yet.
-  - Qt's 'bool QTextTableCell::operator!=(const QTextTableCell &other)
-    const': an operator, which is not reflected yet.
 
   What has no ritual
   ------------------
@@ -302,6 +298,64 @@ class QTextTableCell(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, other: QTextTableCell) -> bool:
+    """
+    Calls Qt's 'bool QTextTableCell::operator==(const QTextTableCell &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtexttablecell.html#operator==
+
+    Parameters
+    ----------
+
+    other : QTextTableCell
+      Passed on as a value: Qt reads the C++ QTextTableCell, which stays
+      Python's own.
+    """
+    #  bool QTextTableCell::operator==(const QTextTableCell &other) const
+    return self.uglySide.call(
+        'ritual_ZNK14QTextTableCelleqERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, other: QTextTableCell) -> bool:
+    """
+    Calls Qt's 'bool QTextTableCell::operator!=(const QTextTableCell &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtexttablecell.html#operator!=
+
+    Parameters
+    ----------
+
+    other : QTextTableCell
+      Passed on as a value: Qt reads the C++ QTextTableCell, which stays
+      Python's own.
+    """
+    #  bool QTextTableCell::operator!=(const QTextTableCell &other) const
+    return self.uglySide.call(
+        'ritual_ZNK14QTextTableCellneERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

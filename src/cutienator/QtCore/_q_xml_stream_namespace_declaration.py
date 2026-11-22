@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
@@ -29,8 +30,8 @@ class QXmlStreamNamespaceDeclaration(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QXmlStreamNamespaceDeclaration that has a ritual and
-  that Python can call so far, 2 names in all: 'prefix', 'namespaceUri'. It
-  can be made from Python, in 2 ways; see '__init__'.
+  that Python can call so far, 4 names in all: 'prefix', 'namespaceUri',
+  '__eq__', '__ne__'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -130,6 +131,70 @@ class QXmlStreamNamespaceDeclaration(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QXmlStreamNamespaceDeclaration) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QXmlStreamNamespaceDeclaration &lhs,
+    const QXmlStreamNamespaceDeclaration &rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qxmlstreamnamespacedeclaration.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QXmlStreamNamespaceDeclaration
+      Passed on as a value: Qt reads the C++ QXmlStreamNamespaceDeclaration,
+      which stays Python's own.
+    """
+    #  bool operator==(const QXmlStreamNamespaceDeclaration &lhs, const
+    #      QXmlStreamNamespaceDeclaration &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK30QXmlStreamNamespaceDeclarationS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QXmlStreamNamespaceDeclaration) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QXmlStreamNamespaceDeclaration &lhs,
+    const QXmlStreamNamespaceDeclaration &rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qxmlstreamnamespacedeclaration.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QXmlStreamNamespaceDeclaration
+      Passed on as a value: Qt reads the C++ QXmlStreamNamespaceDeclaration,
+      which stays Python's own.
+    """
+    #  bool operator!=(const QXmlStreamNamespaceDeclaration &lhs, const
+    #      QXmlStreamNamespaceDeclaration &rhs)
+    return Rituals.call(
+        'ritual_ZneRK30QXmlStreamNamespaceDeclarationS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

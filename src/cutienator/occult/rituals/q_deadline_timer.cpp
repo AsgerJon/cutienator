@@ -140,6 +140,98 @@ QDeadlineTimer *ritual_ZN14QDeadlineTimer7currentEN2Qt9TimerTypeE(
   return new QDeadlineTimer(QDeadlineTimer::current(timerType));
 }
 
+//  QDeadlineTimer operator+(QDeadlineTimer dt, qint64 msecs)
+extern "C" Q_DECL_EXPORT
+QDeadlineTimer *ritual_Zpl14QDeadlineTimerx(
+    const QDeadlineTimer *dt,
+    qint64 msecs) {
+  return new QDeadlineTimer(operator+(*dt, msecs));
+}
+
+//  QDeadlineTimer operator+(qint64 msecs, QDeadlineTimer dt)
+extern "C" Q_DECL_EXPORT
+QDeadlineTimer *ritual_Zplx14QDeadlineTimer(
+    qint64 msecs,
+    const QDeadlineTimer *dt) {
+  return new QDeadlineTimer(operator+(msecs, *dt));
+}
+
+//  QDeadlineTimer operator-(QDeadlineTimer dt, qint64 msecs)
+extern "C" Q_DECL_EXPORT
+QDeadlineTimer *ritual_Zmi14QDeadlineTimerx(
+    const QDeadlineTimer *dt,
+    qint64 msecs) {
+  return new QDeadlineTimer(operator-(*dt, msecs));
+}
+
+//  qint64 operator-(QDeadlineTimer dt1, QDeadlineTimer dt2)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_Zmi14QDeadlineTimerS_(
+    const QDeadlineTimer *dt1,
+    const QDeadlineTimer *dt2) {
+  return operator-(*dt1, *dt2);
+}
+
+//  QDeadlineTimer &QDeadlineTimer::operator+=(qint64 msecs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QDeadlineTimerpLEx(QDeadlineTimer *self, qint64 msecs) {
+  self->operator+=(msecs);
+}
+
+//  QDeadlineTimer &QDeadlineTimer::operator-=(qint64 msecs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QDeadlineTimermIEx(QDeadlineTimer *self, qint64 msecs) {
+  self->operator-=(msecs);
+}
+
+//  bool operator==(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK14QDeadlineTimerS1_(
+    const QDeadlineTimer *lhs,
+    const QDeadlineTimer *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK14QDeadlineTimerS1_(
+    const QDeadlineTimer *lhs,
+    const QDeadlineTimer *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK14QDeadlineTimerS1_(
+    const QDeadlineTimer *lhs,
+    const QDeadlineTimer *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK14QDeadlineTimerS1_(
+    const QDeadlineTimer *lhs,
+    const QDeadlineTimer *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK14QDeadlineTimerS1_(
+    const QDeadlineTimer *lhs,
+    const QDeadlineTimer *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QDeadlineTimer &lhs, const QDeadlineTimer &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK14QDeadlineTimerS1_(
+    const QDeadlineTimer *lhs,
+    const QDeadlineTimer *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
 //  QDeadlineTimer::~QDeadlineTimer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QDeadlineTimerD1Ev(QDeadlineTimer *self) {

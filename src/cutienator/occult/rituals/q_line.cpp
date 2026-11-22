@@ -145,6 +145,18 @@ QLineF *ritual_ZNK5QLine7toLineFEv(const QLine *self) {
   return new QLineF(self->toLineF());
 }
 
+//  bool operator==(const QLine &lhs, const QLine &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK5QLineS1_(const QLine *lhs, const QLine *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QLine &lhs, const QLine &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK5QLineS1_(const QLine *lhs, const QLine *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QLine::~QLine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QLineD1Ev(QLine *self) {

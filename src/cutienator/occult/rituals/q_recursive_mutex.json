@@ -6,6 +6,12 @@
   "rows": {
     "ritual_ZN15QRecursiveMutexC1Ev": ["address"],
     "ritual_ZN15QRecursiveMutexD1Ev": ["nothing", "address"],
-    "ritual_ZN15QRecursiveMutex6unlockEv": ["nothing", "address"]
+    "ritual_ZN15QRecursiveMutex4lockEv": ["nothing", "address"],
+    "ritual_ZN15QRecursiveMutex7tryLockEi": ["bool", "address", "int"],
+    "ritual_ZN15QRecursiveMutex7tryLockE14QDeadlineTimer": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QRecursiveMutex6unlockEv": ["nothing", "address"],
+    "ritual_ZN15QRecursiveMutex8try_lockEv": ["bool", "address"]
   }
 }

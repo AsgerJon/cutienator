@@ -49,26 +49,21 @@ class QTransform(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTransform that has a ritual and that Python can
-  call so far, 28 names in all: 'isAffine', 'isIdentity', 'isInvertible',
+  call so far, 35 names in all: 'isAffine', 'isIdentity', 'isInvertible',
   'isScaling', 'isRotating', 'isTranslating', 'type', 'determinant', 'm11',
   'm12', 'm13', 'm21', 'm22', 'm23', 'm31', 'm32', 'm33', 'dx', 'dy',
-  'setMatrix', 'adjoint', 'transposed', 'reset', 'map', 'mapToPolygon',
-  'mapRect', 'fromTranslate', 'fromScale'. It can be made from Python, in 5
-  ways; see '__init__'.
+  'setMatrix', 'adjoint', 'transposed', '__eq__', '__ne__', '__imul__',
+  '__mul__', 'reset', 'map', 'mapToPolygon', 'mapRect', '__itruediv__',
+  '__iadd__', '__isub__', 'fromTranslate', 'fromScale'. It can be made from
+  Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QTransform QTransform::inverted(bool *invertible) const': takes a
     number to change where it is.
-  - Qt's 'bool QTransform::operator==(const QTransform &a0) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QTransform::operator!=(const QTransform &a0) const': an
-    operator, which is not reflected yet.
-  - Qt's 'QTransform QTransform::operator*(const QTransform &o) const': an
-    operator, which is not reflected yet.
-  - Qt's 'QVariant QTransform::operator QVariant() const': an operator, which
-    is not reflected yet.
+  - Qt's 'QVariant QTransform::operator QVariant() const': an operator Python
+    has no name for.
   - Qt's 'void QTransform::map(int x, int y, int *tx, int *ty) const': takes
     a number to change where it is.
   - Qt's 'void QTransform::map(qreal x, qreal y, qreal *tx, qreal *ty)
@@ -79,7 +74,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  21 of the 70 functions Qt declares: 19 takes or gives a type that cannot be
+  18 of the 72 functions Qt declares: 16 takes or gives a type that cannot be
   passed yet; 2 private.
 
   What to expect
@@ -767,6 +762,219 @@ class QTransform(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, a0: QTransform) -> bool:
+    """
+    Calls Qt's 'bool QTransform::operator==(const QTransform &a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtransform.html#operator==
+
+    Parameters
+    ----------
+
+    a0 : QTransform
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own.
+    """
+    #  bool QTransform::operator==(const QTransform &a0) const
+    return self.uglySide.call(
+        'ritual_ZNK10QTransformeqERKS_', self._valueOf(a0),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, a0: QTransform) -> bool:
+    """
+    Calls Qt's 'bool QTransform::operator!=(const QTransform &a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtransform.html#operator!=
+
+    Parameters
+    ----------
+
+    a0 : QTransform
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own.
+    """
+    #  bool QTransform::operator!=(const QTransform &a0) const
+    return self.uglySide.call(
+        'ritual_ZNK10QTransformneERKS_', self._valueOf(a0),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __imul__(self, a0: QTransform) -> QTransform:
+    """
+    Calls Qt's 'QTransform &QTransform::operator*=(const QTransform &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtransform.html#operator*=
+
+    Parameters
+    ----------
+
+    a0 : QTransform
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own.
+    """
+    #  QTransform &QTransform::operator*=(const QTransform &a0)
+    self.uglySide.call('ritual_ZN10QTransformmLERKS_', self._valueOf(a0))
+    return self
+
+  @overload(float)
+  def __imul__(self, div: float) -> QTransform:
+    """
+    Calls Qt's 'QTransform &QTransform::operator*=(qreal div)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtransform.html#operator*=
+
+    Parameters
+    ----------
+
+    div : float
+      Passed on as it is.
+    """
+    #  QTransform &QTransform::operator*=(qreal div)
+    self.uglySide.call('ritual_ZN10QTransformmLEd', div)
+    return self
+
+  @overload.fallback
+  def __imul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __mul__(self, o: QTransform) -> QTransform:
+    """
+    Calls Qt's 'QTransform QTransform::operator*(const QTransform &o) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtransform.html#operator*
+
+    Parameters
+    ----------
+
+    o : QTransform
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QTransform
+      A new cute QTransform around the copy Qt gave back. Python owns it.
+    """
+    #  QTransform QTransform::operator*(const QTransform &o) const
+    address = self.uglySide.call(
+        'ritual_ZNK10QTransformmlERKS_', self._valueOf(o),
+    )
+    return QTransform._cuteOwning(address)
+
+  @overload.fallback
+  def __mul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __itruediv__(self, div: float) -> QTransform:
+    """
+    Calls Qt's 'QTransform &QTransform::operator/=(qreal div)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtransform.html#operator/=
+
+    Parameters
+    ----------
+
+    div : float
+      Passed on as it is.
+    """
+    #  QTransform &QTransform::operator/=(qreal div)
+    self.uglySide.call('ritual_ZN10QTransformdVEd', div)
+    return self
+
+  @overload.fallback
+  def __itruediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __iadd__(self, div: float) -> QTransform:
+    """
+    Calls Qt's 'QTransform &QTransform::operator+=(qreal div)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtransform.html#operator+=
+
+    Parameters
+    ----------
+
+    div : float
+      Passed on as it is.
+    """
+    #  QTransform &QTransform::operator+=(qreal div)
+    self.uglySide.call('ritual_ZN10QTransformpLEd', div)
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __isub__(self, div: float) -> QTransform:
+    """
+    Calls Qt's 'QTransform &QTransform::operator-=(qreal div)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtransform.html#operator-=
+
+    Parameters
+    ----------
+
+    div : float
+      Passed on as it is.
+    """
+    #  QTransform &QTransform::operator-=(qreal div)
+    self.uglySide.call('ritual_ZN10QTransformmIEd', div)
+    return self
+
+  @overload.fallback
+  def __isub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

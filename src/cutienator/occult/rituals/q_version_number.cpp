@@ -124,6 +124,54 @@ QVersionNumber *ritual_ZN14QVersionNumber10fromStringE14QAnyStringViewPx(
           suffixIndex));
 }
 
+//  bool operator==(const QVersionNumber &lhs, const QVersionNumber &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK14QVersionNumberS1_(
+    const QVersionNumber *lhs,
+    const QVersionNumber *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QVersionNumber &lhs, const QVersionNumber &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK14QVersionNumberS1_(
+    const QVersionNumber *lhs,
+    const QVersionNumber *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QVersionNumber &lhs, const QVersionNumber &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK14QVersionNumberS1_(
+    const QVersionNumber *lhs,
+    const QVersionNumber *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QVersionNumber &lhs, const QVersionNumber &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK14QVersionNumberS1_(
+    const QVersionNumber *lhs,
+    const QVersionNumber *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QVersionNumber &lhs, const QVersionNumber &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK14QVersionNumberS1_(
+    const QVersionNumber *lhs,
+    const QVersionNumber *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QVersionNumber &lhs, const QVersionNumber &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK14QVersionNumberS1_(
+    const QVersionNumber *lhs,
+    const QVersionNumber *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
 //  QVersionNumber::~QVersionNumber()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QVersionNumberD1Ev(QVersionNumber *self) {

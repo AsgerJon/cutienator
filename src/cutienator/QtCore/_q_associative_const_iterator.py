@@ -35,10 +35,10 @@ class QAssociativeConstIterator(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QVariant QAssociativeConstIterator::operator*() const': an
-    operator, which is not reflected yet.
+  - Qt's 'QVariant QAssociativeConstIterator::operator*() const': an operator
+    Python has no name for.
   - Qt's 'QVariantConstPointer QAssociativeConstIterator::operator->()
-    const': an operator, which is not reflected yet.
+    const': an operator Python has no name for.
   - Qt's 'QAssociativeConstIterator::~QAssociativeConstIterator()': the
     destructor: Python removes its C++ QAssociativeConstIterator by it, and
     has no other use for it.

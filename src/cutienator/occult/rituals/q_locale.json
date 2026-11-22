@@ -283,6 +283,8 @@
     ],
     "ritual_ZNK7QLocale11quoteStringE11QStringViewNS_14QuotationStyleE": [
       "text", "address", "text", "int"
-    ]
+    ],
+    "ritual_ZeqRK7QLocaleS1_": ["bool", "address", "address"],
+    "ritual_ZneRK7QLocaleS1_": ["bool", "address", "address"]
   }
 }

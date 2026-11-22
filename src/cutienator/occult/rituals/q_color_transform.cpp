@@ -52,3 +52,19 @@ QColor *ritual_ZNK15QColorTransform3mapERK6QColor(
     const QColor *color) {
   return new QColor(self->map(*color));
 }
+
+//  bool operator==(const QColorTransform &ct1, const QColorTransform &ct2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK15QColorTransformS1_(
+    const QColorTransform *ct1,
+    const QColorTransform *ct2) {
+  return operator==(*ct1, *ct2);
+}
+
+//  bool operator!=(const QColorTransform &ct1, const QColorTransform &ct2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK15QColorTransformS1_(
+    const QColorTransform *ct1,
+    const QColorTransform *ct2) {
+  return operator!=(*ct1, *ct2);
+}

@@ -44,26 +44,24 @@ class QDataStream(QIODeviceBase):
   -----------
 
   Every function of Qt's QDataStream that has a ritual and that Python can
-  call so far, 19 names in all: 'device', 'setDevice', 'atEnd', 'status',
+  call so far, 20 names in all: 'device', 'setDevice', 'atEnd', 'status',
   'setStatus', 'resetStatus', 'floatingPointPrecision',
   'setFloatingPointPrecision', 'byteOrder', 'setByteOrder', 'version',
-  'setVersion', 'writeRawData', 'skipRawData', 'startTransaction',
-  'commitTransaction', 'rollbackTransaction', 'abortTransaction',
-  'isDeviceTransactionStarted'. It can be made from Python, in 4 ways; see
-  '__init__'.
+  'setVersion', '__bool__', 'writeRawData', 'skipRawData',
+  'startTransaction', 'commitTransaction', 'rollbackTransaction',
+  'abortTransaction', 'isDeviceTransactionStarted'. It can be made from
+  Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QDataStream::~QDataStream()': the destructor: Python never removes
     a C++ QDataStream.
-  - Qt's 'bool QDataStream::operator bool() const': an operator, which is not
-    reflected yet.
 
   What has no ritual
   ------------------
 
-  44 of the 69 functions Qt declares: 35 takes or gives a type that cannot be
+  48 of the 73 functions Qt declares: 39 takes or gives a type that cannot be
   passed yet; 4 private; 2 a template; 2 forbidden; 1 declared and nowhere to
   be found.
 
@@ -402,6 +400,15 @@ class QDataStream(QIODeviceBase):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def __bool__(self) -> bool:
+    """
+    Calls Qt's 'bool QDataStream::operator bool() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatastream.html#operator bool
+    """
+    #  bool QDataStream::operator bool() const
+    return self.uglySide.call('ritual_ZNK11QDataStreamcvbEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

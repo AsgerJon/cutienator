@@ -144,6 +144,24 @@ bool ritual_ZNK19QItemSelectionRange7isEmptyEv(
   return self->isEmpty();
 }
 
+//  bool operator==(const QItemSelectionRange &lhs, const QItemSelectionRange
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK19QItemSelectionRangeS1_(
+    const QItemSelectionRange *lhs,
+    const QItemSelectionRange *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QItemSelectionRange &lhs, const QItemSelectionRange
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK19QItemSelectionRangeS1_(
+    const QItemSelectionRange *lhs,
+    const QItemSelectionRange *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QItemSelectionRange::~QItemSelectionRange()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QItemSelectionRangeD1Ev(QItemSelectionRange *self) {

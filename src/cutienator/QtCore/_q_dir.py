@@ -32,16 +32,16 @@ class QDir(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QDir that has a ritual and that Python can call so
-  far, 45 names in all: 'setPath', 'path', 'absolutePath', 'canonicalPath',
+  far, 48 names in all: 'setPath', 'path', 'absolutePath', 'canonicalPath',
   'addSearchPath', 'dirName', 'filePath', 'absoluteFilePath',
   'relativeFilePath', 'toNativeSeparators', 'fromNativeSeparators', 'cd',
-  'cdUp', 'filter', 'setFilter', 'sorting', 'setSorting', 'isEmpty', 'rmdir',
-  'rmpath', 'removeRecursively', 'isReadable', 'exists', 'isRoot',
-  'isRelativePath', 'isAbsolutePath', 'isRelative', 'isAbsolute',
-  'makeAbsolute', 'remove', 'rename', 'listSeparator', 'separator',
-  'setCurrent', 'current', 'currentPath', 'home', 'homePath', 'root',
-  'rootPath', 'temp', 'tempPath', 'match', 'cleanPath', 'refresh'. It can be
-  made from Python, in 3 ways; see '__init__'.
+  'cdUp', 'filter', 'setFilter', 'sorting', 'setSorting', 'isEmpty',
+  '__getitem__', 'rmdir', 'rmpath', 'removeRecursively', 'isReadable',
+  'exists', 'isRoot', 'isRelativePath', 'isAbsolutePath', 'isRelative',
+  'isAbsolute', 'makeAbsolute', 'remove', 'rename', 'listSeparator',
+  'separator', 'setCurrent', 'current', 'currentPath', 'home', 'homePath',
+  'root', 'rootPath', 'temp', 'tempPath', 'match', 'cleanPath', 'refresh',
+  '__eq__', '__ne__'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -50,13 +50,11 @@ class QDir(CuteMixin, metaclass=MetaCute):
     and has no other use for it.
   - Qt's 'qsizetype QDir::count(Qt::Disambiguated_t a0) const': names
     'Qt::Disambiguated_t', which has no cute class yet.
-  - Qt's 'QString QDir::operator[](qsizetype a0) const': an operator, which
-    is not reflected yet.
 
   What has no ritual
   ------------------
 
-  26 of the 78 functions Qt declares: 19 takes or gives a type that cannot be
+  26 of the 80 functions Qt declares: 19 takes or gives a type that cannot be
   passed yet; 4 a template; 2 private; 1 protected.
 
   What to expect
@@ -833,6 +831,84 @@ class QDir(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def __getitem__(self, a0: int) -> str:
+    """
+    Calls Qt's 'QString QDir::operator[](qsizetype a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#operator[]
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QDir::operator[](qsizetype a0) const
+    return self.uglySide.call('ritual_ZNK4QDirixEx', a0)
+
+  @overload(THIS)
+  def __eq__(self, rhs: QDir) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QDir &lhs, const QDir &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QDir
+      Passed on as a value: Qt reads the C++ QDir, which stays Python's own.
+    """
+    #  bool operator==(const QDir &lhs, const QDir &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK4QDirS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QDir) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QDir &lhs, const QDir &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QDir
+      Passed on as a value: Qt reads the C++ QDir, which stays Python's own.
+    """
+    #  bool operator!=(const QDir &lhs, const QDir &rhs)
+    return Rituals.call(
+        'ritual_ZneRK4QDirS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

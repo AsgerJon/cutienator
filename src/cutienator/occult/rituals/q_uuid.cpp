@@ -96,6 +96,42 @@ bool ritual_ZNK5QUuid6isNullEN2Qt15Disambiguated_tE(
   return self->isNull(*a0);
 }
 
+//  bool operator==(const QUuid &lhs, const QUuid &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QUuid &lhs, const QUuid &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QUuid &lhs, const QUuid &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QUuid &lhs, const QUuid &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QUuid &lhs, const QUuid &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QUuid &lhs, const QUuid &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
 //  QUuid QUuid::createUuid()
 extern "C" Q_DECL_EXPORT
 QUuid *ritual_ZN5QUuid10createUuidEv() {

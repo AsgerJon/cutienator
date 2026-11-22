@@ -58,8 +58,8 @@ class QBitmap(QPixmap):
 
   - Qt's 'QBitmap::~QBitmap()': the destructor: Python removes its C++
     QBitmap by it, and has no other use for it.
-  - Qt's 'QVariant QBitmap::operator QVariant() const': an operator, which is
-    not reflected yet.
+  - Qt's 'QVariant QBitmap::operator QVariant() const': an operator Python
+    has no name for.
 
   What has no ritual
   ------------------

@@ -126,6 +126,1086 @@ qfloat16 *ritual_ZN8qfloat16mmEi(qfloat16 *self, int a0) {
   return new qfloat16(self->operator--(a0));
 }
 
+//  qfloat16 operator+(qfloat16 a)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_Zps8qfloat16(const qfloat16 *a) {
+  return new qfloat16(operator+(*a));
+}
+
+//  qfloat16 operator-(qfloat16 a)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_Zng8qfloat16(const qfloat16 *a) {
+  return new qfloat16(operator-(*a));
+}
+
+//  qfloat16 operator+(qfloat16 a, qfloat16 b)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_Zpl8qfloat16S_(const qfloat16 *a, const qfloat16 *b) {
+  return new qfloat16(operator+(*a, *b));
+}
+
+//  qfloat16 operator-(qfloat16 a, qfloat16 b)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_Zmi8qfloat16S_(const qfloat16 *a, const qfloat16 *b) {
+  return new qfloat16(operator-(*a, *b));
+}
+
+//  qfloat16 operator*(qfloat16 a, qfloat16 b)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_Zml8qfloat16S_(const qfloat16 *a, const qfloat16 *b) {
+  return new qfloat16(operator*(*a, *b));
+}
+
+//  qfloat16 operator/(qfloat16 a, qfloat16 b)
+extern "C" Q_DECL_EXPORT
+qfloat16 *ritual_Zdv8qfloat16S_(const qfloat16 *a, const qfloat16 *b) {
+  return new qfloat16(operator/(*a, *b));
+}
+
+//  double operator+(qfloat16 lhs, double rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zpl8qfloat16d(const qfloat16 *lhs, double rhs) {
+  return operator+(*lhs, rhs);
+}
+
+//  double operator+(double lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zpld8qfloat16(double lhs, const qfloat16 *rhs) {
+  return operator+(lhs, *rhs);
+}
+
+//  double operator-(qfloat16 lhs, double rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zmi8qfloat16d(const qfloat16 *lhs, double rhs) {
+  return operator-(*lhs, rhs);
+}
+
+//  double operator-(double lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zmid8qfloat16(double lhs, const qfloat16 *rhs) {
+  return operator-(lhs, *rhs);
+}
+
+//  double operator*(qfloat16 lhs, double rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zml8qfloat16d(const qfloat16 *lhs, double rhs) {
+  return operator*(*lhs, rhs);
+}
+
+//  double operator*(double lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zmld8qfloat16(double lhs, const qfloat16 *rhs) {
+  return operator*(lhs, *rhs);
+}
+
+//  double operator/(qfloat16 lhs, double rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zdv8qfloat16d(const qfloat16 *lhs, double rhs) {
+  return operator/(*lhs, rhs);
+}
+
+//  double operator/(double lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zdvd8qfloat16(double lhs, const qfloat16 *rhs) {
+  return operator/(lhs, *rhs);
+}
+
+//  float operator+(qfloat16 lhs, float rhs)
+extern "C" Q_DECL_EXPORT
+float ritual_Zpl8qfloat16f(const qfloat16 *lhs, float rhs) {
+  return operator+(*lhs, rhs);
+}
+
+//  float operator+(float lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+float ritual_Zplf8qfloat16(float lhs, const qfloat16 *rhs) {
+  return operator+(lhs, *rhs);
+}
+
+//  float operator-(qfloat16 lhs, float rhs)
+extern "C" Q_DECL_EXPORT
+float ritual_Zmi8qfloat16f(const qfloat16 *lhs, float rhs) {
+  return operator-(*lhs, rhs);
+}
+
+//  float operator-(float lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+float ritual_Zmif8qfloat16(float lhs, const qfloat16 *rhs) {
+  return operator-(lhs, *rhs);
+}
+
+//  float operator*(qfloat16 lhs, float rhs)
+extern "C" Q_DECL_EXPORT
+float ritual_Zml8qfloat16f(const qfloat16 *lhs, float rhs) {
+  return operator*(*lhs, rhs);
+}
+
+//  float operator*(float lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+float ritual_Zmlf8qfloat16(float lhs, const qfloat16 *rhs) {
+  return operator*(lhs, *rhs);
+}
+
+//  float operator/(qfloat16 lhs, float rhs)
+extern "C" Q_DECL_EXPORT
+float ritual_Zdv8qfloat16f(const qfloat16 *lhs, float rhs) {
+  return operator/(*lhs, rhs);
+}
+
+//  float operator/(float lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+float ritual_Zdvf8qfloat16(float lhs, const qfloat16 *rhs) {
+  return operator/(lhs, *rhs);
+}
+
+//  double operator+(qfloat16 lhs, int rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zpl8qfloat16i(const qfloat16 *lhs, int rhs) {
+  return operator+(*lhs, rhs);
+}
+
+//  double operator+(int lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zpli8qfloat16(int lhs, const qfloat16 *rhs) {
+  return operator+(lhs, *rhs);
+}
+
+//  double operator-(qfloat16 lhs, int rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zmi8qfloat16i(const qfloat16 *lhs, int rhs) {
+  return operator-(*lhs, rhs);
+}
+
+//  double operator-(int lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zmii8qfloat16(int lhs, const qfloat16 *rhs) {
+  return operator-(lhs, *rhs);
+}
+
+//  double operator*(qfloat16 lhs, int rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zml8qfloat16i(const qfloat16 *lhs, int rhs) {
+  return operator*(*lhs, rhs);
+}
+
+//  double operator*(int lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zmli8qfloat16(int lhs, const qfloat16 *rhs) {
+  return operator*(lhs, *rhs);
+}
+
+//  double operator/(qfloat16 lhs, int rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zdv8qfloat16i(const qfloat16 *lhs, int rhs) {
+  return operator/(*lhs, rhs);
+}
+
+//  double operator/(int lhs, qfloat16 rhs)
+extern "C" Q_DECL_EXPORT
+double ritual_Zdvi8qfloat16(int lhs, const qfloat16 *rhs) {
+  return operator/(lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16S1_(const qfloat16 *lhs, const qfloat16 *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16S1_(const qfloat16 *lhs, const qfloat16 *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16S1_(const qfloat16 *lhs, const qfloat16 *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16S1_(const qfloat16 *lhs, const qfloat16 *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16S1_(const qfloat16 *lhs, const qfloat16 *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16S1_(const qfloat16 *lhs, const qfloat16 *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const double &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKd(const qfloat16 *lhs, double rhs) {
+  return operator==(*lhs, rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const double &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKd(const qfloat16 *lhs, double rhs) {
+  return operator!=(*lhs, rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const double &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKd(const qfloat16 *lhs, double rhs) {
+  return operator<(*lhs, rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const double &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKd(const qfloat16 *lhs, double rhs) {
+  return operator>(*lhs, rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const double &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKd(const qfloat16 *lhs, double rhs) {
+  return operator<=(*lhs, rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const double &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKd(const qfloat16 *lhs, double rhs) {
+  return operator>=(*lhs, rhs);
+}
+
+//  bool operator==(const double &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKdRK8qfloat16(double lhs, const qfloat16 *rhs) {
+  return operator==(lhs, *rhs);
+}
+
+//  bool operator!=(const double &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKdRK8qfloat16(double lhs, const qfloat16 *rhs) {
+  return operator!=(lhs, *rhs);
+}
+
+//  bool operator<(const double &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKdRK8qfloat16(double lhs, const qfloat16 *rhs) {
+  return operator<(lhs, *rhs);
+}
+
+//  bool operator>(const double &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKdRK8qfloat16(double lhs, const qfloat16 *rhs) {
+  return operator>(lhs, *rhs);
+}
+
+//  bool operator<=(const double &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKdRK8qfloat16(double lhs, const qfloat16 *rhs) {
+  return operator<=(lhs, *rhs);
+}
+
+//  bool operator>=(const double &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKdRK8qfloat16(double lhs, const qfloat16 *rhs) {
+  return operator>=(lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const float &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKf(const qfloat16 *lhs, float rhs) {
+  return operator==(*lhs, rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const float &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKf(const qfloat16 *lhs, float rhs) {
+  return operator!=(*lhs, rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const float &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKf(const qfloat16 *lhs, float rhs) {
+  return operator<(*lhs, rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const float &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKf(const qfloat16 *lhs, float rhs) {
+  return operator>(*lhs, rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const float &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKf(const qfloat16 *lhs, float rhs) {
+  return operator<=(*lhs, rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const float &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKf(const qfloat16 *lhs, float rhs) {
+  return operator>=(*lhs, rhs);
+}
+
+//  bool operator==(const float &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKfRK8qfloat16(float lhs, const qfloat16 *rhs) {
+  return operator==(lhs, *rhs);
+}
+
+//  bool operator!=(const float &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKfRK8qfloat16(float lhs, const qfloat16 *rhs) {
+  return operator!=(lhs, *rhs);
+}
+
+//  bool operator<(const float &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKfRK8qfloat16(float lhs, const qfloat16 *rhs) {
+  return operator<(lhs, *rhs);
+}
+
+//  bool operator>(const float &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKfRK8qfloat16(float lhs, const qfloat16 *rhs) {
+  return operator>(lhs, *rhs);
+}
+
+//  bool operator<=(const float &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKfRK8qfloat16(float lhs, const qfloat16 *rhs) {
+  return operator<=(lhs, *rhs);
+}
+
+//  bool operator>=(const float &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKfRK8qfloat16(float lhs, const qfloat16 *rhs) {
+  return operator>=(lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const qint8 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKa(const qfloat16 *lhs, qint8 rhs) {
+  return operator==(*lhs, rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const qint8 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKa(const qfloat16 *lhs, qint8 rhs) {
+  return operator!=(*lhs, rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const qint8 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKa(const qfloat16 *lhs, qint8 rhs) {
+  return operator<(*lhs, rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const qint8 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKa(const qfloat16 *lhs, qint8 rhs) {
+  return operator>(*lhs, rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const qint8 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKa(const qfloat16 *lhs, qint8 rhs) {
+  return operator<=(*lhs, rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const qint8 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKa(const qfloat16 *lhs, qint8 rhs) {
+  return operator>=(*lhs, rhs);
+}
+
+//  bool operator==(const qint8 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKaRK8qfloat16(qint8 lhs, const qfloat16 *rhs) {
+  return operator==(lhs, *rhs);
+}
+
+//  bool operator!=(const qint8 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKaRK8qfloat16(qint8 lhs, const qfloat16 *rhs) {
+  return operator!=(lhs, *rhs);
+}
+
+//  bool operator<(const qint8 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKaRK8qfloat16(qint8 lhs, const qfloat16 *rhs) {
+  return operator<(lhs, *rhs);
+}
+
+//  bool operator>(const qint8 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKaRK8qfloat16(qint8 lhs, const qfloat16 *rhs) {
+  return operator>(lhs, *rhs);
+}
+
+//  bool operator<=(const qint8 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKaRK8qfloat16(qint8 lhs, const qfloat16 *rhs) {
+  return operator<=(lhs, *rhs);
+}
+
+//  bool operator>=(const qint8 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKaRK8qfloat16(qint8 lhs, const qfloat16 *rhs) {
+  return operator>=(lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const quint8 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKh(const qfloat16 *lhs, quint8 rhs) {
+  return operator==(*lhs, rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const quint8 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKh(const qfloat16 *lhs, quint8 rhs) {
+  return operator!=(*lhs, rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const quint8 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKh(const qfloat16 *lhs, quint8 rhs) {
+  return operator<(*lhs, rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const quint8 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKh(const qfloat16 *lhs, quint8 rhs) {
+  return operator>(*lhs, rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const quint8 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKh(const qfloat16 *lhs, quint8 rhs) {
+  return operator<=(*lhs, rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const quint8 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKh(const qfloat16 *lhs, quint8 rhs) {
+  return operator>=(*lhs, rhs);
+}
+
+//  bool operator==(const quint8 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKhRK8qfloat16(quint8 lhs, const qfloat16 *rhs) {
+  return operator==(lhs, *rhs);
+}
+
+//  bool operator!=(const quint8 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKhRK8qfloat16(quint8 lhs, const qfloat16 *rhs) {
+  return operator!=(lhs, *rhs);
+}
+
+//  bool operator<(const quint8 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKhRK8qfloat16(quint8 lhs, const qfloat16 *rhs) {
+  return operator<(lhs, *rhs);
+}
+
+//  bool operator>(const quint8 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKhRK8qfloat16(quint8 lhs, const qfloat16 *rhs) {
+  return operator>(lhs, *rhs);
+}
+
+//  bool operator<=(const quint8 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKhRK8qfloat16(quint8 lhs, const qfloat16 *rhs) {
+  return operator<=(lhs, *rhs);
+}
+
+//  bool operator>=(const quint8 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKhRK8qfloat16(quint8 lhs, const qfloat16 *rhs) {
+  return operator>=(lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const qint16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKs(const qfloat16 *lhs, qint16 rhs) {
+  return operator==(*lhs, rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const qint16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKs(const qfloat16 *lhs, qint16 rhs) {
+  return operator!=(*lhs, rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const qint16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKs(const qfloat16 *lhs, qint16 rhs) {
+  return operator<(*lhs, rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const qint16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKs(const qfloat16 *lhs, qint16 rhs) {
+  return operator>(*lhs, rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const qint16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKs(const qfloat16 *lhs, qint16 rhs) {
+  return operator<=(*lhs, rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const qint16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKs(const qfloat16 *lhs, qint16 rhs) {
+  return operator>=(*lhs, rhs);
+}
+
+//  bool operator==(const qint16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKsRK8qfloat16(qint16 lhs, const qfloat16 *rhs) {
+  return operator==(lhs, *rhs);
+}
+
+//  bool operator!=(const qint16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKsRK8qfloat16(qint16 lhs, const qfloat16 *rhs) {
+  return operator!=(lhs, *rhs);
+}
+
+//  bool operator<(const qint16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKsRK8qfloat16(qint16 lhs, const qfloat16 *rhs) {
+  return operator<(lhs, *rhs);
+}
+
+//  bool operator>(const qint16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKsRK8qfloat16(qint16 lhs, const qfloat16 *rhs) {
+  return operator>(lhs, *rhs);
+}
+
+//  bool operator<=(const qint16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKsRK8qfloat16(qint16 lhs, const qfloat16 *rhs) {
+  return operator<=(lhs, *rhs);
+}
+
+//  bool operator>=(const qint16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKsRK8qfloat16(qint16 lhs, const qfloat16 *rhs) {
+  return operator>=(lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const quint16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKt(const qfloat16 *lhs, quint16 rhs) {
+  return operator==(*lhs, rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const quint16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKt(const qfloat16 *lhs, quint16 rhs) {
+  return operator!=(*lhs, rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const quint16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKt(const qfloat16 *lhs, quint16 rhs) {
+  return operator<(*lhs, rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const quint16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKt(const qfloat16 *lhs, quint16 rhs) {
+  return operator>(*lhs, rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const quint16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKt(const qfloat16 *lhs, quint16 rhs) {
+  return operator<=(*lhs, rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const quint16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKt(const qfloat16 *lhs, quint16 rhs) {
+  return operator>=(*lhs, rhs);
+}
+
+//  bool operator==(const quint16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKtRK8qfloat16(quint16 lhs, const qfloat16 *rhs) {
+  return operator==(lhs, *rhs);
+}
+
+//  bool operator!=(const quint16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKtRK8qfloat16(quint16 lhs, const qfloat16 *rhs) {
+  return operator!=(lhs, *rhs);
+}
+
+//  bool operator<(const quint16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKtRK8qfloat16(quint16 lhs, const qfloat16 *rhs) {
+  return operator<(lhs, *rhs);
+}
+
+//  bool operator>(const quint16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKtRK8qfloat16(quint16 lhs, const qfloat16 *rhs) {
+  return operator>(lhs, *rhs);
+}
+
+//  bool operator<=(const quint16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKtRK8qfloat16(quint16 lhs, const qfloat16 *rhs) {
+  return operator<=(lhs, *rhs);
+}
+
+//  bool operator>=(const quint16 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKtRK8qfloat16(quint16 lhs, const qfloat16 *rhs) {
+  return operator>=(lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const qint32 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKi(const qfloat16 *lhs, qint32 rhs) {
+  return operator==(*lhs, rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const qint32 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKi(const qfloat16 *lhs, qint32 rhs) {
+  return operator!=(*lhs, rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const qint32 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKi(const qfloat16 *lhs, qint32 rhs) {
+  return operator<(*lhs, rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const qint32 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKi(const qfloat16 *lhs, qint32 rhs) {
+  return operator>(*lhs, rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const qint32 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKi(const qfloat16 *lhs, qint32 rhs) {
+  return operator<=(*lhs, rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const qint32 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKi(const qfloat16 *lhs, qint32 rhs) {
+  return operator>=(*lhs, rhs);
+}
+
+//  bool operator==(const qint32 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKiRK8qfloat16(qint32 lhs, const qfloat16 *rhs) {
+  return operator==(lhs, *rhs);
+}
+
+//  bool operator!=(const qint32 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKiRK8qfloat16(qint32 lhs, const qfloat16 *rhs) {
+  return operator!=(lhs, *rhs);
+}
+
+//  bool operator<(const qint32 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKiRK8qfloat16(qint32 lhs, const qfloat16 *rhs) {
+  return operator<(lhs, *rhs);
+}
+
+//  bool operator>(const qint32 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKiRK8qfloat16(qint32 lhs, const qfloat16 *rhs) {
+  return operator>(lhs, *rhs);
+}
+
+//  bool operator<=(const qint32 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKiRK8qfloat16(qint32 lhs, const qfloat16 *rhs) {
+  return operator<=(lhs, *rhs);
+}
+
+//  bool operator>=(const qint32 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKiRK8qfloat16(qint32 lhs, const qfloat16 *rhs) {
+  return operator>=(lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const quint32 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKj(const qfloat16 *lhs, quint32 rhs) {
+  return operator==(*lhs, rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const quint32 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKj(const qfloat16 *lhs, quint32 rhs) {
+  return operator!=(*lhs, rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const quint32 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKj(const qfloat16 *lhs, quint32 rhs) {
+  return operator<(*lhs, rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const quint32 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKj(const qfloat16 *lhs, quint32 rhs) {
+  return operator>(*lhs, rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const quint32 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKj(const qfloat16 *lhs, quint32 rhs) {
+  return operator<=(*lhs, rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const quint32 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKj(const qfloat16 *lhs, quint32 rhs) {
+  return operator>=(*lhs, rhs);
+}
+
+//  bool operator==(const quint32 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKjRK8qfloat16(quint32 lhs, const qfloat16 *rhs) {
+  return operator==(lhs, *rhs);
+}
+
+//  bool operator!=(const quint32 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKjRK8qfloat16(quint32 lhs, const qfloat16 *rhs) {
+  return operator!=(lhs, *rhs);
+}
+
+//  bool operator<(const quint32 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKjRK8qfloat16(quint32 lhs, const qfloat16 *rhs) {
+  return operator<(lhs, *rhs);
+}
+
+//  bool operator>(const quint32 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKjRK8qfloat16(quint32 lhs, const qfloat16 *rhs) {
+  return operator>(lhs, *rhs);
+}
+
+//  bool operator<=(const quint32 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKjRK8qfloat16(quint32 lhs, const qfloat16 *rhs) {
+  return operator<=(lhs, *rhs);
+}
+
+//  bool operator>=(const quint32 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKjRK8qfloat16(quint32 lhs, const qfloat16 *rhs) {
+  return operator>=(lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const long &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKl(const qfloat16 *lhs, long rhs) {
+  return operator==(*lhs, rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const long &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKl(const qfloat16 *lhs, long rhs) {
+  return operator!=(*lhs, rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const long &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKl(const qfloat16 *lhs, long rhs) {
+  return operator<(*lhs, rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const long &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKl(const qfloat16 *lhs, long rhs) {
+  return operator>(*lhs, rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const long &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKl(const qfloat16 *lhs, long rhs) {
+  return operator<=(*lhs, rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const long &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKl(const qfloat16 *lhs, long rhs) {
+  return operator>=(*lhs, rhs);
+}
+
+//  bool operator==(const long &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKlRK8qfloat16(long lhs, const qfloat16 *rhs) {
+  return operator==(lhs, *rhs);
+}
+
+//  bool operator!=(const long &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKlRK8qfloat16(long lhs, const qfloat16 *rhs) {
+  return operator!=(lhs, *rhs);
+}
+
+//  bool operator<(const long &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKlRK8qfloat16(long lhs, const qfloat16 *rhs) {
+  return operator<(lhs, *rhs);
+}
+
+//  bool operator>(const long &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKlRK8qfloat16(long lhs, const qfloat16 *rhs) {
+  return operator>(lhs, *rhs);
+}
+
+//  bool operator<=(const long &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKlRK8qfloat16(long lhs, const qfloat16 *rhs) {
+  return operator<=(lhs, *rhs);
+}
+
+//  bool operator>=(const long &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKlRK8qfloat16(long lhs, const qfloat16 *rhs) {
+  return operator>=(lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const unsigned long &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKm(const qfloat16 *lhs, unsigned long rhs) {
+  return operator==(*lhs, rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const unsigned long &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKm(const qfloat16 *lhs, unsigned long rhs) {
+  return operator!=(*lhs, rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const unsigned long &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKm(const qfloat16 *lhs, unsigned long rhs) {
+  return operator<(*lhs, rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const unsigned long &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKm(const qfloat16 *lhs, unsigned long rhs) {
+  return operator>(*lhs, rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const unsigned long &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKm(const qfloat16 *lhs, unsigned long rhs) {
+  return operator<=(*lhs, rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const unsigned long &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKm(const qfloat16 *lhs, unsigned long rhs) {
+  return operator>=(*lhs, rhs);
+}
+
+//  bool operator==(const unsigned long &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKmRK8qfloat16(unsigned long lhs, const qfloat16 *rhs) {
+  return operator==(lhs, *rhs);
+}
+
+//  bool operator!=(const unsigned long &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKmRK8qfloat16(unsigned long lhs, const qfloat16 *rhs) {
+  return operator!=(lhs, *rhs);
+}
+
+//  bool operator<(const unsigned long &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKmRK8qfloat16(unsigned long lhs, const qfloat16 *rhs) {
+  return operator<(lhs, *rhs);
+}
+
+//  bool operator>(const unsigned long &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKmRK8qfloat16(unsigned long lhs, const qfloat16 *rhs) {
+  return operator>(lhs, *rhs);
+}
+
+//  bool operator<=(const unsigned long &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKmRK8qfloat16(unsigned long lhs, const qfloat16 *rhs) {
+  return operator<=(lhs, *rhs);
+}
+
+//  bool operator>=(const unsigned long &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKmRK8qfloat16(unsigned long lhs, const qfloat16 *rhs) {
+  return operator>=(lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const qint64 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKx(const qfloat16 *lhs, qint64 rhs) {
+  return operator==(*lhs, rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const qint64 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKx(const qfloat16 *lhs, qint64 rhs) {
+  return operator!=(*lhs, rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const qint64 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKx(const qfloat16 *lhs, qint64 rhs) {
+  return operator<(*lhs, rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const qint64 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKx(const qfloat16 *lhs, qint64 rhs) {
+  return operator>(*lhs, rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const qint64 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKx(const qfloat16 *lhs, qint64 rhs) {
+  return operator<=(*lhs, rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const qint64 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKx(const qfloat16 *lhs, qint64 rhs) {
+  return operator>=(*lhs, rhs);
+}
+
+//  bool operator==(const qint64 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKxRK8qfloat16(qint64 lhs, const qfloat16 *rhs) {
+  return operator==(lhs, *rhs);
+}
+
+//  bool operator!=(const qint64 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKxRK8qfloat16(qint64 lhs, const qfloat16 *rhs) {
+  return operator!=(lhs, *rhs);
+}
+
+//  bool operator<(const qint64 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKxRK8qfloat16(qint64 lhs, const qfloat16 *rhs) {
+  return operator<(lhs, *rhs);
+}
+
+//  bool operator>(const qint64 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKxRK8qfloat16(qint64 lhs, const qfloat16 *rhs) {
+  return operator>(lhs, *rhs);
+}
+
+//  bool operator<=(const qint64 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKxRK8qfloat16(qint64 lhs, const qfloat16 *rhs) {
+  return operator<=(lhs, *rhs);
+}
+
+//  bool operator>=(const qint64 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKxRK8qfloat16(qint64 lhs, const qfloat16 *rhs) {
+  return operator>=(lhs, *rhs);
+}
+
+//  bool operator==(const qfloat16 &lhs, const quint64 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8qfloat16RKy(const qfloat16 *lhs, quint64 rhs) {
+  return operator==(*lhs, rhs);
+}
+
+//  bool operator!=(const qfloat16 &lhs, const quint64 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8qfloat16RKy(const qfloat16 *lhs, quint64 rhs) {
+  return operator!=(*lhs, rhs);
+}
+
+//  bool operator<(const qfloat16 &lhs, const quint64 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK8qfloat16RKy(const qfloat16 *lhs, quint64 rhs) {
+  return operator<(*lhs, rhs);
+}
+
+//  bool operator>(const qfloat16 &lhs, const quint64 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK8qfloat16RKy(const qfloat16 *lhs, quint64 rhs) {
+  return operator>(*lhs, rhs);
+}
+
+//  bool operator<=(const qfloat16 &lhs, const quint64 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK8qfloat16RKy(const qfloat16 *lhs, quint64 rhs) {
+  return operator<=(*lhs, rhs);
+}
+
+//  bool operator>=(const qfloat16 &lhs, const quint64 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK8qfloat16RKy(const qfloat16 *lhs, quint64 rhs) {
+  return operator>=(*lhs, rhs);
+}
+
+//  bool operator==(const quint64 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKyRK8qfloat16(quint64 lhs, const qfloat16 *rhs) {
+  return operator==(lhs, *rhs);
+}
+
+//  bool operator!=(const quint64 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKyRK8qfloat16(quint64 lhs, const qfloat16 *rhs) {
+  return operator!=(lhs, *rhs);
+}
+
+//  bool operator<(const quint64 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKyRK8qfloat16(quint64 lhs, const qfloat16 *rhs) {
+  return operator<(lhs, *rhs);
+}
+
+//  bool operator>(const quint64 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKyRK8qfloat16(quint64 lhs, const qfloat16 *rhs) {
+  return operator>(lhs, *rhs);
+}
+
+//  bool operator<=(const quint64 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKyRK8qfloat16(quint64 lhs, const qfloat16 *rhs) {
+  return operator<=(lhs, *rhs);
+}
+
+//  bool operator>=(const quint64 &lhs, const qfloat16 &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKyRK8qfloat16(quint64 lhs, const qfloat16 *rhs) {
+  return operator>=(lhs, *rhs);
+}
+
 //  qfloat16::~qfloat16()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8qfloat16D1Ev(qfloat16 *self) {

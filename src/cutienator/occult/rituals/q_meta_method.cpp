@@ -292,6 +292,22 @@ bool ritual_ZNK11QMetaMethod7isValidEv(const QMetaMethod *self) {
   return self->isValid();
 }
 
+//  bool operator==(const QMetaMethod &lhs, const QMetaMethod &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK11QMetaMethodS1_(
+    const QMetaMethod *lhs,
+    const QMetaMethod *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QMetaMethod &lhs, const QMetaMethod &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK11QMetaMethodS1_(
+    const QMetaMethod *lhs,
+    const QMetaMethod *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QMetaMethod::~QMetaMethod()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMetaMethodD1Ev(QMetaMethod *self) {

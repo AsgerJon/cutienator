@@ -39,28 +39,29 @@ class QPen(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPen that has a ritual and that Python can call so
-  far, 22 names in all: 'style', 'setStyle', 'dashOffset', 'setDashOffset',
+  far, 24 names in all: 'style', 'setStyle', 'dashOffset', 'setDashOffset',
   'miterLimit', 'setMiterLimit', 'widthF', 'setWidthF', 'width', 'setWidth',
   'color', 'setColor', 'brush', 'setBrush', 'isSolid', 'capStyle',
   'setCapStyle', 'joinStyle', 'setJoinStyle', 'isCosmetic', 'setCosmetic',
-  'isDetached'. It can be made from Python, in 5 ways; see '__init__'.
+  '__eq__', '__ne__', 'isDetached'. It can be made from Python, in 5 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPen::~QPen()': the destructor: Python removes its C++ QPen by it,
     and has no other use for it.
-  - Qt's 'bool QPen::operator==(const QPen &p) const': an operator, which is
-    not reflected yet.
-  - Qt's 'bool QPen::operator!=(const QPen &p) const': an operator, which is
-    not reflected yet.
-  - Qt's 'QVariant QPen::operator QVariant() const': an operator, which is
-    not reflected yet.
+  - Qt's 'QVariant QPen::operator QVariant() const': an operator Python has
+    no name for.
+  - Qt's 'bool operator==(const QColor &lhs, const QPen &rhs)': takes in
+    Python what 'bool operator==(const QPen &lhs, const QColor &rhs)' takes.
+  - Qt's 'bool operator!=(const QColor &lhs, const QPen &rhs)': takes in
+    Python what 'bool operator!=(const QPen &lhs, const QColor &rhs)' takes.
 
   What has no ritual
   ------------------
 
-  13 of the 44 functions Qt declares: 9 takes or gives a type that cannot be
+  19 of the 54 functions Qt declares: 15 takes or gives a type that cannot be
   passed yet; 4 private.
 
   What to expect
@@ -424,6 +425,96 @@ class QPen(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, p: QPen) -> bool:
+    """
+    Calls Qt's 'bool QPen::operator==(const QPen &p) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpen.html#operator==
+
+    Parameters
+    ----------
+
+    p : QPen
+      Passed on as a value: Qt reads the C++ QPen, which stays Python's own.
+    """
+    #  bool QPen::operator==(const QPen &p) const
+    return self.uglySide.call('ritual_ZNK4QPeneqERKS_', self._valueOf(p))
+
+  @overload(QColor)
+  def __eq__(self, rhs: QColor) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QPen &lhs, const QColor &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpen.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QColor
+      Passed on as a value: Qt reads the C++ QColor, which stays Python's
+      own.
+    """
+    #  bool operator==(const QPen &lhs, const QColor &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK4QPenRK6QColor',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, p: QPen) -> bool:
+    """
+    Calls Qt's 'bool QPen::operator!=(const QPen &p) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpen.html#operator!=
+
+    Parameters
+    ----------
+
+    p : QPen
+      Passed on as a value: Qt reads the C++ QPen, which stays Python's own.
+    """
+    #  bool QPen::operator!=(const QPen &p) const
+    return self.uglySide.call('ritual_ZNK4QPenneERKS_', self._valueOf(p))
+
+  @overload(QColor)
+  def __ne__(self, rhs: QColor) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QPen &lhs, const QColor &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpen.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QColor
+      Passed on as a value: Qt reads the C++ QColor, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QPen &lhs, const QColor &rhs)
+    return Rituals.call(
+        'ritual_ZneRK4QPenRK6QColor',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

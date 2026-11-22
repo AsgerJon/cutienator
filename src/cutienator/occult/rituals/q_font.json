@@ -118,6 +118,7 @@
       "nothing", "address", "unsigned int"
     ],
     "ritual_ZN5QFont15setLegacyWeightEi": ["nothing", "address", "int"],
-    "ritual_ZNK5QFont12legacyWeightEv": ["int", "address"]
+    "ritual_ZNK5QFont12legacyWeightEv": ["int", "address"],
+    "ritual_Zls6QDebugRK5QFont": ["address", "address", "address"]
   }
 }

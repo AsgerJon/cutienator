@@ -8,6 +8,12 @@
     "ritual_ZN26QTableWidgetSelectionRangeC1Eiiii": [
       "address", "int", "int", "int", "int"
     ],
+    "ritual_ZeqRK26QTableWidgetSelectionRangeS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK26QTableWidgetSelectionRangeS1_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK26QTableWidgetSelectionRange6topRowEv": ["int", "address"],
     "ritual_ZNK26QTableWidgetSelectionRange9bottomRowEv": ["int", "address"],
     "ritual_ZNK26QTableWidgetSelectionRange10leftColumnEv": [

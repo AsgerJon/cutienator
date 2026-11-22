@@ -78,10 +78,90 @@ void ritual_ZN9QMarginsF9setBottomEd(QMarginsF *self, qreal abottom) {
   self->setBottom(abottom);
 }
 
+//  QMarginsF &QMarginsF::operator+=(const QMarginsF &margins)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QMarginsFpLERKS_(QMarginsF *self, const QMarginsF *margins) {
+  self->operator+=(*margins);
+}
+
+//  QMarginsF &QMarginsF::operator-=(const QMarginsF &margins)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QMarginsFmIERKS_(QMarginsF *self, const QMarginsF *margins) {
+  self->operator-=(*margins);
+}
+
+//  QMarginsF &QMarginsF::operator+=(qreal addend)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QMarginsFpLEd(QMarginsF *self, qreal addend) {
+  self->operator+=(addend);
+}
+
+//  QMarginsF &QMarginsF::operator-=(qreal subtrahend)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QMarginsFmIEd(QMarginsF *self, qreal subtrahend) {
+  self->operator-=(subtrahend);
+}
+
+//  QMarginsF &QMarginsF::operator*=(qreal factor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QMarginsFmLEd(QMarginsF *self, qreal factor) {
+  self->operator*=(factor);
+}
+
+//  QMarginsF &QMarginsF::operator/=(qreal divisor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QMarginsFdVEd(QMarginsF *self, qreal divisor) {
+  self->operator/=(divisor);
+}
+
 //  QMargins QMarginsF::toMargins() const
 extern "C" Q_DECL_EXPORT
 QMargins *ritual_ZNK9QMarginsF9toMarginsEv(const QMarginsF *self) {
   return new QMargins(self->toMargins());
+}
+
+//  bool operator==(const QMarginsF &lhs, const QMarginsF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK9QMarginsFS1_(const QMarginsF *lhs, const QMarginsF *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QMarginsF &lhs, const QMarginsF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK9QMarginsFS1_(const QMarginsF *lhs, const QMarginsF *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QMarginsF &lhs, const QMargins &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK9QMarginsFRK8QMargins(
+    const QMarginsF *lhs,
+    const QMargins *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QMarginsF &lhs, const QMargins &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK9QMarginsFRK8QMargins(
+    const QMarginsF *lhs,
+    const QMargins *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QMargins &lhs, const QMarginsF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK8QMarginsRK9QMarginsF(
+    const QMargins *lhs,
+    const QMarginsF *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QMargins &lhs, const QMarginsF &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK8QMarginsRK9QMarginsF(
+    const QMargins *lhs,
+    const QMarginsF *rhs) {
+  return operator!=(*lhs, *rhs);
 }
 
 //  QMarginsF::~QMarginsF()

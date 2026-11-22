@@ -43,7 +43,7 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextFormat that has a ritual and that Python can
-  call so far, 43 names in all: 'merge', 'isValid', 'isEmpty', 'type',
+  call so far, 45 names in all: 'merge', 'isValid', 'isEmpty', 'type',
   'objectIndex', 'setObjectIndex', 'property', 'setProperty',
   'clearProperty', 'hasProperty', 'boolProperty', 'intProperty',
   'doubleProperty', 'stringProperty', 'colorProperty', 'penProperty',
@@ -51,7 +51,7 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
   'objectType', 'isCharFormat', 'isBlockFormat', 'isListFormat',
   'isFrameFormat', 'isImageFormat', 'isTableFormat', 'isTableCellFormat',
   'toBlockFormat', 'toCharFormat', 'toListFormat', 'toTableFormat',
-  'toFrameFormat', 'toImageFormat', 'toTableCellFormat',
+  'toFrameFormat', 'toImageFormat', 'toTableCellFormat', '__eq__', '__ne__',
   'setLayoutDirection', 'layoutDirection', 'setBackground', 'background',
   'clearBackground', 'setForeground', 'foreground', 'clearForeground'. It can
   be made from Python, in 3 ways; see '__init__'.
@@ -61,17 +61,13 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QTextFormat::~QTextFormat()': the destructor: Python removes its
     C++ QTextFormat by it, and has no other use for it.
-  - Qt's 'bool QTextFormat::operator==(const QTextFormat &rhs) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QTextFormat::operator!=(const QTextFormat &rhs) const': an
-    operator, which is not reflected yet.
-  - Qt's 'QVariant QTextFormat::operator QVariant() const': an operator,
-    which is not reflected yet.
+  - Qt's 'QVariant QTextFormat::operator QVariant() const': an operator
+    Python has no name for.
 
   What has no ritual
   ------------------
 
-  8 of the 58 functions Qt declares: 5 takes or gives a type that cannot be
+  10 of the 60 functions Qt declares: 7 takes or gives a type that cannot be
   passed yet; 1 declared and nowhere to be found; 1 a template; 1 private.
 
   What to expect
@@ -933,6 +929,62 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QTextFormat) -> bool:
+    """
+    Calls Qt's 'bool QTextFormat::operator==(const QTextFormat &rhs) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextformat.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+    """
+    #  bool QTextFormat::operator==(const QTextFormat &rhs) const
+    return self.uglySide.call(
+        'ritual_ZNK11QTextFormateqERKS_', self._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QTextFormat) -> bool:
+    """
+    Calls Qt's 'bool QTextFormat::operator!=(const QTextFormat &rhs) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextformat.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+    """
+    #  bool QTextFormat::operator!=(const QTextFormat &rhs) const
+    return self.uglySide.call(
+        'ritual_ZNK11QTextFormatneERKS_', self._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

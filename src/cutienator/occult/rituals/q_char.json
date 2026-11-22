@@ -45,6 +45,12 @@
     "ritual_ZN5QChar7setCellEh": ["nothing", "address", "unsigned char"],
     "ritual_ZN5QChar6setRowEh": ["nothing", "address", "unsigned char"],
     "ritual_ZN5QChar21currentUnicodeVersionEv": ["int"],
+    "ritual_ZeqRK5QCharS1_": ["bool", "address", "address"],
+    "ritual_ZneRK5QCharS1_": ["bool", "address", "address"],
+    "ritual_ZltRK5QCharS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK5QCharS1_": ["bool", "address", "address"],
+    "ritual_ZleRK5QCharS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK5QCharS1_": ["bool", "address", "address"],
     "ritual_ZN5QCharD1Ev": ["nothing", "address"]
   }
 }

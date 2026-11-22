@@ -45,6 +45,24 @@ QString *ritual_ZNK27QXmlStreamEntityDeclaration5valueEv(
   return new QString(self->value().toString());
 }
 
+//  bool operator==(const QXmlStreamEntityDeclaration &lhs, const
+//      QXmlStreamEntityDeclaration &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK27QXmlStreamEntityDeclarationS1_(
+    const QXmlStreamEntityDeclaration *lhs,
+    const QXmlStreamEntityDeclaration *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QXmlStreamEntityDeclaration &lhs, const
+//      QXmlStreamEntityDeclaration &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK27QXmlStreamEntityDeclarationS1_(
+    const QXmlStreamEntityDeclaration *lhs,
+    const QXmlStreamEntityDeclaration *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QXmlStreamEntityDeclaration::~QXmlStreamEntityDeclaration()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN27QXmlStreamEntityDeclarationD1Ev(

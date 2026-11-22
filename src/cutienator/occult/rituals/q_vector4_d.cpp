@@ -3,6 +3,7 @@
 #include <QtGui/qvectornd.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
+#include <QtGui/qmatrix4x4.h>
 
 //  QVector4D::QVector4D()
 extern "C" Q_DECL_EXPORT
@@ -152,12 +153,110 @@ void ritual_ZN9QVector4D9normalizeEv(QVector4D *self) {
   self->normalize();
 }
 
+//  QVector4D &QVector4D::operator+=(QVector4D vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector4DpLES_(QVector4D *self, const QVector4D *vector) {
+  self->operator+=(*vector);
+}
+
+//  QVector4D &QVector4D::operator-=(QVector4D vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector4DmIES_(QVector4D *self, const QVector4D *vector) {
+  self->operator-=(*vector);
+}
+
+//  QVector4D &QVector4D::operator*=(float factor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector4DmLEf(QVector4D *self, float factor) {
+  self->operator*=(factor);
+}
+
+//  QVector4D &QVector4D::operator*=(QVector4D vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector4DmLES_(QVector4D *self, const QVector4D *vector) {
+  self->operator*=(*vector);
+}
+
+//  QVector4D &QVector4D::operator/=(float divisor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector4DdVEf(QVector4D *self, float divisor) {
+  self->operator/=(divisor);
+}
+
+//  QVector4D &QVector4D::operator/=(QVector4D vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector4DdVES_(QVector4D *self, const QVector4D *vector) {
+  self->operator/=(*vector);
+}
+
 //  float QVector4D::dotProduct(QVector4D v1, QVector4D v2)
 extern "C" Q_DECL_EXPORT
 float ritual_ZN9QVector4D10dotProductES_S_(
     const QVector4D *v1,
     const QVector4D *v2) {
   return QVector4D::dotProduct(*v1, *v2);
+}
+
+//  bool operator==(QVector4D v1, QVector4D v2)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zeq9QVector4DS_(const QVector4D *v1, const QVector4D *v2) {
+  return operator==(*v1, *v2);
+}
+
+//  bool operator!=(QVector4D v1, QVector4D v2)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zne9QVector4DS_(const QVector4D *v1, const QVector4D *v2) {
+  return operator!=(*v1, *v2);
+}
+
+//  QVector4D operator+(QVector4D v1, QVector4D v2)
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_Zpl9QVector4DS_(const QVector4D *v1, const QVector4D *v2) {
+  return new QVector4D(operator+(*v1, *v2));
+}
+
+//  QVector4D operator-(QVector4D v1, QVector4D v2)
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_Zmi9QVector4DS_(const QVector4D *v1, const QVector4D *v2) {
+  return new QVector4D(operator-(*v1, *v2));
+}
+
+//  QVector4D operator*(float factor, QVector4D vector)
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_Zmlf9QVector4D(float factor, const QVector4D *vector) {
+  return new QVector4D(operator*(factor, *vector));
+}
+
+//  QVector4D operator*(QVector4D vector, float factor)
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_Zml9QVector4Df(const QVector4D *vector, float factor) {
+  return new QVector4D(operator*(*vector, factor));
+}
+
+//  QVector4D operator*(QVector4D v1, QVector4D v2)
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_Zml9QVector4DS_(const QVector4D *v1, const QVector4D *v2) {
+  return new QVector4D(operator*(*v1, *v2));
+}
+
+//  QVector4D operator-(QVector4D vector)
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_Zng9QVector4D(const QVector4D *vector) {
+  return new QVector4D(operator-(*vector));
+}
+
+//  QVector4D operator/(QVector4D vector, float divisor)
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_Zdv9QVector4Df(const QVector4D *vector, float divisor) {
+  return new QVector4D(operator/(*vector, divisor));
+}
+
+//  QVector4D operator/(QVector4D vector, QVector4D divisor)
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_Zdv9QVector4DS_(
+    const QVector4D *vector,
+    const QVector4D *divisor) {
+  return new QVector4D(operator/(*vector, *divisor));
 }
 
 //  QVector2D QVector4D::toVector2D() const
@@ -200,6 +299,14 @@ QPointF *ritual_ZNK9QVector4D8toPointFEv(const QVector4D *self) {
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK9QVector4Dcv8QVariantEv(const QVector4D *self) {
   return new QVariant(self->operator QVariant());
+}
+
+//  QVector4D operator*(const QVector4D &vector, const QMatrix4x4 &matrix)
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_ZmlRK9QVector4DRK10QMatrix4x4(
+    const QVector4D *vector,
+    const QMatrix4x4 *matrix) {
+  return new QVector4D(operator*(*vector, *matrix));
 }
 
 //  QVector4D::~QVector4D()

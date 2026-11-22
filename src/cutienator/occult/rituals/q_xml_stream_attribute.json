@@ -17,6 +17,8 @@
     "ritual_ZNK19QXmlStreamAttribute6prefixEv": ["text", "address"],
     "ritual_ZNK19QXmlStreamAttribute5valueEv": ["text", "address"],
     "ritual_ZNK19QXmlStreamAttribute9isDefaultEv": ["bool", "address"],
+    "ritual_ZeqRK19QXmlStreamAttributeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QXmlStreamAttributeS1_": ["bool", "address", "address"],
     "ritual_ZN19QXmlStreamAttributeD1Ev": ["nothing", "address"]
   }
 }

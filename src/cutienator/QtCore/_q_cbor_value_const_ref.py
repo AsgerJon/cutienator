@@ -20,7 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from . import QByteArray, QCborArray, QCborMap, QDateTime, QJsonValue
-  from . import QRegularExpression, QUrl, QUuid, QVariant
+  from . import QLatin1String, QRegularExpression, QUrl, QUuid, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -29,6 +29,7 @@ else:
   QCborArray = WAIT['QCborArray']
   QCborMap = WAIT['QCborMap']
   QDateTime = WAIT['QDateTime']
+  QLatin1String = WAIT['QLatin1String']
   QRegularExpression = WAIT['QRegularExpression']
   QUrl = WAIT['QUrl']
   QUuid = WAIT['QUuid']
@@ -47,21 +48,22 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCborValueConstRef that has a ritual and that Python
-  can call so far, 38 names in all: 'type', 'isInteger', 'isByteArray',
+  can call so far, 45 names in all: 'type', 'isInteger', 'isByteArray',
   'isString', 'isArray', 'isMap', 'isTag', 'isFalse', 'isTrue', 'isBool',
   'isNull', 'isUndefined', 'isDouble', 'isDateTime', 'isUrl',
   'isRegularExpression', 'isUuid', 'isInvalid', 'isContainer',
   'isSimpleType', 'taggedValue', 'toInteger', 'toBool', 'toDouble',
   'toByteArray', 'toString', 'toStringView', 'toDateTime', 'toUrl',
-  'toRegularExpression', 'toUuid', 'toArray', 'toMap', 'compare',
-  'toVariant', 'toJsonValue', 'toCbor', 'toDiagnosticNotation'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'toRegularExpression', 'toUuid', 'toArray', 'toMap', '__getitem__',
+  'compare', 'toVariant', 'toJsonValue', 'toCbor', 'toDiagnosticNotation',
+  '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QCborValue QCborValueConstRef::operator QCborValue() const': an
-    operator, which is not reflected yet.
+    operator Python has no name for.
   - Qt's 'bool QCborValueConstRef::isSimpleType(QCborSimpleType st) const':
     names the enum 'QCborSimpleType', whose class cannot be named here.
   - Qt's 'QCborSimpleType QCborValueConstRef::toSimpleType(QCborSimpleType
@@ -69,19 +71,31 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
     cannot be named here.
   - Qt's 'QCborTag QCborValueConstRef::tag(QCborTag defaultValue) const':
     names the enum 'QCborTag', whose class cannot be named here.
-  - Qt's 'const QCborValue QCborValueConstRef::operator[](const QString &key)
-    const': an operator, which is not reflected yet.
-  - Qt's 'const QCborValue QCborValueConstRef::operator[](QLatin1StringView
-    key) const': an operator, which is not reflected yet.
-  - Qt's 'const QCborValue QCborValueConstRef::operator[](qint64 key) const':
-    an operator, which is not reflected yet.
+  - Qt's 'bool operator==(const QCborValue &lhs, const QCborValueConstRef
+    &rhs)': takes in Python what 'bool operator==(const QCborValueConstRef
+    &lhs, const QCborValue &rhs)' takes.
+  - Qt's 'bool operator!=(const QCborValue &lhs, const QCborValueConstRef
+    &rhs)': takes in Python what 'bool operator!=(const QCborValueConstRef
+    &lhs, const QCborValue &rhs)' takes.
+  - Qt's 'bool operator<(const QCborValue &lhs, const QCborValueConstRef
+    &rhs)': takes in Python what 'bool operator>(const QCborValueConstRef
+    &lhs, const QCborValue &rhs)' takes.
+  - Qt's 'bool operator>(const QCborValue &lhs, const QCborValueConstRef
+    &rhs)': takes in Python what 'bool operator<(const QCborValueConstRef
+    &lhs, const QCborValue &rhs)' takes.
+  - Qt's 'bool operator<=(const QCborValue &lhs, const QCborValueConstRef
+    &rhs)': takes in Python what 'bool operator>=(const QCborValueConstRef
+    &lhs, const QCborValue &rhs)' takes.
+  - Qt's 'bool operator>=(const QCborValue &lhs, const QCborValueConstRef
+    &rhs)': takes in Python what 'bool operator<=(const QCborValueConstRef
+    &lhs, const QCborValue &rhs)' takes.
   - Qt's 'QCborValueConstRef::~QCborValueConstRef()': the destructor: Python
     removes its C++ QCborValueConstRef by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  17 of the 66 functions Qt declares: 15 protected; 1 forbidden; 1 takes or
+  17 of the 84 functions Qt declares: 15 protected; 1 forbidden; 1 takes or
   gives a type that cannot be passed yet.
 
   What to expect
@@ -902,6 +916,398 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(str)
+  def __getitem__(self, key: str) -> QCborValue:
+    """
+    Calls Qt's 'const QCborValue QCborValueConstRef::operator[](const QString
+    &key) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator[]
+
+    Parameters
+    ----------
+
+    key : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QCborValue
+      A new cute QCborValue around the copy Qt gave back. Python owns it.
+    """
+    #  const QCborValue QCborValueConstRef::operator[](const QString &key)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK18QCborValueConstRefixERK7QString', key,
+    )
+    return QCborValue._cuteOwning(address)
+
+  @overload(QLatin1String)
+  def __getitem__(self, key: QLatin1String) -> QCborValue:
+    """
+    Calls Qt's 'const QCborValue
+    QCborValueConstRef::operator[](QLatin1StringView key) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator[]
+
+    Parameters
+    ----------
+
+    key : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QCborValue
+      A new cute QCborValue around the copy Qt gave back. Python owns it.
+    """
+    #  const QCborValue QCborValueConstRef::operator[](QLatin1StringView key)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK18QCborValueConstRefixE13QLatin1String',
+        self._valueOf(key),
+    )
+    return QCborValue._cuteOwning(address)
+
+  @overload(int)
+  def __getitem__(self, key: int) -> QCborValue:
+    """
+    Calls Qt's 'const QCborValue QCborValueConstRef::operator[](qint64 key)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator[]
+
+    Parameters
+    ----------
+
+    key : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QCborValue
+      A new cute QCborValue around the copy Qt gave back. Python owns it.
+    """
+    #  const QCborValue QCborValueConstRef::operator[](qint64 key) const
+    address = self.uglySide.call('ritual_ZNK18QCborValueConstRefixEx', key)
+    return QCborValue._cuteOwning(address)
+
+  @overload(THIS)
+  def __eq__(self, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QCborValueConstRef &lhs, const
+    QCborValueConstRef &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool operator==(const QCborValueConstRef &lhs, const
+    #      QCborValueConstRef &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK18QCborValueConstRefS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValue)
+  def __eq__(self, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QCborValueConstRef &lhs, const
+    QCborValue &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool operator==(const QCborValueConstRef &lhs, const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK18QCborValueConstRefRK10QCborValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QCborValueConstRef &lhs, const
+    QCborValueConstRef &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QCborValueConstRef &lhs, const
+    #      QCborValueConstRef &rhs)
+    return Rituals.call(
+        'ritual_ZneRK18QCborValueConstRefS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValue)
+  def __ne__(self, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QCborValueConstRef &lhs, const
+    QCborValue &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QCborValueConstRef &lhs, const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZneRK18QCborValueConstRefRK10QCborValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QCborValueConstRef &lhs, const
+    QCborValueConstRef &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool operator<(const QCborValueConstRef &lhs, const QCborValueConstRef
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZltRK18QCborValueConstRefS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValue)
+  def __lt__(self, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QCborValueConstRef &lhs, const
+    QCborValue &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool operator<(const QCborValueConstRef &lhs, const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZltRK18QCborValueConstRefRK10QCborValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QCborValueConstRef &lhs, const
+    QCborValueConstRef &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool operator>(const QCborValueConstRef &lhs, const QCborValueConstRef
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK18QCborValueConstRefS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValue)
+  def __gt__(self, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QCborValueConstRef &lhs, const
+    QCborValue &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool operator>(const QCborValueConstRef &lhs, const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK18QCborValueConstRefRK10QCborValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QCborValueConstRef &lhs, const
+    QCborValueConstRef &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool operator<=(const QCborValueConstRef &lhs, const
+    #      QCborValueConstRef &rhs)
+    return Rituals.call(
+        'ritual_ZleRK18QCborValueConstRefS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValue)
+  def __le__(self, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QCborValueConstRef &lhs, const
+    QCborValue &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool operator<=(const QCborValueConstRef &lhs, const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZleRK18QCborValueConstRefRK10QCborValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QCborValueConstRef &lhs, const
+    QCborValueConstRef &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool operator>=(const QCborValueConstRef &lhs, const
+    #      QCborValueConstRef &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK18QCborValueConstRefS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValue)
+  def __ge__(self, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QCborValueConstRef &lhs, const
+    QCborValue &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool operator>=(const QCborValueConstRef &lhs, const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK18QCborValueConstRefRK10QCborValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

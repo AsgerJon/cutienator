@@ -39,7 +39,7 @@ class QRect(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRect that has a ritual and that Python can call so
-  far, 56 names in all: 'isNull', 'isEmpty', 'isValid', 'left', 'top',
+  far, 64 names in all: 'isNull', 'isEmpty', 'isValid', 'left', 'top',
   'right', 'bottom', 'normalized', 'x', 'y', 'setLeft', 'setTop', 'setRight',
   'setBottom', 'setX', 'setY', 'setTopLeft', 'setBottomRight', 'setTopRight',
   'setBottomLeft', 'topLeft', 'bottomRight', 'topRight', 'bottomLeft',
@@ -47,9 +47,10 @@ class QRect(CuteMixin, metaclass=MetaCute):
   'moveBottomRight', 'moveTopRight', 'moveBottomLeft', 'moveCenter',
   'translate', 'translated', 'transposed', 'moveTo', 'setRect', 'setCoords',
   'adjust', 'adjusted', 'size', 'width', 'height', 'setWidth', 'setHeight',
-  'setSize', 'contains', 'united', 'intersected', 'intersects',
-  'marginsAdded', 'marginsRemoved', 'span', 'toRectF'. It can be made from
-  Python, in 4 ways; see '__init__'.
+  'setSize', '__or__', '__and__', '__ior__', '__iand__', 'contains',
+  'united', 'intersected', 'intersects', 'marginsAdded', 'marginsRemoved',
+  '__iadd__', '__isub__', 'span', '__eq__', '__ne__', 'toRectF'. It can be
+  made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -58,18 +59,13 @@ class QRect(CuteMixin, metaclass=MetaCute):
     number to change where it is.
   - Qt's 'void QRect::getCoords(int *x1, int *y1, int *x2, int *y2) const':
     takes a number to change where it is.
-  - Qt's 'QRect QRect::operator|(const QRect &r) const': an operator, which
-    is not reflected yet.
-  - Qt's 'QRect QRect::operator&(const QRect &r) const': an operator, which
-    is not reflected yet.
   - Qt's 'QRect::~QRect()': the destructor: Python removes its C++ QRect by
     it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  5 of the 76 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 private.
+  1 of the 78 functions Qt declares: 1 private.
 
   What to expect
   --------------
@@ -968,6 +964,236 @@ class QRect(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __or__(self, r: QRect) -> QRect:
+    """
+    Calls Qt's 'QRect QRect::operator|(const QRect &r) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrect.html#operator|
+
+    Parameters
+    ----------
+
+    r : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    Returns
+    -------
+
+    QRect
+      A new cute QRect around the copy Qt gave back. Python owns it.
+    """
+    #  QRect QRect::operator|(const QRect &r) const
+    address = self.uglySide.call('ritual_ZNK5QRectorERKS_', self._valueOf(r))
+    return QRect._cuteOwning(address)
+
+  @overload.fallback
+  def __or__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __and__(self, r: QRect) -> QRect:
+    """
+    Calls Qt's 'QRect QRect::operator&(const QRect &r) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrect.html#operator&
+
+    Parameters
+    ----------
+
+    r : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    Returns
+    -------
+
+    QRect
+      A new cute QRect around the copy Qt gave back. Python owns it.
+    """
+    #  QRect QRect::operator&(const QRect &r) const
+    address = self.uglySide.call('ritual_ZNK5QRectanERKS_', self._valueOf(r))
+    return QRect._cuteOwning(address)
+
+  @overload.fallback
+  def __and__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ior__(self, r: QRect) -> QRect:
+    """
+    Calls Qt's 'QRect &QRect::operator|=(const QRect &r)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrect.html#operator|=
+
+    Parameters
+    ----------
+
+    r : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  QRect &QRect::operator|=(const QRect &r)
+    self.uglySide.call('ritual_ZN5QRectoRERKS_', self._valueOf(r))
+    return self
+
+  @overload.fallback
+  def __ior__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __iand__(self, r: QRect) -> QRect:
+    """
+    Calls Qt's 'QRect &QRect::operator&=(const QRect &r)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrect.html#operator&=
+
+    Parameters
+    ----------
+
+    r : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  QRect &QRect::operator&=(const QRect &r)
+    self.uglySide.call('ritual_ZN5QRectaNERKS_', self._valueOf(r))
+    return self
+
+  @overload.fallback
+  def __iand__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QMargins)
+  def __iadd__(self, margins: QMargins) -> QRect:
+    """
+    Calls Qt's 'QRect &QRect::operator+=(const QMargins &margins)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrect.html#operator+=
+
+    Parameters
+    ----------
+
+    margins : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+    """
+    #  QRect &QRect::operator+=(const QMargins &margins)
+    self.uglySide.call(
+        'ritual_ZN5QRectpLERK8QMargins', self._valueOf(margins),
+    )
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QMargins)
+  def __isub__(self, margins: QMargins) -> QRect:
+    """
+    Calls Qt's 'QRect &QRect::operator-=(const QMargins &margins)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrect.html#operator-=
+
+    Parameters
+    ----------
+
+    margins : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+    """
+    #  QRect &QRect::operator-=(const QMargins &margins)
+    self.uglySide.call(
+        'ritual_ZN5QRectmIERK8QMargins', self._valueOf(margins),
+    )
+    return self
+
+  @overload.fallback
+  def __isub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, rhs: QRect) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QRect &lhs, const QRect &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrect.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  bool operator==(const QRect &lhs, const QRect &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK5QRectS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QRect) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QRect &lhs, const QRect &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrect.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  bool operator!=(const QRect &lhs, const QRect &rhs)
+    return Rituals.call(
+        'ritual_ZneRK5QRectS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

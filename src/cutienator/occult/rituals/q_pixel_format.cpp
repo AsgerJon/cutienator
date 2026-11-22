@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qpixelformat.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qpixelformat.h>
+#include <QtCore/qdebug.h>
 
 //  QPixelFormat::QPixelFormat()
 extern "C" Q_DECL_EXPORT
@@ -181,6 +182,30 @@ QPixelFormat::YUVLayout ritual_ZNK12QPixelFormat9yuvLayoutEv(
 extern "C" Q_DECL_EXPORT
 uchar ritual_ZNK12QPixelFormat7subEnumEv(const QPixelFormat *self) {
   return self->subEnum();
+}
+
+//  bool operator==(QPixelFormat fmt1, QPixelFormat fmt2)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zeq12QPixelFormatS_(
+    const QPixelFormat *fmt1,
+    const QPixelFormat *fmt2) {
+  return operator==(*fmt1, *fmt2);
+}
+
+//  bool operator!=(QPixelFormat fmt1, QPixelFormat fmt2)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zne12QPixelFormatS_(
+    const QPixelFormat *fmt1,
+    const QPixelFormat *fmt2) {
+  return operator!=(*fmt1, *fmt2);
+}
+
+//  QDebug operator<<(QDebug debug, const QPixelFormat &format)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK12QPixelFormat(
+    const QDebug *debug,
+    const QPixelFormat *format) {
+  return new QDebug(operator<<(*debug, *format));
 }
 
 //  QPixelFormat::~QPixelFormat()

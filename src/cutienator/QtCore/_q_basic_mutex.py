@@ -24,14 +24,13 @@ class QBasicMutex(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QBasicMutex that has a ritual and that Python can
-  call so far, 3 names in all: 'unlock', 'tryLock', 'try_lock'. It can be
-  made from Python, in 1 way; see '__init__'.
+  call so far, 4 names in all: 'lock', 'unlock', 'tryLock', 'try_lock'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has no ritual
   ------------------
 
-  14 of the 18 functions Qt declares: 9 private; 4 forbidden; 1 takes or
-  gives a type that cannot be passed yet.
+  13 of the 18 functions Qt declares: 9 private; 4 forbidden.
 
   What to expect
   --------------
@@ -118,6 +117,15 @@ class QBasicMutex(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def lock(self) -> None:
+    """
+    Calls Qt's 'void QBasicMutex::lock()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbasicmutex.html#lock
+    """
+    #  void QBasicMutex::lock()
+    self.uglySide.call('ritual_ZN11QBasicMutex4lockEv')
 
   def unlock(self) -> None:
     """

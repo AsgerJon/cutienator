@@ -38,6 +38,9 @@
     "ritual_ZNK12QPixelFormat9byteOrderEv": ["int", "address"],
     "ritual_ZNK12QPixelFormat9yuvLayoutEv": ["int", "address"],
     "ritual_ZNK12QPixelFormat7subEnumEv": ["unsigned char", "address"],
+    "ritual_Zeq12QPixelFormatS_": ["bool", "address", "address"],
+    "ritual_Zne12QPixelFormatS_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK12QPixelFormat": ["address", "address", "address"],
     "ritual_ZN12QPixelFormatD1Ev": ["nothing", "address"]
   }
 }

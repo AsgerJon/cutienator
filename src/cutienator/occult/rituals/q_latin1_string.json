@@ -169,6 +169,132 @@
       "nothing", "address", "long long"
     ],
     "ritual_ZNK13QLatin1String7trimmedEv": ["address", "address"],
+    "ritual_ZeqRK13QLatin1StringS1_": ["bool", "address", "address"],
+    "ritual_ZneRK13QLatin1StringS1_": ["bool", "address", "address"],
+    "ritual_ZltRK13QLatin1StringS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK13QLatin1StringS1_": ["bool", "address", "address"],
+    "ritual_ZleRK13QLatin1StringS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK13QLatin1StringS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK13QLatin1StringRK5QChar": ["bool", "address", "address"],
+    "ritual_ZneRK13QLatin1StringRK5QChar": ["bool", "address", "address"],
+    "ritual_ZltRK13QLatin1StringRK5QChar": ["bool", "address", "address"],
+    "ritual_ZgtRK13QLatin1StringRK5QChar": ["bool", "address", "address"],
+    "ritual_ZleRK13QLatin1StringRK5QChar": ["bool", "address", "address"],
+    "ritual_ZgeRK13QLatin1StringRK5QChar": ["bool", "address", "address"],
+    "ritual_ZeqRK5QCharRK13QLatin1String": ["bool", "address", "address"],
+    "ritual_ZneRK5QCharRK13QLatin1String": ["bool", "address", "address"],
+    "ritual_ZltRK5QCharRK13QLatin1String": ["bool", "address", "address"],
+    "ritual_ZgtRK5QCharRK13QLatin1String": ["bool", "address", "address"],
+    "ritual_ZleRK5QCharRK13QLatin1String": ["bool", "address", "address"],
+    "ritual_ZgeRK5QCharRK13QLatin1String": ["bool", "address", "address"],
+    "ritual_ZeqRK13QLatin1StringRK11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZneRK13QLatin1StringRK11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZltRK13QLatin1StringRK11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZgtRK13QLatin1StringRK11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZleRK13QLatin1StringRK11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZgeRK13QLatin1StringRK11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZeqRK11QStringViewRK13QLatin1String": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZneRK11QStringViewRK13QLatin1String": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZltRK11QStringViewRK13QLatin1String": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZgtRK11QStringViewRK13QLatin1String": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZleRK11QStringViewRK13QLatin1String": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZgeRK11QStringViewRK13QLatin1String": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZeqRK13QLatin1StringRK14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK13QLatin1StringRK14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRK13QLatin1StringRK14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRK13QLatin1StringRK14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRK13QLatin1StringRK14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRK13QLatin1StringRK14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK14QByteArrayViewRK13QLatin1String": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK14QByteArrayViewRK13QLatin1String": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRK14QByteArrayViewRK13QLatin1String": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRK14QByteArrayViewRK13QLatin1String": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRK14QByteArrayViewRK13QLatin1String": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRK14QByteArrayViewRK13QLatin1String": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK13QLatin1StringRK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK13QLatin1StringRK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRK13QLatin1StringRK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRK13QLatin1StringRK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRK13QLatin1StringRK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRK13QLatin1StringRK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK10QByteArrayRK13QLatin1String": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK10QByteArrayRK13QLatin1String": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRK10QByteArrayRK13QLatin1String": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRK10QByteArrayRK13QLatin1String": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRK10QByteArrayRK13QLatin1String": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRK10QByteArrayRK13QLatin1String": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN13QLatin1StringD1Ev": ["nothing", "address"]
   }
 }

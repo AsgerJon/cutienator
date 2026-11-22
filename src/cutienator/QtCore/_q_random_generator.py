@@ -32,10 +32,10 @@ class QRandomGenerator(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRandomGenerator that has a ritual and that Python
-  can call so far, 11 names in all: 'generate', 'generate64',
-  'generateDouble', 'bounded', 'seed', 'discard', 'min', 'max', 'system',
-  'global_', 'securelySeeded'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  can call so far, 14 names in all: '__eq__', '__ne__', 'generate',
+  'generate64', 'generateDouble', 'bounded', '__call__', 'seed', 'discard',
+  'min', 'max', 'system', 'global_', 'securelySeeded'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -71,13 +71,11 @@ class QRandomGenerator(CuteMixin, metaclass=MetaCute):
     QRandomGenerator::bounded(quint32 lowest, quint32 highest)' takes.
   - Qt's 'void QRandomGenerator::generate(quint32 *begin, quint32 *end)':
     takes a number to change where it is.
-  - Qt's 'result_type QRandomGenerator::operator()()': an operator, which is
-    not reflected yet.
 
   What has no ritual
   ------------------
 
-  11 of the 39 functions Qt declares: 5 takes or gives a type that cannot be
+  11 of the 41 functions Qt declares: 5 takes or gives a type that cannot be
   passed yet; 4 a template; 1 protected; 1 private.
 
   What to expect
@@ -209,6 +207,77 @@ class QRandomGenerator(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rng2: QRandomGenerator) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QRandomGenerator &rng1, const
+    QRandomGenerator &rng2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrandomgenerator.html#operator==
+
+    Parameters
+    ----------
+
+    rng2 : QRandomGenerator
+      Passed on as a value: Qt reads the C++ QRandomGenerator, which stays
+      Python's own.
+    """
+    #  bool operator==(const QRandomGenerator &rng1, const QRandomGenerator
+    #      &rng2)
+    return Rituals.call(
+        'ritual_ZeqRK16QRandomGeneratorS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rng2),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rng2: QRandomGenerator) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QRandomGenerator &rng1, const
+    QRandomGenerator &rng2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrandomgenerator.html#operator!=
+
+    Parameters
+    ----------
+
+    rng2 : QRandomGenerator
+      Passed on as a value: Qt reads the C++ QRandomGenerator, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QRandomGenerator &rng1, const QRandomGenerator
+    #      &rng2)
+    return Rituals.call(
+        'ritual_ZneRK16QRandomGeneratorS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rng2),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  def __call__(self) -> int:
+    """
+    Calls Qt's 'result_type QRandomGenerator::operator()()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrandomgenerator.html#operator()
+    """
+    #  result_type QRandomGenerator::operator()()
+    return self.uglySide.call('ritual_ZN16QRandomGeneratorclEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

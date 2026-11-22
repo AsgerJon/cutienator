@@ -62,13 +62,13 @@ class QIcon(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QIcon::~QIcon()': the destructor: Python removes its C++ QIcon by
     it, and has no other use for it.
-  - Qt's 'QVariant QIcon::operator QVariant() const': an operator, which is
-    not reflected yet.
+  - Qt's 'QVariant QIcon::operator QVariant() const': an operator Python has
+    no name for.
 
   What has no ritual
   ------------------
 
-  15 of the 50 functions Qt declares: 10 takes or gives a type that cannot be
+  17 of the 52 functions Qt declares: 12 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 declared and nowhere to be found; 1 a template;
   1 private.
 

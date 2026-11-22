@@ -50,6 +50,8 @@
     "ritual_ZN9QPageSize10sizePointsENS_10PageSizeIdE": ["address", "int"],
     "ritual_ZN9QPageSize10sizePixelsENS_10PageSizeIdEi": [
       "address", "int", "int"
-    ]
+    ],
+    "ritual_ZeqRK9QPageSizeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK9QPageSizeS1_": ["bool", "address", "address"]
   }
 }

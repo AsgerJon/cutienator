@@ -21,6 +21,22 @@ QPageRanges *ritual_ZN11QPageRangesC1ERKS_(const QPageRanges *other) {
   return new QPageRanges(*other);
 }
 
+//  bool operator==(const QPageRanges &lhs, const QPageRanges &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK11QPageRangesS1_(
+    const QPageRanges *lhs,
+    const QPageRanges *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QPageRanges &lhs, const QPageRanges &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK11QPageRangesS1_(
+    const QPageRanges *lhs,
+    const QPageRanges *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  void QPageRanges::addPage(int pageNumber)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QPageRanges7addPageEi(QPageRanges *self, int pageNumber) {

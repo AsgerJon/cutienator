@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
@@ -31,9 +32,11 @@ class QMargins(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMargins that has a ritual and that Python can call
-  so far, 10 names in all: 'isNull', 'left', 'top', 'right', 'bottom',
-  'setLeft', 'setTop', 'setRight', 'setBottom', 'toMarginsF'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  so far, 23 names in all: 'isNull', 'left', 'top', 'right', 'bottom',
+  'setLeft', 'setTop', 'setRight', 'setBottom', '__iadd__', '__isub__',
+  '__imul__', '__itruediv__', 'toMarginsF', '__add__', '__sub__', '__radd__',
+  '__mul__', '__rmul__', '__truediv__', '__or__', '__eq__', '__ne__'. It can
+  be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -44,8 +47,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  9 of the 22 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 1 private.
+  1 of the 36 functions Qt declares: 1 private.
 
   What to expect
   --------------
@@ -225,6 +227,607 @@ class QMargins(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __iadd__(self, margins: QMargins) -> QMargins:
+    """
+    Calls Qt's 'QMargins &QMargins::operator+=(const QMargins &margins)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator+=
+
+    Parameters
+    ----------
+
+    margins : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+    """
+    #  QMargins &QMargins::operator+=(const QMargins &margins)
+    self.uglySide.call('ritual_ZN8QMarginspLERKS_', self._valueOf(margins))
+    return self
+
+  @overload(int)
+  def __iadd__(self, a0: int) -> QMargins:
+    """
+    Calls Qt's 'QMargins &QMargins::operator+=(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator+=
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  QMargins &QMargins::operator+=(int a0)
+    self.uglySide.call('ritual_ZN8QMarginspLEi', a0)
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __isub__(self, margins: QMargins) -> QMargins:
+    """
+    Calls Qt's 'QMargins &QMargins::operator-=(const QMargins &margins)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator-=
+
+    Parameters
+    ----------
+
+    margins : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+    """
+    #  QMargins &QMargins::operator-=(const QMargins &margins)
+    self.uglySide.call('ritual_ZN8QMarginsmIERKS_', self._valueOf(margins))
+    return self
+
+  @overload(int)
+  def __isub__(self, a0: int) -> QMargins:
+    """
+    Calls Qt's 'QMargins &QMargins::operator-=(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator-=
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  QMargins &QMargins::operator-=(int a0)
+    self.uglySide.call('ritual_ZN8QMarginsmIEi', a0)
+    return self
+
+  @overload.fallback
+  def __isub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(int)
+  def __imul__(self, a0: int) -> QMargins:
+    """
+    Calls Qt's 'QMargins &QMargins::operator*=(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator*=
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  QMargins &QMargins::operator*=(int a0)
+    self.uglySide.call('ritual_ZN8QMarginsmLEi', a0)
+    return self
+
+  @overload(float)
+  def __imul__(self, a0: float) -> QMargins:
+    """
+    Calls Qt's 'QMargins &QMargins::operator*=(qreal a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator*=
+
+    Parameters
+    ----------
+
+    a0 : float
+      Passed on as it is.
+    """
+    #  QMargins &QMargins::operator*=(qreal a0)
+    self.uglySide.call('ritual_ZN8QMarginsmLEd', a0)
+    return self
+
+  @overload.fallback
+  def __imul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(int)
+  def __itruediv__(self, a0: int) -> QMargins:
+    """
+    Calls Qt's 'QMargins &QMargins::operator/=(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator/=
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  QMargins &QMargins::operator/=(int a0)
+    self.uglySide.call('ritual_ZN8QMarginsdVEi', a0)
+    return self
+
+  @overload(float)
+  def __itruediv__(self, a0: float) -> QMargins:
+    """
+    Calls Qt's 'QMargins &QMargins::operator/=(qreal a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator/=
+
+    Parameters
+    ----------
+
+    a0 : float
+      Passed on as it is.
+    """
+    #  QMargins &QMargins::operator/=(qreal a0)
+    self.uglySide.call('ritual_ZN8QMarginsdVEd', a0)
+    return self
+
+  @overload.fallback
+  def __itruediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __add__(self, m2: QMargins) -> QMargins:
+    """
+    Calls Qt's 'QMargins operator+(const QMargins &m1, const QMargins &m2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator+
+
+    Parameters
+    ----------
+
+    m2 : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins operator+(const QMargins &m1, const QMargins &m2)
+    address = Rituals.call(
+        'ritual_ZplRK8QMarginsS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(m2),
+    )
+    return QMargins._cuteOwning(address)
+
+  @overload(int)
+  def __add__(self, rhs: int) -> QMargins:
+    """
+    Calls Qt's 'QMargins operator+(const QMargins &lhs, int rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator+
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins operator+(const QMargins &lhs, int rhs)
+    address = Rituals.call(
+        'ritual_ZplRK8QMarginsi', CuteMixin._valueOf(self), rhs,
+    )
+    return QMargins._cuteOwning(address)
+
+  @overload.fallback
+  def __add__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __sub__(self, m2: QMargins) -> QMargins:
+    """
+    Calls Qt's 'QMargins operator-(const QMargins &m1, const QMargins &m2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator-
+
+    Parameters
+    ----------
+
+    m2 : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins operator-(const QMargins &m1, const QMargins &m2)
+    address = Rituals.call(
+        'ritual_ZmiRK8QMarginsS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(m2),
+    )
+    return QMargins._cuteOwning(address)
+
+  @overload(int)
+  def __sub__(self, rhs: int) -> QMargins:
+    """
+    Calls Qt's 'QMargins operator-(const QMargins &lhs, int rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator-
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins operator-(const QMargins &lhs, int rhs)
+    address = Rituals.call(
+        'ritual_ZmiRK8QMarginsi', CuteMixin._valueOf(self), rhs,
+    )
+    return QMargins._cuteOwning(address)
+
+  @overload.fallback
+  def __sub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(int)
+  def __radd__(self, lhs: int) -> QMargins:
+    """
+    Calls Qt's 'QMargins operator+(int lhs, const QMargins &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator+
+
+    Parameters
+    ----------
+
+    lhs : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins operator+(int lhs, const QMargins &rhs)
+    address = Rituals.call(
+        'ritual_ZpliRK8QMargins', lhs, CuteMixin._valueOf(self),
+    )
+    return QMargins._cuteOwning(address)
+
+  @overload.fallback
+  def __radd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(int)
+  def __mul__(self, factor: int) -> QMargins:
+    """
+    Calls Qt's 'QMargins operator*(const QMargins &margins, int factor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator*
+
+    Parameters
+    ----------
+
+    factor : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins operator*(const QMargins &margins, int factor)
+    address = Rituals.call(
+        'ritual_ZmlRK8QMarginsi', CuteMixin._valueOf(self), factor,
+    )
+    return QMargins._cuteOwning(address)
+
+  @overload(float)
+  def __mul__(self, factor: float) -> QMargins:
+    """
+    Calls Qt's 'QMargins operator*(const QMargins &margins, qreal factor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator*
+
+    Parameters
+    ----------
+
+    factor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins operator*(const QMargins &margins, qreal factor)
+    address = Rituals.call(
+        'ritual_ZmlRK8QMarginsd', CuteMixin._valueOf(self), factor,
+    )
+    return QMargins._cuteOwning(address)
+
+  @overload.fallback
+  def __mul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(int)
+  def __rmul__(self, factor: int) -> QMargins:
+    """
+    Calls Qt's 'QMargins operator*(int factor, const QMargins &margins)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator*
+
+    Parameters
+    ----------
+
+    factor : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins operator*(int factor, const QMargins &margins)
+    address = Rituals.call(
+        'ritual_ZmliRK8QMargins', factor, CuteMixin._valueOf(self),
+    )
+    return QMargins._cuteOwning(address)
+
+  @overload(float)
+  def __rmul__(self, factor: float) -> QMargins:
+    """
+    Calls Qt's 'QMargins operator*(qreal factor, const QMargins &margins)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator*
+
+    Parameters
+    ----------
+
+    factor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins operator*(qreal factor, const QMargins &margins)
+    address = Rituals.call(
+        'ritual_ZmldRK8QMargins', factor, CuteMixin._valueOf(self),
+    )
+    return QMargins._cuteOwning(address)
+
+  @overload.fallback
+  def __rmul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(int)
+  def __truediv__(self, divisor: int) -> QMargins:
+    """
+    Calls Qt's 'QMargins operator/(const QMargins &margins, int divisor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator/
+
+    Parameters
+    ----------
+
+    divisor : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins operator/(const QMargins &margins, int divisor)
+    address = Rituals.call(
+        'ritual_ZdvRK8QMarginsi', CuteMixin._valueOf(self), divisor,
+    )
+    return QMargins._cuteOwning(address)
+
+  @overload(float)
+  def __truediv__(self, divisor: float) -> QMargins:
+    """
+    Calls Qt's 'QMargins operator/(const QMargins &margins, qreal divisor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator/
+
+    Parameters
+    ----------
+
+    divisor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins operator/(const QMargins &margins, qreal divisor)
+    address = Rituals.call(
+        'ritual_ZdvRK8QMarginsd', CuteMixin._valueOf(self), divisor,
+    )
+    return QMargins._cuteOwning(address)
+
+  @overload.fallback
+  def __truediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __or__(self, m2: QMargins) -> QMargins:
+    """
+    Calls Qt's 'QMargins operator|(const QMargins &m1, const QMargins &m2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator|
+
+    Parameters
+    ----------
+
+    m2 : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins operator|(const QMargins &m1, const QMargins &m2)
+    address = Rituals.call(
+        'ritual_ZorRK8QMarginsS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(m2),
+    )
+    return QMargins._cuteOwning(address)
+
+  @overload.fallback
+  def __or__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, rhs: QMargins) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QMargins &lhs, const QMargins &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+    """
+    #  bool operator==(const QMargins &lhs, const QMargins &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK8QMarginsS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QMargins) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QMargins &lhs, const QMargins &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmargins.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QMargins &lhs, const QMargins &rhs)
+    return Rituals.call(
+        'ritual_ZneRK8QMarginsS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

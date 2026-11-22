@@ -17,12 +17,14 @@ from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QDebug
   from . import QColorSpace
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QColorSpace = WAIT['QColorSpace']
+  QDebug = WAIT['QDebug']
 
 
 class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
@@ -38,7 +40,7 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QSurfaceFormat that has a ritual and that Python can
-  call so far, 38 names in all: 'setDepthBufferSize', 'depthBufferSize',
+  call so far, 41 names in all: 'setDepthBufferSize', 'depthBufferSize',
   'setStencilBufferSize', 'stencilBufferSize', 'setRedBufferSize',
   'redBufferSize', 'setGreenBufferSize', 'greenBufferSize',
   'setBlueBufferSize', 'blueBufferSize', 'setAlphaBufferSize',
@@ -47,8 +49,9 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
   'renderableType', 'setMajorVersion', 'majorVersion', 'setMinorVersion',
   'minorVersion', 'setVersion', 'stereo', 'setStereo', 'setOptions',
   'setOption', 'testOption', 'options', 'swapInterval', 'setSwapInterval',
-  'colorSpace', 'setColorSpace', 'setDefaultFormat', 'defaultFormat'. It can
-  be made from Python, in 3 ways; see '__init__'.
+  'colorSpace', 'setColorSpace', 'setDefaultFormat', 'defaultFormat',
+  '__eq__', '__ne__', '__rlshift__'. It can be made from Python, in 3 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,7 +62,7 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 50 functions Qt declares: 3 private; 2 takes or gives a type that
+  7 of the 53 functions Qt declares: 3 private; 2 takes or gives a type that
   cannot be passed yet; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
@@ -812,6 +815,103 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QSurfaceFormat) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QSurfaceFormat &lhs, const
+    QSurfaceFormat &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsurfaceformat.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QSurfaceFormat
+      Passed on as a value: Qt reads the C++ QSurfaceFormat, which stays
+      Python's own.
+    """
+    #  bool operator==(const QSurfaceFormat &lhs, const QSurfaceFormat &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK14QSurfaceFormatS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QSurfaceFormat) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QSurfaceFormat &lhs, const
+    QSurfaceFormat &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsurfaceformat.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QSurfaceFormat
+      Passed on as a value: Qt reads the C++ QSurfaceFormat, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QSurfaceFormat &lhs, const QSurfaceFormat &rhs)
+    return Rituals.call(
+        'ritual_ZneRK14QSurfaceFormatS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QDebug)
+  def __rlshift__(self, a0: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug a0, const QSurfaceFormat &a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsurfaceformat.html#operator<<
+
+    Parameters
+    ----------
+
+    a0 : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug a0, const QSurfaceFormat &a1)
+    address = Rituals.call(
+        'ritual_Zls6QDebugRK14QSurfaceFormat',
+        CuteMixin._valueOf(a0), CuteMixin._valueOf(self),
+    )
+    from ..QtCore import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

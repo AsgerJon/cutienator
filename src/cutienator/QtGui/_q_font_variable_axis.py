@@ -12,9 +12,17 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from . import QFont
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from ..QtCore import QDebug
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QDebug = WAIT['QDebug']
 
 
 class QFontVariableAxis(CuteMixin, metaclass=MetaCute):
@@ -30,10 +38,10 @@ class QFontVariableAxis(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFontVariableAxis that has a ritual and that Python
-  can call so far, 10 names in all: 'tag', 'setTag', 'name', 'setName',
+  can call so far, 11 names in all: 'tag', 'setTag', 'name', 'setName',
   'minimumValue', 'setMinimumValue', 'maximumValue', 'setMaximumValue',
-  'defaultValue', 'setDefaultValue'. It can be made from Python, in 2 ways;
-  see '__init__'.
+  'defaultValue', 'setDefaultValue', '__rlshift__'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -44,7 +52,7 @@ class QFontVariableAxis(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  11 of the 24 functions Qt declares: 5 private; 4 takes or gives a type that
+  11 of the 25 functions Qt declares: 5 private; 4 takes or gives a type that
   cannot be passed yet; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
@@ -263,6 +271,44 @@ class QFontVariableAxis(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QDebug)
+  def __rlshift__(self, debug: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug debug, const QFontVariableAxis
+    &axis)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontvariableaxis.html#operator<<
+
+    Parameters
+    ----------
+
+    debug : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug debug, const QFontVariableAxis &axis)
+    address = Rituals.call(
+        'ritual_Zls6QDebugRK17QFontVariableAxis',
+        CuteMixin._valueOf(debug), CuteMixin._valueOf(self),
+    )
+    from ..QtCore import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

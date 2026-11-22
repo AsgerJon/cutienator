@@ -8,6 +8,12 @@
     "ritual_ZN16QCollatorSortKeyD1Ev": ["nothing", "address"],
     "ritual_ZNK16QCollatorSortKey7compareERKS_": [
       "int", "address", "address"
-    ]
+    ],
+    "ritual_ZeqRK16QCollatorSortKeyS1_": ["bool", "address", "address"],
+    "ritual_ZneRK16QCollatorSortKeyS1_": ["bool", "address", "address"],
+    "ritual_ZltRK16QCollatorSortKeyS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK16QCollatorSortKeyS1_": ["bool", "address", "address"],
+    "ritual_ZleRK16QCollatorSortKeyS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK16QCollatorSortKeyS1_": ["bool", "address", "address"]
   }
 }

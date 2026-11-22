@@ -20,7 +20,7 @@ from . import Qt, QLocale
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QByteArrayView, QDateTime
+  from . import QByteArray, QByteArrayView, QDateTime, QDebug
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -28,6 +28,7 @@ else:
   QByteArray = WAIT['QByteArray']
   QByteArrayView = WAIT['QByteArrayView']
   QDateTime = WAIT['QDateTime']
+  QDebug = WAIT['QDebug']
 
 
 class QTimeZone(CuteMixin, metaclass=MetaCute):
@@ -43,15 +44,15 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTimeZone that has a ritual and that Python can call
-  so far, 27 names in all: 'isValid', 'fromSecondsAheadOfUtc', 'timeSpec',
+  so far, 30 names in all: 'isValid', 'fromSecondsAheadOfUtc', 'timeSpec',
   'fixedSecondsAheadOfUtc', 'isUtcOrFixedOffset', 'asBackendZone',
   'hasAlternativeName', 'id', 'country', 'comment', 'displayName',
   'abbreviation', 'offsetFromUtc', 'standardTimeOffset',
   'daylightTimeOffset', 'hasDaylightTime', 'isDaylightTime', 'offsetData',
   'hasTransitions', 'nextTransition', 'previousTransition',
   'systemTimeZoneId', 'systemTimeZone', 'utc', 'isTimeZoneIdAvailable',
-  'ianaIdToWindowsId', 'windowsIdToDefaultIanaId'. It can be made from
-  Python, in 5 ways; see '__init__'.
+  'ianaIdToWindowsId', 'windowsIdToDefaultIanaId', '__eq__', '__ne__',
+  '__rlshift__'. It can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -62,7 +63,7 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  17 of the 52 functions Qt declares: 14 takes or gives a type that cannot be
+  18 of the 56 functions Qt declares: 15 takes or gives a type that cannot be
   passed yet; 2 private; 1 forbidden.
 
   What to expect
@@ -879,6 +880,101 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QTimeZone) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QTimeZone &lhs, const QTimeZone &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimezone.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QTimeZone
+      Passed on as a value: Qt reads the C++ QTimeZone, which stays Python's
+      own.
+    """
+    #  bool operator==(const QTimeZone &lhs, const QTimeZone &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK9QTimeZoneS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QTimeZone) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QTimeZone &lhs, const QTimeZone &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimezone.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QTimeZone
+      Passed on as a value: Qt reads the C++ QTimeZone, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QTimeZone &lhs, const QTimeZone &rhs)
+    return Rituals.call(
+        'ritual_ZneRK9QTimeZoneS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QDebug)
+  def __rlshift__(self, dbg: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug dbg, const QTimeZone &tz)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimezone.html#operator<<
+
+    Parameters
+    ----------
+
+    dbg : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug dbg, const QTimeZone &tz)
+    address = Rituals.call(
+        'ritual_Zls6QDebugRK9QTimeZone',
+        CuteMixin._valueOf(dbg), CuteMixin._valueOf(self),
+    )
+    from . import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -45,23 +45,18 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextBlock that has a ritual and that Python can
-  call so far, 31 names in all: 'isValid', 'position', 'length', 'contains',
-  'layout', 'clearLayout', 'blockFormat', 'blockFormatIndex', 'charFormat',
-  'charFormatIndex', 'textDirection', 'text', 'document', 'textList',
-  'userData', 'setUserData', 'userState', 'setUserState', 'revision',
-  'setRevision', 'isVisible', 'setVisible', 'blockNumber', 'firstLineNumber',
-  'setLineCount', 'lineCount', 'begin', 'end', 'next', 'previous',
-  'fragmentIndex'. It can be made from Python, in 2 ways; see '__init__'.
+  call so far, 34 names in all: 'isValid', '__eq__', '__ne__', '__lt__',
+  'position', 'length', 'contains', 'layout', 'clearLayout', 'blockFormat',
+  'blockFormatIndex', 'charFormat', 'charFormatIndex', 'textDirection',
+  'text', 'document', 'textList', 'userData', 'setUserData', 'userState',
+  'setUserState', 'revision', 'setRevision', 'isVisible', 'setVisible',
+  'blockNumber', 'firstLineNumber', 'setLineCount', 'lineCount', 'begin',
+  'end', 'next', 'previous', 'fragmentIndex'. It can be made from Python, in
+  2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'bool QTextBlock::operator==(const QTextBlock &o) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QTextBlock::operator!=(const QTextBlock &o) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QTextBlock::operator<(const QTextBlock &o) const': an
-    operator, which is not reflected yet.
   - Qt's 'QTextBlock::~QTextBlock()': the destructor: Python removes its C++
     QTextBlock by it, and has no other use for it.
 
@@ -99,20 +94,16 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QTextBlock::iterator that has a ritual and that
-    Python can call so far, 2 names in all: 'fragment', 'atEnd'. It can be
-    made from Python, in 1 way; see '__init__'.
+    Python can call so far, 4 names in all: 'fragment', 'atEnd', '__eq__',
+    '__ne__'. It can be made from Python, in 1 way; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
-    - Qt's 'bool QTextBlock::iterator::operator==(const iterator &o) const':
-      an operator, which is not reflected yet.
-    - Qt's 'bool QTextBlock::iterator::operator!=(const iterator &o) const':
-      an operator, which is not reflected yet.
-    - Qt's 'iterator QTextBlock::iterator::operator++(int a0)': an operator,
-      which is not reflected yet.
-    - Qt's 'iterator QTextBlock::iterator::operator--(int a0)': an operator,
-      which is not reflected yet.
+    - Qt's 'iterator QTextBlock::iterator::operator++(int a0)': an operator
+      Python has no name for.
+    - Qt's 'iterator QTextBlock::iterator::operator--(int a0)': an operator
+      Python has no name for.
     - Qt's 'QTextBlock::iterator::~iterator()': the destructor: Python
       removes its C++ QTextBlock::iterator by it, and has no other use for
       it.
@@ -207,6 +198,66 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(THIS)
+    def __eq__(self, o: QTextBlock.iterator) -> bool:
+      """
+      Calls Qt's 'bool QTextBlock::iterator::operator==(const iterator &o)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextblock-iterator.html#operator==
+
+      Parameters
+      ----------
+
+      o : QTextBlock.iterator
+        Passed on as a value: Qt reads the C++ QTextBlock::iterator, which
+        stays Python's own.
+      """
+      #  bool QTextBlock::iterator::operator==(const iterator &o) const
+      return self.uglySide.call(
+          'ritual_ZNK10QTextBlock8iteratoreqERKS0_', self._valueOf(o),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, o: QTextBlock.iterator) -> bool:
+      """
+      Calls Qt's 'bool QTextBlock::iterator::operator!=(const iterator &o)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextblock-iterator.html#operator!=
+
+      Parameters
+      ----------
+
+      o : QTextBlock.iterator
+        Passed on as a value: Qt reads the C++ QTextBlock::iterator, which
+        stays Python's own.
+      """
+      #  bool QTextBlock::iterator::operator!=(const iterator &o) const
+      return self.uglySide.call(
+          'ritual_ZNK10QTextBlock8iteratorneERKS0_', self._valueOf(o),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -702,6 +753,90 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, o: QTextBlock) -> bool:
+    """
+    Calls Qt's 'bool QTextBlock::operator==(const QTextBlock &o) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextblock.html#operator==
+
+    Parameters
+    ----------
+
+    o : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+    """
+    #  bool QTextBlock::operator==(const QTextBlock &o) const
+    return self.uglySide.call(
+        'ritual_ZNK10QTextBlockeqERKS_', self._valueOf(o),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, o: QTextBlock) -> bool:
+    """
+    Calls Qt's 'bool QTextBlock::operator!=(const QTextBlock &o) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextblock.html#operator!=
+
+    Parameters
+    ----------
+
+    o : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+    """
+    #  bool QTextBlock::operator!=(const QTextBlock &o) const
+    return self.uglySide.call(
+        'ritual_ZNK10QTextBlockneERKS_', self._valueOf(o),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, o: QTextBlock) -> bool:
+    """
+    Calls Qt's 'bool QTextBlock::operator<(const QTextBlock &o) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextblock.html#operator<
+
+    Parameters
+    ----------
+
+    o : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+    """
+    #  bool QTextBlock::operator<(const QTextBlock &o) const
+    return self.uglySide.call(
+        'ritual_ZNK10QTextBlockltERKS_', self._valueOf(o),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

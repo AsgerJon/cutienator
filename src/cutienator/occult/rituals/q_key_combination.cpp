@@ -58,6 +58,22 @@ int ritual_ZNK15QKeyCombinationcviEv(const QKeyCombination *self) {
   return self->operator int();
 }
 
+//  bool operator==(const QKeyCombination &lhs, const QKeyCombination &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK15QKeyCombinationS1_(
+    const QKeyCombination *lhs,
+    const QKeyCombination *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QKeyCombination &lhs, const QKeyCombination &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK15QKeyCombinationS1_(
+    const QKeyCombination *lhs,
+    const QKeyCombination *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QKeyCombination::~QKeyCombination()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QKeyCombinationD1Ev(QKeyCombination *self) {

@@ -45,15 +45,19 @@ class QLineF(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLineF that has a ritual and that Python can call so
-  far, 27 names in all: 'fromPolar', 'isNull', 'p1', 'p2', 'x1', 'y1', 'x2',
+  far, 29 names in all: 'fromPolar', 'isNull', 'p1', 'p2', 'x1', 'y1', 'x2',
   'y2', 'dx', 'dy', 'length', 'setLength', 'angle', 'setAngle', 'angleTo',
   'unitVector', 'normalVector', 'intersects', 'pointAt', 'translate',
-  'translated', 'center', 'setP1', 'setP2', 'setPoints', 'setLine', 'toLine'.
-  It can be made from Python, in 4 ways; see '__init__'.
+  'translated', 'center', 'setP1', 'setP2', 'setPoints', 'setLine', 'toLine',
+  '__eq__', '__ne__'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'bool operator==(const QLine &lhs, const QLineF &rhs)': takes in
+    Python what 'bool operator==(const QLineF &lhs, const QLine &rhs)' takes.
+  - Qt's 'bool operator!=(const QLine &lhs, const QLineF &rhs)': takes in
+    Python what 'bool operator!=(const QLineF &lhs, const QLine &rhs)' takes.
   - Qt's 'QLineF::~QLineF()': the destructor: Python removes its C++ QLineF
     by it, and has no other use for it.
 
@@ -586,6 +590,102 @@ class QLineF(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QLineF) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QLineF &lhs, const QLineF &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlinef.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QLineF
+      Passed on as a value: Qt reads the C++ QLineF, which stays Python's
+      own.
+    """
+    #  bool operator==(const QLineF &lhs, const QLineF &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK6QLineFS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QLine)
+  def __eq__(self, rhs: QLine) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QLineF &lhs, const QLine &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlinef.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QLine
+      Passed on as a value: Qt reads the C++ QLine, which stays Python's own.
+    """
+    #  bool operator==(const QLineF &lhs, const QLine &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK6QLineFRK5QLine',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QLineF) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QLineF &lhs, const QLineF &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlinef.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QLineF
+      Passed on as a value: Qt reads the C++ QLineF, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QLineF &lhs, const QLineF &rhs)
+    return Rituals.call(
+        'ritual_ZneRK6QLineFS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QLine)
+  def __ne__(self, rhs: QLine) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QLineF &lhs, const QLine &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlinef.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QLine
+      Passed on as a value: Qt reads the C++ QLine, which stays Python's own.
+    """
+    #  bool operator!=(const QLineF &lhs, const QLine &rhs)
+    return Rituals.call(
+        'ritual_ZneRK6QLineFRK5QLine',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

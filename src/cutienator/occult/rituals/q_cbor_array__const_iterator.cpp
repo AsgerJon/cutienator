@@ -55,6 +55,22 @@ QCborArray::ConstIterator *ritual_ZN10QCborArray13ConstIteratormmEi(
   return new QCborArray::ConstIterator(self->operator--(a0));
 }
 
+//  ConstIterator &QCborArray::ConstIterator::operator+=(qsizetype j)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QCborArray13ConstIteratorpLEx(
+    QCborArray::ConstIterator *self,
+    qsizetype j) {
+  self->operator+=(j);
+}
+
+//  ConstIterator &QCborArray::ConstIterator::operator-=(qsizetype j)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QCborArray13ConstIteratormIEx(
+    QCborArray::ConstIterator *self,
+    qsizetype j) {
+  self->operator-=(j);
+}
+
 //  ConstIterator QCborArray::ConstIterator::operator+(qsizetype j) const
 extern "C" Q_DECL_EXPORT
 QCborArray::ConstIterator *ritual_ZNK10QCborArray13ConstIteratorplEx(
@@ -77,6 +93,54 @@ qsizetype ritual_ZNK10QCborArray13ConstIteratormiES0_(
     const QCborArray::ConstIterator *self,
     const QCborArray::ConstIterator *j) {
   return self->operator-(*j);
+}
+
+//  bool operator==(const ConstIterator &lhs, const ConstIterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKN10QCborArray13ConstIteratorES2_(
+    const QCborArray::ConstIterator *lhs,
+    const QCborArray::ConstIterator *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const ConstIterator &lhs, const ConstIterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKN10QCborArray13ConstIteratorES2_(
+    const QCborArray::ConstIterator *lhs,
+    const QCborArray::ConstIterator *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const ConstIterator &lhs, const ConstIterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRKN10QCborArray13ConstIteratorES2_(
+    const QCborArray::ConstIterator *lhs,
+    const QCborArray::ConstIterator *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const ConstIterator &lhs, const ConstIterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRKN10QCborArray13ConstIteratorES2_(
+    const QCborArray::ConstIterator *lhs,
+    const QCborArray::ConstIterator *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const ConstIterator &lhs, const ConstIterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRKN10QCborArray13ConstIteratorES2_(
+    const QCborArray::ConstIterator *lhs,
+    const QCborArray::ConstIterator *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const ConstIterator &lhs, const ConstIterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRKN10QCborArray13ConstIteratorES2_(
+    const QCborArray::ConstIterator *lhs,
+    const QCborArray::ConstIterator *rhs) {
+  return operator>=(*lhs, *rhs);
 }
 
 //  QCborArray::ConstIterator::~ConstIterator()

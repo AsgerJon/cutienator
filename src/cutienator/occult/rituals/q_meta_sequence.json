@@ -39,6 +39,8 @@
       "bool", "address"
     ],
     "ritual_ZNK13QMetaSequence5ifaceEv": ["address", "address"],
+    "ritual_ZeqRK13QMetaSequenceS1_": ["bool", "address", "address"],
+    "ritual_ZneRK13QMetaSequenceS1_": ["bool", "address", "address"],
     "ritual_ZN13QMetaSequenceD1Ev": ["nothing", "address"]
   }
 }

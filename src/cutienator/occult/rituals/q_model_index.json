@@ -26,6 +26,12 @@
     "ritual_ZNK11QModelIndex5flagsEv": ["int", "address"],
     "ritual_ZNK11QModelIndex5modelEv": ["address", "address"],
     "ritual_ZNK11QModelIndex7isValidEv": ["bool", "address"],
+    "ritual_ZeqRK11QModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZltRK11QModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK11QModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZleRK11QModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK11QModelIndexS1_": ["bool", "address", "address"],
     "ritual_ZN11QModelIndexD1Ev": ["nothing", "address"]
   }
 }

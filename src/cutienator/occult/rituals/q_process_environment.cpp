@@ -99,3 +99,21 @@ extern "C" Q_DECL_EXPORT
 QProcessEnvironment *ritual_ZN19QProcessEnvironment17systemEnvironmentEv() {
   return new QProcessEnvironment(QProcessEnvironment::systemEnvironment());
 }
+
+//  bool operator==(const QProcessEnvironment &lhs, const QProcessEnvironment
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK19QProcessEnvironmentS1_(
+    const QProcessEnvironment *lhs,
+    const QProcessEnvironment *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QProcessEnvironment &lhs, const QProcessEnvironment
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK19QProcessEnvironmentS1_(
+    const QProcessEnvironment *lhs,
+    const QProcessEnvironment *rhs) {
+  return operator!=(*lhs, *rhs);
+}

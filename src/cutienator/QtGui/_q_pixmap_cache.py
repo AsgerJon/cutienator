@@ -83,18 +83,14 @@ class QPixmapCache(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QPixmapCache::Key that has a ritual and that
-    Python can call so far, 1 name in all: 'isValid'. It can be made from
-    Python, in 2 ways; see '__init__'.
+    Python can call so far, 3 names in all: '__eq__', '__ne__', 'isValid'. It
+    can be made from Python, in 2 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
     - Qt's 'QPixmapCache::Key::~Key()': the destructor: Python removes its
       C++ QPixmapCache::Key by it, and has no other use for it.
-    - Qt's 'bool QPixmapCache::Key::operator==(const Key &key) const': an
-      operator, which is not reflected yet.
-    - Qt's 'bool QPixmapCache::Key::operator!=(const Key &key) const': an
-      operator, which is not reflected yet.
 
     What has no ritual
     ------------------
@@ -165,6 +161,62 @@ class QPixmapCache(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(THIS)
+    def __eq__(self, key: QPixmapCache.Key) -> bool:
+      """
+      Calls Qt's 'bool QPixmapCache::Key::operator==(const Key &key) const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qpixmapcache-key.html#operator==
+
+      Parameters
+      ----------
+
+      key : QPixmapCache.Key
+        Passed on as a value: Qt reads the C++ QPixmapCache::Key, which stays
+        Python's own.
+      """
+      #  bool QPixmapCache::Key::operator==(const Key &key) const
+      return self.uglySide.call(
+          'ritual_ZNK12QPixmapCache3KeyeqERKS0_', self._valueOf(key),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, key: QPixmapCache.Key) -> bool:
+      """
+      Calls Qt's 'bool QPixmapCache::Key::operator!=(const Key &key) const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qpixmapcache-key.html#operator!=
+
+      Parameters
+      ----------
+
+      key : QPixmapCache.Key
+        Passed on as a value: Qt reads the C++ QPixmapCache::Key, which stays
+        Python's own.
+      """
+      #  bool QPixmapCache::Key::operator!=(const Key &key) const
+      return self.uglySide.call(
+          'ritual_ZNK12QPixmapCache3KeyneERKS0_', self._valueOf(key),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

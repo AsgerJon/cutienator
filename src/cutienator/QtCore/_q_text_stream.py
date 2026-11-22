@@ -46,7 +46,7 @@ class QTextStream(QIODeviceBase):
   -----------
 
   Every function of Qt's QTextStream that has a ritual and that Python can
-  call so far, 36 names in all: 'setEncoding', 'encoding',
+  call so far, 37 names in all: 'setEncoding', 'encoding',
   'setAutoDetectUnicode', 'autoDetectUnicode', 'setGenerateByteOrderMark',
   'generateByteOrderMark', 'setLocale', 'locale', 'setDevice', 'device',
   'status', 'setStatus', 'resetStatus', 'atEnd', 'reset', 'flush', 'seek',
@@ -54,8 +54,8 @@ class QTextStream(QIODeviceBase):
   'setFieldAlignment', 'fieldAlignment', 'setPadChar', 'padChar',
   'setFieldWidth', 'fieldWidth', 'setNumberFlags', 'numberFlags',
   'setIntegerBase', 'integerBase', 'setRealNumberNotation',
-  'realNumberNotation', 'setRealNumberPrecision', 'realNumberPrecision'. It
-  can be made from Python, in 3 ways; see '__init__'.
+  'realNumberNotation', 'setRealNumberPrecision', 'realNumberPrecision',
+  '__bool__'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -73,8 +73,6 @@ class QTextStream(QIODeviceBase):
     no cute class yet.
   - Qt's 'bool QTextStream::readLineInto(QString *line, qint64 maxlen)':
     names 'QString', which has no cute class yet.
-  - Qt's 'bool QTextStream::operator bool() const': an operator, which is not
-    reflected yet.
 
   What has no ritual
   ------------------
@@ -638,6 +636,15 @@ class QTextStream(QIODeviceBase):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def __bool__(self) -> bool:
+    """
+    Calls Qt's 'bool QTextStream::operator bool() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextstream.html#operator bool
+    """
+    #  bool QTextStream::operator bool() const
+    return self.uglySide.call('ritual_ZNK11QTextStreamcvbEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

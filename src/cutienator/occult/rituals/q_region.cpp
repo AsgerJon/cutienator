@@ -266,6 +266,48 @@ QRegion *ritual_ZNK7QRegioneoERKS_(const QRegion *self, const QRegion *r) {
   return new QRegion(self->operator^(*r));
 }
 
+//  QRegion &QRegion::operator|=(const QRegion &r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QRegionoRERKS_(QRegion *self, const QRegion *r) {
+  self->operator|=(*r);
+}
+
+//  QRegion &QRegion::operator+=(const QRegion &r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QRegionpLERKS_(QRegion *self, const QRegion *r) {
+  self->operator+=(*r);
+}
+
+//  QRegion &QRegion::operator+=(const QRect &r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QRegionpLERK5QRect(QRegion *self, const QRect *r) {
+  self->operator+=(*r);
+}
+
+//  QRegion &QRegion::operator&=(const QRegion &r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QRegionaNERKS_(QRegion *self, const QRegion *r) {
+  self->operator&=(*r);
+}
+
+//  QRegion &QRegion::operator&=(const QRect &r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QRegionaNERK5QRect(QRegion *self, const QRect *r) {
+  self->operator&=(*r);
+}
+
+//  QRegion &QRegion::operator-=(const QRegion &r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QRegionmIERKS_(QRegion *self, const QRegion *r) {
+  self->operator-=(*r);
+}
+
+//  QRegion &QRegion::operator^=(const QRegion &r)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QRegioneOERKS_(QRegion *self, const QRegion *r) {
+  self->operator^=(*r);
+}
+
 //  bool QRegion::operator==(const QRegion &r) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK7QRegioneqERKS_(const QRegion *self, const QRegion *r) {

@@ -32,6 +32,8 @@
       "nothing", "address", "int", "int", "int", "int"
     ],
     "ritual_ZNK5QLine7toLineFEv": ["address", "address"],
+    "ritual_ZeqRK5QLineS1_": ["bool", "address", "address"],
+    "ritual_ZneRK5QLineS1_": ["bool", "address", "address"],
     "ritual_ZN5QLineD1Ev": ["nothing", "address"]
   }
 }

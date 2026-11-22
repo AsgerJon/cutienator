@@ -54,7 +54,7 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextCursor that has a ritual and that Python can
-  call so far, 57 names in all: 'isNull', 'setPosition', 'position',
+  call so far, 63 names in all: 'isNull', 'setPosition', 'position',
   'positionInBlock', 'anchor', 'insertText', 'movePosition',
   'visualNavigation', 'setVisualNavigation', 'setVerticalMovementX',
   'verticalMovementX', 'setKeepPositionOnInsert', 'keepPositionOnInsert',
@@ -68,8 +68,9 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
   'currentList', 'insertTable', 'currentTable', 'insertFrame',
   'currentFrame', 'insertFragment', 'insertHtml', 'insertMarkdown',
   'insertImage', 'beginEditBlock', 'joinPreviousEditBlock', 'endEditBlock',
-  'isCopyOf', 'blockNumber', 'columnNumber', 'document'. It can be made from
-  Python, in 5 ways; see '__init__'.
+  '__ne__', '__lt__', '__le__', '__eq__', '__ge__', '__gt__', 'isCopyOf',
+  'blockNumber', 'columnNumber', 'document'. It can be made from Python, in 5
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -79,18 +80,6 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
   - Qt's 'void QTextCursor::selectedTableCells(int *firstRow, int *numRows,
     int *firstColumn, int *numColumns) const': takes a number to change where
     it is.
-  - Qt's 'bool QTextCursor::operator!=(const QTextCursor &rhs) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QTextCursor::operator<(const QTextCursor &rhs) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QTextCursor::operator<=(const QTextCursor &rhs) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QTextCursor::operator==(const QTextCursor &rhs) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QTextCursor::operator>=(const QTextCursor &rhs) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QTextCursor::operator>(const QTextCursor &rhs) const': an
-    operator, which is not reflected yet.
 
   What has no ritual
   ------------------
@@ -705,6 +694,174 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __ne__(self, rhs: QTextCursor) -> bool:
+    """
+    Calls Qt's 'bool QTextCursor::operator!=(const QTextCursor &rhs) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QTextCursor
+      Passed on as a value: Qt reads the C++ QTextCursor, which stays
+      Python's own.
+    """
+    #  bool QTextCursor::operator!=(const QTextCursor &rhs) const
+    return self.uglySide.call(
+        'ritual_ZNK11QTextCursorneERKS_', self._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QTextCursor) -> bool:
+    """
+    Calls Qt's 'bool QTextCursor::operator<(const QTextCursor &rhs) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QTextCursor
+      Passed on as a value: Qt reads the C++ QTextCursor, which stays
+      Python's own.
+    """
+    #  bool QTextCursor::operator<(const QTextCursor &rhs) const
+    return self.uglySide.call(
+        'ritual_ZNK11QTextCursorltERKS_', self._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QTextCursor) -> bool:
+    """
+    Calls Qt's 'bool QTextCursor::operator<=(const QTextCursor &rhs) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QTextCursor
+      Passed on as a value: Qt reads the C++ QTextCursor, which stays
+      Python's own.
+    """
+    #  bool QTextCursor::operator<=(const QTextCursor &rhs) const
+    return self.uglySide.call(
+        'ritual_ZNK11QTextCursorleERKS_', self._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, rhs: QTextCursor) -> bool:
+    """
+    Calls Qt's 'bool QTextCursor::operator==(const QTextCursor &rhs) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QTextCursor
+      Passed on as a value: Qt reads the C++ QTextCursor, which stays
+      Python's own.
+    """
+    #  bool QTextCursor::operator==(const QTextCursor &rhs) const
+    return self.uglySide.call(
+        'ritual_ZNK11QTextCursoreqERKS_', self._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QTextCursor) -> bool:
+    """
+    Calls Qt's 'bool QTextCursor::operator>=(const QTextCursor &rhs) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QTextCursor
+      Passed on as a value: Qt reads the C++ QTextCursor, which stays
+      Python's own.
+    """
+    #  bool QTextCursor::operator>=(const QTextCursor &rhs) const
+    return self.uglySide.call(
+        'ritual_ZNK11QTextCursorgeERKS_', self._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QTextCursor) -> bool:
+    """
+    Calls Qt's 'bool QTextCursor::operator>(const QTextCursor &rhs) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QTextCursor
+      Passed on as a value: Qt reads the C++ QTextCursor, which stays
+      Python's own.
+    """
+    #  bool QTextCursor::operator>(const QTextCursor &rhs) const
+    return self.uglySide.call(
+        'ritual_ZNK11QTextCursorgtERKS_', self._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -68,6 +68,9 @@
     ],
     "ritual_ZN9QTimeZone24windowsIdToDefaultIanaIdERK10QByteArray": [
       "address", "address"
-    ]
+    ],
+    "ritual_ZeqRK9QTimeZoneS1_": ["bool", "address", "address"],
+    "ritual_ZneRK9QTimeZoneS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK9QTimeZone": ["address", "address", "address"]
   }
 }

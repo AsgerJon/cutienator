@@ -101,6 +101,8 @@
     "ritual_ZN8QVariant10typeToNameEi": ["chars", "int"],
     "ritual_ZN8QVariant10nameToTypeEPKc": ["int", "chars"],
     "ritual_ZN8QVariant8setValueERKS_": ["nothing", "address", "address"],
-    "ritual_ZN8QVariant7compareERKS_S1_": ["address", "address", "address"]
+    "ritual_ZN8QVariant7compareERKS_S1_": ["address", "address", "address"],
+    "ritual_ZeqRK8QVariantS1_": ["bool", "address", "address"],
+    "ritual_ZneRK8QVariantS1_": ["bool", "address", "address"]
   }
 }

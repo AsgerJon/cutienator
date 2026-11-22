@@ -125,12 +125,110 @@ float ritual_ZNK9QVector2D14distanceToLineES_S_(
   return self->distanceToLine(*point, *direction);
 }
 
+//  QVector2D &QVector2D::operator+=(QVector2D vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector2DpLES_(QVector2D *self, const QVector2D *vector) {
+  self->operator+=(*vector);
+}
+
+//  QVector2D &QVector2D::operator-=(QVector2D vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector2DmIES_(QVector2D *self, const QVector2D *vector) {
+  self->operator-=(*vector);
+}
+
+//  QVector2D &QVector2D::operator*=(float factor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector2DmLEf(QVector2D *self, float factor) {
+  self->operator*=(factor);
+}
+
+//  QVector2D &QVector2D::operator*=(QVector2D vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector2DmLES_(QVector2D *self, const QVector2D *vector) {
+  self->operator*=(*vector);
+}
+
+//  QVector2D &QVector2D::operator/=(float divisor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector2DdVEf(QVector2D *self, float divisor) {
+  self->operator/=(divisor);
+}
+
+//  QVector2D &QVector2D::operator/=(QVector2D vector)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QVector2DdVES_(QVector2D *self, const QVector2D *vector) {
+  self->operator/=(*vector);
+}
+
 //  float QVector2D::dotProduct(QVector2D v1, QVector2D v2)
 extern "C" Q_DECL_EXPORT
 float ritual_ZN9QVector2D10dotProductES_S_(
     const QVector2D *v1,
     const QVector2D *v2) {
   return QVector2D::dotProduct(*v1, *v2);
+}
+
+//  bool operator==(QVector2D v1, QVector2D v2)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zeq9QVector2DS_(const QVector2D *v1, const QVector2D *v2) {
+  return operator==(*v1, *v2);
+}
+
+//  bool operator!=(QVector2D v1, QVector2D v2)
+extern "C" Q_DECL_EXPORT
+bool ritual_Zne9QVector2DS_(const QVector2D *v1, const QVector2D *v2) {
+  return operator!=(*v1, *v2);
+}
+
+//  QVector2D operator+(QVector2D v1, QVector2D v2)
+extern "C" Q_DECL_EXPORT
+QVector2D *ritual_Zpl9QVector2DS_(const QVector2D *v1, const QVector2D *v2) {
+  return new QVector2D(operator+(*v1, *v2));
+}
+
+//  QVector2D operator-(QVector2D v1, QVector2D v2)
+extern "C" Q_DECL_EXPORT
+QVector2D *ritual_Zmi9QVector2DS_(const QVector2D *v1, const QVector2D *v2) {
+  return new QVector2D(operator-(*v1, *v2));
+}
+
+//  QVector2D operator*(float factor, QVector2D vector)
+extern "C" Q_DECL_EXPORT
+QVector2D *ritual_Zmlf9QVector2D(float factor, const QVector2D *vector) {
+  return new QVector2D(operator*(factor, *vector));
+}
+
+//  QVector2D operator*(QVector2D vector, float factor)
+extern "C" Q_DECL_EXPORT
+QVector2D *ritual_Zml9QVector2Df(const QVector2D *vector, float factor) {
+  return new QVector2D(operator*(*vector, factor));
+}
+
+//  QVector2D operator*(QVector2D v1, QVector2D v2)
+extern "C" Q_DECL_EXPORT
+QVector2D *ritual_Zml9QVector2DS_(const QVector2D *v1, const QVector2D *v2) {
+  return new QVector2D(operator*(*v1, *v2));
+}
+
+//  QVector2D operator-(QVector2D vector)
+extern "C" Q_DECL_EXPORT
+QVector2D *ritual_Zng9QVector2D(const QVector2D *vector) {
+  return new QVector2D(operator-(*vector));
+}
+
+//  QVector2D operator/(QVector2D vector, float divisor)
+extern "C" Q_DECL_EXPORT
+QVector2D *ritual_Zdv9QVector2Df(const QVector2D *vector, float divisor) {
+  return new QVector2D(operator/(*vector, divisor));
+}
+
+//  QVector2D operator/(QVector2D vector, QVector2D divisor)
+extern "C" Q_DECL_EXPORT
+QVector2D *ritual_Zdv9QVector2DS_(
+    const QVector2D *vector,
+    const QVector2D *divisor) {
+  return new QVector2D(operator/(*vector, *divisor));
 }
 
 //  QVector3D QVector2D::toVector3D() const

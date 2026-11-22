@@ -134,6 +134,22 @@ const QtMetaContainerPrivate::QMetaSequenceInterface *ritual_ZNK13QMetaSequence5
   return self->iface();
 }
 
+//  bool operator==(const QMetaSequence &lhs, const QMetaSequence &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK13QMetaSequenceS1_(
+    const QMetaSequence *lhs,
+    const QMetaSequence *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QMetaSequence &lhs, const QMetaSequence &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK13QMetaSequenceS1_(
+    const QMetaSequence *lhs,
+    const QMetaSequence *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QMetaSequence::~QMetaSequence()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QMetaSequenceD1Ev(QMetaSequence *self) {

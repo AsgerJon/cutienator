@@ -2,6 +2,7 @@
 //  QtCore/qjsonarray.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qjsonarray.h>
 #include <QtCore/qjsonvalue.h>
+#include <QtCore/qdebug.h>
 
 //  QJsonArray::QJsonArray()
 extern "C" Q_DECL_EXPORT
@@ -216,6 +217,14 @@ QJsonArray *ritual_ZNK10QJsonArrayplERK10QJsonValue(
   return new QJsonArray(self->operator+(*v));
 }
 
+//  QJsonArray &QJsonArray::operator+=(const QJsonValue &v)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QJsonArraypLERK10QJsonValue(
+    QJsonArray *self,
+    const QJsonValue *v) {
+  self->operator+=(*v);
+}
+
 //  void QJsonArray::push_back(const QJsonValue &t)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QJsonArray9push_backERK10QJsonValue(
@@ -248,4 +257,60 @@ void ritual_ZN10QJsonArray8pop_backEv(QJsonArray *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10QJsonArray5emptyEv(const QJsonArray *self) {
   return self->empty();
+}
+
+//  QDebug operator<<(QDebug a0, const QJsonArray &a1)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK10QJsonArray(
+    const QDebug *a0,
+    const QJsonArray *a1) {
+  return new QDebug(operator<<(*a0, *a1));
+}
+
+//  bool operator==(const QJsonArray &lhs, const QJsonArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK10QJsonArrayS1_(
+    const QJsonArray *lhs,
+    const QJsonArray *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonArray &lhs, const QJsonArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK10QJsonArrayS1_(
+    const QJsonArray *lhs,
+    const QJsonArray *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QJsonArray &lhs, const QJsonValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK10QJsonArrayRK10QJsonValue(
+    const QJsonArray *lhs,
+    const QJsonValue *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonArray &lhs, const QJsonValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK10QJsonArrayRK10QJsonValue(
+    const QJsonArray *lhs,
+    const QJsonValue *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator==(const QJsonValue &lhs, const QJsonArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK10QJsonValueRK10QJsonArray(
+    const QJsonValue *lhs,
+    const QJsonArray *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonValue &lhs, const QJsonArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK10QJsonValueRK10QJsonArray(
+    const QJsonValue *lhs,
+    const QJsonArray *rhs) {
+  return operator!=(*lhs, *rhs);
 }

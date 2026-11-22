@@ -62,20 +62,20 @@ class QImage(QPaintDevice):
   -----------
 
   Every function of Qt's QImage that has a ritual and that Python can call so
-  far, 74 names in all: 'isNull', 'devType', 'detach', 'isDetached', 'copy',
-  'format', 'convertToFormat', 'reinterpretAsFormat', 'convertedTo',
-  'convertTo', 'width', 'height', 'size', 'rect', 'depth', 'colorCount',
-  'bitPlaneCount', 'color', 'setColor', 'setColorCount', 'allGray',
-  'isGrayscale', 'sizeInBytes', 'bytesPerLine', 'valid', 'pixelIndex',
-  'pixel', 'setPixel', 'pixelColor', 'setPixelColor', 'devicePixelRatio',
-  'setDevicePixelRatio', 'deviceIndependentSize', 'fill', 'hasAlphaChannel',
-  'setAlphaChannel', 'createAlphaMask', 'createHeuristicMask',
-  'createMaskFromColor', 'scaled', 'scaledToWidth', 'scaledToHeight',
-  'transformed', 'trueMatrix', 'mirrored', 'mirror', 'rgbSwapped', 'flipped',
-  'flip', 'rgbSwap', 'invertPixels', 'colorSpace', 'convertedToColorSpace',
-  'convertToColorSpace', 'setColorSpace', 'colorTransformed',
-  'applyColorTransform', 'load', 'loadFromData', 'save', 'fromData',
-  'cacheKey', 'paintEngine', 'dotsPerMeterX', 'dotsPerMeterY',
+  far, 76 names in all: 'isNull', 'devType', '__eq__', '__ne__', 'detach',
+  'isDetached', 'copy', 'format', 'convertToFormat', 'reinterpretAsFormat',
+  'convertedTo', 'convertTo', 'width', 'height', 'size', 'rect', 'depth',
+  'colorCount', 'bitPlaneCount', 'color', 'setColor', 'setColorCount',
+  'allGray', 'isGrayscale', 'sizeInBytes', 'bytesPerLine', 'valid',
+  'pixelIndex', 'pixel', 'setPixel', 'pixelColor', 'setPixelColor',
+  'devicePixelRatio', 'setDevicePixelRatio', 'deviceIndependentSize', 'fill',
+  'hasAlphaChannel', 'setAlphaChannel', 'createAlphaMask',
+  'createHeuristicMask', 'createMaskFromColor', 'scaled', 'scaledToWidth',
+  'scaledToHeight', 'transformed', 'trueMatrix', 'mirrored', 'mirror',
+  'rgbSwapped', 'flipped', 'flip', 'rgbSwap', 'invertPixels', 'colorSpace',
+  'convertedToColorSpace', 'convertToColorSpace', 'setColorSpace',
+  'colorTransformed', 'applyColorTransform', 'load', 'loadFromData', 'save',
+  'fromData', 'cacheKey', 'paintEngine', 'dotsPerMeterX', 'dotsPerMeterY',
   'setDotsPerMeterX', 'setDotsPerMeterY', 'offset', 'setOffset', 'text',
   'setText', 'pixelFormat', 'toPixelFormat', 'toImageFormat'. It can be made
   from Python, in 5 ways; see '__init__'.
@@ -85,12 +85,8 @@ class QImage(QPaintDevice):
 
   - Qt's 'QImage::~QImage()': the destructor: Python removes its C++ QImage
     by it, and has no other use for it.
-  - Qt's 'bool QImage::operator==(const QImage &a0) const': an operator,
-    which is not reflected yet.
-  - Qt's 'bool QImage::operator!=(const QImage &a0) const': an operator,
-    which is not reflected yet.
-  - Qt's 'QVariant QImage::operator QVariant() const': an operator, which is
-    not reflected yet.
+  - Qt's 'QVariant QImage::operator QVariant() const': an operator Python has
+    no name for.
 
   What has no ritual
   ------------------
@@ -1870,6 +1866,58 @@ class QImage(QPaintDevice):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, a0: QImage) -> bool:
+    """
+    Calls Qt's 'bool QImage::operator==(const QImage &a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#operator==
+
+    Parameters
+    ----------
+
+    a0 : QImage
+      Passed on as a value: Qt reads the C++ QImage, which stays Python's
+      own.
+    """
+    #  bool QImage::operator==(const QImage &a0) const
+    return self.uglySide.call('ritual_ZNK6QImageeqERKS_', self._valueOf(a0))
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, a0: QImage) -> bool:
+    """
+    Calls Qt's 'bool QImage::operator!=(const QImage &a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#operator!=
+
+    Parameters
+    ----------
+
+    a0 : QImage
+      Passed on as a value: Qt reads the C++ QImage, which stays Python's
+      own.
+    """
+    #  bool QImage::operator!=(const QImage &a0) const
+    return self.uglySide.call('ritual_ZNK6QImageneERKS_', self._valueOf(a0))
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

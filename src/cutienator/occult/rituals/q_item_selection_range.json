@@ -36,6 +36,8 @@
     ],
     "ritual_ZNK19QItemSelectionRange7isValidEv": ["bool", "address"],
     "ritual_ZNK19QItemSelectionRange7isEmptyEv": ["bool", "address"],
+    "ritual_ZeqRK19QItemSelectionRangeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QItemSelectionRangeS1_": ["bool", "address", "address"],
     "ritual_ZN19QItemSelectionRangeD1Ev": ["nothing", "address"]
   }
 }

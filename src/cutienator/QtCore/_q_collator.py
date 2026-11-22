@@ -45,29 +45,28 @@ class QCollator(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCollator that has a ritual and that Python can call
-  so far, 12 names in all: 'setLocale', 'locale', 'caseSensitivity',
+  so far, 15 names in all: 'setLocale', 'locale', 'caseSensitivity',
   'setCaseSensitivity', 'setNumericMode', 'numericMode',
-  'setIgnorePunctuation', 'ignorePunctuation', 'compare', 'sortKey',
-  'defaultCompare', 'defaultSortKey'. It can be made from Python, in 3 ways;
-  see '__init__'.
+  'setIgnorePunctuation', 'ignorePunctuation', 'compare', '__call__',
+  'sortKey', 'defaultCompare', 'defaultSortKey', '__eq__', '__ne__'. It can
+  be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QCollator::~QCollator()': the destructor: Python removes its C++
     QCollator by it, and has no other use for it.
-  - Qt's 'bool QCollator::operator()(const QString &s1, const QString &s2)
-    const': an operator, which is not reflected yet.
   - Qt's 'int QCollator::compare(QStringView s1, QStringView s2) const':
     takes in Python what 'int QCollator::compare(const QString &s1, const
     QString &s2) const' takes.
   - Qt's 'bool QCollator::operator()(QStringView s1, QStringView s2) const':
-    an operator, which is not reflected yet.
+    takes in Python what 'bool QCollator::operator()(const QString &s1, const
+    QString &s2) const' takes.
 
   What has no ritual
   ------------------
 
-  5 of the 25 functions Qt declares: 4 takes or gives a type that cannot be
+  5 of the 27 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -389,6 +388,84 @@ class QCollator(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(str, str)
+  def __call__(self, s1: str, s2: str) -> bool:
+    """
+    Calls Qt's 'bool QCollator::operator()(const QString &s1, const QString
+    &s2) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcollator.html#operator()
+
+    Parameters
+    ----------
+
+    s1 : str
+      Passed on as it is: a QString is made of it for the call.
+
+    s2 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool QCollator::operator()(const QString &s1, const QString &s2) const
+    return self.uglySide.call('ritual_ZNK9QCollatorclERK7QStringS2_', s1, s2)
+
+  @overload(THIS)
+  def __eq__(self, rhs: QCollator) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QCollator &lhs, const QCollator &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcollator.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QCollator
+      Passed on as a value: Qt reads the C++ QCollator, which stays Python's
+      own.
+    """
+    #  bool operator==(const QCollator &lhs, const QCollator &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK9QCollatorS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QCollator) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QCollator &lhs, const QCollator &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcollator.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QCollator
+      Passed on as a value: Qt reads the C++ QCollator, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QCollator &lhs, const QCollator &rhs)
+    return Rituals.call(
+        'ritual_ZneRK9QCollatorS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

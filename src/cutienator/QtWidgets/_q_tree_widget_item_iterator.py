@@ -44,8 +44,9 @@ class QTreeWidgetItemIterator(CuteMixin, metaclass=MetaCute):
   What exists
   -----------
 
-  No function of Qt's QTreeWidgetItemIterator yet. It can be made from
-  Python, in 3 ways; see '__init__'.
+  Every function of Qt's QTreeWidgetItemIterator that has a ritual and that
+  Python can call so far, 2 names in all: '__iadd__', '__isub__'. It can be
+  made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -54,18 +55,18 @@ class QTreeWidgetItemIterator(CuteMixin, metaclass=MetaCute):
     destructor: Python removes its C++ QTreeWidgetItemIterator by it, and has
     no other use for it.
   - Qt's 'const QTreeWidgetItemIterator
-    QTreeWidgetItemIterator::operator++(int a0)': an operator, which is not
-    reflected yet.
+    QTreeWidgetItemIterator::operator++(int a0)': an operator Python has no
+    name for.
   - Qt's 'const QTreeWidgetItemIterator
-    QTreeWidgetItemIterator::operator--(int a0)': an operator, which is not
-    reflected yet.
+    QTreeWidgetItemIterator::operator--(int a0)': an operator Python has no
+    name for.
   - Qt's 'QTreeWidgetItem *QTreeWidgetItemIterator::operator*() const': an
-    operator, which is not reflected yet.
+    operator Python has no name for.
 
   What has no ritual
   ------------------
 
-  8 of the 15 functions Qt declares: 5 takes or gives a type that cannot be
+  6 of the 15 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet; 3 private.
 
   What to expect
@@ -155,6 +156,62 @@ class QTreeWidgetItemIterator(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def __iadd__(self, n: int) -> QTreeWidgetItemIterator:
+    """
+    Calls Qt's 'QTreeWidgetItemIterator
+    &QTreeWidgetItemIterator::operator+=(int n)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator+=
+
+    Parameters
+    ----------
+
+    n : int
+      Passed on as it is.
+    """
+    #  QTreeWidgetItemIterator &QTreeWidgetItemIterator::operator+=(int n)
+    self.uglySide.call('ritual_ZN23QTreeWidgetItemIteratorpLEi', n)
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(int)
+  def __isub__(self, n: int) -> QTreeWidgetItemIterator:
+    """
+    Calls Qt's 'QTreeWidgetItemIterator
+    &QTreeWidgetItemIterator::operator-=(int n)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-=
+
+    Parameters
+    ----------
+
+    n : int
+      Passed on as it is.
+    """
+    #  QTreeWidgetItemIterator &QTreeWidgetItemIterator::operator-=(int n)
+    self.uglySide.call('ritual_ZN23QTreeWidgetItemIteratormIEi', n)
+    return self
+
+  @overload.fallback
+  def __isub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

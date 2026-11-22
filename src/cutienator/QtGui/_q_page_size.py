@@ -39,10 +39,10 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPageSize that has a ritual and that Python can call
-  so far, 14 names in all: 'isEquivalentTo', 'isValid', 'key', 'name', 'id',
+  so far, 16 names in all: 'isEquivalentTo', 'isValid', 'key', 'name', 'id',
   'windowsId', 'definitionSize', 'definitionUnits', 'size', 'sizePoints',
-  'sizePixels', 'rect', 'rectPoints', 'rectPixels'. It can be made from
-  Python, in 5 ways; see '__init__'.
+  'sizePixels', 'rect', 'rectPoints', 'rectPixels', '__eq__', '__ne__'. It
+  can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -53,7 +53,7 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 38 functions Qt declares: 4 private; 3 takes or gives a type that
+  7 of the 40 functions Qt declares: 4 private; 3 takes or gives a type that
   cannot be passed yet.
 
   What to expect
@@ -852,6 +852,64 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QPageSize) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QPageSize &lhs, const QPageSize &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QPageSize
+      Passed on as a value: Qt reads the C++ QPageSize, which stays Python's
+      own.
+    """
+    #  bool operator==(const QPageSize &lhs, const QPageSize &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK9QPageSizeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QPageSize) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QPageSize &lhs, const QPageSize &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QPageSize
+      Passed on as a value: Qt reads the C++ QPageSize, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QPageSize &lhs, const QPageSize &rhs)
+    return Rituals.call(
+        'ritual_ZneRK9QPageSizeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

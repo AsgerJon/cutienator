@@ -31,6 +31,24 @@ QString *ritual_ZNK29QXmlStreamNotationDeclaration8publicIdEv(
   return new QString(self->publicId().toString());
 }
 
+//  bool operator==(const QXmlStreamNotationDeclaration &lhs, const
+//      QXmlStreamNotationDeclaration &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK29QXmlStreamNotationDeclarationS1_(
+    const QXmlStreamNotationDeclaration *lhs,
+    const QXmlStreamNotationDeclaration *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QXmlStreamNotationDeclaration &lhs, const
+//      QXmlStreamNotationDeclaration &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK29QXmlStreamNotationDeclarationS1_(
+    const QXmlStreamNotationDeclaration *lhs,
+    const QXmlStreamNotationDeclaration *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QXmlStreamNotationDeclaration::~QXmlStreamNotationDeclaration()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QXmlStreamNotationDeclarationD1Ev(

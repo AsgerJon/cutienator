@@ -26,8 +26,68 @@
     "ritual_ZNK11QJsonObject8iteratormiEx": [
       "address", "address", "long long"
     ],
+    "ritual_ZN11QJsonObject8iteratorpLEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN11QJsonObject8iteratormIEx": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZNK11QJsonObject8iteratormiES0_": [
       "long long", "address", "address"
+    ],
+    "ritual_ZeqRKN11QJsonObject8iteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN11QJsonObject8iteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRKN11QJsonObject8iteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRKN11QJsonObject8iteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRKN11QJsonObject8iteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRKN11QJsonObject8iteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRKN11QJsonObject8iteratorERKNS_14const_iteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN11QJsonObject8iteratorERKNS_14const_iteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRKN11QJsonObject8iteratorERKNS_14const_iteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRKN11QJsonObject8iteratorERKNS_14const_iteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRKN11QJsonObject8iteratorERKNS_14const_iteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRKN11QJsonObject8iteratorERKNS_14const_iteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRKN11QJsonObject14const_iteratorERKNS_8iteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN11QJsonObject14const_iteratorERKNS_8iteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRKN11QJsonObject14const_iteratorERKNS_8iteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRKN11QJsonObject14const_iteratorERKNS_8iteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRKN11QJsonObject14const_iteratorERKNS_8iteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRKN11QJsonObject14const_iteratorERKNS_8iteratorE": [
+      "bool", "address", "address"
     ],
     "ritual_ZN11QJsonObject8iteratorD1Ev": ["nothing", "address"]
   }

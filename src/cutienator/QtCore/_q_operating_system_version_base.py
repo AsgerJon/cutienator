@@ -34,10 +34,10 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QOperatingSystemVersionBase that has a ritual and
-  that Python can call so far, 9 names in all: 'current', 'name',
+  that Python can call so far, 13 names in all: 'current', 'name',
   'currentType', 'version', 'majorVersion', 'minorVersion', 'microVersion',
-  'segmentCount', 'type'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'segmentCount', 'type', '__gt__', '__ge__', '__lt__', '__le__'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -49,7 +49,7 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 17 functions Qt declares: 2 takes or gives a type that cannot be
+  5 of the 21 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 2 protected; 1 private.
 
   What to expect
@@ -305,6 +305,134 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __gt__(self, rhs: QOperatingSystemVersionBase) -> bool:
+    """
+    Calls Qt's 'bool operator>(QOperatingSystemVersionBase lhs,
+    QOperatingSystemVersionBase rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QOperatingSystemVersionBase
+      Passed on as a value: Qt reads the C++ QOperatingSystemVersionBase,
+      which stays Python's own.
+    """
+    #  bool operator>(QOperatingSystemVersionBase lhs,
+    #      QOperatingSystemVersionBase rhs)
+    return Rituals.call(
+        'ritual_Zgt27QOperatingSystemVersionBaseS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QOperatingSystemVersionBase) -> bool:
+    """
+    Calls Qt's 'bool operator>=(QOperatingSystemVersionBase lhs,
+    QOperatingSystemVersionBase rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QOperatingSystemVersionBase
+      Passed on as a value: Qt reads the C++ QOperatingSystemVersionBase,
+      which stays Python's own.
+    """
+    #  bool operator>=(QOperatingSystemVersionBase lhs,
+    #      QOperatingSystemVersionBase rhs)
+    return Rituals.call(
+        'ritual_Zge27QOperatingSystemVersionBaseS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QOperatingSystemVersionBase) -> bool:
+    """
+    Calls Qt's 'bool operator<(QOperatingSystemVersionBase lhs,
+    QOperatingSystemVersionBase rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QOperatingSystemVersionBase
+      Passed on as a value: Qt reads the C++ QOperatingSystemVersionBase,
+      which stays Python's own.
+    """
+    #  bool operator<(QOperatingSystemVersionBase lhs,
+    #      QOperatingSystemVersionBase rhs)
+    return Rituals.call(
+        'ritual_Zlt27QOperatingSystemVersionBaseS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QOperatingSystemVersionBase) -> bool:
+    """
+    Calls Qt's 'bool operator<=(QOperatingSystemVersionBase lhs,
+    QOperatingSystemVersionBase rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QOperatingSystemVersionBase
+      Passed on as a value: Qt reads the C++ QOperatingSystemVersionBase,
+      which stays Python's own.
+    """
+    #  bool operator<=(QOperatingSystemVersionBase lhs,
+    #      QOperatingSystemVersionBase rhs)
+    return Rituals.call(
+        'ritual_Zle27QOperatingSystemVersionBaseS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

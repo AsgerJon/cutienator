@@ -47,12 +47,28 @@ QTreeWidgetItemIterator *ritual_ZN23QTreeWidgetItemIteratorppEi(
   return new QTreeWidgetItemIterator(self->operator++(a0));
 }
 
+//  QTreeWidgetItemIterator &QTreeWidgetItemIterator::operator+=(int n)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QTreeWidgetItemIteratorpLEi(
+    QTreeWidgetItemIterator *self,
+    int n) {
+  self->operator+=(n);
+}
+
 //  const QTreeWidgetItemIterator QTreeWidgetItemIterator::operator--(int a0)
 extern "C" Q_DECL_EXPORT
 QTreeWidgetItemIterator *ritual_ZN23QTreeWidgetItemIteratormmEi(
     QTreeWidgetItemIterator *self,
     int a0) {
   return new QTreeWidgetItemIterator(self->operator--(a0));
+}
+
+//  QTreeWidgetItemIterator &QTreeWidgetItemIterator::operator-=(int n)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QTreeWidgetItemIteratormIEi(
+    QTreeWidgetItemIterator *self,
+    int n) {
+  self->operator-=(n);
 }
 
 //  QTreeWidgetItem *QTreeWidgetItemIterator::operator*() const

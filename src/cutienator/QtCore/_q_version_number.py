@@ -29,10 +29,11 @@ class QVersionNumber(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QVersionNumber that has a ritual and that Python can
-  call so far, 12 names in all: 'isNull', 'isNormalized', 'majorVersion',
+  call so far, 18 names in all: 'isNull', 'isNormalized', 'majorVersion',
   'minorVersion', 'microVersion', 'normalized', 'segmentAt', 'segmentCount',
-  'isPrefixOf', 'compare', 'commonPrefix', 'toString'. It can be made from
-  Python, in 4 ways; see '__init__'.
+  'isPrefixOf', 'compare', 'commonPrefix', 'toString', '__eq__', '__ne__',
+  '__lt__', '__gt__', '__le__', '__ge__'. It can be made from Python, in 4
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -45,7 +46,7 @@ class QVersionNumber(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  16 of the 34 functions Qt declares: 13 takes or gives a type that cannot be
+  17 of the 41 functions Qt declares: 14 takes or gives a type that cannot be
   passed yet; 3 a template.
 
   What to expect
@@ -286,6 +287,186 @@ class QVersionNumber(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QVersionNumber) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QVersionNumber &lhs, const
+    QVersionNumber &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QVersionNumber
+      Passed on as a value: Qt reads the C++ QVersionNumber, which stays
+      Python's own.
+    """
+    #  bool operator==(const QVersionNumber &lhs, const QVersionNumber &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK14QVersionNumberS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QVersionNumber) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QVersionNumber &lhs, const
+    QVersionNumber &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QVersionNumber
+      Passed on as a value: Qt reads the C++ QVersionNumber, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QVersionNumber &lhs, const QVersionNumber &rhs)
+    return Rituals.call(
+        'ritual_ZneRK14QVersionNumberS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QVersionNumber) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QVersionNumber &lhs, const
+    QVersionNumber &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QVersionNumber
+      Passed on as a value: Qt reads the C++ QVersionNumber, which stays
+      Python's own.
+    """
+    #  bool operator<(const QVersionNumber &lhs, const QVersionNumber &rhs)
+    return Rituals.call(
+        'ritual_ZltRK14QVersionNumberS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QVersionNumber) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QVersionNumber &lhs, const
+    QVersionNumber &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QVersionNumber
+      Passed on as a value: Qt reads the C++ QVersionNumber, which stays
+      Python's own.
+    """
+    #  bool operator>(const QVersionNumber &lhs, const QVersionNumber &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK14QVersionNumberS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QVersionNumber) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QVersionNumber &lhs, const
+    QVersionNumber &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QVersionNumber
+      Passed on as a value: Qt reads the C++ QVersionNumber, which stays
+      Python's own.
+    """
+    #  bool operator<=(const QVersionNumber &lhs, const QVersionNumber &rhs)
+    return Rituals.call(
+        'ritual_ZleRK14QVersionNumberS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QVersionNumber) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QVersionNumber &lhs, const
+    QVersionNumber &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qversionnumber.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QVersionNumber
+      Passed on as a value: Qt reads the C++ QVersionNumber, which stays
+      Python's own.
+    """
+    #  bool operator>=(const QVersionNumber &lhs, const QVersionNumber &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK14QVersionNumberS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

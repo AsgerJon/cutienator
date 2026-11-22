@@ -71,6 +71,24 @@ bool ritual_ZNK19QXmlStreamAttribute9isDefaultEv(
   return self->isDefault();
 }
 
+//  bool operator==(const QXmlStreamAttribute &lhs, const QXmlStreamAttribute
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK19QXmlStreamAttributeS1_(
+    const QXmlStreamAttribute *lhs,
+    const QXmlStreamAttribute *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QXmlStreamAttribute &lhs, const QXmlStreamAttribute
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK19QXmlStreamAttributeS1_(
+    const QXmlStreamAttribute *lhs,
+    const QXmlStreamAttribute *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QXmlStreamAttribute::~QXmlStreamAttribute()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QXmlStreamAttributeD1Ev(QXmlStreamAttribute *self) {

@@ -377,9 +377,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     ------------------------------------------
 
     - Qt's 'const QMetaObject *QMetaObject::SuperData::operator->() const':
-      an operator, which is not reflected yet.
+      an operator Python has no name for.
     - Qt's 'const QMetaObject *QMetaObject::SuperData::operator const
-      QMetaObject *() const': an operator, which is not reflected yet.
+      QMetaObject *() const': an operator Python has no name for.
     - Qt's 'QMetaObject::SuperData::~SuperData()': the destructor: Python
       removes its C++ QMetaObject::SuperData by it, and has no other use for
       it.

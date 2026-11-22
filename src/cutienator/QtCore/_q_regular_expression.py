@@ -34,11 +34,12 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRegularExpression that has a ritual and that Python
-  can call so far, 17 names in all: 'patternOptions', 'setPatternOptions',
+  can call so far, 19 names in all: 'patternOptions', 'setPatternOptions',
   'pattern', 'setPattern', 'isValid', 'patternErrorOffset', 'errorString',
   'captureCount', 'match', 'matchView', 'globalMatch', 'globalMatchView',
   'optimize', 'escape', 'wildcardToRegularExpression', 'anchoredPattern',
-  'fromWildcard'. It can be made from Python, in 3 ways; see '__init__'.
+  'fromWildcard', '__eq__', '__ne__'. It can be made from Python, in 3 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -70,7 +71,7 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 32 functions Qt declares: 5 takes or gives a type that cannot be
+  6 of the 34 functions Qt declares: 5 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -666,6 +667,68 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QRegularExpression) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QRegularExpression &lhs, const
+    QRegularExpression &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregularexpression.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QRegularExpression
+      Passed on as a value: Qt reads the C++ QRegularExpression, which stays
+      Python's own.
+    """
+    #  bool operator==(const QRegularExpression &lhs, const
+    #      QRegularExpression &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK18QRegularExpressionS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QRegularExpression) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QRegularExpression &lhs, const
+    QRegularExpression &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregularexpression.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QRegularExpression
+      Passed on as a value: Qt reads the C++ QRegularExpression, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QRegularExpression &lhs, const
+    #      QRegularExpression &rhs)
+    return Rituals.call(
+        'ritual_ZneRK18QRegularExpressionS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

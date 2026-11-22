@@ -39,21 +39,18 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QGlyphRun that has a ritual and that Python can call
-  so far, 19 names in all: 'rawFont', 'setRawFont', 'clear', 'setOverline',
-  'overline', 'setUnderline', 'underline', 'setStrikeOut', 'strikeOut',
-  'setRightToLeft', 'isRightToLeft', 'setFlag', 'setFlags', 'flags',
-  'setBoundingRect', 'boundingRect', 'setSourceString', 'sourceString',
-  'isEmpty'. It can be made from Python, in 2 ways; see '__init__'.
+  so far, 21 names in all: 'rawFont', 'setRawFont', 'clear', '__eq__',
+  '__ne__', 'setOverline', 'overline', 'setUnderline', 'underline',
+  'setStrikeOut', 'strikeOut', 'setRightToLeft', 'isRightToLeft', 'setFlag',
+  'setFlags', 'flags', 'setBoundingRect', 'boundingRect', 'setSourceString',
+  'sourceString', 'isEmpty'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QGlyphRun::~QGlyphRun()': the destructor: Python removes its C++
     QGlyphRun by it, and has no other use for it.
-  - Qt's 'bool QGlyphRun::operator==(const QGlyphRun &other) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QGlyphRun::operator!=(const QGlyphRun &other) const': an
-    operator, which is not reflected yet.
 
   What has no ritual
   ------------------
@@ -406,6 +403,62 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, other: QGlyphRun) -> bool:
+    """
+    Calls Qt's 'bool QGlyphRun::operator==(const QGlyphRun &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qglyphrun.html#operator==
+
+    Parameters
+    ----------
+
+    other : QGlyphRun
+      Passed on as a value: Qt reads the C++ QGlyphRun, which stays Python's
+      own.
+    """
+    #  bool QGlyphRun::operator==(const QGlyphRun &other) const
+    return self.uglySide.call(
+        'ritual_ZNK9QGlyphRuneqERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, other: QGlyphRun) -> bool:
+    """
+    Calls Qt's 'bool QGlyphRun::operator!=(const QGlyphRun &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qglyphrun.html#operator!=
+
+    Parameters
+    ----------
+
+    other : QGlyphRun
+      Passed on as a value: Qt reads the C++ QGlyphRun, which stays Python's
+      own.
+    """
+    #  bool QGlyphRun::operator!=(const QGlyphRun &other) const
+    return self.uglySide.call(
+        'ritual_ZNK9QGlyphRunneERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

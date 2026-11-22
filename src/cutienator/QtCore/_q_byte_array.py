@@ -20,12 +20,13 @@ from . import Qt
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArrayView
+  from . import QByteArrayView, QChar
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArrayView = WAIT['QByteArrayView']
+  QChar = WAIT['QChar']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -45,17 +46,18 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QByteArray that has a ritual and that Python can
-  call so far, 57 names in all: 'isEmpty', 'resize', 'resizeForOverwrite',
+  call so far, 64 names in all: 'isEmpty', 'resize', 'resizeForOverwrite',
   'capacity', 'reserve', 'squeeze', 'data', 'constData', 'detach',
   'isDetached', 'isSharedWith', 'clear', 'indexOf', 'lastIndexOf',
   'contains', 'count', 'compare', 'left', 'right', 'mid', 'first', 'last',
   'sliced', 'chopped', 'startsWith', 'endsWith', 'isUpper', 'isLower',
   'isValidUtf8', 'truncate', 'chop', 'toLower', 'toUpper', 'trimmed',
-  'simplified', 'repeated', 'toBase64', 'number', 'fromRawData',
+  'simplified', '__iadd__', 'repeated', 'toBase64', 'number', 'fromRawData',
   'fromBase64Encoding', 'fromBase64', 'fromHex', 'begin', 'cbegin',
   'constBegin', 'end', 'cend', 'constEnd', 'push_back', 'push_front',
   'shrink_to_fit', 'max_size', 'maxSize', 'size', 'length', 'isNull',
-  'nullTerminated'. It can be made from Python, in 5 ways; see '__init__'.
+  'nullTerminated', '__eq__', '__ne__', '__lt__', '__gt__', '__le__',
+  '__ge__'. It can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,12 +68,12 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     QByteArray by it, and has no other use for it.
   - Qt's 'void QByteArray::resize(qsizetype size, char c)': takes a single
     letter as C has it.
-  - Qt's 'const char *QByteArray::operator const char *() const': an
-    operator, which is not reflected yet.
+  - Qt's 'const char *QByteArray::operator const char *() const': an operator
+    Python has no name for.
   - Qt's 'char QByteArray::at(qsizetype i) const': gives a single letter as C
     has it.
-  - Qt's 'char QByteArray::operator[](qsizetype i) const': an operator, which
-    is not reflected yet.
+  - Qt's 'char QByteArray::operator[](qsizetype i) const': gives a single
+    letter as C has it.
   - Qt's 'char QByteArray::front() const': gives a single letter as C has it.
   - Qt's 'char QByteArray::back() const': gives a single letter as C has it.
   - Qt's 'qsizetype QByteArray::indexOf(char c, qsizetype from) const': takes
@@ -90,6 +92,8 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     bool truncate) const': takes a single letter as C has it.
   - Qt's 'QByteArray QByteArray::rightJustified(qsizetype width, char fill,
     bool truncate) const': takes a single letter as C has it.
+  - Qt's 'QByteArray &QByteArray::operator+=(char c)': takes a single letter
+    as C has it.
   - Qt's 'short QByteArray::toShort(bool *ok, int base) const': takes a
     number to change where it is.
   - Qt's 'ushort QByteArray::toUShort(bool *ok, int base) const': takes a
@@ -135,11 +139,53 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     it.
   - Qt's 'void QByteArray::push_front(char c)': takes a single letter as C
     has it.
+  - Qt's 'bool operator==(const QByteArray &lhs, const char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator!=(const QByteArray &lhs, const char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator<(const QByteArray &lhs, const char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator>(const QByteArray &lhs, const char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator<=(const QByteArray &lhs, const char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator>=(const QByteArray &lhs, const char &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator==(const char &lhs, const QByteArray &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator!=(const char &lhs, const QByteArray &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator<(const char &lhs, const QByteArray &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator>(const char &lhs, const QByteArray &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator<=(const char &lhs, const QByteArray &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator>=(const char &lhs, const QByteArray &rhs)': takes a
+    single letter as C has it.
+  - Qt's 'bool operator==(const QChar &lhs, const QByteArray &rhs)': takes in
+    Python what 'bool operator==(const QByteArray &lhs, const QChar &rhs)'
+    takes.
+  - Qt's 'bool operator!=(const QChar &lhs, const QByteArray &rhs)': takes in
+    Python what 'bool operator!=(const QByteArray &lhs, const QChar &rhs)'
+    takes.
+  - Qt's 'bool operator<(const QChar &lhs, const QByteArray &rhs)': takes in
+    Python what 'bool operator>(const QByteArray &lhs, const QChar &rhs)'
+    takes.
+  - Qt's 'bool operator>(const QChar &lhs, const QByteArray &rhs)': takes in
+    Python what 'bool operator<(const QByteArray &lhs, const QChar &rhs)'
+    takes.
+  - Qt's 'bool operator<=(const QChar &lhs, const QByteArray &rhs)': takes in
+    Python what 'bool operator>=(const QByteArray &lhs, const QChar &rhs)'
+    takes.
+  - Qt's 'bool operator>=(const QChar &lhs, const QByteArray &rhs)': takes in
+    Python what 'bool operator<=(const QByteArray &lhs, const QChar &rhs)'
+    takes.
 
   What has no ritual
   ------------------
 
-  109 of the 217 functions Qt declares: 79 takes or gives a type that cannot
+  141 of the 283 functions Qt declares: 111 takes or gives a type that cannot
   be passed yet; 14 can only be called on a value about to be thrown away; 13
   private; 3 a template.
 
@@ -202,17 +248,16 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QByteArray::FromBase64Result yet. None can be made
-    from Python: one comes out of a function of another class that gives one
-    back.
+    Every function of Qt's QByteArray::FromBase64Result that has a ritual and
+    that Python can call so far, 3 names in all: '__bool__', '__eq__',
+    '__ne__'. None can be made from Python: one comes out of a function of
+    another class that gives one back.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
-    - Qt's 'bool QByteArray::FromBase64Result::operator bool() const': an
-      operator, which is not reflected yet.
     - Qt's 'const QByteArray &QByteArray::FromBase64Result::operator*()
-      const': an operator, which is not reflected yet.
+      const': an operator Python has no name for.
     - Qt's 'QByteArray::FromBase64Result::~FromBase64Result()': the
       destructor: Python removes its C++ QByteArray::FromBase64Result by it,
       and has no other use for it.
@@ -220,7 +265,7 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    4 of the 7 functions Qt declares: 2 takes or gives a type that cannot be
+    4 of the 9 functions Qt declares: 2 takes or gives a type that cannot be
     passed yet; 2 can only be called on a value about to be thrown away.
 
     What to expect
@@ -277,6 +322,82 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    def __bool__(self) -> bool:
+      """
+      Calls Qt's 'bool QByteArray::FromBase64Result::operator bool() const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qbytearray-frombase64result.html#operator bool
+      """
+      #  bool QByteArray::FromBase64Result::operator bool() const
+      return self.uglySide.call(
+          'ritual_ZNK10QByteArray16FromBase64ResultcvbEv',
+      )
+
+    @overload(THIS)
+    def __eq__(self, rhs: QByteArray.FromBase64Result) -> bool:
+      """
+      Calls Qt's 'bool operator==(const QByteArray::FromBase64Result &lhs,
+      const QByteArray::FromBase64Result &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qbytearray-frombase64result.html#operator==
+
+      Parameters
+      ----------
+
+      rhs : QByteArray.FromBase64Result
+        Passed on as a value: Qt reads the C++ QByteArray::FromBase64Result,
+        which stays Python's own.
+      """
+      #  bool operator==(const QByteArray::FromBase64Result &lhs, const
+      #      QByteArray::FromBase64Result &rhs)
+      return Rituals.call(
+          'ritual_ZeqRKN10QByteArray16FromBase64ResultES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, rhs: QByteArray.FromBase64Result) -> bool:
+      """
+      Calls Qt's 'bool operator!=(const QByteArray::FromBase64Result &lhs,
+      const QByteArray::FromBase64Result &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qbytearray-frombase64result.html#operator!=
+
+      Parameters
+      ----------
+
+      rhs : QByteArray.FromBase64Result
+        Passed on as a value: Qt reads the C++ QByteArray::FromBase64Result,
+        which stays Python's own.
+      """
+      #  bool operator!=(const QByteArray::FromBase64Result &lhs, const
+      #      QByteArray::FromBase64Result &rhs)
+      return Rituals.call(
+          'ritual_ZneRKN10QByteArray16FromBase64ResultES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1289,6 +1410,365 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(str)
+  @overload(NoneType)
+  def __iadd__(self, s: Optional[str]) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray &QByteArray::operator+=(const char *s)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator+=
+
+    Parameters
+    ----------
+
+    s : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+    """
+    #  QByteArray &QByteArray::operator+=(const char *s)
+    self.uglySide.call('ritual_ZN10QByteArraypLEPKc', self._bytesOf(s))
+    return self
+
+  @overload(THIS)
+  def __iadd__(self, a: QByteArray) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray &QByteArray::operator+=(const QByteArray &a)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator+=
+
+    Parameters
+    ----------
+
+    a : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  QByteArray &QByteArray::operator+=(const QByteArray &a)
+    self.uglySide.call('ritual_ZN10QByteArraypLERKS_', self._valueOf(a))
+    return self
+
+  @overload(QByteArrayView)
+  def __iadd__(self, a: QByteArrayView) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray &QByteArray::operator+=(QByteArrayView a)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator+=
+
+    Parameters
+    ----------
+
+    a : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  QByteArray &QByteArray::operator+=(QByteArrayView a)
+    self.uglySide.call(
+        'ritual_ZN10QByteArraypLE14QByteArrayView', self._valueOf(a),
+    )
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, rhs: QByteArray) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QByteArray &lhs, const QByteArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  bool operator==(const QByteArray &lhs, const QByteArray &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK10QByteArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __eq__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QByteArray &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator==(const QByteArray &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK10QByteArrayRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QByteArray) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QByteArray &lhs, const QByteArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QByteArray &lhs, const QByteArray &rhs)
+    return Rituals.call(
+        'ritual_ZneRK10QByteArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __ne__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QByteArray &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator!=(const QByteArray &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZneRK10QByteArrayRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QByteArray) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QByteArray &lhs, const QByteArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  bool operator<(const QByteArray &lhs, const QByteArray &rhs)
+    return Rituals.call(
+        'ritual_ZltRK10QByteArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __lt__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QByteArray &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator<(const QByteArray &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZltRK10QByteArrayRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QByteArray) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QByteArray &lhs, const QByteArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  bool operator>(const QByteArray &lhs, const QByteArray &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK10QByteArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __gt__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QByteArray &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator>(const QByteArray &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK10QByteArrayRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QByteArray) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QByteArray &lhs, const QByteArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  bool operator<=(const QByteArray &lhs, const QByteArray &rhs)
+    return Rituals.call(
+        'ritual_ZleRK10QByteArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __le__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QByteArray &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator<=(const QByteArray &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZleRK10QByteArrayRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QByteArray) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QByteArray &lhs, const QByteArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  bool operator>=(const QByteArray &lhs, const QByteArray &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK10QByteArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __ge__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QByteArray &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator>=(const QByteArray &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK10QByteArrayRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

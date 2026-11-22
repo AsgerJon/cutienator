@@ -147,3 +147,15 @@ void ritual_ZN7QCursor6setPosEP7QScreenRK6QPoint(
     const QPoint *p) {
   QCursor::setPos(screen, *p);
 }
+
+//  bool operator==(const QCursor &lhs, const QCursor &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK7QCursorS1_(const QCursor *lhs, const QCursor *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QCursor &lhs, const QCursor &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK7QCursorS1_(const QCursor *lhs, const QCursor *rhs) {
+  return operator!=(*lhs, *rhs);
+}

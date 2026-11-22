@@ -73,6 +73,8 @@
     "ritual_ZN4QDir8tempPathEv": ["text"],
     "ritual_ZN4QDir5matchERK7QStringS2_": ["bool", "text", "text"],
     "ritual_ZN4QDir9cleanPathERK7QString": ["text", "text"],
-    "ritual_ZNK4QDir7refreshEv": ["nothing", "address"]
+    "ritual_ZNK4QDir7refreshEv": ["nothing", "address"],
+    "ritual_ZeqRK4QDirS1_": ["bool", "address", "address"],
+    "ritual_ZneRK4QDirS1_": ["bool", "address", "address"]
   }
 }

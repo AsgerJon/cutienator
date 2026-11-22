@@ -19,12 +19,13 @@ from ..occult import Rituals
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArrayView, QMetaObject
+  from . import QByteArrayView, QDebug, QMetaObject
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArrayView = WAIT['QByteArrayView']
+  QDebug = WAIT['QDebug']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,16 +45,17 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMetaType that has a ritual and that Python can call
-  so far, 30 names in all: 'type', 'typeName', 'sizeOf', 'typeFlags',
+  so far, 33 names in all: 'type', 'typeName', 'sizeOf', 'typeFlags',
   'metaObjectForType', 'isRegistered', 'registerType', 'id', 'rawId',
   'alignOf', 'flags', 'metaObject', 'name', 'isDefaultConstructible',
   'isCopyConstructible', 'isMoveConstructible', 'isDestructible',
   'isEqualityComparable', 'isOrdered', 'hasRegisteredDataStreamOperators',
-  'underlyingType', 'fromName', 'hasRegisteredDebugStreamOperator',
-  'canConvert', 'canView', 'hasRegisteredConverterFunction',
-  'hasRegisteredMutableViewFunction', 'unregisterConverterFunction',
-  'unregisterMutableViewFunction', 'unregisterMetaType'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  'underlyingType', 'fromName', '__eq__', '__ne__', '__rlshift__',
+  'hasRegisteredDebugStreamOperator', 'canConvert', 'canView',
+  'hasRegisteredConverterFunction', 'hasRegisteredMutableViewFunction',
+  'unregisterConverterFunction', 'unregisterMutableViewFunction',
+  'unregisterMetaType'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -74,7 +76,7 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  43 of the 83 functions Qt declares: 25 takes or gives a type that cannot be
+  43 of the 86 functions Qt declares: 25 takes or gives a type that cannot be
   passed yet; 12 a template; 6 private.
 
   What to expect
@@ -818,6 +820,101 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QMetaType) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QMetaType &lhs, const QMetaType &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QMetaType
+      Passed on as a value: Qt reads the C++ QMetaType, which stays Python's
+      own.
+    """
+    #  bool operator==(const QMetaType &lhs, const QMetaType &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK9QMetaTypeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QMetaType) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QMetaType &lhs, const QMetaType &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QMetaType
+      Passed on as a value: Qt reads the C++ QMetaType, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QMetaType &lhs, const QMetaType &rhs)
+    return Rituals.call(
+        'ritual_ZneRK9QMetaTypeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QDebug)
+  def __rlshift__(self, d: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug d, QMetaType m)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#operator<<
+
+    Parameters
+    ----------
+
+    d : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug d, QMetaType m)
+    address = Rituals.call(
+        'ritual_Zls6QDebug9QMetaType',
+        CuteMixin._valueOf(d), CuteMixin._valueOf(self),
+    )
+    from . import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
@@ -27,8 +28,9 @@ class QHashDummyValue(CuteMixin, metaclass=MetaCute):
   What exists
   -----------
 
-  No function of Qt's QHashDummyValue yet. It can be made from Python, in 1
-  way; see '__init__'.
+  Every function of Qt's QHashDummyValue that has a ritual and that Python
+  can call so far, 2 names in all: '__eq__', '__ne__'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -90,6 +92,64 @@ class QHashDummyValue(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, a1: QHashDummyValue) -> bool:
+    """
+    Calls Qt's 'bool operator==(QHashDummyValue a0, QHashDummyValue a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qhashdummyvalue.html#operator==
+
+    Parameters
+    ----------
+
+    a1 : QHashDummyValue
+      Passed on as a value: Qt reads the C++ QHashDummyValue, which stays
+      Python's own.
+    """
+    #  bool operator==(QHashDummyValue a0, QHashDummyValue a1)
+    return Rituals.call(
+        'ritual_Zeq15QHashDummyValueS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(a1),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, a1: QHashDummyValue) -> bool:
+    """
+    Calls Qt's 'bool operator!=(QHashDummyValue a0, QHashDummyValue a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qhashdummyvalue.html#operator!=
+
+    Parameters
+    ----------
+
+    a1 : QHashDummyValue
+      Passed on as a value: Qt reads the C++ QHashDummyValue, which stays
+      Python's own.
+    """
+    #  bool operator!=(QHashDummyValue a0, QHashDummyValue a1)
+    return Rituals.call(
+        'ritual_Zne15QHashDummyValueS_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(a1),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -2,6 +2,36 @@
 //  QtCore/qbitarray.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qbitarray.h>
 
+//  QBitArray operator&(const QBitArray &a1, const QBitArray &a2)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZanRK9QBitArrayS1_(
+    const QBitArray *a1,
+    const QBitArray *a2) {
+  return new QBitArray(operator&(*a1, *a2));
+}
+
+//  QBitArray operator|(const QBitArray &a1, const QBitArray &a2)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZorRK9QBitArrayS1_(
+    const QBitArray *a1,
+    const QBitArray *a2) {
+  return new QBitArray(operator|(*a1, *a2));
+}
+
+//  QBitArray operator^(const QBitArray &a1, const QBitArray &a2)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_ZeoRK9QBitArrayS1_(
+    const QBitArray *a1,
+    const QBitArray *a2) {
+  return new QBitArray(operator^(*a1, *a2));
+}
+
+//  QBitArray operator~(QBitArray a)
+extern "C" Q_DECL_EXPORT
+QBitArray *ritual_Zco9QBitArray(const QBitArray *a) {
+  return new QBitArray(operator~(*a));
+}
+
 //  QBitArray::QBitArray()
 extern "C" Q_DECL_EXPORT
 QBitArray *ritual_ZN9QBitArrayC1Ev() {
@@ -122,6 +152,24 @@ bool ritual_ZNK9QBitArrayixEx(const QBitArray *self, qsizetype i) {
   return self->operator[](i);
 }
 
+//  QBitArray &QBitArray::operator&=(const QBitArray &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QBitArrayaNERKS_(QBitArray *self, const QBitArray *a0) {
+  self->operator&=(*a0);
+}
+
+//  QBitArray &QBitArray::operator|=(const QBitArray &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QBitArrayoRERKS_(QBitArray *self, const QBitArray *a0) {
+  self->operator|=(*a0);
+}
+
+//  QBitArray &QBitArray::operator^=(const QBitArray &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QBitArrayeOERKS_(QBitArray *self, const QBitArray *a0) {
+  self->operator^=(*a0);
+}
+
 //  bool QBitArray::fill(bool aval, qsizetype asize)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN9QBitArray4fillEbx(
@@ -168,6 +216,18 @@ quint32 ritual_ZNK9QBitArray8toUInt32EN8QSysInfo6EndianEPb(
     QSysInfo::Endian endianness,
     bool *ok) {
   return self->toUInt32(endianness, ok);
+}
+
+//  bool operator==(const QBitArray &lhs, const QBitArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK9QBitArrayS1_(const QBitArray *lhs, const QBitArray *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QBitArray &lhs, const QBitArray &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK9QBitArrayS1_(const QBitArray *lhs, const QBitArray *rhs) {
+  return operator!=(*lhs, *rhs);
 }
 
 //  QBitArray::~QBitArray()

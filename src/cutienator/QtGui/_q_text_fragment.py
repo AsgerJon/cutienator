@@ -32,19 +32,13 @@ class QTextFragment(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextFragment that has a ritual and that Python can
-  call so far, 7 names in all: 'isValid', 'position', 'length', 'contains',
-  'charFormat', 'charFormatIndex', 'text'. It can be made from Python, in 2
-  ways; see '__init__'.
+  call so far, 10 names in all: 'isValid', '__eq__', '__ne__', '__lt__',
+  'position', 'length', 'contains', 'charFormat', 'charFormatIndex', 'text'.
+  It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'bool QTextFragment::operator==(const QTextFragment &o) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QTextFragment::operator!=(const QTextFragment &o) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QTextFragment::operator<(const QTextFragment &o) const': an
-    operator, which is not reflected yet.
   - Qt's 'QTextFragment::~QTextFragment()': the destructor: Python removes
     its C++ QTextFragment by it, and has no other use for it.
 
@@ -195,6 +189,92 @@ class QTextFragment(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, o: QTextFragment) -> bool:
+    """
+    Calls Qt's 'bool QTextFragment::operator==(const QTextFragment &o)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextfragment.html#operator==
+
+    Parameters
+    ----------
+
+    o : QTextFragment
+      Passed on as a value: Qt reads the C++ QTextFragment, which stays
+      Python's own.
+    """
+    #  bool QTextFragment::operator==(const QTextFragment &o) const
+    return self.uglySide.call(
+        'ritual_ZNK13QTextFragmenteqERKS_', self._valueOf(o),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, o: QTextFragment) -> bool:
+    """
+    Calls Qt's 'bool QTextFragment::operator!=(const QTextFragment &o)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextfragment.html#operator!=
+
+    Parameters
+    ----------
+
+    o : QTextFragment
+      Passed on as a value: Qt reads the C++ QTextFragment, which stays
+      Python's own.
+    """
+    #  bool QTextFragment::operator!=(const QTextFragment &o) const
+    return self.uglySide.call(
+        'ritual_ZNK13QTextFragmentneERKS_', self._valueOf(o),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, o: QTextFragment) -> bool:
+    """
+    Calls Qt's 'bool QTextFragment::operator<(const QTextFragment &o) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextfragment.html#operator<
+
+    Parameters
+    ----------
+
+    o : QTextFragment
+      Passed on as a value: Qt reads the C++ QTextFragment, which stays
+      Python's own.
+    """
+    #  bool QTextFragment::operator<(const QTextFragment &o) const
+    return self.uglySide.call(
+        'ritual_ZNK13QTextFragmentltERKS_', self._valueOf(o),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

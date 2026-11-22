@@ -38,36 +38,23 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QKeySequence that has a ritual and that Python can
-  call so far, 7 names in all: 'count', 'isEmpty', 'toString', 'fromString',
-  'matches', 'mnemonic', 'isDetached'. It can be made from Python, in 6 ways;
-  see '__init__'.
+  call so far, 14 names in all: 'count', 'isEmpty', 'toString', 'fromString',
+  'matches', 'mnemonic', '__getitem__', '__eq__', '__ne__', '__lt__',
+  '__gt__', '__le__', '__ge__', 'isDetached'. It can be made from Python, in
+  6 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QKeySequence::~QKeySequence()': the destructor: Python removes its
     C++ QKeySequence by it, and has no other use for it.
-  - Qt's 'QVariant QKeySequence::operator QVariant() const': an operator,
-    which is not reflected yet.
-  - Qt's 'QKeyCombination QKeySequence::operator[](uint i) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QKeySequence::operator==(const QKeySequence &other) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QKeySequence::operator!=(const QKeySequence &other) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QKeySequence::operator<(const QKeySequence &ks) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QKeySequence::operator>(const QKeySequence &other) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QKeySequence::operator<=(const QKeySequence &other) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QKeySequence::operator>=(const QKeySequence &other) const': an
-    operator, which is not reflected yet.
+  - Qt's 'QVariant QKeySequence::operator QVariant() const': an operator
+    Python has no name for.
 
   What has no ritual
   ------------------
 
-  13 of the 35 functions Qt declares: 7 takes or gives a type that cannot be
+  15 of the 37 functions Qt declares: 9 takes or gives a type that cannot be
   passed yet; 4 private; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
@@ -371,6 +358,204 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def __getitem__(self, i: int) -> QKeyCombination:
+    """
+    Calls Qt's 'QKeyCombination QKeySequence::operator[](uint i) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#operator[]
+
+    Parameters
+    ----------
+
+    i : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QKeyCombination
+      A new cute QKeyCombination around the copy Qt gave back. Python owns
+      it.
+    """
+    #  QKeyCombination QKeySequence::operator[](uint i) const
+    address = self.uglySide.call('ritual_ZNK12QKeySequenceixEj', i)
+    from ..QtCore import QKeyCombination
+    return QKeyCombination._cuteOwning(address)
+
+  @overload(THIS)
+  def __eq__(self, other: QKeySequence) -> bool:
+    """
+    Calls Qt's 'bool QKeySequence::operator==(const QKeySequence &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#operator==
+
+    Parameters
+    ----------
+
+    other : QKeySequence
+      Passed on as a value: Qt reads the C++ QKeySequence, which stays
+      Python's own.
+    """
+    #  bool QKeySequence::operator==(const QKeySequence &other) const
+    return self.uglySide.call(
+        'ritual_ZNK12QKeySequenceeqERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, other: QKeySequence) -> bool:
+    """
+    Calls Qt's 'bool QKeySequence::operator!=(const QKeySequence &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#operator!=
+
+    Parameters
+    ----------
+
+    other : QKeySequence
+      Passed on as a value: Qt reads the C++ QKeySequence, which stays
+      Python's own.
+    """
+    #  bool QKeySequence::operator!=(const QKeySequence &other) const
+    return self.uglySide.call(
+        'ritual_ZNK12QKeySequenceneERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, ks: QKeySequence) -> bool:
+    """
+    Calls Qt's 'bool QKeySequence::operator<(const QKeySequence &ks) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#operator<
+
+    Parameters
+    ----------
+
+    ks : QKeySequence
+      Passed on as a value: Qt reads the C++ QKeySequence, which stays
+      Python's own.
+    """
+    #  bool QKeySequence::operator<(const QKeySequence &ks) const
+    return self.uglySide.call(
+        'ritual_ZNK12QKeySequenceltERKS_', self._valueOf(ks),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, other: QKeySequence) -> bool:
+    """
+    Calls Qt's 'bool QKeySequence::operator>(const QKeySequence &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#operator>
+
+    Parameters
+    ----------
+
+    other : QKeySequence
+      Passed on as a value: Qt reads the C++ QKeySequence, which stays
+      Python's own.
+    """
+    #  bool QKeySequence::operator>(const QKeySequence &other) const
+    return self.uglySide.call(
+        'ritual_ZNK12QKeySequencegtERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, other: QKeySequence) -> bool:
+    """
+    Calls Qt's 'bool QKeySequence::operator<=(const QKeySequence &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#operator<=
+
+    Parameters
+    ----------
+
+    other : QKeySequence
+      Passed on as a value: Qt reads the C++ QKeySequence, which stays
+      Python's own.
+    """
+    #  bool QKeySequence::operator<=(const QKeySequence &other) const
+    return self.uglySide.call(
+        'ritual_ZNK12QKeySequenceleERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, other: QKeySequence) -> bool:
+    """
+    Calls Qt's 'bool QKeySequence::operator>=(const QKeySequence &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#operator>=
+
+    Parameters
+    ----------
+
+    other : QKeySequence
+      Passed on as a value: Qt reads the C++ QKeySequence, which stays
+      Python's own.
+    """
+    #  bool QKeySequence::operator>=(const QKeySequence &other) const
+    return self.uglySide.call(
+        'ritual_ZNK12QKeySequencegeERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

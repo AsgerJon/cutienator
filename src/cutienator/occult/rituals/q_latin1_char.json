@@ -6,6 +6,24 @@
   "rows": {
     "ritual_ZN11QLatin1CharC1Ec": ["address", "char"],
     "ritual_ZNK11QLatin1Char8toLatin1Ev": ["char", "address"],
+    "ritual_ZeqRK11QLatin1CharS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QLatin1CharS1_": ["bool", "address", "address"],
+    "ritual_ZltRK11QLatin1CharS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK11QLatin1CharS1_": ["bool", "address", "address"],
+    "ritual_ZleRK11QLatin1CharS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK11QLatin1CharS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK11QLatin1CharRKc": ["bool", "address", "char"],
+    "ritual_ZneRK11QLatin1CharRKc": ["bool", "address", "char"],
+    "ritual_ZltRK11QLatin1CharRKc": ["bool", "address", "char"],
+    "ritual_ZgtRK11QLatin1CharRKc": ["bool", "address", "char"],
+    "ritual_ZleRK11QLatin1CharRKc": ["bool", "address", "char"],
+    "ritual_ZgeRK11QLatin1CharRKc": ["bool", "address", "char"],
+    "ritual_ZeqRKcRK11QLatin1Char": ["bool", "char", "address"],
+    "ritual_ZneRKcRK11QLatin1Char": ["bool", "char", "address"],
+    "ritual_ZltRKcRK11QLatin1Char": ["bool", "char", "address"],
+    "ritual_ZgtRKcRK11QLatin1Char": ["bool", "char", "address"],
+    "ritual_ZleRKcRK11QLatin1Char": ["bool", "char", "address"],
+    "ritual_ZgeRKcRK11QLatin1Char": ["bool", "char", "address"],
     "ritual_ZN11QLatin1CharD1Ev": ["nothing", "address"]
   }
 }

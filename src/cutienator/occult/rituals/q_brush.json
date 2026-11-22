@@ -49,6 +49,10 @@
     "ritual_ZNK6QBrush8isOpaqueEv": ["bool", "address"],
     "ritual_ZNK6QBrusheqERKS_": ["bool", "address", "address"],
     "ritual_ZNK6QBrushneERKS_": ["bool", "address", "address"],
+    "ritual_ZeqRK6QBrushRK6QColor": ["bool", "address", "address"],
+    "ritual_ZneRK6QBrushRK6QColor": ["bool", "address", "address"],
+    "ritual_ZeqRK6QColorRK6QBrush": ["bool", "address", "address"],
+    "ritual_ZneRK6QColorRK6QBrush": ["bool", "address", "address"],
     "ritual_ZNK6QBrush10isDetachedEv": ["bool", "address"]
   }
 }

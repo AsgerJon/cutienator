@@ -40,31 +40,27 @@ class QPalette(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPalette that has a ritual and that Python can call
-  so far, 35 names in all: 'currentColorGroup', 'setCurrentColorGroup',
+  so far, 37 names in all: 'currentColorGroup', 'setCurrentColorGroup',
   'color', 'brush', 'setColor', 'setBrush', 'isBrushSet', 'setColorGroup',
   'isEqual', 'windowText', 'button', 'light', 'dark', 'mid', 'text', 'base',
   'alternateBase', 'toolTipBase', 'toolTipText', 'window', 'midlight',
   'brightText', 'buttonText', 'shadow', 'highlight', 'highlightedText',
-  'link', 'linkVisited', 'placeholderText', 'accent', 'isCopyOf', 'cacheKey',
-  'resolve', 'resolveMask', 'setResolveMask'. It can be made from Python, in
-  7 ways; see '__init__'.
+  'link', 'linkVisited', 'placeholderText', 'accent', '__eq__', '__ne__',
+  'isCopyOf', 'cacheKey', 'resolve', 'resolveMask', 'setResolveMask'. It can
+  be made from Python, in 7 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPalette::~QPalette()': the destructor: Python removes its C++
     QPalette by it, and has no other use for it.
-  - Qt's 'QVariant QPalette::operator QVariant() const': an operator, which
-    is not reflected yet.
-  - Qt's 'bool QPalette::operator==(const QPalette &p) const': an operator,
-    which is not reflected yet.
-  - Qt's 'bool QPalette::operator!=(const QPalette &p) const': an operator,
-    which is not reflected yet.
+  - Qt's 'QVariant QPalette::operator QVariant() const': an operator Python
+    has no name for.
 
   What has no ritual
   ------------------
 
-  11 of the 61 functions Qt declares: 5 private; 4 takes or gives a type that
+  12 of the 62 functions Qt declares: 5 private; 5 takes or gives a type that
   cannot be passed yet; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
@@ -982,6 +978,58 @@ class QPalette(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, p: QPalette) -> bool:
+    """
+    Calls Qt's 'bool QPalette::operator==(const QPalette &p) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpalette.html#operator==
+
+    Parameters
+    ----------
+
+    p : QPalette
+      Passed on as a value: Qt reads the C++ QPalette, which stays Python's
+      own.
+    """
+    #  bool QPalette::operator==(const QPalette &p) const
+    return self.uglySide.call('ritual_ZNK8QPaletteeqERKS_', self._valueOf(p))
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, p: QPalette) -> bool:
+    """
+    Calls Qt's 'bool QPalette::operator!=(const QPalette &p) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpalette.html#operator!=
+
+    Parameters
+    ----------
+
+    p : QPalette
+      Passed on as a value: Qt reads the C++ QPalette, which stays Python's
+      own.
+    """
+    #  bool QPalette::operator!=(const QPalette &p) const
+    return self.uglySide.call('ritual_ZNK8QPaletteneERKS_', self._valueOf(p))
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

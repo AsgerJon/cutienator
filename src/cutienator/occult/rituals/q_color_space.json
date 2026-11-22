@@ -55,6 +55,8 @@
     "ritual_ZN11QColorSpace6detachEv": ["nothing", "address"],
     "ritual_ZNK11QColorSpace7isValidEv": ["bool", "address"],
     "ritual_ZNK11QColorSpace13isValidTargetEv": ["bool", "address"],
+    "ritual_ZeqRK11QColorSpaceS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QColorSpaceS1_": ["bool", "address", "address"],
     "ritual_ZN11QColorSpace14fromIccProfileERK10QByteArray": [
       "address", "address"
     ],
@@ -62,6 +64,7 @@
     "ritual_ZNK11QColorSpace26transformationToColorSpaceERKS_": [
       "address", "address", "address"
     ],
-    "ritual_ZNK11QColorSpacecv8QVariantEv": ["address", "address"]
+    "ritual_ZNK11QColorSpacecv8QVariantEv": ["address", "address"],
+    "ritual_Zls6QDebugRK11QColorSpace": ["address", "address", "address"]
   }
 }

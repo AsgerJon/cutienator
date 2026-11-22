@@ -40,6 +40,8 @@
     ],
     "ritual_ZN9QUrlQuery19removeAllQueryItemsERK7QString": [
       "nothing", "address", "text"
-    ]
+    ],
+    "ritual_ZeqRK9QUrlQueryS1_": ["bool", "address", "address"],
+    "ritual_ZneRK9QUrlQueryS1_": ["bool", "address", "address"]
   }
 }

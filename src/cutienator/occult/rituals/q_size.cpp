@@ -137,6 +137,72 @@ QSize *ritual_ZNK5QSize8shrunkByE8QMargins(
   return new QSize(self->shrunkBy(*m));
 }
 
+//  QSize &QSize::operator+=(const QSize &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QSizepLERKS_(QSize *self, const QSize *a0) {
+  self->operator+=(*a0);
+}
+
+//  QSize &QSize::operator-=(const QSize &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QSizemIERKS_(QSize *self, const QSize *a0) {
+  self->operator-=(*a0);
+}
+
+//  QSize &QSize::operator*=(qreal c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QSizemLEd(QSize *self, qreal c) {
+  self->operator*=(c);
+}
+
+//  QSize &QSize::operator/=(qreal c)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QSizedVEd(QSize *self, qreal c) {
+  self->operator/=(c);
+}
+
+//  bool operator==(const QSize &lhs, const QSize &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK5QSizeS1_(const QSize *lhs, const QSize *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QSize &lhs, const QSize &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK5QSizeS1_(const QSize *lhs, const QSize *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  QSize operator+(const QSize &s1, const QSize &s2)
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZplRK5QSizeS1_(const QSize *s1, const QSize *s2) {
+  return new QSize(operator+(*s1, *s2));
+}
+
+//  QSize operator-(const QSize &s1, const QSize &s2)
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZmiRK5QSizeS1_(const QSize *s1, const QSize *s2) {
+  return new QSize(operator-(*s1, *s2));
+}
+
+//  QSize operator*(const QSize &s, qreal c)
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZmlRK5QSized(const QSize *s, qreal c) {
+  return new QSize(operator*(*s, c));
+}
+
+//  QSize operator*(qreal c, const QSize &s)
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZmldRK5QSize(qreal c, const QSize *s) {
+  return new QSize(operator*(c, *s));
+}
+
+//  QSize operator/(const QSize &s, qreal c)
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZdvRK5QSized(const QSize *s, qreal c) {
+  return new QSize(operator/(*s, c));
+}
+
 //  QSizeF QSize::toSizeF() const
 extern "C" Q_DECL_EXPORT
 QSizeF *ritual_ZNK5QSize7toSizeFEv(const QSize *self) {

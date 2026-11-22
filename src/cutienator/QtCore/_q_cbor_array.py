@@ -16,12 +16,13 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QCborValue, QJsonArray
+  from . import QCborValue, QCborValueConstRef, QCborValueRef, QJsonArray
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QCborValue = WAIT['QCborValue']
+  QCborValueConstRef = WAIT['QCborValueConstRef']
   QJsonArray = WAIT['QJsonArray']
 
 
@@ -38,33 +39,66 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCborArray that has a ritual and that Python can
-  call so far, 26 names in all: 'toCborValue', 'size', 'isEmpty', 'clear',
-  'at', 'first', 'last', 'insert', 'prepend', 'append', 'extract',
-  'removeAt', 'takeAt', 'removeFirst', 'removeLast', 'takeFirst', 'takeLast',
-  'contains', 'compare', 'push_back', 'push_front', 'pop_front', 'pop_back',
-  'empty', 'fromJsonArray', 'toJsonArray'. It can be made from Python, in 2
-  ways; see '__init__'.
+  call so far, 35 names in all: 'toCborValue', 'size', 'isEmpty', 'clear',
+  'at', 'first', 'last', '__getitem__', 'insert', 'prepend', 'append',
+  'extract', 'removeAt', 'takeAt', 'removeFirst', 'removeLast', 'takeFirst',
+  'takeLast', 'contains', 'compare', 'push_back', 'push_front', 'pop_front',
+  'pop_back', 'empty', '__add__', '__iadd__', 'fromJsonArray', 'toJsonArray',
+  '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made
+  from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QCborArray::~QCborArray()': the destructor: Python removes its C++
     QCborArray by it, and has no other use for it.
-  - Qt's 'const QCborValue QCborArray::operator[](qsizetype i) const': an
-    operator, which is not reflected yet.
   - Qt's 'QCborValueRef QCborArray::first()': takes in Python what
     'QCborValue QCborArray::first() const' takes.
   - Qt's 'QCborValueRef QCborArray::last()': takes in Python what 'QCborValue
     QCborArray::last() const' takes.
-  - Qt's 'QCborValueRef QCborArray::operator[](qsizetype i)': an operator,
-    which is not reflected yet.
-  - Qt's 'QCborArray QCborArray::operator+(const QCborValue &v) const': an
-    operator, which is not reflected yet.
+  - Qt's 'QCborValueRef QCborArray::operator[](qsizetype i)': takes in Python
+    what 'const QCborValue QCborArray::operator[](qsizetype i) const' takes.
+  - Qt's 'bool operator==(const QCborValue &lhs, const QCborArray &rhs)':
+    takes in Python what 'bool operator==(const QCborArray &lhs, const
+    QCborValue &rhs)' takes.
+  - Qt's 'bool operator!=(const QCborValue &lhs, const QCborArray &rhs)':
+    takes in Python what 'bool operator!=(const QCborArray &lhs, const
+    QCborValue &rhs)' takes.
+  - Qt's 'bool operator<(const QCborValue &lhs, const QCborArray &rhs)':
+    takes in Python what 'bool operator>(const QCborArray &lhs, const
+    QCborValue &rhs)' takes.
+  - Qt's 'bool operator>(const QCborValue &lhs, const QCborArray &rhs)':
+    takes in Python what 'bool operator<(const QCborArray &lhs, const
+    QCborValue &rhs)' takes.
+  - Qt's 'bool operator<=(const QCborValue &lhs, const QCborArray &rhs)':
+    takes in Python what 'bool operator>=(const QCborArray &lhs, const
+    QCborValue &rhs)' takes.
+  - Qt's 'bool operator>=(const QCborValue &lhs, const QCborArray &rhs)':
+    takes in Python what 'bool operator<=(const QCborArray &lhs, const
+    QCborValue &rhs)' takes.
+  - Qt's 'bool operator==(const QCborValueConstRef &lhs, const QCborArray
+    &rhs)': takes in Python what 'bool operator==(const QCborArray &lhs,
+    const QCborValueConstRef &rhs)' takes.
+  - Qt's 'bool operator!=(const QCborValueConstRef &lhs, const QCborArray
+    &rhs)': takes in Python what 'bool operator!=(const QCborArray &lhs,
+    const QCborValueConstRef &rhs)' takes.
+  - Qt's 'bool operator<(const QCborValueConstRef &lhs, const QCborArray
+    &rhs)': takes in Python what 'bool operator>(const QCborArray &lhs, const
+    QCborValueConstRef &rhs)' takes.
+  - Qt's 'bool operator>(const QCborValueConstRef &lhs, const QCborArray
+    &rhs)': takes in Python what 'bool operator<(const QCborArray &lhs, const
+    QCborValueConstRef &rhs)' takes.
+  - Qt's 'bool operator<=(const QCborValueConstRef &lhs, const QCborArray
+    &rhs)': takes in Python what 'bool operator>=(const QCborArray &lhs,
+    const QCborValueConstRef &rhs)' takes.
+  - Qt's 'bool operator>=(const QCborValueConstRef &lhs, const QCborArray
+    &rhs)': takes in Python what 'bool operator<=(const QCborArray &lhs,
+    const QCborValueConstRef &rhs)' takes.
 
   What has no ritual
   ------------------
 
-  32 of the 67 functions Qt declares: 26 takes or gives a type that cannot be
+  31 of the 97 functions Qt declares: 25 takes or gives a type that cannot be
   passed yet; 6 private.
 
   What to expect
@@ -95,29 +129,23 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QCborArray::ConstIterator yet. It can be made from
-    Python, in 2 ways; see '__init__'.
+    Every function of Qt's QCborArray::ConstIterator that has a ritual and
+    that Python can call so far, 11 names in all: '__getitem__', '__iadd__',
+    '__isub__', '__add__', '__sub__', '__eq__', '__ne__', '__lt__', '__gt__',
+    '__le__', '__ge__'. It can be made from Python, in 2 ways; see
+    '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
     - Qt's 'QCborValueConstRef QCborArray::ConstIterator::operator*() const':
-      an operator, which is not reflected yet.
+      an operator Python has no name for.
     - Qt's 'const QCborValueConstRef *QCborArray::ConstIterator::operator->()
-      const': an operator, which is not reflected yet.
-    - Qt's 'QCborValueConstRef
-      QCborArray::ConstIterator::operator[](qsizetype j) const': an operator,
-      which is not reflected yet.
+      const': an operator Python has no name for.
     - Qt's 'ConstIterator QCborArray::ConstIterator::operator++(int a0)': an
-      operator, which is not reflected yet.
+      operator Python has no name for.
     - Qt's 'ConstIterator QCborArray::ConstIterator::operator--(int a0)': an
-      operator, which is not reflected yet.
-    - Qt's 'ConstIterator QCborArray::ConstIterator::operator+(qsizetype j)
-      const': an operator, which is not reflected yet.
-    - Qt's 'ConstIterator QCborArray::ConstIterator::operator-(qsizetype j)
-      const': an operator, which is not reflected yet.
-    - Qt's 'qsizetype QCborArray::ConstIterator::operator-(ConstIterator j)
-      const': an operator, which is not reflected yet.
+      operator Python has no name for.
     - Qt's 'QCborArray::ConstIterator::~ConstIterator()': the destructor:
       Python removes its C++ QCborArray::ConstIterator by it, and has no
       other use for it.
@@ -125,8 +153,8 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    8 of the 19 functions Qt declares: 5 takes or gives a type that cannot be
-    passed yet; 3 private.
+    6 of the 25 functions Qt declares: 3 private; 3 takes or gives a type
+    that cannot be passed yet.
 
     What to expect
     --------------
@@ -182,6 +210,376 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(int)
+    def __getitem__(self, j: int) -> QCborValueConstRef:
+      """
+      Calls Qt's 'QCborValueConstRef
+      QCborArray::ConstIterator::operator[](qsizetype j) const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#operator[]
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      QCborValueConstRef
+        A new cute QCborValueConstRef around the copy Qt gave back. Python
+        owns it.
+      """
+      #  QCborValueConstRef QCborArray::ConstIterator::operator[](qsizetype
+      #      j) const
+      address = self.uglySide.call(
+          'ritual_ZNK10QCborArray13ConstIteratorixEx', j,
+      )
+      from . import QCborValueConstRef
+      return QCborValueConstRef._cuteOwning(address)
+
+    @overload(int)
+    def __iadd__(self, j: int) -> QCborArray.ConstIterator:
+      """
+      Calls Qt's 'ConstIterator
+      &QCborArray::ConstIterator::operator+=(qsizetype j)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#operator+=
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+      """
+      #  ConstIterator &QCborArray::ConstIterator::operator+=(qsizetype j)
+      self.uglySide.call('ritual_ZN10QCborArray13ConstIteratorpLEx', j)
+      return self
+
+    @overload.fallback
+    def __iadd__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(int)
+    def __isub__(self, j: int) -> QCborArray.ConstIterator:
+      """
+      Calls Qt's 'ConstIterator
+      &QCborArray::ConstIterator::operator-=(qsizetype j)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#operator-=
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+      """
+      #  ConstIterator &QCborArray::ConstIterator::operator-=(qsizetype j)
+      self.uglySide.call('ritual_ZN10QCborArray13ConstIteratormIEx', j)
+      return self
+
+    @overload.fallback
+    def __isub__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(int)
+    def __add__(self, j: int) -> QCborArray.ConstIterator:
+      """
+      Calls Qt's 'ConstIterator
+      QCborArray::ConstIterator::operator+(qsizetype j) const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#operator+
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      QCborArray.ConstIterator
+        A new cute QCborArray::ConstIterator around the copy Qt gave back.
+        Python owns it.
+      """
+      #  ConstIterator QCborArray::ConstIterator::operator+(qsizetype j)
+      #      const
+      address = self.uglySide.call(
+          'ritual_ZNK10QCborArray13ConstIteratorplEx', j,
+      )
+      return QCborArray.ConstIterator._cuteOwning(address)
+
+    @overload.fallback
+    def __add__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(int)
+    def __sub__(self, j: int) -> QCborArray.ConstIterator:
+      """
+      Calls Qt's 'ConstIterator
+      QCborArray::ConstIterator::operator-(qsizetype j) const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#operator-
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      QCborArray.ConstIterator
+        A new cute QCborArray::ConstIterator around the copy Qt gave back.
+        Python owns it.
+      """
+      #  ConstIterator QCborArray::ConstIterator::operator-(qsizetype j)
+      #      const
+      address = self.uglySide.call(
+          'ritual_ZNK10QCborArray13ConstIteratormiEx', j,
+      )
+      return QCborArray.ConstIterator._cuteOwning(address)
+
+    @overload(THIS)
+    def __sub__(self, j: QCborArray.ConstIterator) -> int:
+      """
+      Calls Qt's 'qsizetype
+      QCborArray::ConstIterator::operator-(ConstIterator j) const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#operator-
+
+      Parameters
+      ----------
+
+      j : QCborArray.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborArray::ConstIterator,
+        which stays Python's own.
+      """
+      #  qsizetype QCborArray::ConstIterator::operator-(ConstIterator j)
+      #      const
+      return self.uglySide.call(
+          'ritual_ZNK10QCborArray13ConstIteratormiES0_', self._valueOf(j),
+      )
+
+    @overload.fallback
+    def __sub__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __eq__(self, rhs: QCborArray.ConstIterator) -> bool:
+      """
+      Calls Qt's 'bool operator==(const ConstIterator &lhs, const
+      ConstIterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#operator==
+
+      Parameters
+      ----------
+
+      rhs : QCborArray.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborArray::ConstIterator,
+        which stays Python's own.
+      """
+      #  bool operator==(const ConstIterator &lhs, const ConstIterator &rhs)
+      return Rituals.call(
+          'ritual_ZeqRKN10QCborArray13ConstIteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, rhs: QCborArray.ConstIterator) -> bool:
+      """
+      Calls Qt's 'bool operator!=(const ConstIterator &lhs, const
+      ConstIterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#operator!=
+
+      Parameters
+      ----------
+
+      rhs : QCborArray.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborArray::ConstIterator,
+        which stays Python's own.
+      """
+      #  bool operator!=(const ConstIterator &lhs, const ConstIterator &rhs)
+      return Rituals.call(
+          'ritual_ZneRKN10QCborArray13ConstIteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __lt__(self, rhs: QCborArray.ConstIterator) -> bool:
+      """
+      Calls Qt's 'bool operator<(const ConstIterator &lhs, const
+      ConstIterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#operator<
+
+      Parameters
+      ----------
+
+      rhs : QCborArray.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborArray::ConstIterator,
+        which stays Python's own.
+      """
+      #  bool operator<(const ConstIterator &lhs, const ConstIterator &rhs)
+      return Rituals.call(
+          'ritual_ZltRKN10QCborArray13ConstIteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __lt__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __gt__(self, rhs: QCborArray.ConstIterator) -> bool:
+      """
+      Calls Qt's 'bool operator>(const ConstIterator &lhs, const
+      ConstIterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#operator>
+
+      Parameters
+      ----------
+
+      rhs : QCborArray.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborArray::ConstIterator,
+        which stays Python's own.
+      """
+      #  bool operator>(const ConstIterator &lhs, const ConstIterator &rhs)
+      return Rituals.call(
+          'ritual_ZgtRKN10QCborArray13ConstIteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __gt__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __le__(self, rhs: QCborArray.ConstIterator) -> bool:
+      """
+      Calls Qt's 'bool operator<=(const ConstIterator &lhs, const
+      ConstIterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#operator<=
+
+      Parameters
+      ----------
+
+      rhs : QCborArray.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborArray::ConstIterator,
+        which stays Python's own.
+      """
+      #  bool operator<=(const ConstIterator &lhs, const ConstIterator &rhs)
+      return Rituals.call(
+          'ritual_ZleRKN10QCborArray13ConstIteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __le__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ge__(self, rhs: QCborArray.ConstIterator) -> bool:
+      """
+      Calls Qt's 'bool operator>=(const ConstIterator &lhs, const
+      ConstIterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#operator>=
+
+      Parameters
+      ----------
+
+      rhs : QCborArray.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborArray::ConstIterator,
+        which stays Python's own.
+      """
+      #  bool operator>=(const ConstIterator &lhs, const ConstIterator &rhs)
+      return Rituals.call(
+          'ritual_ZgeRKN10QCborArray13ConstIteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ge__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -256,30 +654,61 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QCborArray::Iterator yet. It can be made from Python,
-    in 2 ways; see '__init__'.
+    Every function of Qt's QCborArray::Iterator that has a ritual and that
+    Python can call so far, 11 names in all: '__getitem__', '__iadd__',
+    '__isub__', '__add__', '__sub__', '__eq__', '__ne__', '__lt__', '__gt__',
+    '__le__', '__ge__'. It can be made from Python, in 2 ways; see
+    '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
     - Qt's 'QCborValueRef QCborArray::Iterator::operator*() const': an
-      operator, which is not reflected yet.
-    - Qt's 'QCborValueRef *QCborArray::Iterator::operator->()': an operator,
-      which is not reflected yet.
+      operator Python has no name for.
+    - Qt's 'QCborValueRef *QCborArray::Iterator::operator->()': an operator
+      Python has no name for.
     - Qt's 'const QCborValueConstRef *QCborArray::Iterator::operator->()
-      const': an operator, which is not reflected yet.
-    - Qt's 'QCborValueRef QCborArray::Iterator::operator[](qsizetype j)
-      const': an operator, which is not reflected yet.
-    - Qt's 'Iterator QCborArray::Iterator::operator++(int a0)': an operator,
-      which is not reflected yet.
-    - Qt's 'Iterator QCborArray::Iterator::operator--(int a0)': an operator,
-      which is not reflected yet.
-    - Qt's 'Iterator QCborArray::Iterator::operator+(qsizetype j) const': an
-      operator, which is not reflected yet.
-    - Qt's 'Iterator QCborArray::Iterator::operator-(qsizetype j) const': an
-      operator, which is not reflected yet.
-    - Qt's 'qsizetype QCborArray::Iterator::operator-(Iterator j) const': an
-      operator, which is not reflected yet.
+      const': an operator Python has no name for.
+    - Qt's 'Iterator QCborArray::Iterator::operator++(int a0)': an operator
+      Python has no name for.
+    - Qt's 'Iterator QCborArray::Iterator::operator--(int a0)': an operator
+      Python has no name for.
+    - Qt's 'bool operator==(const Iterator &lhs, const ConstIterator &rhs)':
+      names 'QCborArray::ConstIterator', which stands beside this class
+      inside 'QCborArray' and cannot be named from here.
+    - Qt's 'bool operator!=(const Iterator &lhs, const ConstIterator &rhs)':
+      names 'QCborArray::ConstIterator', which stands beside this class
+      inside 'QCborArray' and cannot be named from here.
+    - Qt's 'bool operator<(const Iterator &lhs, const ConstIterator &rhs)':
+      names 'QCborArray::ConstIterator', which stands beside this class
+      inside 'QCborArray' and cannot be named from here.
+    - Qt's 'bool operator>(const Iterator &lhs, const ConstIterator &rhs)':
+      names 'QCborArray::ConstIterator', which stands beside this class
+      inside 'QCborArray' and cannot be named from here.
+    - Qt's 'bool operator<=(const Iterator &lhs, const ConstIterator &rhs)':
+      names 'QCborArray::ConstIterator', which stands beside this class
+      inside 'QCborArray' and cannot be named from here.
+    - Qt's 'bool operator>=(const Iterator &lhs, const ConstIterator &rhs)':
+      names 'QCborArray::ConstIterator', which stands beside this class
+      inside 'QCborArray' and cannot be named from here.
+    - Qt's 'bool operator==(const ConstIterator &lhs, const Iterator &rhs)':
+      names 'QCborArray::ConstIterator', which stands beside this class
+      inside 'QCborArray' and cannot be named from here.
+    - Qt's 'bool operator!=(const ConstIterator &lhs, const Iterator &rhs)':
+      names 'QCborArray::ConstIterator', which stands beside this class
+      inside 'QCborArray' and cannot be named from here.
+    - Qt's 'bool operator<(const ConstIterator &lhs, const Iterator &rhs)':
+      names 'QCborArray::ConstIterator', which stands beside this class
+      inside 'QCborArray' and cannot be named from here.
+    - Qt's 'bool operator>(const ConstIterator &lhs, const Iterator &rhs)':
+      names 'QCborArray::ConstIterator', which stands beside this class
+      inside 'QCborArray' and cannot be named from here.
+    - Qt's 'bool operator<=(const ConstIterator &lhs, const Iterator &rhs)':
+      names 'QCborArray::ConstIterator', which stands beside this class
+      inside 'QCborArray' and cannot be named from here.
+    - Qt's 'bool operator>=(const ConstIterator &lhs, const Iterator &rhs)':
+      names 'QCborArray::ConstIterator', which stands beside this class
+      inside 'QCborArray' and cannot be named from here.
     - Qt's 'QCborArray::Iterator::~Iterator()': the destructor: Python
       removes its C++ QCborArray::Iterator by it, and has no other use for
       it.
@@ -287,7 +716,7 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    10 of the 22 functions Qt declares: 5 private; 5 takes or gives a type
+    8 of the 40 functions Qt declares: 5 private; 3 takes or gives a type
     that cannot be passed yet.
 
     What to expect
@@ -344,6 +773,358 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(int)
+    def __getitem__(self, j: int) -> QCborValueRef:
+      """
+      Calls Qt's 'QCborValueRef QCborArray::Iterator::operator[](qsizetype j)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#operator[]
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      QCborValueRef
+        A new cute QCborValueRef around the copy Qt gave back. Python owns
+        it.
+      """
+      #  QCborValueRef QCborArray::Iterator::operator[](qsizetype j) const
+      address = self.uglySide.call('ritual_ZNK10QCborArray8IteratorixEx', j)
+      from . import QCborValueRef
+      return QCborValueRef._cuteOwning(address)
+
+    @overload(int)
+    def __iadd__(self, j: int) -> QCborArray.Iterator:
+      """
+      Calls Qt's 'Iterator &QCborArray::Iterator::operator+=(qsizetype j)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#operator+=
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+      """
+      #  Iterator &QCborArray::Iterator::operator+=(qsizetype j)
+      self.uglySide.call('ritual_ZN10QCborArray8IteratorpLEx', j)
+      return self
+
+    @overload.fallback
+    def __iadd__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(int)
+    def __isub__(self, j: int) -> QCborArray.Iterator:
+      """
+      Calls Qt's 'Iterator &QCborArray::Iterator::operator-=(qsizetype j)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#operator-=
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+      """
+      #  Iterator &QCborArray::Iterator::operator-=(qsizetype j)
+      self.uglySide.call('ritual_ZN10QCborArray8IteratormIEx', j)
+      return self
+
+    @overload.fallback
+    def __isub__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(int)
+    def __add__(self, j: int) -> QCborArray.Iterator:
+      """
+      Calls Qt's 'Iterator QCborArray::Iterator::operator+(qsizetype j)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#operator+
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      QCborArray.Iterator
+        A new cute QCborArray::Iterator around the copy Qt gave back. Python
+        owns it.
+      """
+      #  Iterator QCborArray::Iterator::operator+(qsizetype j) const
+      address = self.uglySide.call('ritual_ZNK10QCborArray8IteratorplEx', j)
+      return QCborArray.Iterator._cuteOwning(address)
+
+    @overload.fallback
+    def __add__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(int)
+    def __sub__(self, j: int) -> QCborArray.Iterator:
+      """
+      Calls Qt's 'Iterator QCborArray::Iterator::operator-(qsizetype j)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#operator-
+
+      Parameters
+      ----------
+
+      j : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      QCborArray.Iterator
+        A new cute QCborArray::Iterator around the copy Qt gave back. Python
+        owns it.
+      """
+      #  Iterator QCborArray::Iterator::operator-(qsizetype j) const
+      address = self.uglySide.call('ritual_ZNK10QCborArray8IteratormiEx', j)
+      return QCborArray.Iterator._cuteOwning(address)
+
+    @overload(THIS)
+    def __sub__(self, j: QCborArray.Iterator) -> int:
+      """
+      Calls Qt's 'qsizetype QCborArray::Iterator::operator-(Iterator j)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#operator-
+
+      Parameters
+      ----------
+
+      j : QCborArray.Iterator
+        Passed on as a value: Qt reads the C++ QCborArray::Iterator, which
+        stays Python's own.
+      """
+      #  qsizetype QCborArray::Iterator::operator-(Iterator j) const
+      return self.uglySide.call(
+          'ritual_ZNK10QCborArray8IteratormiES0_', self._valueOf(j),
+      )
+
+    @overload.fallback
+    def __sub__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __eq__(self, rhs: QCborArray.Iterator) -> bool:
+      """
+      Calls Qt's 'bool operator==(const Iterator &lhs, const Iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#operator==
+
+      Parameters
+      ----------
+
+      rhs : QCborArray.Iterator
+        Passed on as a value: Qt reads the C++ QCborArray::Iterator, which
+        stays Python's own.
+      """
+      #  bool operator==(const Iterator &lhs, const Iterator &rhs)
+      return Rituals.call(
+          'ritual_ZeqRKN10QCborArray8IteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, rhs: QCborArray.Iterator) -> bool:
+      """
+      Calls Qt's 'bool operator!=(const Iterator &lhs, const Iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#operator!=
+
+      Parameters
+      ----------
+
+      rhs : QCborArray.Iterator
+        Passed on as a value: Qt reads the C++ QCborArray::Iterator, which
+        stays Python's own.
+      """
+      #  bool operator!=(const Iterator &lhs, const Iterator &rhs)
+      return Rituals.call(
+          'ritual_ZneRKN10QCborArray8IteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __lt__(self, rhs: QCborArray.Iterator) -> bool:
+      """
+      Calls Qt's 'bool operator<(const Iterator &lhs, const Iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#operator<
+
+      Parameters
+      ----------
+
+      rhs : QCborArray.Iterator
+        Passed on as a value: Qt reads the C++ QCborArray::Iterator, which
+        stays Python's own.
+      """
+      #  bool operator<(const Iterator &lhs, const Iterator &rhs)
+      return Rituals.call(
+          'ritual_ZltRKN10QCborArray8IteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __lt__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __gt__(self, rhs: QCborArray.Iterator) -> bool:
+      """
+      Calls Qt's 'bool operator>(const Iterator &lhs, const Iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#operator>
+
+      Parameters
+      ----------
+
+      rhs : QCborArray.Iterator
+        Passed on as a value: Qt reads the C++ QCborArray::Iterator, which
+        stays Python's own.
+      """
+      #  bool operator>(const Iterator &lhs, const Iterator &rhs)
+      return Rituals.call(
+          'ritual_ZgtRKN10QCborArray8IteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __gt__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __le__(self, rhs: QCborArray.Iterator) -> bool:
+      """
+      Calls Qt's 'bool operator<=(const Iterator &lhs, const Iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#operator<=
+
+      Parameters
+      ----------
+
+      rhs : QCborArray.Iterator
+        Passed on as a value: Qt reads the C++ QCborArray::Iterator, which
+        stays Python's own.
+      """
+      #  bool operator<=(const Iterator &lhs, const Iterator &rhs)
+      return Rituals.call(
+          'ritual_ZleRKN10QCborArray8IteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __le__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ge__(self, rhs: QCborArray.Iterator) -> bool:
+      """
+      Calls Qt's 'bool operator>=(const Iterator &lhs, const Iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#operator>=
+
+      Parameters
+      ----------
+
+      rhs : QCborArray.Iterator
+        Passed on as a value: Qt reads the C++ QCborArray::Iterator, which
+        stays Python's own.
+      """
+      #  bool operator>=(const Iterator &lhs, const Iterator &rhs)
+      return Rituals.call(
+          'ritual_ZgeRKN10QCborArray8IteratorES2_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+      )
+
+    @overload.fallback
+    def __ge__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -630,6 +1411,526 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def __getitem__(self, i: int) -> QCborValue:
+    """
+    Calls Qt's 'const QCborValue QCborArray::operator[](qsizetype i) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator[]
+
+    Parameters
+    ----------
+
+    i : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QCborValue
+      A new cute QCborValue around the copy Qt gave back. Python owns it.
+    """
+    #  const QCborValue QCborArray::operator[](qsizetype i) const
+    address = self.uglySide.call('ritual_ZNK10QCborArrayixEx', i)
+    from . import QCborValue
+    return QCborValue._cuteOwning(address)
+
+  @overload(QCborValue)
+  def __add__(self, v: QCborValue) -> QCborArray:
+    """
+    Calls Qt's 'QCborArray QCborArray::operator+(const QCborValue &v) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator+
+
+    Parameters
+    ----------
+
+    v : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QCborArray
+      A new cute QCborArray around the copy Qt gave back. Python owns it.
+    """
+    #  QCborArray QCborArray::operator+(const QCborValue &v) const
+    address = self.uglySide.call(
+        'ritual_ZNK10QCborArrayplERK10QCborValue', self._valueOf(v),
+    )
+    return QCborArray._cuteOwning(address)
+
+  @overload.fallback
+  def __add__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QCborValue)
+  def __iadd__(self, v: QCborValue) -> QCborArray:
+    """
+    Calls Qt's 'QCborArray &QCborArray::operator+=(const QCborValue &v)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator+=
+
+    Parameters
+    ----------
+
+    v : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  QCborArray &QCborArray::operator+=(const QCborValue &v)
+    self.uglySide.call(
+        'ritual_ZN10QCborArraypLERK10QCborValue', self._valueOf(v),
+    )
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, rhs: QCborArray) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QCborArray &lhs, const QCborArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QCborArray
+      Passed on as a value: Qt reads the C++ QCborArray, which stays Python's
+      own.
+    """
+    #  bool operator==(const QCborArray &lhs, const QCborArray &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK10QCborArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValue)
+  def __eq__(self, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QCborArray &lhs, const QCborValue
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool operator==(const QCborArray &lhs, const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK10QCborArrayRK10QCborValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValueConstRef)
+  def __eq__(self, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QCborArray &lhs, const
+    QCborValueConstRef &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool operator==(const QCborArray &lhs, const QCborValueConstRef &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK10QCborArrayRK18QCborValueConstRef',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QCborArray) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QCborArray &lhs, const QCborArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QCborArray
+      Passed on as a value: Qt reads the C++ QCborArray, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QCborArray &lhs, const QCborArray &rhs)
+    return Rituals.call(
+        'ritual_ZneRK10QCborArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValue)
+  def __ne__(self, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QCborArray &lhs, const QCborValue
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QCborArray &lhs, const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZneRK10QCborArrayRK10QCborValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValueConstRef)
+  def __ne__(self, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QCborArray &lhs, const
+    QCborValueConstRef &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QCborArray &lhs, const QCborValueConstRef &rhs)
+    return Rituals.call(
+        'ritual_ZneRK10QCborArrayRK18QCborValueConstRef',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QCborArray) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QCborArray &lhs, const QCborArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QCborArray
+      Passed on as a value: Qt reads the C++ QCborArray, which stays Python's
+      own.
+    """
+    #  bool operator<(const QCborArray &lhs, const QCborArray &rhs)
+    return Rituals.call(
+        'ritual_ZltRK10QCborArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValue)
+  def __lt__(self, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QCborArray &lhs, const QCborValue
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool operator<(const QCborArray &lhs, const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZltRK10QCborArrayRK10QCborValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValueConstRef)
+  def __lt__(self, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QCborArray &lhs, const
+    QCborValueConstRef &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool operator<(const QCborArray &lhs, const QCborValueConstRef &rhs)
+    return Rituals.call(
+        'ritual_ZltRK10QCborArrayRK18QCborValueConstRef',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QCborArray) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QCborArray &lhs, const QCborArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QCborArray
+      Passed on as a value: Qt reads the C++ QCborArray, which stays Python's
+      own.
+    """
+    #  bool operator>(const QCborArray &lhs, const QCborArray &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK10QCborArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValue)
+  def __gt__(self, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QCborArray &lhs, const QCborValue
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool operator>(const QCborArray &lhs, const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK10QCborArrayRK10QCborValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValueConstRef)
+  def __gt__(self, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QCborArray &lhs, const
+    QCborValueConstRef &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool operator>(const QCborArray &lhs, const QCborValueConstRef &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK10QCborArrayRK18QCborValueConstRef',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QCborArray) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QCborArray &lhs, const QCborArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QCborArray
+      Passed on as a value: Qt reads the C++ QCborArray, which stays Python's
+      own.
+    """
+    #  bool operator<=(const QCborArray &lhs, const QCborArray &rhs)
+    return Rituals.call(
+        'ritual_ZleRK10QCborArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValue)
+  def __le__(self, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QCborArray &lhs, const QCborValue
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool operator<=(const QCborArray &lhs, const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZleRK10QCborArrayRK10QCborValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValueConstRef)
+  def __le__(self, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QCborArray &lhs, const
+    QCborValueConstRef &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool operator<=(const QCborArray &lhs, const QCborValueConstRef &rhs)
+    return Rituals.call(
+        'ritual_ZleRK10QCborArrayRK18QCborValueConstRef',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QCborArray) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QCborArray &lhs, const QCborArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QCborArray
+      Passed on as a value: Qt reads the C++ QCborArray, which stays Python's
+      own.
+    """
+    #  bool operator>=(const QCborArray &lhs, const QCborArray &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK10QCborArrayS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValue)
+  def __ge__(self, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QCborArray &lhs, const QCborValue
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool operator>=(const QCborArray &lhs, const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK10QCborArrayRK10QCborValue',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QCborValueConstRef)
+  def __ge__(self, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QCborArray &lhs, const
+    QCborValueConstRef &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool operator>=(const QCborArray &lhs, const QCborValueConstRef &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK10QCborArrayRK18QCborValueConstRef',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -269,3 +269,19 @@ QRect *ritual_ZNK11QPageLayout15paintRectPixelsEi(
     int resolution) {
   return new QRect(self->paintRectPixels(resolution));
 }
+
+//  bool operator==(const QPageLayout &lhs, const QPageLayout &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK11QPageLayoutS1_(
+    const QPageLayout *lhs,
+    const QPageLayout *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QPageLayout &lhs, const QPageLayout &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK11QPageLayoutS1_(
+    const QPageLayout *lhs,
+    const QPageLayout *rhs) {
+  return operator!=(*lhs, *rhs);
+}

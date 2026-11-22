@@ -44,20 +44,16 @@ class QStaticText(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QStaticText that has a ritual and that Python can
-  call so far, 12 names in all: 'setText', 'text', 'setTextFormat',
+  call so far, 14 names in all: 'setText', 'text', 'setTextFormat',
   'textFormat', 'setTextWidth', 'textWidth', 'setTextOption', 'textOption',
-  'size', 'prepare', 'setPerformanceHint', 'performanceHint'. It can be made
-  from Python, in 3 ways; see '__init__'.
+  'size', 'prepare', 'setPerformanceHint', 'performanceHint', '__eq__',
+  '__ne__'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QStaticText::~QStaticText()': the destructor: Python removes its
     C++ QStaticText by it, and has no other use for it.
-  - Qt's 'bool QStaticText::operator==(const QStaticText &a0) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QStaticText::operator!=(const QStaticText &a0) const': an
-    operator, which is not reflected yet.
 
   What has no ritual
   ------------------
@@ -319,6 +315,62 @@ class QStaticText(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, a0: QStaticText) -> bool:
+    """
+    Calls Qt's 'bool QStaticText::operator==(const QStaticText &a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstatictext.html#operator==
+
+    Parameters
+    ----------
+
+    a0 : QStaticText
+      Passed on as a value: Qt reads the C++ QStaticText, which stays
+      Python's own.
+    """
+    #  bool QStaticText::operator==(const QStaticText &a0) const
+    return self.uglySide.call(
+        'ritual_ZNK11QStaticTexteqERKS_', self._valueOf(a0),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, a0: QStaticText) -> bool:
+    """
+    Calls Qt's 'bool QStaticText::operator!=(const QStaticText &a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstatictext.html#operator!=
+
+    Parameters
+    ----------
+
+    a0 : QStaticText
+      Passed on as a value: Qt reads the C++ QStaticText, which stays
+      Python's own.
+    """
+    #  bool QStaticText::operator!=(const QStaticText &a0) const
+    return self.uglySide.call(
+        'ritual_ZNK11QStaticTextneERKS_', self._valueOf(a0),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

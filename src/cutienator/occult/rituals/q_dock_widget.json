@@ -38,6 +38,7 @@
     "ritual_ZNK11QDockWidget13isAreaAllowedEN2Qt14DockWidgetAreaE": [
       "bool", "address", "int"
     ],
+    "ritual_Zls6QDebugPK11QDockWidget": ["address", "address", "address"],
     "ritual_ZNK11QDockWidget16toggleViewActionEv": ["address", "address"]
   }
 }

@@ -16,6 +16,24 @@ QByteArray *ritual_ZNKR10QByteArray16FromBase64ResultdeEv(
   return new QByteArray(self->operator*());
 }
 
+//  bool operator==(const QByteArray::FromBase64Result &lhs, const
+//      QByteArray::FromBase64Result &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRKN10QByteArray16FromBase64ResultES2_(
+    const QByteArray::FromBase64Result *lhs,
+    const QByteArray::FromBase64Result *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QByteArray::FromBase64Result &lhs, const
+//      QByteArray::FromBase64Result &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRKN10QByteArray16FromBase64ResultES2_(
+    const QByteArray::FromBase64Result *lhs,
+    const QByteArray::FromBase64Result *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
 //  QByteArray::FromBase64Result::~FromBase64Result()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QByteArray16FromBase64ResultD1Ev(

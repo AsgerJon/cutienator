@@ -30,8 +30,9 @@ class QPropertyBindingPrivatePtr(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPropertyBindingPrivatePtr that has a ritual and
-  that Python can call so far, 1 name in all: 'destroyAndFreeMemory'. It can
-  be made from Python, in 2 ways; see '__init__'.
+  that Python can call so far, 4 names in all: 'destroyAndFreeMemory',
+  '__bool__', '__eq__', '__ne__'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -39,15 +40,13 @@ class QPropertyBindingPrivatePtr(CuteMixin, metaclass=MetaCute):
   - Qt's 'QPropertyBindingPrivatePtr::~QPropertyBindingPrivatePtr()': the
     destructor: Python removes its C++ QPropertyBindingPrivatePtr by it, and
     has no other use for it.
-  - Qt's 'bool QPropertyBindingPrivatePtr::operator bool() const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QPropertyBindingPrivatePtr::operator!() const': an operator,
-    which is not reflected yet.
+  - Qt's 'bool QPropertyBindingPrivatePtr::operator!() const': an operator
+    Python has no name for.
 
   What has no ritual
   ------------------
 
-  16 of the 22 functions Qt declares: 15 takes or gives a type that cannot be
+  24 of the 32 functions Qt declares: 23 takes or gives a type that cannot be
   passed yet; 1 declared and nowhere to be found.
 
   What to expect
@@ -104,6 +103,80 @@ class QPropertyBindingPrivatePtr(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def __bool__(self) -> bool:
+    """
+    Calls Qt's 'bool QPropertyBindingPrivatePtr::operator bool() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpropertybindingprivateptr.html#operator bool
+    """
+    #  bool QPropertyBindingPrivatePtr::operator bool() const
+    return self.uglySide.call('ritual_ZNK26QPropertyBindingPrivatePtrcvbEv')
+
+  @overload(THIS)
+  def __eq__(self, rhs: QPropertyBindingPrivatePtr) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QPropertyBindingPrivatePtr &lhs, const
+    QPropertyBindingPrivatePtr &rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpropertybindingprivateptr.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QPropertyBindingPrivatePtr
+      Passed on as a value: Qt reads the C++ QPropertyBindingPrivatePtr,
+      which stays Python's own.
+    """
+    #  bool operator==(const QPropertyBindingPrivatePtr &lhs, const
+    #      QPropertyBindingPrivatePtr &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK26QPropertyBindingPrivatePtrS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QPropertyBindingPrivatePtr) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QPropertyBindingPrivatePtr &lhs, const
+    QPropertyBindingPrivatePtr &rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpropertybindingprivateptr.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QPropertyBindingPrivatePtr
+      Passed on as a value: Qt reads the C++ QPropertyBindingPrivatePtr,
+      which stays Python's own.
+    """
+    #  bool operator!=(const QPropertyBindingPrivatePtr &lhs, const
+    #      QPropertyBindingPrivatePtr &rhs)
+    return Rituals.call(
+        'ritual_ZneRK26QPropertyBindingPrivatePtrS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

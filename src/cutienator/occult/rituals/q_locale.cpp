@@ -984,3 +984,15 @@ QString *ritual_ZNK7QLocale11quoteStringE11QStringViewNS_14QuotationStyleE(
     QLocale::QuotationStyle style) {
   return new QString(self->quoteString(QStringView(*str), style));
 }
+
+//  bool operator==(const QLocale &lhs, const QLocale &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK7QLocaleS1_(const QLocale *lhs, const QLocale *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QLocale &lhs, const QLocale &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK7QLocaleS1_(const QLocale *lhs, const QLocale *rhs) {
+  return operator!=(*lhs, *rhs);
+}

@@ -39,10 +39,10 @@ class QItemSelectionRange(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QItemSelectionRange that has a ritual and that
-  Python can call so far, 15 names in all: 'top', 'left', 'bottom', 'right',
+  Python can call so far, 17 names in all: 'top', 'left', 'bottom', 'right',
   'width', 'height', 'topLeft', 'bottomRight', 'parent', 'model', 'contains',
-  'intersects', 'intersected', 'isValid', 'isEmpty'. It can be made from
-  Python, in 3 ways; see '__init__'.
+  'intersects', 'intersected', 'isValid', 'isEmpty', '__eq__', '__ne__'. It
+  can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -54,7 +54,7 @@ class QItemSelectionRange(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  2 of the 22 functions Qt declares: 2 takes or gives a type that cannot be
+  2 of the 24 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -368,6 +368,70 @@ class QItemSelectionRange(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QItemSelectionRange) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QItemSelectionRange &lhs, const
+    QItemSelectionRange &rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qitemselectionrange.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QItemSelectionRange
+      Passed on as a value: Qt reads the C++ QItemSelectionRange, which stays
+      Python's own.
+    """
+    #  bool operator==(const QItemSelectionRange &lhs, const
+    #      QItemSelectionRange &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK19QItemSelectionRangeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QItemSelectionRange) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QItemSelectionRange &lhs, const
+    QItemSelectionRange &rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qitemselectionrange.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QItemSelectionRange
+      Passed on as a value: Qt reads the C++ QItemSelectionRange, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QItemSelectionRange &lhs, const
+    #      QItemSelectionRange &rhs)
+    return Rituals.call(
+        'ritual_ZneRK19QItemSelectionRangeS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

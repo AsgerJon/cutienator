@@ -47,7 +47,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPainterPath that has a ritual and that Python can
-  call so far, 45 names in all: 'clear', 'reserve', 'capacity',
+  call so far, 55 names in all: 'clear', 'reserve', 'capacity',
   'closeSubpath', 'moveTo', 'lineTo', 'arcMoveTo', 'arcTo', 'cubicTo',
   'quadTo', 'currentPosition', 'addRect', 'addEllipse', 'addPolygon',
   'addText', 'addPath', 'addRegion', 'addRoundedRect', 'connectPath',
@@ -56,31 +56,20 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
   'toFillPolygon', 'elementCount', 'elementAt', 'setElementPositionAt',
   'isCachingEnabled', 'setCachingEnabled', 'length', 'percentAtLength',
   'pointAtPercent', 'angleAtPercent', 'slopeAtPercent', 'trimmed', 'united',
-  'intersected', 'subtracted', 'simplified'. It can be made from Python, in 3
-  ways; see '__init__'.
+  'intersected', 'subtracted', 'simplified', '__eq__', '__ne__', '__and__',
+  '__or__', '__add__', '__sub__', '__iand__', '__ior__', '__iadd__',
+  '__isub__'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPainterPath::~QPainterPath()': the destructor: Python removes its
     C++ QPainterPath by it, and has no other use for it.
-  - Qt's 'bool QPainterPath::operator==(const QPainterPath &other) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QPainterPath::operator!=(const QPainterPath &other) const': an
-    operator, which is not reflected yet.
-  - Qt's 'QPainterPath QPainterPath::operator&(const QPainterPath &other)
-    const': an operator, which is not reflected yet.
-  - Qt's 'QPainterPath QPainterPath::operator|(const QPainterPath &other)
-    const': an operator, which is not reflected yet.
-  - Qt's 'QPainterPath QPainterPath::operator+(const QPainterPath &other)
-    const': an operator, which is not reflected yet.
-  - Qt's 'QPainterPath QPainterPath::operator-(const QPainterPath &other)
-    const': an operator, which is not reflected yet.
 
   What has no ritual
   ------------------
 
-  16 of the 87 functions Qt declares: 10 takes or gives a type that cannot be
+  14 of the 89 functions Qt declares: 8 takes or gives a type that cannot be
   passed yet; 6 private.
 
   What to expect
@@ -127,19 +116,15 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QPainterPath::Element that has a ritual and that
-    Python can call so far, 3 names in all: 'isMoveTo', 'isLineTo',
-    'isCurveTo'. None can be made from Python: one comes out of a function of
-    another class that gives one back.
+    Python can call so far, 5 names in all: 'isMoveTo', 'isLineTo',
+    'isCurveTo', '__eq__', '__ne__'. None can be made from Python: one comes
+    out of a function of another class that gives one back.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
     - Qt's 'QPointF QPainterPath::Element::operator QPointF() const': an
-      operator, which is not reflected yet.
-    - Qt's 'bool QPainterPath::Element::operator==(const Element &e) const':
-      an operator, which is not reflected yet.
-    - Qt's 'bool QPainterPath::Element::operator!=(const Element &e) const':
-      an operator, which is not reflected yet.
+      operator Python has no name for.
     - Qt's 'QPainterPath::Element::~Element()': the destructor: Python
       removes its C++ QPainterPath::Element by it, and has no other use for
       it.
@@ -234,6 +219,66 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(THIS)
+    def __eq__(self, e: QPainterPath.Element) -> bool:
+      """
+      Calls Qt's 'bool QPainterPath::Element::operator==(const Element &e)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qpainterpath-element.html#operator==
+
+      Parameters
+      ----------
+
+      e : QPainterPath.Element
+        Passed on as a value: Qt reads the C++ QPainterPath::Element, which
+        stays Python's own.
+      """
+      #  bool QPainterPath::Element::operator==(const Element &e) const
+      return self.uglySide.call(
+          'ritual_ZNK12QPainterPath7ElementeqERKS0_', self._valueOf(e),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, e: QPainterPath.Element) -> bool:
+      """
+      Calls Qt's 'bool QPainterPath::Element::operator!=(const Element &e)
+      const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qpainterpath-element.html#operator!=
+
+      Parameters
+      ----------
+
+      e : QPainterPath.Element
+        Passed on as a value: Qt reads the C++ QPainterPath::Element, which
+        stays Python's own.
+      """
+      #  bool QPainterPath::Element::operator!=(const Element &e) const
+      return self.uglySide.call(
+          'ritual_ZNK12QPainterPath7ElementneERKS0_', self._valueOf(e),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -924,6 +969,328 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, other: QPainterPath) -> bool:
+    """
+    Calls Qt's 'bool QPainterPath::operator==(const QPainterPath &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#operator==
+
+    Parameters
+    ----------
+
+    other : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+    """
+    #  bool QPainterPath::operator==(const QPainterPath &other) const
+    return self.uglySide.call(
+        'ritual_ZNK12QPainterPatheqERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, other: QPainterPath) -> bool:
+    """
+    Calls Qt's 'bool QPainterPath::operator!=(const QPainterPath &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#operator!=
+
+    Parameters
+    ----------
+
+    other : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+    """
+    #  bool QPainterPath::operator!=(const QPainterPath &other) const
+    return self.uglySide.call(
+        'ritual_ZNK12QPainterPathneERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __and__(self, other: QPainterPath) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QPainterPath::operator&(const QPainterPath
+    &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#operator&
+
+    Parameters
+    ----------
+
+    other : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QPainterPath::operator&(const QPainterPath &other) const
+    address = self.uglySide.call(
+        'ritual_ZNK12QPainterPathanERKS_', self._valueOf(other),
+    )
+    return QPainterPath._cuteOwning(address)
+
+  @overload.fallback
+  def __and__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __or__(self, other: QPainterPath) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QPainterPath::operator|(const QPainterPath
+    &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#operator|
+
+    Parameters
+    ----------
+
+    other : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QPainterPath::operator|(const QPainterPath &other) const
+    address = self.uglySide.call(
+        'ritual_ZNK12QPainterPathorERKS_', self._valueOf(other),
+    )
+    return QPainterPath._cuteOwning(address)
+
+  @overload.fallback
+  def __or__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __add__(self, other: QPainterPath) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QPainterPath::operator+(const QPainterPath
+    &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#operator+
+
+    Parameters
+    ----------
+
+    other : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QPainterPath::operator+(const QPainterPath &other) const
+    address = self.uglySide.call(
+        'ritual_ZNK12QPainterPathplERKS_', self._valueOf(other),
+    )
+    return QPainterPath._cuteOwning(address)
+
+  @overload.fallback
+  def __add__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __sub__(self, other: QPainterPath) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath QPainterPath::operator-(const QPainterPath
+    &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#operator-
+
+    Parameters
+    ----------
+
+    other : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QPainterPath
+      A new cute QPainterPath around the copy Qt gave back. Python owns it.
+    """
+    #  QPainterPath QPainterPath::operator-(const QPainterPath &other) const
+    address = self.uglySide.call(
+        'ritual_ZNK12QPainterPathmiERKS_', self._valueOf(other),
+    )
+    return QPainterPath._cuteOwning(address)
+
+  @overload.fallback
+  def __sub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __iand__(self, other: QPainterPath) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath &QPainterPath::operator&=(const QPainterPath
+    &other)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#operator&=
+
+    Parameters
+    ----------
+
+    other : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+    """
+    #  QPainterPath &QPainterPath::operator&=(const QPainterPath &other)
+    self.uglySide.call(
+        'ritual_ZN12QPainterPathaNERKS_', self._valueOf(other),
+    )
+    return self
+
+  @overload.fallback
+  def __iand__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ior__(self, other: QPainterPath) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath &QPainterPath::operator|=(const QPainterPath
+    &other)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#operator|=
+
+    Parameters
+    ----------
+
+    other : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+    """
+    #  QPainterPath &QPainterPath::operator|=(const QPainterPath &other)
+    self.uglySide.call(
+        'ritual_ZN12QPainterPathoRERKS_', self._valueOf(other),
+    )
+    return self
+
+  @overload.fallback
+  def __ior__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __iadd__(self, other: QPainterPath) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath &QPainterPath::operator+=(const QPainterPath
+    &other)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#operator+=
+
+    Parameters
+    ----------
+
+    other : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+    """
+    #  QPainterPath &QPainterPath::operator+=(const QPainterPath &other)
+    self.uglySide.call(
+        'ritual_ZN12QPainterPathpLERKS_', self._valueOf(other),
+    )
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __isub__(self, other: QPainterPath) -> QPainterPath:
+    """
+    Calls Qt's 'QPainterPath &QPainterPath::operator-=(const QPainterPath
+    &other)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#operator-=
+
+    Parameters
+    ----------
+
+    other : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+    """
+    #  QPainterPath &QPainterPath::operator-=(const QPainterPath &other)
+    self.uglySide.call(
+        'ritual_ZN12QPainterPathmIERKS_', self._valueOf(other),
+    )
+    return self
+
+  @overload.fallback
+  def __isub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

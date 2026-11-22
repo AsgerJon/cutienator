@@ -43,3 +43,21 @@ bool ritual_ZNK26QPropertyBindingPrivatePtrntEv(
     const QPropertyBindingPrivatePtr *self) {
   return self->operator!();
 }
+
+//  bool operator==(const QPropertyBindingPrivatePtr &lhs, const
+//      QPropertyBindingPrivatePtr &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK26QPropertyBindingPrivatePtrS1_(
+    const QPropertyBindingPrivatePtr *lhs,
+    const QPropertyBindingPrivatePtr *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QPropertyBindingPrivatePtr &lhs, const
+//      QPropertyBindingPrivatePtr &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK26QPropertyBindingPrivatePtrS1_(
+    const QPropertyBindingPrivatePtr *lhs,
+    const QPropertyBindingPrivatePtr *rhs) {
+  return operator!=(*lhs, *rhs);
+}

@@ -11,8 +11,18 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+  from . import QDeadlineTimer
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QDeadlineTimer = WAIT['QDeadlineTimer']
 
 
 class QRecursiveMutex(CuteMixin, metaclass=MetaCute):
@@ -24,8 +34,8 @@ class QRecursiveMutex(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRecursiveMutex that has a ritual and that Python
-  can call so far, 1 name in all: 'unlock'. It can be made from Python, in 1
-  way; see '__init__'.
+  can call so far, 4 names in all: 'lock', 'tryLock', 'unlock', 'try_lock'.
+  It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -36,8 +46,7 @@ class QRecursiveMutex(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  10 of the 13 functions Qt declares: 4 forbidden; 4 takes or gives a type
-  that cannot be passed yet; 2 a template.
+  6 of the 13 functions Qt declares: 4 forbidden; 2 a template.
 
   What to expect
   --------------
@@ -126,6 +135,58 @@ class QRecursiveMutex(CuteMixin, metaclass=MetaCute):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def lock(self) -> None:
+    """
+    Calls Qt's 'void QRecursiveMutex::lock()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrecursivemutex.html#lock
+    """
+    #  void QRecursiveMutex::lock()
+    self.uglySide.call('ritual_ZN15QRecursiveMutex4lockEv')
+
+  @overload(int)
+  def tryLock(self, timeout: int) -> bool:
+    """
+    Calls Qt's 'bool QRecursiveMutex::tryLock(int timeout)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrecursivemutex.html#tryLock
+
+    Parameters
+    ----------
+
+    timeout : int
+      Passed on as it is.
+    """
+    #  bool QRecursiveMutex::tryLock(int timeout)
+    return self.uglySide.call(
+        'ritual_ZN15QRecursiveMutex7tryLockEi', timeout,
+    )
+
+  @overload()
+  @overload(QDeadlineTimer)
+  def tryLock(self, timer: Optional[QDeadlineTimer] = None) -> bool:
+    """
+    Calls Qt's 'bool QRecursiveMutex::tryLock(QDeadlineTimer timer)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrecursivemutex.html#tryLock
+
+    Parameters
+    ----------
+
+    timer : Optional[QDeadlineTimer]
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own. May be left out, as in Qt: a new 'QDeadlineTimer()' is
+      then passed on.
+    """
+    #  bool QRecursiveMutex::tryLock(QDeadlineTimer timer)
+    if timer is None:
+      from . import QDeadlineTimer
+      timer = QDeadlineTimer()
+    return self.uglySide.call(
+        'ritual_ZN15QRecursiveMutex7tryLockE14QDeadlineTimer',
+        self._valueOf(timer),
+    )
+
   def unlock(self) -> None:
     """
     Calls Qt's 'void QRecursiveMutex::unlock()'.
@@ -134,3 +195,12 @@ class QRecursiveMutex(CuteMixin, metaclass=MetaCute):
     """
     #  void QRecursiveMutex::unlock()
     self.uglySide.call('ritual_ZN15QRecursiveMutex6unlockEv')
+
+  def try_lock(self) -> bool:
+    """
+    Calls Qt's 'bool QRecursiveMutex::try_lock()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrecursivemutex.html#try_lock
+    """
+    #  bool QRecursiveMutex::try_lock()
+    return self.uglySide.call('ritual_ZN15QRecursiveMutex8try_lockEv')

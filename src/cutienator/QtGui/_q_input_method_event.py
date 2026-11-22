@@ -41,11 +41,17 @@ class QInputMethodEvent(QEvent):
 
   - Qt's 'QInputMethodEvent::~QInputMethodEvent()': the destructor: Python
     never removes a C++ QInputMethodEvent.
+  - Qt's 'bool operator==(const QInputMethodEvent::Attribute &lhs, const
+    QInputMethodEvent::Attribute &rhs)': an operator between other classes,
+    written inside this one.
+  - Qt's 'bool operator!=(const QInputMethodEvent::Attribute &lhs, const
+    QInputMethodEvent::Attribute &rhs)': an operator between other classes,
+    written inside this one.
 
   What has no ritual
   ------------------
 
-  6 of the 14 functions Qt declares: 2 protected; 2 forbidden; 2 takes or
+  6 of the 16 functions Qt declares: 2 protected; 2 forbidden; 2 takes or
   gives a type that cannot be passed yet.
 
   What to expect

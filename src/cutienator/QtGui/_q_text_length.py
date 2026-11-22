@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
@@ -29,20 +30,22 @@ class QTextLength(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextLength that has a ritual and that Python can
-  call so far, 3 names in all: 'type', 'value', 'rawValue'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  call so far, 5 names in all: 'type', 'value', 'rawValue', '__eq__',
+  '__ne__'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'bool QTextLength::operator==(const QTextLength &other) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QTextLength::operator!=(const QTextLength &other) const': an
-    operator, which is not reflected yet.
-  - Qt's 'QVariant QTextLength::operator QVariant() const': an operator,
-    which is not reflected yet.
+  - Qt's 'QVariant QTextLength::operator QVariant() const': an operator
+    Python has no name for.
   - Qt's 'QTextLength::~QTextLength()': the destructor: Python removes its
     C++ QTextLength by it, and has no other use for it.
+
+  What has no ritual
+  ------------------
+
+  2 of the 11 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -154,6 +157,64 @@ class QTextLength(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, other: QTextLength) -> bool:
+    """
+    Calls Qt's 'bool QTextLength::operator==(const QTextLength &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextlength.html#operator==
+
+    Parameters
+    ----------
+
+    other : QTextLength
+      Passed on as a value: Qt reads the C++ QTextLength, which stays
+      Python's own.
+    """
+    #  bool QTextLength::operator==(const QTextLength &other) const
+    return self.uglySide.call(
+        'ritual_ZNK11QTextLengtheqERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, other: QTextLength) -> bool:
+    """
+    Calls Qt's 'bool QTextLength::operator!=(const QTextLength &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextlength.html#operator!=
+
+    Parameters
+    ----------
+
+    other : QTextLength
+      Passed on as a value: Qt reads the C++ QTextLength, which stays
+      Python's own.
+    """
+    #  bool QTextLength::operator!=(const QTextLength &other) const
+    return self.uglySide.call(
+        'ritual_ZNK11QTextLengthneERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

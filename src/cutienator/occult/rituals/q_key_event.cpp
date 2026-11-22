@@ -126,3 +126,19 @@ extern "C" Q_DECL_EXPORT
 quint32 ritual_ZNK9QKeyEvent15nativeModifiersEv(const QKeyEvent *self) {
   return self->nativeModifiers();
 }
+
+//  bool operator==(QKeyEvent *e, QKeySequence::StandardKey key)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqP9QKeyEventN12QKeySequence11StandardKeyE(
+    QKeyEvent *e,
+    QKeySequence::StandardKey key) {
+  return operator==(e, key);
+}
+
+//  bool operator==(QKeySequence::StandardKey key, QKeyEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqN12QKeySequence11StandardKeyEP9QKeyEvent(
+    QKeySequence::StandardKey key,
+    QKeyEvent *e) {
+  return operator==(key, e);
+}

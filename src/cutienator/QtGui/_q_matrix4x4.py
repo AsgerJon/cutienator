@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, MetaCute, WAIT
@@ -16,12 +17,13 @@ from ..occult import Rituals
 from ..QtCore import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from ..QtCore import QPoint, QPointF, QRect, QRectF
+  from ..QtCore import QDebug, QPoint, QPointF, QRect, QRectF
   from . import QQuaternion, QTransform, QVector3D, QVector4D
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QDebug = WAIT['QDebug']
   QPoint = WAIT['QPoint']
   QPointF = WAIT['QPointF']
   QQuaternion = WAIT['QQuaternion']
@@ -45,36 +47,35 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMatrix4x4 that has a ritual and that Python can
-  call so far, 26 names in all: 'column', 'setColumn', 'row', 'setRow',
-  'isAffine', 'isIdentity', 'setToIdentity', 'fill', 'determinant',
-  'transposed', 'scale', 'translate', 'rotate', 'ortho', 'frustum',
+  call so far, 40 names in all: '__call__', 'column', 'setColumn', 'row',
+  'setRow', 'isAffine', 'isIdentity', 'setToIdentity', 'fill', 'determinant',
+  'transposed', '__iadd__', '__isub__', '__imul__', '__itruediv__', '__eq__',
+  '__ne__', '__add__', '__sub__', '__mul__', '__rmul__', '__neg__',
+  '__truediv__', 'scale', 'translate', 'rotate', 'ortho', 'frustum',
   'perspective', 'lookAt', 'viewport', 'flipCoordinates', 'toTransform',
-  'map', 'mapVector', 'mapRect', 'optimize', 'projectedRotate', 'flags'. It
-  can be made from Python, in 4 ways; see '__init__'.
+  'map', 'mapVector', 'mapRect', 'optimize', '__rlshift__',
+  'projectedRotate', 'flags'. It can be made from Python, in 4 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'const float &QMatrix4x4::operator()(int row, int column) const': an
-    operator, which is not reflected yet.
   - Qt's 'QMatrix4x4 QMatrix4x4::inverted(bool *invertible) const': takes a
     number to change where it is.
-  - Qt's 'bool QMatrix4x4::operator==(const QMatrix4x4 &other) const': an
-    operator, which is not reflected yet.
-  - Qt's 'bool QMatrix4x4::operator!=(const QMatrix4x4 &other) const': an
-    operator, which is not reflected yet.
   - Qt's 'void QMatrix4x4::copyDataTo(float *values) const': takes a number
     to change where it is.
-  - Qt's 'QVariant QMatrix4x4::operator QVariant() const': an operator, which
-    is not reflected yet.
+  - Qt's 'QVariant QMatrix4x4::operator QVariant() const': an operator Python
+    has no name for.
   - Qt's 'QMatrix4x4::~QMatrix4x4()': the destructor: Python removes its C++
     QMatrix4x4 by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  16 of the 69 functions Qt declares: 12 takes or gives a type that cannot be
-  passed yet; 2 a template; 2 private.
+  13 of the 85 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 2 a template; 2 private; 1 written with the class 'QVector3D',
+  which declares it as well and stands first in it; 1 written with the class
+  'QVector4D', which declares it as well and stands first in it.
 
   What to expect
   --------------
@@ -546,6 +547,642 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int, int)
+  def __call__(self, row: int, column: int) -> float:
+    """
+    Calls Qt's 'const float &QMatrix4x4::operator()(int row, int column)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator()
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    column : int
+      Passed on as it is.
+    """
+    #  const float &QMatrix4x4::operator()(int row, int column) const
+    return self.uglySide.call('ritual_ZNK10QMatrix4x4clEii', row, column)
+
+  @overload(THIS)
+  def __iadd__(self, other: QMatrix4x4) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 &QMatrix4x4::operator+=(const QMatrix4x4 &other)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator+=
+
+    Parameters
+    ----------
+
+    other : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+    """
+    #  QMatrix4x4 &QMatrix4x4::operator+=(const QMatrix4x4 &other)
+    self.uglySide.call('ritual_ZN10QMatrix4x4pLERKS_', self._valueOf(other))
+    return self
+
+  @overload.fallback
+  def __iadd__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __isub__(self, other: QMatrix4x4) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 &QMatrix4x4::operator-=(const QMatrix4x4 &other)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator-=
+
+    Parameters
+    ----------
+
+    other : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+    """
+    #  QMatrix4x4 &QMatrix4x4::operator-=(const QMatrix4x4 &other)
+    self.uglySide.call('ritual_ZN10QMatrix4x4mIERKS_', self._valueOf(other))
+    return self
+
+  @overload.fallback
+  def __isub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __imul__(self, other: QMatrix4x4) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 &QMatrix4x4::operator*=(const QMatrix4x4 &other)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator*=
+
+    Parameters
+    ----------
+
+    other : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+    """
+    #  QMatrix4x4 &QMatrix4x4::operator*=(const QMatrix4x4 &other)
+    self.uglySide.call('ritual_ZN10QMatrix4x4mLERKS_', self._valueOf(other))
+    return self
+
+  @overload(float)
+  def __imul__(self, factor: float) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 &QMatrix4x4::operator*=(float factor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator*=
+
+    Parameters
+    ----------
+
+    factor : float
+      Passed on as it is.
+    """
+    #  QMatrix4x4 &QMatrix4x4::operator*=(float factor)
+    self.uglySide.call('ritual_ZN10QMatrix4x4mLEf', factor)
+    return self
+
+  @overload.fallback
+  def __imul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(float)
+  def __itruediv__(self, divisor: float) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 &QMatrix4x4::operator/=(float divisor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator/=
+
+    Parameters
+    ----------
+
+    divisor : float
+      Passed on as it is.
+    """
+    #  QMatrix4x4 &QMatrix4x4::operator/=(float divisor)
+    self.uglySide.call('ritual_ZN10QMatrix4x4dVEf', divisor)
+    return self
+
+  @overload.fallback
+  def __itruediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __eq__(self, other: QMatrix4x4) -> bool:
+    """
+    Calls Qt's 'bool QMatrix4x4::operator==(const QMatrix4x4 &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator==
+
+    Parameters
+    ----------
+
+    other : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+    """
+    #  bool QMatrix4x4::operator==(const QMatrix4x4 &other) const
+    return self.uglySide.call(
+        'ritual_ZNK10QMatrix4x4eqERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, other: QMatrix4x4) -> bool:
+    """
+    Calls Qt's 'bool QMatrix4x4::operator!=(const QMatrix4x4 &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator!=
+
+    Parameters
+    ----------
+
+    other : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+    """
+    #  bool QMatrix4x4::operator!=(const QMatrix4x4 &other) const
+    return self.uglySide.call(
+        'ritual_ZNK10QMatrix4x4neERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __add__(self, m2: QMatrix4x4) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 operator+(const QMatrix4x4 &m1, const QMatrix4x4
+    &m2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator+
+
+    Parameters
+    ----------
+
+    m2 : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QMatrix4x4
+      A new cute QMatrix4x4 around the copy Qt gave back. Python owns it.
+    """
+    #  QMatrix4x4 operator+(const QMatrix4x4 &m1, const QMatrix4x4 &m2)
+    address = Rituals.call(
+        'ritual_ZplRK10QMatrix4x4S1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(m2),
+    )
+    return QMatrix4x4._cuteOwning(address)
+
+  @overload.fallback
+  def __add__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __sub__(self, m2: QMatrix4x4) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 operator-(const QMatrix4x4 &m1, const QMatrix4x4
+    &m2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator-
+
+    Parameters
+    ----------
+
+    m2 : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QMatrix4x4
+      A new cute QMatrix4x4 around the copy Qt gave back. Python owns it.
+    """
+    #  QMatrix4x4 operator-(const QMatrix4x4 &m1, const QMatrix4x4 &m2)
+    address = Rituals.call(
+        'ritual_ZmiRK10QMatrix4x4S1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(m2),
+    )
+    return QMatrix4x4._cuteOwning(address)
+
+  @overload.fallback
+  def __sub__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __mul__(self, m2: QMatrix4x4) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 operator*(const QMatrix4x4 &m1, const QMatrix4x4
+    &m2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator*
+
+    Parameters
+    ----------
+
+    m2 : QMatrix4x4
+      Passed on as a value: Qt reads the C++ QMatrix4x4, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QMatrix4x4
+      A new cute QMatrix4x4 around the copy Qt gave back. Python owns it.
+    """
+    #  QMatrix4x4 operator*(const QMatrix4x4 &m1, const QMatrix4x4 &m2)
+    address = Rituals.call(
+        'ritual_ZmlRK10QMatrix4x4S1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(m2),
+    )
+    return QMatrix4x4._cuteOwning(address)
+
+  @overload(QVector3D)
+  def __mul__(self, vector: QVector3D) -> QVector3D:
+    """
+    Calls Qt's 'QVector3D operator*(const QMatrix4x4 &matrix, const QVector3D
+    &vector)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator*
+
+    Parameters
+    ----------
+
+    vector : QVector3D
+      Passed on as a value: Qt reads the C++ QVector3D, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QVector3D
+      A new cute QVector3D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector3D operator*(const QMatrix4x4 &matrix, const QVector3D &vector)
+    address = Rituals.call(
+        'ritual_ZmlRK10QMatrix4x4RK9QVector3D',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(vector),
+    )
+    from . import QVector3D
+    return QVector3D._cuteOwning(address)
+
+  @overload(QVector4D)
+  def __mul__(self, vector: QVector4D) -> QVector4D:
+    """
+    Calls Qt's 'QVector4D operator*(const QMatrix4x4 &matrix, const QVector4D
+    &vector)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator*
+
+    Parameters
+    ----------
+
+    vector : QVector4D
+      Passed on as a value: Qt reads the C++ QVector4D, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QVector4D
+      A new cute QVector4D around the copy Qt gave back. Python owns it.
+    """
+    #  QVector4D operator*(const QMatrix4x4 &matrix, const QVector4D &vector)
+    address = Rituals.call(
+        'ritual_ZmlRK10QMatrix4x4RK9QVector4D',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(vector),
+    )
+    from . import QVector4D
+    return QVector4D._cuteOwning(address)
+
+  @overload(QPoint)
+  def __mul__(self, point: QPoint) -> QPoint:
+    """
+    Calls Qt's 'QPoint operator*(const QMatrix4x4 &matrix, const QPoint
+    &point)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator*
+
+    Parameters
+    ----------
+
+    point : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPoint
+      A new cute QPoint around the copy Qt gave back. Python owns it.
+    """
+    #  QPoint operator*(const QMatrix4x4 &matrix, const QPoint &point)
+    address = Rituals.call(
+        'ritual_ZmlRK10QMatrix4x4RK6QPoint',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(point),
+    )
+    from ..QtCore import QPoint
+    return QPoint._cuteOwning(address)
+
+  @overload(QPointF)
+  def __mul__(self, point: QPointF) -> QPointF:
+    """
+    Calls Qt's 'QPointF operator*(const QMatrix4x4 &matrix, const QPointF
+    &point)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator*
+
+    Parameters
+    ----------
+
+    point : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF operator*(const QMatrix4x4 &matrix, const QPointF &point)
+    address = Rituals.call(
+        'ritual_ZmlRK10QMatrix4x4RK7QPointF',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(point),
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(float)
+  def __mul__(self, factor: float) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 operator*(const QMatrix4x4 &matrix, float
+    factor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator*
+
+    Parameters
+    ----------
+
+    factor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMatrix4x4
+      A new cute QMatrix4x4 around the copy Qt gave back. Python owns it.
+    """
+    #  QMatrix4x4 operator*(const QMatrix4x4 &matrix, float factor)
+    address = Rituals.call(
+        'ritual_ZmlRK10QMatrix4x4f', CuteMixin._valueOf(self), factor,
+    )
+    return QMatrix4x4._cuteOwning(address)
+
+  @overload.fallback
+  def __mul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QPoint)
+  def __rmul__(self, point: QPoint) -> QPoint:
+    """
+    Calls Qt's 'QPoint operator*(const QPoint &point, const QMatrix4x4
+    &matrix)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator*
+
+    Parameters
+    ----------
+
+    point : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPoint
+      A new cute QPoint around the copy Qt gave back. Python owns it.
+    """
+    #  QPoint operator*(const QPoint &point, const QMatrix4x4 &matrix)
+    address = Rituals.call(
+        'ritual_ZmlRK6QPointRK10QMatrix4x4',
+        CuteMixin._valueOf(point), CuteMixin._valueOf(self),
+    )
+    from ..QtCore import QPoint
+    return QPoint._cuteOwning(address)
+
+  @overload(QPointF)
+  def __rmul__(self, point: QPointF) -> QPointF:
+    """
+    Calls Qt's 'QPointF operator*(const QPointF &point, const QMatrix4x4
+    &matrix)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator*
+
+    Parameters
+    ----------
+
+    point : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF operator*(const QPointF &point, const QMatrix4x4 &matrix)
+    address = Rituals.call(
+        'ritual_ZmlRK7QPointFRK10QMatrix4x4',
+        CuteMixin._valueOf(point), CuteMixin._valueOf(self),
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(float)
+  def __rmul__(self, factor: float) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 operator*(float factor, const QMatrix4x4
+    &matrix)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator*
+
+    Parameters
+    ----------
+
+    factor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMatrix4x4
+      A new cute QMatrix4x4 around the copy Qt gave back. Python owns it.
+    """
+    #  QMatrix4x4 operator*(float factor, const QMatrix4x4 &matrix)
+    address = Rituals.call(
+        'ritual_ZmlfRK10QMatrix4x4', factor, CuteMixin._valueOf(self),
+    )
+    return QMatrix4x4._cuteOwning(address)
+
+  @overload.fallback
+  def __rmul__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  def __neg__(self) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 operator-(const QMatrix4x4 &matrix)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator-
+
+    Returns
+    -------
+
+    QMatrix4x4
+      A new cute QMatrix4x4 around the copy Qt gave back. Python owns it.
+    """
+    #  QMatrix4x4 operator-(const QMatrix4x4 &matrix)
+    address = Rituals.call(
+        'ritual_ZngRK10QMatrix4x4', CuteMixin._valueOf(self),
+    )
+    return QMatrix4x4._cuteOwning(address)
+
+  @overload(float)
+  def __truediv__(self, divisor: float) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 operator/(const QMatrix4x4 &matrix, float
+    divisor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator/
+
+    Parameters
+    ----------
+
+    divisor : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMatrix4x4
+      A new cute QMatrix4x4 around the copy Qt gave back. Python owns it.
+    """
+    #  QMatrix4x4 operator/(const QMatrix4x4 &matrix, float divisor)
+    address = Rituals.call(
+        'ritual_ZdvRK10QMatrix4x4f', CuteMixin._valueOf(self), divisor,
+    )
+    return QMatrix4x4._cuteOwning(address)
+
+  @overload.fallback
+  def __truediv__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(QDebug)
+  def __rlshift__(self, dbg: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug operator<<(QDebug dbg, const QMatrix4x4 &m)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#operator<<
+
+    Parameters
+    ----------
+
+    dbg : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug operator<<(QDebug dbg, const QMatrix4x4 &m)
+    address = Rituals.call(
+        'ritual_Zls6QDebugRK10QMatrix4x4',
+        CuteMixin._valueOf(dbg), CuteMixin._valueOf(self),
+    )
+    from ..QtCore import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload.fallback
+  def __rlshift__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

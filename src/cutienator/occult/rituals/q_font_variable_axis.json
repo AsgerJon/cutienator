@@ -26,6 +26,9 @@
     "ritual_ZNK17QFontVariableAxis12defaultValueEv": ["double", "address"],
     "ritual_ZN17QFontVariableAxis15setDefaultValueEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_Zls6QDebugRK17QFontVariableAxis": [
+      "address", "address", "address"
     ]
   }
 }

@@ -127,6 +127,12 @@
     ],
     "ritual_ZNK10QCborValue20toDiagnosticNotationE6QFlagsINS_24DiagnosticNotationOptionEE": [
       "text", "address", "int"
-    ]
+    ],
+    "ritual_ZeqRK10QCborValueS1_": ["bool", "address", "address"],
+    "ritual_ZneRK10QCborValueS1_": ["bool", "address", "address"],
+    "ritual_ZltRK10QCborValueS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK10QCborValueS1_": ["bool", "address", "address"],
+    "ritual_ZleRK10QCborValueS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK10QCborValueS1_": ["bool", "address", "address"]
   }
 }

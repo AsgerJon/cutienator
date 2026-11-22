@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
@@ -47,12 +48,12 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMetaMethod that has a ritual and that Python can
-  call so far, 21 names in all: 'methodSignature', 'name', 'nameView',
+  call so far, 23 names in all: 'methodSignature', 'name', 'nameView',
   'typeName', 'returnType', 'returnMetaType', 'parameterCount',
   'parameterType', 'parameterMetaType', 'parameterTypeName', 'tag', 'access',
   'methodType', 'attributes', 'methodIndex', 'relativeMethodIndex',
-  'revision', 'isConst', 'enclosingMetaObject', 'invoke', 'isValid'. It can
-  be made from Python, in 1 way; see '__init__'.
+  'revision', 'isConst', 'enclosingMetaObject', 'invoke', 'isValid',
+  '__eq__', '__ne__'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -65,7 +66,7 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  16 of the 43 functions Qt declares: 7 a template; 5 private; 4 takes or
+  16 of the 45 functions Qt declares: 7 a template; 5 private; 4 takes or
   gives a type that cannot be passed yet.
 
   What to expect
@@ -862,6 +863,66 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QMetaMethod) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QMetaMethod &lhs, const QMetaMethod
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetamethod.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QMetaMethod
+      Passed on as a value: Qt reads the C++ QMetaMethod, which stays
+      Python's own.
+    """
+    #  bool operator==(const QMetaMethod &lhs, const QMetaMethod &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK11QMetaMethodS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QMetaMethod) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QMetaMethod &lhs, const QMetaMethod
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetamethod.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QMetaMethod
+      Passed on as a value: Qt reads the C++ QMetaMethod, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QMetaMethod &lhs, const QMetaMethod &rhs)
+    return Rituals.call(
+        'ritual_ZneRK11QMetaMethodS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

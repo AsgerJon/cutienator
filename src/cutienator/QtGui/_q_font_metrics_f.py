@@ -49,12 +49,13 @@ class QFontMetricsF(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFontMetricsF that has a ritual and that Python can
-  call so far, 24 names in all: 'ascent', 'capHeight', 'descent', 'height',
+  call so far, 26 names in all: 'ascent', 'capHeight', 'descent', 'height',
   'leading', 'lineSpacing', 'minLeftBearing', 'minRightBearing', 'maxWidth',
   'xHeight', 'averageCharWidth', 'inFont', 'inFontUcs4', 'leftBearing',
   'rightBearing', 'horizontalAdvance', 'boundingRect', 'tightBoundingRect',
   'elidedText', 'underlinePos', 'overlinePos', 'strikeOutPos', 'lineWidth',
-  'fontDpi'. It can be made from Python, in 4 ways; see '__init__'.
+  'fontDpi', '__eq__', '__ne__'. It can be made from Python, in 4 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,10 +67,6 @@ class QFontMetricsF(CuteMixin, metaclass=MetaCute):
     number to change where it is.
   - Qt's 'QSizeF QFontMetricsF::size(int flags, const QString &str, int
     tabstops, int *tabarray) const': takes a number to change where it is.
-  - Qt's 'bool QFontMetricsF::operator==(const QFontMetricsF &other) const':
-    an operator, which is not reflected yet.
-  - Qt's 'bool QFontMetricsF::operator!=(const QFontMetricsF &other) const':
-    an operator, which is not reflected yet.
 
   What has no ritual
   ------------------
@@ -616,6 +613,64 @@ class QFontMetricsF(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, other: QFontMetricsF) -> bool:
+    """
+    Calls Qt's 'bool QFontMetricsF::operator==(const QFontMetricsF &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontmetricsf.html#operator==
+
+    Parameters
+    ----------
+
+    other : QFontMetricsF
+      Passed on as a value: Qt reads the C++ QFontMetricsF, which stays
+      Python's own.
+    """
+    #  bool QFontMetricsF::operator==(const QFontMetricsF &other) const
+    return self.uglySide.call(
+        'ritual_ZNK13QFontMetricsFeqERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, other: QFontMetricsF) -> bool:
+    """
+    Calls Qt's 'bool QFontMetricsF::operator!=(const QFontMetricsF &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontmetricsf.html#operator!=
+
+    Parameters
+    ----------
+
+    other : QFontMetricsF
+      Passed on as a value: Qt reads the C++ QFontMetricsF, which stays
+      Python's own.
+    """
+    #  bool QFontMetricsF::operator!=(const QFontMetricsF &other) const
+    return self.uglySide.call(
+        'ritual_ZNK13QFontMetricsFneERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

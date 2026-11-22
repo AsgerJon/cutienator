@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
@@ -39,9 +40,10 @@ class QModelIndex(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QModelIndex that has a ritual and that Python can
-  call so far, 12 names in all: 'row', 'column', 'internalId', 'parent',
+  call so far, 18 names in all: 'row', 'column', 'internalId', 'parent',
   'sibling', 'siblingAtColumn', 'siblingAtRow', 'data', 'multiData', 'flags',
-  'model', 'isValid'. It can be made from Python, in 1 way; see '__init__'.
+  'model', 'isValid', '__eq__', '__ne__', '__lt__', '__gt__', '__le__',
+  '__ge__'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -52,7 +54,7 @@ class QModelIndex(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 18 functions Qt declares: 2 takes or gives a type that cannot be
+  4 of the 24 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 2 private.
 
   What to expect
@@ -298,6 +300,186 @@ class QModelIndex(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QModelIndex &lhs, const QModelIndex
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmodelindex.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool operator==(const QModelIndex &lhs, const QModelIndex &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK11QModelIndexS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QModelIndex &lhs, const QModelIndex
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmodelindex.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QModelIndex &lhs, const QModelIndex &rhs)
+    return Rituals.call(
+        'ritual_ZneRK11QModelIndexS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QModelIndex &lhs, const QModelIndex
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmodelindex.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool operator<(const QModelIndex &lhs, const QModelIndex &rhs)
+    return Rituals.call(
+        'ritual_ZltRK11QModelIndexS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QModelIndex &lhs, const QModelIndex
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmodelindex.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool operator>(const QModelIndex &lhs, const QModelIndex &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK11QModelIndexS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QModelIndex &lhs, const QModelIndex
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmodelindex.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool operator<=(const QModelIndex &lhs, const QModelIndex &rhs)
+    return Rituals.call(
+        'ritual_ZleRK11QModelIndexS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QModelIndex &lhs, const QModelIndex
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmodelindex.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool operator>=(const QModelIndex &lhs, const QModelIndex &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK11QModelIndexS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

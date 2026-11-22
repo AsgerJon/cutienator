@@ -149,3 +149,15 @@ void ritual_ZN9QUrlQuery19removeAllQueryItemsERK7QString(
     const QString *key) {
   self->removeAllQueryItems(*key);
 }
+
+//  bool operator==(const QUrlQuery &lhs, const QUrlQuery &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK9QUrlQueryS1_(const QUrlQuery *lhs, const QUrlQuery *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QUrlQuery &lhs, const QUrlQuery &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK9QUrlQueryS1_(const QUrlQuery *lhs, const QUrlQuery *rhs) {
+  return operator!=(*lhs, *rhs);
+}

@@ -352,3 +352,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZNK4QDir7refreshEv(const QDir *self) {
   self->refresh();
 }
+
+//  bool operator==(const QDir &lhs, const QDir &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK4QDirS1_(const QDir *lhs, const QDir *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QDir &lhs, const QDir &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK4QDirS1_(const QDir *lhs, const QDir *rhs) {
+  return operator!=(*lhs, *rhs);
+}

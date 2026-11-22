@@ -6,6 +6,10 @@
   "rows": {
     "ritual_ZN6QMutexC1Ev": ["address"],
     "ritual_ZN6QMutexD1Ev": ["nothing", "address"],
-    "ritual_ZN6QMutex8try_lockEv": ["bool", "address"]
+    "ritual_ZN6QMutex8try_lockEv": ["bool", "address"],
+    "ritual_ZN6QMutex7tryLockEi": ["bool", "address", "int"],
+    "ritual_ZN6QMutex7tryLockE14QDeadlineTimer": [
+      "bool", "address", "address"
+    ]
   }
 }

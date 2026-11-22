@@ -52,14 +52,14 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QListWidgetItem that has a ritual and that Python
-  can call so far, 33 names in all: 'clone', 'listWidget', 'setSelected',
+  can call so far, 34 names in all: 'clone', 'listWidget', 'setSelected',
   'isSelected', 'setHidden', 'isHidden', 'flags', 'setFlags', 'text',
   'setText', 'icon', 'setIcon', 'statusTip', 'setStatusTip', 'toolTip',
   'setToolTip', 'whatsThis', 'setWhatsThis', 'font', 'setFont',
   'textAlignment', 'setTextAlignment', 'background', 'setBackground',
   'foreground', 'setForeground', 'checkState', 'setCheckState', 'sizeHint',
-  'setSizeHint', 'data', 'setData', 'type'. It can be made from Python, in 4
-  ways; see '__init__'.
+  'setSizeHint', 'data', 'setData', '__lt__', 'type'. It can be made from
+  Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -69,8 +69,6 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
   - Qt's 'void QListWidgetItem::setTextAlignment(Qt::Alignment alignment)':
     takes in Python what 'void
     QListWidgetItem::setTextAlignment(Qt::AlignmentFlag alignment)' takes.
-  - Qt's 'bool QListWidgetItem::operator<(const QListWidgetItem &other)
-    const': an operator, which is not reflected yet.
 
   What has no ritual
   ------------------
@@ -721,6 +719,35 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __lt__(self, other: QListWidgetItem) -> bool:
+    """
+    Calls Qt's 'bool QListWidgetItem::operator<(const QListWidgetItem &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidgetitem.html#operator<
+
+    Parameters
+    ----------
+
+    other : QListWidgetItem
+      Passed on as a value: Qt reads the C++ QListWidgetItem, which stays
+      Python's own.
+    """
+    #  bool QListWidgetItem::operator<(const QListWidgetItem &other) const
+    return self.uglySide.call(
+        'ritual_ZNK15QListWidgetItemltERKS_', self._valueOf(other),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -9,6 +9,7 @@
 #include <QtCore/qjsonvalue.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qlatin1stringview.h>
+#include <QtCore/qdebug.h>
 
 //  QJsonDocument::QJsonDocument()
 extern "C" Q_DECL_EXPORT
@@ -154,4 +155,28 @@ QJsonValue *ritual_ZNK13QJsonDocumentixEx(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QJsonDocument6isNullEv(const QJsonDocument *self) {
   return self->isNull();
+}
+
+//  QDebug operator<<(QDebug a0, const QJsonDocument &a1)
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_Zls6QDebugRK13QJsonDocument(
+    const QDebug *a0,
+    const QJsonDocument *a1) {
+  return new QDebug(operator<<(*a0, *a1));
+}
+
+//  bool operator==(const QJsonDocument &lhs, const QJsonDocument &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK13QJsonDocumentS1_(
+    const QJsonDocument *lhs,
+    const QJsonDocument *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QJsonDocument &lhs, const QJsonDocument &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK13QJsonDocumentS1_(
+    const QJsonDocument *lhs,
+    const QJsonDocument *rhs) {
+  return operator!=(*lhs, *rhs);
 }

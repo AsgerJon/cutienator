@@ -17,6 +17,12 @@
     "ritual_ZN10QCborArray13ConstIteratormmEi": [
       "address", "address", "int"
     ],
+    "ritual_ZN10QCborArray13ConstIteratorpLEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN10QCborArray13ConstIteratormIEx": [
+      "nothing", "address", "long long"
+    ],
     "ritual_ZNK10QCborArray13ConstIteratorplEx": [
       "address", "address", "long long"
     ],
@@ -25,6 +31,24 @@
     ],
     "ritual_ZNK10QCborArray13ConstIteratormiES0_": [
       "long long", "address", "address"
+    ],
+    "ritual_ZeqRKN10QCborArray13ConstIteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN10QCborArray13ConstIteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltRKN10QCborArray13ConstIteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtRKN10QCborArray13ConstIteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleRKN10QCborArray13ConstIteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeRKN10QCborArray13ConstIteratorES2_": [
+      "bool", "address", "address"
     ],
     "ritual_ZN10QCborArray13ConstIteratorD1Ev": ["nothing", "address"]
   }

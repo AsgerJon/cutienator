@@ -250,6 +250,42 @@ QChar::UnicodeVersion ritual_ZN5QChar21currentUnicodeVersionEv() {
   return QChar::currentUnicodeVersion();
 }
 
+//  bool operator==(const QChar &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZeqRK5QCharS1_(const QChar *lhs, const QChar *rhs) {
+  return operator==(*lhs, *rhs);
+}
+
+//  bool operator!=(const QChar &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZneRK5QCharS1_(const QChar *lhs, const QChar *rhs) {
+  return operator!=(*lhs, *rhs);
+}
+
+//  bool operator<(const QChar &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZltRK5QCharS1_(const QChar *lhs, const QChar *rhs) {
+  return operator<(*lhs, *rhs);
+}
+
+//  bool operator>(const QChar &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgtRK5QCharS1_(const QChar *lhs, const QChar *rhs) {
+  return operator>(*lhs, *rhs);
+}
+
+//  bool operator<=(const QChar &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZleRK5QCharS1_(const QChar *lhs, const QChar *rhs) {
+  return operator<=(*lhs, *rhs);
+}
+
+//  bool operator>=(const QChar &lhs, const QChar &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZgeRK5QCharS1_(const QChar *lhs, const QChar *rhs) {
+  return operator>=(*lhs, *rhs);
+}
+
 //  QChar::~QChar()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QCharD1Ev(QChar *self) {

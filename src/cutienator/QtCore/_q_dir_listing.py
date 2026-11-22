@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, MetaCute, WAIT
@@ -675,13 +676,13 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
     ------------------------------------------
 
     - Qt's 'void QDirListing::const_iterator::operator++(int a0)': an
-      operator, which is not reflected yet.
+      operator Python has no name for.
 
     What has no ritual
     ------------------
 
-    9 of the 11 functions Qt declares: 5 takes or gives a type that cannot be
-    passed yet; 2 forbidden; 2 private.
+    13 of the 15 functions Qt declares: 9 takes or gives a type that cannot
+    be passed yet; 2 forbidden; 2 private.
 
     What to expect
     --------------
@@ -783,8 +784,10 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QDirListing::sentinel yet. None can be made from
-    Python: one comes out of a function of another class that gives one back.
+    Every function of Qt's QDirListing::sentinel that has a ritual and that
+    Python can call so far, 2 names in all: '__eq__', '__ne__'. None can be
+    made from Python: one comes out of a function of another class that gives
+    one back.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -847,6 +850,66 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(THIS)
+    def __eq__(self, a1: QDirListing.sentinel) -> bool:
+      """
+      Calls Qt's 'bool operator==(sentinel a0, sentinel a1)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qdirlisting-sentinel.html#operator==
+
+      Parameters
+      ----------
+
+      a1 : QDirListing.sentinel
+        Passed on as a value: Qt reads the C++ QDirListing::sentinel, which
+        stays Python's own.
+      """
+      #  bool operator==(sentinel a0, sentinel a1)
+      return Rituals.call(
+          'ritual_ZeqN11QDirListing8sentinelES0_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(a1),
+      )
+
+    @overload.fallback
+    def __eq__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
+
+    @overload(THIS)
+    def __ne__(self, a1: QDirListing.sentinel) -> bool:
+      """
+      Calls Qt's 'bool operator!=(sentinel a0, sentinel a1)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qdirlisting-sentinel.html#operator!=
+
+      Parameters
+      ----------
+
+      a1 : QDirListing.sentinel
+        Passed on as a value: Qt reads the C++ QDirListing::sentinel, which
+        stays Python's own.
+      """
+      #  bool operator!=(sentinel a0, sentinel a1)
+      return Rituals.call(
+          'ritual_ZneN11QDirListing8sentinelES0_',
+          CuteMixin._valueOf(self), CuteMixin._valueOf(a1),
+      )
+
+    @overload.fallback
+    def __ne__(self, *args: object) -> object:
+      """
+      Tells Python that no function of this name takes what it was
+      handed, with Python's own word for it. Python then asks the
+      other side of the operator.
+      """
+      return NotImplemented
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

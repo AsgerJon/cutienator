@@ -46,19 +46,18 @@ class QLatin1String(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLatin1String that has a ritual and that Python can
-  call so far, 34 names in all: 'toString', 'toUtf8', 'latin1', 'size',
+  call so far, 41 names in all: 'toString', 'toUtf8', 'latin1', 'size',
   'data', 'constData', 'constBegin', 'constEnd', 'first', 'last', 'length',
-  'isNull', 'isEmpty', 'empty', 'at', 'front', 'back', 'compare',
-  'startsWith', 'endsWith', 'indexOf', 'contains', 'lastIndexOf', 'count',
-  'max_size', 'maxSize', 'mid', 'left', 'right', 'sliced', 'chopped', 'chop',
-  'truncate', 'trimmed'. It can be made from Python, in 6 ways; see
+  'isNull', 'isEmpty', 'empty', 'at', '__getitem__', 'front', 'back',
+  'compare', 'startsWith', 'endsWith', 'indexOf', 'contains', 'lastIndexOf',
+  'count', 'max_size', 'maxSize', 'mid', 'left', 'right', 'sliced',
+  'chopped', 'chop', 'truncate', 'trimmed', '__eq__', '__ne__', '__lt__',
+  '__gt__', '__le__', '__ge__'. It can be made from Python, in 6 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QLatin1Char QLatin1String::operator[](qsizetype i) const': an
-    operator, which is not reflected yet.
   - Qt's 'short QLatin1String::toShort(bool *ok, int base) const': takes a
     number to change where it is.
   - Qt's 'ushort QLatin1String::toUShort(bool *ok, int base) const': takes a
@@ -79,14 +78,86 @@ class QLatin1String(CuteMixin, metaclass=MetaCute):
     change where it is.
   - Qt's 'double QLatin1String::toDouble(bool *ok) const': takes a number to
     change where it is.
+  - Qt's 'bool operator==(const QChar &lhs, const QLatin1StringView &rhs)':
+    takes in Python what 'bool operator==(const QLatin1StringView &lhs, const
+    QChar &rhs)' takes.
+  - Qt's 'bool operator!=(const QChar &lhs, const QLatin1StringView &rhs)':
+    takes in Python what 'bool operator!=(const QLatin1StringView &lhs, const
+    QChar &rhs)' takes.
+  - Qt's 'bool operator<(const QChar &lhs, const QLatin1StringView &rhs)':
+    takes in Python what 'bool operator>(const QLatin1StringView &lhs, const
+    QChar &rhs)' takes.
+  - Qt's 'bool operator>(const QChar &lhs, const QLatin1StringView &rhs)':
+    takes in Python what 'bool operator<(const QLatin1StringView &lhs, const
+    QChar &rhs)' takes.
+  - Qt's 'bool operator<=(const QChar &lhs, const QLatin1StringView &rhs)':
+    takes in Python what 'bool operator>=(const QLatin1StringView &lhs, const
+    QChar &rhs)' takes.
+  - Qt's 'bool operator>=(const QChar &lhs, const QLatin1StringView &rhs)':
+    takes in Python what 'bool operator<=(const QLatin1StringView &lhs, const
+    QChar &rhs)' takes.
+  - Qt's 'bool operator==(const QStringView &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator==(const QLatin1StringView
+    &lhs, const QStringView &rhs)' takes.
+  - Qt's 'bool operator!=(const QStringView &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator!=(const QLatin1StringView
+    &lhs, const QStringView &rhs)' takes.
+  - Qt's 'bool operator<(const QStringView &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator>(const QLatin1StringView
+    &lhs, const QStringView &rhs)' takes.
+  - Qt's 'bool operator>(const QStringView &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator<(const QLatin1StringView
+    &lhs, const QStringView &rhs)' takes.
+  - Qt's 'bool operator<=(const QStringView &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator>=(const QLatin1StringView
+    &lhs, const QStringView &rhs)' takes.
+  - Qt's 'bool operator>=(const QStringView &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator<=(const QLatin1StringView
+    &lhs, const QStringView &rhs)' takes.
+  - Qt's 'bool operator==(const QByteArrayView &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator==(const QLatin1StringView
+    &lhs, const QByteArrayView &rhs)' takes.
+  - Qt's 'bool operator!=(const QByteArrayView &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator!=(const QLatin1StringView
+    &lhs, const QByteArrayView &rhs)' takes.
+  - Qt's 'bool operator<(const QByteArrayView &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator>(const QLatin1StringView
+    &lhs, const QByteArrayView &rhs)' takes.
+  - Qt's 'bool operator>(const QByteArrayView &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator<(const QLatin1StringView
+    &lhs, const QByteArrayView &rhs)' takes.
+  - Qt's 'bool operator<=(const QByteArrayView &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator>=(const QLatin1StringView
+    &lhs, const QByteArrayView &rhs)' takes.
+  - Qt's 'bool operator>=(const QByteArrayView &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator<=(const QLatin1StringView
+    &lhs, const QByteArrayView &rhs)' takes.
+  - Qt's 'bool operator==(const QByteArray &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator==(const QLatin1StringView
+    &lhs, const QByteArray &rhs)' takes.
+  - Qt's 'bool operator!=(const QByteArray &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator!=(const QLatin1StringView
+    &lhs, const QByteArray &rhs)' takes.
+  - Qt's 'bool operator<(const QByteArray &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator>(const QLatin1StringView
+    &lhs, const QByteArray &rhs)' takes.
+  - Qt's 'bool operator>(const QByteArray &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator<(const QLatin1StringView
+    &lhs, const QByteArray &rhs)' takes.
+  - Qt's 'bool operator<=(const QByteArray &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator>=(const QLatin1StringView
+    &lhs, const QByteArray &rhs)' takes.
+  - Qt's 'bool operator>=(const QByteArray &lhs, const QLatin1StringView
+    &rhs)': takes in Python what 'bool operator<=(const QLatin1StringView
+    &lhs, const QByteArray &rhs)' takes.
   - Qt's 'QLatin1String::~QLatin1String()': the destructor: Python removes
     its C++ QLatin1String by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  19 of the 97 functions Qt declares: 11 takes or gives a type that cannot be
-  passed yet; 5 private; 3 a template.
+  31 of the 163 functions Qt declares: 23 takes or gives a type that cannot
+  be passed yet; 5 private; 3 a template.
 
   What to expect
   --------------
@@ -1464,6 +1535,714 @@ class QLatin1String(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def __getitem__(self, i: int) -> QLatin1Char:
+    """
+    Calls Qt's 'QLatin1Char QLatin1String::operator[](qsizetype i) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator[]
+
+    Parameters
+    ----------
+
+    i : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QLatin1Char
+      A new cute QLatin1Char around the copy Qt gave back. Python owns it.
+    """
+    #  QLatin1Char QLatin1String::operator[](qsizetype i) const
+    address = self.uglySide.call('ritual_ZNK13QLatin1StringixEx', i)
+    from . import QLatin1Char
+    return QLatin1Char._cuteOwning(address)
+
+  @overload(THIS)
+  def __eq__(self, rhs: QLatin1String) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QLatin1StringView &lhs, const
+    QLatin1StringView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+    """
+    #  bool operator==(const QLatin1StringView &lhs, const QLatin1StringView
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK13QLatin1StringS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __eq__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QLatin1StringView &lhs, const QChar
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator==(const QLatin1StringView &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK13QLatin1StringRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(str)
+  def __eq__(self, rhs: str) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QLatin1StringView &lhs, const
+    QStringView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool operator==(const QLatin1StringView &lhs, const QStringView &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK13QLatin1StringRK11QStringView',
+        CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(QByteArrayView)
+  def __eq__(self, rhs: QByteArrayView) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QLatin1StringView &lhs, const
+    QByteArrayView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  bool operator==(const QLatin1StringView &lhs, const QByteArrayView
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK13QLatin1StringRK14QByteArrayView',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QByteArray)
+  def __eq__(self, rhs: QByteArray) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QLatin1StringView &lhs, const
+    QByteArray &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  bool operator==(const QLatin1StringView &lhs, const QByteArray &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK13QLatin1StringRK10QByteArray',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QLatin1String) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QLatin1StringView &lhs, const
+    QLatin1StringView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QLatin1StringView &lhs, const QLatin1StringView
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZneRK13QLatin1StringS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __ne__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QLatin1StringView &lhs, const QChar
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator!=(const QLatin1StringView &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZneRK13QLatin1StringRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(str)
+  def __ne__(self, rhs: str) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QLatin1StringView &lhs, const
+    QStringView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool operator!=(const QLatin1StringView &lhs, const QStringView &rhs)
+    return Rituals.call(
+        'ritual_ZneRK13QLatin1StringRK11QStringView',
+        CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(QByteArrayView)
+  def __ne__(self, rhs: QByteArrayView) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QLatin1StringView &lhs, const
+    QByteArrayView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QLatin1StringView &lhs, const QByteArrayView
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZneRK13QLatin1StringRK14QByteArrayView',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QByteArray)
+  def __ne__(self, rhs: QByteArray) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QLatin1StringView &lhs, const
+    QByteArray &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  bool operator!=(const QLatin1StringView &lhs, const QByteArray &rhs)
+    return Rituals.call(
+        'ritual_ZneRK13QLatin1StringRK10QByteArray',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QLatin1String) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QLatin1StringView &lhs, const
+    QLatin1StringView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+    """
+    #  bool operator<(const QLatin1StringView &lhs, const QLatin1StringView
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZltRK13QLatin1StringS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __lt__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QLatin1StringView &lhs, const QChar
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator<(const QLatin1StringView &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZltRK13QLatin1StringRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(str)
+  def __lt__(self, rhs: str) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QLatin1StringView &lhs, const
+    QStringView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool operator<(const QLatin1StringView &lhs, const QStringView &rhs)
+    return Rituals.call(
+        'ritual_ZltRK13QLatin1StringRK11QStringView',
+        CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(QByteArrayView)
+  def __lt__(self, rhs: QByteArrayView) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QLatin1StringView &lhs, const
+    QByteArrayView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  bool operator<(const QLatin1StringView &lhs, const QByteArrayView
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZltRK13QLatin1StringRK14QByteArrayView',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QByteArray)
+  def __lt__(self, rhs: QByteArray) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QLatin1StringView &lhs, const QByteArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  bool operator<(const QLatin1StringView &lhs, const QByteArray &rhs)
+    return Rituals.call(
+        'ritual_ZltRK13QLatin1StringRK10QByteArray',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QLatin1String) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QLatin1StringView &lhs, const
+    QLatin1StringView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+    """
+    #  bool operator>(const QLatin1StringView &lhs, const QLatin1StringView
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK13QLatin1StringS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __gt__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QLatin1StringView &lhs, const QChar
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator>(const QLatin1StringView &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK13QLatin1StringRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(str)
+  def __gt__(self, rhs: str) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QLatin1StringView &lhs, const
+    QStringView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool operator>(const QLatin1StringView &lhs, const QStringView &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK13QLatin1StringRK11QStringView',
+        CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(QByteArrayView)
+  def __gt__(self, rhs: QByteArrayView) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QLatin1StringView &lhs, const
+    QByteArrayView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  bool operator>(const QLatin1StringView &lhs, const QByteArrayView
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK13QLatin1StringRK14QByteArrayView',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QByteArray)
+  def __gt__(self, rhs: QByteArray) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QLatin1StringView &lhs, const QByteArray
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  bool operator>(const QLatin1StringView &lhs, const QByteArray &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK13QLatin1StringRK10QByteArray',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QLatin1String) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QLatin1StringView &lhs, const
+    QLatin1StringView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+    """
+    #  bool operator<=(const QLatin1StringView &lhs, const QLatin1StringView
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZleRK13QLatin1StringS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __le__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QLatin1StringView &lhs, const QChar
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator<=(const QLatin1StringView &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZleRK13QLatin1StringRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(str)
+  def __le__(self, rhs: str) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QLatin1StringView &lhs, const
+    QStringView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool operator<=(const QLatin1StringView &lhs, const QStringView &rhs)
+    return Rituals.call(
+        'ritual_ZleRK13QLatin1StringRK11QStringView',
+        CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(QByteArrayView)
+  def __le__(self, rhs: QByteArrayView) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QLatin1StringView &lhs, const
+    QByteArrayView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  bool operator<=(const QLatin1StringView &lhs, const QByteArrayView
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZleRK13QLatin1StringRK14QByteArrayView',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QByteArray)
+  def __le__(self, rhs: QByteArray) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QLatin1StringView &lhs, const
+    QByteArray &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  bool operator<=(const QLatin1StringView &lhs, const QByteArray &rhs)
+    return Rituals.call(
+        'ritual_ZleRK13QLatin1StringRK10QByteArray',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QLatin1String) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QLatin1StringView &lhs, const
+    QLatin1StringView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+    """
+    #  bool operator>=(const QLatin1StringView &lhs, const QLatin1StringView
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK13QLatin1StringS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __ge__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QLatin1StringView &lhs, const QChar
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator>=(const QLatin1StringView &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK13QLatin1StringRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(str)
+  def __ge__(self, rhs: str) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QLatin1StringView &lhs, const
+    QStringView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool operator>=(const QLatin1StringView &lhs, const QStringView &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK13QLatin1StringRK11QStringView',
+        CuteMixin._valueOf(self), rhs,
+    )
+
+  @overload(QByteArrayView)
+  def __ge__(self, rhs: QByteArrayView) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QLatin1StringView &lhs, const
+    QByteArrayView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  bool operator>=(const QLatin1StringView &lhs, const QByteArrayView
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK13QLatin1StringRK14QByteArrayView',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QByteArray)
+  def __ge__(self, rhs: QByteArray) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QLatin1StringView &lhs, const
+    QByteArray &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  bool operator>=(const QLatin1StringView &lhs, const QByteArray &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK13QLatin1StringRK10QByteArray',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

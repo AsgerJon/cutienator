@@ -6,6 +6,12 @@
   "rows": {
     "ritual_ZNK10QByteArray16FromBase64ResultcvbEv": ["bool", "address"],
     "ritual_ZNKR10QByteArray16FromBase64ResultdeEv": ["address", "address"],
+    "ritual_ZeqRKN10QByteArray16FromBase64ResultES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN10QByteArray16FromBase64ResultES2_": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN10QByteArray16FromBase64ResultD1Ev": ["nothing", "address"]
   }
 }

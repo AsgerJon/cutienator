@@ -37,8 +37,8 @@ class QRgba64(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'quint64 QRgba64::operator unsigned long long() const': an operator,
-    which is not reflected yet.
+  - Qt's 'quint64 QRgba64::operator unsigned long long() const': an operator
+    Python has no name for.
   - Qt's 'QRgba64::~QRgba64()': the destructor: Python removes its C++
     QRgba64 by it, and has no other use for it.
 

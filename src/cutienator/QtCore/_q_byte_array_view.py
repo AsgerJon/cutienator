@@ -12,12 +12,17 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QByteArray
+  from . import QByteArray, QChar
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QChar = WAIT['QChar']
 
 
 class QByteArrayView(CuteMixin, metaclass=MetaCute):
@@ -33,17 +38,18 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QByteArrayView that has a ritual and that Python can
-  call so far, 26 names in all: 'toByteArray', 'maxSize', 'size', 'first',
+  call so far, 32 names in all: 'toByteArray', 'maxSize', 'size', 'first',
   'last', 'sliced', 'chopped', 'left', 'right', 'mid', 'truncate', 'chop',
   'trimmed', 'startsWith', 'endsWith', 'indexOf', 'contains', 'lastIndexOf',
   'count', 'compare', 'isValidUtf8', 'empty', 'max_size', 'isNull',
-  'isEmpty', 'length'. It can be made from Python, in 1 way; see '__init__'.
+  'isEmpty', 'length', '__eq__', '__ne__', '__lt__', '__gt__', '__le__',
+  '__ge__'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'char QByteArrayView::operator[](qsizetype n) const': an operator,
-    which is not reflected yet.
+  - Qt's 'char QByteArrayView::operator[](qsizetype n) const': gives a single
+    letter as C has it.
   - Qt's 'char QByteArrayView::at(qsizetype n) const': gives a single letter
     as C has it.
   - Qt's 'short QByteArrayView::toShort(bool *ok, int base) const': takes a
@@ -86,14 +92,56 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
     it.
   - Qt's 'char QByteArrayView::last() const': gives a single letter as C has
     it.
+  - Qt's 'bool operator==(const QByteArrayView &lhs, const char &rhs)': takes
+    a single letter as C has it.
+  - Qt's 'bool operator!=(const QByteArrayView &lhs, const char &rhs)': takes
+    a single letter as C has it.
+  - Qt's 'bool operator<(const QByteArrayView &lhs, const char &rhs)': takes
+    a single letter as C has it.
+  - Qt's 'bool operator>(const QByteArrayView &lhs, const char &rhs)': takes
+    a single letter as C has it.
+  - Qt's 'bool operator<=(const QByteArrayView &lhs, const char &rhs)': takes
+    a single letter as C has it.
+  - Qt's 'bool operator>=(const QByteArrayView &lhs, const char &rhs)': takes
+    a single letter as C has it.
+  - Qt's 'bool operator==(const char &lhs, const QByteArrayView &rhs)': takes
+    a single letter as C has it.
+  - Qt's 'bool operator!=(const char &lhs, const QByteArrayView &rhs)': takes
+    a single letter as C has it.
+  - Qt's 'bool operator<(const char &lhs, const QByteArrayView &rhs)': takes
+    a single letter as C has it.
+  - Qt's 'bool operator>(const char &lhs, const QByteArrayView &rhs)': takes
+    a single letter as C has it.
+  - Qt's 'bool operator<=(const char &lhs, const QByteArrayView &rhs)': takes
+    a single letter as C has it.
+  - Qt's 'bool operator>=(const char &lhs, const QByteArrayView &rhs)': takes
+    a single letter as C has it.
+  - Qt's 'bool operator==(const QChar &lhs, const QByteArrayView &rhs)':
+    takes in Python what 'bool operator==(const QByteArrayView &lhs, const
+    QChar &rhs)' takes.
+  - Qt's 'bool operator!=(const QChar &lhs, const QByteArrayView &rhs)':
+    takes in Python what 'bool operator!=(const QByteArrayView &lhs, const
+    QChar &rhs)' takes.
+  - Qt's 'bool operator<(const QChar &lhs, const QByteArrayView &rhs)': takes
+    in Python what 'bool operator>(const QByteArrayView &lhs, const QChar
+    &rhs)' takes.
+  - Qt's 'bool operator>(const QChar &lhs, const QByteArrayView &rhs)': takes
+    in Python what 'bool operator<(const QByteArrayView &lhs, const QChar
+    &rhs)' takes.
+  - Qt's 'bool operator<=(const QChar &lhs, const QByteArrayView &rhs)':
+    takes in Python what 'bool operator>=(const QByteArrayView &lhs, const
+    QChar &rhs)' takes.
+  - Qt's 'bool operator>=(const QChar &lhs, const QByteArrayView &rhs)':
+    takes in Python what 'bool operator<=(const QByteArrayView &lhs, const
+    QChar &rhs)' takes.
   - Qt's 'QByteArrayView::~QByteArrayView()': the destructor: Python removes
     its C++ QByteArrayView by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  27 of the 80 functions Qt declares: 14 takes or gives a type that cannot be
-  passed yet; 10 a template; 3 private.
+  39 of the 122 functions Qt declares: 26 takes or gives a type that cannot
+  be passed yet; 10 a template; 3 private.
 
   What to expect
   --------------
@@ -641,6 +689,304 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QByteArrayView) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QByteArrayView &lhs, const
+    QByteArrayView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  bool operator==(const QByteArrayView &lhs, const QByteArrayView &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK14QByteArrayViewS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __eq__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QByteArrayView &lhs, const QChar
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator==(const QByteArrayView &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK14QByteArrayViewRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QByteArrayView) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QByteArrayView &lhs, const
+    QByteArrayView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QByteArrayView &lhs, const QByteArrayView &rhs)
+    return Rituals.call(
+        'ritual_ZneRK14QByteArrayViewS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __ne__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QByteArrayView &lhs, const QChar
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator!=(const QByteArrayView &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZneRK14QByteArrayViewRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __lt__(self, rhs: QByteArrayView) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QByteArrayView &lhs, const
+    QByteArrayView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  bool operator<(const QByteArrayView &lhs, const QByteArrayView &rhs)
+    return Rituals.call(
+        'ritual_ZltRK14QByteArrayViewS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __lt__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QByteArrayView &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator<(const QByteArrayView &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZltRK14QByteArrayViewRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __gt__(self, rhs: QByteArrayView) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QByteArrayView &lhs, const
+    QByteArrayView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  bool operator>(const QByteArrayView &lhs, const QByteArrayView &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK14QByteArrayViewS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __gt__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QByteArrayView &lhs, const QChar &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator>(const QByteArrayView &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK14QByteArrayViewRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __le__(self, rhs: QByteArrayView) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QByteArrayView &lhs, const
+    QByteArrayView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  bool operator<=(const QByteArrayView &lhs, const QByteArrayView &rhs)
+    return Rituals.call(
+        'ritual_ZleRK14QByteArrayViewS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __le__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QByteArrayView &lhs, const QChar
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator<=(const QByteArrayView &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZleRK14QByteArrayViewRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ge__(self, rhs: QByteArrayView) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QByteArrayView &lhs, const
+    QByteArrayView &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+    """
+    #  bool operator>=(const QByteArrayView &lhs, const QByteArrayView &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK14QByteArrayViewS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(QChar)
+  def __ge__(self, rhs: QChar) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QByteArrayView &lhs, const QChar
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  bool operator>=(const QByteArrayView &lhs, const QChar &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK14QByteArrayViewRK5QChar',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

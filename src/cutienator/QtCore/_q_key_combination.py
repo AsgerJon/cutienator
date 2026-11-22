@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
@@ -29,22 +30,22 @@ class QKeyCombination(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QKeyCombination that has a ritual and that Python
-  can call so far, 4 names in all: 'keyboardModifiers', 'key',
-  'fromCombined', 'toCombined'. It can be made from Python, in 3 ways; see
-  '__init__'.
+  can call so far, 6 names in all: 'keyboardModifiers', 'key',
+  'fromCombined', 'toCombined', '__eq__', '__ne__'. It can be made from
+  Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'int QKeyCombination::operator int() const': an operator, which is
-    not reflected yet.
+  - Qt's 'int QKeyCombination::operator int() const': an operator Python has
+    no name for.
   - Qt's 'QKeyCombination::~QKeyCombination()': the destructor: Python
     removes its C++ QKeyCombination by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  1 of the 10 functions Qt declares: 1 forbidden.
+  1 of the 12 functions Qt declares: 1 forbidden.
 
   What to expect
   --------------
@@ -171,6 +172,68 @@ class QKeyCombination(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def __eq__(self, rhs: QKeyCombination) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QKeyCombination &lhs, const
+    QKeyCombination &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeycombination.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : QKeyCombination
+      Passed on as a value: Qt reads the C++ QKeyCombination, which stays
+      Python's own.
+    """
+    #  bool operator==(const QKeyCombination &lhs, const QKeyCombination
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK15QKeyCombinationS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __eq__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(THIS)
+  def __ne__(self, rhs: QKeyCombination) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QKeyCombination &lhs, const
+    QKeyCombination &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeycombination.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : QKeyCombination
+      Passed on as a value: Qt reads the C++ QKeyCombination, which stays
+      Python's own.
+    """
+    #  bool operator!=(const QKeyCombination &lhs, const QKeyCombination
+    #      &rhs)
+    return Rituals.call(
+        'ritual_ZneRK15QKeyCombinationS1_',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload.fallback
+  def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
