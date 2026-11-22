@@ -111,11 +111,22 @@ class TestBuild(BaseTest):
       Build().getCompileCommand('q_object.cpp')
 
   def test_an_object_file_is_named_after_its_ritual_file(self) -> None:
-    """It lies in the folder 'objects' beside the target file."""
+    """It lies in the folder 'demons' beside the target file, and for
+    a ritual file of a part of Qt in the folder of that part there."""
     build = Build()
     build.setTargetFile(Rituals.getTargetFile())
-    folder = os.path.join(Rituals.getRitualFolder(), 'objects')
+    here = os.path.dirname(Rituals.getRitualFolder())
+    folder = os.path.join(here, 'demons')
     self.assertEqual(build.getObjectFolder(), folder)
+    ritualFile = os.path.join(
+        Rituals.getPartFolder('QtCore'), 'q_object.cpp')
+    self.assertEqual(
+        build.getObjectFile(ritualFile),
+        os.path.join(folder, 'QtCoreDemons', 'q_object.o'))
+    self.assertEqual(
+        os.path.basename(Rituals.getPartFolder('QtCore')), 'QtCoreRituals')
+    self.assertEqual(
+        os.path.dirname(Rituals.getTargetFile()), here)
     self.assertEqual(
         build.getObjectFile(os.path.join('anywhere', 'q_object.cpp')),
         os.path.join(folder, 'q_object.o'),

@@ -66,7 +66,7 @@ class Build:
   - 'getQtVersion': which Qt that is, as '6.12.0'.
 
   Two more follow from what you provide: 'getObjectFolder', the folder
-  'objects' beside the target file, and 'getJobCount', how many ritual
+  'demons' beside the target file, and 'getJobCount', how many ritual
   files are compiled at the same time, which is as many as the machine
   has processors unless 'setJobCount' says otherwise.
 
@@ -401,8 +401,9 @@ class Build:
     """
     Gives the folder the object files are kept in.
 
-    Found for you: the folder 'objects' beside the target file. Having
-    the path does not mean the folder is there; 'run' makes it.
+    Found for you: the folder 'demons' beside the target file: what
+    the rituals summon. Having the path does not mean the folder is
+    there; 'run' makes it.
 
     Raises
     ------
@@ -410,19 +411,26 @@ class Build:
     MissingVariable
       'setTargetFile' has not been called on this build.
     """
-    return os.path.join(os.path.dirname(self.getTargetFile()), 'objects')
+    return os.path.join(os.path.dirname(self.getTargetFile()), 'demons')
 
   def getObjectFile(self, ritualFile: str) -> str:
     """
     Gives the object file of one ritual file: the same name with the
-    ending '.o', in the object folder.
+    ending '.o', in the object folder. A ritual file lying in the
+    folder of a part of Qt, as 'QtCoreRituals', has its object file in
+    the folder of that part in the object folder: 'QtCoreDemons'.
 
     Parameters
     ----------
 
     ritualFile : str
-      The path of a ritual file, as '/here/q_object.cpp'.
+      The path of a ritual file, as '/here/QtCoreRituals/q_object.cpp'.
     """
+    partFolder = os.path.basename(os.path.dirname(ritualFile))
+    if partFolder.endswith('Rituals') and partFolder != 'Rituals':
+      stem = os.path.splitext(os.path.basename(ritualFile))[0]
+      demons = '%sDemons' % partFolder[:-len('Rituals')]
+      return os.path.join(self.getObjectFolder(), demons, '%s.o' % stem)
     stem = os.path.splitext(os.path.basename(ritualFile))[0]
     return os.path.join(self.getObjectFolder(), '%s.o' % stem)
 
@@ -843,6 +851,9 @@ class Build:
         each ritual file a name of its own."""
         raise ValueError(' '.join((infoSpec % objectFile).split()))
     os.makedirs(self.getObjectFolder(), exist_ok=True)
+    for objectFile in objectFiles:
+      #  The object files of each part of Qt lie in a folder of its own.
+      os.makedirs(os.path.dirname(objectFile), exist_ok=True)
     toldFile, toldText = self.getToldFile(), self.getToldText()
     stale = self.getStaleRitualFiles()
     if len(stale) == len(ritualFiles) and os.path.isfile(toldFile):

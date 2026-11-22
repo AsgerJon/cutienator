@@ -171,20 +171,44 @@ class Rituals:
   @classmethod
   def getRitualFolder(cls) -> str:
     """
-    Gives the folder holding the ritual files and the target file.
+    Gives the folder holding the ritual files.
 
-    Found for you: it is the folder 'rituals' beside this module.
+    Found for you: it is the folder 'rituals' beside this module. The
+    ritual files of each part of Qt lie in a folder of their own in it,
+    named after the part: 'QtCoreRituals', 'QtGuiRituals' and
+    'QtWidgetsRituals'. See 'getPartFolder'.
     """
     here = os.path.dirname(os.path.abspath(__file__))
     return os.path.join(here, 'rituals')
+
+  @classmethod
+  def getPartFolder(cls, partName: str) -> str:
+    """
+    Gives the folder holding the ritual files of one part of Qt.
+
+    Parameters
+    ----------
+
+    partName : str
+      The part of Qt, as 'QtCore'.
+
+    Returns
+    -------
+
+    str
+      The full path, ending in 'rituals/QtCoreRituals' for 'QtCore'.
+      Having the path does not mean the folder is there.
+    """
+    return os.path.join(cls.getRitualFolder(), '%sRituals' % partName)
 
   @classmethod
   def getRitualFiles(cls) -> Paths:
     """
     Gives the ritual files that 'build' compiles.
 
-    Found for you: every file ending in '.cpp' in the ritual folder, in
-    alphabetical order. Putting a file there is all it takes.
+    Found for you: every file ending in '.cpp' in the folder of a part
+    of Qt in the ritual folder, part by part and in alphabetical order.
+    Putting a file there is all it takes.
 
     Returns
     -------
@@ -192,7 +216,7 @@ class Rituals:
     Paths
       A 'Tuple[str, ...]' of full paths.
     """
-    pattern = os.path.join(cls.getRitualFolder(), '*.cpp')
+    pattern = os.path.join(cls.getRitualFolder(), '*Rituals', '*.cpp')
     return (*sorted(glob.glob(pattern)),)
 
   @classmethod
@@ -200,10 +224,12 @@ class Rituals:
     """
     Gives the path of cutienator's own shared object.
 
-    Found for you: 'libcutienator.so' in the ritual folder. Having the
-    path does not mean the file is there; 'build' makes it.
+    Found for you: 'libcutienator.so' beside the ritual folder, so
+    that nothing built lies among the ritual files. Having the path
+    does not mean the file is there; 'build' makes it.
     """
-    return os.path.join(cls.getRitualFolder(), 'libcutienator.so')
+    here = os.path.dirname(cls.getRitualFolder())
+    return os.path.join(here, 'libcutienator.so')
 
   @classmethod
   def getQtSharedObjects(cls) -> Paths:
