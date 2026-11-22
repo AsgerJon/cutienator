@@ -52,32 +52,8 @@ class QFile(QFileDevice):
   ------------------------------------------
 
   - Qt's 'QFile::~QFile()': the destructor: Python never removes a C++ QFile.
-  - Qt's 'bool QFile::exists(const QString &fileName)': another kind of
-    method than most functions of its name, and one name is one kind of
-    method.
-  - Qt's 'QString QFile::symLinkTarget(const QString &fileName)': another
-    kind of method than most functions of its name, and one name is one kind
-    of method.
-  - Qt's 'bool QFile::remove(const QString &fileName)': another kind of
-    method than most functions of its name, and one name is one kind of
-    method.
   - Qt's 'bool QFile::moveToTrash(const QString &fileName, QString
     *pathInTrash)': names 'QString', which has no cute class yet.
-  - Qt's 'bool QFile::rename(const QString &oldName, const QString
-    &newName)': another kind of method than most functions of its name, and
-    one name is one kind of method.
-  - Qt's 'bool QFile::link(const QString &fileName, const QString &newName)':
-    another kind of method than most functions of its name, and one name is
-    one kind of method.
-  - Qt's 'bool QFile::resize(const QString &filename, qint64 sz)': another
-    kind of method than most functions of its name, and one name is one kind
-    of method.
-  - Qt's 'Permissions QFile::permissions(const QString &filename)': another
-    kind of method than most functions of its name, and one name is one kind
-    of method.
-  - Qt's 'bool QFile::setPermissions(const QString &filename, Permissions
-    permissionSpec)': another kind of method than most functions of its name,
-    and one name is one kind of method.
 
   What has no ritual
   ------------------
@@ -289,6 +265,7 @@ class QFile(QFileDevice):
     #  QString QFile::fileName() const
     return self.uglySide.call('ritual_ZNK5QFile8fileNameEv')
 
+  @overload()
   def exists(self) -> bool:
     """
     Calls Qt's 'bool QFile::exists() const'.
@@ -298,6 +275,24 @@ class QFile(QFileDevice):
     #  bool QFile::exists() const
     return self.uglySide.call('ritual_ZNK5QFile6existsEv')
 
+  @staticmethod
+  @overload(str)
+  def exists(fileName: str) -> bool:
+    """
+    Calls Qt's 'bool QFile::exists(const QString &fileName)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfile.html#exists
+
+    Parameters
+    ----------
+
+    fileName : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool QFile::exists(const QString &fileName)
+    return Rituals.call('ritual_ZN5QFile6existsERK7QString', fileName)
+
+  @overload()
   def symLinkTarget(self) -> str:
     """
     Calls Qt's 'QString QFile::symLinkTarget() const'.
@@ -313,6 +308,31 @@ class QFile(QFileDevice):
     #  QString QFile::symLinkTarget() const
     return self.uglySide.call('ritual_ZNK5QFile13symLinkTargetEv')
 
+  @staticmethod
+  @overload(str)
+  def symLinkTarget(fileName: str) -> str:
+    """
+    Calls Qt's 'QString QFile::symLinkTarget(const QString &fileName)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfile.html#symLinkTarget
+
+    Parameters
+    ----------
+
+    fileName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QFile::symLinkTarget(const QString &fileName)
+    return Rituals.call(
+        'ritual_ZN5QFile13symLinkTargetERK7QString', fileName,
+    )
+
   def size(self) -> int:
     """
     Calls Qt's 'qint64 QFile::size() const'.
@@ -322,6 +342,7 @@ class QFile(QFileDevice):
     #  qint64 QFile::size() const
     return self.uglySide.call('ritual_ZNK5QFile4sizeEv')
 
+  @overload()
   def permissions(self) -> QFileDevice.Permissions:
     """
     Calls Qt's 'Permissions QFile::permissions() const'.
@@ -337,6 +358,31 @@ class QFile(QFileDevice):
     #  Permissions QFile::permissions() const
     return QFileDevice.Permissions(self.uglySide.call(
         'ritual_ZNK5QFile11permissionsEv',
+    ))
+
+  @staticmethod
+  @overload(str)
+  def permissions(filename: str) -> QFileDevice.Permissions:
+    """
+    Calls Qt's 'Permissions QFile::permissions(const QString &filename)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfile.html#permissions
+
+    Parameters
+    ----------
+
+    filename : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QFileDevice.Permissions
+      The value standing for the combination Qt gave back.
+    """
+    #  Permissions QFile::permissions(const QString &filename)
+    return QFileDevice.Permissions(Rituals.call(
+        'ritual_ZN5QFile11permissionsERK7QString', filename,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -377,6 +423,35 @@ class QFile(QFileDevice):
         'ritual_ZN5QFile14setPermissionsE6QFlagsIN11QFileDevice10Permission'
         'EE',
         permissionSpec.value,
+    )
+
+  @staticmethod
+  @overload(str, QFileDevice.Permissions)
+  def setPermissions(
+      filename: str,
+      permissionSpec: QFileDevice.Permissions,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QFile::setPermissions(const QString &filename,
+    Permissions permissionSpec)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfile.html#setPermissions
+
+    Parameters
+    ----------
+
+    filename : str
+      Passed on as it is: a QString is made of it for the call.
+
+    permissionSpec : QFileDevice.Permissions
+      Passed on as its number.
+    """
+    #  bool QFile::setPermissions(const QString &filename, Permissions
+    #      permissionSpec)
+    return Rituals.call(
+        'ritual_ZN5QFile14setPermissionsERK7QString6QFlagsIN11QFileDevice10'
+        'PermissionEE',
+        filename, permissionSpec.value,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -487,6 +562,7 @@ class QFile(QFileDevice):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
   def remove(self) -> bool:
     """
     Calls Qt's 'bool QFile::remove()'.
@@ -495,6 +571,23 @@ class QFile(QFileDevice):
     """
     #  bool QFile::remove()
     return self.uglySide.call('ritual_ZN5QFile6removeEv')
+
+  @staticmethod
+  @overload(str)
+  def remove(fileName: str) -> bool:
+    """
+    Calls Qt's 'bool QFile::remove(const QString &fileName)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfile.html#remove
+
+    Parameters
+    ----------
+
+    fileName : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool QFile::remove(const QString &fileName)
+    return Rituals.call('ritual_ZN5QFile6removeERK7QString', fileName)
 
   def moveToTrash(self) -> bool:
     """
@@ -521,6 +614,29 @@ class QFile(QFileDevice):
     #  bool QFile::rename(const QString &newName)
     return self.uglySide.call('ritual_ZN5QFile6renameERK7QString', newName)
 
+  @staticmethod
+  @overload(str, str)
+  def rename(oldName: str, newName: str) -> bool:
+    """
+    Calls Qt's 'bool QFile::rename(const QString &oldName, const QString
+    &newName)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfile.html#rename
+
+    Parameters
+    ----------
+
+    oldName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    newName : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool QFile::rename(const QString &oldName, const QString &newName)
+    return Rituals.call(
+        'ritual_ZN5QFile6renameERK7QStringS2_', oldName, newName,
+    )
+
   @overload(str)
   def link(self, newName: str) -> bool:
     """
@@ -536,6 +652,29 @@ class QFile(QFileDevice):
     """
     #  bool QFile::link(const QString &newName)
     return self.uglySide.call('ritual_ZN5QFile4linkERK7QString', newName)
+
+  @staticmethod
+  @overload(str, str)
+  def link(fileName: str, newName: str) -> bool:
+    """
+    Calls Qt's 'bool QFile::link(const QString &fileName, const QString
+    &newName)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfile.html#link
+
+    Parameters
+    ----------
+
+    fileName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    newName : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool QFile::link(const QString &fileName, const QString &newName)
+    return Rituals.call(
+        'ritual_ZN5QFile4linkERK7QStringS2_', fileName, newName,
+    )
 
   @overload(QIODeviceBase.OpenMode)
   def open(self, flags: QIODeviceBase.OpenMode) -> bool:
@@ -634,3 +773,23 @@ class QFile(QFileDevice):
     """
     #  bool QFile::resize(qint64 sz)
     return self.uglySide.call('ritual_ZN5QFile6resizeEx', sz)
+
+  @staticmethod
+  @overload(str, int)
+  def resize(filename: str, sz: int) -> bool:
+    """
+    Calls Qt's 'bool QFile::resize(const QString &filename, qint64 sz)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfile.html#resize
+
+    Parameters
+    ----------
+
+    filename : str
+      Passed on as it is: a QString is made of it for the call.
+
+    sz : int
+      Passed on as it is.
+    """
+    #  bool QFile::resize(const QString &filename, qint64 sz)
+    return Rituals.call('ritual_ZN5QFile6resizeERK7QStringx', filename, sz)

@@ -58,8 +58,6 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QTimeZone::~QTimeZone()': the destructor: Python removes its C++
     QTimeZone by it, and has no other use for it.
-  - Qt's 'bool QTimeZone::isUtcOrFixedOffset() const': another kind of method
-    than most functions of its name, and one name is one kind of method.
 
   What has no ritual
   ------------------
@@ -263,6 +261,16 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZN9QTimeZone18isUtcOrFixedOffsetEN2Qt8TimeSpecE', spec.value,
     )
+
+  @overload()
+  def isUtcOrFixedOffset(self) -> bool:
+    """
+    Calls Qt's 'bool QTimeZone::isUtcOrFixedOffset() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimezone.html#isUtcOrFixedOffset
+    """
+    #  bool QTimeZone::isUtcOrFixedOffset() const
+    return self.uglySide.call('ritual_ZNK9QTimeZone18isUtcOrFixedOffsetEv')
 
   @staticmethod
   def systemTimeZoneId() -> QByteArray:

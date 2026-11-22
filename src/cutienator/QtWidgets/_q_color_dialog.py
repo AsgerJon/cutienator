@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import Qt, QObject
 from . import QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -143,6 +143,7 @@ class QColorDialog(QDialog):
     )
 
   @staticmethod
+  @overload()
   @overload(QColor)
   @overload(QColor, QWidget)
   @overload(QColor, NoneType)
@@ -151,7 +152,7 @@ class QColorDialog(QDialog):
   @overload(QColor, QWidget, str, ColorDialogOptions)
   @overload(QColor, NoneType, str, ColorDialogOptions)
   def getColor(
-      initial: QColor,
+      initial: Optional[QColor] = None,
       parent: Optional[QWidget] = None,
       title: str = '',
       options: ColorDialogOptions = ColorDialogOptions(),
@@ -165,9 +166,10 @@ class QColorDialog(QDialog):
     Parameters
     ----------
 
-    initial : QColor
+    initial : Optional[QColor]
       Passed on as a value: Qt reads the C++ QColor, which stays Python's
-      own.
+      own. May be left out, as in Qt: a new 'QColor(Qt.GlobalColor.white)' is
+      then passed on.
 
     parent : Optional[QWidget]
       Passed on as the address of its C++ object. None is passed on as no
@@ -189,6 +191,9 @@ class QColorDialog(QDialog):
     """
     #  QColor QColorDialog::getColor(const QColor &initial, QWidget *parent,
     #      const QString &title, ColorDialogOptions options)
+    if initial is None:
+      from ..QtGui import QColor
+      initial = QColor(Qt.GlobalColor.white)
     address = Rituals.call(
         'ritual_ZN12QColorDialog8getColorERK6QColorP7QWidgetRK7QString6QFla'
         'gsINS_17ColorDialogOptionEE',

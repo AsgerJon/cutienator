@@ -708,14 +708,11 @@ class TestMetaCute(BaseTest):
       class TwoKinds(BaseObject, metaclass=MetaCute):
         TwoKindsLate = WAIT['TwoKindsLate']
 
-        @staticmethod
+        @classmethod
         @overload(TwoKindsLate)
+        @staticmethod
         def take(thing: Any) -> str:
-          return 'static'
-
-        @overload(int)
-        def take(self, thing: Any) -> str:
-          return 'not static'
+          return 'both'
 
     def flexed() -> None:
       class Flexed(BaseObject, metaclass=MetaCute):
@@ -767,7 +764,7 @@ class TestMetaCute(BaseTest):
         ('a waiting signature above a fallback', stackedAbove, TypeError),
         ('a finalizer above a waiting signature', stackedBelow, TypeError),
         ('a plain definition at its name', plainAfter, OverloadConflict),
-        ('two kinds of method at its name', twoKinds, MixedMethodKind),
+        ('two kinds of method on one function', twoKinds, MixedMethodKind),
         ('a late class in overload.flex', flexed, TypeError),
         ('a waiting signature at __del__', atDel, DelException),
         ('one at a misspelled dunder', misspelled, QuestionableSyntax),

@@ -83,8 +83,6 @@ class QDate(CuteMixin, metaclass=MetaCute):
     &format, int baseYear, QCalendar cal)': takes in Python what 'QDate
     QDate::fromString(QStringView string, QStringView format, int baseYear,
     QCalendar cal)' takes.
-  - Qt's 'bool QDate::isValid(int y, int m, int d)': another kind of method
-    than most functions of its name, and one name is one kind of method.
   - Qt's 'QDate::~QDate()': the destructor: Python removes its C++ QDate by
     it, and has no other use for it.
 
@@ -200,8 +198,9 @@ class QDate(CuteMixin, metaclass=MetaCute):
     return QDate._cuteOwning(address)
 
   @staticmethod
+  @overload(str, str)
   @overload(str, str, int)
-  def fromString(string: str, format: str, baseYear: int) -> QDate:
+  def fromString(string: str, format: str, baseYear: int = 1900) -> QDate:
     """
     Calls Qt's 'QDate QDate::fromString(QStringView string, QStringView
     format, int baseYear)'.
@@ -218,7 +217,7 @@ class QDate(CuteMixin, metaclass=MetaCute):
       Passed on as it is: a QString is made of it for the call.
 
     baseYear : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 1900.
 
     Returns
     -------
@@ -352,6 +351,7 @@ class QDate(CuteMixin, metaclass=MetaCute):
     #  bool QDate::isNull() const
     return self.uglySide.call('ritual_ZNK5QDate6isNullEv')
 
+  @overload()
   def isValid(self) -> bool:
     """
     Calls Qt's 'bool QDate::isValid() const'.
@@ -360,6 +360,29 @@ class QDate(CuteMixin, metaclass=MetaCute):
     """
     #  bool QDate::isValid() const
     return self.uglySide.call('ritual_ZNK5QDate7isValidEv')
+
+  @staticmethod
+  @overload(int, int, int)
+  def isValid(y: int, m: int, d: int) -> bool:
+    """
+    Calls Qt's 'bool QDate::isValid(int y, int m, int d)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdate.html#isValid
+
+    Parameters
+    ----------
+
+    y : int
+      Passed on as it is.
+
+    m : int
+      Passed on as it is.
+
+    d : int
+      Passed on as it is.
+    """
+    #  bool QDate::isValid(int y, int m, int d)
+    return Rituals.call('ritual_ZN5QDate7isValidEiii', y, m, d)
 
   @overload()
   def year(self) -> int:

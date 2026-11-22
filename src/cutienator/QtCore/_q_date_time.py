@@ -282,8 +282,13 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     return QDateTime._cuteOwning(address)
 
   @staticmethod
+  @overload(str, str)
   @overload(str, str, int)
-  def fromString(string: str, format: str, baseYear: int) -> QDateTime:
+  def fromString(
+      string: str,
+      format: str,
+      baseYear: int = 1900,
+  ) -> QDateTime:
     """
     Calls Qt's 'QDateTime QDateTime::fromString(QStringView string,
     QStringView format, int baseYear)'.
@@ -300,7 +305,7 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
       Passed on as it is: a QString is made of it for the call.
 
     baseYear : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 1900.
 
     Returns
     -------

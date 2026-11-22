@@ -125,8 +125,9 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
   @overload(int)
-  def data(self, role: int) -> QVariant:
+  def data(self, role: int = 257) -> QVariant:
     """
     Calls Qt's 'QVariant QStandardItem::data(int role) const'.
 
@@ -136,7 +137,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     ----------
 
     role : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 257.
 
     Returns
     -------
@@ -610,8 +611,9 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QVariant)
   @overload(QVariant, int)
-  def setData(self, value: QVariant, role: int) -> None:
+  def setData(self, value: QVariant, role: int = 257) -> None:
     """
     Calls Qt's 'void QStandardItem::setData(const QVariant &value, int
     role)'.
@@ -626,7 +628,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
       own.
 
     role : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 257.
     """
     #  void QStandardItem::setData(const QVariant &value, int role)
     self.uglySide.call(

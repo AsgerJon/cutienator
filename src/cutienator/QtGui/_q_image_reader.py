@@ -64,9 +64,6 @@ class QImageReader(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QImageReader::~QImageReader()': the destructor: Python never
     removes a C++ QImageReader.
-  - Qt's 'QImage::Format QImageReader::imageFormat() const': another kind of
-    method than most functions of its name, and one name is one kind of
-    method.
 
   What has no ritual
   ------------------
@@ -154,64 +151,6 @@ class QImageReader(CuteMixin, metaclass=MetaCute):
         CuteMixin._bytesOf(sourceText), CuteMixin._bytesOf(disambiguation),
         n,
     )
-
-  @staticmethod
-  @overload(str)
-  def imageFormat(fileName: str) -> QByteArray:
-    """
-    Calls Qt's 'QByteArray QImageReader::imageFormat(const QString
-    &fileName)'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qimagereader.html#imageFormat
-
-    Parameters
-    ----------
-
-    fileName : str
-      Passed on as it is: a QString is made of it for the call.
-
-    Returns
-    -------
-
-    QByteArray
-      A new cute QByteArray around the copy Qt gave back. Python owns it.
-    """
-    #  QByteArray QImageReader::imageFormat(const QString &fileName)
-    address = Rituals.call(
-        'ritual_ZN12QImageReader11imageFormatERK7QString', fileName,
-    )
-    from ..QtCore import QByteArray
-    return QByteArray._cuteOwning(address)
-
-  @staticmethod
-  @overload(QIODevice)
-  @overload(NoneType)
-  def imageFormat(device: Optional[QIODevice]) -> QByteArray:
-    """
-    Calls Qt's 'QByteArray QImageReader::imageFormat(QIODevice *device)'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qimagereader.html#imageFormat
-
-    Parameters
-    ----------
-
-    device : Optional[QIODevice]
-      Passed on as the address of its C++ object. None is passed on as no
-      object.
-
-    Returns
-    -------
-
-    QByteArray
-      A new cute QByteArray around the copy Qt gave back. Python owns it.
-    """
-    #  QByteArray QImageReader::imageFormat(QIODevice *device)
-    address = Rituals.call(
-        'ritual_ZN12QImageReader11imageFormatEP9QIODevice',
-        CuteMixin._addressOf(device),
-    )
-    from ..QtCore import QByteArray
-    return QByteArray._cuteOwning(address)
 
   @staticmethod
   def allocationLimit() -> int:
@@ -368,6 +307,84 @@ class QImageReader(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK12QImageReader13effectiveSizeEv')
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
+
+  @overload()
+  def imageFormat(self) -> QImage.Format:
+    """
+    Calls Qt's 'QImage::Format QImageReader::imageFormat() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimagereader.html#imageFormat
+
+    Returns
+    -------
+
+    QImage.Format
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'QImage.Format(number)'
+      gives.
+    """
+    #  QImage::Format QImageReader::imageFormat() const
+    return QImage.Format(self.uglySide.call(
+        'ritual_ZNK12QImageReader11imageFormatEv',
+    ))
+
+  @staticmethod
+  @overload(str)
+  def imageFormat(fileName: str) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray QImageReader::imageFormat(const QString
+    &fileName)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimagereader.html#imageFormat
+
+    Parameters
+    ----------
+
+    fileName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QImageReader::imageFormat(const QString &fileName)
+    address = Rituals.call(
+        'ritual_ZN12QImageReader11imageFormatERK7QString', fileName,
+    )
+    from ..QtCore import QByteArray
+    return QByteArray._cuteOwning(address)
+
+  @staticmethod
+  @overload(QIODevice)
+  @overload(NoneType)
+  def imageFormat(device: Optional[QIODevice]) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray QImageReader::imageFormat(QIODevice *device)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimagereader.html#imageFormat
+
+    Parameters
+    ----------
+
+    device : Optional[QIODevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QImageReader::imageFormat(QIODevice *device)
+    address = Rituals.call(
+        'ritual_ZN12QImageReader11imageFormatEP9QIODevice',
+        CuteMixin._addressOf(device),
+    )
+    from ..QtCore import QByteArray
+    return QByteArray._cuteOwning(address)
 
   @overload(str)
   def text(self, key: str) -> str:

@@ -64,11 +64,6 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     'Qt::Disambiguated_t', which has no cute class yet.
   - Qt's 'bool QMetaType::isRegistered(Qt::Disambiguated_t a0) const': names
     'Qt::Disambiguated_t', which has no cute class yet.
-  - Qt's 'qsizetype QMetaType::sizeOf() const': another kind of method than
-    most functions of its name, and one name is one kind of method.
-  - Qt's 'bool QMetaType::hasRegisteredDebugStreamOperator(int typeId)':
-    another kind of method than most functions of its name, and one name is
-    one kind of method.
   - Qt's 'const QtPrivate::QMetaTypeInterface *QMetaType::iface()': gives
     'QtPrivate::QMetaTypeInterface', which has no cute class yet.
   - Qt's 'const QtPrivate::QMetaTypeInterface *QMetaType::iface() const':
@@ -284,6 +279,16 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     """
     #  int QMetaType::sizeOf(int type)
     return Rituals.call('ritual_ZN9QMetaType6sizeOfEi', type)
+
+  @overload()
+  def sizeOf(self) -> int:
+    """
+    Calls Qt's 'qsizetype QMetaType::sizeOf() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#sizeOf
+    """
+    #  qsizetype QMetaType::sizeOf() const
+    return self.uglySide.call('ritual_ZNK9QMetaType6sizeOfEv')
 
   @staticmethod
   @overload(int)
@@ -768,6 +773,7 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK9QMetaType14underlyingTypeEv')
     return QMetaType._cuteOwning(address)
 
+  @overload()
   def hasRegisteredDebugStreamOperator(self) -> bool:
     """
     Calls Qt's 'bool QMetaType::hasRegisteredDebugStreamOperator() const'.
@@ -778,6 +784,27 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     #  bool QMetaType::hasRegisteredDebugStreamOperator() const
     return self.uglySide.call(
         'ritual_ZNK9QMetaType32hasRegisteredDebugStreamOperatorEv',
+    )
+
+  @staticmethod
+  @overload(int)
+  def hasRegisteredDebugStreamOperator(typeId: int) -> bool:
+    """
+    Calls Qt's 'bool QMetaType::hasRegisteredDebugStreamOperator(int
+    typeId)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredDebugStreamOperator
+
+    Parameters
+    ----------
+
+    typeId : int
+      Passed on as it is.
+    """
+    #  bool QMetaType::hasRegisteredDebugStreamOperator(int typeId)
+    return Rituals.call(
+        'ritual_ZN9QMetaType32hasRegisteredDebugStreamOperatorEi', typeId,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

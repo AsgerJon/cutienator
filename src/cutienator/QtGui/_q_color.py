@@ -282,8 +282,9 @@ class QColor(CuteMixin, metaclass=MetaCute):
     return QColor._cuteOwning(address)
 
   @staticmethod
+  @overload(int, int, int)
   @overload(int, int, int, int)
-  def fromRgba64(r: int, g: int, b: int, a: int) -> QColor:
+  def fromRgba64(r: int, g: int, b: int, a: int = 65535) -> QColor:
     """
     Calls Qt's 'QColor QColor::fromRgba64(ushort r, ushort g, ushort b,
     ushort a)'.
@@ -303,7 +304,7 @@ class QColor(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
 
     a : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 65535.
 
     Returns
     -------

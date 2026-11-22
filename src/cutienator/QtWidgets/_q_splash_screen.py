@@ -360,8 +360,15 @@ class QSplashScreen(QWidget):
     #  void QSplashScreen::repaint()
     self.uglySide.call('ritual_ZN13QSplashScreen7repaintEv')
 
+  @overload(str)
+  @overload(str, int)
   @overload(str, int, QColor)
-  def showMessage(self, message: str, alignment: int, color: QColor) -> None:
+  def showMessage(
+      self,
+      message: str,
+      alignment: int = 1,
+      color: Optional[QColor] = None,
+  ) -> None:
     """
     Calls Qt's 'void QSplashScreen::showMessage(const QString &message, int
     alignment, const QColor &color)'.
@@ -375,14 +382,18 @@ class QSplashScreen(QWidget):
       Passed on as it is: a QString is made of it for the call.
 
     alignment : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 1.
 
-    color : QColor
+    color : Optional[QColor]
       Passed on as a value: Qt reads the C++ QColor, which stays Python's
-      own.
+      own. May be left out, as in Qt: a new 'QColor(Qt.GlobalColor.black)' is
+      then passed on.
     """
     #  void QSplashScreen::showMessage(const QString &message, int alignment,
     #      const QColor &color)
+    if color is None:
+      from ..QtGui import QColor
+      color = QColor(Qt.GlobalColor.black)
     self.uglySide.call(
         'ritual_ZN13QSplashScreen11showMessageERK7QStringiRK6QColor',
         message, alignment, self._valueOf(color),

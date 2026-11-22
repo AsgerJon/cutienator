@@ -2156,8 +2156,15 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     from . import QTime
     return QTime._cuteOwning(address)
 
+  @overload(str)
+  @overload(str, FormatType)
   @overload(str, FormatType, int)
-  def toDate(self, string: str, a1: FormatType, baseYear: int) -> QDate:
+  def toDate(
+      self,
+      string: str,
+      a1: FormatType = FormatType.LongFormat,
+      baseYear: int = 1900,
+  ) -> QDate:
     """
     Calls Qt's 'QDate QLocale::toDate(const QString &string, FormatType a1,
     int baseYear) const'.
@@ -2171,10 +2178,11 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       Passed on as it is: a QString is made of it for the call.
 
     a1 : FormatType
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      FormatType.LongFormat.
 
     baseYear : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 1900.
 
     Returns
     -------
@@ -2191,8 +2199,9 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     from . import QDate
     return QDate._cuteOwning(address)
 
+  @overload(str, str)
   @overload(str, str, int)
-  def toDate(self, string: str, format: str, baseYear: int) -> QDate:
+  def toDate(self, string: str, format: str, baseYear: int = 1900) -> QDate:
     """
     Calls Qt's 'QDate QLocale::toDate(const QString &string, const QString
     &format, int baseYear) const'.
@@ -2209,7 +2218,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       Passed on as it is: a QString is made of it for the call.
 
     baseYear : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 1900.
 
     Returns
     -------
@@ -2225,13 +2234,14 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     from . import QDate
     return QDate._cuteOwning(address)
 
+  @overload(str, FormatType, QCalendar)
   @overload(str, FormatType, QCalendar, int)
   def toDate(
       self,
       string: str,
       format: FormatType,
       cal: QCalendar,
-      baseYear: int,
+      baseYear: int = 1900,
   ) -> QDate:
     """
     Calls Qt's 'QDate QLocale::toDate(const QString &string, FormatType
@@ -2253,7 +2263,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       own.
 
     baseYear : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 1900.
 
     Returns
     -------
@@ -2270,13 +2280,14 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     from . import QDate
     return QDate._cuteOwning(address)
 
+  @overload(str, str, QCalendar)
   @overload(str, str, QCalendar, int)
   def toDate(
       self,
       string: str,
       format: str,
       cal: QCalendar,
-      baseYear: int,
+      baseYear: int = 1900,
   ) -> QDate:
     """
     Calls Qt's 'QDate QLocale::toDate(const QString &string, const QString
@@ -2298,7 +2309,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       own.
 
     baseYear : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 1900.
 
     Returns
     -------
@@ -2315,12 +2326,14 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     from . import QDate
     return QDate._cuteOwning(address)
 
+  @overload(str)
+  @overload(str, FormatType)
   @overload(str, FormatType, int)
   def toDateTime(
       self,
       string: str,
-      format: FormatType,
-      baseYear: int,
+      format: FormatType = FormatType.LongFormat,
+      baseYear: int = 1900,
   ) -> QDateTime:
     """
     Calls Qt's 'QDateTime QLocale::toDateTime(const QString &string,
@@ -2335,10 +2348,11 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       Passed on as it is: a QString is made of it for the call.
 
     format : FormatType
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      FormatType.LongFormat.
 
     baseYear : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 1900.
 
     Returns
     -------
@@ -2355,8 +2369,14 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     from . import QDateTime
     return QDateTime._cuteOwning(address)
 
+  @overload(str, str)
   @overload(str, str, int)
-  def toDateTime(self, string: str, format: str, baseYear: int) -> QDateTime:
+  def toDateTime(
+      self,
+      string: str,
+      format: str,
+      baseYear: int = 1900,
+  ) -> QDateTime:
     """
     Calls Qt's 'QDateTime QLocale::toDateTime(const QString &string, const
     QString &format, int baseYear) const'.
@@ -2373,7 +2393,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       Passed on as it is: a QString is made of it for the call.
 
     baseYear : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 1900.
 
     Returns
     -------
@@ -2390,13 +2410,14 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     from . import QDateTime
     return QDateTime._cuteOwning(address)
 
+  @overload(str, FormatType, QCalendar)
   @overload(str, FormatType, QCalendar, int)
   def toDateTime(
       self,
       string: str,
       format: FormatType,
       cal: QCalendar,
-      baseYear: int,
+      baseYear: int = 1900,
   ) -> QDateTime:
     """
     Calls Qt's 'QDateTime QLocale::toDateTime(const QString &string,
@@ -2418,7 +2439,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       own.
 
     baseYear : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 1900.
 
     Returns
     -------
@@ -2436,13 +2457,14 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     from . import QDateTime
     return QDateTime._cuteOwning(address)
 
+  @overload(str, str, QCalendar)
   @overload(str, str, QCalendar, int)
   def toDateTime(
       self,
       string: str,
       format: str,
       cal: QCalendar,
-      baseYear: int,
+      baseYear: int = 1900,
   ) -> QDateTime:
     """
     Calls Qt's 'QDateTime QLocale::toDateTime(const QString &string, const
@@ -2464,7 +2486,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
       own.
 
     baseYear : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 1900.
 
     Returns
     -------

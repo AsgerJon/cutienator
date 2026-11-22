@@ -56,9 +56,6 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QFileInfo::~QFileInfo()': the destructor: Python removes its C++
     QFileInfo by it, and has no other use for it.
-  - Qt's 'bool QFileInfo::exists(const QString &file)': another kind of
-    method than most functions of its name, and one name is one kind of
-    method.
 
   What has no ritual
   ------------------
@@ -107,6 +104,7 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
   def exists(self) -> bool:
     """
     Calls Qt's 'bool QFileInfo::exists() const'.
@@ -115,6 +113,23 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
     """
     #  bool QFileInfo::exists() const
     return self.uglySide.call('ritual_ZNK9QFileInfo6existsEv')
+
+  @staticmethod
+  @overload(str)
+  def exists(file: str) -> bool:
+    """
+    Calls Qt's 'bool QFileInfo::exists(const QString &file)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfileinfo.html#exists
+
+    Parameters
+    ----------
+
+    file : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool QFileInfo::exists(const QString &file)
+    return Rituals.call('ritual_ZN9QFileInfo6existsERK7QString', file)
 
   def filePath(self) -> str:
     """

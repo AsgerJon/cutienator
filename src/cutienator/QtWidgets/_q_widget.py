@@ -3854,14 +3854,21 @@ class QWidget(QObject, QPaintDevice):
     #  void QWidget::clearMask()
     self.uglySide.call('ritual_ZN7QWidget9clearMaskEv')
 
+  @overload(QPaintDevice)
+  @overload(NoneType)
+  @overload(QPaintDevice, QPoint)
+  @overload(NoneType, QPoint)
+  @overload(QPaintDevice, QPoint, QRegion)
+  @overload(NoneType, QPoint, QRegion)
   @overload(QPaintDevice, QPoint, QRegion, RenderFlags)
   @overload(NoneType, QPoint, QRegion, RenderFlags)
   def render(
       self,
       target: Optional[QPaintDevice],
-      targetOffset: QPoint,
-      sourceRegion: QRegion,
-      renderFlags: RenderFlags,
+      targetOffset: Optional[QPoint] = None,
+      sourceRegion: Optional[QRegion] = None,
+      renderFlags: RenderFlags = (
+          RenderFlags.DrawWindowBackground | RenderFlags.DrawChildren),
   ) -> None:
     """
     Calls Qt's 'void QWidget::render(QPaintDevice *target, const QPoint
@@ -3876,19 +3883,26 @@ class QWidget(QObject, QPaintDevice):
       Passed on as the address of its C++ object. None is passed on as no
       object.
 
-    targetOffset : QPoint
+    targetOffset : Optional[QPoint]
       Passed on as a value: Qt reads the C++ QPoint, which stays Python's
-      own.
+      own. May be left out, as in Qt: a new 'QPoint()' is then passed on.
 
-    sourceRegion : QRegion
+    sourceRegion : Optional[QRegion]
       Passed on as a value: Qt reads the C++ QRegion, which stays Python's
-      own.
+      own. May be left out, as in Qt: a new 'QRegion()' is then passed on.
 
     renderFlags : RenderFlags
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      RenderFlags.DrawWindowBackground | RenderFlags.DrawChildren.
     """
     #  void QWidget::render(QPaintDevice *target, const QPoint &targetOffset,
     #      const QRegion &sourceRegion, RenderFlags renderFlags)
+    if targetOffset is None:
+      from ..QtCore import QPoint
+      targetOffset = QPoint()
+    if sourceRegion is None:
+      from ..QtGui import QRegion
+      sourceRegion = QRegion()
     self.uglySide.call(
         'ritual_ZN7QWidget6renderEP12QPaintDeviceRK6QPointRK7QRegion6QFlags'
         'INS_10RenderFlagEE',
@@ -3896,13 +3910,17 @@ class QWidget(QObject, QPaintDevice):
         self._valueOf(sourceRegion), renderFlags.value,
     )
 
+  @overload(QPainter)
+  @overload(QPainter, QPoint)
+  @overload(QPainter, QPoint, QRegion)
   @overload(QPainter, QPoint, QRegion, RenderFlags)
   def render(
       self,
       painter: Optional[QPainter],
-      targetOffset: QPoint,
-      sourceRegion: QRegion,
-      renderFlags: RenderFlags,
+      targetOffset: Optional[QPoint] = None,
+      sourceRegion: Optional[QRegion] = None,
+      renderFlags: RenderFlags = (
+          RenderFlags.DrawWindowBackground | RenderFlags.DrawChildren),
   ) -> None:
     """
     Calls Qt's 'void QWidget::render(QPainter *painter, const QPoint
@@ -3917,19 +3935,26 @@ class QWidget(QObject, QPaintDevice):
       Passed on as the address of its C++ object. None is passed on as no
       object.
 
-    targetOffset : QPoint
+    targetOffset : Optional[QPoint]
       Passed on as a value: Qt reads the C++ QPoint, which stays Python's
-      own.
+      own. May be left out, as in Qt: a new 'QPoint()' is then passed on.
 
-    sourceRegion : QRegion
+    sourceRegion : Optional[QRegion]
       Passed on as a value: Qt reads the C++ QRegion, which stays Python's
-      own.
+      own. May be left out, as in Qt: a new 'QRegion()' is then passed on.
 
     renderFlags : RenderFlags
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      RenderFlags.DrawWindowBackground | RenderFlags.DrawChildren.
     """
     #  void QWidget::render(QPainter *painter, const QPoint &targetOffset,
     #      const QRegion &sourceRegion, RenderFlags renderFlags)
+    if targetOffset is None:
+      from ..QtCore import QPoint
+      targetOffset = QPoint()
+    if sourceRegion is None:
+      from ..QtGui import QRegion
+      sourceRegion = QRegion()
     self.uglySide.call(
         'ritual_ZN7QWidget6renderEP8QPainterRK6QPointRK7QRegion6QFlagsINS_1'
         '0RenderFlagEE',
@@ -3937,8 +3962,9 @@ class QWidget(QObject, QPaintDevice):
         self._valueOf(sourceRegion), renderFlags.value,
     )
 
+  @overload()
   @overload(QRect)
-  def grab(self, rectangle: QRect) -> QPixmap:
+  def grab(self, rectangle: Optional[QRect] = None) -> QPixmap:
     """
     Calls Qt's 'QPixmap QWidget::grab(const QRect &rectangle)'.
 
@@ -3947,8 +3973,10 @@ class QWidget(QObject, QPaintDevice):
     Parameters
     ----------
 
-    rectangle : QRect
+    rectangle : Optional[QRect]
       Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+      May be left out, as in Qt: a new 'QRect(QPoint(0, 0), QSize(-1, -1))'
+      is then passed on.
 
     Returns
     -------
@@ -3957,6 +3985,11 @@ class QWidget(QObject, QPaintDevice):
       A new cute QPixmap around the copy Qt gave back. Python owns it.
     """
     #  QPixmap QWidget::grab(const QRect &rectangle)
+    if rectangle is None:
+      from ..QtCore import QRect
+      from ..QtCore import QPoint
+      from ..QtCore import QSize
+      rectangle = QRect(QPoint(0, 0), QSize(-1, -1))
     address = self.uglySide.call(
         'ritual_ZN7QWidget4grabERK5QRect', self._valueOf(rectangle),
     )

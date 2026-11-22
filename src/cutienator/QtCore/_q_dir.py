@@ -653,8 +653,12 @@ class QDir(CuteMixin, metaclass=MetaCute):
     #  SortFlags QDir::sorting() const
     return QDir.SortFlags(self.uglySide.call('ritual_ZNK4QDir7sortingEv'))
 
+  @overload()
   @overload(Filters)
-  def isEmpty(self, filters: Filters) -> bool:
+  def isEmpty(
+      self,
+      filters: Filters = Filters.AllEntries | Filters.NoDotAndDotDot,
+  ) -> bool:
     """
     Calls Qt's 'bool QDir::isEmpty(Filters filters) const'.
 
@@ -664,7 +668,8 @@ class QDir(CuteMixin, metaclass=MetaCute):
     ----------
 
     filters : Filters
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Filters.AllEntries | Filters.NoDotAndDotDot.
     """
     #  bool QDir::isEmpty(Filters filters) const
     return self.uglySide.call(
@@ -873,13 +878,14 @@ class QDir(CuteMixin, metaclass=MetaCute):
         'ritual_ZN4QDirC1ERK7QString', path,
     ))
 
+  @overload(str, str)
   @overload(str, str, SortFlags)
   @overload(str, str, SortFlags, Filters)
   def __init__(
       self,
       path: str,
       nameFilter: str,
-      sort: SortFlags,
+      sort: SortFlags = SortFlags.Name | SortFlags.IgnoreCase,
       filter: Filters = Filters.AllEntries,
   ) -> None:
     """
@@ -899,7 +905,8 @@ class QDir(CuteMixin, metaclass=MetaCute):
       Passed on as it is: a QString is made of it for the call.
 
     sort : SortFlags
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      SortFlags.Name | SortFlags.IgnoreCase.
 
     filter : Filters
       Passed on as its number. May be left out, as in Qt: it is then

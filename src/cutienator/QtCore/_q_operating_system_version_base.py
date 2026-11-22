@@ -42,9 +42,6 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QString QOperatingSystemVersionBase::name() const': another kind of
-    method than most functions of its name, and one name is one kind of
-    method.
   - Qt's 'QOperatingSystemVersionBase::~QOperatingSystemVersionBase()': the
     destructor: Python removes its C++ QOperatingSystemVersionBase by it, and
     has no other use for it.
@@ -144,6 +141,25 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZN27QOperatingSystemVersionBase4nameES_',
         CuteMixin._valueOf(osversion),
+    )
+
+  @overload()
+  def name(self) -> str:
+    """
+    Calls Qt's 'QString QOperatingSystemVersionBase::name() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QOperatingSystemVersionBase::name() const
+    return self.uglySide.call(
+        'ritual_ZNK27QOperatingSystemVersionBase4nameEv',
     )
 
   @staticmethod

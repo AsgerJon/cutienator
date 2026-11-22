@@ -270,8 +270,14 @@ class QComboBox(QWidget):
     #  bool QComboBox::hasFrame() const
     return self.uglySide.call('ritual_ZNK9QComboBox8hasFrameEv')
 
+  @overload(str)
   @overload(str, Qt.MatchFlags)
-  def findText(self, text: str, flags: Qt.MatchFlags) -> int:
+  def findText(
+      self,
+      text: str,
+      flags: Qt.MatchFlags = (
+          Qt.MatchFlags.MatchExactly | Qt.MatchFlags.MatchCaseSensitive),
+  ) -> int:
     """
     Calls Qt's 'int QComboBox::findText(const QString &text, Qt::MatchFlags
     flags) const'.
@@ -285,7 +291,8 @@ class QComboBox(QWidget):
       Passed on as it is: a QString is made of it for the call.
 
     flags : Qt.MatchFlags
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.MatchFlags.MatchExactly | Qt.MatchFlags.MatchCaseSensitive.
     """
     #  int QComboBox::findText(const QString &text, Qt::MatchFlags flags)
     #      const
@@ -294,8 +301,16 @@ class QComboBox(QWidget):
         text, flags.value,
     )
 
+  @overload(QVariant)
+  @overload(QVariant, int)
   @overload(QVariant, int, Qt.MatchFlags)
-  def findData(self, data: QVariant, role: int, flags: Qt.MatchFlags) -> int:
+  def findData(
+      self,
+      data: QVariant,
+      role: int = 256,
+      flags: Qt.MatchFlags = (
+          Qt.MatchFlags.MatchExactly | Qt.MatchFlags.MatchCaseSensitive),
+  ) -> int:
     """
     Calls Qt's 'int QComboBox::findData(const QVariant &data, int role,
     Qt::MatchFlags flags) const'.
@@ -310,10 +325,11 @@ class QComboBox(QWidget):
       own.
 
     role : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 256.
 
     flags : Qt.MatchFlags
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.MatchFlags.MatchExactly | Qt.MatchFlags.MatchCaseSensitive.
     """
     #  int QComboBox::findData(const QVariant &data, int role, Qt::MatchFlags
     #      flags) const

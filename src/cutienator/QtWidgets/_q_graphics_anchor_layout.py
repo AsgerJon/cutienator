@@ -465,6 +465,10 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
         secondCorner.value,
     )
 
+  @overload(QGraphicsLayoutItem, QGraphicsLayoutItem)
+  @overload(QGraphicsLayoutItem, NoneType)
+  @overload(NoneType, QGraphicsLayoutItem)
+  @overload(NoneType, NoneType)
   @overload(QGraphicsLayoutItem, QGraphicsLayoutItem, Qt.Orientations)
   @overload(QGraphicsLayoutItem, NoneType, Qt.Orientations)
   @overload(NoneType, QGraphicsLayoutItem, Qt.Orientations)
@@ -473,7 +477,8 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
       self,
       firstItem: Optional[QGraphicsLayoutItem],
       secondItem: Optional[QGraphicsLayoutItem],
-      orientations: Qt.Orientations,
+      orientations: Qt.Orientations = (
+          Qt.Orientations.Horizontal | Qt.Orientations.Vertical),
   ) -> None:
     """
     Calls Qt's 'void QGraphicsAnchorLayout::addAnchors(QGraphicsLayoutItem
@@ -495,7 +500,8 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
       object.
 
     orientations : Qt.Orientations
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.Orientations.Horizontal | Qt.Orientations.Vertical.
     """
     #  void QGraphicsAnchorLayout::addAnchors(QGraphicsLayoutItem *firstItem,
     #      QGraphicsLayoutItem *secondItem, Qt::Orientations orientations)

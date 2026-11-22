@@ -49,9 +49,6 @@ class QTime(CuteMixin, metaclass=MetaCute):
   - Qt's 'QTime QTime::fromString(const QString &string, const QString
     &format)': takes in Python what 'QTime QTime::fromString(QStringView
     string, QStringView format)' takes.
-  - Qt's 'bool QTime::isValid(int h, int m, int s, int ms)': another kind of
-    method than most functions of its name, and one name is one kind of
-    method.
   - Qt's 'QTime::~QTime()': the destructor: Python removes its C++ QTime by
     it, and has no other use for it.
 
@@ -220,6 +217,7 @@ class QTime(CuteMixin, metaclass=MetaCute):
     #  bool QTime::isNull() const
     return self.uglySide.call('ritual_ZNK5QTime6isNullEv')
 
+  @overload()
   def isValid(self) -> bool:
     """
     Calls Qt's 'bool QTime::isValid() const'.
@@ -228,6 +226,33 @@ class QTime(CuteMixin, metaclass=MetaCute):
     """
     #  bool QTime::isValid() const
     return self.uglySide.call('ritual_ZNK5QTime7isValidEv')
+
+  @staticmethod
+  @overload(int, int, int)
+  @overload(int, int, int, int)
+  def isValid(h: int, m: int, s: int, ms: int = 0) -> bool:
+    """
+    Calls Qt's 'bool QTime::isValid(int h, int m, int s, int ms)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtime.html#isValid
+
+    Parameters
+    ----------
+
+    h : int
+      Passed on as it is.
+
+    m : int
+      Passed on as it is.
+
+    s : int
+      Passed on as it is.
+
+    ms : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+    """
+    #  bool QTime::isValid(int h, int m, int s, int ms)
+    return Rituals.call('ritual_ZN5QTime7isValidEiiii', h, m, s, ms)
 
   def hour(self) -> int:
     """

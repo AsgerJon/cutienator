@@ -17,6 +17,8 @@ from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
   from ..QtCore import QMargins, QMarginsF, QRect, QRectF
   from . import QPageSize
 else:
@@ -565,8 +567,13 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
         'ritual_ZN11QPageLayout7setModeENS_4ModeE', mode.value,
     )
 
+  @overload(QPageSize)
   @overload(QPageSize, QMarginsF)
-  def setPageSize(self, pageSize: QPageSize, minMargins: QMarginsF) -> None:
+  def setPageSize(
+      self,
+      pageSize: QPageSize,
+      minMargins: Optional[QMarginsF] = None,
+  ) -> None:
     """
     Calls Qt's 'void QPageLayout::setPageSize(const QPageSize &pageSize,
     const QMarginsF &minMargins)'.
@@ -580,12 +587,16 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
       Passed on as a value: Qt reads the C++ QPageSize, which stays Python's
       own.
 
-    minMargins : QMarginsF
+    minMargins : Optional[QMarginsF]
       Passed on as a value: Qt reads the C++ QMarginsF, which stays Python's
-      own.
+      own. May be left out, as in Qt: a new 'QMarginsF(0, 0, 0, 0)' is then
+      passed on.
     """
     #  void QPageLayout::setPageSize(const QPageSize &pageSize, const
     #      QMarginsF &minMargins)
+    if minMargins is None:
+      from ..QtCore import QMarginsF
+      minMargins = QMarginsF(0, 0, 0, 0)
     self.uglySide.call(
         'ritual_ZN11QPageLayout11setPageSizeERK9QPageSizeRK9QMarginsF',
         self._valueOf(pageSize), self._valueOf(minMargins),
@@ -826,14 +837,16 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
         'ritual_ZN11QPageLayoutC1Ev',
     ))
 
+  @overload(QPageSize, Orientation, QMarginsF)
+  @overload(QPageSize, Orientation, QMarginsF, Unit)
   @overload(QPageSize, Orientation, QMarginsF, Unit, QMarginsF)
   def __init__(
       self,
       pageSize: QPageSize,
       orientation: Orientation,
       margins: QMarginsF,
-      units: Unit,
-      minMargins: QMarginsF,
+      units: Unit = Unit.Point,
+      minMargins: Optional[QMarginsF] = None,
   ) -> None:
     """
     Notes what was given, for Qt's 'QPageLayout::QPageLayout(const QPageSize
@@ -857,15 +870,20 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
       own.
 
     units : Unit
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Unit.Point.
 
-    minMargins : QMarginsF
+    minMargins : Optional[QMarginsF]
       Passed on as a value: Qt reads the C++ QMarginsF, which stays Python's
-      own.
+      own. May be left out, as in Qt: a new 'QMarginsF(0, 0, 0, 0)' is then
+      passed on.
     """
     #  QPageLayout::QPageLayout(const QPageSize &pageSize, Orientation
     #      orientation, const QMarginsF &margins, Unit units, const QMarginsF
     #      &minMargins)
+    if minMargins is None:
+      from ..QtCore import QMarginsF
+      minMargins = QMarginsF(0, 0, 0, 0)
     self._noteCreation(QPageLayout, lambda: Rituals.call(
         'ritual_ZN11QPageLayoutC1ERK9QPageSizeNS_11OrientationERK9QMarginsF'
         'NS_4UnitES6_',

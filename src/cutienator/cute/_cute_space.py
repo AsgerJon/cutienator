@@ -90,8 +90,13 @@ class CuteSpace(BaseSpace):
   - A body with no 'WAIT' in it behaves exactly as in a 'BaseSpace'.
   - A waiting signature counts as an overload of its name from the
     line it is written on: a plain definition at that name is refused
-    with 'OverloadConflict', and another kind of method at it with
-    'MixedMethodKind', both on their own line.
+    with 'OverloadConflict', on its own line.
+  - A name may hold a function called on the class beside functions
+    called on an object, as worktoy allows it, waiting signatures
+    included: 'file.exists()' beside 'QFile.exists(fileName)'. The
+    kind of each function is put on record as worktoy records it. One
+    function declared as both a classmethod and a staticmethod is
+    refused with 'MixedMethodKind'.
   - A 'WAIT' written right into a signature, as
     '@overload(WAIT['QThread'])', is bound in the body for you, at the
     name of its late class, as the line 'QThread = WAIT['QThread']'
@@ -200,6 +205,9 @@ class CuteSpace(BaseSpace):
   #  classes this one inherits overloads of that name from; see
   #  '_getInheritedSpaces'.
   __inherited_spaces__: Optional[Dict[str, List[Any]]] = None
+  #  The doors of each overloaded name asked about so far, each with the
+  #  kind of method it is; see '_getDoors'.
+  __doors__: Optional[Dict[str, List[Tuple[Callable, Any]]]] = None
 
   #  Public Variables
 
@@ -510,8 +518,7 @@ class CuteSpace(BaseSpace):
       '__radd__ = __add__'.
 
     MixedMethodKind
-      A waiting signature is written as another kind of method than the
-      name has in this body already, or as both a classmethod and a
+      A waiting signature is written as both a classmethod and a
       staticmethod.
 
     DelException, QuestionableSyntax, UnboundClassHook, ReservedName
@@ -564,12 +571,17 @@ class CuteSpace(BaseSpace):
       raise ReboundOverload(className, claimedName, key)
     methodKinds = (*methodKinds, *bound.getMethodKinds())
     methodKind = overload.agreeMethodKind(methodKinds, key, className)
+    function = bound.getFunction()
     self.addMethodKind(key, methodKind)
+    #  worktoy builds the dispatchers of a name by the kind of each
+    #  function, and takes a function with no kind on record for an
+    #  ordinary method. So the kind is put on record here, as worktoy
+    #  puts it for an overload of its own, before any signature.
+    self.addFunctionKind(key, methodKind, function)
     #  Each signature of the stack is taken in the order it was written.
     #  One naming no late class goes on record at once, as worktoy would
     #  have put it. One naming a late class is kept until that class is
     #  made.
-    function = bound.getFunction()
     for written in bound.getSignatures():
       #  Every 'WAIT' the signature names becomes the one this body
       #  binds for that late class. One no line of the body binds is
@@ -611,10 +623,64 @@ class CuteSpace(BaseSpace):
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def _createDoor(self, methodName: str) -> Callable:
+  def _findDoorKinds(self, methodName: str) -> Tuple[Any, ...]:
     """
-    Makes the door of one overloaded name of the class: the function
-    its dispatcher calls when no signature takes a call as written.
+    Says which doors a name gets, each by the kind of method it is.
+    worktoy builds the dispatchers of a name by the kind of each
+    function, so a door has to have one.
+
+    - A name of ordinary methods alone: one door, an ordinary method.
+      It is handed the object first.
+    - A name with a classmethod: one door, a classmethod. worktoy lets
+      such a fallback stand alone, and hands it the class either way.
+    - A name of staticmethods alone: one door, a staticmethod. One
+      dispatcher serves such a name both ways.
+    - A name of ordinary methods beside staticmethods, as
+      'file.exists()' beside 'QFile.exists(fileName)': two doors.
+      worktoy gives such a name one dispatcher for calls on an object
+      and one for calls on the class, and lets it hold one fallback
+      for each. The ordinary one stands in the first and is handed the
+      object, the static one in the second.
+
+    Returns
+    -------
+
+    Tuple[Any, ...]
+      For each door 'classmethod', 'staticmethod', or None for an
+      ordinary method.
+    """
+    kinds = [k for _, k in BaseSpace.collectFunctionKinds(self, methodName)]
+    if all(kind is None for kind in kinds):
+      return (None,)
+    if any(kind is classmethod for kind in kinds):
+      return (classmethod,)
+    if any(kind is None for kind in kinds):
+      return (None, staticmethod)
+    return (staticmethod,)
+
+  def _getDoors(self, methodName: str) -> List[Tuple[Callable, Any]]:
+    """
+    Gives the doors of one overloaded name of the class, making them at
+    the first asking, each with its kind of method. A door is the
+    function a dispatcher of the name calls when no signature takes a
+    call as written. 'collectFallback' and 'collectFallbacks' hand them
+    to worktoy, and 'collectFunctionKinds' tells worktoy their kinds.
+    """
+    if self.__doors__ is None:
+      self.__doors__ = dict()
+    try:
+      return self.__doors__[methodName]
+    except KeyError:
+      doors = [
+          (self._createDoor(methodName, doorKind), doorKind)
+          for doorKind in self._findDoorKinds(methodName)
+      ]
+      self.__doors__[methodName] = doors
+      return doors
+
+  def _createDoor(self, methodName: str, doorKind: Any) -> Callable:
+    """
+    Makes the door of one overloaded name of the class.
 
     Parameters
     ----------
@@ -622,23 +688,37 @@ class CuteSpace(BaseSpace):
     methodName : str
       The overloaded name, as 'data'.
 
+    doorKind : Any
+      The kind of method the door is: 'classmethod', 'staticmethod', or
+      None for an ordinary method.
+
     Returns
     -------
 
     Callable
-      The door. It takes the call as it came: the object or class the
-      method was called on first, or nothing before the arguments for
-      a static method.
+      The door. It takes the call as worktoy hands it to a function of
+      its kind: the object first for an ordinary method, the class
+      first for a classmethod, and nothing before the arguments for a
+      staticmethod.
     """
     space = self
 
     def door(*args: Any, **kwargs: Any) -> Any:
       owner = space.getCuteClass()
       dispatcher = owner.__dict__[methodName]
-      if dispatcher.getMethodKind() is staticmethod:
+      if doorKind is staticmethod:
         receiver, given = owner, args
       else:
         receiver, given = args[0], args[1:]
+      #  The dispatcher gives the function that takes the calls this door
+      #  stands for: read through an object for the door that is an
+      #  ordinary method, and through the class for the others. At a
+      #  name with ordinary methods beside others those are two.
+      if doorKind is None:
+        bound = dispatcher.__get__(receiver, owner)
+      else:
+        bound = dispatcher.__get__(None, owner)
+      function = getattr(bound, '__func__', bound)
       swapped, wasSwapped = [], False
       for arg in given:
         if isinstance(arg, (CuteNum, CuteFlags)):
@@ -646,13 +726,13 @@ class CuteSpace(BaseSpace):
         swapped.append(arg)
       if not wasSwapped:
         raise DispatchException(dispatcher, given, kwargs)
-      bound = dispatcher.__get__(None, owner)
-      function = getattr(bound, '__func__', bound)
       try:
         return function(receiver, *swapped, **kwargs)
       except DispatchException as dispatchException:
         if dispatchException.dispatch is not dispatcher:
-          raise
+          if dispatchException.dispatch is not getattr(
+              dispatcher, '__class_dispatcher__', None):
+            raise
       #  The refusal names the call as it was written, members and all.
       raise DispatchException(dispatcher, given, kwargs)
 
@@ -765,7 +845,77 @@ class CuteSpace(BaseSpace):
     )
     if not any(registries) and not self._hasWaiting(name):
       return None
-    return self._createDoor(name)
+    return self._getDoors(name)[0][0]
+
+  def collectFallbacks(self, name: str) -> list:
+    """
+    Gives every function the dispatchers of a name call when no
+    signature takes a call: what 'collectFallback' gives, any fallback
+    the class or a class it is built on declares for the other way of
+    calling, and each door of the name that no declared one stands in
+    the place of.
+
+    worktoy asks this as it builds the dispatchers of a name. A name
+    with ordinary methods beside staticmethods has two doors, and
+    worktoy lets it hold one fallback for calls on an object and one
+    for calls on the class. A fallback declared with
+    '@overload.fallback' keeps its side, and a door fills the other.
+
+    Parameters
+    ----------
+
+    name : str
+      The overloaded name.
+
+    Returns
+    -------
+
+    list
+      The functions, as worktoy gathers them, with the doors added. It
+      is empty for a name with nothing on record and nothing waiting.
+    """
+    gathered = BaseSpace.collectFallbacks(self, name)
+    if not gathered:
+      return gathered
+    doors = self._getDoors(name)
+    kinds = self.collectFunctionKinds(name)
+    for door, doorKind in doors:
+      if any(held is door for held in gathered):
+        continue
+      heldKinds = [self._kindIn(kinds, held) for held in gathered]
+      if any(self._mayMeet(heldKind, doorKind) for heldKind in heldKinds):
+        #  A call that reaches this door reaches a fallback gathered
+        #  already, which keeps its place.
+        continue
+      gathered.append(door)
+    return gathered
+
+  def collectFunctionKinds(self, name: str) -> list:
+    """
+    Gives each function of a name with its kind of method, as worktoy
+    gathers them, and each door of the name with its own.
+
+    worktoy asks this as it builds the dispatchers of a name, and takes
+    a function it finds no kind for to be an ordinary method. A door is
+    handed over by 'collectFallback' or 'collectFallbacks' and declared
+    nowhere, so its kind is told here.
+
+    Parameters
+    ----------
+
+    name : str
+      The overloaded name.
+
+    Returns
+    -------
+
+    list
+      A 'List[Tuple[Callable, Any]]': each function with 'classmethod',
+      'staticmethod', or None for an ordinary method.
+    """
+    kinds = BaseSpace.collectFunctionKinds(self, name)
+    doors = (self.__doors__ or dict()).get(name, ())
+    return [*kinds, *doors]
 
   def _hasWaiting(self, name: str) -> bool:
     """

@@ -49,32 +49,6 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QPageSize::~QPageSize()': the destructor: Python removes its C++
     QPageSize by it, and has no other use for it.
-  - Qt's 'PageSizeId QPageSize::id() const': another kind of method than most
-    functions of its name, and one name is one kind of method.
-  - Qt's 'QString QPageSize::key(PageSizeId pageSizeId)': another kind of
-    method than most functions of its name, and one name is one kind of
-    method.
-  - Qt's 'QString QPageSize::name(PageSizeId pageSizeId)': another kind of
-    method than most functions of its name, and one name is one kind of
-    method.
-  - Qt's 'int QPageSize::windowsId(PageSizeId pageSizeId)': another kind of
-    method than most functions of its name, and one name is one kind of
-    method.
-  - Qt's 'QSizeF QPageSize::definitionSize(PageSizeId pageSizeId)': another
-    kind of method than most functions of its name, and one name is one kind
-    of method.
-  - Qt's 'Unit QPageSize::definitionUnits(PageSizeId pageSizeId)': another
-    kind of method than most functions of its name, and one name is one kind
-    of method.
-  - Qt's 'QSizeF QPageSize::size(PageSizeId pageSizeId, Unit units)': another
-    kind of method than most functions of its name, and one name is one kind
-    of method.
-  - Qt's 'QSize QPageSize::sizePoints(PageSizeId pageSizeId)': another kind
-    of method than most functions of its name, and one name is one kind of
-    method.
-  - Qt's 'QSize QPageSize::sizePixels(PageSizeId pageSizeId, int
-    resolution)': another kind of method than most functions of its name, and
-    one name is one kind of method.
 
   What has no ritual
   ------------------
@@ -254,6 +228,161 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QPageSize'
+
+  #  Qt's '~QPageSize()'. Naming it makes this a value class: Python owns
+  #  every C++ QPageSize behind a cute one, and removes it by this ritual.
+  __delete_ritual__ = 'ritual_ZN9QPageSizeD1Ev'
+
+  #  Fallback Variables
+
+  #  Private Variables
+
+  #  Public Variables
+
+  #  Virtual Variables
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def isEquivalentTo(self, other: QPageSize) -> bool:
+    """
+    Calls Qt's 'bool QPageSize::isEquivalentTo(const QPageSize &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#isEquivalentTo
+
+    Parameters
+    ----------
+
+    other : QPageSize
+      Passed on as a value: Qt reads the C++ QPageSize, which stays Python's
+      own.
+    """
+    #  bool QPageSize::isEquivalentTo(const QPageSize &other) const
+    return self.uglySide.call(
+        'ritual_ZNK9QPageSize14isEquivalentToERKS_', self._valueOf(other),
+    )
+
+  def isValid(self) -> bool:
+    """
+    Calls Qt's 'bool QPageSize::isValid() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#isValid
+    """
+    #  bool QPageSize::isValid() const
+    return self.uglySide.call('ritual_ZNK9QPageSize7isValidEv')
+
+  @overload()
+  def key(self) -> str:
+    """
+    Calls Qt's 'QString QPageSize::key() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#key
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QPageSize::key() const
+    return self.uglySide.call('ritual_ZNK9QPageSize3keyEv')
+
+  @staticmethod
+  @overload(PageSizeId)
+  def key(pageSizeId: PageSizeId) -> str:
+    """
+    Calls Qt's 'QString QPageSize::key(PageSizeId pageSizeId)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#key
+
+    Parameters
+    ----------
+
+    pageSizeId : PageSizeId
+      Passed on as its number.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QPageSize::key(PageSizeId pageSizeId)
+    return Rituals.call(
+        'ritual_ZN9QPageSize3keyENS_10PageSizeIdE', pageSizeId.value,
+    )
+
+  @overload()
+  def name(self) -> str:
+    """
+    Calls Qt's 'QString QPageSize::name() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#name
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QPageSize::name() const
+    return self.uglySide.call('ritual_ZNK9QPageSize4nameEv')
+
+  @staticmethod
+  @overload(PageSizeId)
+  def name(pageSizeId: PageSizeId) -> str:
+    """
+    Calls Qt's 'QString QPageSize::name(PageSizeId pageSizeId)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#name
+
+    Parameters
+    ----------
+
+    pageSizeId : PageSizeId
+      Passed on as its number.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QPageSize::name(PageSizeId pageSizeId)
+    return Rituals.call(
+        'ritual_ZN9QPageSize4nameENS_10PageSizeIdE', pageSizeId.value,
+    )
+
+  @overload()
+  def id(self) -> PageSizeId:
+    """
+    Calls Qt's 'PageSizeId QPageSize::id() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#id
+
+    Returns
+    -------
+
+    PageSizeId
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'PageSizeId(number)'
+      gives.
+    """
+    #  PageSizeId QPageSize::id() const
+    return QPageSize.PageSizeId(self.uglySide.call(
+        'ritual_ZNK9QPageSize2idEv',
+    ))
+
   @staticmethod
   @overload(QSize)
   @overload(QSize, SizeMatchPolicy)
@@ -362,89 +491,7 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
         'ritual_ZN9QPageSize2idEi', windowsId,
     ))
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-  #  Class Variables
-  #  The class of Qt this class stands for.
-  __qt_class__ = 'QPageSize'
-
-  #  Qt's '~QPageSize()'. Naming it makes this a value class: Python owns
-  #  every C++ QPageSize behind a cute one, and removes it by this ritual.
-  __delete_ritual__ = 'ritual_ZN9QPageSizeD1Ev'
-
-  #  Fallback Variables
-
-  #  Private Variables
-
-  #  Public Variables
-
-  #  Virtual Variables
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-  @overload(THIS)
-  def isEquivalentTo(self, other: QPageSize) -> bool:
-    """
-    Calls Qt's 'bool QPageSize::isEquivalentTo(const QPageSize &other)
-    const'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#isEquivalentTo
-
-    Parameters
-    ----------
-
-    other : QPageSize
-      Passed on as a value: Qt reads the C++ QPageSize, which stays Python's
-      own.
-    """
-    #  bool QPageSize::isEquivalentTo(const QPageSize &other) const
-    return self.uglySide.call(
-        'ritual_ZNK9QPageSize14isEquivalentToERKS_', self._valueOf(other),
-    )
-
-  def isValid(self) -> bool:
-    """
-    Calls Qt's 'bool QPageSize::isValid() const'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#isValid
-    """
-    #  bool QPageSize::isValid() const
-    return self.uglySide.call('ritual_ZNK9QPageSize7isValidEv')
-
-  def key(self) -> str:
-    """
-    Calls Qt's 'QString QPageSize::key() const'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#key
-
-    Returns
-    -------
-
-    str
-      The text Qt gave back.
-    """
-    #  QString QPageSize::key() const
-    return self.uglySide.call('ritual_ZNK9QPageSize3keyEv')
-
-  def name(self) -> str:
-    """
-    Calls Qt's 'QString QPageSize::name() const'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#name
-
-    Returns
-    -------
-
-    str
-      The text Qt gave back.
-    """
-    #  QString QPageSize::name() const
-    return self.uglySide.call('ritual_ZNK9QPageSize4nameEv')
-
+  @overload()
   def windowsId(self) -> int:
     """
     Calls Qt's 'int QPageSize::windowsId() const'.
@@ -454,6 +501,26 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     #  int QPageSize::windowsId() const
     return self.uglySide.call('ritual_ZNK9QPageSize9windowsIdEv')
 
+  @staticmethod
+  @overload(PageSizeId)
+  def windowsId(pageSizeId: PageSizeId) -> int:
+    """
+    Calls Qt's 'int QPageSize::windowsId(PageSizeId pageSizeId)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#windowsId
+
+    Parameters
+    ----------
+
+    pageSizeId : PageSizeId
+      Passed on as its number.
+    """
+    #  int QPageSize::windowsId(PageSizeId pageSizeId)
+    return Rituals.call(
+        'ritual_ZN9QPageSize9windowsIdENS_10PageSizeIdE', pageSizeId.value,
+    )
+
+  @overload()
   def definitionSize(self) -> QSizeF:
     """
     Calls Qt's 'QSizeF QPageSize::definitionSize() const'.
@@ -471,6 +538,35 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
 
+  @staticmethod
+  @overload(PageSizeId)
+  def definitionSize(pageSizeId: PageSizeId) -> QSizeF:
+    """
+    Calls Qt's 'QSizeF QPageSize::definitionSize(PageSizeId pageSizeId)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#definitionSize
+
+    Parameters
+    ----------
+
+    pageSizeId : PageSizeId
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QSizeF
+      A new cute QSizeF around the copy Qt gave back. Python owns it.
+    """
+    #  QSizeF QPageSize::definitionSize(PageSizeId pageSizeId)
+    address = Rituals.call(
+        'ritual_ZN9QPageSize14definitionSizeENS_10PageSizeIdE',
+        pageSizeId.value,
+    )
+    from ..QtCore import QSizeF
+    return QSizeF._cuteOwning(address)
+
+  @overload()
   def definitionUnits(self) -> Unit:
     """
     Calls Qt's 'Unit QPageSize::definitionUnits() const'.
@@ -487,6 +583,33 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     #  Unit QPageSize::definitionUnits() const
     return QPageSize.Unit(self.uglySide.call(
         'ritual_ZNK9QPageSize15definitionUnitsEv',
+    ))
+
+  @staticmethod
+  @overload(PageSizeId)
+  def definitionUnits(pageSizeId: PageSizeId) -> Unit:
+    """
+    Calls Qt's 'Unit QPageSize::definitionUnits(PageSizeId pageSizeId)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#definitionUnits
+
+    Parameters
+    ----------
+
+    pageSizeId : PageSizeId
+      Passed on as its number.
+
+    Returns
+    -------
+
+    Unit
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Unit(number)' gives.
+    """
+    #  Unit QPageSize::definitionUnits(PageSizeId pageSizeId)
+    return QPageSize.Unit(Rituals.call(
+        'ritual_ZN9QPageSize15definitionUnitsENS_10PageSizeIdE',
+        pageSizeId.value,
     ))
 
   @overload(Unit)
@@ -515,6 +638,38 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
 
+  @staticmethod
+  @overload(PageSizeId, Unit)
+  def size(pageSizeId: PageSizeId, units: Unit) -> QSizeF:
+    """
+    Calls Qt's 'QSizeF QPageSize::size(PageSizeId pageSizeId, Unit units)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#size
+
+    Parameters
+    ----------
+
+    pageSizeId : PageSizeId
+      Passed on as its number.
+
+    units : Unit
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QSizeF
+      A new cute QSizeF around the copy Qt gave back. Python owns it.
+    """
+    #  QSizeF QPageSize::size(PageSizeId pageSizeId, Unit units)
+    address = Rituals.call(
+        'ritual_ZN9QPageSize4sizeENS_10PageSizeIdENS_4UnitE',
+        pageSizeId.value, units.value,
+    )
+    from ..QtCore import QSizeF
+    return QSizeF._cuteOwning(address)
+
+  @overload()
   def sizePoints(self) -> QSize:
     """
     Calls Qt's 'QSize QPageSize::sizePoints() const'.
@@ -529,6 +684,33 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QPageSize::sizePoints() const
     address = self.uglySide.call('ritual_ZNK9QPageSize10sizePointsEv')
+    from ..QtCore import QSize
+    return QSize._cuteOwning(address)
+
+  @staticmethod
+  @overload(PageSizeId)
+  def sizePoints(pageSizeId: PageSizeId) -> QSize:
+    """
+    Calls Qt's 'QSize QPageSize::sizePoints(PageSizeId pageSizeId)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#sizePoints
+
+    Parameters
+    ----------
+
+    pageSizeId : PageSizeId
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QPageSize::sizePoints(PageSizeId pageSizeId)
+    address = Rituals.call(
+        'ritual_ZN9QPageSize10sizePointsENS_10PageSizeIdE', pageSizeId.value,
+    )
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -554,6 +736,38 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     #  QSize QPageSize::sizePixels(int resolution) const
     address = self.uglySide.call(
         'ritual_ZNK9QPageSize10sizePixelsEi', resolution,
+    )
+    from ..QtCore import QSize
+    return QSize._cuteOwning(address)
+
+  @staticmethod
+  @overload(PageSizeId, int)
+  def sizePixels(pageSizeId: PageSizeId, resolution: int) -> QSize:
+    """
+    Calls Qt's 'QSize QPageSize::sizePixels(PageSizeId pageSizeId, int
+    resolution)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#sizePixels
+
+    Parameters
+    ----------
+
+    pageSizeId : PageSizeId
+      Passed on as its number.
+
+    resolution : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QPageSize::sizePixels(PageSizeId pageSizeId, int resolution)
+    address = Rituals.call(
+        'ritual_ZN9QPageSize10sizePixelsENS_10PageSizeIdEi',
+        pageSizeId.value, resolution,
     )
     from ..QtCore import QSize
     return QSize._cuteOwning(address)

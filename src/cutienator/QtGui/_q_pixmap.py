@@ -1059,8 +1059,9 @@ class QPixmap(QPaintDevice):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
   @overload(QColor)
-  def fill(self, fillColor: QColor) -> None:
+  def fill(self, fillColor: Optional[QColor] = None) -> None:
     """
     Calls Qt's 'void QPixmap::fill(const QColor &fillColor)'.
 
@@ -1069,11 +1070,15 @@ class QPixmap(QPaintDevice):
     Parameters
     ----------
 
-    fillColor : QColor
+    fillColor : Optional[QColor]
       Passed on as a value: Qt reads the C++ QColor, which stays Python's
-      own.
+      own. May be left out, as in Qt: a new 'QColor(Qt.GlobalColor.white)' is
+      then passed on.
     """
     #  void QPixmap::fill(const QColor &fillColor)
+    if fillColor is None:
+      from . import QColor
+      fillColor = QColor(Qt.GlobalColor.white)
     self.uglySide.call(
         'ritual_ZN7QPixmap4fillERK6QColor', self._valueOf(fillColor),
     )

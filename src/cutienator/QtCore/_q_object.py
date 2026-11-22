@@ -58,16 +58,6 @@ class QObject(CuteMixin, metaclass=MetaCute):
     QObject.
   - Qt's 'bool QObject::moveToThread(QThread *thread, Qt::Disambiguated_t
     a1)': names 'Qt::Disambiguated_t', which has no cute class yet.
-  - Qt's 'QMetaObject::Connection QObject::connect(const QObject *sender,
-    const char *signal, const char *member, Qt::ConnectionType type) const':
-    another kind of method than most functions of its name, and one name is
-    one kind of method.
-  - Qt's 'bool QObject::disconnect(const char *signal, const QObject
-    *receiver, const char *member) const': another kind of method than most
-    functions of its name, and one name is one kind of method.
-  - Qt's 'bool QObject::disconnect(const QObject *receiver, const char
-    *member) const': another kind of method than most functions of its name,
-    and one name is one kind of method.
   - Qt's 'const QBindingStorage *QObject::bindingStorage() const': takes in
     Python what 'QBindingStorage *QObject::bindingStorage()' takes.
 
@@ -288,6 +278,69 @@ class QObject(CuteMixin, metaclass=MetaCute):
     )
     return QMetaObject.Connection._cuteOwning(address)
 
+  @overload(THIS, str, str)
+  @overload(THIS, str, NoneType)
+  @overload(THIS, NoneType, str)
+  @overload(THIS, NoneType, NoneType)
+  @overload(NoneType, str, str)
+  @overload(NoneType, str, NoneType)
+  @overload(NoneType, NoneType, str)
+  @overload(NoneType, NoneType, NoneType)
+  @overload(THIS, str, str, Qt.ConnectionType)
+  @overload(THIS, str, NoneType, Qt.ConnectionType)
+  @overload(THIS, NoneType, str, Qt.ConnectionType)
+  @overload(THIS, NoneType, NoneType, Qt.ConnectionType)
+  @overload(NoneType, str, str, Qt.ConnectionType)
+  @overload(NoneType, str, NoneType, Qt.ConnectionType)
+  @overload(NoneType, NoneType, str, Qt.ConnectionType)
+  @overload(NoneType, NoneType, NoneType, Qt.ConnectionType)
+  def connect(
+      self,
+      sender: Optional[QObject],
+      signal: Optional[str],
+      member: Optional[str],
+      type: Qt.ConnectionType = Qt.ConnectionType.AutoConnection,
+  ) -> QMetaObject.Connection:
+    """
+    Calls Qt's 'QMetaObject::Connection QObject::connect(const QObject
+    *sender, const char *signal, const char *member, Qt::ConnectionType type)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#connect
+
+    Parameters
+    ----------
+
+    sender : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    signal : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    member : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    type : Qt.ConnectionType
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ConnectionType.AutoConnection.
+
+    Returns
+    -------
+
+    QMetaObject.Connection
+      A new cute QMetaObject::Connection around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QMetaObject::Connection QObject::connect(const QObject *sender, const
+    #      char *signal, const char *member, Qt::ConnectionType type) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE',
+        self._addressOf(sender), self._bytesOf(signal),
+        self._bytesOf(member), type.value,
+    )
+    return QMetaObject.Connection._cuteOwning(address)
+
   @staticmethod
   @overload(THIS, str, THIS, str)
   @overload(THIS, str, THIS, NoneType)
@@ -385,6 +438,89 @@ class QObject(CuteMixin, metaclass=MetaCute):
         'ritual_ZN7QObject10disconnectEPKS_RK11QMetaMethodS1_S4_',
         CuteMixin._addressOf(sender), CuteMixin._valueOf(signal),
         CuteMixin._addressOf(receiver), CuteMixin._valueOf(member),
+    )
+
+  @overload()
+  @overload(str)
+  @overload(NoneType)
+  @overload(str, THIS)
+  @overload(str, NoneType)
+  @overload(NoneType, THIS)
+  @overload(NoneType, NoneType)
+  @overload(str, THIS, str)
+  @overload(str, THIS, NoneType)
+  @overload(str, NoneType, str)
+  @overload(str, NoneType, NoneType)
+  @overload(NoneType, THIS, str)
+  @overload(NoneType, THIS, NoneType)
+  @overload(NoneType, NoneType, str)
+  @overload(NoneType, NoneType, NoneType)
+  def disconnect(
+      self,
+      signal: Optional[str] = None,
+      receiver: Optional[QObject] = None,
+      member: Optional[str] = None,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QObject::disconnect(const char *signal, const QObject
+    *receiver, const char *member) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#disconnect
+
+    Parameters
+    ----------
+
+    signal : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text. May
+      be left out, as in Qt: it is then None.
+
+    receiver : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    member : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text. May
+      be left out, as in Qt: it is then None.
+    """
+    #  bool QObject::disconnect(const char *signal, const QObject *receiver,
+    #      const char *member) const
+    return self.uglySide.call(
+        'ritual_ZNK7QObject10disconnectEPKcPKS_S1_',
+        self._bytesOf(signal), self._addressOf(receiver),
+        self._bytesOf(member),
+    )
+
+  @overload(THIS)
+  @overload(THIS, str)
+  @overload(THIS, NoneType)
+  @overload(NoneType, str)
+  def disconnect(
+      self,
+      receiver: Optional[QObject],
+      member: Optional[str] = None,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QObject::disconnect(const QObject *receiver, const char
+    *member) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#disconnect
+
+    Parameters
+    ----------
+
+    receiver : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    member : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text. May
+      be left out, as in Qt: it is then None.
+    """
+    #  bool QObject::disconnect(const QObject *receiver, const char *member)
+    #      const
+    return self.uglySide.call(
+        'ritual_ZNK7QObject10disconnectEPKS_PKc',
+        self._addressOf(receiver), self._bytesOf(member),
     )
 
   @staticmethod

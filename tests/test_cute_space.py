@@ -264,9 +264,9 @@ class TestCuteSpace(BaseTest):
     space['below'] = CuteOverload(wait)(classmethod(self._second))
     space['neither'] = CuteOverload(wait)(self._third)
     kinds = space.getMethodKinds()
-    self.assertIs(kinds['above'], staticmethod)
-    self.assertIs(kinds['below'], classmethod)
-    self.assertIsNone(kinds['neither'])
+    self.assertEqual(kinds['above'], (staticmethod,))
+    self.assertEqual(kinds['below'], (classmethod,))
+    self.assertEqual(kinds['neither'], (None,))
     for _, waitingSignature in space.getWaitingSignatures():
       self.assertIsInstance(waitingSignature, WaitingSignature)
 
@@ -293,19 +293,29 @@ class TestCuteSpace(BaseTest):
     self.assertEqual(len(space.getWaitingSignatures()), 1)
 
   def test_two_kinds_of_method_at_one_name(self) -> None:
-    """A name is one kind of method, waiting signatures included."""
+    """A name may hold a function called on the class beside one called
+    on an object, waiting signatures included, and the kind of each
+    function is on record. One function is one kind of method."""
     with self.subTest(order='the waiting signature first'):
       space = self._makeSpace('KindFirst')
       wait = self._bindWait(space, 'TwoKindLate')
       space['meet'] = staticmethod(CuteOverload(wait)(self._first))
-      with self.assertRaises(MixedMethodKind):
-        space['meet'] = CuteOverload(int)(self._second)
+      space['meet'] = CuteOverload(int)(self._second)
+      found = {*space.getMethodKinds()['meet']}
+      self.assertEqual(found, {staticmethod, None})
+      kinds = space.getFunctionKinds()['meet']
+      self.assertIn((self._first, staticmethod), kinds)
+      self.assertIn((self._second, None), kinds)
     with self.subTest(order='the waiting signature last'):
       space = self._makeSpace('KindLast')
       wait = self._bindWait(space, 'TwoKindLate')
       space['meet'] = CuteOverload(int)(self._first)
-      with self.assertRaises(MixedMethodKind):
-        space['meet'] = staticmethod(CuteOverload(wait)(self._second))
+      space['meet'] = staticmethod(CuteOverload(wait)(self._second))
+      found = {*space.getMethodKinds()['meet']}
+      self.assertEqual(found, {staticmethod, None})
+      kinds = space.getFunctionKinds()['meet']
+      self.assertIn((self._first, None), kinds)
+      self.assertIn((self._second, staticmethod), kinds)
     with self.subTest(order='both kinds on one function'):
       space = self._makeSpace('KindBoth')
       wait = self._bindWait(space, 'TwoKindLate')
@@ -347,7 +357,8 @@ class TestCuteSpace(BaseTest):
     space['__class_call__'] = classmethod(waitingOverload)
     kept = [('__class_call__', self._first, (wait,))]
     self.assertEqual(self._kept(space), kept)
-    self.assertIs(space.getMethodKinds()['__class_call__'], classmethod)
+    kinds = space.getMethodKinds()['__class_call__']
+    self.assertEqual(kinds, (classmethod,))
 
   def test_a_name_taken_keeps_a_wait_from_being_bound(self) -> None:
     """A WAIT no line binds is refused when its name is taken."""
@@ -469,7 +480,7 @@ class TestCuteSpace(BaseTest):
       wait = self._bindWait(space, 'SharesBelowLate')
       space['meet'] = staticmethod(CuteOverload(int)(
           CuteOverload(str, wait)(CuteOverload(wait)(self._first))))
-      self.assertIs(space.getMethodKinds()['meet'], staticmethod)
+      self.assertEqual(space.getMethodKinds()['meet'], (staticmethod,))
       self.assertEqual(self._onRecord(space, 'meet'), [(int,)])
       kept = [
           ('meet', self._first, (wait,)),

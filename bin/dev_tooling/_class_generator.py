@@ -263,6 +263,10 @@ class ClassGenerator:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
+  #  The constants of the classes of Qt that are numbers, gathered once
+  #  for each tree; see '_findConstantNumber'.
+  __constant_lock__ = threading.RLock()
+  __constant_numbers__ = dict()  # type: Dict[int, Dict[str, Set[Any]]]
   #  What a number type built into C++ is in Python.
   __python_numbers__ = dict(
       bool='bool', float='float', double='float',
@@ -1080,11 +1084,200 @@ class ClassGenerator:
       if number is None or isinstance(number, bool):
         return None
       return -number if node['opcode'] == '-' else number
+    if kind == 'BinaryOperator' and node.get('opcode') in ('+', '-', '*'):
+      #  Qt writes some numbers as a sum, as 'Qt::UserRole + 1'.
+      inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
+      if len(inner) != 2:
+        return None
+      left, right = self._findNumber(inner[0]), self._findNumber(inner[1])
+      for number in (left, right):
+        if number is None or isinstance(number, bool):
+          return None
+      if node['opcode'] == '+':
+        return left + right
+      return left - right if node['opcode'] == '-' else left * right
     if kind == 'DeclRefExpr':
       referenced = node.get('referencedDecl', dict())
       if referenced.get('kind') == 'EnumConstantDecl':
         return self._findEnumNumber(referenced)
+      if referenced.get('kind') == 'VarDecl':
+        return self._findConstantNumber(referenced)
     return None
+
+  def _findConstantNumber(self, referenced: Record) -> Any:
+    """
+    Gives the number of a constant of a class of Qt that a default
+    refers to, as 'QLocale::DefaultTwoDigitBaseYear', which is 1900.
+
+    What the compiler wrote down of the reference holds the name of
+    the constant and not its class. So the constants of every cute
+    class are gathered once for each tree, and a name is taken when
+    the classes that have it agree on one number.
+
+    Returns
+    -------
+
+    Any
+      The number, or None when no class has such a constant, or the
+      classes that have one disagree.
+    """
+    tree = self.getDependencyTree()
+    with self.__constant_lock__:
+      numbers = self.__constant_numbers__.get(id(tree), None)
+      if numbers is None:
+        #  Kept before it is filled: a constant written in terms of
+        #  another one asks here again, and finds what is there so far.
+        numbers = dict()
+        self.__constant_numbers__[id(tree)] = numbers
+        for className in self.getCuteNames():
+          for child in tree.getClassRecord(className).get('inner', ()):
+            if child.get('kind') != 'VarDecl':
+              continue
+            if not child.get('constexpr', False):
+              continue
+            written = child.get('inner', ())
+            written = [c for c in written if isinstance(c, dict)]
+            number = self._findNumber(written[0]) if written else None
+            if number is None or isinstance(number, bool):
+              continue
+            numbers.setdefault(child.get('name'), set()).add(number)
+    found = numbers.get(referenced.get('name'), ())
+    return [*found][0] if len(found) == 1 else None
+
+  def _findJoinedNames(self, node: Optional[Record]) -> Optional[List[str]]:
+    """
+    Gives the names of the members of an enum that a default of Qt
+    stands for: the one name it refers to, or the names it joins with
+    '|', as 'DrawWindowBackground | DrawChildren'. Gives None when the
+    default is anything else.
+    """
+    node = self._unwrap(node)
+    if node is None:
+      return None
+    kind = node.get('kind')
+    inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
+    if kind in ('CXXFunctionalCastExpr', 'CXXStaticCastExpr'):
+      return self._findJoinedNames(inner[0]) if inner else None
+    if kind in ('CXXConstructExpr', 'CXXTemporaryObjectExpr'):
+      given = self._findGiven(node)
+      return self._findJoinedNames(given[0]) if len(given) == 1 else None
+    if kind == 'DeclRefExpr':
+      referenced = node.get('referencedDecl', dict())
+      if referenced.get('kind') != 'EnumConstantDecl':
+        return None
+      return [referenced.get('name')]
+    if kind == 'BinaryOperator' and node.get('opcode') == '|':
+      joined = inner
+    elif kind == 'CXXOperatorCallExpr' and inner:
+      called = self._unwrap(inner[0]) or dict()
+      if called.get('referencedDecl', dict()).get('name') != 'operator|':
+        return None
+      joined = inner[1:]
+    else:
+      return None
+    names = []  # type: List[str]
+    for part in joined:
+      found = self._findJoinedNames(part)
+      if found is None:
+        return None
+      names.extend(found)
+    return names or None
+
+  def _findMadeOf(self, node: Optional[Record]) -> Optional[Tuple[str, ...]]:
+    """
+    Says in Python one thing a default of Qt makes a value of, as the
+    'Qt::white' of 'QColor(Qt::white)': a number written out, or a
+    member of an enum of the namespace Qt, which every class file has
+    at hand.
+
+    Returns
+    -------
+
+    Optional[Tuple[Any, ...]]
+      None when it is anything else. Else the kind, 'number', 'enum' or
+      'value'; the enum or the class as C++ names it, or '' for a
+      number; the text in Python, as '0', 'Qt.GlobalColor.white' or
+      'QPoint(0, 0)'; and the late classes the text names, which have
+      to be brought in before it is run.
+    """
+    node = self._unwrap(node)
+    if node is None:
+      return None
+    kind = node.get('kind')
+    if kind in ('CXXTemporaryObjectExpr', 'CXXConstructExpr'):
+      #  A value made of what this very method can say, as the
+      #  'QPoint(0, 0)' of 'QRect(QPoint(0, 0), QSize(-1, -1))'.
+      cppName = node.get('type', dict()).get('qualType', '')
+      cppName = cppName.replace('const ', '').strip()
+      found = self._findClass(cppName)
+      if not isinstance(found, dict):
+        return None
+      parts = [self._findMadeOf(one) for one in self._findGiven(node)]
+      if any(part is None for part in parts):
+        return None
+      if parts and not self._canBeMadeOf(cppName, parts):
+        return None
+      if not parts and not self._canBeMadeEmpty(cppName):
+        return None
+      brings = [name for part in parts for name in part[3]]
+      if found['late'] and found['bring']:
+        brings.append(found['bring'])
+      made = '%s(%s)' % (
+          found['holder'], ', '.join(part[2] for part in parts))
+      return ('value', cppName, made, (*brings,))
+    if kind == 'DeclRefExpr':
+      referenced = node.get('referencedDecl', dict())
+      if referenced.get('kind') != 'EnumConstantDecl':
+        return None
+      enumName = referenced.get('type', dict()).get('qualType', '')
+      if not enumName.startswith('Qt::'):
+        return None
+      found = self._findEnum(enumName, False)
+      if not isinstance(found, dict):
+        return None
+      name = referenced.get('name')
+      record = found['generator'].getEnumRecord()
+      if all(name != member for member, _ in record['members']):
+        return None
+      name = self.__python_words__.get(name, name)
+      return ('enum', enumName, '%s.%s' % (found['entry'], name), ())
+    literals = ('IntegerLiteral', 'FloatingLiteral')
+    if kind == 'UnaryOperator':
+      inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
+      below = self._unwrap(inner[0]) if inner else None
+      if below is None or below.get('kind') not in literals:
+        return None
+    elif kind not in literals:
+      return None
+    number = self._findNumber(node)
+    if number is None or isinstance(number, bool):
+      return None
+    return ('number', '', repr(number), ())
+
+  def _canBeMadeOf(self, className: str, parts: List[Any]) -> bool:
+    """Says whether the cute class of a class of Qt can be made of what
+    '_findMadeOf' gave: whether it has a ritual for a constructor
+    taking just that: number for number, enum for enum and value for
+    value."""
+    for plan in self.getRitualGenerator(className).getWritten():
+      if plan['kind'] != 'constructor':
+        continue
+      arguments = plan['arguments']
+      if len(arguments) != len(parts):
+        continue
+      for argument, part in zip(arguments, parts):
+        kind, cppName, passing = part[0], part[1], argument['passing']
+        if passing['kind'] != kind:
+          break
+        if kind == 'number' and passing['className'] == 'char':
+          break
+        if kind == 'enum' and argument['written'] != cppName:
+          break
+        if kind == 'value' and passing['className'] != cppName:
+          break
+      else:
+        return True
+    return False
 
   @staticmethod
   def _findGiven(node: Record) -> List[Record]:
@@ -1148,36 +1341,51 @@ class ClassGenerator:
         return None
       return dict(text=repr(int(number)))
     if kind in ('enum', 'flags'):
-      if nodeKind in making:
-        given = self._findGiven(node)
-        if not given:
-          if kind == 'flags':
-            return dict(text='%s()' % parameter['entry'])
-          return None
-        if len(given) != 1:
-          return None
-        node = self._unwrap(given[0])
-        nodeKind = node.get('kind') if node else None
-      if nodeKind != 'DeclRefExpr':
+      if nodeKind in making and not self._findGiven(node):
+        if kind == 'flags':
+          return dict(text='%s()' % parameter['entry'])
         return None
-      referenced = node.get('referencedDecl', dict())
-      if referenced.get('kind') != 'EnumConstantDecl':
+      #  One member, or for flags several joined with '|', as Qt's
+      #  'RenderFlags(DrawWindowBackground | DrawChildren)'.
+      names = self._findJoinedNames(node)
+      if names is None or (len(names) > 1 and kind != 'flags'):
         return None
-      for name, _ in parameter['enumGenerator'].getEnumRecord()['members']:
-        if name == referenced.get('name'):
-          name = self.__python_words__.get(name, name)
-          return dict(text='%s.%s' % (parameter['entry'], name))
-      return None
+      record = parameter['enumGenerator'].getEnumRecord()
+      members = [name for name, _ in record['members']]
+      if any(name not in members for name in names):
+        return None
+      words = self.__python_words__
+      return dict(text=' | '.join(
+          '%s.%s' % (parameter['entry'], words.get(name, name))
+          for name in names))
     if kind == 'text':
       if nodeKind in making and not self._findGiven(node):
         return dict(text="''")
       return None
     if kind == 'value':
-      if nodeKind in making and not self._findGiven(node):
+      if nodeKind not in making:
+        return None
+      given = self._findGiven(node)
+      if not given:
         if self._canBeMadeEmpty(parameter['className']):
           made = '%s()' % parameter['holder']
           return dict(text='None', made=made)
-      return None
+        return None
+      #  A value Qt makes of numbers written out, of a member of an
+      #  enum of the namespace Qt, or of such values in turn:
+      #  'QMarginsF(0, 0, 0, 0)', 'QColor(Qt::white)',
+      #  'QRect(QPoint(0, 0), QSize(-1, -1))'.
+      parts = [self._findMadeOf(one) for one in given]
+      if any(part is None for part in parts):
+        return None
+      if not self._canBeMadeOf(parameter['className'], parts):
+        return None
+      made = '%s(%s)' % (
+          parameter['holder'], ', '.join(part[2] for part in parts))
+      brings = []  # type: List[str]
+      for part in parts:
+        brings.extend(n for n in part[3] if n not in brings)
+      return dict(text='None', made=made, brings=(*brings,))
     return None
 
   def _canBeMadeEmpty(self, className: str) -> bool:
@@ -1601,38 +1809,36 @@ class ClassGenerator:
       function['section'] = self._findSection(function)
       self._createSignatures(function)
       planned.append(function)
-    #  One name is one kind of method: the kind most of its functions
-    #  have, and the kind of the first when it is a tie.
     byName = collections.OrderedDict()  # type: Dict[str, List[Record]]
     for function in planned:
       byName.setdefault(function['pythonName'], []).append(function)
     functions = []  # type: List[Record]
     for pythonName, group in byName.items():
-      kinds = [f['kind'] for f in group]
-      kept = max(dict.fromkeys(kinds), key=kinds.count)
-      for function in [f for f in group if f['kind'] != kept]:
-        infoSpec = """another kind of method than most functions of
-        its name, and one name is one kind of method"""
-        reason = ' '.join(infoSpec.split())
-        leftOut.append((function['plan']['function'], reason))
-      group = [f for f in group if f['kind'] == kept]
+      #  Where Qt has, under one name, a function called on an object
+      #  and one called on the class, as 'file.exists()' beside
+      #  'QFile.exists(fileName)', both are written under that name, the
+      #  one called on the class with '@staticmethod', as Qt declares
+      #  them. worktoy reaches the first through an object and the
+      #  second through the class.
       #  A call an earlier function of the name takes already is not
-      #  taken again.
-      taken = dict()  # type: Dict[Tuple[str, ...], str]
+      #  taken again. A function called on an object and one called on
+      #  the class never take the same call, so each kind is looked at
+      #  apart.
+      taken = dict()  # type: Dict[Tuple[Any, ...], str]
       kept = []
       for function in group:
-        shown = function['plan']['function']
+        shown, kind = function['plan']['function'], function['kind']
         pairs = [*zip(function['signatures'], function['signatureKeys'])]
-        fresh = [(s, k) for s, k in pairs if k not in taken]
+        fresh = [(s, k) for s, k in pairs if (kind, k) not in taken]
         if not fresh:
           full = function['signatureKeys'][-1]
           infoSpec = """takes in Python what '%s' takes"""
-          leftOut.append((shown, infoSpec % taken[full]))
+          leftOut.append((shown, infoSpec % taken[(kind, full)]))
           continue
         function['signatures'] = [s for s, _ in fresh]
         function['signatureKeys'] = [k for _, k in fresh]
         for _, key in fresh:
-          taken[key] = shown
+          taken[(kind, key)] = shown
         kept.append(function)
       #  worktoy asks the signatures of one class in the order written,
       #  so the more special one is written first.
@@ -2190,6 +2396,11 @@ class ClassGenerator:
           named, _, default = text.partition(' = ')
           lines.append('      %s = (' % named)
           line = '          %s),' % default
+          if len(line) > _width() and ' | ' in default:
+            #  Flags joined with '|' go one to a line.
+            *first, last = default.split(' | ')
+            lines.extend('          %s |' % one for one in first)
+            line = '          %s),' % last
         lines.append(line)
       lines.append('  ) -> %s:' % annotation)
     return lines
@@ -2270,8 +2481,14 @@ class ClassGenerator:
       if default is not None and 'made' in default:
         name = parameter['name']
         lines.append('    if %s is None:' % name)
+        brought = []  # type: List[str]
         if parameter['late'] and parameter['bring']:
-          lines.append(self._writeBringing(parameter['bring'], '      '))
+          brought.append(parameter['bring'])
+        for otherName in default.get('brings', ()):
+          if otherName not in brought:
+            brought.append(otherName)
+        for otherName in brought:
+          lines.append(self._writeBringing(otherName, '      '))
         lines.append('      %s = %s' % (name, default['made']))
       passed.append(parameter['passed'])
     ritualName = plan['ritualName']

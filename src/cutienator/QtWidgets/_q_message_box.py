@@ -421,6 +421,8 @@ class QMessageBox(QDialog):
     )
 
   @staticmethod
+  @overload(QWidget, str, str)
+  @overload(NoneType, str, str)
   @overload(QWidget, str, str, StandardButtons)
   @overload(NoneType, str, str, StandardButtons)
   @overload(QWidget, str, str, StandardButtons, StandardButton)
@@ -429,7 +431,7 @@ class QMessageBox(QDialog):
       parent: Optional[QWidget],
       title: str,
       text: str,
-      buttons: StandardButtons,
+      buttons: StandardButtons = StandardButtons.Yes | StandardButtons.No,
       defaultButton: StandardButton = StandardButton.NoButton,
   ) -> StandardButton:
     """
@@ -453,7 +455,8 @@ class QMessageBox(QDialog):
       Passed on as it is: a QString is made of it for the call.
 
     buttons : StandardButtons
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      StandardButtons.Yes | StandardButtons.No.
 
     defaultButton : StandardButton
       Passed on as its number. May be left out, as in Qt: it is then
@@ -1825,6 +1828,10 @@ class QMessageBox(QDialog):
         'ritual_ZN11QMessageBoxC1EP7QWidget', self._addressOf(parent),
     ))
 
+  @overload(Icon, str, str)
+  @overload(Icon, str, str, StandardButtons)
+  @overload(Icon, str, str, StandardButtons, QWidget)
+  @overload(Icon, str, str, StandardButtons, NoneType)
   @overload(Icon, str, str, StandardButtons, QWidget, Qt.WindowFlags)
   @overload(Icon, str, str, StandardButtons, NoneType, Qt.WindowFlags)
   def __init__(
@@ -1832,9 +1839,11 @@ class QMessageBox(QDialog):
       icon: Icon,
       title: str,
       text: str,
-      buttons: StandardButtons,
-      parent: Optional[QWidget],
-      flags: Qt.WindowFlags,
+      buttons: StandardButtons = StandardButtons.NoButton,
+      parent: Optional[QWidget] = None,
+      flags: Qt.WindowFlags = (
+          Qt.WindowFlags.Dialog |
+          Qt.WindowFlags.MSWindowsFixedSizeDialogHint),
   ) -> None:
     """
     Notes what was given, for Qt's 'QMessageBox::QMessageBox(Icon icon, const
@@ -1856,14 +1865,16 @@ class QMessageBox(QDialog):
       Passed on as it is: a QString is made of it for the call.
 
     buttons : StandardButtons
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      StandardButtons.NoButton.
 
     parent : Optional[QWidget]
       Passed on as the address of its C++ object. None is passed on as no
-      object.
+      object. May be left out, as in Qt: it is then None.
 
     flags : Qt.WindowFlags
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.WindowFlags.Dialog | Qt.WindowFlags.MSWindowsFixedSizeDialogHint.
     """
     #  QMessageBox::QMessageBox(Icon icon, const QString &title, const
     #      QString &text, StandardButtons buttons, QWidget *parent,
@@ -1875,6 +1886,9 @@ class QMessageBox(QDialog):
         flags.value,
     ))
 
+  @overload(str, str, Icon, int, int, int)
+  @overload(str, str, Icon, int, int, int, QWidget)
+  @overload(str, str, Icon, int, int, int, NoneType)
   @overload(str, str, Icon, int, int, int, QWidget, Qt.WindowFlags)
   @overload(str, str, Icon, int, int, int, NoneType, Qt.WindowFlags)
   def __init__(
@@ -1885,8 +1899,10 @@ class QMessageBox(QDialog):
       button0: int,
       button1: int,
       button2: int,
-      parent: Optional[QWidget],
-      f: Qt.WindowFlags,
+      parent: Optional[QWidget] = None,
+      f: Qt.WindowFlags = (
+          Qt.WindowFlags.Dialog |
+          Qt.WindowFlags.MSWindowsFixedSizeDialogHint),
   ) -> None:
     """
     Notes what was given, for Qt's 'QMessageBox::QMessageBox(const QString
@@ -1919,10 +1935,11 @@ class QMessageBox(QDialog):
 
     parent : Optional[QWidget]
       Passed on as the address of its C++ object. None is passed on as no
-      object.
+      object. May be left out, as in Qt: it is then None.
 
     f : Qt.WindowFlags
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.WindowFlags.Dialog | Qt.WindowFlags.MSWindowsFixedSizeDialogHint.
     """
     #  QMessageBox::QMessageBox(const QString &title, const QString &text,
     #      Icon icon, int button0, int button1, int button2, QWidget *parent,
