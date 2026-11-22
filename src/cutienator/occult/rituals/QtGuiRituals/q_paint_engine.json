@@ -137,11 +137,17 @@
     "ritual_own_ZN12QPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
       "nothing", "address", "address", "address", "address"
     ],
+    "ritual_own_ZN12QPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
     "ritual_own_ZNK12QPaintEngine16coordinateOffsetEv": [
       "address", "address"
     ],
     "ritual_own_ZN12QPaintEngine12createPixmapE5QSize": [
       "address", "address", "address"
+    ],
+    "ritual_own_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "address", "int"
     ]
   }
 }

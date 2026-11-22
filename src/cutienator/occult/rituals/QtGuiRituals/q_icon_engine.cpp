@@ -14,13 +14,16 @@ typedef void (*CuteQIconEngineCall0)(const void *, QPainter *, const QRect *, in
 typedef const QSize * (*CuteQIconEngineCall1)(const void *, const QSize *, int, int, int *);
 typedef const QPixmap * (*CuteQIconEngineCall2)(const void *, const QSize *, int, int, int *);
 typedef void (*CuteQIconEngineCall3)(const void *, const QPixmap *, int, int, int *);
-typedef void * (*CuteQIconEngineCall4)(const void *, int *);
-typedef bool (*CuteQIconEngineCall5)(const void *, int *);
-typedef const QPixmap * (*CuteQIconEngineCall6)(const void *, const QSize *, int, int, qreal, int *);
+typedef void (*CuteQIconEngineCall4)(const void *, const QString *, const QSize *, int, int, int *);
+typedef QString * (*CuteQIconEngineCall5)(const void *, int *);
+typedef void * (*CuteQIconEngineCall6)(const void *, int *);
+typedef QString * (*CuteQIconEngineCall7)(const void *, int *);
+typedef bool (*CuteQIconEngineCall8)(const void *, int *);
+typedef const QPixmap * (*CuteQIconEngineCall9)(const void *, const QSize *, int, int, qreal, int *);
 class CuteQIconEngine : public QIconEngine {
 public:
   using QIconEngine::QIconEngine;
-  void *taken[7] = {};
+  void *taken[10] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN11QIconEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE")) {
@@ -39,16 +42,28 @@ public:
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QIconEngine5cloneEv")) {
+    if (!std::strcmp(key, "_ZN11QIconEngine7addFileERK7QStringRK5QSizeN5QIcon4ModeENS6_5StateE")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QIconEngine6isNullEv")) {
+    if (!std::strcmp(key, "_ZNK11QIconEngine3keyEv")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd")) {
+    if (!std::strcmp(key, "_ZNK11QIconEngine5cloneEv")) {
       taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QIconEngine8iconNameEv")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QIconEngine6isNullEv")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd")) {
+      taken[9] = call;
       return true;
     }
     return false;
@@ -114,22 +129,68 @@ public:
     QIconEngine::addPixmap(pixmap, mode, state);
   }
 
-  //  QIconEngine *QIconEngine::clone() const
-  QIconEngine *clone() const override {
+  //  void QIconEngine::addFile(const QString &fileName, const QSize &size,
+  //      QIcon::Mode mode, QIcon::State state)
+  void addFile(
+      const QString &fileName,
+      const QSize &size,
+      QIcon::Mode mode,
+      QIcon::State state) override {
     if (taken[4]) {
       int handled = 0;
       CuteQIconEngineCall4 call = reinterpret_cast<CuteQIconEngineCall4>(taken[4]);
+      call(this, &fileName, &size, static_cast<int>(mode), static_cast<int>(state), &handled);
+      if (handled) return;
+    }
+    QIconEngine::addFile(fileName, size, mode, state);
+  }
+
+  //  QString QIconEngine::key() const
+  QString key() const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQIconEngineCall5 call = reinterpret_cast<CuteQIconEngineCall5>(taken[5]);
+      QString * given = call(this, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return QIconEngine::key();
+  }
+
+  //  QIconEngine *QIconEngine::clone() const
+  QIconEngine *clone() const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQIconEngineCall6 call = reinterpret_cast<CuteQIconEngineCall6>(taken[6]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QIconEngine *>(given);
     }
     return {};
   }
 
+  //  QString QIconEngine::iconName()
+  QString iconName() override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQIconEngineCall7 call = reinterpret_cast<CuteQIconEngineCall7>(taken[7]);
+      QString * given = call(this, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return QIconEngine::iconName();
+  }
+
   //  bool QIconEngine::isNull()
   bool isNull() override {
-    if (taken[5]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQIconEngineCall5 call = reinterpret_cast<CuteQIconEngineCall5>(taken[5]);
+      CuteQIconEngineCall8 call = reinterpret_cast<CuteQIconEngineCall8>(taken[8]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -143,9 +204,9 @@ public:
       QIcon::Mode mode,
       QIcon::State state,
       qreal scale) override {
-    if (taken[6]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQIconEngineCall6 call = reinterpret_cast<CuteQIconEngineCall6>(taken[6]);
+      CuteQIconEngineCall9 call = reinterpret_cast<CuteQIconEngineCall9>(taken[9]);
       const QPixmap * given = call(this, &size, static_cast<int>(mode), static_cast<int>(state), scale, &handled);
       if (handled && given) return *given;
     }
@@ -293,6 +354,30 @@ void ritual_own_ZN11QIconEngine9addPixmapERK7QPixmapN5QIcon4ModeENS3_5StateE(
     QIcon::Mode mode,
     QIcon::State state) {
   self->QIconEngine::addPixmap(*pixmap, mode, state);
+}
+
+//  void QIconEngine::addFile(const QString &fileName, const QSize &size,
+//      QIcon::Mode mode, QIcon::State state)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN11QIconEngine7addFileERK7QStringRK5QSizeN5QIcon4ModeENS6_5StateE(
+    QIconEngine *self,
+    const QString *fileName,
+    const QSize *size,
+    QIcon::Mode mode,
+    QIcon::State state) {
+  self->QIconEngine::addFile(*fileName, *size, mode, state);
+}
+
+//  QString QIconEngine::key() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_own_ZNK11QIconEngine3keyEv(const QIconEngine *self) {
+  return new QString(self->QIconEngine::key());
+}
+
+//  QString QIconEngine::iconName()
+extern "C" Q_DECL_EXPORT
+QString *ritual_own_ZN11QIconEngine8iconNameEv(QIconEngine *self) {
+  return new QString(self->QIconEngine::iconName());
 }
 
 //  bool QIconEngine::isNull()

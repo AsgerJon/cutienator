@@ -91,6 +91,7 @@
     "ritual_own_ZNK10QBoxLayout21minimumHeightForWidthEi": [
       "int", "address", "int"
     ],
+    "ritual_own_ZNK10QBoxLayout19expandingDirectionsEv": ["int", "address"],
     "ritual_own_ZN10QBoxLayout10invalidateEv": ["nothing", "address"],
     "ritual_own_ZNK10QBoxLayout6itemAtEi": ["address", "address", "int"],
     "ritual_own_ZN10QBoxLayout6takeAtEi": ["address", "address", "int"],

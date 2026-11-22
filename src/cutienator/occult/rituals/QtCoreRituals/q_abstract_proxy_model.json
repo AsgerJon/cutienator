@@ -99,6 +99,9 @@
     "ritual_own_ZNK19QAbstractProxyModel10headerDataEiN2Qt11OrientationEi": [
       "address", "address", "int", "int", "int"
     ],
+    "ritual_own_ZNK19QAbstractProxyModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
     "ritual_own_ZN19QAbstractProxyModel7setDataERK11QModelIndexRK8QVarianti": [
       "bool", "address", "address", "address", "int"
     ],
@@ -134,6 +137,12 @@
     ],
     "ritual_own_ZN19QAbstractProxyModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
       "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_own_ZNK19QAbstractProxyModel20supportedDragActionsEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK19QAbstractProxyModel20supportedDropActionsEv": [
+      "int", "address"
     ]
   }
 }

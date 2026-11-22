@@ -88,6 +88,10 @@
     "ritual_own_ZNK11QProxyStyle18drawComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget": [
       "nothing", "address", "int", "address", "address", "address"
     ],
+    "ritual_own_ZNK11QProxyStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS5_9ColorRoleE": [
+      "nothing", "address", "address", "address", "int", "address", "bool",
+      "text", "int"
+    ],
     "ritual_own_ZNK11QProxyStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap": [
       "nothing", "address", "address", "address", "int", "address"
     ],
@@ -99,6 +103,9 @@
     ],
     "ritual_own_ZNK11QProxyStyle14subControlRectEN6QStyle14ComplexControlEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget": [
       "address", "address", "int", "address", "int", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QString": [
+      "address", "address", "address", "address", "int", "bool", "text"
     ],
     "ritual_own_ZNK11QProxyStyle14itemPixmapRectERK5QRectiRK7QPixmap": [
       "address", "address", "address", "int", "address"

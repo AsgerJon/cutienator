@@ -17,6 +17,9 @@
     "ritual_own_ZNK17QAccessibleObject7isValidEv": ["bool", "address"],
     "ritual_own_ZNK17QAccessibleObject6objectEv": ["address", "address"],
     "ritual_own_ZNK17QAccessibleObject4rectEv": ["address", "address"],
+    "ritual_own_ZN17QAccessibleObject7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
     "ritual_own_ZNK17QAccessibleObject7childAtEii": [
       "address", "address", "int", "int"
     ]

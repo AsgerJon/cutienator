@@ -167,27 +167,35 @@ class QItemSelectionModel(QObject):
   __take_ritual__ = 'ritual_take_QItemSelectionModel'
 
   #  The functions Qt calls itself that QItemSelectionModel is the first to
-  #  declare and that cannot be handed to Python yet, each as Qt declares it.
-  #  A class of a program that writes one of them anew is refused, since Qt
-  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'setCurrentIndex': (
-          'void QItemSelectionModel::setCurrentIndex(const QModelIndex &, '
-          'QItemSelectionModel::SelectionFlags)',
-      ),
-      'select': (
-          'void QItemSelectionModel::select(const QModelIndex &, '
-          'QItemSelectionModel::SelectionFlags)',
-          'void QItemSelectionModel::select(const QItemSelection &, '
-          'QItemSelectionModel::SelectionFlags)',
-      ),
-  }
-
-  #  The functions Qt calls itself that QItemSelectionModel is the first to
   #  declare. A class of a program built on it can write one anew, and Qt
   #  then calls that. For each name: the key C++ knows the function by, what
   #  it gives, and what it takes.
   __virtual_functions__ = {
+      'setCurrentIndex': (
+          ('_ZN19QItemSelectionModel15setCurrentIndexERK11QModelIndex6QFlag'
+           'sINS_13SelectionFlagEE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('int', 'flags', 'QtCore:QItemSelectionModel.SelectionFlag'),
+           )),
+      ),
+      'select': (
+          ('_ZN19QItemSelectionModel6selectERK11QModelIndex6QFlagsINS_13Sel'
+           'ectionFlagEE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('int', 'flags', 'QtCore:QItemSelectionModel.SelectionFlag'),
+           )),
+          ('_ZN19QItemSelectionModel6selectERK14QItemSelection6QFlagsINS_13'
+           'SelectionFlagEE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QItemSelection'),
+               ('int', 'flags', 'QtCore:QItemSelectionModel.SelectionFlag'),
+           )),
+      ),
       'clear': (
           ('_ZN19QItemSelectionModel5clearEv',
            ('nothing', 'nothing', ''),
@@ -523,11 +531,14 @@ class QItemSelectionModel(QObject):
     """
     #  void QItemSelectionModel::setCurrentIndex(const QModelIndex &index,
     #      QItemSelectionModel::SelectionFlags command)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN19QItemSelectionModel15setCurrentIndexERK11QModelIndex6QF'
-        'lagsINS_13SelectionFlagEE',
-        self._valueOf(index), command.value,
-    )
+        'lagsINS_13SelectionFlagEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QItemSelectionModel15setCurrentIndexERK11QModelIn'
+          'dex6QFlagsINS_13SelectionFlagEE')
+    self.uglySide.call(ritual, self._valueOf(index), command.value)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -641,11 +652,14 @@ class QItemSelectionModel(QObject):
     """
     #  void QItemSelectionModel::select(const QModelIndex &index,
     #      QItemSelectionModel::SelectionFlags command)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN19QItemSelectionModel6selectERK11QModelIndex6QFlagsINS_13'
-        'SelectionFlagEE',
-        self._valueOf(index), command.value,
-    )
+        'SelectionFlagEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QItemSelectionModel6selectERK11QModelIndex6QFlags'
+          'INS_13SelectionFlagEE')
+    self.uglySide.call(ritual, self._valueOf(index), command.value)
 
   @overload(QItemSelection, SelectionFlags)
   def select(
@@ -671,11 +685,14 @@ class QItemSelectionModel(QObject):
     """
     #  void QItemSelectionModel::select(const QItemSelection &selection,
     #      QItemSelectionModel::SelectionFlags command)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN19QItemSelectionModel6selectERK14QItemSelection6QFlagsINS'
-        '_13SelectionFlagEE',
-        self._valueOf(selection), command.value,
-    )
+        '_13SelectionFlagEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QItemSelectionModel6selectERK14QItemSelection6QFl'
+          'agsINS_13SelectionFlagEE')
+    self.uglySide.call(ritual, self._valueOf(selection), command.value)
 
   def clear(self) -> None:
     """

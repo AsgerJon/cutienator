@@ -8,55 +8,71 @@
 //  A QStylePlugin that Python can take functions over in. Every QStylePlugin
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
-typedef bool (*CuteQStylePluginCall0)(const void *, QEvent *, int *);
-typedef bool (*CuteQStylePluginCall1)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQStylePluginCall2)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQStylePluginCall3)(const void *, QChildEvent *, int *);
-typedef void (*CuteQStylePluginCall4)(const void *, QEvent *, int *);
-typedef void (*CuteQStylePluginCall5)(const void *, const QMetaMethod *, int *);
+typedef void * (*CuteQStylePluginCall0)(const void *, const QString *, int *);
+typedef bool (*CuteQStylePluginCall1)(const void *, QEvent *, int *);
+typedef bool (*CuteQStylePluginCall2)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQStylePluginCall3)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQStylePluginCall4)(const void *, QChildEvent *, int *);
+typedef void (*CuteQStylePluginCall5)(const void *, QEvent *, int *);
 typedef void (*CuteQStylePluginCall6)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQStylePluginCall7)(const void *, const QMetaMethod *, int *);
 class CuteQStylePlugin : public QStylePlugin {
 public:
   using QStylePlugin::QStylePlugin;
-  void *taken[7] = {};
+  void *taken[8] = {};
 
   bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN12QStylePlugin6createERK7QString")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[7] = call;
       return true;
     }
     return false;
   }
 
-  //  bool QObject::event(QEvent *event)
-  bool event(QEvent *event) override {
+  //  QStyle *QStylePlugin::create(const QString &key)
+  QStyle *create(const QString &key) override {
     if (taken[0]) {
       int handled = 0;
       CuteQStylePluginCall0 call = reinterpret_cast<CuteQStylePluginCall0>(taken[0]);
+      void * given = call(this, &key, &handled);
+      if (handled) return static_cast<QStyle *>(given);
+    }
+    return {};
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQStylePluginCall1 call = reinterpret_cast<CuteQStylePluginCall1>(taken[1]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -65,9 +81,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[1]) {
+    if (taken[2]) {
       int handled = 0;
-      CuteQStylePluginCall1 call = reinterpret_cast<CuteQStylePluginCall1>(taken[1]);
+      CuteQStylePluginCall2 call = reinterpret_cast<CuteQStylePluginCall2>(taken[2]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -76,9 +92,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[2]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQStylePluginCall2 call = reinterpret_cast<CuteQStylePluginCall2>(taken[2]);
+      CuteQStylePluginCall3 call = reinterpret_cast<CuteQStylePluginCall3>(taken[3]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -87,9 +103,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQStylePluginCall3 call = reinterpret_cast<CuteQStylePluginCall3>(taken[3]);
+      CuteQStylePluginCall4 call = reinterpret_cast<CuteQStylePluginCall4>(taken[4]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -98,9 +114,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQStylePluginCall4 call = reinterpret_cast<CuteQStylePluginCall4>(taken[4]);
+      CuteQStylePluginCall5 call = reinterpret_cast<CuteQStylePluginCall5>(taken[5]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -109,9 +125,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQStylePluginCall5 call = reinterpret_cast<CuteQStylePluginCall5>(taken[5]);
+      CuteQStylePluginCall6 call = reinterpret_cast<CuteQStylePluginCall6>(taken[6]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -120,9 +136,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQStylePluginCall6 call = reinterpret_cast<CuteQStylePluginCall6>(taken[6]);
+      CuteQStylePluginCall7 call = reinterpret_cast<CuteQStylePluginCall7>(taken[7]);
       call(this, &signal, &handled);
       if (handled) return;
     }

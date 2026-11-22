@@ -39,6 +39,7 @@
     "ritual_own_ZN11QLayoutItem10invalidateEv": ["nothing", "address"],
     "ritual_own_ZNK11QLayoutItem6widgetEv": ["address", "address"],
     "ritual_own_ZN11QLayoutItem6layoutEv": ["address", "address"],
-    "ritual_own_ZN11QLayoutItem10spacerItemEv": ["address", "address"]
+    "ritual_own_ZN11QLayoutItem10spacerItemEv": ["address", "address"],
+    "ritual_own_ZNK11QLayoutItem12controlTypesEv": ["int", "address"]
   }
 }

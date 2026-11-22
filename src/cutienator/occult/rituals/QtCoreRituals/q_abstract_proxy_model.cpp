@@ -21,41 +21,44 @@ typedef bool (*CuteQAbstractProxyModelCall5)(const void *, int *);
 typedef void (*CuteQAbstractProxyModelCall6)(const void *, int *);
 typedef const QVariant * (*CuteQAbstractProxyModelCall7)(const void *, const QModelIndex *, int, int *);
 typedef const QVariant * (*CuteQAbstractProxyModelCall8)(const void *, int, int, int, int *);
-typedef bool (*CuteQAbstractProxyModelCall9)(const void *, const QModelIndex *, const QVariant *, int, int *);
-typedef bool (*CuteQAbstractProxyModelCall10)(const void *, int, int, const QVariant *, int, int *);
-typedef bool (*CuteQAbstractProxyModelCall11)(const void *, const QModelIndex *, int *);
-typedef const QModelIndex * (*CuteQAbstractProxyModelCall12)(const void *, const QModelIndex *, int *);
-typedef bool (*CuteQAbstractProxyModelCall13)(const void *, const QModelIndex *, int *);
-typedef void (*CuteQAbstractProxyModelCall14)(const void *, const QModelIndex *, int *);
-typedef void (*CuteQAbstractProxyModelCall15)(const void *, int, int, int *);
-typedef const QSize * (*CuteQAbstractProxyModelCall16)(const void *, const QModelIndex *, int *);
-typedef bool (*CuteQAbstractProxyModelCall17)(const void *, const QModelIndex *, int *);
-typedef const QModelIndex * (*CuteQAbstractProxyModelCall18)(const void *, int, int, const QModelIndex *, int *);
-typedef bool (*CuteQAbstractProxyModelCall19)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+typedef int (*CuteQAbstractProxyModelCall9)(const void *, const QModelIndex *, int *);
+typedef bool (*CuteQAbstractProxyModelCall10)(const void *, const QModelIndex *, const QVariant *, int, int *);
+typedef bool (*CuteQAbstractProxyModelCall11)(const void *, int, int, const QVariant *, int, int *);
+typedef bool (*CuteQAbstractProxyModelCall12)(const void *, const QModelIndex *, int *);
+typedef const QModelIndex * (*CuteQAbstractProxyModelCall13)(const void *, const QModelIndex *, int *);
+typedef bool (*CuteQAbstractProxyModelCall14)(const void *, const QModelIndex *, int *);
+typedef void (*CuteQAbstractProxyModelCall15)(const void *, const QModelIndex *, int *);
+typedef void (*CuteQAbstractProxyModelCall16)(const void *, int, int, int *);
+typedef const QSize * (*CuteQAbstractProxyModelCall17)(const void *, const QModelIndex *, int *);
+typedef bool (*CuteQAbstractProxyModelCall18)(const void *, const QModelIndex *, int *);
+typedef const QModelIndex * (*CuteQAbstractProxyModelCall19)(const void *, int, int, const QModelIndex *, int *);
 typedef bool (*CuteQAbstractProxyModelCall20)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
-typedef const QModelIndex * (*CuteQAbstractProxyModelCall21)(const void *, int, int, const QModelIndex *, int *);
-typedef const QModelIndex * (*CuteQAbstractProxyModelCall22)(const void *, const QModelIndex *, int *);
-typedef int (*CuteQAbstractProxyModelCall23)(const void *, const QModelIndex *, int *);
-typedef int (*CuteQAbstractProxyModelCall24)(const void *, const QModelIndex *, int *);
-typedef bool (*CuteQAbstractProxyModelCall25)(const void *, int, int, const QModelIndex *, int *);
-typedef bool (*CuteQAbstractProxyModelCall26)(const void *, int, int, const QModelIndex *, int *);
-typedef bool (*CuteQAbstractProxyModelCall27)(const void *, int, int, const QModelIndex *, int *);
+typedef bool (*CuteQAbstractProxyModelCall21)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+typedef int (*CuteQAbstractProxyModelCall22)(const void *, int *);
+typedef int (*CuteQAbstractProxyModelCall23)(const void *, int *);
+typedef const QModelIndex * (*CuteQAbstractProxyModelCall24)(const void *, int, int, const QModelIndex *, int *);
+typedef const QModelIndex * (*CuteQAbstractProxyModelCall25)(const void *, const QModelIndex *, int *);
+typedef int (*CuteQAbstractProxyModelCall26)(const void *, const QModelIndex *, int *);
+typedef int (*CuteQAbstractProxyModelCall27)(const void *, const QModelIndex *, int *);
 typedef bool (*CuteQAbstractProxyModelCall28)(const void *, int, int, const QModelIndex *, int *);
-typedef bool (*CuteQAbstractProxyModelCall29)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
-typedef bool (*CuteQAbstractProxyModelCall30)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
-typedef void (*CuteQAbstractProxyModelCall31)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
-typedef void (*CuteQAbstractProxyModelCall32)(const void *, int *);
-typedef bool (*CuteQAbstractProxyModelCall33)(const void *, QEvent *, int *);
-typedef bool (*CuteQAbstractProxyModelCall34)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQAbstractProxyModelCall35)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQAbstractProxyModelCall36)(const void *, QChildEvent *, int *);
-typedef void (*CuteQAbstractProxyModelCall37)(const void *, QEvent *, int *);
-typedef void (*CuteQAbstractProxyModelCall38)(const void *, const QMetaMethod *, int *);
-typedef void (*CuteQAbstractProxyModelCall39)(const void *, const QMetaMethod *, int *);
+typedef bool (*CuteQAbstractProxyModelCall29)(const void *, int, int, const QModelIndex *, int *);
+typedef bool (*CuteQAbstractProxyModelCall30)(const void *, int, int, const QModelIndex *, int *);
+typedef bool (*CuteQAbstractProxyModelCall31)(const void *, int, int, const QModelIndex *, int *);
+typedef bool (*CuteQAbstractProxyModelCall32)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+typedef bool (*CuteQAbstractProxyModelCall33)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+typedef void (*CuteQAbstractProxyModelCall34)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
+typedef void (*CuteQAbstractProxyModelCall35)(const void *, int *);
+typedef bool (*CuteQAbstractProxyModelCall36)(const void *, QEvent *, int *);
+typedef bool (*CuteQAbstractProxyModelCall37)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQAbstractProxyModelCall38)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQAbstractProxyModelCall39)(const void *, QChildEvent *, int *);
+typedef void (*CuteQAbstractProxyModelCall40)(const void *, QEvent *, int *);
+typedef void (*CuteQAbstractProxyModelCall41)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQAbstractProxyModelCall42)(const void *, const QMetaMethod *, int *);
 class CuteQAbstractProxyModel : public QAbstractProxyModel {
 public:
   using QAbstractProxyModel::QAbstractProxyModel;
-  void *taken[40] = {};
+  void *taken[43] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN19QAbstractProxyModel14setSourceModelEP18QAbstractItemModel")) {
@@ -94,128 +97,140 @@ public:
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel7setDataERK11QModelIndexRK8QVarianti")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5flagsERK11QModelIndex")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel7setDataERK11QModelIndexRK8QVarianti")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel11hasChildrenERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel7siblingEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel11hasChildrenERK11QModelIndex")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel7siblingEiiRK11QModelIndex")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5indexEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
       taken[21] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel6parentERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDragActionsEv")) {
       taken[22] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel8rowCountERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDropActionsEv")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel11columnCountERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5indexEiiRK11QModelIndex")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel6parentERK11QModelIndex")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel8rowCountERK11QModelIndex")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel11columnCountERK11QModelIndex")) {
       taken[27] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex")) {
       taken[28] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex")) {
       taken[29] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex")) {
       taken[30] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex")) {
       taken[31] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i")) {
       taken[32] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i")) {
       taken[33] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
       taken[34] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
       taken[35] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[36] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[37] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[38] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[39] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[40] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[41] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[42] = call;
       return true;
     }
     return false;
@@ -332,15 +347,27 @@ public:
     return QAbstractProxyModel::headerData(section, orientation, role);
   }
 
+  //  Qt::ItemFlags QAbstractProxyModel::flags(const QModelIndex &index)
+  //      const
+  Qt::ItemFlags flags(const QModelIndex &index) const override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQAbstractProxyModelCall9 call = reinterpret_cast<CuteQAbstractProxyModelCall9>(taken[9]);
+      int given = call(this, &index, &handled);
+      if (handled) return QFlags<Qt::ItemFlag>::fromInt(given);
+    }
+    return QAbstractProxyModel::flags(index);
+  }
+
   //  bool QAbstractProxyModel::setData(const QModelIndex &index, const
   //      QVariant &value, int role)
   bool setData(
       const QModelIndex &index,
       const QVariant &value,
       int role) override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall9 call = reinterpret_cast<CuteQAbstractProxyModelCall9>(taken[9]);
+      CuteQAbstractProxyModelCall10 call = reinterpret_cast<CuteQAbstractProxyModelCall10>(taken[10]);
       bool given = call(this, &index, &value, role, &handled);
       if (handled) return given;
     }
@@ -354,9 +381,9 @@ public:
       Qt::Orientation orientation,
       const QVariant &value,
       int role) override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall10 call = reinterpret_cast<CuteQAbstractProxyModelCall10>(taken[10]);
+      CuteQAbstractProxyModelCall11 call = reinterpret_cast<CuteQAbstractProxyModelCall11>(taken[11]);
       bool given = call(this, section, static_cast<int>(orientation), &value, role, &handled);
       if (handled) return given;
     }
@@ -365,9 +392,9 @@ public:
 
   //  bool QAbstractProxyModel::clearItemData(const QModelIndex &index)
   bool clearItemData(const QModelIndex &index) override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall11 call = reinterpret_cast<CuteQAbstractProxyModelCall11>(taken[11]);
+      CuteQAbstractProxyModelCall12 call = reinterpret_cast<CuteQAbstractProxyModelCall12>(taken[12]);
       bool given = call(this, &index, &handled);
       if (handled) return given;
     }
@@ -377,9 +404,9 @@ public:
   //  QModelIndex QAbstractProxyModel::buddy(const QModelIndex &index)
   //      const
   QModelIndex buddy(const QModelIndex &index) const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall12 call = reinterpret_cast<CuteQAbstractProxyModelCall12>(taken[12]);
+      CuteQAbstractProxyModelCall13 call = reinterpret_cast<CuteQAbstractProxyModelCall13>(taken[13]);
       const QModelIndex * given = call(this, &index, &handled);
       if (handled && given) return *given;
     }
@@ -389,9 +416,9 @@ public:
   //  bool QAbstractProxyModel::canFetchMore(const QModelIndex &parent)
   //      const
   bool canFetchMore(const QModelIndex &parent) const override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall13 call = reinterpret_cast<CuteQAbstractProxyModelCall13>(taken[13]);
+      CuteQAbstractProxyModelCall14 call = reinterpret_cast<CuteQAbstractProxyModelCall14>(taken[14]);
       bool given = call(this, &parent, &handled);
       if (handled) return given;
     }
@@ -400,9 +427,9 @@ public:
 
   //  void QAbstractProxyModel::fetchMore(const QModelIndex &parent)
   void fetchMore(const QModelIndex &parent) override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall14 call = reinterpret_cast<CuteQAbstractProxyModelCall14>(taken[14]);
+      CuteQAbstractProxyModelCall15 call = reinterpret_cast<CuteQAbstractProxyModelCall15>(taken[15]);
       call(this, &parent, &handled);
       if (handled) return;
     }
@@ -411,9 +438,9 @@ public:
 
   //  void QAbstractProxyModel::sort(int column, Qt::SortOrder order)
   void sort(int column, Qt::SortOrder order) override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall15 call = reinterpret_cast<CuteQAbstractProxyModelCall15>(taken[15]);
+      CuteQAbstractProxyModelCall16 call = reinterpret_cast<CuteQAbstractProxyModelCall16>(taken[16]);
       call(this, column, static_cast<int>(order), &handled);
       if (handled) return;
     }
@@ -422,9 +449,9 @@ public:
 
   //  QSize QAbstractProxyModel::span(const QModelIndex &index) const
   QSize span(const QModelIndex &index) const override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall16 call = reinterpret_cast<CuteQAbstractProxyModelCall16>(taken[16]);
+      CuteQAbstractProxyModelCall17 call = reinterpret_cast<CuteQAbstractProxyModelCall17>(taken[17]);
       const QSize * given = call(this, &index, &handled);
       if (handled && given) return *given;
     }
@@ -434,9 +461,9 @@ public:
   //  bool QAbstractProxyModel::hasChildren(const QModelIndex &parent)
   //      const
   bool hasChildren(const QModelIndex &parent) const override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall17 call = reinterpret_cast<CuteQAbstractProxyModelCall17>(taken[17]);
+      CuteQAbstractProxyModelCall18 call = reinterpret_cast<CuteQAbstractProxyModelCall18>(taken[18]);
       bool given = call(this, &parent, &handled);
       if (handled) return given;
     }
@@ -449,9 +476,9 @@ public:
       int row,
       int column,
       const QModelIndex &idx) const override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall18 call = reinterpret_cast<CuteQAbstractProxyModelCall18>(taken[18]);
+      CuteQAbstractProxyModelCall19 call = reinterpret_cast<CuteQAbstractProxyModelCall19>(taken[19]);
       const QModelIndex * given = call(this, row, column, &idx, &handled);
       if (handled && given) return *given;
     }
@@ -467,9 +494,9 @@ public:
       int row,
       int column,
       const QModelIndex &parent) const override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall19 call = reinterpret_cast<CuteQAbstractProxyModelCall19>(taken[19]);
+      CuteQAbstractProxyModelCall20 call = reinterpret_cast<CuteQAbstractProxyModelCall20>(taken[20]);
       bool given = call(this, data, static_cast<int>(action), row, column, &parent, &handled);
       if (handled) return given;
     }
@@ -485,13 +512,35 @@ public:
       int row,
       int column,
       const QModelIndex &parent) override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall20 call = reinterpret_cast<CuteQAbstractProxyModelCall20>(taken[20]);
+      CuteQAbstractProxyModelCall21 call = reinterpret_cast<CuteQAbstractProxyModelCall21>(taken[21]);
       bool given = call(this, data, static_cast<int>(action), row, column, &parent, &handled);
       if (handled) return given;
     }
     return QAbstractProxyModel::dropMimeData(data, action, row, column, parent);
+  }
+
+  //  Qt::DropActions QAbstractProxyModel::supportedDragActions() const
+  Qt::DropActions supportedDragActions() const override {
+    if (taken[22]) {
+      int handled = 0;
+      CuteQAbstractProxyModelCall22 call = reinterpret_cast<CuteQAbstractProxyModelCall22>(taken[22]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::DropAction>::fromInt(given);
+    }
+    return QAbstractProxyModel::supportedDragActions();
+  }
+
+  //  Qt::DropActions QAbstractProxyModel::supportedDropActions() const
+  Qt::DropActions supportedDropActions() const override {
+    if (taken[23]) {
+      int handled = 0;
+      CuteQAbstractProxyModelCall23 call = reinterpret_cast<CuteQAbstractProxyModelCall23>(taken[23]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::DropAction>::fromInt(given);
+    }
+    return QAbstractProxyModel::supportedDropActions();
   }
 
   //  QModelIndex QAbstractItemModel::index(int row, int column, const
@@ -500,9 +549,9 @@ public:
       int row,
       int column,
       const QModelIndex &parent) const override {
-    if (taken[21]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall21 call = reinterpret_cast<CuteQAbstractProxyModelCall21>(taken[21]);
+      CuteQAbstractProxyModelCall24 call = reinterpret_cast<CuteQAbstractProxyModelCall24>(taken[24]);
       const QModelIndex * given = call(this, row, column, &parent, &handled);
       if (handled && given) return *given;
     }
@@ -512,9 +561,9 @@ public:
   //  QModelIndex QAbstractItemModel::parent(const QModelIndex &child)
   //      const
   QModelIndex parent(const QModelIndex &child) const override {
-    if (taken[22]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall22 call = reinterpret_cast<CuteQAbstractProxyModelCall22>(taken[22]);
+      CuteQAbstractProxyModelCall25 call = reinterpret_cast<CuteQAbstractProxyModelCall25>(taken[25]);
       const QModelIndex * given = call(this, &child, &handled);
       if (handled && given) return *given;
     }
@@ -523,9 +572,9 @@ public:
 
   //  int QAbstractItemModel::rowCount(const QModelIndex &parent) const
   int rowCount(const QModelIndex &parent) const override {
-    if (taken[23]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall23 call = reinterpret_cast<CuteQAbstractProxyModelCall23>(taken[23]);
+      CuteQAbstractProxyModelCall26 call = reinterpret_cast<CuteQAbstractProxyModelCall26>(taken[26]);
       int given = call(this, &parent, &handled);
       if (handled) return given;
     }
@@ -534,9 +583,9 @@ public:
 
   //  int QAbstractItemModel::columnCount(const QModelIndex &parent) const
   int columnCount(const QModelIndex &parent) const override {
-    if (taken[24]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall24 call = reinterpret_cast<CuteQAbstractProxyModelCall24>(taken[24]);
+      CuteQAbstractProxyModelCall27 call = reinterpret_cast<CuteQAbstractProxyModelCall27>(taken[27]);
       int given = call(this, &parent, &handled);
       if (handled) return given;
     }
@@ -546,9 +595,9 @@ public:
   //  bool QAbstractItemModel::insertRows(int row, int count, const
   //      QModelIndex &parent)
   bool insertRows(int row, int count, const QModelIndex &parent) override {
-    if (taken[25]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall25 call = reinterpret_cast<CuteQAbstractProxyModelCall25>(taken[25]);
+      CuteQAbstractProxyModelCall28 call = reinterpret_cast<CuteQAbstractProxyModelCall28>(taken[28]);
       bool given = call(this, row, count, &parent, &handled);
       if (handled) return given;
     }
@@ -561,9 +610,9 @@ public:
       int column,
       int count,
       const QModelIndex &parent) override {
-    if (taken[26]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall26 call = reinterpret_cast<CuteQAbstractProxyModelCall26>(taken[26]);
+      CuteQAbstractProxyModelCall29 call = reinterpret_cast<CuteQAbstractProxyModelCall29>(taken[29]);
       bool given = call(this, column, count, &parent, &handled);
       if (handled) return given;
     }
@@ -573,9 +622,9 @@ public:
   //  bool QAbstractItemModel::removeRows(int row, int count, const
   //      QModelIndex &parent)
   bool removeRows(int row, int count, const QModelIndex &parent) override {
-    if (taken[27]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall27 call = reinterpret_cast<CuteQAbstractProxyModelCall27>(taken[27]);
+      CuteQAbstractProxyModelCall30 call = reinterpret_cast<CuteQAbstractProxyModelCall30>(taken[30]);
       bool given = call(this, row, count, &parent, &handled);
       if (handled) return given;
     }
@@ -588,9 +637,9 @@ public:
       int column,
       int count,
       const QModelIndex &parent) override {
-    if (taken[28]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall28 call = reinterpret_cast<CuteQAbstractProxyModelCall28>(taken[28]);
+      CuteQAbstractProxyModelCall31 call = reinterpret_cast<CuteQAbstractProxyModelCall31>(taken[31]);
       bool given = call(this, column, count, &parent, &handled);
       if (handled) return given;
     }
@@ -606,9 +655,9 @@ public:
       int count,
       const QModelIndex &destinationParent,
       int destinationChild) override {
-    if (taken[29]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall29 call = reinterpret_cast<CuteQAbstractProxyModelCall29>(taken[29]);
+      CuteQAbstractProxyModelCall32 call = reinterpret_cast<CuteQAbstractProxyModelCall32>(taken[32]);
       bool given = call(this, &sourceParent, sourceRow, count, &destinationParent, destinationChild, &handled);
       if (handled) return given;
     }
@@ -624,9 +673,9 @@ public:
       int count,
       const QModelIndex &destinationParent,
       int destinationChild) override {
-    if (taken[30]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall30 call = reinterpret_cast<CuteQAbstractProxyModelCall30>(taken[30]);
+      CuteQAbstractProxyModelCall33 call = reinterpret_cast<CuteQAbstractProxyModelCall33>(taken[33]);
       bool given = call(this, &sourceParent, sourceColumn, count, &destinationParent, destinationChild, &handled);
       if (handled) return given;
     }
@@ -638,9 +687,9 @@ public:
   void multiData(
       const QModelIndex &index,
       QModelRoleDataSpan roleDataSpan) const override {
-    if (taken[31]) {
+    if (taken[34]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall31 call = reinterpret_cast<CuteQAbstractProxyModelCall31>(taken[31]);
+      CuteQAbstractProxyModelCall34 call = reinterpret_cast<CuteQAbstractProxyModelCall34>(taken[34]);
       call(this, &index, &roleDataSpan, &handled);
       if (handled) return;
     }
@@ -649,9 +698,9 @@ public:
 
   //  void QAbstractItemModel::resetInternalData()
   void resetInternalData() override {
-    if (taken[32]) {
+    if (taken[35]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall32 call = reinterpret_cast<CuteQAbstractProxyModelCall32>(taken[32]);
+      CuteQAbstractProxyModelCall35 call = reinterpret_cast<CuteQAbstractProxyModelCall35>(taken[35]);
       call(this, &handled);
       if (handled) return;
     }
@@ -660,9 +709,9 @@ public:
 
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[33]) {
+    if (taken[36]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall33 call = reinterpret_cast<CuteQAbstractProxyModelCall33>(taken[33]);
+      CuteQAbstractProxyModelCall36 call = reinterpret_cast<CuteQAbstractProxyModelCall36>(taken[36]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -671,9 +720,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[34]) {
+    if (taken[37]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall34 call = reinterpret_cast<CuteQAbstractProxyModelCall34>(taken[34]);
+      CuteQAbstractProxyModelCall37 call = reinterpret_cast<CuteQAbstractProxyModelCall37>(taken[37]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -682,9 +731,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[35]) {
+    if (taken[38]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall35 call = reinterpret_cast<CuteQAbstractProxyModelCall35>(taken[35]);
+      CuteQAbstractProxyModelCall38 call = reinterpret_cast<CuteQAbstractProxyModelCall38>(taken[38]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -693,9 +742,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[36]) {
+    if (taken[39]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall36 call = reinterpret_cast<CuteQAbstractProxyModelCall36>(taken[36]);
+      CuteQAbstractProxyModelCall39 call = reinterpret_cast<CuteQAbstractProxyModelCall39>(taken[39]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -704,9 +753,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[37]) {
+    if (taken[40]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall37 call = reinterpret_cast<CuteQAbstractProxyModelCall37>(taken[37]);
+      CuteQAbstractProxyModelCall40 call = reinterpret_cast<CuteQAbstractProxyModelCall40>(taken[40]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -715,9 +764,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[38]) {
+    if (taken[41]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall38 call = reinterpret_cast<CuteQAbstractProxyModelCall38>(taken[38]);
+      CuteQAbstractProxyModelCall41 call = reinterpret_cast<CuteQAbstractProxyModelCall41>(taken[41]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -726,9 +775,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[39]) {
+    if (taken[42]) {
       int handled = 0;
-      CuteQAbstractProxyModelCall39 call = reinterpret_cast<CuteQAbstractProxyModelCall39>(taken[39]);
+      CuteQAbstractProxyModelCall42 call = reinterpret_cast<CuteQAbstractProxyModelCall42>(taken[42]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -1060,6 +1109,14 @@ QVariant *ritual_own_ZNK19QAbstractProxyModel10headerDataEiN2Qt11OrientationEi(
           role));
 }
 
+//  Qt::ItemFlags QAbstractProxyModel::flags(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK19QAbstractProxyModel5flagsERK11QModelIndex(
+    const QAbstractProxyModel *self,
+    const QModelIndex *index) {
+  return static_cast<int>(self->QAbstractProxyModel::flags(*index).toInt());
+}
+
 //  bool QAbstractProxyModel::setData(const QModelIndex &index, const
 //      QVariant &value, int role)
 extern "C" Q_DECL_EXPORT
@@ -1195,4 +1252,20 @@ bool ritual_own_ZN19QAbstractProxyModel12dropMimeDataEPK9QMimeDataN2Qt10DropActi
       row,
       column,
       *parent);
+}
+
+//  Qt::DropActions QAbstractProxyModel::supportedDragActions() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK19QAbstractProxyModel20supportedDragActionsEv(
+    const QAbstractProxyModel *self) {
+  return static_cast<int>(
+      self->QAbstractProxyModel::supportedDragActions().toInt());
+}
+
+//  Qt::DropActions QAbstractProxyModel::supportedDropActions() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK19QAbstractProxyModel20supportedDropActionsEv(
+    const QAbstractProxyModel *self) {
+  return static_cast<int>(
+      self->QAbstractProxyModel::supportedDropActions().toInt());
 }

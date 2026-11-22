@@ -4,6 +4,7 @@ file that goes with it."""
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import collections
 import json
 import os
 import re
@@ -570,11 +571,57 @@ class RitualGenerator:
             pure=True if member.get('pure') else False,
         ))
     virtuals = []  # type: List[Record]
-    for (name, _), declared in groups.items():
+    for name, declared in self._joinSpelledApart(chain, groups):
       if any(entry['virtual'] for entry in declared):
         virtuals.append(
             dict(name=name, nearest=declared[0], root=declared[-1]))
     return virtuals
+
+  def _joinSpelledApart(self, chain: Any, groups: Any) -> List[Any]:
+    """
+    Joins the declarations of one function that two classes spell
+    apart. A class may shorten the name of a type a class it is built
+    on declares: 'QIODevice::open(QIODeviceBase::OpenMode)' is
+    'QBuffer::open(OpenMode)' in QBuffer, and both are one function.
+
+    Parameters
+    ----------
+
+    chain : Any
+      The class and the classes it is built on, the nearest first.
+
+    groups : Any
+      The declarations gathered by name and by what the function takes
+      as its class spells it, each list the nearest first.
+
+    Returns
+    -------
+
+    List[Any]
+      For each function its name and its declarations, the nearest
+      first. Only a name with more than one group is spelled out in
+      full, which is where two spellings of one function can be.
+    """
+    counts = collections.Counter(name for name, _ in groups)
+    joined = collections.OrderedDict()  # type: Dict[Any, List[Record]]
+    for (name, shape), declared in groups.items():
+      if counts[name] < 2:
+        joined[name, shape] = declared
+        continue
+      for entry in declared:
+        other = self._getOther(entry['owner'])
+        spelled = [
+            other._spellOutside(child['type']['qualType'])
+            for child in entry['member'].get('inner', ())
+            if isinstance(child, dict) and child.get('kind') == 'ParmVarDecl'
+        ]
+        full = '%s|%s' % (', '.join(spelled), shape.rpartition('|')[2])
+        joined.setdefault((name, full), []).append(entry)
+    out = []  # type: List[Any]
+    for (name, _), declared in joined.items():
+      declared.sort(key=lambda entry: chain.index(entry['owner']))
+      out.append((name, declared))
+    return out
 
   def _planCallback(self, plan: Record) -> Optional[Record]:
     """
@@ -589,8 +636,9 @@ class RitualGenerator:
       'cTakes': the C++ types handed over after the object; 'cPassed':
       what is handed over; 'takes': for Python, the word of each
       ('address', 'int', ...) with what it is ('address' of a class,
-      'value' of a class, 'number', 'enum' of an enum); 'cGives',
-      'gives' and 'given': the same for what comes back.
+      'value' of a class, 'number', 'enum' of an enum, 'flags' of an
+      enum, 'text'); 'cGives', 'gives' and 'given': the same for what
+      comes back.
     """
     cTakes, cPassed, takes = [], [], []
     for argument in plan['arguments']:
@@ -613,6 +661,19 @@ class RitualGenerator:
         cTakes.append('int')
         cPassed.append('static_cast<int>(%s)' % name)
         takes.append(('int', 'enum', written))
+      elif kind == 'flags' and passing['word']:
+        #  The number of the combination is handed over, and Python
+        #  makes the combination of it again.
+        enumName = passing['className'][len('QFlags<'):-1]
+        cTakes.append('int')
+        cPassed.append('static_cast<int>(%s.toInt())' % name)
+        takes.append(('int', 'flags', enumName))
+      elif kind == 'text':
+        #  The address of Qt's own text is handed over, and Python reads
+        #  the letters off it.
+        cTakes.append('const %s *' % passing['className'])
+        cPassed.append('&%s' % name)
+        takes.append(('address', 'text', ''))
       else:
         return None
     giving = plan['giving']
@@ -625,6 +686,17 @@ class RitualGenerator:
     elif kind == 'enum':
       cGives, gives = 'int', ('int', 'enum', written)
       given = 'static_cast<%s>(given)' % written
+    elif kind == 'flags' and giving['word']:
+      enumName = giving['className'][len('QFlags<'):-1]
+      cGives, gives = 'int', ('int', 'flags', enumName)
+      given = '%s::fromInt(given)' % giving['className']
+    elif kind == 'text' and '&' not in written:
+      #  Python makes a text of Qt for what it gives, and the C++ class
+      #  of ours copies it and removes it; see '_writeOverride'. A
+      #  function that gives the text it keeps, as 'const QString &',
+      #  cannot give one made for the call.
+      cGives = '%s *' % giving['className']
+      gives, given = ('address', 'text', ''), '*given'
     elif kind == 'value':
       cGives = 'const %s *' % giving['className']
       gives, given = ('address', 'value', giving['className']), '*given'
@@ -873,7 +945,15 @@ class RitualGenerator:
       test = 'handled'
       if function['given'] == '*given':
         test = 'handled && given'
-      lines.append('      if (%s) return %s;' % (test, function['given']))
+      if function['gives'][1] == 'text':
+        #  The text was made for this call alone, so it is removed here.
+        lines.append('      if (%s) {' % test)
+        lines.append('        %s back(*given);' % giving['className'])
+        lines.append('        delete given;')
+        lines.append('        return back;')
+        lines.append('      }')
+      else:
+        lines.append('      if (%s) return %s;' % (test, function['given']))
     lines.append('    }')
     names = ', '.join(a['name'] for a in arguments)
     if not function['pure']:

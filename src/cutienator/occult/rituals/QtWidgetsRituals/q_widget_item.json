@@ -26,6 +26,7 @@
     "ritual_own_ZNK11QWidgetItem8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK11QWidgetItem11minimumSizeEv": ["address", "address"],
     "ritual_own_ZNK11QWidgetItem11maximumSizeEv": ["address", "address"],
+    "ritual_own_ZNK11QWidgetItem19expandingDirectionsEv": ["int", "address"],
     "ritual_own_ZNK11QWidgetItem7isEmptyEv": ["bool", "address"],
     "ritual_own_ZN11QWidgetItem11setGeometryERK5QRect": [
       "nothing", "address", "address"
@@ -38,6 +39,7 @@
     ],
     "ritual_own_ZNK11QWidgetItem21minimumHeightForWidthEi": [
       "int", "address", "int"
-    ]
+    ],
+    "ritual_own_ZNK11QWidgetItem12controlTypesEv": ["int", "address"]
   }
 }

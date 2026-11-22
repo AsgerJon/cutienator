@@ -75,7 +75,7 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   -----------
 
   Every function of Qt's QGraphicsWidget that has a ritual and that Python
-  can call so far, 74 names in all: 'metaObject', 'tr', 'layout',
+  can call so far, 75 names in all: 'metaObject', 'tr', 'layout',
   'setLayout', 'adjustSize', 'layoutDirection', 'setLayoutDirection',
   'unsetLayoutDirection', 'style', 'setStyle', 'font', 'setFont', 'palette',
   'setPalette', 'autoFillBackground', 'setAutoFillBackground', 'resize',
@@ -88,12 +88,13 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   'addAction', 'insertAction', 'removeAction', 'setAttribute',
   'testAttribute', 'type', 'paint', 'paintWindowFrame', 'boundingRect',
   'shape', 'close', 'initStyleOption', 'sizeHint', 'updateGeometry',
-  'itemChange', 'sceneEvent', 'windowFrameEvent', 'windowFrameSectionAt',
-  'event', 'changeEvent', 'closeEvent', 'focusInEvent', 'focusNextPrevChild',
-  'focusOutEvent', 'hideEvent', 'moveEvent', 'polishEvent', 'resizeEvent',
-  'showEvent', 'hoverMoveEvent', 'hoverLeaveEvent', 'grabMouseEvent',
-  'ungrabMouseEvent', 'grabKeyboardEvent', 'ungrabKeyboardEvent'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'itemChange', 'propertyChange', 'sceneEvent', 'windowFrameEvent',
+  'windowFrameSectionAt', 'event', 'changeEvent', 'closeEvent',
+  'focusInEvent', 'focusNextPrevChild', 'focusOutEvent', 'hideEvent',
+  'moveEvent', 'polishEvent', 'resizeEvent', 'showEvent', 'hoverMoveEvent',
+  'hoverLeaveEvent', 'grabMouseEvent', 'ungrabMouseEvent',
+  'grabKeyboardEvent', 'ungrabKeyboardEvent'. It can be made from Python, in
+  1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -110,8 +111,8 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   What has no ritual
   ------------------
 
-  15 of the 97 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 3 private; 2 a signal; 2 protected; 2 forbidden; 1 a template.
+  14 of the 97 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 3 private; 2 a signal; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -232,17 +233,6 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   __take_ritual__ = 'ritual_take_QGraphicsWidget'
 
   #  The functions Qt calls itself that QGraphicsWidget is the first to
-  #  declare and that cannot be handed to Python yet, each as Qt declares it.
-  #  A class of a program that writes one of them anew is refused, since Qt
-  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'propertyChange': (
-          'QVariant QGraphicsWidget::propertyChange(const QString &, const '
-          'QVariant &)',
-      ),
-  }
-
-  #  The functions Qt calls itself that QGraphicsWidget is the first to
   #  declare. A class of a program built on it can write one anew, and Qt
   #  then calls that. For each name: the key C++ knows the function by, what
   #  it gives, and what it takes.
@@ -262,6 +252,14 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
            ('nothing', 'nothing', ''),
            (
                ('address', 'address', 'QtWidgets:QStyleOption'),
+           )),
+      ),
+      'propertyChange': (
+          ('_ZN15QGraphicsWidget14propertyChangeERK7QStringRK8QVariant',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('address', 'text', ''),
+               ('address', 'value', 'QtCore:QVariant'),
            )),
       ),
       'windowFrameEvent': (
@@ -1691,6 +1689,41 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
         'ritual_own_ZN15QGraphicsWidget10itemChangeEN13QGraphicsItem18Graph'
         'icsItemChangeERK8QVariant',
         change.value, self._valueOf(value),
+    )
+    from ..QtCore import QVariant
+    return QVariant._cuteOwning(address)
+
+  @overload(str, QVariant)
+  def propertyChange(self, propertyName: str, value: QVariant) -> QVariant:
+    """
+    Calls Qt's 'QVariant QGraphicsWidget::propertyChange(const QString
+    &propertyName, const QVariant &value)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange
+
+    Parameters
+    ----------
+
+    propertyName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QGraphicsWidget::propertyChange(const QString &propertyName,
+    #      const QVariant &value)
+    address = self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget14propertyChangeERK7QStringRK8QVaria'
+        'nt',
+        propertyName, self._valueOf(value),
     )
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)

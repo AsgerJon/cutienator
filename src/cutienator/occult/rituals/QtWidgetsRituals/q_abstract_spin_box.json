@@ -136,6 +136,7 @@
     ],
     "ritual_own_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptionSpinBox": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_own_ZNK16QAbstractSpinBox11stepEnabledEv": ["int", "address"]
   }
 }

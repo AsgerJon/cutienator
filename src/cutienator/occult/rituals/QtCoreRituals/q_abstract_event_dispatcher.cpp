@@ -8,106 +8,123 @@
 //  A QAbstractEventDispatcher that Python can take functions over in. Every QAbstractEventDispatcher
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
-typedef void (*CuteQAbstractEventDispatcherCall0)(const void *, QSocketNotifier *, int *);
+typedef bool (*CuteQAbstractEventDispatcherCall0)(const void *, int, int *);
 typedef void (*CuteQAbstractEventDispatcherCall1)(const void *, QSocketNotifier *, int *);
-typedef void (*CuteQAbstractEventDispatcherCall2)(const void *, int, qint64, int, QObject *, int *);
-typedef bool (*CuteQAbstractEventDispatcherCall3)(const void *, int, int *);
-typedef bool (*CuteQAbstractEventDispatcherCall4)(const void *, QObject *, int *);
-typedef int (*CuteQAbstractEventDispatcherCall5)(const void *, int, int *);
-typedef void (*CuteQAbstractEventDispatcherCall6)(const void *, int *);
+typedef void (*CuteQAbstractEventDispatcherCall2)(const void *, QSocketNotifier *, int *);
+typedef void (*CuteQAbstractEventDispatcherCall3)(const void *, int, qint64, int, QObject *, int *);
+typedef bool (*CuteQAbstractEventDispatcherCall4)(const void *, int, int *);
+typedef bool (*CuteQAbstractEventDispatcherCall5)(const void *, QObject *, int *);
+typedef int (*CuteQAbstractEventDispatcherCall6)(const void *, int, int *);
 typedef void (*CuteQAbstractEventDispatcherCall7)(const void *, int *);
 typedef void (*CuteQAbstractEventDispatcherCall8)(const void *, int *);
 typedef void (*CuteQAbstractEventDispatcherCall9)(const void *, int *);
-typedef bool (*CuteQAbstractEventDispatcherCall10)(const void *, QEvent *, int *);
-typedef bool (*CuteQAbstractEventDispatcherCall11)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQAbstractEventDispatcherCall12)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQAbstractEventDispatcherCall13)(const void *, QChildEvent *, int *);
-typedef void (*CuteQAbstractEventDispatcherCall14)(const void *, QEvent *, int *);
-typedef void (*CuteQAbstractEventDispatcherCall15)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQAbstractEventDispatcherCall10)(const void *, int *);
+typedef bool (*CuteQAbstractEventDispatcherCall11)(const void *, QEvent *, int *);
+typedef bool (*CuteQAbstractEventDispatcherCall12)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQAbstractEventDispatcherCall13)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQAbstractEventDispatcherCall14)(const void *, QChildEvent *, int *);
+typedef void (*CuteQAbstractEventDispatcherCall15)(const void *, QEvent *, int *);
 typedef void (*CuteQAbstractEventDispatcherCall16)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQAbstractEventDispatcherCall17)(const void *, const QMetaMethod *, int *);
 class CuteQAbstractEventDispatcher : public QAbstractEventDispatcher {
 public:
   using QAbstractEventDispatcher::QAbstractEventDispatcher;
-  void *taken[17] = {};
+  void *taken[18] = {};
 
   bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher22registerSocketNotifierEP15QSocketNotifier")) {
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher24unregisterSocketNotifierEP15QSocketNotifier")) {
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher22registerSocketNotifierEP15QSocketNotifier")) {
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher13registerTimerEixN2Qt9TimerTypeEP7QObject")) {
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher24unregisterSocketNotifierEP15QSocketNotifier")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher15unregisterTimerEi")) {
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher13registerTimerEixN2Qt9TimerTypeEP7QObject")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher16unregisterTimersEP7QObject")) {
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher15unregisterTimerEi")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher13remainingTimeEi")) {
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher16unregisterTimersEP7QObject")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher6wakeUpEv")) {
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher13remainingTimeEi")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher9interruptEv")) {
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher6wakeUpEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher10startingUpEv")) {
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher9interruptEv")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher11closingDownEv")) {
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher10startingUpEv")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher11closingDownEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[17] = call;
       return true;
     }
     return false;
   }
 
-  //  void QAbstractEventDispatcher::registerSocketNotifier(QSocketNotifier
-  //      *notifier)
-  void registerSocketNotifier(QSocketNotifier *notifier) override {
+  //  bool QAbstractEventDispatcher::processEvents(QEventLoop::ProcessEvent
+  //      sFlags flags)
+  bool processEvents(QEventLoop::ProcessEventsFlags flags) override {
     if (taken[0]) {
       int handled = 0;
       CuteQAbstractEventDispatcherCall0 call = reinterpret_cast<CuteQAbstractEventDispatcherCall0>(taken[0]);
+      bool given = call(this, static_cast<int>(flags.toInt()), &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  void QAbstractEventDispatcher::registerSocketNotifier(QSocketNotifier
+  //      *notifier)
+  void registerSocketNotifier(QSocketNotifier *notifier) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherCall1 call = reinterpret_cast<CuteQAbstractEventDispatcherCall1>(taken[1]);
       call(this, notifier, &handled);
       if (handled) return;
     }
@@ -117,9 +134,9 @@ public:
   //      QAbstractEventDispatcher::unregisterSocketNotifier(QSocketNotifie
   //      r *notifier)
   void unregisterSocketNotifier(QSocketNotifier *notifier) override {
-    if (taken[1]) {
+    if (taken[2]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall1 call = reinterpret_cast<CuteQAbstractEventDispatcherCall1>(taken[1]);
+      CuteQAbstractEventDispatcherCall2 call = reinterpret_cast<CuteQAbstractEventDispatcherCall2>(taken[2]);
       call(this, notifier, &handled);
       if (handled) return;
     }
@@ -132,9 +149,9 @@ public:
       qint64 interval,
       Qt::TimerType timerType,
       QObject *object) override {
-    if (taken[2]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall2 call = reinterpret_cast<CuteQAbstractEventDispatcherCall2>(taken[2]);
+      CuteQAbstractEventDispatcherCall3 call = reinterpret_cast<CuteQAbstractEventDispatcherCall3>(taken[3]);
       call(this, timerId, interval, static_cast<int>(timerType), object, &handled);
       if (handled) return;
     }
@@ -142,9 +159,9 @@ public:
 
   //  bool QAbstractEventDispatcher::unregisterTimer(int timerId)
   bool unregisterTimer(int timerId) override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall3 call = reinterpret_cast<CuteQAbstractEventDispatcherCall3>(taken[3]);
+      CuteQAbstractEventDispatcherCall4 call = reinterpret_cast<CuteQAbstractEventDispatcherCall4>(taken[4]);
       bool given = call(this, timerId, &handled);
       if (handled) return given;
     }
@@ -153,9 +170,9 @@ public:
 
   //  bool QAbstractEventDispatcher::unregisterTimers(QObject *object)
   bool unregisterTimers(QObject *object) override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall4 call = reinterpret_cast<CuteQAbstractEventDispatcherCall4>(taken[4]);
+      CuteQAbstractEventDispatcherCall5 call = reinterpret_cast<CuteQAbstractEventDispatcherCall5>(taken[5]);
       bool given = call(this, object, &handled);
       if (handled) return given;
     }
@@ -164,9 +181,9 @@ public:
 
   //  int QAbstractEventDispatcher::remainingTime(int timerId)
   int remainingTime(int timerId) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall5 call = reinterpret_cast<CuteQAbstractEventDispatcherCall5>(taken[5]);
+      CuteQAbstractEventDispatcherCall6 call = reinterpret_cast<CuteQAbstractEventDispatcherCall6>(taken[6]);
       int given = call(this, timerId, &handled);
       if (handled) return given;
     }
@@ -175,16 +192,6 @@ public:
 
   //  void QAbstractEventDispatcher::wakeUp()
   void wakeUp() override {
-    if (taken[6]) {
-      int handled = 0;
-      CuteQAbstractEventDispatcherCall6 call = reinterpret_cast<CuteQAbstractEventDispatcherCall6>(taken[6]);
-      call(this, &handled);
-      if (handled) return;
-    }
-  }
-
-  //  void QAbstractEventDispatcher::interrupt()
-  void interrupt() override {
     if (taken[7]) {
       int handled = 0;
       CuteQAbstractEventDispatcherCall7 call = reinterpret_cast<CuteQAbstractEventDispatcherCall7>(taken[7]);
@@ -193,11 +200,21 @@ public:
     }
   }
 
-  //  void QAbstractEventDispatcher::startingUp()
-  void startingUp() override {
+  //  void QAbstractEventDispatcher::interrupt()
+  void interrupt() override {
     if (taken[8]) {
       int handled = 0;
       CuteQAbstractEventDispatcherCall8 call = reinterpret_cast<CuteQAbstractEventDispatcherCall8>(taken[8]);
+      call(this, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  void QAbstractEventDispatcher::startingUp()
+  void startingUp() override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherCall9 call = reinterpret_cast<CuteQAbstractEventDispatcherCall9>(taken[9]);
       call(this, &handled);
       if (handled) return;
     }
@@ -206,9 +223,9 @@ public:
 
   //  void QAbstractEventDispatcher::closingDown()
   void closingDown() override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall9 call = reinterpret_cast<CuteQAbstractEventDispatcherCall9>(taken[9]);
+      CuteQAbstractEventDispatcherCall10 call = reinterpret_cast<CuteQAbstractEventDispatcherCall10>(taken[10]);
       call(this, &handled);
       if (handled) return;
     }
@@ -217,9 +234,9 @@ public:
 
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall10 call = reinterpret_cast<CuteQAbstractEventDispatcherCall10>(taken[10]);
+      CuteQAbstractEventDispatcherCall11 call = reinterpret_cast<CuteQAbstractEventDispatcherCall11>(taken[11]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -228,9 +245,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall11 call = reinterpret_cast<CuteQAbstractEventDispatcherCall11>(taken[11]);
+      CuteQAbstractEventDispatcherCall12 call = reinterpret_cast<CuteQAbstractEventDispatcherCall12>(taken[12]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -239,9 +256,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall12 call = reinterpret_cast<CuteQAbstractEventDispatcherCall12>(taken[12]);
+      CuteQAbstractEventDispatcherCall13 call = reinterpret_cast<CuteQAbstractEventDispatcherCall13>(taken[13]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -250,9 +267,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall13 call = reinterpret_cast<CuteQAbstractEventDispatcherCall13>(taken[13]);
+      CuteQAbstractEventDispatcherCall14 call = reinterpret_cast<CuteQAbstractEventDispatcherCall14>(taken[14]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -261,9 +278,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall14 call = reinterpret_cast<CuteQAbstractEventDispatcherCall14>(taken[14]);
+      CuteQAbstractEventDispatcherCall15 call = reinterpret_cast<CuteQAbstractEventDispatcherCall15>(taken[15]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -272,9 +289,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall15 call = reinterpret_cast<CuteQAbstractEventDispatcherCall15>(taken[15]);
+      CuteQAbstractEventDispatcherCall16 call = reinterpret_cast<CuteQAbstractEventDispatcherCall16>(taken[16]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -283,9 +300,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQAbstractEventDispatcherCall16 call = reinterpret_cast<CuteQAbstractEventDispatcherCall16>(taken[16]);
+      CuteQAbstractEventDispatcherCall17 call = reinterpret_cast<CuteQAbstractEventDispatcherCall17>(taken[17]);
       call(this, &signal, &handled);
       if (handled) return;
     }

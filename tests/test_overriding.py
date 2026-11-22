@@ -17,8 +17,11 @@ from worktoy.dispatch import overload
 from worktoy.work_test import BaseTest
 
 import cutienator
-from cutienator.QtCore import QMetaMethod, QMimeData, QObject, QSize
+from cutienator.QtCore import QItemSelectionModel, QMetaMethod, QMimeData
+from cutienator.QtCore import QModelIndex, QObject, QSize, QStringListModel
+from cutienator.QtCore import Qt
 from cutienator.QtGui import QImage, QPaintDevice
+from cutienator.QtWidgets import QSpacerItem, QVBoxLayout
 from cutienator.cute import CuteMixin
 from cutienator.occult import Rituals
 
@@ -61,6 +64,31 @@ class Failing(QImage):
     raise ValueError('the metric of Failing fails')
 
 
+class Plain(QMimeData):
+  """Answers for one format. Qt calls 'hasFormat' itself, from
+  'hasText', and hands it a text."""
+
+  def hasFormat(self, mimeType: str) -> bool:
+    self.asked = [*getattr(self, 'asked', []), mimeType]
+    return mimeType == 'text/plain'
+
+
+class Tall(QSpacerItem):
+  """Grows upwards. Qt calls 'expandingDirections' itself, from the
+  layout the spacer is in, and takes flags back."""
+
+  def expandingDirections(self) -> Qt.Orientation:
+    return Qt.Orientation.Vertical
+
+
+class Picky(QItemSelectionModel):
+  """Notes what it is told to select. Qt calls 'select' itself, from
+  'setCurrentIndex', and hands it flags."""
+
+  def select(self, index: QModelIndex, command: Any) -> None:
+    self.told = [*getattr(self, 'told', []), (type(index), command)]
+
+
 class Formats(QMimeData):
   """Writes a function anew that cannot be handed to Python yet: Qt's
   'formats' gives a list of texts."""
@@ -78,8 +106,8 @@ import sys
 
 from cutienator.QtCore import QEvent, QObject, QSize, QTimer
 from cutienator.QtGui import QColor, QPainter
-from cutienator.QtWidgets import QApplication, QPushButton, QTreeWidget
-from cutienator.QtWidgets import QWidget
+from cutienator.QtWidgets import QApplication, QPushButton, QSpinBox
+from cutienator.QtWidgets import QTreeWidget, QWidget
 from cutienator.occult import Rituals
 
 calls = []
@@ -122,6 +150,18 @@ class Ticker(QObject):
   def event(self, event):
     calls.append('event of Ticker')
     return super().event(event)
+
+
+class Numbered(QSpinBox):
+
+  def textFromValue(self, value):
+    return 'no. %d' % value
+
+
+class Mute(QSpinBox):
+
+  def textFromValue(self, value):
+    return value
 
 
 class Tree(QTreeWidget):
@@ -185,6 +225,14 @@ try:
   print('let go raised:', None)
 except RuntimeError as error:
   print('let go raised:', ' '.join(str(error).split()[:11]))
+numbered = Numbered()
+numbered.setValue(5)
+print('numbered text:', numbered.text())
+try:
+  Mute().setValue(5)
+  print('mute raised:', None)
+except TypeError as error:
+  print('mute raised:', ' '.join(str(error).split()[:5]))
 try:
   Tree().show()
   print('tree raised:', None)
@@ -357,6 +405,43 @@ class TestOverriding(BaseTest):
     self.assertEqual(getattr(paper, 'asked', []), [])
     self.assertEqual(paper.logicalDpiX(), 123)
 
+  def test_text_handed_over(self) -> None:
+    """Qt hands 'hasFormat' a text of its own, which arrives as a
+    'str'."""
+    plain = Plain()
+    self.assertTrue(plain.hasText())
+    self.assertEqual(plain.asked, ['text/plain'])
+    self.assertFalse(QMimeData().hasText())
+
+  def test_flags_given_back(self) -> None:
+    """Qt takes the flags 'expandingDirections' gives, here one member
+    of them. The spacer is kept for as long as the layout has it."""
+    layout, tall = QVBoxLayout(), Tall(10, 10)
+    layout.addItem(tall)
+    vertical = Qt.Orientation.Vertical
+    self.assertEqual(layout.expandingDirections(), vertical)
+    plain = QVBoxLayout()
+    plain.addItem(QSpacerItem(10, 10))
+    self.assertNotEqual(plain.expandingDirections(), vertical)
+
+  def test_a_spacer_python_let_go_of(self) -> None:
+    """A layout calling a function of an item the program no longer
+    holds raises, as for any object Python let go of."""
+    layout = QVBoxLayout()
+    layout.addItem(Tall(10, 10))
+    with self.assertRaises(RuntimeError) as context:
+      layout.expandingDirections()
+    expected = "'expandingDirections' of a 'Tall'"
+    self.assertIn(expected, str(context.exception))
+
+  def test_flags_handed_over(self) -> None:
+    """Qt hands 'select' its flags, which arrive as a value of the
+    flags class."""
+    picky = Picky(QStringListModel())
+    select = QItemSelectionModel.SelectionFlag.Select
+    picky.setCurrentIndex(QModelIndex(), select)
+    self.assertEqual(picky.told, [(QModelIndex, select)])
+
   def test_a_function_that_cannot_be_handed_over_yet(self) -> None:
     """Writing one anew is refused when the object is first used, and
     at every use after."""
@@ -411,6 +496,13 @@ class TestOverriding(BaseTest):
     self.assertEqual(self._found('kept after the raise'), 'False')
     self.assertEqual(self._found('canvas paints again'), 'True')
     self.assertEqual(self._found('exec raised'), expected)
+
+  def test_text_given_back(self) -> None:
+    """Qt takes the 'str' that 'textFromValue' gives as its own text,
+    and anything else is refused."""
+    self.assertEqual(self._found('numbered text'), 'no. 5')
+    expected = "'textFromValue' has to give 'str',"
+    self.assertEqual(self._found('mute raised'), expected)
 
   def test_an_object_python_let_go_of(self) -> None:
     """Qt calling a function of an object the program no longer holds

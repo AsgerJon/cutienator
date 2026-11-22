@@ -8,14 +8,24 @@
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
 typedef void (*CuteQAccessibleEditableTextInterfaceCall0)(const void *, int, int, int *);
+typedef void (*CuteQAccessibleEditableTextInterfaceCall1)(const void *, int, const QString *, int *);
+typedef void (*CuteQAccessibleEditableTextInterfaceCall2)(const void *, int, int, const QString *, int *);
 class CuteQAccessibleEditableTextInterface : public QAccessibleEditableTextInterface {
 public:
   using QAccessibleEditableTextInterface::QAccessibleEditableTextInterface;
-  void *taken[1] = {};
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN32QAccessibleEditableTextInterface10deleteTextEii")) {
       taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN32QAccessibleEditableTextInterface10insertTextEiRK7QString")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN32QAccessibleEditableTextInterface11replaceTextEiiRK7QString")) {
+      taken[2] = call;
       return true;
     }
     return false;
@@ -28,6 +38,31 @@ public:
       int handled = 0;
       CuteQAccessibleEditableTextInterfaceCall0 call = reinterpret_cast<CuteQAccessibleEditableTextInterfaceCall0>(taken[0]);
       call(this, startOffset, endOffset, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  void QAccessibleEditableTextInterface::insertText(int offset, const
+  //      QString &text)
+  void insertText(int offset, const QString &text) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQAccessibleEditableTextInterfaceCall1 call = reinterpret_cast<CuteQAccessibleEditableTextInterfaceCall1>(taken[1]);
+      call(this, offset, &text, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  void QAccessibleEditableTextInterface::replaceText(int startOffset,
+  //      int endOffset, const QString &text)
+  void replaceText(
+      int startOffset,
+      int endOffset,
+      const QString &text) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQAccessibleEditableTextInterfaceCall2 call = reinterpret_cast<CuteQAccessibleEditableTextInterfaceCall2>(taken[2]);
+      call(this, startOffset, endOffset, &text, &handled);
       if (handled) return;
     }
   }

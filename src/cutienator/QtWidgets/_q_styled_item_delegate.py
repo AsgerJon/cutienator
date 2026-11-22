@@ -150,21 +150,18 @@ class QStyledItemDelegate(QAbstractItemDelegate):
   __take_ritual__ = 'ritual_take_QStyledItemDelegate'
 
   #  The functions Qt calls itself that QStyledItemDelegate is the first to
-  #  declare and that cannot be handed to Python yet, each as Qt declares it.
-  #  A class of a program that writes one of them anew is refused, since Qt
-  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'displayText': (
-          'QString QStyledItemDelegate::displayText(const QVariant &, '
-          'const QLocale &) const',
-      ),
-  }
-
-  #  The functions Qt calls itself that QStyledItemDelegate is the first to
   #  declare. A class of a program built on it can write one anew, and Qt
   #  then calls that. For each name: the key C++ knows the function by, what
   #  it gives, and what it takes.
   __virtual_functions__ = {
+      'displayText': (
+          ('_ZNK19QStyledItemDelegate11displayTextERK8QVariantRK7QLocale',
+           ('address', 'text', ''),
+           (
+               ('address', 'value', 'QtCore:QVariant'),
+               ('address', 'value', 'QtCore:QLocale'),
+           )),
+      ),
       'initStyleOption': (
           ('_ZNK19QStyledItemDelegate15initStyleOptionEP20QStyleOptionViewI'
            'temRK11QModelIndex',
@@ -356,9 +353,14 @@ class QStyledItemDelegate(QAbstractItemDelegate):
     """
     #  QString QStyledItemDelegate::displayText(const QVariant &value, const
     #      QLocale &locale) const
+    ritual = (
+        'ritual_ZNK19QStyledItemDelegate11displayTextERK8QVariantRK7QLocale')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QStyledItemDelegate11displayTextERK8QVariantRK7Q'
+          'Locale')
     return self.uglySide.call(
-        'ritual_ZNK19QStyledItemDelegate11displayTextERK8QVariantRK7QLocale',
-        self._valueOf(value), self._valueOf(locale),
+        ritual, self._valueOf(value), self._valueOf(locale),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

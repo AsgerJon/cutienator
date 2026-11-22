@@ -7,6 +7,7 @@
 #include <QtCore/qsize.h>
 #include <QtGui/qicon.h>
 #include <QtGui/qpixmap.h>
+#include <QtGui/qfontmetrics.h>
 #include <QtGui/qpalette.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -31,20 +32,22 @@ typedef void (*CuteQCommonStyleCall13)(const void *, QApplication *, int *);
 typedef void (*CuteQCommonStyleCall14)(const void *, QWidget *, int *);
 typedef void (*CuteQCommonStyleCall15)(const void *, QWidget *, int *);
 typedef void (*CuteQCommonStyleCall16)(const void *, QApplication *, int *);
-typedef const QRect * (*CuteQCommonStyleCall17)(const void *, const QRect *, int, const QPixmap *, int *);
-typedef void (*CuteQCommonStyleCall18)(const void *, QPainter *, const QRect *, int, const QPixmap *, int *);
-typedef const QPalette * (*CuteQCommonStyleCall19)(const void *, int *);
-typedef bool (*CuteQCommonStyleCall20)(const void *, QEvent *, int *);
-typedef bool (*CuteQCommonStyleCall21)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQCommonStyleCall22)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQCommonStyleCall23)(const void *, QChildEvent *, int *);
-typedef void (*CuteQCommonStyleCall24)(const void *, QEvent *, int *);
-typedef void (*CuteQCommonStyleCall25)(const void *, const QMetaMethod *, int *);
-typedef void (*CuteQCommonStyleCall26)(const void *, const QMetaMethod *, int *);
+typedef const QRect * (*CuteQCommonStyleCall17)(const void *, const QFontMetrics *, const QRect *, int, bool, const QString *, int *);
+typedef const QRect * (*CuteQCommonStyleCall18)(const void *, const QRect *, int, const QPixmap *, int *);
+typedef void (*CuteQCommonStyleCall19)(const void *, QPainter *, const QRect *, int, const QPalette *, bool, const QString *, int, int *);
+typedef void (*CuteQCommonStyleCall20)(const void *, QPainter *, const QRect *, int, const QPixmap *, int *);
+typedef const QPalette * (*CuteQCommonStyleCall21)(const void *, int *);
+typedef bool (*CuteQCommonStyleCall22)(const void *, QEvent *, int *);
+typedef bool (*CuteQCommonStyleCall23)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQCommonStyleCall24)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQCommonStyleCall25)(const void *, QChildEvent *, int *);
+typedef void (*CuteQCommonStyleCall26)(const void *, QEvent *, int *);
+typedef void (*CuteQCommonStyleCall27)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQCommonStyleCall28)(const void *, const QMetaMethod *, int *);
 class CuteQCommonStyle : public QCommonStyle {
 public:
   using QCommonStyle::QCommonStyle;
-  void *taken[27] = {};
+  void *taken[29] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK6QStyle13drawPrimitiveENS_16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget")) {
@@ -115,44 +118,52 @@ public:
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap")) {
+    if (!std::strcmp(key, "_ZNK6QStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QString")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap")) {
+    if (!std::strcmp(key, "_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle15standardPaletteEv")) {
+    if (!std::strcmp(key, "_ZNK6QStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS5_9ColorRoleE")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZNK6QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZNK6QStyle15standardPaletteEv")) {
       taken[21] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[22] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[26] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[27] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[28] = call;
       return true;
     }
     return false;
@@ -409,19 +420,56 @@ public:
     QCommonStyle::unpolish(application);
   }
 
+  //  QRect QStyle::itemTextRect(const QFontMetrics &fm, const QRect &r,
+  //      int flags, bool enabled, const QString &text) const
+  QRect itemTextRect(
+      const QFontMetrics &fm,
+      const QRect &r,
+      int flags,
+      bool enabled,
+      const QString &text) const override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQCommonStyleCall17 call = reinterpret_cast<CuteQCommonStyleCall17>(taken[17]);
+      const QRect * given = call(this, &fm, &r, flags, enabled, &text, &handled);
+      if (handled && given) return *given;
+    }
+    return QStyle::itemTextRect(fm, r, flags, enabled, text);
+  }
+
   //  QRect QStyle::itemPixmapRect(const QRect &r, int flags, const QPixmap
   //      &pixmap) const
   QRect itemPixmapRect(
       const QRect &r,
       int flags,
       const QPixmap &pixmap) const override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQCommonStyleCall17 call = reinterpret_cast<CuteQCommonStyleCall17>(taken[17]);
+      CuteQCommonStyleCall18 call = reinterpret_cast<CuteQCommonStyleCall18>(taken[18]);
       const QRect * given = call(this, &r, flags, &pixmap, &handled);
       if (handled && given) return *given;
     }
     return QStyle::itemPixmapRect(r, flags, pixmap);
+  }
+
+  //  void QStyle::drawItemText(QPainter *painter, const QRect &rect, int
+  //      flags, const QPalette &pal, bool enabled, const QString &text,
+  //      QPalette::ColorRole textRole) const
+  void drawItemText(
+      QPainter *painter,
+      const QRect &rect,
+      int flags,
+      const QPalette &pal,
+      bool enabled,
+      const QString &text,
+      QPalette::ColorRole textRole) const override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQCommonStyleCall19 call = reinterpret_cast<CuteQCommonStyleCall19>(taken[19]);
+      call(this, painter, &rect, flags, &pal, enabled, &text, static_cast<int>(textRole), &handled);
+      if (handled) return;
+    }
+    QStyle::drawItemText(painter, rect, flags, pal, enabled, text, textRole);
   }
 
   //  void QStyle::drawItemPixmap(QPainter *painter, const QRect &rect, int
@@ -431,9 +479,9 @@ public:
       const QRect &rect,
       int alignment,
       const QPixmap &pixmap) const override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQCommonStyleCall18 call = reinterpret_cast<CuteQCommonStyleCall18>(taken[18]);
+      CuteQCommonStyleCall20 call = reinterpret_cast<CuteQCommonStyleCall20>(taken[20]);
       call(this, painter, &rect, alignment, &pixmap, &handled);
       if (handled) return;
     }
@@ -442,9 +490,9 @@ public:
 
   //  QPalette QStyle::standardPalette() const
   QPalette standardPalette() const override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQCommonStyleCall19 call = reinterpret_cast<CuteQCommonStyleCall19>(taken[19]);
+      CuteQCommonStyleCall21 call = reinterpret_cast<CuteQCommonStyleCall21>(taken[21]);
       const QPalette * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -453,9 +501,9 @@ public:
 
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[20]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQCommonStyleCall20 call = reinterpret_cast<CuteQCommonStyleCall20>(taken[20]);
+      CuteQCommonStyleCall22 call = reinterpret_cast<CuteQCommonStyleCall22>(taken[22]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -464,9 +512,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[21]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQCommonStyleCall21 call = reinterpret_cast<CuteQCommonStyleCall21>(taken[21]);
+      CuteQCommonStyleCall23 call = reinterpret_cast<CuteQCommonStyleCall23>(taken[23]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -475,9 +523,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[22]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQCommonStyleCall22 call = reinterpret_cast<CuteQCommonStyleCall22>(taken[22]);
+      CuteQCommonStyleCall24 call = reinterpret_cast<CuteQCommonStyleCall24>(taken[24]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -486,9 +534,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[23]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQCommonStyleCall23 call = reinterpret_cast<CuteQCommonStyleCall23>(taken[23]);
+      CuteQCommonStyleCall25 call = reinterpret_cast<CuteQCommonStyleCall25>(taken[25]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -497,9 +545,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[24]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQCommonStyleCall24 call = reinterpret_cast<CuteQCommonStyleCall24>(taken[24]);
+      CuteQCommonStyleCall26 call = reinterpret_cast<CuteQCommonStyleCall26>(taken[26]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -508,9 +556,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[25]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQCommonStyleCall25 call = reinterpret_cast<CuteQCommonStyleCall25>(taken[25]);
+      CuteQCommonStyleCall27 call = reinterpret_cast<CuteQCommonStyleCall27>(taken[27]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -519,9 +567,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[26]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQCommonStyleCall26 call = reinterpret_cast<CuteQCommonStyleCall26>(taken[26]);
+      CuteQCommonStyleCall28 call = reinterpret_cast<CuteQCommonStyleCall28>(taken[28]);
       call(this, &signal, &handled);
       if (handled) return;
     }

@@ -20,6 +20,9 @@
     ],
     "ritual_take_QAbstractEventDispatcherV2": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QAbstractEventDispatcherV225processEventsWithDeadlineE6QFlagsIN10QEventLoop17ProcessEventsFlagEE14QDeadlineTimer": [
+      "bool", "address", "int", "address"
     ]
   }
 }

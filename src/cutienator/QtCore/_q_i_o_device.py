@@ -160,9 +160,6 @@ class QIODevice(QObject, QIODeviceBase):
   #  a program that writes one of them anew is refused, since Qt would never
   #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
   __virtual_left_out__ = {
-      'open': (
-          'bool QIODevice::open(QIODeviceBase::OpenMode)',
-      ),
       'readData': (
           'qint64 QIODevice::readData(char *, qint64)',
       ),
@@ -183,6 +180,13 @@ class QIODevice(QObject, QIODeviceBase):
           ('_ZNK9QIODevice12isSequentialEv',
            ('bool', 'number', ''),
            ()),
+      ),
+      'open': (
+          ('_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE',
+           ('bool', 'number', ''),
+           (
+               ('int', 'flags', 'QtCore:QIODeviceBase.OpenModeFlag'),
+           )),
       ),
       'close': (
           ('_ZN9QIODevice5closeEv',
@@ -586,10 +590,13 @@ class QIODevice(QObject, QIODeviceBase):
       Passed on as its number.
     """
     #  bool QIODevice::open(QIODeviceBase::OpenMode mode)
-    return self.uglySide.call(
-        'ritual_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE',
-        mode.value,
-    )
+    ritual = (
+        'ritual_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeF'
+          'lagEE')
+    return self.uglySide.call(ritual, mode.value)
 
   def close(self) -> None:
     """

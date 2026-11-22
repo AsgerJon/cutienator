@@ -170,17 +170,6 @@ class QGestureRecognizer(CuteMixin, metaclass=MetaCute):
   __take_ritual__ = 'ritual_take_QGestureRecognizer'
 
   #  The functions Qt calls itself that QGestureRecognizer is the first to
-  #  declare and that cannot be handed to Python yet, each as Qt declares it.
-  #  A class of a program that writes one of them anew is refused, since Qt
-  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'recognize': (
-          'Result QGestureRecognizer::recognize(QGesture *, QObject *, '
-          'QEvent *)',
-      ),
-  }
-
-  #  The functions Qt calls itself that QGestureRecognizer is the first to
   #  declare. A class of a program built on it can write one anew, and Qt
   #  then calls that. For each name: the key C++ knows the function by, what
   #  it gives, and what it takes.
@@ -190,6 +179,15 @@ class QGestureRecognizer(CuteMixin, metaclass=MetaCute):
            ('address', 'address', 'QtWidgets:QGesture'),
            (
                ('address', 'address', 'QtCore:QObject'),
+           )),
+      ),
+      'recognize': (
+          ('_ZN18QGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent',
+           ('int', 'flags', 'QtWidgets:QGestureRecognizer.ResultFlag'),
+           (
+               ('address', 'address', 'QtWidgets:QGesture'),
+               ('address', 'address', 'QtCore:QObject'),
+               ('address', 'address', 'QtCore:QEvent'),
            )),
       ),
       'reset': (

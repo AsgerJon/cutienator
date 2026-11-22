@@ -240,6 +240,9 @@
     "ritual_own_ZNK21QSortFilterProxyModel12canFetchMoreERK11QModelIndex": [
       "bool", "address", "address"
     ],
+    "ritual_own_ZNK21QSortFilterProxyModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
     "ritual_own_ZNK21QSortFilterProxyModel5buddyERK11QModelIndex": [
       "address", "address", "address"
     ],
@@ -248,6 +251,9 @@
     ],
     "ritual_own_ZN21QSortFilterProxyModel4sortEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK21QSortFilterProxyModel20supportedDropActionsEv": [
+      "int", "address"
     ]
   }
 }

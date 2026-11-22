@@ -128,16 +128,6 @@ class QSaveFile(QFileDevice):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QSaveFile'
 
-  #  The functions Qt calls itself that QSaveFile is the first to declare and
-  #  that cannot be handed to Python yet, each as Qt declares it. A class of
-  #  a program that writes one of them anew is refused, since Qt would never
-  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'open': (
-          'bool QSaveFile::open(OpenMode)',
-      ),
-  }
-
   #  Fallback Variables
 
   #  Private Variables
@@ -181,7 +171,10 @@ class QSaveFile(QFileDevice):
       The text Qt gave back.
     """
     #  QString QSaveFile::fileName() const
-    return self.uglySide.call('ritual_ZNK9QSaveFile8fileNameEv')
+    ritual = 'ritual_ZNK9QSaveFile8fileNameEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QSaveFile8fileNameEv'
+    return self.uglySide.call(ritual)
 
   def directWriteFallback(self) -> bool:
     """
@@ -325,10 +318,13 @@ class QSaveFile(QFileDevice):
       Passed on as its number.
     """
     #  bool QSaveFile::open(OpenMode flags)
-    return self.uglySide.call(
-        'ritual_ZN9QSaveFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE',
-        flags.value,
-    )
+    ritual = (
+        'ritual_ZN9QSaveFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QSaveFile4openE6QFlagsIN13QIODeviceBase12OpenModeF'
+          'lagEE')
+    return self.uglySide.call(ritual, flags.value)
 
   def commit(self) -> bool:
     """

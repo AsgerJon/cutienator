@@ -51,7 +51,7 @@ class QTreeWidget(QTreeView):
   -----------
 
   Every function of Qt's QTreeWidget that has a ritual and that Python can
-  call so far, 42 names in all: 'metaObject', 'tr', 'columnCount',
+  call so far, 43 names in all: 'metaObject', 'tr', 'columnCount',
   'setColumnCount', 'invisibleRootItem', 'topLevelItem', 'topLevelItemCount',
   'insertTopLevelItem', 'addTopLevelItem', 'takeTopLevelItem',
   'indexOfTopLevelItem', 'headerItem', 'setHeaderItem', 'setHeaderLabel',
@@ -62,7 +62,8 @@ class QTreeWidget(QTreeView):
   'itemBelow', 'indexFromItem', 'itemFromIndex', 'setSelectionModel',
   'supportedDragActions', 'setSupportedDragActions', 'scrollToItem',
   'expandItem', 'collapseItem', 'clear', 'event', 'dropMimeData',
-  'dropEvent'. It can be made from Python, in 1 way; see '__init__'.
+  'supportedDropActions', 'dropEvent'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -73,8 +74,8 @@ class QTreeWidget(QTreeView):
   What has no ritual
   ------------------
 
-  27 of the 74 functions Qt declares: 10 a signal; 7 takes or gives a type
-  that cannot be passed yet; 4 private; 3 protected; 2 forbidden; 1 a
+  26 of the 74 functions Qt declares: 10 a signal; 7 takes or gives a type
+  that cannot be passed yet; 4 private; 2 protected; 2 forbidden; 1 a
   template.
 
   What to expect
@@ -165,9 +166,6 @@ class QTreeWidget(QTreeView):
           'QMimeData *QTreeWidget::mimeData(const QList<QTreeWidgetItem *> '
           '&) const',
       ),
-      'supportedDropActions': (
-          'Qt::DropActions QTreeWidget::supportedDropActions() const',
-      ),
   }
 
   #  The functions Qt calls itself that QTreeWidget is the first to declare.
@@ -185,6 +183,11 @@ class QTreeWidget(QTreeView):
                ('address', 'address', 'QtCore:QMimeData'),
                ('int', 'enum', 'QtCore:Qt.DropAction'),
            )),
+      ),
+      'supportedDropActions': (
+          ('_ZNK11QTreeWidget20supportedDropActionsEv',
+           ('int', 'flags', 'QtCore:Qt.DropAction'),
+           ()),
       ),
   }
 
@@ -675,6 +678,24 @@ class QTreeWidget(QTreeView):
     #  Qt::DropActions QTreeWidget::supportedDragActions() const
     return Qt.DropActions(self.uglySide.call(
         'ritual_ZNK11QTreeWidget20supportedDragActionsEv',
+    ))
+
+  def supportedDropActions(self) -> Qt.DropActions:
+    """
+    Calls Qt's 'Qt::DropActions QTreeWidget::supportedDropActions() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidget.html#supportedDropActions
+
+    Returns
+    -------
+
+    Qt.DropActions
+      The value standing for the combination Qt gave back.
+    """
+    #  Qt::DropActions QTreeWidget::supportedDropActions() const
+    return Qt.DropActions(self.uglySide.call(
+        'ritual_own_ZNK11QTreeWidget20supportedDropActionsEv',
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -26,6 +26,7 @@
     "ritual_own_ZNK11QSpacerItem8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK11QSpacerItem11minimumSizeEv": ["address", "address"],
     "ritual_own_ZNK11QSpacerItem11maximumSizeEv": ["address", "address"],
+    "ritual_own_ZNK11QSpacerItem19expandingDirectionsEv": ["int", "address"],
     "ritual_own_ZNK11QSpacerItem7isEmptyEv": ["bool", "address"],
     "ritual_own_ZN11QSpacerItem11setGeometryERK5QRect": [
       "nothing", "address", "address"

@@ -359,9 +359,10 @@ class QBoxLayout(QLayout):
       The value standing for the combination Qt gave back.
     """
     #  Qt::Orientations QBoxLayout::expandingDirections() const
-    return Qt.Orientations(self.uglySide.call(
-        'ritual_ZNK10QBoxLayout19expandingDirectionsEv',
-    ))
+    ritual = 'ritual_ZNK10QBoxLayout19expandingDirectionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QBoxLayout19expandingDirectionsEv'
+    return Qt.Orientations(self.uglySide.call(ritual))
 
   @overload(int)
   def itemAt(self, a0: int) -> Optional[QLayoutItem]:

@@ -37,6 +37,11 @@
     "ritual_own_ZN11QIconEngine9addPixmapERK7QPixmapN5QIcon4ModeENS3_5StateE": [
       "nothing", "address", "address", "int", "int"
     ],
+    "ritual_own_ZN11QIconEngine7addFileERK7QStringRK5QSizeN5QIcon4ModeENS6_5StateE": [
+      "nothing", "address", "text", "address", "int", "int"
+    ],
+    "ritual_own_ZNK11QIconEngine3keyEv": ["text", "address"],
+    "ritual_own_ZN11QIconEngine8iconNameEv": ["text", "address"],
     "ritual_own_ZN11QIconEngine6isNullEv": ["bool", "address"],
     "ritual_own_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
       "address", "address", "address", "int", "int", "double"

@@ -138,15 +138,18 @@ class QAbstractEventDispatcherV2(QAbstractEventDispatcher):
   __take_ritual__ = 'ritual_take_QAbstractEventDispatcherV2'
 
   #  The functions Qt calls itself that QAbstractEventDispatcherV2 is the
-  #  first to declare and that cannot be handed to Python yet, each as Qt
-  #  declares it. A class of a program that writes one of them anew is
-  #  refused, since Qt would never call what it wrote; see
-  #  'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
+  #  first to declare. A class of a program built on it can write one anew,
+  #  and Qt then calls that. For each name: the key C++ knows the function
+  #  by, what it gives, and what it takes.
+  __virtual_functions__ = {
       'processEventsWithDeadline': (
-          'bool '
-          'QAbstractEventDispatcherV2::processEventsWithDeadline(QEventLoop'
-          '::ProcessEventsFlags, QDeadlineTimer)',
+          ('_ZN26QAbstractEventDispatcherV225processEventsWithDeadlineE6QFl'
+           'agsIN10QEventLoop17ProcessEventsFlagEE14QDeadlineTimer',
+           ('bool', 'number', ''),
+           (
+               ('int', 'flags', 'QtCore:QEventLoop.ProcessEventsFlag'),
+               ('address', 'value', 'QtCore:QDeadlineTimer'),
+           )),
       ),
   }
 
@@ -268,8 +271,11 @@ class QAbstractEventDispatcherV2(QAbstractEventDispatcher):
     """
     #  bool QAbstractEventDispatcherV2::processEventsWithDeadline(
     #      QEventLoop::ProcessEventsFlags flags, QDeadlineTimer deadline)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN26QAbstractEventDispatcherV225processEventsWithDeadlineE6'
-        'QFlagsIN10QEventLoop17ProcessEventsFlagEE14QDeadlineTimer',
-        flags.value, self._valueOf(deadline),
-    )
+        'QFlagsIN10QEventLoop17ProcessEventsFlagEE14QDeadlineTimer')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN26QAbstractEventDispatcherV225processEventsWithDead'
+          'lineE6QFlagsIN10QEventLoop17ProcessEventsFlagEE14QDeadlineTimer')
+    return self.uglySide.call(ritual, flags.value, self._valueOf(deadline))

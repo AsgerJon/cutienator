@@ -133,15 +133,23 @@ class QDoubleSpinBox(QAbstractSpinBox):
   __take_ritual__ = 'ritual_take_QDoubleSpinBox'
 
   #  The functions Qt calls itself that QDoubleSpinBox is the first to
-  #  declare and that cannot be handed to Python yet, each as Qt declares it.
-  #  A class of a program that writes one of them anew is refused, since Qt
-  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
       'valueFromText': (
-          'double QDoubleSpinBox::valueFromText(const QString &) const',
+          ('_ZNK14QDoubleSpinBox13valueFromTextERK7QString',
+           ('double', 'number', ''),
+           (
+               ('address', 'text', ''),
+           )),
       ),
       'textFromValue': (
-          'QString QDoubleSpinBox::textFromValue(double) const',
+          ('_ZNK14QDoubleSpinBox13textFromValueEd',
+           ('address', 'text', ''),
+           (
+               ('double', 'number', ''),
+           )),
       ),
   }
 
@@ -299,9 +307,10 @@ class QDoubleSpinBox(QAbstractSpinBox):
       Passed on as it is: a QString is made of it for the call.
     """
     #  double QDoubleSpinBox::valueFromText(const QString &text) const
-    return self.uglySide.call(
-        'ritual_ZNK14QDoubleSpinBox13valueFromTextERK7QString', text,
-    )
+    ritual = 'ritual_ZNK14QDoubleSpinBox13valueFromTextERK7QString'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK14QDoubleSpinBox13valueFromTextERK7QString'
+    return self.uglySide.call(ritual, text)
 
   @overload(float)
   def textFromValue(self, val: float) -> str:
@@ -323,9 +332,10 @@ class QDoubleSpinBox(QAbstractSpinBox):
       The text Qt gave back.
     """
     #  QString QDoubleSpinBox::textFromValue(double val) const
-    return self.uglySide.call(
-        'ritual_ZNK14QDoubleSpinBox13textFromValueEd', val,
-    )
+    ritual = 'ritual_ZNK14QDoubleSpinBox13textFromValueEd'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK14QDoubleSpinBox13textFromValueEd'
+    return self.uglySide.call(ritual, val)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -154,6 +154,7 @@
     "ritual_own_ZNK11QFormLayout14heightForWidthEi": [
       "int", "address", "int"
     ],
+    "ritual_own_ZNK11QFormLayout19expandingDirectionsEv": ["int", "address"],
     "ritual_own_ZNK11QFormLayout5countEv": ["int", "address"]
   }
 }

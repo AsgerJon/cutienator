@@ -190,11 +190,14 @@ class QAccessibleObject(QAccessibleInterface):
     """
     #  void QAccessibleObject::setText(QAccessible::Text t, const QString
     #      &text)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN17QAccessibleObject7setTextEN11QAccessible4TextERK7QStrin'
-        'g',
-        t.value, text,
-    )
+        'g')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAccessibleObject7setTextEN11QAccessible4TextERK7'
+          'QString')
+    self.uglySide.call(ritual, t.value, text)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

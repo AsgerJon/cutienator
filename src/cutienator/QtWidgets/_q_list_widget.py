@@ -51,7 +51,7 @@ class QListWidget(QListView):
   -----------
 
   Every function of Qt's QListWidget that has a ritual and that Python can
-  call so far, 34 names in all: 'metaObject', 'tr', 'setSelectionModel',
+  call so far, 35 names in all: 'metaObject', 'tr', 'setSelectionModel',
   'item', 'row', 'insertItem', 'addItem', 'takeItem', 'count', 'currentItem',
   'setCurrentItem', 'currentRow', 'setCurrentRow', 'itemAt',
   'visualItemRect', 'sortItems', 'setSortingEnabled', 'isSortingEnabled',
@@ -59,8 +59,8 @@ class QListWidget(QListView):
   'isPersistentEditorOpen', 'itemWidget', 'setItemWidget',
   'removeItemWidget', 'indexFromItem', 'itemFromIndex',
   'setSupportedDragActions', 'supportedDragActions', 'scrollToItem', 'clear',
-  'dropEvent', 'event', 'dropMimeData'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'dropEvent', 'event', 'dropMimeData', 'supportedDropActions'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -71,8 +71,8 @@ class QListWidget(QListView):
   What has no ritual
   ------------------
 
-  28 of the 69 functions Qt declares: 10 a signal; 7 takes or gives a type
-  that cannot be passed yet; 5 private; 3 protected; 2 forbidden; 1 a
+  27 of the 69 functions Qt declares: 10 a signal; 7 takes or gives a type
+  that cannot be passed yet; 5 private; 2 protected; 2 forbidden; 1 a
   template.
 
   What to expect
@@ -163,9 +163,6 @@ class QListWidget(QListView):
           'QMimeData *QListWidget::mimeData(const QList<QListWidgetItem *> '
           '&) const',
       ),
-      'supportedDropActions': (
-          'Qt::DropActions QListWidget::supportedDropActions() const',
-      ),
   }
 
   #  The functions Qt calls itself that QListWidget is the first to declare.
@@ -181,6 +178,11 @@ class QListWidget(QListView):
                ('address', 'address', 'QtCore:QMimeData'),
                ('int', 'enum', 'QtCore:Qt.DropAction'),
            )),
+      ),
+      'supportedDropActions': (
+          ('_ZNK11QListWidget20supportedDropActionsEv',
+           ('int', 'flags', 'QtCore:Qt.DropAction'),
+           ()),
       ),
   }
 
@@ -522,6 +524,24 @@ class QListWidget(QListView):
     #  Qt::DropActions QListWidget::supportedDragActions() const
     return Qt.DropActions(self.uglySide.call(
         'ritual_ZNK11QListWidget20supportedDragActionsEv',
+    ))
+
+  def supportedDropActions(self) -> Qt.DropActions:
+    """
+    Calls Qt's 'Qt::DropActions QListWidget::supportedDropActions() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlistwidget.html#supportedDropActions
+
+    Returns
+    -------
+
+    Qt.DropActions
+      The value standing for the combination Qt gave back.
+    """
+    #  Qt::DropActions QListWidget::supportedDropActions() const
+    return Qt.DropActions(self.uglySide.call(
+        'ritual_own_ZNK11QListWidget20supportedDropActionsEv',
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

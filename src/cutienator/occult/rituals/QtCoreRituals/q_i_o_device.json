@@ -65,6 +65,9 @@
     "ritual_cast_QIODevice_QIODeviceBase": ["address", "address"],
     "ritual_take_QIODevice": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QIODevice12isSequentialEv": ["bool", "address"],
+    "ritual_own_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
     "ritual_own_ZN9QIODevice5closeEv": ["nothing", "address"],
     "ritual_own_ZNK9QIODevice3posEv": ["long long", "address"],
     "ritual_own_ZNK9QIODevice4sizeEv": ["long long", "address"],

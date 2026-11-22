@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QItemSelectionModel
 from . import QAbstractItemView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -57,7 +57,7 @@ class QHeaderView(QAbstractItemView):
   -----------
 
   Every function of Qt's QHeaderView that has a ritual and that Python can
-  call so far, 90 names in all: 'metaObject', 'tr', 'setModel',
+  call so far, 91 names in all: 'metaObject', 'tr', 'setModel',
   'orientation', 'offset', 'length', 'sizeHint', 'setVisible',
   'sectionSizeHint', 'visualIndexAt', 'logicalIndexAt', 'sectionSize',
   'sectionPosition', 'sectionViewportPosition', 'moveSection',
@@ -83,9 +83,9 @@ class QHeaderView(QAbstractItemView):
   'mouseDoubleClickEvent', 'viewportEvent', 'paintSection',
   'sectionSizeFromContents', 'horizontalOffset', 'verticalOffset',
   'updateGeometries', 'scrollContentsBy', 'rowsInserted', 'visualRect',
-  'scrollTo', 'indexAt', 'isIndexHidden', 'visualRegionForSelection',
-  'initStyleOptionForIndex'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'scrollTo', 'indexAt', 'isIndexHidden', 'setSelection',
+  'visualRegionForSelection', 'initStyleOptionForIndex'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -96,7 +96,7 @@ class QHeaderView(QAbstractItemView):
   What has no ritual
   ------------------
 
-  32 of the 127 functions Qt declares: 12 protected; 11 a signal; 4 private;
+  31 of the 127 functions Qt declares: 11 a signal; 11 protected; 4 private;
   2 takes or gives a type that cannot be passed yet; 2 forbidden; 1 a
   template.
 
@@ -1395,6 +1395,35 @@ class QHeaderView(QAbstractItemView):
     """
     #  void QHeaderView::setOffsetToLastSection()
     self.uglySide.call('ritual_ZN11QHeaderView22setOffsetToLastSectionEv')
+
+  @overload(QRect, QItemSelectionModel.SelectionFlags)
+  def setSelection(
+      self,
+      rect: QRect,
+      flags: QItemSelectionModel.SelectionFlags,
+  ) -> None:
+    """
+    Calls Qt's 'void QHeaderView::setSelection(const QRect &rect,
+    QItemSelectionModel::SelectionFlags flags)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#setSelection
+
+    Parameters
+    ----------
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    flags : QItemSelectionModel.SelectionFlags
+      Passed on as its number.
+    """
+    #  void QHeaderView::setSelection(const QRect &rect,
+    #      QItemSelectionModel::SelectionFlags flags)
+    self.uglySide.call(
+        'ritual_own_ZN11QHeaderView12setSelectionERK5QRect6QFlagsIN19QItemS'
+        'electionModel13SelectionFlagEE',
+        self._valueOf(rect), flags.value,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

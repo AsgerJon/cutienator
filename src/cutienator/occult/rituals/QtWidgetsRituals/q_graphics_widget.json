@@ -165,6 +165,9 @@
     "ritual_own_ZN15QGraphicsWidget10itemChangeEN13QGraphicsItem18GraphicsItemChangeERK8QVariant": [
       "address", "address", "int", "address"
     ],
+    "ritual_own_ZN15QGraphicsWidget14propertyChangeERK7QStringRK8QVariant": [
+      "address", "address", "text", "address"
+    ],
     "ritual_own_ZN15QGraphicsWidget10sceneEventEP6QEvent": [
       "bool", "address", "address"
     ],

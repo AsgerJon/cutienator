@@ -7,35 +7,75 @@
 //  A QAccessibleHyperlinkInterface that Python can take functions over in. Every QAccessibleHyperlinkInterface
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
-typedef int (*CuteQAccessibleHyperlinkInterfaceCall0)(const void *, int *);
-typedef int (*CuteQAccessibleHyperlinkInterfaceCall1)(const void *, int *);
-typedef bool (*CuteQAccessibleHyperlinkInterfaceCall2)(const void *, int *);
+typedef QString * (*CuteQAccessibleHyperlinkInterfaceCall0)(const void *, int *);
+typedef QString * (*CuteQAccessibleHyperlinkInterfaceCall1)(const void *, int *);
+typedef int (*CuteQAccessibleHyperlinkInterfaceCall2)(const void *, int *);
+typedef int (*CuteQAccessibleHyperlinkInterfaceCall3)(const void *, int *);
+typedef bool (*CuteQAccessibleHyperlinkInterfaceCall4)(const void *, int *);
 class CuteQAccessibleHyperlinkInterface : public QAccessibleHyperlinkInterface {
 public:
   using QAccessibleHyperlinkInterface::QAccessibleHyperlinkInterface;
-  void *taken[3] = {};
+  void *taken[5] = {};
 
   bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface10startIndexEv")) {
+    if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface6anchorEv")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface8endIndexEv")) {
+    if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface12anchorTargetEv")) {
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface7isValidEv")) {
+    if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface10startIndexEv")) {
       taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface8endIndexEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface7isValidEv")) {
+      taken[4] = call;
       return true;
     }
     return false;
   }
 
-  //  int QAccessibleHyperlinkInterface::startIndex() const
-  int startIndex() const override {
+  //  QString QAccessibleHyperlinkInterface::anchor() const
+  QString anchor() const override {
     if (taken[0]) {
       int handled = 0;
       CuteQAccessibleHyperlinkInterfaceCall0 call = reinterpret_cast<CuteQAccessibleHyperlinkInterfaceCall0>(taken[0]);
+      QString * given = call(this, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return {};
+  }
+
+  //  QString QAccessibleHyperlinkInterface::anchorTarget() const
+  QString anchorTarget() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQAccessibleHyperlinkInterfaceCall1 call = reinterpret_cast<CuteQAccessibleHyperlinkInterfaceCall1>(taken[1]);
+      QString * given = call(this, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return {};
+  }
+
+  //  int QAccessibleHyperlinkInterface::startIndex() const
+  int startIndex() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQAccessibleHyperlinkInterfaceCall2 call = reinterpret_cast<CuteQAccessibleHyperlinkInterfaceCall2>(taken[2]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -44,9 +84,9 @@ public:
 
   //  int QAccessibleHyperlinkInterface::endIndex() const
   int endIndex() const override {
-    if (taken[1]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQAccessibleHyperlinkInterfaceCall1 call = reinterpret_cast<CuteQAccessibleHyperlinkInterfaceCall1>(taken[1]);
+      CuteQAccessibleHyperlinkInterfaceCall3 call = reinterpret_cast<CuteQAccessibleHyperlinkInterfaceCall3>(taken[3]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -55,9 +95,9 @@ public:
 
   //  bool QAccessibleHyperlinkInterface::isValid() const
   bool isValid() const override {
-    if (taken[2]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQAccessibleHyperlinkInterfaceCall2 call = reinterpret_cast<CuteQAccessibleHyperlinkInterfaceCall2>(taken[2]);
+      CuteQAccessibleHyperlinkInterfaceCall4 call = reinterpret_cast<CuteQAccessibleHyperlinkInterfaceCall4>(taken[4]);
       bool given = call(this, &handled);
       if (handled) return given;
     }

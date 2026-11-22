@@ -18,17 +18,18 @@ struct OwnQGraphicsColorizeEffect : QGraphicsColorizeEffect {
 //  function handed over for it, and runs Qt's own without one.
 typedef void (*CuteQGraphicsColorizeEffectCall0)(const void *, QPainter *, int *);
 typedef const QRectF * (*CuteQGraphicsColorizeEffectCall1)(const void *, const QRectF *, int *);
-typedef bool (*CuteQGraphicsColorizeEffectCall2)(const void *, QEvent *, int *);
-typedef bool (*CuteQGraphicsColorizeEffectCall3)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQGraphicsColorizeEffectCall4)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQGraphicsColorizeEffectCall5)(const void *, QChildEvent *, int *);
-typedef void (*CuteQGraphicsColorizeEffectCall6)(const void *, QEvent *, int *);
-typedef void (*CuteQGraphicsColorizeEffectCall7)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQGraphicsColorizeEffectCall2)(const void *, int, int *);
+typedef bool (*CuteQGraphicsColorizeEffectCall3)(const void *, QEvent *, int *);
+typedef bool (*CuteQGraphicsColorizeEffectCall4)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQGraphicsColorizeEffectCall5)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQGraphicsColorizeEffectCall6)(const void *, QChildEvent *, int *);
+typedef void (*CuteQGraphicsColorizeEffectCall7)(const void *, QEvent *, int *);
 typedef void (*CuteQGraphicsColorizeEffectCall8)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQGraphicsColorizeEffectCall9)(const void *, const QMetaMethod *, int *);
 class CuteQGraphicsColorizeEffect : public QGraphicsColorizeEffect {
 public:
   using QGraphicsColorizeEffect::QGraphicsColorizeEffect;
-  void *taken[9] = {};
+  void *taken[10] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN15QGraphicsEffect4drawEP8QPainter")) {
@@ -39,32 +40,36 @@ public:
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN15QGraphicsEffect13sourceChangedE6QFlagsINS_10ChangeFlagEE")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[9] = call;
       return true;
     }
     return false;
@@ -93,11 +98,22 @@ public:
     return QGraphicsEffect::boundingRectFor(sourceRect);
   }
 
-  //  bool QObject::event(QEvent *event)
-  bool event(QEvent *event) override {
+  //  void QGraphicsEffect::sourceChanged(ChangeFlags flags)
+  void sourceChanged(QGraphicsEffect::ChangeFlags flags) override {
     if (taken[2]) {
       int handled = 0;
       CuteQGraphicsColorizeEffectCall2 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall2>(taken[2]);
+      call(this, static_cast<int>(flags.toInt()), &handled);
+      if (handled) return;
+    }
+    QGraphicsEffect::sourceChanged(flags);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQGraphicsColorizeEffectCall3 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall3>(taken[3]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -106,9 +122,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQGraphicsColorizeEffectCall3 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall3>(taken[3]);
+      CuteQGraphicsColorizeEffectCall4 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall4>(taken[4]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -117,9 +133,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQGraphicsColorizeEffectCall4 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall4>(taken[4]);
+      CuteQGraphicsColorizeEffectCall5 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall5>(taken[5]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -128,9 +144,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQGraphicsColorizeEffectCall5 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall5>(taken[5]);
+      CuteQGraphicsColorizeEffectCall6 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall6>(taken[6]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -139,9 +155,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQGraphicsColorizeEffectCall6 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall6>(taken[6]);
+      CuteQGraphicsColorizeEffectCall7 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall7>(taken[7]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -150,9 +166,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQGraphicsColorizeEffectCall7 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall7>(taken[7]);
+      CuteQGraphicsColorizeEffectCall8 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall8>(taken[8]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -161,9 +177,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQGraphicsColorizeEffectCall8 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall8>(taken[8]);
+      CuteQGraphicsColorizeEffectCall9 call = reinterpret_cast<CuteQGraphicsColorizeEffectCall9>(taken[9]);
       call(this, &signal, &handled);
       if (handled) return;
     }

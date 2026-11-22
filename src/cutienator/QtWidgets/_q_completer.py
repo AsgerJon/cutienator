@@ -176,11 +176,22 @@ class QCompleter(QObject):
   #  of a program that writes one of them anew is refused, since Qt would
   #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
   __virtual_left_out__ = {
-      'pathFromIndex': (
-          'QString QCompleter::pathFromIndex(const QModelIndex &) const',
-      ),
       'splitPath': (
           'QStringList QCompleter::splitPath(const QString &) const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QCompleter is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'pathFromIndex': (
+          ('_ZNK10QCompleter13pathFromIndexERK11QModelIndex',
+           ('address', 'text', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
       ),
   }
 
@@ -483,10 +494,10 @@ class QCompleter(QObject):
       The text Qt gave back.
     """
     #  QString QCompleter::pathFromIndex(const QModelIndex &index) const
-    return self.uglySide.call(
-        'ritual_ZNK10QCompleter13pathFromIndexERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK10QCompleter13pathFromIndexERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QCompleter13pathFromIndexERK11QModelIndex'
+    return self.uglySide.call(ritual, self._valueOf(index))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

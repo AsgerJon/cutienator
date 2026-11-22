@@ -17,21 +17,23 @@
 typedef bool (*CuteQAccessibleObjectCall0)(const void *, int *);
 typedef void * (*CuteQAccessibleObjectCall1)(const void *, int *);
 typedef const QRect * (*CuteQAccessibleObjectCall2)(const void *, int *);
-typedef void * (*CuteQAccessibleObjectCall3)(const void *, int, int, int *);
-typedef void * (*CuteQAccessibleObjectCall4)(const void *, int *);
+typedef void (*CuteQAccessibleObjectCall3)(const void *, int, const QString *, int *);
+typedef void * (*CuteQAccessibleObjectCall4)(const void *, int, int, int *);
 typedef void * (*CuteQAccessibleObjectCall5)(const void *, int *);
 typedef void * (*CuteQAccessibleObjectCall6)(const void *, int *);
-typedef void * (*CuteQAccessibleObjectCall7)(const void *, int, int *);
-typedef int (*CuteQAccessibleObjectCall8)(const void *, int *);
-typedef int (*CuteQAccessibleObjectCall9)(const void *, const QAccessibleInterface *, int *);
-typedef int (*CuteQAccessibleObjectCall10)(const void *, int *);
-typedef const QAccessible::State * (*CuteQAccessibleObjectCall11)(const void *, int *);
-typedef const QColor * (*CuteQAccessibleObjectCall12)(const void *, int *);
-typedef const QColor * (*CuteQAccessibleObjectCall13)(const void *, int *);
+typedef void * (*CuteQAccessibleObjectCall7)(const void *, int *);
+typedef void * (*CuteQAccessibleObjectCall8)(const void *, int, int *);
+typedef int (*CuteQAccessibleObjectCall9)(const void *, int *);
+typedef int (*CuteQAccessibleObjectCall10)(const void *, const QAccessibleInterface *, int *);
+typedef QString * (*CuteQAccessibleObjectCall11)(const void *, int, int *);
+typedef int (*CuteQAccessibleObjectCall12)(const void *, int *);
+typedef const QAccessible::State * (*CuteQAccessibleObjectCall13)(const void *, int *);
+typedef const QColor * (*CuteQAccessibleObjectCall14)(const void *, int *);
+typedef const QColor * (*CuteQAccessibleObjectCall15)(const void *, int *);
 class CuteQAccessibleObject : public QAccessibleObject {
 public:
   using QAccessibleObject::QAccessibleObject;
-  void *taken[14] = {};
+  void *taken[16] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
@@ -46,48 +48,56 @@ public:
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6windowEv")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10focusChildEv")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5childEi")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6parentEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10childCountEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5childEi")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface12indexOfChildEPKS_")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface10childCountEv")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface12indexOfChildEPKS_")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5stateEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4textEN11QAccessible4TextE")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5stateEv")) {
       taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
+      taken[15] = call;
       return true;
     }
     return false;
@@ -126,11 +136,23 @@ public:
     return QAccessibleObject::rect();
   }
 
-  //  QAccessibleInterface *QAccessibleObject::childAt(int x, int y) const
-  QAccessibleInterface *childAt(int x, int y) const override {
+  //  void QAccessibleObject::setText(QAccessible::Text t, const QString
+  //      &text)
+  void setText(QAccessible::Text t, const QString &text) override {
     if (taken[3]) {
       int handled = 0;
       CuteQAccessibleObjectCall3 call = reinterpret_cast<CuteQAccessibleObjectCall3>(taken[3]);
+      call(this, static_cast<int>(t), &text, &handled);
+      if (handled) return;
+    }
+    QAccessibleObject::setText(t, text);
+  }
+
+  //  QAccessibleInterface *QAccessibleObject::childAt(int x, int y) const
+  QAccessibleInterface *childAt(int x, int y) const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQAccessibleObjectCall4 call = reinterpret_cast<CuteQAccessibleObjectCall4>(taken[4]);
       void * given = call(this, x, y, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -139,9 +161,9 @@ public:
 
   //  QWindow *QAccessibleInterface::window() const
   QWindow *window() const override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQAccessibleObjectCall4 call = reinterpret_cast<CuteQAccessibleObjectCall4>(taken[4]);
+      CuteQAccessibleObjectCall5 call = reinterpret_cast<CuteQAccessibleObjectCall5>(taken[5]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QWindow *>(given);
     }
@@ -150,9 +172,9 @@ public:
 
   //  QAccessibleInterface *QAccessibleInterface::focusChild() const
   QAccessibleInterface *focusChild() const override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQAccessibleObjectCall5 call = reinterpret_cast<CuteQAccessibleObjectCall5>(taken[5]);
+      CuteQAccessibleObjectCall6 call = reinterpret_cast<CuteQAccessibleObjectCall6>(taken[6]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -161,9 +183,9 @@ public:
 
   //  QAccessibleInterface *QAccessibleInterface::parent() const
   QAccessibleInterface *parent() const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQAccessibleObjectCall6 call = reinterpret_cast<CuteQAccessibleObjectCall6>(taken[6]);
+      CuteQAccessibleObjectCall7 call = reinterpret_cast<CuteQAccessibleObjectCall7>(taken[7]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -172,9 +194,9 @@ public:
 
   //  QAccessibleInterface *QAccessibleInterface::child(int index) const
   QAccessibleInterface *child(int index) const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQAccessibleObjectCall7 call = reinterpret_cast<CuteQAccessibleObjectCall7>(taken[7]);
+      CuteQAccessibleObjectCall8 call = reinterpret_cast<CuteQAccessibleObjectCall8>(taken[8]);
       void * given = call(this, index, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
@@ -183,9 +205,9 @@ public:
 
   //  int QAccessibleInterface::childCount() const
   int childCount() const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQAccessibleObjectCall8 call = reinterpret_cast<CuteQAccessibleObjectCall8>(taken[8]);
+      CuteQAccessibleObjectCall9 call = reinterpret_cast<CuteQAccessibleObjectCall9>(taken[9]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -195,20 +217,35 @@ public:
   //  int QAccessibleInterface::indexOfChild(const QAccessibleInterface
   //      *a0) const
   int indexOfChild(const QAccessibleInterface *a0) const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQAccessibleObjectCall9 call = reinterpret_cast<CuteQAccessibleObjectCall9>(taken[9]);
+      CuteQAccessibleObjectCall10 call = reinterpret_cast<CuteQAccessibleObjectCall10>(taken[10]);
       int given = call(this, a0, &handled);
       if (handled) return given;
     }
     return {};
   }
 
+  //  QString QAccessibleInterface::text(QAccessible::Text t) const
+  QString text(QAccessible::Text t) const override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQAccessibleObjectCall11 call = reinterpret_cast<CuteQAccessibleObjectCall11>(taken[11]);
+      QString * given = call(this, static_cast<int>(t), &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return {};
+  }
+
   //  QAccessible::Role QAccessibleInterface::role() const
   QAccessible::Role role() const override {
-    if (taken[10]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQAccessibleObjectCall10 call = reinterpret_cast<CuteQAccessibleObjectCall10>(taken[10]);
+      CuteQAccessibleObjectCall12 call = reinterpret_cast<CuteQAccessibleObjectCall12>(taken[12]);
       int given = call(this, &handled);
       if (handled) return static_cast<QAccessible::Role>(given);
     }
@@ -217,9 +254,9 @@ public:
 
   //  QAccessible::State QAccessibleInterface::state() const
   QAccessible::State state() const override {
-    if (taken[11]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQAccessibleObjectCall11 call = reinterpret_cast<CuteQAccessibleObjectCall11>(taken[11]);
+      CuteQAccessibleObjectCall13 call = reinterpret_cast<CuteQAccessibleObjectCall13>(taken[13]);
       const QAccessible::State * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -228,9 +265,9 @@ public:
 
   //  QColor QAccessibleInterface::foregroundColor() const
   QColor foregroundColor() const override {
-    if (taken[12]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQAccessibleObjectCall12 call = reinterpret_cast<CuteQAccessibleObjectCall12>(taken[12]);
+      CuteQAccessibleObjectCall14 call = reinterpret_cast<CuteQAccessibleObjectCall14>(taken[14]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -239,9 +276,9 @@ public:
 
   //  QColor QAccessibleInterface::backgroundColor() const
   QColor backgroundColor() const override {
-    if (taken[13]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQAccessibleObjectCall13 call = reinterpret_cast<CuteQAccessibleObjectCall13>(taken[13]);
+      CuteQAccessibleObjectCall15 call = reinterpret_cast<CuteQAccessibleObjectCall15>(taken[15]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -315,6 +352,15 @@ extern "C" Q_DECL_EXPORT
 QRect *ritual_own_ZNK17QAccessibleObject4rectEv(
     const QAccessibleObject *self) {
   return new QRect(self->QAccessibleObject::rect());
+}
+
+//  void QAccessibleObject::setText(QAccessible::Text t, const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN17QAccessibleObject7setTextEN11QAccessible4TextERK7QString(
+    QAccessibleObject *self,
+    QAccessible::Text t,
+    const QString *text) {
+  self->QAccessibleObject::setText(t, *text);
 }
 
 //  QAccessibleInterface *QAccessibleObject::childAt(int x, int y) const

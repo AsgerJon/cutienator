@@ -13,6 +13,7 @@
 //  Only a class built on QItemDelegate may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
 struct OwnQItemDelegate : QItemDelegate {
+  using QItemDelegate::drawDisplay;
   using QItemDelegate::drawDecoration;
   using QItemDelegate::drawFocus;
   using QItemDelegate::drawCheck;
@@ -29,23 +30,24 @@ typedef void * (*CuteQItemDelegateCall2)(const void *, QWidget *, const QStyleOp
 typedef void (*CuteQItemDelegateCall3)(const void *, QWidget *, const QModelIndex *, int *);
 typedef void (*CuteQItemDelegateCall4)(const void *, QWidget *, QAbstractItemModel *, const QModelIndex *, int *);
 typedef void (*CuteQItemDelegateCall5)(const void *, QWidget *, const QStyleOptionViewItem *, const QModelIndex *, int *);
-typedef void (*CuteQItemDelegateCall6)(const void *, QPainter *, const QStyleOptionViewItem *, const QRect *, const QPixmap *, int *);
-typedef void (*CuteQItemDelegateCall7)(const void *, QPainter *, const QStyleOptionViewItem *, const QRect *, int *);
-typedef void (*CuteQItemDelegateCall8)(const void *, QPainter *, const QStyleOptionViewItem *, const QRect *, int, int *);
-typedef bool (*CuteQItemDelegateCall9)(const void *, QObject *, QEvent *, int *);
-typedef bool (*CuteQItemDelegateCall10)(const void *, QEvent *, QAbstractItemModel *, const QStyleOptionViewItem *, const QModelIndex *, int *);
-typedef void (*CuteQItemDelegateCall11)(const void *, QWidget *, const QModelIndex *, int *);
-typedef bool (*CuteQItemDelegateCall12)(const void *, QHelpEvent *, QAbstractItemView *, const QStyleOptionViewItem *, const QModelIndex *, int *);
-typedef bool (*CuteQItemDelegateCall13)(const void *, QEvent *, int *);
-typedef void (*CuteQItemDelegateCall14)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQItemDelegateCall15)(const void *, QChildEvent *, int *);
-typedef void (*CuteQItemDelegateCall16)(const void *, QEvent *, int *);
-typedef void (*CuteQItemDelegateCall17)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQItemDelegateCall6)(const void *, QPainter *, const QStyleOptionViewItem *, const QRect *, const QString *, int *);
+typedef void (*CuteQItemDelegateCall7)(const void *, QPainter *, const QStyleOptionViewItem *, const QRect *, const QPixmap *, int *);
+typedef void (*CuteQItemDelegateCall8)(const void *, QPainter *, const QStyleOptionViewItem *, const QRect *, int *);
+typedef void (*CuteQItemDelegateCall9)(const void *, QPainter *, const QStyleOptionViewItem *, const QRect *, int, int *);
+typedef bool (*CuteQItemDelegateCall10)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQItemDelegateCall11)(const void *, QEvent *, QAbstractItemModel *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+typedef void (*CuteQItemDelegateCall12)(const void *, QWidget *, const QModelIndex *, int *);
+typedef bool (*CuteQItemDelegateCall13)(const void *, QHelpEvent *, QAbstractItemView *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+typedef bool (*CuteQItemDelegateCall14)(const void *, QEvent *, int *);
+typedef void (*CuteQItemDelegateCall15)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQItemDelegateCall16)(const void *, QChildEvent *, int *);
+typedef void (*CuteQItemDelegateCall17)(const void *, QEvent *, int *);
 typedef void (*CuteQItemDelegateCall18)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQItemDelegateCall19)(const void *, const QMetaMethod *, int *);
 class CuteQItemDelegate : public QItemDelegate {
 public:
   using QItemDelegate::QItemDelegate;
-  void *taken[19] = {};
+  void *taken[20] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex")) {
@@ -72,56 +74,60 @@ public:
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK13QItemDelegate14drawDecorationEP8QPainterRK20QStyleOptionViewItemRK5QRectRK7QPixmap")) {
+    if (!std::strcmp(key, "_ZNK13QItemDelegate11drawDisplayEP8QPainterRK20QStyleOptionViewItemRK5QRectRK7QString")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK13QItemDelegate9drawFocusEP8QPainterRK20QStyleOptionViewItemRK5QRect")) {
+    if (!std::strcmp(key, "_ZNK13QItemDelegate14drawDecorationEP8QPainterRK20QStyleOptionViewItemRK5QRectRK7QPixmap")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK13QItemDelegate9drawCheckEP8QPainterRK20QStyleOptionViewItemRK5QRectN2Qt10CheckStateE")) {
+    if (!std::strcmp(key, "_ZNK13QItemDelegate9drawFocusEP8QPainterRK20QStyleOptionViewItemRK5QRect")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZNK13QItemDelegate9drawCheckEP8QPainterRK20QStyleOptionViewItemRK5QRectN2Qt10CheckStateE")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN21QAbstractItemDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate13destroyEditorEP7QWidgetRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN21QAbstractItemDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstractItemViewRK20QStyleOptionViewItemRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate13destroyEditorEP7QWidgetRK11QModelIndex")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstractItemViewRK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[19] = call;
       return true;
     }
     return false;
@@ -215,6 +221,23 @@ public:
     QItemDelegate::updateEditorGeometry(editor, option, index);
   }
 
+  //  void QItemDelegate::drawDisplay(QPainter *painter, const
+  //      QStyleOptionViewItem &option, const QRect &rect, const QString
+  //      &text) const
+  void drawDisplay(
+      QPainter *painter,
+      const QStyleOptionViewItem &option,
+      const QRect &rect,
+      const QString &text) const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQItemDelegateCall6 call = reinterpret_cast<CuteQItemDelegateCall6>(taken[6]);
+      call(this, painter, &option, &rect, &text, &handled);
+      if (handled) return;
+    }
+    QItemDelegate::drawDisplay(painter, option, rect, text);
+  }
+
   //  void QItemDelegate::drawDecoration(QPainter *painter, const
   //      QStyleOptionViewItem &option, const QRect &rect, const QPixmap
   //      &pixmap) const
@@ -223,9 +246,9 @@ public:
       const QStyleOptionViewItem &option,
       const QRect &rect,
       const QPixmap &pixmap) const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQItemDelegateCall6 call = reinterpret_cast<CuteQItemDelegateCall6>(taken[6]);
+      CuteQItemDelegateCall7 call = reinterpret_cast<CuteQItemDelegateCall7>(taken[7]);
       call(this, painter, &option, &rect, &pixmap, &handled);
       if (handled) return;
     }
@@ -238,9 +261,9 @@ public:
       QPainter *painter,
       const QStyleOptionViewItem &option,
       const QRect &rect) const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQItemDelegateCall7 call = reinterpret_cast<CuteQItemDelegateCall7>(taken[7]);
+      CuteQItemDelegateCall8 call = reinterpret_cast<CuteQItemDelegateCall8>(taken[8]);
       call(this, painter, &option, &rect, &handled);
       if (handled) return;
     }
@@ -255,9 +278,9 @@ public:
       const QStyleOptionViewItem &option,
       const QRect &rect,
       Qt::CheckState state) const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQItemDelegateCall8 call = reinterpret_cast<CuteQItemDelegateCall8>(taken[8]);
+      CuteQItemDelegateCall9 call = reinterpret_cast<CuteQItemDelegateCall9>(taken[9]);
       call(this, painter, &option, &rect, static_cast<int>(state), &handled);
       if (handled) return;
     }
@@ -266,9 +289,9 @@ public:
 
   //  bool QItemDelegate::eventFilter(QObject *object, QEvent *event)
   bool eventFilter(QObject *object, QEvent *event) override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQItemDelegateCall9 call = reinterpret_cast<CuteQItemDelegateCall9>(taken[9]);
+      CuteQItemDelegateCall10 call = reinterpret_cast<CuteQItemDelegateCall10>(taken[10]);
       bool given = call(this, object, event, &handled);
       if (handled) return given;
     }
@@ -283,9 +306,9 @@ public:
       QAbstractItemModel *model,
       const QStyleOptionViewItem &option,
       const QModelIndex &index) override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQItemDelegateCall10 call = reinterpret_cast<CuteQItemDelegateCall10>(taken[10]);
+      CuteQItemDelegateCall11 call = reinterpret_cast<CuteQItemDelegateCall11>(taken[11]);
       bool given = call(this, event, model, &option, &index, &handled);
       if (handled) return given;
     }
@@ -297,9 +320,9 @@ public:
   void destroyEditor(
       QWidget *editor,
       const QModelIndex &index) const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQItemDelegateCall11 call = reinterpret_cast<CuteQItemDelegateCall11>(taken[11]);
+      CuteQItemDelegateCall12 call = reinterpret_cast<CuteQItemDelegateCall12>(taken[12]);
       call(this, editor, &index, &handled);
       if (handled) return;
     }
@@ -314,9 +337,9 @@ public:
       QAbstractItemView *view,
       const QStyleOptionViewItem &option,
       const QModelIndex &index) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQItemDelegateCall12 call = reinterpret_cast<CuteQItemDelegateCall12>(taken[12]);
+      CuteQItemDelegateCall13 call = reinterpret_cast<CuteQItemDelegateCall13>(taken[13]);
       bool given = call(this, event, view, &option, &index, &handled);
       if (handled) return given;
     }
@@ -325,9 +348,9 @@ public:
 
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQItemDelegateCall13 call = reinterpret_cast<CuteQItemDelegateCall13>(taken[13]);
+      CuteQItemDelegateCall14 call = reinterpret_cast<CuteQItemDelegateCall14>(taken[14]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -336,9 +359,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQItemDelegateCall14 call = reinterpret_cast<CuteQItemDelegateCall14>(taken[14]);
+      CuteQItemDelegateCall15 call = reinterpret_cast<CuteQItemDelegateCall15>(taken[15]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -347,9 +370,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQItemDelegateCall15 call = reinterpret_cast<CuteQItemDelegateCall15>(taken[15]);
+      CuteQItemDelegateCall16 call = reinterpret_cast<CuteQItemDelegateCall16>(taken[16]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -358,9 +381,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQItemDelegateCall16 call = reinterpret_cast<CuteQItemDelegateCall16>(taken[16]);
+      CuteQItemDelegateCall17 call = reinterpret_cast<CuteQItemDelegateCall17>(taken[17]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -369,9 +392,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQItemDelegateCall17 call = reinterpret_cast<CuteQItemDelegateCall17>(taken[17]);
+      CuteQItemDelegateCall18 call = reinterpret_cast<CuteQItemDelegateCall18>(taken[18]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -380,9 +403,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQItemDelegateCall18 call = reinterpret_cast<CuteQItemDelegateCall18>(taken[18]);
+      CuteQItemDelegateCall19 call = reinterpret_cast<CuteQItemDelegateCall19>(taken[19]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -583,6 +606,23 @@ void ritual_own_ZNK13QItemDelegate20updateEditorGeometryEP7QWidgetRK20QStyleOpti
     const QStyleOptionViewItem *option,
     const QModelIndex *index) {
   self->QItemDelegate::updateEditorGeometry(editor, *option, *index);
+}
+
+//  void QItemDelegate::drawDisplay(QPainter *painter, const
+//      QStyleOptionViewItem &option, const QRect &rect, const QString &text)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZNK13QItemDelegate11drawDisplayEP8QPainterRK20QStyleOptionViewItemRK5QRectRK7QString(
+    const QItemDelegate *self,
+    QPainter *painter,
+    const QStyleOptionViewItem *option,
+    const QRect *rect,
+    const QString *text) {
+  static_cast<const OwnQItemDelegate *>(self)->OwnQItemDelegate::drawDisplay(
+      painter,
+      *option,
+      *rect,
+      *text);
 }
 
 //  void QItemDelegate::drawDecoration(QPainter *painter, const

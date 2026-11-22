@@ -33,6 +33,9 @@
     ],
     "ritual_own_ZN19QAbstractTableModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
       "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_own_ZNK19QAbstractTableModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
     ]
   }
 }

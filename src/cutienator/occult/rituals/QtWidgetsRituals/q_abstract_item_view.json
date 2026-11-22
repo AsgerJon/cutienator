@@ -198,6 +198,9 @@
     "ritual_own_ZN17QAbstractItemView17setSelectionModelEP19QItemSelectionModel": [
       "nothing", "address", "address"
     ],
+    "ritual_own_ZN17QAbstractItemView14keyboardSearchERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_own_ZNK17QAbstractItemView14sizeHintForRowEi": [
       "int", "address", "int"
     ],
@@ -262,6 +265,12 @@
     ],
     "ritual_own_ZN17QAbstractItemView4editERK11QModelIndexNS_11EditTriggerEP6QEvent": [
       "bool", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK17QAbstractItemView16selectionCommandERK11QModelIndexPK6QEvent": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActionEE": [
+      "nothing", "address", "int"
     ],
     "ritual_own_ZNK17QAbstractItemView18initViewItemOptionEP20QStyleOptionViewItem": [
       "nothing", "address", "address"

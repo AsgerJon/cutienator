@@ -11,6 +11,12 @@
     ],
     "ritual_ZN24QXmlStreamEntityResolver23resolveUndeclaredEntityERK7QString": [
       "text", "address", "text"
+    ],
+    "ritual_take_QXmlStreamEntityResolver": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QXmlStreamEntityResolver23resolveUndeclaredEntityERK7QString": [
+      "text", "address", "text"
     ]
   }
 }

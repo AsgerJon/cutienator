@@ -42,12 +42,12 @@ class QSpinBox(QAbstractSpinBox):
   -----------
 
   Every function of Qt's QSpinBox that has a ritual and that Python can call
-  so far, 21 names in all: 'metaObject', 'tr', 'value', 'prefix',
+  so far, 23 names in all: 'metaObject', 'tr', 'value', 'prefix',
   'setPrefix', 'suffix', 'setSuffix', 'cleanText', 'singleStep',
   'setSingleStep', 'minimum', 'setMinimum', 'maximum', 'setMaximum',
   'setRange', 'stepType', 'setStepType', 'displayIntegerBase',
-  'setDisplayIntegerBase', 'setValue', 'event'. It can be made from Python,
-  in 1 way; see '__init__'.
+  'setDisplayIntegerBase', 'setValue', 'event', 'valueFromText',
+  'textFromValue'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -58,9 +58,8 @@ class QSpinBox(QAbstractSpinBox):
   What has no ritual
   ------------------
 
-  14 of the 37 functions Qt declares: 4 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 a signal; 2 forbidden; 1 a
-  template.
+  12 of the 37 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 protected; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -136,16 +135,24 @@ class QSpinBox(QAbstractSpinBox):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QSpinBox'
 
-  #  The functions Qt calls itself that QSpinBox is the first to declare and
-  #  that cannot be handed to Python yet, each as Qt declares it. A class of
-  #  a program that writes one of them anew is refused, since Qt would never
-  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
+  #  The functions Qt calls itself that QSpinBox is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
       'valueFromText': (
-          'int QSpinBox::valueFromText(const QString &) const',
+          ('_ZNK8QSpinBox13valueFromTextERK7QString',
+           ('int', 'number', ''),
+           (
+               ('address', 'text', ''),
+           )),
       ),
       'textFromValue': (
-          'QString QSpinBox::textFromValue(int) const',
+          ('_ZNK8QSpinBox13textFromValueEi',
+           ('address', 'text', ''),
+           (
+               ('int', 'number', ''),
+           )),
       ),
   }
 
@@ -287,6 +294,48 @@ class QSpinBox(QAbstractSpinBox):
     """
     #  int QSpinBox::displayIntegerBase() const
     return self.uglySide.call('ritual_ZNK8QSpinBox18displayIntegerBaseEv')
+
+  @overload(str)
+  def valueFromText(self, text: str) -> int:
+    """
+    Calls Qt's 'int QSpinBox::valueFromText(const QString &text) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qspinbox.html#valueFromText
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  int QSpinBox::valueFromText(const QString &text) const
+    return self.uglySide.call(
+        'ritual_own_ZNK8QSpinBox13valueFromTextERK7QString', text,
+    )
+
+  @overload(int)
+  def textFromValue(self, val: int) -> str:
+    """
+    Calls Qt's 'QString QSpinBox::textFromValue(int val) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qspinbox.html#textFromValue
+
+    Parameters
+    ----------
+
+    val : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QSpinBox::textFromValue(int val) const
+    return self.uglySide.call(
+        'ritual_own_ZNK8QSpinBox13textFromValueEi', val,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

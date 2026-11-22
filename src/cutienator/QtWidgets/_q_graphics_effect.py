@@ -43,9 +43,10 @@ class QGraphicsEffect(QObject):
   -----------
 
   Every function of Qt's QGraphicsEffect that has a ritual and that Python
-  can call so far, 7 names in all: 'metaObject', 'tr', 'boundingRectFor',
-  'boundingRect', 'isEnabled', 'setEnabled', 'update'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  can call so far, 8 names in all: 'metaObject', 'tr', 'boundingRectFor',
+  'boundingRect', 'isEnabled', 'setEnabled', 'update', 'sourceChanged'. None
+  can be made from Python: one comes out of a function of another class that
+  gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,7 +57,7 @@ class QGraphicsEffect(QObject):
   What has no ritual
   ------------------
 
-  19 of the 27 functions Qt declares: 8 protected; 3 takes or gives a type
+  18 of the 27 functions Qt declares: 7 protected; 3 takes or gives a type
   that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1 the
   class is abstract, so C++ cannot make one; 1 a signal.
 
@@ -164,16 +165,6 @@ class QGraphicsEffect(QObject):
   __take_ritual__ = 'ritual_take_QGraphicsEffect'
 
   #  The functions Qt calls itself that QGraphicsEffect is the first to
-  #  declare and that cannot be handed to Python yet, each as Qt declares it.
-  #  A class of a program that writes one of them anew is refused, since Qt
-  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'sourceChanged': (
-          'void QGraphicsEffect::sourceChanged(ChangeFlags)',
-      ),
-  }
-
-  #  The functions Qt calls itself that QGraphicsEffect is the first to
   #  declare. A class of a program built on it can write one anew, and Qt
   #  then calls that. For each name: the key C++ knows the function by, what
   #  it gives, and what it takes.
@@ -190,6 +181,13 @@ class QGraphicsEffect(QObject):
            ('nothing', 'nothing', ''),
            (
                ('address', 'address', 'QtGui:QPainter'),
+           )),
+      ),
+      'sourceChanged': (
+          ('_ZN15QGraphicsEffect13sourceChangedE6QFlagsINS_10ChangeFlagEE',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'flags', 'QtWidgets:QGraphicsEffect.ChangeFlag'),
            )),
       ),
   }
@@ -343,3 +341,23 @@ class QGraphicsEffect(QObject):
     """
     #  void QGraphicsEffect::update()
     self.uglySide.call('ritual_ZN15QGraphicsEffect6updateEv')
+
+  @overload(ChangeFlags)
+  def sourceChanged(self, flags: ChangeFlags) -> None:
+    """
+    Calls Qt's 'void QGraphicsEffect::sourceChanged(ChangeFlags flags)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged
+
+    Parameters
+    ----------
+
+    flags : ChangeFlags
+      Passed on as its number.
+    """
+    #  void QGraphicsEffect::sourceChanged(ChangeFlags flags)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsEffect13sourceChangedE6QFlagsINS_10ChangeF'
+        'lagEE',
+        flags.value,
+    )

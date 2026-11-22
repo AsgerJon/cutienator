@@ -7,19 +7,24 @@
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
 typedef void * (*CuteQGestureRecognizerCall0)(const void *, QObject *, int *);
-typedef void (*CuteQGestureRecognizerCall1)(const void *, QGesture *, int *);
+typedef int (*CuteQGestureRecognizerCall1)(const void *, QGesture *, QObject *, QEvent *, int *);
+typedef void (*CuteQGestureRecognizerCall2)(const void *, QGesture *, int *);
 class CuteQGestureRecognizer : public QGestureRecognizer {
 public:
   using QGestureRecognizer::QGestureRecognizer;
-  void *taken[2] = {};
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN18QGestureRecognizer6createEP7QObject")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QGestureRecognizer5resetEP8QGesture")) {
+    if (!std::strcmp(key, "_ZN18QGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN18QGestureRecognizer5resetEP8QGesture")) {
+      taken[2] = call;
       return true;
     }
     return false;
@@ -36,11 +41,26 @@ public:
     return QGestureRecognizer::create(target);
   }
 
-  //  void QGestureRecognizer::reset(QGesture *state)
-  void reset(QGesture *state) override {
+  //  Result QGestureRecognizer::recognize(QGesture *state, QObject
+  //      *watched, QEvent *event)
+  QGestureRecognizer::Result recognize(
+      QGesture *state,
+      QObject *watched,
+      QEvent *event) override {
     if (taken[1]) {
       int handled = 0;
       CuteQGestureRecognizerCall1 call = reinterpret_cast<CuteQGestureRecognizerCall1>(taken[1]);
+      int given = call(this, state, watched, event, &handled);
+      if (handled) return QFlags<QGestureRecognizer::ResultFlag>::fromInt(given);
+    }
+    return {};
+  }
+
+  //  void QGestureRecognizer::reset(QGesture *state)
+  void reset(QGesture *state) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQGestureRecognizerCall2 call = reinterpret_cast<CuteQGestureRecognizerCall2>(taken[2]);
       call(this, state, &handled);
       if (handled) return;
     }

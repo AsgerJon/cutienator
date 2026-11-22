@@ -215,13 +215,6 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
   #  of a program that writes one of them anew is refused, since Qt would
   #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
   __virtual_left_out__ = {
-      'addFile': (
-          'void QIconEngine::addFile(const QString &, const QSize &, '
-          'QIcon::Mode, QIcon::State)',
-      ),
-      'key': (
-          'QString QIconEngine::key() const',
-      ),
       'read': (
           'bool QIconEngine::read(QDataStream &)',
       ),
@@ -231,9 +224,6 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
       'availableSizes': (
           'QList<QSize> QIconEngine::availableSizes(QIcon::Mode, '
           'QIcon::State)',
-      ),
-      'iconName': (
-          'QString QIconEngine::iconName()',
       ),
       'virtual_hook': (
           'void QIconEngine::virtual_hook(int, void *)',
@@ -283,9 +273,30 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
                ('int', 'enum', 'QtGui:QIcon.State'),
            )),
       ),
+      'addFile': (
+          ('_ZN11QIconEngine7addFileERK7QStringRK5QSizeN5QIcon4ModeENS6_5St'
+           'ateE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'text', ''),
+               ('address', 'value', 'QtCore:QSize'),
+               ('int', 'enum', 'QtGui:QIcon.Mode'),
+               ('int', 'enum', 'QtGui:QIcon.State'),
+           )),
+      ),
+      'key': (
+          ('_ZNK11QIconEngine3keyEv',
+           ('address', 'text', ''),
+           ()),
+      ),
       'clone': (
           ('_ZNK11QIconEngine5cloneEv',
            ('address', 'address', 'QtGui:QIconEngine'),
+           ()),
+      ),
+      'iconName': (
+          ('_ZN11QIconEngine8iconNameEv',
+           ('address', 'text', ''),
            ()),
       ),
       'isNull': (
@@ -331,7 +342,10 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
       The text Qt gave back.
     """
     #  QString QIconEngine::key() const
-    return self.uglySide.call('ritual_ZNK11QIconEngine3keyEv')
+    ritual = 'ritual_ZNK11QIconEngine3keyEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QIconEngine3keyEv'
+    return self.uglySide.call(ritual)
 
   def clone(self) -> Optional[QIconEngine]:
     """
@@ -586,10 +600,15 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
     """
     #  void QIconEngine::addFile(const QString &fileName, const QSize &size,
     #      QIcon::Mode mode, QIcon::State state)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN11QIconEngine7addFileERK7QStringRK5QSizeN5QIcon4ModeENS6_'
-        '5StateE',
-        fileName, self._valueOf(size), mode.value, state.value,
+        '5StateE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QIconEngine7addFileERK7QStringRK5QSizeN5QIcon4Mod'
+          'eENS6_5StateE')
+    self.uglySide.call(
+        ritual, fileName, self._valueOf(size), mode.value, state.value,
     )
 
   def iconName(self) -> str:
@@ -605,7 +624,10 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
       The text Qt gave back.
     """
     #  QString QIconEngine::iconName()
-    return self.uglySide.call('ritual_ZN11QIconEngine8iconNameEv')
+    ritual = 'ritual_ZN11QIconEngine8iconNameEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QIconEngine8iconNameEv'
+    return self.uglySide.call(ritual)
 
   def isNull(self) -> bool:
     """

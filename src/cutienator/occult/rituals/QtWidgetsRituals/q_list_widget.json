@@ -104,6 +104,7 @@
     ],
     "ritual_own_ZN11QListWidget12dropMimeDataEiPK9QMimeDataN2Qt10DropActionE": [
       "bool", "address", "int", "address", "int"
-    ]
+    ],
+    "ritual_own_ZNK11QListWidget20supportedDropActionsEv": ["int", "address"]
   }
 }

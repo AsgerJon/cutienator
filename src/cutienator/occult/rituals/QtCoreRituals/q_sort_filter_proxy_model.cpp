@@ -46,28 +46,31 @@ typedef bool (*CuteQSortFilterProxyModelCall21)(const void *, int, int, const QM
 typedef bool (*CuteQSortFilterProxyModelCall22)(const void *, int, int, const QModelIndex *, int *);
 typedef void (*CuteQSortFilterProxyModelCall23)(const void *, const QModelIndex *, int *);
 typedef bool (*CuteQSortFilterProxyModelCall24)(const void *, const QModelIndex *, int *);
-typedef const QModelIndex * (*CuteQSortFilterProxyModelCall25)(const void *, const QModelIndex *, int *);
-typedef const QSize * (*CuteQSortFilterProxyModelCall26)(const void *, const QModelIndex *, int *);
-typedef void (*CuteQSortFilterProxyModelCall27)(const void *, int, int, int *);
-typedef bool (*CuteQSortFilterProxyModelCall28)(const void *, int *);
-typedef void (*CuteQSortFilterProxyModelCall29)(const void *, int *);
-typedef bool (*CuteQSortFilterProxyModelCall30)(const void *, const QModelIndex *, int *);
-typedef bool (*CuteQSortFilterProxyModelCall31)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
-typedef bool (*CuteQSortFilterProxyModelCall32)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
-typedef bool (*CuteQSortFilterProxyModelCall33)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
-typedef void (*CuteQSortFilterProxyModelCall34)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
-typedef void (*CuteQSortFilterProxyModelCall35)(const void *, int *);
-typedef bool (*CuteQSortFilterProxyModelCall36)(const void *, QEvent *, int *);
-typedef bool (*CuteQSortFilterProxyModelCall37)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQSortFilterProxyModelCall38)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQSortFilterProxyModelCall39)(const void *, QChildEvent *, int *);
-typedef void (*CuteQSortFilterProxyModelCall40)(const void *, QEvent *, int *);
-typedef void (*CuteQSortFilterProxyModelCall41)(const void *, const QMetaMethod *, int *);
-typedef void (*CuteQSortFilterProxyModelCall42)(const void *, const QMetaMethod *, int *);
+typedef int (*CuteQSortFilterProxyModelCall25)(const void *, const QModelIndex *, int *);
+typedef const QModelIndex * (*CuteQSortFilterProxyModelCall26)(const void *, const QModelIndex *, int *);
+typedef const QSize * (*CuteQSortFilterProxyModelCall27)(const void *, const QModelIndex *, int *);
+typedef void (*CuteQSortFilterProxyModelCall28)(const void *, int, int, int *);
+typedef int (*CuteQSortFilterProxyModelCall29)(const void *, int *);
+typedef bool (*CuteQSortFilterProxyModelCall30)(const void *, int *);
+typedef void (*CuteQSortFilterProxyModelCall31)(const void *, int *);
+typedef bool (*CuteQSortFilterProxyModelCall32)(const void *, const QModelIndex *, int *);
+typedef bool (*CuteQSortFilterProxyModelCall33)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+typedef int (*CuteQSortFilterProxyModelCall34)(const void *, int *);
+typedef bool (*CuteQSortFilterProxyModelCall35)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+typedef bool (*CuteQSortFilterProxyModelCall36)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+typedef void (*CuteQSortFilterProxyModelCall37)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
+typedef void (*CuteQSortFilterProxyModelCall38)(const void *, int *);
+typedef bool (*CuteQSortFilterProxyModelCall39)(const void *, QEvent *, int *);
+typedef bool (*CuteQSortFilterProxyModelCall40)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQSortFilterProxyModelCall41)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQSortFilterProxyModelCall42)(const void *, QChildEvent *, int *);
+typedef void (*CuteQSortFilterProxyModelCall43)(const void *, QEvent *, int *);
+typedef void (*CuteQSortFilterProxyModelCall44)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQSortFilterProxyModelCall45)(const void *, const QMetaMethod *, int *);
 class CuteQSortFilterProxyModel : public QSortFilterProxyModel {
 public:
   using QSortFilterProxyModel::QSortFilterProxyModel;
-  void *taken[43] = {};
+  void *taken[46] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN19QAbstractProxyModel14setSourceModelEP18QAbstractItemModel")) {
@@ -170,76 +173,88 @@ public:
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5flagsERK11QModelIndex")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
       taken[27] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel6submitEv")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
       taken[28] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel6revertEv")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDropActionsEv")) {
       taken[29] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel6submitEv")) {
       taken[30] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel6revertEv")) {
       taken[31] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex")) {
       taken[32] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
       taken[33] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDragActionsEv")) {
       taken[34] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i")) {
       taken[35] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i")) {
       taken[36] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
       taken[37] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
       taken[38] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[39] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[40] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[41] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[42] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[43] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[44] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[45] = call;
       return true;
     }
     return false;
@@ -579,12 +594,24 @@ public:
     return QSortFilterProxyModel::canFetchMore(parent);
   }
 
-  //  QModelIndex QSortFilterProxyModel::buddy(const QModelIndex &index)
+  //  Qt::ItemFlags QSortFilterProxyModel::flags(const QModelIndex &index)
   //      const
-  QModelIndex buddy(const QModelIndex &index) const override {
+  Qt::ItemFlags flags(const QModelIndex &index) const override {
     if (taken[25]) {
       int handled = 0;
       CuteQSortFilterProxyModelCall25 call = reinterpret_cast<CuteQSortFilterProxyModelCall25>(taken[25]);
+      int given = call(this, &index, &handled);
+      if (handled) return QFlags<Qt::ItemFlag>::fromInt(given);
+    }
+    return QSortFilterProxyModel::flags(index);
+  }
+
+  //  QModelIndex QSortFilterProxyModel::buddy(const QModelIndex &index)
+  //      const
+  QModelIndex buddy(const QModelIndex &index) const override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQSortFilterProxyModelCall26 call = reinterpret_cast<CuteQSortFilterProxyModelCall26>(taken[26]);
       const QModelIndex * given = call(this, &index, &handled);
       if (handled && given) return *given;
     }
@@ -593,9 +620,9 @@ public:
 
   //  QSize QSortFilterProxyModel::span(const QModelIndex &index) const
   QSize span(const QModelIndex &index) const override {
-    if (taken[26]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall26 call = reinterpret_cast<CuteQSortFilterProxyModelCall26>(taken[26]);
+      CuteQSortFilterProxyModelCall27 call = reinterpret_cast<CuteQSortFilterProxyModelCall27>(taken[27]);
       const QSize * given = call(this, &index, &handled);
       if (handled && given) return *given;
     }
@@ -604,20 +631,31 @@ public:
 
   //  void QSortFilterProxyModel::sort(int column, Qt::SortOrder order)
   void sort(int column, Qt::SortOrder order) override {
-    if (taken[27]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall27 call = reinterpret_cast<CuteQSortFilterProxyModelCall27>(taken[27]);
+      CuteQSortFilterProxyModelCall28 call = reinterpret_cast<CuteQSortFilterProxyModelCall28>(taken[28]);
       call(this, column, static_cast<int>(order), &handled);
       if (handled) return;
     }
     QSortFilterProxyModel::sort(column, order);
   }
 
+  //  Qt::DropActions QSortFilterProxyModel::supportedDropActions() const
+  Qt::DropActions supportedDropActions() const override {
+    if (taken[29]) {
+      int handled = 0;
+      CuteQSortFilterProxyModelCall29 call = reinterpret_cast<CuteQSortFilterProxyModelCall29>(taken[29]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::DropAction>::fromInt(given);
+    }
+    return QSortFilterProxyModel::supportedDropActions();
+  }
+
   //  bool QAbstractProxyModel::submit()
   bool submit() override {
-    if (taken[28]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall28 call = reinterpret_cast<CuteQSortFilterProxyModelCall28>(taken[28]);
+      CuteQSortFilterProxyModelCall30 call = reinterpret_cast<CuteQSortFilterProxyModelCall30>(taken[30]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -626,9 +664,9 @@ public:
 
   //  void QAbstractProxyModel::revert()
   void revert() override {
-    if (taken[29]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall29 call = reinterpret_cast<CuteQSortFilterProxyModelCall29>(taken[29]);
+      CuteQSortFilterProxyModelCall31 call = reinterpret_cast<CuteQSortFilterProxyModelCall31>(taken[31]);
       call(this, &handled);
       if (handled) return;
     }
@@ -637,9 +675,9 @@ public:
 
   //  bool QAbstractProxyModel::clearItemData(const QModelIndex &index)
   bool clearItemData(const QModelIndex &index) override {
-    if (taken[30]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall30 call = reinterpret_cast<CuteQSortFilterProxyModelCall30>(taken[30]);
+      CuteQSortFilterProxyModelCall32 call = reinterpret_cast<CuteQSortFilterProxyModelCall32>(taken[32]);
       bool given = call(this, &index, &handled);
       if (handled) return given;
     }
@@ -655,13 +693,24 @@ public:
       int row,
       int column,
       const QModelIndex &parent) const override {
-    if (taken[31]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall31 call = reinterpret_cast<CuteQSortFilterProxyModelCall31>(taken[31]);
+      CuteQSortFilterProxyModelCall33 call = reinterpret_cast<CuteQSortFilterProxyModelCall33>(taken[33]);
       bool given = call(this, data, static_cast<int>(action), row, column, &parent, &handled);
       if (handled) return given;
     }
     return QAbstractProxyModel::canDropMimeData(data, action, row, column, parent);
+  }
+
+  //  Qt::DropActions QAbstractProxyModel::supportedDragActions() const
+  Qt::DropActions supportedDragActions() const override {
+    if (taken[34]) {
+      int handled = 0;
+      CuteQSortFilterProxyModelCall34 call = reinterpret_cast<CuteQSortFilterProxyModelCall34>(taken[34]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::DropAction>::fromInt(given);
+    }
+    return QAbstractProxyModel::supportedDragActions();
   }
 
   //  bool QAbstractItemModel::moveRows(const QModelIndex &sourceParent,
@@ -673,9 +722,9 @@ public:
       int count,
       const QModelIndex &destinationParent,
       int destinationChild) override {
-    if (taken[32]) {
+    if (taken[35]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall32 call = reinterpret_cast<CuteQSortFilterProxyModelCall32>(taken[32]);
+      CuteQSortFilterProxyModelCall35 call = reinterpret_cast<CuteQSortFilterProxyModelCall35>(taken[35]);
       bool given = call(this, &sourceParent, sourceRow, count, &destinationParent, destinationChild, &handled);
       if (handled) return given;
     }
@@ -691,9 +740,9 @@ public:
       int count,
       const QModelIndex &destinationParent,
       int destinationChild) override {
-    if (taken[33]) {
+    if (taken[36]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall33 call = reinterpret_cast<CuteQSortFilterProxyModelCall33>(taken[33]);
+      CuteQSortFilterProxyModelCall36 call = reinterpret_cast<CuteQSortFilterProxyModelCall36>(taken[36]);
       bool given = call(this, &sourceParent, sourceColumn, count, &destinationParent, destinationChild, &handled);
       if (handled) return given;
     }
@@ -705,9 +754,9 @@ public:
   void multiData(
       const QModelIndex &index,
       QModelRoleDataSpan roleDataSpan) const override {
-    if (taken[34]) {
+    if (taken[37]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall34 call = reinterpret_cast<CuteQSortFilterProxyModelCall34>(taken[34]);
+      CuteQSortFilterProxyModelCall37 call = reinterpret_cast<CuteQSortFilterProxyModelCall37>(taken[37]);
       call(this, &index, &roleDataSpan, &handled);
       if (handled) return;
     }
@@ -716,9 +765,9 @@ public:
 
   //  void QAbstractItemModel::resetInternalData()
   void resetInternalData() override {
-    if (taken[35]) {
+    if (taken[38]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall35 call = reinterpret_cast<CuteQSortFilterProxyModelCall35>(taken[35]);
+      CuteQSortFilterProxyModelCall38 call = reinterpret_cast<CuteQSortFilterProxyModelCall38>(taken[38]);
       call(this, &handled);
       if (handled) return;
     }
@@ -727,9 +776,9 @@ public:
 
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[36]) {
+    if (taken[39]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall36 call = reinterpret_cast<CuteQSortFilterProxyModelCall36>(taken[36]);
+      CuteQSortFilterProxyModelCall39 call = reinterpret_cast<CuteQSortFilterProxyModelCall39>(taken[39]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -738,9 +787,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[37]) {
+    if (taken[40]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall37 call = reinterpret_cast<CuteQSortFilterProxyModelCall37>(taken[37]);
+      CuteQSortFilterProxyModelCall40 call = reinterpret_cast<CuteQSortFilterProxyModelCall40>(taken[40]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -749,9 +798,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[38]) {
+    if (taken[41]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall38 call = reinterpret_cast<CuteQSortFilterProxyModelCall38>(taken[38]);
+      CuteQSortFilterProxyModelCall41 call = reinterpret_cast<CuteQSortFilterProxyModelCall41>(taken[41]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -760,9 +809,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[39]) {
+    if (taken[42]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall39 call = reinterpret_cast<CuteQSortFilterProxyModelCall39>(taken[39]);
+      CuteQSortFilterProxyModelCall42 call = reinterpret_cast<CuteQSortFilterProxyModelCall42>(taken[42]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -771,9 +820,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[40]) {
+    if (taken[43]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall40 call = reinterpret_cast<CuteQSortFilterProxyModelCall40>(taken[40]);
+      CuteQSortFilterProxyModelCall43 call = reinterpret_cast<CuteQSortFilterProxyModelCall43>(taken[43]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -782,9 +831,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[41]) {
+    if (taken[44]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall41 call = reinterpret_cast<CuteQSortFilterProxyModelCall41>(taken[41]);
+      CuteQSortFilterProxyModelCall44 call = reinterpret_cast<CuteQSortFilterProxyModelCall44>(taken[44]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -793,9 +842,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[42]) {
+    if (taken[45]) {
       int handled = 0;
-      CuteQSortFilterProxyModelCall42 call = reinterpret_cast<CuteQSortFilterProxyModelCall42>(taken[42]);
+      CuteQSortFilterProxyModelCall45 call = reinterpret_cast<CuteQSortFilterProxyModelCall45>(taken[45]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -1581,6 +1630,17 @@ bool ritual_own_ZNK21QSortFilterProxyModel12canFetchMoreERK11QModelIndex(
   return self->QSortFilterProxyModel::canFetchMore(*parent);
 }
 
+//  Qt::ItemFlags QSortFilterProxyModel::flags(const QModelIndex &index)
+//      const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK21QSortFilterProxyModel5flagsERK11QModelIndex(
+    const QSortFilterProxyModel *self,
+    const QModelIndex *index) {
+  return static_cast<int>(
+      self->QSortFilterProxyModel::flags(
+          *index).toInt());
+}
+
 //  QModelIndex QSortFilterProxyModel::buddy(const QModelIndex &index) const
 extern "C" Q_DECL_EXPORT
 QModelIndex *ritual_own_ZNK21QSortFilterProxyModel5buddyERK11QModelIndex(
@@ -1604,4 +1664,12 @@ void ritual_own_ZN21QSortFilterProxyModel4sortEiN2Qt9SortOrderE(
     int column,
     Qt::SortOrder order) {
   self->QSortFilterProxyModel::sort(column, order);
+}
+
+//  Qt::DropActions QSortFilterProxyModel::supportedDropActions() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK21QSortFilterProxyModel20supportedDropActionsEv(
+    const QSortFilterProxyModel *self) {
+  return static_cast<int>(
+      self->QSortFilterProxyModel::supportedDropActions().toInt());
 }

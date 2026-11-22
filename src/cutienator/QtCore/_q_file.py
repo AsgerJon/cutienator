@@ -225,16 +225,6 @@ class QFile(QFileDevice):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QFile'
 
-  #  The functions Qt calls itself that QFile is the first to declare and
-  #  that cannot be handed to Python yet, each as Qt declares it. A class of
-  #  a program that writes one of them anew is refused, since Qt would never
-  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'open': (
-          'bool QFile::open(OpenMode)',
-      ),
-  }
-
   #  Fallback Variables
 
   #  Private Variables
@@ -278,7 +268,10 @@ class QFile(QFileDevice):
       The text Qt gave back.
     """
     #  QString QFile::fileName() const
-    return self.uglySide.call('ritual_ZNK5QFile8fileNameEv')
+    ritual = 'ritual_ZNK5QFile8fileNameEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK5QFile8fileNameEv'
+    return self.uglySide.call(ritual)
 
   @overload()
   def exists(self) -> bool:
@@ -374,9 +367,10 @@ class QFile(QFileDevice):
       The value standing for the combination Qt gave back.
     """
     #  Permissions QFile::permissions() const
-    return QFileDevice.Permissions(self.uglySide.call(
-        'ritual_ZNK5QFile11permissionsEv',
-    ))
+    ritual = 'ritual_ZNK5QFile11permissionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK5QFile11permissionsEv'
+    return QFileDevice.Permissions(self.uglySide.call(ritual))
 
   @staticmethod
   @overload(str)
@@ -437,11 +431,14 @@ class QFile(QFileDevice):
       Passed on as its number.
     """
     #  bool QFile::setPermissions(Permissions permissionSpec)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN5QFile14setPermissionsE6QFlagsIN11QFileDevice10Permission'
-        'EE',
-        permissionSpec.value,
-    )
+        'EE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN5QFile14setPermissionsE6QFlagsIN11QFileDevice10Perm'
+          'issionEE')
+    return self.uglySide.call(ritual, permissionSpec.value)
 
   @staticmethod
   @overload(str, QFileDevice.Permissions)
@@ -708,10 +705,12 @@ class QFile(QFileDevice):
       Passed on as its number.
     """
     #  bool QFile::open(OpenMode flags)
-    return self.uglySide.call(
-        'ritual_ZN5QFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE',
-        flags.value,
-    )
+    ritual = 'ritual_ZN5QFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN5QFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagE'
+          'E')
+    return self.uglySide.call(ritual, flags.value)
 
   @overload(QIODeviceBase.OpenMode, QFileDevice.Permissions)
   def open(

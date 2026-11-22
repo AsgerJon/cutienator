@@ -72,22 +72,6 @@ class QAccessibleEditableTextInterface(CuteMixin, metaclass=MetaCute):
   __take_ritual__ = 'ritual_take_QAccessibleEditableTextInterface'
 
   #  The functions Qt calls itself that QAccessibleEditableTextInterface is
-  #  the first to declare and that cannot be handed to Python yet, each as Qt
-  #  declares it. A class of a program that writes one of them anew is
-  #  refused, since Qt would never call what it wrote; see
-  #  'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'insertText': (
-          'void QAccessibleEditableTextInterface::insertText(int, const '
-          'QString &)',
-      ),
-      'replaceText': (
-          'void QAccessibleEditableTextInterface::replaceText(int, int, '
-          'const QString &)',
-      ),
-  }
-
-  #  The functions Qt calls itself that QAccessibleEditableTextInterface is
   #  the first to declare. A class of a program built on it can write one
   #  anew, and Qt then calls that. For each name: the key C++ knows the
   #  function by, what it gives, and what it takes.
@@ -98,6 +82,23 @@ class QAccessibleEditableTextInterface(CuteMixin, metaclass=MetaCute):
            (
                ('int', 'number', ''),
                ('int', 'number', ''),
+           )),
+      ),
+      'insertText': (
+          ('_ZN32QAccessibleEditableTextInterface10insertTextEiRK7QString',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+               ('address', 'text', ''),
+           )),
+      ),
+      'replaceText': (
+          ('_ZN32QAccessibleEditableTextInterface11replaceTextEiiRK7QString',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'text', ''),
            )),
       ),
   }

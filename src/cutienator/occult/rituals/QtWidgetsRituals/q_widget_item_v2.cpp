@@ -12,19 +12,21 @@ typedef const QSize * (*CuteQWidgetItemV2Call0)(const void *, int *);
 typedef const QSize * (*CuteQWidgetItemV2Call1)(const void *, int *);
 typedef const QSize * (*CuteQWidgetItemV2Call2)(const void *, int *);
 typedef int (*CuteQWidgetItemV2Call3)(const void *, int, int *);
-typedef bool (*CuteQWidgetItemV2Call4)(const void *, int *);
-typedef void (*CuteQWidgetItemV2Call5)(const void *, const QRect *, int *);
-typedef const QRect * (*CuteQWidgetItemV2Call6)(const void *, int *);
-typedef void * (*CuteQWidgetItemV2Call7)(const void *, int *);
-typedef bool (*CuteQWidgetItemV2Call8)(const void *, int *);
-typedef int (*CuteQWidgetItemV2Call9)(const void *, int, int *);
-typedef void (*CuteQWidgetItemV2Call10)(const void *, int *);
-typedef void * (*CuteQWidgetItemV2Call11)(const void *, int *);
-typedef void * (*CuteQWidgetItemV2Call12)(const void *, int *);
+typedef int (*CuteQWidgetItemV2Call4)(const void *, int *);
+typedef bool (*CuteQWidgetItemV2Call5)(const void *, int *);
+typedef void (*CuteQWidgetItemV2Call6)(const void *, const QRect *, int *);
+typedef const QRect * (*CuteQWidgetItemV2Call7)(const void *, int *);
+typedef void * (*CuteQWidgetItemV2Call8)(const void *, int *);
+typedef bool (*CuteQWidgetItemV2Call9)(const void *, int *);
+typedef int (*CuteQWidgetItemV2Call10)(const void *, int, int *);
+typedef int (*CuteQWidgetItemV2Call11)(const void *, int *);
+typedef void (*CuteQWidgetItemV2Call12)(const void *, int *);
+typedef void * (*CuteQWidgetItemV2Call13)(const void *, int *);
+typedef void * (*CuteQWidgetItemV2Call14)(const void *, int *);
 class CuteQWidgetItemV2 : public QWidgetItemV2 {
 public:
   using QWidgetItemV2::QWidgetItemV2;
-  void *taken[13] = {};
+  void *taken[15] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK11QLayoutItem8sizeHintEv")) {
@@ -43,40 +45,48 @@ public:
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem7isEmptyEv")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem19expandingDirectionsEv")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QLayoutItem11setGeometryERK5QRect")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem7isEmptyEv")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem8geometryEv")) {
+    if (!std::strcmp(key, "_ZN11QLayoutItem11setGeometryERK5QRect")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem6widgetEv")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem8geometryEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem17hasHeightForWidthEv")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem6widgetEv")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem21minimumHeightForWidthEi")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem17hasHeightForWidthEv")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QLayoutItem10invalidateEv")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem21minimumHeightForWidthEi")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QLayoutItem6layoutEv")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem12controlTypesEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QLayoutItem10spacerItemEv")) {
+    if (!std::strcmp(key, "_ZN11QLayoutItem10invalidateEv")) {
       taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem6layoutEv")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem10spacerItemEv")) {
+      taken[14] = call;
       return true;
     }
     return false;
@@ -126,11 +136,22 @@ public:
     return QWidgetItemV2::heightForWidth(width);
   }
 
-  //  bool QWidgetItem::isEmpty() const
-  bool isEmpty() const override {
+  //  Qt::Orientations QWidgetItem::expandingDirections() const
+  Qt::Orientations expandingDirections() const override {
     if (taken[4]) {
       int handled = 0;
       CuteQWidgetItemV2Call4 call = reinterpret_cast<CuteQWidgetItemV2Call4>(taken[4]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::Orientation>::fromInt(given);
+    }
+    return QWidgetItem::expandingDirections();
+  }
+
+  //  bool QWidgetItem::isEmpty() const
+  bool isEmpty() const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQWidgetItemV2Call5 call = reinterpret_cast<CuteQWidgetItemV2Call5>(taken[5]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -139,9 +160,9 @@ public:
 
   //  void QWidgetItem::setGeometry(const QRect &a0)
   void setGeometry(const QRect &a0) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQWidgetItemV2Call5 call = reinterpret_cast<CuteQWidgetItemV2Call5>(taken[5]);
+      CuteQWidgetItemV2Call6 call = reinterpret_cast<CuteQWidgetItemV2Call6>(taken[6]);
       call(this, &a0, &handled);
       if (handled) return;
     }
@@ -150,9 +171,9 @@ public:
 
   //  QRect QWidgetItem::geometry() const
   QRect geometry() const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQWidgetItemV2Call6 call = reinterpret_cast<CuteQWidgetItemV2Call6>(taken[6]);
+      CuteQWidgetItemV2Call7 call = reinterpret_cast<CuteQWidgetItemV2Call7>(taken[7]);
       const QRect * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -161,9 +182,9 @@ public:
 
   //  QWidget *QWidgetItem::widget() const
   QWidget *widget() const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQWidgetItemV2Call7 call = reinterpret_cast<CuteQWidgetItemV2Call7>(taken[7]);
+      CuteQWidgetItemV2Call8 call = reinterpret_cast<CuteQWidgetItemV2Call8>(taken[8]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QWidget *>(given);
     }
@@ -172,9 +193,9 @@ public:
 
   //  bool QWidgetItem::hasHeightForWidth() const
   bool hasHeightForWidth() const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQWidgetItemV2Call8 call = reinterpret_cast<CuteQWidgetItemV2Call8>(taken[8]);
+      CuteQWidgetItemV2Call9 call = reinterpret_cast<CuteQWidgetItemV2Call9>(taken[9]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -183,20 +204,31 @@ public:
 
   //  int QWidgetItem::minimumHeightForWidth(int a0) const
   int minimumHeightForWidth(int a0) const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQWidgetItemV2Call9 call = reinterpret_cast<CuteQWidgetItemV2Call9>(taken[9]);
+      CuteQWidgetItemV2Call10 call = reinterpret_cast<CuteQWidgetItemV2Call10>(taken[10]);
       int given = call(this, a0, &handled);
       if (handled) return given;
     }
     return QWidgetItem::minimumHeightForWidth(a0);
   }
 
+  //  QSizePolicy::ControlTypes QWidgetItem::controlTypes() const
+  QSizePolicy::ControlTypes controlTypes() const override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQWidgetItemV2Call11 call = reinterpret_cast<CuteQWidgetItemV2Call11>(taken[11]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<QSizePolicy::ControlType>::fromInt(given);
+    }
+    return QWidgetItem::controlTypes();
+  }
+
   //  void QLayoutItem::invalidate()
   void invalidate() override {
-    if (taken[10]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQWidgetItemV2Call10 call = reinterpret_cast<CuteQWidgetItemV2Call10>(taken[10]);
+      CuteQWidgetItemV2Call12 call = reinterpret_cast<CuteQWidgetItemV2Call12>(taken[12]);
       call(this, &handled);
       if (handled) return;
     }
@@ -205,9 +237,9 @@ public:
 
   //  QLayout *QLayoutItem::layout()
   QLayout *layout() override {
-    if (taken[11]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQWidgetItemV2Call11 call = reinterpret_cast<CuteQWidgetItemV2Call11>(taken[11]);
+      CuteQWidgetItemV2Call13 call = reinterpret_cast<CuteQWidgetItemV2Call13>(taken[13]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QLayout *>(given);
     }
@@ -216,9 +248,9 @@ public:
 
   //  QSpacerItem *QLayoutItem::spacerItem()
   QSpacerItem *spacerItem() override {
-    if (taken[12]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQWidgetItemV2Call12 call = reinterpret_cast<CuteQWidgetItemV2Call12>(taken[12]);
+      CuteQWidgetItemV2Call14 call = reinterpret_cast<CuteQWidgetItemV2Call14>(taken[14]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QSpacerItem *>(given);
     }

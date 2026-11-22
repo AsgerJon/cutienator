@@ -68,24 +68,20 @@ class QAccessibleHyperlinkInterface(CuteMixin, metaclass=MetaCute):
   __take_ritual__ = 'ritual_take_QAccessibleHyperlinkInterface'
 
   #  The functions Qt calls itself that QAccessibleHyperlinkInterface is the
-  #  first to declare and that cannot be handed to Python yet, each as Qt
-  #  declares it. A class of a program that writes one of them anew is
-  #  refused, since Qt would never call what it wrote; see
-  #  'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'anchor': (
-          'QString QAccessibleHyperlinkInterface::anchor() const',
-      ),
-      'anchorTarget': (
-          'QString QAccessibleHyperlinkInterface::anchorTarget() const',
-      ),
-  }
-
-  #  The functions Qt calls itself that QAccessibleHyperlinkInterface is the
   #  first to declare. A class of a program built on it can write one anew,
   #  and Qt then calls that. For each name: the key C++ knows the function
   #  by, what it gives, and what it takes.
   __virtual_functions__ = {
+      'anchor': (
+          ('_ZNK29QAccessibleHyperlinkInterface6anchorEv',
+           ('address', 'text', ''),
+           ()),
+      ),
+      'anchorTarget': (
+          ('_ZNK29QAccessibleHyperlinkInterface12anchorTargetEv',
+           ('address', 'text', ''),
+           ()),
+      ),
       'startIndex': (
           ('_ZNK29QAccessibleHyperlinkInterface10startIndexEv',
            ('int', 'number', ''),

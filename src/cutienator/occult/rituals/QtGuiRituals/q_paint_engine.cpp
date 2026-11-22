@@ -30,13 +30,15 @@ typedef void (*CuteQPaintEngineCall13)(const void *, const QPoint *, int, int, i
 typedef void (*CuteQPaintEngineCall14)(const void *, const QRectF *, const QPixmap *, const QRectF *, int *);
 typedef void (*CuteQPaintEngineCall15)(const void *, const QPointF *, const QTextItem *, int *);
 typedef void (*CuteQPaintEngineCall16)(const void *, const QRectF *, const QPixmap *, const QPointF *, int *);
-typedef const QPoint * (*CuteQPaintEngineCall17)(const void *, int *);
-typedef int (*CuteQPaintEngineCall18)(const void *, int *);
-typedef const QPixmap * (*CuteQPaintEngineCall19)(const void *, const QSize *, int *);
+typedef void (*CuteQPaintEngineCall17)(const void *, const QRectF *, const QImage *, const QRectF *, int, int *);
+typedef const QPoint * (*CuteQPaintEngineCall18)(const void *, int *);
+typedef int (*CuteQPaintEngineCall19)(const void *, int *);
+typedef const QPixmap * (*CuteQPaintEngineCall20)(const void *, const QSize *, int *);
+typedef const QPixmap * (*CuteQPaintEngineCall21)(const void *, const QImage *, int, int *);
 class CuteQPaintEngine : public QPaintEngine {
 public:
   using QPaintEngine::QPaintEngine;
-  void *taken[20] = {};
+  void *taken[22] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN12QPaintEngine5beginEP12QPaintDevice")) {
@@ -107,16 +109,24 @@ public:
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintEngine16coordinateOffsetEv")) {
+    if (!std::strcmp(key, "_ZN12QPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintEngine4typeEv")) {
+    if (!std::strcmp(key, "_ZNK12QPaintEngine16coordinateOffsetEv")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN12QPaintEngine12createPixmapE5QSize")) {
+    if (!std::strcmp(key, "_ZNK12QPaintEngine4typeEv")) {
       taken[19] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN12QPaintEngine12createPixmapE5QSize")) {
+      taken[20] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19ImageConversionFlagEE")) {
+      taken[21] = call;
       return true;
     }
     return false;
@@ -324,11 +334,27 @@ public:
     QPaintEngine::drawTiledPixmap(r, pixmap, s);
   }
 
-  //  QPoint QPaintEngine::coordinateOffset() const
-  QPoint coordinateOffset() const override {
+  //  void QPaintEngine::drawImage(const QRectF &r, const QImage &pm, const
+  //      QRectF &sr, Qt::ImageConversionFlags flags)
+  void drawImage(
+      const QRectF &r,
+      const QImage &pm,
+      const QRectF &sr,
+      Qt::ImageConversionFlags flags) override {
     if (taken[17]) {
       int handled = 0;
       CuteQPaintEngineCall17 call = reinterpret_cast<CuteQPaintEngineCall17>(taken[17]);
+      call(this, &r, &pm, &sr, static_cast<int>(flags.toInt()), &handled);
+      if (handled) return;
+    }
+    QPaintEngine::drawImage(r, pm, sr, flags);
+  }
+
+  //  QPoint QPaintEngine::coordinateOffset() const
+  QPoint coordinateOffset() const override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQPaintEngineCall18 call = reinterpret_cast<CuteQPaintEngineCall18>(taken[18]);
       const QPoint * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -337,9 +363,9 @@ public:
 
   //  Type QPaintEngine::type() const
   QPaintEngine::Type type() const override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQPaintEngineCall18 call = reinterpret_cast<CuteQPaintEngineCall18>(taken[18]);
+      CuteQPaintEngineCall19 call = reinterpret_cast<CuteQPaintEngineCall19>(taken[19]);
       int given = call(this, &handled);
       if (handled) return static_cast<QPaintEngine::Type>(given);
     }
@@ -348,13 +374,27 @@ public:
 
   //  QPixmap QPaintEngine::createPixmap(QSize size)
   QPixmap createPixmap(QSize size) override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQPaintEngineCall19 call = reinterpret_cast<CuteQPaintEngineCall19>(taken[19]);
+      CuteQPaintEngineCall20 call = reinterpret_cast<CuteQPaintEngineCall20>(taken[20]);
       const QPixmap * given = call(this, &size, &handled);
       if (handled && given) return *given;
     }
     return QPaintEngine::createPixmap(size);
+  }
+
+  //  QPixmap QPaintEngine::createPixmapFromImage(QImage image,
+  //      Qt::ImageConversionFlags flags)
+  QPixmap createPixmapFromImage(
+      QImage image,
+      Qt::ImageConversionFlags flags) override {
+    if (taken[21]) {
+      int handled = 0;
+      CuteQPaintEngineCall21 call = reinterpret_cast<CuteQPaintEngineCall21>(taken[21]);
+      const QPixmap * given = call(this, &image, static_cast<int>(flags.toInt()), &handled);
+      if (handled && given) return *given;
+    }
+    return QPaintEngine::createPixmapFromImage(image, flags);
   }
 };
 
@@ -817,6 +857,22 @@ void ritual_own_ZN12QPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF(
   self->QPaintEngine::drawTiledPixmap(*r, *pixmap, *s);
 }
 
+//  void QPaintEngine::drawImage(const QRectF &r, const QImage &pm, const
+//      QRectF &sr, Qt::ImageConversionFlags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN12QPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE(
+    QPaintEngine *self,
+    const QRectF *r,
+    const QImage *pm,
+    const QRectF *sr,
+    int flags) {
+  self->QPaintEngine::drawImage(
+      *r,
+      *pm,
+      *sr,
+      QFlags<Qt::ImageConversionFlag>::fromInt(flags));
+}
+
 //  QPoint QPaintEngine::coordinateOffset() const
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_own_ZNK12QPaintEngine16coordinateOffsetEv(
@@ -830,4 +886,17 @@ QPixmap *ritual_own_ZN12QPaintEngine12createPixmapE5QSize(
     QPaintEngine *self,
     const QSize *size) {
   return new QPixmap(self->QPaintEngine::createPixmap(*size));
+}
+
+//  QPixmap QPaintEngine::createPixmapFromImage(QImage image,
+//      Qt::ImageConversionFlags flags)
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_own_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19ImageConversionFlagEE(
+    QPaintEngine *self,
+    const QImage *image,
+    int flags) {
+  return new QPixmap(
+      self->QPaintEngine::createPixmapFromImage(
+          *image,
+          QFlags<Qt::ImageConversionFlag>::fromInt(flags)));
 }

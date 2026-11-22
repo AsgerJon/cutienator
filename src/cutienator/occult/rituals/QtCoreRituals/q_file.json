@@ -54,7 +54,15 @@
       "bool", "text", "int"
     ],
     "ritual_take_QFile": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK5QFile8fileNameEv": ["text", "address"],
+    "ritual_own_ZN5QFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
     "ritual_own_ZNK5QFile4sizeEv": ["long long", "address"],
-    "ritual_own_ZN5QFile6resizeEx": ["bool", "address", "long long"]
+    "ritual_own_ZN5QFile6resizeEx": ["bool", "address", "long long"],
+    "ritual_own_ZNK5QFile11permissionsEv": ["int", "address"],
+    "ritual_own_ZN5QFile14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE": [
+      "bool", "address", "int"
+    ]
   }
 }

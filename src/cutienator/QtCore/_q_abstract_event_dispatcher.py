@@ -445,11 +445,6 @@ class QAbstractEventDispatcher(QObject):
   #  it. A class of a program that writes one of them anew is refused, since
   #  Qt would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
   __virtual_left_out__ = {
-      'processEvents': (
-          'bool '
-          'QAbstractEventDispatcher::processEvents(QEventLoop::ProcessEvent'
-          'sFlags)',
-      ),
       'registeredTimers': (
           'QList<TimerInfo> '
           'QAbstractEventDispatcher::registeredTimers(QObject *) const',
@@ -461,6 +456,14 @@ class QAbstractEventDispatcher(QObject):
   #  then calls that. For each name: the key C++ knows the function by, what
   #  it gives, and what it takes.
   __virtual_functions__ = {
+      'processEvents': (
+          ('_ZN24QAbstractEventDispatcher13processEventsE6QFlagsIN10QEventL'
+           'oop17ProcessEventsFlagEE',
+           ('bool', 'number', ''),
+           (
+               ('int', 'flags', 'QtCore:QEventLoop.ProcessEventsFlag'),
+           )),
+      ),
       'registerSocketNotifier': (
           ('_ZN24QAbstractEventDispatcher22registerSocketNotifierEP15QSocke'
            'tNotifier',

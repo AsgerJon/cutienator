@@ -104,9 +104,6 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
           'void QAccessibleTextInterface::selection(int, int *, int *) '
           'const',
       ),
-      'text': (
-          'QString QAccessibleTextInterface::text(int, int) const',
-      ),
       'textBeforeOffset': (
           'QString QAccessibleTextInterface::textBeforeOffset(int, '
           'QAccessible::TextBoundaryType, int *, int *) const',
@@ -168,6 +165,14 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
           ('_ZN24QAccessibleTextInterface17setCursorPositionEi',
            ('nothing', 'nothing', ''),
            (
+               ('int', 'number', ''),
+           )),
+      ),
+      'text': (
+          ('_ZNK24QAccessibleTextInterface4textEii',
+           ('address', 'text', ''),
+           (
+               ('int', 'number', ''),
                ('int', 'number', ''),
            )),
       ),

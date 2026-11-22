@@ -54,12 +54,12 @@ class QItemDelegate(QAbstractItemDelegate):
   -----------
 
   Every function of Qt's QItemDelegate that has a ritual and that Python can
-  call so far, 17 names in all: 'metaObject', 'tr', 'hasClipping',
+  call so far, 18 names in all: 'metaObject', 'tr', 'hasClipping',
   'setClipping', 'paint', 'sizeHint', 'createEditor', 'setEditorData',
   'setModelData', 'updateEditorGeometry', 'itemEditorFactory',
-  'setItemEditorFactory', 'drawDecoration', 'drawFocus', 'drawCheck',
-  'eventFilter', 'editorEvent'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'setItemEditorFactory', 'drawDisplay', 'drawDecoration', 'drawFocus',
+  'drawCheck', 'eventFilter', 'editorEvent'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -70,7 +70,7 @@ class QItemDelegate(QAbstractItemDelegate):
   What has no ritual
   ------------------
 
-  17 of the 36 functions Qt declares: 9 protected; 3 private; 2 takes or
+  16 of the 36 functions Qt declares: 8 protected; 3 private; 2 takes or
   gives a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
@@ -149,22 +149,22 @@ class QItemDelegate(QAbstractItemDelegate):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QItemDelegate'
 
-  #  The functions Qt calls itself that QItemDelegate is the first to declare
-  #  and that cannot be handed to Python yet, each as Qt declares it. A class
-  #  of a program that writes one of them anew is refused, since Qt would
-  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'drawDisplay': (
-          'void QItemDelegate::drawDisplay(QPainter *, const '
-          'QStyleOptionViewItem &, const QRect &, const QString &) const',
-      ),
-  }
-
   #  The functions Qt calls itself that QItemDelegate is the first to
   #  declare. A class of a program built on it can write one anew, and Qt
   #  then calls that. For each name: the key C++ knows the function by, what
   #  it gives, and what it takes.
   __virtual_functions__ = {
+      'drawDisplay': (
+          ('_ZNK13QItemDelegate11drawDisplayEP8QPainterRK20QStyleOptionView'
+           'ItemRK5QRectRK7QString',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'value', 'QtWidgets:QStyleOptionViewItem'),
+               ('address', 'value', 'QtCore:QRect'),
+               ('address', 'text', ''),
+           )),
+      ),
       'drawDecoration': (
           ('_ZNK13QItemDelegate14drawDecorationEP8QPainterRK20QStyleOptionV'
            'iewItemRK5QRectRK7QPixmap',
@@ -623,6 +623,49 @@ class QItemDelegate(QAbstractItemDelegate):
     self.uglySide.call(
         ritual,
         self._addressOf(editor), self._valueOf(option), self._valueOf(index),
+    )
+
+  @overload(QPainter, QStyleOptionViewItem, QRect, str)
+  @overload(NoneType, QStyleOptionViewItem, QRect, str)
+  def drawDisplay(
+      self,
+      painter: Optional[QPainter],
+      option: QStyleOptionViewItem,
+      rect: QRect,
+      text: str,
+  ) -> None:
+    """
+    Calls Qt's 'void QItemDelegate::drawDisplay(QPainter *painter, const
+    QStyleOptionViewItem &option, const QRect &rect, const QString &text)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qitemdelegate.html#drawDisplay
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    option : QStyleOptionViewItem
+      Passed on as a value: Qt reads the C++ QStyleOptionViewItem, which
+      stays Python's own.
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QItemDelegate::drawDisplay(QPainter *painter, const
+    #      QStyleOptionViewItem &option, const QRect &rect, const QString
+    #      &text) const
+    self.uglySide.call(
+        'ritual_own_ZNK13QItemDelegate11drawDisplayEP8QPainterRK20QStyleOpt'
+        'ionViewItemRK5QRectRK7QString',
+        self._addressOf(painter), self._valueOf(option), self._valueOf(rect),
+        text,
     )
 
   @overload(QPainter, QStyleOptionViewItem, QRect, QPixmap)

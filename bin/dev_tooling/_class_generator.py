@@ -2765,13 +2765,15 @@ class ClassGenerator:
     the function that receives it from C++. Gives '' for a number and
     None when there is no cute class or enum for it.
     """
-    if how in ('number', 'nothing'):
+    if how in ('number', 'nothing', 'text'):
       return ''
     tree, cuteNames = self.getDependencyTree(), self.getCuteNames()
-    holder = what.rpartition('::')[0] if how == 'enum' else what
+    #  The combinations of an enum are values of the class of the enum.
+    listed = how in ('enum', 'flags')
+    holder = what.rpartition('::')[0] if listed else what
     if holder not in cuteNames and holder != 'Qt':
       return None
-    if how != 'enum' and what not in cuteNames:
+    if not listed and what not in cuteNames:
       return None
     partName = 'QtCore' if holder == 'Qt' else tree.getPartName(
         holder.split('::')[0])

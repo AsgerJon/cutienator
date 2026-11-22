@@ -61,6 +61,15 @@
     "ritual_take_QItemSelectionModel": [
       "bool", "address", "chars", "address"
     ],
+    "ritual_own_ZN19QItemSelectionModel15setCurrentIndexERK11QModelIndex6QFlagsINS_13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN19QItemSelectionModel6selectERK11QModelIndex6QFlagsINS_13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN19QItemSelectionModel6selectERK14QItemSelection6QFlagsINS_13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_own_ZN19QItemSelectionModel5clearEv": ["nothing", "address"],
     "ritual_own_ZN19QItemSelectionModel5resetEv": ["nothing", "address"],
     "ritual_own_ZN19QItemSelectionModel17clearCurrentIndexEv": [

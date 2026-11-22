@@ -17,6 +17,9 @@ struct OwnQDateTimeEdit : QDateTimeEdit {
   using QDateTimeEdit::wheelEvent;
   using QDateTimeEdit::focusInEvent;
   using QDateTimeEdit::focusNextPrevChild;
+  using QDateTimeEdit::dateTimeFromText;
+  using QDateTimeEdit::textFromDateTime;
+  using QDateTimeEdit::stepEnabled;
   using QDateTimeEdit::mousePressEvent;
   using QDateTimeEdit::paintEvent;
   using QDateTimeEdit::initStyleOption;
@@ -33,51 +36,54 @@ typedef void (*CuteQDateTimeEditCall4)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQDateTimeEditCall5)(const void *, QWheelEvent *, int *);
 typedef void (*CuteQDateTimeEditCall6)(const void *, QFocusEvent *, int *);
 typedef bool (*CuteQDateTimeEditCall7)(const void *, bool, int *);
-typedef void (*CuteQDateTimeEditCall8)(const void *, QMouseEvent *, int *);
-typedef void (*CuteQDateTimeEditCall9)(const void *, QPaintEvent *, int *);
-typedef void (*CuteQDateTimeEditCall10)(const void *, QStyleOptionSpinBox *, int *);
-typedef const QSize * (*CuteQDateTimeEditCall11)(const void *, int *);
-typedef const QVariant * (*CuteQDateTimeEditCall12)(const void *, int, int *);
-typedef void (*CuteQDateTimeEditCall13)(const void *, QResizeEvent *, int *);
-typedef void (*CuteQDateTimeEditCall14)(const void *, QKeyEvent *, int *);
-typedef void (*CuteQDateTimeEditCall15)(const void *, QFocusEvent *, int *);
-typedef void (*CuteQDateTimeEditCall16)(const void *, QContextMenuEvent *, int *);
-typedef void (*CuteQDateTimeEditCall17)(const void *, QEvent *, int *);
-typedef void (*CuteQDateTimeEditCall18)(const void *, QCloseEvent *, int *);
-typedef void (*CuteQDateTimeEditCall19)(const void *, QHideEvent *, int *);
-typedef void (*CuteQDateTimeEditCall20)(const void *, QMouseEvent *, int *);
-typedef void (*CuteQDateTimeEditCall21)(const void *, QMouseEvent *, int *);
-typedef void (*CuteQDateTimeEditCall22)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQDateTimeEditCall23)(const void *, QShowEvent *, int *);
-typedef int (*CuteQDateTimeEditCall24)(const void *, int *);
-typedef void (*CuteQDateTimeEditCall25)(const void *, bool, int *);
-typedef int (*CuteQDateTimeEditCall26)(const void *, int, int *);
-typedef bool (*CuteQDateTimeEditCall27)(const void *, int *);
-typedef void * (*CuteQDateTimeEditCall28)(const void *, int *);
-typedef void (*CuteQDateTimeEditCall29)(const void *, QMouseEvent *, int *);
-typedef void (*CuteQDateTimeEditCall30)(const void *, QEnterEvent *, int *);
-typedef void (*CuteQDateTimeEditCall31)(const void *, QEvent *, int *);
-typedef void (*CuteQDateTimeEditCall32)(const void *, QMoveEvent *, int *);
-typedef void (*CuteQDateTimeEditCall33)(const void *, QTabletEvent *, int *);
-typedef void (*CuteQDateTimeEditCall34)(const void *, QActionEvent *, int *);
-typedef void (*CuteQDateTimeEditCall35)(const void *, QDragEnterEvent *, int *);
-typedef void (*CuteQDateTimeEditCall36)(const void *, QDragMoveEvent *, int *);
-typedef void (*CuteQDateTimeEditCall37)(const void *, QDragLeaveEvent *, int *);
-typedef void (*CuteQDateTimeEditCall38)(const void *, QDropEvent *, int *);
-typedef int (*CuteQDateTimeEditCall39)(const void *, int, int *);
-typedef void (*CuteQDateTimeEditCall40)(const void *, QPainter *, int *);
-typedef void * (*CuteQDateTimeEditCall41)(const void *, QPoint *, int *);
-typedef void * (*CuteQDateTimeEditCall42)(const void *, int *);
-typedef void (*CuteQDateTimeEditCall43)(const void *, QInputMethodEvent *, int *);
-typedef bool (*CuteQDateTimeEditCall44)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQDateTimeEditCall45)(const void *, QChildEvent *, int *);
-typedef void (*CuteQDateTimeEditCall46)(const void *, QEvent *, int *);
-typedef void (*CuteQDateTimeEditCall47)(const void *, const QMetaMethod *, int *);
-typedef void (*CuteQDateTimeEditCall48)(const void *, const QMetaMethod *, int *);
+typedef const QDateTime * (*CuteQDateTimeEditCall8)(const void *, const QString *, int *);
+typedef QString * (*CuteQDateTimeEditCall9)(const void *, const QDateTime *, int *);
+typedef int (*CuteQDateTimeEditCall10)(const void *, int *);
+typedef void (*CuteQDateTimeEditCall11)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQDateTimeEditCall12)(const void *, QPaintEvent *, int *);
+typedef void (*CuteQDateTimeEditCall13)(const void *, QStyleOptionSpinBox *, int *);
+typedef const QSize * (*CuteQDateTimeEditCall14)(const void *, int *);
+typedef const QVariant * (*CuteQDateTimeEditCall15)(const void *, int, int *);
+typedef void (*CuteQDateTimeEditCall16)(const void *, QResizeEvent *, int *);
+typedef void (*CuteQDateTimeEditCall17)(const void *, QKeyEvent *, int *);
+typedef void (*CuteQDateTimeEditCall18)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQDateTimeEditCall19)(const void *, QContextMenuEvent *, int *);
+typedef void (*CuteQDateTimeEditCall20)(const void *, QEvent *, int *);
+typedef void (*CuteQDateTimeEditCall21)(const void *, QCloseEvent *, int *);
+typedef void (*CuteQDateTimeEditCall22)(const void *, QHideEvent *, int *);
+typedef void (*CuteQDateTimeEditCall23)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQDateTimeEditCall24)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQDateTimeEditCall25)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQDateTimeEditCall26)(const void *, QShowEvent *, int *);
+typedef int (*CuteQDateTimeEditCall27)(const void *, int *);
+typedef void (*CuteQDateTimeEditCall28)(const void *, bool, int *);
+typedef int (*CuteQDateTimeEditCall29)(const void *, int, int *);
+typedef bool (*CuteQDateTimeEditCall30)(const void *, int *);
+typedef void * (*CuteQDateTimeEditCall31)(const void *, int *);
+typedef void (*CuteQDateTimeEditCall32)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQDateTimeEditCall33)(const void *, QEnterEvent *, int *);
+typedef void (*CuteQDateTimeEditCall34)(const void *, QEvent *, int *);
+typedef void (*CuteQDateTimeEditCall35)(const void *, QMoveEvent *, int *);
+typedef void (*CuteQDateTimeEditCall36)(const void *, QTabletEvent *, int *);
+typedef void (*CuteQDateTimeEditCall37)(const void *, QActionEvent *, int *);
+typedef void (*CuteQDateTimeEditCall38)(const void *, QDragEnterEvent *, int *);
+typedef void (*CuteQDateTimeEditCall39)(const void *, QDragMoveEvent *, int *);
+typedef void (*CuteQDateTimeEditCall40)(const void *, QDragLeaveEvent *, int *);
+typedef void (*CuteQDateTimeEditCall41)(const void *, QDropEvent *, int *);
+typedef int (*CuteQDateTimeEditCall42)(const void *, int, int *);
+typedef void (*CuteQDateTimeEditCall43)(const void *, QPainter *, int *);
+typedef void * (*CuteQDateTimeEditCall44)(const void *, QPoint *, int *);
+typedef void * (*CuteQDateTimeEditCall45)(const void *, int *);
+typedef void (*CuteQDateTimeEditCall46)(const void *, QInputMethodEvent *, int *);
+typedef bool (*CuteQDateTimeEditCall47)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQDateTimeEditCall48)(const void *, QChildEvent *, int *);
+typedef void (*CuteQDateTimeEditCall49)(const void *, QEvent *, int *);
+typedef void (*CuteQDateTimeEditCall50)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQDateTimeEditCall51)(const void *, const QMetaMethod *, int *);
 class CuteQDateTimeEdit : public QDateTimeEdit {
 public:
   using QDateTimeEdit::QDateTimeEdit;
-  void *taken[49] = {};
+  void *taken[52] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
@@ -112,168 +118,180 @@ public:
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
+    if (!std::strcmp(key, "_ZNK13QDateTimeEdit16dateTimeFromTextERK7QString")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
+    if (!std::strcmp(key, "_ZNK13QDateTimeEdit16textFromDateTimeERK9QDateTime")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptionSpinBox")) {
+    if (!std::strcmp(key, "_ZNK16QAbstractSpinBox11stepEnabledEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
+    if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
+    if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
+    if (!std::strcmp(key, "_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptionSpinBox")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
+    if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
+    if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
       taken[21] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[22] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
+    if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget14heightForWidthEi")) {
+    if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget17hasHeightForWidthEv")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[27] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
+    if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
       taken[28] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
+    if (!std::strcmp(key, "_ZNK7QWidget14heightForWidthEi")) {
       taken[29] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10enterEventEP11QEnterEvent")) {
+    if (!std::strcmp(key, "_ZNK7QWidget17hasHeightForWidthEv")) {
       taken[30] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10leaveEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
       taken[31] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget9moveEventEP10QMoveEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
       taken[32] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget10enterEventEP11QEnterEvent")) {
       taken[33] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget10leaveEventEP6QEvent")) {
       taken[34] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget9moveEventEP10QMoveEvent")) {
       taken[35] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[36] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[37] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[38] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
+    if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[39] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
+    if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[40] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice10redirectedEP6QPoint")) {
+    if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[41] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
       taken[42] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget16inputMethodEventEP17QInputMethodEvent")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
       taken[43] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice10redirectedEP6QPoint")) {
       taken[44] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
       taken[45] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget16inputMethodEventEP17QInputMethodEvent")) {
       taken[46] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[47] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[48] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[49] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[50] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[51] = call;
       return true;
     }
     return false;
@@ -367,11 +385,48 @@ public:
     return QDateTimeEdit::focusNextPrevChild(next);
   }
 
-  //  void QDateTimeEdit::mousePressEvent(QMouseEvent *event)
-  void mousePressEvent(QMouseEvent *event) override {
+  //  QDateTime QDateTimeEdit::dateTimeFromText(const QString &text) const
+  QDateTime dateTimeFromText(const QString &text) const override {
     if (taken[8]) {
       int handled = 0;
       CuteQDateTimeEditCall8 call = reinterpret_cast<CuteQDateTimeEditCall8>(taken[8]);
+      const QDateTime * given = call(this, &text, &handled);
+      if (handled && given) return *given;
+    }
+    return QDateTimeEdit::dateTimeFromText(text);
+  }
+
+  //  QString QDateTimeEdit::textFromDateTime(const QDateTime &dt) const
+  QString textFromDateTime(const QDateTime &dt) const override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQDateTimeEditCall9 call = reinterpret_cast<CuteQDateTimeEditCall9>(taken[9]);
+      QString * given = call(this, &dt, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return QDateTimeEdit::textFromDateTime(dt);
+  }
+
+  //  StepEnabled QDateTimeEdit::stepEnabled() const
+  QAbstractSpinBox::StepEnabled stepEnabled() const override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQDateTimeEditCall10 call = reinterpret_cast<CuteQDateTimeEditCall10>(taken[10]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<QAbstractSpinBox::StepEnabledFlag>::fromInt(given);
+    }
+    return QDateTimeEdit::stepEnabled();
+  }
+
+  //  void QDateTimeEdit::mousePressEvent(QMouseEvent *event)
+  void mousePressEvent(QMouseEvent *event) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQDateTimeEditCall11 call = reinterpret_cast<CuteQDateTimeEditCall11>(taken[11]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -380,9 +435,9 @@ public:
 
   //  void QDateTimeEdit::paintEvent(QPaintEvent *event)
   void paintEvent(QPaintEvent *event) override {
-    if (taken[9]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQDateTimeEditCall9 call = reinterpret_cast<CuteQDateTimeEditCall9>(taken[9]);
+      CuteQDateTimeEditCall12 call = reinterpret_cast<CuteQDateTimeEditCall12>(taken[12]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -392,9 +447,9 @@ public:
   //  void QDateTimeEdit::initStyleOption(QStyleOptionSpinBox *option)
   //      const
   void initStyleOption(QStyleOptionSpinBox *option) const override {
-    if (taken[10]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQDateTimeEditCall10 call = reinterpret_cast<CuteQDateTimeEditCall10>(taken[10]);
+      CuteQDateTimeEditCall13 call = reinterpret_cast<CuteQDateTimeEditCall13>(taken[13]);
       call(this, option, &handled);
       if (handled) return;
     }
@@ -403,9 +458,9 @@ public:
 
   //  QSize QAbstractSpinBox::minimumSizeHint() const
   QSize minimumSizeHint() const override {
-    if (taken[11]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQDateTimeEditCall11 call = reinterpret_cast<CuteQDateTimeEditCall11>(taken[11]);
+      CuteQDateTimeEditCall14 call = reinterpret_cast<CuteQDateTimeEditCall14>(taken[14]);
       const QSize * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -415,9 +470,9 @@ public:
   //  QVariant QAbstractSpinBox::inputMethodQuery(Qt::InputMethodQuery a0)
   //      const
   QVariant inputMethodQuery(Qt::InputMethodQuery a0) const override {
-    if (taken[12]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQDateTimeEditCall12 call = reinterpret_cast<CuteQDateTimeEditCall12>(taken[12]);
+      CuteQDateTimeEditCall15 call = reinterpret_cast<CuteQDateTimeEditCall15>(taken[15]);
       const QVariant * given = call(this, static_cast<int>(a0), &handled);
       if (handled && given) return *given;
     }
@@ -426,9 +481,9 @@ public:
 
   //  void QAbstractSpinBox::resizeEvent(QResizeEvent *event)
   void resizeEvent(QResizeEvent *event) override {
-    if (taken[13]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQDateTimeEditCall13 call = reinterpret_cast<CuteQDateTimeEditCall13>(taken[13]);
+      CuteQDateTimeEditCall16 call = reinterpret_cast<CuteQDateTimeEditCall16>(taken[16]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -437,9 +492,9 @@ public:
 
   //  void QAbstractSpinBox::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
-    if (taken[14]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQDateTimeEditCall14 call = reinterpret_cast<CuteQDateTimeEditCall14>(taken[14]);
+      CuteQDateTimeEditCall17 call = reinterpret_cast<CuteQDateTimeEditCall17>(taken[17]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -448,9 +503,9 @@ public:
 
   //  void QAbstractSpinBox::focusOutEvent(QFocusEvent *event)
   void focusOutEvent(QFocusEvent *event) override {
-    if (taken[15]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQDateTimeEditCall15 call = reinterpret_cast<CuteQDateTimeEditCall15>(taken[15]);
+      CuteQDateTimeEditCall18 call = reinterpret_cast<CuteQDateTimeEditCall18>(taken[18]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -459,9 +514,9 @@ public:
 
   //  void QAbstractSpinBox::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
-    if (taken[16]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQDateTimeEditCall16 call = reinterpret_cast<CuteQDateTimeEditCall16>(taken[16]);
+      CuteQDateTimeEditCall19 call = reinterpret_cast<CuteQDateTimeEditCall19>(taken[19]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -470,9 +525,9 @@ public:
 
   //  void QAbstractSpinBox::changeEvent(QEvent *event)
   void changeEvent(QEvent *event) override {
-    if (taken[17]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQDateTimeEditCall17 call = reinterpret_cast<CuteQDateTimeEditCall17>(taken[17]);
+      CuteQDateTimeEditCall20 call = reinterpret_cast<CuteQDateTimeEditCall20>(taken[20]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -481,9 +536,9 @@ public:
 
   //  void QAbstractSpinBox::closeEvent(QCloseEvent *event)
   void closeEvent(QCloseEvent *event) override {
-    if (taken[18]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQDateTimeEditCall18 call = reinterpret_cast<CuteQDateTimeEditCall18>(taken[18]);
+      CuteQDateTimeEditCall21 call = reinterpret_cast<CuteQDateTimeEditCall21>(taken[21]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -492,9 +547,9 @@ public:
 
   //  void QAbstractSpinBox::hideEvent(QHideEvent *event)
   void hideEvent(QHideEvent *event) override {
-    if (taken[19]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQDateTimeEditCall19 call = reinterpret_cast<CuteQDateTimeEditCall19>(taken[19]);
+      CuteQDateTimeEditCall22 call = reinterpret_cast<CuteQDateTimeEditCall22>(taken[22]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -503,9 +558,9 @@ public:
 
   //  void QAbstractSpinBox::mouseReleaseEvent(QMouseEvent *event)
   void mouseReleaseEvent(QMouseEvent *event) override {
-    if (taken[20]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQDateTimeEditCall20 call = reinterpret_cast<CuteQDateTimeEditCall20>(taken[20]);
+      CuteQDateTimeEditCall23 call = reinterpret_cast<CuteQDateTimeEditCall23>(taken[23]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -514,9 +569,9 @@ public:
 
   //  void QAbstractSpinBox::mouseMoveEvent(QMouseEvent *event)
   void mouseMoveEvent(QMouseEvent *event) override {
-    if (taken[21]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQDateTimeEditCall21 call = reinterpret_cast<CuteQDateTimeEditCall21>(taken[21]);
+      CuteQDateTimeEditCall24 call = reinterpret_cast<CuteQDateTimeEditCall24>(taken[24]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -525,9 +580,9 @@ public:
 
   //  void QAbstractSpinBox::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[22]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQDateTimeEditCall22 call = reinterpret_cast<CuteQDateTimeEditCall22>(taken[22]);
+      CuteQDateTimeEditCall25 call = reinterpret_cast<CuteQDateTimeEditCall25>(taken[25]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -536,9 +591,9 @@ public:
 
   //  void QAbstractSpinBox::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
-    if (taken[23]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQDateTimeEditCall23 call = reinterpret_cast<CuteQDateTimeEditCall23>(taken[23]);
+      CuteQDateTimeEditCall26 call = reinterpret_cast<CuteQDateTimeEditCall26>(taken[26]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -547,9 +602,9 @@ public:
 
   //  int QWidget::devType() const
   int devType() const override {
-    if (taken[24]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQDateTimeEditCall24 call = reinterpret_cast<CuteQDateTimeEditCall24>(taken[24]);
+      CuteQDateTimeEditCall27 call = reinterpret_cast<CuteQDateTimeEditCall27>(taken[27]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -558,9 +613,9 @@ public:
 
   //  void QWidget::setVisible(bool visible)
   void setVisible(bool visible) override {
-    if (taken[25]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQDateTimeEditCall25 call = reinterpret_cast<CuteQDateTimeEditCall25>(taken[25]);
+      CuteQDateTimeEditCall28 call = reinterpret_cast<CuteQDateTimeEditCall28>(taken[28]);
       call(this, visible, &handled);
       if (handled) return;
     }
@@ -569,9 +624,9 @@ public:
 
   //  int QWidget::heightForWidth(int a0) const
   int heightForWidth(int a0) const override {
-    if (taken[26]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQDateTimeEditCall26 call = reinterpret_cast<CuteQDateTimeEditCall26>(taken[26]);
+      CuteQDateTimeEditCall29 call = reinterpret_cast<CuteQDateTimeEditCall29>(taken[29]);
       int given = call(this, a0, &handled);
       if (handled) return given;
     }
@@ -580,9 +635,9 @@ public:
 
   //  bool QWidget::hasHeightForWidth() const
   bool hasHeightForWidth() const override {
-    if (taken[27]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQDateTimeEditCall27 call = reinterpret_cast<CuteQDateTimeEditCall27>(taken[27]);
+      CuteQDateTimeEditCall30 call = reinterpret_cast<CuteQDateTimeEditCall30>(taken[30]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -591,9 +646,9 @@ public:
 
   //  QPaintEngine *QWidget::paintEngine() const
   QPaintEngine *paintEngine() const override {
-    if (taken[28]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQDateTimeEditCall28 call = reinterpret_cast<CuteQDateTimeEditCall28>(taken[28]);
+      CuteQDateTimeEditCall31 call = reinterpret_cast<CuteQDateTimeEditCall31>(taken[31]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QPaintEngine *>(given);
     }
@@ -602,9 +657,9 @@ public:
 
   //  void QWidget::mouseDoubleClickEvent(QMouseEvent *event)
   void mouseDoubleClickEvent(QMouseEvent *event) override {
-    if (taken[29]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQDateTimeEditCall29 call = reinterpret_cast<CuteQDateTimeEditCall29>(taken[29]);
+      CuteQDateTimeEditCall32 call = reinterpret_cast<CuteQDateTimeEditCall32>(taken[32]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -613,9 +668,9 @@ public:
 
   //  void QWidget::enterEvent(QEnterEvent *event)
   void enterEvent(QEnterEvent *event) override {
-    if (taken[30]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQDateTimeEditCall30 call = reinterpret_cast<CuteQDateTimeEditCall30>(taken[30]);
+      CuteQDateTimeEditCall33 call = reinterpret_cast<CuteQDateTimeEditCall33>(taken[33]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -624,9 +679,9 @@ public:
 
   //  void QWidget::leaveEvent(QEvent *event)
   void leaveEvent(QEvent *event) override {
-    if (taken[31]) {
+    if (taken[34]) {
       int handled = 0;
-      CuteQDateTimeEditCall31 call = reinterpret_cast<CuteQDateTimeEditCall31>(taken[31]);
+      CuteQDateTimeEditCall34 call = reinterpret_cast<CuteQDateTimeEditCall34>(taken[34]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -635,9 +690,9 @@ public:
 
   //  void QWidget::moveEvent(QMoveEvent *event)
   void moveEvent(QMoveEvent *event) override {
-    if (taken[32]) {
+    if (taken[35]) {
       int handled = 0;
-      CuteQDateTimeEditCall32 call = reinterpret_cast<CuteQDateTimeEditCall32>(taken[32]);
+      CuteQDateTimeEditCall35 call = reinterpret_cast<CuteQDateTimeEditCall35>(taken[35]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -646,9 +701,9 @@ public:
 
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
-    if (taken[33]) {
+    if (taken[36]) {
       int handled = 0;
-      CuteQDateTimeEditCall33 call = reinterpret_cast<CuteQDateTimeEditCall33>(taken[33]);
+      CuteQDateTimeEditCall36 call = reinterpret_cast<CuteQDateTimeEditCall36>(taken[36]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -657,9 +712,9 @@ public:
 
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
-    if (taken[34]) {
+    if (taken[37]) {
       int handled = 0;
-      CuteQDateTimeEditCall34 call = reinterpret_cast<CuteQDateTimeEditCall34>(taken[34]);
+      CuteQDateTimeEditCall37 call = reinterpret_cast<CuteQDateTimeEditCall37>(taken[37]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -668,9 +723,9 @@ public:
 
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
-    if (taken[35]) {
+    if (taken[38]) {
       int handled = 0;
-      CuteQDateTimeEditCall35 call = reinterpret_cast<CuteQDateTimeEditCall35>(taken[35]);
+      CuteQDateTimeEditCall38 call = reinterpret_cast<CuteQDateTimeEditCall38>(taken[38]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -679,9 +734,9 @@ public:
 
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
-    if (taken[36]) {
+    if (taken[39]) {
       int handled = 0;
-      CuteQDateTimeEditCall36 call = reinterpret_cast<CuteQDateTimeEditCall36>(taken[36]);
+      CuteQDateTimeEditCall39 call = reinterpret_cast<CuteQDateTimeEditCall39>(taken[39]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -690,9 +745,9 @@ public:
 
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
-    if (taken[37]) {
+    if (taken[40]) {
       int handled = 0;
-      CuteQDateTimeEditCall37 call = reinterpret_cast<CuteQDateTimeEditCall37>(taken[37]);
+      CuteQDateTimeEditCall40 call = reinterpret_cast<CuteQDateTimeEditCall40>(taken[40]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -701,9 +756,9 @@ public:
 
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
-    if (taken[38]) {
+    if (taken[41]) {
       int handled = 0;
-      CuteQDateTimeEditCall38 call = reinterpret_cast<CuteQDateTimeEditCall38>(taken[38]);
+      CuteQDateTimeEditCall41 call = reinterpret_cast<CuteQDateTimeEditCall41>(taken[41]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -712,9 +767,9 @@ public:
 
   //  int QWidget::metric(PaintDeviceMetric a0) const
   int metric(QPaintDevice::PaintDeviceMetric a0) const override {
-    if (taken[39]) {
+    if (taken[42]) {
       int handled = 0;
-      CuteQDateTimeEditCall39 call = reinterpret_cast<CuteQDateTimeEditCall39>(taken[39]);
+      CuteQDateTimeEditCall42 call = reinterpret_cast<CuteQDateTimeEditCall42>(taken[42]);
       int given = call(this, static_cast<int>(a0), &handled);
       if (handled) return given;
     }
@@ -723,9 +778,9 @@ public:
 
   //  void QWidget::initPainter(QPainter *painter) const
   void initPainter(QPainter *painter) const override {
-    if (taken[40]) {
+    if (taken[43]) {
       int handled = 0;
-      CuteQDateTimeEditCall40 call = reinterpret_cast<CuteQDateTimeEditCall40>(taken[40]);
+      CuteQDateTimeEditCall43 call = reinterpret_cast<CuteQDateTimeEditCall43>(taken[43]);
       call(this, painter, &handled);
       if (handled) return;
     }
@@ -734,9 +789,9 @@ public:
 
   //  QPaintDevice *QWidget::redirected(QPoint *offset) const
   QPaintDevice *redirected(QPoint *offset) const override {
-    if (taken[41]) {
+    if (taken[44]) {
       int handled = 0;
-      CuteQDateTimeEditCall41 call = reinterpret_cast<CuteQDateTimeEditCall41>(taken[41]);
+      CuteQDateTimeEditCall44 call = reinterpret_cast<CuteQDateTimeEditCall44>(taken[44]);
       void * given = call(this, offset, &handled);
       if (handled) return static_cast<QPaintDevice *>(given);
     }
@@ -745,9 +800,9 @@ public:
 
   //  QPainter *QWidget::sharedPainter() const
   QPainter *sharedPainter() const override {
-    if (taken[42]) {
+    if (taken[45]) {
       int handled = 0;
-      CuteQDateTimeEditCall42 call = reinterpret_cast<CuteQDateTimeEditCall42>(taken[42]);
+      CuteQDateTimeEditCall45 call = reinterpret_cast<CuteQDateTimeEditCall45>(taken[45]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QPainter *>(given);
     }
@@ -756,9 +811,9 @@ public:
 
   //  void QWidget::inputMethodEvent(QInputMethodEvent *a0)
   void inputMethodEvent(QInputMethodEvent *a0) override {
-    if (taken[43]) {
+    if (taken[46]) {
       int handled = 0;
-      CuteQDateTimeEditCall43 call = reinterpret_cast<CuteQDateTimeEditCall43>(taken[43]);
+      CuteQDateTimeEditCall46 call = reinterpret_cast<CuteQDateTimeEditCall46>(taken[46]);
       call(this, a0, &handled);
       if (handled) return;
     }
@@ -767,9 +822,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[44]) {
+    if (taken[47]) {
       int handled = 0;
-      CuteQDateTimeEditCall44 call = reinterpret_cast<CuteQDateTimeEditCall44>(taken[44]);
+      CuteQDateTimeEditCall47 call = reinterpret_cast<CuteQDateTimeEditCall47>(taken[47]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -778,9 +833,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[45]) {
+    if (taken[48]) {
       int handled = 0;
-      CuteQDateTimeEditCall45 call = reinterpret_cast<CuteQDateTimeEditCall45>(taken[45]);
+      CuteQDateTimeEditCall48 call = reinterpret_cast<CuteQDateTimeEditCall48>(taken[48]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -789,9 +844,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[46]) {
+    if (taken[49]) {
       int handled = 0;
-      CuteQDateTimeEditCall46 call = reinterpret_cast<CuteQDateTimeEditCall46>(taken[46]);
+      CuteQDateTimeEditCall49 call = reinterpret_cast<CuteQDateTimeEditCall49>(taken[49]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -800,9 +855,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[47]) {
+    if (taken[50]) {
       int handled = 0;
-      CuteQDateTimeEditCall47 call = reinterpret_cast<CuteQDateTimeEditCall47>(taken[47]);
+      CuteQDateTimeEditCall50 call = reinterpret_cast<CuteQDateTimeEditCall50>(taken[50]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -811,9 +866,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[48]) {
+    if (taken[51]) {
       int handled = 0;
-      CuteQDateTimeEditCall48 call = reinterpret_cast<CuteQDateTimeEditCall48>(taken[48]);
+      CuteQDateTimeEditCall51 call = reinterpret_cast<CuteQDateTimeEditCall51>(taken[51]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -1314,6 +1369,33 @@ bool ritual_own_ZN13QDateTimeEdit18focusNextPrevChildEb(
     bool next) {
   return static_cast<OwnQDateTimeEdit *>(self)->OwnQDateTimeEdit::focusNextPrevChild(
       next);
+}
+
+//  QDateTime QDateTimeEdit::dateTimeFromText(const QString &text) const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_own_ZNK13QDateTimeEdit16dateTimeFromTextERK7QString(
+    const QDateTimeEdit *self,
+    const QString *text) {
+  return new QDateTime(
+      static_cast<const OwnQDateTimeEdit *>(self)->OwnQDateTimeEdit::dateTimeFromText(
+          *text));
+}
+
+//  QString QDateTimeEdit::textFromDateTime(const QDateTime &dt) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_own_ZNK13QDateTimeEdit16textFromDateTimeERK9QDateTime(
+    const QDateTimeEdit *self,
+    const QDateTime *dt) {
+  return new QString(
+      static_cast<const OwnQDateTimeEdit *>(self)->OwnQDateTimeEdit::textFromDateTime(
+          *dt));
+}
+
+//  StepEnabled QDateTimeEdit::stepEnabled() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK13QDateTimeEdit11stepEnabledEv(const QDateTimeEdit *self) {
+  return static_cast<int>(
+      static_cast<const OwnQDateTimeEdit *>(self)->OwnQDateTimeEdit::stepEnabled().toInt());
 }
 
 //  void QDateTimeEdit::mousePressEvent(QMouseEvent *event)

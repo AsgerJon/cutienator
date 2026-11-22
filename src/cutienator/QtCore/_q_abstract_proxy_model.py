@@ -484,10 +484,10 @@ class QAbstractProxyModel(QAbstractItemModel):
     """
     #  Qt::ItemFlags QAbstractProxyModel::flags(const QModelIndex &index)
     #      const
-    return Qt.ItemFlags(self.uglySide.call(
-        'ritual_ZNK19QAbstractProxyModel5flagsERK11QModelIndex',
-        self._valueOf(index),
-    ))
+    ritual = 'ritual_ZNK19QAbstractProxyModel5flagsERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QAbstractProxyModel5flagsERK11QModelIndex'
+    return Qt.ItemFlags(self.uglySide.call(ritual, self._valueOf(index)))
 
   @overload(QModelIndex)
   def buddy(self, index: QModelIndex) -> QModelIndex:
@@ -706,9 +706,10 @@ class QAbstractProxyModel(QAbstractItemModel):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QAbstractProxyModel::supportedDragActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_ZNK19QAbstractProxyModel20supportedDragActionsEv',
-    ))
+    ritual = 'ritual_ZNK19QAbstractProxyModel20supportedDragActionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QAbstractProxyModel20supportedDragActionsEv'
+    return Qt.DropActions(self.uglySide.call(ritual))
 
   def supportedDropActions(self) -> Qt.DropActions:
     """
@@ -725,9 +726,10 @@ class QAbstractProxyModel(QAbstractItemModel):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QAbstractProxyModel::supportedDropActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_ZNK19QAbstractProxyModel20supportedDropActionsEv',
-    ))
+    ritual = 'ritual_ZNK19QAbstractProxyModel20supportedDropActionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QAbstractProxyModel20supportedDropActionsEv'
+    return Qt.DropActions(self.uglySide.call(ritual))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

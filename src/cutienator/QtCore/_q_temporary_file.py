@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin
 from ..occult import Rituals
-from . import QFile, QObject
+from . import QFile, QIODeviceBase, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -51,8 +51,8 @@ class QTemporaryFile(QFile):
   What has no ritual
   ------------------
 
-  15 of the 31 functions Qt declares: 6 a template; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 protected.
+  14 of the 31 functions Qt declares: 6 a template; 3 takes or gives a type
+  that cannot be passed yet; 3 private; 2 forbidden.
 
   What to expect
   --------------
@@ -212,7 +212,10 @@ class QTemporaryFile(QFile):
       The text Qt gave back.
     """
     #  QString QTemporaryFile::fileName() const
-    return self.uglySide.call('ritual_ZNK14QTemporaryFile8fileNameEv')
+    ritual = 'ritual_ZNK14QTemporaryFile8fileNameEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK14QTemporaryFile8fileNameEv'
+    return self.uglySide.call(ritual)
 
   def fileTemplate(self) -> str:
     """
@@ -380,6 +383,7 @@ class QTemporaryFile(QFile):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
   def open(self) -> bool:
     """
     Calls Qt's 'bool QTemporaryFile::open()'.
@@ -388,6 +392,26 @@ class QTemporaryFile(QFile):
     """
     #  bool QTemporaryFile::open()
     return self.uglySide.call('ritual_ZN14QTemporaryFile4openEv')
+
+  @overload(QIODeviceBase.OpenMode)
+  def open(self, flags: QIODeviceBase.OpenMode) -> bool:
+    """
+    Calls Qt's 'bool QTemporaryFile::open(OpenMode flags)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtemporaryfile.html#open
+
+    Parameters
+    ----------
+
+    flags : QIODeviceBase.OpenMode
+      Passed on as its number.
+    """
+    #  bool QTemporaryFile::open(OpenMode flags)
+    return self.uglySide.call(
+        'ritual_own_ZN14QTemporaryFile4openE6QFlagsIN13QIODeviceBase12OpenM'
+        'odeFlagEE',
+        flags.value,
+    )
 
   @overload(str)
   def rename(self, newName: str) -> bool:

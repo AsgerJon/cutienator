@@ -9,30 +9,50 @@
 //  A QAccessibleImageInterface that Python can take functions over in. Every QAccessibleImageInterface
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
-typedef const QSize * (*CuteQAccessibleImageInterfaceCall0)(const void *, int *);
-typedef const QPoint * (*CuteQAccessibleImageInterfaceCall1)(const void *, int *);
+typedef QString * (*CuteQAccessibleImageInterfaceCall0)(const void *, int *);
+typedef const QSize * (*CuteQAccessibleImageInterfaceCall1)(const void *, int *);
+typedef const QPoint * (*CuteQAccessibleImageInterfaceCall2)(const void *, int *);
 class CuteQAccessibleImageInterface : public QAccessibleImageInterface {
 public:
   using QAccessibleImageInterface::QAccessibleImageInterface;
-  void *taken[2] = {};
+  void *taken[3] = {};
 
   bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface9imageSizeEv")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface16imageDescriptionEv")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface13imagePositionEv")) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface9imageSizeEv")) {
       taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface13imagePositionEv")) {
+      taken[2] = call;
       return true;
     }
     return false;
   }
 
-  //  QSize QAccessibleImageInterface::imageSize() const
-  QSize imageSize() const override {
+  //  QString QAccessibleImageInterface::imageDescription() const
+  QString imageDescription() const override {
     if (taken[0]) {
       int handled = 0;
       CuteQAccessibleImageInterfaceCall0 call = reinterpret_cast<CuteQAccessibleImageInterfaceCall0>(taken[0]);
+      QString * given = call(this, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return {};
+  }
+
+  //  QSize QAccessibleImageInterface::imageSize() const
+  QSize imageSize() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQAccessibleImageInterfaceCall1 call = reinterpret_cast<CuteQAccessibleImageInterfaceCall1>(taken[1]);
       const QSize * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -41,9 +61,9 @@ public:
 
   //  QPoint QAccessibleImageInterface::imagePosition() const
   QPoint imagePosition() const override {
-    if (taken[1]) {
+    if (taken[2]) {
       int handled = 0;
-      CuteQAccessibleImageInterfaceCall1 call = reinterpret_cast<CuteQAccessibleImageInterfaceCall1>(taken[1]);
+      CuteQAccessibleImageInterfaceCall2 call = reinterpret_cast<CuteQAccessibleImageInterfaceCall2>(taken[2]);
       const QPoint * given = call(this, &handled);
       if (handled && given) return *given;
     }

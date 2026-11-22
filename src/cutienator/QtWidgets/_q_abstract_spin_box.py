@@ -60,7 +60,7 @@ class QAbstractSpinBox(QWidget):
   -----------
 
   Every function of Qt's QAbstractSpinBox that has a ritual and that Python
-  can call so far, 51 names in all: 'metaObject', 'tr', 'buttonSymbols',
+  can call so far, 52 names in all: 'metaObject', 'tr', 'buttonSymbols',
   'setButtonSymbols', 'setCorrectionMode', 'correctionMode',
   'hasAcceptableInput', 'text', 'specialValueText', 'setSpecialValueText',
   'wrapping', 'setWrapping', 'setReadOnly', 'isReadOnly',
@@ -72,8 +72,8 @@ class QAbstractSpinBox(QWidget):
   'keyReleaseEvent', 'wheelEvent', 'focusInEvent', 'focusOutEvent',
   'contextMenuEvent', 'changeEvent', 'closeEvent', 'hideEvent',
   'mousePressEvent', 'mouseReleaseEvent', 'mouseMoveEvent', 'timerEvent',
-  'paintEvent', 'showEvent', 'initStyleOption'. It can be made from Python,
-  in 1 way; see '__init__'.
+  'paintEvent', 'showEvent', 'initStyleOption', 'stepEnabled'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -84,8 +84,8 @@ class QAbstractSpinBox(QWidget):
   What has no ritual
   ------------------
 
-  16 of the 69 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 protected; 3 private; 2 a signal; 2 forbidden; 1 a template.
+  15 of the 69 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 3 private; 3 protected; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -219,9 +219,6 @@ class QAbstractSpinBox(QWidget):
       'fixup': (
           'void QAbstractSpinBox::fixup(QString &) const',
       ),
-      'stepEnabled': (
-          'StepEnabled QAbstractSpinBox::stepEnabled() const',
-      ),
   }
 
   #  The functions Qt calls itself that QAbstractSpinBox is the first to
@@ -247,6 +244,11 @@ class QAbstractSpinBox(QWidget):
            (
                ('address', 'address', 'QtWidgets:QStyleOptionSpinBox'),
            )),
+      ),
+      'stepEnabled': (
+          ('_ZNK16QAbstractSpinBox11stepEnabledEv',
+           ('int', 'flags', 'QtWidgets:QAbstractSpinBox.StepEnabledFlag'),
+           ()),
       ),
   }
 
@@ -521,6 +523,23 @@ class QAbstractSpinBox(QWidget):
     address = self.uglySide.call(ritual, a0.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
+
+  def stepEnabled(self) -> StepEnabled:
+    """
+    Calls Qt's 'StepEnabled QAbstractSpinBox::stepEnabled() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#stepEnabled
+
+    Returns
+    -------
+
+    StepEnabled
+      The value standing for the combination Qt gave back.
+    """
+    #  StepEnabled QAbstractSpinBox::stepEnabled() const
+    return QAbstractSpinBox.StepEnabled(self.uglySide.call(
+        'ritual_own_ZNK16QAbstractSpinBox11stepEnabledEv',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

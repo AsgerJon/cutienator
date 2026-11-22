@@ -349,16 +349,6 @@ class QProcess(QIODevice):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QProcess'
 
-  #  The functions Qt calls itself that QProcess is the first to declare and
-  #  that cannot be handed to Python yet, each as Qt declares it. A class of
-  #  a program that writes one of them anew is refused, since Qt would never
-  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'open': (
-          'bool QProcess::open(OpenMode)',
-      ),
-  }
-
   #  Fallback Variables
 
   #  Private Variables
@@ -1015,10 +1005,13 @@ class QProcess(QIODevice):
       QIODeviceBase.OpenMode.ReadWrite.
     """
     #  bool QProcess::open(OpenMode mode)
-    return self.uglySide.call(
-        'ritual_ZN8QProcess4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE',
-        mode.value,
-    )
+    ritual = (
+        'ritual_ZN8QProcess4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN8QProcess4openE6QFlagsIN13QIODeviceBase12OpenModeFl'
+          'agEE')
+    return self.uglySide.call(ritual, mode.value)
 
   @overload(ProcessChannel)
   def closeReadChannel(self, channel: ProcessChannel) -> None:

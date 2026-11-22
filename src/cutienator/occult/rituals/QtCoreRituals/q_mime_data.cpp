@@ -4,61 +4,103 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qmetatype.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+
+//  Only a class built on QMimeData may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQMimeData : QMimeData {
+  using QMimeData::retrieveData;
+};
 
 //  A QMimeData that Python can take functions over in. Every QMimeData
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
-typedef bool (*CuteQMimeDataCall0)(const void *, QEvent *, int *);
-typedef bool (*CuteQMimeDataCall1)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQMimeDataCall2)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQMimeDataCall3)(const void *, QChildEvent *, int *);
-typedef void (*CuteQMimeDataCall4)(const void *, QEvent *, int *);
-typedef void (*CuteQMimeDataCall5)(const void *, const QMetaMethod *, int *);
-typedef void (*CuteQMimeDataCall6)(const void *, const QMetaMethod *, int *);
+typedef bool (*CuteQMimeDataCall0)(const void *, const QString *, int *);
+typedef const QVariant * (*CuteQMimeDataCall1)(const void *, const QString *, const QMetaType *, int *);
+typedef bool (*CuteQMimeDataCall2)(const void *, QEvent *, int *);
+typedef bool (*CuteQMimeDataCall3)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQMimeDataCall4)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQMimeDataCall5)(const void *, QChildEvent *, int *);
+typedef void (*CuteQMimeDataCall6)(const void *, QEvent *, int *);
+typedef void (*CuteQMimeDataCall7)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQMimeDataCall8)(const void *, const QMetaMethod *, int *);
 class CuteQMimeData : public QMimeData {
 public:
   using QMimeData::QMimeData;
-  void *taken[7] = {};
+  void *taken[9] = {};
 
   bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZNK9QMimeData9hasFormatERK7QString")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZNK9QMimeData12retrieveDataERK7QString9QMetaType")) {
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[8] = call;
       return true;
     }
     return false;
   }
 
-  //  bool QObject::event(QEvent *event)
-  bool event(QEvent *event) override {
+  //  bool QMimeData::hasFormat(const QString &mimetype) const
+  bool hasFormat(const QString &mimetype) const override {
     if (taken[0]) {
       int handled = 0;
       CuteQMimeDataCall0 call = reinterpret_cast<CuteQMimeDataCall0>(taken[0]);
+      bool given = call(this, &mimetype, &handled);
+      if (handled) return given;
+    }
+    return QMimeData::hasFormat(mimetype);
+  }
+
+  //  QVariant QMimeData::retrieveData(const QString &mimetype, QMetaType
+  //      preferredType) const
+  QVariant retrieveData(
+      const QString &mimetype,
+      QMetaType preferredType) const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQMimeDataCall1 call = reinterpret_cast<CuteQMimeDataCall1>(taken[1]);
+      const QVariant * given = call(this, &mimetype, &preferredType, &handled);
+      if (handled && given) return *given;
+    }
+    return QMimeData::retrieveData(mimetype, preferredType);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQMimeDataCall2 call = reinterpret_cast<CuteQMimeDataCall2>(taken[2]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -67,9 +109,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[1]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQMimeDataCall1 call = reinterpret_cast<CuteQMimeDataCall1>(taken[1]);
+      CuteQMimeDataCall3 call = reinterpret_cast<CuteQMimeDataCall3>(taken[3]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -78,9 +120,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[2]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQMimeDataCall2 call = reinterpret_cast<CuteQMimeDataCall2>(taken[2]);
+      CuteQMimeDataCall4 call = reinterpret_cast<CuteQMimeDataCall4>(taken[4]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -89,9 +131,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[3]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQMimeDataCall3 call = reinterpret_cast<CuteQMimeDataCall3>(taken[3]);
+      CuteQMimeDataCall5 call = reinterpret_cast<CuteQMimeDataCall5>(taken[5]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -100,9 +142,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[4]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQMimeDataCall4 call = reinterpret_cast<CuteQMimeDataCall4>(taken[4]);
+      CuteQMimeDataCall6 call = reinterpret_cast<CuteQMimeDataCall6>(taken[6]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -111,9 +153,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[5]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQMimeDataCall5 call = reinterpret_cast<CuteQMimeDataCall5>(taken[5]);
+      CuteQMimeDataCall7 call = reinterpret_cast<CuteQMimeDataCall7>(taken[7]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -122,9 +164,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[6]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQMimeDataCall6 call = reinterpret_cast<CuteQMimeDataCall6>(taken[6]);
+      CuteQMimeDataCall8 call = reinterpret_cast<CuteQMimeDataCall8>(taken[8]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -290,4 +332,25 @@ void ritual_ZN9QMimeData5clearEv(QMimeData *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QMimeData(QMimeData *self, const char *key, void *call) {
   return static_cast<CuteQMimeData *>(self)->take(key, call);
+}
+
+//  bool QMimeData::hasFormat(const QString &mimetype) const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK9QMimeData9hasFormatERK7QString(
+    const QMimeData *self,
+    const QString *mimetype) {
+  return self->QMimeData::hasFormat(*mimetype);
+}
+
+//  QVariant QMimeData::retrieveData(const QString &mimetype, QMetaType
+//      preferredType) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZNK9QMimeData12retrieveDataERK7QString9QMetaType(
+    const QMimeData *self,
+    const QString *mimetype,
+    const QMetaType *preferredType) {
+  return new QVariant(
+      static_cast<const OwnQMimeData *>(self)->OwnQMimeData::retrieveData(
+          *mimetype,
+          *preferredType));
 }

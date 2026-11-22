@@ -672,9 +672,10 @@ class QFormLayout(QLayout):
       The value standing for the combination Qt gave back.
     """
     #  Qt::Orientations QFormLayout::expandingDirections() const
-    return Qt.Orientations(self.uglySide.call(
-        'ritual_ZNK11QFormLayout19expandingDirectionsEv',
-    ))
+    ritual = 'ritual_ZNK11QFormLayout19expandingDirectionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFormLayout19expandingDirectionsEv'
+    return Qt.Orientations(self.uglySide.call(ritual))
 
   def count(self) -> int:
     """

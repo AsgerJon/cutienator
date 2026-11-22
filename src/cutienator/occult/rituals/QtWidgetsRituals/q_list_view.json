@@ -120,6 +120,9 @@
     "ritual_own_ZN9QListView9dropEventEP10QDropEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_own_ZN9QListView9startDragE6QFlagsIN2Qt10DropActionEE": [
+      "nothing", "address", "int"
+    ],
     "ritual_own_ZNK9QListView18initViewItemOptionEP20QStyleOptionViewItem": [
       "nothing", "address", "address"
     ],
@@ -128,6 +131,9 @@
     ],
     "ritual_own_ZNK9QListView16horizontalOffsetEv": ["int", "address"],
     "ritual_own_ZNK9QListView14verticalOffsetEv": ["int", "address"],
+    "ritual_own_ZN9QListView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_own_ZNK9QListView24visualRegionForSelectionERK14QItemSelection": [
       "address", "address", "address"
     ],

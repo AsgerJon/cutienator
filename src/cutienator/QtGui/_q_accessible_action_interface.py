@@ -373,6 +373,11 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleActionInterface'
 
+  #  A C++ QAccessibleActionInterface Python makes is of a C++ class of ours,
+  #  in which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAccessibleActionInterface'
+
   #  The functions Qt calls itself that QAccessibleActionInterface is the
   #  first to declare and that cannot be handed to Python yet, each as Qt
   #  declares it. A class of a program that writes one of them anew is
@@ -382,22 +387,40 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
       'actionNames': (
           'QStringList QAccessibleActionInterface::actionNames() const',
       ),
-      'localizedActionName': (
-          'QString QAccessibleActionInterface::localizedActionName(const '
-          'QString &) const',
-      ),
-      'localizedActionDescription': (
-          'QString '
-          'QAccessibleActionInterface::localizedActionDescription(const '
-          'QString &) const',
-      ),
-      'doAction': (
-          'void QAccessibleActionInterface::doAction(const QString &)',
-      ),
       'keyBindingsForAction': (
           'QStringList '
           'QAccessibleActionInterface::keyBindingsForAction(const QString '
           '&) const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QAccessibleActionInterface is the
+  #  first to declare. A class of a program built on it can write one anew,
+  #  and Qt then calls that. For each name: the key C++ knows the function
+  #  by, what it gives, and what it takes.
+  __virtual_functions__ = {
+      'localizedActionName': (
+          ('_ZNK26QAccessibleActionInterface19localizedActionNameERK7QStrin'
+           'g',
+           ('address', 'text', ''),
+           (
+               ('address', 'text', ''),
+           )),
+      ),
+      'localizedActionDescription': (
+          ('_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK'
+           '7QString',
+           ('address', 'text', ''),
+           (
+               ('address', 'text', ''),
+           )),
+      ),
+      'doAction': (
+          ('_ZN26QAccessibleActionInterface8doActionERK7QString',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'text', ''),
+           )),
       ),
   }
 
@@ -436,12 +459,14 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QString QAccessibleActionInterface::localizedActionName(const QString
     #      &name) const
-    return self._callAs(
-        'QAccessibleActionInterface',
+    ritual = (
         'ritual_ZNK26QAccessibleActionInterface19localizedActionNameERK7QSt'
-        'ring',
-        name,
-    )
+        'ring')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK26QAccessibleActionInterface19localizedActionNameE'
+          'RK7QString')
+    return self._callAs('QAccessibleActionInterface', ritual, name)
 
   @overload(str)
   def localizedActionDescription(self, name: str) -> str:
@@ -467,12 +492,14 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QString QAccessibleActionInterface::localizedActionDescription(const
     #      QString &name) const
-    return self._callAs(
-        'QAccessibleActionInterface',
+    ritual = (
         'ritual_ZNK26QAccessibleActionInterface26localizedActionDescription'
-        'ERK7QString',
-        name,
-    )
+        'ERK7QString')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK26QAccessibleActionInterface26localizedActionDescr'
+          'iptionERK7QString')
+    return self._callAs('QAccessibleActionInterface', ritual, name)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

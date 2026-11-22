@@ -9,125 +9,171 @@
 //  A QFile that Python can take functions over in. Every QFile
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
-typedef qint64 (*CuteQFileCall0)(const void *, int *);
-typedef bool (*CuteQFileCall1)(const void *, qint64, int *);
-typedef void (*CuteQFileCall2)(const void *, int *);
-typedef bool (*CuteQFileCall3)(const void *, int *);
-typedef qint64 (*CuteQFileCall4)(const void *, int *);
-typedef bool (*CuteQFileCall5)(const void *, qint64, int *);
-typedef bool (*CuteQFileCall6)(const void *, int *);
+typedef QString * (*CuteQFileCall0)(const void *, int *);
+typedef bool (*CuteQFileCall1)(const void *, int, int *);
+typedef qint64 (*CuteQFileCall2)(const void *, int *);
+typedef bool (*CuteQFileCall3)(const void *, qint64, int *);
+typedef int (*CuteQFileCall4)(const void *, int *);
+typedef bool (*CuteQFileCall5)(const void *, int, int *);
+typedef void (*CuteQFileCall6)(const void *, int *);
 typedef bool (*CuteQFileCall7)(const void *, int *);
 typedef qint64 (*CuteQFileCall8)(const void *, int *);
-typedef qint64 (*CuteQFileCall9)(const void *, int *);
+typedef bool (*CuteQFileCall9)(const void *, qint64, int *);
 typedef bool (*CuteQFileCall10)(const void *, int *);
-typedef bool (*CuteQFileCall11)(const void *, int, int *);
-typedef bool (*CuteQFileCall12)(const void *, int, int *);
-typedef qint64 (*CuteQFileCall13)(const void *, qint64, int *);
-typedef bool (*CuteQFileCall14)(const void *, QEvent *, int *);
-typedef bool (*CuteQFileCall15)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQFileCall16)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQFileCall17)(const void *, QChildEvent *, int *);
-typedef void (*CuteQFileCall18)(const void *, QEvent *, int *);
-typedef void (*CuteQFileCall19)(const void *, const QMetaMethod *, int *);
-typedef void (*CuteQFileCall20)(const void *, const QMetaMethod *, int *);
+typedef bool (*CuteQFileCall11)(const void *, int *);
+typedef qint64 (*CuteQFileCall12)(const void *, int *);
+typedef qint64 (*CuteQFileCall13)(const void *, int *);
+typedef bool (*CuteQFileCall14)(const void *, int *);
+typedef bool (*CuteQFileCall15)(const void *, int, int *);
+typedef bool (*CuteQFileCall16)(const void *, int, int *);
+typedef qint64 (*CuteQFileCall17)(const void *, qint64, int *);
+typedef bool (*CuteQFileCall18)(const void *, QEvent *, int *);
+typedef bool (*CuteQFileCall19)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQFileCall20)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQFileCall21)(const void *, QChildEvent *, int *);
+typedef void (*CuteQFileCall22)(const void *, QEvent *, int *);
+typedef void (*CuteQFileCall23)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQFileCall24)(const void *, const QMetaMethod *, int *);
 class CuteQFile : public QFile {
 public:
   using QFile::QFile;
-  void *taken[21] = {};
+  void *taken[25] = {};
 
   bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
+    if (!std::strcmp(key, "_ZNK11QFileDevice8fileNameEv")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QFileDevice6resizeEx")) {
+    if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice5closeEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
+    if (!std::strcmp(key, "_ZN11QFileDevice6resizeEx")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
+    if (!std::strcmp(key, "_ZNK11QFileDevice11permissionsEv")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
+    if (!std::strcmp(key, "_ZN11QFileDevice14setPermissionsE6QFlagsINS_10PermissionEE")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice5closeEv")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice14bytesAvailableEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
+    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice14bytesAvailableEv")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[20] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[22] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[23] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[24] = call;
       return true;
     }
     return false;
   }
 
-  //  qint64 QFile::size() const
-  qint64 size() const override {
+  //  QString QFile::fileName() const
+  QString fileName() const override {
     if (taken[0]) {
       int handled = 0;
       CuteQFileCall0 call = reinterpret_cast<CuteQFileCall0>(taken[0]);
+      QString * given = call(this, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return QFile::fileName();
+  }
+
+  //  bool QFile::open(OpenMode flags)
+  bool open(QIODeviceBase::OpenMode flags) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQFileCall1 call = reinterpret_cast<CuteQFileCall1>(taken[1]);
+      bool given = call(this, static_cast<int>(flags.toInt()), &handled);
+      if (handled) return given;
+    }
+    return QFile::open(flags);
+  }
+
+  //  qint64 QFile::size() const
+  qint64 size() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQFileCall2 call = reinterpret_cast<CuteQFileCall2>(taken[2]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -136,20 +182,42 @@ public:
 
   //  bool QFile::resize(qint64 sz)
   bool resize(qint64 sz) override {
-    if (taken[1]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQFileCall1 call = reinterpret_cast<CuteQFileCall1>(taken[1]);
+      CuteQFileCall3 call = reinterpret_cast<CuteQFileCall3>(taken[3]);
       bool given = call(this, sz, &handled);
       if (handled) return given;
     }
     return QFile::resize(sz);
   }
 
+  //  Permissions QFile::permissions() const
+  QFileDevice::Permissions permissions() const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQFileCall4 call = reinterpret_cast<CuteQFileCall4>(taken[4]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<QFileDevice::Permission>::fromInt(given);
+    }
+    return QFile::permissions();
+  }
+
+  //  bool QFile::setPermissions(Permissions permissionSpec)
+  bool setPermissions(QFileDevice::Permissions permissionSpec) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQFileCall5 call = reinterpret_cast<CuteQFileCall5>(taken[5]);
+      bool given = call(this, static_cast<int>(permissionSpec.toInt()), &handled);
+      if (handled) return given;
+    }
+    return QFile::setPermissions(permissionSpec);
+  }
+
   //  void QFileDevice::close()
   void close() override {
-    if (taken[2]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQFileCall2 call = reinterpret_cast<CuteQFileCall2>(taken[2]);
+      CuteQFileCall6 call = reinterpret_cast<CuteQFileCall6>(taken[6]);
       call(this, &handled);
       if (handled) return;
     }
@@ -158,9 +226,9 @@ public:
 
   //  bool QFileDevice::isSequential() const
   bool isSequential() const override {
-    if (taken[3]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQFileCall3 call = reinterpret_cast<CuteQFileCall3>(taken[3]);
+      CuteQFileCall7 call = reinterpret_cast<CuteQFileCall7>(taken[7]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -169,9 +237,9 @@ public:
 
   //  qint64 QFileDevice::pos() const
   qint64 pos() const override {
-    if (taken[4]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQFileCall4 call = reinterpret_cast<CuteQFileCall4>(taken[4]);
+      CuteQFileCall8 call = reinterpret_cast<CuteQFileCall8>(taken[8]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -180,9 +248,9 @@ public:
 
   //  bool QFileDevice::seek(qint64 offset)
   bool seek(qint64 offset) override {
-    if (taken[5]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQFileCall5 call = reinterpret_cast<CuteQFileCall5>(taken[5]);
+      CuteQFileCall9 call = reinterpret_cast<CuteQFileCall9>(taken[9]);
       bool given = call(this, offset, &handled);
       if (handled) return given;
     }
@@ -191,9 +259,9 @@ public:
 
   //  bool QFileDevice::atEnd() const
   bool atEnd() const override {
-    if (taken[6]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQFileCall6 call = reinterpret_cast<CuteQFileCall6>(taken[6]);
+      CuteQFileCall10 call = reinterpret_cast<CuteQFileCall10>(taken[10]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -202,9 +270,9 @@ public:
 
   //  bool QIODevice::reset()
   bool reset() override {
-    if (taken[7]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQFileCall7 call = reinterpret_cast<CuteQFileCall7>(taken[7]);
+      CuteQFileCall11 call = reinterpret_cast<CuteQFileCall11>(taken[11]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -213,9 +281,9 @@ public:
 
   //  qint64 QIODevice::bytesAvailable() const
   qint64 bytesAvailable() const override {
-    if (taken[8]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQFileCall8 call = reinterpret_cast<CuteQFileCall8>(taken[8]);
+      CuteQFileCall12 call = reinterpret_cast<CuteQFileCall12>(taken[12]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -224,9 +292,9 @@ public:
 
   //  qint64 QIODevice::bytesToWrite() const
   qint64 bytesToWrite() const override {
-    if (taken[9]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQFileCall9 call = reinterpret_cast<CuteQFileCall9>(taken[9]);
+      CuteQFileCall13 call = reinterpret_cast<CuteQFileCall13>(taken[13]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -235,9 +303,9 @@ public:
 
   //  bool QIODevice::canReadLine() const
   bool canReadLine() const override {
-    if (taken[10]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQFileCall10 call = reinterpret_cast<CuteQFileCall10>(taken[10]);
+      CuteQFileCall14 call = reinterpret_cast<CuteQFileCall14>(taken[14]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -246,9 +314,9 @@ public:
 
   //  bool QIODevice::waitForReadyRead(int msecs)
   bool waitForReadyRead(int msecs) override {
-    if (taken[11]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQFileCall11 call = reinterpret_cast<CuteQFileCall11>(taken[11]);
+      CuteQFileCall15 call = reinterpret_cast<CuteQFileCall15>(taken[15]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -257,9 +325,9 @@ public:
 
   //  bool QIODevice::waitForBytesWritten(int msecs)
   bool waitForBytesWritten(int msecs) override {
-    if (taken[12]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQFileCall12 call = reinterpret_cast<CuteQFileCall12>(taken[12]);
+      CuteQFileCall16 call = reinterpret_cast<CuteQFileCall16>(taken[16]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -268,9 +336,9 @@ public:
 
   //  qint64 QIODevice::skipData(qint64 maxSize)
   qint64 skipData(qint64 maxSize) override {
-    if (taken[13]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQFileCall13 call = reinterpret_cast<CuteQFileCall13>(taken[13]);
+      CuteQFileCall17 call = reinterpret_cast<CuteQFileCall17>(taken[17]);
       qint64 given = call(this, maxSize, &handled);
       if (handled) return given;
     }
@@ -279,9 +347,9 @@ public:
 
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[14]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQFileCall14 call = reinterpret_cast<CuteQFileCall14>(taken[14]);
+      CuteQFileCall18 call = reinterpret_cast<CuteQFileCall18>(taken[18]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -290,9 +358,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[15]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQFileCall15 call = reinterpret_cast<CuteQFileCall15>(taken[15]);
+      CuteQFileCall19 call = reinterpret_cast<CuteQFileCall19>(taken[19]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -301,9 +369,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[16]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQFileCall16 call = reinterpret_cast<CuteQFileCall16>(taken[16]);
+      CuteQFileCall20 call = reinterpret_cast<CuteQFileCall20>(taken[20]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -312,9 +380,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[17]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQFileCall17 call = reinterpret_cast<CuteQFileCall17>(taken[17]);
+      CuteQFileCall21 call = reinterpret_cast<CuteQFileCall21>(taken[21]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -323,9 +391,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[18]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQFileCall18 call = reinterpret_cast<CuteQFileCall18>(taken[18]);
+      CuteQFileCall22 call = reinterpret_cast<CuteQFileCall22>(taken[22]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -334,9 +402,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[19]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQFileCall19 call = reinterpret_cast<CuteQFileCall19>(taken[19]);
+      CuteQFileCall23 call = reinterpret_cast<CuteQFileCall23>(taken[23]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -345,9 +413,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[20]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQFileCall20 call = reinterpret_cast<CuteQFileCall20>(taken[20]);
+      CuteQFileCall24 call = reinterpret_cast<CuteQFileCall24>(taken[24]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -604,6 +672,21 @@ bool ritual_take_QFile(QFile *self, const char *key, void *call) {
   return static_cast<CuteQFile *>(self)->take(key, call);
 }
 
+//  QString QFile::fileName() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_own_ZNK5QFile8fileNameEv(const QFile *self) {
+  return new QString(self->QFile::fileName());
+}
+
+//  bool QFile::open(OpenMode flags)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN5QFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE(
+    QFile *self,
+    int flags) {
+  return self->QFile::open(
+      QFlags<QIODeviceBase::OpenModeFlag>::fromInt(flags));
+}
+
 //  qint64 QFile::size() const
 extern "C" Q_DECL_EXPORT
 qint64 ritual_own_ZNK5QFile4sizeEv(const QFile *self) {
@@ -614,4 +697,19 @@ qint64 ritual_own_ZNK5QFile4sizeEv(const QFile *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN5QFile6resizeEx(QFile *self, qint64 sz) {
   return self->QFile::resize(sz);
+}
+
+//  Permissions QFile::permissions() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK5QFile11permissionsEv(const QFile *self) {
+  return static_cast<int>(self->QFile::permissions().toInt());
+}
+
+//  bool QFile::setPermissions(Permissions permissionSpec)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN5QFile14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE(
+    QFile *self,
+    int permissionSpec) {
+  return self->QFile::setPermissions(
+      QFlags<QFileDevice::Permission>::fromInt(permissionSpec));
 }

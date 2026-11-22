@@ -47,6 +47,7 @@
       "nothing", "address", "int"
     ],
     "ritual_take_QProgressBar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QProgressBar4textEv": ["text", "address"],
     "ritual_own_ZNK12QProgressBar8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK12QProgressBar15minimumSizeHintEv": [
       "address", "address"

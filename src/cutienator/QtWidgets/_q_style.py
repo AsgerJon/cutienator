@@ -1054,21 +1054,6 @@ class QStyle(QObject):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QStyle'
 
-  #  The functions Qt calls itself that QStyle is the first to declare and
-  #  that cannot be handed to Python yet, each as Qt declares it. A class of
-  #  a program that writes one of them anew is refused, since Qt would never
-  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'itemTextRect': (
-          'QRect QStyle::itemTextRect(const QFontMetrics &, const QRect &, '
-          'int, bool, const QString &) const',
-      ),
-      'drawItemText': (
-          'void QStyle::drawItemText(QPainter *, const QRect &, int, const '
-          'QPalette &, bool, const QString &, QPalette::ColorRole) const',
-      ),
-  }
-
   #  The functions Qt calls itself that QStyle is the first to declare. A
   #  class of a program built on it can write one anew, and Qt then calls
   #  that. For each name: the key C++ knows the function by, what it gives,
@@ -1098,6 +1083,17 @@ class QStyle(QObject):
                ('address', 'address', 'QtWidgets:QApplication'),
            )),
       ),
+      'itemTextRect': (
+          ('_ZNK6QStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QString',
+           ('address', 'value', 'QtCore:QRect'),
+           (
+               ('address', 'value', 'QtGui:QFontMetrics'),
+               ('address', 'value', 'QtCore:QRect'),
+               ('int', 'number', ''),
+               ('bool', 'number', ''),
+               ('address', 'text', ''),
+           )),
+      ),
       'itemPixmapRect': (
           ('_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap',
            ('address', 'value', 'QtCore:QRect'),
@@ -1105,6 +1101,20 @@ class QStyle(QObject):
                ('address', 'value', 'QtCore:QRect'),
                ('int', 'number', ''),
                ('address', 'value', 'QtGui:QPixmap'),
+           )),
+      ),
+      'drawItemText': (
+          ('_ZNK6QStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QSt'
+           'ringNS5_9ColorRoleE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'value', 'QtCore:QRect'),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtGui:QPalette'),
+               ('bool', 'number', ''),
+               ('address', 'text', ''),
+               ('int', 'enum', 'QtGui:QPalette.ColorRole'),
            )),
       ),
       'drawItemPixmap': (
@@ -1350,10 +1360,15 @@ class QStyle(QObject):
     """
     #  QRect QStyle::itemTextRect(const QFontMetrics &fm, const QRect &r, int
     #      flags, bool enabled, const QString &text) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK6QStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QStri'
-        'ng',
-        self._valueOf(fm), self._valueOf(r), flags, enabled, text,
+        'ng')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK6QStyle12itemTextRectERK12QFontMetricsRK5QRectibRK'
+          '7QString')
+    address = self.uglySide.call(
+        ritual, self._valueOf(fm), self._valueOf(r), flags, enabled, text,
     )
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
@@ -2190,9 +2205,15 @@ class QStyle(QObject):
     #  void QStyle::drawItemText(QPainter *painter, const QRect &rect, int
     #      flags, const QPalette &pal, bool enabled, const QString &text,
     #      QPalette::ColorRole textRole) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK6QStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7'
-        'QStringNS5_9ColorRoleE',
+        'QStringNS5_9ColorRoleE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK6QStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalet'
+          'tebRK7QStringNS5_9ColorRoleE')
+    self.uglySide.call(
+        ritual,
         self._addressOf(painter), self._valueOf(rect), flags,
         self._valueOf(pal), enabled, text, textRole.value,
     )

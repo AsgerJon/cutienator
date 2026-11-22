@@ -13,15 +13,15 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QItemSelectionModel
 from . import QAbstractItemView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QAbstractItemModel, QEvent, QItemSelection
-  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
-  from ..QtCore import QRect, QSize, QTimerEvent
+  from ..QtCore import QMetaObject, QModelIndex, QPoint, QRect, QSize
+  from ..QtCore import QTimerEvent
   from ..QtGui import QDragMoveEvent, QKeyEvent, QMouseEvent, QPaintEvent
   from ..QtGui import QPainter, QRegion
   from . import QHeaderView, QStyleOptionViewItem
@@ -34,7 +34,6 @@ else:
   QEvent = WAIT['QEvent']
   QHeaderView = WAIT['QHeaderView']
   QItemSelection = WAIT['QItemSelection']
-  QItemSelectionModel = WAIT['QItemSelectionModel']
   QKeyEvent = WAIT['QKeyEvent']
   QModelIndex = WAIT['QModelIndex']
   QMouseEvent = WAIT['QMouseEvent']
@@ -62,7 +61,7 @@ class QTreeView(QAbstractItemView):
   -----------
 
   Every function of Qt's QTreeView that has a ritual and that Python can call
-  so far, 90 names in all: 'metaObject', 'tr', 'setModel', 'setRootIndex',
+  so far, 91 names in all: 'metaObject', 'tr', 'setModel', 'setRootIndex',
   'setSelectionModel', 'header', 'setHeader', 'autoExpandDelay',
   'setAutoExpandDelay', 'indentation', 'setIndentation', 'resetIndentation',
   'rootIsDecorated', 'setRootIsDecorated', 'uniformRowHeights',
@@ -80,13 +79,14 @@ class QTreeView(QAbstractItemView):
   'resizeColumnToContents', 'sortByColumn', 'expandAll', 'expandRecursively',
   'collapseAll', 'expandToDepth', 'verticalScrollbarValueChanged',
   'scrollContentsBy', 'rowsInserted', 'rowsAboutToBeRemoved',
-  'horizontalOffset', 'verticalOffset', 'visualRegionForSelection',
-  'changeEvent', 'timerEvent', 'paintEvent', 'drawRow', 'drawBranches',
-  'mousePressEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
-  'mouseMoveEvent', 'keyPressEvent', 'dragMoveEvent', 'viewportEvent',
-  'updateGeometries', 'viewportSizeHint', 'sizeHintForColumn',
-  'horizontalScrollbarAction', 'isIndexHidden', 'selectionChanged',
-  'currentChanged'. It can be made from Python, in 1 way; see '__init__'.
+  'horizontalOffset', 'verticalOffset', 'setSelection',
+  'visualRegionForSelection', 'changeEvent', 'timerEvent', 'paintEvent',
+  'drawRow', 'drawBranches', 'mousePressEvent', 'mouseReleaseEvent',
+  'mouseDoubleClickEvent', 'mouseMoveEvent', 'keyPressEvent',
+  'dragMoveEvent', 'viewportEvent', 'updateGeometries', 'viewportSizeHint',
+  'sizeHintForColumn', 'horizontalScrollbarAction', 'isIndexHidden',
+  'selectionChanged', 'currentChanged'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -97,7 +97,7 @@ class QTreeView(QAbstractItemView):
   What has no ritual
   ------------------
 
-  24 of the 116 functions Qt declares: 12 protected; 4 private; 3 takes or
+  23 of the 116 functions Qt declares: 11 protected; 4 private; 3 takes or
   gives a type that cannot be passed yet; 2 a signal; 2 forbidden; 1 a
   template.
 
@@ -1172,6 +1172,35 @@ class QTreeView(QAbstractItemView):
         'ritual_ZN9QTreeView15setTreePositionEi', logicalIndex,
     )
 
+  @overload(QRect, QItemSelectionModel.SelectionFlags)
+  def setSelection(
+      self,
+      rect: QRect,
+      command: QItemSelectionModel.SelectionFlags,
+  ) -> None:
+    """
+    Calls Qt's 'void QTreeView::setSelection(const QRect &rect,
+    QItemSelectionModel::SelectionFlags command)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#setSelection
+
+    Parameters
+    ----------
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    command : QItemSelectionModel.SelectionFlags
+      Passed on as its number.
+    """
+    #  void QTreeView::setSelection(const QRect &rect,
+    #      QItemSelectionModel::SelectionFlags command)
+    self.uglySide.call(
+        'ritual_own_ZN9QTreeView12setSelectionERK5QRect6QFlagsIN19QItemSele'
+        'ctionModel13SelectionFlagEE',
+        self._valueOf(rect), command.value,
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1249,9 +1278,10 @@ class QTreeView(QAbstractItemView):
       Passed on as it is: a QString is made of it for the call.
     """
     #  void QTreeView::keyboardSearch(const QString &search)
-    self.uglySide.call(
-        'ritual_ZN9QTreeView14keyboardSearchERK7QString', search,
-    )
+    ritual = 'ritual_ZN9QTreeView14keyboardSearchERK7QString'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView14keyboardSearchERK7QString'
+    self.uglySide.call(ritual, search)
 
   @overload(QModelIndex)
   @overload(QModelIndex, QAbstractItemView.ScrollHint)

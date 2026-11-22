@@ -64,14 +64,23 @@ class QXmlStreamEntityResolver(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QXmlStreamEntityResolver'
 
+  #  A C++ QXmlStreamEntityResolver Python makes is of a C++ class of ours,
+  #  in which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QXmlStreamEntityResolver'
+
   #  The functions Qt calls itself that QXmlStreamEntityResolver is the first
-  #  to declare and that cannot be handed to Python yet, each as Qt declares
-  #  it. A class of a program that writes one of them anew is refused, since
-  #  Qt would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
+  #  to declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
       'resolveUndeclaredEntity': (
-          'QString QXmlStreamEntityResolver::resolveUndeclaredEntity(const '
-          'QString &)',
+          ('_ZN24QXmlStreamEntityResolver23resolveUndeclaredEntityERK7QStri'
+           'ng',
+           ('address', 'text', ''),
+           (
+               ('address', 'text', ''),
+           )),
       ),
   }
 
@@ -192,8 +201,11 @@ class QXmlStreamEntityResolver(CuteMixin, metaclass=MetaCute):
     """
     #  QString QXmlStreamEntityResolver::resolveUndeclaredEntity(const
     #      QString &name)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN24QXmlStreamEntityResolver23resolveUndeclaredEntityERK7QS'
-        'tring',
-        name,
-    )
+        'tring')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN24QXmlStreamEntityResolver23resolveUndeclaredEntity'
+          'ERK7QString')
+    return self.uglySide.call(ritual, name)

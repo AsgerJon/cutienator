@@ -52,7 +52,7 @@ class QTableWidget(QTableView):
   -----------
 
   Every function of Qt's QTableWidget that has a ritual and that Python can
-  call so far, 53 names in all: 'metaObject', 'tr', 'setRowCount',
+  call so far, 54 names in all: 'metaObject', 'tr', 'setRowCount',
   'rowCount', 'setColumnCount', 'columnCount', 'row', 'column', 'item',
   'setItem', 'takeItem', 'indexFromItem', 'itemFromIndex',
   'verticalHeaderItem', 'setVerticalHeaderItem', 'takeVerticalHeaderItem',
@@ -65,8 +65,8 @@ class QTableWidget(QTableView):
   'visualColumn', 'itemAt', 'visualItemRect', 'itemPrototype',
   'setItemPrototype', 'supportedDragActions', 'setSupportedDragActions',
   'scrollToItem', 'insertRow', 'insertColumn', 'removeRow', 'removeColumn',
-  'clear', 'clearContents', 'event', 'dropMimeData', 'dropEvent'. It can be
-  made from Python, in 2 ways; see '__init__'.
+  'clear', 'clearContents', 'event', 'dropMimeData', 'supportedDropActions',
+  'dropEvent'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -77,8 +77,8 @@ class QTableWidget(QTableView):
   What has no ritual
   ------------------
 
-  33 of the 92 functions Qt declares: 15 a signal; 8 takes or gives a type
-  that cannot be passed yet; 4 private; 3 protected; 2 forbidden; 1 a
+  32 of the 92 functions Qt declares: 15 a signal; 8 takes or gives a type
+  that cannot be passed yet; 4 private; 2 protected; 2 forbidden; 1 a
   template.
 
   What to expect
@@ -169,9 +169,6 @@ class QTableWidget(QTableView):
           'QMimeData *QTableWidget::mimeData(const QList<QTableWidgetItem '
           '*> &) const',
       ),
-      'supportedDropActions': (
-          'Qt::DropActions QTableWidget::supportedDropActions() const',
-      ),
   }
 
   #  The functions Qt calls itself that QTableWidget is the first to declare.
@@ -188,6 +185,11 @@ class QTableWidget(QTableView):
                ('address', 'address', 'QtCore:QMimeData'),
                ('int', 'enum', 'QtCore:Qt.DropAction'),
            )),
+      ),
+      'supportedDropActions': (
+          ('_ZNK12QTableWidget20supportedDropActionsEv',
+           ('int', 'flags', 'QtCore:Qt.DropAction'),
+           ()),
       ),
   }
 
@@ -690,6 +692,24 @@ class QTableWidget(QTableView):
     #  Qt::DropActions QTableWidget::supportedDragActions() const
     return Qt.DropActions(self.uglySide.call(
         'ritual_ZNK12QTableWidget20supportedDragActionsEv',
+    ))
+
+  def supportedDropActions(self) -> Qt.DropActions:
+    """
+    Calls Qt's 'Qt::DropActions QTableWidget::supportedDropActions() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtablewidget.html#supportedDropActions
+
+    Returns
+    -------
+
+    Qt.DropActions
+      The value standing for the combination Qt gave back.
+    """
+    #  Qt::DropActions QTableWidget::supportedDropActions() const
+    return Qt.DropActions(self.uglySide.call(
+        'ritual_own_ZNK12QTableWidget20supportedDropActionsEv',
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

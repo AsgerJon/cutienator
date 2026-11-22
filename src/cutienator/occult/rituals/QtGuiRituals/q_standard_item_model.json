@@ -186,6 +186,12 @@
     "ritual_own_ZN18QStandardItemModel13removeColumnsEiiRK11QModelIndex": [
       "bool", "address", "int", "int", "address"
     ],
+    "ritual_own_ZNK18QStandardItemModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK18QStandardItemModel20supportedDropActionsEv": [
+      "int", "address"
+    ],
     "ritual_own_ZN18QStandardItemModel4sortEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
     ],

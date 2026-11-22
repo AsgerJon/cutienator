@@ -33,6 +33,9 @@
     ],
     "ritual_own_ZN18QAbstractListModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
       "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_own_ZNK18QAbstractListModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
     ]
   }
 }

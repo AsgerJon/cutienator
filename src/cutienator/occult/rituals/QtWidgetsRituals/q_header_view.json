@@ -207,6 +207,9 @@
     "ritual_own_ZNK11QHeaderView13isIndexHiddenERK11QModelIndex": [
       "bool", "address", "address"
     ],
+    "ritual_own_ZN11QHeaderView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_own_ZNK11QHeaderView24visualRegionForSelectionERK14QItemSelection": [
       "address", "address", "address"
     ],

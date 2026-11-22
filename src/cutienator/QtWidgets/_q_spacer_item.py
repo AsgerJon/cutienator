@@ -175,9 +175,10 @@ class QSpacerItem(QLayoutItem):
       The value standing for the combination Qt gave back.
     """
     #  Qt::Orientations QSpacerItem::expandingDirections() const
-    return Qt.Orientations(self.uglySide.call(
-        'ritual_ZNK11QSpacerItem19expandingDirectionsEv',
-    ))
+    ritual = 'ritual_ZNK11QSpacerItem19expandingDirectionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QSpacerItem19expandingDirectionsEv'
+    return Qt.Orientations(self.uglySide.call(ritual))
 
   def isEmpty(self) -> bool:
     """

@@ -408,10 +408,10 @@ class QRangeModel(QAbstractItemModel):
       The value standing for the combination Qt gave back.
     """
     #  Qt::ItemFlags QRangeModel::flags(const QModelIndex &index) const
-    return Qt.ItemFlags(self.uglySide.call(
-        'ritual_ZNK11QRangeModel5flagsERK11QModelIndex',
-        self._valueOf(index),
-    ))
+    ritual = 'ritual_ZNK11QRangeModel5flagsERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QRangeModel5flagsERK11QModelIndex'
+    return Qt.ItemFlags(self.uglySide.call(ritual, self._valueOf(index)))
 
   @overload(int, Qt.Orientation)
   @overload(int, Qt.Orientation, int)
@@ -684,9 +684,10 @@ class QRangeModel(QAbstractItemModel):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QRangeModel::supportedDragActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_ZNK11QRangeModel20supportedDragActionsEv',
-    ))
+    ritual = 'ritual_ZNK11QRangeModel20supportedDragActionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QRangeModel20supportedDragActionsEv'
+    return Qt.DropActions(self.uglySide.call(ritual))
 
   def supportedDropActions(self) -> Qt.DropActions:
     """
@@ -702,9 +703,10 @@ class QRangeModel(QAbstractItemModel):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QRangeModel::supportedDropActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_ZNK11QRangeModel20supportedDropActionsEv',
-    ))
+    ritual = 'ritual_ZNK11QRangeModel20supportedDropActionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QRangeModel20supportedDropActionsEv'
+    return Qt.DropActions(self.uglySide.call(ritual))
 
   def autoConnectPolicy(self) -> AutoConnectPolicy:
     """

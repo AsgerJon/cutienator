@@ -291,9 +291,10 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
       The text Qt gave back.
     """
     #  QString QAccessibleWidget::text(QAccessible::Text t) const
-    return self.uglySide.call(
-        'ritual_ZNK17QAccessibleWidget4textEN11QAccessible4TextE', t.value,
-    )
+    ritual = 'ritual_ZNK17QAccessibleWidget4textEN11QAccessible4TextE'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleWidget4textEN11QAccessible4TextE'
+    return self.uglySide.call(ritual, t.value)
 
   def role(self) -> QAccessible.Role:
     """
@@ -498,6 +499,7 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
       Passed on as it is: a QString is made of it for the call.
     """
     #  void QAccessibleWidget::doAction(const QString &actionName)
-    self.uglySide.call(
-        'ritual_ZN17QAccessibleWidget8doActionERK7QString', actionName,
-    )
+    ritual = 'ritual_ZN17QAccessibleWidget8doActionERK7QString'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAccessibleWidget8doActionERK7QString'
+    self.uglySide.call(ritual, actionName)

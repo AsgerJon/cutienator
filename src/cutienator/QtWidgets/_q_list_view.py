@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QItemSelectionModel
 from . import QAbstractItemView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -39,6 +39,7 @@ else:
   QMouseEvent = WAIT['QMouseEvent']
   QPaintEvent = WAIT['QPaintEvent']
   QPoint = WAIT['QPoint']
+  QRect = WAIT['QRect']
   QResizeEvent = WAIT['QResizeEvent']
   QSize = WAIT['QSize']
   QStyleOptionViewItem = WAIT['QStyleOptionViewItem']
@@ -62,7 +63,7 @@ class QListView(QAbstractItemView):
   -----------
 
   Every function of Qt's QListView that has a ritual and that Python can call
-  so far, 61 names in all: 'metaObject', 'tr', 'setMovement', 'movement',
+  so far, 63 names in all: 'metaObject', 'tr', 'setMovement', 'movement',
   'setFlow', 'flow', 'setWrapping', 'isWrapping', 'setResizeMode',
   'resizeMode', 'setLayoutMode', 'layoutMode', 'setSpacing', 'spacing',
   'setBatchSize', 'batchSize', 'setGridSize', 'gridSize', 'setViewMode',
@@ -74,10 +75,11 @@ class QListView(QAbstractItemView):
   'setRootIndex', 'event', 'scrollContentsBy', 'rowsInserted',
   'rowsAboutToBeRemoved', 'mouseMoveEvent', 'mouseReleaseEvent',
   'wheelEvent', 'timerEvent', 'resizeEvent', 'dragMoveEvent',
-  'dragLeaveEvent', 'dropEvent', 'initViewItemOption', 'paintEvent',
-  'horizontalOffset', 'verticalOffset', 'visualRegionForSelection',
-  'updateGeometries', 'isIndexHidden', 'selectionChanged', 'currentChanged',
-  'viewportSizeHint'. It can be made from Python, in 1 way; see '__init__'.
+  'dragLeaveEvent', 'dropEvent', 'startDrag', 'initViewItemOption',
+  'paintEvent', 'horizontalOffset', 'verticalOffset', 'setSelection',
+  'visualRegionForSelection', 'updateGeometries', 'isIndexHidden',
+  'selectionChanged', 'currentChanged', 'viewportSizeHint'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -88,7 +90,7 @@ class QListView(QAbstractItemView):
   What has no ritual
   ------------------
 
-  20 of the 83 functions Qt declares: 10 protected; 4 private; 2 takes or
+  18 of the 83 functions Qt declares: 8 protected; 4 private; 2 takes or
   gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1 a
   signal.
 
@@ -874,6 +876,35 @@ class QListView(QAbstractItemView):
       ritual = 'ritual_own_ZN9QListView12setRootIndexERK11QModelIndex'
     self.uglySide.call(ritual, self._valueOf(index))
 
+  @overload(QRect, QItemSelectionModel.SelectionFlags)
+  def setSelection(
+      self,
+      rect: QRect,
+      command: QItemSelectionModel.SelectionFlags,
+  ) -> None:
+    """
+    Calls Qt's 'void QListView::setSelection(const QRect &rect,
+    QItemSelectionModel::SelectionFlags command)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#setSelection
+
+    Parameters
+    ----------
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    command : QItemSelectionModel.SelectionFlags
+      Passed on as its number.
+    """
+    #  void QListView::setSelection(const QRect &rect,
+    #      QItemSelectionModel::SelectionFlags command)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView12setSelectionERK5QRect6QFlagsIN19QItemSele'
+        'ctionModel13SelectionFlagEE',
+        self._valueOf(rect), command.value,
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1265,6 +1296,25 @@ class QListView(QAbstractItemView):
     self.uglySide.call(
         'ritual_own_ZN9QListView9dropEventEP10QDropEvent',
         self._addressOf(e),
+    )
+
+  @overload(Qt.DropActions)
+  def startDrag(self, supportedActions: Qt.DropActions) -> None:
+    """
+    Calls Qt's 'void QListView::startDrag(Qt::DropActions supportedActions)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#startDrag
+
+    Parameters
+    ----------
+
+    supportedActions : Qt.DropActions
+      Passed on as its number.
+    """
+    #  void QListView::startDrag(Qt::DropActions supportedActions)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView9startDragE6QFlagsIN2Qt10DropActionEE',
+        supportedActions.value,
     )
 
   @overload(QStyleOptionViewItem)

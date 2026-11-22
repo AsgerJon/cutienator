@@ -201,21 +201,6 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QPaintEngine'
 
-  #  The functions Qt calls itself that QPaintEngine is the first to declare
-  #  and that cannot be handed to Python yet, each as Qt declares it. A class
-  #  of a program that writes one of them anew is refused, since Qt would
-  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'drawImage': (
-          'void QPaintEngine::drawImage(const QRectF &, const QImage &, '
-          'const QRectF &, Qt::ImageConversionFlags)',
-      ),
-      'createPixmapFromImage': (
-          'QPixmap QPaintEngine::createPixmapFromImage(QImage, '
-          'Qt::ImageConversionFlags)',
-      ),
-  }
-
   #  The functions Qt calls itself that QPaintEngine is the first to declare.
   #  A class of a program built on it can write one anew, and Qt then calls
   #  that. For each name: the key C++ knows the function by, what it gives,
@@ -344,6 +329,17 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
                ('address', 'value', 'QtCore:QPointF'),
            )),
       ),
+      'drawImage': (
+          ('_ZN12QPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19'
+           'ImageConversionFlagEE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QRectF'),
+               ('address', 'value', 'QtGui:QImage'),
+               ('address', 'value', 'QtCore:QRectF'),
+               ('int', 'flags', 'QtCore:Qt.ImageConversionFlag'),
+           )),
+      ),
       'coordinateOffset': (
           ('_ZNK12QPaintEngine16coordinateOffsetEv',
            ('address', 'value', 'QtCore:QPoint'),
@@ -359,6 +355,15 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
            ('address', 'value', 'QtGui:QPixmap'),
            (
                ('address', 'value', 'QtCore:QSize'),
+           )),
+      ),
+      'createPixmapFromImage': (
+          ('_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19I'
+           'mageConversionFlagEE',
+           ('address', 'value', 'QtGui:QPixmap'),
+           (
+               ('address', 'value', 'QtGui:QImage'),
+               ('int', 'flags', 'QtCore:Qt.ImageConversionFlag'),
            )),
       ),
   }
@@ -1117,9 +1122,15 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     """
     #  void QPaintEngine::drawImage(const QRectF &r, const QImage &pm, const
     #      QRectF &sr, Qt::ImageConversionFlags flags)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN12QPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Q'
-        't19ImageConversionFlagEE',
+        't19ImageConversionFlagEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN12QPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFla'
+          'gsIN2Qt19ImageConversionFlagEE')
+    self.uglySide.call(
+        ritual,
         self._valueOf(r), self._valueOf(pm), self._valueOf(sr), flags.value,
     )
 
@@ -1230,10 +1241,13 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     """
     #  QPixmap QPaintEngine::createPixmapFromImage(QImage image,
     #      Qt::ImageConversionFlags flags)
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt'
-        '19ImageConversionFlagEE',
-        self._valueOf(image), flags.value,
-    )
+        '19ImageConversionFlagEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlag'
+          'sIN2Qt19ImageConversionFlagEE')
+    address = self.uglySide.call(ritual, self._valueOf(image), flags.value)
     from . import QPixmap
     return QPixmap._cuteOwning(address)

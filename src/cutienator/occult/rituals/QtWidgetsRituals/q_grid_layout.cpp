@@ -24,30 +24,33 @@ typedef int (*CuteQGridLayoutCall4)(const void *, int *);
 typedef bool (*CuteQGridLayoutCall5)(const void *, int *);
 typedef int (*CuteQGridLayoutCall6)(const void *, int, int *);
 typedef int (*CuteQGridLayoutCall7)(const void *, int, int *);
-typedef void (*CuteQGridLayoutCall8)(const void *, int *);
-typedef void * (*CuteQGridLayoutCall9)(const void *, int, int *);
+typedef int (*CuteQGridLayoutCall8)(const void *, int *);
+typedef void (*CuteQGridLayoutCall9)(const void *, int *);
 typedef void * (*CuteQGridLayoutCall10)(const void *, int, int *);
-typedef int (*CuteQGridLayoutCall11)(const void *, int *);
-typedef void (*CuteQGridLayoutCall12)(const void *, const QRect *, int *);
-typedef void (*CuteQGridLayoutCall13)(const void *, QLayoutItem *, int *);
-typedef const QRect * (*CuteQGridLayoutCall14)(const void *, int *);
-typedef int (*CuteQGridLayoutCall15)(const void *, const QWidget *, int *);
-typedef int (*CuteQGridLayoutCall16)(const void *, const QLayoutItem *, int *);
-typedef bool (*CuteQGridLayoutCall17)(const void *, int *);
-typedef void * (*CuteQGridLayoutCall18)(const void *, int *);
-typedef void (*CuteQGridLayoutCall19)(const void *, QChildEvent *, int *);
-typedef bool (*CuteQGridLayoutCall20)(const void *, QEvent *, int *);
-typedef bool (*CuteQGridLayoutCall21)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQGridLayoutCall22)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQGridLayoutCall23)(const void *, QEvent *, int *);
-typedef void (*CuteQGridLayoutCall24)(const void *, const QMetaMethod *, int *);
-typedef void (*CuteQGridLayoutCall25)(const void *, const QMetaMethod *, int *);
-typedef void * (*CuteQGridLayoutCall26)(const void *, int *);
-typedef void * (*CuteQGridLayoutCall27)(const void *, int *);
+typedef void * (*CuteQGridLayoutCall11)(const void *, int, int *);
+typedef int (*CuteQGridLayoutCall12)(const void *, int *);
+typedef void (*CuteQGridLayoutCall13)(const void *, const QRect *, int *);
+typedef void (*CuteQGridLayoutCall14)(const void *, QLayoutItem *, int *);
+typedef const QRect * (*CuteQGridLayoutCall15)(const void *, int *);
+typedef int (*CuteQGridLayoutCall16)(const void *, const QWidget *, int *);
+typedef int (*CuteQGridLayoutCall17)(const void *, const QLayoutItem *, int *);
+typedef bool (*CuteQGridLayoutCall18)(const void *, int *);
+typedef int (*CuteQGridLayoutCall19)(const void *, int *);
+typedef void * (*CuteQGridLayoutCall20)(const void *, QWidget *, QWidget *, int, int *);
+typedef void * (*CuteQGridLayoutCall21)(const void *, int *);
+typedef void (*CuteQGridLayoutCall22)(const void *, QChildEvent *, int *);
+typedef bool (*CuteQGridLayoutCall23)(const void *, QEvent *, int *);
+typedef bool (*CuteQGridLayoutCall24)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQGridLayoutCall25)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQGridLayoutCall26)(const void *, QEvent *, int *);
+typedef void (*CuteQGridLayoutCall27)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQGridLayoutCall28)(const void *, const QMetaMethod *, int *);
+typedef void * (*CuteQGridLayoutCall29)(const void *, int *);
+typedef void * (*CuteQGridLayoutCall30)(const void *, int *);
 class CuteQGridLayout : public QGridLayout {
 public:
   using QGridLayout::QGridLayout;
-  void *taken[28] = {};
+  void *taken[31] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK11QLayoutItem8sizeHintEv")) {
@@ -82,84 +85,96 @@ public:
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QLayoutItem10invalidateEv")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem19expandingDirectionsEv")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QLayout6itemAtEi")) {
+    if (!std::strcmp(key, "_ZN11QLayoutItem10invalidateEv")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QLayout6takeAtEi")) {
+    if (!std::strcmp(key, "_ZNK7QLayout6itemAtEi")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QLayout5countEv")) {
+    if (!std::strcmp(key, "_ZN7QLayout6takeAtEi")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QLayoutItem11setGeometryERK5QRect")) {
+    if (!std::strcmp(key, "_ZNK7QLayout5countEv")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QLayout7addItemEP11QLayoutItem")) {
+    if (!std::strcmp(key, "_ZN11QLayoutItem11setGeometryERK5QRect")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem8geometryEv")) {
+    if (!std::strcmp(key, "_ZN7QLayout7addItemEP11QLayoutItem")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QLayout7indexOfEPK7QWidget")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem8geometryEv")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QLayout7indexOfEPK11QLayoutItem")) {
+    if (!std::strcmp(key, "_ZNK7QLayout7indexOfEPK7QWidget")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem7isEmptyEv")) {
+    if (!std::strcmp(key, "_ZNK7QLayout7indexOfEPK11QLayoutItem")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QLayoutItem6layoutEv")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem7isEmptyEv")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem12controlTypesEv")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QLayout13replaceWidgetEP7QWidgetS1_6QFlagsIN2Qt15FindChildOptionEE")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN11QLayoutItem6layoutEv")) {
       taken[21] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[22] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem6widgetEv")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QLayoutItem10spacerItemEv")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[27] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[28] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem6widgetEv")) {
+      taken[29] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem10spacerItemEv")) {
+      taken[30] = call;
       return true;
     }
     return false;
@@ -253,11 +268,22 @@ public:
     return QGridLayout::minimumHeightForWidth(a0);
   }
 
-  //  void QGridLayout::invalidate()
-  void invalidate() override {
+  //  Qt::Orientations QGridLayout::expandingDirections() const
+  Qt::Orientations expandingDirections() const override {
     if (taken[8]) {
       int handled = 0;
       CuteQGridLayoutCall8 call = reinterpret_cast<CuteQGridLayoutCall8>(taken[8]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::Orientation>::fromInt(given);
+    }
+    return QGridLayout::expandingDirections();
+  }
+
+  //  void QGridLayout::invalidate()
+  void invalidate() override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQGridLayoutCall9 call = reinterpret_cast<CuteQGridLayoutCall9>(taken[9]);
       call(this, &handled);
       if (handled) return;
     }
@@ -266,9 +292,9 @@ public:
 
   //  QLayoutItem *QGridLayout::itemAt(int index) const
   QLayoutItem *itemAt(int index) const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQGridLayoutCall9 call = reinterpret_cast<CuteQGridLayoutCall9>(taken[9]);
+      CuteQGridLayoutCall10 call = reinterpret_cast<CuteQGridLayoutCall10>(taken[10]);
       void * given = call(this, index, &handled);
       if (handled) return static_cast<QLayoutItem *>(given);
     }
@@ -277,9 +303,9 @@ public:
 
   //  QLayoutItem *QGridLayout::takeAt(int index)
   QLayoutItem *takeAt(int index) override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQGridLayoutCall10 call = reinterpret_cast<CuteQGridLayoutCall10>(taken[10]);
+      CuteQGridLayoutCall11 call = reinterpret_cast<CuteQGridLayoutCall11>(taken[11]);
       void * given = call(this, index, &handled);
       if (handled) return static_cast<QLayoutItem *>(given);
     }
@@ -288,9 +314,9 @@ public:
 
   //  int QGridLayout::count() const
   int count() const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQGridLayoutCall11 call = reinterpret_cast<CuteQGridLayoutCall11>(taken[11]);
+      CuteQGridLayoutCall12 call = reinterpret_cast<CuteQGridLayoutCall12>(taken[12]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -299,9 +325,9 @@ public:
 
   //  void QGridLayout::setGeometry(const QRect &a0)
   void setGeometry(const QRect &a0) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQGridLayoutCall12 call = reinterpret_cast<CuteQGridLayoutCall12>(taken[12]);
+      CuteQGridLayoutCall13 call = reinterpret_cast<CuteQGridLayoutCall13>(taken[13]);
       call(this, &a0, &handled);
       if (handled) return;
     }
@@ -310,9 +336,9 @@ public:
 
   //  void QGridLayout::addItem(QLayoutItem *a0)
   void addItem(QLayoutItem *a0) override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQGridLayoutCall13 call = reinterpret_cast<CuteQGridLayoutCall13>(taken[13]);
+      CuteQGridLayoutCall14 call = reinterpret_cast<CuteQGridLayoutCall14>(taken[14]);
       call(this, a0, &handled);
       if (handled) return;
     }
@@ -321,9 +347,9 @@ public:
 
   //  QRect QLayout::geometry() const
   QRect geometry() const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQGridLayoutCall14 call = reinterpret_cast<CuteQGridLayoutCall14>(taken[14]);
+      CuteQGridLayoutCall15 call = reinterpret_cast<CuteQGridLayoutCall15>(taken[15]);
       const QRect * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -332,17 +358,6 @@ public:
 
   //  int QLayout::indexOf(const QWidget *a0) const
   int indexOf(const QWidget *a0) const override {
-    if (taken[15]) {
-      int handled = 0;
-      CuteQGridLayoutCall15 call = reinterpret_cast<CuteQGridLayoutCall15>(taken[15]);
-      int given = call(this, a0, &handled);
-      if (handled) return given;
-    }
-    return QLayout::indexOf(a0);
-  }
-
-  //  int QLayout::indexOf(const QLayoutItem *a0) const
-  int indexOf(const QLayoutItem *a0) const override {
     if (taken[16]) {
       int handled = 0;
       CuteQGridLayoutCall16 call = reinterpret_cast<CuteQGridLayoutCall16>(taken[16]);
@@ -352,22 +367,59 @@ public:
     return QLayout::indexOf(a0);
   }
 
-  //  bool QLayout::isEmpty() const
-  bool isEmpty() const override {
+  //  int QLayout::indexOf(const QLayoutItem *a0) const
+  int indexOf(const QLayoutItem *a0) const override {
     if (taken[17]) {
       int handled = 0;
       CuteQGridLayoutCall17 call = reinterpret_cast<CuteQGridLayoutCall17>(taken[17]);
+      int given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QLayout::indexOf(a0);
+  }
+
+  //  bool QLayout::isEmpty() const
+  bool isEmpty() const override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQGridLayoutCall18 call = reinterpret_cast<CuteQGridLayoutCall18>(taken[18]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
     return QLayout::isEmpty();
   }
 
+  //  QSizePolicy::ControlTypes QLayout::controlTypes() const
+  QSizePolicy::ControlTypes controlTypes() const override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQGridLayoutCall19 call = reinterpret_cast<CuteQGridLayoutCall19>(taken[19]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<QSizePolicy::ControlType>::fromInt(given);
+    }
+    return QLayout::controlTypes();
+  }
+
+  //  QLayoutItem *QLayout::replaceWidget(QWidget *from, QWidget *to,
+  //      Qt::FindChildOptions options)
+  QLayoutItem *replaceWidget(
+      QWidget *from,
+      QWidget *to,
+      Qt::FindChildOptions options) override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQGridLayoutCall20 call = reinterpret_cast<CuteQGridLayoutCall20>(taken[20]);
+      void * given = call(this, from, to, static_cast<int>(options.toInt()), &handled);
+      if (handled) return static_cast<QLayoutItem *>(given);
+    }
+    return QLayout::replaceWidget(from, to, options);
+  }
+
   //  QLayout *QLayout::layout()
   QLayout *layout() override {
-    if (taken[18]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQGridLayoutCall18 call = reinterpret_cast<CuteQGridLayoutCall18>(taken[18]);
+      CuteQGridLayoutCall21 call = reinterpret_cast<CuteQGridLayoutCall21>(taken[21]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QLayout *>(given);
     }
@@ -376,9 +428,9 @@ public:
 
   //  void QLayout::childEvent(QChildEvent *e)
   void childEvent(QChildEvent *e) override {
-    if (taken[19]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQGridLayoutCall19 call = reinterpret_cast<CuteQGridLayoutCall19>(taken[19]);
+      CuteQGridLayoutCall22 call = reinterpret_cast<CuteQGridLayoutCall22>(taken[22]);
       call(this, e, &handled);
       if (handled) return;
     }
@@ -387,9 +439,9 @@ public:
 
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[20]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQGridLayoutCall20 call = reinterpret_cast<CuteQGridLayoutCall20>(taken[20]);
+      CuteQGridLayoutCall23 call = reinterpret_cast<CuteQGridLayoutCall23>(taken[23]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -398,9 +450,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[21]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQGridLayoutCall21 call = reinterpret_cast<CuteQGridLayoutCall21>(taken[21]);
+      CuteQGridLayoutCall24 call = reinterpret_cast<CuteQGridLayoutCall24>(taken[24]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -409,9 +461,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[22]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQGridLayoutCall22 call = reinterpret_cast<CuteQGridLayoutCall22>(taken[22]);
+      CuteQGridLayoutCall25 call = reinterpret_cast<CuteQGridLayoutCall25>(taken[25]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -420,9 +472,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[23]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQGridLayoutCall23 call = reinterpret_cast<CuteQGridLayoutCall23>(taken[23]);
+      CuteQGridLayoutCall26 call = reinterpret_cast<CuteQGridLayoutCall26>(taken[26]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -431,9 +483,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[24]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQGridLayoutCall24 call = reinterpret_cast<CuteQGridLayoutCall24>(taken[24]);
+      CuteQGridLayoutCall27 call = reinterpret_cast<CuteQGridLayoutCall27>(taken[27]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -442,9 +494,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[25]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQGridLayoutCall25 call = reinterpret_cast<CuteQGridLayoutCall25>(taken[25]);
+      CuteQGridLayoutCall28 call = reinterpret_cast<CuteQGridLayoutCall28>(taken[28]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -453,9 +505,9 @@ public:
 
   //  QWidget *QLayoutItem::widget() const
   QWidget *widget() const override {
-    if (taken[26]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQGridLayoutCall26 call = reinterpret_cast<CuteQGridLayoutCall26>(taken[26]);
+      CuteQGridLayoutCall29 call = reinterpret_cast<CuteQGridLayoutCall29>(taken[29]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QWidget *>(given);
     }
@@ -464,9 +516,9 @@ public:
 
   //  QSpacerItem *QLayoutItem::spacerItem()
   QSpacerItem *spacerItem() override {
-    if (taken[27]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQGridLayoutCall27 call = reinterpret_cast<CuteQGridLayoutCall27>(taken[27]);
+      CuteQGridLayoutCall30 call = reinterpret_cast<CuteQGridLayoutCall30>(taken[30]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QSpacerItem *>(given);
     }
@@ -909,6 +961,13 @@ int ritual_own_ZNK11QGridLayout21minimumHeightForWidthEi(
     const QGridLayout *self,
     int a0) {
   return self->QGridLayout::minimumHeightForWidth(a0);
+}
+
+//  Qt::Orientations QGridLayout::expandingDirections() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK11QGridLayout19expandingDirectionsEv(
+    const QGridLayout *self) {
+  return static_cast<int>(self->QGridLayout::expandingDirections().toInt());
 }
 
 //  void QGridLayout::invalidate()

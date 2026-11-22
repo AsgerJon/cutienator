@@ -186,6 +186,14 @@ bool ritual_own_ZN16QStringListModel13clearItemDataERK11QModelIndex(
   return self->QStringListModel::clearItemData(*index);
 }
 
+//  Qt::ItemFlags QStringListModel::flags(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK16QStringListModel5flagsERK11QModelIndex(
+    const QStringListModel *self,
+    const QModelIndex *index) {
+  return static_cast<int>(self->QStringListModel::flags(*index).toInt());
+}
+
 //  bool QStringListModel::insertRows(int row, int count, const QModelIndex
 //      &parent)
 extern "C" Q_DECL_EXPORT
@@ -234,4 +242,12 @@ void ritual_own_ZN16QStringListModel4sortEiN2Qt9SortOrderE(
     int column,
     Qt::SortOrder order) {
   self->QStringListModel::sort(column, order);
+}
+
+//  Qt::DropActions QStringListModel::supportedDropActions() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK16QStringListModel20supportedDropActionsEv(
+    const QStringListModel *self) {
+  return static_cast<int>(
+      self->QStringListModel::supportedDropActions().toInt());
 }

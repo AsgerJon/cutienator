@@ -15,14 +15,15 @@ typedef void (*CuteQAccessibleTextInterfaceCall2)(const void *, int, int *);
 typedef void (*CuteQAccessibleTextInterfaceCall3)(const void *, int, int, int, int *);
 typedef int (*CuteQAccessibleTextInterfaceCall4)(const void *, int *);
 typedef void (*CuteQAccessibleTextInterfaceCall5)(const void *, int, int *);
-typedef int (*CuteQAccessibleTextInterfaceCall6)(const void *, int *);
-typedef const QRect * (*CuteQAccessibleTextInterfaceCall7)(const void *, int, int *);
-typedef int (*CuteQAccessibleTextInterfaceCall8)(const void *, const QPoint *, int *);
-typedef void (*CuteQAccessibleTextInterfaceCall9)(const void *, int, int, int *);
+typedef QString * (*CuteQAccessibleTextInterfaceCall6)(const void *, int, int, int *);
+typedef int (*CuteQAccessibleTextInterfaceCall7)(const void *, int *);
+typedef const QRect * (*CuteQAccessibleTextInterfaceCall8)(const void *, int, int *);
+typedef int (*CuteQAccessibleTextInterfaceCall9)(const void *, const QPoint *, int *);
+typedef void (*CuteQAccessibleTextInterfaceCall10)(const void *, int, int, int *);
 class CuteQAccessibleTextInterface : public QAccessibleTextInterface {
 public:
   using QAccessibleTextInterface::QAccessibleTextInterface;
-  void *taken[10] = {};
+  void *taken[11] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface14selectionCountEv")) {
@@ -49,20 +50,24 @@ public:
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface14characterCountEv")) {
+    if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface4textEii")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface13characterRectEi")) {
+    if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface14characterCountEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface13offsetAtPointERK6QPoint")) {
+    if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface13characterRectEi")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN24QAccessibleTextInterface17scrollToSubstringEii")) {
+    if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface13offsetAtPointERK6QPoint")) {
       taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN24QAccessibleTextInterface17scrollToSubstringEii")) {
+      taken[10] = call;
       return true;
     }
     return false;
@@ -135,11 +140,27 @@ public:
     }
   }
 
-  //  int QAccessibleTextInterface::characterCount() const
-  int characterCount() const override {
+  //  QString QAccessibleTextInterface::text(int startOffset, int
+  //      endOffset) const
+  QString text(int startOffset, int endOffset) const override {
     if (taken[6]) {
       int handled = 0;
       CuteQAccessibleTextInterfaceCall6 call = reinterpret_cast<CuteQAccessibleTextInterfaceCall6>(taken[6]);
+      QString * given = call(this, startOffset, endOffset, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return {};
+  }
+
+  //  int QAccessibleTextInterface::characterCount() const
+  int characterCount() const override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQAccessibleTextInterfaceCall7 call = reinterpret_cast<CuteQAccessibleTextInterfaceCall7>(taken[7]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -148,9 +169,9 @@ public:
 
   //  QRect QAccessibleTextInterface::characterRect(int offset) const
   QRect characterRect(int offset) const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQAccessibleTextInterfaceCall7 call = reinterpret_cast<CuteQAccessibleTextInterfaceCall7>(taken[7]);
+      CuteQAccessibleTextInterfaceCall8 call = reinterpret_cast<CuteQAccessibleTextInterfaceCall8>(taken[8]);
       const QRect * given = call(this, offset, &handled);
       if (handled && given) return *given;
     }
@@ -160,9 +181,9 @@ public:
   //  int QAccessibleTextInterface::offsetAtPoint(const QPoint &point)
   //      const
   int offsetAtPoint(const QPoint &point) const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQAccessibleTextInterfaceCall8 call = reinterpret_cast<CuteQAccessibleTextInterfaceCall8>(taken[8]);
+      CuteQAccessibleTextInterfaceCall9 call = reinterpret_cast<CuteQAccessibleTextInterfaceCall9>(taken[9]);
       int given = call(this, &point, &handled);
       if (handled) return given;
     }
@@ -172,9 +193,9 @@ public:
   //  void QAccessibleTextInterface::scrollToSubstring(int startIndex, int
   //      endIndex)
   void scrollToSubstring(int startIndex, int endIndex) override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQAccessibleTextInterfaceCall9 call = reinterpret_cast<CuteQAccessibleTextInterfaceCall9>(taken[9]);
+      CuteQAccessibleTextInterfaceCall10 call = reinterpret_cast<CuteQAccessibleTextInterfaceCall10>(taken[10]);
       call(this, startIndex, endIndex, &handled);
       if (handled) return;
     }

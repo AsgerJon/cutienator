@@ -67,6 +67,9 @@
     "ritual_own_ZN11QColumnView11resizeEventEP12QResizeEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_own_ZN11QColumnView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_own_ZNK11QColumnView24visualRegionForSelectionERK14QItemSelection": [
       "address", "address", "address"
     ],

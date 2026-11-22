@@ -908,10 +908,10 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     """
     #  Qt::ItemFlags QSortFilterProxyModel::flags(const QModelIndex &index)
     #      const
-    return Qt.ItemFlags(self.uglySide.call(
-        'ritual_ZNK21QSortFilterProxyModel5flagsERK11QModelIndex',
-        self._valueOf(index),
-    ))
+    ritual = 'ritual_ZNK21QSortFilterProxyModel5flagsERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK21QSortFilterProxyModel5flagsERK11QModelIndex'
+    return Qt.ItemFlags(self.uglySide.call(ritual, self._valueOf(index)))
 
   @overload(QModelIndex)
   def buddy(self, index: QModelIndex) -> QModelIndex:
@@ -987,9 +987,11 @@ class QSortFilterProxyModel(QAbstractProxyModel):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QSortFilterProxyModel::supportedDropActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_ZNK21QSortFilterProxyModel20supportedDropActionsEv',
-    ))
+    ritual = 'ritual_ZNK21QSortFilterProxyModel20supportedDropActionsEv'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QSortFilterProxyModel20supportedDropActionsEv')
+    return Qt.DropActions(self.uglySide.call(ritual))
 
   @overload(int, QModelIndex)
   def filterAcceptsRow(

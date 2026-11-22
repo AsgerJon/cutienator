@@ -24,34 +24,36 @@ struct OwnQProxyStyle : QProxyStyle {
 typedef void (*CuteQProxyStyleCall0)(const void *, int, const QStyleOption *, QPainter *, const QWidget *, int *);
 typedef void (*CuteQProxyStyleCall1)(const void *, int, const QStyleOption *, QPainter *, const QWidget *, int *);
 typedef void (*CuteQProxyStyleCall2)(const void *, int, const QStyleOptionComplex *, QPainter *, const QWidget *, int *);
-typedef void (*CuteQProxyStyleCall3)(const void *, QPainter *, const QRect *, int, const QPixmap *, int *);
-typedef const QSize * (*CuteQProxyStyleCall4)(const void *, int, const QStyleOption *, const QSize *, const QWidget *, int *);
-typedef const QRect * (*CuteQProxyStyleCall5)(const void *, int, const QStyleOption *, const QWidget *, int *);
-typedef const QRect * (*CuteQProxyStyleCall6)(const void *, int, const QStyleOptionComplex *, int, const QWidget *, int *);
-typedef const QRect * (*CuteQProxyStyleCall7)(const void *, const QRect *, int, const QPixmap *, int *);
-typedef int (*CuteQProxyStyleCall8)(const void *, int, const QStyleOptionComplex *, const QPoint *, const QWidget *, int *);
-typedef int (*CuteQProxyStyleCall9)(const void *, int, const QStyleOption *, const QWidget *, QStyleHintReturn *, int *);
-typedef int (*CuteQProxyStyleCall10)(const void *, int, const QStyleOption *, const QWidget *, int *);
-typedef int (*CuteQProxyStyleCall11)(const void *, int, int, int, const QStyleOption *, const QWidget *, int *);
-typedef const QIcon * (*CuteQProxyStyleCall12)(const void *, int, const QStyleOption *, const QWidget *, int *);
-typedef const QPixmap * (*CuteQProxyStyleCall13)(const void *, int, const QStyleOption *, const QWidget *, int *);
-typedef const QPixmap * (*CuteQProxyStyleCall14)(const void *, int, const QPixmap *, const QStyleOption *, int *);
-typedef const QPalette * (*CuteQProxyStyleCall15)(const void *, int *);
-typedef void (*CuteQProxyStyleCall16)(const void *, QWidget *, int *);
-typedef void (*CuteQProxyStyleCall17)(const void *, QApplication *, int *);
+typedef void (*CuteQProxyStyleCall3)(const void *, QPainter *, const QRect *, int, const QPalette *, bool, const QString *, int, int *);
+typedef void (*CuteQProxyStyleCall4)(const void *, QPainter *, const QRect *, int, const QPixmap *, int *);
+typedef const QSize * (*CuteQProxyStyleCall5)(const void *, int, const QStyleOption *, const QSize *, const QWidget *, int *);
+typedef const QRect * (*CuteQProxyStyleCall6)(const void *, int, const QStyleOption *, const QWidget *, int *);
+typedef const QRect * (*CuteQProxyStyleCall7)(const void *, int, const QStyleOptionComplex *, int, const QWidget *, int *);
+typedef const QRect * (*CuteQProxyStyleCall8)(const void *, const QFontMetrics *, const QRect *, int, bool, const QString *, int *);
+typedef const QRect * (*CuteQProxyStyleCall9)(const void *, const QRect *, int, const QPixmap *, int *);
+typedef int (*CuteQProxyStyleCall10)(const void *, int, const QStyleOptionComplex *, const QPoint *, const QWidget *, int *);
+typedef int (*CuteQProxyStyleCall11)(const void *, int, const QStyleOption *, const QWidget *, QStyleHintReturn *, int *);
+typedef int (*CuteQProxyStyleCall12)(const void *, int, const QStyleOption *, const QWidget *, int *);
+typedef int (*CuteQProxyStyleCall13)(const void *, int, int, int, const QStyleOption *, const QWidget *, int *);
+typedef const QIcon * (*CuteQProxyStyleCall14)(const void *, int, const QStyleOption *, const QWidget *, int *);
+typedef const QPixmap * (*CuteQProxyStyleCall15)(const void *, int, const QStyleOption *, const QWidget *, int *);
+typedef const QPixmap * (*CuteQProxyStyleCall16)(const void *, int, const QPixmap *, const QStyleOption *, int *);
+typedef const QPalette * (*CuteQProxyStyleCall17)(const void *, int *);
 typedef void (*CuteQProxyStyleCall18)(const void *, QWidget *, int *);
 typedef void (*CuteQProxyStyleCall19)(const void *, QApplication *, int *);
-typedef bool (*CuteQProxyStyleCall20)(const void *, QEvent *, int *);
-typedef bool (*CuteQProxyStyleCall21)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQProxyStyleCall22)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQProxyStyleCall23)(const void *, QChildEvent *, int *);
-typedef void (*CuteQProxyStyleCall24)(const void *, QEvent *, int *);
-typedef void (*CuteQProxyStyleCall25)(const void *, const QMetaMethod *, int *);
-typedef void (*CuteQProxyStyleCall26)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQProxyStyleCall20)(const void *, QWidget *, int *);
+typedef void (*CuteQProxyStyleCall21)(const void *, QApplication *, int *);
+typedef bool (*CuteQProxyStyleCall22)(const void *, QEvent *, int *);
+typedef bool (*CuteQProxyStyleCall23)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQProxyStyleCall24)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQProxyStyleCall25)(const void *, QChildEvent *, int *);
+typedef void (*CuteQProxyStyleCall26)(const void *, QEvent *, int *);
+typedef void (*CuteQProxyStyleCall27)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQProxyStyleCall28)(const void *, const QMetaMethod *, int *);
 class CuteQProxyStyle : public QProxyStyle {
 public:
   using QProxyStyle::QProxyStyle;
-  void *taken[27] = {};
+  void *taken[29] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK6QStyle13drawPrimitiveENS_16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget")) {
@@ -66,100 +68,108 @@ public:
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap")) {
+    if (!std::strcmp(key, "_ZNK6QStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS5_9ColorRoleE")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle16sizeFromContentsENS_12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget")) {
+    if (!std::strcmp(key, "_ZNK6QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle14subElementRectENS_10SubElementEPK12QStyleOptionPK7QWidget")) {
+    if (!std::strcmp(key, "_ZNK6QStyle16sizeFromContentsENS_12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle14subControlRectENS_14ComplexControlEPK19QStyleOptionComplexNS_10SubControlEPK7QWidget")) {
+    if (!std::strcmp(key, "_ZNK6QStyle14subElementRectENS_10SubElementEPK12QStyleOptionPK7QWidget")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap")) {
+    if (!std::strcmp(key, "_ZNK6QStyle14subControlRectENS_14ComplexControlEPK19QStyleOptionComplexNS_10SubControlEPK7QWidget")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle21hitTestComplexControlENS_14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget")) {
+    if (!std::strcmp(key, "_ZNK6QStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QString")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle9styleHintENS_9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn")) {
+    if (!std::strcmp(key, "_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle11pixelMetricENS_11PixelMetricEPK12QStyleOptionPK7QWidget")) {
+    if (!std::strcmp(key, "_ZNK6QStyle21hitTestComplexControlENS_14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget")) {
+    if (!std::strcmp(key, "_ZNK6QStyle9styleHintENS_9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle12standardIconENS_14StandardPixmapEPK12QStyleOptionPK7QWidget")) {
+    if (!std::strcmp(key, "_ZNK6QStyle11pixelMetricENS_11PixelMetricEPK12QStyleOptionPK7QWidget")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle14standardPixmapENS_14StandardPixmapEPK12QStyleOptionPK7QWidget")) {
+    if (!std::strcmp(key, "_ZNK6QStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption")) {
+    if (!std::strcmp(key, "_ZNK6QStyle12standardIconENS_14StandardPixmapEPK12QStyleOptionPK7QWidget")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QStyle15standardPaletteEv")) {
+    if (!std::strcmp(key, "_ZNK6QStyle14standardPixmapENS_14StandardPixmapEPK12QStyleOptionPK7QWidget")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN6QStyle6polishEP7QWidget")) {
+    if (!std::strcmp(key, "_ZNK6QStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN6QStyle6polishEP12QApplication")) {
+    if (!std::strcmp(key, "_ZNK6QStyle15standardPaletteEv")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN6QStyle8unpolishEP7QWidget")) {
+    if (!std::strcmp(key, "_ZN6QStyle6polishEP7QWidget")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN6QStyle8unpolishEP12QApplication")) {
+    if (!std::strcmp(key, "_ZN6QStyle6polishEP12QApplication")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN6QStyle8unpolishEP7QWidget")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN6QStyle8unpolishEP12QApplication")) {
       taken[21] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[22] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[26] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[27] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[28] = call;
       return true;
     }
     return false;
@@ -216,6 +226,26 @@ public:
     QProxyStyle::drawComplexControl(control, option, painter, widget);
   }
 
+  //  void QProxyStyle::drawItemText(QPainter *painter, const QRect &rect,
+  //      int flags, const QPalette &pal, bool enabled, const QString
+  //      &text, QPalette::ColorRole textRole) const
+  void drawItemText(
+      QPainter *painter,
+      const QRect &rect,
+      int flags,
+      const QPalette &pal,
+      bool enabled,
+      const QString &text,
+      QPalette::ColorRole textRole) const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQProxyStyleCall3 call = reinterpret_cast<CuteQProxyStyleCall3>(taken[3]);
+      call(this, painter, &rect, flags, &pal, enabled, &text, static_cast<int>(textRole), &handled);
+      if (handled) return;
+    }
+    QProxyStyle::drawItemText(painter, rect, flags, pal, enabled, text, textRole);
+  }
+
   //  void QProxyStyle::drawItemPixmap(QPainter *painter, const QRect
   //      &rect, int alignment, const QPixmap &pixmap) const
   void drawItemPixmap(
@@ -223,9 +253,9 @@ public:
       const QRect &rect,
       int alignment,
       const QPixmap &pixmap) const override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQProxyStyleCall3 call = reinterpret_cast<CuteQProxyStyleCall3>(taken[3]);
+      CuteQProxyStyleCall4 call = reinterpret_cast<CuteQProxyStyleCall4>(taken[4]);
       call(this, painter, &rect, alignment, &pixmap, &handled);
       if (handled) return;
     }
@@ -240,9 +270,9 @@ public:
       const QStyleOption *option,
       const QSize &size,
       const QWidget *widget) const override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQProxyStyleCall4 call = reinterpret_cast<CuteQProxyStyleCall4>(taken[4]);
+      CuteQProxyStyleCall5 call = reinterpret_cast<CuteQProxyStyleCall5>(taken[5]);
       const QSize * given = call(this, static_cast<int>(type), option, &size, widget, &handled);
       if (handled && given) return *given;
     }
@@ -255,9 +285,9 @@ public:
       QStyle::SubElement element,
       const QStyleOption *option,
       const QWidget *widget) const override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQProxyStyleCall5 call = reinterpret_cast<CuteQProxyStyleCall5>(taken[5]);
+      CuteQProxyStyleCall6 call = reinterpret_cast<CuteQProxyStyleCall6>(taken[6]);
       const QRect * given = call(this, static_cast<int>(element), option, widget, &handled);
       if (handled && given) return *given;
     }
@@ -272,13 +302,30 @@ public:
       const QStyleOptionComplex *opt,
       QStyle::SubControl sc,
       const QWidget *widget) const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQProxyStyleCall6 call = reinterpret_cast<CuteQProxyStyleCall6>(taken[6]);
+      CuteQProxyStyleCall7 call = reinterpret_cast<CuteQProxyStyleCall7>(taken[7]);
       const QRect * given = call(this, static_cast<int>(cc), opt, static_cast<int>(sc), widget, &handled);
       if (handled && given) return *given;
     }
     return QProxyStyle::subControlRect(cc, opt, sc, widget);
+  }
+
+  //  QRect QProxyStyle::itemTextRect(const QFontMetrics &fm, const QRect
+  //      &r, int flags, bool enabled, const QString &text) const
+  QRect itemTextRect(
+      const QFontMetrics &fm,
+      const QRect &r,
+      int flags,
+      bool enabled,
+      const QString &text) const override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQProxyStyleCall8 call = reinterpret_cast<CuteQProxyStyleCall8>(taken[8]);
+      const QRect * given = call(this, &fm, &r, flags, enabled, &text, &handled);
+      if (handled && given) return *given;
+    }
+    return QProxyStyle::itemTextRect(fm, r, flags, enabled, text);
   }
 
   //  QRect QProxyStyle::itemPixmapRect(const QRect &r, int flags, const
@@ -287,9 +334,9 @@ public:
       const QRect &r,
       int flags,
       const QPixmap &pixmap) const override {
-    if (taken[7]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQProxyStyleCall7 call = reinterpret_cast<CuteQProxyStyleCall7>(taken[7]);
+      CuteQProxyStyleCall9 call = reinterpret_cast<CuteQProxyStyleCall9>(taken[9]);
       const QRect * given = call(this, &r, flags, &pixmap, &handled);
       if (handled && given) return *given;
     }
@@ -304,9 +351,9 @@ public:
       const QStyleOptionComplex *option,
       const QPoint &pos,
       const QWidget *widget) const override {
-    if (taken[8]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQProxyStyleCall8 call = reinterpret_cast<CuteQProxyStyleCall8>(taken[8]);
+      CuteQProxyStyleCall10 call = reinterpret_cast<CuteQProxyStyleCall10>(taken[10]);
       int given = call(this, static_cast<int>(control), option, &pos, widget, &handled);
       if (handled) return static_cast<QStyle::SubControl>(given);
     }
@@ -321,9 +368,9 @@ public:
       const QStyleOption *option,
       const QWidget *widget,
       QStyleHintReturn *returnData) const override {
-    if (taken[9]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQProxyStyleCall9 call = reinterpret_cast<CuteQProxyStyleCall9>(taken[9]);
+      CuteQProxyStyleCall11 call = reinterpret_cast<CuteQProxyStyleCall11>(taken[11]);
       int given = call(this, static_cast<int>(hint), option, widget, returnData, &handled);
       if (handled) return given;
     }
@@ -336,9 +383,9 @@ public:
       QStyle::PixelMetric metric,
       const QStyleOption *option,
       const QWidget *widget) const override {
-    if (taken[10]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQProxyStyleCall10 call = reinterpret_cast<CuteQProxyStyleCall10>(taken[10]);
+      CuteQProxyStyleCall12 call = reinterpret_cast<CuteQProxyStyleCall12>(taken[12]);
       int given = call(this, static_cast<int>(metric), option, widget, &handled);
       if (handled) return given;
     }
@@ -354,9 +401,9 @@ public:
       Qt::Orientation orientation,
       const QStyleOption *option,
       const QWidget *widget) const override {
-    if (taken[11]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQProxyStyleCall11 call = reinterpret_cast<CuteQProxyStyleCall11>(taken[11]);
+      CuteQProxyStyleCall13 call = reinterpret_cast<CuteQProxyStyleCall13>(taken[13]);
       int given = call(this, static_cast<int>(control1), static_cast<int>(control2), static_cast<int>(orientation), option, widget, &handled);
       if (handled) return given;
     }
@@ -369,9 +416,9 @@ public:
       QStyle::StandardPixmap standardIcon,
       const QStyleOption *option,
       const QWidget *widget) const override {
-    if (taken[12]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQProxyStyleCall12 call = reinterpret_cast<CuteQProxyStyleCall12>(taken[12]);
+      CuteQProxyStyleCall14 call = reinterpret_cast<CuteQProxyStyleCall14>(taken[14]);
       const QIcon * given = call(this, static_cast<int>(standardIcon), option, widget, &handled);
       if (handled && given) return *given;
     }
@@ -384,9 +431,9 @@ public:
       QStyle::StandardPixmap standardPixmap,
       const QStyleOption *opt,
       const QWidget *widget) const override {
-    if (taken[13]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQProxyStyleCall13 call = reinterpret_cast<CuteQProxyStyleCall13>(taken[13]);
+      CuteQProxyStyleCall15 call = reinterpret_cast<CuteQProxyStyleCall15>(taken[15]);
       const QPixmap * given = call(this, static_cast<int>(standardPixmap), opt, widget, &handled);
       if (handled && given) return *given;
     }
@@ -399,9 +446,9 @@ public:
       QIcon::Mode iconMode,
       const QPixmap &pixmap,
       const QStyleOption *opt) const override {
-    if (taken[14]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQProxyStyleCall14 call = reinterpret_cast<CuteQProxyStyleCall14>(taken[14]);
+      CuteQProxyStyleCall16 call = reinterpret_cast<CuteQProxyStyleCall16>(taken[16]);
       const QPixmap * given = call(this, static_cast<int>(iconMode), &pixmap, opt, &handled);
       if (handled && given) return *given;
     }
@@ -410,9 +457,9 @@ public:
 
   //  QPalette QProxyStyle::standardPalette() const
   QPalette standardPalette() const override {
-    if (taken[15]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQProxyStyleCall15 call = reinterpret_cast<CuteQProxyStyleCall15>(taken[15]);
+      CuteQProxyStyleCall17 call = reinterpret_cast<CuteQProxyStyleCall17>(taken[17]);
       const QPalette * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -421,9 +468,9 @@ public:
 
   //  void QProxyStyle::polish(QWidget *widget)
   void polish(QWidget *widget) override {
-    if (taken[16]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQProxyStyleCall16 call = reinterpret_cast<CuteQProxyStyleCall16>(taken[16]);
+      CuteQProxyStyleCall18 call = reinterpret_cast<CuteQProxyStyleCall18>(taken[18]);
       call(this, widget, &handled);
       if (handled) return;
     }
@@ -432,9 +479,9 @@ public:
 
   //  void QProxyStyle::polish(QApplication *app)
   void polish(QApplication *app) override {
-    if (taken[17]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQProxyStyleCall17 call = reinterpret_cast<CuteQProxyStyleCall17>(taken[17]);
+      CuteQProxyStyleCall19 call = reinterpret_cast<CuteQProxyStyleCall19>(taken[19]);
       call(this, app, &handled);
       if (handled) return;
     }
@@ -443,9 +490,9 @@ public:
 
   //  void QProxyStyle::unpolish(QWidget *widget)
   void unpolish(QWidget *widget) override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQProxyStyleCall18 call = reinterpret_cast<CuteQProxyStyleCall18>(taken[18]);
+      CuteQProxyStyleCall20 call = reinterpret_cast<CuteQProxyStyleCall20>(taken[20]);
       call(this, widget, &handled);
       if (handled) return;
     }
@@ -454,9 +501,9 @@ public:
 
   //  void QProxyStyle::unpolish(QApplication *app)
   void unpolish(QApplication *app) override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQProxyStyleCall19 call = reinterpret_cast<CuteQProxyStyleCall19>(taken[19]);
+      CuteQProxyStyleCall21 call = reinterpret_cast<CuteQProxyStyleCall21>(taken[21]);
       call(this, app, &handled);
       if (handled) return;
     }
@@ -465,9 +512,9 @@ public:
 
   //  bool QProxyStyle::event(QEvent *e)
   bool event(QEvent *e) override {
-    if (taken[20]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQProxyStyleCall20 call = reinterpret_cast<CuteQProxyStyleCall20>(taken[20]);
+      CuteQProxyStyleCall22 call = reinterpret_cast<CuteQProxyStyleCall22>(taken[22]);
       bool given = call(this, e, &handled);
       if (handled) return given;
     }
@@ -476,9 +523,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[21]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQProxyStyleCall21 call = reinterpret_cast<CuteQProxyStyleCall21>(taken[21]);
+      CuteQProxyStyleCall23 call = reinterpret_cast<CuteQProxyStyleCall23>(taken[23]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -487,9 +534,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[22]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQProxyStyleCall22 call = reinterpret_cast<CuteQProxyStyleCall22>(taken[22]);
+      CuteQProxyStyleCall24 call = reinterpret_cast<CuteQProxyStyleCall24>(taken[24]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -498,9 +545,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[23]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQProxyStyleCall23 call = reinterpret_cast<CuteQProxyStyleCall23>(taken[23]);
+      CuteQProxyStyleCall25 call = reinterpret_cast<CuteQProxyStyleCall25>(taken[25]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -509,9 +556,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[24]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQProxyStyleCall24 call = reinterpret_cast<CuteQProxyStyleCall24>(taken[24]);
+      CuteQProxyStyleCall26 call = reinterpret_cast<CuteQProxyStyleCall26>(taken[26]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -520,9 +567,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[25]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQProxyStyleCall25 call = reinterpret_cast<CuteQProxyStyleCall25>(taken[25]);
+      CuteQProxyStyleCall27 call = reinterpret_cast<CuteQProxyStyleCall27>(taken[27]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -531,9 +578,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[26]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQProxyStyleCall26 call = reinterpret_cast<CuteQProxyStyleCall26>(taken[26]);
+      CuteQProxyStyleCall28 call = reinterpret_cast<CuteQProxyStyleCall28>(taken[28]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -887,6 +934,29 @@ void ritual_own_ZNK11QProxyStyle18drawComplexControlEN6QStyle14ComplexControlEPK
   self->QProxyStyle::drawComplexControl(control, option, painter, widget);
 }
 
+//  void QProxyStyle::drawItemText(QPainter *painter, const QRect &rect, int
+//      flags, const QPalette &pal, bool enabled, const QString &text,
+//      QPalette::ColorRole textRole) const
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZNK11QProxyStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS5_9ColorRoleE(
+    const QProxyStyle *self,
+    QPainter *painter,
+    const QRect *rect,
+    int flags,
+    const QPalette *pal,
+    bool enabled,
+    const QString *text,
+    QPalette::ColorRole textRole) {
+  self->QProxyStyle::drawItemText(
+      painter,
+      *rect,
+      flags,
+      *pal,
+      enabled,
+      *text,
+      textRole);
+}
+
 //  void QProxyStyle::drawItemPixmap(QPainter *painter, const QRect &rect,
 //      int alignment, const QPixmap &pixmap) const
 extern "C" Q_DECL_EXPORT
@@ -941,6 +1011,25 @@ QRect *ritual_own_ZNK11QProxyStyle14subControlRectEN6QStyle14ComplexControlEPK19
     QStyle::SubControl sc,
     const QWidget *widget) {
   return new QRect(self->QProxyStyle::subControlRect(cc, opt, sc, widget));
+}
+
+//  QRect QProxyStyle::itemTextRect(const QFontMetrics &fm, const QRect &r,
+//      int flags, bool enabled, const QString &text) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_own_ZNK11QProxyStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QString(
+    const QProxyStyle *self,
+    const QFontMetrics *fm,
+    const QRect *r,
+    int flags,
+    bool enabled,
+    const QString *text) {
+  return new QRect(
+      self->QProxyStyle::itemTextRect(
+          *fm,
+          *r,
+          flags,
+          enabled,
+          *text));
 }
 
 //  QRect QProxyStyle::itemPixmapRect(const QRect &r, int flags, const

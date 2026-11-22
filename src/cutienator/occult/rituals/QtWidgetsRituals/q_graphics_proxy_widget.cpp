@@ -84,33 +84,34 @@ typedef const QRectF * (*CuteQGraphicsProxyWidgetCall33)(const void *, int *);
 typedef const QPainterPath * (*CuteQGraphicsProxyWidgetCall34)(const void *, int *);
 typedef void (*CuteQGraphicsProxyWidgetCall35)(const void *, QStyleOption *, int *);
 typedef void (*CuteQGraphicsProxyWidgetCall36)(const void *, int *);
-typedef bool (*CuteQGraphicsProxyWidgetCall37)(const void *, QEvent *, int *);
+typedef const QVariant * (*CuteQGraphicsProxyWidgetCall37)(const void *, const QString *, const QVariant *, int *);
 typedef bool (*CuteQGraphicsProxyWidgetCall38)(const void *, QEvent *, int *);
-typedef int (*CuteQGraphicsProxyWidgetCall39)(const void *, const QPointF *, int *);
-typedef void (*CuteQGraphicsProxyWidgetCall40)(const void *, QEvent *, int *);
-typedef void (*CuteQGraphicsProxyWidgetCall41)(const void *, QCloseEvent *, int *);
-typedef void (*CuteQGraphicsProxyWidgetCall42)(const void *, QGraphicsSceneMoveEvent *, int *);
-typedef void (*CuteQGraphicsProxyWidgetCall43)(const void *, int *);
-typedef void (*CuteQGraphicsProxyWidgetCall44)(const void *, QEvent *, int *);
+typedef bool (*CuteQGraphicsProxyWidgetCall39)(const void *, QEvent *, int *);
+typedef int (*CuteQGraphicsProxyWidgetCall40)(const void *, const QPointF *, int *);
+typedef void (*CuteQGraphicsProxyWidgetCall41)(const void *, QEvent *, int *);
+typedef void (*CuteQGraphicsProxyWidgetCall42)(const void *, QCloseEvent *, int *);
+typedef void (*CuteQGraphicsProxyWidgetCall43)(const void *, QGraphicsSceneMoveEvent *, int *);
+typedef void (*CuteQGraphicsProxyWidgetCall44)(const void *, int *);
 typedef void (*CuteQGraphicsProxyWidgetCall45)(const void *, QEvent *, int *);
-typedef void (*CuteQGraphicsProxyWidgetCall46)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQGraphicsProxyWidgetCall47)(const void *, QChildEvent *, int *);
-typedef void (*CuteQGraphicsProxyWidgetCall48)(const void *, QEvent *, int *);
-typedef void (*CuteQGraphicsProxyWidgetCall49)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQGraphicsProxyWidgetCall46)(const void *, QEvent *, int *);
+typedef void (*CuteQGraphicsProxyWidgetCall47)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQGraphicsProxyWidgetCall48)(const void *, QChildEvent *, int *);
+typedef void (*CuteQGraphicsProxyWidgetCall49)(const void *, QEvent *, int *);
 typedef void (*CuteQGraphicsProxyWidgetCall50)(const void *, const QMetaMethod *, int *);
-typedef bool (*CuteQGraphicsProxyWidgetCall51)(const void *, int *);
-typedef void (*CuteQGraphicsProxyWidgetCall52)(const void *, int, int *);
-typedef bool (*CuteQGraphicsProxyWidgetCall53)(const void *, const QPointF *, int *);
-typedef bool (*CuteQGraphicsProxyWidgetCall54)(const void *, const QGraphicsItem *, int, int *);
-typedef bool (*CuteQGraphicsProxyWidgetCall55)(const void *, const QPainterPath *, int, int *);
-typedef bool (*CuteQGraphicsProxyWidgetCall56)(const void *, const QGraphicsItem *, int *);
-typedef const QPainterPath * (*CuteQGraphicsProxyWidgetCall57)(const void *, int *);
-typedef bool (*CuteQGraphicsProxyWidgetCall58)(const void *, QGraphicsItem *, QEvent *, int *);
-typedef const QVariant * (*CuteQGraphicsProxyWidgetCall59)(const void *, const QVariant *, int *);
+typedef void (*CuteQGraphicsProxyWidgetCall51)(const void *, const QMetaMethod *, int *);
+typedef bool (*CuteQGraphicsProxyWidgetCall52)(const void *, int *);
+typedef void (*CuteQGraphicsProxyWidgetCall53)(const void *, int, int *);
+typedef bool (*CuteQGraphicsProxyWidgetCall54)(const void *, const QPointF *, int *);
+typedef bool (*CuteQGraphicsProxyWidgetCall55)(const void *, const QGraphicsItem *, int, int *);
+typedef bool (*CuteQGraphicsProxyWidgetCall56)(const void *, const QPainterPath *, int, int *);
+typedef bool (*CuteQGraphicsProxyWidgetCall57)(const void *, const QGraphicsItem *, int *);
+typedef const QPainterPath * (*CuteQGraphicsProxyWidgetCall58)(const void *, int *);
+typedef bool (*CuteQGraphicsProxyWidgetCall59)(const void *, QGraphicsItem *, QEvent *, int *);
+typedef const QVariant * (*CuteQGraphicsProxyWidgetCall60)(const void *, const QVariant *, int *);
 class CuteQGraphicsProxyWidget : public QGraphicsProxyWidget {
 public:
   using QGraphicsProxyWidget::QGraphicsProxyWidget;
-  void *taken[60] = {};
+  void *taken[61] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF")) {
@@ -261,96 +262,100 @@ public:
       taken[36] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN13QGraphicsItem10sceneEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN15QGraphicsWidget14propertyChangeERK7QStringRK8QVariant")) {
       taken[37] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QGraphicsWidget16windowFrameEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN13QGraphicsItem10sceneEventEP6QEvent")) {
       taken[38] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK15QGraphicsWidget20windowFrameSectionAtERK7QPointF")) {
+    if (!std::strcmp(key, "_ZN15QGraphicsWidget16windowFrameEventEP6QEvent")) {
       taken[39] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QGraphicsWidget11changeEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZNK15QGraphicsWidget20windowFrameSectionAtERK7QPointF")) {
       taken[40] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QGraphicsWidget10closeEventEP11QCloseEvent")) {
+    if (!std::strcmp(key, "_ZN15QGraphicsWidget11changeEventEP6QEvent")) {
       taken[41] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QGraphicsWidget9moveEventEP23QGraphicsSceneMoveEvent")) {
+    if (!std::strcmp(key, "_ZN15QGraphicsWidget10closeEventEP11QCloseEvent")) {
       taken[42] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QGraphicsWidget11polishEventEv")) {
+    if (!std::strcmp(key, "_ZN15QGraphicsWidget9moveEventEP23QGraphicsSceneMoveEvent")) {
       taken[43] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QGraphicsWidget17grabKeyboardEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN15QGraphicsWidget11polishEventEv")) {
       taken[44] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN15QGraphicsWidget17grabKeyboardEventEP6QEvent")) {
       taken[45] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent")) {
       taken[46] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[47] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[48] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[49] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[50] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem7isEmptyEv")) {
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[51] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN13QGraphicsItem7advanceEi")) {
+    if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem7isEmptyEv")) {
       taken[52] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK13QGraphicsItem8containsERK7QPointF")) {
+    if (!std::strcmp(key, "_ZN13QGraphicsItem7advanceEi")) {
       taken[53] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK13QGraphicsItem16collidesWithItemEPKS_N2Qt17ItemSelectionModeE")) {
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem8containsERK7QPointF")) {
       taken[54] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK13QGraphicsItem16collidesWithPathERK12QPainterPathN2Qt17ItemSelectionModeE")) {
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem16collidesWithItemEPKS_N2Qt17ItemSelectionModeE")) {
       taken[55] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK13QGraphicsItem12isObscuredByEPKS_")) {
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem16collidesWithPathERK12QPainterPathN2Qt17ItemSelectionModeE")) {
       taken[56] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK13QGraphicsItem10opaqueAreaEv")) {
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem12isObscuredByEPKS_")) {
       taken[57] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN13QGraphicsItem16sceneEventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem10opaqueAreaEv")) {
       taken[58] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK13QGraphicsItem9extensionERK8QVariant")) {
+    if (!std::strcmp(key, "_ZN13QGraphicsItem16sceneEventFilterEPS_P6QEvent")) {
       taken[59] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem9extensionERK8QVariant")) {
+      taken[60] = call;
       return true;
     }
     return false;
@@ -795,11 +800,25 @@ public:
     QGraphicsWidget::updateGeometry();
   }
 
-  //  bool QGraphicsWidget::sceneEvent(QEvent *event)
-  bool sceneEvent(QEvent *event) override {
+  //  QVariant QGraphicsWidget::propertyChange(const QString &propertyName,
+  //      const QVariant &value)
+  QVariant propertyChange(
+      const QString &propertyName,
+      const QVariant &value) override {
     if (taken[37]) {
       int handled = 0;
       CuteQGraphicsProxyWidgetCall37 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall37>(taken[37]);
+      const QVariant * given = call(this, &propertyName, &value, &handled);
+      if (handled && given) return *given;
+    }
+    return QGraphicsWidget::propertyChange(propertyName, value);
+  }
+
+  //  bool QGraphicsWidget::sceneEvent(QEvent *event)
+  bool sceneEvent(QEvent *event) override {
+    if (taken[38]) {
+      int handled = 0;
+      CuteQGraphicsProxyWidgetCall38 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall38>(taken[38]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -808,9 +827,9 @@ public:
 
   //  bool QGraphicsWidget::windowFrameEvent(QEvent *e)
   bool windowFrameEvent(QEvent *e) override {
-    if (taken[38]) {
+    if (taken[39]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall38 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall38>(taken[38]);
+      CuteQGraphicsProxyWidgetCall39 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall39>(taken[39]);
       bool given = call(this, e, &handled);
       if (handled) return given;
     }
@@ -821,9 +840,9 @@ public:
   //      QPointF &pos) const
   Qt::WindowFrameSection windowFrameSectionAt(
       const QPointF &pos) const override {
-    if (taken[39]) {
+    if (taken[40]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall39 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall39>(taken[39]);
+      CuteQGraphicsProxyWidgetCall40 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall40>(taken[40]);
       int given = call(this, &pos, &handled);
       if (handled) return static_cast<Qt::WindowFrameSection>(given);
     }
@@ -832,9 +851,9 @@ public:
 
   //  void QGraphicsWidget::changeEvent(QEvent *event)
   void changeEvent(QEvent *event) override {
-    if (taken[40]) {
+    if (taken[41]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall40 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall40>(taken[40]);
+      CuteQGraphicsProxyWidgetCall41 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall41>(taken[41]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -843,9 +862,9 @@ public:
 
   //  void QGraphicsWidget::closeEvent(QCloseEvent *event)
   void closeEvent(QCloseEvent *event) override {
-    if (taken[41]) {
+    if (taken[42]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall41 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall41>(taken[41]);
+      CuteQGraphicsProxyWidgetCall42 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall42>(taken[42]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -854,9 +873,9 @@ public:
 
   //  void QGraphicsWidget::moveEvent(QGraphicsSceneMoveEvent *event)
   void moveEvent(QGraphicsSceneMoveEvent *event) override {
-    if (taken[42]) {
+    if (taken[43]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall42 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall42>(taken[42]);
+      CuteQGraphicsProxyWidgetCall43 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall43>(taken[43]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -865,9 +884,9 @@ public:
 
   //  void QGraphicsWidget::polishEvent()
   void polishEvent() override {
-    if (taken[43]) {
+    if (taken[44]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall43 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall43>(taken[43]);
+      CuteQGraphicsProxyWidgetCall44 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall44>(taken[44]);
       call(this, &handled);
       if (handled) return;
     }
@@ -876,9 +895,9 @@ public:
 
   //  void QGraphicsWidget::grabKeyboardEvent(QEvent *event)
   void grabKeyboardEvent(QEvent *event) override {
-    if (taken[44]) {
+    if (taken[45]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall44 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall44>(taken[44]);
+      CuteQGraphicsProxyWidgetCall45 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall45>(taken[45]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -887,9 +906,9 @@ public:
 
   //  void QGraphicsWidget::ungrabKeyboardEvent(QEvent *event)
   void ungrabKeyboardEvent(QEvent *event) override {
-    if (taken[45]) {
+    if (taken[46]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall45 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall45>(taken[45]);
+      CuteQGraphicsProxyWidgetCall46 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall46>(taken[46]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -898,9 +917,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[46]) {
+    if (taken[47]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall46 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall46>(taken[46]);
+      CuteQGraphicsProxyWidgetCall47 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall47>(taken[47]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -909,9 +928,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[47]) {
+    if (taken[48]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall47 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall47>(taken[47]);
+      CuteQGraphicsProxyWidgetCall48 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall48>(taken[48]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -920,9 +939,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[48]) {
+    if (taken[49]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall48 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall48>(taken[48]);
+      CuteQGraphicsProxyWidgetCall49 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall49>(taken[49]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -931,9 +950,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[49]) {
+    if (taken[50]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall49 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall49>(taken[49]);
+      CuteQGraphicsProxyWidgetCall50 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall50>(taken[50]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -942,9 +961,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[50]) {
+    if (taken[51]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall50 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall50>(taken[50]);
+      CuteQGraphicsProxyWidgetCall51 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall51>(taken[51]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -953,9 +972,9 @@ public:
 
   //  bool QGraphicsLayoutItem::isEmpty() const
   bool isEmpty() const override {
-    if (taken[51]) {
+    if (taken[52]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall51 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall51>(taken[51]);
+      CuteQGraphicsProxyWidgetCall52 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall52>(taken[52]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -964,9 +983,9 @@ public:
 
   //  void QGraphicsItem::advance(int phase)
   void advance(int phase) override {
-    if (taken[52]) {
+    if (taken[53]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall52 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall52>(taken[52]);
+      CuteQGraphicsProxyWidgetCall53 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall53>(taken[53]);
       call(this, phase, &handled);
       if (handled) return;
     }
@@ -975,9 +994,9 @@ public:
 
   //  bool QGraphicsItem::contains(const QPointF &point) const
   bool contains(const QPointF &point) const override {
-    if (taken[53]) {
+    if (taken[54]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall53 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall53>(taken[53]);
+      CuteQGraphicsProxyWidgetCall54 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall54>(taken[54]);
       bool given = call(this, &point, &handled);
       if (handled) return given;
     }
@@ -989,9 +1008,9 @@ public:
   bool collidesWithItem(
       const QGraphicsItem *other,
       Qt::ItemSelectionMode mode) const override {
-    if (taken[54]) {
+    if (taken[55]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall54 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall54>(taken[54]);
+      CuteQGraphicsProxyWidgetCall55 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall55>(taken[55]);
       bool given = call(this, other, static_cast<int>(mode), &handled);
       if (handled) return given;
     }
@@ -1003,9 +1022,9 @@ public:
   bool collidesWithPath(
       const QPainterPath &path,
       Qt::ItemSelectionMode mode) const override {
-    if (taken[55]) {
+    if (taken[56]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall55 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall55>(taken[55]);
+      CuteQGraphicsProxyWidgetCall56 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall56>(taken[56]);
       bool given = call(this, &path, static_cast<int>(mode), &handled);
       if (handled) return given;
     }
@@ -1014,9 +1033,9 @@ public:
 
   //  bool QGraphicsItem::isObscuredBy(const QGraphicsItem *item) const
   bool isObscuredBy(const QGraphicsItem *item) const override {
-    if (taken[56]) {
+    if (taken[57]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall56 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall56>(taken[56]);
+      CuteQGraphicsProxyWidgetCall57 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall57>(taken[57]);
       bool given = call(this, item, &handled);
       if (handled) return given;
     }
@@ -1025,9 +1044,9 @@ public:
 
   //  QPainterPath QGraphicsItem::opaqueArea() const
   QPainterPath opaqueArea() const override {
-    if (taken[57]) {
+    if (taken[58]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall57 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall57>(taken[57]);
+      CuteQGraphicsProxyWidgetCall58 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall58>(taken[58]);
       const QPainterPath * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1037,9 +1056,9 @@ public:
   //  bool QGraphicsItem::sceneEventFilter(QGraphicsItem *watched, QEvent
   //      *event)
   bool sceneEventFilter(QGraphicsItem *watched, QEvent *event) override {
-    if (taken[58]) {
+    if (taken[59]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall58 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall58>(taken[58]);
+      CuteQGraphicsProxyWidgetCall59 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall59>(taken[59]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -1048,9 +1067,9 @@ public:
 
   //  QVariant QGraphicsItem::extension(const QVariant &variant) const
   QVariant extension(const QVariant &variant) const override {
-    if (taken[59]) {
+    if (taken[60]) {
       int handled = 0;
-      CuteQGraphicsProxyWidgetCall59 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall59>(taken[59]);
+      CuteQGraphicsProxyWidgetCall60 call = reinterpret_cast<CuteQGraphicsProxyWidgetCall60>(taken[60]);
       const QVariant * given = call(this, &variant, &handled);
       if (handled && given) return *given;
     }

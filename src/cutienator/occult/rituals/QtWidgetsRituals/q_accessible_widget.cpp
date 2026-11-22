@@ -22,16 +22,21 @@ typedef void * (*CuteQAccessibleWidgetCall4)(const void *, int *);
 typedef const QRect * (*CuteQAccessibleWidgetCall5)(const void *, int *);
 typedef void * (*CuteQAccessibleWidgetCall6)(const void *, int *);
 typedef void * (*CuteQAccessibleWidgetCall7)(const void *, int, int *);
-typedef int (*CuteQAccessibleWidgetCall8)(const void *, int *);
-typedef const QAccessible::State * (*CuteQAccessibleWidgetCall9)(const void *, int *);
-typedef const QColor * (*CuteQAccessibleWidgetCall10)(const void *, int *);
+typedef QString * (*CuteQAccessibleWidgetCall8)(const void *, int, int *);
+typedef int (*CuteQAccessibleWidgetCall9)(const void *, int *);
+typedef const QAccessible::State * (*CuteQAccessibleWidgetCall10)(const void *, int *);
 typedef const QColor * (*CuteQAccessibleWidgetCall11)(const void *, int *);
-typedef void * (*CuteQAccessibleWidgetCall12)(const void *, int *);
-typedef void * (*CuteQAccessibleWidgetCall13)(const void *, int, int, int *);
+typedef const QColor * (*CuteQAccessibleWidgetCall12)(const void *, int *);
+typedef void (*CuteQAccessibleWidgetCall13)(const void *, const QString *, int *);
+typedef void * (*CuteQAccessibleWidgetCall14)(const void *, int *);
+typedef void (*CuteQAccessibleWidgetCall15)(const void *, int, const QString *, int *);
+typedef void * (*CuteQAccessibleWidgetCall16)(const void *, int, int, int *);
+typedef QString * (*CuteQAccessibleWidgetCall17)(const void *, const QString *, int *);
+typedef QString * (*CuteQAccessibleWidgetCall18)(const void *, const QString *, int *);
 class CuteQAccessibleWidget : public QAccessibleWidget {
 public:
   using QAccessibleWidget::QAccessibleWidget;
-  void *taken[14] = {};
+  void *taken[19] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK20QAccessibleInterface7isValidEv")) {
@@ -66,28 +71,48 @@ public:
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4textEN11QAccessible4TextE")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5stateEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface4roleEv")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface5stateEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15foregroundColorEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface15backgroundColorEv")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
+    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
       taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface6objectEv")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QString")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK20QAccessibleInterface7childAtEii")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+      taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+      taken[18] = call;
       return true;
     }
     return false;
@@ -182,11 +207,26 @@ public:
     return QAccessibleWidget::child(index);
   }
 
-  //  QAccessible::Role QAccessibleWidget::role() const
-  QAccessible::Role role() const override {
+  //  QString QAccessibleWidget::text(QAccessible::Text t) const
+  QString text(QAccessible::Text t) const override {
     if (taken[8]) {
       int handled = 0;
       CuteQAccessibleWidgetCall8 call = reinterpret_cast<CuteQAccessibleWidgetCall8>(taken[8]);
+      QString * given = call(this, static_cast<int>(t), &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return QAccessibleWidget::text(t);
+  }
+
+  //  QAccessible::Role QAccessibleWidget::role() const
+  QAccessible::Role role() const override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQAccessibleWidgetCall9 call = reinterpret_cast<CuteQAccessibleWidgetCall9>(taken[9]);
       int given = call(this, &handled);
       if (handled) return static_cast<QAccessible::Role>(given);
     }
@@ -195,9 +235,9 @@ public:
 
   //  QAccessible::State QAccessibleWidget::state() const
   QAccessible::State state() const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQAccessibleWidgetCall9 call = reinterpret_cast<CuteQAccessibleWidgetCall9>(taken[9]);
+      CuteQAccessibleWidgetCall10 call = reinterpret_cast<CuteQAccessibleWidgetCall10>(taken[10]);
       const QAccessible::State * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -206,9 +246,9 @@ public:
 
   //  QColor QAccessibleWidget::foregroundColor() const
   QColor foregroundColor() const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQAccessibleWidgetCall10 call = reinterpret_cast<CuteQAccessibleWidgetCall10>(taken[10]);
+      CuteQAccessibleWidgetCall11 call = reinterpret_cast<CuteQAccessibleWidgetCall11>(taken[11]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -217,35 +257,90 @@ public:
 
   //  QColor QAccessibleWidget::backgroundColor() const
   QColor backgroundColor() const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQAccessibleWidgetCall11 call = reinterpret_cast<CuteQAccessibleWidgetCall11>(taken[11]);
+      CuteQAccessibleWidgetCall12 call = reinterpret_cast<CuteQAccessibleWidgetCall12>(taken[12]);
       const QColor * given = call(this, &handled);
       if (handled && given) return *given;
     }
     return QAccessibleWidget::backgroundColor();
   }
 
+  //  void QAccessibleWidget::doAction(const QString &actionName)
+  void doAction(const QString &actionName) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQAccessibleWidgetCall13 call = reinterpret_cast<CuteQAccessibleWidgetCall13>(taken[13]);
+      call(this, &actionName, &handled);
+      if (handled) return;
+    }
+    QAccessibleWidget::doAction(actionName);
+  }
+
   //  QObject *QAccessibleObject::object() const
   QObject *object() const override {
-    if (taken[12]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQAccessibleWidgetCall12 call = reinterpret_cast<CuteQAccessibleWidgetCall12>(taken[12]);
+      CuteQAccessibleWidgetCall14 call = reinterpret_cast<CuteQAccessibleWidgetCall14>(taken[14]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QObject *>(given);
     }
     return QAccessibleObject::object();
   }
 
+  //  void QAccessibleObject::setText(QAccessible::Text t, const QString
+  //      &text)
+  void setText(QAccessible::Text t, const QString &text) override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQAccessibleWidgetCall15 call = reinterpret_cast<CuteQAccessibleWidgetCall15>(taken[15]);
+      call(this, static_cast<int>(t), &text, &handled);
+      if (handled) return;
+    }
+    QAccessibleObject::setText(t, text);
+  }
+
   //  QAccessibleInterface *QAccessibleObject::childAt(int x, int y) const
   QAccessibleInterface *childAt(int x, int y) const override {
-    if (taken[13]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQAccessibleWidgetCall13 call = reinterpret_cast<CuteQAccessibleWidgetCall13>(taken[13]);
+      CuteQAccessibleWidgetCall16 call = reinterpret_cast<CuteQAccessibleWidgetCall16>(taken[16]);
       void * given = call(this, x, y, &handled);
       if (handled) return static_cast<QAccessibleInterface *>(given);
     }
     return QAccessibleObject::childAt(x, y);
+  }
+
+  //  QString QAccessibleActionInterface::localizedActionName(const QString
+  //      &name) const
+  QString localizedActionName(const QString &name) const override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQAccessibleWidgetCall17 call = reinterpret_cast<CuteQAccessibleWidgetCall17>(taken[17]);
+      QString * given = call(this, &name, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return QAccessibleActionInterface::localizedActionName(name);
+  }
+
+  //  QString QAccessibleActionInterface::localizedActionDescription(const
+  //      QString &name) const
+  QString localizedActionDescription(const QString &name) const override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQAccessibleWidgetCall18 call = reinterpret_cast<CuteQAccessibleWidgetCall18>(taken[18]);
+      QString * given = call(this, &name, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return QAccessibleActionInterface::localizedActionDescription(name);
   }
 };
 
@@ -444,6 +539,14 @@ QAccessibleInterface *ritual_own_ZNK17QAccessibleWidget5childEi(
   return self->QAccessibleWidget::child(index);
 }
 
+//  QString QAccessibleWidget::text(QAccessible::Text t) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_own_ZNK17QAccessibleWidget4textEN11QAccessible4TextE(
+    const QAccessibleWidget *self,
+    QAccessible::Text t) {
+  return new QString(self->QAccessibleWidget::text(t));
+}
+
 //  QAccessible::Role QAccessibleWidget::role() const
 extern "C" Q_DECL_EXPORT
 QAccessible::Role ritual_own_ZNK17QAccessibleWidget4roleEv(
@@ -470,4 +573,12 @@ extern "C" Q_DECL_EXPORT
 QColor *ritual_own_ZNK17QAccessibleWidget15backgroundColorEv(
     const QAccessibleWidget *self) {
   return new QColor(self->QAccessibleWidget::backgroundColor());
+}
+
+//  void QAccessibleWidget::doAction(const QString &actionName)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN17QAccessibleWidget8doActionERK7QString(
+    QAccessibleWidget *self,
+    const QString *actionName) {
+  self->QAccessibleWidget::doAction(*actionName);
 }

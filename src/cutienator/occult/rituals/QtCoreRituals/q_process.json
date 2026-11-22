@@ -86,6 +86,9 @@
     "ritual_ZN8QProcess9terminateEv": ["nothing", "address"],
     "ritual_ZN8QProcess4killEv": ["nothing", "address"],
     "ritual_take_QProcess": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN8QProcess4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
     "ritual_own_ZN8QProcess16waitForReadyReadEi": ["bool", "address", "int"],
     "ritual_own_ZN8QProcess19waitForBytesWrittenEi": [
       "bool", "address", "int"

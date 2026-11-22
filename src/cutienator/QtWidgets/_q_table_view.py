@@ -13,15 +13,14 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QItemSelectionModel
 from . import QAbstractItemView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QAbstractItemModel, QItemSelection
-  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
-  from ..QtCore import QRect, QSize, QTimerEvent
+  from ..QtCore import QAbstractItemModel, QItemSelection, QMetaObject
+  from ..QtCore import QModelIndex, QPoint, QRect, QSize, QTimerEvent
   from ..QtGui import QDropEvent, QPaintEvent, QRegion
   from . import QHeaderView, QStyleOptionViewItem
 else:
@@ -32,10 +31,10 @@ else:
   QDropEvent = WAIT['QDropEvent']
   QHeaderView = WAIT['QHeaderView']
   QItemSelection = WAIT['QItemSelection']
-  QItemSelectionModel = WAIT['QItemSelectionModel']
   QModelIndex = WAIT['QModelIndex']
   QPaintEvent = WAIT['QPaintEvent']
   QPoint = WAIT['QPoint']
+  QRect = WAIT['QRect']
   QStyleOptionViewItem = WAIT['QStyleOptionViewItem']
   QTimerEvent = WAIT['QTimerEvent']
 
@@ -56,7 +55,7 @@ class QTableView(QAbstractItemView):
   -----------
 
   Every function of Qt's QTableView that has a ritual and that Python can
-  call so far, 67 names in all: 'metaObject', 'tr', 'setModel',
+  call so far, 68 names in all: 'metaObject', 'tr', 'setModel',
   'setRootIndex', 'setSelectionModel', 'doItemsLayout', 'horizontalHeader',
   'verticalHeader', 'setHorizontalHeader', 'setVerticalHeader',
   'rowViewportPosition', 'rowAt', 'setRowHeight', 'rowHeight',
@@ -70,7 +69,7 @@ class QTableView(QAbstractItemView):
   'resizeRowsToContents', 'resizeColumnToContents',
   'resizeColumnsToContents', 'sortByColumn', 'setShowGrid',
   'scrollContentsBy', 'initViewItemOption', 'paintEvent', 'timerEvent',
-  'dropEvent', 'horizontalOffset', 'verticalOffset',
+  'dropEvent', 'horizontalOffset', 'verticalOffset', 'setSelection',
   'visualRegionForSelection', 'updateGeometries', 'viewportSizeHint',
   'sizeHintForRow', 'sizeHintForColumn', 'verticalScrollbarAction',
   'horizontalScrollbarAction', 'isIndexHidden', 'selectionChanged',
@@ -85,7 +84,7 @@ class QTableView(QAbstractItemView):
   What has no ritual
   ------------------
 
-  19 of the 88 functions Qt declares: 10 protected; 4 private; 2 takes or
+  18 of the 88 functions Qt declares: 9 protected; 4 private; 2 takes or
   gives a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
@@ -970,6 +969,35 @@ class QTableView(QAbstractItemView):
     """
     #  void QTableView::setShowGrid(bool show)
     self.uglySide.call('ritual_ZN10QTableView11setShowGridEb', show)
+
+  @overload(QRect, QItemSelectionModel.SelectionFlags)
+  def setSelection(
+      self,
+      rect: QRect,
+      command: QItemSelectionModel.SelectionFlags,
+  ) -> None:
+    """
+    Calls Qt's 'void QTableView::setSelection(const QRect &rect,
+    QItemSelectionModel::SelectionFlags command)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#setSelection
+
+    Parameters
+    ----------
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    command : QItemSelectionModel.SelectionFlags
+      Passed on as its number.
+    """
+    #  void QTableView::setSelection(const QRect &rect,
+    #      QItemSelectionModel::SelectionFlags command)
+    self.uglySide.call(
+        'ritual_own_ZN10QTableView12setSelectionERK5QRect6QFlagsIN19QItemSe'
+        'lectionModel13SelectionFlagEE',
+        self._valueOf(rect), command.value,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

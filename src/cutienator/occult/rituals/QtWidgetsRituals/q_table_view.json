@@ -139,6 +139,9 @@
     ],
     "ritual_own_ZNK10QTableView16horizontalOffsetEv": ["int", "address"],
     "ritual_own_ZNK10QTableView14verticalOffsetEv": ["int", "address"],
+    "ritual_own_ZN10QTableView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_own_ZNK10QTableView24visualRegionForSelectionERK14QItemSelection": [
       "address", "address", "address"
     ],

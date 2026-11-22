@@ -113,6 +113,9 @@
       "nothing", "address", "int"
     ],
     "ritual_take_QRangeModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QRangeModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
     "ritual_own_ZNK11QRangeModel10headerDataEiN2Qt11OrientationEi": [
       "address", "address", "int", "int", "int"
     ],
@@ -151,6 +154,12 @@
     ],
     "ritual_own_ZNK11QRangeModel4spanERK11QModelIndex": [
       "address", "address", "address"
+    ],
+    "ritual_own_ZNK11QRangeModel20supportedDragActionsEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK11QRangeModel20supportedDropActionsEv": [
+      "int", "address"
     ],
     "ritual_own_ZN11QRangeModel17resetInternalDataEv": [
       "nothing", "address"

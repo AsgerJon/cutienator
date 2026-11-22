@@ -18,12 +18,13 @@ from . import QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QMetaObject, QVariant
+  from . import QByteArray, QMetaObject, QMetaType, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
+  QMetaType = WAIT['QMetaType']
   QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -43,11 +44,11 @@ class QMimeData(QObject):
   -----------
 
   Every function of Qt's QMimeData that has a ritual and that Python can call
-  so far, 20 names in all: 'metaObject', 'tr', 'hasUrls', 'text', 'setText',
+  so far, 21 names in all: 'metaObject', 'tr', 'hasUrls', 'text', 'setText',
   'hasText', 'html', 'setHtml', 'hasHtml', 'imageData', 'setImageData',
   'hasImage', 'colorData', 'setColorData', 'hasColor', 'data', 'setData',
-  'removeFormat', 'hasFormat', 'clear'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'removeFormat', 'hasFormat', 'clear', 'retrieveData'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -58,8 +59,8 @@ class QMimeData(QObject):
   What has no ritual
   ------------------
 
-  12 of the 34 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template; 1 protected.
+  11 of the 34 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 3 private; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -140,15 +141,30 @@ class QMimeData(QObject):
   #  a program that writes one of them anew is refused, since Qt would never
   #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
   __virtual_left_out__ = {
-      'hasFormat': (
-          'bool QMimeData::hasFormat(const QString &) const',
-      ),
       'formats': (
           'QStringList QMimeData::formats() const',
       ),
+  }
+
+  #  The functions Qt calls itself that QMimeData is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'hasFormat': (
+          ('_ZNK9QMimeData9hasFormatERK7QString',
+           ('bool', 'number', ''),
+           (
+               ('address', 'text', ''),
+           )),
+      ),
       'retrieveData': (
-          'QVariant QMimeData::retrieveData(const QString &, QMetaType) '
-          'const',
+          ('_ZNK9QMimeData12retrieveDataERK7QString9QMetaType',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('address', 'text', ''),
+               ('address', 'value', 'QtCore:QMetaType'),
+           )),
       ),
   }
 
@@ -331,9 +347,47 @@ class QMimeData(QObject):
       Passed on as it is: a QString is made of it for the call.
     """
     #  bool QMimeData::hasFormat(const QString &mimetype) const
-    return self.uglySide.call(
-        'ritual_ZNK9QMimeData9hasFormatERK7QString', mimetype,
+    ritual = 'ritual_ZNK9QMimeData9hasFormatERK7QString'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QMimeData9hasFormatERK7QString'
+    return self.uglySide.call(ritual, mimetype)
+
+  @overload(str, QMetaType)
+  def retrieveData(
+      self,
+      mimetype: str,
+      preferredType: QMetaType,
+  ) -> QVariant:
+    """
+    Calls Qt's 'QVariant QMimeData::retrieveData(const QString &mimetype,
+    QMetaType preferredType) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#retrieveData
+
+    Parameters
+    ----------
+
+    mimetype : str
+      Passed on as it is: a QString is made of it for the call.
+
+    preferredType : QMetaType
+      Passed on as a value: Qt reads the C++ QMetaType, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QMimeData::retrieveData(const QString &mimetype, QMetaType
+    #      preferredType) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK9QMimeData12retrieveDataERK7QString9QMetaType',
+        mimetype, self._valueOf(preferredType),
     )
+    from . import QVariant
+    return QVariant._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

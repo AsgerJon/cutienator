@@ -53,6 +53,9 @@
     "ritual_own_ZNK13QItemDelegate20updateEditorGeometryEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex": [
       "nothing", "address", "address", "address", "address"
     ],
+    "ritual_own_ZNK13QItemDelegate11drawDisplayEP8QPainterRK20QStyleOptionViewItemRK5QRectRK7QString": [
+      "nothing", "address", "address", "address", "address", "text"
+    ],
     "ritual_own_ZNK13QItemDelegate14drawDecorationEP8QPainterRK20QStyleOptionViewItemRK5QRectRK7QPixmap": [
       "nothing", "address", "address", "address", "address", "address"
     ],

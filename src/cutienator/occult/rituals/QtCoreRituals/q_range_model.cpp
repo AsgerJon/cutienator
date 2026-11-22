@@ -20,128 +20,154 @@ struct OwnQRangeModel : QRangeModel {
 //  A QRangeModel that Python can take functions over in. Every QRangeModel
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
-typedef const QVariant * (*CuteQRangeModelCall0)(const void *, int, int, int, int *);
-typedef bool (*CuteQRangeModelCall1)(const void *, int, int, const QVariant *, int, int *);
-typedef const QVariant * (*CuteQRangeModelCall2)(const void *, const QModelIndex *, int, int *);
-typedef bool (*CuteQRangeModelCall3)(const void *, const QModelIndex *, const QVariant *, int, int *);
-typedef bool (*CuteQRangeModelCall4)(const void *, const QModelIndex *, int *);
+typedef int (*CuteQRangeModelCall0)(const void *, const QModelIndex *, int *);
+typedef const QVariant * (*CuteQRangeModelCall1)(const void *, int, int, int, int *);
+typedef bool (*CuteQRangeModelCall2)(const void *, int, int, const QVariant *, int, int *);
+typedef const QVariant * (*CuteQRangeModelCall3)(const void *, const QModelIndex *, int, int *);
+typedef bool (*CuteQRangeModelCall4)(const void *, const QModelIndex *, const QVariant *, int, int *);
 typedef bool (*CuteQRangeModelCall5)(const void *, const QModelIndex *, int *);
-typedef void (*CuteQRangeModelCall6)(const void *, const QModelIndex *, int *);
-typedef const QModelIndex * (*CuteQRangeModelCall7)(const void *, const QModelIndex *, int *);
-typedef bool (*CuteQRangeModelCall8)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+typedef bool (*CuteQRangeModelCall6)(const void *, const QModelIndex *, int *);
+typedef void (*CuteQRangeModelCall7)(const void *, const QModelIndex *, int *);
+typedef const QModelIndex * (*CuteQRangeModelCall8)(const void *, const QModelIndex *, int *);
 typedef bool (*CuteQRangeModelCall9)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
-typedef void (*CuteQRangeModelCall10)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
-typedef void (*CuteQRangeModelCall11)(const void *, int, int, int *);
-typedef const QSize * (*CuteQRangeModelCall12)(const void *, const QModelIndex *, int *);
-typedef void (*CuteQRangeModelCall13)(const void *, int *);
-typedef bool (*CuteQRangeModelCall14)(const void *, QEvent *, int *);
-typedef bool (*CuteQRangeModelCall15)(const void *, QObject *, QEvent *, int *);
-typedef bool (*CuteQRangeModelCall16)(const void *, int *);
-typedef void (*CuteQRangeModelCall17)(const void *, int *);
-typedef void (*CuteQRangeModelCall18)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQRangeModelCall19)(const void *, QChildEvent *, int *);
-typedef void (*CuteQRangeModelCall20)(const void *, QEvent *, int *);
-typedef void (*CuteQRangeModelCall21)(const void *, const QMetaMethod *, int *);
-typedef void (*CuteQRangeModelCall22)(const void *, const QMetaMethod *, int *);
+typedef bool (*CuteQRangeModelCall10)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+typedef void (*CuteQRangeModelCall11)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
+typedef void (*CuteQRangeModelCall12)(const void *, int, int, int *);
+typedef const QSize * (*CuteQRangeModelCall13)(const void *, const QModelIndex *, int *);
+typedef int (*CuteQRangeModelCall14)(const void *, int *);
+typedef int (*CuteQRangeModelCall15)(const void *, int *);
+typedef void (*CuteQRangeModelCall16)(const void *, int *);
+typedef bool (*CuteQRangeModelCall17)(const void *, QEvent *, int *);
+typedef bool (*CuteQRangeModelCall18)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQRangeModelCall19)(const void *, int *);
+typedef void (*CuteQRangeModelCall20)(const void *, int *);
+typedef void (*CuteQRangeModelCall21)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQRangeModelCall22)(const void *, QChildEvent *, int *);
+typedef void (*CuteQRangeModelCall23)(const void *, QEvent *, int *);
+typedef void (*CuteQRangeModelCall24)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQRangeModelCall25)(const void *, const QMetaMethod *, int *);
 class CuteQRangeModel : public QRangeModel {
 public:
   using QRangeModel::QRangeModel;
-  void *taken[23] = {};
+  void *taken[26] = {};
 
   bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel10headerDataEiN2Qt11OrientationEi")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5flagsERK11QModelIndex")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel10headerDataEiN2Qt11OrientationEi")) {
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4dataERK11QModelIndexi")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel7setDataERK11QModelIndexRK8QVarianti")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4dataERK11QModelIndexi")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel7setDataERK11QModelIndexRK8QVarianti")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDragActionsEv")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDropActionsEv")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel6submitEv")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel6revertEv")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel6submitEv")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel6revertEv")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[21] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[22] = call;
       return true;
     }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[23] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[24] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[25] = call;
+      return true;
+    }
     return false;
+  }
+
+  //  Qt::ItemFlags QRangeModel::flags(const QModelIndex &index) const
+  Qt::ItemFlags flags(const QModelIndex &index) const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQRangeModelCall0 call = reinterpret_cast<CuteQRangeModelCall0>(taken[0]);
+      int given = call(this, &index, &handled);
+      if (handled) return QFlags<Qt::ItemFlag>::fromInt(given);
+    }
+    return QRangeModel::flags(index);
   }
 
   //  QVariant QRangeModel::headerData(int section, Qt::Orientation
@@ -150,9 +176,9 @@ public:
       int section,
       Qt::Orientation orientation,
       int role) const override {
-    if (taken[0]) {
+    if (taken[1]) {
       int handled = 0;
-      CuteQRangeModelCall0 call = reinterpret_cast<CuteQRangeModelCall0>(taken[0]);
+      CuteQRangeModelCall1 call = reinterpret_cast<CuteQRangeModelCall1>(taken[1]);
       const QVariant * given = call(this, section, static_cast<int>(orientation), role, &handled);
       if (handled && given) return *given;
     }
@@ -166,9 +192,9 @@ public:
       Qt::Orientation orientation,
       const QVariant &data,
       int role) override {
-    if (taken[1]) {
+    if (taken[2]) {
       int handled = 0;
-      CuteQRangeModelCall1 call = reinterpret_cast<CuteQRangeModelCall1>(taken[1]);
+      CuteQRangeModelCall2 call = reinterpret_cast<CuteQRangeModelCall2>(taken[2]);
       bool given = call(this, section, static_cast<int>(orientation), &data, role, &handled);
       if (handled) return given;
     }
@@ -177,9 +203,9 @@ public:
 
   //  QVariant QRangeModel::data(const QModelIndex &index, int role) const
   QVariant data(const QModelIndex &index, int role) const override {
-    if (taken[2]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQRangeModelCall2 call = reinterpret_cast<CuteQRangeModelCall2>(taken[2]);
+      CuteQRangeModelCall3 call = reinterpret_cast<CuteQRangeModelCall3>(taken[3]);
       const QVariant * given = call(this, &index, role, &handled);
       if (handled && given) return *given;
     }
@@ -192,9 +218,9 @@ public:
       const QModelIndex &index,
       const QVariant &data,
       int role) override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQRangeModelCall3 call = reinterpret_cast<CuteQRangeModelCall3>(taken[3]);
+      CuteQRangeModelCall4 call = reinterpret_cast<CuteQRangeModelCall4>(taken[4]);
       bool given = call(this, &index, &data, role, &handled);
       if (handled) return given;
     }
@@ -203,9 +229,9 @@ public:
 
   //  bool QRangeModel::clearItemData(const QModelIndex &index)
   bool clearItemData(const QModelIndex &index) override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQRangeModelCall4 call = reinterpret_cast<CuteQRangeModelCall4>(taken[4]);
+      CuteQRangeModelCall5 call = reinterpret_cast<CuteQRangeModelCall5>(taken[5]);
       bool given = call(this, &index, &handled);
       if (handled) return given;
     }
@@ -214,9 +240,9 @@ public:
 
   //  bool QRangeModel::canFetchMore(const QModelIndex &parent) const
   bool canFetchMore(const QModelIndex &parent) const override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQRangeModelCall5 call = reinterpret_cast<CuteQRangeModelCall5>(taken[5]);
+      CuteQRangeModelCall6 call = reinterpret_cast<CuteQRangeModelCall6>(taken[6]);
       bool given = call(this, &parent, &handled);
       if (handled) return given;
     }
@@ -225,9 +251,9 @@ public:
 
   //  void QRangeModel::fetchMore(const QModelIndex &parent)
   void fetchMore(const QModelIndex &parent) override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQRangeModelCall6 call = reinterpret_cast<CuteQRangeModelCall6>(taken[6]);
+      CuteQRangeModelCall7 call = reinterpret_cast<CuteQRangeModelCall7>(taken[7]);
       call(this, &parent, &handled);
       if (handled) return;
     }
@@ -236,9 +262,9 @@ public:
 
   //  QModelIndex QRangeModel::buddy(const QModelIndex &index) const
   QModelIndex buddy(const QModelIndex &index) const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQRangeModelCall7 call = reinterpret_cast<CuteQRangeModelCall7>(taken[7]);
+      CuteQRangeModelCall8 call = reinterpret_cast<CuteQRangeModelCall8>(taken[8]);
       const QModelIndex * given = call(this, &index, &handled);
       if (handled && given) return *given;
     }
@@ -254,9 +280,9 @@ public:
       int row,
       int column,
       const QModelIndex &parent) const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQRangeModelCall8 call = reinterpret_cast<CuteQRangeModelCall8>(taken[8]);
+      CuteQRangeModelCall9 call = reinterpret_cast<CuteQRangeModelCall9>(taken[9]);
       bool given = call(this, data, static_cast<int>(action), row, column, &parent, &handled);
       if (handled) return given;
     }
@@ -271,9 +297,9 @@ public:
       int row,
       int column,
       const QModelIndex &parent) override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQRangeModelCall9 call = reinterpret_cast<CuteQRangeModelCall9>(taken[9]);
+      CuteQRangeModelCall10 call = reinterpret_cast<CuteQRangeModelCall10>(taken[10]);
       bool given = call(this, data, static_cast<int>(action), row, column, &parent, &handled);
       if (handled) return given;
     }
@@ -285,9 +311,9 @@ public:
   void multiData(
       const QModelIndex &index,
       QModelRoleDataSpan roleDataSpan) const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQRangeModelCall10 call = reinterpret_cast<CuteQRangeModelCall10>(taken[10]);
+      CuteQRangeModelCall11 call = reinterpret_cast<CuteQRangeModelCall11>(taken[11]);
       call(this, &index, &roleDataSpan, &handled);
       if (handled) return;
     }
@@ -296,9 +322,9 @@ public:
 
   //  void QRangeModel::sort(int column, Qt::SortOrder order)
   void sort(int column, Qt::SortOrder order) override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQRangeModelCall11 call = reinterpret_cast<CuteQRangeModelCall11>(taken[11]);
+      CuteQRangeModelCall12 call = reinterpret_cast<CuteQRangeModelCall12>(taken[12]);
       call(this, column, static_cast<int>(order), &handled);
       if (handled) return;
     }
@@ -307,20 +333,42 @@ public:
 
   //  QSize QRangeModel::span(const QModelIndex &index) const
   QSize span(const QModelIndex &index) const override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQRangeModelCall12 call = reinterpret_cast<CuteQRangeModelCall12>(taken[12]);
+      CuteQRangeModelCall13 call = reinterpret_cast<CuteQRangeModelCall13>(taken[13]);
       const QSize * given = call(this, &index, &handled);
       if (handled && given) return *given;
     }
     return QRangeModel::span(index);
   }
 
+  //  Qt::DropActions QRangeModel::supportedDragActions() const
+  Qt::DropActions supportedDragActions() const override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQRangeModelCall14 call = reinterpret_cast<CuteQRangeModelCall14>(taken[14]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::DropAction>::fromInt(given);
+    }
+    return QRangeModel::supportedDragActions();
+  }
+
+  //  Qt::DropActions QRangeModel::supportedDropActions() const
+  Qt::DropActions supportedDropActions() const override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQRangeModelCall15 call = reinterpret_cast<CuteQRangeModelCall15>(taken[15]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::DropAction>::fromInt(given);
+    }
+    return QRangeModel::supportedDropActions();
+  }
+
   //  void QRangeModel::resetInternalData()
   void resetInternalData() override {
-    if (taken[13]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQRangeModelCall13 call = reinterpret_cast<CuteQRangeModelCall13>(taken[13]);
+      CuteQRangeModelCall16 call = reinterpret_cast<CuteQRangeModelCall16>(taken[16]);
       call(this, &handled);
       if (handled) return;
     }
@@ -329,9 +377,9 @@ public:
 
   //  bool QRangeModel::event(QEvent *a0)
   bool event(QEvent *a0) override {
-    if (taken[14]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQRangeModelCall14 call = reinterpret_cast<CuteQRangeModelCall14>(taken[14]);
+      CuteQRangeModelCall17 call = reinterpret_cast<CuteQRangeModelCall17>(taken[17]);
       bool given = call(this, a0, &handled);
       if (handled) return given;
     }
@@ -340,9 +388,9 @@ public:
 
   //  bool QRangeModel::eventFilter(QObject *a0, QEvent *a1)
   bool eventFilter(QObject *a0, QEvent *a1) override {
-    if (taken[15]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQRangeModelCall15 call = reinterpret_cast<CuteQRangeModelCall15>(taken[15]);
+      CuteQRangeModelCall18 call = reinterpret_cast<CuteQRangeModelCall18>(taken[18]);
       bool given = call(this, a0, a1, &handled);
       if (handled) return given;
     }
@@ -351,9 +399,9 @@ public:
 
   //  bool QAbstractItemModel::submit()
   bool submit() override {
-    if (taken[16]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQRangeModelCall16 call = reinterpret_cast<CuteQRangeModelCall16>(taken[16]);
+      CuteQRangeModelCall19 call = reinterpret_cast<CuteQRangeModelCall19>(taken[19]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -362,9 +410,9 @@ public:
 
   //  void QAbstractItemModel::revert()
   void revert() override {
-    if (taken[17]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQRangeModelCall17 call = reinterpret_cast<CuteQRangeModelCall17>(taken[17]);
+      CuteQRangeModelCall20 call = reinterpret_cast<CuteQRangeModelCall20>(taken[20]);
       call(this, &handled);
       if (handled) return;
     }
@@ -373,9 +421,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[18]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQRangeModelCall18 call = reinterpret_cast<CuteQRangeModelCall18>(taken[18]);
+      CuteQRangeModelCall21 call = reinterpret_cast<CuteQRangeModelCall21>(taken[21]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -384,9 +432,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[19]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQRangeModelCall19 call = reinterpret_cast<CuteQRangeModelCall19>(taken[19]);
+      CuteQRangeModelCall22 call = reinterpret_cast<CuteQRangeModelCall22>(taken[22]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -395,9 +443,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[20]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQRangeModelCall20 call = reinterpret_cast<CuteQRangeModelCall20>(taken[20]);
+      CuteQRangeModelCall23 call = reinterpret_cast<CuteQRangeModelCall23>(taken[23]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -406,9 +454,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[21]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQRangeModelCall21 call = reinterpret_cast<CuteQRangeModelCall21>(taken[21]);
+      CuteQRangeModelCall24 call = reinterpret_cast<CuteQRangeModelCall24>(taken[24]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -417,9 +465,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[22]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQRangeModelCall22 call = reinterpret_cast<CuteQRangeModelCall22>(taken[22]);
+      CuteQRangeModelCall25 call = reinterpret_cast<CuteQRangeModelCall25>(taken[25]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -831,6 +879,14 @@ bool ritual_take_QRangeModel(
   return static_cast<CuteQRangeModel *>(self)->take(key, call);
 }
 
+//  Qt::ItemFlags QRangeModel::flags(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK11QRangeModel5flagsERK11QModelIndex(
+    const QRangeModel *self,
+    const QModelIndex *index) {
+  return static_cast<int>(self->QRangeModel::flags(*index).toInt());
+}
+
 //  QVariant QRangeModel::headerData(int section, Qt::Orientation
 //      orientation, int role) const
 extern "C" Q_DECL_EXPORT
@@ -966,6 +1022,20 @@ QSize *ritual_own_ZNK11QRangeModel4spanERK11QModelIndex(
     const QRangeModel *self,
     const QModelIndex *index) {
   return new QSize(self->QRangeModel::span(*index));
+}
+
+//  Qt::DropActions QRangeModel::supportedDragActions() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK11QRangeModel20supportedDragActionsEv(
+    const QRangeModel *self) {
+  return static_cast<int>(self->QRangeModel::supportedDragActions().toInt());
+}
+
+//  Qt::DropActions QRangeModel::supportedDropActions() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK11QRangeModel20supportedDropActionsEv(
+    const QRangeModel *self) {
+  return static_cast<int>(self->QRangeModel::supportedDropActions().toInt());
 }
 
 //  void QRangeModel::resetInternalData()

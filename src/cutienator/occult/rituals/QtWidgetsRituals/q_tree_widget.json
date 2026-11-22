@@ -118,6 +118,9 @@
     "ritual_own_ZN11QTreeWidget12dropMimeDataEP15QTreeWidgetItemiPK9QMimeDataN2Qt10DropActionE": [
       "bool", "address", "address", "int", "address", "int"
     ],
+    "ritual_own_ZNK11QTreeWidget20supportedDropActionsEv": [
+      "int", "address"
+    ],
     "ritual_own_ZN11QTreeWidget9dropEventEP10QDropEvent": [
       "nothing", "address", "address"
     ]

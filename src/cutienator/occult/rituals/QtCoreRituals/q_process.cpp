@@ -11,118 +11,134 @@
 //  function handed over for it, and runs Qt's own without one.
 typedef bool (*CuteQProcessCall0)(const void *, int, int *);
 typedef bool (*CuteQProcessCall1)(const void *, int, int *);
-typedef qint64 (*CuteQProcessCall2)(const void *, int *);
-typedef bool (*CuteQProcessCall3)(const void *, int *);
-typedef void (*CuteQProcessCall4)(const void *, int *);
-typedef qint64 (*CuteQProcessCall5)(const void *, int *);
+typedef bool (*CuteQProcessCall2)(const void *, int, int *);
+typedef qint64 (*CuteQProcessCall3)(const void *, int *);
+typedef bool (*CuteQProcessCall4)(const void *, int *);
+typedef void (*CuteQProcessCall5)(const void *, int *);
 typedef qint64 (*CuteQProcessCall6)(const void *, int *);
-typedef bool (*CuteQProcessCall7)(const void *, qint64, int *);
-typedef bool (*CuteQProcessCall8)(const void *, int *);
+typedef qint64 (*CuteQProcessCall7)(const void *, int *);
+typedef bool (*CuteQProcessCall8)(const void *, qint64, int *);
 typedef bool (*CuteQProcessCall9)(const void *, int *);
-typedef qint64 (*CuteQProcessCall10)(const void *, int *);
-typedef bool (*CuteQProcessCall11)(const void *, int *);
-typedef qint64 (*CuteQProcessCall12)(const void *, qint64, int *);
-typedef bool (*CuteQProcessCall13)(const void *, QEvent *, int *);
-typedef bool (*CuteQProcessCall14)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQProcessCall15)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQProcessCall16)(const void *, QChildEvent *, int *);
-typedef void (*CuteQProcessCall17)(const void *, QEvent *, int *);
-typedef void (*CuteQProcessCall18)(const void *, const QMetaMethod *, int *);
+typedef bool (*CuteQProcessCall10)(const void *, int *);
+typedef qint64 (*CuteQProcessCall11)(const void *, int *);
+typedef bool (*CuteQProcessCall12)(const void *, int *);
+typedef qint64 (*CuteQProcessCall13)(const void *, qint64, int *);
+typedef bool (*CuteQProcessCall14)(const void *, QEvent *, int *);
+typedef bool (*CuteQProcessCall15)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQProcessCall16)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQProcessCall17)(const void *, QChildEvent *, int *);
+typedef void (*CuteQProcessCall18)(const void *, QEvent *, int *);
 typedef void (*CuteQProcessCall19)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQProcessCall20)(const void *, const QMetaMethod *, int *);
 class CuteQProcess : public QProcess {
 public:
   using QProcess::QProcess;
-  void *taken[20] = {};
+  void *taken[21] = {};
 
   bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
+    if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
+    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice5closeEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice5closeEv")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice14bytesAvailableEv")) {
+    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice14bytesAvailableEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[19] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[20] = call;
       return true;
     }
     return false;
   }
 
-  //  bool QProcess::waitForReadyRead(int msecs)
-  bool waitForReadyRead(int msecs) override {
+  //  bool QProcess::open(OpenMode mode)
+  bool open(QIODeviceBase::OpenMode mode) override {
     if (taken[0]) {
       int handled = 0;
       CuteQProcessCall0 call = reinterpret_cast<CuteQProcessCall0>(taken[0]);
+      bool given = call(this, static_cast<int>(mode.toInt()), &handled);
+      if (handled) return given;
+    }
+    return QProcess::open(mode);
+  }
+
+  //  bool QProcess::waitForReadyRead(int msecs)
+  bool waitForReadyRead(int msecs) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQProcessCall1 call = reinterpret_cast<CuteQProcessCall1>(taken[1]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -131,9 +147,9 @@ public:
 
   //  bool QProcess::waitForBytesWritten(int msecs)
   bool waitForBytesWritten(int msecs) override {
-    if (taken[1]) {
+    if (taken[2]) {
       int handled = 0;
-      CuteQProcessCall1 call = reinterpret_cast<CuteQProcessCall1>(taken[1]);
+      CuteQProcessCall2 call = reinterpret_cast<CuteQProcessCall2>(taken[2]);
       bool given = call(this, msecs, &handled);
       if (handled) return given;
     }
@@ -142,9 +158,9 @@ public:
 
   //  qint64 QProcess::bytesToWrite() const
   qint64 bytesToWrite() const override {
-    if (taken[2]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQProcessCall2 call = reinterpret_cast<CuteQProcessCall2>(taken[2]);
+      CuteQProcessCall3 call = reinterpret_cast<CuteQProcessCall3>(taken[3]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -153,9 +169,9 @@ public:
 
   //  bool QProcess::isSequential() const
   bool isSequential() const override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQProcessCall3 call = reinterpret_cast<CuteQProcessCall3>(taken[3]);
+      CuteQProcessCall4 call = reinterpret_cast<CuteQProcessCall4>(taken[4]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -164,9 +180,9 @@ public:
 
   //  void QProcess::close()
   void close() override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQProcessCall4 call = reinterpret_cast<CuteQProcessCall4>(taken[4]);
+      CuteQProcessCall5 call = reinterpret_cast<CuteQProcessCall5>(taken[5]);
       call(this, &handled);
       if (handled) return;
     }
@@ -175,9 +191,9 @@ public:
 
   //  qint64 QIODevice::pos() const
   qint64 pos() const override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQProcessCall5 call = reinterpret_cast<CuteQProcessCall5>(taken[5]);
+      CuteQProcessCall6 call = reinterpret_cast<CuteQProcessCall6>(taken[6]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -186,9 +202,9 @@ public:
 
   //  qint64 QIODevice::size() const
   qint64 size() const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQProcessCall6 call = reinterpret_cast<CuteQProcessCall6>(taken[6]);
+      CuteQProcessCall7 call = reinterpret_cast<CuteQProcessCall7>(taken[7]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -197,9 +213,9 @@ public:
 
   //  bool QIODevice::seek(qint64 pos)
   bool seek(qint64 pos) override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQProcessCall7 call = reinterpret_cast<CuteQProcessCall7>(taken[7]);
+      CuteQProcessCall8 call = reinterpret_cast<CuteQProcessCall8>(taken[8]);
       bool given = call(this, pos, &handled);
       if (handled) return given;
     }
@@ -208,9 +224,9 @@ public:
 
   //  bool QIODevice::atEnd() const
   bool atEnd() const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQProcessCall8 call = reinterpret_cast<CuteQProcessCall8>(taken[8]);
+      CuteQProcessCall9 call = reinterpret_cast<CuteQProcessCall9>(taken[9]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -219,9 +235,9 @@ public:
 
   //  bool QIODevice::reset()
   bool reset() override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQProcessCall9 call = reinterpret_cast<CuteQProcessCall9>(taken[9]);
+      CuteQProcessCall10 call = reinterpret_cast<CuteQProcessCall10>(taken[10]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -230,9 +246,9 @@ public:
 
   //  qint64 QIODevice::bytesAvailable() const
   qint64 bytesAvailable() const override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQProcessCall10 call = reinterpret_cast<CuteQProcessCall10>(taken[10]);
+      CuteQProcessCall11 call = reinterpret_cast<CuteQProcessCall11>(taken[11]);
       qint64 given = call(this, &handled);
       if (handled) return given;
     }
@@ -241,9 +257,9 @@ public:
 
   //  bool QIODevice::canReadLine() const
   bool canReadLine() const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQProcessCall11 call = reinterpret_cast<CuteQProcessCall11>(taken[11]);
+      CuteQProcessCall12 call = reinterpret_cast<CuteQProcessCall12>(taken[12]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -252,9 +268,9 @@ public:
 
   //  qint64 QIODevice::skipData(qint64 maxSize)
   qint64 skipData(qint64 maxSize) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQProcessCall12 call = reinterpret_cast<CuteQProcessCall12>(taken[12]);
+      CuteQProcessCall13 call = reinterpret_cast<CuteQProcessCall13>(taken[13]);
       qint64 given = call(this, maxSize, &handled);
       if (handled) return given;
     }
@@ -263,9 +279,9 @@ public:
 
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQProcessCall13 call = reinterpret_cast<CuteQProcessCall13>(taken[13]);
+      CuteQProcessCall14 call = reinterpret_cast<CuteQProcessCall14>(taken[14]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -274,9 +290,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQProcessCall14 call = reinterpret_cast<CuteQProcessCall14>(taken[14]);
+      CuteQProcessCall15 call = reinterpret_cast<CuteQProcessCall15>(taken[15]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -285,9 +301,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQProcessCall15 call = reinterpret_cast<CuteQProcessCall15>(taken[15]);
+      CuteQProcessCall16 call = reinterpret_cast<CuteQProcessCall16>(taken[16]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -296,9 +312,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQProcessCall16 call = reinterpret_cast<CuteQProcessCall16>(taken[16]);
+      CuteQProcessCall17 call = reinterpret_cast<CuteQProcessCall17>(taken[17]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -307,9 +323,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQProcessCall17 call = reinterpret_cast<CuteQProcessCall17>(taken[17]);
+      CuteQProcessCall18 call = reinterpret_cast<CuteQProcessCall18>(taken[18]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -318,9 +334,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQProcessCall18 call = reinterpret_cast<CuteQProcessCall18>(taken[18]);
+      CuteQProcessCall19 call = reinterpret_cast<CuteQProcessCall19>(taken[19]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -329,9 +345,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQProcessCall19 call = reinterpret_cast<CuteQProcessCall19>(taken[19]);
+      CuteQProcessCall20 call = reinterpret_cast<CuteQProcessCall20>(taken[20]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -682,6 +698,15 @@ void ritual_ZN8QProcess4killEv(QProcess *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QProcess(QProcess *self, const char *key, void *call) {
   return static_cast<CuteQProcess *>(self)->take(key, call);
+}
+
+//  bool QProcess::open(OpenMode mode)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN8QProcess4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE(
+    QProcess *self,
+    int mode) {
+  return self->QProcess::open(
+      QFlags<QIODeviceBase::OpenModeFlag>::fromInt(mode));
 }
 
 //  bool QProcess::waitForReadyRead(int msecs)

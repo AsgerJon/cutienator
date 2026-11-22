@@ -59,6 +59,9 @@
     "ritual_own_ZNK19QStyledItemDelegate20updateEditorGeometryEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex": [
       "nothing", "address", "address", "address", "address"
     ],
+    "ritual_own_ZNK19QStyledItemDelegate11displayTextERK8QVariantRK7QLocale": [
+      "text", "address", "address", "address"
+    ],
     "ritual_own_ZNK19QStyledItemDelegate15initStyleOptionEP20QStyleOptionViewItemRK11QModelIndex": [
       "nothing", "address", "address", "address"
     ],

@@ -34,6 +34,12 @@
     ],
     "ritual_ZNK9QMimeData9hasFormatERK7QString": ["bool", "address", "text"],
     "ritual_ZN9QMimeData5clearEv": ["nothing", "address"],
-    "ritual_take_QMimeData": ["bool", "address", "chars", "address"]
+    "ritual_take_QMimeData": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK9QMimeData9hasFormatERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZNK9QMimeData12retrieveDataERK7QString9QMetaType": [
+      "address", "address", "text", "address"
+    ]
   }
 }

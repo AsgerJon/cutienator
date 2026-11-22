@@ -6,22 +6,29 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
+//  Only a class built on QGraphicsEffect may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQGraphicsEffect : QGraphicsEffect {
+  using QGraphicsEffect::sourceChanged;
+};
+
 //  A QGraphicsEffect that Python can take functions over in. Every QGraphicsEffect
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
 typedef const QRectF * (*CuteQGraphicsEffectCall0)(const void *, const QRectF *, int *);
 typedef void (*CuteQGraphicsEffectCall1)(const void *, QPainter *, int *);
-typedef bool (*CuteQGraphicsEffectCall2)(const void *, QEvent *, int *);
-typedef bool (*CuteQGraphicsEffectCall3)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQGraphicsEffectCall4)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQGraphicsEffectCall5)(const void *, QChildEvent *, int *);
-typedef void (*CuteQGraphicsEffectCall6)(const void *, QEvent *, int *);
-typedef void (*CuteQGraphicsEffectCall7)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQGraphicsEffectCall2)(const void *, int, int *);
+typedef bool (*CuteQGraphicsEffectCall3)(const void *, QEvent *, int *);
+typedef bool (*CuteQGraphicsEffectCall4)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQGraphicsEffectCall5)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQGraphicsEffectCall6)(const void *, QChildEvent *, int *);
+typedef void (*CuteQGraphicsEffectCall7)(const void *, QEvent *, int *);
 typedef void (*CuteQGraphicsEffectCall8)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQGraphicsEffectCall9)(const void *, const QMetaMethod *, int *);
 class CuteQGraphicsEffect : public QGraphicsEffect {
 public:
   using QGraphicsEffect::QGraphicsEffect;
-  void *taken[9] = {};
+  void *taken[10] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK15QGraphicsEffect15boundingRectForERK6QRectF")) {
@@ -32,32 +39,36 @@ public:
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN15QGraphicsEffect13sourceChangedE6QFlagsINS_10ChangeFlagEE")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[9] = call;
       return true;
     }
     return false;
@@ -85,11 +96,22 @@ public:
     }
   }
 
-  //  bool QObject::event(QEvent *event)
-  bool event(QEvent *event) override {
+  //  void QGraphicsEffect::sourceChanged(ChangeFlags flags)
+  void sourceChanged(QGraphicsEffect::ChangeFlags flags) override {
     if (taken[2]) {
       int handled = 0;
       CuteQGraphicsEffectCall2 call = reinterpret_cast<CuteQGraphicsEffectCall2>(taken[2]);
+      call(this, static_cast<int>(flags.toInt()), &handled);
+      if (handled) return;
+    }
+    QGraphicsEffect::sourceChanged(flags);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQGraphicsEffectCall3 call = reinterpret_cast<CuteQGraphicsEffectCall3>(taken[3]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -98,9 +120,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQGraphicsEffectCall3 call = reinterpret_cast<CuteQGraphicsEffectCall3>(taken[3]);
+      CuteQGraphicsEffectCall4 call = reinterpret_cast<CuteQGraphicsEffectCall4>(taken[4]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -109,9 +131,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQGraphicsEffectCall4 call = reinterpret_cast<CuteQGraphicsEffectCall4>(taken[4]);
+      CuteQGraphicsEffectCall5 call = reinterpret_cast<CuteQGraphicsEffectCall5>(taken[5]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -120,9 +142,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQGraphicsEffectCall5 call = reinterpret_cast<CuteQGraphicsEffectCall5>(taken[5]);
+      CuteQGraphicsEffectCall6 call = reinterpret_cast<CuteQGraphicsEffectCall6>(taken[6]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -131,9 +153,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQGraphicsEffectCall6 call = reinterpret_cast<CuteQGraphicsEffectCall6>(taken[6]);
+      CuteQGraphicsEffectCall7 call = reinterpret_cast<CuteQGraphicsEffectCall7>(taken[7]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -142,9 +164,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQGraphicsEffectCall7 call = reinterpret_cast<CuteQGraphicsEffectCall7>(taken[7]);
+      CuteQGraphicsEffectCall8 call = reinterpret_cast<CuteQGraphicsEffectCall8>(taken[8]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -153,9 +175,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQGraphicsEffectCall8 call = reinterpret_cast<CuteQGraphicsEffectCall8>(taken[8]);
+      CuteQGraphicsEffectCall9 call = reinterpret_cast<CuteQGraphicsEffectCall9>(taken[9]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -236,4 +258,13 @@ QRectF *ritual_own_ZNK15QGraphicsEffect15boundingRectForERK6QRectF(
     const QGraphicsEffect *self,
     const QRectF *sourceRect) {
   return new QRectF(self->QGraphicsEffect::boundingRectFor(*sourceRect));
+}
+
+//  void QGraphicsEffect::sourceChanged(ChangeFlags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN15QGraphicsEffect13sourceChangedE6QFlagsINS_10ChangeFlagEE(
+    QGraphicsEffect *self,
+    int flags) {
+  static_cast<OwnQGraphicsEffect *>(self)->OwnQGraphicsEffect::sourceChanged(
+      QFlags<QGraphicsEffect::ChangeFlag>::fromInt(flags));
 }

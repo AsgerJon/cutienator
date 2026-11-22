@@ -43,6 +43,9 @@
     "ritual_own_ZNK22QAccessibleApplication5childEi": [
       "address", "address", "int"
     ],
+    "ritual_own_ZNK22QAccessibleApplication4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
     "ritual_own_ZNK22QAccessibleApplication4roleEv": ["int", "address"],
     "ritual_own_ZNK22QAccessibleApplication5stateEv": ["address", "address"]
   }

@@ -85,19 +85,6 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QLayoutItem'
 
-  #  The functions Qt calls itself that QLayoutItem is the first to declare
-  #  and that cannot be handed to Python yet, each as Qt declares it. A class
-  #  of a program that writes one of them anew is refused, since Qt would
-  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'expandingDirections': (
-          'Qt::Orientations QLayoutItem::expandingDirections() const',
-      ),
-      'controlTypes': (
-          'QSizePolicy::ControlTypes QLayoutItem::controlTypes() const',
-      ),
-  }
-
   #  The functions Qt calls itself that QLayoutItem is the first to declare.
   #  A class of a program built on it can write one anew, and Qt then calls
   #  that. For each name: the key C++ knows the function by, what it gives,
@@ -116,6 +103,11 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       'maximumSize': (
           ('_ZNK11QLayoutItem11maximumSizeEv',
            ('address', 'value', 'QtCore:QSize'),
+           ()),
+      ),
+      'expandingDirections': (
+          ('_ZNK11QLayoutItem19expandingDirectionsEv',
+           ('int', 'flags', 'QtCore:Qt.Orientation'),
            ()),
       ),
       'setGeometry': (
@@ -172,6 +164,11 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       'spacerItem': (
           ('_ZN11QLayoutItem10spacerItemEv',
            ('address', 'address', 'QtWidgets:QSpacerItem'),
+           ()),
+      ),
+      'controlTypes': (
+          ('_ZNK11QLayoutItem12controlTypesEv',
+           ('int', 'flags', 'QtWidgets:QSizePolicy.ControlType'),
            ()),
       ),
   }
@@ -393,9 +390,10 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  QSizePolicy::ControlTypes QLayoutItem::controlTypes() const
-    return QSizePolicy.ControlTypes(self._callAs(
-        'QLayoutItem', 'ritual_ZNK11QLayoutItem12controlTypesEv',
-    ))
+    ritual = 'ritual_ZNK11QLayoutItem12controlTypesEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QLayoutItem12controlTypesEv'
+    return QSizePolicy.ControlTypes(self._callAs('QLayoutItem', ritual))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

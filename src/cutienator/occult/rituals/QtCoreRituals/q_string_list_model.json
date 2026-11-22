@@ -57,6 +57,9 @@
     "ritual_own_ZN16QStringListModel13clearItemDataERK11QModelIndex": [
       "bool", "address", "address"
     ],
+    "ritual_own_ZNK16QStringListModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
     "ritual_own_ZN16QStringListModel10insertRowsEiiRK11QModelIndex": [
       "bool", "address", "int", "int", "address"
     ],
@@ -68,6 +71,9 @@
     ],
     "ritual_own_ZN16QStringListModel4sortEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK16QStringListModel20supportedDropActionsEv": [
+      "int", "address"
     ]
   }
 }

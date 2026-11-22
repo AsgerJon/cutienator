@@ -582,10 +582,10 @@ class QFileSystemModel(QAbstractItemModel):
       The value standing for the combination Qt gave back.
     """
     #  Qt::ItemFlags QFileSystemModel::flags(const QModelIndex &index) const
-    return Qt.ItemFlags(self.uglySide.call(
-        'ritual_ZNK16QFileSystemModel5flagsERK11QModelIndex',
-        self._valueOf(index),
-    ))
+    ritual = 'ritual_ZNK16QFileSystemModel5flagsERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QFileSystemModel5flagsERK11QModelIndex'
+    return Qt.ItemFlags(self.uglySide.call(ritual, self._valueOf(index)))
 
   def supportedDropActions(self) -> Qt.DropActions:
     """
@@ -602,9 +602,10 @@ class QFileSystemModel(QAbstractItemModel):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QFileSystemModel::supportedDropActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_ZNK16QFileSystemModel20supportedDropActionsEv',
-    ))
+    ritual = 'ritual_ZNK16QFileSystemModel20supportedDropActionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QFileSystemModel20supportedDropActionsEv'
+    return Qt.DropActions(self.uglySide.call(ritual))
 
   def rootPath(self) -> str:
     """

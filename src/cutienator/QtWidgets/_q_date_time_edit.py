@@ -59,7 +59,7 @@ class QDateTimeEdit(QAbstractSpinBox):
   -----------
 
   Every function of Qt's QDateTimeEdit that has a ritual and that Python can
-  call so far, 61 names in all: 'metaObject', 'tr', 'dateTime', 'date',
+  call so far, 64 names in all: 'metaObject', 'tr', 'dateTime', 'date',
   'time', 'calendar', 'setCalendar', 'minimumDateTime',
   'clearMinimumDateTime', 'setMinimumDateTime', 'maximumDateTime',
   'clearMaximumDateTime', 'setMaximumDateTime', 'setDateTimeRange',
@@ -73,9 +73,9 @@ class QDateTimeEdit(QAbstractSpinBox):
   'setDisplayFormat', 'calendarPopup', 'setCalendarPopup', 'timeSpec',
   'setTimeSpec', 'timeZone', 'setTimeZone', 'sizeHint', 'clear', 'stepBy',
   'event', 'setDateTime', 'setDate', 'setTime', 'keyPressEvent',
-  'wheelEvent', 'focusInEvent', 'focusNextPrevChild', 'mousePressEvent',
-  'paintEvent', 'initStyleOption'. It can be made from Python, in 4 ways; see
-  '__init__'.
+  'wheelEvent', 'focusInEvent', 'focusNextPrevChild', 'dateTimeFromText',
+  'textFromDateTime', 'stepEnabled', 'mousePressEvent', 'paintEvent',
+  'initStyleOption'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -86,7 +86,7 @@ class QDateTimeEdit(QAbstractSpinBox):
   What has no ritual
   ------------------
 
-  17 of the 83 functions Qt declares: 6 protected; 3 private; 3 a signal; 2
+  14 of the 83 functions Qt declares: 3 private; 3 a signal; 3 protected; 2
   takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
@@ -188,16 +188,24 @@ class QDateTimeEdit(QAbstractSpinBox):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QDateTimeEdit'
 
-  #  The functions Qt calls itself that QDateTimeEdit is the first to declare
-  #  and that cannot be handed to Python yet, each as Qt declares it. A class
-  #  of a program that writes one of them anew is refused, since Qt would
-  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
+  #  The functions Qt calls itself that QDateTimeEdit is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
       'dateTimeFromText': (
-          'QDateTime QDateTimeEdit::dateTimeFromText(const QString &) const',
+          ('_ZNK13QDateTimeEdit16dateTimeFromTextERK7QString',
+           ('address', 'value', 'QtCore:QDateTime'),
+           (
+               ('address', 'text', ''),
+           )),
       ),
       'textFromDateTime': (
-          'QString QDateTimeEdit::textFromDateTime(const QDateTime &) const',
+          ('_ZNK13QDateTimeEdit16textFromDateTimeERK9QDateTime',
+           ('address', 'text', ''),
+           (
+               ('address', 'value', 'QtCore:QDateTime'),
+           )),
       ),
   }
 
@@ -610,6 +618,79 @@ class QDateTimeEdit(QAbstractSpinBox):
     address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
+
+  @overload(str)
+  def dateTimeFromText(self, text: str) -> QDateTime:
+    """
+    Calls Qt's 'QDateTime QDateTimeEdit::dateTimeFromText(const QString
+    &text) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qdatetimeedit.html#dateTimeFromText
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QDateTime
+      A new cute QDateTime around the copy Qt gave back. Python owns it.
+    """
+    #  QDateTime QDateTimeEdit::dateTimeFromText(const QString &text) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK13QDateTimeEdit16dateTimeFromTextERK7QString', text,
+    )
+    from ..QtCore import QDateTime
+    return QDateTime._cuteOwning(address)
+
+  @overload(QDateTime)
+  def textFromDateTime(self, dt: QDateTime) -> str:
+    """
+    Calls Qt's 'QString QDateTimeEdit::textFromDateTime(const QDateTime &dt)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qdatetimeedit.html#textFromDateTime
+
+    Parameters
+    ----------
+
+    dt : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QDateTimeEdit::textFromDateTime(const QDateTime &dt) const
+    return self.uglySide.call(
+        'ritual_own_ZNK13QDateTimeEdit16textFromDateTimeERK9QDateTime',
+        self._valueOf(dt),
+    )
+
+  def stepEnabled(self) -> QAbstractSpinBox.StepEnabled:
+    """
+    Calls Qt's 'StepEnabled QDateTimeEdit::stepEnabled() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetimeedit.html#stepEnabled
+
+    Returns
+    -------
+
+    QAbstractSpinBox.StepEnabled
+      The value standing for the combination Qt gave back.
+    """
+    #  StepEnabled QDateTimeEdit::stepEnabled() const
+    return QAbstractSpinBox.StepEnabled(self.uglySide.call(
+        'ritual_own_ZNK13QDateTimeEdit11stepEnabledEv',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

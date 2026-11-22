@@ -214,17 +214,6 @@ class QLayout(QObject, QLayoutItem):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QLayout'
 
-  #  The functions Qt calls itself that QLayout is the first to declare and
-  #  that cannot be handed to Python yet, each as Qt declares it. A class of
-  #  a program that writes one of them anew is refused, since Qt would never
-  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'replaceWidget': (
-          'QLayoutItem *QLayout::replaceWidget(QWidget *, QWidget *, '
-          'Qt::FindChildOptions)',
-      ),
-  }
-
   #  The functions Qt calls itself that QLayout is the first to declare. A
   #  class of a program built on it can write one anew, and Qt then calls
   #  that. For each name: the key C++ knows the function by, what it gives,
@@ -279,6 +268,16 @@ class QLayout(QObject, QLayoutItem):
           ('_ZNK7QLayout5countEv',
            ('int', 'number', ''),
            ()),
+      ),
+      'replaceWidget': (
+          ('_ZN7QLayout13replaceWidgetEP7QWidgetS1_6QFlagsIN2Qt15FindChildO'
+           'ptionEE',
+           ('address', 'address', 'QtWidgets:QLayoutItem'),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+               ('int', 'flags', 'QtCore:Qt.FindChildOption'),
+           )),
       ),
   }
 
@@ -486,9 +485,10 @@ class QLayout(QObject, QLayoutItem):
       The value standing for the combination Qt gave back.
     """
     #  Qt::Orientations QLayout::expandingDirections() const
-    return Qt.Orientations(self.uglySide.call(
-        'ritual_ZNK7QLayout19expandingDirectionsEv',
-    ))
+    ritual = 'ritual_ZNK7QLayout19expandingDirectionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QLayout19expandingDirectionsEv'
+    return Qt.Orientations(self.uglySide.call(ritual))
 
   def minimumSize(self) -> QSize:
     """
@@ -629,9 +629,10 @@ class QLayout(QObject, QLayoutItem):
       The value standing for the combination Qt gave back.
     """
     #  QSizePolicy::ControlTypes QLayout::controlTypes() const
-    return QSizePolicy.ControlTypes(self.uglySide.call(
-        'ritual_ZNK7QLayout12controlTypesEv',
-    ))
+    ritual = 'ritual_ZNK7QLayout12controlTypesEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QLayout12controlTypesEv'
+    return QSizePolicy.ControlTypes(self.uglySide.call(ritual))
 
   @overload(int)
   def totalMinimumHeightForWidth(self, w: int) -> int:
@@ -1232,10 +1233,15 @@ class QLayout(QObject, QLayoutItem):
     """
     #  QLayoutItem *QLayout::replaceWidget(QWidget *from, QWidget *to,
     #      Qt::FindChildOptions options)
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZN7QLayout13replaceWidgetEP7QWidgetS1_6QFlagsIN2Qt15FindChi'
-        'ldOptionEE',
-        self._addressOf(from_), self._addressOf(to), options.value,
+        'ldOptionEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN7QLayout13replaceWidgetEP7QWidgetS1_6QFlagsIN2Qt15F'
+          'indChildOptionEE')
+    address = self.uglySide.call(
+        ritual, self._addressOf(from_), self._addressOf(to), options.value,
     )
     return QLayoutItem._cuteAt(address)
 

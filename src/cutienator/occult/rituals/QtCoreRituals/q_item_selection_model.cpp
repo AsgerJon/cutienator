@@ -9,70 +9,127 @@
 //  A QItemSelectionModel that Python can take functions over in. Every QItemSelectionModel
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
-typedef void (*CuteQItemSelectionModelCall0)(const void *, int *);
-typedef void (*CuteQItemSelectionModelCall1)(const void *, int *);
-typedef void (*CuteQItemSelectionModelCall2)(const void *, int *);
-typedef bool (*CuteQItemSelectionModelCall3)(const void *, QEvent *, int *);
-typedef bool (*CuteQItemSelectionModelCall4)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQItemSelectionModelCall5)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQItemSelectionModelCall6)(const void *, QChildEvent *, int *);
-typedef void (*CuteQItemSelectionModelCall7)(const void *, QEvent *, int *);
-typedef void (*CuteQItemSelectionModelCall8)(const void *, const QMetaMethod *, int *);
-typedef void (*CuteQItemSelectionModelCall9)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQItemSelectionModelCall0)(const void *, const QModelIndex *, int, int *);
+typedef void (*CuteQItemSelectionModelCall1)(const void *, const QModelIndex *, int, int *);
+typedef void (*CuteQItemSelectionModelCall2)(const void *, const QItemSelection *, int, int *);
+typedef void (*CuteQItemSelectionModelCall3)(const void *, int *);
+typedef void (*CuteQItemSelectionModelCall4)(const void *, int *);
+typedef void (*CuteQItemSelectionModelCall5)(const void *, int *);
+typedef bool (*CuteQItemSelectionModelCall6)(const void *, QEvent *, int *);
+typedef bool (*CuteQItemSelectionModelCall7)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQItemSelectionModelCall8)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQItemSelectionModelCall9)(const void *, QChildEvent *, int *);
+typedef void (*CuteQItemSelectionModelCall10)(const void *, QEvent *, int *);
+typedef void (*CuteQItemSelectionModelCall11)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQItemSelectionModelCall12)(const void *, const QMetaMethod *, int *);
 class CuteQItemSelectionModel : public QItemSelectionModel {
 public:
   using QItemSelectionModel::QItemSelectionModel;
-  void *taken[10] = {};
+  void *taken[13] = {};
 
   bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZN19QItemSelectionModel5clearEv")) {
+    if (!std::strcmp(key, "_ZN19QItemSelectionModel15setCurrentIndexERK11QModelIndex6QFlagsINS_13SelectionFlagEE")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QItemSelectionModel5resetEv")) {
+    if (!std::strcmp(key, "_ZN19QItemSelectionModel6selectERK11QModelIndex6QFlagsINS_13SelectionFlagEE")) {
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QItemSelectionModel17clearCurrentIndexEv")) {
+    if (!std::strcmp(key, "_ZN19QItemSelectionModel6selectERK14QItemSelection6QFlagsINS_13SelectionFlagEE")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN19QItemSelectionModel5clearEv")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN19QItemSelectionModel5resetEv")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN19QItemSelectionModel17clearCurrentIndexEv")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[12] = call;
       return true;
     }
     return false;
   }
 
-  //  void QItemSelectionModel::clear()
-  void clear() override {
+  //  void QItemSelectionModel::setCurrentIndex(const QModelIndex &index,
+  //      QItemSelectionModel::SelectionFlags command)
+  void setCurrentIndex(
+      const QModelIndex &index,
+      QItemSelectionModel::SelectionFlags command) override {
     if (taken[0]) {
       int handled = 0;
       CuteQItemSelectionModelCall0 call = reinterpret_cast<CuteQItemSelectionModelCall0>(taken[0]);
+      call(this, &index, static_cast<int>(command.toInt()), &handled);
+      if (handled) return;
+    }
+    QItemSelectionModel::setCurrentIndex(index, command);
+  }
+
+  //  void QItemSelectionModel::select(const QModelIndex &index,
+  //      QItemSelectionModel::SelectionFlags command)
+  void select(
+      const QModelIndex &index,
+      QItemSelectionModel::SelectionFlags command) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQItemSelectionModelCall1 call = reinterpret_cast<CuteQItemSelectionModelCall1>(taken[1]);
+      call(this, &index, static_cast<int>(command.toInt()), &handled);
+      if (handled) return;
+    }
+    QItemSelectionModel::select(index, command);
+  }
+
+  //  void QItemSelectionModel::select(const QItemSelection &selection,
+  //      QItemSelectionModel::SelectionFlags command)
+  void select(
+      const QItemSelection &selection,
+      QItemSelectionModel::SelectionFlags command) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQItemSelectionModelCall2 call = reinterpret_cast<CuteQItemSelectionModelCall2>(taken[2]);
+      call(this, &selection, static_cast<int>(command.toInt()), &handled);
+      if (handled) return;
+    }
+    QItemSelectionModel::select(selection, command);
+  }
+
+  //  void QItemSelectionModel::clear()
+  void clear() override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQItemSelectionModelCall3 call = reinterpret_cast<CuteQItemSelectionModelCall3>(taken[3]);
       call(this, &handled);
       if (handled) return;
     }
@@ -81,9 +138,9 @@ public:
 
   //  void QItemSelectionModel::reset()
   void reset() override {
-    if (taken[1]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQItemSelectionModelCall1 call = reinterpret_cast<CuteQItemSelectionModelCall1>(taken[1]);
+      CuteQItemSelectionModelCall4 call = reinterpret_cast<CuteQItemSelectionModelCall4>(taken[4]);
       call(this, &handled);
       if (handled) return;
     }
@@ -92,9 +149,9 @@ public:
 
   //  void QItemSelectionModel::clearCurrentIndex()
   void clearCurrentIndex() override {
-    if (taken[2]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQItemSelectionModelCall2 call = reinterpret_cast<CuteQItemSelectionModelCall2>(taken[2]);
+      CuteQItemSelectionModelCall5 call = reinterpret_cast<CuteQItemSelectionModelCall5>(taken[5]);
       call(this, &handled);
       if (handled) return;
     }
@@ -103,9 +160,9 @@ public:
 
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[3]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQItemSelectionModelCall3 call = reinterpret_cast<CuteQItemSelectionModelCall3>(taken[3]);
+      CuteQItemSelectionModelCall6 call = reinterpret_cast<CuteQItemSelectionModelCall6>(taken[6]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -114,9 +171,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[4]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQItemSelectionModelCall4 call = reinterpret_cast<CuteQItemSelectionModelCall4>(taken[4]);
+      CuteQItemSelectionModelCall7 call = reinterpret_cast<CuteQItemSelectionModelCall7>(taken[7]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -125,9 +182,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[5]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQItemSelectionModelCall5 call = reinterpret_cast<CuteQItemSelectionModelCall5>(taken[5]);
+      CuteQItemSelectionModelCall8 call = reinterpret_cast<CuteQItemSelectionModelCall8>(taken[8]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -136,9 +193,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[6]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQItemSelectionModelCall6 call = reinterpret_cast<CuteQItemSelectionModelCall6>(taken[6]);
+      CuteQItemSelectionModelCall9 call = reinterpret_cast<CuteQItemSelectionModelCall9>(taken[9]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -147,9 +204,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[7]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQItemSelectionModelCall7 call = reinterpret_cast<CuteQItemSelectionModelCall7>(taken[7]);
+      CuteQItemSelectionModelCall10 call = reinterpret_cast<CuteQItemSelectionModelCall10>(taken[10]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -158,9 +215,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[8]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQItemSelectionModelCall8 call = reinterpret_cast<CuteQItemSelectionModelCall8>(taken[8]);
+      CuteQItemSelectionModelCall11 call = reinterpret_cast<CuteQItemSelectionModelCall11>(taken[11]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -169,9 +226,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[9]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQItemSelectionModelCall9 call = reinterpret_cast<CuteQItemSelectionModelCall9>(taken[9]);
+      CuteQItemSelectionModelCall12 call = reinterpret_cast<CuteQItemSelectionModelCall12>(taken[12]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -378,6 +435,42 @@ bool ritual_take_QItemSelectionModel(
     const char *key,
     void *call) {
   return static_cast<CuteQItemSelectionModel *>(self)->take(key, call);
+}
+
+//  void QItemSelectionModel::setCurrentIndex(const QModelIndex &index,
+//      QItemSelectionModel::SelectionFlags command)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN19QItemSelectionModel15setCurrentIndexERK11QModelIndex6QFlagsINS_13SelectionFlagEE(
+    QItemSelectionModel *self,
+    const QModelIndex *index,
+    int command) {
+  self->QItemSelectionModel::setCurrentIndex(
+      *index,
+      QFlags<QItemSelectionModel::SelectionFlag>::fromInt(command));
+}
+
+//  void QItemSelectionModel::select(const QModelIndex &index,
+//      QItemSelectionModel::SelectionFlags command)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN19QItemSelectionModel6selectERK11QModelIndex6QFlagsINS_13SelectionFlagEE(
+    QItemSelectionModel *self,
+    const QModelIndex *index,
+    int command) {
+  self->QItemSelectionModel::select(
+      *index,
+      QFlags<QItemSelectionModel::SelectionFlag>::fromInt(command));
+}
+
+//  void QItemSelectionModel::select(const QItemSelection &selection,
+//      QItemSelectionModel::SelectionFlags command)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN19QItemSelectionModel6selectERK14QItemSelection6QFlagsINS_13SelectionFlagEE(
+    QItemSelectionModel *self,
+    const QItemSelection *selection,
+    int command) {
+  self->QItemSelectionModel::select(
+      *selection,
+      QFlags<QItemSelectionModel::SelectionFlag>::fromInt(command));
 }
 
 //  void QItemSelectionModel::clear()

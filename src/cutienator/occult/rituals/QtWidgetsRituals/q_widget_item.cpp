@@ -11,20 +11,22 @@
 typedef const QSize * (*CuteQWidgetItemCall0)(const void *, int *);
 typedef const QSize * (*CuteQWidgetItemCall1)(const void *, int *);
 typedef const QSize * (*CuteQWidgetItemCall2)(const void *, int *);
-typedef bool (*CuteQWidgetItemCall3)(const void *, int *);
-typedef void (*CuteQWidgetItemCall4)(const void *, const QRect *, int *);
-typedef const QRect * (*CuteQWidgetItemCall5)(const void *, int *);
-typedef void * (*CuteQWidgetItemCall6)(const void *, int *);
-typedef bool (*CuteQWidgetItemCall7)(const void *, int *);
-typedef int (*CuteQWidgetItemCall8)(const void *, int, int *);
+typedef int (*CuteQWidgetItemCall3)(const void *, int *);
+typedef bool (*CuteQWidgetItemCall4)(const void *, int *);
+typedef void (*CuteQWidgetItemCall5)(const void *, const QRect *, int *);
+typedef const QRect * (*CuteQWidgetItemCall6)(const void *, int *);
+typedef void * (*CuteQWidgetItemCall7)(const void *, int *);
+typedef bool (*CuteQWidgetItemCall8)(const void *, int *);
 typedef int (*CuteQWidgetItemCall9)(const void *, int, int *);
-typedef void (*CuteQWidgetItemCall10)(const void *, int *);
-typedef void * (*CuteQWidgetItemCall11)(const void *, int *);
-typedef void * (*CuteQWidgetItemCall12)(const void *, int *);
+typedef int (*CuteQWidgetItemCall10)(const void *, int, int *);
+typedef int (*CuteQWidgetItemCall11)(const void *, int *);
+typedef void (*CuteQWidgetItemCall12)(const void *, int *);
+typedef void * (*CuteQWidgetItemCall13)(const void *, int *);
+typedef void * (*CuteQWidgetItemCall14)(const void *, int *);
 class CuteQWidgetItem : public QWidgetItem {
 public:
   using QWidgetItem::QWidgetItem;
-  void *taken[13] = {};
+  void *taken[15] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK11QLayoutItem8sizeHintEv")) {
@@ -39,44 +41,52 @@ public:
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem7isEmptyEv")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem19expandingDirectionsEv")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QLayoutItem11setGeometryERK5QRect")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem7isEmptyEv")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem8geometryEv")) {
+    if (!std::strcmp(key, "_ZN11QLayoutItem11setGeometryERK5QRect")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem6widgetEv")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem8geometryEv")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem17hasHeightForWidthEv")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem6widgetEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem14heightForWidthEi")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem17hasHeightForWidthEv")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK11QLayoutItem21minimumHeightForWidthEi")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem14heightForWidthEi")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QLayoutItem10invalidateEv")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem21minimumHeightForWidthEi")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QLayoutItem6layoutEv")) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem12controlTypesEv")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN11QLayoutItem10spacerItemEv")) {
+    if (!std::strcmp(key, "_ZN11QLayoutItem10invalidateEv")) {
       taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem6layoutEv")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem10spacerItemEv")) {
+      taken[14] = call;
       return true;
     }
     return false;
@@ -115,11 +125,22 @@ public:
     return QWidgetItem::maximumSize();
   }
 
-  //  bool QWidgetItem::isEmpty() const
-  bool isEmpty() const override {
+  //  Qt::Orientations QWidgetItem::expandingDirections() const
+  Qt::Orientations expandingDirections() const override {
     if (taken[3]) {
       int handled = 0;
       CuteQWidgetItemCall3 call = reinterpret_cast<CuteQWidgetItemCall3>(taken[3]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::Orientation>::fromInt(given);
+    }
+    return QWidgetItem::expandingDirections();
+  }
+
+  //  bool QWidgetItem::isEmpty() const
+  bool isEmpty() const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQWidgetItemCall4 call = reinterpret_cast<CuteQWidgetItemCall4>(taken[4]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -128,9 +149,9 @@ public:
 
   //  void QWidgetItem::setGeometry(const QRect &a0)
   void setGeometry(const QRect &a0) override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQWidgetItemCall4 call = reinterpret_cast<CuteQWidgetItemCall4>(taken[4]);
+      CuteQWidgetItemCall5 call = reinterpret_cast<CuteQWidgetItemCall5>(taken[5]);
       call(this, &a0, &handled);
       if (handled) return;
     }
@@ -139,9 +160,9 @@ public:
 
   //  QRect QWidgetItem::geometry() const
   QRect geometry() const override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQWidgetItemCall5 call = reinterpret_cast<CuteQWidgetItemCall5>(taken[5]);
+      CuteQWidgetItemCall6 call = reinterpret_cast<CuteQWidgetItemCall6>(taken[6]);
       const QRect * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -150,9 +171,9 @@ public:
 
   //  QWidget *QWidgetItem::widget() const
   QWidget *widget() const override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQWidgetItemCall6 call = reinterpret_cast<CuteQWidgetItemCall6>(taken[6]);
+      CuteQWidgetItemCall7 call = reinterpret_cast<CuteQWidgetItemCall7>(taken[7]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QWidget *>(given);
     }
@@ -161,9 +182,9 @@ public:
 
   //  bool QWidgetItem::hasHeightForWidth() const
   bool hasHeightForWidth() const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQWidgetItemCall7 call = reinterpret_cast<CuteQWidgetItemCall7>(taken[7]);
+      CuteQWidgetItemCall8 call = reinterpret_cast<CuteQWidgetItemCall8>(taken[8]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -172,9 +193,9 @@ public:
 
   //  int QWidgetItem::heightForWidth(int a0) const
   int heightForWidth(int a0) const override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQWidgetItemCall8 call = reinterpret_cast<CuteQWidgetItemCall8>(taken[8]);
+      CuteQWidgetItemCall9 call = reinterpret_cast<CuteQWidgetItemCall9>(taken[9]);
       int given = call(this, a0, &handled);
       if (handled) return given;
     }
@@ -183,20 +204,31 @@ public:
 
   //  int QWidgetItem::minimumHeightForWidth(int a0) const
   int minimumHeightForWidth(int a0) const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQWidgetItemCall9 call = reinterpret_cast<CuteQWidgetItemCall9>(taken[9]);
+      CuteQWidgetItemCall10 call = reinterpret_cast<CuteQWidgetItemCall10>(taken[10]);
       int given = call(this, a0, &handled);
       if (handled) return given;
     }
     return QWidgetItem::minimumHeightForWidth(a0);
   }
 
+  //  QSizePolicy::ControlTypes QWidgetItem::controlTypes() const
+  QSizePolicy::ControlTypes controlTypes() const override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQWidgetItemCall11 call = reinterpret_cast<CuteQWidgetItemCall11>(taken[11]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<QSizePolicy::ControlType>::fromInt(given);
+    }
+    return QWidgetItem::controlTypes();
+  }
+
   //  void QLayoutItem::invalidate()
   void invalidate() override {
-    if (taken[10]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQWidgetItemCall10 call = reinterpret_cast<CuteQWidgetItemCall10>(taken[10]);
+      CuteQWidgetItemCall12 call = reinterpret_cast<CuteQWidgetItemCall12>(taken[12]);
       call(this, &handled);
       if (handled) return;
     }
@@ -205,9 +237,9 @@ public:
 
   //  QLayout *QLayoutItem::layout()
   QLayout *layout() override {
-    if (taken[11]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQWidgetItemCall11 call = reinterpret_cast<CuteQWidgetItemCall11>(taken[11]);
+      CuteQWidgetItemCall13 call = reinterpret_cast<CuteQWidgetItemCall13>(taken[13]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QLayout *>(given);
     }
@@ -216,9 +248,9 @@ public:
 
   //  QSpacerItem *QLayoutItem::spacerItem()
   QSpacerItem *spacerItem() override {
-    if (taken[12]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQWidgetItemCall12 call = reinterpret_cast<CuteQWidgetItemCall12>(taken[12]);
+      CuteQWidgetItemCall14 call = reinterpret_cast<CuteQWidgetItemCall14>(taken[14]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QSpacerItem *>(given);
     }
@@ -344,6 +376,13 @@ QSize *ritual_own_ZNK11QWidgetItem11maximumSizeEv(const QWidgetItem *self) {
   return new QSize(self->QWidgetItem::maximumSize());
 }
 
+//  Qt::Orientations QWidgetItem::expandingDirections() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK11QWidgetItem19expandingDirectionsEv(
+    const QWidgetItem *self) {
+  return static_cast<int>(self->QWidgetItem::expandingDirections().toInt());
+}
+
 //  bool QWidgetItem::isEmpty() const
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK11QWidgetItem7isEmptyEv(const QWidgetItem *self) {
@@ -391,4 +430,10 @@ int ritual_own_ZNK11QWidgetItem21minimumHeightForWidthEi(
     const QWidgetItem *self,
     int a0) {
   return self->QWidgetItem::minimumHeightForWidth(a0);
+}
+
+//  QSizePolicy::ControlTypes QWidgetItem::controlTypes() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK11QWidgetItem12controlTypesEv(const QWidgetItem *self) {
+  return static_cast<int>(self->QWidgetItem::controlTypes().toInt());
 }

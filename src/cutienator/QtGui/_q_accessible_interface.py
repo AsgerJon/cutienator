@@ -95,13 +95,6 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
           'QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> '
           'QAccessibleInterface::relations(QAccessible::Relation) const',
       ),
-      'text': (
-          'QString QAccessibleInterface::text(QAccessible::Text) const',
-      ),
-      'setText': (
-          'void QAccessibleInterface::setText(QAccessible::Text, const '
-          'QString &)',
-      ),
       'virtual_hook': (
           'void QAccessibleInterface::virtual_hook(int, void *)',
       ),
@@ -167,6 +160,22 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
            ('int', 'number', ''),
            (
                ('address', 'address', 'QtGui:QAccessibleInterface'),
+           )),
+      ),
+      'text': (
+          ('_ZNK20QAccessibleInterface4textEN11QAccessible4TextE',
+           ('address', 'text', ''),
+           (
+               ('int', 'enum', 'QtGui:QAccessible.Text'),
+           )),
+      ),
+      'setText': (
+          ('_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QStrin'
+           'g',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'enum', 'QtGui:QAccessible.Text'),
+               ('address', 'text', ''),
            )),
       ),
       'rect': (

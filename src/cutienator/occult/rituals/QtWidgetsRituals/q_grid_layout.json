@@ -103,6 +103,7 @@
     "ritual_own_ZNK11QGridLayout21minimumHeightForWidthEi": [
       "int", "address", "int"
     ],
+    "ritual_own_ZNK11QGridLayout19expandingDirectionsEv": ["int", "address"],
     "ritual_own_ZN11QGridLayout10invalidateEv": ["nothing", "address"],
     "ritual_own_ZNK11QGridLayout6itemAtEi": ["address", "address", "int"],
     "ritual_own_ZN11QGridLayout6takeAtEi": ["address", "address", "int"],

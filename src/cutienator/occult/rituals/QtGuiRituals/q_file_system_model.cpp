@@ -34,34 +34,37 @@ typedef int (*CuteQFileSystemModelCall7)(const void *, const QModelIndex *, int 
 typedef const QVariant * (*CuteQFileSystemModelCall8)(const void *, const QModelIndex *, int, int *);
 typedef bool (*CuteQFileSystemModelCall9)(const void *, const QModelIndex *, const QVariant *, int, int *);
 typedef const QVariant * (*CuteQFileSystemModelCall10)(const void *, int, int, int, int *);
-typedef void (*CuteQFileSystemModelCall11)(const void *, int, int, int *);
-typedef bool (*CuteQFileSystemModelCall12)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
-typedef void (*CuteQFileSystemModelCall13)(const void *, QTimerEvent *, int *);
-typedef bool (*CuteQFileSystemModelCall14)(const void *, QEvent *, int *);
-typedef bool (*CuteQFileSystemModelCall15)(const void *, int, int, const QVariant *, int, int *);
-typedef bool (*CuteQFileSystemModelCall16)(const void *, const QModelIndex *, int *);
-typedef bool (*CuteQFileSystemModelCall17)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
-typedef bool (*CuteQFileSystemModelCall18)(const void *, int, int, const QModelIndex *, int *);
-typedef bool (*CuteQFileSystemModelCall19)(const void *, int, int, const QModelIndex *, int *);
-typedef bool (*CuteQFileSystemModelCall20)(const void *, int, int, const QModelIndex *, int *);
+typedef int (*CuteQFileSystemModelCall11)(const void *, const QModelIndex *, int *);
+typedef void (*CuteQFileSystemModelCall12)(const void *, int, int, int *);
+typedef bool (*CuteQFileSystemModelCall13)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+typedef int (*CuteQFileSystemModelCall14)(const void *, int *);
+typedef void (*CuteQFileSystemModelCall15)(const void *, QTimerEvent *, int *);
+typedef bool (*CuteQFileSystemModelCall16)(const void *, QEvent *, int *);
+typedef bool (*CuteQFileSystemModelCall17)(const void *, int, int, const QVariant *, int, int *);
+typedef bool (*CuteQFileSystemModelCall18)(const void *, const QModelIndex *, int *);
+typedef bool (*CuteQFileSystemModelCall19)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+typedef int (*CuteQFileSystemModelCall20)(const void *, int *);
 typedef bool (*CuteQFileSystemModelCall21)(const void *, int, int, const QModelIndex *, int *);
-typedef bool (*CuteQFileSystemModelCall22)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
-typedef bool (*CuteQFileSystemModelCall23)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
-typedef const QModelIndex * (*CuteQFileSystemModelCall24)(const void *, const QModelIndex *, int *);
-typedef const QSize * (*CuteQFileSystemModelCall25)(const void *, const QModelIndex *, int *);
-typedef void (*CuteQFileSystemModelCall26)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
-typedef bool (*CuteQFileSystemModelCall27)(const void *, int *);
-typedef void (*CuteQFileSystemModelCall28)(const void *, int *);
-typedef void (*CuteQFileSystemModelCall29)(const void *, int *);
-typedef bool (*CuteQFileSystemModelCall30)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQFileSystemModelCall31)(const void *, QChildEvent *, int *);
-typedef void (*CuteQFileSystemModelCall32)(const void *, QEvent *, int *);
-typedef void (*CuteQFileSystemModelCall33)(const void *, const QMetaMethod *, int *);
-typedef void (*CuteQFileSystemModelCall34)(const void *, const QMetaMethod *, int *);
+typedef bool (*CuteQFileSystemModelCall22)(const void *, int, int, const QModelIndex *, int *);
+typedef bool (*CuteQFileSystemModelCall23)(const void *, int, int, const QModelIndex *, int *);
+typedef bool (*CuteQFileSystemModelCall24)(const void *, int, int, const QModelIndex *, int *);
+typedef bool (*CuteQFileSystemModelCall25)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+typedef bool (*CuteQFileSystemModelCall26)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+typedef const QModelIndex * (*CuteQFileSystemModelCall27)(const void *, const QModelIndex *, int *);
+typedef const QSize * (*CuteQFileSystemModelCall28)(const void *, const QModelIndex *, int *);
+typedef void (*CuteQFileSystemModelCall29)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
+typedef bool (*CuteQFileSystemModelCall30)(const void *, int *);
+typedef void (*CuteQFileSystemModelCall31)(const void *, int *);
+typedef void (*CuteQFileSystemModelCall32)(const void *, int *);
+typedef bool (*CuteQFileSystemModelCall33)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQFileSystemModelCall34)(const void *, QChildEvent *, int *);
+typedef void (*CuteQFileSystemModelCall35)(const void *, QEvent *, int *);
+typedef void (*CuteQFileSystemModelCall36)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQFileSystemModelCall37)(const void *, const QMetaMethod *, int *);
 class CuteQFileSystemModel : public QFileSystemModel {
 public:
   using QFileSystemModel::QFileSystemModel;
-  void *taken[35] = {};
+  void *taken[38] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel5indexEiiRK11QModelIndex")) {
@@ -108,100 +111,112 @@ public:
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5flagsERK11QModelIndex")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDropActionsEv")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDragActionsEv")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex")) {
       taken[21] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex")) {
       taken[22] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel6submitEv")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
       taken[27] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel6revertEv")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
       taken[28] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
       taken[29] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel6submitEv")) {
       taken[30] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel6revertEv")) {
       taken[31] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
       taken[32] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[33] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[34] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[35] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[36] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[37] = call;
       return true;
     }
     return false;
@@ -345,11 +360,22 @@ public:
     return QFileSystemModel::headerData(section, orientation, role);
   }
 
-  //  void QFileSystemModel::sort(int column, Qt::SortOrder order)
-  void sort(int column, Qt::SortOrder order) override {
+  //  Qt::ItemFlags QFileSystemModel::flags(const QModelIndex &index) const
+  Qt::ItemFlags flags(const QModelIndex &index) const override {
     if (taken[11]) {
       int handled = 0;
       CuteQFileSystemModelCall11 call = reinterpret_cast<CuteQFileSystemModelCall11>(taken[11]);
+      int given = call(this, &index, &handled);
+      if (handled) return QFlags<Qt::ItemFlag>::fromInt(given);
+    }
+    return QFileSystemModel::flags(index);
+  }
+
+  //  void QFileSystemModel::sort(int column, Qt::SortOrder order)
+  void sort(int column, Qt::SortOrder order) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQFileSystemModelCall12 call = reinterpret_cast<CuteQFileSystemModelCall12>(taken[12]);
       call(this, column, static_cast<int>(order), &handled);
       if (handled) return;
     }
@@ -365,20 +391,31 @@ public:
       int row,
       int column,
       const QModelIndex &parent) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQFileSystemModelCall12 call = reinterpret_cast<CuteQFileSystemModelCall12>(taken[12]);
+      CuteQFileSystemModelCall13 call = reinterpret_cast<CuteQFileSystemModelCall13>(taken[13]);
       bool given = call(this, data, static_cast<int>(action), row, column, &parent, &handled);
       if (handled) return given;
     }
     return QFileSystemModel::dropMimeData(data, action, row, column, parent);
   }
 
+  //  Qt::DropActions QFileSystemModel::supportedDropActions() const
+  Qt::DropActions supportedDropActions() const override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQFileSystemModelCall14 call = reinterpret_cast<CuteQFileSystemModelCall14>(taken[14]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::DropAction>::fromInt(given);
+    }
+    return QFileSystemModel::supportedDropActions();
+  }
+
   //  void QFileSystemModel::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[13]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQFileSystemModelCall13 call = reinterpret_cast<CuteQFileSystemModelCall13>(taken[13]);
+      CuteQFileSystemModelCall15 call = reinterpret_cast<CuteQFileSystemModelCall15>(taken[15]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -387,9 +424,9 @@ public:
 
   //  bool QFileSystemModel::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[14]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQFileSystemModelCall14 call = reinterpret_cast<CuteQFileSystemModelCall14>(taken[14]);
+      CuteQFileSystemModelCall16 call = reinterpret_cast<CuteQFileSystemModelCall16>(taken[16]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -403,9 +440,9 @@ public:
       Qt::Orientation orientation,
       const QVariant &value,
       int role) override {
-    if (taken[15]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQFileSystemModelCall15 call = reinterpret_cast<CuteQFileSystemModelCall15>(taken[15]);
+      CuteQFileSystemModelCall17 call = reinterpret_cast<CuteQFileSystemModelCall17>(taken[17]);
       bool given = call(this, section, static_cast<int>(orientation), &value, role, &handled);
       if (handled) return given;
     }
@@ -414,9 +451,9 @@ public:
 
   //  bool QAbstractItemModel::clearItemData(const QModelIndex &index)
   bool clearItemData(const QModelIndex &index) override {
-    if (taken[16]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQFileSystemModelCall16 call = reinterpret_cast<CuteQFileSystemModelCall16>(taken[16]);
+      CuteQFileSystemModelCall18 call = reinterpret_cast<CuteQFileSystemModelCall18>(taken[18]);
       bool given = call(this, &index, &handled);
       if (handled) return given;
     }
@@ -432,21 +469,32 @@ public:
       int row,
       int column,
       const QModelIndex &parent) const override {
-    if (taken[17]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQFileSystemModelCall17 call = reinterpret_cast<CuteQFileSystemModelCall17>(taken[17]);
+      CuteQFileSystemModelCall19 call = reinterpret_cast<CuteQFileSystemModelCall19>(taken[19]);
       bool given = call(this, data, static_cast<int>(action), row, column, &parent, &handled);
       if (handled) return given;
     }
     return QAbstractItemModel::canDropMimeData(data, action, row, column, parent);
   }
 
+  //  Qt::DropActions QAbstractItemModel::supportedDragActions() const
+  Qt::DropActions supportedDragActions() const override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQFileSystemModelCall20 call = reinterpret_cast<CuteQFileSystemModelCall20>(taken[20]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::DropAction>::fromInt(given);
+    }
+    return QAbstractItemModel::supportedDragActions();
+  }
+
   //  bool QAbstractItemModel::insertRows(int row, int count, const
   //      QModelIndex &parent)
   bool insertRows(int row, int count, const QModelIndex &parent) override {
-    if (taken[18]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQFileSystemModelCall18 call = reinterpret_cast<CuteQFileSystemModelCall18>(taken[18]);
+      CuteQFileSystemModelCall21 call = reinterpret_cast<CuteQFileSystemModelCall21>(taken[21]);
       bool given = call(this, row, count, &parent, &handled);
       if (handled) return given;
     }
@@ -459,9 +507,9 @@ public:
       int column,
       int count,
       const QModelIndex &parent) override {
-    if (taken[19]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQFileSystemModelCall19 call = reinterpret_cast<CuteQFileSystemModelCall19>(taken[19]);
+      CuteQFileSystemModelCall22 call = reinterpret_cast<CuteQFileSystemModelCall22>(taken[22]);
       bool given = call(this, column, count, &parent, &handled);
       if (handled) return given;
     }
@@ -471,9 +519,9 @@ public:
   //  bool QAbstractItemModel::removeRows(int row, int count, const
   //      QModelIndex &parent)
   bool removeRows(int row, int count, const QModelIndex &parent) override {
-    if (taken[20]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQFileSystemModelCall20 call = reinterpret_cast<CuteQFileSystemModelCall20>(taken[20]);
+      CuteQFileSystemModelCall23 call = reinterpret_cast<CuteQFileSystemModelCall23>(taken[23]);
       bool given = call(this, row, count, &parent, &handled);
       if (handled) return given;
     }
@@ -486,9 +534,9 @@ public:
       int column,
       int count,
       const QModelIndex &parent) override {
-    if (taken[21]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQFileSystemModelCall21 call = reinterpret_cast<CuteQFileSystemModelCall21>(taken[21]);
+      CuteQFileSystemModelCall24 call = reinterpret_cast<CuteQFileSystemModelCall24>(taken[24]);
       bool given = call(this, column, count, &parent, &handled);
       if (handled) return given;
     }
@@ -504,9 +552,9 @@ public:
       int count,
       const QModelIndex &destinationParent,
       int destinationChild) override {
-    if (taken[22]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQFileSystemModelCall22 call = reinterpret_cast<CuteQFileSystemModelCall22>(taken[22]);
+      CuteQFileSystemModelCall25 call = reinterpret_cast<CuteQFileSystemModelCall25>(taken[25]);
       bool given = call(this, &sourceParent, sourceRow, count, &destinationParent, destinationChild, &handled);
       if (handled) return given;
     }
@@ -522,9 +570,9 @@ public:
       int count,
       const QModelIndex &destinationParent,
       int destinationChild) override {
-    if (taken[23]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQFileSystemModelCall23 call = reinterpret_cast<CuteQFileSystemModelCall23>(taken[23]);
+      CuteQFileSystemModelCall26 call = reinterpret_cast<CuteQFileSystemModelCall26>(taken[26]);
       bool given = call(this, &sourceParent, sourceColumn, count, &destinationParent, destinationChild, &handled);
       if (handled) return given;
     }
@@ -533,9 +581,9 @@ public:
 
   //  QModelIndex QAbstractItemModel::buddy(const QModelIndex &index) const
   QModelIndex buddy(const QModelIndex &index) const override {
-    if (taken[24]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQFileSystemModelCall24 call = reinterpret_cast<CuteQFileSystemModelCall24>(taken[24]);
+      CuteQFileSystemModelCall27 call = reinterpret_cast<CuteQFileSystemModelCall27>(taken[27]);
       const QModelIndex * given = call(this, &index, &handled);
       if (handled && given) return *given;
     }
@@ -544,9 +592,9 @@ public:
 
   //  QSize QAbstractItemModel::span(const QModelIndex &index) const
   QSize span(const QModelIndex &index) const override {
-    if (taken[25]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQFileSystemModelCall25 call = reinterpret_cast<CuteQFileSystemModelCall25>(taken[25]);
+      CuteQFileSystemModelCall28 call = reinterpret_cast<CuteQFileSystemModelCall28>(taken[28]);
       const QSize * given = call(this, &index, &handled);
       if (handled && given) return *given;
     }
@@ -558,9 +606,9 @@ public:
   void multiData(
       const QModelIndex &index,
       QModelRoleDataSpan roleDataSpan) const override {
-    if (taken[26]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQFileSystemModelCall26 call = reinterpret_cast<CuteQFileSystemModelCall26>(taken[26]);
+      CuteQFileSystemModelCall29 call = reinterpret_cast<CuteQFileSystemModelCall29>(taken[29]);
       call(this, &index, &roleDataSpan, &handled);
       if (handled) return;
     }
@@ -569,9 +617,9 @@ public:
 
   //  bool QAbstractItemModel::submit()
   bool submit() override {
-    if (taken[27]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQFileSystemModelCall27 call = reinterpret_cast<CuteQFileSystemModelCall27>(taken[27]);
+      CuteQFileSystemModelCall30 call = reinterpret_cast<CuteQFileSystemModelCall30>(taken[30]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -580,9 +628,9 @@ public:
 
   //  void QAbstractItemModel::revert()
   void revert() override {
-    if (taken[28]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQFileSystemModelCall28 call = reinterpret_cast<CuteQFileSystemModelCall28>(taken[28]);
+      CuteQFileSystemModelCall31 call = reinterpret_cast<CuteQFileSystemModelCall31>(taken[31]);
       call(this, &handled);
       if (handled) return;
     }
@@ -591,9 +639,9 @@ public:
 
   //  void QAbstractItemModel::resetInternalData()
   void resetInternalData() override {
-    if (taken[29]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQFileSystemModelCall29 call = reinterpret_cast<CuteQFileSystemModelCall29>(taken[29]);
+      CuteQFileSystemModelCall32 call = reinterpret_cast<CuteQFileSystemModelCall32>(taken[32]);
       call(this, &handled);
       if (handled) return;
     }
@@ -602,9 +650,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[30]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQFileSystemModelCall30 call = reinterpret_cast<CuteQFileSystemModelCall30>(taken[30]);
+      CuteQFileSystemModelCall33 call = reinterpret_cast<CuteQFileSystemModelCall33>(taken[33]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -613,9 +661,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[31]) {
+    if (taken[34]) {
       int handled = 0;
-      CuteQFileSystemModelCall31 call = reinterpret_cast<CuteQFileSystemModelCall31>(taken[31]);
+      CuteQFileSystemModelCall34 call = reinterpret_cast<CuteQFileSystemModelCall34>(taken[34]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -624,9 +672,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[32]) {
+    if (taken[35]) {
       int handled = 0;
-      CuteQFileSystemModelCall32 call = reinterpret_cast<CuteQFileSystemModelCall32>(taken[32]);
+      CuteQFileSystemModelCall35 call = reinterpret_cast<CuteQFileSystemModelCall35>(taken[35]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -635,9 +683,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[33]) {
+    if (taken[36]) {
       int handled = 0;
-      CuteQFileSystemModelCall33 call = reinterpret_cast<CuteQFileSystemModelCall33>(taken[33]);
+      CuteQFileSystemModelCall36 call = reinterpret_cast<CuteQFileSystemModelCall36>(taken[36]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -646,9 +694,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[34]) {
+    if (taken[37]) {
       int handled = 0;
-      CuteQFileSystemModelCall34 call = reinterpret_cast<CuteQFileSystemModelCall34>(taken[34]);
+      CuteQFileSystemModelCall37 call = reinterpret_cast<CuteQFileSystemModelCall37>(taken[37]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -1187,6 +1235,14 @@ QVariant *ritual_own_ZNK16QFileSystemModel10headerDataEiN2Qt11OrientationEi(
           role));
 }
 
+//  Qt::ItemFlags QFileSystemModel::flags(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK16QFileSystemModel5flagsERK11QModelIndex(
+    const QFileSystemModel *self,
+    const QModelIndex *index) {
+  return static_cast<int>(self->QFileSystemModel::flags(*index).toInt());
+}
+
 //  void QFileSystemModel::sort(int column, Qt::SortOrder order)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN16QFileSystemModel4sortEiN2Qt9SortOrderE(
@@ -1212,6 +1268,14 @@ bool ritual_own_ZN16QFileSystemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionE
       row,
       column,
       *parent);
+}
+
+//  Qt::DropActions QFileSystemModel::supportedDropActions() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK16QFileSystemModel20supportedDropActionsEv(
+    const QFileSystemModel *self) {
+  return static_cast<int>(
+      self->QFileSystemModel::supportedDropActions().toInt());
 }
 
 //  void QFileSystemModel::timerEvent(QTimerEvent *event)

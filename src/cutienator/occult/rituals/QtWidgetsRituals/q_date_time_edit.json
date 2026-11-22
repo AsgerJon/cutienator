@@ -138,6 +138,13 @@
     "ritual_own_ZN13QDateTimeEdit18focusNextPrevChildEb": [
       "bool", "address", "bool"
     ],
+    "ritual_own_ZNK13QDateTimeEdit16dateTimeFromTextERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_own_ZNK13QDateTimeEdit16textFromDateTimeERK9QDateTime": [
+      "text", "address", "address"
+    ],
+    "ritual_own_ZNK13QDateTimeEdit11stepEnabledEv": ["int", "address"],
     "ritual_own_ZN13QDateTimeEdit15mousePressEventEP11QMouseEvent": [
       "nothing", "address", "address"
     ],

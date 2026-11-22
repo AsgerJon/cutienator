@@ -673,6 +673,46 @@ class Rituals:
     return shape(function)
 
   @classmethod
+  def takeText(cls, address: int) -> str:
+    """
+    Gives the letters of a text of Qt that C++ hands a Python function
+    it calls, as the 'QString' Qt hands 'highlightBlock'.
+
+    The text stays Qt's own: it is read, and neither kept nor removed.
+
+    Parameters
+    ----------
+
+    address : int
+      Where the C++ QString is.
+    """
+    return cls._readText(address)
+
+  @classmethod
+  def giveText(cls, text: str) -> int:
+    """
+    Makes a text of Qt from what a Python function called by Qt gave
+    back, as the 'str' a program gives from 'textFromValue', and gives
+    its address.
+
+    The C++ class of ours that asked copies the QString and removes
+    it, so nothing of Python removes it.
+
+    Parameters
+    ----------
+
+    text : str
+      What the Python function gave back.
+
+    Raises
+    ------
+
+    TypeException
+      'text' is not a 'str'.
+    """
+    return cls._makeText(text)
+
+  @classmethod
   def keepException(cls, exception: BaseException) -> None:
     """
     Keeps an exception that a Python function raised while Qt was

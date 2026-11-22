@@ -22,6 +22,9 @@
     "ritual_take_QGraphicsEffect": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QGraphicsEffect15boundingRectForERK6QRectF": [
       "address", "address", "address"
+    ],
+    "ritual_own_ZN15QGraphicsEffect13sourceChangedE6QFlagsINS_10ChangeFlagEE": [
+      "nothing", "address", "int"
     ]
   }
 }

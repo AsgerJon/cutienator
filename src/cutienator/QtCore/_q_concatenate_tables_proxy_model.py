@@ -301,10 +301,12 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     """
     #  Qt::ItemFlags QConcatenateTablesProxyModel::flags(const QModelIndex
     #      &index) const
-    return Qt.ItemFlags(self.uglySide.call(
-        'ritual_ZNK28QConcatenateTablesProxyModel5flagsERK11QModelIndex',
-        self._valueOf(index),
-    ))
+    ritual = 'ritual_ZNK28QConcatenateTablesProxyModel5flagsERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK28QConcatenateTablesProxyModel5flagsERK11QModelInd'
+          'ex')
+    return Qt.ItemFlags(self.uglySide.call(ritual, self._valueOf(index)))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)

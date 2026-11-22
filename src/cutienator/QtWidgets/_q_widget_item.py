@@ -177,9 +177,10 @@ class QWidgetItem(QLayoutItem):
       The value standing for the combination Qt gave back.
     """
     #  Qt::Orientations QWidgetItem::expandingDirections() const
-    return Qt.Orientations(self.uglySide.call(
-        'ritual_ZNK11QWidgetItem19expandingDirectionsEv',
-    ))
+    ritual = 'ritual_ZNK11QWidgetItem19expandingDirectionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWidgetItem19expandingDirectionsEv'
+    return Qt.Orientations(self.uglySide.call(ritual))
 
   def isEmpty(self) -> bool:
     """
@@ -298,9 +299,10 @@ class QWidgetItem(QLayoutItem):
       The value standing for the combination Qt gave back.
     """
     #  QSizePolicy::ControlTypes QWidgetItem::controlTypes() const
-    return QSizePolicy.ControlTypes(self.uglySide.call(
-        'ritual_ZNK11QWidgetItem12controlTypesEv',
-    ))
+    ritual = 'ritual_ZNK11QWidgetItem12controlTypesEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWidgetItem12controlTypesEv'
+    return QSizePolicy.ControlTypes(self.uglySide.call(ritual))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

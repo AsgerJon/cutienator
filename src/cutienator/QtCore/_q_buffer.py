@@ -134,16 +134,6 @@ class QBuffer(QIODevice):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QBuffer'
 
-  #  The functions Qt calls itself that QBuffer is the first to declare and
-  #  that cannot be handed to Python yet, each as Qt declares it. A class of
-  #  a program that writes one of them anew is refused, since Qt would never
-  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'open': (
-          'bool QBuffer::open(OpenMode)',
-      ),
-  }
-
   #  Fallback Variables
 
   #  Private Variables
@@ -422,10 +412,13 @@ class QBuffer(QIODevice):
       Passed on as its number.
     """
     #  bool QBuffer::open(OpenMode openMode)
-    return self.uglySide.call(
-        'ritual_ZN7QBuffer4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE',
-        openMode.value,
-    )
+    ritual = (
+        'ritual_ZN7QBuffer4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN7QBuffer4openE6QFlagsIN13QIODeviceBase12OpenModeFla'
+          'gEE')
+    return self.uglySide.call(ritual, openMode.value)
 
   def close(self) -> None:
     """

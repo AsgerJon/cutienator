@@ -142,22 +142,25 @@ class CuteMixin(BaseObject):
     ----------
 
     how : str
-      What it is: 'number', 'enum', 'address' or 'value'.
+      What it is: 'number', 'text', 'enum', 'flags', 'address' or
+      'value'.
 
     where : str
       Where its cute class or enum is found, as '_findNamed' reads it.
-      Empty for a number.
+      Empty for a number and for text.
 
     handed : Any
-      What C++ handed over: the number, the number of the member, or
-      the address of the C++ object.
+      What C++ handed over: the number, the address of Qt's text, the
+      number of the member or of the flags, or the address of the C++
+      object.
 
     Returns
     -------
 
     Any
-      The number itself, the member of the enum, or the cute object
-      standing for the C++ object, None for no object. C++ says which
+      The number itself, the text as a 'str', the member of the enum,
+      the value of the flags, or the cute object standing for the C++
+      object, None for no object. C++ says which
       class the object is of, so a cute object of another class found
       at the address stood for an object that was there before, and a
       new one is made: Qt hands one event first as a 'QEvent' and then
@@ -166,8 +169,10 @@ class CuteMixin(BaseObject):
     """
     if how == 'number':
       return handed
+    if how == 'text':
+      return Rituals.takeText(handed)
     wanted = CuteMixin._findNamed(where)
-    if how == 'enum':
+    if how in ('enum', 'flags'):
       return wanted(handed)
     found = wanted._cuteAt(handed)
     if found is None or isinstance(found, wanted):
@@ -188,8 +193,8 @@ class CuteMixin(BaseObject):
 
     gives : Tuple[str, str, str]
       What Qt's function gives: the word of it as a row has it, what
-      it is ('nothing', 'number', 'enum', 'address' or 'value'), and
-      where its cute class or enum is found.
+      it is ('nothing', 'number', 'text', 'enum', 'flags', 'address'
+      or 'value'), and where its cute class or enum is found.
 
     given : Any
       What the Python function gave back.
@@ -199,7 +204,8 @@ class CuteMixin(BaseObject):
 
     Any
       None for a function giving nothing, whatever the Python function
-      gave. Else the number, the number of the member, or the address
+      gave. Else the number, the address of a text of Qt made from the
+      'str', the number of the member or of the flags, or the address
       of the C++ object.
 
     Raises
@@ -220,6 +226,8 @@ class CuteMixin(BaseObject):
       else:
         wanted = int
       fits = isinstance(given, (int, float) if wanted is float else wanted)
+    elif how == 'text':
+      wanted, fits = str, isinstance(given, str)
     else:
       wanted = CuteMixin._findNamed(where)
       fits = isinstance(given, wanted)
@@ -232,7 +240,9 @@ class CuteMixin(BaseObject):
       raise TypeError(' '.join(info.split()))
     if how == 'number':
       return given
-    if how == 'enum':
+    if how == 'text':
+      return Rituals.giveText(given)
+    if how in ('enum', 'flags'):
       return given.value
     if how == 'value':
       Rituals.keepGiven(given)
@@ -664,9 +674,9 @@ class CuteMixin(BaseObject):
 
     gives : Tuple[str, str, str]
       What Qt's function gives: the word of it as a row has it, what
-      it is ('nothing', 'number', 'enum', 'address' or 'value'), and
-      for the last three where its cute class or enum is found, as
-      'QtCore:QSize'.
+      it is ('nothing', 'number', 'text', 'enum', 'flags', 'address'
+      or 'value'), and for the last four where its cute class or enum
+      is found, as 'QtCore:QSize'.
 
     takes : Tuple[Tuple[str, str, str], ...]
       The same for each thing Qt's function takes.

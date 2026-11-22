@@ -438,10 +438,10 @@ class QStandardItemModel(QAbstractItemModel):
     """
     #  Qt::ItemFlags QStandardItemModel::flags(const QModelIndex &index)
     #      const
-    return Qt.ItemFlags(self.uglySide.call(
-        'ritual_ZNK18QStandardItemModel5flagsERK11QModelIndex',
-        self._valueOf(index),
-    ))
+    ritual = 'ritual_ZNK18QStandardItemModel5flagsERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QStandardItemModel5flagsERK11QModelIndex'
+    return Qt.ItemFlags(self.uglySide.call(ritual, self._valueOf(index)))
 
   def supportedDropActions(self) -> Qt.DropActions:
     """
@@ -458,9 +458,10 @@ class QStandardItemModel(QAbstractItemModel):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QStandardItemModel::supportedDropActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_ZNK18QStandardItemModel20supportedDropActionsEv',
-    ))
+    ritual = 'ritual_ZNK18QStandardItemModel20supportedDropActionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QStandardItemModel20supportedDropActionsEv'
+    return Qt.DropActions(self.uglySide.call(ritual))
 
   @overload(QModelIndex)
   def itemFromIndex(self, index: QModelIndex) -> Optional[QStandardItem]:

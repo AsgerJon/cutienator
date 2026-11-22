@@ -29,32 +29,35 @@ typedef bool (*CuteQAbstractItemModelCall9)(const void *, int, int, const QVaria
 typedef bool (*CuteQAbstractItemModelCall10)(const void *, const QModelIndex *, int *);
 typedef bool (*CuteQAbstractItemModelCall11)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
 typedef bool (*CuteQAbstractItemModelCall12)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
-typedef bool (*CuteQAbstractItemModelCall13)(const void *, int, int, const QModelIndex *, int *);
-typedef bool (*CuteQAbstractItemModelCall14)(const void *, int, int, const QModelIndex *, int *);
+typedef int (*CuteQAbstractItemModelCall13)(const void *, int *);
+typedef int (*CuteQAbstractItemModelCall14)(const void *, int *);
 typedef bool (*CuteQAbstractItemModelCall15)(const void *, int, int, const QModelIndex *, int *);
 typedef bool (*CuteQAbstractItemModelCall16)(const void *, int, int, const QModelIndex *, int *);
-typedef bool (*CuteQAbstractItemModelCall17)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
-typedef bool (*CuteQAbstractItemModelCall18)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
-typedef void (*CuteQAbstractItemModelCall19)(const void *, const QModelIndex *, int *);
-typedef bool (*CuteQAbstractItemModelCall20)(const void *, const QModelIndex *, int *);
-typedef void (*CuteQAbstractItemModelCall21)(const void *, int, int, int *);
-typedef const QModelIndex * (*CuteQAbstractItemModelCall22)(const void *, const QModelIndex *, int *);
-typedef const QSize * (*CuteQAbstractItemModelCall23)(const void *, const QModelIndex *, int *);
-typedef void (*CuteQAbstractItemModelCall24)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
-typedef bool (*CuteQAbstractItemModelCall25)(const void *, int *);
-typedef void (*CuteQAbstractItemModelCall26)(const void *, int *);
-typedef void (*CuteQAbstractItemModelCall27)(const void *, int *);
-typedef bool (*CuteQAbstractItemModelCall28)(const void *, QEvent *, int *);
-typedef bool (*CuteQAbstractItemModelCall29)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQAbstractItemModelCall30)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQAbstractItemModelCall31)(const void *, QChildEvent *, int *);
-typedef void (*CuteQAbstractItemModelCall32)(const void *, QEvent *, int *);
-typedef void (*CuteQAbstractItemModelCall33)(const void *, const QMetaMethod *, int *);
-typedef void (*CuteQAbstractItemModelCall34)(const void *, const QMetaMethod *, int *);
+typedef bool (*CuteQAbstractItemModelCall17)(const void *, int, int, const QModelIndex *, int *);
+typedef bool (*CuteQAbstractItemModelCall18)(const void *, int, int, const QModelIndex *, int *);
+typedef bool (*CuteQAbstractItemModelCall19)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+typedef bool (*CuteQAbstractItemModelCall20)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+typedef void (*CuteQAbstractItemModelCall21)(const void *, const QModelIndex *, int *);
+typedef bool (*CuteQAbstractItemModelCall22)(const void *, const QModelIndex *, int *);
+typedef int (*CuteQAbstractItemModelCall23)(const void *, const QModelIndex *, int *);
+typedef void (*CuteQAbstractItemModelCall24)(const void *, int, int, int *);
+typedef const QModelIndex * (*CuteQAbstractItemModelCall25)(const void *, const QModelIndex *, int *);
+typedef const QSize * (*CuteQAbstractItemModelCall26)(const void *, const QModelIndex *, int *);
+typedef void (*CuteQAbstractItemModelCall27)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
+typedef bool (*CuteQAbstractItemModelCall28)(const void *, int *);
+typedef void (*CuteQAbstractItemModelCall29)(const void *, int *);
+typedef void (*CuteQAbstractItemModelCall30)(const void *, int *);
+typedef bool (*CuteQAbstractItemModelCall31)(const void *, QEvent *, int *);
+typedef bool (*CuteQAbstractItemModelCall32)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQAbstractItemModelCall33)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQAbstractItemModelCall34)(const void *, QChildEvent *, int *);
+typedef void (*CuteQAbstractItemModelCall35)(const void *, QEvent *, int *);
+typedef void (*CuteQAbstractItemModelCall36)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQAbstractItemModelCall37)(const void *, const QMetaMethod *, int *);
 class CuteQAbstractItemModel : public QAbstractItemModel {
 public:
   using QAbstractItemModel::QAbstractItemModel;
-  void *taken[35] = {};
+  void *taken[38] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel5indexEiiRK11QModelIndex")) {
@@ -109,92 +112,104 @@ public:
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDropActionsEv")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDragActionsEv")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex")) {
       taken[21] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex")) {
       taken[22] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5flagsERK11QModelIndex")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel6submitEv")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel6revertEv")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
       taken[27] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel6submitEv")) {
       taken[28] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel6revertEv")) {
       taken[29] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
       taken[30] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[31] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[32] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[33] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[34] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[35] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[36] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[37] = call;
       return true;
     }
     return false;
@@ -380,12 +395,34 @@ public:
     return QAbstractItemModel::dropMimeData(data, action, row, column, parent);
   }
 
-  //  bool QAbstractItemModel::insertRows(int row, int count, const
-  //      QModelIndex &parent)
-  bool insertRows(int row, int count, const QModelIndex &parent) override {
+  //  Qt::DropActions QAbstractItemModel::supportedDropActions() const
+  Qt::DropActions supportedDropActions() const override {
     if (taken[13]) {
       int handled = 0;
       CuteQAbstractItemModelCall13 call = reinterpret_cast<CuteQAbstractItemModelCall13>(taken[13]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::DropAction>::fromInt(given);
+    }
+    return QAbstractItemModel::supportedDropActions();
+  }
+
+  //  Qt::DropActions QAbstractItemModel::supportedDragActions() const
+  Qt::DropActions supportedDragActions() const override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQAbstractItemModelCall14 call = reinterpret_cast<CuteQAbstractItemModelCall14>(taken[14]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::DropAction>::fromInt(given);
+    }
+    return QAbstractItemModel::supportedDragActions();
+  }
+
+  //  bool QAbstractItemModel::insertRows(int row, int count, const
+  //      QModelIndex &parent)
+  bool insertRows(int row, int count, const QModelIndex &parent) override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQAbstractItemModelCall15 call = reinterpret_cast<CuteQAbstractItemModelCall15>(taken[15]);
       bool given = call(this, row, count, &parent, &handled);
       if (handled) return given;
     }
@@ -398,9 +435,9 @@ public:
       int column,
       int count,
       const QModelIndex &parent) override {
-    if (taken[14]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQAbstractItemModelCall14 call = reinterpret_cast<CuteQAbstractItemModelCall14>(taken[14]);
+      CuteQAbstractItemModelCall16 call = reinterpret_cast<CuteQAbstractItemModelCall16>(taken[16]);
       bool given = call(this, column, count, &parent, &handled);
       if (handled) return given;
     }
@@ -410,9 +447,9 @@ public:
   //  bool QAbstractItemModel::removeRows(int row, int count, const
   //      QModelIndex &parent)
   bool removeRows(int row, int count, const QModelIndex &parent) override {
-    if (taken[15]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQAbstractItemModelCall15 call = reinterpret_cast<CuteQAbstractItemModelCall15>(taken[15]);
+      CuteQAbstractItemModelCall17 call = reinterpret_cast<CuteQAbstractItemModelCall17>(taken[17]);
       bool given = call(this, row, count, &parent, &handled);
       if (handled) return given;
     }
@@ -425,9 +462,9 @@ public:
       int column,
       int count,
       const QModelIndex &parent) override {
-    if (taken[16]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQAbstractItemModelCall16 call = reinterpret_cast<CuteQAbstractItemModelCall16>(taken[16]);
+      CuteQAbstractItemModelCall18 call = reinterpret_cast<CuteQAbstractItemModelCall18>(taken[18]);
       bool given = call(this, column, count, &parent, &handled);
       if (handled) return given;
     }
@@ -443,9 +480,9 @@ public:
       int count,
       const QModelIndex &destinationParent,
       int destinationChild) override {
-    if (taken[17]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQAbstractItemModelCall17 call = reinterpret_cast<CuteQAbstractItemModelCall17>(taken[17]);
+      CuteQAbstractItemModelCall19 call = reinterpret_cast<CuteQAbstractItemModelCall19>(taken[19]);
       bool given = call(this, &sourceParent, sourceRow, count, &destinationParent, destinationChild, &handled);
       if (handled) return given;
     }
@@ -461,9 +498,9 @@ public:
       int count,
       const QModelIndex &destinationParent,
       int destinationChild) override {
-    if (taken[18]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQAbstractItemModelCall18 call = reinterpret_cast<CuteQAbstractItemModelCall18>(taken[18]);
+      CuteQAbstractItemModelCall20 call = reinterpret_cast<CuteQAbstractItemModelCall20>(taken[20]);
       bool given = call(this, &sourceParent, sourceColumn, count, &destinationParent, destinationChild, &handled);
       if (handled) return given;
     }
@@ -472,9 +509,9 @@ public:
 
   //  void QAbstractItemModel::fetchMore(const QModelIndex &parent)
   void fetchMore(const QModelIndex &parent) override {
-    if (taken[19]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQAbstractItemModelCall19 call = reinterpret_cast<CuteQAbstractItemModelCall19>(taken[19]);
+      CuteQAbstractItemModelCall21 call = reinterpret_cast<CuteQAbstractItemModelCall21>(taken[21]);
       call(this, &parent, &handled);
       if (handled) return;
     }
@@ -484,20 +521,32 @@ public:
   //  bool QAbstractItemModel::canFetchMore(const QModelIndex &parent)
   //      const
   bool canFetchMore(const QModelIndex &parent) const override {
-    if (taken[20]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQAbstractItemModelCall20 call = reinterpret_cast<CuteQAbstractItemModelCall20>(taken[20]);
+      CuteQAbstractItemModelCall22 call = reinterpret_cast<CuteQAbstractItemModelCall22>(taken[22]);
       bool given = call(this, &parent, &handled);
       if (handled) return given;
     }
     return QAbstractItemModel::canFetchMore(parent);
   }
 
+  //  Qt::ItemFlags QAbstractItemModel::flags(const QModelIndex &index)
+  //      const
+  Qt::ItemFlags flags(const QModelIndex &index) const override {
+    if (taken[23]) {
+      int handled = 0;
+      CuteQAbstractItemModelCall23 call = reinterpret_cast<CuteQAbstractItemModelCall23>(taken[23]);
+      int given = call(this, &index, &handled);
+      if (handled) return QFlags<Qt::ItemFlag>::fromInt(given);
+    }
+    return QAbstractItemModel::flags(index);
+  }
+
   //  void QAbstractItemModel::sort(int column, Qt::SortOrder order)
   void sort(int column, Qt::SortOrder order) override {
-    if (taken[21]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQAbstractItemModelCall21 call = reinterpret_cast<CuteQAbstractItemModelCall21>(taken[21]);
+      CuteQAbstractItemModelCall24 call = reinterpret_cast<CuteQAbstractItemModelCall24>(taken[24]);
       call(this, column, static_cast<int>(order), &handled);
       if (handled) return;
     }
@@ -506,9 +555,9 @@ public:
 
   //  QModelIndex QAbstractItemModel::buddy(const QModelIndex &index) const
   QModelIndex buddy(const QModelIndex &index) const override {
-    if (taken[22]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQAbstractItemModelCall22 call = reinterpret_cast<CuteQAbstractItemModelCall22>(taken[22]);
+      CuteQAbstractItemModelCall25 call = reinterpret_cast<CuteQAbstractItemModelCall25>(taken[25]);
       const QModelIndex * given = call(this, &index, &handled);
       if (handled && given) return *given;
     }
@@ -517,9 +566,9 @@ public:
 
   //  QSize QAbstractItemModel::span(const QModelIndex &index) const
   QSize span(const QModelIndex &index) const override {
-    if (taken[23]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQAbstractItemModelCall23 call = reinterpret_cast<CuteQAbstractItemModelCall23>(taken[23]);
+      CuteQAbstractItemModelCall26 call = reinterpret_cast<CuteQAbstractItemModelCall26>(taken[26]);
       const QSize * given = call(this, &index, &handled);
       if (handled && given) return *given;
     }
@@ -531,9 +580,9 @@ public:
   void multiData(
       const QModelIndex &index,
       QModelRoleDataSpan roleDataSpan) const override {
-    if (taken[24]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQAbstractItemModelCall24 call = reinterpret_cast<CuteQAbstractItemModelCall24>(taken[24]);
+      CuteQAbstractItemModelCall27 call = reinterpret_cast<CuteQAbstractItemModelCall27>(taken[27]);
       call(this, &index, &roleDataSpan, &handled);
       if (handled) return;
     }
@@ -542,9 +591,9 @@ public:
 
   //  bool QAbstractItemModel::submit()
   bool submit() override {
-    if (taken[25]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQAbstractItemModelCall25 call = reinterpret_cast<CuteQAbstractItemModelCall25>(taken[25]);
+      CuteQAbstractItemModelCall28 call = reinterpret_cast<CuteQAbstractItemModelCall28>(taken[28]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -553,9 +602,9 @@ public:
 
   //  void QAbstractItemModel::revert()
   void revert() override {
-    if (taken[26]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQAbstractItemModelCall26 call = reinterpret_cast<CuteQAbstractItemModelCall26>(taken[26]);
+      CuteQAbstractItemModelCall29 call = reinterpret_cast<CuteQAbstractItemModelCall29>(taken[29]);
       call(this, &handled);
       if (handled) return;
     }
@@ -564,9 +613,9 @@ public:
 
   //  void QAbstractItemModel::resetInternalData()
   void resetInternalData() override {
-    if (taken[27]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQAbstractItemModelCall27 call = reinterpret_cast<CuteQAbstractItemModelCall27>(taken[27]);
+      CuteQAbstractItemModelCall30 call = reinterpret_cast<CuteQAbstractItemModelCall30>(taken[30]);
       call(this, &handled);
       if (handled) return;
     }
@@ -575,9 +624,9 @@ public:
 
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
-    if (taken[28]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQAbstractItemModelCall28 call = reinterpret_cast<CuteQAbstractItemModelCall28>(taken[28]);
+      CuteQAbstractItemModelCall31 call = reinterpret_cast<CuteQAbstractItemModelCall31>(taken[31]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -586,9 +635,9 @@ public:
 
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[29]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQAbstractItemModelCall29 call = reinterpret_cast<CuteQAbstractItemModelCall29>(taken[29]);
+      CuteQAbstractItemModelCall32 call = reinterpret_cast<CuteQAbstractItemModelCall32>(taken[32]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
@@ -597,9 +646,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[30]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQAbstractItemModelCall30 call = reinterpret_cast<CuteQAbstractItemModelCall30>(taken[30]);
+      CuteQAbstractItemModelCall33 call = reinterpret_cast<CuteQAbstractItemModelCall33>(taken[33]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -608,9 +657,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[31]) {
+    if (taken[34]) {
       int handled = 0;
-      CuteQAbstractItemModelCall31 call = reinterpret_cast<CuteQAbstractItemModelCall31>(taken[31]);
+      CuteQAbstractItemModelCall34 call = reinterpret_cast<CuteQAbstractItemModelCall34>(taken[34]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -619,9 +668,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[32]) {
+    if (taken[35]) {
       int handled = 0;
-      CuteQAbstractItemModelCall32 call = reinterpret_cast<CuteQAbstractItemModelCall32>(taken[32]);
+      CuteQAbstractItemModelCall35 call = reinterpret_cast<CuteQAbstractItemModelCall35>(taken[35]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -630,9 +679,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[33]) {
+    if (taken[36]) {
       int handled = 0;
-      CuteQAbstractItemModelCall33 call = reinterpret_cast<CuteQAbstractItemModelCall33>(taken[33]);
+      CuteQAbstractItemModelCall36 call = reinterpret_cast<CuteQAbstractItemModelCall36>(taken[36]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -641,9 +690,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[34]) {
+    if (taken[37]) {
       int handled = 0;
-      CuteQAbstractItemModelCall34 call = reinterpret_cast<CuteQAbstractItemModelCall34>(taken[34]);
+      CuteQAbstractItemModelCall37 call = reinterpret_cast<CuteQAbstractItemModelCall37>(taken[37]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -1190,6 +1239,22 @@ bool ritual_own_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActio
       *parent);
 }
 
+//  Qt::DropActions QAbstractItemModel::supportedDropActions() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK18QAbstractItemModel20supportedDropActionsEv(
+    const QAbstractItemModel *self) {
+  return static_cast<int>(
+      self->QAbstractItemModel::supportedDropActions().toInt());
+}
+
+//  Qt::DropActions QAbstractItemModel::supportedDragActions() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK18QAbstractItemModel20supportedDragActionsEv(
+    const QAbstractItemModel *self) {
+  return static_cast<int>(
+      self->QAbstractItemModel::supportedDragActions().toInt());
+}
+
 //  bool QAbstractItemModel::insertRows(int row, int count, const QModelIndex
 //      &parent)
 extern "C" Q_DECL_EXPORT
@@ -1286,6 +1351,14 @@ bool ritual_own_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex(
     const QAbstractItemModel *self,
     const QModelIndex *parent) {
   return self->QAbstractItemModel::canFetchMore(*parent);
+}
+
+//  Qt::ItemFlags QAbstractItemModel::flags(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK18QAbstractItemModel5flagsERK11QModelIndex(
+    const QAbstractItemModel *self,
+    const QModelIndex *index) {
+  return static_cast<int>(self->QAbstractItemModel::flags(*index).toInt());
 }
 
 //  void QAbstractItemModel::sort(int column, Qt::SortOrder order)

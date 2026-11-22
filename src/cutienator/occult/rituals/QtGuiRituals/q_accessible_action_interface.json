@@ -29,6 +29,15 @@
     "ritual_ZN26QAccessibleActionInterface14scrollUpActionEv": ["text"],
     "ritual_ZN26QAccessibleActionInterface16scrollDownActionEv": ["text"],
     "ritual_ZN26QAccessibleActionInterface14nextPageActionEv": ["text"],
-    "ritual_ZN26QAccessibleActionInterface18previousPageActionEv": ["text"]
+    "ritual_ZN26QAccessibleActionInterface18previousPageActionEv": ["text"],
+    "ritual_take_QAccessibleActionInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_own_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString": [
+      "text", "address", "text"
+    ]
   }
 }

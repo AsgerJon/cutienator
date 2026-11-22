@@ -131,13 +131,17 @@ class QStylePlugin(QObject):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QStylePlugin'
 
-  #  The functions Qt calls itself that QStylePlugin is the first to declare
-  #  and that cannot be handed to Python yet, each as Qt declares it. A class
-  #  of a program that writes one of them anew is refused, since Qt would
-  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
+  #  The functions Qt calls itself that QStylePlugin is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
       'create': (
-          'QStyle *QStylePlugin::create(const QString &)',
+          ('_ZN12QStylePlugin6createERK7QString',
+           ('address', 'address', 'QtWidgets:QStyle'),
+           (
+               ('address', 'text', ''),
+           )),
       ),
   }
 

@@ -168,11 +168,17 @@
     "ritual_own_ZNK16QFileSystemModel10headerDataEiN2Qt11OrientationEi": [
       "address", "address", "int", "int", "int"
     ],
+    "ritual_own_ZNK16QFileSystemModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
     "ritual_own_ZN16QFileSystemModel4sortEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
     ],
     "ritual_own_ZN16QFileSystemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
       "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_own_ZNK16QFileSystemModel20supportedDropActionsEv": [
+      "int", "address"
     ],
     "ritual_own_ZN16QFileSystemModel10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"

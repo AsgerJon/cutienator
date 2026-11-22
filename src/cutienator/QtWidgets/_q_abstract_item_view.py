@@ -14,15 +14,15 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QItemSelectionModel, QObject
 from . import QAbstractItemDelegate, QAbstractScrollArea, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QAbstractItemModel, QEvent, QItemSelection
-  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
-  from ..QtCore import QRect, QSize, QTimerEvent, QVariant
+  from ..QtCore import QMetaObject, QModelIndex, QPoint, QRect, QSize
+  from ..QtCore import QTimerEvent, QVariant
   from ..QtGui import QDragEnterEvent, QDragLeaveEvent, QDragMoveEvent
   from ..QtGui import QDropEvent, QFocusEvent, QInputMethodEvent, QKeyEvent
   from ..QtGui import QMouseEvent, QResizeEvent
@@ -40,7 +40,6 @@ else:
   QFocusEvent = WAIT['QFocusEvent']
   QInputMethodEvent = WAIT['QInputMethodEvent']
   QItemSelection = WAIT['QItemSelection']
-  QItemSelectionModel = WAIT['QItemSelectionModel']
   QKeyEvent = WAIT['QKeyEvent']
   QModelIndex = WAIT['QModelIndex']
   QMouseEvent = WAIT['QMouseEvent']
@@ -67,7 +66,7 @@ class QAbstractItemView(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QAbstractItemView that has a ritual and that Python
-  can call so far, 110 names in all: 'metaObject', 'tr', 'setModel', 'model',
+  can call so far, 112 names in all: 'metaObject', 'tr', 'setModel', 'model',
   'setSelectionModel', 'selectionModel', 'setItemDelegate', 'itemDelegate',
   'setSelectionMode', 'selectionMode', 'setSelectionBehavior',
   'selectionBehavior', 'currentIndex', 'rootIndex', 'setEditTriggers',
@@ -94,14 +93,14 @@ class QAbstractItemView(QAbstractScrollArea):
   'updateEditorData', 'updateEditorGeometries', 'updateGeometries',
   'verticalScrollbarAction', 'horizontalScrollbarAction',
   'verticalScrollbarValueChanged', 'horizontalScrollbarValueChanged',
-  'closeEditor', 'commitData', 'editorDestroyed', 'initViewItemOption',
-  'focusNextPrevChild', 'event', 'viewportEvent', 'mousePressEvent',
-  'mouseMoveEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
-  'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent', 'dropEvent',
-  'focusInEvent', 'focusOutEvent', 'keyPressEvent', 'resizeEvent',
-  'timerEvent', 'inputMethodEvent', 'eventFilter', 'viewportSizeHint'. None
-  can be made from Python: one comes out of a function of another class that
-  gives one back.
+  'closeEditor', 'commitData', 'editorDestroyed', 'selectionCommand',
+  'startDrag', 'initViewItemOption', 'focusNextPrevChild', 'event',
+  'viewportEvent', 'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
+  'mouseDoubleClickEvent', 'dragEnterEvent', 'dragMoveEvent',
+  'dragLeaveEvent', 'dropEvent', 'focusInEvent', 'focusOutEvent',
+  'keyPressEvent', 'resizeEvent', 'timerEvent', 'inputMethodEvent',
+  'eventFilter', 'viewportSizeHint'. None can be made from Python: one comes
+  out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -112,7 +111,7 @@ class QAbstractItemView(QAbstractScrollArea):
   What has no ritual
   ------------------
 
-  38 of the 151 functions Qt declares: 22 protected; 7 a signal; 3 private; 2
+  36 of the 151 functions Qt declares: 20 protected; 7 a signal; 3 private; 2
   takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template;
   1 the class is abstract, so C++ cannot make one.
 
@@ -271,9 +270,6 @@ class QAbstractItemView(QAbstractScrollArea):
   #  A class of a program that writes one of them anew is refused, since Qt
   #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
   __virtual_left_out__ = {
-      'keyboardSearch': (
-          'void QAbstractItemView::keyboardSearch(const QString &)',
-      ),
       'dataChanged': (
           'void QAbstractItemView::dataChanged(const QModelIndex &, const '
           'QModelIndex &, const QList<int> &)',
@@ -282,20 +278,8 @@ class QAbstractItemView(QAbstractScrollArea):
           'QModelIndex QAbstractItemView::moveCursor(CursorAction, '
           'Qt::KeyboardModifiers)',
       ),
-      'setSelection': (
-          'void QAbstractItemView::setSelection(const QRect &, '
-          'QItemSelectionModel::SelectionFlags)',
-      ),
       'selectedIndexes': (
           'QModelIndexList QAbstractItemView::selectedIndexes() const',
-      ),
-      'selectionCommand': (
-          'QItemSelectionModel::SelectionFlags '
-          'QAbstractItemView::selectionCommand(const QModelIndex &, const '
-          'QEvent *) const',
-      ),
-      'startDrag': (
-          'void QAbstractItemView::startDrag(Qt::DropActions)',
       ),
   }
 
@@ -317,6 +301,13 @@ class QAbstractItemView(QAbstractScrollArea):
            ('nothing', 'nothing', ''),
            (
                ('address', 'address', 'QtCore:QItemSelectionModel'),
+           )),
+      ),
+      'keyboardSearch': (
+          ('_ZN17QAbstractItemView14keyboardSearchERK7QString',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'text', ''),
            )),
       ),
       'visualRect': (
@@ -502,6 +493,15 @@ class QAbstractItemView(QAbstractScrollArea):
                ('address', 'value', 'QtCore:QModelIndex'),
            )),
       ),
+      'setSelection': (
+          ('_ZN17QAbstractItemView12setSelectionERK5QRect6QFlagsIN19QItemSe'
+           'lectionModel13SelectionFlagEE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QRect'),
+               ('int', 'flags', 'QtCore:QItemSelectionModel.SelectionFlag'),
+           )),
+      ),
       'visualRegionForSelection': (
           ('_ZNK17QAbstractItemView24visualRegionForSelectionERK14QItemSele'
            'ction',
@@ -518,6 +518,22 @@ class QAbstractItemView(QAbstractScrollArea):
                ('address', 'value', 'QtCore:QModelIndex'),
                ('int', 'enum', 'QtWidgets:QAbstractItemView.EditTrigger'),
                ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'selectionCommand': (
+          ('_ZNK17QAbstractItemView16selectionCommandERK11QModelIndexPK6QEv'
+           'ent',
+           ('int', 'flags', 'QtCore:QItemSelectionModel.SelectionFlag'),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'startDrag': (
+          ('_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActionEE',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'flags', 'QtCore:Qt.DropAction'),
            )),
       ),
       'initViewItemOption': (
@@ -599,7 +615,6 @@ class QAbstractItemView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK17QAbstractItemView14selectionModelEv',
     )
-    from ..QtCore import QItemSelectionModel
     return QItemSelectionModel._cuteAt(address)
 
   @overload()
@@ -1303,6 +1318,48 @@ class QAbstractItemView(QAbstractScrollArea):
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
+  @overload(QModelIndex)
+  @overload(QModelIndex, QEvent)
+  @overload(QModelIndex, NoneType)
+  def selectionCommand(
+      self,
+      index: QModelIndex,
+      event: Optional[QEvent] = None,
+  ) -> QItemSelectionModel.SelectionFlags:
+    """
+    Calls Qt's 'QItemSelectionModel::SelectionFlags
+    QAbstractItemView::selectionCommand(const QModelIndex &index, const
+    QEvent *event) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    Returns
+    -------
+
+    QItemSelectionModel.SelectionFlags
+      The value standing for the combination Qt gave back.
+    """
+    #  QItemSelectionModel::SelectionFlags
+    #      QAbstractItemView::selectionCommand(const QModelIndex &index,
+    #      const QEvent *event) const
+    return QItemSelectionModel.SelectionFlags(self.uglySide.call(
+        'ritual_own_ZNK17QAbstractItemView16selectionCommandERK11QModelInde'
+        'xPK6QEvent',
+        self._valueOf(index), self._addressOf(event),
+    ))
+
   def viewportSizeHint(self) -> QSize:
     """
     Calls Qt's 'QSize QAbstractItemView::viewportSizeHint() const'.
@@ -1998,9 +2055,10 @@ class QAbstractItemView(QAbstractScrollArea):
       Passed on as it is: a QString is made of it for the call.
     """
     #  void QAbstractItemView::keyboardSearch(const QString &search)
-    self.uglySide.call(
-        'ritual_ZN17QAbstractItemView14keyboardSearchERK7QString', search,
-    )
+    ritual = 'ritual_ZN17QAbstractItemView14keyboardSearchERK7QString'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView14keyboardSearchERK7QString'
+    self.uglySide.call(ritual, search)
 
   @overload(QModelIndex)
   @overload(QModelIndex, ScrollHint)
@@ -2542,6 +2600,27 @@ class QAbstractItemView(QAbstractScrollArea):
     self.uglySide.call(
         'ritual_own_ZN17QAbstractItemView15editorDestroyedEP7QObject',
         self._addressOf(editor),
+    )
+
+  @overload(Qt.DropActions)
+  def startDrag(self, supportedActions: Qt.DropActions) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::startDrag(Qt::DropActions
+    supportedActions)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#startDrag
+
+    Parameters
+    ----------
+
+    supportedActions : Qt.DropActions
+      Passed on as its number.
+    """
+    #  void QAbstractItemView::startDrag(Qt::DropActions supportedActions)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActio'
+        'nEE',
+        supportedActions.value,
     )
 
   @overload(QStyleOptionViewItem)

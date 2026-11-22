@@ -28,6 +28,13 @@
     ],
     "ritual_own_ZNK25QAbstractFileIconProvider4iconERK9QFileInfo": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_own_ZNK25QAbstractFileIconProvider4typeERK9QFileInfo": [
+      "text", "address", "address"
+    ],
+    "ritual_own_ZN25QAbstractFileIconProvider10setOptionsE6QFlagsINS_6OptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK25QAbstractFileIconProvider7optionsEv": ["int", "address"]
   }
 }

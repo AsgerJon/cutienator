@@ -133,13 +133,16 @@ class QAccessibleBridgePlugin(QObject):
   __take_ritual__ = 'ritual_take_QAccessibleBridgePlugin'
 
   #  The functions Qt calls itself that QAccessibleBridgePlugin is the first
-  #  to declare and that cannot be handed to Python yet, each as Qt declares
-  #  it. A class of a program that writes one of them anew is refused, since
-  #  Qt would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
+  #  to declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
       'create': (
-          'QAccessibleBridge *QAccessibleBridgePlugin::create(const '
-          'QString &)',
+          ('_ZN23QAccessibleBridgePlugin6createERK7QString',
+           ('address', 'address', 'QtGui:QAccessibleBridge'),
+           (
+               ('address', 'text', ''),
+           )),
       ),
   }
 

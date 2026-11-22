@@ -144,6 +144,9 @@
     "ritual_own_ZN9QTreeView17setSelectionModelEP19QItemSelectionModel": [
       "nothing", "address", "address"
     ],
+    "ritual_own_ZN9QTreeView14keyboardSearchERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_own_ZNK9QTreeView10visualRectERK11QModelIndex": [
       "address", "address", "address"
     ],
@@ -170,6 +173,9 @@
     ],
     "ritual_own_ZNK9QTreeView16horizontalOffsetEv": ["int", "address"],
     "ritual_own_ZNK9QTreeView14verticalOffsetEv": ["int", "address"],
+    "ritual_own_ZN9QTreeView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_own_ZNK9QTreeView24visualRegionForSelectionERK14QItemSelection": [
       "address", "address", "address"
     ],

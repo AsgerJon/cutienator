@@ -157,21 +157,16 @@ class QProgressBar(QWidget):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QProgressBar'
 
-  #  The functions Qt calls itself that QProgressBar is the first to declare
-  #  and that cannot be handed to Python yet, each as Qt declares it. A class
-  #  of a program that writes one of them anew is refused, since Qt would
-  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'text': (
-          'QString QProgressBar::text() const',
-      ),
-  }
-
   #  The functions Qt calls itself that QProgressBar is the first to declare.
   #  A class of a program built on it can write one anew, and Qt then calls
   #  that. For each name: the key C++ knows the function by, what it gives,
   #  and what it takes.
   __virtual_functions__ = {
+      'text': (
+          ('_ZNK12QProgressBar4textEv',
+           ('address', 'text', ''),
+           ()),
+      ),
       'initStyleOption': (
           ('_ZNK12QProgressBar15initStyleOptionEP23QStyleOptionProgressBar',
            ('nothing', 'nothing', ''),
@@ -251,7 +246,10 @@ class QProgressBar(QWidget):
       The text Qt gave back.
     """
     #  QString QProgressBar::text() const
-    return self.uglySide.call('ritual_ZNK12QProgressBar4textEv')
+    ritual = 'ritual_ZNK12QProgressBar4textEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QProgressBar4textEv'
+    return self.uglySide.call(ritual)
 
   def isTextVisible(self) -> bool:
     """

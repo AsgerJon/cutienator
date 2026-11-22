@@ -17,55 +17,75 @@ struct OwnQCompleter : QCompleter {
 //  A QCompleter that Python can take functions over in. Every QCompleter
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
-typedef bool (*CuteQCompleterCall0)(const void *, QObject *, QEvent *, int *);
-typedef bool (*CuteQCompleterCall1)(const void *, QEvent *, int *);
-typedef void (*CuteQCompleterCall2)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQCompleterCall3)(const void *, QChildEvent *, int *);
-typedef void (*CuteQCompleterCall4)(const void *, QEvent *, int *);
-typedef void (*CuteQCompleterCall5)(const void *, const QMetaMethod *, int *);
+typedef QString * (*CuteQCompleterCall0)(const void *, const QModelIndex *, int *);
+typedef bool (*CuteQCompleterCall1)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQCompleterCall2)(const void *, QEvent *, int *);
+typedef void (*CuteQCompleterCall3)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQCompleterCall4)(const void *, QChildEvent *, int *);
+typedef void (*CuteQCompleterCall5)(const void *, QEvent *, int *);
 typedef void (*CuteQCompleterCall6)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQCompleterCall7)(const void *, const QMetaMethod *, int *);
 class CuteQCompleter : public QCompleter {
 public:
   using QCompleter::QCompleter;
-  void *taken[7] = {};
+  void *taken[8] = {};
 
   bool take(const char *key, void *call) {
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZNK10QCompleter13pathFromIndexERK11QModelIndex")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[7] = call;
       return true;
     }
     return false;
   }
 
-  //  bool QCompleter::eventFilter(QObject *o, QEvent *e)
-  bool eventFilter(QObject *o, QEvent *e) override {
+  //  QString QCompleter::pathFromIndex(const QModelIndex &index) const
+  QString pathFromIndex(const QModelIndex &index) const override {
     if (taken[0]) {
       int handled = 0;
       CuteQCompleterCall0 call = reinterpret_cast<CuteQCompleterCall0>(taken[0]);
+      QString * given = call(this, &index, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return QCompleter::pathFromIndex(index);
+  }
+
+  //  bool QCompleter::eventFilter(QObject *o, QEvent *e)
+  bool eventFilter(QObject *o, QEvent *e) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQCompleterCall1 call = reinterpret_cast<CuteQCompleterCall1>(taken[1]);
       bool given = call(this, o, e, &handled);
       if (handled) return given;
     }
@@ -74,9 +94,9 @@ public:
 
   //  bool QCompleter::event(QEvent *a0)
   bool event(QEvent *a0) override {
-    if (taken[1]) {
+    if (taken[2]) {
       int handled = 0;
-      CuteQCompleterCall1 call = reinterpret_cast<CuteQCompleterCall1>(taken[1]);
+      CuteQCompleterCall2 call = reinterpret_cast<CuteQCompleterCall2>(taken[2]);
       bool given = call(this, a0, &handled);
       if (handled) return given;
     }
@@ -85,9 +105,9 @@ public:
 
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[2]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQCompleterCall2 call = reinterpret_cast<CuteQCompleterCall2>(taken[2]);
+      CuteQCompleterCall3 call = reinterpret_cast<CuteQCompleterCall3>(taken[3]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -96,9 +116,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[3]) {
+    if (taken[4]) {
       int handled = 0;
-      CuteQCompleterCall3 call = reinterpret_cast<CuteQCompleterCall3>(taken[3]);
+      CuteQCompleterCall4 call = reinterpret_cast<CuteQCompleterCall4>(taken[4]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -107,9 +127,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQCompleterCall4 call = reinterpret_cast<CuteQCompleterCall4>(taken[4]);
+      CuteQCompleterCall5 call = reinterpret_cast<CuteQCompleterCall5>(taken[5]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -118,9 +138,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQCompleterCall5 call = reinterpret_cast<CuteQCompleterCall5>(taken[5]);
+      CuteQCompleterCall6 call = reinterpret_cast<CuteQCompleterCall6>(taken[6]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -129,9 +149,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQCompleterCall6 call = reinterpret_cast<CuteQCompleterCall6>(taken[6]);
+      CuteQCompleterCall7 call = reinterpret_cast<CuteQCompleterCall7>(taken[7]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -401,6 +421,14 @@ QString *ritual_ZNK10QCompleter13pathFromIndexERK11QModelIndex(
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QCompleter(QCompleter *self, const char *key, void *call) {
   return static_cast<CuteQCompleter *>(self)->take(key, call);
+}
+
+//  QString QCompleter::pathFromIndex(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_own_ZNK10QCompleter13pathFromIndexERK11QModelIndex(
+    const QCompleter *self,
+    const QModelIndex *index) {
+  return new QString(self->QCompleter::pathFromIndex(*index));
 }
 
 //  bool QCompleter::eventFilter(QObject *o, QEvent *e)

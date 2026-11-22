@@ -96,12 +96,6 @@ class QAccessibleTableInterface(CuteMixin, metaclass=MetaCute):
           'QList<QAccessibleInterface *> '
           'QAccessibleTableInterface::selectedCells() const',
       ),
-      'columnDescription': (
-          'QString QAccessibleTableInterface::columnDescription(int) const',
-      ),
-      'rowDescription': (
-          'QString QAccessibleTableInterface::rowDescription(int) const',
-      ),
       'selectedColumns': (
           'QList<int> QAccessibleTableInterface::selectedColumns() const',
       ),
@@ -137,6 +131,20 @@ class QAccessibleTableInterface(CuteMixin, metaclass=MetaCute):
           ('_ZNK25QAccessibleTableInterface17selectedCellCountEv',
            ('int', 'number', ''),
            ()),
+      ),
+      'columnDescription': (
+          ('_ZNK25QAccessibleTableInterface17columnDescriptionEi',
+           ('address', 'text', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'rowDescription': (
+          ('_ZNK25QAccessibleTableInterface14rowDescriptionEi',
+           ('address', 'text', ''),
+           (
+               ('int', 'number', ''),
+           )),
       ),
       'selectedColumnCount': (
           ('_ZNK25QAccessibleTableInterface19selectedColumnCountEv',

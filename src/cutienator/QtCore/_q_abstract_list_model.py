@@ -274,10 +274,10 @@ class QAbstractListModel(QAbstractItemModel):
     """
     #  Qt::ItemFlags QAbstractListModel::flags(const QModelIndex &index)
     #      const
-    return Qt.ItemFlags(self.uglySide.call(
-        'ritual_ZNK18QAbstractListModel5flagsERK11QModelIndex',
-        self._valueOf(index),
-    ))
+    ritual = 'ritual_ZNK18QAbstractListModel5flagsERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QAbstractListModel5flagsERK11QModelIndex'
+    return Qt.ItemFlags(self.uglySide.call(ritual, self._valueOf(index)))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

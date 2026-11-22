@@ -100,6 +100,7 @@
     "ritual_own_ZN7QLayout10setSpacingEi": ["nothing", "address", "int"],
     "ritual_own_ZN7QLayout10invalidateEv": ["nothing", "address"],
     "ritual_own_ZNK7QLayout8geometryEv": ["address", "address"],
+    "ritual_own_ZNK7QLayout19expandingDirectionsEv": ["int", "address"],
     "ritual_own_ZNK7QLayout11minimumSizeEv": ["address", "address"],
     "ritual_own_ZNK7QLayout11maximumSizeEv": ["address", "address"],
     "ritual_own_ZN7QLayout11setGeometryERK5QRect": [
@@ -112,6 +113,10 @@
       "int", "address", "address"
     ],
     "ritual_own_ZNK7QLayout7isEmptyEv": ["bool", "address"],
+    "ritual_own_ZNK7QLayout12controlTypesEv": ["int", "address"],
+    "ritual_own_ZN7QLayout13replaceWidgetEP7QWidgetS1_6QFlagsIN2Qt15FindChildOptionEE": [
+      "address", "address", "address", "address", "int"
+    ],
     "ritual_own_ZN7QLayout6layoutEv": ["address", "address"],
     "ritual_own_ZN7QLayout10childEventEP11QChildEvent": [
       "nothing", "address", "address"

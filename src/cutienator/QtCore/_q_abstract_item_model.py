@@ -195,16 +195,6 @@ class QAbstractItemModel(QObject):
           'QMimeData *QAbstractItemModel::mimeData(const QModelIndexList '
           '&) const',
       ),
-      'supportedDropActions': (
-          'Qt::DropActions QAbstractItemModel::supportedDropActions() const',
-      ),
-      'supportedDragActions': (
-          'Qt::DropActions QAbstractItemModel::supportedDragActions() const',
-      ),
-      'flags': (
-          'Qt::ItemFlags QAbstractItemModel::flags(const QModelIndex &) '
-          'const',
-      ),
       'match': (
           'QModelIndexList QAbstractItemModel::match(const QModelIndex &, '
           'int, const QVariant &, int, Qt::MatchFlags) const',
@@ -333,6 +323,16 @@ class QAbstractItemModel(QObject):
                ('address', 'value', 'QtCore:QModelIndex'),
            )),
       ),
+      'supportedDropActions': (
+          ('_ZNK18QAbstractItemModel20supportedDropActionsEv',
+           ('int', 'flags', 'QtCore:Qt.DropAction'),
+           ()),
+      ),
+      'supportedDragActions': (
+          ('_ZNK18QAbstractItemModel20supportedDragActionsEv',
+           ('int', 'flags', 'QtCore:Qt.DropAction'),
+           ()),
+      ),
       'insertRows': (
           ('_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex',
            ('bool', 'number', ''),
@@ -401,6 +401,13 @@ class QAbstractItemModel(QObject):
       'canFetchMore': (
           ('_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex',
            ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'flags': (
+          ('_ZNK18QAbstractItemModel5flagsERK11QModelIndex',
+           ('int', 'flags', 'QtCore:Qt.ItemFlag'),
            (
                ('address', 'value', 'QtCore:QModelIndex'),
            )),
@@ -862,9 +869,10 @@ class QAbstractItemModel(QObject):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QAbstractItemModel::supportedDropActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_ZNK18QAbstractItemModel20supportedDropActionsEv',
-    ))
+    ritual = 'ritual_ZNK18QAbstractItemModel20supportedDropActionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QAbstractItemModel20supportedDropActionsEv'
+    return Qt.DropActions(self.uglySide.call(ritual))
 
   def supportedDragActions(self) -> Qt.DropActions:
     """
@@ -881,9 +889,10 @@ class QAbstractItemModel(QObject):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QAbstractItemModel::supportedDragActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_ZNK18QAbstractItemModel20supportedDragActionsEv',
-    ))
+    ritual = 'ritual_ZNK18QAbstractItemModel20supportedDragActionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QAbstractItemModel20supportedDragActionsEv'
+    return Qt.DropActions(self.uglySide.call(ritual))
 
   @overload(QModelIndex)
   def canFetchMore(self, parent: QModelIndex) -> bool:
@@ -931,10 +940,10 @@ class QAbstractItemModel(QObject):
     """
     #  Qt::ItemFlags QAbstractItemModel::flags(const QModelIndex &index)
     #      const
-    return Qt.ItemFlags(self.uglySide.call(
-        'ritual_ZNK18QAbstractItemModel5flagsERK11QModelIndex',
-        self._valueOf(index),
-    ))
+    ritual = 'ritual_ZNK18QAbstractItemModel5flagsERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QAbstractItemModel5flagsERK11QModelIndex'
+    return Qt.ItemFlags(self.uglySide.call(ritual, self._valueOf(index)))
 
   @overload(QModelIndex)
   def buddy(self, index: QModelIndex) -> QModelIndex:

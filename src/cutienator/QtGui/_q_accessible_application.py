@@ -236,10 +236,11 @@ class QAccessibleApplication(QAccessibleObject):
       The text Qt gave back.
     """
     #  QString QAccessibleApplication::text(QAccessible::Text t) const
-    return self.uglySide.call(
-        'ritual_ZNK22QAccessibleApplication4textEN11QAccessible4TextE',
-        t.value,
-    )
+    ritual = 'ritual_ZNK22QAccessibleApplication4textEN11QAccessible4TextE'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK22QAccessibleApplication4textEN11QAccessible4TextE')
+    return self.uglySide.call(ritual, t.value)
 
   def role(self) -> QAccessible.Role:
     """

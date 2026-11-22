@@ -109,23 +109,6 @@ class QAbstractFileIconProvider(CuteMixin, metaclass=MetaCute):
   __take_ritual__ = 'ritual_take_QAbstractFileIconProvider'
 
   #  The functions Qt calls itself that QAbstractFileIconProvider is the
-  #  first to declare and that cannot be handed to Python yet, each as Qt
-  #  declares it. A class of a program that writes one of them anew is
-  #  refused, since Qt would never call what it wrote; see
-  #  'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'type': (
-          'QString QAbstractFileIconProvider::type(const QFileInfo &) const',
-      ),
-      'setOptions': (
-          'void QAbstractFileIconProvider::setOptions(Options)',
-      ),
-      'options': (
-          'Options QAbstractFileIconProvider::options() const',
-      ),
-  }
-
-  #  The functions Qt calls itself that QAbstractFileIconProvider is the
   #  first to declare. A class of a program built on it can write one anew,
   #  and Qt then calls that. For each name: the key C++ knows the function
   #  by, what it gives, and what it takes.
@@ -141,6 +124,25 @@ class QAbstractFileIconProvider(CuteMixin, metaclass=MetaCute):
            (
                ('address', 'value', 'QtCore:QFileInfo'),
            )),
+      ),
+      'type': (
+          ('_ZNK25QAbstractFileIconProvider4typeERK9QFileInfo',
+           ('address', 'text', ''),
+           (
+               ('address', 'value', 'QtCore:QFileInfo'),
+           )),
+      ),
+      'setOptions': (
+          ('_ZN25QAbstractFileIconProvider10setOptionsE6QFlagsINS_6OptionEE',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'flags', 'QtGui:QAbstractFileIconProvider.Option'),
+           )),
+      ),
+      'options': (
+          ('_ZNK25QAbstractFileIconProvider7optionsEv',
+           ('int', 'flags', 'QtGui:QAbstractFileIconProvider.Option'),
+           ()),
       ),
   }
 
@@ -237,10 +239,10 @@ class QAbstractFileIconProvider(CuteMixin, metaclass=MetaCute):
       The text Qt gave back.
     """
     #  QString QAbstractFileIconProvider::type(const QFileInfo &a0) const
-    return self.uglySide.call(
-        'ritual_ZNK25QAbstractFileIconProvider4typeERK9QFileInfo',
-        self._valueOf(a0),
-    )
+    ritual = 'ritual_ZNK25QAbstractFileIconProvider4typeERK9QFileInfo'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK25QAbstractFileIconProvider4typeERK9QFileInfo'
+    return self.uglySide.call(ritual, self._valueOf(a0))
 
   def options(self) -> Options:
     """
@@ -256,9 +258,10 @@ class QAbstractFileIconProvider(CuteMixin, metaclass=MetaCute):
       The value standing for the combination Qt gave back.
     """
     #  Options QAbstractFileIconProvider::options() const
-    return QAbstractFileIconProvider.Options(self.uglySide.call(
-        'ritual_ZNK25QAbstractFileIconProvider7optionsEv',
-    ))
+    ritual = 'ritual_ZNK25QAbstractFileIconProvider7optionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK25QAbstractFileIconProvider7optionsEv'
+    return QAbstractFileIconProvider.Options(self.uglySide.call(ritual))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -279,11 +282,14 @@ class QAbstractFileIconProvider(CuteMixin, metaclass=MetaCute):
       Passed on as its number.
     """
     #  void QAbstractFileIconProvider::setOptions(Options a0)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN25QAbstractFileIconProvider10setOptionsE6QFlagsINS_6Optio'
-        'nEE',
-        a0.value,
-    )
+        'nEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN25QAbstractFileIconProvider10setOptionsE6QFlagsINS_'
+          '6OptionEE')
+    self.uglySide.call(ritual, a0.value)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

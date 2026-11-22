@@ -275,10 +275,10 @@ class QStringListModel(QAbstractListModel):
       The value standing for the combination Qt gave back.
     """
     #  Qt::ItemFlags QStringListModel::flags(const QModelIndex &index) const
-    return Qt.ItemFlags(self.uglySide.call(
-        'ritual_ZNK16QStringListModel5flagsERK11QModelIndex',
-        self._valueOf(index),
-    ))
+    ritual = 'ritual_ZNK16QStringListModel5flagsERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QStringListModel5flagsERK11QModelIndex'
+    return Qt.ItemFlags(self.uglySide.call(ritual, self._valueOf(index)))
 
   def supportedDropActions(self) -> Qt.DropActions:
     """
@@ -295,9 +295,10 @@ class QStringListModel(QAbstractListModel):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QStringListModel::supportedDropActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_ZNK16QStringListModel20supportedDropActionsEv',
-    ))
+    ritual = 'ritual_ZNK16QStringListModel20supportedDropActionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QStringListModel20supportedDropActionsEv'
+    return Qt.DropActions(self.uglySide.call(ritual))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

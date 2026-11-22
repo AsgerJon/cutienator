@@ -416,10 +416,15 @@ class QProxyStyle(QCommonStyle):
     """
     #  QRect QProxyStyle::itemTextRect(const QFontMetrics &fm, const QRect
     #      &r, int flags, bool enabled, const QString &text) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle12itemTextRectERK12QFontMetricsRK5QRectibRK'
-        '7QString',
-        self._valueOf(fm), self._valueOf(r), flags, enabled, text,
+        '7QString')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle12itemTextRectERK12QFontMetricsRK5QRe'
+          'ctibRK7QString')
+    address = self.uglySide.call(
+        ritual, self._valueOf(fm), self._valueOf(r), flags, enabled, text,
     )
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
@@ -1216,9 +1221,15 @@ class QProxyStyle(QCommonStyle):
     #  void QProxyStyle::drawItemText(QPainter *painter, const QRect &rect,
     #      int flags, const QPalette &pal, bool enabled, const QString &text,
     #      QPalette::ColorRole textRole) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalet'
-        'tebRK7QStringNS5_9ColorRoleE',
+        'tebRK7QStringNS5_9ColorRoleE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle12drawItemTextEP8QPainterRK5QRectiRK8'
+          'QPalettebRK7QStringNS5_9ColorRoleE')
+    self.uglySide.call(
+        ritual,
         self._addressOf(painter), self._valueOf(rect), flags,
         self._valueOf(pal), enabled, text, textRole.value,
     )

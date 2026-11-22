@@ -24,6 +24,10 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK9QSaveFile19directWriteFallbackEv": ["bool", "address"],
-    "ritual_take_QSaveFile": ["bool", "address", "chars", "address"]
+    "ritual_take_QSaveFile": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK9QSaveFile8fileNameEv": ["text", "address"],
+    "ritual_own_ZN9QSaveFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ]
   }
 }

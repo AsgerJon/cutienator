@@ -13,14 +13,14 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
+from ..QtCore import QItemSelectionModel
 from . import QAbstractItemView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QAbstractItemModel, QItemSelection
-  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
-  from ..QtCore import QRect, QSize
+  from ..QtCore import QAbstractItemModel, QItemSelection, QMetaObject
+  from ..QtCore import QModelIndex, QPoint, QRect, QSize
   from ..QtGui import QRegion, QResizeEvent
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -28,9 +28,9 @@ else:
   #  see 'WAIT'.
   QAbstractItemModel = WAIT['QAbstractItemModel']
   QItemSelection = WAIT['QItemSelection']
-  QItemSelectionModel = WAIT['QItemSelectionModel']
   QModelIndex = WAIT['QModelIndex']
   QPoint = WAIT['QPoint']
+  QRect = WAIT['QRect']
   QResizeEvent = WAIT['QResizeEvent']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -50,11 +50,11 @@ class QColumnView(QAbstractItemView):
   -----------
 
   Every function of Qt's QColumnView that has a ritual and that Python can
-  call so far, 25 names in all: 'metaObject', 'tr', 'indexAt', 'scrollTo',
+  call so far, 26 names in all: 'metaObject', 'tr', 'indexAt', 'scrollTo',
   'sizeHint', 'visualRect', 'setModel', 'setSelectionModel', 'setRootIndex',
   'selectAll', 'setResizeGripsVisible', 'resizeGripsVisible',
   'setPreviewColumnVisible', 'isPreviewColumnVisible', 'previewWidget',
-  'setPreviewWidget', 'isIndexHidden', 'resizeEvent',
+  'setPreviewWidget', 'isIndexHidden', 'resizeEvent', 'setSelection',
   'visualRegionForSelection', 'horizontalOffset', 'verticalOffset',
   'rowsInserted', 'currentChanged', 'scrollContentsBy', 'createColumn'. It
   can be made from Python, in 1 way; see '__init__'.
@@ -68,8 +68,8 @@ class QColumnView(QAbstractItemView):
   What has no ritual
   ------------------
 
-  15 of the 42 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 protected; 3 private; 2 forbidden; 1 a template; 1 a signal.
+  14 of the 42 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 3 private; 3 protected; 2 forbidden; 1 a template; 1 a signal.
 
   What to expect
   --------------
@@ -515,6 +515,35 @@ class QColumnView(QAbstractItemView):
     self.uglySide.call(
         'ritual_ZN11QColumnView16setPreviewWidgetEP7QWidget',
         self._addressOf(widget),
+    )
+
+  @overload(QRect, QItemSelectionModel.SelectionFlags)
+  def setSelection(
+      self,
+      rect: QRect,
+      command: QItemSelectionModel.SelectionFlags,
+  ) -> None:
+    """
+    Calls Qt's 'void QColumnView::setSelection(const QRect &rect,
+    QItemSelectionModel::SelectionFlags command)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolumnview.html#setSelection
+
+    Parameters
+    ----------
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    command : QItemSelectionModel.SelectionFlags
+      Passed on as its number.
+    """
+    #  void QColumnView::setSelection(const QRect &rect,
+    #      QItemSelectionModel::SelectionFlags command)
+    self.uglySide.call(
+        'ritual_own_ZN11QColumnView12setSelectionERK5QRect6QFlagsIN19QItemS'
+        'electionModel13SelectionFlagEE',
+        self._valueOf(rect), command.value,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

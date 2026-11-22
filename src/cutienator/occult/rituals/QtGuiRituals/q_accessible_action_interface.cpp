@@ -2,6 +2,77 @@
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qaccessible.h>
 #include <QtCore/qstring.h>
+#include <cstring>
+
+//  A QAccessibleActionInterface that Python can take functions over in. Every QAccessibleActionInterface
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef QString * (*CuteQAccessibleActionInterfaceCall0)(const void *, const QString *, int *);
+typedef QString * (*CuteQAccessibleActionInterfaceCall1)(const void *, const QString *, int *);
+typedef void (*CuteQAccessibleActionInterfaceCall2)(const void *, const QString *, int *);
+class CuteQAccessibleActionInterface : public QAccessibleActionInterface {
+public:
+  using QAccessibleActionInterface::QAccessibleActionInterface;
+  void *taken[3] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
+      taken[2] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QString QAccessibleActionInterface::localizedActionName(const QString
+  //      &name) const
+  QString localizedActionName(const QString &name) const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQAccessibleActionInterfaceCall0 call = reinterpret_cast<CuteQAccessibleActionInterfaceCall0>(taken[0]);
+      QString * given = call(this, &name, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return QAccessibleActionInterface::localizedActionName(name);
+  }
+
+  //  QString QAccessibleActionInterface::localizedActionDescription(const
+  //      QString &name) const
+  QString localizedActionDescription(const QString &name) const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQAccessibleActionInterfaceCall1 call = reinterpret_cast<CuteQAccessibleActionInterfaceCall1>(taken[1]);
+      QString * given = call(this, &name, &handled);
+      if (handled && given) {
+        QString back(*given);
+        delete given;
+        return back;
+      }
+    }
+    return QAccessibleActionInterface::localizedActionDescription(name);
+  }
+
+  //  void QAccessibleActionInterface::doAction(const QString &actionName)
+  void doAction(const QString &actionName) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQAccessibleActionInterfaceCall2 call = reinterpret_cast<CuteQAccessibleActionInterfaceCall2>(taken[2]);
+      call(this, &actionName, &handled);
+      if (handled) return;
+    }
+  }
+};
 
 //  QString QAccessibleActionInterface::tr(const char *sourceText, const char
 //      *disambiguation, int n)
@@ -126,4 +197,36 @@ QString *ritual_ZN26QAccessibleActionInterface14nextPageActionEv() {
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN26QAccessibleActionInterface18previousPageActionEv() {
   return new QString(QAccessibleActionInterface::previousPageAction());
+}
+
+//  a Python function taken by a CuteQAccessibleActionInterface, for the
+//      function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QAccessibleActionInterface(
+    QAccessibleActionInterface *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQAccessibleActionInterface *>(self)->take(key, call);
+}
+
+//  QString QAccessibleActionInterface::localizedActionName(const QString
+//      &name) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_own_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString(
+    const QAccessibleActionInterface *self,
+    const QString *name) {
+  return new QString(
+      self->QAccessibleActionInterface::localizedActionName(
+          *name));
+}
+
+//  QString QAccessibleActionInterface::localizedActionDescription(const
+//      QString &name) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_own_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString(
+    const QAccessibleActionInterface *self,
+    const QString *name) {
+  return new QString(
+      self->QAccessibleActionInterface::localizedActionDescription(
+          *name));
 }

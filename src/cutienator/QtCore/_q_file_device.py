@@ -220,32 +220,33 @@ class QFileDevice(QIODevice):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QFileDevice'
 
-  #  The functions Qt calls itself that QFileDevice is the first to declare
-  #  and that cannot be handed to Python yet, each as Qt declares it. A class
-  #  of a program that writes one of them anew is refused, since Qt would
-  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'fileName': (
-          'QString QFileDevice::fileName() const',
-      ),
-      'permissions': (
-          'Permissions QFileDevice::permissions() const',
-      ),
-      'setPermissions': (
-          'bool QFileDevice::setPermissions(Permissions)',
-      ),
-  }
-
   #  The functions Qt calls itself that QFileDevice is the first to declare.
   #  A class of a program built on it can write one anew, and Qt then calls
   #  that. For each name: the key C++ knows the function by, what it gives,
   #  and what it takes.
   __virtual_functions__ = {
+      'fileName': (
+          ('_ZNK11QFileDevice8fileNameEv',
+           ('address', 'text', ''),
+           ()),
+      ),
       'resize': (
           ('_ZN11QFileDevice6resizeEx',
            ('bool', 'number', ''),
            (
                ('long long', 'number', ''),
+           )),
+      ),
+      'permissions': (
+          ('_ZNK11QFileDevice11permissionsEv',
+           ('int', 'flags', 'QtCore:QFileDevice.Permission'),
+           ()),
+      ),
+      'setPermissions': (
+          ('_ZN11QFileDevice14setPermissionsE6QFlagsINS_10PermissionEE',
+           ('bool', 'number', ''),
+           (
+               ('int', 'flags', 'QtCore:QFileDevice.Permission'),
            )),
       ),
   }
@@ -332,7 +333,10 @@ class QFileDevice(QIODevice):
       The text Qt gave back.
     """
     #  QString QFileDevice::fileName() const
-    return self.uglySide.call('ritual_ZNK11QFileDevice8fileNameEv')
+    ritual = 'ritual_ZNK11QFileDevice8fileNameEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFileDevice8fileNameEv'
+    return self.uglySide.call(ritual)
 
   def pos(self) -> int:
     """
@@ -383,9 +387,10 @@ class QFileDevice(QIODevice):
       The value standing for the combination Qt gave back.
     """
     #  Permissions QFileDevice::permissions() const
-    return QFileDevice.Permissions(self.uglySide.call(
-        'ritual_ZNK11QFileDevice11permissionsEv',
-    ))
+    ritual = 'ritual_ZNK11QFileDevice11permissionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFileDevice11permissionsEv'
+    return QFileDevice.Permissions(self.uglySide.call(ritual))
 
   @overload(FileTime)
   def fileTime(self, time: FileTime) -> QDateTime:
@@ -433,10 +438,13 @@ class QFileDevice(QIODevice):
       Passed on as its number.
     """
     #  bool QFileDevice::setPermissions(Permissions permissionSpec)
-    return self.uglySide.call(
-        'ritual_ZN11QFileDevice14setPermissionsE6QFlagsINS_10PermissionEE',
-        permissionSpec.value,
-    )
+    ritual = (
+        'ritual_ZN11QFileDevice14setPermissionsE6QFlagsINS_10PermissionEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QFileDevice14setPermissionsE6QFlagsINS_10Permissi'
+          'onEE')
+    return self.uglySide.call(ritual, permissionSpec.value)
 
   @overload(QDateTime, FileTime)
   def setFileTime(self, newDate: QDateTime, fileTime: FileTime) -> bool:
