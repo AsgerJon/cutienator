@@ -38,7 +38,7 @@ def main() -> int:
     print('  %s' % fault)
   if not faults:
     infoSpec = """  all %d listed rituals are offered by the shared object,
-    and it offers no others of its own"""
+    and it offers no others"""
     count = len(Rituals.getRitualNames())
     print('  %s' % ' '.join((infoSpec % count).split()))
 

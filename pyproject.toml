@@ -52,7 +52,10 @@ test = [
 # machine the package is installed on, so they ship with the package,
 # each with its rows file, which says what its rituals take and give.
 [tool.setuptools.package-data]
-cutienator = ["occult/rituals/*/*.cpp", "occult/rituals/*/*.json"]
+cutienator = [
+    "occult/rituals/*/*.cpp", "occult/rituals/*/*.json",
+    "occult/linux_offers.map",
+]
 
 # pytest configuration lives here rather than in a root 'pytest.ini' so
 # the repository root stays uncluttered. pytest auto-discovers this

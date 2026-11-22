@@ -13,6 +13,7 @@ from unittest import mock
 
 from worktoy.work_test import BaseTest
 
+from cutienator import occult
 from cutienator.occult import System, Linux, MacOS, Windows, Build
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -115,10 +116,19 @@ class TestSystem(BaseTest):
     )
 
   def test_linker_flags(self) -> None:
-    """Linux and macOS have the Qt folder written in; Windows cannot."""
+    """Linux and macOS have the Qt folder written in; Windows cannot.
+    Linux is also told to offer the rituals and nothing else."""
+    offers = os.path.join(
+        os.path.dirname(os.path.abspath(occult.__file__)),
+        'linux_offers.map',
+    )
+    self.assertTrue(os.path.isfile(offers))
     self.assertEqual(
         Linux().getLinkerFlags('/opt/qt/lib'),
-        ('-Wl,--no-undefined', '-Wl,-rpath,/opt/qt/lib',),
+        (
+            '-Wl,--no-undefined', '-Wl,-rpath,/opt/qt/lib',
+            '-Wl,--version-script=%s' % offers,
+        ),
     )
     self.assertEqual(
         MacOS().getLinkerFlags('/opt/qt/lib'),

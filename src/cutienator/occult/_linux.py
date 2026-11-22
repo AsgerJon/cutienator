@@ -3,6 +3,8 @@
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import os
+
 from typing import TYPE_CHECKING
 
 from . import System
@@ -129,9 +131,21 @@ class Linux(System):
       file opens the Qt it was built against. Without it the built file
       looks only where the machine keeps its own shared objects, as
       '/usr/lib': a Qt installed elsewhere is not found there, and
-      another Qt that is there would be opened instead.
+      another Qt that is there would be opened instead;
+      '-Wl,--version-script=' with the file 'linux_offers.map' beside
+      this module, so the built file offers its rituals and nothing
+      else. The C++ library of Linux marks some of its own functions to
+      be offered whatever '-fvisibility=hidden' says, as those of
+      'std::map' that a ritual file holding a QMap makes the compiler
+      write out. On macOS and on Windows nothing of the kind gets out,
+      and with this file nothing does here.
     """
-    return ('-Wl,--no-undefined', '-Wl,-rpath,%s' % qtFolder,)
+    here = os.path.dirname(os.path.abspath(__file__))
+    offers = os.path.join(here, 'linux_offers.map')
+    return (
+        '-Wl,--no-undefined', '-Wl,-rpath,%s' % qtFolder,
+        '-Wl,--version-script=%s' % offers,
+    )
 
   def prepareOpening(self) -> None:
     """

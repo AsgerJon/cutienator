@@ -1,0 +1,8 @@
+/* What cutienator's own shared object offers on Linux: its rituals,
+   and nothing else. The C++ library marks some of its own functions,
+   as those of std::map, to be offered whatever a build asks for; this
+   keeps them inside. See 'Linux.getLinkerFlags'. */
+{
+  global: ritual_*;
+  local: *;
+};
