@@ -60,6 +60,16 @@ class QFactoryInterface(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFactoryInterface'
 
+  #  The functions Qt calls itself that QFactoryInterface is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'keys': (
+          'QStringList QFactoryInterface::keys() const',
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

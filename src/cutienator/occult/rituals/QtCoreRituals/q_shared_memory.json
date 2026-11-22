@@ -47,6 +47,7 @@
     ],
     "ritual_ZN13QSharedMemory15legacyNativeKeyERK7QStringN13QNativeIpcKey4TypeE": [
       "address", "text", "unsigned short"
-    ]
+    ],
+    "ritual_take_QSharedMemory": ["bool", "address", "chars", "address"]
   }
 }

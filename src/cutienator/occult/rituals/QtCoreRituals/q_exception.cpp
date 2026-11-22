@@ -1,11 +1,58 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qexception.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qexception.h>
+#include <cstring>
+
+//  A QException that Python can take functions over in. Every QException
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQExceptionCall0)(const void *, int *);
+typedef void * (*CuteQExceptionCall1)(const void *, int *);
+class CuteQException : public QException {
+public:
+  using QException::QException;
+  CuteQException(const QException &other) : QException(other) {}
+  void *taken[2] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK10QException5raiseEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK10QException5cloneEv")) {
+      taken[1] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QException::raise() const
+  void raise() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQExceptionCall0 call = reinterpret_cast<CuteQExceptionCall0>(taken[0]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QException::raise();
+  }
+
+  //  QException *QException::clone() const
+  QException *clone() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQExceptionCall1 call = reinterpret_cast<CuteQExceptionCall1>(taken[1]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QException *>(given);
+    }
+    return QException::clone();
+  }
+};
 
 //  QException::QException()
 extern "C" Q_DECL_EXPORT
 QException *ritual_ZN10QExceptionC1Ev() {
-  return new QException();
+  return new CuteQException();
 }
 
 //  QException::~QException()
@@ -17,7 +64,7 @@ void ritual_ZN10QExceptionD1Ev(QException *self) {
 //  QException::QException(const QException &a0)
 extern "C" Q_DECL_EXPORT
 QException *ritual_ZN10QExceptionC1ERKS_(const QException *a0) {
-  return new QException(*a0);
+  return new CuteQException(*a0);
 }
 
 //  void QException::raise() const
@@ -30,4 +77,23 @@ void ritual_ZNK10QException5raiseEv(const QException *self) {
 extern "C" Q_DECL_EXPORT
 QException *ritual_ZNK10QException5cloneEv(const QException *self) {
   return self->clone();
+}
+
+//  a Python function taken by a CuteQException, for the function named by
+//      the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QException(QException *self, const char *key, void *call) {
+  return static_cast<CuteQException *>(self)->take(key, call);
+}
+
+//  void QException::raise() const
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZNK10QException5raiseEv(const QException *self) {
+  self->QException::raise();
+}
+
+//  QException *QException::clone() const
+extern "C" Q_DECL_EXPORT
+QException *ritual_own_ZNK10QException5cloneEv(const QException *self) {
+  return self->QException::clone();
 }

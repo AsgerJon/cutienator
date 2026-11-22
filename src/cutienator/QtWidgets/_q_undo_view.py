@@ -130,6 +130,11 @@ class QUndoView(QListView):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QUndoView'
 
+  #  A C++ QUndoView Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QUndoView'
+
   #  Fallback Variables
 
   #  Private Variables

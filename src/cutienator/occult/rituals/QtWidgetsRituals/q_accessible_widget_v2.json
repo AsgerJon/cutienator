@@ -16,6 +16,12 @@
     ],
     "ritual_cast_QAccessibleWidgetV2_QAccessibleAttributesInterface": [
       "address", "address"
+    ],
+    "ritual_take_QAccessibleWidgetV2": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QAccessibleWidgetV214attributeValueEN11QAccessible9AttributeE": [
+      "address", "address", "int"
     ]
   }
 }

@@ -19,13 +19,14 @@ from ..QtCore import QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QRect
+  from ..QtCore import QEvent, QMetaObject, QRect
   from ..QtGui import QIcon
   from . import QMenu
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
   QIcon = WAIT['QIcon']
   QMenu = WAIT['QMenu']
 
@@ -46,11 +47,11 @@ class QSystemTrayIcon(QObject):
   -----------
 
   Every function of Qt's QSystemTrayIcon that has a ritual and that Python
-  can call so far, 16 names in all: 'metaObject', 'tr', 'setContextMenu',
+  can call so far, 17 names in all: 'metaObject', 'tr', 'setContextMenu',
   'contextMenu', 'icon', 'setIcon', 'toolTip', 'setToolTip',
   'isSystemTrayAvailable', 'supportsMessages', 'geometry', 'isVisible',
-  'setVisible', 'show', 'hide', 'showMessage'. It can be made from Python, in
-  2 ways; see '__init__'.
+  'setVisible', 'show', 'hide', 'showMessage', 'event'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -61,8 +62,8 @@ class QSystemTrayIcon(QObject):
   What has no ritual
   ------------------
 
-  11 of the 31 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template; 1 protected.
+  10 of the 31 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -184,6 +185,11 @@ class QSystemTrayIcon(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSystemTrayIcon'
+
+  #  A C++ QSystemTrayIcon Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QSystemTrayIcon'
 
   #  Fallback Variables
 
@@ -546,4 +552,25 @@ class QSystemTrayIcon(QObject):
         'ritual_ZN15QSystemTrayIcon11showMessageERK7QStringS2_NS_11MessageI'
         'conEi',
         title, msg, icon.value, msecs,
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QSystemTrayIcon::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsystemtrayicon.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QSystemTrayIcon::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN15QSystemTrayIcon5eventEP6QEvent',
+        self._addressOf(event),
     )

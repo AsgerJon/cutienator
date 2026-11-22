@@ -1,13 +1,43 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qaccessible.h>
+#include <cstring>
+
+//  A QAccessibleEvent that Python can take functions over in. Every QAccessibleEvent
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQAccessibleEventCall0)(const void *, int *);
+class CuteQAccessibleEvent : public QAccessibleEvent {
+public:
+  using QAccessibleEvent::QAccessibleEvent;
+  void *taken[1] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK16QAccessibleEvent19accessibleInterfaceEv")) {
+      taken[0] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QAccessibleInterface *QAccessibleEvent::accessibleInterface() const
+  QAccessibleInterface *accessibleInterface() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQAccessibleEventCall0 call = reinterpret_cast<CuteQAccessibleEventCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QAccessibleInterface *>(given);
+    }
+    return QAccessibleEvent::accessibleInterface();
+  }
+};
 
 //  QAccessibleEvent::QAccessibleEvent(QObject *obj, QAccessible::Event typ)
 extern "C" Q_DECL_EXPORT
 QAccessibleEvent *ritual_ZN16QAccessibleEventC1EP7QObjectN11QAccessible5EventE(
     QObject *obj,
     QAccessible::Event typ) {
-  return new QAccessibleEvent(obj, typ);
+  return new CuteQAccessibleEvent(obj, typ);
 }
 
 //  QAccessibleEvent::QAccessibleEvent(QAccessibleInterface *iface,
@@ -16,7 +46,7 @@ extern "C" Q_DECL_EXPORT
 QAccessibleEvent *ritual_ZN16QAccessibleEventC1EP20QAccessibleInterfaceN11QAccessible5EventE(
     QAccessibleInterface *iface,
     QAccessible::Event typ) {
-  return new QAccessibleEvent(iface, typ);
+  return new CuteQAccessibleEvent(iface, typ);
 }
 
 //  QAccessibleEvent::~QAccessibleEvent()
@@ -65,4 +95,21 @@ extern "C" Q_DECL_EXPORT
 QAccessibleInterface *ritual_ZNK16QAccessibleEvent19accessibleInterfaceEv(
     const QAccessibleEvent *self) {
   return self->accessibleInterface();
+}
+
+//  a Python function taken by a CuteQAccessibleEvent, for the function named
+//      by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QAccessibleEvent(
+    QAccessibleEvent *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQAccessibleEvent *>(self)->take(key, call);
+}
+
+//  QAccessibleInterface *QAccessibleEvent::accessibleInterface() const
+extern "C" Q_DECL_EXPORT
+QAccessibleInterface *ritual_own_ZNK16QAccessibleEvent19accessibleInterfaceEv(
+    const QAccessibleEvent *self) {
+  return self->QAccessibleEvent::accessibleInterface();
 }

@@ -11,6 +11,7 @@
     "ritual_ZN14QGenericPluginD1Ev": ["nothing", "address"],
     "ritual_ZN14QGenericPlugin6createERK7QStringS2_": [
       "address", "address", "text", "text"
-    ]
+    ],
+    "ritual_take_QGenericPlugin": ["bool", "address", "chars", "address"]
   }
 }

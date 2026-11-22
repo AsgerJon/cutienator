@@ -28,6 +28,10 @@
     ],
     "ritual_ZN6QTimer5startEi": ["nothing", "address", "int"],
     "ritual_ZN6QTimer5startEv": ["nothing", "address"],
-    "ritual_ZN6QTimer4stopEv": ["nothing", "address"]
+    "ritual_ZN6QTimer4stopEv": ["nothing", "address"],
+    "ritual_take_QTimer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN6QTimer10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
   }
 }

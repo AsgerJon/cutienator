@@ -70,6 +70,11 @@ class QTouchEvent(QPointerEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTouchEvent'
 
+  #  A C++ QTouchEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTouchEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -96,7 +101,10 @@ class QTouchEvent(QPointerEvent):
       no object.
     """
     #  QTouchEvent *QTouchEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK11QTouchEvent5cloneEv')
+    ritual = 'ritual_ZNK11QTouchEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QTouchEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QTouchEvent._cuteAt(address)
 
   def target(self) -> Optional[QObject]:
@@ -141,7 +149,10 @@ class QTouchEvent(QPointerEvent):
     Qt's own words: https://doc.qt.io/qt-6/qtouchevent.html#isBeginEvent
     """
     #  bool QTouchEvent::isBeginEvent() const
-    return self.uglySide.call('ritual_ZNK11QTouchEvent12isBeginEventEv')
+    ritual = 'ritual_ZNK11QTouchEvent12isBeginEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QTouchEvent12isBeginEventEv'
+    return self.uglySide.call(ritual)
 
   def isUpdateEvent(self) -> bool:
     """
@@ -150,7 +161,10 @@ class QTouchEvent(QPointerEvent):
     Qt's own words: https://doc.qt.io/qt-6/qtouchevent.html#isUpdateEvent
     """
     #  bool QTouchEvent::isUpdateEvent() const
-    return self.uglySide.call('ritual_ZNK11QTouchEvent13isUpdateEventEv')
+    ritual = 'ritual_ZNK11QTouchEvent13isUpdateEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QTouchEvent13isUpdateEventEv'
+    return self.uglySide.call(ritual)
 
   def isEndEvent(self) -> bool:
     """
@@ -159,7 +173,10 @@ class QTouchEvent(QPointerEvent):
     Qt's own words: https://doc.qt.io/qt-6/qtouchevent.html#isEndEvent
     """
     #  bool QTouchEvent::isEndEvent() const
-    return self.uglySide.call('ritual_ZNK11QTouchEvent10isEndEventEv')
+    ritual = 'ritual_ZNK11QTouchEvent10isEndEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QTouchEvent10isEndEventEv'
+    return self.uglySide.call(ritual)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

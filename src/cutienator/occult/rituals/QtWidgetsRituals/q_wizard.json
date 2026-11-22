@@ -81,6 +81,21 @@
     "ritual_ZN7QWizard4backEv": ["nothing", "address"],
     "ritual_ZN7QWizard4nextEv": ["nothing", "address"],
     "ritual_ZN7QWizard12setCurrentIdEi": ["nothing", "address", "int"],
-    "ritual_ZN7QWizard7restartEv": ["nothing", "address"]
+    "ritual_ZN7QWizard7restartEv": ["nothing", "address"],
+    "ritual_take_QWizard": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN7QWizard19validateCurrentPageEv": ["bool", "address"],
+    "ritual_own_ZNK7QWizard6nextIdEv": ["int", "address"],
+    "ritual_own_ZN7QWizard10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_own_ZNK7QWizard8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN7QWizard5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_own_ZN7QWizard11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWizard10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWizard4doneEi": ["nothing", "address", "int"],
+    "ritual_own_ZN7QWizard14initializePageEi": ["nothing", "address", "int"],
+    "ritual_own_ZN7QWizard11cleanupPageEi": ["nothing", "address", "int"]
   }
 }

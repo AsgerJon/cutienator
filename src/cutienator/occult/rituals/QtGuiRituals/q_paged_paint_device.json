@@ -22,6 +22,22 @@
     "ritual_ZN17QPagedPaintDevice13setPageRangesERK11QPageRanges": [
       "nothing", "address", "address"
     ],
-    "ritual_ZNK17QPagedPaintDevice10pageRangesEv": ["address", "address"]
+    "ritual_ZNK17QPagedPaintDevice10pageRangesEv": ["address", "address"],
+    "ritual_take_QPagedPaintDevice": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QPagedPaintDevice13setPageLayoutERK11QPageLayout": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QPagedPaintDevice11setPageSizeERK9QPageSize": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QPagedPaintDevice18setPageOrientationEN11QPageLayout11OrientationE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN17QPagedPaintDevice14setPageMarginsERK9QMarginsFN11QPageLayout4UnitE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_own_ZN17QPagedPaintDevice13setPageRangesERK11QPageRanges": [
+      "nothing", "address", "address"
+    ]
   }
 }

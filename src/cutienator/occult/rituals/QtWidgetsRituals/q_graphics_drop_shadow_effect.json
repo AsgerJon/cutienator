@@ -45,6 +45,15 @@
     ],
     "ritual_ZN25QGraphicsDropShadowEffect8setColorERK6QColor": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QGraphicsDropShadowEffect": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK25QGraphicsDropShadowEffect15boundingRectForERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN25QGraphicsDropShadowEffect4drawEP8QPainter": [
+      "nothing", "address", "address"
     ]
   }
 }

@@ -29,6 +29,7 @@
     "ritual_ZNK15QPointingDevice8uniqueIdEv": ["address", "address"],
     "ritual_ZN15QPointingDevice21primaryPointingDeviceERK7QString": [
       "address", "text"
-    ]
+    ],
+    "ritual_take_QPointingDevice": ["bool", "address", "chars", "address"]
   }
 }

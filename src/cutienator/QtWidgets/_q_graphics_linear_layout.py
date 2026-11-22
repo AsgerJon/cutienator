@@ -87,6 +87,11 @@ class QGraphicsLinearLayout(QGraphicsLayout):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsLinearLayout'
 
+  #  A C++ QGraphicsLinearLayout Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsLinearLayout'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -209,7 +214,10 @@ class QGraphicsLinearLayout(QGraphicsLayout):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicslinearlayout.html#count
     """
     #  int QGraphicsLinearLayout::count() const
-    return self.uglySide.call('ritual_ZNK21QGraphicsLinearLayout5countEv')
+    ritual = 'ritual_ZNK21QGraphicsLinearLayout5countEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK21QGraphicsLinearLayout5countEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def itemAt(self, index: int) -> Optional[QGraphicsLayoutItem]:
@@ -233,9 +241,10 @@ class QGraphicsLinearLayout(QGraphicsLayout):
       no object.
     """
     #  QGraphicsLayoutItem *QGraphicsLinearLayout::itemAt(int index) const
-    address = self.uglySide.call(
-        'ritual_ZNK21QGraphicsLinearLayout6itemAtEi', index,
-    )
+    ritual = 'ritual_ZNK21QGraphicsLinearLayout6itemAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK21QGraphicsLinearLayout6itemAtEi'
+    address = self.uglySide.call(ritual, index)
     return QGraphicsLayoutItem._cuteAt(address)
 
   @overload(Qt.SizeHint)
@@ -273,9 +282,14 @@ class QGraphicsLinearLayout(QGraphicsLayout):
     if constraint is None:
       from ..QtCore import QSizeF
       constraint = QSizeF()
+    ritual = (
+        'ritual_ZNK21QGraphicsLinearLayout8sizeHintEN2Qt8SizeHintERK6QSizeF')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QGraphicsLinearLayout8sizeHintEN2Qt8SizeHintERK6'
+          'QSizeF')
     address = self.uglySide.call(
-        'ritual_ZNK21QGraphicsLinearLayout8sizeHintEN2Qt8SizeHintERK6QSizeF',
-        which.value, self._valueOf(constraint),
+        ritual, which.value, self._valueOf(constraint),
     )
     from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
@@ -431,10 +445,10 @@ class QGraphicsLinearLayout(QGraphicsLayout):
       own.
     """
     #  void QGraphicsLinearLayout::setGeometry(const QRectF &rect)
-    self.uglySide.call(
-        'ritual_ZN21QGraphicsLinearLayout11setGeometryERK6QRectF',
-        self._valueOf(rect),
-    )
+    ritual = 'ritual_ZN21QGraphicsLinearLayout11setGeometryERK6QRectF'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN21QGraphicsLinearLayout11setGeometryERK6QRectF'
+    self.uglySide.call(ritual, self._valueOf(rect))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -666,7 +680,10 @@ class QGraphicsLinearLayout(QGraphicsLayout):
       Passed on as it is.
     """
     #  void QGraphicsLinearLayout::removeAt(int index)
-    self.uglySide.call('ritual_ZN21QGraphicsLinearLayout8removeAtEi', index)
+    ritual = 'ritual_ZN21QGraphicsLinearLayout8removeAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN21QGraphicsLinearLayout8removeAtEi'
+    self.uglySide.call(ritual, index)
 
   def invalidate(self) -> None:
     """
@@ -676,7 +693,10 @@ class QGraphicsLinearLayout(QGraphicsLayout):
     https://doc.qt.io/qt-6/qgraphicslinearlayout.html#invalidate
     """
     #  void QGraphicsLinearLayout::invalidate()
-    self.uglySide.call('ritual_ZN21QGraphicsLinearLayout10invalidateEv')
+    ritual = 'ritual_ZN21QGraphicsLinearLayout10invalidateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN21QGraphicsLinearLayout10invalidateEv'
+    self.uglySide.call(ritual)
 
   @overload()
   @overload(int)

@@ -20,15 +20,18 @@ from . import QDialog, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize, QVariant
-  from ..QtGui import QPixmap
+  from ..QtCore import QEvent, QMetaObject, QSize, QVariant
+  from ..QtGui import QPaintEvent, QPixmap, QResizeEvent
   from . import QAbstractButton, QWizardPage
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAbstractButton = WAIT['QAbstractButton']
+  QEvent = WAIT['QEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QPixmap = WAIT['QPixmap']
+  QResizeEvent = WAIT['QResizeEvent']
   QVariant = WAIT['QVariant']
   QWizardPage = WAIT['QWizardPage']
 
@@ -49,7 +52,7 @@ class QWizard(QDialog):
   -----------
 
   Every function of Qt's QWizard that has a ritual and that Python can call
-  so far, 40 names in all: 'metaObject', 'tr', 'addPage', 'setPage',
+  so far, 46 names in all: 'metaObject', 'tr', 'addPage', 'setPage',
   'removePage', 'page', 'hasVisitedPage', 'setStartId', 'startId',
   'currentPage', 'currentId', 'validateCurrentPage', 'nextId', 'setField',
   'field', 'setWizardStyle', 'wizardStyle', 'setOption', 'testOption',
@@ -57,7 +60,8 @@ class QWizard(QDialog):
   'button', 'setTitleFormat', 'titleFormat', 'setSubTitleFormat',
   'subTitleFormat', 'setPixmap', 'pixmap', 'setSideWidget', 'sideWidget',
   'setDefaultProperty', 'setVisible', 'sizeHint', 'back', 'next',
-  'setCurrentId', 'restart'. It can be made from Python, in 1 way; see
+  'setCurrentId', 'restart', 'event', 'resizeEvent', 'paintEvent', 'done',
+  'initializePage', 'cleanupPage'. It can be made from Python, in 1 way; see
   '__init__'.
 
   What has a ritual and is left out, and why
@@ -69,9 +73,8 @@ class QWizard(QDialog):
   What has no ritual
   ------------------
 
-  22 of the 64 functions Qt declares: 6 protected; 5 takes or gives a type
-  that cannot be passed yet; 5 a signal; 3 private; 2 forbidden; 1 a
-  template.
+  16 of the 64 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 5 a signal; 3 private; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -213,6 +216,42 @@ class QWizard(QDialog):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QWizard'
 
+  #  A C++ QWizard Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QWizard'
+
+  #  The functions Qt calls itself that QWizard is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'validateCurrentPage': (
+          ('_ZN7QWizard19validateCurrentPageEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'nextId': (
+          ('_ZNK7QWizard6nextIdEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'initializePage': (
+          ('_ZN7QWizard14initializePageEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'cleanupPage': (
+          ('_ZN7QWizard11cleanupPageEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -327,7 +366,10 @@ class QWizard(QDialog):
     Qt's own words: https://doc.qt.io/qt-6/qwizard.html#nextId
     """
     #  int QWizard::nextId() const
-    return self.uglySide.call('ritual_ZNK7QWizard6nextIdEv')
+    ritual = 'ritual_ZNK7QWizard6nextIdEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QWizard6nextIdEv'
+    return self.uglySide.call(ritual)
 
   @overload(str)
   def field(self, name: str) -> QVariant:
@@ -552,7 +594,10 @@ class QWizard(QDialog):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QWizard::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK7QWizard8sizeHintEv')
+    ritual = 'ritual_ZNK7QWizard8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QWizard8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -871,7 +916,10 @@ class QWizard(QDialog):
       Passed on as it is.
     """
     #  void QWizard::setVisible(bool visible)
-    self.uglySide.call('ritual_ZN7QWizard10setVisibleEb', visible)
+    ritual = 'ritual_ZN7QWizard10setVisibleEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWizard10setVisibleEb'
+    self.uglySide.call(ritual, visible)
 
   @overload(int)
   def setCurrentId(self, id: int) -> None:
@@ -997,7 +1045,10 @@ class QWizard(QDialog):
     Qt's own words: https://doc.qt.io/qt-6/qwizard.html#validateCurrentPage
     """
     #  bool QWizard::validateCurrentPage()
-    return self.uglySide.call('ritual_ZN7QWizard19validateCurrentPageEv')
+    ritual = 'ritual_ZN7QWizard19validateCurrentPageEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWizard19validateCurrentPageEv'
+    return self.uglySide.call(ritual)
 
   def back(self) -> None:
     """
@@ -1025,3 +1076,113 @@ class QWizard(QDialog):
     """
     #  void QWizard::restart()
     self.uglySide.call('ritual_ZN7QWizard7restartEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QWizard::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizard.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QWizard::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN7QWizard5eventEP6QEvent', self._addressOf(event),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, event: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QWizard::resizeEvent(QResizeEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizard.html#resizeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWizard::resizeEvent(QResizeEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWizard11resizeEventEP12QResizeEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, event: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QWizard::paintEvent(QPaintEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizard.html#paintEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWizard::paintEvent(QPaintEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWizard10paintEventEP11QPaintEvent',
+        self._addressOf(event),
+    )
+
+  @overload(int)
+  def done(self, result: int) -> None:
+    """
+    Calls Qt's 'void QWizard::done(int result)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizard.html#done
+
+    Parameters
+    ----------
+
+    result : int
+      Passed on as it is.
+    """
+    #  void QWizard::done(int result)
+    self.uglySide.call('ritual_own_ZN7QWizard4doneEi', result)
+
+  @overload(int)
+  def initializePage(self, id: int) -> None:
+    """
+    Calls Qt's 'void QWizard::initializePage(int id)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizard.html#initializePage
+
+    Parameters
+    ----------
+
+    id : int
+      Passed on as it is.
+    """
+    #  void QWizard::initializePage(int id)
+    self.uglySide.call('ritual_own_ZN7QWizard14initializePageEi', id)
+
+  @overload(int)
+  def cleanupPage(self, id: int) -> None:
+    """
+    Calls Qt's 'void QWizard::cleanupPage(int id)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizard.html#cleanupPage
+
+    Parameters
+    ----------
+
+    id : int
+      Passed on as it is.
+    """
+    #  void QWizard::cleanupPage(int id)
+    self.uglySide.call('ritual_own_ZN7QWizard11cleanupPageEi', id)

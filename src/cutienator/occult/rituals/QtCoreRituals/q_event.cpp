@@ -1,11 +1,57 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qcoreevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qcoreevent.h>
+#include <cstring>
+
+//  A QEvent that Python can take functions over in. Every QEvent
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQEventCall0)(const void *, bool, int *);
+typedef void * (*CuteQEventCall1)(const void *, int *);
+class CuteQEvent : public QEvent {
+public:
+  using QEvent::QEvent;
+  void *taken[2] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
+      taken[1] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QEvent::setAccepted(bool accepted)
+  void setAccepted(bool accepted) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQEventCall0 call = reinterpret_cast<CuteQEventCall0>(taken[0]);
+      call(this, accepted, &handled);
+      if (handled) return;
+    }
+    QEvent::setAccepted(accepted);
+  }
+
+  //  QEvent *QEvent::clone() const
+  QEvent *clone() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQEventCall1 call = reinterpret_cast<CuteQEventCall1>(taken[1]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QEvent *>(given);
+    }
+    return QEvent::clone();
+  }
+};
 
 //  QEvent::QEvent(Type type)
 extern "C" Q_DECL_EXPORT
 QEvent *ritual_ZN6QEventC1ENS_4TypeE(QEvent::Type type) {
-  return new QEvent(type);
+  return new CuteQEvent(type);
 }
 
 //  QEvent::~QEvent()
@@ -78,4 +124,23 @@ int ritual_ZN6QEvent17registerEventTypeEi(int hint) {
 extern "C" Q_DECL_EXPORT
 QEvent *ritual_ZNK6QEvent5cloneEv(const QEvent *self) {
   return self->clone();
+}
+
+//  a Python function taken by a CuteQEvent, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QEvent(QEvent *self, const char *key, void *call) {
+  return static_cast<CuteQEvent *>(self)->take(key, call);
+}
+
+//  void QEvent::setAccepted(bool accepted)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN6QEvent11setAcceptedEb(QEvent *self, bool accepted) {
+  self->QEvent::setAccepted(accepted);
+}
+
+//  QEvent *QEvent::clone() const
+extern "C" Q_DECL_EXPORT
+QEvent *ritual_own_ZNK6QEvent5cloneEv(const QEvent *self) {
+  return self->QEvent::clone();
 }

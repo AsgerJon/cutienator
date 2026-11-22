@@ -147,6 +147,11 @@ class QStackedLayout(QLayout):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QStackedLayout'
 
+  #  A C++ QStackedLayout Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QStackedLayout'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -238,7 +243,10 @@ class QStackedLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qstackedlayout.html#count
     """
     #  int QStackedLayout::count() const
-    return self.uglySide.call('ritual_ZNK14QStackedLayout5countEv')
+    ritual = 'ritual_ZNK14QStackedLayout5countEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK14QStackedLayout5countEv'
+    return self.uglySide.call(ritual)
 
   def stackingMode(self) -> StackingMode:
     """
@@ -272,7 +280,10 @@ class QStackedLayout(QLayout):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QStackedLayout::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK14QStackedLayout8sizeHintEv')
+    ritual = 'ritual_ZNK14QStackedLayout8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK14QStackedLayout8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -289,7 +300,10 @@ class QStackedLayout(QLayout):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QStackedLayout::minimumSize() const
-    address = self.uglySide.call('ritual_ZNK14QStackedLayout11minimumSizeEv')
+    ritual = 'ritual_ZNK14QStackedLayout11minimumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK14QStackedLayout11minimumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -314,7 +328,10 @@ class QStackedLayout(QLayout):
       no object.
     """
     #  QLayoutItem *QStackedLayout::itemAt(int a0) const
-    address = self.uglySide.call('ritual_ZNK14QStackedLayout6itemAtEi', a0)
+    ritual = 'ritual_ZNK14QStackedLayout6itemAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK14QStackedLayout6itemAtEi'
+    address = self.uglySide.call(ritual, a0)
     return QLayoutItem._cuteAt(address)
 
   def hasHeightForWidth(self) -> bool:
@@ -325,9 +342,10 @@ class QStackedLayout(QLayout):
     https://doc.qt.io/qt-6/qstackedlayout.html#hasHeightForWidth
     """
     #  bool QStackedLayout::hasHeightForWidth() const
-    return self.uglySide.call(
-        'ritual_ZNK14QStackedLayout17hasHeightForWidthEv',
-    )
+    ritual = 'ritual_ZNK14QStackedLayout17hasHeightForWidthEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK14QStackedLayout17hasHeightForWidthEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def heightForWidth(self, width: int) -> int:
@@ -343,9 +361,10 @@ class QStackedLayout(QLayout):
       Passed on as it is.
     """
     #  int QStackedLayout::heightForWidth(int width) const
-    return self.uglySide.call(
-        'ritual_ZNK14QStackedLayout14heightForWidthEi', width,
-    )
+    ritual = 'ritual_ZNK14QStackedLayout14heightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK14QStackedLayout14heightForWidthEi'
+    return self.uglySide.call(ritual, width)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -386,10 +405,10 @@ class QStackedLayout(QLayout):
       Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
     """
     #  void QStackedLayout::setGeometry(const QRect &rect)
-    self.uglySide.call(
-        'ritual_ZN14QStackedLayout11setGeometryERK5QRect',
-        self._valueOf(rect),
-    )
+    ritual = 'ritual_ZN14QStackedLayout11setGeometryERK5QRect'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QStackedLayout11setGeometryERK5QRect'
+    self.uglySide.call(ritual, self._valueOf(rect))
 
   @overload(int)
   def setCurrentIndex(self, index: int) -> None:
@@ -577,10 +596,10 @@ class QStackedLayout(QLayout):
       object.
     """
     #  void QStackedLayout::addItem(QLayoutItem *item)
-    self.uglySide.call(
-        'ritual_ZN14QStackedLayout7addItemEP11QLayoutItem',
-        self._addressOf(item, 'QLayoutItem'),
-    )
+    ritual = 'ritual_ZN14QStackedLayout7addItemEP11QLayoutItem'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QStackedLayout7addItemEP11QLayoutItem'
+    self.uglySide.call(ritual, self._addressOf(item, 'QLayoutItem'))
 
   @overload(int)
   def takeAt(self, a0: int) -> Optional[QLayoutItem]:
@@ -603,5 +622,8 @@ class QStackedLayout(QLayout):
       no object.
     """
     #  QLayoutItem *QStackedLayout::takeAt(int a0)
-    address = self.uglySide.call('ritual_ZN14QStackedLayout6takeAtEi', a0)
+    ritual = 'ritual_ZN14QStackedLayout6takeAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QStackedLayout6takeAtEi'
+    address = self.uglySide.call(ritual, a0)
     return QLayoutItem._cuteAt(address)

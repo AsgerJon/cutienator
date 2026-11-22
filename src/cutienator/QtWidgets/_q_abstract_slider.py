@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, CuteNum
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
 from . import QWidget
@@ -20,7 +20,16 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
+  from ..QtCore import QEvent, QMetaObject, QTimerEvent
+  from ..QtGui import QKeyEvent, QWheelEvent
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QKeyEvent = WAIT['QKeyEvent']
+  QTimerEvent = WAIT['QTimerEvent']
+  QWheelEvent = WAIT['QWheelEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -39,13 +48,14 @@ class QAbstractSlider(QWidget):
   -----------
 
   Every function of Qt's QAbstractSlider that has a ritual and that Python
-  can call so far, 26 names in all: 'metaObject', 'tr', 'orientation',
+  can call so far, 31 names in all: 'metaObject', 'tr', 'orientation',
   'setMinimum', 'minimum', 'setMaximum', 'maximum', 'setSingleStep',
   'singleStep', 'setPageStep', 'pageStep', 'setTracking', 'hasTracking',
   'setSliderDown', 'isSliderDown', 'setSliderPosition', 'sliderPosition',
   'setInvertedAppearance', 'invertedAppearance', 'setInvertedControls',
   'invertedControls', 'value', 'triggerAction', 'setValue', 'setOrientation',
-  'setRange'. It can be made from Python, in 1 way; see '__init__'.
+  'setRange', 'event', 'keyPressEvent', 'timerEvent', 'wheelEvent',
+  'changeEvent'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,7 +66,7 @@ class QAbstractSlider(QWidget):
   What has no ritual
   ------------------
 
-  23 of the 51 functions Qt declares: 9 protected; 6 a signal; 3 private; 2
+  18 of the 51 functions Qt declares: 6 a signal; 4 protected; 3 private; 2
   takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
@@ -147,6 +157,21 @@ class QAbstractSlider(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractSlider'
+
+  #  A C++ QAbstractSlider Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractSlider'
+
+  #  The functions Qt calls itself that QAbstractSlider is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'sliderChange': (
+          'void QAbstractSlider::sliderChange(SliderChange)',
+      ),
+  }
 
   #  Fallback Variables
 
@@ -578,4 +603,108 @@ class QAbstractSlider(QWidget):
     self.uglySide.call(
         'ritual_ZN15QAbstractSlider13triggerActionENS_12SliderActionE',
         action.value,
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QAbstractSlider::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractslider.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QAbstractSlider::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN15QAbstractSlider5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, ev: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSlider::keyPressEvent(QKeyEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractslider.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSlider::keyPressEvent(QKeyEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN15QAbstractSlider13keyPressEventEP9QKeyEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, a0: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSlider::timerEvent(QTimerEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractslider.html#timerEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSlider::timerEvent(QTimerEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN15QAbstractSlider10timerEventEP11QTimerEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QWheelEvent)
+  @overload(NoneType)
+  def wheelEvent(self, e: Optional[QWheelEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSlider::wheelEvent(QWheelEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractslider.html#wheelEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QWheelEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSlider::wheelEvent(QWheelEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN15QAbstractSlider10wheelEventEP11QWheelEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, e: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSlider::changeEvent(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractslider.html#changeEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSlider::changeEvent(QEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN15QAbstractSlider11changeEventEP6QEvent',
+        self._addressOf(e),
     )

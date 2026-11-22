@@ -19,13 +19,17 @@ from . import QFrame, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QByteArray, QMetaObject, QSize
+  from ..QtCore import QByteArray, QChildEvent, QEvent, QMetaObject, QSize
+  from ..QtGui import QResizeEvent
   from . import QSplitterHandle
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
+  QChildEvent = WAIT['QChildEvent']
+  QEvent = WAIT['QEvent']
+  QResizeEvent = WAIT['QResizeEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,13 +48,14 @@ class QSplitter(QFrame):
   -----------
 
   Every function of Qt's QSplitter that has a ritual and that Python can call
-  so far, 25 names in all: 'metaObject', 'tr', 'addWidget', 'insertWidget',
+  so far, 30 names in all: 'metaObject', 'tr', 'addWidget', 'insertWidget',
   'replaceWidget', 'setOrientation', 'orientation', 'setChildrenCollapsible',
   'childrenCollapsible', 'setCollapsible', 'isCollapsible',
   'setOpaqueResize', 'opaqueResize', 'refresh', 'sizeHint',
   'minimumSizeHint', 'saveState', 'restoreState', 'handleWidth',
   'setHandleWidth', 'indexOf', 'widget', 'count', 'handle',
-  'setStretchFactor'. It can be made from Python, in 2 ways; see '__init__'.
+  'setStretchFactor', 'createHandle', 'childEvent', 'event', 'resizeEvent',
+  'changeEvent'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,9 +68,8 @@ class QSplitter(QFrame):
   What has no ritual
   ------------------
 
-  19 of the 48 functions Qt declares: 8 protected; 4 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1 a
-  signal.
+  14 of the 48 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 3 private; 3 protected; 2 forbidden; 1 a template; 1 a signal.
 
   What to expect
   --------------
@@ -135,6 +139,23 @@ class QSplitter(QFrame):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSplitter'
+
+  #  A C++ QSplitter Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QSplitter'
+
+  #  The functions Qt calls itself that QSplitter is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'createHandle': (
+          ('_ZN9QSplitter12createHandleEv',
+           ('address', 'address', 'QtWidgets:QSplitterHandle'),
+           ()),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -232,7 +253,10 @@ class QSplitter(QFrame):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QSplitter::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK9QSplitter8sizeHintEv')
+    ritual = 'ritual_ZNK9QSplitter8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QSplitter8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -249,7 +273,10 @@ class QSplitter(QFrame):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QSplitter::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK9QSplitter15minimumSizeHintEv')
+    ritual = 'ritual_ZNK9QSplitter15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QSplitter15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -661,4 +688,104 @@ class QSplitter(QFrame):
     return self.uglySide.call(
         'ritual_ZN9QSplitter12restoreStateERK10QByteArray',
         self._valueOf(state),
+    )
+
+  def createHandle(self) -> Optional[QSplitterHandle]:
+    """
+    Calls Qt's 'QSplitterHandle *QSplitter::createHandle()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplitter.html#createHandle
+
+    Returns
+    -------
+
+    Optional[QSplitterHandle]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QSplitterHandle *QSplitter::createHandle()
+    address = self.uglySide.call('ritual_own_ZN9QSplitter12createHandleEv')
+    from . import QSplitterHandle
+    return QSplitterHandle._cuteAt(address)
+
+  @overload(QChildEvent)
+  @overload(NoneType)
+  def childEvent(self, a0: Optional[QChildEvent]) -> None:
+    """
+    Calls Qt's 'void QSplitter::childEvent(QChildEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplitter.html#childEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QChildEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSplitter::childEvent(QChildEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QSplitter10childEventEP11QChildEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QSplitter::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplitter.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QSplitter::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN9QSplitter5eventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, a0: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QSplitter::resizeEvent(QResizeEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplitter.html#resizeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSplitter::resizeEvent(QResizeEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QSplitter11resizeEventEP12QResizeEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, a0: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QSplitter::changeEvent(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplitter.html#changeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSplitter::changeEvent(QEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QSplitter11changeEventEP6QEvent', self._addressOf(a0),
     )

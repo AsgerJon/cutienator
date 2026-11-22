@@ -32,6 +32,7 @@
     "ritual_ZNK16QDoubleValidator6bottomEv": ["double", "address"],
     "ritual_ZNK16QDoubleValidator3topEv": ["double", "address"],
     "ritual_ZNK16QDoubleValidator8decimalsEv": ["int", "address"],
-    "ritual_ZNK16QDoubleValidator8notationEv": ["int", "address"]
+    "ritual_ZNK16QDoubleValidator8notationEv": ["int", "address"],
+    "ritual_take_QDoubleValidator": ["bool", "address", "chars", "address"]
   }
 }

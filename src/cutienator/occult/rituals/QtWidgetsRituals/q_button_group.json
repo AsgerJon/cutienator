@@ -26,6 +26,7 @@
     "ritual_ZNK12QButtonGroup2idEP15QAbstractButton": [
       "int", "address", "address"
     ],
-    "ritual_ZNK12QButtonGroup9checkedIdEv": ["int", "address"]
+    "ritual_ZNK12QButtonGroup9checkedIdEv": ["int", "address"],
+    "ritual_take_QButtonGroup": ["bool", "address", "chars", "address"]
   }
 }

@@ -20,8 +20,9 @@ from . import QDialog, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
-  from ..QtGui import QPixmap
+  from ..QtCore import QEvent, QMetaObject
+  from ..QtGui import QCloseEvent, QKeyEvent, QPixmap, QResizeEvent
+  from ..QtGui import QShowEvent
   from . import QAbstractButton, QCheckBox, QPushButton
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -29,8 +30,13 @@ else:
   #  see 'WAIT'.
   QAbstractButton = WAIT['QAbstractButton']
   QCheckBox = WAIT['QCheckBox']
+  QCloseEvent = WAIT['QCloseEvent']
+  QEvent = WAIT['QEvent']
+  QKeyEvent = WAIT['QKeyEvent']
   QPixmap = WAIT['QPixmap']
   QPushButton = WAIT['QPushButton']
+  QResizeEvent = WAIT['QResizeEvent']
+  QShowEvent = WAIT['QShowEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -49,7 +55,7 @@ class QMessageBox(QDialog):
   -----------
 
   Every function of Qt's QMessageBox that has a ritual and that Python can
-  call so far, 46 names in all: 'metaObject', 'tr', 'addButton',
+  call so far, 52 names in all: 'metaObject', 'tr', 'addButton',
   'removeButton', 'open', 'buttonRole', 'setStandardButtons',
   'standardButtons', 'standardButton', 'button', 'defaultButton',
   'setDefaultButton', 'escapeButton', 'setEscapeButton', 'clickedButton',
@@ -59,8 +65,9 @@ class QMessageBox(QDialog):
   'testOption', 'setOptions', 'options', 'information', 'question',
   'warning', 'critical', 'about', 'aboutQt', 'buttonText', 'setButtonText',
   'informativeText', 'setInformativeText', 'detailedText', 'setDetailedText',
-  'setWindowTitle', 'setWindowModality', 'standardIcon'. It can be made from
-  Python, in 3 ways; see '__init__'.
+  'setWindowTitle', 'setWindowModality', 'standardIcon', 'event',
+  'resizeEvent', 'showEvent', 'closeEvent', 'keyPressEvent', 'changeEvent'.
+  It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -92,9 +99,8 @@ class QMessageBox(QDialog):
   What has no ritual
   ------------------
 
-  16 of the 82 functions Qt declares: 6 protected; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1 a
-  signal.
+  10 of the 82 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 3 private; 2 forbidden; 1 a template; 1 a signal.
 
   What to expect
   --------------
@@ -1046,6 +1052,11 @@ class QMessageBox(QDialog):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QMessageBox'
+
+  #  A C++ QMessageBox Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QMessageBox'
 
   #  Fallback Variables
 
@@ -2108,4 +2119,129 @@ class QMessageBox(QDialog):
     self.uglySide.call(
         'ritual_ZN11QMessageBox4openEP7QObjectPKc',
         self._addressOf(receiver), self._bytesOf(member),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QMessageBox::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmessagebox.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QMessageBox::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN11QMessageBox5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, event: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QMessageBox::resizeEvent(QResizeEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmessagebox.html#resizeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMessageBox::resizeEvent(QResizeEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN11QMessageBox11resizeEventEP12QResizeEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, event: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QMessageBox::showEvent(QShowEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmessagebox.html#showEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMessageBox::showEvent(QShowEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN11QMessageBox9showEventEP10QShowEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QCloseEvent)
+  @overload(NoneType)
+  def closeEvent(self, event: Optional[QCloseEvent]) -> None:
+    """
+    Calls Qt's 'void QMessageBox::closeEvent(QCloseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmessagebox.html#closeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QCloseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMessageBox::closeEvent(QCloseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN11QMessageBox10closeEventEP11QCloseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, event: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QMessageBox::keyPressEvent(QKeyEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmessagebox.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMessageBox::keyPressEvent(QKeyEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN11QMessageBox13keyPressEventEP9QKeyEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QMessageBox::changeEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmessagebox.html#changeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMessageBox::changeEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN11QMessageBox11changeEventEP6QEvent',
+        self._addressOf(event),
     )

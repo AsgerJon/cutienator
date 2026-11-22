@@ -82,6 +82,12 @@
       "nothing", "address", "int", "address"
     ],
     "ritual_ZNK15QListWidgetItemltERKS_": ["bool", "address", "address"],
-    "ritual_ZNK15QListWidgetItem4typeEv": ["int", "address"]
+    "ritual_ZNK15QListWidgetItem4typeEv": ["int", "address"],
+    "ritual_take_QListWidgetItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QListWidgetItem5cloneEv": ["address", "address"],
+    "ritual_own_ZNK15QListWidgetItem4dataEi": ["address", "address", "int"],
+    "ritual_own_ZN15QListWidgetItem7setDataEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ]
   }
 }

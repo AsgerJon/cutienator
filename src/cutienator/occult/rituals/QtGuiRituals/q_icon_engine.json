@@ -26,6 +26,20 @@
     "ritual_ZN11QIconEngine6isNullEv": ["bool", "address"],
     "ritual_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
       "address", "address", "address", "int", "int", "double"
+    ],
+    "ritual_take_QIconEngine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN11QIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN11QIconEngine9addPixmapERK7QPixmapN5QIcon4ModeENS3_5StateE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN11QIconEngine6isNullEv": ["bool", "address"],
+    "ritual_own_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
+      "address", "address", "address", "int", "int", "double"
     ]
   }
 }

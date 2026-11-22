@@ -14,6 +14,8 @@
     ],
     "ritual_ZNK14QShortcutEvent3keyEv": ["address", "address"],
     "ritual_ZNK14QShortcutEvent10shortcutIdEv": ["int", "address"],
-    "ritual_ZNK14QShortcutEvent11isAmbiguousEv": ["bool", "address"]
+    "ritual_ZNK14QShortcutEvent11isAmbiguousEv": ["bool", "address"],
+    "ritual_take_QShortcutEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QShortcutEvent5cloneEv": ["address", "address"]
   }
 }

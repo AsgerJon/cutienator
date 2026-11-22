@@ -85,6 +85,11 @@ class QMouseEvent(QSinglePointEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QMouseEvent'
 
+  #  A C++ QMouseEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QMouseEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -111,7 +116,10 @@ class QMouseEvent(QSinglePointEvent):
       no object.
     """
     #  QMouseEvent *QMouseEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK11QMouseEvent5cloneEv')
+    ritual = 'ritual_ZNK11QMouseEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QMouseEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QMouseEvent._cuteAt(address)
 
   def pos(self) -> QPoint:

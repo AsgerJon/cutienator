@@ -4,6 +4,139 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QSettings may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQSettings : QSettings {
+  using QSettings::event;
+};
+
+//  A QSettings that Python can take functions over in. Every QSettings
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef bool (*CuteQSettingsCall0)(const void *, QEvent *, int *);
+typedef bool (*CuteQSettingsCall1)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQSettingsCall2)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQSettingsCall3)(const void *, QChildEvent *, int *);
+typedef void (*CuteQSettingsCall4)(const void *, QEvent *, int *);
+typedef void (*CuteQSettingsCall5)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQSettingsCall6)(const void *, const QMetaMethod *, int *);
+class CuteQSettings : public QSettings {
+public:
+  using QSettings::QSettings;
+  void *taken[7] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[6] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  bool QSettings::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQSettingsCall0 call = reinterpret_cast<CuteQSettingsCall0>(taken[0]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QSettings::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQSettingsCall1 call = reinterpret_cast<CuteQSettingsCall1>(taken[1]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQSettingsCall2 call = reinterpret_cast<CuteQSettingsCall2>(taken[2]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQSettingsCall3 call = reinterpret_cast<CuteQSettingsCall3>(taken[3]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQSettingsCall4 call = reinterpret_cast<CuteQSettingsCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQSettingsCall5 call = reinterpret_cast<CuteQSettingsCall5>(taken[5]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQSettingsCall6 call = reinterpret_cast<CuteQSettingsCall6>(taken[6]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QSettings::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -28,7 +161,7 @@ QSettings *ritual_ZN9QSettingsC1ERK7QStringS2_P7QObject(
     const QString *organization,
     const QString *application,
     QObject *parent) {
-  return new QSettings(*organization, *application, parent);
+  return new CuteQSettings(*organization, *application, parent);
 }
 
 //  QSettings::QSettings(Scope scope, const QString &organization, const
@@ -39,7 +172,7 @@ QSettings *ritual_ZN9QSettingsC1ENS_5ScopeERK7QStringS3_P7QObject(
     const QString *organization,
     const QString *application,
     QObject *parent) {
-  return new QSettings(scope, *organization, *application, parent);
+  return new CuteQSettings(scope, *organization, *application, parent);
 }
 
 //  QSettings::QSettings(Format format, Scope scope, const QString
@@ -51,7 +184,12 @@ QSettings *ritual_ZN9QSettingsC1ENS_6FormatENS_5ScopeERK7QStringS4_P7QObject(
     const QString *organization,
     const QString *application,
     QObject *parent) {
-  return new QSettings(format, scope, *organization, *application, parent);
+  return new CuteQSettings(
+      format,
+      scope,
+      *organization,
+      *application,
+      parent);
 }
 
 //  QSettings::QSettings(const QString &fileName, Format format, QObject
@@ -61,13 +199,13 @@ QSettings *ritual_ZN9QSettingsC1ERK7QStringNS_6FormatEP7QObject(
     const QString *fileName,
     QSettings::Format format,
     QObject *parent) {
-  return new QSettings(*fileName, format, parent);
+  return new CuteQSettings(*fileName, format, parent);
 }
 
 //  QSettings::QSettings(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QSettings *ritual_ZN9QSettingsC1EP7QObject(QObject *parent) {
-  return new QSettings(parent);
+  return new CuteQSettings(parent);
 }
 
 //  QSettings::QSettings(Scope scope, QObject *parent)
@@ -75,7 +213,7 @@ extern "C" Q_DECL_EXPORT
 QSettings *ritual_ZN9QSettingsC1ENS_5ScopeEP7QObject(
     QSettings::Scope scope,
     QObject *parent) {
-  return new QSettings(scope, parent);
+  return new CuteQSettings(scope, parent);
 }
 
 //  QSettings::~QSettings()
@@ -276,4 +414,17 @@ void ritual_ZN9QSettings7setPathENS_6FormatENS_5ScopeERK7QString(
     QSettings::Scope scope,
     const QString *path) {
   QSettings::setPath(format, scope, *path);
+}
+
+//  a Python function taken by a CuteQSettings, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QSettings(QSettings *self, const char *key, void *call) {
+  return static_cast<CuteQSettings *>(self)->take(key, call);
+}
+
+//  bool QSettings::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN9QSettings5eventEP6QEvent(QSettings *self, QEvent *event) {
+  return static_cast<OwnQSettings *>(self)->OwnQSettings::event(event);
 }

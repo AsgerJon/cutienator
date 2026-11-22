@@ -93,6 +93,11 @@ class QContextMenuEvent(QInputEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QContextMenuEvent'
 
+  #  A C++ QContextMenuEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QContextMenuEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -119,7 +124,10 @@ class QContextMenuEvent(QInputEvent):
       no object.
     """
     #  QContextMenuEvent *QContextMenuEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK17QContextMenuEvent5cloneEv')
+    ritual = 'ritual_ZNK17QContextMenuEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QContextMenuEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QContextMenuEvent._cuteAt(address)
 
   def x(self) -> int:

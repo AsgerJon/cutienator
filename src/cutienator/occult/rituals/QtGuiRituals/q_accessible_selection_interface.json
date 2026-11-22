@@ -23,6 +23,15 @@
     "ritual_ZN29QAccessibleSelectionInterface9selectAllEv": [
       "bool", "address"
     ],
-    "ritual_ZN29QAccessibleSelectionInterface5clearEv": ["bool", "address"]
+    "ritual_ZN29QAccessibleSelectionInterface5clearEv": ["bool", "address"],
+    "ritual_take_QAccessibleSelectionInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK29QAccessibleSelectionInterface12selectedItemEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK29QAccessibleSelectionInterface10isSelectedEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ]
   }
 }

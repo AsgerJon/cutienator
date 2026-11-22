@@ -21,6 +21,18 @@
     ],
     "ritual_ZNK19QAbstractTableModel5flagsERK11QModelIndex": [
       "int", "address", "address"
+    ],
+    "ritual_take_QAbstractTableModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QAbstractTableModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK19QAbstractTableModel7siblingEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN19QAbstractTableModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
     ]
   }
 }

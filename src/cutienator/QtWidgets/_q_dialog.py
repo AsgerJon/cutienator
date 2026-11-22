@@ -12,15 +12,27 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, CuteNum
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QObject
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
+  from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtGui import QCloseEvent, QContextMenuEvent, QKeyEvent, QResizeEvent
+  from ..QtGui import QShowEvent
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QCloseEvent = WAIT['QCloseEvent']
+  QContextMenuEvent = WAIT['QContextMenuEvent']
+  QEvent = WAIT['QEvent']
+  QKeyEvent = WAIT['QKeyEvent']
+  QResizeEvent = WAIT['QResizeEvent']
+  QShowEvent = WAIT['QShowEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -39,10 +51,12 @@ class QDialog(QWidget):
   -----------
 
   Every function of Qt's QDialog that has a ritual and that Python can call
-  so far, 15 names in all: 'metaObject', 'tr', 'result', 'setVisible',
+  so far, 21 names in all: 'metaObject', 'tr', 'result', 'setVisible',
   'sizeHint', 'minimumSizeHint', 'setSizeGripEnabled', 'isSizeGripEnabled',
-  'setModal', 'setResult', 'open', 'exec', 'done', 'accept', 'reject'. It can
-  be made from Python, in 1 way; see '__init__'.
+  'setModal', 'setResult', 'open', 'exec', 'done', 'accept', 'reject',
+  'keyPressEvent', 'closeEvent', 'showEvent', 'resizeEvent',
+  'contextMenuEvent', 'eventFilter'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -53,8 +67,8 @@ class QDialog(QWidget):
   What has no ritual
   ------------------
 
-  19 of the 36 functions Qt declares: 8 protected; 3 private; 3 a signal; 2
-  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  13 of the 36 functions Qt declares: 3 private; 3 a signal; 2 takes or gives
+  a type that cannot be passed yet; 2 protected; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -136,6 +150,45 @@ class QDialog(QWidget):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QDialog'
 
+  #  A C++ QDialog Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QDialog'
+
+  #  The functions Qt calls itself that QDialog is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'open': (
+          ('_ZN7QDialog4openEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'exec': (
+          ('_ZN7QDialog4execEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'done': (
+          ('_ZN7QDialog4doneEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'accept': (
+          ('_ZN7QDialog6acceptEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'reject': (
+          ('_ZN7QDialog6rejectEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -188,7 +241,10 @@ class QDialog(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QDialog::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK7QDialog8sizeHintEv')
+    ritual = 'ritual_ZNK7QDialog8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QDialog8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -205,7 +261,10 @@ class QDialog(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QDialog::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK7QDialog15minimumSizeHintEv')
+    ritual = 'ritual_ZNK7QDialog15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QDialog15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -236,7 +295,10 @@ class QDialog(QWidget):
       Passed on as it is.
     """
     #  void QDialog::setVisible(bool visible)
-    self.uglySide.call('ritual_ZN7QDialog10setVisibleEb', visible)
+    ritual = 'ritual_ZN7QDialog10setVisibleEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QDialog10setVisibleEb'
+    self.uglySide.call(ritual, visible)
 
   @overload(bool)
   def setSizeGripEnabled(self, a0: bool) -> None:
@@ -358,7 +420,10 @@ class QDialog(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qdialog.html#open
     """
     #  void QDialog::open()
-    self.uglySide.call('ritual_ZN7QDialog4openEv')
+    ritual = 'ritual_ZN7QDialog4openEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QDialog4openEv'
+    self.uglySide.call(ritual)
 
   def exec(self) -> int:
     """
@@ -367,7 +432,10 @@ class QDialog(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qdialog.html#exec
     """
     #  int QDialog::exec()
-    return self.uglySide.call('ritual_ZN7QDialog4execEv')
+    ritual = 'ritual_ZN7QDialog4execEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QDialog4execEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def done(self, a0: int) -> None:
@@ -383,7 +451,10 @@ class QDialog(QWidget):
       Passed on as it is.
     """
     #  void QDialog::done(int a0)
-    self.uglySide.call('ritual_ZN7QDialog4doneEi', a0)
+    ritual = 'ritual_ZN7QDialog4doneEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QDialog4doneEi'
+    self.uglySide.call(ritual, a0)
 
   def accept(self) -> None:
     """
@@ -392,7 +463,10 @@ class QDialog(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qdialog.html#accept
     """
     #  void QDialog::accept()
-    self.uglySide.call('ritual_ZN7QDialog6acceptEv')
+    ritual = 'ritual_ZN7QDialog6acceptEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QDialog6acceptEv'
+    self.uglySide.call(ritual)
 
   def reject(self) -> None:
     """
@@ -401,4 +475,138 @@ class QDialog(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qdialog.html#reject
     """
     #  void QDialog::reject()
-    self.uglySide.call('ritual_ZN7QDialog6rejectEv')
+    ritual = 'ritual_ZN7QDialog6rejectEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QDialog6rejectEv'
+    self.uglySide.call(ritual)
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, a0: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QDialog::keyPressEvent(QKeyEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialog.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDialog::keyPressEvent(QKeyEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN7QDialog13keyPressEventEP9QKeyEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QCloseEvent)
+  @overload(NoneType)
+  def closeEvent(self, a0: Optional[QCloseEvent]) -> None:
+    """
+    Calls Qt's 'void QDialog::closeEvent(QCloseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialog.html#closeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QCloseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDialog::closeEvent(QCloseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN7QDialog10closeEventEP11QCloseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, a0: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QDialog::showEvent(QShowEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialog.html#showEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDialog::showEvent(QShowEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN7QDialog9showEventEP10QShowEvent', self._addressOf(a0),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, a0: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QDialog::resizeEvent(QResizeEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialog.html#resizeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDialog::resizeEvent(QResizeEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN7QDialog11resizeEventEP12QResizeEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QContextMenuEvent)
+  @overload(NoneType)
+  def contextMenuEvent(self, a0: Optional[QContextMenuEvent]) -> None:
+    """
+    Calls Qt's 'void QDialog::contextMenuEvent(QContextMenuEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialog.html#contextMenuEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QContextMenuEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDialog::contextMenuEvent(QContextMenuEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN7QDialog16contextMenuEventEP17QContextMenuEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(self, a0: Optional[QObject], a1: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QDialog::eventFilter(QObject *a0, QEvent *a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialog.html#eventFilter
+
+    Parameters
+    ----------
+
+    a0 : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a1 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QDialog::eventFilter(QObject *a0, QEvent *a1)
+    return self.uglySide.call(
+        'ritual_own_ZN7QDialog11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(a0), self._addressOf(a1),
+    )

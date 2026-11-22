@@ -12,14 +12,19 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, CuteNum
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject
+  from . import QEvent, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,9 +43,9 @@ class QSocketNotifier(QObject):
   -----------
 
   Every function of Qt's QSocketNotifier that has a ritual and that Python
-  can call so far, 8 names in all: 'metaObject', 'tr', 'setSocket', 'socket',
-  'type', 'isValid', 'isEnabled', 'setEnabled'. It can be made from Python,
-  in 2 ways; see '__init__'.
+  can call so far, 9 names in all: 'metaObject', 'tr', 'setSocket', 'socket',
+  'type', 'isValid', 'isEnabled', 'setEnabled', 'event'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,8 +56,8 @@ class QSocketNotifier(QObject):
   What has no ritual
   ------------------
 
-  10 of the 21 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal; 1 protected.
+  9 of the 21 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
 
   What to expect
   --------------
@@ -136,6 +141,11 @@ class QSocketNotifier(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSocketNotifier'
+
+  #  A C++ QSocketNotifier Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QSocketNotifier'
 
   #  Fallback Variables
 
@@ -342,3 +352,23 @@ class QSocketNotifier(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QSocketNotifier::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsocketnotifier.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QSocketNotifier::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN15QSocketNotifier5eventEP6QEvent', self._addressOf(a0),
+    )

@@ -14,6 +14,9 @@
     "ritual_ZNK23QGraphicsSceneMoveEvent6newPosEv": ["address", "address"],
     "ritual_ZN23QGraphicsSceneMoveEvent9setNewPosERK7QPointF": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QGraphicsSceneMoveEvent": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

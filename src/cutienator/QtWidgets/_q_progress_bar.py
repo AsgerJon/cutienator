@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, CuteNum
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
 from . import QWidget
@@ -20,7 +20,16 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
+  from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtGui import QPaintEvent
+  from . import QStyleOptionProgressBar
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QStyleOptionProgressBar = WAIT['QStyleOptionProgressBar']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -39,13 +48,14 @@ class QProgressBar(QWidget):
   -----------
 
   Every function of Qt's QProgressBar that has a ritual and that Python can
-  call so far, 26 names in all: 'metaObject', 'tr', 'minimum', 'maximum',
+  call so far, 29 names in all: 'metaObject', 'tr', 'minimum', 'maximum',
   'value', 'text', 'setTextVisible', 'isTextVisible', 'alignment',
   'setAlignment', 'sizeHint', 'minimumSizeHint', 'orientation',
   'setInvertedAppearance', 'invertedAppearance', 'setTextDirection',
   'textDirection', 'setFormat', 'resetFormat', 'format', 'reset', 'setRange',
-  'setMinimum', 'setMaximum', 'setValue', 'setOrientation'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'setMinimum', 'setMaximum', 'setValue', 'setOrientation', 'event',
+  'paintEvent', 'initStyleOption'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,9 +66,8 @@ class QProgressBar(QWidget):
   What has no ritual
   ------------------
 
-  12 of the 40 functions Qt declares: 3 private; 3 protected; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1 a
-  signal.
+  9 of the 40 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
 
   What to expect
   --------------
@@ -142,6 +151,35 @@ class QProgressBar(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QProgressBar'
+
+  #  A C++ QProgressBar Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QProgressBar'
+
+  #  The functions Qt calls itself that QProgressBar is the first to declare
+  #  and that cannot be handed to Python yet, each as Qt declares it. A class
+  #  of a program that writes one of them anew is refused, since Qt would
+  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'text': (
+          'QString QProgressBar::text() const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QProgressBar is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK12QProgressBar15initStyleOptionEP23QStyleOptionProgressBar',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionProgressBar'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -254,7 +292,10 @@ class QProgressBar(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QProgressBar::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK12QProgressBar8sizeHintEv')
+    ritual = 'ritual_ZNK12QProgressBar8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QProgressBar8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -271,9 +312,10 @@ class QProgressBar(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QProgressBar::minimumSizeHint() const
-    address = self.uglySide.call(
-        'ritual_ZNK12QProgressBar15minimumSizeHintEv',
-    )
+    ritual = 'ritual_ZNK12QProgressBar15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QProgressBar15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -598,3 +640,71 @@ class QProgressBar(QWidget):
     """
     #  void QProgressBar::reset()
     self.uglySide.call('ritual_ZN12QProgressBar5resetEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QProgressBar::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprogressbar.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QProgressBar::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN12QProgressBar5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QProgressBar::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprogressbar.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QProgressBar::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN12QProgressBar10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QStyleOptionProgressBar)
+  @overload(NoneType)
+  def initStyleOption(
+      self,
+      option: Optional[QStyleOptionProgressBar],
+  ) -> None:
+    """
+    Calls Qt's 'void QProgressBar::initStyleOption(QStyleOptionProgressBar
+    *option) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprogressbar.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionProgressBar]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QProgressBar::initStyleOption(QStyleOptionProgressBar *option)
+    #      const
+    self.uglySide.call(
+        'ritual_own_ZNK12QProgressBar15initStyleOptionEP23QStyleOptionProgr'
+        'essBar',
+        self._addressOf(option),
+    )

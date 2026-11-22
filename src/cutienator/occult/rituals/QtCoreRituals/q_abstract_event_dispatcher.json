@@ -57,6 +57,15 @@
     ],
     "ritual_ZN24QAbstractEventDispatcher23removeNativeEventFilterEP26QAbstractNativeEventFilter": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QAbstractEventDispatcher": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QAbstractEventDispatcher10startingUpEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QAbstractEventDispatcher11closingDownEv": [
+      "nothing", "address"
     ]
   }
 }

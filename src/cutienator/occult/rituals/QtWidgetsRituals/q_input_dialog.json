@@ -107,6 +107,15 @@
       "nothing", "address", "double"
     ],
     "ritual_ZNK12QInputDialog10doubleStepEv": ["double", "address"],
-    "ritual_ZN12QInputDialog4doneEi": ["nothing", "address", "int"]
+    "ritual_ZN12QInputDialog4doneEi": ["nothing", "address", "int"],
+    "ritual_take_QInputDialog": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QInputDialog15minimumSizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK12QInputDialog8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN12QInputDialog10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN12QInputDialog4doneEi": ["nothing", "address", "int"]
   }
 }

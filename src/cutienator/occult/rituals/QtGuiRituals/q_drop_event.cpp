@@ -2,6 +2,52 @@
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
+#include <cstring>
+
+//  A QDropEvent that Python can take functions over in. Every QDropEvent
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQDropEventCall0)(const void *, int *);
+typedef void (*CuteQDropEventCall1)(const void *, bool, int *);
+class CuteQDropEvent : public QDropEvent {
+public:
+  using QDropEvent::QDropEvent;
+  void *taken[2] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
+      taken[1] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QDropEvent *QDropEvent::clone() const
+  QDropEvent *clone() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQDropEventCall0 call = reinterpret_cast<CuteQDropEventCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QDropEvent *>(given);
+    }
+    return QDropEvent::clone();
+  }
+
+  //  void QEvent::setAccepted(bool accepted)
+  void setAccepted(bool accepted) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQDropEventCall1 call = reinterpret_cast<CuteQDropEventCall1>(taken[1]);
+      call(this, accepted, &handled);
+      if (handled) return;
+    }
+    QEvent::setAccepted(accepted);
+  }
+};
 
 //  QDropEvent *QDropEvent::clone() const
 extern "C" Q_DECL_EXPORT
@@ -26,7 +72,7 @@ QDropEvent *ritual_ZN10QDropEventC1ERK7QPointF6QFlagsIN2Qt10DropActionEEPK9QMime
     int buttons,
     int modifiers,
     QEvent::Type type) {
-  return new QDropEvent(
+  return new CuteQDropEvent(
       *pos,
       QFlags<Qt::DropAction>::fromInt(actions),
       data,
@@ -120,4 +166,17 @@ QObject *ritual_ZNK10QDropEvent6sourceEv(const QDropEvent *self) {
 extern "C" Q_DECL_EXPORT
 const QMimeData *ritual_ZNK10QDropEvent8mimeDataEv(const QDropEvent *self) {
   return self->mimeData();
+}
+
+//  a Python function taken by a CuteQDropEvent, for the function named by
+//      the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QDropEvent(QDropEvent *self, const char *key, void *call) {
+  return static_cast<CuteQDropEvent *>(self)->take(key, call);
+}
+
+//  QDropEvent *QDropEvent::clone() const
+extern "C" Q_DECL_EXPORT
+QDropEvent *ritual_own_ZNK10QDropEvent5cloneEv(const QDropEvent *self) {
+  return self->QDropEvent::clone();
 }

@@ -81,6 +81,23 @@ class QAccessibleEvent(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleEvent'
 
+  #  A C++ QAccessibleEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAccessibleEvent'
+
+  #  The functions Qt calls itself that QAccessibleEvent is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'accessibleInterface': (
+          ('_ZNK16QAccessibleEvent19accessibleInterfaceEv',
+           ('address', 'address', 'QtGui:QAccessibleInterface'),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -164,9 +181,10 @@ class QAccessibleEvent(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QAccessibleInterface *QAccessibleEvent::accessibleInterface() const
-    address = self.uglySide.call(
-        'ritual_ZNK16QAccessibleEvent19accessibleInterfaceEv',
-    )
+    ritual = 'ritual_ZNK16QAccessibleEvent19accessibleInterfaceEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QAccessibleEvent19accessibleInterfaceEv'
+    address = self.uglySide.call(ritual)
     from . import QAccessibleInterface
     return QAccessibleInterface._cuteAt(address)
 

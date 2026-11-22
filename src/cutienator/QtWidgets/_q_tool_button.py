@@ -20,15 +20,24 @@ from . import QAbstractButton, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
-  from ..QtGui import QAction
-  from . import QMenu
+  from ..QtCore import QEvent, QMetaObject, QPoint, QSize, QTimerEvent
+  from ..QtGui import QAction, QActionEvent, QEnterEvent, QMouseEvent
+  from ..QtGui import QPaintEvent
+  from . import QMenu, QStyleOptionToolButton
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAction = WAIT['QAction']
+  QActionEvent = WAIT['QActionEvent']
+  QEnterEvent = WAIT['QEnterEvent']
+  QEvent = WAIT['QEvent']
   QMenu = WAIT['QMenu']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QPoint = WAIT['QPoint']
+  QStyleOptionToolButton = WAIT['QStyleOptionToolButton']
+  QTimerEvent = WAIT['QTimerEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -47,11 +56,14 @@ class QToolButton(QAbstractButton):
   -----------
 
   Every function of Qt's QToolButton that has a ritual and that Python can
-  call so far, 17 names in all: 'metaObject', 'tr', 'sizeHint',
+  call so far, 30 names in all: 'metaObject', 'tr', 'sizeHint',
   'minimumSizeHint', 'toolButtonStyle', 'arrowType', 'setArrowType',
   'setMenu', 'menu', 'setPopupMode', 'popupMode', 'defaultAction',
   'setAutoRaise', 'autoRaise', 'showMenu', 'setToolButtonStyle',
-  'setDefaultAction'. It can be made from Python, in 1 way; see '__init__'.
+  'setDefaultAction', 'event', 'mousePressEvent', 'mouseReleaseEvent',
+  'paintEvent', 'actionEvent', 'enterEvent', 'leaveEvent', 'timerEvent',
+  'changeEvent', 'hitButton', 'checkStateSet', 'nextCheckState',
+  'initStyleOption'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -62,9 +74,8 @@ class QToolButton(QAbstractButton):
   What has no ritual
   ------------------
 
-  22 of the 41 functions Qt declares: 13 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1 a
-  signal.
+  9 of the 41 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
 
   What to expect
   --------------
@@ -150,6 +161,25 @@ class QToolButton(QAbstractButton):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QToolButton'
 
+  #  A C++ QToolButton Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QToolButton'
+
+  #  The functions Qt calls itself that QToolButton is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK11QToolButton15initStyleOptionEP22QStyleOptionToolButton',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionToolButton'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -193,7 +223,10 @@ class QToolButton(QAbstractButton):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QToolButton::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK11QToolButton8sizeHintEv')
+    ritual = 'ritual_ZNK11QToolButton8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QToolButton8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -210,9 +243,10 @@ class QToolButton(QAbstractButton):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QToolButton::minimumSizeHint() const
-    address = self.uglySide.call(
-        'ritual_ZNK11QToolButton15minimumSizeHintEv',
-    )
+    ritual = 'ritual_ZNK11QToolButton15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QToolButton15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -317,6 +351,26 @@ class QToolButton(QAbstractButton):
     """
     #  bool QToolButton::autoRaise() const
     return self.uglySide.call('ritual_ZNK11QToolButton9autoRaiseEv')
+
+  @overload(QPoint)
+  def hitButton(self, pos: QPoint) -> bool:
+    """
+    Calls Qt's 'bool QToolButton::hitButton(const QPoint &pos) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#hitButton
+
+    Parameters
+    ----------
+
+    pos : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+    """
+    #  bool QToolButton::hitButton(const QPoint &pos) const
+    return self.uglySide.call(
+        'ritual_own_ZNK11QToolButton9hitButtonERK6QPoint',
+        self._valueOf(pos),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -499,3 +553,236 @@ class QToolButton(QAbstractButton):
     """
     #  void QToolButton::showMenu()
     self.uglySide.call('ritual_ZN11QToolButton8showMenuEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QToolButton::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QToolButton::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN11QToolButton5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QToolButton::mousePressEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolButton::mousePressEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QToolButton15mousePressEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QToolButton::mouseReleaseEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolButton::mouseReleaseEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QToolButton17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QToolButton::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolButton::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QToolButton10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QActionEvent)
+  @overload(NoneType)
+  def actionEvent(self, a0: Optional[QActionEvent]) -> None:
+    """
+    Calls Qt's 'void QToolButton::actionEvent(QActionEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#actionEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QActionEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolButton::actionEvent(QActionEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QToolButton11actionEventEP12QActionEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEnterEvent)
+  @overload(NoneType)
+  def enterEvent(self, a0: Optional[QEnterEvent]) -> None:
+    """
+    Calls Qt's 'void QToolButton::enterEvent(QEnterEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#enterEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEnterEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolButton::enterEvent(QEnterEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QToolButton10enterEventEP11QEnterEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def leaveEvent(self, a0: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QToolButton::leaveEvent(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#leaveEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolButton::leaveEvent(QEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QToolButton10leaveEventEP6QEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, a0: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QToolButton::timerEvent(QTimerEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#timerEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolButton::timerEvent(QTimerEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QToolButton10timerEventEP11QTimerEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, a0: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QToolButton::changeEvent(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#changeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolButton::changeEvent(QEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QToolButton11changeEventEP6QEvent',
+        self._addressOf(a0),
+    )
+
+  def checkStateSet(self) -> None:
+    """
+    Calls Qt's 'void QToolButton::checkStateSet()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#checkStateSet
+    """
+    #  void QToolButton::checkStateSet()
+    self.uglySide.call('ritual_own_ZN11QToolButton13checkStateSetEv')
+
+  def nextCheckState(self) -> None:
+    """
+    Calls Qt's 'void QToolButton::nextCheckState()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#nextCheckState
+    """
+    #  void QToolButton::nextCheckState()
+    self.uglySide.call('ritual_own_ZN11QToolButton14nextCheckStateEv')
+
+  @overload(QStyleOptionToolButton)
+  @overload(NoneType)
+  def initStyleOption(
+      self,
+      option: Optional[QStyleOptionToolButton],
+  ) -> None:
+    """
+    Calls Qt's 'void QToolButton::initStyleOption(QStyleOptionToolButton
+    *option) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionToolButton]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolButton::initStyleOption(QStyleOptionToolButton *option)
+    #      const
+    self.uglySide.call(
+        'ritual_own_ZNK11QToolButton15initStyleOptionEP22QStyleOptionToolBu'
+        'tton',
+        self._addressOf(option),
+    )

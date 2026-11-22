@@ -45,14 +45,14 @@ class QThread(QObject):
   -----------
 
   Every function of Qt's QThread that has a ritual and that Python can call
-  so far, 29 names in all: 'metaObject', 'tr', 'currentThread',
+  so far, 30 names in all: 'metaObject', 'tr', 'currentThread',
   'isMainThread', 'idealThreadCount', 'yieldCurrentThread', 'setPriority',
   'priority', 'isFinished', 'isRunning', 'requestInterruption',
   'isInterruptionRequested', 'setStackSize', 'stackSize', 'eventDispatcher',
   'setEventDispatcher', 'event', 'loopLevel', 'isCurrentThread',
   'setServiceLevel', 'serviceLevel', 'start', 'terminate', 'exit', 'quit',
-  'wait', 'sleep', 'msleep', 'usleep'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'wait', 'sleep', 'msleep', 'usleep', 'run'. It can be made from Python, in
+  1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,8 +63,8 @@ class QThread(QObject):
   What has no ritual
   ------------------
 
-  17 of the 49 functions Qt declares: 5 private; 4 takes or gives a type that
-  cannot be passed yet; 4 protected; 2 a template; 2 a signal.
+  16 of the 49 functions Qt declares: 5 private; 4 takes or gives a type that
+  cannot be passed yet; 3 protected; 2 a template; 2 a signal.
 
   What to expect
   --------------
@@ -261,6 +261,23 @@ class QThread(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QThread'
+
+  #  A C++ QThread Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QThread'
+
+  #  The functions Qt calls itself that QThread is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'run': (
+          ('_ZN7QThread3runEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -567,9 +584,10 @@ class QThread(QObject):
       object.
     """
     #  bool QThread::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_ZN7QThread5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QThread5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QThread5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload()
   @overload(Priority)
@@ -658,3 +676,12 @@ class QThread(QObject):
     """
     #  bool QThread::wait(unsigned long time)
     return self.uglySide.call('ritual_ZN7QThread4waitEm', time)
+
+  def run(self) -> None:
+    """
+    Calls Qt's 'void QThread::run()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#run
+    """
+    #  void QThread::run()
+    self.uglySide.call('ritual_own_ZN7QThread3runEv')

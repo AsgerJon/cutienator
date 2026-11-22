@@ -83,6 +83,11 @@ class QPlatformSurfaceEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPlatformSurfaceEvent'
 
+  #  A C++ QPlatformSurfaceEvent Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPlatformSurfaceEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -109,7 +114,10 @@ class QPlatformSurfaceEvent(QEvent):
       no object.
     """
     #  QPlatformSurfaceEvent *QPlatformSurfaceEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK21QPlatformSurfaceEvent5cloneEv')
+    ritual = 'ritual_ZNK21QPlatformSurfaceEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK21QPlatformSurfaceEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QPlatformSurfaceEvent._cuteAt(address)
 
   def surfaceEventType(self) -> SurfaceEventType:

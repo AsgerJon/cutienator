@@ -11,14 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from . import QAbstractSpinBox, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
+  from ..QtCore import QEvent, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,12 +42,12 @@ class QSpinBox(QAbstractSpinBox):
   -----------
 
   Every function of Qt's QSpinBox that has a ritual and that Python can call
-  so far, 20 names in all: 'metaObject', 'tr', 'value', 'prefix',
+  so far, 21 names in all: 'metaObject', 'tr', 'value', 'prefix',
   'setPrefix', 'suffix', 'setSuffix', 'cleanText', 'singleStep',
   'setSingleStep', 'minimum', 'setMinimum', 'maximum', 'setMaximum',
   'setRange', 'stepType', 'setStepType', 'displayIntegerBase',
-  'setDisplayIntegerBase', 'setValue'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'setDisplayIntegerBase', 'setValue', 'event'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -53,7 +58,7 @@ class QSpinBox(QAbstractSpinBox):
   What has no ritual
   ------------------
 
-  15 of the 37 functions Qt declares: 5 protected; 3 private; 2 takes or
+  14 of the 37 functions Qt declares: 4 protected; 3 private; 2 takes or
   gives a type that cannot be passed yet; 2 a signal; 2 forbidden; 1 a
   template.
 
@@ -125,6 +130,24 @@ class QSpinBox(QAbstractSpinBox):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSpinBox'
+
+  #  A C++ QSpinBox Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QSpinBox'
+
+  #  The functions Qt calls itself that QSpinBox is the first to declare and
+  #  that cannot be handed to Python yet, each as Qt declares it. A class of
+  #  a program that writes one of them anew is refused, since Qt would never
+  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'valueFromText': (
+          'int QSpinBox::valueFromText(const QString &) const',
+      ),
+      'textFromValue': (
+          'QString QSpinBox::textFromValue(int) const',
+      ),
+  }
 
   #  Fallback Variables
 
@@ -473,3 +496,23 @@ class QSpinBox(QAbstractSpinBox):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QSpinBox::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qspinbox.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QSpinBox::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN8QSpinBox5eventEP6QEvent', self._addressOf(event),
+    )

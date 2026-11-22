@@ -7,13 +7,76 @@
 #include <QtGui/qbrush.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
+#include <cstring>
+
+//  A QListWidgetItem that Python can take functions over in. Every QListWidgetItem
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQListWidgetItemCall0)(const void *, int *);
+typedef const QVariant * (*CuteQListWidgetItemCall1)(const void *, int, int *);
+typedef void (*CuteQListWidgetItemCall2)(const void *, int, const QVariant *, int *);
+class CuteQListWidgetItem : public QListWidgetItem {
+public:
+  using QListWidgetItem::QListWidgetItem;
+  CuteQListWidgetItem(const QListWidgetItem &other) : QListWidgetItem(other) {}
+  void *taken[3] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK15QListWidgetItem5cloneEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK15QListWidgetItem4dataEi")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN15QListWidgetItem7setDataEiRK8QVariant")) {
+      taken[2] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QListWidgetItem *QListWidgetItem::clone() const
+  QListWidgetItem *clone() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQListWidgetItemCall0 call = reinterpret_cast<CuteQListWidgetItemCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QListWidgetItem *>(given);
+    }
+    return QListWidgetItem::clone();
+  }
+
+  //  QVariant QListWidgetItem::data(int role) const
+  QVariant data(int role) const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQListWidgetItemCall1 call = reinterpret_cast<CuteQListWidgetItemCall1>(taken[1]);
+      const QVariant * given = call(this, role, &handled);
+      if (handled && given) return *given;
+    }
+    return QListWidgetItem::data(role);
+  }
+
+  //  void QListWidgetItem::setData(int role, const QVariant &value)
+  void setData(int role, const QVariant &value) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQListWidgetItemCall2 call = reinterpret_cast<CuteQListWidgetItemCall2>(taken[2]);
+      call(this, role, &value, &handled);
+      if (handled) return;
+    }
+    QListWidgetItem::setData(role, value);
+  }
+};
 
 //  QListWidgetItem::QListWidgetItem(QListWidget *listview, int type)
 extern "C" Q_DECL_EXPORT
 QListWidgetItem *ritual_ZN15QListWidgetItemC1EP11QListWidgeti(
     QListWidget *listview,
     int type) {
-  return new QListWidgetItem(listview, type);
+  return new CuteQListWidgetItem(listview, type);
 }
 
 //  QListWidgetItem::QListWidgetItem(const QString &text, QListWidget
@@ -23,7 +86,7 @@ QListWidgetItem *ritual_ZN15QListWidgetItemC1ERK7QStringP11QListWidgeti(
     const QString *text,
     QListWidget *listview,
     int type) {
-  return new QListWidgetItem(*text, listview, type);
+  return new CuteQListWidgetItem(*text, listview, type);
 }
 
 //  QListWidgetItem::QListWidgetItem(const QIcon &icon, const QString &text,
@@ -34,14 +97,14 @@ QListWidgetItem *ritual_ZN15QListWidgetItemC1ERK5QIconRK7QStringP11QListWidgeti(
     const QString *text,
     QListWidget *listview,
     int type) {
-  return new QListWidgetItem(*icon, *text, listview, type);
+  return new CuteQListWidgetItem(*icon, *text, listview, type);
 }
 
 //  QListWidgetItem::QListWidgetItem(const QListWidgetItem &other)
 extern "C" Q_DECL_EXPORT
 QListWidgetItem *ritual_ZN15QListWidgetItemC1ERKS_(
     const QListWidgetItem *other) {
-  return new QListWidgetItem(*other);
+  return new CuteQListWidgetItem(*other);
 }
 
 //  QListWidgetItem::~QListWidgetItem()
@@ -311,4 +374,38 @@ bool ritual_ZNK15QListWidgetItemltERKS_(
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK15QListWidgetItem4typeEv(const QListWidgetItem *self) {
   return self->type();
+}
+
+//  a Python function taken by a CuteQListWidgetItem, for the function named
+//      by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QListWidgetItem(
+    QListWidgetItem *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQListWidgetItem *>(self)->take(key, call);
+}
+
+//  QListWidgetItem *QListWidgetItem::clone() const
+extern "C" Q_DECL_EXPORT
+QListWidgetItem *ritual_own_ZNK15QListWidgetItem5cloneEv(
+    const QListWidgetItem *self) {
+  return self->QListWidgetItem::clone();
+}
+
+//  QVariant QListWidgetItem::data(int role) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZNK15QListWidgetItem4dataEi(
+    const QListWidgetItem *self,
+    int role) {
+  return new QVariant(self->QListWidgetItem::data(role));
+}
+
+//  void QListWidgetItem::setData(int role, const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN15QListWidgetItem7setDataEiRK8QVariant(
+    QListWidgetItem *self,
+    int role,
+    const QVariant *value) {
+  self->QListWidgetItem::setData(role, *value);
 }

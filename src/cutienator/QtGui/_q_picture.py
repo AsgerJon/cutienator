@@ -50,10 +50,10 @@ class QPicture(QPaintDevice):
   -----------
 
   Every function of Qt's QPicture that has a ritual and that Python can call
-  so far, 13 names in all: 'isNull', 'devType', 'size', 'data', 'setData',
+  so far, 14 names in all: 'isNull', 'devType', 'size', 'data', 'setData',
   'play', 'load', 'save', 'boundingRect', 'setBoundingRect', 'detach',
-  'isDetached', 'paintEngine'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'isDetached', 'paintEngine', 'metric'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,8 +64,8 @@ class QPicture(QPaintDevice):
   What has no ritual
   ------------------
 
-  11 of the 29 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 3 private; 2 protected.
+  10 of the 29 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 3 private; 1 protected.
 
   What to expect
   --------------
@@ -91,6 +91,21 @@ class QPicture(QPaintDevice):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPicture'
+
+  #  A C++ QPicture Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPicture'
+
+  #  The functions Qt calls itself that QPicture is the first to declare and
+  #  that cannot be handed to Python yet, each as Qt declares it. A class of
+  #  a program that writes one of them anew is refused, since Qt would never
+  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'setData': (
+          'void QPicture::setData(const char *, uint)',
+      ),
+  }
 
   #  Qt's '~QPicture()'. Naming it makes this a value class: Python owns
   #  every C++ QPicture behind a cute one, and removes it by this ritual.
@@ -124,7 +139,10 @@ class QPicture(QPaintDevice):
     Qt's own words: https://doc.qt.io/qt-6/qpicture.html#devType
     """
     #  int QPicture::devType() const
-    return self.uglySide.call('ritual_ZNK8QPicture7devTypeEv')
+    ritual = 'ritual_ZNK8QPicture7devTypeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK8QPicture7devTypeEv'
+    return self.uglySide.call(ritual)
 
   def size(self) -> int:
     """
@@ -191,9 +209,31 @@ class QPicture(QPaintDevice):
       no object.
     """
     #  QPaintEngine *QPicture::paintEngine() const
-    address = self.uglySide.call('ritual_ZNK8QPicture11paintEngineEv')
+    ritual = 'ritual_ZNK8QPicture11paintEngineEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK8QPicture11paintEngineEv'
+    address = self.uglySide.call(ritual)
     from . import QPaintEngine
     return QPaintEngine._cuteAt(address)
+
+  @overload(QPaintDevice.PaintDeviceMetric)
+  def metric(self, m: QPaintDevice.PaintDeviceMetric) -> int:
+    """
+    Calls Qt's 'int QPicture::metric(PaintDeviceMetric m) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpicture.html#metric
+
+    Parameters
+    ----------
+
+    m : QPaintDevice.PaintDeviceMetric
+      Passed on as its number.
+    """
+    #  int QPicture::metric(PaintDeviceMetric m) const
+    return self.uglySide.call(
+        'ritual_own_ZNK8QPicture6metricEN12QPaintDevice17PaintDeviceMetricE',
+        m.value,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

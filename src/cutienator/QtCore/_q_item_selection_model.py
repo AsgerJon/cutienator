@@ -161,6 +161,50 @@ class QItemSelectionModel(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QItemSelectionModel'
 
+  #  A C++ QItemSelectionModel Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QItemSelectionModel'
+
+  #  The functions Qt calls itself that QItemSelectionModel is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'setCurrentIndex': (
+          'void QItemSelectionModel::setCurrentIndex(const QModelIndex &, '
+          'QItemSelectionModel::SelectionFlags)',
+      ),
+      'select': (
+          'void QItemSelectionModel::select(const QModelIndex &, '
+          'QItemSelectionModel::SelectionFlags)',
+          'void QItemSelectionModel::select(const QItemSelection &, '
+          'QItemSelectionModel::SelectionFlags)',
+      ),
+  }
+
+  #  The functions Qt calls itself that QItemSelectionModel is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'clear': (
+          ('_ZN19QItemSelectionModel5clearEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'reset': (
+          ('_ZN19QItemSelectionModel5resetEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'clearCurrentIndex': (
+          ('_ZN19QItemSelectionModel17clearCurrentIndexEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -640,7 +684,10 @@ class QItemSelectionModel(QObject):
     Qt's own words: https://doc.qt.io/qt-6/qitemselectionmodel.html#clear
     """
     #  void QItemSelectionModel::clear()
-    self.uglySide.call('ritual_ZN19QItemSelectionModel5clearEv')
+    ritual = 'ritual_ZN19QItemSelectionModel5clearEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QItemSelectionModel5clearEv'
+    self.uglySide.call(ritual)
 
   def reset(self) -> None:
     """
@@ -649,7 +696,10 @@ class QItemSelectionModel(QObject):
     Qt's own words: https://doc.qt.io/qt-6/qitemselectionmodel.html#reset
     """
     #  void QItemSelectionModel::reset()
-    self.uglySide.call('ritual_ZN19QItemSelectionModel5resetEv')
+    ritual = 'ritual_ZN19QItemSelectionModel5resetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QItemSelectionModel5resetEv'
+    self.uglySide.call(ritual)
 
   def clearSelection(self) -> None:
     """
@@ -669,4 +719,7 @@ class QItemSelectionModel(QObject):
     https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex
     """
     #  void QItemSelectionModel::clearCurrentIndex()
-    self.uglySide.call('ritual_ZN19QItemSelectionModel17clearCurrentIndexEv')
+    ritual = 'ritual_ZN19QItemSelectionModel17clearCurrentIndexEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QItemSelectionModel17clearCurrentIndexEv'
+    self.uglySide.call(ritual)

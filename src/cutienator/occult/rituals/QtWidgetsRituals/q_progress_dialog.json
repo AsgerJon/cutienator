@@ -63,6 +63,20 @@
     ],
     "ritual_ZN15QProgressDialog18setMinimumDurationEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_take_QProgressDialog": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QProgressDialog8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN15QProgressDialog11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QProgressDialog10closeEventEP11QCloseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QProgressDialog11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QProgressDialog9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
     ]
   }
 }

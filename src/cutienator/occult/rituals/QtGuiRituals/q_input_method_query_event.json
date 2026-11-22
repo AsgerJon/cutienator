@@ -15,6 +15,10 @@
     ],
     "ritual_ZNK22QInputMethodQueryEvent5valueEN2Qt16InputMethodQueryE": [
       "address", "address", "int"
-    ]
+    ],
+    "ritual_take_QInputMethodQueryEvent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QInputMethodQueryEvent5cloneEv": ["address", "address"]
   }
 }

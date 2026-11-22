@@ -132,6 +132,53 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTreeWidgetItem'
 
+  #  A C++ QTreeWidgetItem Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTreeWidgetItem'
+
+  #  The functions Qt calls itself that QTreeWidgetItem is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'read': (
+          'void QTreeWidgetItem::read(QDataStream &)',
+      ),
+      'write': (
+          'void QTreeWidgetItem::write(QDataStream &) const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QTreeWidgetItem is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'clone': (
+          ('_ZNK15QTreeWidgetItem5cloneEv',
+           ('address', 'address', 'QtWidgets:QTreeWidgetItem'),
+           ()),
+      ),
+      'data': (
+          ('_ZNK15QTreeWidgetItem4dataEii',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+           )),
+      ),
+      'setData': (
+          ('_ZN15QTreeWidgetItem7setDataEiiRK8QVariant',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QVariant'),
+           )),
+      ),
+  }
+
   #  Qt's '~QTreeWidgetItem()'. Naming it makes this a value class: Python
   #  owns every C++ QTreeWidgetItem behind a cute one, and removes it by this
   #  ritual.
@@ -163,7 +210,10 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QTreeWidgetItem *QTreeWidgetItem::clone() const
-    address = self.uglySide.call('ritual_ZNK15QTreeWidgetItem5cloneEv')
+    ritual = 'ritual_ZNK15QTreeWidgetItem5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QTreeWidgetItem5cloneEv'
+    address = self.uglySide.call(ritual)
     return QTreeWidgetItem._cuteAt(address)
 
   def treeWidget(self) -> Optional[QTreeWidget]:
@@ -563,9 +613,10 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QTreeWidgetItem::data(int column, int role) const
-    address = self.uglySide.call(
-        'ritual_ZNK15QTreeWidgetItem4dataEii', column, role,
-    )
+    ritual = 'ritual_ZNK15QTreeWidgetItem4dataEii'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QTreeWidgetItem4dataEii'
+    address = self.uglySide.call(ritual, column, role)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -1099,10 +1150,10 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  void QTreeWidgetItem::setData(int column, int role, const QVariant
     #      &value)
-    self.uglySide.call(
-        'ritual_ZN15QTreeWidgetItem7setDataEiiRK8QVariant',
-        column, role, self._valueOf(value),
-    )
+    ritual = 'ritual_ZN15QTreeWidgetItem7setDataEiiRK8QVariant'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QTreeWidgetItem7setDataEiiRK8QVariant'
+    self.uglySide.call(ritual, column, role, self._valueOf(value))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -55,6 +55,28 @@ class QAbstractUndoItem(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractUndoItem'
 
+  #  A C++ QAbstractUndoItem Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractUndoItem'
+
+  #  The functions Qt calls itself that QAbstractUndoItem is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'undo': (
+          ('_ZN17QAbstractUndoItem4undoEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'redo': (
+          ('_ZN17QAbstractUndoItem4redoEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

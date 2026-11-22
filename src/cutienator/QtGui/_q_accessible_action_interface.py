@@ -373,6 +373,34 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleActionInterface'
 
+  #  The functions Qt calls itself that QAccessibleActionInterface is the
+  #  first to declare and that cannot be handed to Python yet, each as Qt
+  #  declares it. A class of a program that writes one of them anew is
+  #  refused, since Qt would never call what it wrote; see
+  #  'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'actionNames': (
+          'QStringList QAccessibleActionInterface::actionNames() const',
+      ),
+      'localizedActionName': (
+          'QString QAccessibleActionInterface::localizedActionName(const '
+          'QString &) const',
+      ),
+      'localizedActionDescription': (
+          'QString '
+          'QAccessibleActionInterface::localizedActionDescription(const '
+          'QString &) const',
+      ),
+      'doAction': (
+          'void QAccessibleActionInterface::doAction(const QString &)',
+      ),
+      'keyBindingsForAction': (
+          'QStringList '
+          'QAccessibleActionInterface::keyBindingsForAction(const QString '
+          '&) const',
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

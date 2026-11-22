@@ -36,6 +36,7 @@
     ],
     "ritual_ZNK5QDrag16supportedActionsEv": ["int", "address"],
     "ritual_ZNK5QDrag13defaultActionEv": ["int", "address"],
-    "ritual_ZN5QDrag6cancelEv": ["nothing"]
+    "ritual_ZN5QDrag6cancelEv": ["nothing"],
+    "ritual_take_QDrag": ["bool", "address", "chars", "address"]
   }
 }

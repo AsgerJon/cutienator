@@ -30,6 +30,8 @@
     "ritual_ZNK11QMouseEvent9windowPosEv": ["address", "address"],
     "ritual_ZNK11QMouseEvent9screenPosEv": ["address", "address"],
     "ritual_ZNK11QMouseEvent6sourceEv": ["int", "address"],
-    "ritual_ZNK11QMouseEvent5flagsEv": ["int", "address"]
+    "ritual_ZNK11QMouseEvent5flagsEv": ["int", "address"],
+    "ritual_take_QMouseEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QMouseEvent5cloneEv": ["address", "address"]
   }
 }

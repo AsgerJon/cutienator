@@ -15,6 +15,9 @@
     ],
     "ritual_ZN32QAccessibleEditableTextInterface11replaceTextEiiRK7QString": [
       "nothing", "address", "int", "int", "text"
+    ],
+    "ritual_take_QAccessibleEditableTextInterface": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

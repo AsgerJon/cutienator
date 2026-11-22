@@ -19,13 +19,14 @@ from . import QGraphicsLayout, QGraphicsLayoutItem
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QRectF
+  from ..QtCore import QRectF, QSizeF
   from . import QGraphicsAnchor
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QRectF = WAIT['QRectF']
+  QSizeF = WAIT['QSizeF']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,11 +45,11 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
   -----------
 
   Every function of Qt's QGraphicsAnchorLayout that has a ritual and that
-  Python can call so far, 14 names in all: 'addAnchor', 'anchor',
+  Python can call so far, 15 names in all: 'addAnchor', 'anchor',
   'addCornerAnchors', 'addAnchors', 'setHorizontalSpacing',
   'setVerticalSpacing', 'setSpacing', 'horizontalSpacing', 'verticalSpacing',
-  'removeAt', 'setGeometry', 'count', 'itemAt', 'invalidate'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'removeAt', 'setGeometry', 'count', 'itemAt', 'invalidate', 'sizeHint'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,7 +60,7 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
   What has no ritual
   ------------------
 
-  5 of the 21 functions Qt declares: 2 forbidden; 2 private; 1 protected.
+  4 of the 21 functions Qt declares: 2 forbidden; 2 private.
 
   What to expect
   --------------
@@ -85,6 +86,11 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsAnchorLayout'
+
+  #  A C++ QGraphicsAnchorLayout Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsAnchorLayout'
 
   #  Fallback Variables
 
@@ -129,7 +135,10 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#count
     """
     #  int QGraphicsAnchorLayout::count() const
-    return self.uglySide.call('ritual_ZNK21QGraphicsAnchorLayout5countEv')
+    ritual = 'ritual_ZNK21QGraphicsAnchorLayout5countEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK21QGraphicsAnchorLayout5countEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def itemAt(self, index: int) -> Optional[QGraphicsLayoutItem]:
@@ -153,10 +162,54 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
       no object.
     """
     #  QGraphicsLayoutItem *QGraphicsAnchorLayout::itemAt(int index) const
-    address = self.uglySide.call(
-        'ritual_ZNK21QGraphicsAnchorLayout6itemAtEi', index,
-    )
+    ritual = 'ritual_ZNK21QGraphicsAnchorLayout6itemAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK21QGraphicsAnchorLayout6itemAtEi'
+    address = self.uglySide.call(ritual, index)
     return QGraphicsLayoutItem._cuteAt(address)
+
+  @overload(Qt.SizeHint)
+  @overload(Qt.SizeHint, QSizeF)
+  def sizeHint(
+      self,
+      which: Qt.SizeHint,
+      constraint: Optional[QSizeF] = None,
+  ) -> QSizeF:
+    """
+    Calls Qt's 'QSizeF QGraphicsAnchorLayout::sizeHint(Qt::SizeHint which,
+    const QSizeF &constraint) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#sizeHint
+
+    Parameters
+    ----------
+
+    which : Qt.SizeHint
+      Passed on as its number.
+
+    constraint : Optional[QSizeF]
+      Passed on as a value: Qt reads the C++ QSizeF, which stays Python's
+      own. May be left out, as in Qt: a new 'QSizeF()' is then passed on.
+
+    Returns
+    -------
+
+    QSizeF
+      A new cute QSizeF around the copy Qt gave back. Python owns it.
+    """
+    #  QSizeF QGraphicsAnchorLayout::sizeHint(Qt::SizeHint which, const
+    #      QSizeF &constraint) const
+    if constraint is None:
+      from ..QtCore import QSizeF
+      constraint = QSizeF()
+    address = self.uglySide.call(
+        'ritual_own_ZNK21QGraphicsAnchorLayout8sizeHintEN2Qt8SizeHintERK6QS'
+        'izeF',
+        which.value, self._valueOf(constraint),
+    )
+    from ..QtCore import QSizeF
+    return QSizeF._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -237,10 +290,10 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
       own.
     """
     #  void QGraphicsAnchorLayout::setGeometry(const QRectF &rect)
-    self.uglySide.call(
-        'ritual_ZN21QGraphicsAnchorLayout11setGeometryERK6QRectF',
-        self._valueOf(rect),
-    )
+    ritual = 'ritual_ZN21QGraphicsAnchorLayout11setGeometryERK6QRectF'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN21QGraphicsAnchorLayout11setGeometryERK6QRectF'
+    self.uglySide.call(ritual, self._valueOf(rect))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -528,7 +581,10 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
       Passed on as it is.
     """
     #  void QGraphicsAnchorLayout::removeAt(int index)
-    self.uglySide.call('ritual_ZN21QGraphicsAnchorLayout8removeAtEi', index)
+    ritual = 'ritual_ZN21QGraphicsAnchorLayout8removeAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN21QGraphicsAnchorLayout8removeAtEi'
+    self.uglySide.call(ritual, index)
 
   def invalidate(self) -> None:
     """
@@ -538,4 +594,7 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
     https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#invalidate
     """
     #  void QGraphicsAnchorLayout::invalidate()
-    self.uglySide.call('ritual_ZN21QGraphicsAnchorLayout10invalidateEv')
+    ritual = 'ritual_ZN21QGraphicsAnchorLayout10invalidateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN21QGraphicsAnchorLayout10invalidateEv'
+    self.uglySide.call(ritual)

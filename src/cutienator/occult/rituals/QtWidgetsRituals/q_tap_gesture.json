@@ -11,6 +11,7 @@
     "ritual_ZNK11QTapGesture8positionEv": ["address", "address"],
     "ritual_ZN11QTapGesture11setPositionERK7QPointF": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_take_QTapGesture": ["bool", "address", "chars", "address"]
   }
 }

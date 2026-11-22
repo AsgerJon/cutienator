@@ -55,6 +55,7 @@
     "ritual_ZN6QMovie15jumpToNextFrameEv": ["bool", "address"],
     "ritual_ZN6QMovie9setPausedEb": ["nothing", "address", "bool"],
     "ritual_ZN6QMovie4stopEv": ["nothing", "address"],
-    "ritual_ZN6QMovie8setSpeedEi": ["nothing", "address", "int"]
+    "ritual_ZN6QMovie8setSpeedEi": ["nothing", "address", "int"],
+    "ritual_take_QMovie": ["bool", "address", "chars", "address"]
   }
 }

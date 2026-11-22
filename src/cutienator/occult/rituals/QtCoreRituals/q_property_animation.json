@@ -21,6 +21,18 @@
     "ritual_ZNK18QPropertyAnimation12propertyNameEv": ["address", "address"],
     "ritual_ZN18QPropertyAnimation15setPropertyNameERK10QByteArray": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QPropertyAnimation": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QPropertyAnimation5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QPropertyAnimation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QPropertyAnimation11updateStateEN18QAbstractAnimation5StateES1_": [
+      "nothing", "address", "int", "int"
     ]
   }
 }

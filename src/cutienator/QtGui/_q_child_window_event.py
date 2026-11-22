@@ -81,6 +81,11 @@ class QChildWindowEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QChildWindowEvent'
 
+  #  A C++ QChildWindowEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QChildWindowEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -107,7 +112,10 @@ class QChildWindowEvent(QEvent):
       no object.
     """
     #  QChildWindowEvent *QChildWindowEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK17QChildWindowEvent5cloneEv')
+    ritual = 'ritual_ZNK17QChildWindowEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QChildWindowEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QChildWindowEvent._cuteAt(address)
 
   def child(self) -> Optional[QWindow]:

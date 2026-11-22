@@ -89,6 +89,33 @@ class QPointerEvent(QInputEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPointerEvent'
 
+  #  A C++ QPointerEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPointerEvent'
+
+  #  The functions Qt calls itself that QPointerEvent is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'isBeginEvent': (
+          ('_ZNK13QPointerEvent12isBeginEventEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'isUpdateEvent': (
+          ('_ZNK13QPointerEvent13isUpdateEventEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'isEndEvent': (
+          ('_ZNK13QPointerEvent10isEndEventEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -115,7 +142,10 @@ class QPointerEvent(QInputEvent):
       no object.
     """
     #  QPointerEvent *QPointerEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK13QPointerEvent5cloneEv')
+    ritual = 'ritual_ZNK13QPointerEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QPointerEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QPointerEvent._cuteAt(address)
 
   def pointingDevice(self) -> Optional[QPointingDevice]:
@@ -186,7 +216,10 @@ class QPointerEvent(QInputEvent):
     Qt's own words: https://doc.qt.io/qt-6/qpointerevent.html#isBeginEvent
     """
     #  bool QPointerEvent::isBeginEvent() const
-    return self.uglySide.call('ritual_ZNK13QPointerEvent12isBeginEventEv')
+    ritual = 'ritual_ZNK13QPointerEvent12isBeginEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QPointerEvent12isBeginEventEv'
+    return self.uglySide.call(ritual)
 
   def isUpdateEvent(self) -> bool:
     """
@@ -195,7 +228,10 @@ class QPointerEvent(QInputEvent):
     Qt's own words: https://doc.qt.io/qt-6/qpointerevent.html#isUpdateEvent
     """
     #  bool QPointerEvent::isUpdateEvent() const
-    return self.uglySide.call('ritual_ZNK13QPointerEvent13isUpdateEventEv')
+    ritual = 'ritual_ZNK13QPointerEvent13isUpdateEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QPointerEvent13isUpdateEventEv'
+    return self.uglySide.call(ritual)
 
   def isEndEvent(self) -> bool:
     """
@@ -204,7 +240,10 @@ class QPointerEvent(QInputEvent):
     Qt's own words: https://doc.qt.io/qt-6/qpointerevent.html#isEndEvent
     """
     #  bool QPointerEvent::isEndEvent() const
-    return self.uglySide.call('ritual_ZNK13QPointerEvent10isEndEventEv')
+    ritual = 'ritual_ZNK13QPointerEvent10isEndEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QPointerEvent10isEndEventEv'
+    return self.uglySide.call(ritual)
 
   def allPointsAccepted(self) -> bool:
     """
@@ -268,7 +307,10 @@ class QPointerEvent(QInputEvent):
       Passed on as it is.
     """
     #  void QPointerEvent::setTimestamp(quint64 timestamp)
-    self.uglySide.call('ritual_ZN13QPointerEvent12setTimestampEy', timestamp)
+    ritual = 'ritual_ZN13QPointerEvent12setTimestampEy'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QPointerEvent12setTimestampEy'
+    self.uglySide.call(ritual, timestamp)
 
   @overload(bool)
   def setAccepted(self, accepted: bool) -> None:
@@ -284,7 +326,10 @@ class QPointerEvent(QInputEvent):
       Passed on as it is.
     """
     #  void QPointerEvent::setAccepted(bool accepted)
-    self.uglySide.call('ritual_ZN13QPointerEvent11setAcceptedEb', accepted)
+    ritual = 'ritual_ZN13QPointerEvent11setAcceptedEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QPointerEvent11setAcceptedEb'
+    self.uglySide.call(ritual, accepted)
 
   @overload(QEventPoint, QObject)
   @overload(QEventPoint, NoneType)

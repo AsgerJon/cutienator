@@ -24,6 +24,8 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK10QDropEvent6sourceEv": ["address", "address"],
-    "ritual_ZNK10QDropEvent8mimeDataEv": ["address", "address"]
+    "ritual_ZNK10QDropEvent8mimeDataEv": ["address", "address"],
+    "ritual_take_QDropEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QDropEvent5cloneEv": ["address", "address"]
   }
 }

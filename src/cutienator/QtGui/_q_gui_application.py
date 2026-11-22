@@ -49,7 +49,7 @@ class QGuiApplication(QCoreApplication):
   -----------
 
   Every function of Qt's QGuiApplication that has a ritual and that Python
-  can call so far, 49 names in all: 'metaObject', 'tr',
+  can call so far, 50 names in all: 'metaObject', 'tr',
   'setApplicationDisplayName', 'applicationDisplayName', 'setBadgeNumber',
   'setDesktopFileName', 'desktopFileName', 'topLevelAt', 'setWindowIcon',
   'windowIcon', 'platformName', 'modalWindow', 'focusWindow', 'focusObject',
@@ -62,8 +62,8 @@ class QGuiApplication(QCoreApplication):
   'inputMethod', 'setQuitOnLastWindowClosed', 'quitOnLastWindowClosed',
   'applicationState', 'setHighDpiScaleFactorRoundingPolicy',
   'highDpiScaleFactorRoundingPolicy', 'exec', 'notify', 'isSessionRestored',
-  'sessionId', 'sessionKey', 'isSavingSession', 'sync'. It can be made from
-  Python, in 1 way; see '__init__'.
+  'sessionId', 'sessionKey', 'isSavingSession', 'sync', 'event'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -74,8 +74,8 @@ class QGuiApplication(QCoreApplication):
   What has no ritual
   ------------------
 
-  32 of the 83 functions Qt declares: 14 a signal; 7 takes or gives a type
-  that cannot be passed yet; 4 protected; 3 private; 2 a template; 2
+  31 of the 83 functions Qt declares: 14 a signal; 7 takes or gives a type
+  that cannot be passed yet; 3 private; 3 protected; 2 a template; 2
   forbidden.
 
   What to expect
@@ -903,6 +903,11 @@ class QGuiApplication(QCoreApplication):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGuiApplication'
 
+  #  A C++ QGuiApplication Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGuiApplication'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -1103,7 +1108,29 @@ class QGuiApplication(QCoreApplication):
       object.
     """
     #  bool QGuiApplication::notify(QObject *a0, QEvent *a1)
+    ritual = 'ritual_ZN15QGuiApplication6notifyEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGuiApplication6notifyEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_ZN15QGuiApplication6notifyEP7QObjectP6QEvent',
-        self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0), self._addressOf(a1),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QGuiApplication::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qguiapplication.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGuiApplication::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN15QGuiApplication5eventEP6QEvent', self._addressOf(a0),
     )

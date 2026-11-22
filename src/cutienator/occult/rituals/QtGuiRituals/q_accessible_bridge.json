@@ -10,6 +10,7 @@
     ],
     "ritual_ZN17QAccessibleBridge25notifyAccessibilityUpdateEP16QAccessibleEvent": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_take_QAccessibleBridge": ["bool", "address", "chars", "address"]
   }
 }

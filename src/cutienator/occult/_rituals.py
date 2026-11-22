@@ -88,6 +88,11 @@ class Rituals:
   - Anything but a 'str' in the place of text is refused here, with
     'TypeException'. No other wrong argument is caught here. C++ takes
     what it is given, and a wrong address ends the whole program.
+  - Qt calls some functions itself while a ritual runs, as 'paintEvent'
+    while 'app.exec()' runs, and such a function may be one a class of
+    a program wrote in Python. An exception raised in it cannot travel
+    up through C++. It is kept and raised by 'call' as soon as the
+    ritual Python was in returns. See 'keepException'.
 
   This class stands in for the metaclass that is planned to collect the
   shared objects.
@@ -145,6 +150,18 @@ class Rituals:
   #  The parts of Qt the rituals call into. 'System' knows the file of
   #  each part on the system Python runs on.
   __qt_parts__ = ('QtCore', 'QtGui', 'QtWidgets')
+
+  #  The ritual of Qt's 'QCoreApplication::exit(int)', which tells the
+  #  loop of events to stop. See 'keepException'.
+  __loop_stop_ritual__ = 'ritual_ZN16QCoreApplication4exitEi'
+
+  #  The exception a Python function raised while Qt was calling it,
+  #  until it is raised where Python was. Kept on 'Rituals' itself and
+  #  read off it by name, since a program has one. See 'keepException'.
+  __kept_exception__ = None  # type: Optional[BaseException]
+
+  #  What a Python function called by Qt gave back last. See 'keepGiven'.
+  __kept_given__ = None  # type: Any
 
   #  Every row of the rows files, or None until they are read.
   __ritual_rows__ = None  # type: Optional[Dict[str, Row]]
@@ -439,6 +456,17 @@ class Rituals:
       return cls.getOpened(_recursion=True)
     return cls.__opened_target__
 
+  @classmethod
+  def hasKeptException(cls) -> bool:
+    """
+    Says whether an exception is kept that is still to be raised.
+
+    Found for you: 'keepException' keeps one, and 'call' raises it and
+    keeps it no more. While one is kept, no further Python function is
+    asked by Qt.
+    """
+    return False if Rituals.__kept_exception__ is None else True
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -577,6 +605,131 @@ class Rituals:
       for address in made:
         cls._dropText(address)
 
+  @classmethod
+  def createCall(
+      cls,
+      gives: str,
+      takes: Tuple[str, ...],
+      function: Any,
+  ) -> Any:
+    """
+    Makes of a Python function something C++ can call: a function of C
+    that 'ctypes' builds around it. 'CuteMixin' hands one to C++ for
+    each function of Qt that a class of a program wrote anew.
+
+    Parameters
+    ----------
+
+    gives : str
+      The word of what the function gives back, as a row has it:
+      'nothing', 'address', 'int', 'bool' and so on.
+
+    takes : Tuple[str, ...]
+      The word of each thing C++ hands it after the address of the
+      object.
+
+    function : Any
+      The Python function. C++ calls it with the address of the object,
+      then what 'takes' says, and last a place holding the number 0,
+      into which the function writes 1 when it took the call. When it
+      leaves the 0, C++ runs Qt's own function.
+
+    Returns
+    -------
+
+    Any
+      The function of C. Whoever asked keeps it for as long as C++ may
+      call it: C++ holds only its address.
+
+    Raises
+    ------
+
+    ValueError
+      'gives' or one of 'takes' is no word of a row, or is 'text',
+      which no Python function called by Qt takes or gives yet.
+
+    LookupError
+      No rows file lists the ritual 'keepException' stops Qt's loop of
+      events by. Without it an exception raised in the function could
+      not be raised where Python was.
+    """
+    words = cls.__row_words__
+    for word in (gives, *takes):
+      if word not in words or word == 'text':
+        infoSpec = """A Python function called by Qt cannot take or give
+        '%s'. The words are: %s."""
+        known = ', '.join(word for word in words if word != 'text')
+        raise ValueError(' '.join((infoSpec % (word, known)).split()))
+    if cls.__loop_stop_ritual__ not in cls.getRows():
+      infoSpec = """No rows file in '%s' lists the ritual '%s', by which
+      Qt's loop of events is stopped when a Python function called by Qt
+      raises. The ritual file of Qt's QCoreApplication is missing."""
+      info = infoSpec % (cls.getRitualFolder(), cls.__loop_stop_ritual__)
+      raise LookupError(' '.join(info.split()))
+    shape = ctypes.CFUNCTYPE(
+        words[gives], ctypes.c_void_p, *(words[take] for take in takes),
+        ctypes.POINTER(ctypes.c_int),
+    )
+    return shape(function)
+
+  @classmethod
+  def keepException(cls, exception: BaseException) -> None:
+    """
+    Keeps an exception that a Python function raised while Qt was
+    calling it, and has it raised where Python was.
+
+    Qt calls such a function from C++, as 'paintEvent', and an
+    exception cannot travel up through C++. So it is neither dropped
+    nor only printed:
+
+    1. It is kept here.
+    2. While it is kept, no further Python function is asked by Qt: Qt
+       runs its own in the place of each.
+    3. Qt's loop of events is told to stop, by 'QCoreApplication::exit'
+       with the number 1. Without an application that does nothing.
+    4. 'call' raises it as soon as the ritual Python was in returns, as
+       'app.exec()' or 'widget.grab()', and keeps it no more.
+
+    Parameters
+    ----------
+
+    exception : BaseException
+      What the Python function raised. When one is kept already, that
+      one stays and this one is let go: the first is the one raised.
+    """
+    if Rituals.__kept_exception__ is not None:
+      return
+    Rituals.__kept_exception__ = exception
+    getattr(cls.getOpened(), cls.__loop_stop_ritual__)(1)
+
+  @classmethod
+  def _raiseKept(cls) -> None:
+    """Raises the exception 'keepException' kept, when there is one,
+    and keeps it no more."""
+    exception = Rituals.__kept_exception__
+    if exception is not None:
+      Rituals.__kept_exception__ = None
+      raise exception
+
+  @classmethod
+  def keepGiven(cls, given: Any) -> None:
+    """
+    Keeps what a Python function called by Qt gave back, until the next
+    one gives something.
+
+    Such a function may give a value back, as a 'QSize' from
+    'sizeHint'. C++ is handed the address of the C++ object behind it
+    and copies it right as the function returns. The cute object would
+    be gone by then, and its C++ object with it, were it not kept here.
+
+    Parameters
+    ----------
+
+    given : Any
+      The cute object the function gave back.
+    """
+    Rituals.__kept_given__ = given
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -669,6 +822,11 @@ class Rituals:
 
     TypeException
       Something that is no 'str' stands where the ritual takes text.
+
+    BaseException
+      Whatever a Python function raised that Qt called while the ritual
+      ran, as a 'paintEvent' a class of a program wrote. See
+      'keepException'.
     """
     rows = cls.getRows()
     if name not in rows:
@@ -676,6 +834,11 @@ class Rituals:
       info = infoSpec % (cls.getRitualFolder(), name)
       raise LookupError(' '.join(info.split()))
     ritual = getattr(cls.getOpened(), name)
-    if 'text' in rows[name]:
-      return cls._callWithText(ritual, rows[name], args)
-    return ritual(*args)
+    try:
+      if 'text' in rows[name]:
+        return cls._callWithText(ritual, rows[name], args)
+      return ritual(*args)
+    finally:
+      #  Qt may have called a Python function meanwhile, and that one
+      #  may have raised. Python is back here now, so here it is raised.
+      cls._raiseKept()

@@ -3,11 +3,57 @@
 #include <QtWidgets/qfileiconprovider.h>
 #include <QtGui/qicon.h>
 #include <QtCore/qfileinfo.h>
+#include <cstring>
+
+//  A QFileIconProvider that Python can take functions over in. Every QFileIconProvider
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef const QIcon * (*CuteQFileIconProviderCall0)(const void *, int, int *);
+typedef const QIcon * (*CuteQFileIconProviderCall1)(const void *, const QFileInfo *, int *);
+class CuteQFileIconProvider : public QFileIconProvider {
+public:
+  using QFileIconProvider::QFileIconProvider;
+  void *taken[2] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK25QAbstractFileIconProvider4iconENS_8IconTypeE")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK25QAbstractFileIconProvider4iconERK9QFileInfo")) {
+      taken[1] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QIcon QFileIconProvider::icon(IconType type) const
+  QIcon icon(QAbstractFileIconProvider::IconType type) const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQFileIconProviderCall0 call = reinterpret_cast<CuteQFileIconProviderCall0>(taken[0]);
+      const QIcon * given = call(this, static_cast<int>(type), &handled);
+      if (handled && given) return *given;
+    }
+    return QFileIconProvider::icon(type);
+  }
+
+  //  QIcon QFileIconProvider::icon(const QFileInfo &info) const
+  QIcon icon(const QFileInfo &info) const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQFileIconProviderCall1 call = reinterpret_cast<CuteQFileIconProviderCall1>(taken[1]);
+      const QIcon * given = call(this, &info, &handled);
+      if (handled && given) return *given;
+    }
+    return QFileIconProvider::icon(info);
+  }
+};
 
 //  QFileIconProvider::QFileIconProvider()
 extern "C" Q_DECL_EXPORT
 QFileIconProvider *ritual_ZN17QFileIconProviderC1Ev() {
-  return new QFileIconProvider();
+  return new CuteQFileIconProvider();
 }
 
 //  QFileIconProvider::~QFileIconProvider()
@@ -30,4 +76,30 @@ QIcon *ritual_ZNK17QFileIconProvider4iconERK9QFileInfo(
     const QFileIconProvider *self,
     const QFileInfo *info) {
   return new QIcon(self->icon(*info));
+}
+
+//  a Python function taken by a CuteQFileIconProvider, for the function
+//      named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QFileIconProvider(
+    QFileIconProvider *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQFileIconProvider *>(self)->take(key, call);
+}
+
+//  QIcon QFileIconProvider::icon(IconType type) const
+extern "C" Q_DECL_EXPORT
+QIcon *ritual_own_ZNK17QFileIconProvider4iconEN25QAbstractFileIconProvider8IconTypeE(
+    const QFileIconProvider *self,
+    QAbstractFileIconProvider::IconType type) {
+  return new QIcon(self->QFileIconProvider::icon(type));
+}
+
+//  QIcon QFileIconProvider::icon(const QFileInfo &info) const
+extern "C" Q_DECL_EXPORT
+QIcon *ritual_own_ZNK17QFileIconProvider4iconERK9QFileInfo(
+    const QFileIconProvider *self,
+    const QFileInfo *info) {
+  return new QIcon(self->QFileIconProvider::icon(*info));
 }

@@ -18,6 +18,7 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK15QGraphicsAnchor10sizePolicyEv": ["int", "address"],
-    "ritual_ZN15QGraphicsAnchorD1Ev": ["nothing", "address"]
+    "ritual_ZN15QGraphicsAnchorD1Ev": ["nothing", "address"],
+    "ritual_take_QGraphicsAnchor": ["bool", "address", "chars", "address"]
   }
 }

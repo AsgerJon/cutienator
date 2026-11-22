@@ -158,6 +158,117 @@ class QAbstractItemDelegate(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractItemDelegate'
 
+  #  A C++ QAbstractItemDelegate Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractItemDelegate'
+
+  #  The functions Qt calls itself that QAbstractItemDelegate is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'paintingRoles': (
+          'QList<int> QAbstractItemDelegate::paintingRoles() const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QAbstractItemDelegate is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'paint': (
+          ('_ZNK21QAbstractItemDelegate5paintEP8QPainterRK20QStyleOptionVie'
+           'wItemRK11QModelIndex',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'value', 'QtWidgets:QStyleOptionViewItem'),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'sizeHint': (
+          ('_ZNK21QAbstractItemDelegate8sizeHintERK20QStyleOptionViewItemRK'
+           '11QModelIndex',
+           ('address', 'value', 'QtCore:QSize'),
+           (
+               ('address', 'value', 'QtWidgets:QStyleOptionViewItem'),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'createEditor': (
+          ('_ZNK21QAbstractItemDelegate12createEditorEP7QWidgetRK20QStyleOp'
+           'tionViewItemRK11QModelIndex',
+           ('address', 'address', 'QtWidgets:QWidget'),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+               ('address', 'value', 'QtWidgets:QStyleOptionViewItem'),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'destroyEditor': (
+          ('_ZNK21QAbstractItemDelegate13destroyEditorEP7QWidgetRK11QModelI'
+           'ndex',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'setEditorData': (
+          ('_ZNK21QAbstractItemDelegate13setEditorDataEP7QWidgetRK11QModelI'
+           'ndex',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'setModelData': (
+          ('_ZNK21QAbstractItemDelegate12setModelDataEP7QWidgetP18QAbstract'
+           'ItemModelRK11QModelIndex',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+               ('address', 'address', 'QtCore:QAbstractItemModel'),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'updateEditorGeometry': (
+          ('_ZNK21QAbstractItemDelegate20updateEditorGeometryEP7QWidgetRK20'
+           'QStyleOptionViewItemRK11QModelIndex',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+               ('address', 'value', 'QtWidgets:QStyleOptionViewItem'),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'editorEvent': (
+          ('_ZN21QAbstractItemDelegate11editorEventEP6QEventP18QAbstractIte'
+           'mModelRK20QStyleOptionViewItemRK11QModelIndex',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+               ('address', 'address', 'QtCore:QAbstractItemModel'),
+               ('address', 'value', 'QtWidgets:QStyleOptionViewItem'),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'helpEvent': (
+          ('_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstractI'
+           'temViewRK20QStyleOptionViewItemRK11QModelIndex',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtGui:QHelpEvent'),
+               ('address', 'address', 'QtWidgets:QAbstractItemView'),
+               ('address', 'value', 'QtWidgets:QStyleOptionViewItem'),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -271,9 +382,15 @@ class QAbstractItemDelegate(QObject):
     """
     #  QWidget *QAbstractItemDelegate::createEditor(QWidget *parent, const
     #      QStyleOptionViewItem &option, const QModelIndex &index) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK21QAbstractItemDelegate12createEditorEP7QWidgetRK20QStyl'
-        'eOptionViewItemRK11QModelIndex',
+        'eOptionViewItemRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QAbstractItemDelegate12createEditorEP7QWidgetRK2'
+          '0QStyleOptionViewItemRK11QModelIndex')
+    address = self.uglySide.call(
+        ritual,
         self._addressOf(parent), self._valueOf(option), self._valueOf(index),
     )
     from . import QWidget
@@ -310,11 +427,14 @@ class QAbstractItemDelegate(QObject):
     """
     #  void QAbstractItemDelegate::setEditorData(QWidget *editor, const
     #      QModelIndex &index) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK21QAbstractItemDelegate13setEditorDataEP7QWidgetRK11QMod'
-        'elIndex',
-        self._addressOf(editor), self._valueOf(index),
-    )
+        'elIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QAbstractItemDelegate13setEditorDataEP7QWidgetRK'
+          '11QModelIndex')
+    self.uglySide.call(ritual, self._addressOf(editor), self._valueOf(index))
 
   @overload(QWidget, QAbstractItemModel, QModelIndex)
   @overload(QWidget, NoneType, QModelIndex)
@@ -350,9 +470,15 @@ class QAbstractItemDelegate(QObject):
     """
     #  void QAbstractItemDelegate::setModelData(QWidget *editor,
     #      QAbstractItemModel *model, const QModelIndex &index) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK21QAbstractItemDelegate12setModelDataEP7QWidgetP18QAbstr'
-        'actItemModelRK11QModelIndex',
+        'actItemModelRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QAbstractItemDelegate12setModelDataEP7QWidgetP18'
+          'QAbstractItemModelRK11QModelIndex')
+    self.uglySide.call(
+        ritual,
         self._addressOf(editor), self._addressOf(model),
         self._valueOf(index),
     )
@@ -454,11 +580,14 @@ class QAbstractItemDelegate(QObject):
     """
     #  void QAbstractItemDelegate::destroyEditor(QWidget *editor, const
     #      QModelIndex &index) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK21QAbstractItemDelegate13destroyEditorEP7QWidgetRK11QMod'
-        'elIndex',
-        self._addressOf(editor), self._valueOf(index),
-    )
+        'elIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QAbstractItemDelegate13destroyEditorEP7QWidgetRK'
+          '11QModelIndex')
+    self.uglySide.call(ritual, self._addressOf(editor), self._valueOf(index))
 
   @overload(QWidget, QStyleOptionViewItem, QModelIndex)
   @overload(NoneType, QStyleOptionViewItem, QModelIndex)
@@ -494,9 +623,15 @@ class QAbstractItemDelegate(QObject):
     #  void QAbstractItemDelegate::updateEditorGeometry(QWidget *editor,
     #      const QStyleOptionViewItem &option, const QModelIndex &index)
     #      const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK21QAbstractItemDelegate20updateEditorGeometryEP7QWidgetR'
-        'K20QStyleOptionViewItemRK11QModelIndex',
+        'K20QStyleOptionViewItemRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QAbstractItemDelegate20updateEditorGeometryEP7QW'
+          'idgetRK20QStyleOptionViewItemRK11QModelIndex')
+    self.uglySide.call(
+        ritual,
         self._addressOf(editor), self._valueOf(option), self._valueOf(index),
     )
 
@@ -541,9 +676,15 @@ class QAbstractItemDelegate(QObject):
     #  bool QAbstractItemDelegate::editorEvent(QEvent *event,
     #      QAbstractItemModel *model, const QStyleOptionViewItem &option,
     #      const QModelIndex &index)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN21QAbstractItemDelegate11editorEventEP6QEventP18QAbstract'
-        'ItemModelRK20QStyleOptionViewItemRK11QModelIndex',
+        'ItemModelRK20QStyleOptionViewItemRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN21QAbstractItemDelegate11editorEventEP6QEventP18QAb'
+          'stractItemModelRK20QStyleOptionViewItemRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(event), self._addressOf(model),
         self._valueOf(option), self._valueOf(index),
     )
@@ -624,9 +765,15 @@ class QAbstractItemDelegate(QObject):
     #  bool QAbstractItemDelegate::helpEvent(QHelpEvent *event,
     #      QAbstractItemView *view, const QStyleOptionViewItem &option, const
     #      QModelIndex &index)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstra'
-        'ctItemViewRK20QStyleOptionViewItemRK11QModelIndex',
+        'ctItemViewRK20QStyleOptionViewItemRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17Q'
+          'AbstractItemViewRK20QStyleOptionViewItemRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(event), self._addressOf(view), self._valueOf(option),
         self._valueOf(index),
     )

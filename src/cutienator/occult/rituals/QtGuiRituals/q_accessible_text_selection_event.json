@@ -19,6 +19,9 @@
     ],
     "ritual_ZNK29QAccessibleTextSelectionEvent12selectionEndEv": [
       "int", "address"
+    ],
+    "ritual_take_QAccessibleTextSelectionEvent": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

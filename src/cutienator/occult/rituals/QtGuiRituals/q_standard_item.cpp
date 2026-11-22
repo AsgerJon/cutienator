@@ -8,17 +8,111 @@
 #include <QtCore/qsize.h>
 #include <QtGui/qfont.h>
 #include <QtGui/qbrush.h>
+#include <cstring>
+
+//  A QStandardItem that Python can take functions over in. Every QStandardItem
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef const QVariant * (*CuteQStandardItemCall0)(const void *, int, int *);
+typedef void (*CuteQStandardItemCall1)(const void *, const QModelRoleDataSpan *, int *);
+typedef void (*CuteQStandardItemCall2)(const void *, const QVariant *, int, int *);
+typedef void * (*CuteQStandardItemCall3)(const void *, int *);
+typedef int (*CuteQStandardItemCall4)(const void *, int *);
+class CuteQStandardItem : public QStandardItem {
+public:
+  using QStandardItem::QStandardItem;
+  void *taken[5] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK13QStandardItem4dataEi")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QStandardItem9multiDataE18QModelRoleDataSpan")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QStandardItem7setDataERK8QVarianti")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QStandardItem5cloneEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QStandardItem4typeEv")) {
+      taken[4] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QVariant QStandardItem::data(int role) const
+  QVariant data(int role) const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQStandardItemCall0 call = reinterpret_cast<CuteQStandardItemCall0>(taken[0]);
+      const QVariant * given = call(this, role, &handled);
+      if (handled && given) return *given;
+    }
+    return QStandardItem::data(role);
+  }
+
+  //  void QStandardItem::multiData(QModelRoleDataSpan roleDataSpan) const
+  void multiData(QModelRoleDataSpan roleDataSpan) const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQStandardItemCall1 call = reinterpret_cast<CuteQStandardItemCall1>(taken[1]);
+      call(this, &roleDataSpan, &handled);
+      if (handled) return;
+    }
+    QStandardItem::multiData(roleDataSpan);
+  }
+
+  //  void QStandardItem::setData(const QVariant &value, int role)
+  void setData(const QVariant &value, int role) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQStandardItemCall2 call = reinterpret_cast<CuteQStandardItemCall2>(taken[2]);
+      call(this, &value, role, &handled);
+      if (handled) return;
+    }
+    QStandardItem::setData(value, role);
+  }
+
+  //  QStandardItem *QStandardItem::clone() const
+  QStandardItem *clone() const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQStandardItemCall3 call = reinterpret_cast<CuteQStandardItemCall3>(taken[3]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QStandardItem *>(given);
+    }
+    return QStandardItem::clone();
+  }
+
+  //  int QStandardItem::type() const
+  int type() const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQStandardItemCall4 call = reinterpret_cast<CuteQStandardItemCall4>(taken[4]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QStandardItem::type();
+  }
+};
 
 //  QStandardItem::QStandardItem()
 extern "C" Q_DECL_EXPORT
 QStandardItem *ritual_ZN13QStandardItemC1Ev() {
-  return new QStandardItem();
+  return new CuteQStandardItem();
 }
 
 //  QStandardItem::QStandardItem(const QString &text)
 extern "C" Q_DECL_EXPORT
 QStandardItem *ritual_ZN13QStandardItemC1ERK7QString(const QString *text) {
-  return new QStandardItem(*text);
+  return new CuteQStandardItem(*text);
 }
 
 //  QStandardItem::QStandardItem(const QIcon &icon, const QString &text)
@@ -26,13 +120,13 @@ extern "C" Q_DECL_EXPORT
 QStandardItem *ritual_ZN13QStandardItemC1ERK5QIconRK7QString(
     const QIcon *icon,
     const QString *text) {
-  return new QStandardItem(*icon, *text);
+  return new CuteQStandardItem(*icon, *text);
 }
 
 //  QStandardItem::QStandardItem(int rows, int columns)
 extern "C" Q_DECL_EXPORT
 QStandardItem *ritual_ZN13QStandardItemC1Eii(int rows, int columns) {
-  return new QStandardItem(rows, columns);
+  return new CuteQStandardItem(rows, columns);
 }
 
 //  QStandardItem::~QStandardItem()
@@ -571,4 +665,52 @@ QStandardItem *ritual_ZNK13QStandardItem5cloneEv(const QStandardItem *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK13QStandardItem4typeEv(const QStandardItem *self) {
   return self->type();
+}
+
+//  a Python function taken by a CuteQStandardItem, for the function named by
+//      the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QStandardItem(
+    QStandardItem *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQStandardItem *>(self)->take(key, call);
+}
+
+//  QVariant QStandardItem::data(int role) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZNK13QStandardItem4dataEi(
+    const QStandardItem *self,
+    int role) {
+  return new QVariant(self->QStandardItem::data(role));
+}
+
+//  void QStandardItem::multiData(QModelRoleDataSpan roleDataSpan) const
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZNK13QStandardItem9multiDataE18QModelRoleDataSpan(
+    const QStandardItem *self,
+    const QModelRoleDataSpan *roleDataSpan) {
+  self->QStandardItem::multiData(*roleDataSpan);
+}
+
+//  void QStandardItem::setData(const QVariant &value, int role)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QStandardItem7setDataERK8QVarianti(
+    QStandardItem *self,
+    const QVariant *value,
+    int role) {
+  self->QStandardItem::setData(*value, role);
+}
+
+//  QStandardItem *QStandardItem::clone() const
+extern "C" Q_DECL_EXPORT
+QStandardItem *ritual_own_ZNK13QStandardItem5cloneEv(
+    const QStandardItem *self) {
+  return self->QStandardItem::clone();
+}
+
+//  int QStandardItem::type() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK13QStandardItem4typeEv(const QStandardItem *self) {
+  return self->QStandardItem::type();
 }

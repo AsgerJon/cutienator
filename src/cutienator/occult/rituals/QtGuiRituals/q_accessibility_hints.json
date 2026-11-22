@@ -14,6 +14,14 @@
     "ritual_ZNK19QAccessibilityHints18contrastPreferenceEv": [
       "int", "address"
     ],
-    "ritual_ZNK19QAccessibilityHints16motionPreferenceEv": ["int", "address"]
+    "ritual_ZNK19QAccessibilityHints16motionPreferenceEv": [
+      "int", "address"
+    ],
+    "ritual_take_QAccessibilityHints": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QAccessibilityHints5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
   }
 }

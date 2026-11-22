@@ -33,6 +33,29 @@
       "bool", "address", "address"
     ],
     "ritual_ZNK20QGraphicsPolygonItem10opaqueAreaEv": ["address", "address"],
-    "ritual_ZNK20QGraphicsPolygonItem4typeEv": ["int", "address"]
+    "ritual_ZNK20QGraphicsPolygonItem4typeEv": ["int", "address"],
+    "ritual_take_QGraphicsPolygonItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QGraphicsPolygonItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QGraphicsPolygonItem5shapeEv": ["address", "address"],
+    "ritual_own_ZNK20QGraphicsPolygonItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsPolygonItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK20QGraphicsPolygonItem12isObscuredByEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK20QGraphicsPolygonItem10opaqueAreaEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QGraphicsPolygonItem4typeEv": ["int", "address"],
+    "ritual_own_ZNK20QGraphicsPolygonItem9extensionERK8QVariant": [
+      "address", "address", "address"
+    ]
   }
 }

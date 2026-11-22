@@ -62,6 +62,26 @@
     "ritual_ZN9QIODevice9ungetCharEc": ["nothing", "address", "char"],
     "ritual_ZN9QIODevice7putCharEc": ["bool", "address", "char"],
     "ritual_ZNK9QIODevice11errorStringEv": ["text", "address"],
-    "ritual_cast_QIODevice_QIODeviceBase": ["address", "address"]
+    "ritual_cast_QIODevice_QIODeviceBase": ["address", "address"],
+    "ritual_take_QIODevice": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK9QIODevice12isSequentialEv": ["bool", "address"],
+    "ritual_own_ZN9QIODevice5closeEv": ["nothing", "address"],
+    "ritual_own_ZNK9QIODevice3posEv": ["long long", "address"],
+    "ritual_own_ZNK9QIODevice4sizeEv": ["long long", "address"],
+    "ritual_own_ZN9QIODevice4seekEx": ["bool", "address", "long long"],
+    "ritual_own_ZNK9QIODevice5atEndEv": ["bool", "address"],
+    "ritual_own_ZN9QIODevice5resetEv": ["bool", "address"],
+    "ritual_own_ZNK9QIODevice14bytesAvailableEv": ["long long", "address"],
+    "ritual_own_ZNK9QIODevice12bytesToWriteEv": ["long long", "address"],
+    "ritual_own_ZNK9QIODevice11canReadLineEv": ["bool", "address"],
+    "ritual_own_ZN9QIODevice16waitForReadyReadEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN9QIODevice19waitForBytesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN9QIODevice8skipDataEx": [
+      "long long", "address", "long long"
+    ]
   }
 }

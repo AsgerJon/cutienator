@@ -20,13 +20,21 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QEvent, QMetaObject, QPoint, QSize
-  from . import QMenu
+  from ..QtGui import QContextMenuEvent, QHideEvent, QMouseEvent, QPaintEvent
+  from ..QtGui import QWheelEvent
+  from . import QMenu, QStyleOptionSlider
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QContextMenuEvent = WAIT['QContextMenuEvent']
   QEvent = WAIT['QEvent']
+  QHideEvent = WAIT['QHideEvent']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QPoint = WAIT['QPoint']
+  QStyleOptionSlider = WAIT['QStyleOptionSlider']
+  QWheelEvent = WAIT['QWheelEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -45,9 +53,10 @@ class QScrollBar(QAbstractSlider):
   -----------
 
   Every function of Qt's QScrollBar that has a ritual and that Python can
-  call so far, 5 names in all: 'metaObject', 'tr', 'sizeHint', 'event',
-  'createStandardContextMenu'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  call so far, 13 names in all: 'metaObject', 'tr', 'sizeHint', 'event',
+  'createStandardContextMenu', 'wheelEvent', 'paintEvent', 'mousePressEvent',
+  'mouseReleaseEvent', 'mouseMoveEvent', 'hideEvent', 'contextMenuEvent',
+  'initStyleOption'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -58,8 +67,8 @@ class QScrollBar(QAbstractSlider):
   What has no ritual
   ------------------
 
-  17 of the 25 functions Qt declares: 9 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  9 of the 25 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -130,6 +139,25 @@ class QScrollBar(QAbstractSlider):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QScrollBar'
 
+  #  A C++ QScrollBar Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QScrollBar'
+
+  #  The functions Qt calls itself that QScrollBar is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK10QScrollBar15initStyleOptionEP18QStyleOptionSlider',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionSlider'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -173,7 +201,10 @@ class QScrollBar(QAbstractSlider):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QScrollBar::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK10QScrollBar8sizeHintEv')
+    ritual = 'ritual_ZNK10QScrollBar8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QScrollBar8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -281,9 +312,10 @@ class QScrollBar(QAbstractSlider):
       object.
     """
     #  bool QScrollBar::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_ZN10QScrollBar5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN10QScrollBar5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QScrollBar5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QPoint)
   def createStandardContextMenu(self, position: QPoint) -> Optional[QMenu]:
@@ -315,3 +347,172 @@ class QScrollBar(QAbstractSlider):
     )
     from . import QMenu
     return QMenu._cuteAt(address)
+
+  @overload(QWheelEvent)
+  @overload(NoneType)
+  def wheelEvent(self, a0: Optional[QWheelEvent]) -> None:
+    """
+    Calls Qt's 'void QScrollBar::wheelEvent(QWheelEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollbar.html#wheelEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QWheelEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QScrollBar::wheelEvent(QWheelEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN10QScrollBar10wheelEventEP11QWheelEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QScrollBar::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollbar.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QScrollBar::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN10QScrollBar10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QScrollBar::mousePressEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollbar.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QScrollBar::mousePressEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN10QScrollBar15mousePressEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QScrollBar::mouseReleaseEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollbar.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QScrollBar::mouseReleaseEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN10QScrollBar17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QScrollBar::mouseMoveEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollbar.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QScrollBar::mouseMoveEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN10QScrollBar14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QHideEvent)
+  @overload(NoneType)
+  def hideEvent(self, a0: Optional[QHideEvent]) -> None:
+    """
+    Calls Qt's 'void QScrollBar::hideEvent(QHideEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollbar.html#hideEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QHideEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QScrollBar::hideEvent(QHideEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN10QScrollBar9hideEventEP10QHideEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QContextMenuEvent)
+  @overload(NoneType)
+  def contextMenuEvent(self, a0: Optional[QContextMenuEvent]) -> None:
+    """
+    Calls Qt's 'void QScrollBar::contextMenuEvent(QContextMenuEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollbar.html#contextMenuEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QContextMenuEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QScrollBar::contextMenuEvent(QContextMenuEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN10QScrollBar16contextMenuEventEP17QContextMenuEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QStyleOptionSlider)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOptionSlider]) -> None:
+    """
+    Calls Qt's 'void QScrollBar::initStyleOption(QStyleOptionSlider *option)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollbar.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionSlider]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QScrollBar::initStyleOption(QStyleOptionSlider *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK10QScrollBar15initStyleOptionEP18QStyleOptionSlider',
+        self._addressOf(option),
+    )

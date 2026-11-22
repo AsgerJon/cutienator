@@ -20,7 +20,7 @@ from . import QCommonStyle, QSizePolicy, QStyle
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QPoint, QRect, QSize
+  from ..QtCore import QEvent, QMetaObject, QPoint, QRect, QSize
   from ..QtGui import QFontMetrics, QPainter, QPixmap
   from . import QApplication, QStyleHintReturn, QStyleOption
   from . import QStyleOptionComplex, QWidget
@@ -29,6 +29,7 @@ else:
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QApplication = WAIT['QApplication']
+  QEvent = WAIT['QEvent']
   QFontMetrics = WAIT['QFontMetrics']
   QPainter = WAIT['QPainter']
   QPixmap = WAIT['QPixmap']
@@ -57,13 +58,13 @@ class QProxyStyle(QCommonStyle):
   -----------
 
   Every function of Qt's QProxyStyle that has a ritual and that Python can
-  call so far, 24 names in all: 'metaObject', 'tr', 'baseStyle',
+  call so far, 25 names in all: 'metaObject', 'tr', 'baseStyle',
   'setBaseStyle', 'drawPrimitive', 'drawControl', 'drawComplexControl',
   'drawItemText', 'drawItemPixmap', 'sizeFromContents', 'subElementRect',
   'subControlRect', 'itemTextRect', 'itemPixmapRect',
   'hitTestComplexControl', 'styleHint', 'pixelMetric', 'layoutSpacing',
   'standardIcon', 'standardPixmap', 'generatedIconPixmap', 'standardPalette',
-  'polish', 'unpolish'. It can be made from Python, in 2 ways; see
+  'polish', 'unpolish', 'event'. It can be made from Python, in 2 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
@@ -75,8 +76,8 @@ class QProxyStyle(QCommonStyle):
   What has no ritual
   ------------------
 
-  10 of the 39 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template; 1 protected.
+  9 of the 39 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 3 private; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -148,6 +149,11 @@ class QProxyStyle(QCommonStyle):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QProxyStyle'
+
+  #  A C++ QProxyStyle Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QProxyStyle'
 
   #  Fallback Variables
 
@@ -239,9 +245,15 @@ class QProxyStyle(QCommonStyle):
     #  QSize QProxyStyle::sizeFromContents(ContentsType type, const
     #      QStyleOption *option, const QSize &size, const QWidget *widget)
     #      const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle16sizeFromContentsEN6QStyle12ContentsTypeEP'
-        'K12QStyleOptionRK5QSizePK7QWidget',
+        'K12QStyleOptionRK5QSizePK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle16sizeFromContentsEN6QStyle12Contents'
+          'TypeEPK12QStyleOptionRK5QSizePK7QWidget')
+    address = self.uglySide.call(
+        ritual,
         type.value, self._addressOf(option), self._valueOf(size),
         self._addressOf(widget),
     )
@@ -286,9 +298,15 @@ class QProxyStyle(QCommonStyle):
     """
     #  QRect QProxyStyle::subElementRect(SubElement element, const
     #      QStyleOption *option, const QWidget *widget) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle14subElementRectEN6QStyle10SubElementEPK12Q'
-        'StyleOptionPK7QWidget',
+        'StyleOptionPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle14subElementRectEN6QStyle10SubElement'
+          'EPK12QStyleOptionPK7QWidget')
+    address = self.uglySide.call(
+        ritual,
         element.value, self._addressOf(option), self._addressOf(widget),
     )
     from ..QtCore import QRect
@@ -342,9 +360,15 @@ class QProxyStyle(QCommonStyle):
     #  QRect QProxyStyle::subControlRect(ComplexControl cc, const
     #      QStyleOptionComplex *opt, SubControl sc, const QWidget *widget)
     #      const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle14subControlRectEN6QStyle14ComplexControlEP'
-        'K19QStyleOptionComplexNS0_10SubControlEPK7QWidget',
+        'K19QStyleOptionComplexNS0_10SubControlEPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle14subControlRectEN6QStyle14ComplexCon'
+          'trolEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget')
+    address = self.uglySide.call(
+        ritual,
         cc.value, self._addressOf(opt), sc.value, self._addressOf(widget),
     )
     from ..QtCore import QRect
@@ -429,9 +453,12 @@ class QProxyStyle(QCommonStyle):
     """
     #  QRect QProxyStyle::itemPixmapRect(const QRect &r, int flags, const
     #      QPixmap &pixmap) const
+    ritual = 'ritual_ZNK11QProxyStyle14itemPixmapRectERK5QRectiRK7QPixmap'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle14itemPixmapRectERK5QRectiRK7QPixmap')
     address = self.uglySide.call(
-        'ritual_ZNK11QProxyStyle14itemPixmapRectERK5QRectiRK7QPixmap',
-        self._valueOf(r), flags, self._valueOf(pixmap),
+        ritual, self._valueOf(r), flags, self._valueOf(pixmap),
     )
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
@@ -486,9 +513,15 @@ class QProxyStyle(QCommonStyle):
     #  SubControl QProxyStyle::hitTestComplexControl(ComplexControl control,
     #      const QStyleOptionComplex *option, const QPoint &pos, const
     #      QWidget *widget) const
-    return QStyle.SubControl(self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle21hitTestComplexControlEN6QStyle14ComplexCo'
-        'ntrolEPK19QStyleOptionComplexRK6QPointPK7QWidget',
+        'ntrolEPK19QStyleOptionComplexRK6QPointPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle21hitTestComplexControlEN6QStyle14Com'
+          'plexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget')
+    return QStyle.SubControl(self.uglySide.call(
+        ritual,
         control.value, self._addressOf(option), self._valueOf(pos),
         self._addressOf(widget),
     ))
@@ -541,9 +574,15 @@ class QProxyStyle(QCommonStyle):
     """
     #  int QProxyStyle::styleHint(StyleHint hint, const QStyleOption *option,
     #      const QWidget *widget, QStyleHintReturn *returnData) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOpt'
-        'ionPK7QWidgetP16QStyleHintReturn',
+        'ionPK7QWidgetP16QStyleHintReturn')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle9styleHintEN6QStyle9StyleHintEPK12QSt'
+          'yleOptionPK7QWidgetP16QStyleHintReturn')
+    return self.uglySide.call(
+        ritual,
         hint.value, self._addressOf(option), self._addressOf(widget),
         self._addressOf(returnData),
     )
@@ -583,9 +622,15 @@ class QProxyStyle(QCommonStyle):
     """
     #  int QProxyStyle::pixelMetric(PixelMetric metric, const QStyleOption
     #      *option, const QWidget *widget) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle11pixelMetricEN6QStyle11PixelMetricEPK12QSt'
-        'yleOptionPK7QWidget',
+        'yleOptionPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle11pixelMetricEN6QStyle11PixelMetricEP'
+          'K12QStyleOptionPK7QWidget')
+    return self.uglySide.call(
+        ritual,
         metric.value, self._addressOf(option), self._addressOf(widget),
     )
 
@@ -652,9 +697,15 @@ class QProxyStyle(QCommonStyle):
     #  int QProxyStyle::layoutSpacing(QSizePolicy::ControlType control1,
     #      QSizePolicy::ControlType control2, Qt::Orientation orientation,
     #      const QStyleOption *option, const QWidget *widget) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle13layoutSpacingEN11QSizePolicy11ControlType'
-        'ES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget',
+        'ES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle13layoutSpacingEN11QSizePolicy11Contr'
+          'olTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget')
+    return self.uglySide.call(
+        ritual,
         control1.value, control2.value, orientation.value,
         self._addressOf(option), self._addressOf(widget),
     )
@@ -700,9 +751,15 @@ class QProxyStyle(QCommonStyle):
     """
     #  QIcon QProxyStyle::standardIcon(StandardPixmap standardIcon, const
     #      QStyleOption *option, const QWidget *widget) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle12standardIconEN6QStyle14StandardPixmapEPK1'
-        '2QStyleOptionPK7QWidget',
+        '2QStyleOptionPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle12standardIconEN6QStyle14StandardPixm'
+          'apEPK12QStyleOptionPK7QWidget')
+    address = self.uglySide.call(
+        ritual,
         standardIcon.value, self._addressOf(option), self._addressOf(widget),
     )
     return QIcon._cuteOwning(address)
@@ -747,9 +804,15 @@ class QProxyStyle(QCommonStyle):
     """
     #  QPixmap QProxyStyle::standardPixmap(StandardPixmap standardPixmap,
     #      const QStyleOption *opt, const QWidget *widget) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle14standardPixmapEN6QStyle14StandardPixmapEP'
-        'K12QStyleOptionPK7QWidget',
+        'K12QStyleOptionPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle14standardPixmapEN6QStyle14StandardPi'
+          'xmapEPK12QStyleOptionPK7QWidget')
+    address = self.uglySide.call(
+        ritual,
         standardPixmap.value, self._addressOf(opt), self._addressOf(widget),
     )
     from ..QtGui import QPixmap
@@ -792,10 +855,15 @@ class QProxyStyle(QCommonStyle):
     """
     #  QPixmap QProxyStyle::generatedIconPixmap(QIcon::Mode iconMode, const
     #      QPixmap &pixmap, const QStyleOption *opt) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixm'
-        'apPK12QStyleOption',
-        iconMode.value, self._valueOf(pixmap), self._addressOf(opt),
+        'apPK12QStyleOption')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle19generatedIconPixmapEN5QIcon4ModeERK'
+          '7QPixmapPK12QStyleOption')
+    address = self.uglySide.call(
+        ritual, iconMode.value, self._valueOf(pixmap), self._addressOf(opt),
     )
     from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
@@ -813,9 +881,10 @@ class QProxyStyle(QCommonStyle):
       A new cute QPalette around the copy Qt gave back. Python owns it.
     """
     #  QPalette QProxyStyle::standardPalette() const
-    address = self.uglySide.call(
-        'ritual_ZNK11QProxyStyle15standardPaletteEv',
-    )
+    ritual = 'ritual_ZNK11QProxyStyle15standardPaletteEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QProxyStyle15standardPaletteEv'
+    address = self.uglySide.call(ritual)
     return QPalette._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -963,9 +1032,15 @@ class QProxyStyle(QCommonStyle):
     #  void QProxyStyle::drawPrimitive(PrimitiveElement element, const
     #      QStyleOption *option, QPainter *painter, const QWidget *widget)
     #      const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle13drawPrimitiveEN6QStyle16PrimitiveElementE'
-        'PK12QStyleOptionP8QPainterPK7QWidget',
+        'PK12QStyleOptionP8QPainterPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle13drawPrimitiveEN6QStyle16PrimitiveEl'
+          'ementEPK12QStyleOptionP8QPainterPK7QWidget')
+    self.uglySide.call(
+        ritual,
         element.value, self._addressOf(option), self._addressOf(painter),
         self._addressOf(widget),
     )
@@ -1016,9 +1091,15 @@ class QProxyStyle(QCommonStyle):
     #  void QProxyStyle::drawControl(ControlElement element, const
     #      QStyleOption *option, QPainter *painter, const QWidget *widget)
     #      const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle11drawControlEN6QStyle14ControlElementEPK12'
-        'QStyleOptionP8QPainterPK7QWidget',
+        'QStyleOptionP8QPainterPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle11drawControlEN6QStyle14ControlElemen'
+          'tEPK12QStyleOptionP8QPainterPK7QWidget')
+    self.uglySide.call(
+        ritual,
         element.value, self._addressOf(option), self._addressOf(painter),
         self._addressOf(widget),
     )
@@ -1071,9 +1152,15 @@ class QProxyStyle(QCommonStyle):
     #  void QProxyStyle::drawComplexControl(ComplexControl control, const
     #      QStyleOptionComplex *option, QPainter *painter, const QWidget
     #      *widget) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle18drawComplexControlEN6QStyle14ComplexContr'
-        'olEPK19QStyleOptionComplexP8QPainterPK7QWidget',
+        'olEPK19QStyleOptionComplexP8QPainterPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle18drawComplexControlEN6QStyle14Comple'
+          'xControlEPK19QStyleOptionComplexP8QPainterPK7QWidget')
+    self.uglySide.call(
+        ritual,
         control.value, self._addressOf(option), self._addressOf(painter),
         self._addressOf(widget),
     )
@@ -1170,9 +1257,15 @@ class QProxyStyle(QCommonStyle):
     """
     #  void QProxyStyle::drawItemPixmap(QPainter *painter, const QRect &rect,
     #      int alignment, const QPixmap &pixmap) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QProxyStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPix'
-        'map',
+        'map')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QProxyStyle14drawItemPixmapEP8QPainterRK5QRectiR'
+          'K7QPixmap')
+    self.uglySide.call(
+        ritual,
         self._addressOf(painter), self._valueOf(rect), alignment,
         self._valueOf(pixmap),
     )
@@ -1193,9 +1286,10 @@ class QProxyStyle(QCommonStyle):
       object.
     """
     #  void QProxyStyle::polish(QWidget *widget)
-    self.uglySide.call(
-        'ritual_ZN11QProxyStyle6polishEP7QWidget', self._addressOf(widget),
-    )
+    ritual = 'ritual_ZN11QProxyStyle6polishEP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QProxyStyle6polishEP7QWidget'
+    self.uglySide.call(ritual, self._addressOf(widget))
 
   @overload(QApplication)
   def polish(self, app: Optional[QApplication]) -> None:
@@ -1212,10 +1306,10 @@ class QProxyStyle(QCommonStyle):
       object.
     """
     #  void QProxyStyle::polish(QApplication *app)
-    self.uglySide.call(
-        'ritual_ZN11QProxyStyle6polishEP12QApplication',
-        self._addressOf(app),
-    )
+    ritual = 'ritual_ZN11QProxyStyle6polishEP12QApplication'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QProxyStyle6polishEP12QApplication'
+    self.uglySide.call(ritual, self._addressOf(app))
 
   @overload(QWidget)
   @overload(NoneType)
@@ -1233,9 +1327,10 @@ class QProxyStyle(QCommonStyle):
       object.
     """
     #  void QProxyStyle::unpolish(QWidget *widget)
-    self.uglySide.call(
-        'ritual_ZN11QProxyStyle8unpolishEP7QWidget', self._addressOf(widget),
-    )
+    ritual = 'ritual_ZN11QProxyStyle8unpolishEP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QProxyStyle8unpolishEP7QWidget'
+    self.uglySide.call(ritual, self._addressOf(widget))
 
   @overload(QApplication)
   def unpolish(self, app: Optional[QApplication]) -> None:
@@ -1252,7 +1347,27 @@ class QProxyStyle(QCommonStyle):
       object.
     """
     #  void QProxyStyle::unpolish(QApplication *app)
-    self.uglySide.call(
-        'ritual_ZN11QProxyStyle8unpolishEP12QApplication',
-        self._addressOf(app),
+    ritual = 'ritual_ZN11QProxyStyle8unpolishEP12QApplication'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QProxyStyle8unpolishEP12QApplication'
+    self.uglySide.call(ritual, self._addressOf(app))
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QProxyStyle::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qproxystyle.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QProxyStyle::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN11QProxyStyle5eventEP6QEvent', self._addressOf(e),
     )

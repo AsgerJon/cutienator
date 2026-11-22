@@ -20,14 +20,30 @@ from . import QAbstractItemView, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QModelIndex, QPoint, QRect, QSize
+  from ..QtCore import QEvent, QItemSelection, QMetaObject, QModelIndex
+  from ..QtCore import QPoint, QRect, QSize, QTimerEvent
+  from ..QtGui import QDragLeaveEvent, QDragMoveEvent, QDropEvent
+  from ..QtGui import QMouseEvent, QPaintEvent, QRegion, QResizeEvent
+  from ..QtGui import QWheelEvent
+  from . import QStyleOptionViewItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QDragLeaveEvent = WAIT['QDragLeaveEvent']
+  QDragMoveEvent = WAIT['QDragMoveEvent']
+  QDropEvent = WAIT['QDropEvent']
+  QEvent = WAIT['QEvent']
+  QItemSelection = WAIT['QItemSelection']
   QModelIndex = WAIT['QModelIndex']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QPoint = WAIT['QPoint']
+  QResizeEvent = WAIT['QResizeEvent']
   QSize = WAIT['QSize']
+  QStyleOptionViewItem = WAIT['QStyleOptionViewItem']
+  QTimerEvent = WAIT['QTimerEvent']
+  QWheelEvent = WAIT['QWheelEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -46,7 +62,7 @@ class QListView(QAbstractItemView):
   -----------
 
   Every function of Qt's QListView that has a ritual and that Python can call
-  so far, 39 names in all: 'metaObject', 'tr', 'setMovement', 'movement',
+  so far, 61 names in all: 'metaObject', 'tr', 'setMovement', 'movement',
   'setFlow', 'flow', 'setWrapping', 'isWrapping', 'setResizeMode',
   'resizeMode', 'setLayoutMode', 'layoutMode', 'setSpacing', 'spacing',
   'setBatchSize', 'batchSize', 'setGridSize', 'gridSize', 'setViewMode',
@@ -55,7 +71,13 @@ class QListView(QAbstractItemView):
   'setWordWrap', 'wordWrap', 'setSelectionRectVisible',
   'isSelectionRectVisible', 'setItemAlignment', 'itemAlignment',
   'visualRect', 'scrollTo', 'indexAt', 'doItemsLayout', 'reset',
-  'setRootIndex'. It can be made from Python, in 1 way; see '__init__'.
+  'setRootIndex', 'event', 'scrollContentsBy', 'rowsInserted',
+  'rowsAboutToBeRemoved', 'mouseMoveEvent', 'mouseReleaseEvent',
+  'wheelEvent', 'timerEvent', 'resizeEvent', 'dragMoveEvent',
+  'dragLeaveEvent', 'dropEvent', 'initViewItemOption', 'paintEvent',
+  'horizontalOffset', 'verticalOffset', 'visualRegionForSelection',
+  'updateGeometries', 'isIndexHidden', 'selectionChanged', 'currentChanged',
+  'viewportSizeHint'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,7 +88,7 @@ class QListView(QAbstractItemView):
   What has no ritual
   ------------------
 
-  42 of the 83 functions Qt declares: 32 protected; 4 private; 2 takes or
+  20 of the 83 functions Qt declares: 10 protected; 4 private; 2 takes or
   gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1 a
   signal.
 
@@ -180,6 +202,11 @@ class QListView(QAbstractItemView):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QListView'
+
+  #  A C++ QListView Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QListView'
 
   #  Fallback Variables
 
@@ -438,10 +465,10 @@ class QListView(QAbstractItemView):
       A new cute QRect around the copy Qt gave back. Python owns it.
     """
     #  QRect QListView::visualRect(const QModelIndex &index) const
-    address = self.uglySide.call(
-        'ritual_ZNK9QListView10visualRectERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK9QListView10visualRectERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QListView10visualRectERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -466,11 +493,102 @@ class QListView(QAbstractItemView):
       A new cute QModelIndex around the copy Qt gave back. Python owns it.
     """
     #  QModelIndex QListView::indexAt(const QPoint &p) const
-    address = self.uglySide.call(
-        'ritual_ZNK9QListView7indexAtERK6QPoint', self._valueOf(p),
-    )
+    ritual = 'ritual_ZNK9QListView7indexAtERK6QPoint'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QListView7indexAtERK6QPoint'
+    address = self.uglySide.call(ritual, self._valueOf(p))
     from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
+
+  def horizontalOffset(self) -> int:
+    """
+    Calls Qt's 'int QListView::horizontalOffset() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#horizontalOffset
+    """
+    #  int QListView::horizontalOffset() const
+    return self.uglySide.call('ritual_own_ZNK9QListView16horizontalOffsetEv')
+
+  def verticalOffset(self) -> int:
+    """
+    Calls Qt's 'int QListView::verticalOffset() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#verticalOffset
+    """
+    #  int QListView::verticalOffset() const
+    return self.uglySide.call('ritual_own_ZNK9QListView14verticalOffsetEv')
+
+  @overload(QItemSelection)
+  def visualRegionForSelection(self, selection: QItemSelection) -> QRegion:
+    """
+    Calls Qt's 'QRegion QListView::visualRegionForSelection(const
+    QItemSelection &selection) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection
+
+    Parameters
+    ----------
+
+    selection : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QListView::visualRegionForSelection(const QItemSelection
+    #      &selection) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK9QListView24visualRegionForSelectionERK14QItemSelect'
+        'ion',
+        self._valueOf(selection),
+    )
+    from ..QtGui import QRegion
+    return QRegion._cuteOwning(address)
+
+  @overload(QModelIndex)
+  def isIndexHidden(self, index: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool QListView::isIndexHidden(const QModelIndex &index)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#isIndexHidden
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QListView::isIndexHidden(const QModelIndex &index) const
+    return self.uglySide.call(
+        'ritual_own_ZNK9QListView13isIndexHiddenERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  def viewportSizeHint(self) -> QSize:
+    """
+    Calls Qt's 'QSize QListView::viewportSizeHint() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QListView::viewportSizeHint() const
+    address = self.uglySide.call(
+        'ritual_own_ZNK9QListView16viewportSizeHintEv',
+    )
+    from ..QtCore import QSize
+    return QSize._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -751,10 +869,10 @@ class QListView(QAbstractItemView):
       Python's own.
     """
     #  void QListView::setRootIndex(const QModelIndex &index)
-    self.uglySide.call(
-        'ritual_ZN9QListView12setRootIndexERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZN9QListView12setRootIndexERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView12setRootIndexERK11QModelIndex'
+    self.uglySide.call(ritual, self._valueOf(index))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -845,11 +963,14 @@ class QListView(QAbstractItemView):
       QAbstractItemView.ScrollHint.EnsureVisible.
     """
     #  void QListView::scrollTo(const QModelIndex &index, ScrollHint hint)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN9QListView8scrollToERK11QModelIndexN17QAbstractItemView10'
-        'ScrollHintE',
-        self._valueOf(index), hint.value,
-    )
+        'ScrollHintE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QListView8scrollToERK11QModelIndexN17QAbstractItem'
+          'View10ScrollHintE')
+    self.uglySide.call(ritual, self._valueOf(index), hint.value)
 
   def doItemsLayout(self) -> None:
     """
@@ -858,7 +979,10 @@ class QListView(QAbstractItemView):
     Qt's own words: https://doc.qt.io/qt-6/qlistview.html#doItemsLayout
     """
     #  void QListView::doItemsLayout()
-    self.uglySide.call('ritual_ZN9QListView13doItemsLayoutEv')
+    ritual = 'ritual_ZN9QListView13doItemsLayoutEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView13doItemsLayoutEv'
+    self.uglySide.call(ritual)
 
   def reset(self) -> None:
     """
@@ -867,4 +991,394 @@ class QListView(QAbstractItemView):
     Qt's own words: https://doc.qt.io/qt-6/qlistview.html#reset
     """
     #  void QListView::reset()
-    self.uglySide.call('ritual_ZN9QListView5resetEv')
+    ritual = 'ritual_ZN9QListView5resetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView5resetEv'
+    self.uglySide.call(ritual)
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QListView::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QListView::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN9QListView5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(int, int)
+  def scrollContentsBy(self, dx: int, dy: int) -> None:
+    """
+    Calls Qt's 'void QListView::scrollContentsBy(int dx, int dy)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy
+
+    Parameters
+    ----------
+
+    dx : int
+      Passed on as it is.
+
+    dy : int
+      Passed on as it is.
+    """
+    #  void QListView::scrollContentsBy(int dx, int dy)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView16scrollContentsByEii', dx, dy,
+    )
+
+  @overload(QModelIndex, int, int)
+  def rowsInserted(self, parent: QModelIndex, start: int, end: int) -> None:
+    """
+    Calls Qt's 'void QListView::rowsInserted(const QModelIndex &parent, int
+    start, int end)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#rowsInserted
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    start : int
+      Passed on as it is.
+
+    end : int
+      Passed on as it is.
+    """
+    #  void QListView::rowsInserted(const QModelIndex &parent, int start, int
+    #      end)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView12rowsInsertedERK11QModelIndexii',
+        self._valueOf(parent), start, end,
+    )
+
+  @overload(QModelIndex, int, int)
+  def rowsAboutToBeRemoved(
+      self,
+      parent: QModelIndex,
+      start: int,
+      end: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QListView::rowsAboutToBeRemoved(const QModelIndex
+    &parent, int start, int end)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlistview.html#rowsAboutToBeRemoved
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    start : int
+      Passed on as it is.
+
+    end : int
+      Passed on as it is.
+    """
+    #  void QListView::rowsAboutToBeRemoved(const QModelIndex &parent, int
+    #      start, int end)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView20rowsAboutToBeRemovedERK11QModelIndexii',
+        self._valueOf(parent), start, end,
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QListView::mouseMoveEvent(QMouseEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListView::mouseMoveEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QListView::mouseReleaseEvent(QMouseEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListView::mouseReleaseEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QWheelEvent)
+  @overload(NoneType)
+  def wheelEvent(self, e: Optional[QWheelEvent]) -> None:
+    """
+    Calls Qt's 'void QListView::wheelEvent(QWheelEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#wheelEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QWheelEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListView::wheelEvent(QWheelEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView10wheelEventEP11QWheelEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, e: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QListView::timerEvent(QTimerEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#timerEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListView::timerEvent(QTimerEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView10timerEventEP11QTimerEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, e: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QListView::resizeEvent(QResizeEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#resizeEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListView::resizeEvent(QResizeEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView11resizeEventEP12QResizeEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QDragMoveEvent)
+  @overload(NoneType)
+  def dragMoveEvent(self, e: Optional[QDragMoveEvent]) -> None:
+    """
+    Calls Qt's 'void QListView::dragMoveEvent(QDragMoveEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#dragMoveEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QDragMoveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListView::dragMoveEvent(QDragMoveEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView13dragMoveEventEP14QDragMoveEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QDragLeaveEvent)
+  @overload(NoneType)
+  def dragLeaveEvent(self, e: Optional[QDragLeaveEvent]) -> None:
+    """
+    Calls Qt's 'void QListView::dragLeaveEvent(QDragLeaveEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#dragLeaveEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QDragLeaveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListView::dragLeaveEvent(QDragLeaveEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView14dragLeaveEventEP15QDragLeaveEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QDropEvent)
+  @overload(NoneType)
+  def dropEvent(self, e: Optional[QDropEvent]) -> None:
+    """
+    Calls Qt's 'void QListView::dropEvent(QDropEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#dropEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListView::dropEvent(QDropEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView9dropEventEP10QDropEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QStyleOptionViewItem)
+  @overload(NoneType)
+  def initViewItemOption(
+      self,
+      option: Optional[QStyleOptionViewItem],
+  ) -> None:
+    """
+    Calls Qt's 'void QListView::initViewItemOption(QStyleOptionViewItem
+    *option) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#initViewItemOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionViewItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListView::initViewItemOption(QStyleOptionViewItem *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK9QListView18initViewItemOptionEP20QStyleOptionViewIt'
+        'em',
+        self._addressOf(option),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, e: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QListView::paintEvent(QPaintEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#paintEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListView::paintEvent(QPaintEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView10paintEventEP11QPaintEvent',
+        self._addressOf(e),
+    )
+
+  def updateGeometries(self) -> None:
+    """
+    Calls Qt's 'void QListView::updateGeometries()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#updateGeometries
+    """
+    #  void QListView::updateGeometries()
+    self.uglySide.call('ritual_own_ZN9QListView16updateGeometriesEv')
+
+  @overload(QItemSelection, QItemSelection)
+  def selectionChanged(
+      self,
+      selected: QItemSelection,
+      deselected: QItemSelection,
+  ) -> None:
+    """
+    Calls Qt's 'void QListView::selectionChanged(const QItemSelection
+    &selected, const QItemSelection &deselected)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#selectionChanged
+
+    Parameters
+    ----------
+
+    selected : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    deselected : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+    """
+    #  void QListView::selectionChanged(const QItemSelection &selected, const
+    #      QItemSelection &deselected)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView16selectionChangedERK14QItemSelectionS2_',
+        self._valueOf(selected), self._valueOf(deselected),
+    )
+
+  @overload(QModelIndex, QModelIndex)
+  def currentChanged(
+      self,
+      current: QModelIndex,
+      previous: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void QListView::currentChanged(const QModelIndex &current,
+    const QModelIndex &previous)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#currentChanged
+
+    Parameters
+    ----------
+
+    current : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    previous : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QListView::currentChanged(const QModelIndex &current, const
+    #      QModelIndex &previous)
+    self.uglySide.call(
+        'ritual_own_ZN9QListView14currentChangedERK11QModelIndexS2_',
+        self._valueOf(current), self._valueOf(previous),
+    )

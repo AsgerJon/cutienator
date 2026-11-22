@@ -81,6 +81,11 @@ class QScreenOrientationChangeEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QScreenOrientationChangeEvent'
 
+  #  A C++ QScreenOrientationChangeEvent Python makes is of a C++ class of
+  #  ours, in which Python can take functions over. This ritual hands one
+  #  over; see 'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QScreenOrientationChangeEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -110,9 +115,10 @@ class QScreenOrientationChangeEvent(QEvent):
     """
     #  QScreenOrientationChangeEvent *QScreenOrientationChangeEvent::clone()
     #      const
-    address = self.uglySide.call(
-        'ritual_ZNK29QScreenOrientationChangeEvent5cloneEv',
-    )
+    ritual = 'ritual_ZNK29QScreenOrientationChangeEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK29QScreenOrientationChangeEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QScreenOrientationChangeEvent._cuteAt(address)
 
   def screen(self) -> Optional[QScreen]:

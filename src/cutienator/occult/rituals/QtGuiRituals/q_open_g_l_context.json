@@ -45,6 +45,7 @@
     "ritual_ZN14QOpenGLContext16openGLModuleTypeEv": ["int"],
     "ritual_ZNK14QOpenGLContext10isOpenGLESEv": ["bool", "address"],
     "ritual_ZN14QOpenGLContext22supportsThreadedOpenGLEv": ["bool"],
-    "ritual_ZN14QOpenGLContext18globalShareContextEv": ["address"]
+    "ritual_ZN14QOpenGLContext18globalShareContextEv": ["address"],
+    "ritual_take_QOpenGLContext": ["bool", "address", "chars", "address"]
   }
 }

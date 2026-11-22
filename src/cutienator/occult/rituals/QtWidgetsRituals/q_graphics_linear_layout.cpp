@@ -3,12 +3,173 @@
 #include <QtWidgets/qgraphicslinearlayout.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
+#include <cstring>
+
+//  A QGraphicsLinearLayout that Python can take functions over in. Every QGraphicsLinearLayout
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQGraphicsLinearLayoutCall0)(const void *, int, int *);
+typedef void (*CuteQGraphicsLinearLayoutCall1)(const void *, const QRectF *, int *);
+typedef int (*CuteQGraphicsLinearLayoutCall2)(const void *, int *);
+typedef void * (*CuteQGraphicsLinearLayoutCall3)(const void *, int, int *);
+typedef void (*CuteQGraphicsLinearLayoutCall4)(const void *, int *);
+typedef const QSizeF * (*CuteQGraphicsLinearLayoutCall5)(const void *, int, const QSizeF *, int *);
+typedef void (*CuteQGraphicsLinearLayoutCall6)(const void *, int *);
+typedef void (*CuteQGraphicsLinearLayoutCall7)(const void *, QEvent *, int *);
+typedef bool (*CuteQGraphicsLinearLayoutCall8)(const void *, int *);
+class CuteQGraphicsLinearLayout : public QGraphicsLinearLayout {
+public:
+  using QGraphicsLinearLayout::QGraphicsLinearLayout;
+  void *taken[9] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN15QGraphicsLayout8removeAtEi")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK15QGraphicsLayout5countEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK15QGraphicsLayout6itemAtEi")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN15QGraphicsLayout10invalidateEv")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem14updateGeometryEv")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN15QGraphicsLayout11widgetEventEP6QEvent")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem7isEmptyEv")) {
+      taken[8] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QGraphicsLinearLayout::removeAt(int index)
+  void removeAt(int index) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQGraphicsLinearLayoutCall0 call = reinterpret_cast<CuteQGraphicsLinearLayoutCall0>(taken[0]);
+      call(this, index, &handled);
+      if (handled) return;
+    }
+    QGraphicsLinearLayout::removeAt(index);
+  }
+
+  //  void QGraphicsLinearLayout::setGeometry(const QRectF &rect)
+  void setGeometry(const QRectF &rect) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQGraphicsLinearLayoutCall1 call = reinterpret_cast<CuteQGraphicsLinearLayoutCall1>(taken[1]);
+      call(this, &rect, &handled);
+      if (handled) return;
+    }
+    QGraphicsLinearLayout::setGeometry(rect);
+  }
+
+  //  int QGraphicsLinearLayout::count() const
+  int count() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQGraphicsLinearLayoutCall2 call = reinterpret_cast<CuteQGraphicsLinearLayoutCall2>(taken[2]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QGraphicsLinearLayout::count();
+  }
+
+  //  QGraphicsLayoutItem *QGraphicsLinearLayout::itemAt(int index) const
+  QGraphicsLayoutItem *itemAt(int index) const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQGraphicsLinearLayoutCall3 call = reinterpret_cast<CuteQGraphicsLinearLayoutCall3>(taken[3]);
+      void * given = call(this, index, &handled);
+      if (handled) return static_cast<QGraphicsLayoutItem *>(given);
+    }
+    return QGraphicsLinearLayout::itemAt(index);
+  }
+
+  //  void QGraphicsLinearLayout::invalidate()
+  void invalidate() override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQGraphicsLinearLayoutCall4 call = reinterpret_cast<CuteQGraphicsLinearLayoutCall4>(taken[4]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QGraphicsLinearLayout::invalidate();
+  }
+
+  //  QSizeF QGraphicsLinearLayout::sizeHint(Qt::SizeHint which, const
+  //      QSizeF &constraint) const
+  QSizeF sizeHint(
+      Qt::SizeHint which,
+      const QSizeF &constraint) const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQGraphicsLinearLayoutCall5 call = reinterpret_cast<CuteQGraphicsLinearLayoutCall5>(taken[5]);
+      const QSizeF * given = call(this, static_cast<int>(which), &constraint, &handled);
+      if (handled && given) return *given;
+    }
+    return QGraphicsLinearLayout::sizeHint(which, constraint);
+  }
+
+  //  void QGraphicsLayout::updateGeometry()
+  void updateGeometry() override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQGraphicsLinearLayoutCall6 call = reinterpret_cast<CuteQGraphicsLinearLayoutCall6>(taken[6]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QGraphicsLayout::updateGeometry();
+  }
+
+  //  void QGraphicsLayout::widgetEvent(QEvent *e)
+  void widgetEvent(QEvent *e) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQGraphicsLinearLayoutCall7 call = reinterpret_cast<CuteQGraphicsLinearLayoutCall7>(taken[7]);
+      call(this, e, &handled);
+      if (handled) return;
+    }
+    QGraphicsLayout::widgetEvent(e);
+  }
+
+  //  bool QGraphicsLayoutItem::isEmpty() const
+  bool isEmpty() const override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQGraphicsLinearLayoutCall8 call = reinterpret_cast<CuteQGraphicsLinearLayoutCall8>(taken[8]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QGraphicsLayoutItem::isEmpty();
+  }
+};
 
 //  QGraphicsLinearLayout::QGraphicsLinearLayout(QGraphicsLayoutItem *parent)
 extern "C" Q_DECL_EXPORT
 QGraphicsLinearLayout *ritual_ZN21QGraphicsLinearLayoutC1EP19QGraphicsLayoutItem(
     QGraphicsLayoutItem *parent) {
-  return new QGraphicsLinearLayout(parent);
+  return new CuteQGraphicsLinearLayout(parent);
 }
 
 //  QGraphicsLinearLayout::QGraphicsLinearLayout(Qt::Orientation orientation,
@@ -17,7 +178,7 @@ extern "C" Q_DECL_EXPORT
 QGraphicsLinearLayout *ritual_ZN21QGraphicsLinearLayoutC1EN2Qt11OrientationEP19QGraphicsLayoutItem(
     Qt::Orientation orientation,
     QGraphicsLayoutItem *parent) {
-  return new QGraphicsLinearLayout(orientation, parent);
+  return new CuteQGraphicsLinearLayout(orientation, parent);
 }
 
 //  QGraphicsLinearLayout::~QGraphicsLinearLayout()
@@ -207,4 +368,65 @@ void ritual_ZNK21QGraphicsLinearLayout4dumpEi(
     const QGraphicsLinearLayout *self,
     int indent) {
   self->dump(indent);
+}
+
+//  a Python function taken by a CuteQGraphicsLinearLayout, for the function
+//      named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QGraphicsLinearLayout(
+    QGraphicsLinearLayout *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQGraphicsLinearLayout *>(self)->take(key, call);
+}
+
+//  void QGraphicsLinearLayout::removeAt(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN21QGraphicsLinearLayout8removeAtEi(
+    QGraphicsLinearLayout *self,
+    int index) {
+  self->QGraphicsLinearLayout::removeAt(index);
+}
+
+//  void QGraphicsLinearLayout::setGeometry(const QRectF &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN21QGraphicsLinearLayout11setGeometryERK6QRectF(
+    QGraphicsLinearLayout *self,
+    const QRectF *rect) {
+  self->QGraphicsLinearLayout::setGeometry(*rect);
+}
+
+//  int QGraphicsLinearLayout::count() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK21QGraphicsLinearLayout5countEv(
+    const QGraphicsLinearLayout *self) {
+  return self->QGraphicsLinearLayout::count();
+}
+
+//  QGraphicsLayoutItem *QGraphicsLinearLayout::itemAt(int index) const
+extern "C" Q_DECL_EXPORT
+QGraphicsLayoutItem *ritual_own_ZNK21QGraphicsLinearLayout6itemAtEi(
+    const QGraphicsLinearLayout *self,
+    int index) {
+  return self->QGraphicsLinearLayout::itemAt(index);
+}
+
+//  void QGraphicsLinearLayout::invalidate()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN21QGraphicsLinearLayout10invalidateEv(
+    QGraphicsLinearLayout *self) {
+  self->QGraphicsLinearLayout::invalidate();
+}
+
+//  QSizeF QGraphicsLinearLayout::sizeHint(Qt::SizeHint which, const QSizeF
+//      &constraint) const
+extern "C" Q_DECL_EXPORT
+QSizeF *ritual_own_ZNK21QGraphicsLinearLayout8sizeHintEN2Qt8SizeHintERK6QSizeF(
+    const QGraphicsLinearLayout *self,
+    Qt::SizeHint which,
+    const QSizeF *constraint) {
+  return new QSizeF(
+      self->QGraphicsLinearLayout::sizeHint(
+          which,
+          *constraint));
 }

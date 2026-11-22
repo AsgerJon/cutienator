@@ -20,25 +20,40 @@ from . import QGraphicsItem, QGraphicsLayoutItem, QGraphicsObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMarginsF, QMetaObject, QRectF, QSizeF
-  from ..QtGui import QAction, QFont, QKeySequence, QPainter, QPainterPath
-  from ..QtGui import QPalette
-  from . import QGraphicsLayout, QStyle, QStyleOptionGraphicsItem, QWidget
+  from ..QtCore import QEvent, QMarginsF, QMetaObject, QPointF, QRectF
+  from ..QtCore import QSizeF, QVariant
+  from ..QtGui import QAction, QCloseEvent, QFocusEvent, QFont, QHideEvent
+  from ..QtGui import QKeySequence, QPainter, QPainterPath, QPalette
+  from ..QtGui import QShowEvent
+  from . import QGraphicsLayout, QGraphicsSceneHoverEvent
+  from . import QGraphicsSceneMoveEvent, QGraphicsSceneResizeEvent, QStyle
+  from . import QStyleOption, QStyleOptionGraphicsItem, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAction = WAIT['QAction']
+  QCloseEvent = WAIT['QCloseEvent']
+  QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
   QFont = WAIT['QFont']
   QGraphicsLayout = WAIT['QGraphicsLayout']
+  QGraphicsSceneHoverEvent = WAIT['QGraphicsSceneHoverEvent']
+  QGraphicsSceneMoveEvent = WAIT['QGraphicsSceneMoveEvent']
+  QGraphicsSceneResizeEvent = WAIT['QGraphicsSceneResizeEvent']
+  QHideEvent = WAIT['QHideEvent']
   QKeySequence = WAIT['QKeySequence']
   QMarginsF = WAIT['QMarginsF']
   QPainter = WAIT['QPainter']
   QPalette = WAIT['QPalette']
+  QPointF = WAIT['QPointF']
   QRectF = WAIT['QRectF']
+  QShowEvent = WAIT['QShowEvent']
   QSizeF = WAIT['QSizeF']
   QStyle = WAIT['QStyle']
+  QStyleOption = WAIT['QStyleOption']
   QStyleOptionGraphicsItem = WAIT['QStyleOptionGraphicsItem']
+  QVariant = WAIT['QVariant']
   QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -60,7 +75,7 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   -----------
 
   Every function of Qt's QGraphicsWidget that has a ritual and that Python
-  can call so far, 50 names in all: 'metaObject', 'tr', 'layout',
+  can call so far, 74 names in all: 'metaObject', 'tr', 'layout',
   'setLayout', 'adjustSize', 'layoutDirection', 'setLayoutDirection',
   'unsetLayoutDirection', 'style', 'setStyle', 'font', 'setFont', 'palette',
   'setPalette', 'autoFillBackground', 'setAutoFillBackground', 'resize',
@@ -72,7 +87,13 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   'releaseShortcut', 'setShortcutEnabled', 'setShortcutAutoRepeat',
   'addAction', 'insertAction', 'removeAction', 'setAttribute',
   'testAttribute', 'type', 'paint', 'paintWindowFrame', 'boundingRect',
-  'shape', 'close'. It can be made from Python, in 1 way; see '__init__'.
+  'shape', 'close', 'initStyleOption', 'sizeHint', 'updateGeometry',
+  'itemChange', 'sceneEvent', 'windowFrameEvent', 'windowFrameSectionAt',
+  'event', 'changeEvent', 'closeEvent', 'focusInEvent', 'focusNextPrevChild',
+  'focusOutEvent', 'hideEvent', 'moveEvent', 'polishEvent', 'resizeEvent',
+  'showEvent', 'hoverMoveEvent', 'hoverLeaveEvent', 'grabMouseEvent',
+  'ungrabMouseEvent', 'grabKeyboardEvent', 'ungrabKeyboardEvent'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -89,9 +110,8 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   What has no ritual
   ------------------
 
-  39 of the 98 functions Qt declares: 26 protected; 5 takes or gives a type
-  that cannot be passed yet; 3 private; 2 a signal; 2 forbidden; 1 a
-  template.
+  15 of the 97 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 3 private; 2 a signal; 2 protected; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -204,6 +224,142 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   __cast_rituals__ = {
       'QGraphicsLayoutItem':
           'ritual_cast_QGraphicsWidget_QGraphicsLayoutItem',
+  }
+
+  #  A C++ QGraphicsWidget Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsWidget'
+
+  #  The functions Qt calls itself that QGraphicsWidget is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'propertyChange': (
+          'QVariant QGraphicsWidget::propertyChange(const QString &, const '
+          'QVariant &)',
+      ),
+  }
+
+  #  The functions Qt calls itself that QGraphicsWidget is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'paintWindowFrame': (
+          ('_ZN15QGraphicsWidget16paintWindowFrameEP8QPainterPK24QStyleOpti'
+           'onGraphicsItemP7QWidget',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'address', 'QtWidgets:QStyleOptionGraphicsItem'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'initStyleOption': (
+          ('_ZNK15QGraphicsWidget15initStyleOptionEP12QStyleOption',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOption'),
+           )),
+      ),
+      'windowFrameEvent': (
+          ('_ZN15QGraphicsWidget16windowFrameEventEP6QEvent',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'windowFrameSectionAt': (
+          ('_ZNK15QGraphicsWidget20windowFrameSectionAtERK7QPointF',
+           ('int', 'enum', 'QtCore:Qt.WindowFrameSection'),
+           (
+               ('address', 'value', 'QtCore:QPointF'),
+           )),
+      ),
+      'changeEvent': (
+          ('_ZN15QGraphicsWidget11changeEventEP6QEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'closeEvent': (
+          ('_ZN15QGraphicsWidget10closeEventEP11QCloseEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QCloseEvent'),
+           )),
+      ),
+      'focusNextPrevChild': (
+          ('_ZN15QGraphicsWidget18focusNextPrevChildEb',
+           ('bool', 'number', ''),
+           (
+               ('bool', 'number', ''),
+           )),
+      ),
+      'hideEvent': (
+          ('_ZN15QGraphicsWidget9hideEventEP10QHideEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QHideEvent'),
+           )),
+      ),
+      'moveEvent': (
+          ('_ZN15QGraphicsWidget9moveEventEP23QGraphicsSceneMoveEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QGraphicsSceneMoveEvent'),
+           )),
+      ),
+      'polishEvent': (
+          ('_ZN15QGraphicsWidget11polishEventEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'resizeEvent': (
+          ('_ZN15QGraphicsWidget11resizeEventEP25QGraphicsSceneResizeEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QGraphicsSceneResizeEvent'),
+           )),
+      ),
+      'showEvent': (
+          ('_ZN15QGraphicsWidget9showEventEP10QShowEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QShowEvent'),
+           )),
+      ),
+      'grabMouseEvent': (
+          ('_ZN15QGraphicsWidget14grabMouseEventEP6QEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'ungrabMouseEvent': (
+          ('_ZN15QGraphicsWidget16ungrabMouseEventEP6QEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'grabKeyboardEvent': (
+          ('_ZN15QGraphicsWidget17grabKeyboardEventEP6QEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'ungrabKeyboardEvent': (
+          ('_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
   }
 
   #  Fallback Variables
@@ -542,7 +698,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#type
     """
     #  int QGraphicsWidget::type() const
-    return self.uglySide.call('ritual_ZNK15QGraphicsWidget4typeEv')
+    ritual = 'ritual_ZNK15QGraphicsWidget4typeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QGraphicsWidget4typeEv'
+    return self.uglySide.call(ritual)
 
   def boundingRect(self) -> QRectF:
     """
@@ -557,9 +716,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsWidget::boundingRect() const
-    address = self.uglySide.call(
-        'ritual_ZNK15QGraphicsWidget12boundingRectEv',
-    )
+    ritual = 'ritual_ZNK15QGraphicsWidget12boundingRectEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QGraphicsWidget12boundingRectEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
@@ -576,9 +736,84 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       A new cute QPainterPath around the copy Qt gave back. Python owns it.
     """
     #  QPainterPath QGraphicsWidget::shape() const
-    address = self.uglySide.call('ritual_ZNK15QGraphicsWidget5shapeEv')
+    ritual = 'ritual_ZNK15QGraphicsWidget5shapeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QGraphicsWidget5shapeEv'
+    address = self.uglySide.call(ritual)
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
+
+  @overload(Qt.SizeHint)
+  @overload(Qt.SizeHint, QSizeF)
+  def sizeHint(
+      self,
+      which: Qt.SizeHint,
+      constraint: Optional[QSizeF] = None,
+  ) -> QSizeF:
+    """
+    Calls Qt's 'QSizeF QGraphicsWidget::sizeHint(Qt::SizeHint which, const
+    QSizeF &constraint) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#sizeHint
+
+    Parameters
+    ----------
+
+    which : Qt.SizeHint
+      Passed on as its number.
+
+    constraint : Optional[QSizeF]
+      Passed on as a value: Qt reads the C++ QSizeF, which stays Python's
+      own. May be left out, as in Qt: a new 'QSizeF()' is then passed on.
+
+    Returns
+    -------
+
+    QSizeF
+      A new cute QSizeF around the copy Qt gave back. Python owns it.
+    """
+    #  QSizeF QGraphicsWidget::sizeHint(Qt::SizeHint which, const QSizeF
+    #      &constraint) const
+    if constraint is None:
+      from ..QtCore import QSizeF
+      constraint = QSizeF()
+    address = self.uglySide.call(
+        'ritual_own_ZNK15QGraphicsWidget8sizeHintEN2Qt8SizeHintERK6QSizeF',
+        which.value, self._valueOf(constraint),
+    )
+    from ..QtCore import QSizeF
+    return QSizeF._cuteOwning(address)
+
+  @overload(QPointF)
+  def windowFrameSectionAt(self, pos: QPointF) -> Qt.WindowFrameSection:
+    """
+    Calls Qt's 'Qt::WindowFrameSection
+    QGraphicsWidget::windowFrameSectionAt(const QPointF &pos) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt
+
+    Parameters
+    ----------
+
+    pos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    Qt.WindowFrameSection
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that
+      'Qt.WindowFrameSection(number)' gives.
+    """
+    #  Qt::WindowFrameSection QGraphicsWidget::windowFrameSectionAt(const
+    #      QPointF &pos) const
+    return Qt.WindowFrameSection(self.uglySide.call(
+        'ritual_own_ZNK15QGraphicsWidget20windowFrameSectionAtERK7QPointF',
+        self._valueOf(pos),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -721,10 +956,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       own.
     """
     #  void QGraphicsWidget::setGeometry(const QRectF &rect)
-    self.uglySide.call(
-        'ritual_ZN15QGraphicsWidget11setGeometryERK6QRectF',
-        self._valueOf(rect),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget11setGeometryERK6QRectF'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget11setGeometryERK6QRectF'
+    self.uglySide.call(ritual, self._valueOf(rect))
 
   @overload(float, float, float, float)
   def setGeometry(self, x: float, y: float, w: float, h: float) -> None:
@@ -1312,9 +1547,15 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
     """
     #  void QGraphicsWidget::paint(QPainter *painter, const
     #      QStyleOptionGraphicsItem *option, QWidget *widget)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN15QGraphicsWidget5paintEP8QPainterPK24QStyleOptionGraphic'
-        'sItemP7QWidget',
+        'sItemP7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QGraphicsWidget5paintEP8QPainterPK24QStyleOptionG'
+          'raphicsItemP7QWidget')
+    self.uglySide.call(
+        ritual,
         self._addressOf(painter), self._addressOf(option),
         self._addressOf(widget),
     )
@@ -1361,9 +1602,15 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
     """
     #  void QGraphicsWidget::paintWindowFrame(QPainter *painter, const
     #      QStyleOptionGraphicsItem *option, QWidget *widget)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN15QGraphicsWidget16paintWindowFrameEP8QPainterPK24QStyleO'
-        'ptionGraphicsItemP7QWidget',
+        'ptionGraphicsItemP7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QGraphicsWidget16paintWindowFrameEP8QPainterPK24Q'
+          'StyleOptionGraphicsItemP7QWidget')
+    self.uglySide.call(
+        ritual,
         self._addressOf(painter), self._addressOf(option),
         self._addressOf(widget),
     )
@@ -1376,3 +1623,480 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
     """
     #  bool QGraphicsWidget::close()
     return self.uglySide.call('ritual_ZN15QGraphicsWidget5closeEv')
+
+  @overload(QStyleOption)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOption]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::initStyleOption(QStyleOption *option)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOption]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::initStyleOption(QStyleOption *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK15QGraphicsWidget15initStyleOptionEP12QStyleOption',
+        self._addressOf(option),
+    )
+
+  def updateGeometry(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::updateGeometry()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry
+    """
+    #  void QGraphicsWidget::updateGeometry()
+    self.uglySide.call('ritual_own_ZN15QGraphicsWidget14updateGeometryEv')
+
+  @overload(QGraphicsItem.GraphicsItemChange, QVariant)
+  def itemChange(
+      self,
+      change: QGraphicsItem.GraphicsItemChange,
+      value: QVariant,
+  ) -> QVariant:
+    """
+    Calls Qt's 'QVariant QGraphicsWidget::itemChange(GraphicsItemChange
+    change, const QVariant &value)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#itemChange
+
+    Parameters
+    ----------
+
+    change : QGraphicsItem.GraphicsItemChange
+      Passed on as its number.
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QGraphicsWidget::itemChange(GraphicsItemChange change, const
+    #      QVariant &value)
+    address = self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget10itemChangeEN13QGraphicsItem18Graph'
+        'icsItemChangeERK8QVariant',
+        change.value, self._valueOf(value),
+    )
+    from ..QtCore import QVariant
+    return QVariant._cuteOwning(address)
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def sceneEvent(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsWidget::sceneEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGraphicsWidget::sceneEvent(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget10sceneEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def windowFrameEvent(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsWidget::windowFrameEvent(QEvent *e)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGraphicsWidget::windowFrameEvent(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget16windowFrameEventEP6QEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsWidget::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGraphicsWidget::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget5eventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::changeEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::changeEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget11changeEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QCloseEvent)
+  @overload(NoneType)
+  def closeEvent(self, event: Optional[QCloseEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::closeEvent(QCloseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QCloseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::closeEvent(QCloseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget10closeEventEP11QCloseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::focusInEvent(QFocusEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#focusInEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::focusInEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget12focusInEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(bool)
+  def focusNextPrevChild(self, next: bool) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsWidget::focusNextPrevChild(bool next)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#focusNextPrevChild
+
+    Parameters
+    ----------
+
+    next : bool
+      Passed on as it is.
+    """
+    #  bool QGraphicsWidget::focusNextPrevChild(bool next)
+    return self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget18focusNextPrevChildEb', next,
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::focusOutEvent(QFocusEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::focusOutEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget13focusOutEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QHideEvent)
+  @overload(NoneType)
+  def hideEvent(self, event: Optional[QHideEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::hideEvent(QHideEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#hideEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QHideEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::hideEvent(QHideEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget9hideEventEP10QHideEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneMoveEvent)
+  @overload(NoneType)
+  def moveEvent(self, event: Optional[QGraphicsSceneMoveEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::moveEvent(QGraphicsSceneMoveEvent
+    *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneMoveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::moveEvent(QGraphicsSceneMoveEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget9moveEventEP23QGraphicsSceneMoveEven'
+        't',
+        self._addressOf(event),
+    )
+
+  def polishEvent(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::polishEvent()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent
+    """
+    #  void QGraphicsWidget::polishEvent()
+    self.uglySide.call('ritual_own_ZN15QGraphicsWidget11polishEventEv')
+
+  @overload(QGraphicsSceneResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, event: Optional[QGraphicsSceneResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::resizeEvent(QGraphicsSceneResizeEvent
+    *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#resizeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::resizeEvent(QGraphicsSceneResizeEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget11resizeEventEP25QGraphicsSceneResiz'
+        'eEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, event: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::showEvent(QShowEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#showEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::showEvent(QShowEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget9showEventEP10QShowEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneHoverEvent)
+  @overload(NoneType)
+  def hoverMoveEvent(
+      self,
+      event: Optional[QGraphicsSceneHoverEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::hoverMoveEvent(QGraphicsSceneHoverEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#hoverMoveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneHoverEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget14hoverMoveEventEP24QGraphicsSceneHo'
+        'verEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneHoverEvent)
+  @overload(NoneType)
+  def hoverLeaveEvent(
+      self,
+      event: Optional[QGraphicsSceneHoverEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QGraphicsWidget::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#hoverLeaveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneHoverEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget15hoverLeaveEventEP24QGraphicsSceneH'
+        'overEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def grabMouseEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::grabMouseEvent(QEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#grabMouseEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::grabMouseEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget14grabMouseEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def ungrabMouseEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::ungrabMouseEvent(QEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabMouseEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::ungrabMouseEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget16ungrabMouseEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def grabKeyboardEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::grabKeyboardEvent(QEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::grabKeyboardEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget17grabKeyboardEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def ungrabKeyboardEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::ungrabKeyboardEvent(QEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsWidget::ungrabKeyboardEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent',
+        self._addressOf(event),
+    )

@@ -19,12 +19,13 @@ from . import QDialog, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
+  from ..QtCore import QEvent, QMetaObject
   from ..QtGui import QFont
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
   QFont = WAIT['QFont']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -44,10 +45,10 @@ class QFontDialog(QDialog):
   -----------
 
   Every function of Qt's QFontDialog that has a ritual and that Python can
-  call so far, 11 names in all: 'metaObject', 'tr', 'setCurrentFont',
+  call so far, 14 names in all: 'metaObject', 'tr', 'setCurrentFont',
   'currentFont', 'selectedFont', 'setOption', 'testOption', 'setOptions',
-  'options', 'open', 'setVisible'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'options', 'open', 'setVisible', 'changeEvent', 'done', 'eventFilter'. It
+  can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,9 +64,8 @@ class QFontDialog(QDialog):
   What has no ritual
   ------------------
 
-  13 of the 29 functions Qt declares: 3 private; 3 protected; 2 takes or
-  gives a type that cannot be passed yet; 2 a signal; 2 forbidden; 1 a
-  template.
+  10 of the 29 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -156,6 +156,11 @@ class QFontDialog(QDialog):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFontDialog'
+
+  #  A C++ QFontDialog Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QFontDialog'
 
   #  Fallback Variables
 
@@ -337,7 +342,10 @@ class QFontDialog(QDialog):
       Passed on as it is.
     """
     #  void QFontDialog::setVisible(bool visible)
-    self.uglySide.call('ritual_ZN11QFontDialog10setVisibleEb', visible)
+    ritual = 'ritual_ZN11QFontDialog10setVisibleEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFontDialog10setVisibleEb'
+    self.uglySide.call(ritual, visible)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -448,4 +456,73 @@ class QFontDialog(QDialog):
     self.uglySide.call(
         'ritual_ZN11QFontDialog4openEP7QObjectPKc',
         self._addressOf(receiver), self._bytesOf(member),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QFontDialog::changeEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontdialog.html#changeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFontDialog::changeEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN11QFontDialog11changeEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(int)
+  def done(self, result: int) -> None:
+    """
+    Calls Qt's 'void QFontDialog::done(int result)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontdialog.html#done
+
+    Parameters
+    ----------
+
+    result : int
+      Passed on as it is.
+    """
+    #  void QFontDialog::done(int result)
+    self.uglySide.call('ritual_own_ZN11QFontDialog4doneEi', result)
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(
+      self,
+      object: Optional[QObject],
+      event: Optional[QEvent],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QFontDialog::eventFilter(QObject *object, QEvent
+    *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontdialog.html#eventFilter
+
+    Parameters
+    ----------
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QFontDialog::eventFilter(QObject *object, QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN11QFontDialog11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(object), self._addressOf(event),
     )

@@ -3,6 +3,341 @@
 #include <QtCore/qprocess.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  A QProcess that Python can take functions over in. Every QProcess
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef bool (*CuteQProcessCall0)(const void *, int, int *);
+typedef bool (*CuteQProcessCall1)(const void *, int, int *);
+typedef qint64 (*CuteQProcessCall2)(const void *, int *);
+typedef bool (*CuteQProcessCall3)(const void *, int *);
+typedef void (*CuteQProcessCall4)(const void *, int *);
+typedef qint64 (*CuteQProcessCall5)(const void *, int *);
+typedef qint64 (*CuteQProcessCall6)(const void *, int *);
+typedef bool (*CuteQProcessCall7)(const void *, qint64, int *);
+typedef bool (*CuteQProcessCall8)(const void *, int *);
+typedef bool (*CuteQProcessCall9)(const void *, int *);
+typedef qint64 (*CuteQProcessCall10)(const void *, int *);
+typedef bool (*CuteQProcessCall11)(const void *, int *);
+typedef qint64 (*CuteQProcessCall12)(const void *, qint64, int *);
+typedef bool (*CuteQProcessCall13)(const void *, QEvent *, int *);
+typedef bool (*CuteQProcessCall14)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQProcessCall15)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQProcessCall16)(const void *, QChildEvent *, int *);
+typedef void (*CuteQProcessCall17)(const void *, QEvent *, int *);
+typedef void (*CuteQProcessCall18)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQProcessCall19)(const void *, const QMetaMethod *, int *);
+class CuteQProcess : public QProcess {
+public:
+  using QProcess::QProcess;
+  void *taken[20] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice5closeEv")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice14bytesAvailableEv")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[19] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  bool QProcess::waitForReadyRead(int msecs)
+  bool waitForReadyRead(int msecs) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQProcessCall0 call = reinterpret_cast<CuteQProcessCall0>(taken[0]);
+      bool given = call(this, msecs, &handled);
+      if (handled) return given;
+    }
+    return QProcess::waitForReadyRead(msecs);
+  }
+
+  //  bool QProcess::waitForBytesWritten(int msecs)
+  bool waitForBytesWritten(int msecs) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQProcessCall1 call = reinterpret_cast<CuteQProcessCall1>(taken[1]);
+      bool given = call(this, msecs, &handled);
+      if (handled) return given;
+    }
+    return QProcess::waitForBytesWritten(msecs);
+  }
+
+  //  qint64 QProcess::bytesToWrite() const
+  qint64 bytesToWrite() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQProcessCall2 call = reinterpret_cast<CuteQProcessCall2>(taken[2]);
+      qint64 given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QProcess::bytesToWrite();
+  }
+
+  //  bool QProcess::isSequential() const
+  bool isSequential() const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQProcessCall3 call = reinterpret_cast<CuteQProcessCall3>(taken[3]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QProcess::isSequential();
+  }
+
+  //  void QProcess::close()
+  void close() override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQProcessCall4 call = reinterpret_cast<CuteQProcessCall4>(taken[4]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QProcess::close();
+  }
+
+  //  qint64 QIODevice::pos() const
+  qint64 pos() const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQProcessCall5 call = reinterpret_cast<CuteQProcessCall5>(taken[5]);
+      qint64 given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::pos();
+  }
+
+  //  qint64 QIODevice::size() const
+  qint64 size() const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQProcessCall6 call = reinterpret_cast<CuteQProcessCall6>(taken[6]);
+      qint64 given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::size();
+  }
+
+  //  bool QIODevice::seek(qint64 pos)
+  bool seek(qint64 pos) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQProcessCall7 call = reinterpret_cast<CuteQProcessCall7>(taken[7]);
+      bool given = call(this, pos, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::seek(pos);
+  }
+
+  //  bool QIODevice::atEnd() const
+  bool atEnd() const override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQProcessCall8 call = reinterpret_cast<CuteQProcessCall8>(taken[8]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::atEnd();
+  }
+
+  //  bool QIODevice::reset()
+  bool reset() override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQProcessCall9 call = reinterpret_cast<CuteQProcessCall9>(taken[9]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::reset();
+  }
+
+  //  qint64 QIODevice::bytesAvailable() const
+  qint64 bytesAvailable() const override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQProcessCall10 call = reinterpret_cast<CuteQProcessCall10>(taken[10]);
+      qint64 given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::bytesAvailable();
+  }
+
+  //  bool QIODevice::canReadLine() const
+  bool canReadLine() const override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQProcessCall11 call = reinterpret_cast<CuteQProcessCall11>(taken[11]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::canReadLine();
+  }
+
+  //  qint64 QIODevice::skipData(qint64 maxSize)
+  qint64 skipData(qint64 maxSize) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQProcessCall12 call = reinterpret_cast<CuteQProcessCall12>(taken[12]);
+      qint64 given = call(this, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::skipData(maxSize);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQProcessCall13 call = reinterpret_cast<CuteQProcessCall13>(taken[13]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQProcessCall14 call = reinterpret_cast<CuteQProcessCall14>(taken[14]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQProcessCall15 call = reinterpret_cast<CuteQProcessCall15>(taken[15]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQProcessCall16 call = reinterpret_cast<CuteQProcessCall16>(taken[16]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQProcessCall17 call = reinterpret_cast<CuteQProcessCall17>(taken[17]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQProcessCall18 call = reinterpret_cast<CuteQProcessCall18>(taken[18]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQProcessCall19 call = reinterpret_cast<CuteQProcessCall19>(taken[19]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QProcess::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -19,7 +354,7 @@ QString *ritual_ZN8QProcess2trEPKcS1_i(const char *s, const char *c, int n) {
 //  QProcess::QProcess(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QProcess *ritual_ZN8QProcessC1EP7QObject(QObject *parent) {
-  return new QProcess(parent);
+  return new CuteQProcess(parent);
 }
 
 //  QProcess::~QProcess()
@@ -340,4 +675,43 @@ void ritual_ZN8QProcess9terminateEv(QProcess *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QProcess4killEv(QProcess *self) {
   self->kill();
+}
+
+//  a Python function taken by a CuteQProcess, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QProcess(QProcess *self, const char *key, void *call) {
+  return static_cast<CuteQProcess *>(self)->take(key, call);
+}
+
+//  bool QProcess::waitForReadyRead(int msecs)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN8QProcess16waitForReadyReadEi(QProcess *self, int msecs) {
+  return self->QProcess::waitForReadyRead(msecs);
+}
+
+//  bool QProcess::waitForBytesWritten(int msecs)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN8QProcess19waitForBytesWrittenEi(
+    QProcess *self,
+    int msecs) {
+  return self->QProcess::waitForBytesWritten(msecs);
+}
+
+//  qint64 QProcess::bytesToWrite() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZNK8QProcess12bytesToWriteEv(const QProcess *self) {
+  return self->QProcess::bytesToWrite();
+}
+
+//  bool QProcess::isSequential() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK8QProcess12isSequentialEv(const QProcess *self) {
+  return self->QProcess::isSequential();
+}
+
+//  void QProcess::close()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN8QProcess5closeEv(QProcess *self) {
+  self->QProcess::close();
 }

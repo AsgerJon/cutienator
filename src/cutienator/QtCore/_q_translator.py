@@ -129,6 +129,34 @@ class QTranslator(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTranslator'
 
+  #  A C++ QTranslator Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTranslator'
+
+  #  The functions Qt calls itself that QTranslator is the first to declare
+  #  and that cannot be handed to Python yet, each as Qt declares it. A class
+  #  of a program that writes one of them anew is refused, since Qt would
+  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'translate': (
+          'QString QTranslator::translate(const char *, const char *, '
+          'const char *, int) const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QTranslator is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'isEmpty': (
+          ('_ZNK11QTranslator7isEmptyEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -229,7 +257,10 @@ class QTranslator(QObject):
     Qt's own words: https://doc.qt.io/qt-6/qtranslator.html#isEmpty
     """
     #  bool QTranslator::isEmpty() const
-    return self.uglySide.call('ritual_ZNK11QTranslator7isEmptyEv')
+    ritual = 'ritual_ZNK11QTranslator7isEmptyEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QTranslator7isEmptyEv'
+    return self.uglySide.call(ritual)
 
   def language(self) -> str:
     """

@@ -23,6 +23,7 @@
     "ritual_ZN9QSaveFile22setDirectWriteFallbackEb": [
       "nothing", "address", "bool"
     ],
-    "ritual_ZNK9QSaveFile19directWriteFallbackEv": ["bool", "address"]
+    "ritual_ZNK9QSaveFile19directWriteFallbackEv": ["bool", "address"],
+    "ritual_take_QSaveFile": ["bool", "address", "chars", "address"]
   }
 }

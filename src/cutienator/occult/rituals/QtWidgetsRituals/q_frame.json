@@ -29,6 +29,18 @@
     "ritual_ZNK6QFrame9frameRectEv": ["address", "address"],
     "ritual_ZN6QFrame12setFrameRectERK5QRect": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QFrame": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK6QFrame8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN6QFrame5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_own_ZN6QFrame10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QFrame11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame": [
+      "nothing", "address", "address"
     ]
   }
 }

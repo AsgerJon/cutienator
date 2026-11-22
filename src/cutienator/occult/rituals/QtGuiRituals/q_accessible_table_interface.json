@@ -53,6 +53,9 @@
     ],
     "ritual_ZN25QAccessibleTableInterface11modelChangeEP32QAccessibleTableModelChangeEvent": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QAccessibleTableInterface": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

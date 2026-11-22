@@ -18,6 +18,10 @@
     "ritual_ZNK16QAccessibleEvent5childEv": ["int", "address"],
     "ritual_ZNK16QAccessibleEvent19accessibleInterfaceEv": [
       "address", "address"
+    ],
+    "ritual_take_QAccessibleEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QAccessibleEvent19accessibleInterfaceEv": [
+      "address", "address"
     ]
   }
 }

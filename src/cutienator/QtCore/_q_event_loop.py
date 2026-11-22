@@ -149,6 +149,11 @@ class QEventLoop(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QEventLoop'
 
+  #  A C++ QEventLoop Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QEventLoop'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -379,9 +384,10 @@ class QEventLoop(QObject):
       object.
     """
     #  bool QEventLoop::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_ZN10QEventLoop5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN10QEventLoop5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QEventLoop5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload()
   @overload(int)

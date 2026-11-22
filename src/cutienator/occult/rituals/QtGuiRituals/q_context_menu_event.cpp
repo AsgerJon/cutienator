@@ -2,6 +2,68 @@
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
+#include <cstring>
+
+//  A QContextMenuEvent that Python can take functions over in. Every QContextMenuEvent
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQContextMenuEventCall0)(const void *, int *);
+typedef void (*CuteQContextMenuEventCall1)(const void *, quint64, int *);
+typedef void (*CuteQContextMenuEventCall2)(const void *, bool, int *);
+class CuteQContextMenuEvent : public QContextMenuEvent {
+public:
+  using QContextMenuEvent::QContextMenuEvent;
+  void *taken[3] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QInputEvent12setTimestampEy")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
+      taken[2] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QContextMenuEvent *QContextMenuEvent::clone() const
+  QContextMenuEvent *clone() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQContextMenuEventCall0 call = reinterpret_cast<CuteQContextMenuEventCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QContextMenuEvent *>(given);
+    }
+    return QContextMenuEvent::clone();
+  }
+
+  //  void QInputEvent::setTimestamp(quint64 timestamp)
+  void setTimestamp(quint64 timestamp) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQContextMenuEventCall1 call = reinterpret_cast<CuteQContextMenuEventCall1>(taken[1]);
+      call(this, timestamp, &handled);
+      if (handled) return;
+    }
+    QInputEvent::setTimestamp(timestamp);
+  }
+
+  //  void QEvent::setAccepted(bool accepted)
+  void setAccepted(bool accepted) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQContextMenuEventCall2 call = reinterpret_cast<CuteQContextMenuEventCall2>(taken[2]);
+      call(this, accepted, &handled);
+      if (handled) return;
+    }
+    QEvent::setAccepted(accepted);
+  }
+};
 
 //  QContextMenuEvent *QContextMenuEvent::clone() const
 extern "C" Q_DECL_EXPORT
@@ -24,7 +86,7 @@ QContextMenuEvent *ritual_ZN17QContextMenuEventC1ENS_6ReasonERK6QPointS3_6QFlags
     const QPoint *pos,
     const QPoint *globalPos,
     int modifiers) {
-  return new QContextMenuEvent(
+  return new CuteQContextMenuEvent(
       reason,
       *pos,
       *globalPos,
@@ -36,7 +98,7 @@ extern "C" Q_DECL_EXPORT
 QContextMenuEvent *ritual_ZN17QContextMenuEventC1ENS_6ReasonERK6QPoint(
     QContextMenuEvent::Reason reason,
     const QPoint *pos) {
-  return new QContextMenuEvent(reason, *pos);
+  return new CuteQContextMenuEvent(reason, *pos);
 }
 
 //  int QContextMenuEvent::x() const
@@ -81,4 +143,21 @@ extern "C" Q_DECL_EXPORT
 QContextMenuEvent::Reason ritual_ZNK17QContextMenuEvent6reasonEv(
     const QContextMenuEvent *self) {
   return self->reason();
+}
+
+//  a Python function taken by a CuteQContextMenuEvent, for the function
+//      named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QContextMenuEvent(
+    QContextMenuEvent *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQContextMenuEvent *>(self)->take(key, call);
+}
+
+//  QContextMenuEvent *QContextMenuEvent::clone() const
+extern "C" Q_DECL_EXPORT
+QContextMenuEvent *ritual_own_ZNK17QContextMenuEvent5cloneEv(
+    const QContextMenuEvent *self) {
+  return self->QContextMenuEvent::clone();
 }

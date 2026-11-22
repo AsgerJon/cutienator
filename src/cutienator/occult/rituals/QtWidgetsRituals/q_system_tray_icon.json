@@ -40,6 +40,10 @@
     ],
     "ritual_ZN15QSystemTrayIcon11showMessageERK7QStringS2_NS_11MessageIconEi": [
       "nothing", "address", "text", "text", "int", "int"
+    ],
+    "ritual_take_QSystemTrayIcon": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QSystemTrayIcon5eventEP6QEvent": [
+      "bool", "address", "address"
     ]
   }
 }

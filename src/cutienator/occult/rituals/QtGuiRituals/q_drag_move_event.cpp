@@ -3,6 +3,52 @@
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
+#include <cstring>
+
+//  A QDragMoveEvent that Python can take functions over in. Every QDragMoveEvent
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQDragMoveEventCall0)(const void *, int *);
+typedef void (*CuteQDragMoveEventCall1)(const void *, bool, int *);
+class CuteQDragMoveEvent : public QDragMoveEvent {
+public:
+  using QDragMoveEvent::QDragMoveEvent;
+  void *taken[2] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
+      taken[1] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QDragMoveEvent *QDragMoveEvent::clone() const
+  QDragMoveEvent *clone() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQDragMoveEventCall0 call = reinterpret_cast<CuteQDragMoveEventCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QDragMoveEvent *>(given);
+    }
+    return QDragMoveEvent::clone();
+  }
+
+  //  void QEvent::setAccepted(bool accepted)
+  void setAccepted(bool accepted) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQDragMoveEventCall1 call = reinterpret_cast<CuteQDragMoveEventCall1>(taken[1]);
+      call(this, accepted, &handled);
+      if (handled) return;
+    }
+    QEvent::setAccepted(accepted);
+  }
+};
 
 //  QDragMoveEvent *QDragMoveEvent::clone() const
 extern "C" Q_DECL_EXPORT
@@ -28,7 +74,7 @@ QDragMoveEvent *ritual_ZN14QDragMoveEventC1ERK6QPoint6QFlagsIN2Qt10DropActionEEP
     int buttons,
     int modifiers,
     QEvent::Type type) {
-  return new QDragMoveEvent(
+  return new CuteQDragMoveEvent(
       *pos,
       QFlags<Qt::DropAction>::fromInt(actions),
       data,
@@ -48,7 +94,7 @@ QDragMoveEvent *ritual_ZN14QDragMoveEventC1E7QPointF6QFlagsIN2Qt10DropActionEEPK
     int buttons,
     int modifiers,
     QEvent::Type type) {
-  return new QDragMoveEvent(
+  return new CuteQDragMoveEvent(
       *pos,
       QFlags<Qt::DropAction>::fromInt(actions),
       data,
@@ -89,4 +135,21 @@ void ritual_ZN14QDragMoveEvent6ignoreERK5QRect(
     QDragMoveEvent *self,
     const QRect *r) {
   self->ignore(*r);
+}
+
+//  a Python function taken by a CuteQDragMoveEvent, for the function named
+//      by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QDragMoveEvent(
+    QDragMoveEvent *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQDragMoveEvent *>(self)->take(key, call);
+}
+
+//  QDragMoveEvent *QDragMoveEvent::clone() const
+extern "C" Q_DECL_EXPORT
+QDragMoveEvent *ritual_own_ZNK14QDragMoveEvent5cloneEv(
+    const QDragMoveEvent *self) {
+  return self->QDragMoveEvent::clone();
 }

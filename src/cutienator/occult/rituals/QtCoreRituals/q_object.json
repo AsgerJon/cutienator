@@ -74,6 +74,26 @@
     "ritual_ZNK7QObject14bindingStorageEv": ["address", "address"],
     "ritual_ZNK7QObject6parentEv": ["address", "address"],
     "ritual_ZNK7QObject8inheritsEPKc": ["bool", "address", "chars"],
-    "ritual_ZN7QObject11deleteLaterEv": ["nothing", "address"]
+    "ritual_ZN7QObject11deleteLaterEv": ["nothing", "address"],
+    "ritual_take_QObject": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN7QObject5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_own_ZN7QObject11eventFilterEPS_P6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN7QObject10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QObject10childEventEP11QChildEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QObject11customEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QObject13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QObject16disconnectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ]
   }
 }

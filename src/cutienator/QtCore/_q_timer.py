@@ -11,14 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from . import Qt, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject
+  from . import QMetaObject, QTimerEvent
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QTimerEvent = WAIT['QTimerEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,10 +42,10 @@ class QTimer(QObject):
   -----------
 
   Every function of Qt's QTimer that has a ritual and that Python can call so
-  far, 15 names in all: 'metaObject', 'tr', 'isActive', 'timerId', 'id',
+  far, 16 names in all: 'metaObject', 'tr', 'isActive', 'timerId', 'id',
   'setInterval', 'interval', 'remainingTime', 'setTimerType', 'timerType',
-  'setSingleShot', 'isSingleShot', 'singleShot', 'start', 'stop'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'setSingleShot', 'isSingleShot', 'singleShot', 'start', 'stop',
+  'timerEvent'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,8 +56,8 @@ class QTimer(QObject):
   What has no ritual
   ------------------
 
-  33 of the 52 functions Qt declares: 12 takes or gives a type that cannot be
-  passed yet; 11 private; 6 a template; 2 forbidden; 1 a signal; 1 protected.
+  32 of the 52 functions Qt declares: 12 takes or gives a type that cannot be
+  passed yet; 11 private; 6 a template; 2 forbidden; 1 a signal.
 
   What to expect
   --------------
@@ -199,6 +204,11 @@ class QTimer(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTimer'
+
+  #  A C++ QTimer Python makes is of a C++ class of ours, in which Python can
+  #  take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTimer'
 
   #  Fallback Variables
 
@@ -451,3 +461,24 @@ class QTimer(QObject):
     """
     #  void QTimer::stop()
     self.uglySide.call('ritual_ZN6QTimer4stopEv')
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, a0: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QTimer::timerEvent(QTimerEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimer.html#timerEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTimer::timerEvent(QTimerEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN6QTimer10timerEventEP11QTimerEvent',
+        self._addressOf(a0),
+    )

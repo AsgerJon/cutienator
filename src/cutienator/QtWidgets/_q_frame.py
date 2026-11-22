@@ -20,12 +20,17 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QRect, QSize
+  from ..QtCore import QEvent, QMetaObject, QRect, QSize
+  from ..QtGui import QPaintEvent
+  from . import QStyleOptionFrame
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QRect = WAIT['QRect']
+  QStyleOptionFrame = WAIT['QStyleOptionFrame']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,11 +49,12 @@ class QFrame(QWidget):
   -----------
 
   Every function of Qt's QFrame that has a ritual and that Python can call so
-  far, 16 names in all: 'metaObject', 'tr', 'frameStyle', 'setFrameStyle',
+  far, 20 names in all: 'metaObject', 'tr', 'frameStyle', 'setFrameStyle',
   'frameWidth', 'sizeHint', 'frameShape', 'setFrameShape', 'frameShadow',
   'setFrameShadow', 'lineWidth', 'setLineWidth', 'midLineWidth',
-  'setMidLineWidth', 'frameRect', 'setFrameRect'. It can be made from Python,
-  in 1 way; see '__init__'.
+  'setMidLineWidth', 'frameRect', 'setFrameRect', 'event', 'paintEvent',
+  'changeEvent', 'initStyleOption'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,8 +65,8 @@ class QFrame(QWidget):
   What has no ritual
   ------------------
 
-  14 of the 32 functions Qt declares: 6 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  10 of the 32 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 protected; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -160,6 +166,25 @@ class QFrame(QWidget):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFrame'
 
+  #  A C++ QFrame Python makes is of a C++ class of ours, in which Python can
+  #  take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QFrame'
+
+  #  The functions Qt calls itself that QFrame is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionFrame'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -221,7 +246,10 @@ class QFrame(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QFrame::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK6QFrame8sizeHintEv')
+    ritual = 'ritual_ZNK6QFrame8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK6QFrame8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -466,3 +494,86 @@ class QFrame(QWidget):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QFrame::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qframe.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QFrame::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN6QFrame5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QFrame::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qframe.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFrame::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN6QFrame10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, a0: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QFrame::changeEvent(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qframe.html#changeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFrame::changeEvent(QEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN6QFrame11changeEventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QStyleOptionFrame)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOptionFrame]) -> None:
+    """
+    Calls Qt's 'void QFrame::initStyleOption(QStyleOptionFrame *option)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qframe.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionFrame]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFrame::initStyleOption(QStyleOptionFrame *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame',
+        self._addressOf(option),
+    )

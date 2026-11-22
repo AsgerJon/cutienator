@@ -16,6 +16,7 @@
     "ritual_ZN18QSyntaxHighlighter11rehighlightEv": ["nothing", "address"],
     "ritual_ZN18QSyntaxHighlighter16rehighlightBlockERK10QTextBlock": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_take_QSyntaxHighlighter": ["bool", "address", "chars", "address"]
   }
 }

@@ -11,14 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import QAnimationGroup, QObject
+from . import QAbstractAnimation, QAnimationGroup, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject
+  from . import QEvent, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,8 +42,9 @@ class QParallelAnimationGroup(QAnimationGroup):
   -----------
 
   Every function of Qt's QParallelAnimationGroup that has a ritual and that
-  Python can call so far, 3 names in all: 'metaObject', 'tr', 'duration'. It
-  can be made from Python, in 1 way; see '__init__'.
+  Python can call so far, 7 names in all: 'metaObject', 'tr', 'duration',
+  'event', 'updateCurrentTime', 'updateState', 'updateDirection'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -49,8 +55,8 @@ class QParallelAnimationGroup(QAnimationGroup):
   What has no ritual
   ------------------
 
-  13 of the 18 functions Qt declares: 5 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  9 of the 18 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -124,6 +130,11 @@ class QParallelAnimationGroup(QAnimationGroup):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QParallelAnimationGroup'
 
+  #  A C++ QParallelAnimationGroup Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QParallelAnimationGroup'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -166,9 +177,10 @@ class QParallelAnimationGroup(QAnimationGroup):
     https://doc.qt.io/qt-6/qparallelanimationgroup.html#duration
     """
     #  int QParallelAnimationGroup::duration() const
-    return self.uglySide.call(
-        'ritual_ZNK23QParallelAnimationGroup8durationEv',
-    )
+    ritual = 'ritual_ZNK23QParallelAnimationGroup8durationEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK23QParallelAnimationGroup8durationEv'
+    return self.uglySide.call(ritual)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -230,3 +242,100 @@ class QParallelAnimationGroup(QAnimationGroup):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QParallelAnimationGroup::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qparallelanimationgroup.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QParallelAnimationGroup::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN23QParallelAnimationGroup5eventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(int)
+  def updateCurrentTime(self, currentTime: int) -> None:
+    """
+    Calls Qt's 'void QParallelAnimationGroup::updateCurrentTime(int
+    currentTime)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qparallelanimationgroup.html#updateCurrentTime
+
+    Parameters
+    ----------
+
+    currentTime : int
+      Passed on as it is.
+    """
+    #  void QParallelAnimationGroup::updateCurrentTime(int currentTime)
+    self.uglySide.call(
+        'ritual_own_ZN23QParallelAnimationGroup17updateCurrentTimeEi',
+        currentTime,
+    )
+
+  @overload(QAbstractAnimation.State, QAbstractAnimation.State)
+  def updateState(
+      self,
+      newState: QAbstractAnimation.State,
+      oldState: QAbstractAnimation.State,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QParallelAnimationGroup::updateState(QAbstractAnimation::State newState,
+    QAbstractAnimation::State oldState)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qparallelanimationgroup.html#updateState
+
+    Parameters
+    ----------
+
+    newState : QAbstractAnimation.State
+      Passed on as its number.
+
+    oldState : QAbstractAnimation.State
+      Passed on as its number.
+    """
+    #  void QParallelAnimationGroup::updateState(QAbstractAnimation::State
+    #      newState, QAbstractAnimation::State oldState)
+    self.uglySide.call(
+        'ritual_own_ZN23QParallelAnimationGroup11updateStateEN18QAbstractAn'
+        'imation5StateES1_',
+        newState.value, oldState.value,
+    )
+
+  @overload(QAbstractAnimation.Direction)
+  def updateDirection(self, direction: QAbstractAnimation.Direction) -> None:
+    """
+    Calls Qt's 'void
+    QParallelAnimationGroup::updateDirection(QAbstractAnimation::Direction
+    direction)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qparallelanimationgroup.html#updateDirection
+
+    Parameters
+    ----------
+
+    direction : QAbstractAnimation.Direction
+      Passed on as its number.
+    """
+    #  void QParallelAnimationGroup::updateDirection(QAbstractAnimation::
+    #      Direction direction)
+    self.uglySide.call(
+        'ritual_own_ZN23QParallelAnimationGroup15updateDirectionEN18QAbstra'
+        'ctAnimation9DirectionE',
+        direction.value,
+    )

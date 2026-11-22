@@ -33,6 +33,40 @@
     "ritual_ZNK13QItemDelegate17itemEditorFactoryEv": ["address", "address"],
     "ritual_ZN13QItemDelegate20setItemEditorFactoryEP18QItemEditorFactory": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QItemDelegate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QItemDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK13QItemDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK13QItemDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK13QItemDelegate13setEditorDataEP7QWidgetRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK13QItemDelegate12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK13QItemDelegate20updateEditorGeometryEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK13QItemDelegate14drawDecorationEP8QPainterRK20QStyleOptionViewItemRK5QRectRK7QPixmap": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK13QItemDelegate9drawFocusEP8QPainterRK20QStyleOptionViewItemRK5QRect": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK13QItemDelegate9drawCheckEP8QPainterRK20QStyleOptionViewItemRK5QRectN2Qt10CheckStateE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN13QItemDelegate11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QItemDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex": [
+      "bool", "address", "address", "address", "address", "address"
     ]
   }
 }

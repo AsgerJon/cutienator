@@ -41,6 +41,14 @@
     "ritual_ZN12QColorDialog13standardColorEi": ["address", "int"],
     "ritual_ZN12QColorDialog16setStandardColorEi6QColor": [
       "nothing", "int", "address"
-    ]
+    ],
+    "ritual_take_QColorDialog": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QColorDialog10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN12QColorDialog11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QColorDialog4doneEi": ["nothing", "address", "int"]
   }
 }

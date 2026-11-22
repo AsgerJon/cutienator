@@ -14,6 +14,488 @@
 #include <QtGui/qfont.h>
 #include <QtCore/qvariant.h>
 #include <QtGui/qpalette.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QGraphicsScene may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQGraphicsScene : QGraphicsScene {
+  using QGraphicsScene::event;
+  using QGraphicsScene::eventFilter;
+  using QGraphicsScene::contextMenuEvent;
+  using QGraphicsScene::dragEnterEvent;
+  using QGraphicsScene::dragMoveEvent;
+  using QGraphicsScene::dragLeaveEvent;
+  using QGraphicsScene::dropEvent;
+  using QGraphicsScene::focusInEvent;
+  using QGraphicsScene::focusOutEvent;
+  using QGraphicsScene::helpEvent;
+  using QGraphicsScene::keyPressEvent;
+  using QGraphicsScene::keyReleaseEvent;
+  using QGraphicsScene::mousePressEvent;
+  using QGraphicsScene::mouseMoveEvent;
+  using QGraphicsScene::mouseReleaseEvent;
+  using QGraphicsScene::mouseDoubleClickEvent;
+  using QGraphicsScene::wheelEvent;
+  using QGraphicsScene::inputMethodEvent;
+  using QGraphicsScene::drawBackground;
+  using QGraphicsScene::drawForeground;
+  using QGraphicsScene::focusNextPrevChild;
+};
+
+//  A QGraphicsScene that Python can take functions over in. Every QGraphicsScene
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef const QVariant * (*CuteQGraphicsSceneCall0)(const void *, int, int *);
+typedef bool (*CuteQGraphicsSceneCall1)(const void *, QEvent *, int *);
+typedef bool (*CuteQGraphicsSceneCall2)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall3)(const void *, QGraphicsSceneContextMenuEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall4)(const void *, QGraphicsSceneDragDropEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall5)(const void *, QGraphicsSceneDragDropEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall6)(const void *, QGraphicsSceneDragDropEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall7)(const void *, QGraphicsSceneDragDropEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall8)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall9)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall10)(const void *, QGraphicsSceneHelpEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall11)(const void *, QKeyEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall12)(const void *, QKeyEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall13)(const void *, QGraphicsSceneMouseEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall14)(const void *, QGraphicsSceneMouseEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall15)(const void *, QGraphicsSceneMouseEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall16)(const void *, QGraphicsSceneMouseEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall17)(const void *, QGraphicsSceneWheelEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall18)(const void *, QInputMethodEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall19)(const void *, QPainter *, const QRectF *, int *);
+typedef void (*CuteQGraphicsSceneCall20)(const void *, QPainter *, const QRectF *, int *);
+typedef bool (*CuteQGraphicsSceneCall21)(const void *, bool, int *);
+typedef void (*CuteQGraphicsSceneCall22)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall23)(const void *, QChildEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall24)(const void *, QEvent *, int *);
+typedef void (*CuteQGraphicsSceneCall25)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQGraphicsSceneCall26)(const void *, const QMetaMethod *, int *);
+class CuteQGraphicsScene : public QGraphicsScene {
+public:
+  using QGraphicsScene::QGraphicsScene;
+  void *taken[27] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK14QGraphicsScene16inputMethodQueryEN2Qt16InputMethodQueryE")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene16contextMenuEventEP30QGraphicsSceneContextMenuEvent")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene14dragEnterEventEP27QGraphicsSceneDragDropEvent")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene13dragMoveEventEP27QGraphicsSceneDragDropEvent")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene14dragLeaveEventEP27QGraphicsSceneDragDropEvent")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene9dropEventEP27QGraphicsSceneDragDropEvent")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene12focusInEventEP11QFocusEvent")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene13focusOutEventEP11QFocusEvent")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene9helpEventEP23QGraphicsSceneHelpEvent")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene13keyPressEventEP9QKeyEvent")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene15keyReleaseEventEP9QKeyEvent")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene15mousePressEventEP24QGraphicsSceneMouseEvent")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene14mouseMoveEventEP24QGraphicsSceneMouseEvent")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene17mouseReleaseEventEP24QGraphicsSceneMouseEvent")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene10wheelEventEP24QGraphicsSceneWheelEvent")) {
+      taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene16inputMethodEventEP17QInputMethodEvent")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene14drawBackgroundEP8QPainterRK6QRectF")) {
+      taken[19] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene14drawForegroundEP8QPainterRK6QRectF")) {
+      taken[20] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN14QGraphicsScene18focusNextPrevChildEb")) {
+      taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[22] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[23] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[24] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[25] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[26] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QVariant QGraphicsScene::inputMethodQuery(Qt::InputMethodQuery query)
+  //      const
+  QVariant inputMethodQuery(Qt::InputMethodQuery query) const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall0 call = reinterpret_cast<CuteQGraphicsSceneCall0>(taken[0]);
+      const QVariant * given = call(this, static_cast<int>(query), &handled);
+      if (handled && given) return *given;
+    }
+    return QGraphicsScene::inputMethodQuery(query);
+  }
+
+  //  bool QGraphicsScene::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall1 call = reinterpret_cast<CuteQGraphicsSceneCall1>(taken[1]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QGraphicsScene::event(event);
+  }
+
+  //  bool QGraphicsScene::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall2 call = reinterpret_cast<CuteQGraphicsSceneCall2>(taken[2]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QGraphicsScene::eventFilter(watched, event);
+  }
+
+  //  void QGraphicsScene::contextMenuEvent(QGraphicsSceneContextMenuEvent
+  //      *event)
+  void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall3 call = reinterpret_cast<CuteQGraphicsSceneCall3>(taken[3]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::contextMenuEvent(event);
+  }
+
+  //  void QGraphicsScene::dragEnterEvent(QGraphicsSceneDragDropEvent
+  //      *event)
+  void dragEnterEvent(QGraphicsSceneDragDropEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall4 call = reinterpret_cast<CuteQGraphicsSceneCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::dragEnterEvent(event);
+  }
+
+  //  void QGraphicsScene::dragMoveEvent(QGraphicsSceneDragDropEvent
+  //      *event)
+  void dragMoveEvent(QGraphicsSceneDragDropEvent *event) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall5 call = reinterpret_cast<CuteQGraphicsSceneCall5>(taken[5]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::dragMoveEvent(event);
+  }
+
+  //  void QGraphicsScene::dragLeaveEvent(QGraphicsSceneDragDropEvent
+  //      *event)
+  void dragLeaveEvent(QGraphicsSceneDragDropEvent *event) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall6 call = reinterpret_cast<CuteQGraphicsSceneCall6>(taken[6]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::dragLeaveEvent(event);
+  }
+
+  //  void QGraphicsScene::dropEvent(QGraphicsSceneDragDropEvent *event)
+  void dropEvent(QGraphicsSceneDragDropEvent *event) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall7 call = reinterpret_cast<CuteQGraphicsSceneCall7>(taken[7]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::dropEvent(event);
+  }
+
+  //  void QGraphicsScene::focusInEvent(QFocusEvent *event)
+  void focusInEvent(QFocusEvent *event) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall8 call = reinterpret_cast<CuteQGraphicsSceneCall8>(taken[8]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::focusInEvent(event);
+  }
+
+  //  void QGraphicsScene::focusOutEvent(QFocusEvent *event)
+  void focusOutEvent(QFocusEvent *event) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall9 call = reinterpret_cast<CuteQGraphicsSceneCall9>(taken[9]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::focusOutEvent(event);
+  }
+
+  //  void QGraphicsScene::helpEvent(QGraphicsSceneHelpEvent *event)
+  void helpEvent(QGraphicsSceneHelpEvent *event) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall10 call = reinterpret_cast<CuteQGraphicsSceneCall10>(taken[10]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::helpEvent(event);
+  }
+
+  //  void QGraphicsScene::keyPressEvent(QKeyEvent *event)
+  void keyPressEvent(QKeyEvent *event) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall11 call = reinterpret_cast<CuteQGraphicsSceneCall11>(taken[11]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::keyPressEvent(event);
+  }
+
+  //  void QGraphicsScene::keyReleaseEvent(QKeyEvent *event)
+  void keyReleaseEvent(QKeyEvent *event) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall12 call = reinterpret_cast<CuteQGraphicsSceneCall12>(taken[12]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::keyReleaseEvent(event);
+  }
+
+  //  void QGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
+  void mousePressEvent(QGraphicsSceneMouseEvent *event) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall13 call = reinterpret_cast<CuteQGraphicsSceneCall13>(taken[13]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::mousePressEvent(event);
+  }
+
+  //  void QGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+  void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall14 call = reinterpret_cast<CuteQGraphicsSceneCall14>(taken[14]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::mouseMoveEvent(event);
+  }
+
+  //  void QGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent
+  //      *event)
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall15 call = reinterpret_cast<CuteQGraphicsSceneCall15>(taken[15]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::mouseReleaseEvent(event);
+  }
+
+  //  void QGraphicsScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
+  //      *event)
+  void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall16 call = reinterpret_cast<CuteQGraphicsSceneCall16>(taken[16]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::mouseDoubleClickEvent(event);
+  }
+
+  //  void QGraphicsScene::wheelEvent(QGraphicsSceneWheelEvent *event)
+  void wheelEvent(QGraphicsSceneWheelEvent *event) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall17 call = reinterpret_cast<CuteQGraphicsSceneCall17>(taken[17]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::wheelEvent(event);
+  }
+
+  //  void QGraphicsScene::inputMethodEvent(QInputMethodEvent *event)
+  void inputMethodEvent(QInputMethodEvent *event) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall18 call = reinterpret_cast<CuteQGraphicsSceneCall18>(taken[18]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::inputMethodEvent(event);
+  }
+
+  //  void QGraphicsScene::drawBackground(QPainter *painter, const QRectF
+  //      &rect)
+  void drawBackground(QPainter *painter, const QRectF &rect) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall19 call = reinterpret_cast<CuteQGraphicsSceneCall19>(taken[19]);
+      call(this, painter, &rect, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::drawBackground(painter, rect);
+  }
+
+  //  void QGraphicsScene::drawForeground(QPainter *painter, const QRectF
+  //      &rect)
+  void drawForeground(QPainter *painter, const QRectF &rect) override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall20 call = reinterpret_cast<CuteQGraphicsSceneCall20>(taken[20]);
+      call(this, painter, &rect, &handled);
+      if (handled) return;
+    }
+    QGraphicsScene::drawForeground(painter, rect);
+  }
+
+  //  bool QGraphicsScene::focusNextPrevChild(bool next)
+  bool focusNextPrevChild(bool next) override {
+    if (taken[21]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall21 call = reinterpret_cast<CuteQGraphicsSceneCall21>(taken[21]);
+      bool given = call(this, next, &handled);
+      if (handled) return given;
+    }
+    return QGraphicsScene::focusNextPrevChild(next);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[22]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall22 call = reinterpret_cast<CuteQGraphicsSceneCall22>(taken[22]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[23]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall23 call = reinterpret_cast<CuteQGraphicsSceneCall23>(taken[23]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[24]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall24 call = reinterpret_cast<CuteQGraphicsSceneCall24>(taken[24]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall25 call = reinterpret_cast<CuteQGraphicsSceneCall25>(taken[25]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQGraphicsSceneCall26 call = reinterpret_cast<CuteQGraphicsSceneCall26>(taken[26]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QGraphicsScene::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -34,7 +516,7 @@ QString *ritual_ZN14QGraphicsScene2trEPKcS1_i(
 //  QGraphicsScene::QGraphicsScene(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QGraphicsScene *ritual_ZN14QGraphicsSceneC1EP7QObject(QObject *parent) {
-  return new QGraphicsScene(parent);
+  return new CuteQGraphicsScene(parent);
 }
 
 //  QGraphicsScene::QGraphicsScene(const QRectF &sceneRect, QObject *parent)
@@ -42,7 +524,7 @@ extern "C" Q_DECL_EXPORT
 QGraphicsScene *ritual_ZN14QGraphicsSceneC1ERK6QRectFP7QObject(
     const QRectF *sceneRect,
     QObject *parent) {
-  return new QGraphicsScene(*sceneRect, parent);
+  return new CuteQGraphicsScene(*sceneRect, parent);
 }
 
 //  QGraphicsScene::QGraphicsScene(qreal x, qreal y, qreal width, qreal
@@ -54,7 +536,7 @@ QGraphicsScene *ritual_ZN14QGraphicsSceneC1EddddP7QObject(
     qreal width,
     qreal height,
     QObject *parent) {
-  return new QGraphicsScene(x, y, width, height, parent);
+  return new CuteQGraphicsScene(x, y, width, height, parent);
 }
 
 //  QGraphicsScene::~QGraphicsScene()
@@ -633,4 +1115,222 @@ void ritual_ZN14QGraphicsScene14clearSelectionEv(QGraphicsScene *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QGraphicsScene5clearEv(QGraphicsScene *self) {
   self->clear();
+}
+
+//  a Python function taken by a CuteQGraphicsScene, for the function named
+//      by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QGraphicsScene(
+    QGraphicsScene *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQGraphicsScene *>(self)->take(key, call);
+}
+
+//  QVariant QGraphicsScene::inputMethodQuery(Qt::InputMethodQuery query)
+//      const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZNK14QGraphicsScene16inputMethodQueryEN2Qt16InputMethodQueryE(
+    const QGraphicsScene *self,
+    Qt::InputMethodQuery query) {
+  return new QVariant(self->QGraphicsScene::inputMethodQuery(query));
+}
+
+//  bool QGraphicsScene::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN14QGraphicsScene5eventEP6QEvent(
+    QGraphicsScene *self,
+    QEvent *event) {
+  return static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::event(
+      event);
+}
+
+//  bool QGraphicsScene::eventFilter(QObject *watched, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN14QGraphicsScene11eventFilterEP7QObjectP6QEvent(
+    QGraphicsScene *self,
+    QObject *watched,
+    QEvent *event) {
+  return static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::eventFilter(
+      watched,
+      event);
+}
+
+//  void QGraphicsScene::contextMenuEvent(QGraphicsSceneContextMenuEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene16contextMenuEventEP30QGraphicsSceneContextMenuEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneContextMenuEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::contextMenuEvent(
+      event);
+}
+
+//  void QGraphicsScene::dragEnterEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene14dragEnterEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneDragDropEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::dragEnterEvent(
+      event);
+}
+
+//  void QGraphicsScene::dragMoveEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene13dragMoveEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneDragDropEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::dragMoveEvent(
+      event);
+}
+
+//  void QGraphicsScene::dragLeaveEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene14dragLeaveEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneDragDropEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::dragLeaveEvent(
+      event);
+}
+
+//  void QGraphicsScene::dropEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene9dropEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneDragDropEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::dropEvent(
+      event);
+}
+
+//  void QGraphicsScene::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene12focusInEventEP11QFocusEvent(
+    QGraphicsScene *self,
+    QFocusEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::focusInEvent(
+      event);
+}
+
+//  void QGraphicsScene::focusOutEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene13focusOutEventEP11QFocusEvent(
+    QGraphicsScene *self,
+    QFocusEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::focusOutEvent(
+      event);
+}
+
+//  void QGraphicsScene::helpEvent(QGraphicsSceneHelpEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene9helpEventEP23QGraphicsSceneHelpEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneHelpEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::helpEvent(
+      event);
+}
+
+//  void QGraphicsScene::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene13keyPressEventEP9QKeyEvent(
+    QGraphicsScene *self,
+    QKeyEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::keyPressEvent(
+      event);
+}
+
+//  void QGraphicsScene::keyReleaseEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene15keyReleaseEventEP9QKeyEvent(
+    QGraphicsScene *self,
+    QKeyEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::keyReleaseEvent(
+      event);
+}
+
+//  void QGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene15mousePressEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneMouseEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::mousePressEvent(
+      event);
+}
+
+//  void QGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene14mouseMoveEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneMouseEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::mouseMoveEvent(
+      event);
+}
+
+//  void QGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene17mouseReleaseEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneMouseEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::mouseReleaseEvent(
+      event);
+}
+
+//  void QGraphicsScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneMouseEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::mouseDoubleClickEvent(
+      event);
+}
+
+//  void QGraphicsScene::wheelEvent(QGraphicsSceneWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene10wheelEventEP24QGraphicsSceneWheelEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneWheelEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::wheelEvent(
+      event);
+}
+
+//  void QGraphicsScene::inputMethodEvent(QInputMethodEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene16inputMethodEventEP17QInputMethodEvent(
+    QGraphicsScene *self,
+    QInputMethodEvent *event) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::inputMethodEvent(
+      event);
+}
+
+//  void QGraphicsScene::drawBackground(QPainter *painter, const QRectF
+//      &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene14drawBackgroundEP8QPainterRK6QRectF(
+    QGraphicsScene *self,
+    QPainter *painter,
+    const QRectF *rect) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::drawBackground(
+      painter,
+      *rect);
+}
+
+//  void QGraphicsScene::drawForeground(QPainter *painter, const QRectF
+//      &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN14QGraphicsScene14drawForegroundEP8QPainterRK6QRectF(
+    QGraphicsScene *self,
+    QPainter *painter,
+    const QRectF *rect) {
+  static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::drawForeground(
+      painter,
+      *rect);
+}
+
+//  bool QGraphicsScene::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN14QGraphicsScene18focusNextPrevChildEb(
+    QGraphicsScene *self,
+    bool next) {
+  return static_cast<OwnQGraphicsScene *>(self)->OwnQGraphicsScene::focusNextPrevChild(
+      next);
 }

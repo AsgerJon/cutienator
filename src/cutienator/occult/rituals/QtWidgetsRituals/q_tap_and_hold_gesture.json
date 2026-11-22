@@ -15,6 +15,7 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN18QTapAndHoldGesture10setTimeoutEi": ["nothing", "int"],
-    "ritual_ZN18QTapAndHoldGesture7timeoutEv": ["int"]
+    "ritual_ZN18QTapAndHoldGesture7timeoutEv": ["int"],
+    "ritual_take_QTapAndHoldGesture": ["bool", "address", "chars", "address"]
   }
 }

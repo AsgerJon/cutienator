@@ -70,6 +70,11 @@ class QTimerEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTimerEvent'
 
+  #  A C++ QTimerEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTimerEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -96,7 +101,10 @@ class QTimerEvent(QEvent):
       no object.
     """
     #  QTimerEvent *QTimerEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK11QTimerEvent5cloneEv')
+    ritual = 'ritual_ZNK11QTimerEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QTimerEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QTimerEvent._cuteAt(address)
 
   def timerId(self) -> int:

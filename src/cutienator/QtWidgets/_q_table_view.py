@@ -19,18 +19,25 @@ from . import QAbstractItemView, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QAbstractItemModel, QItemSelectionModel, QMetaObject
-  from ..QtCore import QModelIndex, QPoint, QRect
-  from . import QHeaderView
+  from ..QtCore import QAbstractItemModel, QItemSelection
+  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
+  from ..QtCore import QRect, QSize, QTimerEvent
+  from ..QtGui import QDropEvent, QPaintEvent, QRegion
+  from . import QHeaderView, QStyleOptionViewItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAbstractItemModel = WAIT['QAbstractItemModel']
+  QDropEvent = WAIT['QDropEvent']
   QHeaderView = WAIT['QHeaderView']
+  QItemSelection = WAIT['QItemSelection']
   QItemSelectionModel = WAIT['QItemSelectionModel']
   QModelIndex = WAIT['QModelIndex']
+  QPaintEvent = WAIT['QPaintEvent']
   QPoint = WAIT['QPoint']
+  QStyleOptionViewItem = WAIT['QStyleOptionViewItem']
+  QTimerEvent = WAIT['QTimerEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -49,7 +56,7 @@ class QTableView(QAbstractItemView):
   -----------
 
   Every function of Qt's QTableView that has a ritual and that Python can
-  call so far, 50 names in all: 'metaObject', 'tr', 'setModel',
+  call so far, 67 names in all: 'metaObject', 'tr', 'setModel',
   'setRootIndex', 'setSelectionModel', 'doItemsLayout', 'horizontalHeader',
   'verticalHeader', 'setHorizontalHeader', 'setVerticalHeader',
   'rowViewportPosition', 'rowAt', 'setRowHeight', 'rowHeight',
@@ -61,8 +68,13 @@ class QTableView(QAbstractItemView):
   'rowSpan', 'columnSpan', 'clearSpans', 'selectRow', 'selectColumn',
   'hideRow', 'hideColumn', 'showRow', 'showColumn', 'resizeRowToContents',
   'resizeRowsToContents', 'resizeColumnToContents',
-  'resizeColumnsToContents', 'sortByColumn', 'setShowGrid'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'resizeColumnsToContents', 'sortByColumn', 'setShowGrid',
+  'scrollContentsBy', 'initViewItemOption', 'paintEvent', 'timerEvent',
+  'dropEvent', 'horizontalOffset', 'verticalOffset',
+  'visualRegionForSelection', 'updateGeometries', 'viewportSizeHint',
+  'sizeHintForRow', 'sizeHintForColumn', 'verticalScrollbarAction',
+  'horizontalScrollbarAction', 'isIndexHidden', 'selectionChanged',
+  'currentChanged'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -73,7 +85,7 @@ class QTableView(QAbstractItemView):
   What has no ritual
   ------------------
 
-  36 of the 88 functions Qt declares: 27 protected; 4 private; 2 takes or
+  19 of the 88 functions Qt declares: 10 protected; 4 private; 2 takes or
   gives a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
@@ -144,6 +156,11 @@ class QTableView(QAbstractItemView):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTableView'
+
+  #  A C++ QTableView Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTableView'
 
   #  Fallback Variables
 
@@ -431,10 +448,10 @@ class QTableView(QAbstractItemView):
       A new cute QRect around the copy Qt gave back. Python owns it.
     """
     #  QRect QTableView::visualRect(const QModelIndex &index) const
-    address = self.uglySide.call(
-        'ritual_ZNK10QTableView10visualRectERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK10QTableView10visualRectERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QTableView10visualRectERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -459,9 +476,10 @@ class QTableView(QAbstractItemView):
       A new cute QModelIndex around the copy Qt gave back. Python owns it.
     """
     #  QModelIndex QTableView::indexAt(const QPoint &p) const
-    address = self.uglySide.call(
-        'ritual_ZNK10QTableView7indexAtERK6QPoint', self._valueOf(p),
-    )
+    ritual = 'ritual_ZNK10QTableView7indexAtERK6QPoint'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QTableView7indexAtERK6QPoint'
+    address = self.uglySide.call(ritual, self._valueOf(p))
     from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -507,6 +525,134 @@ class QTableView(QAbstractItemView):
         'ritual_ZNK10QTableView10columnSpanEii', row, column,
     )
 
+  def horizontalOffset(self) -> int:
+    """
+    Calls Qt's 'int QTableView::horizontalOffset() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#horizontalOffset
+    """
+    #  int QTableView::horizontalOffset() const
+    return self.uglySide.call(
+        'ritual_own_ZNK10QTableView16horizontalOffsetEv',
+    )
+
+  def verticalOffset(self) -> int:
+    """
+    Calls Qt's 'int QTableView::verticalOffset() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#verticalOffset
+    """
+    #  int QTableView::verticalOffset() const
+    return self.uglySide.call('ritual_own_ZNK10QTableView14verticalOffsetEv')
+
+  @overload(QItemSelection)
+  def visualRegionForSelection(self, selection: QItemSelection) -> QRegion:
+    """
+    Calls Qt's 'QRegion QTableView::visualRegionForSelection(const
+    QItemSelection &selection) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtableview.html#visualRegionForSelection
+
+    Parameters
+    ----------
+
+    selection : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QTableView::visualRegionForSelection(const QItemSelection
+    #      &selection) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK10QTableView24visualRegionForSelectionERK14QItemSele'
+        'ction',
+        self._valueOf(selection),
+    )
+    from ..QtGui import QRegion
+    return QRegion._cuteOwning(address)
+
+  def viewportSizeHint(self) -> QSize:
+    """
+    Calls Qt's 'QSize QTableView::viewportSizeHint() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#viewportSizeHint
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QTableView::viewportSizeHint() const
+    address = self.uglySide.call(
+        'ritual_own_ZNK10QTableView16viewportSizeHintEv',
+    )
+    from ..QtCore import QSize
+    return QSize._cuteOwning(address)
+
+  @overload(int)
+  def sizeHintForRow(self, row: int) -> int:
+    """
+    Calls Qt's 'int QTableView::sizeHintForRow(int row) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#sizeHintForRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+    """
+    #  int QTableView::sizeHintForRow(int row) const
+    return self.uglySide.call(
+        'ritual_own_ZNK10QTableView14sizeHintForRowEi', row,
+    )
+
+  @overload(int)
+  def sizeHintForColumn(self, column: int) -> int:
+    """
+    Calls Qt's 'int QTableView::sizeHintForColumn(int column) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#sizeHintForColumn
+
+    Parameters
+    ----------
+
+    column : int
+      Passed on as it is.
+    """
+    #  int QTableView::sizeHintForColumn(int column) const
+    return self.uglySide.call(
+        'ritual_own_ZNK10QTableView17sizeHintForColumnEi', column,
+    )
+
+  @overload(QModelIndex)
+  def isIndexHidden(self, index: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool QTableView::isIndexHidden(const QModelIndex &index)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#isIndexHidden
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QTableView::isIndexHidden(const QModelIndex &index) const
+    return self.uglySide.call(
+        'ritual_own_ZNK10QTableView13isIndexHiddenERK11QModelIndex',
+        self._valueOf(index),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -527,10 +673,10 @@ class QTableView(QAbstractItemView):
       object.
     """
     #  void QTableView::setModel(QAbstractItemModel *model)
-    self.uglySide.call(
-        'ritual_ZN10QTableView8setModelEP18QAbstractItemModel',
-        self._addressOf(model),
-    )
+    ritual = 'ritual_ZN10QTableView8setModelEP18QAbstractItemModel'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QTableView8setModelEP18QAbstractItemModel'
+    self.uglySide.call(ritual, self._addressOf(model))
 
   @overload(QModelIndex)
   def setRootIndex(self, index: QModelIndex) -> None:
@@ -547,10 +693,10 @@ class QTableView(QAbstractItemView):
       Python's own.
     """
     #  void QTableView::setRootIndex(const QModelIndex &index)
-    self.uglySide.call(
-        'ritual_ZN10QTableView12setRootIndexERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZN10QTableView12setRootIndexERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QTableView12setRootIndexERK11QModelIndex'
+    self.uglySide.call(ritual, self._valueOf(index))
 
   @overload(QItemSelectionModel)
   @overload(NoneType)
@@ -573,10 +719,13 @@ class QTableView(QAbstractItemView):
     """
     #  void QTableView::setSelectionModel(QItemSelectionModel
     #      *selectionModel)
-    self.uglySide.call(
-        'ritual_ZN10QTableView17setSelectionModelEP19QItemSelectionModel',
-        self._addressOf(selectionModel),
-    )
+    ritual = (
+        'ritual_ZN10QTableView17setSelectionModelEP19QItemSelectionModel')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN10QTableView17setSelectionModelEP19QItemSelectionMo'
+          'del')
+    self.uglySide.call(ritual, self._addressOf(selectionModel))
 
   @overload(QHeaderView)
   @overload(NoneType)
@@ -883,7 +1032,10 @@ class QTableView(QAbstractItemView):
     Qt's own words: https://doc.qt.io/qt-6/qtableview.html#doItemsLayout
     """
     #  void QTableView::doItemsLayout()
-    self.uglySide.call('ritual_ZN10QTableView13doItemsLayoutEv')
+    ritual = 'ritual_ZN10QTableView13doItemsLayoutEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QTableView13doItemsLayoutEv'
+    self.uglySide.call(ritual)
 
   @overload(QModelIndex)
   @overload(QModelIndex, QAbstractItemView.ScrollHint)
@@ -911,11 +1063,14 @@ class QTableView(QAbstractItemView):
       QAbstractItemView.ScrollHint.EnsureVisible.
     """
     #  void QTableView::scrollTo(const QModelIndex &index, ScrollHint hint)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN10QTableView8scrollToERK11QModelIndexN17QAbstractItemView'
-        '10ScrollHintE',
-        self._valueOf(index), hint.value,
-    )
+        '10ScrollHintE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN10QTableView8scrollToERK11QModelIndexN17QAbstractIt'
+          'emView10ScrollHintE')
+    self.uglySide.call(ritual, self._valueOf(index), hint.value)
 
   def clearSpans(self) -> None:
     """
@@ -1099,4 +1254,222 @@ class QTableView(QAbstractItemView):
     self.uglySide.call(
         'ritual_ZN10QTableView12sortByColumnEiN2Qt9SortOrderE',
         column, order.value,
+    )
+
+  @overload(int, int)
+  def scrollContentsBy(self, dx: int, dy: int) -> None:
+    """
+    Calls Qt's 'void QTableView::scrollContentsBy(int dx, int dy)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#scrollContentsBy
+
+    Parameters
+    ----------
+
+    dx : int
+      Passed on as it is.
+
+    dy : int
+      Passed on as it is.
+    """
+    #  void QTableView::scrollContentsBy(int dx, int dy)
+    self.uglySide.call(
+        'ritual_own_ZN10QTableView16scrollContentsByEii', dx, dy,
+    )
+
+  @overload(QStyleOptionViewItem)
+  @overload(NoneType)
+  def initViewItemOption(
+      self,
+      option: Optional[QStyleOptionViewItem],
+  ) -> None:
+    """
+    Calls Qt's 'void QTableView::initViewItemOption(QStyleOptionViewItem
+    *option) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#initViewItemOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionViewItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableView::initViewItemOption(QStyleOptionViewItem *option)
+    #      const
+    self.uglySide.call(
+        'ritual_own_ZNK10QTableView18initViewItemOptionEP20QStyleOptionView'
+        'Item',
+        self._addressOf(option),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, e: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QTableView::paintEvent(QPaintEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#paintEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableView::paintEvent(QPaintEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN10QTableView10paintEventEP11QPaintEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, event: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QTableView::timerEvent(QTimerEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#timerEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableView::timerEvent(QTimerEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN10QTableView10timerEventEP11QTimerEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QDropEvent)
+  @overload(NoneType)
+  def dropEvent(self, event: Optional[QDropEvent]) -> None:
+    """
+    Calls Qt's 'void QTableView::dropEvent(QDropEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#dropEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableView::dropEvent(QDropEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN10QTableView9dropEventEP10QDropEvent',
+        self._addressOf(event),
+    )
+
+  def updateGeometries(self) -> None:
+    """
+    Calls Qt's 'void QTableView::updateGeometries()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#updateGeometries
+    """
+    #  void QTableView::updateGeometries()
+    self.uglySide.call('ritual_own_ZN10QTableView16updateGeometriesEv')
+
+  @overload(int)
+  def verticalScrollbarAction(self, action: int) -> None:
+    """
+    Calls Qt's 'void QTableView::verticalScrollbarAction(int action)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtableview.html#verticalScrollbarAction
+
+    Parameters
+    ----------
+
+    action : int
+      Passed on as it is.
+    """
+    #  void QTableView::verticalScrollbarAction(int action)
+    self.uglySide.call(
+        'ritual_own_ZN10QTableView23verticalScrollbarActionEi', action,
+    )
+
+  @overload(int)
+  def horizontalScrollbarAction(self, action: int) -> None:
+    """
+    Calls Qt's 'void QTableView::horizontalScrollbarAction(int action)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtableview.html#horizontalScrollbarAction
+
+    Parameters
+    ----------
+
+    action : int
+      Passed on as it is.
+    """
+    #  void QTableView::horizontalScrollbarAction(int action)
+    self.uglySide.call(
+        'ritual_own_ZN10QTableView25horizontalScrollbarActionEi', action,
+    )
+
+  @overload(QItemSelection, QItemSelection)
+  def selectionChanged(
+      self,
+      selected: QItemSelection,
+      deselected: QItemSelection,
+  ) -> None:
+    """
+    Calls Qt's 'void QTableView::selectionChanged(const QItemSelection
+    &selected, const QItemSelection &deselected)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#selectionChanged
+
+    Parameters
+    ----------
+
+    selected : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    deselected : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+    """
+    #  void QTableView::selectionChanged(const QItemSelection &selected,
+    #      const QItemSelection &deselected)
+    self.uglySide.call(
+        'ritual_own_ZN10QTableView16selectionChangedERK14QItemSelectionS2_',
+        self._valueOf(selected), self._valueOf(deselected),
+    )
+
+  @overload(QModelIndex, QModelIndex)
+  def currentChanged(
+      self,
+      current: QModelIndex,
+      previous: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void QTableView::currentChanged(const QModelIndex &current,
+    const QModelIndex &previous)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#currentChanged
+
+    Parameters
+    ----------
+
+    current : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    previous : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QTableView::currentChanged(const QModelIndex &current, const
+    #      QModelIndex &previous)
+    self.uglySide.call(
+        'ritual_own_ZN10QTableView14currentChangedERK11QModelIndexS2_',
+        self._valueOf(current), self._valueOf(previous),
     )

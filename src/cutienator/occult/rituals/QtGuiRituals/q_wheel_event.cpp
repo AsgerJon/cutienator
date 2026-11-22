@@ -2,6 +2,116 @@
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
+#include <cstring>
+
+//  A QWheelEvent that Python can take functions over in. Every QWheelEvent
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQWheelEventCall0)(const void *, int *);
+typedef bool (*CuteQWheelEventCall1)(const void *, int *);
+typedef bool (*CuteQWheelEventCall2)(const void *, int *);
+typedef bool (*CuteQWheelEventCall3)(const void *, int *);
+typedef void (*CuteQWheelEventCall4)(const void *, quint64, int *);
+typedef void (*CuteQWheelEventCall5)(const void *, bool, int *);
+class CuteQWheelEvent : public QWheelEvent {
+public:
+  using QWheelEvent::QWheelEvent;
+  void *taken[6] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QPointerEvent12isBeginEventEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QPointerEvent13isUpdateEventEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QPointerEvent10isEndEventEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QInputEvent12setTimestampEy")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
+      taken[5] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QWheelEvent *QWheelEvent::clone() const
+  QWheelEvent *clone() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQWheelEventCall0 call = reinterpret_cast<CuteQWheelEventCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QWheelEvent *>(given);
+    }
+    return QWheelEvent::clone();
+  }
+
+  //  bool QWheelEvent::isBeginEvent() const
+  bool isBeginEvent() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQWheelEventCall1 call = reinterpret_cast<CuteQWheelEventCall1>(taken[1]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QWheelEvent::isBeginEvent();
+  }
+
+  //  bool QWheelEvent::isUpdateEvent() const
+  bool isUpdateEvent() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQWheelEventCall2 call = reinterpret_cast<CuteQWheelEventCall2>(taken[2]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QWheelEvent::isUpdateEvent();
+  }
+
+  //  bool QWheelEvent::isEndEvent() const
+  bool isEndEvent() const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQWheelEventCall3 call = reinterpret_cast<CuteQWheelEventCall3>(taken[3]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QWheelEvent::isEndEvent();
+  }
+
+  //  void QPointerEvent::setTimestamp(quint64 timestamp)
+  void setTimestamp(quint64 timestamp) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQWheelEventCall4 call = reinterpret_cast<CuteQWheelEventCall4>(taken[4]);
+      call(this, timestamp, &handled);
+      if (handled) return;
+    }
+    QPointerEvent::setTimestamp(timestamp);
+  }
+
+  //  void QPointerEvent::setAccepted(bool accepted)
+  void setAccepted(bool accepted) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQWheelEventCall5 call = reinterpret_cast<CuteQWheelEventCall5>(taken[5]);
+      call(this, accepted, &handled);
+      if (handled) return;
+    }
+    QPointerEvent::setAccepted(accepted);
+  }
+};
 
 //  QWheelEvent *QWheelEvent::clone() const
 extern "C" Q_DECL_EXPORT
@@ -31,7 +141,7 @@ QWheelEvent *ritual_ZN11QWheelEventC1ERK7QPointFS2_6QPointS3_6QFlagsIN2Qt11Mouse
     bool inverted,
     Qt::MouseEventSource source,
     const QPointingDevice *device) {
-  return new QWheelEvent(
+  return new CuteQWheelEvent(
       *pos,
       *globalPos,
       *pixelDelta,
@@ -103,4 +213,38 @@ extern "C" Q_DECL_EXPORT
 Qt::MouseEventSource ritual_ZNK11QWheelEvent6sourceEv(
     const QWheelEvent *self) {
   return self->source();
+}
+
+//  a Python function taken by a CuteQWheelEvent, for the function named by
+//      the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QWheelEvent(
+    QWheelEvent *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQWheelEvent *>(self)->take(key, call);
+}
+
+//  QWheelEvent *QWheelEvent::clone() const
+extern "C" Q_DECL_EXPORT
+QWheelEvent *ritual_own_ZNK11QWheelEvent5cloneEv(const QWheelEvent *self) {
+  return self->QWheelEvent::clone();
+}
+
+//  bool QWheelEvent::isBeginEvent() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK11QWheelEvent12isBeginEventEv(const QWheelEvent *self) {
+  return self->QWheelEvent::isBeginEvent();
+}
+
+//  bool QWheelEvent::isUpdateEvent() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK11QWheelEvent13isUpdateEventEv(const QWheelEvent *self) {
+  return self->QWheelEvent::isUpdateEvent();
+}
+
+//  bool QWheelEvent::isEndEvent() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK11QWheelEvent10isEndEventEv(const QWheelEvent *self) {
+  return self->QWheelEvent::isEndEvent();
 }

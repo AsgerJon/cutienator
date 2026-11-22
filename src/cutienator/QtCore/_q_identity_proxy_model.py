@@ -135,6 +135,11 @@ class QIdentityProxyModel(QAbstractProxyModel):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QIdentityProxyModel'
 
+  #  A C++ QIdentityProxyModel Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QIdentityProxyModel'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -190,10 +195,11 @@ class QIdentityProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZNK19QIdentityProxyModel11columnCountERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK19QIdentityProxyModel11columnCountERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QIdentityProxyModel11columnCountERK11QModelIndex')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -234,10 +240,10 @@ class QIdentityProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    address = self.uglySide.call(
-        'ritual_ZNK19QIdentityProxyModel5indexEiiRK11QModelIndex',
-        row, column, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK19QIdentityProxyModel5indexEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QIdentityProxyModel5indexEiiRK11QModelIndex'
+    address = self.uglySide.call(ritual, row, column, self._valueOf(parent))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -265,10 +271,12 @@ class QIdentityProxyModel(QAbstractProxyModel):
     """
     #  QModelIndex QIdentityProxyModel::mapFromSource(const QModelIndex
     #      &sourceIndex) const
-    address = self.uglySide.call(
-        'ritual_ZNK19QIdentityProxyModel13mapFromSourceERK11QModelIndex',
-        self._valueOf(sourceIndex),
-    )
+    ritual = 'ritual_ZNK19QIdentityProxyModel13mapFromSourceERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QIdentityProxyModel13mapFromSourceERK11QModelInd'
+          'ex')
+    address = self.uglySide.call(ritual, self._valueOf(sourceIndex))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -296,10 +304,11 @@ class QIdentityProxyModel(QAbstractProxyModel):
     """
     #  QModelIndex QIdentityProxyModel::mapToSource(const QModelIndex
     #      &proxyIndex) const
-    address = self.uglySide.call(
-        'ritual_ZNK19QIdentityProxyModel11mapToSourceERK11QModelIndex',
-        self._valueOf(proxyIndex),
-    )
+    ritual = 'ritual_ZNK19QIdentityProxyModel11mapToSourceERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QIdentityProxyModel11mapToSourceERK11QModelIndex')
+    address = self.uglySide.call(ritual, self._valueOf(proxyIndex))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -326,10 +335,10 @@ class QIdentityProxyModel(QAbstractProxyModel):
     """
     #  QModelIndex QIdentityProxyModel::parent(const QModelIndex &child)
     #      const
-    address = self.uglySide.call(
-        'ritual_ZNK19QIdentityProxyModel6parentERK11QModelIndex',
-        self._valueOf(child),
-    )
+    ritual = 'ritual_ZNK19QIdentityProxyModel6parentERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QIdentityProxyModel6parentERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(child))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -354,10 +363,10 @@ class QIdentityProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZNK19QIdentityProxyModel8rowCountERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK19QIdentityProxyModel8rowCountERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QIdentityProxyModel8rowCountERK11QModelIndex'
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(int, Qt.Orientation)
   @overload(int, Qt.Orientation, int)
@@ -394,10 +403,13 @@ class QIdentityProxyModel(QAbstractProxyModel):
     """
     #  QVariant QIdentityProxyModel::headerData(int section, Qt::Orientation
     #      orientation, int role) const
-    address = self.uglySide.call(
-        'ritual_ZNK19QIdentityProxyModel10headerDataEiN2Qt11OrientationEi',
-        section, orientation.value, role,
-    )
+    ritual = (
+        'ritual_ZNK19QIdentityProxyModel10headerDataEiN2Qt11OrientationEi')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QIdentityProxyModel10headerDataEiN2Qt11Orientati'
+          'onEi')
+    address = self.uglySide.call(ritual, section, orientation.value, role)
     from . import QVariant
     return QVariant._cuteOwning(address)
 
@@ -430,10 +442,11 @@ class QIdentityProxyModel(QAbstractProxyModel):
     """
     #  QModelIndex QIdentityProxyModel::sibling(int row, int column, const
     #      QModelIndex &idx) const
-    address = self.uglySide.call(
-        'ritual_ZNK19QIdentityProxyModel7siblingEiiRK11QModelIndex',
-        row, column, self._valueOf(idx),
-    )
+    ritual = 'ritual_ZNK19QIdentityProxyModel7siblingEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QIdentityProxyModel7siblingEiiRK11QModelIndex')
+    address = self.uglySide.call(ritual, row, column, self._valueOf(idx))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -465,11 +478,14 @@ class QIdentityProxyModel(QAbstractProxyModel):
     """
     #  QItemSelection QIdentityProxyModel::mapSelectionFromSource(const
     #      QItemSelection &selection) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK19QIdentityProxyModel22mapSelectionFromSourceERK14QItemS'
-        'election',
-        self._valueOf(selection),
-    )
+        'election')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QIdentityProxyModel22mapSelectionFromSourceERK14'
+          'QItemSelection')
+    address = self.uglySide.call(ritual, self._valueOf(selection))
     from . import QItemSelection
     return QItemSelection._cuteOwning(address)
 
@@ -501,11 +517,14 @@ class QIdentityProxyModel(QAbstractProxyModel):
     """
     #  QItemSelection QIdentityProxyModel::mapSelectionToSource(const
     #      QItemSelection &selection) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK19QIdentityProxyModel20mapSelectionToSourceERK14QItemSel'
-        'ection',
-        self._valueOf(selection),
-    )
+        'ection')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QIdentityProxyModel20mapSelectionToSourceERK14QI'
+          'temSelection')
+    address = self.uglySide.call(ritual, self._valueOf(selection))
     from . import QItemSelection
     return QItemSelection._cuteOwning(address)
 
@@ -559,11 +578,14 @@ class QIdentityProxyModel(QAbstractProxyModel):
     """
     #  void QIdentityProxyModel::setSourceModel(QAbstractItemModel
     #      *sourceModel)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN19QIdentityProxyModel14setSourceModelEP18QAbstractItemMod'
-        'el',
-        self._addressOf(sourceModel),
-    )
+        'el')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QIdentityProxyModel14setSourceModelEP18QAbstractI'
+          'temModel')
+    self.uglySide.call(ritual, self._addressOf(sourceModel))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -662,9 +684,15 @@ class QIdentityProxyModel(QAbstractProxyModel):
     #  bool QIdentityProxyModel::dropMimeData(const QMimeData *data,
     #      Qt::DropAction action, int row, int column, const QModelIndex
     #      &parent)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN19QIdentityProxyModel12dropMimeDataEPK9QMimeDataN2Qt10Dro'
-        'pActionEiiRK11QModelIndex',
+        'pActionEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QIdentityProxyModel12dropMimeDataEPK9QMimeDataN2Q'
+          't10DropActionEiiRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
@@ -703,10 +731,13 @@ class QIdentityProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN19QIdentityProxyModel13insertColumnsEiiRK11QModelIndex',
-        column, count, self._valueOf(parent),
-    )
+    ritual = (
+        'ritual_ZN19QIdentityProxyModel13insertColumnsEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QIdentityProxyModel13insertColumnsEiiRK11QModelIn'
+          'dex')
+    return self.uglySide.call(ritual, column, count, self._valueOf(parent))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -742,10 +773,11 @@ class QIdentityProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN19QIdentityProxyModel10insertRowsEiiRK11QModelIndex',
-        row, count, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN19QIdentityProxyModel10insertRowsEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QIdentityProxyModel10insertRowsEiiRK11QModelIndex')
+    return self.uglySide.call(ritual, row, count, self._valueOf(parent))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -781,10 +813,13 @@ class QIdentityProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN19QIdentityProxyModel13removeColumnsEiiRK11QModelIndex',
-        column, count, self._valueOf(parent),
-    )
+    ritual = (
+        'ritual_ZN19QIdentityProxyModel13removeColumnsEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QIdentityProxyModel13removeColumnsEiiRK11QModelIn'
+          'dex')
+    return self.uglySide.call(ritual, column, count, self._valueOf(parent))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -820,10 +855,11 @@ class QIdentityProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN19QIdentityProxyModel10removeRowsEiiRK11QModelIndex',
-        row, count, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN19QIdentityProxyModel10removeRowsEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QIdentityProxyModel10removeRowsEiiRK11QModelIndex')
+    return self.uglySide.call(ritual, row, count, self._valueOf(parent))
 
   @overload(QModelIndex, int, int, QModelIndex, int)
   def moveRows(
@@ -864,8 +900,13 @@ class QIdentityProxyModel(QAbstractProxyModel):
     #  bool QIdentityProxyModel::moveRows(const QModelIndex &sourceParent,
     #      int sourceRow, int count, const QModelIndex &destinationParent,
     #      int destinationChild)
+    ritual = 'ritual_ZN19QIdentityProxyModel8moveRowsERK11QModelIndexiiS2_i'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QIdentityProxyModel8moveRowsERK11QModelIndexiiS2_'
+          'i')
     return self.uglySide.call(
-        'ritual_ZN19QIdentityProxyModel8moveRowsERK11QModelIndexiiS2_i',
+        ritual,
         self._valueOf(sourceParent), sourceRow, count,
         self._valueOf(destinationParent), destinationChild,
     )
@@ -910,8 +951,14 @@ class QIdentityProxyModel(QAbstractProxyModel):
     #  bool QIdentityProxyModel::moveColumns(const QModelIndex &sourceParent,
     #      int sourceColumn, int count, const QModelIndex &destinationParent,
     #      int destinationChild)
+    ritual = (
+        'ritual_ZN19QIdentityProxyModel11moveColumnsERK11QModelIndexiiS2_i')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QIdentityProxyModel11moveColumnsERK11QModelIndexi'
+          'iS2_i')
     return self.uglySide.call(
-        'ritual_ZN19QIdentityProxyModel11moveColumnsERK11QModelIndexiiS2_i',
+        ritual,
         self._valueOf(sourceParent), sourceColumn, count,
         self._valueOf(destinationParent), destinationChild,
     )

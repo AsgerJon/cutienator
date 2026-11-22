@@ -25,6 +25,14 @@
     "ritual_ZN15QGraphicsLayout31setInstantInvalidatePropagationEb": [
       "nothing", "bool"
     ],
-    "ritual_ZN15QGraphicsLayout28instantInvalidatePropagationEv": ["bool"]
+    "ritual_ZN15QGraphicsLayout28instantInvalidatePropagationEv": ["bool"],
+    "ritual_take_QGraphicsLayout": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QGraphicsLayout10invalidateEv": ["nothing", "address"],
+    "ritual_own_ZN15QGraphicsLayout14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15QGraphicsLayout11widgetEventEP6QEvent": [
+      "nothing", "address", "address"
+    ]
   }
 }

@@ -126,6 +126,11 @@ class QDateEdit(QDateTimeEdit):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QDateEdit'
 
+  #  A C++ QDateEdit Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QDateEdit'
+
   #  Fallback Variables
 
   #  Private Variables

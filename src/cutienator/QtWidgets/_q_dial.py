@@ -11,14 +11,25 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from . import QAbstractSlider, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
+  from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtGui import QMouseEvent, QPaintEvent, QResizeEvent
+  from . import QStyleOptionSlider
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QResizeEvent = WAIT['QResizeEvent']
+  QStyleOptionSlider = WAIT['QStyleOptionSlider']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,10 +48,12 @@ class QDial(QAbstractSlider):
   -----------
 
   Every function of Qt's QDial that has a ritual and that Python can call so
-  far, 11 names in all: 'metaObject', 'tr', 'wrapping', 'notchSize',
+  far, 18 names in all: 'metaObject', 'tr', 'wrapping', 'notchSize',
   'setNotchTarget', 'notchTarget', 'notchesVisible', 'sizeHint',
-  'minimumSizeHint', 'setNotchesVisible', 'setWrapping'. It can be made from
-  Python, in 1 way; see '__init__'.
+  'minimumSizeHint', 'setNotchesVisible', 'setWrapping', 'event',
+  'resizeEvent', 'paintEvent', 'mousePressEvent', 'mouseReleaseEvent',
+  'mouseMoveEvent', 'initStyleOption'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -50,8 +63,8 @@ class QDial(QAbstractSlider):
   What has no ritual
   ------------------
 
-  16 of the 29 functions Qt declares: 8 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  9 of the 29 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -121,6 +134,25 @@ class QDial(QAbstractSlider):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QDial'
+
+  #  A C++ QDial Python makes is of a C++ class of ours, in which Python can
+  #  take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QDial'
+
+  #  The functions Qt calls itself that QDial is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK5QDial15initStyleOptionEP18QStyleOptionSlider',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionSlider'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -201,7 +233,10 @@ class QDial(QAbstractSlider):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QDial::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK5QDial8sizeHintEv')
+    ritual = 'ritual_ZNK5QDial8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK5QDial8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -218,7 +253,10 @@ class QDial(QAbstractSlider):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QDial::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK5QDial15minimumSizeHintEv')
+    ritual = 'ritual_ZNK5QDial15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK5QDial15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -327,3 +365,150 @@ class QDial(QAbstractSlider):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QDial::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdial.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QDial::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN5QDial5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, re: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QDial::resizeEvent(QResizeEvent *re)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdial.html#resizeEvent
+
+    Parameters
+    ----------
+
+    re : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDial::resizeEvent(QResizeEvent *re)
+    self.uglySide.call(
+        'ritual_own_ZN5QDial11resizeEventEP12QResizeEvent',
+        self._addressOf(re),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, pe: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QDial::paintEvent(QPaintEvent *pe)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdial.html#paintEvent
+
+    Parameters
+    ----------
+
+    pe : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDial::paintEvent(QPaintEvent *pe)
+    self.uglySide.call(
+        'ritual_own_ZN5QDial10paintEventEP11QPaintEvent',
+        self._addressOf(pe),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, me: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QDial::mousePressEvent(QMouseEvent *me)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdial.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    me : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDial::mousePressEvent(QMouseEvent *me)
+    self.uglySide.call(
+        'ritual_own_ZN5QDial15mousePressEventEP11QMouseEvent',
+        self._addressOf(me),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, me: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QDial::mouseReleaseEvent(QMouseEvent *me)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdial.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    me : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDial::mouseReleaseEvent(QMouseEvent *me)
+    self.uglySide.call(
+        'ritual_own_ZN5QDial17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(me),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, me: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QDial::mouseMoveEvent(QMouseEvent *me)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdial.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    me : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDial::mouseMoveEvent(QMouseEvent *me)
+    self.uglySide.call(
+        'ritual_own_ZN5QDial14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(me),
+    )
+
+  @overload(QStyleOptionSlider)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOptionSlider]) -> None:
+    """
+    Calls Qt's 'void QDial::initStyleOption(QStyleOptionSlider *option)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdial.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionSlider]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDial::initStyleOption(QStyleOptionSlider *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK5QDial15initStyleOptionEP18QStyleOptionSlider',
+        self._addressOf(option),
+    )

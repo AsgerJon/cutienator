@@ -159,6 +159,11 @@ class QBitmap(QPixmap):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QBitmap'
 
+  #  A C++ QBitmap Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QBitmap'
+
   #  Qt's '~QBitmap()'. Naming it makes this a value class: Python owns every
   #  C++ QBitmap behind a cute one, and removes it by this ritual.
   __delete_ritual__ = 'ritual_ZN7QBitmapD1Ev'

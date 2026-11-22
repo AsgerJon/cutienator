@@ -31,6 +31,10 @@
     ],
     "ritual_ZN14QStackedWidget16setCurrentWidgetEP7QWidget": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QStackedWidget": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QStackedWidget5eventEP6QEvent": [
+      "bool", "address", "address"
     ]
   }
 }

@@ -13,6 +13,7 @@
     "ritual_ZNK13QSwipeGesture10swipeAngleEv": ["double", "address"],
     "ritual_ZN13QSwipeGesture13setSwipeAngleEd": [
       "nothing", "address", "double"
-    ]
+    ],
+    "ritual_take_QSwipeGesture": ["bool", "address", "chars", "address"]
   }
 }

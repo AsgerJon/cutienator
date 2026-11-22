@@ -19,15 +19,20 @@ from . import QDialog, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
+  from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtGui import QCloseEvent, QResizeEvent, QShowEvent
   from . import QLabel, QProgressBar, QPushButton
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QCloseEvent = WAIT['QCloseEvent']
+  QEvent = WAIT['QEvent']
   QLabel = WAIT['QLabel']
   QProgressBar = WAIT['QProgressBar']
   QPushButton = WAIT['QPushButton']
+  QResizeEvent = WAIT['QResizeEvent']
+  QShowEvent = WAIT['QShowEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -46,13 +51,14 @@ class QProgressDialog(QDialog):
   -----------
 
   Every function of Qt's QProgressDialog that has a ritual and that Python
-  can call so far, 26 names in all: 'metaObject', 'tr', 'setLabel',
+  can call so far, 30 names in all: 'metaObject', 'tr', 'setLabel',
   'setCancelButton', 'setBar', 'wasCanceled', 'minimum', 'maximum', 'value',
   'sizeHint', 'labelText', 'minimumDuration', 'setAutoReset', 'autoReset',
   'setAutoClose', 'autoClose', 'open', 'cancel', 'reset', 'setMaximum',
   'setMinimum', 'setRange', 'setValue', 'setLabelText',
-  'setCancelButtonText', 'setMinimumDuration'. It can be made from Python, in
-  2 ways; see '__init__'.
+  'setCancelButtonText', 'setMinimumDuration', 'resizeEvent', 'closeEvent',
+  'changeEvent', 'showEvent'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,9 +69,8 @@ class QProgressDialog(QDialog):
   What has no ritual
   ------------------
 
-  14 of the 43 functions Qt declares: 5 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1 a
-  signal.
+  10 of the 43 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal; 1 protected.
 
   What to expect
   --------------
@@ -137,6 +142,11 @@ class QProgressDialog(QDialog):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QProgressDialog'
+
+  #  A C++ QProgressDialog Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QProgressDialog'
 
   #  Fallback Variables
 
@@ -217,7 +227,10 @@ class QProgressDialog(QDialog):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QProgressDialog::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK15QProgressDialog8sizeHintEv')
+    ritual = 'ritual_ZNK15QProgressDialog8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QProgressDialog8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -659,3 +672,87 @@ class QProgressDialog(QDialog):
     """
     #  void QProgressDialog::reset()
     self.uglySide.call('ritual_ZN15QProgressDialog5resetEv')
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, event: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QProgressDialog::resizeEvent(QResizeEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprogressdialog.html#resizeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QProgressDialog::resizeEvent(QResizeEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QProgressDialog11resizeEventEP12QResizeEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QCloseEvent)
+  @overload(NoneType)
+  def closeEvent(self, event: Optional[QCloseEvent]) -> None:
+    """
+    Calls Qt's 'void QProgressDialog::closeEvent(QCloseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprogressdialog.html#closeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QCloseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QProgressDialog::closeEvent(QCloseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QProgressDialog10closeEventEP11QCloseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QProgressDialog::changeEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprogressdialog.html#changeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QProgressDialog::changeEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QProgressDialog11changeEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, event: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QProgressDialog::showEvent(QShowEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprogressdialog.html#showEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QProgressDialog::showEvent(QShowEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN15QProgressDialog9showEventEP10QShowEvent',
+        self._addressOf(event),
+    )

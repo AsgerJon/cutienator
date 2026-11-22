@@ -11,15 +11,22 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QObject
 from . import QAbstractScrollArea, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
+  from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtGui import QResizeEvent
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QResizeEvent = WAIT['QResizeEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,11 +45,12 @@ class QScrollArea(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QScrollArea that has a ritual and that Python can
-  call so far, 13 names in all: 'metaObject', 'tr', 'widget', 'setWidget',
+  call so far, 18 names in all: 'metaObject', 'tr', 'widget', 'setWidget',
   'takeWidget', 'widgetResizable', 'setWidgetResizable', 'sizeHint',
   'focusNextPrevChild', 'alignment', 'setAlignment', 'ensureVisible',
-  'ensureWidgetVisible'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'ensureWidgetVisible', 'event', 'eventFilter', 'resizeEvent',
+  'scrollContentsBy', 'viewportSizeHint'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -53,8 +61,8 @@ class QScrollArea(QAbstractScrollArea):
   What has no ritual
   ------------------
 
-  14 of the 29 functions Qt declares: 6 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  9 of the 29 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -127,6 +135,11 @@ class QScrollArea(QAbstractScrollArea):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QScrollArea'
 
+  #  A C++ QScrollArea Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QScrollArea'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -196,7 +209,10 @@ class QScrollArea(QAbstractScrollArea):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QScrollArea::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK11QScrollArea8sizeHintEv')
+    ritual = 'ritual_ZNK11QScrollArea8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QScrollArea8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -216,6 +232,25 @@ class QScrollArea(QAbstractScrollArea):
     return Qt.Alignment(self.uglySide.call(
         'ritual_ZNK11QScrollArea9alignmentEv',
     ))
+
+  def viewportSizeHint(self) -> QSize:
+    """
+    Calls Qt's 'QSize QScrollArea::viewportSizeHint() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollarea.html#viewportSizeHint
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QScrollArea::viewportSizeHint() const
+    address = self.uglySide.call(
+        'ritual_own_ZNK11QScrollArea16viewportSizeHintEv',
+    )
+    from ..QtCore import QSize
+    return QSize._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -366,9 +401,10 @@ class QScrollArea(QAbstractScrollArea):
       Passed on as it is.
     """
     #  bool QScrollArea::focusNextPrevChild(bool next)
-    return self.uglySide.call(
-        'ritual_ZN11QScrollArea18focusNextPrevChildEb', next,
-    )
+    ritual = 'ritual_ZN11QScrollArea18focusNextPrevChildEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QScrollArea18focusNextPrevChildEb'
+    return self.uglySide.call(ritual, next)
 
   @overload(int, int)
   @overload(int, int, int)
@@ -444,4 +480,93 @@ class QScrollArea(QAbstractScrollArea):
     self.uglySide.call(
         'ritual_ZN11QScrollArea19ensureWidgetVisibleEP7QWidgetii',
         self._addressOf(childWidget), xmargin, ymargin,
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QScrollArea::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollarea.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QScrollArea::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN11QScrollArea5eventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(self, a0: Optional[QObject], a1: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QScrollArea::eventFilter(QObject *a0, QEvent *a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollarea.html#eventFilter
+
+    Parameters
+    ----------
+
+    a0 : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a1 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QScrollArea::eventFilter(QObject *a0, QEvent *a1)
+    return self.uglySide.call(
+        'ritual_own_ZN11QScrollArea11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(a0), self._addressOf(a1),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, a0: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QScrollArea::resizeEvent(QResizeEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollarea.html#resizeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QScrollArea::resizeEvent(QResizeEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QScrollArea11resizeEventEP12QResizeEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(int, int)
+  def scrollContentsBy(self, dx: int, dy: int) -> None:
+    """
+    Calls Qt's 'void QScrollArea::scrollContentsBy(int dx, int dy)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscrollarea.html#scrollContentsBy
+
+    Parameters
+    ----------
+
+    dx : int
+      Passed on as it is.
+
+    dy : int
+      Passed on as it is.
+    """
+    #  void QScrollArea::scrollContentsBy(int dx, int dy)
+    self.uglySide.call(
+        'ritual_own_ZN11QScrollArea16scrollContentsByEii', dx, dy,
     )

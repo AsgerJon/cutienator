@@ -26,6 +26,8 @@
     "ritual_ZNK12QTabletEvent1zEv": ["double", "address"],
     "ritual_ZNK12QTabletEvent18tangentialPressureEv": ["double", "address"],
     "ritual_ZNK12QTabletEvent5xTiltEv": ["double", "address"],
-    "ritual_ZNK12QTabletEvent5yTiltEv": ["double", "address"]
+    "ritual_ZNK12QTabletEvent5yTiltEv": ["double", "address"],
+    "ritual_take_QTabletEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QTabletEvent5cloneEv": ["address", "address"]
   }
 }

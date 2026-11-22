@@ -2,6 +2,36 @@
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qaccessible.h>
 #include <QtCore/qstring.h>
+#include <cstring>
+
+//  A QAccessibleTextUpdateEvent that Python can take functions over in. Every QAccessibleTextUpdateEvent
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQAccessibleTextUpdateEventCall0)(const void *, int *);
+class CuteQAccessibleTextUpdateEvent : public QAccessibleTextUpdateEvent {
+public:
+  using QAccessibleTextUpdateEvent::QAccessibleTextUpdateEvent;
+  void *taken[1] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK16QAccessibleEvent19accessibleInterfaceEv")) {
+      taken[0] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QAccessibleInterface *QAccessibleEvent::accessibleInterface() const
+  QAccessibleInterface *accessibleInterface() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQAccessibleTextUpdateEventCall0 call = reinterpret_cast<CuteQAccessibleTextUpdateEventCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QAccessibleInterface *>(given);
+    }
+    return QAccessibleEvent::accessibleInterface();
+  }
+};
 
 //  QAccessibleTextUpdateEvent::QAccessibleTextUpdateEvent(QObject *obj, int
 //      position, const QString &oldText, const QString &text)
@@ -11,7 +41,7 @@ QAccessibleTextUpdateEvent *ritual_ZN26QAccessibleTextUpdateEventC1EP7QObjectiRK
     int position,
     const QString *oldText,
     const QString *text) {
-  return new QAccessibleTextUpdateEvent(obj, position, *oldText, *text);
+  return new CuteQAccessibleTextUpdateEvent(obj, position, *oldText, *text);
 }
 
 //  QAccessibleTextUpdateEvent::QAccessibleTextUpdateEvent(QAccessibleInterfa
@@ -22,7 +52,11 @@ QAccessibleTextUpdateEvent *ritual_ZN26QAccessibleTextUpdateEventC1EP20QAccessib
     int position,
     const QString *oldText,
     const QString *text) {
-  return new QAccessibleTextUpdateEvent(iface, position, *oldText, *text);
+  return new CuteQAccessibleTextUpdateEvent(
+      iface,
+      position,
+      *oldText,
+      *text);
 }
 
 //  QAccessibleTextUpdateEvent::~QAccessibleTextUpdateEvent()
@@ -51,4 +85,14 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK26QAccessibleTextUpdateEvent14changePositionEv(
     const QAccessibleTextUpdateEvent *self) {
   return self->changePosition();
+}
+
+//  a Python function taken by a CuteQAccessibleTextUpdateEvent, for the
+//      function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QAccessibleTextUpdateEvent(
+    QAccessibleTextUpdateEvent *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQAccessibleTextUpdateEvent *>(self)->take(key, call);
 }

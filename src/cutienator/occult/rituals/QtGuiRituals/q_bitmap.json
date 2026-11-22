@@ -18,6 +18,7 @@
     "ritual_ZN7QBitmap10fromPixmapERK7QPixmap": ["address", "address"],
     "ritual_ZNK7QBitmap11transformedERK10QTransform": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_take_QBitmap": ["bool", "address", "chars", "address"]
   }
 }

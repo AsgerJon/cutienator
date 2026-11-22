@@ -58,6 +58,39 @@
     "ritual_ZN8QMdiArea20closeActiveSubWindowEv": ["nothing", "address"],
     "ritual_ZN8QMdiArea18closeAllSubWindowsEv": ["nothing", "address"],
     "ritual_ZN8QMdiArea21activateNextSubWindowEv": ["nothing", "address"],
-    "ritual_ZN8QMdiArea25activatePreviousSubWindowEv": ["nothing", "address"]
+    "ritual_ZN8QMdiArea25activatePreviousSubWindowEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QMdiArea": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK8QMdiArea8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK8QMdiArea15minimumSizeHintEv": ["address", "address"],
+    "ritual_own_ZN8QMdiArea13setupViewportEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMdiArea5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_own_ZN8QMdiArea11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN8QMdiArea10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMdiArea10childEventEP11QChildEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMdiArea11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMdiArea10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMdiArea9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMdiArea13viewportEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN8QMdiArea16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ]
   }
 }

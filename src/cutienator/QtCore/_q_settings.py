@@ -19,11 +19,12 @@ from . import QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject, QVariant
+  from . import QEvent, QMetaObject, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
   QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -43,13 +44,13 @@ class QSettings(QObject):
   -----------
 
   Every function of Qt's QSettings that has a ritual and that Python can call
-  so far, 29 names in all: 'metaObject', 'tr', 'clear', 'sync', 'status',
+  so far, 30 names in all: 'metaObject', 'tr', 'clear', 'sync', 'status',
   'isAtomicSyncRequired', 'setAtomicSyncRequired', 'beginGroup', 'endGroup',
   'group', 'beginReadArray', 'beginWriteArray', 'endArray', 'setArrayIndex',
   'isWritable', 'setValue', 'value', 'remove', 'contains',
   'setFallbacksEnabled', 'fallbacksEnabled', 'fileName', 'format', 'scope',
   'organizationName', 'applicationName', 'setDefaultFormat', 'defaultFormat',
-  'setPath'. It can be made from Python, in 6 ways; see '__init__'.
+  'setPath', 'event'. It can be made from Python, in 6 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,8 +61,8 @@ class QSettings(QObject):
   What has no ritual
   ------------------
 
-  13 of the 50 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template; 1 protected.
+  12 of the 50 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 3 private; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -240,6 +241,11 @@ class QSettings(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSettings'
+
+  #  A C++ QSettings Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QSettings'
 
   #  Fallback Variables
 
@@ -923,3 +929,23 @@ class QSettings(QObject):
     """
     #  void QSettings::remove(QAnyStringView key)
     self.uglySide.call('ritual_ZN9QSettings6removeE14QAnyStringView', key)
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QSettings::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsettings.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QSettings::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN9QSettings5eventEP6QEvent', self._addressOf(event),
+    )

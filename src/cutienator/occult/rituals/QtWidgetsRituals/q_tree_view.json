@@ -133,6 +133,98 @@
       "nothing", "address", "address", "int"
     ],
     "ritual_ZN9QTreeView11collapseAllEv": ["nothing", "address"],
-    "ritual_ZN9QTreeView13expandToDepthEi": ["nothing", "address", "int"]
+    "ritual_ZN9QTreeView13expandToDepthEi": ["nothing", "address", "int"],
+    "ritual_take_QTreeView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN9QTreeView8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView12setRootIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView17setSelectionModelEP19QItemSelectionModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK9QTreeView10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView8scrollToERK11QModelIndexN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZNK9QTreeView7indexAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView13doItemsLayoutEv": ["nothing", "address"],
+    "ritual_own_ZN9QTreeView5resetEv": ["nothing", "address"],
+    "ritual_own_ZN9QTreeView9selectAllEv": ["nothing", "address"],
+    "ritual_own_ZN9QTreeView29verticalScrollbarValueChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN9QTreeView16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN9QTreeView12rowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN9QTreeView20rowsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK9QTreeView16horizontalOffsetEv": ["int", "address"],
+    "ritual_own_ZNK9QTreeView14verticalOffsetEv": ["int", "address"],
+    "ritual_own_ZNK9QTreeView24visualRegionForSelectionERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK9QTreeView7drawRowEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK9QTreeView12drawBranchesEP8QPainterRK5QRectRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView13viewportEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView16updateGeometriesEv": ["nothing", "address"],
+    "ritual_own_ZNK9QTreeView16viewportSizeHintEv": ["address", "address"],
+    "ritual_own_ZNK9QTreeView17sizeHintForColumnEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN9QTreeView25horizontalScrollbarActionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK9QTreeView13isIndexHiddenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView16selectionChangedERK14QItemSelectionS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN9QTreeView14currentChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ]
   }
 }

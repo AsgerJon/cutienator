@@ -99,6 +99,13 @@
     "ritual_ZN16QCoreApplication17isQuitLockEnabledEv": ["bool"],
     "ritual_ZN16QCoreApplication18setQuitLockEnabledEb": ["nothing", "bool"],
     "ritual_ZN16QCoreApplication4quitEv": ["nothing"],
-    "ritual_ZN16QCoreApplication4exitEi": ["nothing", "int"]
+    "ritual_ZN16QCoreApplication4exitEi": ["nothing", "int"],
+    "ritual_take_QCoreApplication": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QCoreApplication6notifyEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QCoreApplication5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
   }
 }

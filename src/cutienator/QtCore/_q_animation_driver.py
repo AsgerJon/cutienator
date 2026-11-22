@@ -37,9 +37,9 @@ class QAnimationDriver(QObject):
   -----------
 
   Every function of Qt's QAnimationDriver that has a ritual and that Python
-  can call so far, 7 names in all: 'metaObject', 'tr', 'advance', 'install',
-  'uninstall', 'isRunning', 'elapsed'. It can be made from Python, in 1 way;
-  see '__init__'.
+  can call so far, 9 names in all: 'metaObject', 'tr', 'advance', 'install',
+  'uninstall', 'isRunning', 'elapsed', 'start', 'stop'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -50,8 +50,8 @@ class QAnimationDriver(QObject):
   What has no ritual
   ------------------
 
-  12 of the 21 functions Qt declares: 4 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 a signal; 1 a template.
+  10 of the 21 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 a signal; 2 protected; 1 a template.
 
   What to expect
   --------------
@@ -124,6 +124,38 @@ class QAnimationDriver(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAnimationDriver'
 
+  #  A C++ QAnimationDriver Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAnimationDriver'
+
+  #  The functions Qt calls itself that QAnimationDriver is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'advance': (
+          ('_ZN16QAnimationDriver7advanceEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'elapsed': (
+          ('_ZNK16QAnimationDriver7elapsedEv',
+           ('long long', 'number', ''),
+           ()),
+      ),
+      'start': (
+          ('_ZN16QAnimationDriver5startEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'stop': (
+          ('_ZN16QAnimationDriver4stopEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -172,7 +204,10 @@ class QAnimationDriver(QObject):
     Qt's own words: https://doc.qt.io/qt-6/qanimationdriver.html#elapsed
     """
     #  qint64 QAnimationDriver::elapsed() const
-    return self.uglySide.call('ritual_ZNK16QAnimationDriver7elapsedEv')
+    ritual = 'ritual_ZNK16QAnimationDriver7elapsedEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QAnimationDriver7elapsedEv'
+    return self.uglySide.call(ritual)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -241,7 +276,10 @@ class QAnimationDriver(QObject):
     Qt's own words: https://doc.qt.io/qt-6/qanimationdriver.html#advance
     """
     #  void QAnimationDriver::advance()
-    self.uglySide.call('ritual_ZN16QAnimationDriver7advanceEv')
+    ritual = 'ritual_ZN16QAnimationDriver7advanceEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAnimationDriver7advanceEv'
+    self.uglySide.call(ritual)
 
   def install(self) -> None:
     """
@@ -260,3 +298,21 @@ class QAnimationDriver(QObject):
     """
     #  void QAnimationDriver::uninstall()
     self.uglySide.call('ritual_ZN16QAnimationDriver9uninstallEv')
+
+  def start(self) -> None:
+    """
+    Calls Qt's 'void QAnimationDriver::start()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qanimationdriver.html#start
+    """
+    #  void QAnimationDriver::start()
+    self.uglySide.call('ritual_own_ZN16QAnimationDriver5startEv')
+
+  def stop(self) -> None:
+    """
+    Calls Qt's 'void QAnimationDriver::stop()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qanimationdriver.html#stop
+    """
+    #  void QAnimationDriver::stop()
+    self.uglySide.call('ritual_own_ZN16QAnimationDriver4stopEv')

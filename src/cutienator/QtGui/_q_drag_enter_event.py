@@ -84,6 +84,11 @@ class QDragEnterEvent(QDragMoveEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QDragEnterEvent'
 
+  #  A C++ QDragEnterEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QDragEnterEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -110,7 +115,10 @@ class QDragEnterEvent(QDragMoveEvent):
       no object.
     """
     #  QDragEnterEvent *QDragEnterEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK15QDragEnterEvent5cloneEv')
+    ritual = 'ritual_ZNK15QDragEnterEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QDragEnterEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QDragEnterEvent._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

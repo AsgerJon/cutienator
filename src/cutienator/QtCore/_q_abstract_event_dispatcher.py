@@ -435,6 +435,102 @@ class QAbstractEventDispatcher(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractEventDispatcher'
 
+  #  A C++ QAbstractEventDispatcher Python makes is of a C++ class of ours,
+  #  in which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractEventDispatcher'
+
+  #  The functions Qt calls itself that QAbstractEventDispatcher is the first
+  #  to declare and that cannot be handed to Python yet, each as Qt declares
+  #  it. A class of a program that writes one of them anew is refused, since
+  #  Qt would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'processEvents': (
+          'bool '
+          'QAbstractEventDispatcher::processEvents(QEventLoop::ProcessEvent'
+          'sFlags)',
+      ),
+      'registeredTimers': (
+          'QList<TimerInfo> '
+          'QAbstractEventDispatcher::registeredTimers(QObject *) const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QAbstractEventDispatcher is the first
+  #  to declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'registerSocketNotifier': (
+          ('_ZN24QAbstractEventDispatcher22registerSocketNotifierEP15QSocke'
+           'tNotifier',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QSocketNotifier'),
+           )),
+      ),
+      'unregisterSocketNotifier': (
+          ('_ZN24QAbstractEventDispatcher24unregisterSocketNotifierEP15QSoc'
+           'ketNotifier',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QSocketNotifier'),
+           )),
+      ),
+      'registerTimer': (
+          ('_ZN24QAbstractEventDispatcher13registerTimerEixN2Qt9TimerTypeEP'
+           '7QObject',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+               ('long long', 'number', ''),
+               ('int', 'enum', 'QtCore:Qt.TimerType'),
+               ('address', 'address', 'QtCore:QObject'),
+           )),
+      ),
+      'unregisterTimer': (
+          ('_ZN24QAbstractEventDispatcher15unregisterTimerEi',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'unregisterTimers': (
+          ('_ZN24QAbstractEventDispatcher16unregisterTimersEP7QObject',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtCore:QObject'),
+           )),
+      ),
+      'remainingTime': (
+          ('_ZN24QAbstractEventDispatcher13remainingTimeEi',
+           ('int', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'wakeUp': (
+          ('_ZN24QAbstractEventDispatcher6wakeUpEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'interrupt': (
+          ('_ZN24QAbstractEventDispatcher9interruptEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'startingUp': (
+          ('_ZN24QAbstractEventDispatcher10startingUpEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'closingDown': (
+          ('_ZN24QAbstractEventDispatcher11closingDownEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -774,7 +870,10 @@ class QAbstractEventDispatcher(QObject):
     https://doc.qt.io/qt-6/qabstracteventdispatcher.html#startingUp
     """
     #  void QAbstractEventDispatcher::startingUp()
-    self.uglySide.call('ritual_ZN24QAbstractEventDispatcher10startingUpEv')
+    ritual = 'ritual_ZN24QAbstractEventDispatcher10startingUpEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN24QAbstractEventDispatcher10startingUpEv'
+    self.uglySide.call(ritual)
 
   def closingDown(self) -> None:
     """
@@ -784,7 +883,10 @@ class QAbstractEventDispatcher(QObject):
     https://doc.qt.io/qt-6/qabstracteventdispatcher.html#closingDown
     """
     #  void QAbstractEventDispatcher::closingDown()
-    self.uglySide.call('ritual_ZN24QAbstractEventDispatcher11closingDownEv')
+    ritual = 'ritual_ZN24QAbstractEventDispatcher11closingDownEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN24QAbstractEventDispatcher11closingDownEv'
+    self.uglySide.call(ritual)
 
   @overload(QAbstractNativeEventFilter)
   @overload(NoneType)

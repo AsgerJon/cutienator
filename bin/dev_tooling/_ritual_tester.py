@@ -272,17 +272,27 @@ class RitualTester:
       infoSpec = """The generator wrote two rituals named '%s'."""
       faults.append(infoSpec % name)
     counted, compilerNames = self._countFunctions(className)
-    for name in names:
-      if name[len('ritual'):] not in compilerNames:
+    #  Three kinds of ritual stand for no function of the header by
+    #  themselves: the one giving where a part of an object is, the one
+    #  handing a Python function over, and the one running just the
+    #  class's own function, which is named after that function.
+    apart = ('cast', 'take', 'own')
+    for ritual in written:
+      name, kind = ritual['ritualName'], ritual['kind']
+      if kind in ('cast', 'take'):
+        continue
+      start = len('ritual_own') if kind == 'own' else len('ritual')
+      if name[start:] not in compilerNames:
         infoSpec = """The ritual '%s' is named after no function the
         class '%s' has."""
         faults.append(' '.join((infoSpec % (name, className)).split()))
-    accounted = len(written) + len(notWritten)
+    counting = [r for r in written if r['kind'] not in apart]
+    accounted = len(counting) + len(notWritten)
     if accounted != counted:
       infoSpec = """The header declares %d functions for the class '%s',
       and the generator accounts for %d: %d written and %d not."""
       info = infoSpec % (
-          counted, className, accounted, len(written), len(notWritten),
+          counted, className, accounted, len(counting), len(notWritten),
       )
       faults.append(' '.join(info.split()))
     with open(self.getOfferFile(), 'w') as file:

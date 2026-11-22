@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK15QDragLeaveEvent5cloneEv": ["address", "address"],
     "ritual_ZN15QDragLeaveEventD1Ev": ["nothing", "address"],
-    "ritual_ZN15QDragLeaveEventC1Ev": ["address"]
+    "ritual_ZN15QDragLeaveEventC1Ev": ["address"],
+    "ritual_take_QDragLeaveEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QDragLeaveEvent5cloneEv": ["address", "address"]
   }
 }

@@ -70,6 +70,72 @@
     "ritual_ZN16QAbstractSpinBox6stepUpEv": ["nothing", "address"],
     "ritual_ZN16QAbstractSpinBox8stepDownEv": ["nothing", "address"],
     "ritual_ZN16QAbstractSpinBox9selectAllEv": ["nothing", "address"],
-    "ritual_ZN16QAbstractSpinBox5clearEv": ["nothing", "address"]
+    "ritual_ZN16QAbstractSpinBox5clearEv": ["nothing", "address"],
+    "ritual_take_QAbstractSpinBox": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QAbstractSpinBox8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK16QAbstractSpinBox15minimumSizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK16QAbstractSpinBox16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox6stepByEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox5clearEv": ["nothing", "address"],
+    "ritual_own_ZN16QAbstractSpinBox11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox10closeEventEP11QCloseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QAbstractSpinBox9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptionSpinBox": [
+      "nothing", "address", "address"
+    ]
   }
 }

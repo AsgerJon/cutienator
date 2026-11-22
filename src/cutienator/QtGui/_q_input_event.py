@@ -75,6 +75,25 @@ class QInputEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QInputEvent'
 
+  #  A C++ QInputEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QInputEvent'
+
+  #  The functions Qt calls itself that QInputEvent is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'setTimestamp': (
+          ('_ZN11QInputEvent12setTimestampEy',
+           ('nothing', 'nothing', ''),
+           (
+               ('unsigned long long', 'number', ''),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -101,7 +120,10 @@ class QInputEvent(QEvent):
       no object.
     """
     #  QInputEvent *QInputEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK11QInputEvent5cloneEv')
+    ritual = 'ritual_ZNK11QInputEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QInputEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QInputEvent._cuteAt(address)
 
   def device(self) -> Optional[QInputDevice]:
@@ -205,7 +227,10 @@ class QInputEvent(QEvent):
       Passed on as it is.
     """
     #  void QInputEvent::setTimestamp(quint64 timestamp)
-    self.uglySide.call('ritual_ZN11QInputEvent12setTimestampEy', timestamp)
+    ritual = 'ritual_ZN11QInputEvent12setTimestampEy'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QInputEvent12setTimestampEy'
+    self.uglySide.call(ritual, timestamp)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

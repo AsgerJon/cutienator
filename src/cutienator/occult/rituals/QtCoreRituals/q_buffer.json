@@ -30,6 +30,19 @@
     "ritual_ZNK7QBuffer3posEv": ["long long", "address"],
     "ritual_ZN7QBuffer4seekEx": ["bool", "address", "long long"],
     "ritual_ZNK7QBuffer5atEndEv": ["bool", "address"],
-    "ritual_ZNK7QBuffer11canReadLineEv": ["bool", "address"]
+    "ritual_ZNK7QBuffer11canReadLineEv": ["bool", "address"],
+    "ritual_take_QBuffer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN7QBuffer5closeEv": ["nothing", "address"],
+    "ritual_own_ZNK7QBuffer4sizeEv": ["long long", "address"],
+    "ritual_own_ZNK7QBuffer3posEv": ["long long", "address"],
+    "ritual_own_ZN7QBuffer4seekEx": ["bool", "address", "long long"],
+    "ritual_own_ZNK7QBuffer5atEndEv": ["bool", "address"],
+    "ritual_own_ZNK7QBuffer11canReadLineEv": ["bool", "address"],
+    "ritual_own_ZN7QBuffer13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QBuffer16disconnectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ]
   }
 }

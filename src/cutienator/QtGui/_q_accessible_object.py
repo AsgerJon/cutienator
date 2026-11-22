@@ -66,6 +66,11 @@ class QAccessibleObject(QAccessibleInterface):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleObject'
 
+  #  A C++ QAccessibleObject Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAccessibleObject'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -85,7 +90,10 @@ class QAccessibleObject(QAccessibleInterface):
     Qt's own words: https://doc.qt.io/qt-6/qaccessibleobject.html#isValid
     """
     #  bool QAccessibleObject::isValid() const
-    return self.uglySide.call('ritual_ZNK17QAccessibleObject7isValidEv')
+    ritual = 'ritual_ZNK17QAccessibleObject7isValidEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleObject7isValidEv'
+    return self.uglySide.call(ritual)
 
   def object(self) -> Optional[QObject]:
     """
@@ -101,7 +109,10 @@ class QAccessibleObject(QAccessibleInterface):
       no object.
     """
     #  QObject *QAccessibleObject::object() const
-    address = self.uglySide.call('ritual_ZNK17QAccessibleObject6objectEv')
+    ritual = 'ritual_ZNK17QAccessibleObject6objectEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleObject6objectEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QObject
     return QObject._cuteAt(address)
 
@@ -118,7 +129,10 @@ class QAccessibleObject(QAccessibleInterface):
       A new cute QRect around the copy Qt gave back. Python owns it.
     """
     #  QRect QAccessibleObject::rect() const
-    address = self.uglySide.call('ritual_ZNK17QAccessibleObject4rectEv')
+    ritual = 'ritual_ZNK17QAccessibleObject4rectEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleObject4rectEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -147,9 +161,10 @@ class QAccessibleObject(QAccessibleInterface):
       no object.
     """
     #  QAccessibleInterface *QAccessibleObject::childAt(int x, int y) const
-    address = self.uglySide.call(
-        'ritual_ZNK17QAccessibleObject7childAtEii', x, y,
-    )
+    ritual = 'ritual_ZNK17QAccessibleObject7childAtEii'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleObject7childAtEii'
+    address = self.uglySide.call(ritual, x, y)
     return QAccessibleInterface._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -77,6 +77,11 @@ class QExposeEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QExposeEvent'
 
+  #  A C++ QExposeEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QExposeEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -103,7 +108,10 @@ class QExposeEvent(QEvent):
       no object.
     """
     #  QExposeEvent *QExposeEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK12QExposeEvent5cloneEv')
+    ritual = 'ritual_ZNK12QExposeEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QExposeEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QExposeEvent._cuteAt(address)
 
   def region(self) -> QRegion:

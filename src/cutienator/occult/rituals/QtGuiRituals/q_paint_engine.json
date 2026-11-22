@@ -96,6 +96,52 @@
     ],
     "ritual_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
       "address", "address", "address", "int"
+    ],
+    "ritual_take_QPaintEngine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QPaintEngine9drawRectsEPK5QRecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN12QPaintEngine9drawRectsEPK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN12QPaintEngine9drawLinesEPK5QLinei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN12QPaintEngine9drawLinesEPK6QLineFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN12QPaintEngine11drawEllipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QPaintEngine11drawEllipseERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QPaintEngine8drawPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QPaintEngine10drawPointsEPK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN12QPaintEngine10drawPointsEPK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN12QPaintEngine11drawPolygonEPK7QPointFiNS_15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN12QPaintEngine11drawPolygonEPK6QPointiNS_15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN12QPaintEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK12QPaintEngine16coordinateOffsetEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN12QPaintEngine12createPixmapE5QSize": [
+      "address", "address", "address"
     ]
   }
 }

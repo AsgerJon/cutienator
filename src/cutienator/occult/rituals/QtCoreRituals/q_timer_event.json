@@ -9,6 +9,8 @@
     "ritual_ZN11QTimerEventC1Ei": ["address", "int"],
     "ritual_ZN11QTimerEventC1EN2Qt7TimerIdE": ["address", "int"],
     "ritual_ZNK11QTimerEvent7timerIdEv": ["int", "address"],
-    "ritual_ZNK11QTimerEvent2idEv": ["int", "address"]
+    "ritual_ZNK11QTimerEvent2idEv": ["int", "address"],
+    "ritual_take_QTimerEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QTimerEvent5cloneEv": ["address", "address"]
   }
 }

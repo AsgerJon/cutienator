@@ -19,14 +19,17 @@ from . import QTabWidget, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QByteArray, QMetaObject, QPoint, QSize
+  from ..QtCore import QByteArray, QEvent, QMetaObject, QPoint, QSize
+  from ..QtGui import QContextMenuEvent
   from . import QDockWidget, QMenu, QMenuBar, QStatusBar, QToolBar
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
+  QContextMenuEvent = WAIT['QContextMenuEvent']
   QDockWidget = WAIT['QDockWidget']
+  QEvent = WAIT['QEvent']
   QMenuBar = WAIT['QMenuBar']
   QPoint = WAIT['QPoint']
   QSize = WAIT['QSize']
@@ -50,7 +53,7 @@ class QMainWindow(QWidget):
   -----------
 
   Every function of Qt's QMainWindow that has a ritual and that Python can
-  call so far, 49 names in all: 'metaObject', 'tr', 'iconSize',
+  call so far, 51 names in all: 'metaObject', 'tr', 'iconSize',
   'setIconSize', 'toolButtonStyle', 'setToolButtonStyle', 'isAnimated',
   'isDockNestingEnabled', 'documentMode', 'setDocumentMode', 'tabShape',
   'setTabShape', 'tabPosition', 'setTabPosition', 'setDockOptions',
@@ -62,8 +65,9 @@ class QMainWindow(QWidget):
   'toolBarArea', 'toolBarBreak', 'addDockWidget', 'splitDockWidget',
   'tabifyDockWidget', 'removeDockWidget', 'restoreDockWidget',
   'dockWidgetArea', 'saveState', 'restoreState', 'createPopupMenu',
-  'setAnimated', 'setDockNestingEnabled', 'setUnifiedTitleAndToolBarOnMac'.
-  It can be made from Python, in 1 way; see '__init__'.
+  'setAnimated', 'setDockNestingEnabled', 'setUnifiedTitleAndToolBarOnMac',
+  'contextMenuEvent', 'event'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -74,8 +78,8 @@ class QMainWindow(QWidget):
   What has no ritual
   ------------------
 
-  15 of the 69 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 private; 3 a signal; 2 protected; 2 forbidden; 1 a template.
+  13 of the 69 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 3 private; 3 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -165,6 +169,23 @@ class QMainWindow(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QMainWindow'
+
+  #  A C++ QMainWindow Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QMainWindow'
+
+  #  The functions Qt calls itself that QMainWindow is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'createPopupMenu': (
+          ('_ZN11QMainWindow15createPopupMenuEv',
+           ('address', 'address', 'QtWidgets:QMenu'),
+           ()),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -1361,6 +1382,51 @@ class QMainWindow(QWidget):
       no object.
     """
     #  QMenu *QMainWindow::createPopupMenu()
-    address = self.uglySide.call('ritual_ZN11QMainWindow15createPopupMenuEv')
+    ritual = 'ritual_ZN11QMainWindow15createPopupMenuEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QMainWindow15createPopupMenuEv'
+    address = self.uglySide.call(ritual)
     from . import QMenu
     return QMenu._cuteAt(address)
+
+  @overload(QContextMenuEvent)
+  @overload(NoneType)
+  def contextMenuEvent(self, event: Optional[QContextMenuEvent]) -> None:
+    """
+    Calls Qt's 'void QMainWindow::contextMenuEvent(QContextMenuEvent
+    *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmainwindow.html#contextMenuEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QContextMenuEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMainWindow::contextMenuEvent(QContextMenuEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN11QMainWindow16contextMenuEventEP17QContextMenuEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QMainWindow::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmainwindow.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QMainWindow::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN11QMainWindow5eventEP6QEvent', self._addressOf(event),
+    )

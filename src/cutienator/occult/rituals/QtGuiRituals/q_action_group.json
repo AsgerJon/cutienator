@@ -33,6 +33,7 @@
     ],
     "ritual_ZN12QActionGroup18setExclusionPolicyENS_15ExclusionPolicyE": [
       "nothing", "address", "int"
-    ]
+    ],
+    "ritual_take_QActionGroup": ["bool", "address", "chars", "address"]
   }
 }

@@ -81,6 +81,11 @@ class QActionEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QActionEvent'
 
+  #  A C++ QActionEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QActionEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -107,7 +112,10 @@ class QActionEvent(QEvent):
       no object.
     """
     #  QActionEvent *QActionEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK12QActionEvent5cloneEv')
+    ritual = 'ritual_ZNK12QActionEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QActionEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QActionEvent._cuteAt(address)
 
   def action(self) -> Optional[QAction]:

@@ -19,12 +19,13 @@ from . import QComboBox, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
+  from ..QtCore import QEvent, QMetaObject, QSize
   from ..QtGui import QFont
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
   QFont = WAIT['QFont']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -44,11 +45,12 @@ class QFontComboBox(QComboBox):
   -----------
 
   Every function of Qt's QFontComboBox that has a ritual and that Python can
-  call so far, 14 names in all: 'metaObject', 'tr', 'setWritingSystem',
+  call so far, 15 names in all: 'metaObject', 'tr', 'setWritingSystem',
   'writingSystem', 'setFontFilters', 'fontFilters', 'currentFont',
   'sizeHint', 'setSampleTextForSystem', 'sampleTextForSystem',
   'setSampleTextForFont', 'sampleTextForFont', 'setDisplayFont',
-  'setCurrentFont'. It can be made from Python, in 1 way; see '__init__'.
+  'setCurrentFont', 'event'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,8 +61,8 @@ class QFontComboBox(QComboBox):
   What has no ritual
   ------------------
 
-  11 of the 27 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template; 1 a signal; 1 protected.
+  10 of the 27 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 3 private; 2 forbidden; 1 a template; 1 a signal.
 
   What to expect
   --------------
@@ -150,6 +152,11 @@ class QFontComboBox(QComboBox):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFontComboBox'
+
+  #  A C++ QFontComboBox Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QFontComboBox'
 
   #  Fallback Variables
 
@@ -248,7 +255,10 @@ class QFontComboBox(QComboBox):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QFontComboBox::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK13QFontComboBox8sizeHintEv')
+    ritual = 'ritual_ZNK13QFontComboBox8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QFontComboBox8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -512,3 +522,23 @@ class QFontComboBox(QComboBox):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QFontComboBox::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontcombobox.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QFontComboBox::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN13QFontComboBox5eventEP6QEvent', self._addressOf(e),
+    )

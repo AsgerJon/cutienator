@@ -132,6 +132,11 @@ class QGraphicsScale(QGraphicsTransform):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsScale'
 
+  #  A C++ QGraphicsScale Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsScale'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -348,7 +353,7 @@ class QGraphicsScale(QGraphicsTransform):
       object.
     """
     #  void QGraphicsScale::applyTo(QMatrix4x4 *matrix) const
-    self.uglySide.call(
-        'ritual_ZNK14QGraphicsScale7applyToEP10QMatrix4x4',
-        self._addressOf(matrix),
-    )
+    ritual = 'ritual_ZNK14QGraphicsScale7applyToEP10QMatrix4x4'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK14QGraphicsScale7applyToEP10QMatrix4x4'
+    self.uglySide.call(ritual, self._addressOf(matrix))

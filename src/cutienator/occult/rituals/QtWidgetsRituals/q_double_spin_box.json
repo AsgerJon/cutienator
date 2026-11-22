@@ -49,6 +49,7 @@
     "ritual_ZNK14QDoubleSpinBox13textFromValueEd": [
       "text", "address", "double"
     ],
-    "ritual_ZN14QDoubleSpinBox8setValueEd": ["nothing", "address", "double"]
+    "ritual_ZN14QDoubleSpinBox8setValueEd": ["nothing", "address", "double"],
+    "ritual_take_QDoubleSpinBox": ["bool", "address", "chars", "address"]
   }
 }

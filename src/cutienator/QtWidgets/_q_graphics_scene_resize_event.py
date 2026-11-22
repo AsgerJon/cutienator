@@ -76,6 +76,11 @@ class QGraphicsSceneResizeEvent(QGraphicsSceneEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsSceneResizeEvent'
 
+  #  A C++ QGraphicsSceneResizeEvent Python makes is of a C++ class of ours,
+  #  in which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsSceneResizeEvent'
+
   #  Fallback Variables
 
   #  Private Variables

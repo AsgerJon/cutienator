@@ -61,6 +61,18 @@ class QAbstractNativeEventFilter(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractNativeEventFilter'
 
+  #  The functions Qt calls itself that QAbstractNativeEventFilter is the
+  #  first to declare and that cannot be handed to Python yet, each as Qt
+  #  declares it. A class of a program that writes one of them anew is
+  #  refused, since Qt would never call what it wrote; see
+  #  'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'nativeEventFilter': (
+          'bool QAbstractNativeEventFilter::nativeEventFilter(const '
+          'QByteArray &, void *, qintptr *)',
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

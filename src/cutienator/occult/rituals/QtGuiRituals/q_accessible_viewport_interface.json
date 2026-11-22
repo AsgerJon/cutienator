@@ -19,6 +19,9 @@
     ],
     "ritual_ZN28QAccessibleViewportInterface11setPositionE7QPointF": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QAccessibleViewportInterface": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

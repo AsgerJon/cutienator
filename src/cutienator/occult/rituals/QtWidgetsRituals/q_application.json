@@ -73,6 +73,13 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZN12QApplication15closeAllWindowsEv": ["nothing"],
-    "ritual_ZN12QApplication7aboutQtEv": ["nothing"]
+    "ritual_ZN12QApplication7aboutQtEv": ["nothing"],
+    "ritual_take_QApplication": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QApplication6notifyEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QApplication5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
   }
 }

@@ -94,6 +94,61 @@ class QPagedPaintDevice(QPaintDevice):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPagedPaintDevice'
 
+  #  A C++ QPagedPaintDevice Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPagedPaintDevice'
+
+  #  The functions Qt calls itself that QPagedPaintDevice is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'newPage': (
+          ('_ZN17QPagedPaintDevice7newPageEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'setPageLayout': (
+          ('_ZN17QPagedPaintDevice13setPageLayoutERK11QPageLayout',
+           ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtGui:QPageLayout'),
+           )),
+      ),
+      'setPageSize': (
+          ('_ZN17QPagedPaintDevice11setPageSizeERK9QPageSize',
+           ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtGui:QPageSize'),
+           )),
+      ),
+      'setPageOrientation': (
+          ('_ZN17QPagedPaintDevice18setPageOrientationEN11QPageLayout11Orie'
+           'ntationE',
+           ('bool', 'number', ''),
+           (
+               ('int', 'enum', 'QtGui:QPageLayout.Orientation'),
+           )),
+      ),
+      'setPageMargins': (
+          ('_ZN17QPagedPaintDevice14setPageMarginsERK9QMarginsFN11QPageLayo'
+           'ut4UnitE',
+           ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QMarginsF'),
+               ('int', 'enum', 'QtGui:QPageLayout.Unit'),
+           )),
+      ),
+      'setPageRanges': (
+          ('_ZN17QPagedPaintDevice13setPageRangesERK11QPageRanges',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtGui:QPageRanges'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -164,10 +219,12 @@ class QPagedPaintDevice(QPaintDevice):
       Python's own.
     """
     #  bool QPagedPaintDevice::setPageLayout(const QPageLayout &pageLayout)
+    ritual = 'ritual_ZN17QPagedPaintDevice13setPageLayoutERK11QPageLayout'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QPagedPaintDevice13setPageLayoutERK11QPageLayout')
     return self._callAs(
-        'QPagedPaintDevice',
-        'ritual_ZN17QPagedPaintDevice13setPageLayoutERK11QPageLayout',
-        self._valueOf(pageLayout),
+        'QPagedPaintDevice', ritual, self._valueOf(pageLayout),
     )
 
   @overload(QPageSize)
@@ -186,11 +243,10 @@ class QPagedPaintDevice(QPaintDevice):
       own.
     """
     #  bool QPagedPaintDevice::setPageSize(const QPageSize &pageSize)
-    return self._callAs(
-        'QPagedPaintDevice',
-        'ritual_ZN17QPagedPaintDevice11setPageSizeERK9QPageSize',
-        self._valueOf(pageSize),
-    )
+    ritual = 'ritual_ZN17QPagedPaintDevice11setPageSizeERK9QPageSize'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QPagedPaintDevice11setPageSizeERK9QPageSize'
+    return self._callAs('QPagedPaintDevice', ritual, self._valueOf(pageSize))
 
   @overload(QPageLayout.Orientation)
   def setPageOrientation(self, orientation: QPageLayout.Orientation) -> bool:
@@ -210,12 +266,14 @@ class QPagedPaintDevice(QPaintDevice):
     """
     #  bool QPagedPaintDevice::setPageOrientation(QPageLayout::Orientation
     #      orientation)
-    return self._callAs(
-        'QPagedPaintDevice',
+    ritual = (
         'ritual_ZN17QPagedPaintDevice18setPageOrientationEN11QPageLayout11O'
-        'rientationE',
-        orientation.value,
-    )
+        'rientationE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QPagedPaintDevice18setPageOrientationEN11QPageLay'
+          'out11OrientationE')
+    return self._callAs('QPagedPaintDevice', ritual, orientation.value)
 
   @overload(QMarginsF)
   @overload(QMarginsF, QPageLayout.Unit)
@@ -244,11 +302,15 @@ class QPagedPaintDevice(QPaintDevice):
     """
     #  bool QPagedPaintDevice::setPageMargins(const QMarginsF &margins,
     #      QPageLayout::Unit units)
-    return self._callAs(
-        'QPagedPaintDevice',
+    ritual = (
         'ritual_ZN17QPagedPaintDevice14setPageMarginsERK9QMarginsFN11QPageL'
-        'ayout4UnitE',
-        self._valueOf(margins), units.value,
+        'ayout4UnitE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QPagedPaintDevice14setPageMarginsERK9QMarginsFN11'
+          'QPageLayout4UnitE')
+    return self._callAs(
+        'QPagedPaintDevice', ritual, self._valueOf(margins), units.value,
     )
 
   @overload(QPageRanges)
@@ -268,11 +330,11 @@ class QPagedPaintDevice(QPaintDevice):
       Python's own.
     """
     #  void QPagedPaintDevice::setPageRanges(const QPageRanges &ranges)
-    self._callAs(
-        'QPagedPaintDevice',
-        'ritual_ZN17QPagedPaintDevice13setPageRangesERK11QPageRanges',
-        self._valueOf(ranges),
-    )
+    ritual = 'ritual_ZN17QPagedPaintDevice13setPageRangesERK11QPageRanges'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QPagedPaintDevice13setPageRangesERK11QPageRanges')
+    self._callAs('QPagedPaintDevice', ritual, self._valueOf(ranges))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -10,6 +10,7 @@
     "ritual_ZN9QTimeEditC1E5QTimeP7QWidget": [
       "address", "address", "address"
     ],
-    "ritual_ZN9QTimeEditD1Ev": ["nothing", "address"]
+    "ritual_ZN9QTimeEditD1Ev": ["nothing", "address"],
+    "ritual_take_QTimeEdit": ["bool", "address", "chars", "address"]
   }
 }

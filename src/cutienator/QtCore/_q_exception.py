@@ -72,6 +72,28 @@ class QException(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QException'
 
+  #  A C++ QException Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QException'
+
+  #  The functions Qt calls itself that QException is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'raise': (
+          ('_ZNK10QException5raiseEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'clone': (
+          ('_ZNK10QException5cloneEv',
+           ('address', 'address', 'QtCore:QException'),
+           ()),
+      ),
+  }
+
   #  Qt's '~QException()'. Naming it makes this a value class: Python owns
   #  every C++ QException behind a cute one, and removes it by this ritual.
   __delete_ritual__ = 'ritual_ZN10QExceptionD1Ev'
@@ -102,7 +124,10 @@ class QException(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QException *QException::clone() const
-    address = self.uglySide.call('ritual_ZNK10QException5cloneEv')
+    ritual = 'ritual_ZNK10QException5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QException5cloneEv'
+    address = self.uglySide.call(ritual)
     return QException._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -181,4 +206,7 @@ class QException(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qexception.html#raise
     """
     #  void QException::raise() const
-    self.uglySide.call('ritual_ZNK10QException5raiseEv')
+    ritual = 'ritual_ZNK10QException5raiseEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QException5raiseEv'
+    self.uglySide.call(ritual)

@@ -67,6 +67,9 @@
     ],
     "ritual_ZN27QGraphicsSceneDragDropEvent11setMimeDataEPK9QMimeData": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QGraphicsSceneDragDropEvent": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

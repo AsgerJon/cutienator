@@ -10,6 +10,10 @@
       "address", "int", "bool"
     ],
     "ritual_ZNK23QWindowStateChangeEvent8oldStateEv": ["int", "address"],
-    "ritual_ZNK23QWindowStateChangeEvent10isOverrideEv": ["bool", "address"]
+    "ritual_ZNK23QWindowStateChangeEvent10isOverrideEv": ["bool", "address"],
+    "ritual_take_QWindowStateChangeEvent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK23QWindowStateChangeEvent5cloneEv": ["address", "address"]
   }
 }

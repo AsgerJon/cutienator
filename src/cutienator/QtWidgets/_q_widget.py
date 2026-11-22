@@ -21,36 +21,61 @@ from . import QSizePolicy
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QByteArray, QLocale, QMargins, QMetaObject, QPoint
-  from ..QtCore import QPointF, QRect, QSize, QVariant
-  from ..QtGui import QAction, QBackingStore, QBitmap, QCursor, QFont
-  from ..QtGui import QFontInfo, QFontMetrics, QIcon, QKeySequence
-  from ..QtGui import QPaintEngine, QPainter, QPixmap, QRegion, QScreen
-  from ..QtGui import QWindow
+  from ..QtCore import QByteArray, QEvent, QLocale, QMargins, QMetaObject
+  from ..QtCore import QPoint, QPointF, QRect, QSize, QVariant
+  from ..QtGui import QAction, QActionEvent, QBackingStore, QBitmap
+  from ..QtGui import QCloseEvent, QContextMenuEvent, QCursor
+  from ..QtGui import QDragEnterEvent, QDragLeaveEvent, QDragMoveEvent
+  from ..QtGui import QDropEvent, QEnterEvent, QFocusEvent, QFont, QFontInfo
+  from ..QtGui import QFontMetrics, QHideEvent, QIcon, QInputMethodEvent
+  from ..QtGui import QKeyEvent, QKeySequence, QMouseEvent, QMoveEvent
+  from ..QtGui import QPaintEngine, QPaintEvent, QPainter, QPixmap, QRegion
+  from ..QtGui import QResizeEvent, QScreen, QShowEvent, QTabletEvent
+  from ..QtGui import QWheelEvent, QWindow
   from . import QGraphicsEffect, QGraphicsProxyWidget, QLayout, QStyle
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAction = WAIT['QAction']
+  QActionEvent = WAIT['QActionEvent']
   QBitmap = WAIT['QBitmap']
   QByteArray = WAIT['QByteArray']
+  QCloseEvent = WAIT['QCloseEvent']
+  QContextMenuEvent = WAIT['QContextMenuEvent']
   QCursor = WAIT['QCursor']
+  QDragEnterEvent = WAIT['QDragEnterEvent']
+  QDragLeaveEvent = WAIT['QDragLeaveEvent']
+  QDragMoveEvent = WAIT['QDragMoveEvent']
+  QDropEvent = WAIT['QDropEvent']
+  QEnterEvent = WAIT['QEnterEvent']
+  QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
   QFont = WAIT['QFont']
   QGraphicsEffect = WAIT['QGraphicsEffect']
+  QHideEvent = WAIT['QHideEvent']
   QIcon = WAIT['QIcon']
+  QInputMethodEvent = WAIT['QInputMethodEvent']
+  QKeyEvent = WAIT['QKeyEvent']
   QKeySequence = WAIT['QKeySequence']
   QLayout = WAIT['QLayout']
   QLocale = WAIT['QLocale']
   QMargins = WAIT['QMargins']
+  QMouseEvent = WAIT['QMouseEvent']
+  QMoveEvent = WAIT['QMoveEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QPainter = WAIT['QPainter']
   QPoint = WAIT['QPoint']
   QPointF = WAIT['QPointF']
   QRect = WAIT['QRect']
   QRegion = WAIT['QRegion']
+  QResizeEvent = WAIT['QResizeEvent']
   QScreen = WAIT['QScreen']
+  QShowEvent = WAIT['QShowEvent']
   QSize = WAIT['QSize']
   QStyle = WAIT['QStyle']
+  QTabletEvent = WAIT['QTabletEvent']
+  QWheelEvent = WAIT['QWheelEvent']
   QWindow = WAIT['QWindow']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -72,7 +97,7 @@ class QWidget(QObject, QPaintDevice):
   -----------
 
   Every function of Qt's QWidget that has a ritual and that Python can call
-  so far, 224 names in all: 'metaObject', 'tr', 'devType', 'winId',
+  so far, 256 names in all: 'metaObject', 'tr', 'devType', 'winId',
   'createWinId', 'internalWinId', 'effectiveWinId', 'style', 'setStyle',
   'isTopLevel', 'isWindow', 'isModal', 'windowModality', 'setWindowModality',
   'isEnabled', 'isEnabledTo', 'setEnabled', 'setDisabled',
@@ -124,8 +149,15 @@ class QWidget(QObject, QPaintDevice):
   'testAttribute', 'paintEngine', 'ensurePolished', 'isAncestorOf',
   'autoFillBackground', 'setAutoFillBackground', 'backingStore',
   'windowHandle', 'screen', 'setScreen', 'createWindowContainer',
-  'inputMethodQuery', 'inputMethodHints', 'setInputMethodHints'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'inputMethodQuery', 'inputMethodHints', 'setInputMethodHints', 'event',
+  'mousePressEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
+  'mouseMoveEvent', 'wheelEvent', 'keyPressEvent', 'keyReleaseEvent',
+  'focusInEvent', 'focusOutEvent', 'enterEvent', 'leaveEvent', 'paintEvent',
+  'moveEvent', 'resizeEvent', 'closeEvent', 'contextMenuEvent',
+  'tabletEvent', 'actionEvent', 'dragEnterEvent', 'dragMoveEvent',
+  'dragLeaveEvent', 'dropEvent', 'showEvent', 'hideEvent', 'changeEvent',
+  'metric', 'initPainter', 'redirected', 'sharedPainter', 'inputMethodEvent',
+  'focusNextPrevChild'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -136,7 +168,7 @@ class QWidget(QObject, QPaintDevice):
   What has no ritual
   ------------------
 
-  62 of the 327 functions Qt declares: 39 protected; 6 takes or gives a type
+  30 of the 326 functions Qt declares: 7 protected; 6 takes or gives a type
   that cannot be passed yet; 6 private; 5 a template; 4 a signal; 2
   forbidden.
 
@@ -375,6 +407,253 @@ class QWidget(QObject, QPaintDevice):
       'QPaintDevice': 'ritual_cast_QWidget_QPaintDevice',
   }
 
+  #  A C++ QWidget Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QWidget'
+
+  #  The functions Qt calls itself that QWidget is the first to declare and
+  #  that cannot be handed to Python yet, each as Qt declares it. A class of
+  #  a program that writes one of them anew is refused, since Qt would never
+  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'nativeEvent': (
+          'bool QWidget::nativeEvent(const QByteArray &, void *, qintptr *)',
+      ),
+  }
+
+  #  The functions Qt calls itself that QWidget is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'setVisible': (
+          ('_ZN7QWidget10setVisibleEb',
+           ('nothing', 'nothing', ''),
+           (
+               ('bool', 'number', ''),
+           )),
+      ),
+      'sizeHint': (
+          ('_ZNK7QWidget8sizeHintEv',
+           ('address', 'value', 'QtCore:QSize'),
+           ()),
+      ),
+      'minimumSizeHint': (
+          ('_ZNK7QWidget15minimumSizeHintEv',
+           ('address', 'value', 'QtCore:QSize'),
+           ()),
+      ),
+      'heightForWidth': (
+          ('_ZNK7QWidget14heightForWidthEi',
+           ('int', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'hasHeightForWidth': (
+          ('_ZNK7QWidget17hasHeightForWidthEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'mousePressEvent': (
+          ('_ZN7QWidget15mousePressEventEP11QMouseEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QMouseEvent'),
+           )),
+      ),
+      'mouseReleaseEvent': (
+          ('_ZN7QWidget17mouseReleaseEventEP11QMouseEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QMouseEvent'),
+           )),
+      ),
+      'mouseDoubleClickEvent': (
+          ('_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QMouseEvent'),
+           )),
+      ),
+      'mouseMoveEvent': (
+          ('_ZN7QWidget14mouseMoveEventEP11QMouseEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QMouseEvent'),
+           )),
+      ),
+      'wheelEvent': (
+          ('_ZN7QWidget10wheelEventEP11QWheelEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QWheelEvent'),
+           )),
+      ),
+      'keyPressEvent': (
+          ('_ZN7QWidget13keyPressEventEP9QKeyEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QKeyEvent'),
+           )),
+      ),
+      'keyReleaseEvent': (
+          ('_ZN7QWidget15keyReleaseEventEP9QKeyEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QKeyEvent'),
+           )),
+      ),
+      'focusInEvent': (
+          ('_ZN7QWidget12focusInEventEP11QFocusEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QFocusEvent'),
+           )),
+      ),
+      'focusOutEvent': (
+          ('_ZN7QWidget13focusOutEventEP11QFocusEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QFocusEvent'),
+           )),
+      ),
+      'enterEvent': (
+          ('_ZN7QWidget10enterEventEP11QEnterEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QEnterEvent'),
+           )),
+      ),
+      'leaveEvent': (
+          ('_ZN7QWidget10leaveEventEP6QEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'paintEvent': (
+          ('_ZN7QWidget10paintEventEP11QPaintEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPaintEvent'),
+           )),
+      ),
+      'moveEvent': (
+          ('_ZN7QWidget9moveEventEP10QMoveEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QMoveEvent'),
+           )),
+      ),
+      'resizeEvent': (
+          ('_ZN7QWidget11resizeEventEP12QResizeEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QResizeEvent'),
+           )),
+      ),
+      'closeEvent': (
+          ('_ZN7QWidget10closeEventEP11QCloseEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QCloseEvent'),
+           )),
+      ),
+      'contextMenuEvent': (
+          ('_ZN7QWidget16contextMenuEventEP17QContextMenuEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QContextMenuEvent'),
+           )),
+      ),
+      'tabletEvent': (
+          ('_ZN7QWidget11tabletEventEP12QTabletEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QTabletEvent'),
+           )),
+      ),
+      'actionEvent': (
+          ('_ZN7QWidget11actionEventEP12QActionEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QActionEvent'),
+           )),
+      ),
+      'dragEnterEvent': (
+          ('_ZN7QWidget14dragEnterEventEP15QDragEnterEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QDragEnterEvent'),
+           )),
+      ),
+      'dragMoveEvent': (
+          ('_ZN7QWidget13dragMoveEventEP14QDragMoveEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QDragMoveEvent'),
+           )),
+      ),
+      'dragLeaveEvent': (
+          ('_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QDragLeaveEvent'),
+           )),
+      ),
+      'dropEvent': (
+          ('_ZN7QWidget9dropEventEP10QDropEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QDropEvent'),
+           )),
+      ),
+      'showEvent': (
+          ('_ZN7QWidget9showEventEP10QShowEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QShowEvent'),
+           )),
+      ),
+      'hideEvent': (
+          ('_ZN7QWidget9hideEventEP10QHideEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QHideEvent'),
+           )),
+      ),
+      'changeEvent': (
+          ('_ZN7QWidget11changeEventEP6QEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'inputMethodEvent': (
+          ('_ZN7QWidget16inputMethodEventEP17QInputMethodEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QInputMethodEvent'),
+           )),
+      ),
+      'inputMethodQuery': (
+          ('_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('int', 'enum', 'QtCore:Qt.InputMethodQuery'),
+           )),
+      ),
+      'focusNextPrevChild': (
+          ('_ZN7QWidget18focusNextPrevChildEb',
+           ('bool', 'number', ''),
+           (
+               ('bool', 'number', ''),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -412,7 +691,10 @@ class QWidget(QObject, QPaintDevice):
     Qt's own words: https://doc.qt.io/qt-6/qwidget.html#devType
     """
     #  int QWidget::devType() const
-    return self.uglySide.call('ritual_ZNK7QWidget7devTypeEv')
+    ritual = 'ritual_ZNK7QWidget7devTypeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QWidget7devTypeEv'
+    return self.uglySide.call(ritual)
 
   def winId(self) -> int:
     """
@@ -1889,7 +2171,10 @@ class QWidget(QObject, QPaintDevice):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QWidget::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK7QWidget8sizeHintEv')
+    ritual = 'ritual_ZNK7QWidget8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QWidget8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -1906,7 +2191,10 @@ class QWidget(QObject, QPaintDevice):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QWidget::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK7QWidget15minimumSizeHintEv')
+    ritual = 'ritual_ZNK7QWidget15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QWidget15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -1940,7 +2228,10 @@ class QWidget(QObject, QPaintDevice):
       Passed on as it is.
     """
     #  int QWidget::heightForWidth(int a0) const
-    return self.uglySide.call('ritual_ZNK7QWidget14heightForWidthEi', a0)
+    ritual = 'ritual_ZNK7QWidget14heightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QWidget14heightForWidthEi'
+    return self.uglySide.call(ritual, a0)
 
   def hasHeightForWidth(self) -> bool:
     """
@@ -1949,7 +2240,10 @@ class QWidget(QObject, QPaintDevice):
     Qt's own words: https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth
     """
     #  bool QWidget::hasHeightForWidth() const
-    return self.uglySide.call('ritual_ZNK7QWidget17hasHeightForWidthEv')
+    ritual = 'ritual_ZNK7QWidget17hasHeightForWidthEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QWidget17hasHeightForWidthEv'
+    return self.uglySide.call(ritual)
 
   def visibleRegion(self) -> QRegion:
     """
@@ -2248,7 +2542,10 @@ class QWidget(QObject, QPaintDevice):
       no object.
     """
     #  QPaintEngine *QWidget::paintEngine() const
-    address = self.uglySide.call('ritual_ZNK7QWidget11paintEngineEv')
+    ritual = 'ritual_ZNK7QWidget11paintEngineEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QWidget11paintEngineEv'
+    address = self.uglySide.call(ritual)
     from ..QtGui import QPaintEngine
     return QPaintEngine._cuteAt(address)
 
@@ -2356,10 +2653,11 @@ class QWidget(QObject, QPaintDevice):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QWidget::inputMethodQuery(Qt::InputMethodQuery a0) const
-    address = self.uglySide.call(
-        'ritual_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE',
-        a0.value,
-    )
+    ritual = 'ritual_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE')
+    address = self.uglySide.call(ritual, a0.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -2379,6 +2677,72 @@ class QWidget(QObject, QPaintDevice):
     return Qt.InputMethodHints(self.uglySide.call(
         'ritual_ZNK7QWidget16inputMethodHintsEv',
     ))
+
+  @overload(QPaintDevice.PaintDeviceMetric)
+  def metric(self, a0: QPaintDevice.PaintDeviceMetric) -> int:
+    """
+    Calls Qt's 'int QWidget::metric(PaintDeviceMetric a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#metric
+
+    Parameters
+    ----------
+
+    a0 : QPaintDevice.PaintDeviceMetric
+      Passed on as its number.
+    """
+    #  int QWidget::metric(PaintDeviceMetric a0) const
+    return self.uglySide.call(
+        'ritual_own_ZNK7QWidget6metricEN12QPaintDevice17PaintDeviceMetricE',
+        a0.value,
+    )
+
+  @overload(QPoint)
+  @overload(NoneType)
+  def redirected(self, offset: Optional[QPoint]) -> Optional[QPaintDevice]:
+    """
+    Calls Qt's 'QPaintDevice *QWidget::redirected(QPoint *offset) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#redirected
+
+    Parameters
+    ----------
+
+    offset : Optional[QPoint]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    Optional[QPaintDevice]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintDevice *QWidget::redirected(QPoint *offset) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK7QWidget10redirectedEP6QPoint',
+        self._addressOf(offset),
+    )
+    return QPaintDevice._cuteAt(address)
+
+  def sharedPainter(self) -> Optional[QPainter]:
+    """
+    Calls Qt's 'QPainter *QWidget::sharedPainter() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#sharedPainter
+
+    Returns
+    -------
+
+    Optional[QPainter]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPainter *QWidget::sharedPainter() const
+    address = self.uglySide.call('ritual_own_ZNK7QWidget13sharedPainterEv')
+    from ..QtGui import QPainter
+    return QPainter._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -3378,7 +3742,10 @@ class QWidget(QObject, QPaintDevice):
       Passed on as it is.
     """
     #  void QWidget::setVisible(bool visible)
-    self.uglySide.call('ritual_ZN7QWidget10setVisibleEb', visible)
+    ritual = 'ritual_ZN7QWidget10setVisibleEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget10setVisibleEb'
+    self.uglySide.call(ritual, visible)
 
   @overload(bool)
   def setHidden(self, hidden: bool) -> None:
@@ -5088,3 +5455,606 @@ class QWidget(QObject, QPaintDevice):
     """
     #  void QWidget::ensurePolished() const
     self.uglySide.call('ritual_ZNK7QWidget14ensurePolishedEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QWidget::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QWidget::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN7QWidget5eventEP6QEvent', self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::mousePressEvent(QMouseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::mousePressEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget15mousePressEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::mouseReleaseEvent(QMouseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::mouseReleaseEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseDoubleClickEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::mouseDoubleClickEvent(QMouseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::mouseDoubleClickEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::mouseMoveEvent(QMouseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::mouseMoveEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QWheelEvent)
+  @overload(NoneType)
+  def wheelEvent(self, event: Optional[QWheelEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::wheelEvent(QWheelEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#wheelEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QWheelEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::wheelEvent(QWheelEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget10wheelEventEP11QWheelEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, event: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::keyPressEvent(QKeyEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::keyPressEvent(QKeyEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget13keyPressEventEP9QKeyEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyReleaseEvent(self, event: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::keyReleaseEvent(QKeyEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::keyReleaseEvent(QKeyEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget15keyReleaseEventEP9QKeyEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::focusInEvent(QFocusEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#focusInEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::focusInEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget12focusInEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::focusOutEvent(QFocusEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::focusOutEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget13focusOutEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEnterEvent)
+  @overload(NoneType)
+  def enterEvent(self, event: Optional[QEnterEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::enterEvent(QEnterEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#enterEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEnterEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::enterEvent(QEnterEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget10enterEventEP11QEnterEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def leaveEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::leaveEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#leaveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::leaveEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget10leaveEventEP6QEvent', self._addressOf(event),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, event: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::paintEvent(QPaintEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#paintEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::paintEvent(QPaintEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget10paintEventEP11QPaintEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMoveEvent)
+  @overload(NoneType)
+  def moveEvent(self, event: Optional[QMoveEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::moveEvent(QMoveEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#moveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMoveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::moveEvent(QMoveEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget9moveEventEP10QMoveEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, event: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::resizeEvent(QResizeEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#resizeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::resizeEvent(QResizeEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget11resizeEventEP12QResizeEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QCloseEvent)
+  @overload(NoneType)
+  def closeEvent(self, event: Optional[QCloseEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::closeEvent(QCloseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#closeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QCloseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::closeEvent(QCloseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget10closeEventEP11QCloseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QContextMenuEvent)
+  @overload(NoneType)
+  def contextMenuEvent(self, event: Optional[QContextMenuEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::contextMenuEvent(QContextMenuEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#contextMenuEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QContextMenuEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::contextMenuEvent(QContextMenuEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget16contextMenuEventEP17QContextMenuEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QTabletEvent)
+  @overload(NoneType)
+  def tabletEvent(self, event: Optional[QTabletEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::tabletEvent(QTabletEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#tabletEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QTabletEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::tabletEvent(QTabletEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget11tabletEventEP12QTabletEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QActionEvent)
+  @overload(NoneType)
+  def actionEvent(self, event: Optional[QActionEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::actionEvent(QActionEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#actionEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QActionEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::actionEvent(QActionEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget11actionEventEP12QActionEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QDragEnterEvent)
+  @overload(NoneType)
+  def dragEnterEvent(self, event: Optional[QDragEnterEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::dragEnterEvent(QDragEnterEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDragEnterEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::dragEnterEvent(QDragEnterEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget14dragEnterEventEP15QDragEnterEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QDragMoveEvent)
+  @overload(NoneType)
+  def dragMoveEvent(self, event: Optional[QDragMoveEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::dragMoveEvent(QDragMoveEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDragMoveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::dragMoveEvent(QDragMoveEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget13dragMoveEventEP14QDragMoveEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QDragLeaveEvent)
+  @overload(NoneType)
+  def dragLeaveEvent(self, event: Optional[QDragLeaveEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::dragLeaveEvent(QDragLeaveEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDragLeaveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QDropEvent)
+  @overload(NoneType)
+  def dropEvent(self, event: Optional[QDropEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::dropEvent(QDropEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#dropEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::dropEvent(QDropEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget9dropEventEP10QDropEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, event: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::showEvent(QShowEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#showEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::showEvent(QShowEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget9showEventEP10QShowEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QHideEvent)
+  @overload(NoneType)
+  def hideEvent(self, event: Optional[QHideEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::hideEvent(QHideEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#hideEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QHideEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::hideEvent(QHideEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget9hideEventEP10QHideEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, a0: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::changeEvent(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#changeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::changeEvent(QEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget11changeEventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QPainter)
+  @overload(NoneType)
+  def initPainter(self, painter: Optional[QPainter]) -> None:
+    """
+    Calls Qt's 'void QWidget::initPainter(QPainter *painter) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#initPainter
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::initPainter(QPainter *painter) const
+    self.uglySide.call(
+        'ritual_own_ZNK7QWidget11initPainterEP8QPainter',
+        self._addressOf(painter),
+    )
+
+  @overload(QInputMethodEvent)
+  @overload(NoneType)
+  def inputMethodEvent(self, a0: Optional[QInputMethodEvent]) -> None:
+    """
+    Calls Qt's 'void QWidget::inputMethodEvent(QInputMethodEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QInputMethodEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::inputMethodEvent(QInputMethodEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN7QWidget16inputMethodEventEP17QInputMethodEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(bool)
+  def focusNextPrevChild(self, next: bool) -> bool:
+    """
+    Calls Qt's 'bool QWidget::focusNextPrevChild(bool next)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild
+
+    Parameters
+    ----------
+
+    next : bool
+      Passed on as it is.
+    """
+    #  bool QWidget::focusNextPrevChild(bool next)
+    return self.uglySide.call(
+        'ritual_own_ZN7QWidget18focusNextPrevChildEb', next,
+    )

@@ -19,12 +19,13 @@ from . import QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QEasingCurve, QMetaObject
+  from . import QEasingCurve, QMetaObject, QTimerEvent
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QEasingCurve = WAIT['QEasingCurve']
+  QTimerEvent = WAIT['QTimerEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -43,13 +44,14 @@ class QTimeLine(QObject):
   -----------
 
   Every function of Qt's QTimeLine that has a ritual and that Python can call
-  so far, 29 names in all: 'metaObject', 'tr', 'state', 'loopCount',
+  so far, 30 names in all: 'metaObject', 'tr', 'state', 'loopCount',
   'setLoopCount', 'direction', 'setDirection', 'duration', 'setDuration',
   'startFrame', 'setStartFrame', 'endFrame', 'setEndFrame', 'setFrameRange',
   'updateInterval', 'setUpdateInterval', 'easingCurve', 'setEasingCurve',
   'currentTime', 'currentFrame', 'currentValue', 'frameForTime',
   'valueForTime', 'start', 'resume', 'stop', 'setPaused', 'setCurrentTime',
-  'toggleDirection'. It can be made from Python, in 1 way; see '__init__'.
+  'toggleDirection', 'timerEvent'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,8 +62,8 @@ class QTimeLine(QObject):
   What has no ritual
   ------------------
 
-  19 of the 50 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 4 a signal; 3 private; 2 forbidden; 1 a template; 1 protected.
+  18 of the 50 functions Qt declares: 8 takes or gives a type that cannot be
+  passed yet; 4 a signal; 3 private; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -149,6 +151,25 @@ class QTimeLine(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTimeLine'
+
+  #  A C++ QTimeLine Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTimeLine'
+
+  #  The functions Qt calls itself that QTimeLine is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'valueForTime': (
+          ('_ZNK9QTimeLine12valueForTimeEi',
+           ('double', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -335,7 +356,10 @@ class QTimeLine(QObject):
       Passed on as it is.
     """
     #  qreal QTimeLine::valueForTime(int msec) const
-    return self.uglySide.call('ritual_ZNK9QTimeLine12valueForTimeEi', msec)
+    ritual = 'ritual_ZNK9QTimeLine12valueForTimeEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QTimeLine12valueForTimeEi'
+    return self.uglySide.call(ritual, msec)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -610,3 +634,24 @@ class QTimeLine(QObject):
     """
     #  void QTimeLine::toggleDirection()
     self.uglySide.call('ritual_ZN9QTimeLine15toggleDirectionEv')
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, event: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QTimeLine::timerEvent(QTimerEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimeline.html#timerEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTimeLine::timerEvent(QTimerEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN9QTimeLine10timerEventEP11QTimerEvent',
+        self._addressOf(event),
+    )

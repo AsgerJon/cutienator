@@ -18,6 +18,10 @@
     "ritual_ZN15QGraphicsEffect10setEnabledEb": [
       "nothing", "address", "bool"
     ],
-    "ritual_ZN15QGraphicsEffect6updateEv": ["nothing", "address"]
+    "ritual_ZN15QGraphicsEffect6updateEv": ["nothing", "address"],
+    "ritual_take_QGraphicsEffect": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QGraphicsEffect15boundingRectForERK6QRectF": [
+      "address", "address", "address"
+    ]
   }
 }

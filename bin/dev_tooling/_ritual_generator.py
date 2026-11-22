@@ -19,6 +19,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   Record = Dict[str, Any]
   Rituals = Tuple[Record, ...]
+  Records = Tuple[Record, ...]
   Reasons = Tuple[Tuple[str, str], ...]
   Rows = Dict[str, Tuple[str, ...]]
 
@@ -273,6 +274,24 @@ class RitualGenerator:
   __dependency_tree__ = None  # type: Optional[DependencyTree]
   __class_name__ = None  # type: Optional[str]
   __work_folder__ = None  # type: Optional[str]
+  #  The classes that get a C++ class of ours, through which Python can
+  #  take a function over, or None for every class that has such a
+  #  function. It is set while the way is tried on a few classes.
+  __cute_class_limit__ = None  # type: Optional[Tuple[str, ...]]
+  #  The functions C++ looks up in the object that are Qt's own
+  #  workings, and are never taken over.
+  __qt_own_virtuals__ = ('metaObject', 'qt_metacast', 'qt_metacall')
+  __overridable_functions__ = None  # type: Optional[Records]
+  #  What '_isHiddenType' found for each type asked about so far, and
+  #  the generators '_getOther' made, each kept for the tree they
+  #  belong to: both are asked for thousands of times.
+  __hidden_types__ = dict()  # type: Dict[Tuple[int, str], bool]
+  #  The record of each class read so far. The tree reads a record anew
+  #  at every asking, and the work on the functions Python can take
+  #  over asks for the same ones over and over.
+  __class_records__ = dict()  # type: Dict[Tuple[int, str], Record]
+  __has_cute_class__ = None  # type: Optional[bool]
+  __other_generators__ = dict()  # type: Dict[Tuple[int, str], Any]
   __written_rituals__ = None  # type: Optional[Rituals]
   __unwritten_functions__ = None  # type: Optional[Reasons]
   __known_names__ = None  # type: Optional[FrozenSet[str]]
@@ -458,8 +477,498 @@ class RitualGenerator:
     #  the first, the ritual that gives where that part of an object is.
     for baseName in self.getFurtherBases():
       written.append(self._planCast(baseName))
+    #  A class with a C++ class of ours gets the ritual that hands a
+    #  Python function over, and one for each function of its own that
+    #  runs just that function.
+    if self.hasCuteClass():
+      written.append(self._planTake())
+    limit = self.__cute_class_limit__
+    if limit is None or className in limit:
+      written.extend(self._planOwn())
     self.__written_rituals__ = (*written,)
     self.__unwritten_functions__ = (*unwritten,)
+
+  def getCuteClassName(self) -> str:
+    """Gives the name of the C++ class of ours that is built on the
+    class of Qt, as 'CuteQWidget'. Python never sees it."""
+    return 'Cute%s' % self.getClassName().replace('::', '_')
+
+  def _getOther(self, className: str) -> RitualGenerator:
+    """Gives a generator for another class of the same tree."""
+    if className == self.getClassName():
+      return self
+    key = (id(self.getDependencyTree()), className)
+    try:
+      return self.__other_generators__[key]
+    except KeyError:
+      other = type(self)()
+      other.setDependencyTree(self.getDependencyTree())
+      other.setClassName(className)
+      #  It only works out plans and never writes a file, so it needs
+      #  no folder.
+      self.__other_generators__[key] = other
+      return other
+
+  def _readRecord(self, className: str) -> Record:
+    """Gives the record of a class as the tree has it, read once."""
+    tree = self.getDependencyTree()
+    key = (id(tree), className)
+    try:
+      return self.__class_records__[key]
+    except KeyError:
+      record = tree.getClassRecord(className)
+      self.__class_records__[key] = record
+      return record
+
+  def _findVirtuals(self) -> List[Record]:
+    """
+    Gives every function of the class that C++ looks up in the object
+    when it is called, its own and those of the classes it is built
+    on. Qt calls such a function itself, and a class built on this one
+    can put a function of its own in its place.
+
+    Returns
+    -------
+
+    List[Record]
+      For each 'name'; 'nearest': where the function Qt runs for an
+      object of this class is declared, as 'owner', 'member', 'access',
+      'final' and 'pure'; and 'root': the same for the class that first
+      declared it.
+    """
+    tree, className = self.getDependencyTree(), self.getClassName()
+    chain = (className, *reversed(tree.getAncestors(className)))
+    groups = dict()  # type: Dict[Tuple[str, str], List[Record]]
+    for owner in chain:
+      record = self._readRecord(owner)
+      access = 'private' if record.get('tagUsed') == 'class' else 'public'
+      for member in record.get('inner', ()):
+        kind = member.get('kind')
+        if kind == 'AccessSpecDecl':
+          access = member['access']
+          continue
+        if kind != 'CXXMethodDecl' or member.get('isImplicit'):
+          continue
+        if member.get('storageClass') == 'static':
+          continue
+        marks = [
+            child.get('kind') for child in member.get('inner', ())
+            if isinstance(child, dict)
+        ]
+        looked = True if member.get('virtual') else False
+        if 'OverrideAttr' in marks or 'FinalAttr' in marks:
+          looked = True
+        #  One function is known by its name, what it takes and whether
+        #  it leaves the object as it is. What it gives is left out: a
+        #  class may declare it anew giving a class built on what the
+        #  first one gave.
+        _, taken, words = self._splitFunctionType(member['type']['qualType'])
+        shape = '%s|%s' % (taken, 'const' if 'const' in words else '')
+        groups.setdefault((member['name'], shape), []).append(dict(
+            owner=owner, member=member, access=access, virtual=looked,
+            final='FinalAttr' in marks,
+            pure=True if member.get('pure') else False,
+        ))
+    virtuals = []  # type: List[Record]
+    for (name, _), declared in groups.items():
+      if any(entry['virtual'] for entry in declared):
+        virtuals.append(
+            dict(name=name, nearest=declared[0], root=declared[-1]))
+    return virtuals
+
+  def _planCallback(self, plan: Record) -> Optional[Record]:
+    """
+    Says how a function Qt calls is handed on to Python: what C++ hands
+    the Python function and what it takes back.
+
+    Returns
+    -------
+
+    Optional[Record]
+      None when something of it cannot be handed over yet. Else
+      'cTakes': the C++ types handed over after the object; 'cPassed':
+      what is handed over; 'takes': for Python, the word of each
+      ('address', 'int', ...) with what it is ('address' of a class,
+      'value' of a class, 'number', 'enum' of an enum); 'cGives',
+      'gives' and 'given': the same for what comes back.
+    """
+    cTakes, cPassed, takes = [], [], []
+    for argument in plan['arguments']:
+      passing, written = argument['passing'], argument['written']
+      name, kind = argument['name'], passing['kind']
+      if kind == 'address':
+        pointed = written.replace('const ', '').replace('*', '').strip()
+        cTakes.append(written)
+        cPassed.append(name)
+        takes.append(('address', 'address', pointed))
+      elif kind == 'value':
+        cTakes.append('const %s *' % passing['className'])
+        cPassed.append('&%s' % name)
+        takes.append(('address', 'value', passing['className']))
+      elif kind == 'number':
+        cTakes.append(self._stripReadOnly(written))
+        cPassed.append(name)
+        takes.append((passing['word'], 'number', ''))
+      elif kind == 'enum':
+        cTakes.append('int')
+        cPassed.append('static_cast<int>(%s)' % name)
+        takes.append(('int', 'enum', written))
+      else:
+        return None
+    giving = plan['giving']
+    kind, written = giving['kind'], giving['written']
+    if kind == 'nothing':
+      cGives, gives, given = 'void', ('nothing', 'nothing', ''), ''
+    elif kind == 'number':
+      cGives = self._stripReadOnly(written)
+      gives, given = (giving['word'], 'number', ''), 'given'
+    elif kind == 'enum':
+      cGives, gives = 'int', ('int', 'enum', written)
+      given = 'static_cast<%s>(given)' % written
+    elif kind == 'value':
+      cGives = 'const %s *' % giving['className']
+      gives, given = ('address', 'value', giving['className']), '*given'
+    elif kind == 'address':
+      pointed = written.replace('const ', '').replace('*', '').strip()
+      cGives, gives = 'void *', ('address', 'address', pointed)
+      given = 'static_cast<%s>(given)' % written
+    else:
+      return None
+    return dict(
+        cTakes=(*cTakes,), cPassed=(*cPassed,), takes=(*takes,),
+        cGives=cGives, gives=gives, given=given,
+    )
+
+  def getOverridable(self) -> Records:
+    """
+    Gives the functions of the class that Python can take over: those
+    C++ looks up in the object, the class's own and inherited, that a
+    class built on this one may replace and whose arguments can be
+    handed to Python.
+
+    Decided for you. Each is the plan of the function as the nearest
+    class declares it, with 'key': the compiler's name of the function
+    where it was first declared, by which Python names it to C++;
+    'owner': the class whose function Qt runs when Python takes nothing
+    over; 'rootOwner': the class that first declared it; 'access';
+    'pure': whether Qt has no function of its own for it; and what
+    '_planCallback' gives.
+    """
+    if self.__overridable_functions__ is not None:
+      return self.__overridable_functions__
+    found = []  # type: List[Record]
+    for virtual in self._findVirtuals():
+      nearest, root = virtual['nearest'], virtual['root']
+      name = virtual['name']
+      if name in self.__qt_own_virtuals__ or name.startswith('operator'):
+        continue
+      if nearest['access'] == 'private' or nearest['final']:
+        continue
+      if 'mangledName' not in root['member']:
+        continue
+      if nearest['member'].get('explicitlyDeleted'):
+        #  Qt forbids the function in the nearest class.
+        continue
+      other = self._getOther(nearest['owner'])
+      plan = other._planFunction(nearest['member'])
+      if plan['unknownTypes'] or plan['unsureNumbers'] or plan['variadic']:
+        continue
+      if '&&' in plan['words'] or '&' in plan['words']:
+        continue
+      shape = self._planCallback(plan)
+      if shape is None:
+        continue
+      named = [a['written'] for a in plan['arguments']]
+      named.append(plan['giving']['written'])
+      if any(self._isHiddenType(typeName) for typeName in named):
+        #  A type Qt keeps for classes built on its class cannot be
+        #  named by a ritual, which stands outside every class.
+        continue
+      found.append(dict(
+          plan, key=root['member']['mangledName'], owner=nearest['owner'],
+          rootOwner=root['owner'], access=nearest['access'],
+          pure=nearest['pure'], **shape))
+    self.__overridable_functions__ = (*found,)
+    return self.__overridable_functions__
+
+  def getDeclaredVirtuals(self) -> Records:
+    """
+    Gives every function Qt calls itself that the class is the first
+    to declare and that a class built on it may put its own in the
+    place of, whether or not Python can take it over.
+
+    Decided for you. The class generator needs it to name, in the
+    class file, the functions that cannot be handed to Python yet: a
+    class of a program that writes one of those anew is refused, where
+    Qt would otherwise never call what it wrote.
+
+    Returns
+    -------
+
+    Records
+      For each function its 'name', and 'written': the function as Qt
+      declares it, as 'void QWidget::paintEvent(QPaintEvent *)'.
+    """
+    found = []  # type: List[Record]
+    className = self.getClassName()
+    for virtual in self._findVirtuals():
+      nearest, root = virtual['nearest'], virtual['root']
+      name = virtual['name']
+      if root['owner'] != className:
+        continue
+      if name in self.__qt_own_virtuals__ or name.startswith('operator'):
+        continue
+      if nearest['access'] == 'private' or nearest['final']:
+        continue
+      functionType = root['member']['type']['qualType']
+      gives, taken, words = self._splitFunctionType(functionType)
+      space = '' if gives.endswith(('*', '&')) else ' '
+      written = '%s%s%s::%s(%s)' % (gives, space, className, name, taken)
+      found.append(dict(name=name, written=' '.join([written, *words])))
+    return (*found,)
+
+  def _isHiddenType(self, typeName: str) -> bool:
+    """Says whether a type is one Qt writes inside a class and keeps
+    for that class and the classes built on it, as the enum
+    'QAbstractSlider::SliderChange'."""
+    plain = typeName.replace('const ', '').replace('&', '')
+    plain = plain.replace('*', '').strip()
+    owner, _, own = plain.rpartition('::')
+    if not owner:
+      return False
+    key = (id(self.getDependencyTree()), plain)
+    try:
+      return self.__hidden_types__[key]
+    except KeyError:
+      hidden = self._findHiddenType(owner, own)
+      self.__hidden_types__[key] = hidden
+      return hidden
+
+  def _findHiddenType(self, owner: str, own: str) -> bool:
+    """Does the looking for '_isHiddenType', which keeps the answer."""
+    try:
+      record = self._readRecord(owner)
+    except (ValueError, LookupError):
+      #  Written in a namespace, as 'Qt::FocusPolicy', or in no class
+      #  the tree knows: nothing keeps it from being named.
+      return False
+    access = 'private' if record.get('tagUsed') == 'class' else 'public'
+    for member in record.get('inner', ()):
+      if member.get('kind') == 'AccessSpecDecl':
+        access = member['access']
+      elif member.get('name') == own and 'Decl' in member.get('kind', ''):
+        return access != 'public'
+    return False
+
+  def hasCuteClass(self) -> bool:
+    """
+    Says whether the class gets a C++ class of ours built on it. Every
+    object Python makes of the class is then of that C++ class, in
+    which each function of 'getOverridable' asks Python first, when
+    Python has handed a function over for it.
+    """
+    if self.__has_cute_class__ is None:
+      self.__has_cute_class__ = self._findCuteClass()
+    return self.__has_cute_class__
+
+  def _findCuteClass(self) -> bool:
+    """Does the looking for 'hasCuteClass', which keeps the answer."""
+    limit = self.__cute_class_limit__
+    if limit is not None and self.getClassName() not in limit:
+      return False
+    record = self._readRecord(self.getClassName())
+    access = 'private' if record.get('tagUsed') == 'class' else 'public'
+    for child in record.get('inner', ()):
+      if not isinstance(child, dict):
+        continue
+      kind = child.get('kind')
+      if kind == 'AccessSpecDecl':
+        access = child['access']
+      elif kind == 'FinalAttr':
+        #  Qt forbids building a class on this one.
+        return False
+      elif kind == 'CXXDestructorDecl' and access == 'private':
+        #  Only Qt may remove one, so no class can be built on it.
+        return False
+    return True if self.getOverridable() else False
+
+  def _writeCuteClass(self) -> str:
+    """
+    Gives the C++ text of the class of ours built on the class of Qt.
+
+    It holds, for each function of 'getOverridable', a place for the
+    Python function handed over and the function Qt calls: that one
+    asks the Python function when there is one, and runs Qt's own when
+    there is none or when Python says it did not take the call.
+    """
+    className, cuteName = self.getClassName(), self.getCuteClassName()
+    functions = self.getOverridable()
+    lines = [
+        '//  A %s that Python can take functions over in. Every %s' % (
+            className, className),
+        '//  Python makes is one. Each function below asks the Python',
+        '//  function handed over for it, and runs Qt\'s own without one.',
+    ]
+    for index, function in enumerate(functions):
+      handed = ['const void *', *function['cTakes'], 'int *']
+      lines.append('typedef %s (*%sCall%d)(%s);' % (
+          function['cGives'], cuteName, index, ', '.join(handed)))
+    lines.append('class %s : public %s {' % (cuteName, className))
+    lines.append('public:')
+    lines.append('  using %s::%s;' % (className, className.split('::')[-1]))
+    if className in self._getTypeTables()['copyable']:
+      #  A copy of an object of Qt is an object of ours as well.
+      lines.append('  %s(const %s &other) : %s(other) {}' % (
+          cuteName, className, className))
+    lines.append('  void *taken[%d] = {};' % len(functions))
+    lines.append('')
+    lines.append('  bool take(const char *key, void *call) {')
+    for index, function in enumerate(functions):
+      lines.append('    if (!std::strcmp(key, "%s")) {' % function['key'])
+      lines.append('      taken[%d] = call;' % index)
+      lines.append('      return true;')
+      lines.append('    }')
+    lines.append('    return false;')
+    lines.append('  }')
+    for index, function in enumerate(functions):
+      lines.append('')
+      lines.extend(self._writeOverride(index, function))
+    lines.append('};')
+    return '\n'.join(lines)
+
+  def _writeOverride(self, index: int, function: Record) -> List[str]:
+    """Gives the lines of one function of the C++ class of ours."""
+    cuteName, name = self.getCuteClassName(), function['name']
+    giving, words = function['giving'], function['words']
+    arguments = function['arguments']
+    shown = ', '.join(
+        self._joinType(a['written'], a['name']) for a in arguments)
+    tail = ''.join(' %s' % w for w in ('const', 'noexcept') if w in words)
+    head = self._joinType(giving['written'], '%s(%s)' % (name, shown))
+    lines = textwrap.wrap(
+        function['function'], 75, initial_indent='  //  ',
+        subsequent_indent='  //      ')
+    whole = '  %s%s override {' % (head, tail)
+    if len(whole) <= 77:
+      lines.append(whole)
+    else:
+      lines.append('  %s' % self._joinType(giving['written'], '%s(' % name))
+      for place, argument in enumerate(arguments):
+        end = ')%s override {' % tail if place == len(arguments) - 1 else ','
+        lines.append('      %s%s' % (
+            self._joinType(argument['written'], argument['name']), end))
+    callName = '%sCall%d' % (cuteName, index)
+    passed = ', '.join(['this', *function['cPassed'], '&handled'])
+    nothing = function['cGives'] == 'void'
+    lines.append('    if (taken[%d]) {' % index)
+    lines.append('      int handled = 0;')
+    lines.append('      %s call = reinterpret_cast<%s>(taken[%d]);' % (
+        callName, callName, index))
+    if nothing:
+      lines.append('      call(%s);' % passed)
+      lines.append('      if (handled) return;')
+    else:
+      lines.append(
+          '      %s given = call(%s);' % (function['cGives'], passed))
+      test = 'handled'
+      if function['given'] == '*given':
+        test = 'handled && given'
+      lines.append('      if (%s) return %s;' % (test, function['given']))
+    lines.append('    }')
+    names = ', '.join(a['name'] for a in arguments)
+    if not function['pure']:
+      own = '%s::%s(%s);' % (function['owner'], name, names)
+      lines.append('    %s%s' % ('' if nothing else 'return ', own))
+    elif not nothing:
+      #  Qt has no function of its own here. Without an answer from
+      #  Python, what the type is made of from nothing goes back.
+      lines.append('    return {};')
+    lines.append('  }')
+    return lines
+
+  def _planTake(self) -> Record:
+    """Works out the ritual that hands a Python function over to an
+    object of the C++ class of ours, for one of its functions."""
+    className, cuteName = self.getClassName(), self.getCuteClassName()
+    plan = dict(
+        ritualName='ritual_take_%s' % className.replace('::', '_'),
+        function='a Python function taken by a %s, for the function '
+                 'named by the key' % cuteName,
+        kind='take', gives='bool',
+        takes=(('self', '%s *' % className), ('key', 'const char *'),
+               ('call', 'void *')),
+        row=('bool', 'address', 'chars', 'address'), needs=(),
+        unknownTypes=(), unsureNumbers=(), words=(), variadic=False,
+        name='', arguments=(), giving=None, inPlace=False,
+    )
+    body = ['  return static_cast<%s *>(self)->take(key, call);' % cuteName]
+    plan['text'] = self._writeRitual(plan, body)
+    return plan
+
+  def _planOwn(self) -> List[Record]:
+    """
+    Works out, for each function of 'getOverridable' the class declares
+    itself, the ritual that runs just that function of Qt and no other:
+    'self->QWidget::sizeHint()'. The cute function calls it for an
+    object of ours, where the ordinary call would come back to Python.
+    """
+    className = self.getClassName()
+    plans = []  # type: List[Record]
+    #  The names the class also has a function of that only Qt itself
+    #  may call. A function of such a name that a class built on this
+    #  one may call cannot be reached apart from the other one.
+    record = self._readRecord(className)
+    access = 'private' if record.get('tagUsed') == 'class' else 'public'
+    closed = set()  # type: Set[str]
+    for member in record.get('inner', ()):
+      if member.get('kind') == 'AccessSpecDecl':
+        access = member['access']
+      elif member.get('kind') == 'CXXMethodDecl' and access == 'private':
+        closed.add(member.get('name'))
+    for function in self.getOverridable():
+      if function['owner'] != className or function['pure']:
+        continue
+      if function['access'] == 'protected' and function['name'] in closed:
+        continue
+      for member in self._findOwnMembers(function['name']):
+        if member.get('mangledName') != function['ritualName'][6:]:
+          continue
+        hidden = function['access'] == 'protected'
+        plan = self._planFunction(member, own=True, hidden=hidden)
+        plan['kind'], plan['key'] = 'own', function['key']
+        plan['access'] = function['access']
+        plans.append(plan)
+    return plans
+
+  def _findOwnMembers(self, name: str) -> List[Record]:
+    """Gives the functions of a name the class declares itself."""
+    record = self._readRecord(self.getClassName())
+    return [
+        member for member in record.get('inner', ())
+        if member.get('kind') == 'CXXMethodDecl'
+        and member.get('name') == name
+    ]
+
+  def _writeOwnClass(self, plans: List[Record]) -> str:
+    """Gives the C++ text of the class through which a ritual reaches
+    the functions of Qt that only a class built on it may call."""
+    className = self.getClassName()
+    ownName = 'Own%s' % className.replace('::', '_')
+    names = []  # type: List[str]
+    for plan in plans:
+      if plan['access'] == 'protected' and plan['name'] not in names:
+        names.append(plan['name'])
+    if not names:
+      return ''
+    lines = [
+        '//  Only a class built on %s may call these functions of it.' % (
+            className,),
+        '//  This one is, and makes them free for the rituals to call.',
+        'struct %s : %s {' % (ownName, className),
+    ]
+    lines.extend('  using %s::%s;' % (className, name) for name in names)
+    lines.append('};')
+    return '\n'.join(lines)
 
   def _findFriendOwner(self, friend: Record, plan: Record) -> str:
     """
@@ -479,8 +988,8 @@ class RitualGenerator:
       if otherName == className:
         return className
       try:
-        record = tree.getClassRecord(otherName)
-      except ValueError:
+        record = self._readRecord(otherName)
+      except (ValueError, LookupError):
         continue
       for member in record.get('inner', ()):
         if member.get('kind') != 'FriendDecl':
@@ -591,13 +1100,27 @@ class RitualGenerator:
     needed = [className]
     for ritual in self.getWritten():
       needed.extend(n for n in ritual['needs'] if n not in needed)
+    if self.hasCuteClass():
+      #  The C++ class of ours holds the functions of the classes this
+      #  one is built on as well, and a value one of them takes or
+      #  gives has to be known in full here.
+      for function in self.getOverridable():
+        needed.extend(n for n in function['needs'] if n not in needed)
     includeLines = []  # type: List[str]
     for name in needed:
       lines = tree.getQtPart(name).getIncludeLines(tree.getHeaderPath(name))
       for line in lines.split('\n'):
         if line.strip() and line not in includeLines:
           includeLines.append(line)
+    owned = [r for r in self.getWritten() if r['kind'] == 'own']
+    if self.hasCuteClass():
+      includeLines.append('#include <cstring>')
     blocks[0] = '%s\n%s' % (blocks[0], '\n'.join(includeLines))
+    ownClass = self._writeOwnClass(owned)
+    if ownClass:
+      blocks.append(ownClass)
+    if self.hasCuteClass():
+      blocks.append(self._writeCuteClass())
     blocks.extend(ritual['text'] for ritual in self.getWritten())
     return '%s\n' % '\n\n'.join(blocks)
 
@@ -687,6 +1210,8 @@ class RitualGenerator:
     self.__dependency_tree__ = dependencyTree
     self.__written_rituals__ = None
     self.__unwritten_functions__ = None
+    self.__overridable_functions__ = None
+    self.__has_cute_class__ = None
     self.__known_names__ = None
     self.__offered_names__ = None
     self.__type_tables__ = None
@@ -715,6 +1240,8 @@ class RitualGenerator:
     self.__class_name__ = className
     self.__written_rituals__ = None
     self.__unwritten_functions__ = None
+    self.__overridable_functions__ = None
+    self.__has_cute_class__ = None
 
   def setWorkFolder(self, workFolder: str) -> None:
     """
@@ -1112,6 +1639,7 @@ class RitualGenerator:
     no object and is called by its bare name.
     """
     className = self.getClassName()
+    own, hidden = kwargs.get('own', False), kwargs.get('hidden', False)
     if kwargs.get('friend', False):
       kind = 'friend'
     else:
@@ -1204,6 +1732,9 @@ class RitualGenerator:
     if kind == 'constructor':
       given, gives = '%s *' % className, 'address'
       opening, called = 'return ', 'new %s' % className
+      if self.hasCuteClass():
+        #  Every object Python makes is of the C++ class of ours.
+        called = 'new %s' % self.getCuteClassName()
     elif kind == 'destructor':
       given, gives = 'void', 'nothing'
       takes.insert(0, ('self', '%s *' % className))
@@ -1225,6 +1756,15 @@ class RitualGenerator:
         takes.insert(0, ('self', '%s%s *' % (const, className)))
         row.insert(0, 'address')
         called = 'self->%s' % ownName
+        if own and hidden:
+          #  Just this function of this class, which only a class built
+          #  on it may call: reached through the class that is.
+          through = 'Own%s' % className.replace('::', '_')
+          called = 'static_cast<%s%s *>(self)->%s::%s' % (
+              const, through, through, ownName)
+        elif own:
+          #  Just this function of this class, whatever the object is.
+          called = 'self->%s::%s' % (className, ownName)
         ownType = '%s &' % className
         if ownName in self.__in_place_operators__ and given == ownType:
           #  'a += b' changes 'a' and gives 'a' itself back. The ritual
@@ -1263,7 +1803,8 @@ class RitualGenerator:
       elif giving['kind'] != 'nothing':
         opening = 'return '
     plan = dict(
-        ritualName='ritual%s' % member.get('mangledName', ''),
+        ritualName='ritual%s%s' % (
+            '_own' if own else '', member.get('mangledName', '')),
         function=shown, kind=kind, gives=given, takes=(*takes,),
         row=(gives, *row), needs=(*dict.fromkeys(needs),),
         unknownTypes=(*dict.fromkeys(unknown),),

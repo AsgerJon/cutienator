@@ -51,6 +51,7 @@
     ],
     "ritual_ZN13QPinchGesture16setRotationAngleEd": [
       "nothing", "address", "double"
-    ]
+    ],
+    "ritual_take_QPinchGesture": ["bool", "address", "chars", "address"]
   }
 }

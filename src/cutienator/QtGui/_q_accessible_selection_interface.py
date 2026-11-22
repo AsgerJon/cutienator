@@ -79,6 +79,76 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleSelectionInterface'
 
+  #  A C++ QAccessibleSelectionInterface Python makes is of a C++ class of
+  #  ours, in which Python can take functions over. This ritual hands one
+  #  over; see 'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAccessibleSelectionInterface'
+
+  #  The functions Qt calls itself that QAccessibleSelectionInterface is the
+  #  first to declare and that cannot be handed to Python yet, each as Qt
+  #  declares it. A class of a program that writes one of them anew is
+  #  refused, since Qt would never call what it wrote; see
+  #  'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'selectedItems': (
+          'QList<QAccessibleInterface *> '
+          'QAccessibleSelectionInterface::selectedItems() const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QAccessibleSelectionInterface is the
+  #  first to declare. A class of a program built on it can write one anew,
+  #  and Qt then calls that. For each name: the key C++ knows the function
+  #  by, what it gives, and what it takes.
+  __virtual_functions__ = {
+      'selectedItemCount': (
+          ('_ZNK29QAccessibleSelectionInterface17selectedItemCountEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'selectedItem': (
+          ('_ZNK29QAccessibleSelectionInterface12selectedItemEi',
+           ('address', 'address', 'QtGui:QAccessibleInterface'),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'isSelected': (
+          ('_ZNK29QAccessibleSelectionInterface10isSelectedEP20QAccessibleI'
+           'nterface',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtGui:QAccessibleInterface'),
+           )),
+      ),
+      'select': (
+          ('_ZN29QAccessibleSelectionInterface6selectEP20QAccessibleInterfa'
+           'ce',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtGui:QAccessibleInterface'),
+           )),
+      ),
+      'unselect': (
+          ('_ZN29QAccessibleSelectionInterface8unselectEP20QAccessibleInter'
+           'face',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtGui:QAccessibleInterface'),
+           )),
+      ),
+      'selectAll': (
+          ('_ZN29QAccessibleSelectionInterface9selectAllEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'clear': (
+          ('_ZN29QAccessibleSelectionInterface5clearEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -131,10 +201,11 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QAccessibleInterface *QAccessibleSelectionInterface::selectedItem(int
     #      selectionIndex) const
-    address = self.uglySide.call(
-        'ritual_ZNK29QAccessibleSelectionInterface12selectedItemEi',
-        selectionIndex,
-    )
+    ritual = 'ritual_ZNK29QAccessibleSelectionInterface12selectedItemEi'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK29QAccessibleSelectionInterface12selectedItemEi')
+    address = self.uglySide.call(ritual, selectionIndex)
     from . import QAccessibleInterface
     return QAccessibleInterface._cuteAt(address)
 
@@ -158,11 +229,14 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
     """
     #  bool QAccessibleSelectionInterface::isSelected(QAccessibleInterface
     #      *childItem) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK29QAccessibleSelectionInterface10isSelectedEP20QAccessib'
-        'leInterface',
-        self._addressOf(childItem),
-    )
+        'leInterface')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK29QAccessibleSelectionInterface10isSelectedEP20QAc'
+          'cessibleInterface')
+    return self.uglySide.call(ritual, self._addressOf(childItem))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

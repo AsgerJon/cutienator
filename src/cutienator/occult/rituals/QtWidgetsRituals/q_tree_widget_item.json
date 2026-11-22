@@ -132,6 +132,14 @@
     "ritual_ZNK15QTreeWidgetItem4typeEv": ["int", "address"],
     "ritual_ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_take_QTreeWidgetItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QTreeWidgetItem5cloneEv": ["address", "address"],
+    "ritual_own_ZNK15QTreeWidgetItem4dataEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN15QTreeWidgetItem7setDataEiiRK8QVariant": [
+      "nothing", "address", "int", "int", "address"
     ]
   }
 }

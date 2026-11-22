@@ -11,14 +11,24 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
+from ..QtCore import QObject
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
+  from ..QtCore import QEvent, QMetaObject
+  from ..QtGui import QPaintEvent
+  from . import QStyleOption
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QStyleOption = WAIT['QStyleOption']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,8 +47,9 @@ class QFocusFrame(QWidget):
   -----------
 
   Every function of Qt's QFocusFrame that has a ritual and that Python can
-  call so far, 4 names in all: 'metaObject', 'tr', 'setWidget', 'widget'. It
-  can be made from Python, in 1 way; see '__init__'.
+  call so far, 8 names in all: 'metaObject', 'tr', 'setWidget', 'widget',
+  'event', 'eventFilter', 'paintEvent', 'initStyleOption'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -49,8 +60,8 @@ class QFocusFrame(QWidget):
   What has no ritual
   ------------------
 
-  12 of the 18 functions Qt declares: 4 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 18 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -122,6 +133,25 @@ class QFocusFrame(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFocusFrame'
+
+  #  A C++ QFocusFrame Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QFocusFrame'
+
+  #  The functions Qt calls itself that QFocusFrame is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK11QFocusFrame15initStyleOptionEP12QStyleOption',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOption'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -248,3 +278,93 @@ class QFocusFrame(QWidget):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QFocusFrame::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfocusframe.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QFocusFrame::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN11QFocusFrame5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(self, a0: Optional[QObject], a1: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QFocusFrame::eventFilter(QObject *a0, QEvent *a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfocusframe.html#eventFilter
+
+    Parameters
+    ----------
+
+    a0 : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a1 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QFocusFrame::eventFilter(QObject *a0, QEvent *a1)
+    return self.uglySide.call(
+        'ritual_own_ZN11QFocusFrame11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(a0), self._addressOf(a1),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QFocusFrame::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfocusframe.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFocusFrame::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QFocusFrame10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QStyleOption)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOption]) -> None:
+    """
+    Calls Qt's 'void QFocusFrame::initStyleOption(QStyleOption *option)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfocusframe.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOption]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFocusFrame::initStyleOption(QStyleOption *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK11QFocusFrame15initStyleOptionEP12QStyleOption',
+        self._addressOf(option),
+    )

@@ -103,6 +103,38 @@
     ],
     "ritual_ZN10QTabWidget16setCurrentWidgetEP7QWidget": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QTabWidget": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QTabWidget8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK10QTabWidget15minimumSizeHintEv": ["address", "address"],
+    "ritual_own_ZNK10QTabWidget14heightForWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK10QTabWidget17hasHeightForWidthEv": ["bool", "address"],
+    "ritual_own_ZN10QTabWidget11tabInsertedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN10QTabWidget10tabRemovedEi": ["nothing", "address", "int"],
+    "ritual_own_ZN10QTabWidget9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QTabWidget11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QTabWidget13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QTabWidget10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QTabWidget11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QTabWidget5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK10QTabWidget15initStyleOptionEP26QStyleOptionTabWidgetFrame": [
+      "nothing", "address", "address"
     ]
   }
 }

@@ -30,6 +30,7 @@
     "ritual_ZN10QUndoGroup4redoEv": ["nothing", "address"],
     "ritual_ZN10QUndoGroup14setActiveStackEP10QUndoStack": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_take_QUndoGroup": ["bool", "address", "chars", "address"]
   }
 }

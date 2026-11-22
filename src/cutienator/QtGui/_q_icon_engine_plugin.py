@@ -126,6 +126,21 @@ class QIconEnginePlugin(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QIconEnginePlugin'
 
+  #  A C++ QIconEnginePlugin Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QIconEnginePlugin'
+
+  #  The functions Qt calls itself that QIconEnginePlugin is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'create': (
+          'QIconEngine *QIconEnginePlugin::create(const QString &)',
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

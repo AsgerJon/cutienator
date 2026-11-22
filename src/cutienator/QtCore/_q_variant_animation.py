@@ -18,12 +18,13 @@ from . import QAbstractAnimation, QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QEasingCurve, QMetaObject, QVariant
+  from . import QEasingCurve, QEvent, QMetaObject, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QEasingCurve = WAIT['QEasingCurve']
+  QEvent = WAIT['QEvent']
   QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -43,10 +44,11 @@ class QVariantAnimation(QAbstractAnimation):
   -----------
 
   Every function of Qt's QVariantAnimation that has a ritual and that Python
-  can call so far, 13 names in all: 'metaObject', 'tr', 'startValue',
+  can call so far, 18 names in all: 'metaObject', 'tr', 'startValue',
   'setStartValue', 'endValue', 'setEndValue', 'keyValueAt', 'setKeyValueAt',
-  'currentValue', 'duration', 'setDuration', 'easingCurve', 'setEasingCurve'.
-  It can be made from Python, in 1 way; see '__init__'.
+  'currentValue', 'duration', 'setDuration', 'easingCurve', 'setEasingCurve',
+  'event', 'updateCurrentTime', 'updateState', 'updateCurrentValue',
+  'interpolated'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,8 +59,8 @@ class QVariantAnimation(QAbstractAnimation):
   What has no ritual
   ------------------
 
-  20 of the 35 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 6 protected; 4 private; 2 forbidden; 1 a template; 1 a signal.
+  15 of the 35 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 4 private; 2 forbidden; 1 a template; 1 a signal; 1 protected.
 
   What to expect
   --------------
@@ -130,6 +132,34 @@ class QVariantAnimation(QAbstractAnimation):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QVariantAnimation'
+
+  #  A C++ QVariantAnimation Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QVariantAnimation'
+
+  #  The functions Qt calls itself that QVariantAnimation is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'updateCurrentValue': (
+          ('_ZN17QVariantAnimation18updateCurrentValueERK8QVariant',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QVariant'),
+           )),
+      ),
+      'interpolated': (
+          ('_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('address', 'value', 'QtCore:QVariant'),
+               ('address', 'value', 'QtCore:QVariant'),
+               ('double', 'number', ''),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -252,7 +282,10 @@ class QVariantAnimation(QAbstractAnimation):
     Qt's own words: https://doc.qt.io/qt-6/qvariantanimation.html#duration
     """
     #  int QVariantAnimation::duration() const
-    return self.uglySide.call('ritual_ZNK17QVariantAnimation8durationEv')
+    ritual = 'ritual_ZNK17QVariantAnimation8durationEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QVariantAnimation8durationEv'
+    return self.uglySide.call(ritual)
 
   def easingCurve(self) -> QEasingCurve:
     """
@@ -272,6 +305,49 @@ class QVariantAnimation(QAbstractAnimation):
     )
     from . import QEasingCurve
     return QEasingCurve._cuteOwning(address)
+
+  @overload(QVariant, QVariant, float)
+  def interpolated(
+      self,
+      from_: QVariant,
+      to: QVariant,
+      progress: float,
+  ) -> QVariant:
+    """
+    Calls Qt's 'QVariant QVariantAnimation::interpolated(const QVariant
+    &from, const QVariant &to, qreal progress) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qvariantanimation.html#interpolated
+
+    Parameters
+    ----------
+
+    from_ : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    to : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    progress : float
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QVariantAnimation::interpolated(const QVariant &from, const
+    #      QVariant &to, qreal progress) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d',
+        self._valueOf(from_), self._valueOf(to), progress,
+    )
+    from . import QVariant
+    return QVariant._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -438,3 +514,94 @@ class QVariantAnimation(QAbstractAnimation):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QVariantAnimation::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariantanimation.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QVariantAnimation::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN17QVariantAnimation5eventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(int)
+  def updateCurrentTime(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QVariantAnimation::updateCurrentTime(int a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qvariantanimation.html#updateCurrentTime
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QVariantAnimation::updateCurrentTime(int a0)
+    self.uglySide.call(
+        'ritual_own_ZN17QVariantAnimation17updateCurrentTimeEi', a0,
+    )
+
+  @overload(QAbstractAnimation.State, QAbstractAnimation.State)
+  def updateState(
+      self,
+      newState: QAbstractAnimation.State,
+      oldState: QAbstractAnimation.State,
+  ) -> None:
+    """
+    Calls Qt's 'void QVariantAnimation::updateState(QAbstractAnimation::State
+    newState, QAbstractAnimation::State oldState)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariantanimation.html#updateState
+
+    Parameters
+    ----------
+
+    newState : QAbstractAnimation.State
+      Passed on as its number.
+
+    oldState : QAbstractAnimation.State
+      Passed on as its number.
+    """
+    #  void QVariantAnimation::updateState(QAbstractAnimation::State
+    #      newState, QAbstractAnimation::State oldState)
+    self.uglySide.call(
+        'ritual_own_ZN17QVariantAnimation11updateStateEN18QAbstractAnimatio'
+        'n5StateES1_',
+        newState.value, oldState.value,
+    )
+
+  @overload(QVariant)
+  def updateCurrentValue(self, value: QVariant) -> None:
+    """
+    Calls Qt's 'void QVariantAnimation::updateCurrentValue(const QVariant
+    &value)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qvariantanimation.html#updateCurrentValue
+
+    Parameters
+    ----------
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+    """
+    #  void QVariantAnimation::updateCurrentValue(const QVariant &value)
+    self.uglySide.call(
+        'ritual_own_ZN17QVariantAnimation18updateCurrentValueERK8QVariant',
+        self._valueOf(value),
+    )

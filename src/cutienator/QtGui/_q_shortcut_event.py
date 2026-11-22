@@ -82,6 +82,11 @@ class QShortcutEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QShortcutEvent'
 
+  #  A C++ QShortcutEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QShortcutEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -108,7 +113,10 @@ class QShortcutEvent(QEvent):
       no object.
     """
     #  QShortcutEvent *QShortcutEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK14QShortcutEvent5cloneEv')
+    ritual = 'ritual_ZNK14QShortcutEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK14QShortcutEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QShortcutEvent._cuteAt(address)
 
   def key(self) -> QKeySequence:

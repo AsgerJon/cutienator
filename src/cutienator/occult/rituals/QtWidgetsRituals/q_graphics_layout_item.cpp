@@ -4,6 +4,87 @@
 #include <QtWidgets/qsizepolicy.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
+#include <cstring>
+
+//  A QGraphicsLayoutItem that Python can take functions over in. Every QGraphicsLayoutItem
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQGraphicsLayoutItemCall0)(const void *, const QRectF *, int *);
+typedef void (*CuteQGraphicsLayoutItemCall1)(const void *, int *);
+typedef bool (*CuteQGraphicsLayoutItemCall2)(const void *, int *);
+typedef const QSizeF * (*CuteQGraphicsLayoutItemCall3)(const void *, int, const QSizeF *, int *);
+class CuteQGraphicsLayoutItem : public QGraphicsLayoutItem {
+public:
+  using QGraphicsLayoutItem::QGraphicsLayoutItem;
+  void *taken[4] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem14updateGeometryEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem7isEmptyEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF")) {
+      taken[3] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QGraphicsLayoutItem::setGeometry(const QRectF &rect)
+  void setGeometry(const QRectF &rect) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQGraphicsLayoutItemCall0 call = reinterpret_cast<CuteQGraphicsLayoutItemCall0>(taken[0]);
+      call(this, &rect, &handled);
+      if (handled) return;
+    }
+    QGraphicsLayoutItem::setGeometry(rect);
+  }
+
+  //  void QGraphicsLayoutItem::updateGeometry()
+  void updateGeometry() override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQGraphicsLayoutItemCall1 call = reinterpret_cast<CuteQGraphicsLayoutItemCall1>(taken[1]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QGraphicsLayoutItem::updateGeometry();
+  }
+
+  //  bool QGraphicsLayoutItem::isEmpty() const
+  bool isEmpty() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQGraphicsLayoutItemCall2 call = reinterpret_cast<CuteQGraphicsLayoutItemCall2>(taken[2]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QGraphicsLayoutItem::isEmpty();
+  }
+
+  //  QSizeF QGraphicsLayoutItem::sizeHint(Qt::SizeHint which, const QSizeF
+  //      &constraint) const
+  QSizeF sizeHint(
+      Qt::SizeHint which,
+      const QSizeF &constraint) const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQGraphicsLayoutItemCall3 call = reinterpret_cast<CuteQGraphicsLayoutItemCall3>(taken[3]);
+      const QSizeF * given = call(this, static_cast<int>(which), &constraint, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+};
 
 //  QGraphicsLayoutItem::~QGraphicsLayoutItem()
 extern "C" Q_DECL_EXPORT
@@ -292,4 +373,36 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QGraphicsLayoutItem13ownedByLayoutEv(
     const QGraphicsLayoutItem *self) {
   return self->ownedByLayout();
+}
+
+//  a Python function taken by a CuteQGraphicsLayoutItem, for the function
+//      named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QGraphicsLayoutItem(
+    QGraphicsLayoutItem *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQGraphicsLayoutItem *>(self)->take(key, call);
+}
+
+//  void QGraphicsLayoutItem::setGeometry(const QRectF &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF(
+    QGraphicsLayoutItem *self,
+    const QRectF *rect) {
+  self->QGraphicsLayoutItem::setGeometry(*rect);
+}
+
+//  void QGraphicsLayoutItem::updateGeometry()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN19QGraphicsLayoutItem14updateGeometryEv(
+    QGraphicsLayoutItem *self) {
+  self->QGraphicsLayoutItem::updateGeometry();
+}
+
+//  bool QGraphicsLayoutItem::isEmpty() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK19QGraphicsLayoutItem7isEmptyEv(
+    const QGraphicsLayoutItem *self) {
+  return self->QGraphicsLayoutItem::isEmpty();
 }

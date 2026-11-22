@@ -68,6 +68,11 @@ class QHideEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QHideEvent'
 
+  #  A C++ QHideEvent Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QHideEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -94,7 +99,10 @@ class QHideEvent(QEvent):
       no object.
     """
     #  QHideEvent *QHideEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK10QHideEvent5cloneEv')
+    ritual = 'ritual_ZNK10QHideEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QHideEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QHideEvent._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

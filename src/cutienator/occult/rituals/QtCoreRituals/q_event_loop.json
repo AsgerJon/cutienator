@@ -24,6 +24,10 @@
     "ritual_ZN10QEventLoop6wakeUpEv": ["nothing", "address"],
     "ritual_ZN10QEventLoop5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN10QEventLoop4exitEi": ["nothing", "address", "int"],
-    "ritual_ZN10QEventLoop4quitEv": ["nothing", "address"]
+    "ritual_ZN10QEventLoop4quitEv": ["nothing", "address"],
+    "ritual_take_QEventLoop": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QEventLoop5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
   }
 }

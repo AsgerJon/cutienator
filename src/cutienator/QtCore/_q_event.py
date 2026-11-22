@@ -273,6 +273,30 @@ class QEvent(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QEvent'
 
+  #  A C++ QEvent Python makes is of a C++ class of ours, in which Python can
+  #  take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QEvent'
+
+  #  The functions Qt calls itself that QEvent is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'setAccepted': (
+          ('_ZN6QEvent11setAcceptedEb',
+           ('nothing', 'nothing', ''),
+           (
+               ('bool', 'number', ''),
+           )),
+      ),
+      'clone': (
+          ('_ZNK6QEvent5cloneEv',
+           ('address', 'address', 'QtCore:QEvent'),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -360,7 +384,10 @@ class QEvent(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QEvent *QEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK6QEvent5cloneEv')
+    ritual = 'ritual_ZNK6QEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK6QEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QEvent._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -381,7 +408,10 @@ class QEvent(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QEvent::setAccepted(bool accepted)
-    self.uglySide.call('ritual_ZN6QEvent11setAcceptedEb', accepted)
+    ritual = 'ritual_ZN6QEvent11setAcceptedEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QEvent11setAcceptedEb'
+    self.uglySide.call(ritual, accepted)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

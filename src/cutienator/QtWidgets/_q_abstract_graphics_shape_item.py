@@ -83,6 +83,11 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractGraphicsShapeItem'
 
+  #  A C++ QAbstractGraphicsShapeItem Python makes is of a C++ class of ours,
+  #  in which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractGraphicsShapeItem'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -154,11 +159,14 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
     """
     #  bool QAbstractGraphicsShapeItem::isObscuredBy(const QGraphicsItem
     #      *item) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK26QAbstractGraphicsShapeItem12isObscuredByEPK13QGraphics'
-        'Item',
-        self._addressOf(item, 'QGraphicsItem'),
-    )
+        'Item')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK26QAbstractGraphicsShapeItem12isObscuredByEPK13QGr'
+          'aphicsItem')
+    return self.uglySide.call(ritual, self._addressOf(item, 'QGraphicsItem'))
 
   def opaqueArea(self) -> QPainterPath:
     """
@@ -174,9 +182,10 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
       A new cute QPainterPath around the copy Qt gave back. Python owns it.
     """
     #  QPainterPath QAbstractGraphicsShapeItem::opaqueArea() const
-    address = self.uglySide.call(
-        'ritual_ZNK26QAbstractGraphicsShapeItem10opaqueAreaEv',
-    )
+    ritual = 'ritual_ZNK26QAbstractGraphicsShapeItem10opaqueAreaEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK26QAbstractGraphicsShapeItem10opaqueAreaEv'
+    address = self.uglySide.call(ritual)
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 

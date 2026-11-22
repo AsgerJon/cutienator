@@ -1895,11 +1895,28 @@ class ClassGenerator:
       flagsName = generator.getFlagsName()
       if flagsName:
         enumNames.add(flagsName.rpartition('::')[2])
-    for plan in self.getRitualGenerator().getWritten():
-      if plan['kind'] == 'cast':
-        #  The ritual of a class the class is built on after the first:
-        #  the class names it in '__cast_rituals__'.
-        continue
+    #  Three kinds of ritual are no function of the class by
+    #  themselves. The one of a class the class is built on after the
+    #  first, which the class names in '__cast_rituals__'. The one that
+    #  hands a Python function over, which it names in
+    #  '__take_ritual__'. And the one that runs just the class's own
+    #  function, where the ordinary ritual lets C++ look the function
+    #  up in the object: it belongs to the function of that name.
+    apart = ('cast', 'take', 'own')
+    written = self.getRitualGenerator().getWritten()
+    start = len('ritual_own')
+    owned = {
+        plan['ritualName'][start:]: plan for plan in written
+        if plan['kind'] == 'own'
+    }
+    plans = [plan for plan in written if plan['kind'] not in apart]
+    ordinary = {plan['ritualName'][len('ritual'):] for plan in plans}
+    for compilerName, plan in owned.items():
+      if compilerName not in ordinary:
+        #  A function only a class built on this one may call has no
+        #  ordinary ritual. The one running the class's own is its one.
+        plans.append(dict(plan, kind='method', ownOnly=True))
+    for plan in plans:
       function = self._planFunction(plan)
       if isinstance(function, str):
         leftOut.append((plan['function'], function))
@@ -1910,6 +1927,9 @@ class ClassGenerator:
         leftOut.append((plan['function'], ' '.join(infoSpec.split())))
         continue
       function['section'] = self._findSection(function)
+      compilerName = plan['ritualName'][len('ritual'):]
+      if not plan.get('ownOnly') and compilerName in owned:
+        function['ownRitual'] = owned[compilerName]['ritualName']
       self._createSignatures(function)
       planned.append(function)
     byName = collections.OrderedDict()  # type: Dict[str, List[Record]]
@@ -2149,7 +2169,21 @@ class ClassGenerator:
     reasons = collections.Counter()  # type: Any
     for _, reason in self.getRitualGenerator().getNotWritten():
       reasons[reason.partition(':')[0]] += 1
-    return [(count, reason) for reason, count in reasons.most_common()]
+    #  A protected function Python can take over has a ritual after all:
+    #  the one that runs just the class's own function, for 'super()'.
+    reasons['protected'] -= self._countOwnProtected()
+    return [
+        (count, reason) for reason, count in reasons.most_common() if count
+    ]
+
+  def _countOwnProtected(self) -> int:
+    """Gives how many protected functions of the class have a ritual
+    that runs just the class's own function, and no other."""
+    written = self.getRitualGenerator().getWritten()
+    return sum(
+        1 for plan in written
+        if plan['kind'] == 'own' and plan['access'] == 'protected'
+    )
 
   def _writeClassDocstring(self) -> List[str]:
     """Gives the docstring of the cute class."""
@@ -2208,14 +2242,20 @@ class ClassGenerator:
       paragraphs.append(('What has a ritual and is left out, and why', None))
       for shown, reason in leftOut:
         paragraphs.append(('- ', "Qt's '%s': %s." % (shown, reason)))
-    if notWritten:
+    without = len(notWritten) - self._countOwnProtected()
+    if without:
       paragraphs.append(('What has no ritual', None))
       infoSpec = """%d of the %d functions Qt declares:"""
-      total = len(written) + len(notWritten)
+      #  A ritual of our own making stands for no function Qt declares,
+      #  and one that runs just the class's own function for one that
+      #  has a ritual already.
+      ours = ('cast', 'take', 'own')
+      declared = [plan for plan in written if plan['kind'] not in ours]
+      total = len(declared) + len(notWritten)
       counted = '; '.join(
           '%d %s' % pair for pair in self._countNotWritten())
       paragraphs.append(
-          '%s %s.' % (infoSpec % (len(notWritten), total), counted))
+          '%s %s.' % (infoSpec % (without, total), counted))
     paragraphs.append(('What to expect', None))
     infoSpec = """The C++ %s is created at the first use, not by
     '%s(...)'."""
@@ -2364,6 +2404,7 @@ class ClassGenerator:
               plan['baseName'], plan['ritualName'])
         lines.append(line)
       lines.append('  }')
+    lines.extend(self._writeTakingOver())
     deleteRitual = self.getDeleteRitual()
     if deleteRitual is not None:
       lines.append('')
@@ -2390,6 +2431,7 @@ class ClassGenerator:
       passed: List[str],
       closing: str = ')',
       leading: str = '',
+      named: str = '',
   ) -> List[str]:
     """
     Gives the lines of one call of a ritual, kept to 77 letters where
@@ -2417,8 +2459,12 @@ class ClassGenerator:
     leading : str
       What the call is handed before the ritual, as "'QPaintDevice'"
       for 'self._callAs', or nothing.
+
+    named : str
+      The name the lines above bound the ritual to, where the function
+      picks between two, or nothing.
     """
-    quoted = "'%s'" % ritualName
+    quoted = named or "'%s'" % ritualName
     head = [leading] if leading else []
     whole = '%s%s(%s%s' % (
         opening, called, ', '.join([*head, quoted, *passed]), closing)
@@ -2636,25 +2682,48 @@ class ClassGenerator:
       #  whose part of this class begins inside the object. The ritual
       #  is handed the address of that part.
       called, leading = 'self._callAs', "'%s'" % self.getClassName()
+    named = ''
+    if function.get('ownRitual'):
+      #  C++ looks this function up in the object. In an object of ours
+      #  that leads to the Python function a class of the program wrote
+      #  in its place, which may be the very one calling this. So for
+      #  such an object just the class's own function is run.
+      named = 'ritual'
+      for indent, ritual in (('    ', ritualName), (
+          '      ', function['ownRitual'])):
+        line = "%sritual = '%s'" % (indent, ritual)
+        if len(line) <= _width():
+          lines.append(line)
+        else:
+          #  A name too long for the line is written in pieces, which
+          #  Python reads as one text.
+          room = _width() - len(indent) - 7
+          pieces = [
+              ritual[at:at + room] for at in range(0, len(ritual), room)]
+          lines.append('%sritual = (' % indent)
+          lines.extend("%s    '%s'" % (indent, piece) for piece in pieces)
+          lines[-1] = '%s)' % lines[-1]
+        if indent == '    ':
+          lines.append('    if self.uglySide.isOurs():')
     givenKind = gives['kind']
     if givenKind == 'nothing':
       lines.extend(self._writeCall(
-          '    ', called, ritualName, passed, ')', leading))
+          '    ', called, ritualName, passed, ')', leading, named))
     elif givenKind in ('number', 'text'):
       lines.extend(self._writeCall(
-          '    return ', called, ritualName, passed, ')', leading))
+          '    return ', called, ritualName, passed, ')', leading, named))
     elif givenKind == 'chars':
       lines.extend(self._writeCall(
-          '    chars = ', called, ritualName, passed, ')', leading))
+          '    chars = ', called, ritualName, passed, ')', leading, named))
       lines.append('    return None if chars is None else chars.decode()')
     elif givenKind in ('enum', 'flags'):
       lines.extend(self._writeCall(
           '    return %s(' % gives['maker'], called, ritualName, passed,
-          '))', leading,
+          '))', leading, named,
       ))
     else:
       lines.extend(self._writeCall(
-          '    address = ', called, ritualName, passed, ')', leading))
+          '    address = ', called, ritualName, passed, ')', leading, named))
       holder = gives['holder']
       if gives['late'] and gives['bring']:
         #  The file of the class may not be brought in yet. It is
@@ -2688,6 +2757,147 @@ class ClassGenerator:
         '    """',
         '    return NotImplemented',
     ]
+
+  def _findWhere(self, how: str, what: str) -> Optional[str]:
+    """
+    Says where the cute class or enum of something Qt hands a function
+    is found, as 'QtGui:QPaintEvent' or 'QtCore:Qt.FocusPolicy', for
+    the function that receives it from C++. Gives '' for a number and
+    None when there is no cute class or enum for it.
+    """
+    if how in ('number', 'nothing'):
+      return ''
+    tree, cuteNames = self.getDependencyTree(), self.getCuteNames()
+    holder = what.rpartition('::')[0] if how == 'enum' else what
+    if holder not in cuteNames and holder != 'Qt':
+      return None
+    if how != 'enum' and what not in cuteNames:
+      return None
+    partName = 'QtCore' if holder == 'Qt' else tree.getPartName(
+        holder.split('::')[0])
+    return '%s:%s' % (partName, what.replace('::', '.'))
+
+  @staticmethod
+  def _writeShape(indent: str, shape: Any) -> List[str]:
+    """Gives the lines of one thing a function gives or takes, as the
+    table of functions to take over holds it, on two lines when one
+    would be too long."""
+    line = '%s%r,' % (indent, (*shape,))
+    if len(line) <= _width():
+      return [line]
+    word, how, where = shape
+    return [
+        '%s(%r, %r,' % (indent, word, how),
+        '%s %r),' % (indent, where),
+    ]
+
+  def _writeTakingOver(self) -> List[str]:
+    """
+    Gives the lines of the class body that say which ritual hands a
+    Python function over to an object of the class, and which
+    functions Qt calls itself that the class is the first to declare,
+    so that a class of a program built on it can write them anew.
+    """
+    generator = self.getRitualGenerator()
+    className, lines = self.getClassName(), []  # type: str, List[str]
+    for plan in generator.getWritten():
+      if plan['kind'] != 'take':
+        continue
+      infoSpec = """A C++ %s Python makes is of a C++ class of ours, in
+      which Python can take functions over. This ritual hands one over;
+      see 'CuteMixin._takeOver'."""
+      lines.append('')
+      lines.extend(self._wrapWords(infoSpec % className, '  #  '))
+      lines.append("  __take_ritual__ = '%s'" % plan['ritualName'])
+    table = collections.OrderedDict()  # type: Dict[str, List[Any]]
+    for function in generator.getOverridable():
+      if function['rootOwner'] != className:
+        continue
+      shapes = [function['gives'], *function['takes']]
+      wheres = [self._findWhere(how, what) for _, how, what in shapes]
+      if any(where is None for where in wheres):
+        continue
+      turned = [(s[0], s[1], w) for s, w in zip(shapes, wheres)]
+      table.setdefault(function['name'], []).append(
+          (function['key'], turned[0], (*turned[1:],)))
+    lines.extend(self._writeLeftOutVirtuals(table))
+    if not table:
+      return lines
+    infoSpec = """The functions Qt calls itself that %s is the first to
+    declare. A class of a program built on it can write one anew, and
+    Qt then calls that. For each name: the key C++ knows the function
+    by, what it gives, and what it takes."""
+    lines.append('')
+    lines.extend(self._wrapWords(infoSpec % className, '  #  '))
+    lines.append('  __virtual_functions__ = {')
+    for name, variants in table.items():
+      lines.append("      '%s': (" % name)
+      for key, gives, takes in variants:
+        room = _width() - 14
+        pieces = [key[at:at + room] for at in range(0, len(key), room)]
+        #  A key too long for the line is written in pieces, which
+        #  Python reads as one text.
+        lines.append("          ('%s'" % pieces[0])
+        lines.extend("           '%s'" % piece for piece in pieces[1:])
+        lines[-1] = '%s,' % lines[-1]
+        lines.extend(self._writeShape('           ', gives))
+        if not takes:
+          lines.append('           ()),')
+          continue
+        lines.append('           (')
+        for take in takes:
+          lines.extend(self._writeShape('               ', take))
+        lines.append('           )),')
+      lines.append('      ),')
+    lines.append('  }')
+    return lines
+
+  def _writeLeftOutVirtuals(self, table: Any) -> List[str]:
+    """
+    Gives the lines of the class body that name the functions Qt calls
+    itself which the class is the first to declare and of which none
+    of that name can be handed to Python yet, each as Qt declares it.
+    'CuteMixin._refuseLeftOut' refuses a class of a program that writes
+    one of them anew: Qt would never call what it wrote.
+
+    Parameters
+    ----------
+
+    table : Any
+      The functions of the class that can be handed to Python, by
+      name, as '_writeTakingOver' gathered them.
+    """
+    generator = self.getRitualGenerator()
+    leftOut = collections.OrderedDict()  # type: Dict[str, List[str]]
+    for virtual in generator.getDeclaredVirtuals():
+      if virtual['name'] not in table:
+        leftOut.setdefault(virtual['name'], []).append(virtual['written'])
+    if not leftOut:
+      return []
+    infoSpec = """The functions Qt calls itself that %s is the first to
+    declare and that cannot be handed to Python yet, each as Qt
+    declares it. A class of a program that writes one of them anew is
+    refused, since Qt would never call what it wrote; see
+    'CuteMixin._refuseLeftOut'."""
+    lines = ['']
+    lines.extend(self._wrapWords(infoSpec % self.getClassName(), '  #  '))
+    lines.append('  __virtual_left_out__ = {')
+    for name, declarations in leftOut.items():
+      lines.append("      '%s': (" % name)
+      for written in declarations:
+        #  A declaration too long for the line is written in pieces,
+        #  which Python reads as one text.
+        pieces, room = [], _width() - 13  # type: List[str], int
+        while len(written) > room:
+          cut = written.rfind(' ', 0, room) + 1 or room
+          pieces.append(written[:cut])
+          written = written[cut:]
+        pieces.append(written)
+        lines.extend("          '%s'" % piece for piece in pieces)
+        lines[-1] = '%s,' % lines[-1]
+      lines.append('      ),')
+    lines.append('  }')
+    return lines
 
   def _writeFunction(self, function: Record) -> List[str]:
     """Gives every line of one function of the class body."""

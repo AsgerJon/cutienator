@@ -15,13 +15,13 @@ from worktoy.keenum import Kee
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
-from . import QPagedPaintDevice
+from . import QPagedPaintDevice, QPaintDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QByteArray, QIODevice, QMetaObject, QUuid
-  from . import QPdfOutputIntent
+  from . import QPaintEngine, QPdfOutputIntent
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -50,12 +50,13 @@ class QPdfWriter(QObject, QPagedPaintDevice):
   -----------
 
   Every function of Qt's QPdfWriter that has a ritual and that Python can
-  call so far, 22 names in all: 'metaObject', 'tr', 'setPdfVersion',
+  call so far, 24 names in all: 'metaObject', 'tr', 'setPdfVersion',
   'pdfVersion', 'title', 'setTitle', 'creator', 'setCreator', 'documentId',
   'setDocumentId', 'author', 'setAuthor', 'newPage', 'setResolution',
   'resolution', 'setDocumentXmpMetadata', 'documentXmpMetadata',
   'addFileAttachment', 'colorModel', 'setColorModel', 'outputIntent',
-  'setOutputIntent'. It can be made from Python, in 2 ways; see '__init__'.
+  'setOutputIntent', 'paintEngine', 'metric'. It can be made from Python, in
+  2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,8 +67,8 @@ class QPdfWriter(QObject, QPagedPaintDevice):
   What has no ritual
   ------------------
 
-  10 of the 36 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 protected; 2 forbidden; 1 a template.
+  8 of the 35 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -160,6 +161,11 @@ class QPdfWriter(QObject, QPagedPaintDevice):
   __cast_rituals__ = {
       'QPagedPaintDevice': 'ritual_cast_QPdfWriter_QPagedPaintDevice',
   }
+
+  #  A C++ QPdfWriter Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPdfWriter'
 
   #  Fallback Variables
 
@@ -337,6 +343,44 @@ class QPdfWriter(QObject, QPagedPaintDevice):
     address = self.uglySide.call('ritual_ZNK10QPdfWriter12outputIntentEv')
     from . import QPdfOutputIntent
     return QPdfOutputIntent._cuteOwning(address)
+
+  def paintEngine(self) -> Optional[QPaintEngine]:
+    """
+    Calls Qt's 'QPaintEngine *QPdfWriter::paintEngine() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpdfwriter.html#paintEngine
+
+    Returns
+    -------
+
+    Optional[QPaintEngine]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintEngine *QPdfWriter::paintEngine() const
+    address = self.uglySide.call('ritual_own_ZNK10QPdfWriter11paintEngineEv')
+    from . import QPaintEngine
+    return QPaintEngine._cuteAt(address)
+
+  @overload(QPaintDevice.PaintDeviceMetric)
+  def metric(self, id: QPaintDevice.PaintDeviceMetric) -> int:
+    """
+    Calls Qt's 'int QPdfWriter::metric(PaintDeviceMetric id) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpdfwriter.html#metric
+
+    Parameters
+    ----------
+
+    id : QPaintDevice.PaintDeviceMetric
+      Passed on as its number.
+    """
+    #  int QPdfWriter::metric(PaintDeviceMetric id) const
+    return self.uglySide.call(
+        'ritual_own_ZNK10QPdfWriter6metricEN12QPaintDevice17PaintDeviceMetr'
+        'icE',
+        id.value,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -587,7 +631,10 @@ class QPdfWriter(QObject, QPagedPaintDevice):
     Qt's own words: https://doc.qt.io/qt-6/qpdfwriter.html#newPage
     """
     #  bool QPdfWriter::newPage()
-    return self.uglySide.call('ritual_ZN10QPdfWriter7newPageEv')
+    ritual = 'ritual_ZN10QPdfWriter7newPageEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QPdfWriter7newPageEv'
+    return self.uglySide.call(ritual)
 
   @overload(str, QByteArray)
   @overload(str, QByteArray, str)

@@ -101,6 +101,69 @@
     "ritual_ZN10QTableView12sortByColumnEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
     ],
-    "ritual_ZN10QTableView11setShowGridEb": ["nothing", "address", "bool"]
+    "ritual_ZN10QTableView11setShowGridEb": ["nothing", "address", "bool"],
+    "ritual_take_QTableView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QTableView8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QTableView12setRootIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QTableView17setSelectionModelEP19QItemSelectionModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QTableView13doItemsLayoutEv": ["nothing", "address"],
+    "ritual_own_ZNK10QTableView10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN10QTableView8scrollToERK11QModelIndexN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZNK10QTableView7indexAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN10QTableView16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK10QTableView18initViewItemOptionEP20QStyleOptionViewItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QTableView10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QTableView10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QTableView9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK10QTableView16horizontalOffsetEv": ["int", "address"],
+    "ritual_own_ZNK10QTableView14verticalOffsetEv": ["int", "address"],
+    "ritual_own_ZNK10QTableView24visualRegionForSelectionERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN10QTableView16updateGeometriesEv": ["nothing", "address"],
+    "ritual_own_ZNK10QTableView16viewportSizeHintEv": ["address", "address"],
+    "ritual_own_ZNK10QTableView14sizeHintForRowEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK10QTableView17sizeHintForColumnEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN10QTableView23verticalScrollbarActionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN10QTableView25horizontalScrollbarActionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK10QTableView13isIndexHiddenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN10QTableView16selectionChangedERK14QItemSelectionS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN10QTableView14currentChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ]
   }
 }

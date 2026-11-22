@@ -19,13 +19,20 @@ from . import QFrame, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
-  from ..QtGui import QMovie, QPicture, QPixmap
+  from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtGui import QContextMenuEvent, QFocusEvent, QKeyEvent, QMouseEvent
+  from ..QtGui import QMovie, QPaintEvent, QPicture, QPixmap
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QContextMenuEvent = WAIT['QContextMenuEvent']
+  QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
+  QKeyEvent = WAIT['QKeyEvent']
+  QMouseEvent = WAIT['QMouseEvent']
   QMovie = WAIT['QMovie']
+  QPaintEvent = WAIT['QPaintEvent']
   QPicture = WAIT['QPicture']
   QPixmap = WAIT['QPixmap']
 
@@ -46,15 +53,18 @@ class QLabel(QFrame):
   -----------
 
   Every function of Qt's QLabel that has a ritual and that Python can call so
-  far, 37 names in all: 'metaObject', 'tr', 'text', 'pixmap', 'picture',
+  far, 48 names in all: 'metaObject', 'tr', 'text', 'pixmap', 'picture',
   'movie', 'textFormat', 'setTextFormat', 'alignment', 'setAlignment',
   'setWordWrap', 'wordWrap', 'indent', 'setIndent', 'margin', 'setMargin',
   'hasScaledContents', 'setScaledContents', 'sizeHint', 'minimumSizeHint',
   'setBuddy', 'buddy', 'heightForWidth', 'openExternalLinks',
   'setOpenExternalLinks', 'setTextInteractionFlags', 'textInteractionFlags',
   'setSelection', 'hasSelectedText', 'selectedText', 'selectionStart',
-  'setText', 'setPixmap', 'setPicture', 'setMovie', 'setNum', 'clear'. It can
-  be made from Python, in 2 ways; see '__init__'.
+  'setText', 'setPixmap', 'setPicture', 'setMovie', 'setNum', 'clear',
+  'event', 'keyPressEvent', 'paintEvent', 'changeEvent', 'mousePressEvent',
+  'mouseMoveEvent', 'mouseReleaseEvent', 'contextMenuEvent', 'focusInEvent',
+  'focusOutEvent', 'focusNextPrevChild'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -65,9 +75,8 @@ class QLabel(QFrame):
   What has no ritual
   ------------------
 
-  23 of the 66 functions Qt declares: 11 protected; 4 takes or gives a type
-  that cannot be passed yet; 3 private; 2 a signal; 2 forbidden; 1 a
-  template.
+  12 of the 66 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 3 private; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -137,6 +146,11 @@ class QLabel(QFrame):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QLabel'
+
+  #  A C++ QLabel Python makes is of a C++ class of ours, in which Python can
+  #  take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QLabel'
 
   #  Fallback Variables
 
@@ -373,7 +387,10 @@ class QLabel(QFrame):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QLabel::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK6QLabel8sizeHintEv')
+    ritual = 'ritual_ZNK6QLabel8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK6QLabel8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -390,7 +407,10 @@ class QLabel(QFrame):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QLabel::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK6QLabel15minimumSizeHintEv')
+    ritual = 'ritual_ZNK6QLabel15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK6QLabel15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -425,7 +445,10 @@ class QLabel(QFrame):
       Passed on as it is.
     """
     #  int QLabel::heightForWidth(int a0) const
-    return self.uglySide.call('ritual_ZNK6QLabel14heightForWidthEi', a0)
+    ritual = 'ritual_ZNK6QLabel14heightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK6QLabel14heightForWidthEi'
+    return self.uglySide.call(ritual, a0)
 
   def openExternalLinks(self) -> bool:
     """
@@ -886,3 +909,229 @@ class QLabel(QFrame):
     """
     #  void QLabel::clear()
     self.uglySide.call('ritual_ZN6QLabel5clearEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QLabel::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QLabel::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN6QLabel5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, ev: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QLabel::keyPressEvent(QKeyEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLabel::keyPressEvent(QKeyEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN6QLabel13keyPressEventEP9QKeyEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QLabel::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLabel::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN6QLabel10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, a0: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QLabel::changeEvent(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#changeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLabel::changeEvent(QEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN6QLabel11changeEventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, ev: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QLabel::mousePressEvent(QMouseEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLabel::mousePressEvent(QMouseEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN6QLabel15mousePressEventEP11QMouseEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, ev: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QLabel::mouseMoveEvent(QMouseEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLabel::mouseMoveEvent(QMouseEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN6QLabel14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, ev: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QLabel::mouseReleaseEvent(QMouseEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLabel::mouseReleaseEvent(QMouseEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN6QLabel17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QContextMenuEvent)
+  @overload(NoneType)
+  def contextMenuEvent(self, ev: Optional[QContextMenuEvent]) -> None:
+    """
+    Calls Qt's 'void QLabel::contextMenuEvent(QContextMenuEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#contextMenuEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QContextMenuEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLabel::contextMenuEvent(QContextMenuEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN6QLabel16contextMenuEventEP17QContextMenuEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, ev: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QLabel::focusInEvent(QFocusEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#focusInEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLabel::focusInEvent(QFocusEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN6QLabel12focusInEventEP11QFocusEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, ev: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QLabel::focusOutEvent(QFocusEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLabel::focusOutEvent(QFocusEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN6QLabel13focusOutEventEP11QFocusEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(bool)
+  def focusNextPrevChild(self, next: bool) -> bool:
+    """
+    Calls Qt's 'bool QLabel::focusNextPrevChild(bool next)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#focusNextPrevChild
+
+    Parameters
+    ----------
+
+    next : bool
+      Passed on as it is.
+    """
+    #  bool QLabel::focusNextPrevChild(bool next)
+    return self.uglySide.call(
+        'ritual_own_ZN6QLabel18focusNextPrevChildEb', next,
+    )

@@ -220,6 +220,21 @@ class QFile(QFileDevice):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFile'
 
+  #  A C++ QFile Python makes is of a C++ class of ours, in which Python can
+  #  take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QFile'
+
+  #  The functions Qt calls itself that QFile is the first to declare and
+  #  that cannot be handed to Python yet, each as Qt declares it. A class of
+  #  a program that writes one of them anew is refused, since Qt would never
+  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'open': (
+          'bool QFile::open(OpenMode)',
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -340,7 +355,10 @@ class QFile(QFileDevice):
     Qt's own words: https://doc.qt.io/qt-6/qfile.html#size
     """
     #  qint64 QFile::size() const
-    return self.uglySide.call('ritual_ZNK5QFile4sizeEv')
+    ritual = 'ritual_ZNK5QFile4sizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK5QFile4sizeEv'
+    return self.uglySide.call(ritual)
 
   @overload()
   def permissions(self) -> QFileDevice.Permissions:
@@ -772,7 +790,10 @@ class QFile(QFileDevice):
       Passed on as it is.
     """
     #  bool QFile::resize(qint64 sz)
-    return self.uglySide.call('ritual_ZN5QFile6resizeEx', sz)
+    ritual = 'ritual_ZN5QFile6resizeEx'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QFile6resizeEx'
+    return self.uglySide.call(ritual, sz)
 
   @staticmethod
   @overload(str, int)

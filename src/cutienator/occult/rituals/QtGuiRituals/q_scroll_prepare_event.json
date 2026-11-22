@@ -23,6 +23,10 @@
     ],
     "ritual_ZN19QScrollPrepareEvent13setContentPosERK7QPointF": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_take_QScrollPrepareEvent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QScrollPrepareEvent5cloneEv": ["address", "address"]
   }
 }

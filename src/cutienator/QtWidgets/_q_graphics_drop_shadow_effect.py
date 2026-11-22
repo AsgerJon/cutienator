@@ -20,12 +20,13 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPointF, QRectF
-  from ..QtGui import QColor
+  from ..QtGui import QColor, QPainter
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QColor = WAIT['QColor']
+  QPainter = WAIT['QPainter']
   QPointF = WAIT['QPointF']
   QRectF = WAIT['QRectF']
 
@@ -47,10 +48,10 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
   -----------
 
   Every function of Qt's QGraphicsDropShadowEffect that has a ritual and that
-  Python can call so far, 13 names in all: 'metaObject', 'tr',
+  Python can call so far, 14 names in all: 'metaObject', 'tr',
   'boundingRectFor', 'offset', 'xOffset', 'yOffset', 'blurRadius', 'color',
-  'setOffset', 'setXOffset', 'setYOffset', 'setBlurRadius', 'setColor'. It
-  can be made from Python, in 1 way; see '__init__'.
+  'setOffset', 'setXOffset', 'setYOffset', 'setBlurRadius', 'setColor',
+  'draw'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -61,8 +62,8 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
   What has no ritual
   ------------------
 
-  12 of the 29 functions Qt declares: 3 private; 3 a signal; 2 takes or gives
-  a type that cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
+  11 of the 29 functions Qt declares: 3 private; 3 a signal; 2 takes or gives
+  a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -136,6 +137,11 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsDropShadowEffect'
 
+  #  A C++ QGraphicsDropShadowEffect Python makes is of a C++ class of ours,
+  #  in which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsDropShadowEffect'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -194,10 +200,13 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
     """
     #  QRectF QGraphicsDropShadowEffect::boundingRectFor(const QRectF &rect)
     #      const
-    address = self.uglySide.call(
-        'ritual_ZNK25QGraphicsDropShadowEffect15boundingRectForERK6QRectF',
-        self._valueOf(rect),
-    )
+    ritual = (
+        'ritual_ZNK25QGraphicsDropShadowEffect15boundingRectForERK6QRectF')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK25QGraphicsDropShadowEffect15boundingRectForERK6QR'
+          'ectF')
+    address = self.uglySide.call(ritual, self._valueOf(rect))
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
@@ -479,3 +488,25 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QPainter)
+  @overload(NoneType)
+  def draw(self, painter: Optional[QPainter]) -> None:
+    """
+    Calls Qt's 'void QGraphicsDropShadowEffect::draw(QPainter *painter)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsDropShadowEffect::draw(QPainter *painter)
+    self.uglySide.call(
+        'ritual_own_ZN25QGraphicsDropShadowEffect4drawEP8QPainter',
+        self._addressOf(painter),
+    )

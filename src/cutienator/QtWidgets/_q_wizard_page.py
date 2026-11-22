@@ -134,6 +134,43 @@ class QWizardPage(QWidget):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QWizardPage'
 
+  #  A C++ QWizardPage Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QWizardPage'
+
+  #  The functions Qt calls itself that QWizardPage is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initializePage': (
+          ('_ZN11QWizardPage14initializePageEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'cleanupPage': (
+          ('_ZN11QWizardPage11cleanupPageEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'validatePage': (
+          ('_ZN11QWizardPage12validatePageEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'isComplete': (
+          ('_ZNK11QWizardPage10isCompleteEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'nextId': (
+          ('_ZNK11QWizardPage6nextIdEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -273,7 +310,10 @@ class QWizardPage(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qwizardpage.html#isComplete
     """
     #  bool QWizardPage::isComplete() const
-    return self.uglySide.call('ritual_ZNK11QWizardPage10isCompleteEv')
+    ritual = 'ritual_ZNK11QWizardPage10isCompleteEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWizardPage10isCompleteEv'
+    return self.uglySide.call(ritual)
 
   def nextId(self) -> int:
     """
@@ -282,7 +322,10 @@ class QWizardPage(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qwizardpage.html#nextId
     """
     #  int QWizardPage::nextId() const
-    return self.uglySide.call('ritual_ZNK11QWizardPage6nextIdEv')
+    ritual = 'ritual_ZNK11QWizardPage6nextIdEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWizardPage6nextIdEv'
+    return self.uglySide.call(ritual)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -466,7 +509,10 @@ class QWizardPage(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qwizardpage.html#initializePage
     """
     #  void QWizardPage::initializePage()
-    self.uglySide.call('ritual_ZN11QWizardPage14initializePageEv')
+    ritual = 'ritual_ZN11QWizardPage14initializePageEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QWizardPage14initializePageEv'
+    self.uglySide.call(ritual)
 
   def cleanupPage(self) -> None:
     """
@@ -475,7 +521,10 @@ class QWizardPage(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qwizardpage.html#cleanupPage
     """
     #  void QWizardPage::cleanupPage()
-    self.uglySide.call('ritual_ZN11QWizardPage11cleanupPageEv')
+    ritual = 'ritual_ZN11QWizardPage11cleanupPageEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QWizardPage11cleanupPageEv'
+    self.uglySide.call(ritual)
 
   def validatePage(self) -> bool:
     """
@@ -484,4 +533,7 @@ class QWizardPage(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qwizardpage.html#validatePage
     """
     #  bool QWizardPage::validatePage()
-    return self.uglySide.call('ritual_ZN11QWizardPage12validatePageEv')
+    ritual = 'ritual_ZN11QWizardPage12validatePageEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QWizardPage12validatePageEv'
+    return self.uglySide.call(ritual)

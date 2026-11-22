@@ -16,6 +16,12 @@
     ],
     "ritual_ZNK29QScreenOrientationChangeEvent11orientationEv": [
       "int", "address"
+    ],
+    "ritual_take_QScreenOrientationChangeEvent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK29QScreenOrientationChangeEvent5cloneEv": [
+      "address", "address"
     ]
   }
 }

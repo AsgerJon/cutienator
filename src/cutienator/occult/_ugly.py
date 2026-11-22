@@ -29,6 +29,7 @@ class Ugly:
     Ugly.at(address)              # the Ugly standing for that address
     ugly.setDeleteRitual(name)    # only for a copy Python owns
     ugly.watch()                  # only for a QObject
+    ugly.setOurs()                # only for an object of a class of ours
 
   Terms
   -----
@@ -54,7 +55,8 @@ class Ugly:
 
   - 'setDeleteRitual': the ritual that removes the C++ object.
 
-  For a C++ object that is a QObject you also call 'watch', once.
+  For a C++ object that is a QObject you also call 'watch', once. For
+  one Python made of a C++ class of ours you also call 'setOurs'.
 
   What to expect
   --------------
@@ -85,6 +87,12 @@ class Ugly:
   - Only a QObject can be watched. For any other C++ object Python does
     not own, nothing notices when C++ deletes it, and an address held
     here can go bad.
+  - Qt calls some of its functions itself, as 'paintEvent', and a class
+    of a program may write such a function anew. For that, the C++
+    object Python makes is of a C++ class of ours, built on the class
+    of Qt, in which each such function asks Python first. 'isOurs' says
+    whether the C++ object is of such a class. One that C++ made itself
+    never is.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -117,6 +125,8 @@ class Ugly:
   __delete_watch__ = None  # type: Optional[weakref.finalize]
   #  Where the C++ QPointer watching the C++ object is, after 'watch'.
   __watcher_address__ = None  # type: Optional[int]
+  #  Whether the C++ object is of a C++ class of ours; see 'setOurs'.
+  __is_ours__ = False  # type: bool
 
   #  Public Variables
 
@@ -190,6 +200,18 @@ class Ugly:
     """Says whether Python owns the C++ object, and so removes it when
     this Ugly goes."""
     return False if self.__delete_ritual__ is None else True
+
+  def isOurs(self) -> bool:
+    """
+    Says whether the C++ object is of a C++ class of ours, built on its
+    class of Qt, in which Python can take functions over.
+
+    Provided by you, through 'setOurs'. A cute function whose function
+    of Qt can be taken over asks this: on such an object it runs the
+    ritual of just the class's own function, so that 'super()' reaches
+    Qt's own and not the Python function again.
+    """
+    return self.__is_ours__
 
   def isWatched(self) -> bool:
     """Says whether Qt watches the C++ object, which it does after
@@ -312,6 +334,17 @@ class Ugly:
     watch = weakref.finalize(self, Rituals.call, ritualName, address)
     watch.atexit = False
     self.__delete_watch__ = watch
+
+  def setOurs(self) -> None:
+    """
+    Tells this Ugly that its C++ object is of a C++ class of ours.
+
+    Only for a C++ object Python made through a ritual that makes one
+    of such a class, as every creating ritual of a class with functions
+    Qt calls itself does. The cute side calls this as it makes the
+    object; see 'CuteMixin._takeOver'. It cannot be taken back.
+    """
+    self.__is_ours__ = True
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

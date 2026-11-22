@@ -2,12 +2,58 @@
 //  QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qgraphicssceneevent.h>
 #include <QtCore/qpoint.h>
+#include <cstring>
+
+//  A QGraphicsSceneContextMenuEvent that Python can take functions over in. Every QGraphicsSceneContextMenuEvent
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQGraphicsSceneContextMenuEventCall0)(const void *, bool, int *);
+typedef void * (*CuteQGraphicsSceneContextMenuEventCall1)(const void *, int *);
+class CuteQGraphicsSceneContextMenuEvent : public QGraphicsSceneContextMenuEvent {
+public:
+  using QGraphicsSceneContextMenuEvent::QGraphicsSceneContextMenuEvent;
+  void *taken[2] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
+      taken[1] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QEvent::setAccepted(bool accepted)
+  void setAccepted(bool accepted) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQGraphicsSceneContextMenuEventCall0 call = reinterpret_cast<CuteQGraphicsSceneContextMenuEventCall0>(taken[0]);
+      call(this, accepted, &handled);
+      if (handled) return;
+    }
+    QEvent::setAccepted(accepted);
+  }
+
+  //  QEvent *QEvent::clone() const
+  QEvent *clone() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQGraphicsSceneContextMenuEventCall1 call = reinterpret_cast<CuteQGraphicsSceneContextMenuEventCall1>(taken[1]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QEvent *>(given);
+    }
+    return QEvent::clone();
+  }
+};
 
 //  QGraphicsSceneContextMenuEvent::QGraphicsSceneContextMenuEvent(Type type)
 extern "C" Q_DECL_EXPORT
 QGraphicsSceneContextMenuEvent *ritual_ZN30QGraphicsSceneContextMenuEventC1EN6QEvent4TypeE(
     QEvent::Type type) {
-  return new QGraphicsSceneContextMenuEvent(type);
+  return new CuteQGraphicsSceneContextMenuEvent(type);
 }
 
 //  QGraphicsSceneContextMenuEvent::~QGraphicsSceneContextMenuEvent()
@@ -91,4 +137,14 @@ void ritual_ZN30QGraphicsSceneContextMenuEvent9setReasonENS_6ReasonE(
     QGraphicsSceneContextMenuEvent *self,
     QGraphicsSceneContextMenuEvent::Reason reason) {
   self->setReason(reason);
+}
+
+//  a Python function taken by a CuteQGraphicsSceneContextMenuEvent, for the
+//      function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QGraphicsSceneContextMenuEvent(
+    QGraphicsSceneContextMenuEvent *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQGraphicsSceneContextMenuEvent *>(self)->take(key, call);
 }

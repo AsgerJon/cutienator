@@ -20,7 +20,7 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
+  from ..QtCore import QEvent, QMetaObject
   from ..QtGui import QKeySequence
   from . import QAbstractButton, QPushButton
 else:
@@ -28,6 +28,7 @@ else:
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAbstractButton = WAIT['QAbstractButton']
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -46,12 +47,12 @@ class QDialogButtonBox(QWidget):
   -----------
 
   Every function of Qt's QDialogButtonBox that has a ritual and that Python
-  can call so far, 16 names in all: 'metaObject', 'tr', 'setOrientation',
+  can call so far, 18 names in all: 'metaObject', 'tr', 'setOrientation',
   'orientation', 'addButton', 'removeButton', 'clear', 'buttonRole',
   'setStandardButtons', 'standardButtons', 'standardButton', 'button',
   'setCenterButtons', 'centerButtons', 'standardButtonText',
-  'standardButtonShortcut'. It can be made from Python, in 4 ways; see
-  '__init__'.
+  'standardButtonShortcut', 'changeEvent', 'event'. It can be made from
+  Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -62,9 +63,8 @@ class QDialogButtonBox(QWidget):
   What has no ritual
   ------------------
 
-  15 of the 38 functions Qt declares: 4 a signal; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 protected; 2 forbidden; 1 a
-  template.
+  13 of the 38 functions Qt declares: 4 a signal; 3 takes or gives a type
+  that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -261,6 +261,11 @@ class QDialogButtonBox(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QDialogButtonBox'
+
+  #  A C++ QDialogButtonBox Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QDialogButtonBox'
 
   #  Fallback Variables
 
@@ -788,3 +793,45 @@ class QDialogButtonBox(QWidget):
     """
     #  void QDialogButtonBox::clear()
     self.uglySide.call('ritual_ZN16QDialogButtonBox5clearEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QDialogButtonBox::changeEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialogbuttonbox.html#changeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDialogButtonBox::changeEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QDialogButtonBox11changeEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QDialogButtonBox::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialogbuttonbox.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QDialogButtonBox::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN16QDialogButtonBox5eventEP6QEvent',
+        self._addressOf(event),
+    )

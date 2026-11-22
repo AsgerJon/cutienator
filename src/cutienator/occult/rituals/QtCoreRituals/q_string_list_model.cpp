@@ -138,3 +138,100 @@ int ritual_ZNK16QStringListModel20supportedDropActionsEv(
     const QStringListModel *self) {
   return static_cast<int>(self->supportedDropActions().toInt());
 }
+
+//  int QStringListModel::rowCount(const QModelIndex &parent) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK16QStringListModel8rowCountERK11QModelIndex(
+    const QStringListModel *self,
+    const QModelIndex *parent) {
+  return self->QStringListModel::rowCount(*parent);
+}
+
+//  QModelIndex QStringListModel::sibling(int row, int column, const
+//      QModelIndex &idx) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_own_ZNK16QStringListModel7siblingEiiRK11QModelIndex(
+    const QStringListModel *self,
+    int row,
+    int column,
+    const QModelIndex *idx) {
+  return new QModelIndex(self->QStringListModel::sibling(row, column, *idx));
+}
+
+//  QVariant QStringListModel::data(const QModelIndex &index, int role) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZNK16QStringListModel4dataERK11QModelIndexi(
+    const QStringListModel *self,
+    const QModelIndex *index,
+    int role) {
+  return new QVariant(self->QStringListModel::data(*index, role));
+}
+
+//  bool QStringListModel::setData(const QModelIndex &index, const QVariant
+//      &value, int role)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN16QStringListModel7setDataERK11QModelIndexRK8QVarianti(
+    QStringListModel *self,
+    const QModelIndex *index,
+    const QVariant *value,
+    int role) {
+  return self->QStringListModel::setData(*index, *value, role);
+}
+
+//  bool QStringListModel::clearItemData(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN16QStringListModel13clearItemDataERK11QModelIndex(
+    QStringListModel *self,
+    const QModelIndex *index) {
+  return self->QStringListModel::clearItemData(*index);
+}
+
+//  bool QStringListModel::insertRows(int row, int count, const QModelIndex
+//      &parent)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN16QStringListModel10insertRowsEiiRK11QModelIndex(
+    QStringListModel *self,
+    int row,
+    int count,
+    const QModelIndex *parent) {
+  return self->QStringListModel::insertRows(row, count, *parent);
+}
+
+//  bool QStringListModel::removeRows(int row, int count, const QModelIndex
+//      &parent)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN16QStringListModel10removeRowsEiiRK11QModelIndex(
+    QStringListModel *self,
+    int row,
+    int count,
+    const QModelIndex *parent) {
+  return self->QStringListModel::removeRows(row, count, *parent);
+}
+
+//  bool QStringListModel::moveRows(const QModelIndex &sourceParent, int
+//      sourceRow, int count, const QModelIndex &destinationParent, int
+//      destinationChild)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN16QStringListModel8moveRowsERK11QModelIndexiiS2_i(
+    QStringListModel *self,
+    const QModelIndex *sourceParent,
+    int sourceRow,
+    int count,
+    const QModelIndex *destinationParent,
+    int destinationChild) {
+  return self->QStringListModel::moveRows(
+      *sourceParent,
+      sourceRow,
+      count,
+      *destinationParent,
+      destinationChild);
+}
+
+//  void QStringListModel::sort(int column, Qt::SortOrder order)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN16QStringListModel4sortEiN2Qt9SortOrderE(
+    QStringListModel *self,
+    int column,
+    Qt::SortOrder order) {
+  self->QStringListModel::sort(column, order);
+}

@@ -46,6 +46,25 @@
     "ritual_ZNK21QGraphicsAnchorLayout6itemAtEi": [
       "address", "address", "int"
     ],
-    "ritual_ZN21QGraphicsAnchorLayout10invalidateEv": ["nothing", "address"]
+    "ritual_ZN21QGraphicsAnchorLayout10invalidateEv": ["nothing", "address"],
+    "ritual_take_QGraphicsAnchorLayout": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QGraphicsAnchorLayout8removeAtEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN21QGraphicsAnchorLayout11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK21QGraphicsAnchorLayout5countEv": ["int", "address"],
+    "ritual_own_ZNK21QGraphicsAnchorLayout6itemAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN21QGraphicsAnchorLayout10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK21QGraphicsAnchorLayout8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ]
   }
 }

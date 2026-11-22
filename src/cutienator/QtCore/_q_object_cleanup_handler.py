@@ -124,6 +124,11 @@ class QObjectCleanupHandler(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QObjectCleanupHandler'
 
+  #  A C++ QObjectCleanupHandler Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QObjectCleanupHandler'
+
   #  Fallback Variables
 
   #  Private Variables

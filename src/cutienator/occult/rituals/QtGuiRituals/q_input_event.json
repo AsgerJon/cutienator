@@ -18,6 +18,11 @@
     "ritual_ZNK11QInputEvent9timestampEv": ["unsigned long long", "address"],
     "ritual_ZN11QInputEvent12setTimestampEy": [
       "nothing", "address", "unsigned long long"
+    ],
+    "ritual_take_QInputEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QInputEvent5cloneEv": ["address", "address"],
+    "ritual_own_ZN11QInputEvent12setTimestampEy": [
+      "nothing", "address", "unsigned long long"
     ]
   }
 }

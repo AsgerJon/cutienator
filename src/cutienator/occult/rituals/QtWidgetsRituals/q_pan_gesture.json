@@ -20,6 +20,7 @@
     ],
     "ritual_ZN11QPanGesture15setAccelerationEd": [
       "nothing", "address", "double"
-    ]
+    ],
+    "ritual_take_QPanGesture": ["bool", "address", "chars", "address"]
   }
 }

@@ -18,15 +18,22 @@ from . import QAbstractButton, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
-  from ..QtGui import QIcon
-  from . import QMenu
+  from ..QtCore import QEvent, QMetaObject, QPoint, QSize
+  from ..QtGui import QFocusEvent, QIcon, QKeyEvent, QMouseEvent, QPaintEvent
+  from . import QMenu, QStyleOptionButton
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
   QIcon = WAIT['QIcon']
+  QKeyEvent = WAIT['QKeyEvent']
   QMenu = WAIT['QMenu']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QPoint = WAIT['QPoint']
+  QStyleOptionButton = WAIT['QStyleOptionButton']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -45,10 +52,12 @@ class QPushButton(QAbstractButton):
   -----------
 
   Every function of Qt's QPushButton that has a ritual and that Python can
-  call so far, 13 names in all: 'metaObject', 'tr', 'sizeHint',
+  call so far, 21 names in all: 'metaObject', 'tr', 'sizeHint',
   'minimumSizeHint', 'autoDefault', 'setAutoDefault', 'isDefault',
-  'setDefault', 'setMenu', 'menu', 'setFlat', 'isFlat', 'showMenu'. It can be
-  made from Python, in 3 ways; see '__init__'.
+  'setDefault', 'setMenu', 'menu', 'setFlat', 'isFlat', 'showMenu', 'event',
+  'paintEvent', 'keyPressEvent', 'focusInEvent', 'focusOutEvent',
+  'mouseMoveEvent', 'initStyleOption', 'hitButton'. It can be made from
+  Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,8 +68,8 @@ class QPushButton(QAbstractButton):
   What has no ritual
   ------------------
 
-  17 of the 34 functions Qt declares: 9 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  9 of the 34 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -133,6 +142,25 @@ class QPushButton(QAbstractButton):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPushButton'
 
+  #  A C++ QPushButton Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPushButton'
+
+  #  The functions Qt calls itself that QPushButton is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK11QPushButton15initStyleOptionEP18QStyleOptionButton',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionButton'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -176,7 +204,10 @@ class QPushButton(QAbstractButton):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QPushButton::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK11QPushButton8sizeHintEv')
+    ritual = 'ritual_ZNK11QPushButton8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QPushButton8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -193,9 +224,10 @@ class QPushButton(QAbstractButton):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QPushButton::minimumSizeHint() const
-    address = self.uglySide.call(
-        'ritual_ZNK11QPushButton15minimumSizeHintEv',
-    )
+    ritual = 'ritual_ZNK11QPushButton15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QPushButton15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -243,6 +275,26 @@ class QPushButton(QAbstractButton):
     """
     #  bool QPushButton::isFlat() const
     return self.uglySide.call('ritual_ZNK11QPushButton6isFlatEv')
+
+  @overload(QPoint)
+  def hitButton(self, pos: QPoint) -> bool:
+    """
+    Calls Qt's 'bool QPushButton::hitButton(const QPoint &pos) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpushbutton.html#hitButton
+
+    Parameters
+    ----------
+
+    pos : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+    """
+    #  bool QPushButton::hitButton(const QPoint &pos) const
+    return self.uglySide.call(
+        'ritual_own_ZNK11QPushButton9hitButtonERK6QPoint',
+        self._valueOf(pos),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -440,3 +492,150 @@ class QPushButton(QAbstractButton):
     """
     #  void QPushButton::showMenu()
     self.uglySide.call('ritual_ZN11QPushButton8showMenuEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QPushButton::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpushbutton.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QPushButton::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN11QPushButton5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QPushButton::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpushbutton.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPushButton::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QPushButton10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, a0: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QPushButton::keyPressEvent(QKeyEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpushbutton.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPushButton::keyPressEvent(QKeyEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QPushButton13keyPressEventEP9QKeyEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, a0: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QPushButton::focusInEvent(QFocusEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpushbutton.html#focusInEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPushButton::focusInEvent(QFocusEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QPushButton12focusInEventEP11QFocusEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, a0: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QPushButton::focusOutEvent(QFocusEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpushbutton.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPushButton::focusOutEvent(QFocusEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QPushButton13focusOutEventEP11QFocusEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QPushButton::mouseMoveEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpushbutton.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPushButton::mouseMoveEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QPushButton14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QStyleOptionButton)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOptionButton]) -> None:
+    """
+    Calls Qt's 'void QPushButton::initStyleOption(QStyleOptionButton *option)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpushbutton.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionButton]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPushButton::initStyleOption(QStyleOptionButton *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK11QPushButton15initStyleOptionEP18QStyleOptionButton',
+        self._addressOf(option),
+    )

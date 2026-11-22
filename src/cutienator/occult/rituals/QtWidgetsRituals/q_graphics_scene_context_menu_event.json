@@ -38,6 +38,9 @@
     ],
     "ritual_ZN30QGraphicsSceneContextMenuEvent9setReasonENS_6ReasonE": [
       "nothing", "address", "int"
+    ],
+    "ritual_take_QGraphicsSceneContextMenuEvent": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

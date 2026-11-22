@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from . import QTextObject
 
@@ -19,6 +19,12 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
+  from . import QTextBlock
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QTextBlock = WAIT['QTextBlock']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,13 +43,14 @@ class QTextBlockGroup(QTextObject):
   -----------
 
   Every function of Qt's QTextBlockGroup that has a ritual and that Python
-  can call so far, 2 names in all: 'metaObject', 'tr'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  can call so far, 5 names in all: 'metaObject', 'tr', 'blockInserted',
+  'blockRemoved', 'blockFormatChanged'. None can be made from Python: one
+  comes out of a function of another class that gives one back.
 
   What has no ritual
   ------------------
 
-  15 of the 17 functions Qt declares: 7 protected; 3 private; 2 takes or
+  12 of the 17 functions Qt declares: 4 protected; 3 private; 2 takes or
   gives a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
@@ -117,6 +124,39 @@ class QTextBlockGroup(QTextObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTextBlockGroup'
 
+  #  A C++ QTextBlockGroup Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTextBlockGroup'
+
+  #  The functions Qt calls itself that QTextBlockGroup is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'blockInserted': (
+          ('_ZN15QTextBlockGroup13blockInsertedERK10QTextBlock',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtGui:QTextBlock'),
+           )),
+      ),
+      'blockRemoved': (
+          ('_ZN15QTextBlockGroup12blockRemovedERK10QTextBlock',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtGui:QTextBlock'),
+           )),
+      ),
+      'blockFormatChanged': (
+          ('_ZN15QTextBlockGroup18blockFormatChangedERK10QTextBlock',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtGui:QTextBlock'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -182,3 +222,66 @@ class QTextBlockGroup(QTextObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QTextBlock)
+  def blockInserted(self, block: QTextBlock) -> None:
+    """
+    Calls Qt's 'void QTextBlockGroup::blockInserted(const QTextBlock
+    &block)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextblockgroup.html#blockInserted
+
+    Parameters
+    ----------
+
+    block : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+    """
+    #  void QTextBlockGroup::blockInserted(const QTextBlock &block)
+    self.uglySide.call(
+        'ritual_own_ZN15QTextBlockGroup13blockInsertedERK10QTextBlock',
+        self._valueOf(block),
+    )
+
+  @overload(QTextBlock)
+  def blockRemoved(self, block: QTextBlock) -> None:
+    """
+    Calls Qt's 'void QTextBlockGroup::blockRemoved(const QTextBlock &block)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextblockgroup.html#blockRemoved
+
+    Parameters
+    ----------
+
+    block : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+    """
+    #  void QTextBlockGroup::blockRemoved(const QTextBlock &block)
+    self.uglySide.call(
+        'ritual_own_ZN15QTextBlockGroup12blockRemovedERK10QTextBlock',
+        self._valueOf(block),
+    )
+
+  @overload(QTextBlock)
+  def blockFormatChanged(self, block: QTextBlock) -> None:
+    """
+    Calls Qt's 'void QTextBlockGroup::blockFormatChanged(const QTextBlock
+    &block)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextblockgroup.html#blockFormatChanged
+
+    Parameters
+    ----------
+
+    block : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+    """
+    #  void QTextBlockGroup::blockFormatChanged(const QTextBlock &block)
+    self.uglySide.call(
+        'ritual_own_ZN15QTextBlockGroup18blockFormatChangedERK10QTextBlock',
+        self._valueOf(block),
+    )

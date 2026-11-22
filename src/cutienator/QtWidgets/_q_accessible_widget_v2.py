@@ -53,7 +53,7 @@ class QAccessibleWidgetV2(QAccessibleWidget, QAccessibleAttributesInterface):
   What has no ritual
   ------------------
 
-  5 of the 9 functions Qt declares: 2 takes or gives a type that cannot be
+  5 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 protected.
 
   What to expect
@@ -90,6 +90,11 @@ class QAccessibleWidgetV2(QAccessibleWidget, QAccessibleAttributesInterface):
           'ritual_cast_QAccessibleWidgetV2_QAccessibleAttributesInterface',
   }
 
+  #  A C++ QAccessibleWidgetV2 Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAccessibleWidgetV2'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -125,11 +130,14 @@ class QAccessibleWidgetV2(QAccessibleWidget, QAccessibleAttributesInterface):
     """
     #  QVariant QAccessibleWidgetV2::attributeValue(QAccessible::Attribute
     #      key) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK19QAccessibleWidgetV214attributeValueEN11QAccessible9Att'
-        'ributeE',
-        key.value,
-    )
+        'ributeE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QAccessibleWidgetV214attributeValueEN11QAccessib'
+          'le9AttributeE')
+    address = self.uglySide.call(ritual, key.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 

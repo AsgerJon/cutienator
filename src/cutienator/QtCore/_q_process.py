@@ -344,6 +344,21 @@ class QProcess(QIODevice):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QProcess'
 
+  #  A C++ QProcess Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QProcess'
+
+  #  The functions Qt calls itself that QProcess is the first to declare and
+  #  that cannot be handed to Python yet, each as Qt declares it. A class of
+  #  a program that writes one of them anew is refused, since Qt would never
+  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'open': (
+          'bool QProcess::open(OpenMode)',
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -582,7 +597,10 @@ class QProcess(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qprocess.html#bytesToWrite
     """
     #  qint64 QProcess::bytesToWrite() const
-    return self.uglySide.call('ritual_ZNK8QProcess12bytesToWriteEv')
+    ritual = 'ritual_ZNK8QProcess12bytesToWriteEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK8QProcess12bytesToWriteEv'
+    return self.uglySide.call(ritual)
 
   def isSequential(self) -> bool:
     """
@@ -591,7 +609,10 @@ class QProcess(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qprocess.html#isSequential
     """
     #  bool QProcess::isSequential() const
-    return self.uglySide.call('ritual_ZNK8QProcess12isSequentialEv')
+    ritual = 'ritual_ZNK8QProcess12isSequentialEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK8QProcess12isSequentialEv'
+    return self.uglySide.call(ritual)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1091,9 +1112,10 @@ class QProcess(QIODevice):
       Passed on as it is. May be left out, as in Qt: it is then 30000.
     """
     #  bool QProcess::waitForReadyRead(int msecs)
-    return self.uglySide.call(
-        'ritual_ZN8QProcess16waitForReadyReadEi', msecs,
-    )
+    ritual = 'ritual_ZN8QProcess16waitForReadyReadEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QProcess16waitForReadyReadEi'
+    return self.uglySide.call(ritual, msecs)
 
   @overload()
   @overload(int)
@@ -1110,9 +1132,10 @@ class QProcess(QIODevice):
       Passed on as it is. May be left out, as in Qt: it is then 30000.
     """
     #  bool QProcess::waitForBytesWritten(int msecs)
-    return self.uglySide.call(
-        'ritual_ZN8QProcess19waitForBytesWrittenEi', msecs,
-    )
+    ritual = 'ritual_ZN8QProcess19waitForBytesWrittenEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QProcess19waitForBytesWrittenEi'
+    return self.uglySide.call(ritual, msecs)
 
   @overload()
   @overload(int)
@@ -1177,7 +1200,10 @@ class QProcess(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qprocess.html#close
     """
     #  void QProcess::close()
-    self.uglySide.call('ritual_ZN8QProcess5closeEv')
+    ritual = 'ritual_ZN8QProcess5closeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QProcess5closeEv'
+    self.uglySide.call(ritual)
 
   def terminate(self) -> None:
     """

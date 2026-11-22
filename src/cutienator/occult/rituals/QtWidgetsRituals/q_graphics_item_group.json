@@ -22,6 +22,22 @@
       "bool", "address", "address"
     ],
     "ritual_ZNK18QGraphicsItemGroup10opaqueAreaEv": ["address", "address"],
-    "ritual_ZNK18QGraphicsItemGroup4typeEv": ["int", "address"]
+    "ritual_ZNK18QGraphicsItemGroup4typeEv": ["int", "address"],
+    "ritual_take_QGraphicsItemGroup": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QGraphicsItemGroup12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QGraphicsItemGroup5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK18QGraphicsItemGroup12isObscuredByEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK18QGraphicsItemGroup10opaqueAreaEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK18QGraphicsItemGroup4typeEv": ["int", "address"]
   }
 }

@@ -14,6 +14,11 @@
     "ritual_ZN27QAccessibleValueChangeEvent8setValueERK8QVariant": [
       "nothing", "address", "address"
     ],
-    "ritual_ZNK27QAccessibleValueChangeEvent5valueEv": ["address", "address"]
+    "ritual_ZNK27QAccessibleValueChangeEvent5valueEv": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleValueChangeEvent": [
+      "bool", "address", "chars", "address"
+    ]
   }
 }

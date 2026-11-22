@@ -13,23 +13,33 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QObject
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QPoint, QRect, QSize
-  from ..QtGui import QAction, QIcon
-  from . import QMenu
+  from ..QtCore import QEvent, QMetaObject, QPoint, QRect, QSize, QTimerEvent
+  from ..QtGui import QAction, QActionEvent, QFocusEvent, QIcon, QKeyEvent
+  from ..QtGui import QMouseEvent, QPaintEvent, QResizeEvent
+  from . import QMenu, QStyleOptionMenuItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAction = WAIT['QAction']
+  QActionEvent = WAIT['QActionEvent']
+  QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
   QIcon = WAIT['QIcon']
+  QKeyEvent = WAIT['QKeyEvent']
   QMenu = WAIT['QMenu']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QPoint = WAIT['QPoint']
+  QResizeEvent = WAIT['QResizeEvent']
+  QStyleOptionMenuItem = WAIT['QStyleOptionMenuItem']
+  QTimerEvent = WAIT['QTimerEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -48,12 +58,16 @@ class QMenuBar(QWidget):
   -----------
 
   Every function of Qt's QMenuBar that has a ritual and that Python can call
-  so far, 21 names in all: 'metaObject', 'tr', 'addMenu', 'addSeparator',
+  so far, 36 names in all: 'metaObject', 'tr', 'addMenu', 'addSeparator',
   'insertSeparator', 'insertMenu', 'clear', 'activeAction',
   'setActiveAction', 'setDefaultUp', 'isDefaultUp', 'sizeHint',
   'minimumSizeHint', 'heightForWidth', 'actionGeometry', 'actionAt',
   'setCornerWidget', 'cornerWidget', 'isNativeMenuBar', 'setNativeMenuBar',
-  'setVisible'. It can be made from Python, in 1 way; see '__init__'.
+  'setVisible', 'changeEvent', 'keyPressEvent', 'mouseReleaseEvent',
+  'mousePressEvent', 'mouseMoveEvent', 'leaveEvent', 'paintEvent',
+  'resizeEvent', 'actionEvent', 'focusOutEvent', 'focusInEvent',
+  'timerEvent', 'eventFilter', 'event', 'initStyleOption'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,9 +78,8 @@ class QMenuBar(QWidget):
   What has no ritual
   ------------------
 
-  26 of the 51 functions Qt declares: 15 protected; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 a signal; 2 forbidden; 1 a
-  template.
+  11 of the 51 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 3 private; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -136,6 +149,27 @@ class QMenuBar(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QMenuBar'
+
+  #  A C++ QMenuBar Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QMenuBar'
+
+  #  The functions Qt calls itself that QMenuBar is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK8QMenuBar15initStyleOptionEP20QStyleOptionMenuItemPK7QActio'
+           'n',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionMenuItem'),
+               ('address', 'address', 'QtGui:QAction'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -207,7 +241,10 @@ class QMenuBar(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QMenuBar::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK8QMenuBar8sizeHintEv')
+    ritual = 'ritual_ZNK8QMenuBar8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK8QMenuBar8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -224,7 +261,10 @@ class QMenuBar(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QMenuBar::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK8QMenuBar15minimumSizeHintEv')
+    ritual = 'ritual_ZNK8QMenuBar15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK8QMenuBar15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -242,7 +282,10 @@ class QMenuBar(QWidget):
       Passed on as it is.
     """
     #  int QMenuBar::heightForWidth(int a0) const
-    return self.uglySide.call('ritual_ZNK8QMenuBar14heightForWidthEi', a0)
+    ritual = 'ritual_ZNK8QMenuBar14heightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK8QMenuBar14heightForWidthEi'
+    return self.uglySide.call(ritual, a0)
 
   @overload(QAction)
   @overload(NoneType)
@@ -445,7 +488,10 @@ class QMenuBar(QWidget):
       Passed on as it is.
     """
     #  void QMenuBar::setVisible(bool visible)
-    self.uglySide.call('ritual_ZN8QMenuBar10setVisibleEb', visible)
+    ritual = 'ritual_ZN8QMenuBar10setVisibleEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar10setVisibleEb'
+    self.uglySide.call(ritual, visible)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -685,3 +731,334 @@ class QMenuBar(QWidget):
     """
     #  void QMenuBar::clear()
     self.uglySide.call('ritual_ZN8QMenuBar5clearEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, a0: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::changeEvent(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#changeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::changeEvent(QEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN8QMenuBar11changeEventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, a0: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::keyPressEvent(QKeyEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::keyPressEvent(QKeyEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN8QMenuBar13keyPressEventEP9QKeyEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::mouseReleaseEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::mouseReleaseEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN8QMenuBar17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::mousePressEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::mousePressEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN8QMenuBar15mousePressEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::mouseMoveEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::mouseMoveEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN8QMenuBar14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def leaveEvent(self, a0: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::leaveEvent(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#leaveEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::leaveEvent(QEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN8QMenuBar10leaveEventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN8QMenuBar10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, a0: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::resizeEvent(QResizeEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#resizeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::resizeEvent(QResizeEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN8QMenuBar11resizeEventEP12QResizeEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QActionEvent)
+  @overload(NoneType)
+  def actionEvent(self, a0: Optional[QActionEvent]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::actionEvent(QActionEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#actionEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QActionEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::actionEvent(QActionEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN8QMenuBar11actionEventEP12QActionEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, a0: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::focusOutEvent(QFocusEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::focusOutEvent(QFocusEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN8QMenuBar13focusOutEventEP11QFocusEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, a0: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::focusInEvent(QFocusEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#focusInEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::focusInEvent(QFocusEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN8QMenuBar12focusInEventEP11QFocusEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, a0: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::timerEvent(QTimerEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#timerEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::timerEvent(QTimerEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN8QMenuBar10timerEventEP11QTimerEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(self, a0: Optional[QObject], a1: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QMenuBar::eventFilter(QObject *a0, QEvent *a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#eventFilter
+
+    Parameters
+    ----------
+
+    a0 : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a1 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QMenuBar::eventFilter(QObject *a0, QEvent *a1)
+    return self.uglySide.call(
+        'ritual_own_ZN8QMenuBar11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(a0), self._addressOf(a1),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QMenuBar::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QMenuBar::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN8QMenuBar5eventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QStyleOptionMenuItem, QAction)
+  @overload(QStyleOptionMenuItem, NoneType)
+  @overload(NoneType, QAction)
+  @overload(NoneType, NoneType)
+  def initStyleOption(
+      self,
+      option: Optional[QStyleOptionMenuItem],
+      action: Optional[QAction],
+  ) -> None:
+    """
+    Calls Qt's 'void QMenuBar::initStyleOption(QStyleOptionMenuItem *option,
+    const QAction *action) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionMenuItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    action : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::initStyleOption(QStyleOptionMenuItem *option, const
+    #      QAction *action) const
+    self.uglySide.call(
+        'ritual_own_ZNK8QMenuBar15initStyleOptionEP20QStyleOptionMenuItemPK'
+        '7QAction',
+        self._addressOf(option), self._addressOf(action),
+    )

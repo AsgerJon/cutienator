@@ -180,6 +180,92 @@
       "nothing", "address", "text"
     ],
     "ritual_ZN9QTextEdit6zoomInEi": ["nothing", "address", "int"],
-    "ritual_ZN9QTextEdit7zoomOutEi": ["nothing", "address", "int"]
+    "ritual_ZN9QTextEdit7zoomOutEi": ["nothing", "address", "int"],
+    "ritual_take_QTextEdit": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN9QTextEdit12loadResourceEiRK4QUrl": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK9QTextEdit16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN9QTextEdit5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_own_ZN9QTextEdit10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit18focusNextPrevChildEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_own_ZN9QTextEdit16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK9QTextEdit27createMimeDataFromSelectionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK9QTextEdit21canInsertFromMimeDataEPK9QMimeData": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit18insertFromMimeDataEPK9QMimeData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QTextEdit16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN9QTextEdit15doSetTextCursorERK11QTextCursor": [
+      "nothing", "address", "address"
+    ]
   }
 }

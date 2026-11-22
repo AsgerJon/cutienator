@@ -12,14 +12,19 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, CuteNum
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QAnimationGroup, QMetaObject
+  from . import QAnimationGroup, QEvent, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,12 +43,12 @@ class QAbstractAnimation(QObject):
   -----------
 
   Every function of Qt's QAbstractAnimation that has a ritual and that Python
-  can call so far, 19 names in all: 'metaObject', 'tr', 'state', 'group',
+  can call so far, 22 names in all: 'metaObject', 'tr', 'state', 'group',
   'direction', 'setDirection', 'currentTime', 'currentLoopTime', 'loopCount',
   'setLoopCount', 'currentLoop', 'duration', 'totalDuration', 'start',
-  'pause', 'resume', 'setPaused', 'stop', 'setCurrentTime'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  'pause', 'resume', 'setPaused', 'stop', 'setCurrentTime', 'event',
+  'updateState', 'updateDirection'. None can be made from Python: one comes
+  out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -54,8 +59,8 @@ class QAbstractAnimation(QObject):
   What has no ritual
   ------------------
 
-  23 of the 43 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 5 protected; 4 a signal; 3 private; 2 forbidden; 1 a template;
+  20 of the 43 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 4 a signal; 3 private; 2 protected; 2 forbidden; 1 a template;
   1 the class is abstract, so C++ cannot make one.
 
   What to expect
@@ -159,6 +164,45 @@ class QAbstractAnimation(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractAnimation'
+
+  #  A C++ QAbstractAnimation Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractAnimation'
+
+  #  The functions Qt calls itself that QAbstractAnimation is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'duration': (
+          ('_ZNK18QAbstractAnimation8durationEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'updateCurrentTime': (
+          ('_ZN18QAbstractAnimation17updateCurrentTimeEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'updateState': (
+          ('_ZN18QAbstractAnimation11updateStateENS_5StateES0_',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'enum', 'QtCore:QAbstractAnimation.State'),
+               ('int', 'enum', 'QtCore:QAbstractAnimation.State'),
+           )),
+      ),
+      'updateDirection': (
+          ('_ZN18QAbstractAnimation15updateDirectionENS_9DirectionE',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'enum', 'QtCore:QAbstractAnimation.Direction'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -474,3 +518,73 @@ class QAbstractAnimation(QObject):
     """
     #  void QAbstractAnimation::stop()
     self.uglySide.call('ritual_ZN18QAbstractAnimation4stopEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QAbstractAnimation::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractanimation.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QAbstractAnimation::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN18QAbstractAnimation5eventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(State, State)
+  def updateState(self, newState: State, oldState: State) -> None:
+    """
+    Calls Qt's 'void
+    QAbstractAnimation::updateState(QAbstractAnimation::State newState,
+    QAbstractAnimation::State oldState)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractanimation.html#updateState
+
+    Parameters
+    ----------
+
+    newState : State
+      Passed on as its number.
+
+    oldState : State
+      Passed on as its number.
+    """
+    #  void QAbstractAnimation::updateState(QAbstractAnimation::State
+    #      newState, QAbstractAnimation::State oldState)
+    self.uglySide.call(
+        'ritual_own_ZN18QAbstractAnimation11updateStateENS_5StateES0_',
+        newState.value, oldState.value,
+    )
+
+  @overload(Direction)
+  def updateDirection(self, direction: Direction) -> None:
+    """
+    Calls Qt's 'void
+    QAbstractAnimation::updateDirection(QAbstractAnimation::Direction
+    direction)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection
+
+    Parameters
+    ----------
+
+    direction : Direction
+      Passed on as its number.
+    """
+    #  void QAbstractAnimation::updateDirection(QAbstractAnimation::Direction
+    #      direction)
+    self.uglySide.call(
+        'ritual_own_ZN18QAbstractAnimation15updateDirectionENS_9DirectionE',
+        direction.value,
+    )

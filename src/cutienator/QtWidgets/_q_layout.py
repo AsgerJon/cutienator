@@ -21,12 +21,13 @@ from . import QLayoutItem, QSizePolicy
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMargins, QMetaObject, QRect, QSize
+  from ..QtCore import QChildEvent, QMargins, QMetaObject, QRect, QSize
   from . import QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QChildEvent = WAIT['QChildEvent']
   QMargins = WAIT['QMargins']
   QRect = WAIT['QRect']
   QSize = WAIT['QSize']
@@ -51,7 +52,7 @@ class QLayout(QObject, QLayoutItem):
   -----------
 
   Every function of Qt's QLayout that has a ritual and that Python can call
-  so far, 47 names in all: 'metaObject', 'tr', 'spacing', 'setSpacing',
+  so far, 48 names in all: 'metaObject', 'tr', 'spacing', 'setSpacing',
   'setContentsMargins', 'unsetContentsMargins', 'contentsMargins',
   'contentsRect', 'setAlignment', 'setSizeConstraint', 'sizeConstraint',
   'setSizeConstraints', 'setHorizontalSizeConstraint',
@@ -63,8 +64,8 @@ class QLayout(QObject, QLayoutItem):
   'isEmpty', 'controlTypes', 'replaceWidget', 'totalMinimumHeightForWidth',
   'totalHeightForWidth', 'totalMinimumSize', 'totalMaximumSize',
   'totalSizeHint', 'layout', 'setEnabled', 'isEnabled',
-  'closestAcceptableSize'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'closestAcceptableSize', 'childEvent'. None can be made from Python: one
+  comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -77,7 +78,7 @@ class QLayout(QObject, QLayoutItem):
   What has no ritual
   ------------------
 
-  17 of the 70 functions Qt declares: 7 protected; 4 private; 2 takes or
+  16 of the 69 functions Qt declares: 6 protected; 4 private; 2 takes or
   gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1 the
   class is abstract, so C++ cannot make one.
 
@@ -208,6 +209,79 @@ class QLayout(QObject, QLayoutItem):
       'QLayoutItem': 'ritual_cast_QLayout_QLayoutItem',
   }
 
+  #  A C++ QLayout Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QLayout'
+
+  #  The functions Qt calls itself that QLayout is the first to declare and
+  #  that cannot be handed to Python yet, each as Qt declares it. A class of
+  #  a program that writes one of them anew is refused, since Qt would never
+  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'replaceWidget': (
+          'QLayoutItem *QLayout::replaceWidget(QWidget *, QWidget *, '
+          'Qt::FindChildOptions)',
+      ),
+  }
+
+  #  The functions Qt calls itself that QLayout is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'spacing': (
+          ('_ZNK7QLayout7spacingEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'setSpacing': (
+          ('_ZN7QLayout10setSpacingEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'addItem': (
+          ('_ZN7QLayout7addItemEP11QLayoutItem',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QLayoutItem'),
+           )),
+      ),
+      'itemAt': (
+          ('_ZNK7QLayout6itemAtEi',
+           ('address', 'address', 'QtWidgets:QLayoutItem'),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'takeAt': (
+          ('_ZN7QLayout6takeAtEi',
+           ('address', 'address', 'QtWidgets:QLayoutItem'),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'indexOf': (
+          ('_ZNK7QLayout7indexOfEPK7QWidget',
+           ('int', 'number', ''),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+          ('_ZNK7QLayout7indexOfEPK11QLayoutItem',
+           ('int', 'number', ''),
+           (
+               ('address', 'address', 'QtWidgets:QLayoutItem'),
+           )),
+      ),
+      'count': (
+          ('_ZNK7QLayout5countEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -245,7 +319,10 @@ class QLayout(QObject, QLayoutItem):
     Qt's own words: https://doc.qt.io/qt-6/qlayout.html#spacing
     """
     #  int QLayout::spacing() const
-    return self.uglySide.call('ritual_ZNK7QLayout7spacingEv')
+    ritual = 'ritual_ZNK7QLayout7spacingEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QLayout7spacingEv'
+    return self.uglySide.call(ritual)
 
   def contentsMargins(self) -> QMargins:
     """
@@ -389,7 +466,10 @@ class QLayout(QObject, QLayoutItem):
       A new cute QRect around the copy Qt gave back. Python owns it.
     """
     #  QRect QLayout::geometry() const
-    address = self.uglySide.call('ritual_ZNK7QLayout8geometryEv')
+    ritual = 'ritual_ZNK7QLayout8geometryEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QLayout8geometryEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -423,7 +503,10 @@ class QLayout(QObject, QLayoutItem):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QLayout::minimumSize() const
-    address = self.uglySide.call('ritual_ZNK7QLayout11minimumSizeEv')
+    ritual = 'ritual_ZNK7QLayout11minimumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QLayout11minimumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -440,7 +523,10 @@ class QLayout(QObject, QLayoutItem):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QLayout::maximumSize() const
-    address = self.uglySide.call('ritual_ZNK7QLayout11maximumSizeEv')
+    ritual = 'ritual_ZNK7QLayout11maximumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QLayout11maximumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -484,9 +570,10 @@ class QLayout(QObject, QLayoutItem):
       object.
     """
     #  int QLayout::indexOf(const QWidget *a0) const
-    return self.uglySide.call(
-        'ritual_ZNK7QLayout7indexOfEPK7QWidget', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZNK7QLayout7indexOfEPK7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QLayout7indexOfEPK7QWidget'
+    return self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QLayoutItem)
   def indexOf(self, a0: Optional[QLayoutItem]) -> int:
@@ -503,10 +590,10 @@ class QLayout(QObject, QLayoutItem):
       object.
     """
     #  int QLayout::indexOf(const QLayoutItem *a0) const
-    return self.uglySide.call(
-        'ritual_ZNK7QLayout7indexOfEPK11QLayoutItem',
-        self._addressOf(a0, 'QLayoutItem'),
-    )
+    ritual = 'ritual_ZNK7QLayout7indexOfEPK11QLayoutItem'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QLayout7indexOfEPK11QLayoutItem'
+    return self.uglySide.call(ritual, self._addressOf(a0, 'QLayoutItem'))
 
   def count(self) -> int:
     """
@@ -524,7 +611,10 @@ class QLayout(QObject, QLayoutItem):
     Qt's own words: https://doc.qt.io/qt-6/qlayout.html#isEmpty
     """
     #  bool QLayout::isEmpty() const
-    return self.uglySide.call('ritual_ZNK7QLayout7isEmptyEv')
+    ritual = 'ritual_ZNK7QLayout7isEmptyEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QLayout7isEmptyEv'
+    return self.uglySide.call(ritual)
 
   def controlTypes(self) -> QSizePolicy.ControlTypes:
     """
@@ -656,7 +746,10 @@ class QLayout(QObject, QLayoutItem):
       Passed on as it is.
     """
     #  void QLayout::setSpacing(int a0)
-    self.uglySide.call('ritual_ZN7QLayout10setSpacingEi', a0)
+    ritual = 'ritual_ZN7QLayout10setSpacingEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QLayout10setSpacingEi'
+    self.uglySide.call(ritual, a0)
 
   @overload(int, int, int, int)
   def setContentsMargins(
@@ -896,9 +989,10 @@ class QLayout(QObject, QLayoutItem):
       Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
     """
     #  void QLayout::setGeometry(const QRect &a0)
-    self.uglySide.call(
-        'ritual_ZN7QLayout11setGeometryERK5QRect', self._valueOf(a0),
-    )
+    ritual = 'ritual_ZN7QLayout11setGeometryERK5QRect'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QLayout11setGeometryERK5QRect'
+    self.uglySide.call(ritual, self._valueOf(a0))
 
   @overload(bool)
   def setEnabled(self, a0: bool) -> None:
@@ -964,7 +1058,10 @@ class QLayout(QObject, QLayoutItem):
     Qt's own words: https://doc.qt.io/qt-6/qlayout.html#invalidate
     """
     #  void QLayout::invalidate()
-    self.uglySide.call('ritual_ZN7QLayout10invalidateEv')
+    ritual = 'ritual_ZN7QLayout10invalidateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QLayout10invalidateEv'
+    self.uglySide.call(ritual)
 
   def activate(self) -> bool:
     """
@@ -1156,5 +1253,29 @@ class QLayout(QObject, QLayoutItem):
       no object.
     """
     #  QLayout *QLayout::layout()
-    address = self.uglySide.call('ritual_ZN7QLayout6layoutEv')
+    ritual = 'ritual_ZN7QLayout6layoutEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QLayout6layoutEv'
+    address = self.uglySide.call(ritual)
     return QLayout._cuteAt(address)
+
+  @overload(QChildEvent)
+  @overload(NoneType)
+  def childEvent(self, e: Optional[QChildEvent]) -> None:
+    """
+    Calls Qt's 'void QLayout::childEvent(QChildEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlayout.html#childEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QChildEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLayout::childEvent(QChildEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN7QLayout10childEventEP11QChildEvent',
+        self._addressOf(e),
+    )

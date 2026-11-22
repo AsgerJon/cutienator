@@ -68,6 +68,13 @@
     "ritual_ZN10QCompleter13setWrapAroundEb": ["nothing", "address", "bool"],
     "ritual_ZNK10QCompleter13pathFromIndexERK11QModelIndex": [
       "text", "address", "address"
+    ],
+    "ritual_take_QCompleter": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QCompleter11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN10QCompleter5eventEP6QEvent": [
+      "bool", "address", "address"
     ]
   }
 }

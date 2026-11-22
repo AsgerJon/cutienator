@@ -90,6 +90,116 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleTextInterface'
 
+  #  A C++ QAccessibleTextInterface Python makes is of a C++ class of ours,
+  #  in which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAccessibleTextInterface'
+
+  #  The functions Qt calls itself that QAccessibleTextInterface is the first
+  #  to declare and that cannot be handed to Python yet, each as Qt declares
+  #  it. A class of a program that writes one of them anew is refused, since
+  #  Qt would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'selection': (
+          'void QAccessibleTextInterface::selection(int, int *, int *) '
+          'const',
+      ),
+      'text': (
+          'QString QAccessibleTextInterface::text(int, int) const',
+      ),
+      'textBeforeOffset': (
+          'QString QAccessibleTextInterface::textBeforeOffset(int, '
+          'QAccessible::TextBoundaryType, int *, int *) const',
+      ),
+      'textAfterOffset': (
+          'QString QAccessibleTextInterface::textAfterOffset(int, '
+          'QAccessible::TextBoundaryType, int *, int *) const',
+      ),
+      'textAtOffset': (
+          'QString QAccessibleTextInterface::textAtOffset(int, '
+          'QAccessible::TextBoundaryType, int *, int *) const',
+      ),
+      'attributes': (
+          'QString QAccessibleTextInterface::attributes(int, int *, int *) '
+          'const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QAccessibleTextInterface is the first
+  #  to declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'selectionCount': (
+          ('_ZNK24QAccessibleTextInterface14selectionCountEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'addSelection': (
+          ('_ZN24QAccessibleTextInterface12addSelectionEii',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+           )),
+      ),
+      'removeSelection': (
+          ('_ZN24QAccessibleTextInterface15removeSelectionEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'setSelection': (
+          ('_ZN24QAccessibleTextInterface12setSelectionEiii',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+           )),
+      ),
+      'cursorPosition': (
+          ('_ZNK24QAccessibleTextInterface14cursorPositionEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'setCursorPosition': (
+          ('_ZN24QAccessibleTextInterface17setCursorPositionEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'characterCount': (
+          ('_ZNK24QAccessibleTextInterface14characterCountEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'characterRect': (
+          ('_ZNK24QAccessibleTextInterface13characterRectEi',
+           ('address', 'value', 'QtCore:QRect'),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'offsetAtPoint': (
+          ('_ZNK24QAccessibleTextInterface13offsetAtPointERK6QPoint',
+           ('int', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QPoint'),
+           )),
+      ),
+      'scrollToSubstring': (
+          ('_ZN24QAccessibleTextInterface17scrollToSubstringEii',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

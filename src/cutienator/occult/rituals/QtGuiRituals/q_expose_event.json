@@ -7,6 +7,8 @@
     "ritual_ZNK12QExposeEvent5cloneEv": ["address", "address"],
     "ritual_ZN12QExposeEventD1Ev": ["nothing", "address"],
     "ritual_ZN12QExposeEventC1ERK7QRegion": ["address", "address"],
-    "ritual_ZNK12QExposeEvent6regionEv": ["address", "address"]
+    "ritual_ZNK12QExposeEvent6regionEv": ["address", "address"],
+    "ritual_take_QExposeEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QExposeEvent5cloneEv": ["address", "address"]
   }
 }

@@ -11,6 +11,9 @@
     ],
     "ritual_ZN20QTextObjectInterface10drawObjectEP8QPainterRK6QRectFP13QTextDocumentiRK11QTextFormat": [
       "nothing", "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_take_QTextObjectInterface": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

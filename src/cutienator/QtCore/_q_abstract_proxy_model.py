@@ -139,6 +139,55 @@ class QAbstractProxyModel(QAbstractItemModel):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractProxyModel'
 
+  #  A C++ QAbstractProxyModel Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractProxyModel'
+
+  #  The functions Qt calls itself that QAbstractProxyModel is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'setSourceModel': (
+          ('_ZN19QAbstractProxyModel14setSourceModelEP18QAbstractItemModel',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QAbstractItemModel'),
+           )),
+      ),
+      'mapToSource': (
+          ('_ZNK19QAbstractProxyModel11mapToSourceERK11QModelIndex',
+           ('address', 'value', 'QtCore:QModelIndex'),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'mapFromSource': (
+          ('_ZNK19QAbstractProxyModel13mapFromSourceERK11QModelIndex',
+           ('address', 'value', 'QtCore:QModelIndex'),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'mapSelectionToSource': (
+          ('_ZNK19QAbstractProxyModel20mapSelectionToSourceERK14QItemSelect'
+           'ion',
+           ('address', 'value', 'QtCore:QItemSelection'),
+           (
+               ('address', 'value', 'QtCore:QItemSelection'),
+           )),
+      ),
+      'mapSelectionFromSource': (
+          ('_ZNK19QAbstractProxyModel22mapSelectionFromSourceERK14QItemSele'
+           'ction',
+           ('address', 'value', 'QtCore:QItemSelection'),
+           (
+               ('address', 'value', 'QtCore:QItemSelection'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -283,11 +332,14 @@ class QAbstractProxyModel(QAbstractItemModel):
     """
     #  QItemSelection QAbstractProxyModel::mapSelectionToSource(const
     #      QItemSelection &selection) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK19QAbstractProxyModel20mapSelectionToSourceERK14QItemSel'
-        'ection',
-        self._valueOf(selection),
-    )
+        'ection')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QAbstractProxyModel20mapSelectionToSourceERK14QI'
+          'temSelection')
+    address = self.uglySide.call(ritual, self._valueOf(selection))
     from . import QItemSelection
     return QItemSelection._cuteOwning(address)
 
@@ -319,11 +371,14 @@ class QAbstractProxyModel(QAbstractItemModel):
     """
     #  QItemSelection QAbstractProxyModel::mapSelectionFromSource(const
     #      QItemSelection &selection) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK19QAbstractProxyModel22mapSelectionFromSourceERK14QItemS'
-        'election',
-        self._valueOf(selection),
-    )
+        'election')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QAbstractProxyModel22mapSelectionFromSourceERK14'
+          'QItemSelection')
+    address = self.uglySide.call(ritual, self._valueOf(selection))
     from . import QItemSelection
     return QItemSelection._cuteOwning(address)
 
@@ -354,10 +409,10 @@ class QAbstractProxyModel(QAbstractItemModel):
     """
     #  QVariant QAbstractProxyModel::data(const QModelIndex &proxyIndex, int
     #      role) const
-    address = self.uglySide.call(
-        'ritual_ZNK19QAbstractProxyModel4dataERK11QModelIndexi',
-        self._valueOf(proxyIndex), role,
-    )
+    ritual = 'ritual_ZNK19QAbstractProxyModel4dataERK11QModelIndexi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QAbstractProxyModel4dataERK11QModelIndexi'
+    address = self.uglySide.call(ritual, self._valueOf(proxyIndex), role)
     from . import QVariant
     return QVariant._cuteOwning(address)
 
@@ -396,10 +451,13 @@ class QAbstractProxyModel(QAbstractItemModel):
     """
     #  QVariant QAbstractProxyModel::headerData(int section, Qt::Orientation
     #      orientation, int role) const
-    address = self.uglySide.call(
-        'ritual_ZNK19QAbstractProxyModel10headerDataEiN2Qt11OrientationEi',
-        section, orientation.value, role,
-    )
+    ritual = (
+        'ritual_ZNK19QAbstractProxyModel10headerDataEiN2Qt11OrientationEi')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QAbstractProxyModel10headerDataEiN2Qt11Orientati'
+          'onEi')
+    address = self.uglySide.call(ritual, section, orientation.value, role)
     from . import QVariant
     return QVariant._cuteOwning(address)
 
@@ -453,10 +511,10 @@ class QAbstractProxyModel(QAbstractItemModel):
       A new cute QModelIndex around the copy Qt gave back. Python owns it.
     """
     #  QModelIndex QAbstractProxyModel::buddy(const QModelIndex &index) const
-    address = self.uglySide.call(
-        'ritual_ZNK19QAbstractProxyModel5buddyERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK19QAbstractProxyModel5buddyERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QAbstractProxyModel5buddyERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -478,10 +536,12 @@ class QAbstractProxyModel(QAbstractItemModel):
     """
     #  bool QAbstractProxyModel::canFetchMore(const QModelIndex &parent)
     #      const
-    return self.uglySide.call(
-        'ritual_ZNK19QAbstractProxyModel12canFetchMoreERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK19QAbstractProxyModel12canFetchMoreERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QAbstractProxyModel12canFetchMoreERK11QModelInde'
+          'x')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(QModelIndex)
   def span(self, index: QModelIndex) -> QSize:
@@ -505,10 +565,10 @@ class QAbstractProxyModel(QAbstractItemModel):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QAbstractProxyModel::span(const QModelIndex &index) const
-    address = self.uglySide.call(
-        'ritual_ZNK19QAbstractProxyModel4spanERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK19QAbstractProxyModel4spanERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QAbstractProxyModel4spanERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from . import QSize
     return QSize._cuteOwning(address)
 
@@ -534,10 +594,11 @@ class QAbstractProxyModel(QAbstractItemModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZNK19QAbstractProxyModel11hasChildrenERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK19QAbstractProxyModel11hasChildrenERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QAbstractProxyModel11hasChildrenERK11QModelIndex')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(int, int, QModelIndex)
   def sibling(self, row: int, column: int, idx: QModelIndex) -> QModelIndex:
@@ -568,10 +629,11 @@ class QAbstractProxyModel(QAbstractItemModel):
     """
     #  QModelIndex QAbstractProxyModel::sibling(int row, int column, const
     #      QModelIndex &idx) const
-    address = self.uglySide.call(
-        'ritual_ZNK19QAbstractProxyModel7siblingEiiRK11QModelIndex',
-        row, column, self._valueOf(idx),
-    )
+    ritual = 'ritual_ZNK19QAbstractProxyModel7siblingEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QAbstractProxyModel7siblingEiiRK11QModelIndex')
+    address = self.uglySide.call(ritual, row, column, self._valueOf(idx))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -616,9 +678,15 @@ class QAbstractProxyModel(QAbstractItemModel):
     #  bool QAbstractProxyModel::canDropMimeData(const QMimeData *data,
     #      Qt::DropAction action, int row, int column, const QModelIndex
     #      &parent) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK19QAbstractProxyModel15canDropMimeDataEPK9QMimeDataN2Qt1'
-        '0DropActionEiiRK11QModelIndex',
+        '0DropActionEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QAbstractProxyModel15canDropMimeDataEPK9QMimeDat'
+          'aN2Qt10DropActionEiiRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
@@ -687,11 +755,14 @@ class QAbstractProxyModel(QAbstractItemModel):
     """
     #  void QAbstractProxyModel::setSourceModel(QAbstractItemModel
     #      *sourceModel)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN19QAbstractProxyModel14setSourceModelEP18QAbstractItemMod'
-        'el',
-        self._addressOf(sourceModel),
-    )
+        'el')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractProxyModel14setSourceModelEP18QAbstractI'
+          'temModel')
+    self.uglySide.call(ritual, self._addressOf(sourceModel))
 
   @overload(QModelIndex, QVariant)
   @overload(QModelIndex, QVariant, int)
@@ -723,9 +794,14 @@ class QAbstractProxyModel(QAbstractItemModel):
     """
     #  bool QAbstractProxyModel::setData(const QModelIndex &index, const
     #      QVariant &value, int role)
+    ritual = (
+        'ritual_ZN19QAbstractProxyModel7setDataERK11QModelIndexRK8QVarianti')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractProxyModel7setDataERK11QModelIndexRK8QVa'
+          'rianti')
     return self.uglySide.call(
-        'ritual_ZN19QAbstractProxyModel7setDataERK11QModelIndexRK8QVarianti',
-        self._valueOf(index), self._valueOf(value), role,
+        ritual, self._valueOf(index), self._valueOf(value), role,
     )
 
   @overload(int, Qt.Orientation, QVariant)
@@ -762,10 +838,15 @@ class QAbstractProxyModel(QAbstractItemModel):
     """
     #  bool QAbstractProxyModel::setHeaderData(int section, Qt::Orientation
     #      orientation, const QVariant &value, int role)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN19QAbstractProxyModel13setHeaderDataEiN2Qt11OrientationER'
-        'K8QVarianti',
-        section, orientation.value, self._valueOf(value), role,
+        'K8QVarianti')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractProxyModel13setHeaderDataEiN2Qt11Orienta'
+          'tionERK8QVarianti')
+    return self.uglySide.call(
+        ritual, section, orientation.value, self._valueOf(value), role,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -807,7 +888,10 @@ class QAbstractProxyModel(QAbstractItemModel):
     Qt's own words: https://doc.qt.io/qt-6/qabstractproxymodel.html#submit
     """
     #  bool QAbstractProxyModel::submit()
-    return self.uglySide.call('ritual_ZN19QAbstractProxyModel6submitEv')
+    ritual = 'ritual_ZN19QAbstractProxyModel6submitEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QAbstractProxyModel6submitEv'
+    return self.uglySide.call(ritual)
 
   def revert(self) -> None:
     """
@@ -816,7 +900,10 @@ class QAbstractProxyModel(QAbstractItemModel):
     Qt's own words: https://doc.qt.io/qt-6/qabstractproxymodel.html#revert
     """
     #  void QAbstractProxyModel::revert()
-    self.uglySide.call('ritual_ZN19QAbstractProxyModel6revertEv')
+    ritual = 'ritual_ZN19QAbstractProxyModel6revertEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QAbstractProxyModel6revertEv'
+    self.uglySide.call(ritual)
 
   @overload(QModelIndex)
   def clearItemData(self, index: QModelIndex) -> bool:
@@ -835,10 +922,12 @@ class QAbstractProxyModel(QAbstractItemModel):
       Python's own.
     """
     #  bool QAbstractProxyModel::clearItemData(const QModelIndex &index)
-    return self.uglySide.call(
-        'ritual_ZN19QAbstractProxyModel13clearItemDataERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZN19QAbstractProxyModel13clearItemDataERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractProxyModel13clearItemDataERK11QModelInde'
+          'x')
+    return self.uglySide.call(ritual, self._valueOf(index))
 
   @overload(QModelIndex)
   def fetchMore(self, parent: QModelIndex) -> None:
@@ -856,10 +945,10 @@ class QAbstractProxyModel(QAbstractItemModel):
       Python's own.
     """
     #  void QAbstractProxyModel::fetchMore(const QModelIndex &parent)
-    self.uglySide.call(
-        'ritual_ZN19QAbstractProxyModel9fetchMoreERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN19QAbstractProxyModel9fetchMoreERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QAbstractProxyModel9fetchMoreERK11QModelIndex'
+    self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(int)
   @overload(int, Qt.SortOrder)
@@ -885,10 +974,10 @@ class QAbstractProxyModel(QAbstractItemModel):
       Qt.SortOrder.AscendingOrder.
     """
     #  void QAbstractProxyModel::sort(int column, Qt::SortOrder order)
-    self.uglySide.call(
-        'ritual_ZN19QAbstractProxyModel4sortEiN2Qt9SortOrderE',
-        column, order.value,
-    )
+    ritual = 'ritual_ZN19QAbstractProxyModel4sortEiN2Qt9SortOrderE'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QAbstractProxyModel4sortEiN2Qt9SortOrderE'
+    self.uglySide.call(ritual, column, order.value)
 
   @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)
   @overload(NoneType, Qt.DropAction, int, int, QModelIndex)
@@ -930,9 +1019,15 @@ class QAbstractProxyModel(QAbstractItemModel):
     #  bool QAbstractProxyModel::dropMimeData(const QMimeData *data,
     #      Qt::DropAction action, int row, int column, const QModelIndex
     #      &parent)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN19QAbstractProxyModel12dropMimeDataEPK9QMimeDataN2Qt10Dro'
-        'pActionEiiRK11QModelIndex',
+        'pActionEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractProxyModel12dropMimeDataEPK9QMimeDataN2Q'
+          't10DropActionEiiRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )

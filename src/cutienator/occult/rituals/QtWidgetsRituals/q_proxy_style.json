@@ -77,6 +77,68 @@
     ],
     "ritual_ZN11QProxyStyle8unpolishEP12QApplication": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QProxyStyle": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QProxyStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle11drawControlEN6QStyle14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle18drawComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle16sizeFromContentsEN6QStyle12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget": [
+      "address", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle14subElementRectEN6QStyle10SubElementEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle14subControlRectEN6QStyle14ComplexControlEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget": [
+      "address", "address", "int", "address", "int", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle14itemPixmapRectERK5QRectiRK7QPixmap": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle21hitTestComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget": [
+      "int", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn": [
+      "int", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle11pixelMetricEN6QStyle11PixelMetricEPK12QStyleOptionPK7QWidget": [
+      "int", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget": [
+      "int", "address", "int", "int", "int", "address", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle12standardIconEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle14standardPixmapEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK11QProxyStyle15standardPaletteEv": ["address", "address"],
+    "ritual_own_ZN11QProxyStyle6polishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QProxyStyle6polishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QProxyStyle8unpolishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QProxyStyle8unpolishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QProxyStyle5eventEP6QEvent": [
+      "bool", "address", "address"
     ]
   }
 }

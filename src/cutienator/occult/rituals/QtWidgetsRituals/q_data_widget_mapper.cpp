@@ -4,6 +4,149 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  A QDataWidgetMapper that Python can take functions over in. Every QDataWidgetMapper
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQDataWidgetMapperCall0)(const void *, int, int *);
+typedef bool (*CuteQDataWidgetMapperCall1)(const void *, QEvent *, int *);
+typedef bool (*CuteQDataWidgetMapperCall2)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQDataWidgetMapperCall3)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQDataWidgetMapperCall4)(const void *, QChildEvent *, int *);
+typedef void (*CuteQDataWidgetMapperCall5)(const void *, QEvent *, int *);
+typedef void (*CuteQDataWidgetMapperCall6)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQDataWidgetMapperCall7)(const void *, const QMetaMethod *, int *);
+class CuteQDataWidgetMapper : public QDataWidgetMapper {
+public:
+  using QDataWidgetMapper::QDataWidgetMapper;
+  void *taken[8] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN17QDataWidgetMapper15setCurrentIndexEi")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[7] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QDataWidgetMapper::setCurrentIndex(int index)
+  void setCurrentIndex(int index) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQDataWidgetMapperCall0 call = reinterpret_cast<CuteQDataWidgetMapperCall0>(taken[0]);
+      call(this, index, &handled);
+      if (handled) return;
+    }
+    QDataWidgetMapper::setCurrentIndex(index);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQDataWidgetMapperCall1 call = reinterpret_cast<CuteQDataWidgetMapperCall1>(taken[1]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQDataWidgetMapperCall2 call = reinterpret_cast<CuteQDataWidgetMapperCall2>(taken[2]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQDataWidgetMapperCall3 call = reinterpret_cast<CuteQDataWidgetMapperCall3>(taken[3]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQDataWidgetMapperCall4 call = reinterpret_cast<CuteQDataWidgetMapperCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQDataWidgetMapperCall5 call = reinterpret_cast<CuteQDataWidgetMapperCall5>(taken[5]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQDataWidgetMapperCall6 call = reinterpret_cast<CuteQDataWidgetMapperCall6>(taken[6]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQDataWidgetMapperCall7 call = reinterpret_cast<CuteQDataWidgetMapperCall7>(taken[7]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QDataWidgetMapper::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -25,7 +168,7 @@ QString *ritual_ZN17QDataWidgetMapper2trEPKcS1_i(
 extern "C" Q_DECL_EXPORT
 QDataWidgetMapper *ritual_ZN17QDataWidgetMapperC1EP7QObject(
     QObject *parent) {
-  return new QDataWidgetMapper(parent);
+  return new CuteQDataWidgetMapper(parent);
 }
 
 //  QDataWidgetMapper::~QDataWidgetMapper()
@@ -224,4 +367,22 @@ void ritual_ZN17QDataWidgetMapper20setCurrentModelIndexERK11QModelIndex(
     QDataWidgetMapper *self,
     const QModelIndex *index) {
   self->setCurrentModelIndex(*index);
+}
+
+//  a Python function taken by a CuteQDataWidgetMapper, for the function
+//      named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QDataWidgetMapper(
+    QDataWidgetMapper *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQDataWidgetMapper *>(self)->take(key, call);
+}
+
+//  void QDataWidgetMapper::setCurrentIndex(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN17QDataWidgetMapper15setCurrentIndexEi(
+    QDataWidgetMapper *self,
+    int index) {
+  self->QDataWidgetMapper::setCurrentIndex(index);
 }

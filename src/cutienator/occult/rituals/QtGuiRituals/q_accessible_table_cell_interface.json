@@ -22,6 +22,9 @@
     ],
     "ritual_ZNK29QAccessibleTableCellInterface5tableEv": [
       "address", "address"
+    ],
+    "ritual_take_QAccessibleTableCellInterface": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

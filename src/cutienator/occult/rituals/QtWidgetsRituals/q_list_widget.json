@@ -91,6 +91,19 @@
     "ritual_ZN11QListWidget12scrollToItemEPK15QListWidgetItemN17QAbstractItemView10ScrollHintE": [
       "nothing", "address", "address", "int"
     ],
-    "ritual_ZN11QListWidget5clearEv": ["nothing", "address"]
+    "ritual_ZN11QListWidget5clearEv": ["nothing", "address"],
+    "ritual_take_QListWidget": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QListWidget17setSelectionModelEP19QItemSelectionModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QListWidget9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QListWidget5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QListWidget12dropMimeDataEiPK9QMimeDataN2Qt10DropActionE": [
+      "bool", "address", "int", "address", "int"
+    ]
   }
 }

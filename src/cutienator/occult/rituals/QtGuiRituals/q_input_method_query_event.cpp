@@ -2,6 +2,52 @@
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qevent.h>
 #include <QtCore/qvariant.h>
+#include <cstring>
+
+//  A QInputMethodQueryEvent that Python can take functions over in. Every QInputMethodQueryEvent
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQInputMethodQueryEventCall0)(const void *, int *);
+typedef void (*CuteQInputMethodQueryEventCall1)(const void *, bool, int *);
+class CuteQInputMethodQueryEvent : public QInputMethodQueryEvent {
+public:
+  using QInputMethodQueryEvent::QInputMethodQueryEvent;
+  void *taken[2] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
+      taken[1] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QInputMethodQueryEvent *QInputMethodQueryEvent::clone() const
+  QInputMethodQueryEvent *clone() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQInputMethodQueryEventCall0 call = reinterpret_cast<CuteQInputMethodQueryEventCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QInputMethodQueryEvent *>(given);
+    }
+    return QInputMethodQueryEvent::clone();
+  }
+
+  //  void QEvent::setAccepted(bool accepted)
+  void setAccepted(bool accepted) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQInputMethodQueryEventCall1 call = reinterpret_cast<CuteQInputMethodQueryEventCall1>(taken[1]);
+      call(this, accepted, &handled);
+      if (handled) return;
+    }
+    QEvent::setAccepted(accepted);
+  }
+};
 
 //  QInputMethodQueryEvent *QInputMethodQueryEvent::clone() const
 extern "C" Q_DECL_EXPORT
@@ -21,7 +67,7 @@ void ritual_ZN22QInputMethodQueryEventD1Ev(QInputMethodQueryEvent *self) {
 extern "C" Q_DECL_EXPORT
 QInputMethodQueryEvent *ritual_ZN22QInputMethodQueryEventC1E6QFlagsIN2Qt16InputMethodQueryEE(
     int queries) {
-  return new QInputMethodQueryEvent(
+  return new CuteQInputMethodQueryEvent(
       QFlags<Qt::InputMethodQuery>::fromInt(queries));
 }
 
@@ -48,4 +94,21 @@ QVariant *ritual_ZNK22QInputMethodQueryEvent5valueEN2Qt16InputMethodQueryE(
     const QInputMethodQueryEvent *self,
     Qt::InputMethodQuery query) {
   return new QVariant(self->value(query));
+}
+
+//  a Python function taken by a CuteQInputMethodQueryEvent, for the function
+//      named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QInputMethodQueryEvent(
+    QInputMethodQueryEvent *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQInputMethodQueryEvent *>(self)->take(key, call);
+}
+
+//  QInputMethodQueryEvent *QInputMethodQueryEvent::clone() const
+extern "C" Q_DECL_EXPORT
+QInputMethodQueryEvent *ritual_own_ZNK22QInputMethodQueryEvent5cloneEv(
+    const QInputMethodQueryEvent *self) {
+  return self->QInputMethodQueryEvent::clone();
 }

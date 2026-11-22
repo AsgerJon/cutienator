@@ -7,6 +7,155 @@
 #include <QtGui/qcursor.h>
 #include <QtGui/qfont.h>
 #include <QtGui/qpalette.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QGuiApplication may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQGuiApplication : QGuiApplication {
+  using QGuiApplication::event;
+};
+
+//  A QGuiApplication that Python can take functions over in. Every QGuiApplication
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef bool (*CuteQGuiApplicationCall0)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQGuiApplicationCall1)(const void *, QEvent *, int *);
+typedef bool (*CuteQGuiApplicationCall2)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQGuiApplicationCall3)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQGuiApplicationCall4)(const void *, QChildEvent *, int *);
+typedef void (*CuteQGuiApplicationCall5)(const void *, QEvent *, int *);
+typedef void (*CuteQGuiApplicationCall6)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQGuiApplicationCall7)(const void *, const QMetaMethod *, int *);
+class CuteQGuiApplication : public QGuiApplication {
+public:
+  using QGuiApplication::QGuiApplication;
+  void *taken[8] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN16QCoreApplication6notifyEP7QObjectP6QEvent")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[7] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  bool QGuiApplication::notify(QObject *a0, QEvent *a1)
+  bool notify(QObject *a0, QEvent *a1) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQGuiApplicationCall0 call = reinterpret_cast<CuteQGuiApplicationCall0>(taken[0]);
+      bool given = call(this, a0, a1, &handled);
+      if (handled) return given;
+    }
+    return QGuiApplication::notify(a0, a1);
+  }
+
+  //  bool QGuiApplication::event(QEvent *a0)
+  bool event(QEvent *a0) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQGuiApplicationCall1 call = reinterpret_cast<CuteQGuiApplicationCall1>(taken[1]);
+      bool given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QGuiApplication::event(a0);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQGuiApplicationCall2 call = reinterpret_cast<CuteQGuiApplicationCall2>(taken[2]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQGuiApplicationCall3 call = reinterpret_cast<CuteQGuiApplicationCall3>(taken[3]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQGuiApplicationCall4 call = reinterpret_cast<CuteQGuiApplicationCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQGuiApplicationCall5 call = reinterpret_cast<CuteQGuiApplicationCall5>(taken[5]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQGuiApplicationCall6 call = reinterpret_cast<CuteQGuiApplicationCall6>(taken[6]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQGuiApplicationCall7 call = reinterpret_cast<CuteQGuiApplicationCall7>(taken[7]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QGuiApplication::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -30,7 +179,7 @@ QGuiApplication *ritual_ZN15QGuiApplicationC1ERiPPci(
     int *argc,
     char **argv,
     int a2) {
-  return new QGuiApplication(*argc, argv, a2);
+  return new CuteQGuiApplication(*argc, argv, a2);
 }
 
 //  QGuiApplication::~QGuiApplication()
@@ -339,4 +488,32 @@ bool ritual_ZNK15QGuiApplication15isSavingSessionEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGuiApplication4syncEv() {
   QGuiApplication::sync();
+}
+
+//  a Python function taken by a CuteQGuiApplication, for the function named
+//      by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QGuiApplication(
+    QGuiApplication *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQGuiApplication *>(self)->take(key, call);
+}
+
+//  bool QGuiApplication::notify(QObject *a0, QEvent *a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN15QGuiApplication6notifyEP7QObjectP6QEvent(
+    QGuiApplication *self,
+    QObject *a0,
+    QEvent *a1) {
+  return self->QGuiApplication::notify(a0, a1);
+}
+
+//  bool QGuiApplication::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN15QGuiApplication5eventEP6QEvent(
+    QGuiApplication *self,
+    QEvent *a0) {
+  return static_cast<OwnQGuiApplication *>(self)->OwnQGuiApplication::event(
+      a0);
 }

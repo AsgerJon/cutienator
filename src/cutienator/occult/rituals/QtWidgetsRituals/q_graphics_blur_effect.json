@@ -21,6 +21,15 @@
     ],
     "ritual_ZN19QGraphicsBlurEffect12setBlurHintsE6QFlagsINS_8BlurHintEE": [
       "nothing", "address", "int"
+    ],
+    "ritual_take_QGraphicsBlurEffect": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QGraphicsBlurEffect15boundingRectForERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN19QGraphicsBlurEffect4drawEP8QPainter": [
+      "nothing", "address", "address"
     ]
   }
 }

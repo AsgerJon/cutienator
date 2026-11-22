@@ -19,13 +19,16 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
-  from ..QtGui import QColor, QPixmap, QScreen
+  from ..QtCore import QEvent, QMetaObject
+  from ..QtGui import QColor, QMouseEvent, QPainter, QPixmap, QScreen
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QColor = WAIT['QColor']
+  QEvent = WAIT['QEvent']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPainter = WAIT['QPainter']
   QPixmap = WAIT['QPixmap']
   QScreen = WAIT['QScreen']
 
@@ -46,9 +49,10 @@ class QSplashScreen(QWidget):
   -----------
 
   Every function of Qt's QSplashScreen that has a ritual and that Python can
-  call so far, 9 names in all: 'metaObject', 'tr', 'setPixmap', 'pixmap',
-  'finish', 'repaint', 'message', 'showMessage', 'clearMessage'. It can be
-  made from Python, in 2 ways; see '__init__'.
+  call so far, 12 names in all: 'metaObject', 'tr', 'setPixmap', 'pixmap',
+  'finish', 'repaint', 'message', 'showMessage', 'clearMessage', 'event',
+  'drawContents', 'mousePressEvent'. It can be made from Python, in 2 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,9 +63,8 @@ class QSplashScreen(QWidget):
   What has no ritual
   ------------------
 
-  12 of the 24 functions Qt declares: 3 private; 3 protected; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1 a
-  signal.
+  9 of the 24 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
 
   What to expect
   --------------
@@ -133,6 +136,25 @@ class QSplashScreen(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSplashScreen'
+
+  #  A C++ QSplashScreen Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QSplashScreen'
+
+  #  The functions Qt calls itself that QSplashScreen is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'drawContents': (
+          ('_ZN13QSplashScreen12drawContentsEP8QPainter',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -407,3 +429,65 @@ class QSplashScreen(QWidget):
     """
     #  void QSplashScreen::clearMessage()
     self.uglySide.call('ritual_ZN13QSplashScreen12clearMessageEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QSplashScreen::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplashscreen.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QSplashScreen::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN13QSplashScreen5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QPainter)
+  @overload(NoneType)
+  def drawContents(self, painter: Optional[QPainter]) -> None:
+    """
+    Calls Qt's 'void QSplashScreen::drawContents(QPainter *painter)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplashscreen.html#drawContents
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSplashScreen::drawContents(QPainter *painter)
+    self.uglySide.call(
+        'ritual_own_ZN13QSplashScreen12drawContentsEP8QPainter',
+        self._addressOf(painter),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QSplashScreen::mousePressEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplashscreen.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSplashScreen::mousePressEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN13QSplashScreen15mousePressEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )

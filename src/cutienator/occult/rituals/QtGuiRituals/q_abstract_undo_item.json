@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN17QAbstractUndoItemD1Ev": ["nothing", "address"],
     "ritual_ZN17QAbstractUndoItem4undoEv": ["nothing", "address"],
-    "ritual_ZN17QAbstractUndoItem4redoEv": ["nothing", "address"]
+    "ritual_ZN17QAbstractUndoItem4redoEv": ["nothing", "address"],
+    "ritual_take_QAbstractUndoItem": ["bool", "address", "chars", "address"]
   }
 }

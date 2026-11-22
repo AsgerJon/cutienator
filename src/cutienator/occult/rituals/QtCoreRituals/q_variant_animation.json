@@ -32,6 +32,23 @@
     "ritual_ZNK17QVariantAnimation11easingCurveEv": ["address", "address"],
     "ritual_ZN17QVariantAnimation14setEasingCurveERK12QEasingCurve": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QVariantAnimation": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QVariantAnimation8durationEv": ["int", "address"],
+    "ritual_own_ZN17QVariantAnimation5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QVariantAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QVariantAnimation11updateStateEN18QAbstractAnimation5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QVariantAnimation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
     ]
   }
 }

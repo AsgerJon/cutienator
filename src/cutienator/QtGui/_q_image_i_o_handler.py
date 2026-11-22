@@ -172,6 +172,96 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QImageIOHandler'
 
+  #  A C++ QImageIOHandler Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QImageIOHandler'
+
+  #  The functions Qt calls itself that QImageIOHandler is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'canRead': (
+          ('_ZNK15QImageIOHandler7canReadEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'read': (
+          ('_ZN15QImageIOHandler4readEP6QImage',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtGui:QImage'),
+           )),
+      ),
+      'write': (
+          ('_ZN15QImageIOHandler5writeERK6QImage',
+           ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtGui:QImage'),
+           )),
+      ),
+      'option': (
+          ('_ZNK15QImageIOHandler6optionENS_11ImageOptionE',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('int', 'enum', 'QtGui:QImageIOHandler.ImageOption'),
+           )),
+      ),
+      'setOption': (
+          ('_ZN15QImageIOHandler9setOptionENS_11ImageOptionERK8QVariant',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'enum', 'QtGui:QImageIOHandler.ImageOption'),
+               ('address', 'value', 'QtCore:QVariant'),
+           )),
+      ),
+      'supportsOption': (
+          ('_ZNK15QImageIOHandler14supportsOptionENS_11ImageOptionE',
+           ('bool', 'number', ''),
+           (
+               ('int', 'enum', 'QtGui:QImageIOHandler.ImageOption'),
+           )),
+      ),
+      'jumpToNextImage': (
+          ('_ZN15QImageIOHandler15jumpToNextImageEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'jumpToImage': (
+          ('_ZN15QImageIOHandler11jumpToImageEi',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'loopCount': (
+          ('_ZNK15QImageIOHandler9loopCountEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'imageCount': (
+          ('_ZNK15QImageIOHandler10imageCountEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'nextImageDelay': (
+          ('_ZNK15QImageIOHandler14nextImageDelayEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'currentImageNumber': (
+          ('_ZNK15QImageIOHandler18currentImageNumberEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'currentImageRect': (
+          ('_ZNK15QImageIOHandler16currentImageRectEv',
+           ('address', 'value', 'QtCore:QRect'),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -248,9 +338,10 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QImageIOHandler::option(ImageOption option) const
-    address = self.uglySide.call(
-        'ritual_ZNK15QImageIOHandler6optionENS_11ImageOptionE', option.value,
-    )
+    ritual = 'ritual_ZNK15QImageIOHandler6optionENS_11ImageOptionE'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QImageIOHandler6optionENS_11ImageOptionE'
+    address = self.uglySide.call(ritual, option.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -270,10 +361,12 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
       Passed on as its number.
     """
     #  bool QImageIOHandler::supportsOption(ImageOption option) const
-    return self.uglySide.call(
-        'ritual_ZNK15QImageIOHandler14supportsOptionENS_11ImageOptionE',
-        option.value,
-    )
+    ritual = 'ritual_ZNK15QImageIOHandler14supportsOptionENS_11ImageOptionE'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK15QImageIOHandler14supportsOptionENS_11ImageOption'
+          'E')
+    return self.uglySide.call(ritual, option.value)
 
   def loopCount(self) -> int:
     """
@@ -282,7 +375,10 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qimageiohandler.html#loopCount
     """
     #  int QImageIOHandler::loopCount() const
-    return self.uglySide.call('ritual_ZNK15QImageIOHandler9loopCountEv')
+    ritual = 'ritual_ZNK15QImageIOHandler9loopCountEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QImageIOHandler9loopCountEv'
+    return self.uglySide.call(ritual)
 
   def imageCount(self) -> int:
     """
@@ -291,7 +387,10 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qimageiohandler.html#imageCount
     """
     #  int QImageIOHandler::imageCount() const
-    return self.uglySide.call('ritual_ZNK15QImageIOHandler10imageCountEv')
+    ritual = 'ritual_ZNK15QImageIOHandler10imageCountEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QImageIOHandler10imageCountEv'
+    return self.uglySide.call(ritual)
 
   def nextImageDelay(self) -> int:
     """
@@ -301,9 +400,10 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qimageiohandler.html#nextImageDelay
     """
     #  int QImageIOHandler::nextImageDelay() const
-    return self.uglySide.call(
-        'ritual_ZNK15QImageIOHandler14nextImageDelayEv',
-    )
+    ritual = 'ritual_ZNK15QImageIOHandler14nextImageDelayEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QImageIOHandler14nextImageDelayEv'
+    return self.uglySide.call(ritual)
 
   def currentImageNumber(self) -> int:
     """
@@ -313,9 +413,10 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qimageiohandler.html#currentImageNumber
     """
     #  int QImageIOHandler::currentImageNumber() const
-    return self.uglySide.call(
-        'ritual_ZNK15QImageIOHandler18currentImageNumberEv',
-    )
+    ritual = 'ritual_ZNK15QImageIOHandler18currentImageNumberEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QImageIOHandler18currentImageNumberEv'
+    return self.uglySide.call(ritual)
 
   def currentImageRect(self) -> QRect:
     """
@@ -331,9 +432,10 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
       A new cute QRect around the copy Qt gave back. Python owns it.
     """
     #  QRect QImageIOHandler::currentImageRect() const
-    address = self.uglySide.call(
-        'ritual_ZNK15QImageIOHandler16currentImageRectEv',
-    )
+    ritual = 'ritual_ZNK15QImageIOHandler16currentImageRectEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QImageIOHandler16currentImageRectEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -402,10 +504,13 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
     """
     #  void QImageIOHandler::setOption(ImageOption option, const QVariant
     #      &value)
-    self.uglySide.call(
-        'ritual_ZN15QImageIOHandler9setOptionENS_11ImageOptionERK8QVariant',
-        option.value, self._valueOf(value),
-    )
+    ritual = (
+        'ritual_ZN15QImageIOHandler9setOptionENS_11ImageOptionERK8QVariant')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QImageIOHandler9setOptionENS_11ImageOptionERK8QVa'
+          'riant')
+    self.uglySide.call(ritual, option.value, self._valueOf(value))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -474,9 +579,10 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  bool QImageIOHandler::write(const QImage &image)
-    return self.uglySide.call(
-        'ritual_ZN15QImageIOHandler5writeERK6QImage', self._valueOf(image),
-    )
+    ritual = 'ritual_ZN15QImageIOHandler5writeERK6QImage'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QImageIOHandler5writeERK6QImage'
+    return self.uglySide.call(ritual, self._valueOf(image))
 
   def jumpToNextImage(self) -> bool:
     """
@@ -486,9 +592,10 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qimageiohandler.html#jumpToNextImage
     """
     #  bool QImageIOHandler::jumpToNextImage()
-    return self.uglySide.call(
-        'ritual_ZN15QImageIOHandler15jumpToNextImageEv',
-    )
+    ritual = 'ritual_ZN15QImageIOHandler15jumpToNextImageEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QImageIOHandler15jumpToNextImageEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def jumpToImage(self, imageNumber: int) -> bool:
@@ -504,6 +611,7 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  bool QImageIOHandler::jumpToImage(int imageNumber)
-    return self.uglySide.call(
-        'ritual_ZN15QImageIOHandler11jumpToImageEi', imageNumber,
-    )
+    ritual = 'ritual_ZN15QImageIOHandler11jumpToImageEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QImageIOHandler11jumpToImageEi'
+    return self.uglySide.call(ritual, imageNumber)

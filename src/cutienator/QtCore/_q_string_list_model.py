@@ -178,10 +178,10 @@ class QStringListModel(QAbstractListModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZNK16QStringListModel8rowCountERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK16QStringListModel8rowCountERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QStringListModel8rowCountERK11QModelIndex'
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(int, int, QModelIndex)
   def sibling(self, row: int, column: int, idx: QModelIndex) -> QModelIndex:
@@ -212,10 +212,10 @@ class QStringListModel(QAbstractListModel):
     """
     #  QModelIndex QStringListModel::sibling(int row, int column, const
     #      QModelIndex &idx) const
-    address = self.uglySide.call(
-        'ritual_ZNK16QStringListModel7siblingEiiRK11QModelIndex',
-        row, column, self._valueOf(idx),
-    )
+    ritual = 'ritual_ZNK16QStringListModel7siblingEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QStringListModel7siblingEiiRK11QModelIndex'
+    address = self.uglySide.call(ritual, row, column, self._valueOf(idx))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -246,10 +246,10 @@ class QStringListModel(QAbstractListModel):
     """
     #  QVariant QStringListModel::data(const QModelIndex &index, int role)
     #      const
-    address = self.uglySide.call(
-        'ritual_ZNK16QStringListModel4dataERK11QModelIndexi',
-        self._valueOf(index), role,
-    )
+    ritual = 'ritual_ZNK16QStringListModel4dataERK11QModelIndexi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QStringListModel4dataERK11QModelIndexi'
+    address = self.uglySide.call(ritual, self._valueOf(index), role)
     from . import QVariant
     return QVariant._cuteOwning(address)
 
@@ -333,9 +333,14 @@ class QStringListModel(QAbstractListModel):
     """
     #  bool QStringListModel::setData(const QModelIndex &index, const
     #      QVariant &value, int role)
+    ritual = (
+        'ritual_ZN16QStringListModel7setDataERK11QModelIndexRK8QVarianti')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QStringListModel7setDataERK11QModelIndexRK8QVaria'
+          'nti')
     return self.uglySide.call(
-        'ritual_ZN16QStringListModel7setDataERK11QModelIndexRK8QVarianti',
-        self._valueOf(index), self._valueOf(value), role,
+        ritual, self._valueOf(index), self._valueOf(value), role,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -411,10 +416,11 @@ class QStringListModel(QAbstractListModel):
       Python's own.
     """
     #  bool QStringListModel::clearItemData(const QModelIndex &index)
-    return self.uglySide.call(
-        'ritual_ZN16QStringListModel13clearItemDataERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZN16QStringListModel13clearItemDataERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QStringListModel13clearItemDataERK11QModelIndex')
+    return self.uglySide.call(ritual, self._valueOf(index))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -449,10 +455,11 @@ class QStringListModel(QAbstractListModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN16QStringListModel10insertRowsEiiRK11QModelIndex',
-        row, count, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN16QStringListModel10insertRowsEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QStringListModel10insertRowsEiiRK11QModelIndex')
+    return self.uglySide.call(ritual, row, count, self._valueOf(parent))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -487,10 +494,11 @@ class QStringListModel(QAbstractListModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN16QStringListModel10removeRowsEiiRK11QModelIndex',
-        row, count, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN16QStringListModel10removeRowsEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QStringListModel10removeRowsEiiRK11QModelIndex')
+    return self.uglySide.call(ritual, row, count, self._valueOf(parent))
 
   @overload(QModelIndex, int, int, QModelIndex, int)
   def moveRows(
@@ -531,8 +539,12 @@ class QStringListModel(QAbstractListModel):
     #  bool QStringListModel::moveRows(const QModelIndex &sourceParent, int
     #      sourceRow, int count, const QModelIndex &destinationParent, int
     #      destinationChild)
+    ritual = 'ritual_ZN16QStringListModel8moveRowsERK11QModelIndexiiS2_i'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QStringListModel8moveRowsERK11QModelIndexiiS2_i')
     return self.uglySide.call(
-        'ritual_ZN16QStringListModel8moveRowsERK11QModelIndexiiS2_i',
+        ritual,
         self._valueOf(sourceParent), sourceRow, count,
         self._valueOf(destinationParent), destinationChild,
     )
@@ -561,7 +573,7 @@ class QStringListModel(QAbstractListModel):
       Qt.SortOrder.AscendingOrder.
     """
     #  void QStringListModel::sort(int column, Qt::SortOrder order)
-    self.uglySide.call(
-        'ritual_ZN16QStringListModel4sortEiN2Qt9SortOrderE',
-        column, order.value,
-    )
+    ritual = 'ritual_ZN16QStringListModel4sortEiN2Qt9SortOrderE'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QStringListModel4sortEiN2Qt9SortOrderE'
+    self.uglySide.call(ritual, column, order.value)

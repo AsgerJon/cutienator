@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK14QIconDragEvent5cloneEv": ["address", "address"],
     "ritual_ZN14QIconDragEventD1Ev": ["nothing", "address"],
-    "ritual_ZN14QIconDragEventC1Ev": ["address"]
+    "ritual_ZN14QIconDragEventC1Ev": ["address"],
+    "ritual_take_QIconDragEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QIconDragEvent5cloneEv": ["address", "address"]
   }
 }

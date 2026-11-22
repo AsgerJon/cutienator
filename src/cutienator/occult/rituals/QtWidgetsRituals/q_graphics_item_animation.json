@@ -66,6 +66,15 @@
     "ritual_ZN22QGraphicsItemAnimation5clearEv": ["nothing", "address"],
     "ritual_ZN22QGraphicsItemAnimation7setStepEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_take_QGraphicsItemAnimation": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QGraphicsItemAnimation19beforeAnimationStepEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN22QGraphicsItemAnimation18afterAnimationStepEd": [
+      "nothing", "address", "double"
     ]
   }
 }

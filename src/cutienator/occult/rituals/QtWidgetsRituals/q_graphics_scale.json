@@ -29,6 +29,10 @@
     ],
     "ritual_ZNK14QGraphicsScale7applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QGraphicsScale": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QGraphicsScale7applyToEP10QMatrix4x4": [
+      "nothing", "address", "address"
     ]
   }
 }

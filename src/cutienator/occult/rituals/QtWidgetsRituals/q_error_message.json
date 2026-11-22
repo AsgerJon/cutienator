@@ -14,6 +14,11 @@
     ],
     "ritual_ZN13QErrorMessage11showMessageERK7QStringS2_": [
       "nothing", "address", "text", "text"
+    ],
+    "ritual_take_QErrorMessage": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QErrorMessage4doneEi": ["nothing", "address", "int"],
+    "ritual_own_ZN13QErrorMessage11changeEventEP6QEvent": [
+      "nothing", "address", "address"
     ]
   }
 }

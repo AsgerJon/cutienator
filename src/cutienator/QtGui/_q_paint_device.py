@@ -12,13 +12,24 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, CuteNum, MetaCute
+from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QPaintEngine
+  from ..QtCore import QPoint
+  from . import QPaintEngine, QPainter
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPainter = WAIT['QPainter']
+  QPoint = WAIT['QPoint']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QPaintDevice(CuteMixin, metaclass=MetaCute):
@@ -30,12 +41,12 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPaintDevice that has a ritual and that Python can
-  call so far, 17 names in all: 'devType', 'paintingActive', 'paintEngine',
+  call so far, 21 names in all: 'devType', 'paintingActive', 'paintEngine',
   'width', 'height', 'widthMM', 'heightMM', 'logicalDpiX', 'logicalDpiY',
   'physicalDpiX', 'physicalDpiY', 'devicePixelRatio', 'devicePixelRatioF',
-  'colorCount', 'depth', 'devicePixelRatioFScale', 'encodeMetricF'. None can
-  be made from Python: one comes out of a function of another class that
-  gives one back.
+  'colorCount', 'depth', 'devicePixelRatioFScale', 'encodeMetricF', 'metric',
+  'initPainter', 'redirected', 'sharedPainter'. None can be made from Python:
+  one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -46,7 +57,7 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  8 of the 26 functions Qt declares: 6 protected; 2 forbidden.
+  4 of the 26 functions Qt declares: 2 protected; 2 forbidden.
 
   What to expect
   --------------
@@ -133,6 +144,54 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPaintDevice'
 
+  #  A C++ QPaintDevice Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPaintDevice'
+
+  #  The functions Qt calls itself that QPaintDevice is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'devType': (
+          ('_ZNK12QPaintDevice7devTypeEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'paintEngine': (
+          ('_ZNK12QPaintDevice11paintEngineEv',
+           ('address', 'address', 'QtGui:QPaintEngine'),
+           ()),
+      ),
+      'metric': (
+          ('_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE',
+           ('int', 'number', ''),
+           (
+               ('int', 'enum', 'QtGui:QPaintDevice.PaintDeviceMetric'),
+           )),
+      ),
+      'initPainter': (
+          ('_ZNK12QPaintDevice11initPainterEP8QPainter',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+           )),
+      ),
+      'redirected': (
+          ('_ZNK12QPaintDevice10redirectedEP6QPoint',
+           ('address', 'address', 'QtGui:QPaintDevice'),
+           (
+               ('address', 'address', 'QtCore:QPoint'),
+           )),
+      ),
+      'sharedPainter': (
+          ('_ZNK12QPaintDevice13sharedPainterEv',
+           ('address', 'address', 'QtGui:QPainter'),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -152,7 +211,10 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#devType
     """
     #  int QPaintDevice::devType() const
-    return self._callAs('QPaintDevice', 'ritual_ZNK12QPaintDevice7devTypeEv')
+    ritual = 'ritual_ZNK12QPaintDevice7devTypeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QPaintDevice7devTypeEv'
+    return self._callAs('QPaintDevice', ritual)
 
   def paintingActive(self) -> bool:
     """
@@ -310,6 +372,76 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
     #  int QPaintDevice::depth() const
     return self._callAs('QPaintDevice', 'ritual_ZNK12QPaintDevice5depthEv')
 
+  @overload(PaintDeviceMetric)
+  def metric(self, metric: PaintDeviceMetric) -> int:
+    """
+    Calls Qt's 'int QPaintDevice::metric(PaintDeviceMetric metric) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#metric
+
+    Parameters
+    ----------
+
+    metric : PaintDeviceMetric
+      Passed on as its number.
+    """
+    #  int QPaintDevice::metric(PaintDeviceMetric metric) const
+    return self._callAs(
+        'QPaintDevice',
+        'ritual_own_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE',
+        metric.value,
+    )
+
+  @overload(QPoint)
+  @overload(NoneType)
+  def redirected(self, offset: Optional[QPoint]) -> Optional[QPaintDevice]:
+    """
+    Calls Qt's 'QPaintDevice *QPaintDevice::redirected(QPoint *offset)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#redirected
+
+    Parameters
+    ----------
+
+    offset : Optional[QPoint]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    Optional[QPaintDevice]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintDevice *QPaintDevice::redirected(QPoint *offset) const
+    address = self._callAs(
+        'QPaintDevice', 'ritual_own_ZNK12QPaintDevice10redirectedEP6QPoint',
+        self._addressOf(offset),
+    )
+    return QPaintDevice._cuteAt(address)
+
+  def sharedPainter(self) -> Optional[QPainter]:
+    """
+    Calls Qt's 'QPainter *QPaintDevice::sharedPainter() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter
+
+    Returns
+    -------
+
+    Optional[QPainter]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPainter *QPaintDevice::sharedPainter() const
+    address = self._callAs(
+        'QPaintDevice', 'ritual_own_ZNK12QPaintDevice13sharedPainterEv',
+    )
+    from . import QPainter
+    return QPainter._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -345,3 +477,25 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QPainter)
+  @overload(NoneType)
+  def initPainter(self, painter: Optional[QPainter]) -> None:
+    """
+    Calls Qt's 'void QPaintDevice::initPainter(QPainter *painter) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#initPainter
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPaintDevice::initPainter(QPainter *painter) const
+    self._callAs(
+        'QPaintDevice',
+        'ritual_own_ZNK12QPaintDevice11initPainterEP8QPainter',
+        self._addressOf(painter),
+    )

@@ -14,21 +14,27 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QObject
 from . import QAbstractScrollArea, QTabWidget, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
-  from ..QtGui import QBrush
+  from ..QtCore import QChildEvent, QEvent, QMetaObject, QSize, QTimerEvent
+  from ..QtGui import QBrush, QPaintEvent, QResizeEvent, QShowEvent
   from . import QMdiSubWindow
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QBrush = WAIT['QBrush']
+  QChildEvent = WAIT['QChildEvent']
+  QEvent = WAIT['QEvent']
   QMdiSubWindow = WAIT['QMdiSubWindow']
+  QPaintEvent = WAIT['QPaintEvent']
+  QResizeEvent = WAIT['QResizeEvent']
+  QShowEvent = WAIT['QShowEvent']
+  QTimerEvent = WAIT['QTimerEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -47,7 +53,7 @@ class QMdiArea(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QMdiArea that has a ritual and that Python can call
-  so far, 33 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
+  so far, 43 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
   'currentSubWindow', 'activeSubWindow', 'addSubWindow', 'removeSubWindow',
   'background', 'setBackground', 'activationOrder', 'setActivationOrder',
   'setOption', 'testOption', 'setViewMode', 'viewMode', 'documentMode',
@@ -55,8 +61,10 @@ class QMdiArea(QAbstractScrollArea):
   'tabsMovable', 'setTabShape', 'tabShape', 'setTabPosition', 'tabPosition',
   'setActiveSubWindow', 'tileSubWindows', 'cascadeSubWindows',
   'closeActiveSubWindow', 'closeAllSubWindows', 'activateNextSubWindow',
-  'activatePreviousSubWindow'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'activatePreviousSubWindow', 'setupViewport', 'event', 'eventFilter',
+  'paintEvent', 'childEvent', 'resizeEvent', 'timerEvent', 'showEvent',
+  'viewportEvent', 'scrollContentsBy'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -67,9 +75,8 @@ class QMdiArea(QAbstractScrollArea):
   What has no ritual
   ------------------
 
-  20 of the 55 functions Qt declares: 10 protected; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1 a
-  signal.
+  10 of the 55 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 3 private; 2 forbidden; 1 a template; 1 a signal.
 
   What to expect
   --------------
@@ -170,6 +177,11 @@ class QMdiArea(QAbstractScrollArea):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QMdiArea'
 
+  #  A C++ QMdiArea Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QMdiArea'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -213,7 +225,10 @@ class QMdiArea(QAbstractScrollArea):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QMdiArea::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK8QMdiArea8sizeHintEv')
+    ritual = 'ritual_ZNK8QMdiArea8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK8QMdiArea8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -230,7 +245,10 @@ class QMdiArea(QAbstractScrollArea):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QMdiArea::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK8QMdiArea15minimumSizeHintEv')
+    ritual = 'ritual_ZNK8QMdiArea15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK8QMdiArea15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -771,3 +789,220 @@ class QMdiArea(QAbstractScrollArea):
     """
     #  void QMdiArea::activatePreviousSubWindow()
     self.uglySide.call('ritual_ZN8QMdiArea25activatePreviousSubWindowEv')
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def setupViewport(self, viewport: Optional[QWidget]) -> None:
+    """
+    Calls Qt's 'void QMdiArea::setupViewport(QWidget *viewport)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#setupViewport
+
+    Parameters
+    ----------
+
+    viewport : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMdiArea::setupViewport(QWidget *viewport)
+    self.uglySide.call(
+        'ritual_own_ZN8QMdiArea13setupViewportEP7QWidget',
+        self._addressOf(viewport),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QMdiArea::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QMdiArea::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN8QMdiArea5eventEP6QEvent', self._addressOf(event),
+    )
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(
+      self,
+      object: Optional[QObject],
+      event: Optional[QEvent],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QMdiArea::eventFilter(QObject *object, QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#eventFilter
+
+    Parameters
+    ----------
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QMdiArea::eventFilter(QObject *object, QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN8QMdiArea11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(object), self._addressOf(event),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, paintEvent: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QMdiArea::paintEvent(QPaintEvent *paintEvent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#paintEvent
+
+    Parameters
+    ----------
+
+    paintEvent : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMdiArea::paintEvent(QPaintEvent *paintEvent)
+    self.uglySide.call(
+        'ritual_own_ZN8QMdiArea10paintEventEP11QPaintEvent',
+        self._addressOf(paintEvent),
+    )
+
+  @overload(QChildEvent)
+  @overload(NoneType)
+  def childEvent(self, childEvent: Optional[QChildEvent]) -> None:
+    """
+    Calls Qt's 'void QMdiArea::childEvent(QChildEvent *childEvent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#childEvent
+
+    Parameters
+    ----------
+
+    childEvent : Optional[QChildEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMdiArea::childEvent(QChildEvent *childEvent)
+    self.uglySide.call(
+        'ritual_own_ZN8QMdiArea10childEventEP11QChildEvent',
+        self._addressOf(childEvent),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, resizeEvent: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QMdiArea::resizeEvent(QResizeEvent *resizeEvent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#resizeEvent
+
+    Parameters
+    ----------
+
+    resizeEvent : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMdiArea::resizeEvent(QResizeEvent *resizeEvent)
+    self.uglySide.call(
+        'ritual_own_ZN8QMdiArea11resizeEventEP12QResizeEvent',
+        self._addressOf(resizeEvent),
+    )
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, timerEvent: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QMdiArea::timerEvent(QTimerEvent *timerEvent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#timerEvent
+
+    Parameters
+    ----------
+
+    timerEvent : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMdiArea::timerEvent(QTimerEvent *timerEvent)
+    self.uglySide.call(
+        'ritual_own_ZN8QMdiArea10timerEventEP11QTimerEvent',
+        self._addressOf(timerEvent),
+    )
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, showEvent: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QMdiArea::showEvent(QShowEvent *showEvent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#showEvent
+
+    Parameters
+    ----------
+
+    showEvent : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMdiArea::showEvent(QShowEvent *showEvent)
+    self.uglySide.call(
+        'ritual_own_ZN8QMdiArea9showEventEP10QShowEvent',
+        self._addressOf(showEvent),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def viewportEvent(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QMdiArea::viewportEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#viewportEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QMdiArea::viewportEvent(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN8QMdiArea13viewportEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(int, int)
+  def scrollContentsBy(self, dx: int, dy: int) -> None:
+    """
+    Calls Qt's 'void QMdiArea::scrollContentsBy(int dx, int dy)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#scrollContentsBy
+
+    Parameters
+    ----------
+
+    dx : int
+      Passed on as it is.
+
+    dy : int
+      Passed on as it is.
+    """
+    #  void QMdiArea::scrollContentsBy(int dx, int dy)
+    self.uglySide.call('ritual_own_ZN8QMdiArea16scrollContentsByEii', dx, dy)

@@ -27,6 +27,18 @@
     "ritual_ZN11QLayoutItem12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
       "nothing", "address", "int"
     ],
-    "ritual_ZNK11QLayoutItem12controlTypesEv": ["int", "address"]
+    "ritual_ZNK11QLayoutItem12controlTypesEv": ["int", "address"],
+    "ritual_take_QLayoutItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QLayoutItem17hasHeightForWidthEv": ["bool", "address"],
+    "ritual_own_ZNK11QLayoutItem14heightForWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK11QLayoutItem21minimumHeightForWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN11QLayoutItem10invalidateEv": ["nothing", "address"],
+    "ritual_own_ZNK11QLayoutItem6widgetEv": ["address", "address"],
+    "ritual_own_ZN11QLayoutItem6layoutEv": ["address", "address"],
+    "ritual_own_ZN11QLayoutItem10spacerItemEv": ["address", "address"]
   }
 }

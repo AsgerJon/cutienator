@@ -18,12 +18,13 @@ from . import QIODevice, QIODeviceBase, QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QMetaObject
+  from . import QByteArray, QMetaMethod, QMetaObject
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
+  QMetaMethod = WAIT['QMetaMethod']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -42,9 +43,10 @@ class QBuffer(QIODevice):
   -----------
 
   Every function of Qt's QBuffer that has a ritual and that Python can call
-  so far, 13 names in all: 'metaObject', 'tr', 'buffer', 'setBuffer',
+  so far, 15 names in all: 'metaObject', 'tr', 'buffer', 'setBuffer',
   'setData', 'data', 'open', 'close', 'size', 'pos', 'seek', 'atEnd',
-  'canReadLine'. It can be made from Python, in 2 ways; see '__init__'.
+  'canReadLine', 'connectNotify', 'disconnectNotify'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -55,8 +57,8 @@ class QBuffer(QIODevice):
   What has no ritual
   ------------------
 
-  13 of the 30 functions Qt declares: 4 protected; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
+  11 of the 30 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 3 private; 2 protected; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -126,6 +128,21 @@ class QBuffer(QIODevice):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QBuffer'
+
+  #  A C++ QBuffer Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QBuffer'
+
+  #  The functions Qt calls itself that QBuffer is the first to declare and
+  #  that cannot be handed to Python yet, each as Qt declares it. A class of
+  #  a program that writes one of them anew is refused, since Qt would never
+  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'open': (
+          'bool QBuffer::open(OpenMode)',
+      ),
+  }
 
   #  Fallback Variables
 
@@ -198,7 +215,10 @@ class QBuffer(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qbuffer.html#size
     """
     #  qint64 QBuffer::size() const
-    return self.uglySide.call('ritual_ZNK7QBuffer4sizeEv')
+    ritual = 'ritual_ZNK7QBuffer4sizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QBuffer4sizeEv'
+    return self.uglySide.call(ritual)
 
   def pos(self) -> int:
     """
@@ -207,7 +227,10 @@ class QBuffer(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qbuffer.html#pos
     """
     #  qint64 QBuffer::pos() const
-    return self.uglySide.call('ritual_ZNK7QBuffer3posEv')
+    ritual = 'ritual_ZNK7QBuffer3posEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QBuffer3posEv'
+    return self.uglySide.call(ritual)
 
   def atEnd(self) -> bool:
     """
@@ -216,7 +239,10 @@ class QBuffer(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qbuffer.html#atEnd
     """
     #  bool QBuffer::atEnd() const
-    return self.uglySide.call('ritual_ZNK7QBuffer5atEndEv')
+    ritual = 'ritual_ZNK7QBuffer5atEndEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QBuffer5atEndEv'
+    return self.uglySide.call(ritual)
 
   def canReadLine(self) -> bool:
     """
@@ -225,7 +251,10 @@ class QBuffer(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qbuffer.html#canReadLine
     """
     #  bool QBuffer::canReadLine() const
-    return self.uglySide.call('ritual_ZNK7QBuffer11canReadLineEv')
+    ritual = 'ritual_ZNK7QBuffer11canReadLineEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QBuffer11canReadLineEv'
+    return self.uglySide.call(ritual)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -405,7 +434,10 @@ class QBuffer(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qbuffer.html#close
     """
     #  void QBuffer::close()
-    self.uglySide.call('ritual_ZN7QBuffer5closeEv')
+    ritual = 'ritual_ZN7QBuffer5closeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QBuffer5closeEv'
+    self.uglySide.call(ritual)
 
   @overload(int)
   def seek(self, off: int) -> bool:
@@ -421,4 +453,47 @@ class QBuffer(QIODevice):
       Passed on as it is.
     """
     #  bool QBuffer::seek(qint64 off)
-    return self.uglySide.call('ritual_ZN7QBuffer4seekEx', off)
+    ritual = 'ritual_ZN7QBuffer4seekEx'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QBuffer4seekEx'
+    return self.uglySide.call(ritual, off)
+
+  @overload(QMetaMethod)
+  def connectNotify(self, a0: QMetaMethod) -> None:
+    """
+    Calls Qt's 'void QBuffer::connectNotify(const QMetaMethod &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuffer.html#connectNotify
+
+    Parameters
+    ----------
+
+    a0 : QMetaMethod
+      Passed on as a value: Qt reads the C++ QMetaMethod, which stays
+      Python's own.
+    """
+    #  void QBuffer::connectNotify(const QMetaMethod &a0)
+    self.uglySide.call(
+        'ritual_own_ZN7QBuffer13connectNotifyERK11QMetaMethod',
+        self._valueOf(a0),
+    )
+
+  @overload(QMetaMethod)
+  def disconnectNotify(self, a0: QMetaMethod) -> None:
+    """
+    Calls Qt's 'void QBuffer::disconnectNotify(const QMetaMethod &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuffer.html#disconnectNotify
+
+    Parameters
+    ----------
+
+    a0 : QMetaMethod
+      Passed on as a value: Qt reads the C++ QMetaMethod, which stays
+      Python's own.
+    """
+    #  void QBuffer::disconnectNotify(const QMetaMethod &a0)
+    self.uglySide.call(
+        'ritual_own_ZN7QBuffer16disconnectNotifyERK11QMetaMethod',
+        self._valueOf(a0),
+    )

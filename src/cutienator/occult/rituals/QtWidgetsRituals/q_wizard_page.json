@@ -38,6 +38,12 @@
     "ritual_ZN11QWizardPage11cleanupPageEv": ["nothing", "address"],
     "ritual_ZN11QWizardPage12validatePageEv": ["bool", "address"],
     "ritual_ZNK11QWizardPage10isCompleteEv": ["bool", "address"],
-    "ritual_ZNK11QWizardPage6nextIdEv": ["int", "address"]
+    "ritual_ZNK11QWizardPage6nextIdEv": ["int", "address"],
+    "ritual_take_QWizardPage": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QWizardPage14initializePageEv": ["nothing", "address"],
+    "ritual_own_ZN11QWizardPage11cleanupPageEv": ["nothing", "address"],
+    "ritual_own_ZN11QWizardPage12validatePageEv": ["bool", "address"],
+    "ritual_own_ZNK11QWizardPage10isCompleteEv": ["bool", "address"],
+    "ritual_own_ZNK11QWizardPage6nextIdEv": ["int", "address"]
   }
 }

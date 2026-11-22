@@ -33,6 +33,7 @@
     ],
     "ritual_ZN14QTemporaryFile16createNativeFileERK7QString": [
       "address", "text"
-    ]
+    ],
+    "ritual_take_QTemporaryFile": ["bool", "address", "chars", "address"]
   }
 }

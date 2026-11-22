@@ -24,6 +24,7 @@
     ],
     "ritual_ZN12QInputDevice15primaryKeyboardERK7QString": [
       "address", "text"
-    ]
+    ],
+    "ritual_take_QInputDevice": ["bool", "address", "chars", "address"]
   }
 }

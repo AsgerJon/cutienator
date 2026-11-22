@@ -30,6 +30,7 @@
     "ritual_ZN13QSignalMapper3mapEv": ["nothing", "address"],
     "ritual_ZN13QSignalMapper3mapEP7QObject": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_take_QSignalMapper": ["bool", "address", "chars", "address"]
   }
 }

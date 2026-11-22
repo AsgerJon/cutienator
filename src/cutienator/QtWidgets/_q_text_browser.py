@@ -19,11 +19,17 @@ from . import QTextEdit, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QUrl, QVariant
+  from ..QtCore import QEvent, QMetaObject, QUrl, QVariant
+  from ..QtGui import QFocusEvent, QKeyEvent, QMouseEvent, QPaintEvent
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
+  QKeyEvent = WAIT['QKeyEvent']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QUrl = WAIT['QUrl']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -43,12 +49,14 @@ class QTextBrowser(QTextEdit):
   -----------
 
   Every function of Qt's QTextBrowser that has a ritual and that Python can
-  call so far, 21 names in all: 'metaObject', 'tr', 'source', 'sourceType',
+  call so far, 30 names in all: 'metaObject', 'tr', 'source', 'sourceType',
   'loadResource', 'isBackwardAvailable', 'isForwardAvailable',
   'clearHistory', 'historyTitle', 'historyUrl', 'backwardHistoryCount',
   'forwardHistoryCount', 'openExternalLinks', 'setOpenExternalLinks',
   'openLinks', 'setOpenLinks', 'setSource', 'backward', 'forward', 'home',
-  'reload'. It can be made from Python, in 1 way; see '__init__'.
+  'reload', 'event', 'keyPressEvent', 'mouseMoveEvent', 'mousePressEvent',
+  'mouseReleaseEvent', 'focusOutEvent', 'focusNextPrevChild', 'paintEvent',
+  'doSetSource'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,9 +67,8 @@ class QTextBrowser(QTextEdit):
   What has no ritual
   ------------------
 
-  25 of the 48 functions Qt declares: 9 protected; 6 a signal; 4 takes or
-  gives a type that cannot be passed yet; 3 private; 2 forbidden; 1 a
-  template.
+  16 of the 48 functions Qt declares: 6 a signal; 4 takes or gives a type
+  that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -133,6 +140,47 @@ class QTextBrowser(QTextEdit):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTextBrowser'
+
+  #  A C++ QTextBrowser Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTextBrowser'
+
+  #  The functions Qt calls itself that QTextBrowser is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'backward': (
+          ('_ZN12QTextBrowser8backwardEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'forward': (
+          ('_ZN12QTextBrowser7forwardEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'home': (
+          ('_ZN12QTextBrowser4homeEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'reload': (
+          ('_ZN12QTextBrowser6reloadEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'doSetSource': (
+          ('_ZN12QTextBrowser11doSetSourceERK4QUrlN13QTextDocument12Resourc'
+           'eTypeE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QUrl'),
+               ('int', 'enum', 'QtGui:QTextDocument.ResourceType'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -467,10 +515,10 @@ class QTextBrowser(QTextEdit):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QTextBrowser::loadResource(int type, const QUrl &name)
-    address = self.uglySide.call(
-        'ritual_ZN12QTextBrowser12loadResourceEiRK4QUrl',
-        type, self._valueOf(name),
-    )
+    ritual = 'ritual_ZN12QTextBrowser12loadResourceEiRK4QUrl'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTextBrowser12loadResourceEiRK4QUrl'
+    address = self.uglySide.call(ritual, type, self._valueOf(name))
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -490,7 +538,10 @@ class QTextBrowser(QTextEdit):
     Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#backward
     """
     #  void QTextBrowser::backward()
-    self.uglySide.call('ritual_ZN12QTextBrowser8backwardEv')
+    ritual = 'ritual_ZN12QTextBrowser8backwardEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTextBrowser8backwardEv'
+    self.uglySide.call(ritual)
 
   def forward(self) -> None:
     """
@@ -499,7 +550,10 @@ class QTextBrowser(QTextEdit):
     Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#forward
     """
     #  void QTextBrowser::forward()
-    self.uglySide.call('ritual_ZN12QTextBrowser7forwardEv')
+    ritual = 'ritual_ZN12QTextBrowser7forwardEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTextBrowser7forwardEv'
+    self.uglySide.call(ritual)
 
   def home(self) -> None:
     """
@@ -508,7 +562,10 @@ class QTextBrowser(QTextEdit):
     Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#home
     """
     #  void QTextBrowser::home()
-    self.uglySide.call('ritual_ZN12QTextBrowser4homeEv')
+    ritual = 'ritual_ZN12QTextBrowser4homeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTextBrowser4homeEv'
+    self.uglySide.call(ritual)
 
   def reload(self) -> None:
     """
@@ -517,4 +574,205 @@ class QTextBrowser(QTextEdit):
     Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#reload
     """
     #  void QTextBrowser::reload()
-    self.uglySide.call('ritual_ZN12QTextBrowser6reloadEv')
+    ritual = 'ritual_ZN12QTextBrowser6reloadEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTextBrowser6reloadEv'
+    self.uglySide.call(ritual)
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QTextBrowser::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QTextBrowser::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN12QTextBrowser5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, ev: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::keyPressEvent(QKeyEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTextBrowser::keyPressEvent(QKeyEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN12QTextBrowser13keyPressEventEP9QKeyEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, ev: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::mouseMoveEvent(QMouseEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTextBrowser::mouseMoveEvent(QMouseEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN12QTextBrowser14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, ev: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::mousePressEvent(QMouseEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTextBrowser::mousePressEvent(QMouseEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN12QTextBrowser15mousePressEventEP11QMouseEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, ev: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::mouseReleaseEvent(QMouseEvent *ev)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextbrowser.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTextBrowser::mouseReleaseEvent(QMouseEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN12QTextBrowser17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, ev: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::focusOutEvent(QFocusEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTextBrowser::focusOutEvent(QFocusEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN12QTextBrowser13focusOutEventEP11QFocusEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(bool)
+  def focusNextPrevChild(self, next: bool) -> bool:
+    """
+    Calls Qt's 'bool QTextBrowser::focusNextPrevChild(bool next)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextbrowser.html#focusNextPrevChild
+
+    Parameters
+    ----------
+
+    next : bool
+      Passed on as it is.
+    """
+    #  bool QTextBrowser::focusNextPrevChild(bool next)
+    return self.uglySide.call(
+        'ritual_own_ZN12QTextBrowser18focusNextPrevChildEb', next,
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, e: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::paintEvent(QPaintEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#paintEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTextBrowser::paintEvent(QPaintEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN12QTextBrowser10paintEventEP11QPaintEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QUrl)
+  @overload(QUrl, QTextDocument.ResourceType)
+  def doSetSource(
+      self,
+      name: QUrl,
+      type: QTextDocument.ResourceType = (
+          QTextDocument.ResourceType.UnknownResource),
+  ) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::doSetSource(const QUrl &name,
+    QTextDocument::ResourceType type)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#doSetSource
+
+    Parameters
+    ----------
+
+    name : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+
+    type : QTextDocument.ResourceType
+      Passed on as its number. May be left out, as in Qt: it is then
+      QTextDocument.ResourceType.UnknownResource.
+    """
+    #  void QTextBrowser::doSetSource(const QUrl &name,
+    #      QTextDocument::ResourceType type)
+    self.uglySide.call(
+        'ritual_own_ZN12QTextBrowser11doSetSourceERK4QUrlN13QTextDocument12'
+        'ResourceTypeE',
+        self._valueOf(name), type.value,
+    )

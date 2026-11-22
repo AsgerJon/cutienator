@@ -36,6 +36,14 @@
     "ritual_ZN10QLCDNumber10setBinModeEv": ["nothing", "address"],
     "ritual_ZN10QLCDNumber20setSmallDecimalPointEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_take_QLCDNumber": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QLCDNumber8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN10QLCDNumber5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN10QLCDNumber10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
     ]
   }
 }

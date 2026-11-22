@@ -11,6 +11,8 @@
     ],
     "ritual_ZNK11QFocusEvent8gotFocusEv": ["bool", "address"],
     "ritual_ZNK11QFocusEvent9lostFocusEv": ["bool", "address"],
-    "ritual_ZNK11QFocusEvent6reasonEv": ["int", "address"]
+    "ritual_ZNK11QFocusEvent6reasonEv": ["int", "address"],
+    "ritual_take_QFocusEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QFocusEvent5cloneEv": ["address", "address"]
   }
 }

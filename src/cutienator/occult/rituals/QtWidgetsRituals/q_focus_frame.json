@@ -11,6 +11,19 @@
     "ritual_ZN11QFocusFrame9setWidgetEP7QWidget": [
       "nothing", "address", "address"
     ],
-    "ritual_ZNK11QFocusFrame6widgetEv": ["address", "address"]
+    "ritual_ZNK11QFocusFrame6widgetEv": ["address", "address"],
+    "ritual_take_QFocusFrame": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QFocusFrame5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QFocusFrame11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN11QFocusFrame10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK11QFocusFrame15initStyleOptionEP12QStyleOption": [
+      "nothing", "address", "address"
+    ]
   }
 }

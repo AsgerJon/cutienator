@@ -7,6 +7,8 @@
     "ritual_ZNK15QStatusTipEvent5cloneEv": ["address", "address"],
     "ritual_ZN15QStatusTipEventD1Ev": ["nothing", "address"],
     "ritual_ZN15QStatusTipEventC1ERK7QString": ["address", "text"],
-    "ritual_ZNK15QStatusTipEvent3tipEv": ["text", "address"]
+    "ritual_ZNK15QStatusTipEvent3tipEv": ["text", "address"],
+    "ritual_take_QStatusTipEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QStatusTipEvent5cloneEv": ["address", "address"]
   }
 }

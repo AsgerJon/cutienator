@@ -16,6 +16,9 @@
     ],
     "ritual_ZN19QGraphicsSceneEvent12setTimestampEy": [
       "nothing", "address", "unsigned long long"
+    ],
+    "ritual_take_QGraphicsSceneEvent": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

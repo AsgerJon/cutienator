@@ -26,6 +26,7 @@
     "ritual_ZN9QTextList9setFormatERK15QTextListFormat": [
       "nothing", "address", "address"
     ],
-    "ritual_ZNK9QTextList6formatEv": ["address", "address"]
+    "ritual_ZNK9QTextList6formatEv": ["address", "address"],
+    "ritual_take_QTextList": ["bool", "address", "chars", "address"]
   }
 }

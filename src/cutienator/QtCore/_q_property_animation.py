@@ -13,17 +13,19 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import QObject, QVariantAnimation
+from . import QAbstractAnimation, QObject, QVariantAnimation
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QMetaObject
+  from . import QByteArray, QEvent, QMetaObject, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
+  QEvent = WAIT['QEvent']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -42,9 +44,10 @@ class QPropertyAnimation(QVariantAnimation):
   -----------
 
   Every function of Qt's QPropertyAnimation that has a ritual and that Python
-  can call so far, 6 names in all: 'metaObject', 'tr', 'targetObject',
-  'setTargetObject', 'propertyName', 'setPropertyName'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  can call so far, 9 names in all: 'metaObject', 'tr', 'targetObject',
+  'setTargetObject', 'propertyName', 'setPropertyName', 'event',
+  'updateCurrentValue', 'updateState'. It can be made from Python, in 2 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -55,8 +58,8 @@ class QPropertyAnimation(QVariantAnimation):
   What has no ritual
   ------------------
 
-  13 of the 22 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 private; 3 protected; 2 forbidden; 1 a template.
+  10 of the 22 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 3 private; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -128,6 +131,11 @@ class QPropertyAnimation(QVariantAnimation):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPropertyAnimation'
+
+  #  A C++ QPropertyAnimation Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPropertyAnimation'
 
   #  Fallback Variables
 
@@ -348,3 +356,77 @@ class QPropertyAnimation(QVariantAnimation):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QPropertyAnimation::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpropertyanimation.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QPropertyAnimation::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN18QPropertyAnimation5eventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QVariant)
+  def updateCurrentValue(self, value: QVariant) -> None:
+    """
+    Calls Qt's 'void QPropertyAnimation::updateCurrentValue(const QVariant
+    &value)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpropertyanimation.html#updateCurrentValue
+
+    Parameters
+    ----------
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+    """
+    #  void QPropertyAnimation::updateCurrentValue(const QVariant &value)
+    self.uglySide.call(
+        'ritual_own_ZN18QPropertyAnimation18updateCurrentValueERK8QVariant',
+        self._valueOf(value),
+    )
+
+  @overload(QAbstractAnimation.State, QAbstractAnimation.State)
+  def updateState(
+      self,
+      newState: QAbstractAnimation.State,
+      oldState: QAbstractAnimation.State,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QPropertyAnimation::updateState(QAbstractAnimation::State newState,
+    QAbstractAnimation::State oldState)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpropertyanimation.html#updateState
+
+    Parameters
+    ----------
+
+    newState : QAbstractAnimation.State
+      Passed on as its number.
+
+    oldState : QAbstractAnimation.State
+      Passed on as its number.
+    """
+    #  void QPropertyAnimation::updateState(QAbstractAnimation::State
+    #      newState, QAbstractAnimation::State oldState)
+    self.uglySide.call(
+        'ritual_own_ZN18QPropertyAnimation11updateStateEN18QAbstractAnimati'
+        'on5StateES1_',
+        newState.value, oldState.value,
+    )

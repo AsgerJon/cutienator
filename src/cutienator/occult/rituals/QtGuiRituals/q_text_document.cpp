@@ -13,6 +13,188 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qtextoption.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QTextDocument may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQTextDocument : QTextDocument {
+  using QTextDocument::createObject;
+  using QTextDocument::loadResource;
+};
+
+//  A QTextDocument that Python can take functions over in. Every QTextDocument
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQTextDocumentCall0)(const void *, int *);
+typedef void * (*CuteQTextDocumentCall1)(const void *, const QTextFormat *, int *);
+typedef const QVariant * (*CuteQTextDocumentCall2)(const void *, int, const QUrl *, int *);
+typedef bool (*CuteQTextDocumentCall3)(const void *, QEvent *, int *);
+typedef bool (*CuteQTextDocumentCall4)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQTextDocumentCall5)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQTextDocumentCall6)(const void *, QChildEvent *, int *);
+typedef void (*CuteQTextDocumentCall7)(const void *, QEvent *, int *);
+typedef void (*CuteQTextDocumentCall8)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQTextDocumentCall9)(const void *, const QMetaMethod *, int *);
+class CuteQTextDocument : public QTextDocument {
+public:
+  using QTextDocument::QTextDocument;
+  void *taken[10] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN13QTextDocument5clearEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QTextDocument12createObjectERK11QTextFormat")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QTextDocument12loadResourceEiRK4QUrl")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[9] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QTextDocument::clear()
+  void clear() override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQTextDocumentCall0 call = reinterpret_cast<CuteQTextDocumentCall0>(taken[0]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QTextDocument::clear();
+  }
+
+  //  QTextObject *QTextDocument::createObject(const QTextFormat &f)
+  QTextObject *createObject(const QTextFormat &f) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQTextDocumentCall1 call = reinterpret_cast<CuteQTextDocumentCall1>(taken[1]);
+      void * given = call(this, &f, &handled);
+      if (handled) return static_cast<QTextObject *>(given);
+    }
+    return QTextDocument::createObject(f);
+  }
+
+  //  QVariant QTextDocument::loadResource(int type, const QUrl &name)
+  QVariant loadResource(int type, const QUrl &name) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQTextDocumentCall2 call = reinterpret_cast<CuteQTextDocumentCall2>(taken[2]);
+      const QVariant * given = call(this, type, &name, &handled);
+      if (handled && given) return *given;
+    }
+    return QTextDocument::loadResource(type, name);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQTextDocumentCall3 call = reinterpret_cast<CuteQTextDocumentCall3>(taken[3]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQTextDocumentCall4 call = reinterpret_cast<CuteQTextDocumentCall4>(taken[4]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQTextDocumentCall5 call = reinterpret_cast<CuteQTextDocumentCall5>(taken[5]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQTextDocumentCall6 call = reinterpret_cast<CuteQTextDocumentCall6>(taken[6]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQTextDocumentCall7 call = reinterpret_cast<CuteQTextDocumentCall7>(taken[7]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQTextDocumentCall8 call = reinterpret_cast<CuteQTextDocumentCall8>(taken[8]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQTextDocumentCall9 call = reinterpret_cast<CuteQTextDocumentCall9>(taken[9]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QTextDocument::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -33,7 +215,7 @@ QString *ritual_ZN13QTextDocument2trEPKcS1_i(
 //  QTextDocument::QTextDocument(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QTextDocument *ritual_ZN13QTextDocumentC1EP7QObject(QObject *parent) {
-  return new QTextDocument(parent);
+  return new CuteQTextDocument(parent);
 }
 
 //  QTextDocument::QTextDocument(const QString &text, QObject *parent)
@@ -41,7 +223,7 @@ extern "C" Q_DECL_EXPORT
 QTextDocument *ritual_ZN13QTextDocumentC1ERK7QStringP7QObject(
     const QString *text,
     QObject *parent) {
-  return new QTextDocument(*text, parent);
+  return new CuteQTextDocument(*text, parent);
 }
 
 //  QTextDocument::~QTextDocument()
@@ -721,4 +903,41 @@ void ritual_ZN13QTextDocument14appendUndoItemEP17QAbstractUndoItem(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QTextDocument11setModifiedEb(QTextDocument *self, bool m) {
   self->setModified(m);
+}
+
+//  a Python function taken by a CuteQTextDocument, for the function named by
+//      the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QTextDocument(
+    QTextDocument *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQTextDocument *>(self)->take(key, call);
+}
+
+//  void QTextDocument::clear()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QTextDocument5clearEv(QTextDocument *self) {
+  self->QTextDocument::clear();
+}
+
+//  QTextObject *QTextDocument::createObject(const QTextFormat &f)
+extern "C" Q_DECL_EXPORT
+QTextObject *ritual_own_ZN13QTextDocument12createObjectERK11QTextFormat(
+    QTextDocument *self,
+    const QTextFormat *f) {
+  return static_cast<OwnQTextDocument *>(self)->OwnQTextDocument::createObject(
+      *f);
+}
+
+//  QVariant QTextDocument::loadResource(int type, const QUrl &name)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZN13QTextDocument12loadResourceEiRK4QUrl(
+    QTextDocument *self,
+    int type,
+    const QUrl *name) {
+  return new QVariant(
+      static_cast<OwnQTextDocument *>(self)->OwnQTextDocument::loadResource(
+          type,
+          *name));
 }

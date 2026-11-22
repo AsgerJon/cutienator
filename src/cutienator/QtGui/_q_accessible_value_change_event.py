@@ -80,6 +80,11 @@ class QAccessibleValueChangeEvent(QAccessibleEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleValueChangeEvent'
 
+  #  A C++ QAccessibleValueChangeEvent Python makes is of a C++ class of
+  #  ours, in which Python can take functions over. This ritual hands one
+  #  over; see 'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAccessibleValueChangeEvent'
+
   #  Fallback Variables
 
   #  Private Variables

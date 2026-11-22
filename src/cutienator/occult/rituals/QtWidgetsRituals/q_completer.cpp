@@ -4,6 +4,140 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qrect.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QCompleter may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQCompleter : QCompleter {
+  using QCompleter::eventFilter;
+  using QCompleter::event;
+};
+
+//  A QCompleter that Python can take functions over in. Every QCompleter
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef bool (*CuteQCompleterCall0)(const void *, QObject *, QEvent *, int *);
+typedef bool (*CuteQCompleterCall1)(const void *, QEvent *, int *);
+typedef void (*CuteQCompleterCall2)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQCompleterCall3)(const void *, QChildEvent *, int *);
+typedef void (*CuteQCompleterCall4)(const void *, QEvent *, int *);
+typedef void (*CuteQCompleterCall5)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQCompleterCall6)(const void *, const QMetaMethod *, int *);
+class CuteQCompleter : public QCompleter {
+public:
+  using QCompleter::QCompleter;
+  void *taken[7] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[6] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  bool QCompleter::eventFilter(QObject *o, QEvent *e)
+  bool eventFilter(QObject *o, QEvent *e) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQCompleterCall0 call = reinterpret_cast<CuteQCompleterCall0>(taken[0]);
+      bool given = call(this, o, e, &handled);
+      if (handled) return given;
+    }
+    return QCompleter::eventFilter(o, e);
+  }
+
+  //  bool QCompleter::event(QEvent *a0)
+  bool event(QEvent *a0) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQCompleterCall1 call = reinterpret_cast<CuteQCompleterCall1>(taken[1]);
+      bool given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QCompleter::event(a0);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQCompleterCall2 call = reinterpret_cast<CuteQCompleterCall2>(taken[2]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQCompleterCall3 call = reinterpret_cast<CuteQCompleterCall3>(taken[3]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQCompleterCall4 call = reinterpret_cast<CuteQCompleterCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQCompleterCall5 call = reinterpret_cast<CuteQCompleterCall5>(taken[5]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQCompleterCall6 call = reinterpret_cast<CuteQCompleterCall6>(taken[6]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QCompleter::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -24,7 +158,7 @@ QString *ritual_ZN10QCompleter2trEPKcS1_i(
 //  QCompleter::QCompleter(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QCompleter *ritual_ZN10QCompleterC1EP7QObject(QObject *parent) {
-  return new QCompleter(parent);
+  return new CuteQCompleter(parent);
 }
 
 //  QCompleter::QCompleter(QAbstractItemModel *model, QObject *parent)
@@ -32,7 +166,7 @@ extern "C" Q_DECL_EXPORT
 QCompleter *ritual_ZN10QCompleterC1EP18QAbstractItemModelP7QObject(
     QAbstractItemModel *model,
     QObject *parent) {
-  return new QCompleter(model, parent);
+  return new CuteQCompleter(model, parent);
 }
 
 //  QCompleter::~QCompleter()
@@ -260,4 +394,28 @@ QString *ritual_ZNK10QCompleter13pathFromIndexERK11QModelIndex(
     const QCompleter *self,
     const QModelIndex *index) {
   return new QString(self->pathFromIndex(*index));
+}
+
+//  a Python function taken by a CuteQCompleter, for the function named by
+//      the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QCompleter(QCompleter *self, const char *key, void *call) {
+  return static_cast<CuteQCompleter *>(self)->take(key, call);
+}
+
+//  bool QCompleter::eventFilter(QObject *o, QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN10QCompleter11eventFilterEP7QObjectP6QEvent(
+    QCompleter *self,
+    QObject *o,
+    QEvent *e) {
+  return static_cast<OwnQCompleter *>(self)->OwnQCompleter::eventFilter(
+      o,
+      e);
+}
+
+//  bool QCompleter::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN10QCompleter5eventEP6QEvent(QCompleter *self, QEvent *a0) {
+  return static_cast<OwnQCompleter *>(self)->OwnQCompleter::event(a0);
 }

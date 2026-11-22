@@ -8,6 +8,7 @@
     "ritual_ZN11QVBoxLayout2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN11QVBoxLayoutC1Ev": ["address"],
     "ritual_ZN11QVBoxLayoutC1EP7QWidget": ["address", "address"],
-    "ritual_ZN11QVBoxLayoutD1Ev": ["nothing", "address"]
+    "ritual_ZN11QVBoxLayoutD1Ev": ["nothing", "address"],
+    "ritual_take_QVBoxLayout": ["bool", "address", "chars", "address"]
   }
 }

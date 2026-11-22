@@ -17,6 +17,8 @@
     "ritual_ZNK11QEnterEvent7globalYEv": ["int", "address"],
     "ritual_ZNK11QEnterEvent8localPosEv": ["address", "address"],
     "ritual_ZNK11QEnterEvent9windowPosEv": ["address", "address"],
-    "ritual_ZNK11QEnterEvent9screenPosEv": ["address", "address"]
+    "ritual_ZNK11QEnterEvent9screenPosEv": ["address", "address"],
+    "ritual_take_QEnterEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QEnterEvent5cloneEv": ["address", "address"]
   }
 }

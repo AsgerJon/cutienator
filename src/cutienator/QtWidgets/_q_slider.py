@@ -21,11 +21,16 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtGui import QMouseEvent, QPaintEvent
+  from . import QStyleOptionSlider
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QEvent = WAIT['QEvent']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QStyleOptionSlider = WAIT['QStyleOptionSlider']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,9 +49,11 @@ class QSlider(QAbstractSlider):
   -----------
 
   Every function of Qt's QSlider that has a ritual and that Python can call
-  so far, 9 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
+  so far, 14 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
   'setTickPosition', 'tickPosition', 'setTickInterval', 'tickInterval',
-  'event'. It can be made from Python, in 2 ways; see '__init__'.
+  'event', 'paintEvent', 'mousePressEvent', 'mouseReleaseEvent',
+  'mouseMoveEvent', 'initStyleOption'. It can be made from Python, in 2 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,8 +64,8 @@ class QSlider(QAbstractSlider):
   What has no ritual
   ------------------
 
-  13 of the 25 functions Qt declares: 5 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 25 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -144,6 +151,25 @@ class QSlider(QAbstractSlider):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSlider'
 
+  #  A C++ QSlider Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QSlider'
+
+  #  The functions Qt calls itself that QSlider is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK7QSlider15initStyleOptionEP18QStyleOptionSlider',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionSlider'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -187,7 +213,10 @@ class QSlider(QAbstractSlider):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QSlider::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK7QSlider8sizeHintEv')
+    ritual = 'ritual_ZNK7QSlider8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QSlider8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -204,7 +233,10 @@ class QSlider(QAbstractSlider):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QSlider::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK7QSlider15minimumSizeHintEv')
+    ritual = 'ritual_ZNK7QSlider15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QSlider15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -375,6 +407,113 @@ class QSlider(QAbstractSlider):
       object.
     """
     #  bool QSlider::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_ZN7QSlider5eventEP6QEvent', self._addressOf(event),
+    ritual = 'ritual_ZN7QSlider5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QSlider5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, ev: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QSlider::paintEvent(QPaintEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#paintEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSlider::paintEvent(QPaintEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN7QSlider10paintEventEP11QPaintEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, ev: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QSlider::mousePressEvent(QMouseEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSlider::mousePressEvent(QMouseEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN7QSlider15mousePressEventEP11QMouseEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, ev: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QSlider::mouseReleaseEvent(QMouseEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSlider::mouseReleaseEvent(QMouseEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN7QSlider17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, ev: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QSlider::mouseMoveEvent(QMouseEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    ev : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSlider::mouseMoveEvent(QMouseEvent *ev)
+    self.uglySide.call(
+        'ritual_own_ZN7QSlider14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(ev),
+    )
+
+  @overload(QStyleOptionSlider)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOptionSlider]) -> None:
+    """
+    Calls Qt's 'void QSlider::initStyleOption(QStyleOptionSlider *option)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qslider.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionSlider]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSlider::initStyleOption(QStyleOptionSlider *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK7QSlider15initStyleOptionEP18QStyleOptionSlider',
+        self._addressOf(option),
     )

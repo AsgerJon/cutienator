@@ -86,6 +86,11 @@ class QWidgetItem(QLayoutItem):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QWidgetItem'
 
+  #  A C++ QWidgetItem Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QWidgetItem'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -111,7 +116,10 @@ class QWidgetItem(QLayoutItem):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QWidgetItem::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK11QWidgetItem8sizeHintEv')
+    ritual = 'ritual_ZNK11QWidgetItem8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWidgetItem8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -128,7 +136,10 @@ class QWidgetItem(QLayoutItem):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QWidgetItem::minimumSize() const
-    address = self.uglySide.call('ritual_ZNK11QWidgetItem11minimumSizeEv')
+    ritual = 'ritual_ZNK11QWidgetItem11minimumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWidgetItem11minimumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -145,7 +156,10 @@ class QWidgetItem(QLayoutItem):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QWidgetItem::maximumSize() const
-    address = self.uglySide.call('ritual_ZNK11QWidgetItem11maximumSizeEv')
+    ritual = 'ritual_ZNK11QWidgetItem11maximumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWidgetItem11maximumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -174,7 +188,10 @@ class QWidgetItem(QLayoutItem):
     Qt's own words: https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty
     """
     #  bool QWidgetItem::isEmpty() const
-    return self.uglySide.call('ritual_ZNK11QWidgetItem7isEmptyEv')
+    ritual = 'ritual_ZNK11QWidgetItem7isEmptyEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWidgetItem7isEmptyEv'
+    return self.uglySide.call(ritual)
 
   def geometry(self) -> QRect:
     """
@@ -189,7 +206,10 @@ class QWidgetItem(QLayoutItem):
       A new cute QRect around the copy Qt gave back. Python owns it.
     """
     #  QRect QWidgetItem::geometry() const
-    address = self.uglySide.call('ritual_ZNK11QWidgetItem8geometryEv')
+    ritual = 'ritual_ZNK11QWidgetItem8geometryEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWidgetItem8geometryEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -207,7 +227,10 @@ class QWidgetItem(QLayoutItem):
       no object.
     """
     #  QWidget *QWidgetItem::widget() const
-    address = self.uglySide.call('ritual_ZNK11QWidgetItem6widgetEv')
+    ritual = 'ritual_ZNK11QWidgetItem6widgetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWidgetItem6widgetEv'
+    address = self.uglySide.call(ritual)
     from . import QWidget
     return QWidget._cuteAt(address)
 
@@ -218,7 +241,10 @@ class QWidgetItem(QLayoutItem):
     Qt's own words: https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth
     """
     #  bool QWidgetItem::hasHeightForWidth() const
-    return self.uglySide.call('ritual_ZNK11QWidgetItem17hasHeightForWidthEv')
+    ritual = 'ritual_ZNK11QWidgetItem17hasHeightForWidthEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWidgetItem17hasHeightForWidthEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def heightForWidth(self, a0: int) -> int:
@@ -234,9 +260,10 @@ class QWidgetItem(QLayoutItem):
       Passed on as it is.
     """
     #  int QWidgetItem::heightForWidth(int a0) const
-    return self.uglySide.call(
-        'ritual_ZNK11QWidgetItem14heightForWidthEi', a0,
-    )
+    ritual = 'ritual_ZNK11QWidgetItem14heightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWidgetItem14heightForWidthEi'
+    return self.uglySide.call(ritual, a0)
 
   @overload(int)
   def minimumHeightForWidth(self, a0: int) -> int:
@@ -253,9 +280,10 @@ class QWidgetItem(QLayoutItem):
       Passed on as it is.
     """
     #  int QWidgetItem::minimumHeightForWidth(int a0) const
-    return self.uglySide.call(
-        'ritual_ZNK11QWidgetItem21minimumHeightForWidthEi', a0,
-    )
+    ritual = 'ritual_ZNK11QWidgetItem21minimumHeightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWidgetItem21minimumHeightForWidthEi'
+    return self.uglySide.call(ritual, a0)
 
   def controlTypes(self) -> QSizePolicy.ControlTypes:
     """
@@ -292,9 +320,10 @@ class QWidgetItem(QLayoutItem):
       Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
     """
     #  void QWidgetItem::setGeometry(const QRect &a0)
-    self.uglySide.call(
-        'ritual_ZN11QWidgetItem11setGeometryERK5QRect', self._valueOf(a0),
-    )
+    ritual = 'ritual_ZN11QWidgetItem11setGeometryERK5QRect'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QWidgetItem11setGeometryERK5QRect'
+    self.uglySide.call(ritual, self._valueOf(a0))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

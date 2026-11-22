@@ -20,15 +20,25 @@ from . import QAbstractItemView, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QAbstractItemModel, QByteArray, QMetaObject, QPoint
-  from ..QtCore import QSize
+  from ..QtCore import QAbstractItemModel, QByteArray, QEvent, QItemSelection
+  from ..QtCore import QMetaObject, QModelIndex, QPoint, QRect, QSize
+  from ..QtGui import QMouseEvent, QPaintEvent, QPainter, QRegion
+  from . import QStyleOptionHeader
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAbstractItemModel = WAIT['QAbstractItemModel']
   QByteArray = WAIT['QByteArray']
+  QEvent = WAIT['QEvent']
+  QItemSelection = WAIT['QItemSelection']
+  QModelIndex = WAIT['QModelIndex']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QPainter = WAIT['QPainter']
   QPoint = WAIT['QPoint']
+  QRect = WAIT['QRect']
+  QStyleOptionHeader = WAIT['QStyleOptionHeader']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -47,7 +57,7 @@ class QHeaderView(QAbstractItemView):
   -----------
 
   Every function of Qt's QHeaderView that has a ritual and that Python can
-  call so far, 69 names in all: 'metaObject', 'tr', 'setModel',
+  call so far, 90 names in all: 'metaObject', 'tr', 'setModel',
   'orientation', 'offset', 'length', 'sizeHint', 'setVisible',
   'sectionSizeHint', 'visualIndexAt', 'logicalIndexAt', 'sectionSize',
   'sectionPosition', 'sectionViewportPosition', 'moveSection',
@@ -68,7 +78,14 @@ class QHeaderView(QAbstractItemView):
   'defaultAlignment', 'setDefaultAlignment', 'doItemsLayout',
   'sectionsMoved', 'sectionsHidden', 'saveState', 'restoreState', 'reset',
   'setOffset', 'setOffsetToSectionPosition', 'setOffsetToLastSection',
-  'headerDataChanged'. It can be made from Python, in 1 way; see '__init__'.
+  'headerDataChanged', 'currentChanged', 'event', 'paintEvent',
+  'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
+  'mouseDoubleClickEvent', 'viewportEvent', 'paintSection',
+  'sectionSizeFromContents', 'horizontalOffset', 'verticalOffset',
+  'updateGeometries', 'scrollContentsBy', 'rowsInserted', 'visualRect',
+  'scrollTo', 'indexAt', 'isIndexHidden', 'visualRegionForSelection',
+  'initStyleOptionForIndex'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -79,7 +96,7 @@ class QHeaderView(QAbstractItemView):
   What has no ritual
   ------------------
 
-  53 of the 127 functions Qt declares: 33 protected; 11 a signal; 4 private;
+  32 of the 127 functions Qt declares: 12 protected; 11 a signal; 4 private;
   2 takes or gives a type that cannot be passed yet; 2 forbidden; 1 a
   template.
 
@@ -169,6 +186,50 @@ class QHeaderView(QAbstractItemView):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QHeaderView'
 
+  #  A C++ QHeaderView Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QHeaderView'
+
+  #  The functions Qt calls itself that QHeaderView is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'paintSection': (
+          ('_ZNK11QHeaderView12paintSectionEP8QPainterRK5QRecti',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'value', 'QtCore:QRect'),
+               ('int', 'number', ''),
+           )),
+      ),
+      'sectionSizeFromContents': (
+          ('_ZNK11QHeaderView23sectionSizeFromContentsEi',
+           ('address', 'value', 'QtCore:QSize'),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'initStyleOptionForIndex': (
+          ('_ZNK11QHeaderView23initStyleOptionForIndexEP18QStyleOptionHeade'
+           'ri',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionHeader'),
+               ('int', 'number', ''),
+           )),
+      ),
+      'initStyleOption': (
+          ('_ZNK11QHeaderView15initStyleOptionEP18QStyleOptionHeader',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionHeader'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -249,7 +310,10 @@ class QHeaderView(QAbstractItemView):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QHeaderView::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK11QHeaderView8sizeHintEv')
+    ritual = 'ritual_ZNK11QHeaderView8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QHeaderView8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -737,6 +801,166 @@ class QHeaderView(QAbstractItemView):
     from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
 
+  @overload(int)
+  def sectionSizeFromContents(self, logicalIndex: int) -> QSize:
+    """
+    Calls Qt's 'QSize QHeaderView::sectionSizeFromContents(int logicalIndex)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents
+
+    Parameters
+    ----------
+
+    logicalIndex : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QHeaderView::sectionSizeFromContents(int logicalIndex) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK11QHeaderView23sectionSizeFromContentsEi',
+        logicalIndex,
+    )
+    from ..QtCore import QSize
+    return QSize._cuteOwning(address)
+
+  def horizontalOffset(self) -> int:
+    """
+    Calls Qt's 'int QHeaderView::horizontalOffset() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset
+    """
+    #  int QHeaderView::horizontalOffset() const
+    return self.uglySide.call(
+        'ritual_own_ZNK11QHeaderView16horizontalOffsetEv',
+    )
+
+  def verticalOffset(self) -> int:
+    """
+    Calls Qt's 'int QHeaderView::verticalOffset() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#verticalOffset
+    """
+    #  int QHeaderView::verticalOffset() const
+    return self.uglySide.call(
+        'ritual_own_ZNK11QHeaderView14verticalOffsetEv',
+    )
+
+  @overload(QModelIndex)
+  def visualRect(self, index: QModelIndex) -> QRect:
+    """
+    Calls Qt's 'QRect QHeaderView::visualRect(const QModelIndex &index)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#visualRect
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QRect
+      A new cute QRect around the copy Qt gave back. Python owns it.
+    """
+    #  QRect QHeaderView::visualRect(const QModelIndex &index) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK11QHeaderView10visualRectERK11QModelIndex',
+        self._valueOf(index),
+    )
+    from ..QtCore import QRect
+    return QRect._cuteOwning(address)
+
+  @overload(QPoint)
+  def indexAt(self, p: QPoint) -> QModelIndex:
+    """
+    Calls Qt's 'QModelIndex QHeaderView::indexAt(const QPoint &p) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#indexAt
+
+    Parameters
+    ----------
+
+    p : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QModelIndex
+      A new cute QModelIndex around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndex QHeaderView::indexAt(const QPoint &p) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK11QHeaderView7indexAtERK6QPoint', self._valueOf(p),
+    )
+    from ..QtCore import QModelIndex
+    return QModelIndex._cuteOwning(address)
+
+  @overload(QModelIndex)
+  def isIndexHidden(self, index: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool QHeaderView::isIndexHidden(const QModelIndex &index)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QHeaderView::isIndexHidden(const QModelIndex &index) const
+    return self.uglySide.call(
+        'ritual_own_ZNK11QHeaderView13isIndexHiddenERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  @overload(QItemSelection)
+  def visualRegionForSelection(self, selection: QItemSelection) -> QRegion:
+    """
+    Calls Qt's 'QRegion QHeaderView::visualRegionForSelection(const
+    QItemSelection &selection) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection
+
+    Parameters
+    ----------
+
+    selection : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QHeaderView::visualRegionForSelection(const QItemSelection
+    #      &selection) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK11QHeaderView24visualRegionForSelectionERK14QItemSel'
+        'ection',
+        self._valueOf(selection),
+    )
+    from ..QtGui import QRegion
+    return QRegion._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -757,10 +981,10 @@ class QHeaderView(QAbstractItemView):
       object.
     """
     #  void QHeaderView::setModel(QAbstractItemModel *model)
-    self.uglySide.call(
-        'ritual_ZN11QHeaderView8setModelEP18QAbstractItemModel',
-        self._addressOf(model),
-    )
+    ritual = 'ritual_ZN11QHeaderView8setModelEP18QAbstractItemModel'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QHeaderView8setModelEP18QAbstractItemModel'
+    self.uglySide.call(ritual, self._addressOf(model))
 
   @overload(bool)
   def setVisible(self, v: bool) -> None:
@@ -776,7 +1000,10 @@ class QHeaderView(QAbstractItemView):
       Passed on as it is.
     """
     #  void QHeaderView::setVisible(bool v)
-    self.uglySide.call('ritual_ZN11QHeaderView10setVisibleEb', v)
+    ritual = 'ritual_ZN11QHeaderView10setVisibleEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QHeaderView10setVisibleEb'
+    self.uglySide.call(ritual, v)
 
   @overload(int, bool)
   def setSectionHidden(self, logicalIndex: int, hide: bool) -> None:
@@ -1361,7 +1588,10 @@ class QHeaderView(QAbstractItemView):
     Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout
     """
     #  void QHeaderView::doItemsLayout()
-    self.uglySide.call('ritual_ZN11QHeaderView13doItemsLayoutEv')
+    ritual = 'ritual_ZN11QHeaderView13doItemsLayoutEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QHeaderView13doItemsLayoutEv'
+    self.uglySide.call(ritual)
 
   @overload(QByteArray)
   def restoreState(self, state: QByteArray) -> bool:
@@ -1390,7 +1620,10 @@ class QHeaderView(QAbstractItemView):
     Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#reset
     """
     #  void QHeaderView::reset()
-    self.uglySide.call('ritual_ZN11QHeaderView5resetEv')
+    ritual = 'ritual_ZN11QHeaderView5resetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QHeaderView5resetEv'
+    self.uglySide.call(ritual)
 
   @overload(Qt.Orientation, int, int)
   def headerDataChanged(
@@ -1422,4 +1655,330 @@ class QHeaderView(QAbstractItemView):
     self.uglySide.call(
         'ritual_ZN11QHeaderView17headerDataChangedEN2Qt11OrientationEii',
         orientation.value, logicalFirst, logicalLast,
+    )
+
+  @overload(QModelIndex, QModelIndex)
+  def currentChanged(self, current: QModelIndex, old: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QHeaderView::currentChanged(const QModelIndex &current,
+    const QModelIndex &old)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#currentChanged
+
+    Parameters
+    ----------
+
+    current : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    old : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QHeaderView::currentChanged(const QModelIndex &current, const
+    #      QModelIndex &old)
+    self.uglySide.call(
+        'ritual_own_ZN11QHeaderView14currentChangedERK11QModelIndexS2_',
+        self._valueOf(current), self._valueOf(old),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QHeaderView::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QHeaderView::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN11QHeaderView5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, e: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QHeaderView::paintEvent(QPaintEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#paintEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QHeaderView::paintEvent(QPaintEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN11QHeaderView10paintEventEP11QPaintEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QHeaderView::mousePressEvent(QMouseEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QHeaderView::mousePressEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN11QHeaderView15mousePressEventEP11QMouseEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QHeaderView::mouseMoveEvent(QMouseEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QHeaderView::mouseMoveEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN11QHeaderView14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QHeaderView::mouseReleaseEvent(QMouseEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QHeaderView::mouseReleaseEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN11QHeaderView17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseDoubleClickEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QHeaderView::mouseDoubleClickEvent(QMouseEvent *e)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QHeaderView::mouseDoubleClickEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN11QHeaderView21mouseDoubleClickEventEP11QMouseEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def viewportEvent(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QHeaderView::viewportEvent(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#viewportEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QHeaderView::viewportEvent(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN11QHeaderView13viewportEventEP6QEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QPainter, QRect, int)
+  @overload(NoneType, QRect, int)
+  def paintSection(
+      self,
+      painter: Optional[QPainter],
+      rect: QRect,
+      logicalIndex: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QHeaderView::paintSection(QPainter *painter, const QRect
+    &rect, int logicalIndex) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#paintSection
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    logicalIndex : int
+      Passed on as it is.
+    """
+    #  void QHeaderView::paintSection(QPainter *painter, const QRect &rect,
+    #      int logicalIndex) const
+    self.uglySide.call(
+        'ritual_own_ZNK11QHeaderView12paintSectionEP8QPainterRK5QRecti',
+        self._addressOf(painter), self._valueOf(rect), logicalIndex,
+    )
+
+  def updateGeometries(self) -> None:
+    """
+    Calls Qt's 'void QHeaderView::updateGeometries()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#updateGeometries
+    """
+    #  void QHeaderView::updateGeometries()
+    self.uglySide.call('ritual_own_ZN11QHeaderView16updateGeometriesEv')
+
+  @overload(int, int)
+  def scrollContentsBy(self, dx: int, dy: int) -> None:
+    """
+    Calls Qt's 'void QHeaderView::scrollContentsBy(int dx, int dy)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy
+
+    Parameters
+    ----------
+
+    dx : int
+      Passed on as it is.
+
+    dy : int
+      Passed on as it is.
+    """
+    #  void QHeaderView::scrollContentsBy(int dx, int dy)
+    self.uglySide.call(
+        'ritual_own_ZN11QHeaderView16scrollContentsByEii', dx, dy,
+    )
+
+  @overload(QModelIndex, int, int)
+  def rowsInserted(self, parent: QModelIndex, start: int, end: int) -> None:
+    """
+    Calls Qt's 'void QHeaderView::rowsInserted(const QModelIndex &parent, int
+    start, int end)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#rowsInserted
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    start : int
+      Passed on as it is.
+
+    end : int
+      Passed on as it is.
+    """
+    #  void QHeaderView::rowsInserted(const QModelIndex &parent, int start,
+    #      int end)
+    self.uglySide.call(
+        'ritual_own_ZN11QHeaderView12rowsInsertedERK11QModelIndexii',
+        self._valueOf(parent), start, end,
+    )
+
+  @overload(QModelIndex, QAbstractItemView.ScrollHint)
+  def scrollTo(
+      self,
+      index: QModelIndex,
+      hint: QAbstractItemView.ScrollHint,
+  ) -> None:
+    """
+    Calls Qt's 'void QHeaderView::scrollTo(const QModelIndex &index,
+    ScrollHint hint)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#scrollTo
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    hint : QAbstractItemView.ScrollHint
+      Passed on as its number.
+    """
+    #  void QHeaderView::scrollTo(const QModelIndex &index, ScrollHint hint)
+    self.uglySide.call(
+        'ritual_own_ZN11QHeaderView8scrollToERK11QModelIndexN17QAbstractIte'
+        'mView10ScrollHintE',
+        self._valueOf(index), hint.value,
+    )
+
+  @overload(QStyleOptionHeader, int)
+  @overload(NoneType, int)
+  def initStyleOptionForIndex(
+      self,
+      option: Optional[QStyleOptionHeader],
+      logicalIndex: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QHeaderView::initStyleOptionForIndex(QStyleOptionHeader
+    *option, int logicalIndex) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionHeader]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    logicalIndex : int
+      Passed on as it is.
+    """
+    #  void QHeaderView::initStyleOptionForIndex(QStyleOptionHeader *option,
+    #      int logicalIndex) const
+    self.uglySide.call(
+        'ritual_own_ZNK11QHeaderView23initStyleOptionForIndexEP18QStyleOpti'
+        'onHeaderi',
+        self._addressOf(option), logicalIndex,
     )

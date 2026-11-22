@@ -3,6 +3,68 @@
 #include <QtGui/qsurface.h>
 #include <QtGui/qsurfaceformat.h>
 #include <QtCore/qsize.h>
+#include <cstring>
+
+//  A QSurface that Python can take functions over in. Every QSurface
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef const QSurfaceFormat * (*CuteQSurfaceCall0)(const void *, int *);
+typedef int (*CuteQSurfaceCall1)(const void *, int *);
+typedef const QSize * (*CuteQSurfaceCall2)(const void *, int *);
+class CuteQSurface : public QSurface {
+public:
+  using QSurface::QSurface;
+  void *taken[3] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK8QSurface6formatEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK8QSurface11surfaceTypeEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK8QSurface4sizeEv")) {
+      taken[2] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QSurfaceFormat QSurface::format() const
+  QSurfaceFormat format() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQSurfaceCall0 call = reinterpret_cast<CuteQSurfaceCall0>(taken[0]);
+      const QSurfaceFormat * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+
+  //  SurfaceType QSurface::surfaceType() const
+  QSurface::SurfaceType surfaceType() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQSurfaceCall1 call = reinterpret_cast<CuteQSurfaceCall1>(taken[1]);
+      int given = call(this, &handled);
+      if (handled) return static_cast<QSurface::SurfaceType>(given);
+    }
+    return {};
+  }
+
+  //  QSize QSurface::size() const
+  QSize size() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQSurfaceCall2 call = reinterpret_cast<CuteQSurfaceCall2>(taken[2]);
+      const QSize * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+};
 
 //  QSurface::~QSurface()
 extern "C" Q_DECL_EXPORT
@@ -40,4 +102,11 @@ bool ritual_ZNK8QSurface14supportsOpenGLEv(const QSurface *self) {
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK8QSurface4sizeEv(const QSurface *self) {
   return new QSize(self->size());
+}
+
+//  a Python function taken by a CuteQSurface, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QSurface(QSurface *self, const char *key, void *call) {
+  return static_cast<CuteQSurface *>(self)->take(key, call);
 }

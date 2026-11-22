@@ -13,11 +13,128 @@
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qbytearray.h>
 #include <QtGui/qpixelformat.h>
+#include <cstring>
+
+//  Only a class built on QImage may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQImage : QImage {
+  using QImage::metric;
+};
+
+//  A QImage that Python can take functions over in. Every QImage
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef int (*CuteQImageCall0)(const void *, int *);
+typedef void * (*CuteQImageCall1)(const void *, int *);
+typedef int (*CuteQImageCall2)(const void *, int, int *);
+typedef void (*CuteQImageCall3)(const void *, QPainter *, int *);
+typedef void * (*CuteQImageCall4)(const void *, QPoint *, int *);
+typedef void * (*CuteQImageCall5)(const void *, int *);
+class CuteQImage : public QImage {
+public:
+  using QImage::QImage;
+  CuteQImage(const QImage &other) : QImage(other) {}
+  void *taken[6] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice10redirectedEP6QPoint")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
+      taken[5] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  int QImage::devType() const
+  int devType() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQImageCall0 call = reinterpret_cast<CuteQImageCall0>(taken[0]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QImage::devType();
+  }
+
+  //  QPaintEngine *QImage::paintEngine() const
+  QPaintEngine *paintEngine() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQImageCall1 call = reinterpret_cast<CuteQImageCall1>(taken[1]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPaintEngine *>(given);
+    }
+    return QImage::paintEngine();
+  }
+
+  //  int QImage::metric(PaintDeviceMetric metric) const
+  int metric(QPaintDevice::PaintDeviceMetric metric) const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQImageCall2 call = reinterpret_cast<CuteQImageCall2>(taken[2]);
+      int given = call(this, static_cast<int>(metric), &handled);
+      if (handled) return given;
+    }
+    return QImage::metric(metric);
+  }
+
+  //  void QPaintDevice::initPainter(QPainter *painter) const
+  void initPainter(QPainter *painter) const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQImageCall3 call = reinterpret_cast<CuteQImageCall3>(taken[3]);
+      call(this, painter, &handled);
+      if (handled) return;
+    }
+    QPaintDevice::initPainter(painter);
+  }
+
+  //  QPaintDevice *QPaintDevice::redirected(QPoint *offset) const
+  QPaintDevice *redirected(QPoint *offset) const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQImageCall4 call = reinterpret_cast<CuteQImageCall4>(taken[4]);
+      void * given = call(this, offset, &handled);
+      if (handled) return static_cast<QPaintDevice *>(given);
+    }
+    return QPaintDevice::redirected(offset);
+  }
+
+  //  QPainter *QPaintDevice::sharedPainter() const
+  QPainter *sharedPainter() const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQImageCall5 call = reinterpret_cast<CuteQImageCall5>(taken[5]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPainter *>(given);
+    }
+    return QPaintDevice::sharedPainter();
+  }
+};
 
 //  QImage::QImage()
 extern "C" Q_DECL_EXPORT
 QImage *ritual_ZN6QImageC1Ev() {
-  return new QImage();
+  return new CuteQImage();
 }
 
 //  QImage::QImage(const QSize &size, Format format)
@@ -25,7 +142,7 @@ extern "C" Q_DECL_EXPORT
 QImage *ritual_ZN6QImageC1ERK5QSizeNS_6FormatE(
     const QSize *size,
     QImage::Format format) {
-  return new QImage(*size, format);
+  return new CuteQImage(*size, format);
 }
 
 //  QImage::QImage(int width, int height, Format format)
@@ -34,7 +151,7 @@ QImage *ritual_ZN6QImageC1EiiNS_6FormatE(
     int width,
     int height,
     QImage::Format format) {
-  return new QImage(width, height, format);
+  return new CuteQImage(width, height, format);
 }
 
 //  QImage::QImage(const QString &fileName, const char *format)
@@ -42,13 +159,13 @@ extern "C" Q_DECL_EXPORT
 QImage *ritual_ZN6QImageC1ERK7QStringPKc(
     const QString *fileName,
     const char *format) {
-  return new QImage(*fileName, format);
+  return new CuteQImage(*fileName, format);
 }
 
 //  QImage::QImage(const QImage &a0)
 extern "C" Q_DECL_EXPORT
 QImage *ritual_ZN6QImageC1ERKS_(const QImage *a0) {
-  return new QImage(*a0);
+  return new CuteQImage(*a0);
 }
 
 //  QImage::~QImage()
@@ -801,4 +918,31 @@ extern "C" Q_DECL_EXPORT
 QImage::Format ritual_ZN6QImage13toImageFormatE12QPixelFormat(
     const QPixelFormat *format) {
   return QImage::toImageFormat(*format);
+}
+
+//  a Python function taken by a CuteQImage, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QImage(QImage *self, const char *key, void *call) {
+  return static_cast<CuteQImage *>(self)->take(key, call);
+}
+
+//  int QImage::devType() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK6QImage7devTypeEv(const QImage *self) {
+  return self->QImage::devType();
+}
+
+//  QPaintEngine *QImage::paintEngine() const
+extern "C" Q_DECL_EXPORT
+QPaintEngine *ritual_own_ZNK6QImage11paintEngineEv(const QImage *self) {
+  return self->QImage::paintEngine();
+}
+
+//  int QImage::metric(PaintDeviceMetric metric) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK6QImage6metricEN12QPaintDevice17PaintDeviceMetricE(
+    const QImage *self,
+    QPaintDevice::PaintDeviceMetric metric) {
+  return static_cast<const OwnQImage *>(self)->OwnQImage::metric(metric);
 }

@@ -57,6 +57,14 @@
     ],
     "ritual_ZN19QItemSelectionModel17clearCurrentIndexEv": [
       "nothing", "address"
+    ],
+    "ritual_take_QItemSelectionModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QItemSelectionModel5clearEv": ["nothing", "address"],
+    "ritual_own_ZN19QItemSelectionModel5resetEv": ["nothing", "address"],
+    "ritual_own_ZN19QItemSelectionModel17clearCurrentIndexEv": [
+      "nothing", "address"
     ]
   }
 }

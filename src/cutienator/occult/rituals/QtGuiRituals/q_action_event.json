@@ -10,6 +10,8 @@
       "address", "int", "address", "address"
     ],
     "ritual_ZNK12QActionEvent6actionEv": ["address", "address"],
-    "ritual_ZNK12QActionEvent6beforeEv": ["address", "address"]
+    "ritual_ZNK12QActionEvent6beforeEv": ["address", "address"],
+    "ritual_take_QActionEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QActionEvent5cloneEv": ["address", "address"]
   }
 }

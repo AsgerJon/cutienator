@@ -69,8 +69,8 @@ class QGridLayout(QLayout):
   What has no ritual
   ------------------
 
-  9 of the 53 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
+  8 of the 53 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -143,6 +143,11 @@ class QGridLayout(QLayout):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGridLayout'
 
+  #  A C++ QGridLayout Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGridLayout'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -186,7 +191,10 @@ class QGridLayout(QLayout):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QGridLayout::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK11QGridLayout8sizeHintEv')
+    ritual = 'ritual_ZNK11QGridLayout8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QGridLayout8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -203,7 +211,10 @@ class QGridLayout(QLayout):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QGridLayout::minimumSize() const
-    address = self.uglySide.call('ritual_ZNK11QGridLayout11minimumSizeEv')
+    ritual = 'ritual_ZNK11QGridLayout11minimumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QGridLayout11minimumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -220,7 +231,10 @@ class QGridLayout(QLayout):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QGridLayout::maximumSize() const
-    address = self.uglySide.call('ritual_ZNK11QGridLayout11maximumSizeEv')
+    ritual = 'ritual_ZNK11QGridLayout11maximumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QGridLayout11maximumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -249,7 +263,10 @@ class QGridLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qgridlayout.html#spacing
     """
     #  int QGridLayout::spacing() const
-    return self.uglySide.call('ritual_ZNK11QGridLayout7spacingEv')
+    ritual = 'ritual_ZNK11QGridLayout7spacingEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QGridLayout7spacingEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def rowStretch(self, row: int) -> int:
@@ -376,7 +393,10 @@ class QGridLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qgridlayout.html#hasHeightForWidth
     """
     #  bool QGridLayout::hasHeightForWidth() const
-    return self.uglySide.call('ritual_ZNK11QGridLayout17hasHeightForWidthEv')
+    ritual = 'ritual_ZNK11QGridLayout17hasHeightForWidthEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QGridLayout17hasHeightForWidthEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def heightForWidth(self, a0: int) -> int:
@@ -392,9 +412,10 @@ class QGridLayout(QLayout):
       Passed on as it is.
     """
     #  int QGridLayout::heightForWidth(int a0) const
-    return self.uglySide.call(
-        'ritual_ZNK11QGridLayout14heightForWidthEi', a0,
-    )
+    ritual = 'ritual_ZNK11QGridLayout14heightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QGridLayout14heightForWidthEi'
+    return self.uglySide.call(ritual, a0)
 
   @overload(int)
   def minimumHeightForWidth(self, a0: int) -> int:
@@ -411,9 +432,10 @@ class QGridLayout(QLayout):
       Passed on as it is.
     """
     #  int QGridLayout::minimumHeightForWidth(int a0) const
-    return self.uglySide.call(
-        'ritual_ZNK11QGridLayout21minimumHeightForWidthEi', a0,
-    )
+    ritual = 'ritual_ZNK11QGridLayout21minimumHeightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QGridLayout21minimumHeightForWidthEi'
+    return self.uglySide.call(ritual, a0)
 
   def expandingDirections(self) -> Qt.Orientations:
     """
@@ -472,7 +494,10 @@ class QGridLayout(QLayout):
       no object.
     """
     #  QLayoutItem *QGridLayout::itemAt(int index) const
-    address = self.uglySide.call('ritual_ZNK11QGridLayout6itemAtEi', index)
+    ritual = 'ritual_ZNK11QGridLayout6itemAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QGridLayout6itemAtEi'
+    address = self.uglySide.call(ritual, index)
     return QLayoutItem._cuteAt(address)
 
   @overload(int, int)
@@ -512,7 +537,10 @@ class QGridLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qgridlayout.html#count
     """
     #  int QGridLayout::count() const
-    return self.uglySide.call('ritual_ZNK11QGridLayout5countEv')
+    ritual = 'ritual_ZNK11QGridLayout5countEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QGridLayout5countEv'
+    return self.uglySide.call(ritual)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -570,7 +598,10 @@ class QGridLayout(QLayout):
       Passed on as it is.
     """
     #  void QGridLayout::setSpacing(int spacing)
-    self.uglySide.call('ritual_ZN11QGridLayout10setSpacingEi', spacing)
+    ritual = 'ritual_ZN11QGridLayout10setSpacingEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QGridLayout10setSpacingEi'
+    self.uglySide.call(ritual, spacing)
 
   @overload(int, int)
   def setRowStretch(self, row: int, stretch: int) -> None:
@@ -691,9 +722,10 @@ class QGridLayout(QLayout):
       Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
     """
     #  void QGridLayout::setGeometry(const QRect &a0)
-    self.uglySide.call(
-        'ritual_ZN11QGridLayout11setGeometryERK5QRect', self._valueOf(a0),
-    )
+    ritual = 'ritual_ZN11QGridLayout11setGeometryERK5QRect'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QGridLayout11setGeometryERK5QRect'
+    self.uglySide.call(ritual, self._valueOf(a0))
 
   @overload(int, Qt.Orientation)
   def setDefaultPositioning(self, n: int, orient: Qt.Orientation) -> None:
@@ -780,7 +812,10 @@ class QGridLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qgridlayout.html#invalidate
     """
     #  void QGridLayout::invalidate()
-    self.uglySide.call('ritual_ZN11QGridLayout10invalidateEv')
+    ritual = 'ritual_ZN11QGridLayout10invalidateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QGridLayout10invalidateEv'
+    self.uglySide.call(ritual)
 
   @overload(QWidget)
   @overload(NoneType)
@@ -1007,7 +1042,10 @@ class QGridLayout(QLayout):
       no object.
     """
     #  QLayoutItem *QGridLayout::takeAt(int index)
-    address = self.uglySide.call('ritual_ZN11QGridLayout6takeAtEi', index)
+    ritual = 'ritual_ZN11QGridLayout6takeAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QGridLayout6takeAtEi'
+    address = self.uglySide.call(ritual, index)
     return QLayoutItem._cuteAt(address)
 
   @overload(QLayoutItem, int, int)
@@ -1063,4 +1101,25 @@ class QGridLayout(QLayout):
         'gnmentFlagEE',
         self._addressOf(item, 'QLayoutItem'), row, column, rowSpan,
         columnSpan, a5.value,
+    )
+
+  @overload(QLayoutItem)
+  @overload(NoneType)
+  def addItem(self, a0: Optional[QLayoutItem]) -> None:
+    """
+    Calls Qt's 'void QGridLayout::addItem(QLayoutItem *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgridlayout.html#addItem
+
+    Parameters
+    ----------
+
+    a0 : Optional[QLayoutItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGridLayout::addItem(QLayoutItem *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QGridLayout7addItemEP11QLayoutItem',
+        self._addressOf(a0, 'QLayoutItem'),
     )

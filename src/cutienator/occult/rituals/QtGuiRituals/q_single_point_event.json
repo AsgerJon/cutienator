@@ -21,6 +21,13 @@
     ],
     "ritual_ZN17QSinglePointEvent24setExclusivePointGrabberEP7QObject": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_take_QSinglePointEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QSinglePointEvent5cloneEv": ["address", "address"],
+    "ritual_own_ZNK17QSinglePointEvent12isBeginEventEv": ["bool", "address"],
+    "ritual_own_ZNK17QSinglePointEvent13isUpdateEventEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK17QSinglePointEvent10isEndEventEv": ["bool", "address"]
   }
 }

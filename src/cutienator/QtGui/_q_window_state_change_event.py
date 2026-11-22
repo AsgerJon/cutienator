@@ -69,6 +69,11 @@ class QWindowStateChangeEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QWindowStateChangeEvent'
 
+  #  A C++ QWindowStateChangeEvent Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QWindowStateChangeEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -96,9 +101,10 @@ class QWindowStateChangeEvent(QEvent):
       no object.
     """
     #  QWindowStateChangeEvent *QWindowStateChangeEvent::clone() const
-    address = self.uglySide.call(
-        'ritual_ZNK23QWindowStateChangeEvent5cloneEv',
-    )
+    ritual = 'ritual_ZNK23QWindowStateChangeEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK23QWindowStateChangeEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QWindowStateChangeEvent._cuteAt(address)
 
   def oldState(self) -> Qt.WindowStates:

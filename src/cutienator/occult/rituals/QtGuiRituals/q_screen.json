@@ -52,6 +52,7 @@
     "ritual_ZN7QScreen10grabWindowEyiiii": [
       "address", "address", "unsigned long long", "int", "int", "int", "int"
     ],
-    "ritual_ZNK7QScreen11refreshRateEv": ["double", "address"]
+    "ritual_ZNK7QScreen11refreshRateEv": ["double", "address"],
+    "ritual_take_QScreen": ["bool", "address", "chars", "address"]
   }
 }

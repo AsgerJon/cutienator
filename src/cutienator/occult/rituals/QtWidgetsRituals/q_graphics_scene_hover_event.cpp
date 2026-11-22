@@ -2,12 +2,58 @@
 //  QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qgraphicssceneevent.h>
 #include <QtCore/qpoint.h>
+#include <cstring>
+
+//  A QGraphicsSceneHoverEvent that Python can take functions over in. Every QGraphicsSceneHoverEvent
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQGraphicsSceneHoverEventCall0)(const void *, bool, int *);
+typedef void * (*CuteQGraphicsSceneHoverEventCall1)(const void *, int *);
+class CuteQGraphicsSceneHoverEvent : public QGraphicsSceneHoverEvent {
+public:
+  using QGraphicsSceneHoverEvent::QGraphicsSceneHoverEvent;
+  void *taken[2] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
+      taken[1] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QEvent::setAccepted(bool accepted)
+  void setAccepted(bool accepted) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQGraphicsSceneHoverEventCall0 call = reinterpret_cast<CuteQGraphicsSceneHoverEventCall0>(taken[0]);
+      call(this, accepted, &handled);
+      if (handled) return;
+    }
+    QEvent::setAccepted(accepted);
+  }
+
+  //  QEvent *QEvent::clone() const
+  QEvent *clone() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQGraphicsSceneHoverEventCall1 call = reinterpret_cast<CuteQGraphicsSceneHoverEventCall1>(taken[1]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QEvent *>(given);
+    }
+    return QEvent::clone();
+  }
+};
 
 //  QGraphicsSceneHoverEvent::QGraphicsSceneHoverEvent(Type type)
 extern "C" Q_DECL_EXPORT
 QGraphicsSceneHoverEvent *ritual_ZN24QGraphicsSceneHoverEventC1EN6QEvent4TypeE(
     QEvent::Type type) {
-  return new QGraphicsSceneHoverEvent(type);
+  return new CuteQGraphicsSceneHoverEvent(type);
 }
 
 //  QGraphicsSceneHoverEvent::~QGraphicsSceneHoverEvent()
@@ -121,4 +167,14 @@ void ritual_ZN24QGraphicsSceneHoverEvent12setModifiersE6QFlagsIN2Qt16KeyboardMod
     QGraphicsSceneHoverEvent *self,
     int modifiers) {
   self->setModifiers(QFlags<Qt::KeyboardModifier>::fromInt(modifiers));
+}
+
+//  a Python function taken by a CuteQGraphicsSceneHoverEvent, for the
+//      function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QGraphicsSceneHoverEvent(
+    QGraphicsSceneHoverEvent *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQGraphicsSceneHoverEvent *>(self)->take(key, call);
 }

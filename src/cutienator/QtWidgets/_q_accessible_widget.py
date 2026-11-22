@@ -56,7 +56,7 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
   What has no ritual
   ------------------
 
-  10 of the 27 functions Qt declares: 4 takes or gives a type that cannot be
+  10 of the 26 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 4 protected; 2 forbidden.
 
   What to expect
@@ -93,6 +93,11 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
           'ritual_cast_QAccessibleWidget_QAccessibleActionInterface',
   }
 
+  #  A C++ QAccessibleWidget Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAccessibleWidget'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -112,7 +117,10 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
     Qt's own words: https://doc.qt.io/qt-6/qaccessiblewidget.html#isValid
     """
     #  bool QAccessibleWidget::isValid() const
-    return self.uglySide.call('ritual_ZNK17QAccessibleWidget7isValidEv')
+    ritual = 'ritual_ZNK17QAccessibleWidget7isValidEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleWidget7isValidEv'
+    return self.uglySide.call(ritual)
 
   def window(self) -> Optional[QWindow]:
     """
@@ -128,7 +136,10 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
       no object.
     """
     #  QWindow *QAccessibleWidget::window() const
-    address = self.uglySide.call('ritual_ZNK17QAccessibleWidget6windowEv')
+    ritual = 'ritual_ZNK17QAccessibleWidget6windowEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleWidget6windowEv'
+    address = self.uglySide.call(ritual)
     from ..QtGui import QWindow
     return QWindow._cuteAt(address)
 
@@ -139,7 +150,10 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
     Qt's own words: https://doc.qt.io/qt-6/qaccessiblewidget.html#childCount
     """
     #  int QAccessibleWidget::childCount() const
-    return self.uglySide.call('ritual_ZNK17QAccessibleWidget10childCountEv')
+    ritual = 'ritual_ZNK17QAccessibleWidget10childCountEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleWidget10childCountEv'
+    return self.uglySide.call(ritual)
 
   @overload(QAccessibleInterface)
   @overload(NoneType)
@@ -160,11 +174,14 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
     """
     #  int QAccessibleWidget::indexOfChild(const QAccessibleInterface *child)
     #      const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK17QAccessibleWidget12indexOfChildEPK20QAccessibleInterfa'
-        'ce',
-        self._addressOf(child),
-    )
+        'ce')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK17QAccessibleWidget12indexOfChildEPK20QAccessibleI'
+          'nterface')
+    return self.uglySide.call(ritual, self._addressOf(child))
 
   def focusChild(self) -> Optional[QAccessibleInterface]:
     """
@@ -180,9 +197,10 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
       no object.
     """
     #  QAccessibleInterface *QAccessibleWidget::focusChild() const
-    address = self.uglySide.call(
-        'ritual_ZNK17QAccessibleWidget10focusChildEv',
-    )
+    ritual = 'ritual_ZNK17QAccessibleWidget10focusChildEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleWidget10focusChildEv'
+    address = self.uglySide.call(ritual)
     return QAccessibleInterface._cuteAt(address)
 
   def rect(self) -> QRect:
@@ -198,7 +216,10 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
       A new cute QRect around the copy Qt gave back. Python owns it.
     """
     #  QRect QAccessibleWidget::rect() const
-    address = self.uglySide.call('ritual_ZNK17QAccessibleWidget4rectEv')
+    ritual = 'ritual_ZNK17QAccessibleWidget4rectEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleWidget4rectEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -216,7 +237,10 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
       no object.
     """
     #  QAccessibleInterface *QAccessibleWidget::parent() const
-    address = self.uglySide.call('ritual_ZNK17QAccessibleWidget6parentEv')
+    ritual = 'ritual_ZNK17QAccessibleWidget6parentEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleWidget6parentEv'
+    address = self.uglySide.call(ritual)
     return QAccessibleInterface._cuteAt(address)
 
   @overload(int)
@@ -241,9 +265,10 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
       no object.
     """
     #  QAccessibleInterface *QAccessibleWidget::child(int index) const
-    address = self.uglySide.call(
-        'ritual_ZNK17QAccessibleWidget5childEi', index,
-    )
+    ritual = 'ritual_ZNK17QAccessibleWidget5childEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleWidget5childEi'
+    address = self.uglySide.call(ritual, index)
     return QAccessibleInterface._cuteAt(address)
 
   @overload(QAccessible.Text)
@@ -285,9 +310,10 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
       gives.
     """
     #  QAccessible::Role QAccessibleWidget::role() const
-    return QAccessible.Role(self.uglySide.call(
-        'ritual_ZNK17QAccessibleWidget4roleEv',
-    ))
+    ritual = 'ritual_ZNK17QAccessibleWidget4roleEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleWidget4roleEv'
+    return QAccessible.Role(self.uglySide.call(ritual))
 
   def state(self) -> QAccessible.State:
     """
@@ -303,7 +329,10 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
       it.
     """
     #  QAccessible::State QAccessibleWidget::state() const
-    address = self.uglySide.call('ritual_ZNK17QAccessibleWidget5stateEv')
+    ritual = 'ritual_ZNK17QAccessibleWidget5stateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleWidget5stateEv'
+    address = self.uglySide.call(ritual)
     return QAccessible.State._cuteOwning(address)
 
   def foregroundColor(self) -> QColor:
@@ -320,9 +349,10 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
       A new cute QColor around the copy Qt gave back. Python owns it.
     """
     #  QColor QAccessibleWidget::foregroundColor() const
-    address = self.uglySide.call(
-        'ritual_ZNK17QAccessibleWidget15foregroundColorEv',
-    )
+    ritual = 'ritual_ZNK17QAccessibleWidget15foregroundColorEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleWidget15foregroundColorEv'
+    address = self.uglySide.call(ritual)
     from ..QtGui import QColor
     return QColor._cuteOwning(address)
 
@@ -340,9 +370,10 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
       A new cute QColor around the copy Qt gave back. Python owns it.
     """
     #  QColor QAccessibleWidget::backgroundColor() const
-    address = self.uglySide.call(
-        'ritual_ZNK17QAccessibleWidget15backgroundColorEv',
-    )
+    ritual = 'ritual_ZNK17QAccessibleWidget15backgroundColorEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAccessibleWidget15backgroundColorEv'
+    address = self.uglySide.call(ritual)
     from ..QtGui import QColor
     return QColor._cuteOwning(address)
 

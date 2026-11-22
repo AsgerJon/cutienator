@@ -109,6 +109,51 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTableWidgetItem'
 
+  #  A C++ QTableWidgetItem Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTableWidgetItem'
+
+  #  The functions Qt calls itself that QTableWidgetItem is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'read': (
+          'void QTableWidgetItem::read(QDataStream &)',
+      ),
+      'write': (
+          'void QTableWidgetItem::write(QDataStream &) const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QTableWidgetItem is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'clone': (
+          ('_ZNK16QTableWidgetItem5cloneEv',
+           ('address', 'address', 'QtWidgets:QTableWidgetItem'),
+           ()),
+      ),
+      'data': (
+          ('_ZNK16QTableWidgetItem4dataEi',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'setData': (
+          ('_ZN16QTableWidgetItem7setDataEiRK8QVariant',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QVariant'),
+           )),
+      ),
+  }
+
   #  Qt's '~QTableWidgetItem()'. Naming it makes this a value class: Python
   #  owns every C++ QTableWidgetItem behind a cute one, and removes it by
   #  this ritual.
@@ -140,7 +185,10 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QTableWidgetItem *QTableWidgetItem::clone() const
-    address = self.uglySide.call('ritual_ZNK16QTableWidgetItem5cloneEv')
+    ritual = 'ritual_ZNK16QTableWidgetItem5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QTableWidgetItem5cloneEv'
+    address = self.uglySide.call(ritual)
     return QTableWidgetItem._cuteAt(address)
 
   def tableWidget(self) -> Optional[QTableWidget]:
@@ -407,7 +455,10 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QTableWidgetItem::data(int role) const
-    address = self.uglySide.call('ritual_ZNK16QTableWidgetItem4dataEi', role)
+    ritual = 'ritual_ZNK16QTableWidgetItem4dataEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QTableWidgetItem4dataEi'
+    address = self.uglySide.call(ritual, role)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -709,10 +760,10 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QTableWidgetItem::setData(int role, const QVariant &value)
-    self.uglySide.call(
-        'ritual_ZN16QTableWidgetItem7setDataEiRK8QVariant',
-        role, self._valueOf(value),
-    )
+    ritual = 'ritual_ZN16QTableWidgetItem7setDataEiRK8QVariant'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QTableWidgetItem7setDataEiRK8QVariant'
+    self.uglySide.call(ritual, role, self._valueOf(value))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

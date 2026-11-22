@@ -113,6 +113,63 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QStandardItem'
 
+  #  A C++ QStandardItem Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QStandardItem'
+
+  #  The functions Qt calls itself that QStandardItem is the first to declare
+  #  and that cannot be handed to Python yet, each as Qt declares it. A class
+  #  of a program that writes one of them anew is refused, since Qt would
+  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'read': (
+          'void QStandardItem::read(QDataStream &)',
+      ),
+      'write': (
+          'void QStandardItem::write(QDataStream &) const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QStandardItem is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'data': (
+          ('_ZNK13QStandardItem4dataEi',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'multiData': (
+          ('_ZNK13QStandardItem9multiDataE18QModelRoleDataSpan',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QModelRoleDataSpan'),
+           )),
+      ),
+      'setData': (
+          ('_ZN13QStandardItem7setDataERK8QVarianti',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QVariant'),
+               ('int', 'number', ''),
+           )),
+      ),
+      'clone': (
+          ('_ZNK13QStandardItem5cloneEv',
+           ('address', 'address', 'QtGui:QStandardItem'),
+           ()),
+      ),
+      'type': (
+          ('_ZNK13QStandardItem4typeEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -146,7 +203,10 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QStandardItem::data(int role) const
-    address = self.uglySide.call('ritual_ZNK13QStandardItem4dataEi', role)
+    ritual = 'ritual_ZNK13QStandardItem4dataEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QStandardItem4dataEi'
+    address = self.uglySide.call(ritual, role)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -595,7 +655,10 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QStandardItem *QStandardItem::clone() const
-    address = self.uglySide.call('ritual_ZNK13QStandardItem5cloneEv')
+    ritual = 'ritual_ZNK13QStandardItem5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QStandardItem5cloneEv'
+    address = self.uglySide.call(ritual)
     return QStandardItem._cuteAt(address)
 
   def type(self) -> int:
@@ -605,7 +668,10 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#type
     """
     #  int QStandardItem::type() const
-    return self.uglySide.call('ritual_ZNK13QStandardItem4typeEv')
+    ritual = 'ritual_ZNK13QStandardItem4typeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QStandardItem4typeEv'
+    return self.uglySide.call(ritual)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -631,10 +697,10 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is. May be left out, as in Qt: it is then 257.
     """
     #  void QStandardItem::setData(const QVariant &value, int role)
-    self.uglySide.call(
-        'ritual_ZN13QStandardItem7setDataERK8QVarianti',
-        self._valueOf(value), role,
-    )
+    ritual = 'ritual_ZN13QStandardItem7setDataERK8QVarianti'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QStandardItem7setDataERK8QVarianti'
+    self.uglySide.call(ritual, self._valueOf(value), role)
 
   @overload(str)
   def setText(self, text: str) -> None:
@@ -1257,10 +1323,10 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
       Python's own.
     """
     #  void QStandardItem::multiData(QModelRoleDataSpan roleDataSpan) const
-    self.uglySide.call(
-        'ritual_ZNK13QStandardItem9multiDataE18QModelRoleDataSpan',
-        self._valueOf(roleDataSpan),
-    )
+    ritual = 'ritual_ZNK13QStandardItem9multiDataE18QModelRoleDataSpan'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QStandardItem9multiDataE18QModelRoleDataSpan'
+    self.uglySide.call(ritual, self._valueOf(roleDataSpan))
 
   def clearData(self) -> None:
     """

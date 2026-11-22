@@ -5,6 +5,172 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qtransform.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QGraphicsItemAnimation may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQGraphicsItemAnimation : QGraphicsItemAnimation {
+  using QGraphicsItemAnimation::beforeAnimationStep;
+  using QGraphicsItemAnimation::afterAnimationStep;
+};
+
+//  A QGraphicsItemAnimation that Python can take functions over in. Every QGraphicsItemAnimation
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQGraphicsItemAnimationCall0)(const void *, qreal, int *);
+typedef void (*CuteQGraphicsItemAnimationCall1)(const void *, qreal, int *);
+typedef bool (*CuteQGraphicsItemAnimationCall2)(const void *, QEvent *, int *);
+typedef bool (*CuteQGraphicsItemAnimationCall3)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQGraphicsItemAnimationCall4)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQGraphicsItemAnimationCall5)(const void *, QChildEvent *, int *);
+typedef void (*CuteQGraphicsItemAnimationCall6)(const void *, QEvent *, int *);
+typedef void (*CuteQGraphicsItemAnimationCall7)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQGraphicsItemAnimationCall8)(const void *, const QMetaMethod *, int *);
+class CuteQGraphicsItemAnimation : public QGraphicsItemAnimation {
+public:
+  using QGraphicsItemAnimation::QGraphicsItemAnimation;
+  void *taken[9] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN22QGraphicsItemAnimation19beforeAnimationStepEd")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QGraphicsItemAnimation18afterAnimationStepEd")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[8] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QGraphicsItemAnimation::beforeAnimationStep(qreal step)
+  void beforeAnimationStep(qreal step) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQGraphicsItemAnimationCall0 call = reinterpret_cast<CuteQGraphicsItemAnimationCall0>(taken[0]);
+      call(this, step, &handled);
+      if (handled) return;
+    }
+    QGraphicsItemAnimation::beforeAnimationStep(step);
+  }
+
+  //  void QGraphicsItemAnimation::afterAnimationStep(qreal step)
+  void afterAnimationStep(qreal step) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQGraphicsItemAnimationCall1 call = reinterpret_cast<CuteQGraphicsItemAnimationCall1>(taken[1]);
+      call(this, step, &handled);
+      if (handled) return;
+    }
+    QGraphicsItemAnimation::afterAnimationStep(step);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQGraphicsItemAnimationCall2 call = reinterpret_cast<CuteQGraphicsItemAnimationCall2>(taken[2]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQGraphicsItemAnimationCall3 call = reinterpret_cast<CuteQGraphicsItemAnimationCall3>(taken[3]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQGraphicsItemAnimationCall4 call = reinterpret_cast<CuteQGraphicsItemAnimationCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQGraphicsItemAnimationCall5 call = reinterpret_cast<CuteQGraphicsItemAnimationCall5>(taken[5]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQGraphicsItemAnimationCall6 call = reinterpret_cast<CuteQGraphicsItemAnimationCall6>(taken[6]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQGraphicsItemAnimationCall7 call = reinterpret_cast<CuteQGraphicsItemAnimationCall7>(taken[7]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQGraphicsItemAnimationCall8 call = reinterpret_cast<CuteQGraphicsItemAnimationCall8>(taken[8]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QGraphicsItemAnimation::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -26,7 +192,7 @@ QString *ritual_ZN22QGraphicsItemAnimation2trEPKcS1_i(
 extern "C" Q_DECL_EXPORT
 QGraphicsItemAnimation *ritual_ZN22QGraphicsItemAnimationC1EP7QObject(
     QObject *parent) {
-  return new QGraphicsItemAnimation(parent);
+  return new CuteQGraphicsItemAnimation(parent);
 }
 
 //  QGraphicsItemAnimation::~QGraphicsItemAnimation()
@@ -199,4 +365,32 @@ void ritual_ZN22QGraphicsItemAnimation7setStepEd(
     QGraphicsItemAnimation *self,
     qreal x) {
   self->setStep(x);
+}
+
+//  a Python function taken by a CuteQGraphicsItemAnimation, for the function
+//      named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QGraphicsItemAnimation(
+    QGraphicsItemAnimation *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQGraphicsItemAnimation *>(self)->take(key, call);
+}
+
+//  void QGraphicsItemAnimation::beforeAnimationStep(qreal step)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN22QGraphicsItemAnimation19beforeAnimationStepEd(
+    QGraphicsItemAnimation *self,
+    qreal step) {
+  static_cast<OwnQGraphicsItemAnimation *>(self)->OwnQGraphicsItemAnimation::beforeAnimationStep(
+      step);
+}
+
+//  void QGraphicsItemAnimation::afterAnimationStep(qreal step)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN22QGraphicsItemAnimation18afterAnimationStepEd(
+    QGraphicsItemAnimation *self,
+    qreal step) {
+  static_cast<OwnQGraphicsItemAnimation *>(self)->OwnQGraphicsItemAnimation::afterAnimationStep(
+      step);
 }

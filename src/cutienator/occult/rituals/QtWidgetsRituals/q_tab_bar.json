@@ -102,6 +102,56 @@
     "ritual_ZN7QTabBar20setAccessibleTabNameEiRK7QString": [
       "nothing", "address", "int", "text"
     ],
-    "ritual_ZN7QTabBar15setCurrentIndexEi": ["nothing", "address", "int"]
+    "ritual_ZN7QTabBar15setCurrentIndexEi": ["nothing", "address", "int"],
+    "ritual_take_QTabBar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK7QTabBar8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK7QTabBar15minimumSizeHintEv": ["address", "address"],
+    "ritual_own_ZNK7QTabBar11tabSizeHintEi": ["address", "address", "int"],
+    "ritual_own_ZNK7QTabBar18minimumTabSizeHintEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN7QTabBar11tabInsertedEi": ["nothing", "address", "int"],
+    "ritual_own_ZN7QTabBar10tabRemovedEi": ["nothing", "address", "int"],
+    "ritual_own_ZN7QTabBar15tabLayoutChangeEv": ["nothing", "address"],
+    "ritual_own_ZN7QTabBar5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_own_ZN7QTabBar11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QTabBar9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QTabBar9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QTabBar10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QTabBar15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QTabBar14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QTabBar17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QTabBar21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QTabBar10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QTabBar13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QTabBar11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QTabBar10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK7QTabBar15initStyleOptionEP15QStyleOptionTabi": [
+      "nothing", "address", "address", "int"
+    ]
   }
 }

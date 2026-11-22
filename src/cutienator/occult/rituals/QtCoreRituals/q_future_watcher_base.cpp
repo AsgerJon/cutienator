@@ -2,6 +2,14 @@
 //  QtCore/qfuturewatcher.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qfuturewatcher.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qmetaobject.h>
+
+//  Only a class built on QFutureWatcherBase may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQFutureWatcherBase : QFutureWatcherBase {
+  using QFutureWatcherBase::connectNotify;
+  using QFutureWatcherBase::disconnectNotify;
+};
 
 //  const QMetaObject *QFutureWatcherBase::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -171,4 +179,30 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QFutureWatcherBase12togglePausedEv(
     QFutureWatcherBase *self) {
   self->togglePaused();
+}
+
+//  bool QFutureWatcherBase::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN18QFutureWatcherBase5eventEP6QEvent(
+    QFutureWatcherBase *self,
+    QEvent *event) {
+  return self->QFutureWatcherBase::event(event);
+}
+
+//  void QFutureWatcherBase::connectNotify(const QMetaMethod &signal)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN18QFutureWatcherBase13connectNotifyERK11QMetaMethod(
+    QFutureWatcherBase *self,
+    const QMetaMethod *signal) {
+  static_cast<OwnQFutureWatcherBase *>(self)->OwnQFutureWatcherBase::connectNotify(
+      *signal);
+}
+
+//  void QFutureWatcherBase::disconnectNotify(const QMetaMethod &signal)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN18QFutureWatcherBase16disconnectNotifyERK11QMetaMethod(
+    QFutureWatcherBase *self,
+    const QMetaMethod *signal) {
+  static_cast<OwnQFutureWatcherBase *>(self)->OwnQFutureWatcherBase::disconnectNotify(
+      *signal);
 }

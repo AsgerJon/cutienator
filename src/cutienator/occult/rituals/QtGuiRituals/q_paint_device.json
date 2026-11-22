@@ -23,6 +23,18 @@
     "ritual_ZN12QPaintDevice22devicePixelRatioFScaleEv": ["double"],
     "ritual_ZN12QPaintDevice13encodeMetricFENS_17PaintDeviceMetricEd": [
       "int", "int", "double"
-    ]
+    ],
+    "ritual_take_QPaintDevice": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QPaintDevice7devTypeEv": ["int", "address"],
+    "ritual_own_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK12QPaintDevice11initPainterEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK12QPaintDevice10redirectedEP6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK12QPaintDevice13sharedPainterEv": ["address", "address"]
   }
 }

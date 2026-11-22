@@ -93,6 +93,54 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsLayoutItem'
 
+  #  A C++ QGraphicsLayoutItem Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsLayoutItem'
+
+  #  The functions Qt calls itself that QGraphicsLayoutItem is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'getContentsMargins': (
+          'void QGraphicsLayoutItem::getContentsMargins(qreal *, qreal *, '
+          'qreal *, qreal *) const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QGraphicsLayoutItem is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'setGeometry': (
+          ('_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QRectF'),
+           )),
+      ),
+      'updateGeometry': (
+          ('_ZN19QGraphicsLayoutItem14updateGeometryEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'isEmpty': (
+          ('_ZNK19QGraphicsLayoutItem7isEmptyEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'sizeHint': (
+          ('_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF',
+           ('address', 'value', 'QtCore:QSizeF'),
+           (
+               ('int', 'enum', 'QtCore:Qt.SizeHint'),
+               ('address', 'value', 'QtCore:QSizeF'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -357,9 +405,10 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty
     """
     #  bool QGraphicsLayoutItem::isEmpty() const
-    return self._callAs(
-        'QGraphicsLayoutItem', 'ritual_ZNK19QGraphicsLayoutItem7isEmptyEv',
-    )
+    ritual = 'ritual_ZNK19QGraphicsLayoutItem7isEmptyEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QGraphicsLayoutItem7isEmptyEv'
+    return self._callAs('QGraphicsLayoutItem', ritual)
 
   def parentLayoutItem(self) -> Optional[QGraphicsLayoutItem]:
     """
@@ -779,11 +828,10 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QGraphicsLayoutItem::setGeometry(const QRectF &rect)
-    self._callAs(
-        'QGraphicsLayoutItem',
-        'ritual_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF',
-        self._valueOf(rect),
-    )
+    ritual = 'ritual_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF'
+    self._callAs('QGraphicsLayoutItem', ritual, self._valueOf(rect))
 
   @overload(THIS)
   @overload(NoneType)
@@ -853,7 +901,7 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qgraphicslayoutitem.html#updateGeometry
     """
     #  void QGraphicsLayoutItem::updateGeometry()
-    self._callAs(
-        'QGraphicsLayoutItem',
-        'ritual_ZN19QGraphicsLayoutItem14updateGeometryEv',
-    )
+    ritual = 'ritual_ZN19QGraphicsLayoutItem14updateGeometryEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QGraphicsLayoutItem14updateGeometryEv'
+    self._callAs('QGraphicsLayoutItem', ritual)

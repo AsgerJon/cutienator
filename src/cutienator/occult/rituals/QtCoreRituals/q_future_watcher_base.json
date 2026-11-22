@@ -41,6 +41,15 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZN18QFutureWatcherBase5pauseEv": ["nothing", "address"],
-    "ritual_ZN18QFutureWatcherBase12togglePausedEv": ["nothing", "address"]
+    "ritual_ZN18QFutureWatcherBase12togglePausedEv": ["nothing", "address"],
+    "ritual_own_ZN18QFutureWatcherBase5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QFutureWatcherBase13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QFutureWatcherBase16disconnectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ]
   }
 }

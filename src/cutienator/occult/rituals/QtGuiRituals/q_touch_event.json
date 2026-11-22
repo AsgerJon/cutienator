@@ -10,6 +10,11 @@
     "ritual_ZNK11QTouchEvent16touchPointStatesEv": ["int", "address"],
     "ritual_ZNK11QTouchEvent12isBeginEventEv": ["bool", "address"],
     "ritual_ZNK11QTouchEvent13isUpdateEventEv": ["bool", "address"],
-    "ritual_ZNK11QTouchEvent10isEndEventEv": ["bool", "address"]
+    "ritual_ZNK11QTouchEvent10isEndEventEv": ["bool", "address"],
+    "ritual_take_QTouchEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QTouchEvent5cloneEv": ["address", "address"],
+    "ritual_own_ZNK11QTouchEvent12isBeginEventEv": ["bool", "address"],
+    "ritual_own_ZNK11QTouchEvent13isUpdateEventEv": ["bool", "address"],
+    "ritual_own_ZNK11QTouchEvent10isEndEventEv": ["bool", "address"]
   }
 }

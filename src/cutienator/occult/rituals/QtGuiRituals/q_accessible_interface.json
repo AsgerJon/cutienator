@@ -66,6 +66,19 @@
     ],
     "ritual_ZN20QAccessibleInterface17viewportInterfaceEv": [
       "address", "address"
+    ],
+    "ritual_take_QAccessibleInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QAccessibleInterface6windowEv": ["address", "address"],
+    "ritual_own_ZNK20QAccessibleInterface10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QAccessibleInterface15foregroundColorEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QAccessibleInterface15backgroundColorEv": [
+      "address", "address"
     ]
   }
 }

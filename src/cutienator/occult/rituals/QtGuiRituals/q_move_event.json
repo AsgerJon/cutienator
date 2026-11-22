@@ -10,6 +10,8 @@
       "address", "address", "address"
     ],
     "ritual_ZNK10QMoveEvent3posEv": ["address", "address"],
-    "ritual_ZNK10QMoveEvent6oldPosEv": ["address", "address"]
+    "ritual_ZNK10QMoveEvent6oldPosEv": ["address", "address"],
+    "ritual_take_QMoveEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QMoveEvent5cloneEv": ["address", "address"]
   }
 }

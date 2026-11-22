@@ -141,6 +141,24 @@ class QValidator(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QValidator'
 
+  #  A C++ QValidator Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QValidator'
+
+  #  The functions Qt calls itself that QValidator is the first to declare
+  #  and that cannot be handed to Python yet, each as Qt declares it. A class
+  #  of a program that writes one of them anew is refused, since Qt would
+  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'validate': (
+          'State QValidator::validate(QString &, int &) const',
+      ),
+      'fixup': (
+          'void QValidator::fixup(QString &) const',
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

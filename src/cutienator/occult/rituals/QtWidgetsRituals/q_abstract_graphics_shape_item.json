@@ -18,6 +18,15 @@
     ],
     "ritual_ZNK26QAbstractGraphicsShapeItem10opaqueAreaEv": [
       "address", "address"
+    ],
+    "ritual_take_QAbstractGraphicsShapeItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK26QAbstractGraphicsShapeItem12isObscuredByEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK26QAbstractGraphicsShapeItem10opaqueAreaEv": [
+      "address", "address"
     ]
   }
 }

@@ -11,6 +11,7 @@
     "ritual_ZN17QAccessiblePluginD1Ev": ["nothing", "address"],
     "ritual_ZN17QAccessiblePlugin6createERK7QStringP7QObject": [
       "address", "address", "text", "address"
-    ]
+    ],
+    "ritual_take_QAccessiblePlugin": ["bool", "address", "chars", "address"]
   }
 }

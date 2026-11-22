@@ -118,6 +118,34 @@
     ],
     "ritual_ZN13QDateTimeEdit7setTimeE5QTime": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QDateTimeEdit": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QDateTimeEdit8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN13QDateTimeEdit5clearEv": ["nothing", "address"],
+    "ritual_own_ZN13QDateTimeEdit6stepByEi": ["nothing", "address", "int"],
+    "ritual_own_ZN13QDateTimeEdit5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13QDateTimeEdit13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QDateTimeEdit10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QDateTimeEdit12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QDateTimeEdit18focusNextPrevChildEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_own_ZN13QDateTimeEdit15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QDateTimeEdit10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK13QDateTimeEdit15initStyleOptionEP19QStyleOptionSpinBox": [
+      "nothing", "address", "address"
     ]
   }
 }

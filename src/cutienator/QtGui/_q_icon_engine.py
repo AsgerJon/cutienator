@@ -205,6 +205,107 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QIconEngine'
 
+  #  A C++ QIconEngine Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QIconEngine'
+
+  #  The functions Qt calls itself that QIconEngine is the first to declare
+  #  and that cannot be handed to Python yet, each as Qt declares it. A class
+  #  of a program that writes one of them anew is refused, since Qt would
+  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'addFile': (
+          'void QIconEngine::addFile(const QString &, const QSize &, '
+          'QIcon::Mode, QIcon::State)',
+      ),
+      'key': (
+          'QString QIconEngine::key() const',
+      ),
+      'read': (
+          'bool QIconEngine::read(QDataStream &)',
+      ),
+      'write': (
+          'bool QIconEngine::write(QDataStream &) const',
+      ),
+      'availableSizes': (
+          'QList<QSize> QIconEngine::availableSizes(QIcon::Mode, '
+          'QIcon::State)',
+      ),
+      'iconName': (
+          'QString QIconEngine::iconName()',
+      ),
+      'virtual_hook': (
+          'void QIconEngine::virtual_hook(int, void *)',
+      ),
+  }
+
+  #  The functions Qt calls itself that QIconEngine is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'paint': (
+          ('_ZN11QIconEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5Stat'
+           'eE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'value', 'QtCore:QRect'),
+               ('int', 'enum', 'QtGui:QIcon.Mode'),
+               ('int', 'enum', 'QtGui:QIcon.State'),
+           )),
+      ),
+      'actualSize': (
+          ('_ZN11QIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE',
+           ('address', 'value', 'QtCore:QSize'),
+           (
+               ('address', 'value', 'QtCore:QSize'),
+               ('int', 'enum', 'QtGui:QIcon.Mode'),
+               ('int', 'enum', 'QtGui:QIcon.State'),
+           )),
+      ),
+      'pixmap': (
+          ('_ZN11QIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE',
+           ('address', 'value', 'QtGui:QPixmap'),
+           (
+               ('address', 'value', 'QtCore:QSize'),
+               ('int', 'enum', 'QtGui:QIcon.Mode'),
+               ('int', 'enum', 'QtGui:QIcon.State'),
+           )),
+      ),
+      'addPixmap': (
+          ('_ZN11QIconEngine9addPixmapERK7QPixmapN5QIcon4ModeENS3_5StateE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtGui:QPixmap'),
+               ('int', 'enum', 'QtGui:QIcon.Mode'),
+               ('int', 'enum', 'QtGui:QIcon.State'),
+           )),
+      ),
+      'clone': (
+          ('_ZNK11QIconEngine5cloneEv',
+           ('address', 'address', 'QtGui:QIconEngine'),
+           ()),
+      ),
+      'isNull': (
+          ('_ZN11QIconEngine6isNullEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'scaledPixmap': (
+          ('_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateE'
+           'd',
+           ('address', 'value', 'QtGui:QPixmap'),
+           (
+               ('address', 'value', 'QtCore:QSize'),
+               ('int', 'enum', 'QtGui:QIcon.Mode'),
+               ('int', 'enum', 'QtGui:QIcon.State'),
+               ('double', 'number', ''),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -358,10 +459,15 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QIconEngine::actualSize(const QSize &size, QIcon::Mode mode,
     #      QIcon::State state)
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZN11QIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5State'
-        'E',
-        self._valueOf(size), mode.value, state.value,
+        'E')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_'
+          '5StateE')
+    address = self.uglySide.call(
+        ritual, self._valueOf(size), mode.value, state.value,
     )
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
@@ -399,9 +505,13 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
     """
     #  QPixmap QIconEngine::pixmap(const QSize &size, QIcon::Mode mode,
     #      QIcon::State state)
+    ritual = 'ritual_ZN11QIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5Stat'
+          'eE')
     address = self.uglySide.call(
-        'ritual_ZN11QIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE',
-        self._valueOf(size), mode.value, state.value,
+        ritual, self._valueOf(size), mode.value, state.value,
     )
     from . import QPixmap
     return QPixmap._cuteOwning(address)
@@ -434,10 +544,15 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
     """
     #  void QIconEngine::addPixmap(const QPixmap &pixmap, QIcon::Mode mode,
     #      QIcon::State state)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN11QIconEngine9addPixmapERK7QPixmapN5QIcon4ModeENS3_5State'
-        'E',
-        self._valueOf(pixmap), mode.value, state.value,
+        'E')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QIconEngine9addPixmapERK7QPixmapN5QIcon4ModeENS3_'
+          '5StateE')
+    self.uglySide.call(
+        ritual, self._valueOf(pixmap), mode.value, state.value,
     )
 
   @overload(str, QSize, QIcon.Mode, QIcon.State)
@@ -499,7 +614,10 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qiconengine.html#isNull
     """
     #  bool QIconEngine::isNull()
-    return self.uglySide.call('ritual_ZN11QIconEngine6isNullEv')
+    ritual = 'ritual_ZN11QIconEngine6isNullEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QIconEngine6isNullEv'
+    return self.uglySide.call(ritual)
 
   @overload(QSize, QIcon.Mode, QIcon.State, float)
   def scaledPixmap(
@@ -538,10 +656,15 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
     """
     #  QPixmap QIconEngine::scaledPixmap(const QSize &size, QIcon::Mode mode,
     #      QIcon::State state, qreal scale)
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5Sta'
-        'teEd',
-        self._valueOf(size), mode.value, state.value, scale,
+        'teEd')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS'
+          '3_5StateEd')
+    address = self.uglySide.call(
+        ritual, self._valueOf(size), mode.value, state.value, scale,
     )
     from . import QPixmap
     return QPixmap._cuteOwning(address)

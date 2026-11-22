@@ -22,6 +22,10 @@
     "ritual_ZNK19QNativeGestureEvent9globalPosEv": ["address", "address"],
     "ritual_ZNK19QNativeGestureEvent8localPosEv": ["address", "address"],
     "ritual_ZNK19QNativeGestureEvent9windowPosEv": ["address", "address"],
-    "ritual_ZNK19QNativeGestureEvent9screenPosEv": ["address", "address"]
+    "ritual_ZNK19QNativeGestureEvent9screenPosEv": ["address", "address"],
+    "ritual_take_QNativeGestureEvent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QNativeGestureEvent5cloneEv": ["address", "address"]
   }
 }

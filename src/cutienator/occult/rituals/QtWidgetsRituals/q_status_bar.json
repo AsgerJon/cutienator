@@ -31,6 +31,19 @@
     "ritual_ZN10QStatusBar11showMessageERK7QStringi": [
       "nothing", "address", "text", "int"
     ],
-    "ritual_ZN10QStatusBar12clearMessageEv": ["nothing", "address"]
+    "ritual_ZN10QStatusBar12clearMessageEv": ["nothing", "address"],
+    "ritual_take_QStatusBar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QStatusBar9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QStatusBar10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QStatusBar11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QStatusBar5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
   }
 }

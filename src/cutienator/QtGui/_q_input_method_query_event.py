@@ -77,6 +77,11 @@ class QInputMethodQueryEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QInputMethodQueryEvent'
 
+  #  A C++ QInputMethodQueryEvent Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QInputMethodQueryEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -104,9 +109,10 @@ class QInputMethodQueryEvent(QEvent):
       no object.
     """
     #  QInputMethodQueryEvent *QInputMethodQueryEvent::clone() const
-    address = self.uglySide.call(
-        'ritual_ZNK22QInputMethodQueryEvent5cloneEv',
-    )
+    ritual = 'ritual_ZNK22QInputMethodQueryEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK22QInputMethodQueryEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QInputMethodQueryEvent._cuteAt(address)
 
   def queries(self) -> Qt.InputMethodQueries:

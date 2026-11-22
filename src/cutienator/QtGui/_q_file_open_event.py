@@ -78,6 +78,11 @@ class QFileOpenEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFileOpenEvent'
 
+  #  A C++ QFileOpenEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QFileOpenEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -104,7 +109,10 @@ class QFileOpenEvent(QEvent):
       no object.
     """
     #  QFileOpenEvent *QFileOpenEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK14QFileOpenEvent5cloneEv')
+    ritual = 'ritual_ZNK14QFileOpenEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK14QFileOpenEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QFileOpenEvent._cuteAt(address)
 
   def file(self) -> str:

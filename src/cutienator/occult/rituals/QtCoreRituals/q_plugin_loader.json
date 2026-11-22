@@ -24,6 +24,7 @@
     "ritual_ZN13QPluginLoader12setLoadHintsE6QFlagsIN8QLibrary8LoadHintEE": [
       "nothing", "address", "int"
     ],
-    "ritual_ZNK13QPluginLoader9loadHintsEv": ["int", "address"]
+    "ritual_ZNK13QPluginLoader9loadHintsEv": ["int", "address"],
+    "ritual_take_QPluginLoader": ["bool", "address", "chars", "address"]
   }
 }

@@ -11,6 +11,595 @@
 #include <QtGui/qregion.h>
 #include <QtGui/qpolygon.h>
 #include <QtCore/qvariant.h>
+#include <cstring>
+
+//  Only a class built on QGraphicsItem may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQGraphicsItem : QGraphicsItem {
+  using QGraphicsItem::sceneEventFilter;
+  using QGraphicsItem::sceneEvent;
+  using QGraphicsItem::contextMenuEvent;
+  using QGraphicsItem::dragEnterEvent;
+  using QGraphicsItem::dragLeaveEvent;
+  using QGraphicsItem::dragMoveEvent;
+  using QGraphicsItem::dropEvent;
+  using QGraphicsItem::focusInEvent;
+  using QGraphicsItem::focusOutEvent;
+  using QGraphicsItem::hoverEnterEvent;
+  using QGraphicsItem::hoverMoveEvent;
+  using QGraphicsItem::hoverLeaveEvent;
+  using QGraphicsItem::keyPressEvent;
+  using QGraphicsItem::keyReleaseEvent;
+  using QGraphicsItem::mousePressEvent;
+  using QGraphicsItem::mouseMoveEvent;
+  using QGraphicsItem::mouseReleaseEvent;
+  using QGraphicsItem::mouseDoubleClickEvent;
+  using QGraphicsItem::wheelEvent;
+  using QGraphicsItem::inputMethodEvent;
+  using QGraphicsItem::inputMethodQuery;
+  using QGraphicsItem::itemChange;
+  using QGraphicsItem::extension;
+};
+
+//  A QGraphicsItem that Python can take functions over in. Every QGraphicsItem
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQGraphicsItemCall0)(const void *, int, int *);
+typedef const QRectF * (*CuteQGraphicsItemCall1)(const void *, int *);
+typedef const QPainterPath * (*CuteQGraphicsItemCall2)(const void *, int *);
+typedef bool (*CuteQGraphicsItemCall3)(const void *, const QPointF *, int *);
+typedef bool (*CuteQGraphicsItemCall4)(const void *, const QGraphicsItem *, int, int *);
+typedef bool (*CuteQGraphicsItemCall5)(const void *, const QPainterPath *, int, int *);
+typedef bool (*CuteQGraphicsItemCall6)(const void *, const QGraphicsItem *, int *);
+typedef const QPainterPath * (*CuteQGraphicsItemCall7)(const void *, int *);
+typedef void (*CuteQGraphicsItemCall8)(const void *, QPainter *, const QStyleOptionGraphicsItem *, QWidget *, int *);
+typedef int (*CuteQGraphicsItemCall9)(const void *, int *);
+typedef bool (*CuteQGraphicsItemCall10)(const void *, QGraphicsItem *, QEvent *, int *);
+typedef bool (*CuteQGraphicsItemCall11)(const void *, QEvent *, int *);
+typedef void (*CuteQGraphicsItemCall12)(const void *, QGraphicsSceneContextMenuEvent *, int *);
+typedef void (*CuteQGraphicsItemCall13)(const void *, QGraphicsSceneDragDropEvent *, int *);
+typedef void (*CuteQGraphicsItemCall14)(const void *, QGraphicsSceneDragDropEvent *, int *);
+typedef void (*CuteQGraphicsItemCall15)(const void *, QGraphicsSceneDragDropEvent *, int *);
+typedef void (*CuteQGraphicsItemCall16)(const void *, QGraphicsSceneDragDropEvent *, int *);
+typedef void (*CuteQGraphicsItemCall17)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQGraphicsItemCall18)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQGraphicsItemCall19)(const void *, QGraphicsSceneHoverEvent *, int *);
+typedef void (*CuteQGraphicsItemCall20)(const void *, QGraphicsSceneHoverEvent *, int *);
+typedef void (*CuteQGraphicsItemCall21)(const void *, QGraphicsSceneHoverEvent *, int *);
+typedef void (*CuteQGraphicsItemCall22)(const void *, QKeyEvent *, int *);
+typedef void (*CuteQGraphicsItemCall23)(const void *, QKeyEvent *, int *);
+typedef void (*CuteQGraphicsItemCall24)(const void *, QGraphicsSceneMouseEvent *, int *);
+typedef void (*CuteQGraphicsItemCall25)(const void *, QGraphicsSceneMouseEvent *, int *);
+typedef void (*CuteQGraphicsItemCall26)(const void *, QGraphicsSceneMouseEvent *, int *);
+typedef void (*CuteQGraphicsItemCall27)(const void *, QGraphicsSceneMouseEvent *, int *);
+typedef void (*CuteQGraphicsItemCall28)(const void *, QGraphicsSceneWheelEvent *, int *);
+typedef void (*CuteQGraphicsItemCall29)(const void *, QInputMethodEvent *, int *);
+typedef const QVariant * (*CuteQGraphicsItemCall30)(const void *, int, int *);
+typedef const QVariant * (*CuteQGraphicsItemCall31)(const void *, int, const QVariant *, int *);
+typedef const QVariant * (*CuteQGraphicsItemCall32)(const void *, const QVariant *, int *);
+class CuteQGraphicsItem : public QGraphicsItem {
+public:
+  using QGraphicsItem::QGraphicsItem;
+  void *taken[33] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN13QGraphicsItem7advanceEi")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem12boundingRectEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem5shapeEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem8containsERK7QPointF")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem16collidesWithItemEPKS_N2Qt17ItemSelectionModeE")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem16collidesWithPathERK12QPainterPathN2Qt17ItemSelectionModeE")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem12isObscuredByEPKS_")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem10opaqueAreaEv")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem4typeEv")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem16sceneEventFilterEPS_P6QEvent")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem10sceneEventEP6QEvent")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem16contextMenuEventEP30QGraphicsSceneContextMenuEvent")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem14dragEnterEventEP27QGraphicsSceneDragDropEvent")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem14dragLeaveEventEP27QGraphicsSceneDragDropEvent")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem13dragMoveEventEP27QGraphicsSceneDragDropEvent")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem9dropEventEP27QGraphicsSceneDragDropEvent")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem12focusInEventEP11QFocusEvent")) {
+      taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem13focusOutEventEP11QFocusEvent")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem15hoverEnterEventEP24QGraphicsSceneHoverEvent")) {
+      taken[19] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem14hoverMoveEventEP24QGraphicsSceneHoverEvent")) {
+      taken[20] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent")) {
+      taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem13keyPressEventEP9QKeyEvent")) {
+      taken[22] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem15keyReleaseEventEP9QKeyEvent")) {
+      taken[23] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem15mousePressEventEP24QGraphicsSceneMouseEvent")) {
+      taken[24] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem14mouseMoveEventEP24QGraphicsSceneMouseEvent")) {
+      taken[25] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent")) {
+      taken[26] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent")) {
+      taken[27] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem10wheelEventEP24QGraphicsSceneWheelEvent")) {
+      taken[28] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem16inputMethodEventEP17QInputMethodEvent")) {
+      taken[29] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem16inputMethodQueryEN2Qt16InputMethodQueryE")) {
+      taken[30] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13QGraphicsItem10itemChangeENS_18GraphicsItemChangeERK8QVariant")) {
+      taken[31] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QGraphicsItem9extensionERK8QVariant")) {
+      taken[32] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QGraphicsItem::advance(int phase)
+  void advance(int phase) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQGraphicsItemCall0 call = reinterpret_cast<CuteQGraphicsItemCall0>(taken[0]);
+      call(this, phase, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::advance(phase);
+  }
+
+  //  QRectF QGraphicsItem::boundingRect() const
+  QRectF boundingRect() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQGraphicsItemCall1 call = reinterpret_cast<CuteQGraphicsItemCall1>(taken[1]);
+      const QRectF * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+
+  //  QPainterPath QGraphicsItem::shape() const
+  QPainterPath shape() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQGraphicsItemCall2 call = reinterpret_cast<CuteQGraphicsItemCall2>(taken[2]);
+      const QPainterPath * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QGraphicsItem::shape();
+  }
+
+  //  bool QGraphicsItem::contains(const QPointF &point) const
+  bool contains(const QPointF &point) const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQGraphicsItemCall3 call = reinterpret_cast<CuteQGraphicsItemCall3>(taken[3]);
+      bool given = call(this, &point, &handled);
+      if (handled) return given;
+    }
+    return QGraphicsItem::contains(point);
+  }
+
+  //  bool QGraphicsItem::collidesWithItem(const QGraphicsItem *other,
+  //      Qt::ItemSelectionMode mode) const
+  bool collidesWithItem(
+      const QGraphicsItem *other,
+      Qt::ItemSelectionMode mode) const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQGraphicsItemCall4 call = reinterpret_cast<CuteQGraphicsItemCall4>(taken[4]);
+      bool given = call(this, other, static_cast<int>(mode), &handled);
+      if (handled) return given;
+    }
+    return QGraphicsItem::collidesWithItem(other, mode);
+  }
+
+  //  bool QGraphicsItem::collidesWithPath(const QPainterPath &path,
+  //      Qt::ItemSelectionMode mode) const
+  bool collidesWithPath(
+      const QPainterPath &path,
+      Qt::ItemSelectionMode mode) const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQGraphicsItemCall5 call = reinterpret_cast<CuteQGraphicsItemCall5>(taken[5]);
+      bool given = call(this, &path, static_cast<int>(mode), &handled);
+      if (handled) return given;
+    }
+    return QGraphicsItem::collidesWithPath(path, mode);
+  }
+
+  //  bool QGraphicsItem::isObscuredBy(const QGraphicsItem *item) const
+  bool isObscuredBy(const QGraphicsItem *item) const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQGraphicsItemCall6 call = reinterpret_cast<CuteQGraphicsItemCall6>(taken[6]);
+      bool given = call(this, item, &handled);
+      if (handled) return given;
+    }
+    return QGraphicsItem::isObscuredBy(item);
+  }
+
+  //  QPainterPath QGraphicsItem::opaqueArea() const
+  QPainterPath opaqueArea() const override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQGraphicsItemCall7 call = reinterpret_cast<CuteQGraphicsItemCall7>(taken[7]);
+      const QPainterPath * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QGraphicsItem::opaqueArea();
+  }
+
+  //  void QGraphicsItem::paint(QPainter *painter, const
+  //      QStyleOptionGraphicsItem *option, QWidget *widget)
+  void paint(
+      QPainter *painter,
+      const QStyleOptionGraphicsItem *option,
+      QWidget *widget) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQGraphicsItemCall8 call = reinterpret_cast<CuteQGraphicsItemCall8>(taken[8]);
+      call(this, painter, option, widget, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  int QGraphicsItem::type() const
+  int type() const override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQGraphicsItemCall9 call = reinterpret_cast<CuteQGraphicsItemCall9>(taken[9]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QGraphicsItem::type();
+  }
+
+  //  bool QGraphicsItem::sceneEventFilter(QGraphicsItem *watched, QEvent
+  //      *event)
+  bool sceneEventFilter(QGraphicsItem *watched, QEvent *event) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQGraphicsItemCall10 call = reinterpret_cast<CuteQGraphicsItemCall10>(taken[10]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QGraphicsItem::sceneEventFilter(watched, event);
+  }
+
+  //  bool QGraphicsItem::sceneEvent(QEvent *event)
+  bool sceneEvent(QEvent *event) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQGraphicsItemCall11 call = reinterpret_cast<CuteQGraphicsItemCall11>(taken[11]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QGraphicsItem::sceneEvent(event);
+  }
+
+  //  void QGraphicsItem::contextMenuEvent(QGraphicsSceneContextMenuEvent
+  //      *event)
+  void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQGraphicsItemCall12 call = reinterpret_cast<CuteQGraphicsItemCall12>(taken[12]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::contextMenuEvent(event);
+  }
+
+  //  void QGraphicsItem::dragEnterEvent(QGraphicsSceneDragDropEvent
+  //      *event)
+  void dragEnterEvent(QGraphicsSceneDragDropEvent *event) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQGraphicsItemCall13 call = reinterpret_cast<CuteQGraphicsItemCall13>(taken[13]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::dragEnterEvent(event);
+  }
+
+  //  void QGraphicsItem::dragLeaveEvent(QGraphicsSceneDragDropEvent
+  //      *event)
+  void dragLeaveEvent(QGraphicsSceneDragDropEvent *event) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQGraphicsItemCall14 call = reinterpret_cast<CuteQGraphicsItemCall14>(taken[14]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::dragLeaveEvent(event);
+  }
+
+  //  void QGraphicsItem::dragMoveEvent(QGraphicsSceneDragDropEvent *event)
+  void dragMoveEvent(QGraphicsSceneDragDropEvent *event) override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQGraphicsItemCall15 call = reinterpret_cast<CuteQGraphicsItemCall15>(taken[15]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::dragMoveEvent(event);
+  }
+
+  //  void QGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent *event)
+  void dropEvent(QGraphicsSceneDragDropEvent *event) override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQGraphicsItemCall16 call = reinterpret_cast<CuteQGraphicsItemCall16>(taken[16]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::dropEvent(event);
+  }
+
+  //  void QGraphicsItem::focusInEvent(QFocusEvent *event)
+  void focusInEvent(QFocusEvent *event) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQGraphicsItemCall17 call = reinterpret_cast<CuteQGraphicsItemCall17>(taken[17]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::focusInEvent(event);
+  }
+
+  //  void QGraphicsItem::focusOutEvent(QFocusEvent *event)
+  void focusOutEvent(QFocusEvent *event) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQGraphicsItemCall18 call = reinterpret_cast<CuteQGraphicsItemCall18>(taken[18]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::focusOutEvent(event);
+  }
+
+  //  void QGraphicsItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+  void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQGraphicsItemCall19 call = reinterpret_cast<CuteQGraphicsItemCall19>(taken[19]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::hoverEnterEvent(event);
+  }
+
+  //  void QGraphicsItem::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
+  void hoverMoveEvent(QGraphicsSceneHoverEvent *event) override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQGraphicsItemCall20 call = reinterpret_cast<CuteQGraphicsItemCall20>(taken[20]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::hoverMoveEvent(event);
+  }
+
+  //  void QGraphicsItem::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+  void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override {
+    if (taken[21]) {
+      int handled = 0;
+      CuteQGraphicsItemCall21 call = reinterpret_cast<CuteQGraphicsItemCall21>(taken[21]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::hoverLeaveEvent(event);
+  }
+
+  //  void QGraphicsItem::keyPressEvent(QKeyEvent *event)
+  void keyPressEvent(QKeyEvent *event) override {
+    if (taken[22]) {
+      int handled = 0;
+      CuteQGraphicsItemCall22 call = reinterpret_cast<CuteQGraphicsItemCall22>(taken[22]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::keyPressEvent(event);
+  }
+
+  //  void QGraphicsItem::keyReleaseEvent(QKeyEvent *event)
+  void keyReleaseEvent(QKeyEvent *event) override {
+    if (taken[23]) {
+      int handled = 0;
+      CuteQGraphicsItemCall23 call = reinterpret_cast<CuteQGraphicsItemCall23>(taken[23]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::keyReleaseEvent(event);
+  }
+
+  //  void QGraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
+  void mousePressEvent(QGraphicsSceneMouseEvent *event) override {
+    if (taken[24]) {
+      int handled = 0;
+      CuteQGraphicsItemCall24 call = reinterpret_cast<CuteQGraphicsItemCall24>(taken[24]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::mousePressEvent(event);
+  }
+
+  //  void QGraphicsItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+  void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQGraphicsItemCall25 call = reinterpret_cast<CuteQGraphicsItemCall25>(taken[25]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::mouseMoveEvent(event);
+  }
+
+  //  void QGraphicsItem::mouseReleaseEvent(QGraphicsSceneMouseEvent
+  //      *event)
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQGraphicsItemCall26 call = reinterpret_cast<CuteQGraphicsItemCall26>(taken[26]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::mouseReleaseEvent(event);
+  }
+
+  //  void QGraphicsItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
+  //      *event)
+  void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override {
+    if (taken[27]) {
+      int handled = 0;
+      CuteQGraphicsItemCall27 call = reinterpret_cast<CuteQGraphicsItemCall27>(taken[27]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::mouseDoubleClickEvent(event);
+  }
+
+  //  void QGraphicsItem::wheelEvent(QGraphicsSceneWheelEvent *event)
+  void wheelEvent(QGraphicsSceneWheelEvent *event) override {
+    if (taken[28]) {
+      int handled = 0;
+      CuteQGraphicsItemCall28 call = reinterpret_cast<CuteQGraphicsItemCall28>(taken[28]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::wheelEvent(event);
+  }
+
+  //  void QGraphicsItem::inputMethodEvent(QInputMethodEvent *event)
+  void inputMethodEvent(QInputMethodEvent *event) override {
+    if (taken[29]) {
+      int handled = 0;
+      CuteQGraphicsItemCall29 call = reinterpret_cast<CuteQGraphicsItemCall29>(taken[29]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QGraphicsItem::inputMethodEvent(event);
+  }
+
+  //  QVariant QGraphicsItem::inputMethodQuery(Qt::InputMethodQuery query)
+  //      const
+  QVariant inputMethodQuery(Qt::InputMethodQuery query) const override {
+    if (taken[30]) {
+      int handled = 0;
+      CuteQGraphicsItemCall30 call = reinterpret_cast<CuteQGraphicsItemCall30>(taken[30]);
+      const QVariant * given = call(this, static_cast<int>(query), &handled);
+      if (handled && given) return *given;
+    }
+    return QGraphicsItem::inputMethodQuery(query);
+  }
+
+  //  QVariant QGraphicsItem::itemChange(GraphicsItemChange change, const
+  //      QVariant &value)
+  QVariant itemChange(
+      QGraphicsItem::GraphicsItemChange change,
+      const QVariant &value) override {
+    if (taken[31]) {
+      int handled = 0;
+      CuteQGraphicsItemCall31 call = reinterpret_cast<CuteQGraphicsItemCall31>(taken[31]);
+      const QVariant * given = call(this, static_cast<int>(change), &value, &handled);
+      if (handled && given) return *given;
+    }
+    return QGraphicsItem::itemChange(change, value);
+  }
+
+  //  QVariant QGraphicsItem::extension(const QVariant &variant) const
+  QVariant extension(const QVariant &variant) const override {
+    if (taken[32]) {
+      int handled = 0;
+      CuteQGraphicsItemCall32 call = reinterpret_cast<CuteQGraphicsItemCall32>(taken[32]);
+      const QVariant * given = call(this, &variant, &handled);
+      if (handled && given) return *given;
+    }
+    return QGraphicsItem::extension(variant);
+  }
+};
 
 //  QGraphicsItem::~QGraphicsItem()
 extern "C" Q_DECL_EXPORT
@@ -1412,4 +2001,293 @@ void ritual_ZN13QGraphicsItem22removeSceneEventFilterEPS_(
     QGraphicsItem *self,
     QGraphicsItem *filterItem) {
   self->removeSceneEventFilter(filterItem);
+}
+
+//  a Python function taken by a CuteQGraphicsItem, for the function named by
+//      the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QGraphicsItem(
+    QGraphicsItem *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQGraphicsItem *>(self)->take(key, call);
+}
+
+//  void QGraphicsItem::advance(int phase)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem7advanceEi(QGraphicsItem *self, int phase) {
+  self->QGraphicsItem::advance(phase);
+}
+
+//  QPainterPath QGraphicsItem::shape() const
+extern "C" Q_DECL_EXPORT
+QPainterPath *ritual_own_ZNK13QGraphicsItem5shapeEv(
+    const QGraphicsItem *self) {
+  return new QPainterPath(self->QGraphicsItem::shape());
+}
+
+//  bool QGraphicsItem::contains(const QPointF &point) const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK13QGraphicsItem8containsERK7QPointF(
+    const QGraphicsItem *self,
+    const QPointF *point) {
+  return self->QGraphicsItem::contains(*point);
+}
+
+//  bool QGraphicsItem::collidesWithItem(const QGraphicsItem *other,
+//      Qt::ItemSelectionMode mode) const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK13QGraphicsItem16collidesWithItemEPKS_N2Qt17ItemSelectionModeE(
+    const QGraphicsItem *self,
+    const QGraphicsItem *other,
+    Qt::ItemSelectionMode mode) {
+  return self->QGraphicsItem::collidesWithItem(other, mode);
+}
+
+//  bool QGraphicsItem::collidesWithPath(const QPainterPath &path,
+//      Qt::ItemSelectionMode mode) const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK13QGraphicsItem16collidesWithPathERK12QPainterPathN2Qt17ItemSelectionModeE(
+    const QGraphicsItem *self,
+    const QPainterPath *path,
+    Qt::ItemSelectionMode mode) {
+  return self->QGraphicsItem::collidesWithPath(*path, mode);
+}
+
+//  bool QGraphicsItem::isObscuredBy(const QGraphicsItem *item) const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK13QGraphicsItem12isObscuredByEPKS_(
+    const QGraphicsItem *self,
+    const QGraphicsItem *item) {
+  return self->QGraphicsItem::isObscuredBy(item);
+}
+
+//  QPainterPath QGraphicsItem::opaqueArea() const
+extern "C" Q_DECL_EXPORT
+QPainterPath *ritual_own_ZNK13QGraphicsItem10opaqueAreaEv(
+    const QGraphicsItem *self) {
+  return new QPainterPath(self->QGraphicsItem::opaqueArea());
+}
+
+//  int QGraphicsItem::type() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK13QGraphicsItem4typeEv(const QGraphicsItem *self) {
+  return self->QGraphicsItem::type();
+}
+
+//  bool QGraphicsItem::sceneEventFilter(QGraphicsItem *watched, QEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN13QGraphicsItem16sceneEventFilterEPS_P6QEvent(
+    QGraphicsItem *self,
+    QGraphicsItem *watched,
+    QEvent *event) {
+  return static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::sceneEventFilter(
+      watched,
+      event);
+}
+
+//  bool QGraphicsItem::sceneEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN13QGraphicsItem10sceneEventEP6QEvent(
+    QGraphicsItem *self,
+    QEvent *event) {
+  return static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::sceneEvent(
+      event);
+}
+
+//  void QGraphicsItem::contextMenuEvent(QGraphicsSceneContextMenuEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem16contextMenuEventEP30QGraphicsSceneContextMenuEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneContextMenuEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::contextMenuEvent(
+      event);
+}
+
+//  void QGraphicsItem::dragEnterEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem14dragEnterEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneDragDropEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::dragEnterEvent(
+      event);
+}
+
+//  void QGraphicsItem::dragLeaveEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem14dragLeaveEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneDragDropEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::dragLeaveEvent(
+      event);
+}
+
+//  void QGraphicsItem::dragMoveEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem13dragMoveEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneDragDropEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::dragMoveEvent(
+      event);
+}
+
+//  void QGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem9dropEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneDragDropEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::dropEvent(event);
+}
+
+//  void QGraphicsItem::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem12focusInEventEP11QFocusEvent(
+    QGraphicsItem *self,
+    QFocusEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::focusInEvent(
+      event);
+}
+
+//  void QGraphicsItem::focusOutEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem13focusOutEventEP11QFocusEvent(
+    QGraphicsItem *self,
+    QFocusEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::focusOutEvent(
+      event);
+}
+
+//  void QGraphicsItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem15hoverEnterEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneHoverEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::hoverEnterEvent(
+      event);
+}
+
+//  void QGraphicsItem::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem14hoverMoveEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneHoverEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::hoverMoveEvent(
+      event);
+}
+
+//  void QGraphicsItem::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneHoverEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::hoverLeaveEvent(
+      event);
+}
+
+//  void QGraphicsItem::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem13keyPressEventEP9QKeyEvent(
+    QGraphicsItem *self,
+    QKeyEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::keyPressEvent(
+      event);
+}
+
+//  void QGraphicsItem::keyReleaseEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem15keyReleaseEventEP9QKeyEvent(
+    QGraphicsItem *self,
+    QKeyEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::keyReleaseEvent(
+      event);
+}
+
+//  void QGraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem15mousePressEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneMouseEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::mousePressEvent(
+      event);
+}
+
+//  void QGraphicsItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem14mouseMoveEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneMouseEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::mouseMoveEvent(
+      event);
+}
+
+//  void QGraphicsItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneMouseEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::mouseReleaseEvent(
+      event);
+}
+
+//  void QGraphicsItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneMouseEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::mouseDoubleClickEvent(
+      event);
+}
+
+//  void QGraphicsItem::wheelEvent(QGraphicsSceneWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem10wheelEventEP24QGraphicsSceneWheelEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneWheelEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::wheelEvent(event);
+}
+
+//  void QGraphicsItem::inputMethodEvent(QInputMethodEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN13QGraphicsItem16inputMethodEventEP17QInputMethodEvent(
+    QGraphicsItem *self,
+    QInputMethodEvent *event) {
+  static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::inputMethodEvent(
+      event);
+}
+
+//  QVariant QGraphicsItem::inputMethodQuery(Qt::InputMethodQuery query)
+//      const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZNK13QGraphicsItem16inputMethodQueryEN2Qt16InputMethodQueryE(
+    const QGraphicsItem *self,
+    Qt::InputMethodQuery query) {
+  return new QVariant(
+      static_cast<const OwnQGraphicsItem *>(self)->OwnQGraphicsItem::inputMethodQuery(
+          query));
+}
+
+//  QVariant QGraphicsItem::itemChange(GraphicsItemChange change, const
+//      QVariant &value)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZN13QGraphicsItem10itemChangeENS_18GraphicsItemChangeERK8QVariant(
+    QGraphicsItem *self,
+    QGraphicsItem::GraphicsItemChange change,
+    const QVariant *value) {
+  return new QVariant(
+      static_cast<OwnQGraphicsItem *>(self)->OwnQGraphicsItem::itemChange(
+          change,
+          *value));
+}
+
+//  QVariant QGraphicsItem::extension(const QVariant &variant) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZNK13QGraphicsItem9extensionERK8QVariant(
+    const QGraphicsItem *self,
+    const QVariant *variant) {
+  return new QVariant(
+      static_cast<const OwnQGraphicsItem *>(self)->OwnQGraphicsItem::extension(
+          *variant));
 }

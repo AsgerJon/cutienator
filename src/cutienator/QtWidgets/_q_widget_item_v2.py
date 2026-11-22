@@ -82,6 +82,11 @@ class QWidgetItemV2(QWidgetItem):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QWidgetItemV2'
 
+  #  A C++ QWidgetItemV2 Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QWidgetItemV2'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -107,7 +112,10 @@ class QWidgetItemV2(QWidgetItem):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QWidgetItemV2::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK13QWidgetItemV28sizeHintEv')
+    ritual = 'ritual_ZNK13QWidgetItemV28sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QWidgetItemV28sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -124,7 +132,10 @@ class QWidgetItemV2(QWidgetItem):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QWidgetItemV2::minimumSize() const
-    address = self.uglySide.call('ritual_ZNK13QWidgetItemV211minimumSizeEv')
+    ritual = 'ritual_ZNK13QWidgetItemV211minimumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QWidgetItemV211minimumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -141,7 +152,10 @@ class QWidgetItemV2(QWidgetItem):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QWidgetItemV2::maximumSize() const
-    address = self.uglySide.call('ritual_ZNK13QWidgetItemV211maximumSizeEv')
+    ritual = 'ritual_ZNK13QWidgetItemV211maximumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QWidgetItemV211maximumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -159,9 +173,10 @@ class QWidgetItemV2(QWidgetItem):
       Passed on as it is.
     """
     #  int QWidgetItemV2::heightForWidth(int width) const
-    return self.uglySide.call(
-        'ritual_ZNK13QWidgetItemV214heightForWidthEi', width,
-    )
+    ritual = 'ritual_ZNK13QWidgetItemV214heightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QWidgetItemV214heightForWidthEi'
+    return self.uglySide.call(ritual, width)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

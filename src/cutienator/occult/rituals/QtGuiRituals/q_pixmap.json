@@ -95,6 +95,12 @@
     "ritual_ZN7QPixmap6detachEv": ["nothing", "address"],
     "ritual_ZNK7QPixmap9isQBitmapEv": ["bool", "address"],
     "ritual_ZNK7QPixmap11paintEngineEv": ["address", "address"],
-    "ritual_ZNK7QPixmapntEv": ["bool", "address"]
+    "ritual_ZNK7QPixmapntEv": ["bool", "address"],
+    "ritual_take_QPixmap": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK7QPixmap7devTypeEv": ["int", "address"],
+    "ritual_own_ZNK7QPixmap11paintEngineEv": ["address", "address"],
+    "ritual_own_ZNK7QPixmap6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ]
   }
 }

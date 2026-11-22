@@ -69,6 +69,38 @@ class QAccessibleAttributesInterface(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleAttributesInterface'
 
+  #  A C++ QAccessibleAttributesInterface Python makes is of a C++ class of
+  #  ours, in which Python can take functions over. This ritual hands one
+  #  over; see 'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAccessibleAttributesInterface'
+
+  #  The functions Qt calls itself that QAccessibleAttributesInterface is the
+  #  first to declare and that cannot be handed to Python yet, each as Qt
+  #  declares it. A class of a program that writes one of them anew is
+  #  refused, since Qt would never call what it wrote; see
+  #  'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'attributeKeys': (
+          'QList<QAccessible::Attribute> '
+          'QAccessibleAttributesInterface::attributeKeys() const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QAccessibleAttributesInterface is the
+  #  first to declare. A class of a program built on it can write one anew,
+  #  and Qt then calls that. For each name: the key C++ knows the function
+  #  by, what it gives, and what it takes.
+  __virtual_functions__ = {
+      'attributeValue': (
+          ('_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccess'
+           'ible9AttributeE',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('int', 'enum', 'QtGui:QAccessible.Attribute'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

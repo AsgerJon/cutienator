@@ -78,6 +78,62 @@
     ],
     "ritual_ZNK19QAbstractProxyModel20supportedDropActionsEv": [
       "int", "address"
+    ],
+    "ritual_take_QAbstractProxyModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QAbstractProxyModel14setSourceModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QAbstractProxyModel20mapSelectionToSourceERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QAbstractProxyModel22mapSelectionFromSourceERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN19QAbstractProxyModel6submitEv": ["bool", "address"],
+    "ritual_own_ZN19QAbstractProxyModel6revertEv": ["nothing", "address"],
+    "ritual_own_ZNK19QAbstractProxyModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK19QAbstractProxyModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN19QAbstractProxyModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN19QAbstractProxyModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti": [
+      "bool", "address", "int", "int", "address", "int"
+    ],
+    "ritual_own_ZN19QAbstractProxyModel13clearItemDataERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK19QAbstractProxyModel5buddyERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QAbstractProxyModel12canFetchMoreERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QAbstractProxyModel9fetchMoreERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QAbstractProxyModel4sortEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK19QAbstractProxyModel4spanERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QAbstractProxyModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK19QAbstractProxyModel7siblingEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK19QAbstractProxyModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_own_ZN19QAbstractProxyModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
     ]
   }
 }

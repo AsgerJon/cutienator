@@ -13,6 +13,12 @@
     ],
     "ritual_ZNK28QApplicationStateChangeEvent16applicationStateEv": [
       "int", "address"
+    ],
+    "ritual_take_QApplicationStateChangeEvent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK28QApplicationStateChangeEvent5cloneEv": [
+      "address", "address"
     ]
   }
 }

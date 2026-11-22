@@ -19,6 +19,15 @@
     "ritual_ZN18QItemEditorFactory14defaultFactoryEv": ["address"],
     "ritual_ZN18QItemEditorFactory17setDefaultFactoryEPS_": [
       "nothing", "address"
+    ],
+    "ritual_take_QItemEditorFactory": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QItemEditorFactory12createEditorEiP7QWidget": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK18QItemEditorFactory17valuePropertyNameEi": [
+      "address", "address", "int"
     ]
   }
 }

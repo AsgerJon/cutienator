@@ -14,6 +14,7 @@
     ],
     "ritual_ZNK14QImageIOPlugin6createEP9QIODeviceRK10QByteArray": [
       "address", "address", "address", "address"
-    ]
+    ],
+    "ritual_take_QImageIOPlugin": ["bool", "address", "chars", "address"]
   }
 }

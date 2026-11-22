@@ -20,6 +20,15 @@
     ],
     "ritual_ZN18QGestureRecognizer20unregisterRecognizerEN2Qt11GestureTypeE": [
       "nothing", "int"
+    ],
+    "ritual_take_QGestureRecognizer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QGestureRecognizer6createEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN18QGestureRecognizer5resetEP8QGesture": [
+      "nothing", "address", "address"
     ]
   }
 }

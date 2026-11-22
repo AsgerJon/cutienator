@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
 from . import QWidget
@@ -19,7 +19,20 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
+  from ..QtCore import QChildEvent, QEvent, QMetaObject, QSize
+  from ..QtGui import QFocusEvent, QMouseEvent, QPaintEvent, QResizeEvent
+  from . import QStyleOptionGroupBox
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QChildEvent = WAIT['QChildEvent']
+  QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QResizeEvent = WAIT['QResizeEvent']
+  QStyleOptionGroupBox = WAIT['QStyleOptionGroupBox']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,10 +51,12 @@ class QGroupBox(QWidget):
   -----------
 
   Every function of Qt's QGroupBox that has a ritual and that Python can call
-  so far, 13 names in all: 'metaObject', 'tr', 'title', 'setTitle',
+  so far, 23 names in all: 'metaObject', 'tr', 'title', 'setTitle',
   'alignment', 'setAlignment', 'minimumSizeHint', 'isFlat', 'setFlat',
-  'isCheckable', 'setCheckable', 'isChecked', 'setChecked'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  'isCheckable', 'setCheckable', 'isChecked', 'setChecked', 'event',
+  'childEvent', 'resizeEvent', 'paintEvent', 'focusInEvent', 'changeEvent',
+  'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
+  'initStyleOption'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -52,9 +67,8 @@ class QGroupBox(QWidget):
   What has no ritual
   ------------------
 
-  20 of the 36 functions Qt declares: 10 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 a signal; 2 forbidden; 1 a
-  template.
+  10 of the 36 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -124,6 +138,25 @@ class QGroupBox(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGroupBox'
+
+  #  A C++ QGroupBox Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGroupBox'
+
+  #  The functions Qt calls itself that QGroupBox is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK9QGroupBox15initStyleOptionEP20QStyleOptionGroupBox',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionGroupBox'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -200,7 +233,10 @@ class QGroupBox(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QGroupBox::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK9QGroupBox15minimumSizeHintEv')
+    ritual = 'ritual_ZNK9QGroupBox15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QGroupBox15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -394,3 +430,213 @@ class QGroupBox(QWidget):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QGroupBox::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgroupbox.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGroupBox::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN9QGroupBox5eventEP6QEvent', self._addressOf(event),
+    )
+
+  @overload(QChildEvent)
+  @overload(NoneType)
+  def childEvent(self, event: Optional[QChildEvent]) -> None:
+    """
+    Calls Qt's 'void QGroupBox::childEvent(QChildEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgroupbox.html#childEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QChildEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGroupBox::childEvent(QChildEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN9QGroupBox10childEventEP11QChildEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, event: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QGroupBox::resizeEvent(QResizeEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgroupbox.html#resizeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGroupBox::resizeEvent(QResizeEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN9QGroupBox11resizeEventEP12QResizeEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, event: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QGroupBox::paintEvent(QPaintEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgroupbox.html#paintEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGroupBox::paintEvent(QPaintEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN9QGroupBox10paintEventEP11QPaintEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QGroupBox::focusInEvent(QFocusEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgroupbox.html#focusInEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGroupBox::focusInEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN9QGroupBox12focusInEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QGroupBox::changeEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgroupbox.html#changeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGroupBox::changeEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN9QGroupBox11changeEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QGroupBox::mousePressEvent(QMouseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgroupbox.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGroupBox::mousePressEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN9QGroupBox15mousePressEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QGroupBox::mouseMoveEvent(QMouseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgroupbox.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGroupBox::mouseMoveEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN9QGroupBox14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QGroupBox::mouseReleaseEvent(QMouseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgroupbox.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGroupBox::mouseReleaseEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN9QGroupBox17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QStyleOptionGroupBox)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOptionGroupBox]) -> None:
+    """
+    Calls Qt's 'void QGroupBox::initStyleOption(QStyleOptionGroupBox *option)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgroupbox.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionGroupBox]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGroupBox::initStyleOption(QStyleOptionGroupBox *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK9QGroupBox15initStyleOptionEP20QStyleOptionGroupBox',
+        self._addressOf(option),
+    )

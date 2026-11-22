@@ -29,6 +29,103 @@
     "ritual_ZNK20QGraphicsProxyWidget4typeEv": ["int", "address"],
     "ritual_ZN20QGraphicsProxyWidget25createProxyForChildWidgetEP7QWidget": [
       "address", "address", "address"
+    ],
+    "ritual_take_QGraphicsProxyWidget": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK20QGraphicsProxyWidget4typeEv": ["int", "address"],
+    "ritual_own_ZN20QGraphicsProxyWidget10itemChangeEN13QGraphicsItem18GraphicsItemChangeERK8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget16contextMenuEventEP30QGraphicsSceneContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget14dragEnterEventEP27QGraphicsSceneDragDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget14dragLeaveEventEP27QGraphicsSceneDragDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget13dragMoveEventEP27QGraphicsSceneDragDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget9dropEventEP27QGraphicsSceneDragDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget14hoverMoveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget14grabMouseEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget16ungrabMouseEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget14mouseMoveEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget10wheelEventEP24QGraphicsSceneWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget18focusNextPrevChildEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_own_ZNK20QGraphicsProxyWidget16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QGraphicsProxyWidget8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN20QGraphicsProxyWidget11resizeEventEP25QGraphicsSceneResizeEvent": [
+      "nothing", "address", "address"
     ]
   }
 }

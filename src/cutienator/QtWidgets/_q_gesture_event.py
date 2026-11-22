@@ -91,6 +91,11 @@ class QGestureEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGestureEvent'
 
+  #  A C++ QGestureEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGestureEvent'
+
   #  Qt's '~QGestureEvent()'. Naming it makes this a value class: Python owns
   #  every C++ QGestureEvent behind a cute one, and removes it by this
   #  ritual.

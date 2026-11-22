@@ -11,14 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from . import QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
+  from ..QtCore import QEvent, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,8 +42,9 @@ class QErrorMessage(QDialog):
   -----------
 
   Every function of Qt's QErrorMessage that has a ritual and that Python can
-  call so far, 4 names in all: 'metaObject', 'tr', 'qtHandler',
-  'showMessage'. It can be made from Python, in 1 way; see '__init__'.
+  call so far, 6 names in all: 'metaObject', 'tr', 'qtHandler',
+  'showMessage', 'done', 'changeEvent'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -49,8 +55,8 @@ class QErrorMessage(QDialog):
   What has no ritual
   ------------------
 
-  10 of the 17 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 protected; 2 forbidden; 1 a template.
+  8 of the 17 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -140,6 +146,11 @@ class QErrorMessage(QDialog):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QErrorMessage'
+
+  #  A C++ QErrorMessage Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QErrorMessage'
 
   #  Fallback Variables
 
@@ -268,4 +279,41 @@ class QErrorMessage(QDialog):
     #      &type)
     self.uglySide.call(
         'ritual_ZN13QErrorMessage11showMessageERK7QStringS2_', message, type,
+    )
+
+  @overload(int)
+  def done(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QErrorMessage::done(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qerrormessage.html#done
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QErrorMessage::done(int a0)
+    self.uglySide.call('ritual_own_ZN13QErrorMessage4doneEi', a0)
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, e: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QErrorMessage::changeEvent(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qerrormessage.html#changeEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QErrorMessage::changeEvent(QEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN13QErrorMessage11changeEventEP6QEvent',
+        self._addressOf(e),
     )

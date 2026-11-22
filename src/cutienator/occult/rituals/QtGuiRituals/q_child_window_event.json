@@ -9,6 +9,8 @@
     "ritual_ZN17QChildWindowEventC1EN6QEvent4TypeEP7QWindow": [
       "address", "int", "address"
     ],
-    "ritual_ZNK17QChildWindowEvent5childEv": ["address", "address"]
+    "ritual_ZNK17QChildWindowEvent5childEv": ["address", "address"],
+    "ritual_take_QChildWindowEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QChildWindowEvent5cloneEv": ["address", "address"]
   }
 }

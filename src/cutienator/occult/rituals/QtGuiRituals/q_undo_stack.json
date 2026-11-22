@@ -40,6 +40,7 @@
     "ritual_ZN10QUndoStack8setIndexEi": ["nothing", "address", "int"],
     "ritual_ZN10QUndoStack4undoEv": ["nothing", "address"],
     "ritual_ZN10QUndoStack4redoEv": ["nothing", "address"],
-    "ritual_ZN10QUndoStack9setActiveEb": ["nothing", "address", "bool"]
+    "ritual_ZN10QUndoStack9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_take_QUndoStack": ["bool", "address", "chars", "address"]
   }
 }

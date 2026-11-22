@@ -131,6 +131,11 @@ class QAbstractTableModel(QAbstractItemModel):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractTableModel'
 
+  #  A C++ QAbstractTableModel Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractTableModel'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -203,10 +208,10 @@ class QAbstractTableModel(QAbstractItemModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    address = self.uglySide.call(
-        'ritual_ZNK19QAbstractTableModel5indexEiiRK11QModelIndex',
-        row, column, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK19QAbstractTableModel5indexEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QAbstractTableModel5indexEiiRK11QModelIndex'
+    address = self.uglySide.call(ritual, row, column, self._valueOf(parent))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -239,10 +244,11 @@ class QAbstractTableModel(QAbstractItemModel):
     """
     #  QModelIndex QAbstractTableModel::sibling(int row, int column, const
     #      QModelIndex &idx) const
-    address = self.uglySide.call(
-        'ritual_ZNK19QAbstractTableModel7siblingEiiRK11QModelIndex',
-        row, column, self._valueOf(idx),
-    )
+    ritual = 'ritual_ZNK19QAbstractTableModel7siblingEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QAbstractTableModel7siblingEiiRK11QModelIndex')
+    address = self.uglySide.call(ritual, row, column, self._valueOf(idx))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -350,9 +356,15 @@ class QAbstractTableModel(QAbstractItemModel):
     #  bool QAbstractTableModel::dropMimeData(const QMimeData *data,
     #      Qt::DropAction action, int row, int column, const QModelIndex
     #      &parent)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN19QAbstractTableModel12dropMimeDataEPK9QMimeDataN2Qt10Dro'
-        'pActionEiiRK11QModelIndex',
+        'pActionEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractTableModel12dropMimeDataEPK9QMimeDataN2Q'
+          't10DropActionEiiRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )

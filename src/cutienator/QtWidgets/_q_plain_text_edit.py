@@ -21,20 +21,40 @@ from . import QAbstractScrollArea, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QPoint, QRect, QRegularExpression, QUrl
-  from ..QtCore import QVariant
-  from ..QtGui import QPagedPaintDevice, QTextCharFormat
+  from ..QtCore import QEvent, QMetaObject, QMimeData, QPoint, QRect
+  from ..QtCore import QRegularExpression, QTimerEvent, QUrl, QVariant
+  from ..QtGui import QContextMenuEvent, QDragEnterEvent, QDragLeaveEvent
+  from ..QtGui import QDragMoveEvent, QDropEvent, QFocusEvent
+  from ..QtGui import QInputMethodEvent, QKeyEvent, QMouseEvent
+  from ..QtGui import QPagedPaintDevice, QPaintEvent, QResizeEvent
+  from ..QtGui import QShowEvent, QTextCharFormat, QWheelEvent
   from . import QMenu
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QContextMenuEvent = WAIT['QContextMenuEvent']
+  QDragEnterEvent = WAIT['QDragEnterEvent']
+  QDragLeaveEvent = WAIT['QDragLeaveEvent']
+  QDragMoveEvent = WAIT['QDragMoveEvent']
+  QDropEvent = WAIT['QDropEvent']
+  QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
+  QInputMethodEvent = WAIT['QInputMethodEvent']
+  QKeyEvent = WAIT['QKeyEvent']
+  QMimeData = WAIT['QMimeData']
+  QMouseEvent = WAIT['QMouseEvent']
   QPagedPaintDevice = WAIT['QPagedPaintDevice']
+  QPaintEvent = WAIT['QPaintEvent']
   QPoint = WAIT['QPoint']
   QRegularExpression = WAIT['QRegularExpression']
+  QResizeEvent = WAIT['QResizeEvent']
+  QShowEvent = WAIT['QShowEvent']
   QTextCharFormat = WAIT['QTextCharFormat']
+  QTimerEvent = WAIT['QTimerEvent']
   QUrl = WAIT['QUrl']
   QVariant = WAIT['QVariant']
+  QWheelEvent = WAIT['QWheelEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -53,7 +73,7 @@ class QPlainTextEdit(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QPlainTextEdit that has a ritual and that Python can
-  call so far, 64 names in all: 'metaObject', 'tr', 'setDocument',
+  call so far, 91 names in all: 'metaObject', 'tr', 'setDocument',
   'document', 'setPlaceholderText', 'placeholderText', 'setTextCursor',
   'textCursor', 'isReadOnly', 'setReadOnly', 'setTextInteractionFlags',
   'textInteractionFlags', 'mergeCurrentCharFormat', 'setCurrentCharFormat',
@@ -69,8 +89,15 @@ class QPlainTextEdit(QAbstractScrollArea):
   'moveCursor', 'canPaste', 'print', 'blockCount', 'inputMethodQuery',
   'setPlainText', 'cut', 'copy', 'paste', 'undo', 'redo', 'clear',
   'selectAll', 'insertPlainText', 'appendPlainText', 'appendHtml',
-  'centerCursor', 'zoomIn', 'zoomOut'. It can be made from Python, in 2 ways;
-  see '__init__'.
+  'centerCursor', 'zoomIn', 'zoomOut', 'event', 'timerEvent',
+  'keyPressEvent', 'keyReleaseEvent', 'resizeEvent', 'paintEvent',
+  'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
+  'mouseDoubleClickEvent', 'focusNextPrevChild', 'contextMenuEvent',
+  'dragEnterEvent', 'dragLeaveEvent', 'dragMoveEvent', 'dropEvent',
+  'focusInEvent', 'focusOutEvent', 'showEvent', 'changeEvent', 'wheelEvent',
+  'createMimeDataFromSelection', 'canInsertFromMimeData',
+  'insertFromMimeData', 'inputMethodEvent', 'scrollContentsBy',
+  'doSetTextCursor'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -81,7 +108,7 @@ class QPlainTextEdit(QAbstractScrollArea):
   What has no ritual
   ------------------
 
-  53 of the 124 functions Qt declares: 34 protected; 9 a signal; 4 takes or
+  26 of the 124 functions Qt declares: 9 a signal; 7 protected; 4 takes or
   gives a type that cannot be passed yet; 3 private; 2 forbidden; 1 a
   template.
 
@@ -167,6 +194,52 @@ class QPlainTextEdit(QAbstractScrollArea):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPlainTextEdit'
+
+  #  A C++ QPlainTextEdit Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPlainTextEdit'
+
+  #  The functions Qt calls itself that QPlainTextEdit is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'loadResource': (
+          ('_ZN14QPlainTextEdit12loadResourceEiRK4QUrl',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QUrl'),
+           )),
+      ),
+      'createMimeDataFromSelection': (
+          ('_ZNK14QPlainTextEdit27createMimeDataFromSelectionEv',
+           ('address', 'address', 'QtCore:QMimeData'),
+           ()),
+      ),
+      'canInsertFromMimeData': (
+          ('_ZNK14QPlainTextEdit21canInsertFromMimeDataEPK9QMimeData',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtCore:QMimeData'),
+           )),
+      ),
+      'insertFromMimeData': (
+          ('_ZN14QPlainTextEdit18insertFromMimeDataEPK9QMimeData',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QMimeData'),
+           )),
+      ),
+      'doSetTextCursor': (
+          ('_ZN14QPlainTextEdit15doSetTextCursorERK11QTextCursor',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtGui:QTextCursor'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -595,11 +668,14 @@ class QPlainTextEdit(QAbstractScrollArea):
     """
     #  QVariant QPlainTextEdit::inputMethodQuery(Qt::InputMethodQuery
     #      property) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK14QPlainTextEdit16inputMethodQueryEN2Qt16InputMethodQuer'
-        'yE',
-        property.value,
-    )
+        'yE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK14QPlainTextEdit16inputMethodQueryEN2Qt16InputMeth'
+          'odQueryE')
+    address = self.uglySide.call(ritual, property.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -642,6 +718,52 @@ class QPlainTextEdit(QAbstractScrollArea):
     )
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
+
+  def createMimeDataFromSelection(self) -> Optional[QMimeData]:
+    """
+    Calls Qt's 'QMimeData *QPlainTextEdit::createMimeDataFromSelection()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#createMimeDataFromSelection
+
+    Returns
+    -------
+
+    Optional[QMimeData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMimeData *QPlainTextEdit::createMimeDataFromSelection() const
+    address = self.uglySide.call(
+        'ritual_own_ZNK14QPlainTextEdit27createMimeDataFromSelectionEv',
+    )
+    from ..QtCore import QMimeData
+    return QMimeData._cuteAt(address)
+
+  @overload(QMimeData)
+  @overload(NoneType)
+  def canInsertFromMimeData(self, source: Optional[QMimeData]) -> bool:
+    """
+    Calls Qt's 'bool QPlainTextEdit::canInsertFromMimeData(const QMimeData
+    *source) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#canInsertFromMimeData
+
+    Parameters
+    ----------
+
+    source : Optional[QMimeData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QPlainTextEdit::canInsertFromMimeData(const QMimeData *source)
+    #      const
+    return self.uglySide.call(
+        'ritual_own_ZNK14QPlainTextEdit21canInsertFromMimeDataEPK9QMimeData',
+        self._addressOf(source),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1201,10 +1323,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QPlainTextEdit::loadResource(int type, const QUrl &name)
-    address = self.uglySide.call(
-        'ritual_ZN14QPlainTextEdit12loadResourceEiRK4QUrl',
-        type, self._valueOf(name),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit12loadResourceEiRK4QUrl'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit12loadResourceEiRK4QUrl'
+    address = self.uglySide.call(ritual, type, self._valueOf(name))
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -1476,3 +1598,539 @@ class QPlainTextEdit(QAbstractScrollArea):
     """
     #  void QPlainTextEdit::zoomOut(int range)
     self.uglySide.call('ritual_ZN14QPlainTextEdit7zoomOutEi', range)
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QPlainTextEdit::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QPlainTextEdit::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, e: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::timerEvent(QTimerEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#timerEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::timerEvent(QTimerEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit10timerEventEP11QTimerEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, e: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::keyPressEvent(QKeyEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::keyPressEvent(QKeyEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit13keyPressEventEP9QKeyEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyReleaseEvent(self, e: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::keyReleaseEvent(QKeyEvent *e)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#keyReleaseEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::keyReleaseEvent(QKeyEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit15keyReleaseEventEP9QKeyEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, e: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::resizeEvent(QResizeEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#resizeEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::resizeEvent(QResizeEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit11resizeEventEP12QResizeEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, e: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::paintEvent(QPaintEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#paintEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::paintEvent(QPaintEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit10paintEventEP11QPaintEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::mousePressEvent(QMouseEvent *e)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::mousePressEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit15mousePressEventEP11QMouseEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::mouseMoveEvent(QMouseEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::mouseMoveEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::mouseReleaseEvent(QMouseEvent *e)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::mouseReleaseEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseDoubleClickEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::mouseDoubleClickEvent(QMouseEvent *e)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#mouseDoubleClickEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::mouseDoubleClickEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit21mouseDoubleClickEventEP11QMouseEven'
+        't',
+        self._addressOf(e),
+    )
+
+  @overload(bool)
+  def focusNextPrevChild(self, next: bool) -> bool:
+    """
+    Calls Qt's 'bool QPlainTextEdit::focusNextPrevChild(bool next)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#focusNextPrevChild
+
+    Parameters
+    ----------
+
+    next : bool
+      Passed on as it is.
+    """
+    #  bool QPlainTextEdit::focusNextPrevChild(bool next)
+    return self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit18focusNextPrevChildEb', next,
+    )
+
+  @overload(QContextMenuEvent)
+  @overload(NoneType)
+  def contextMenuEvent(self, e: Optional[QContextMenuEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::contextMenuEvent(QContextMenuEvent *e)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#contextMenuEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QContextMenuEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::contextMenuEvent(QContextMenuEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit16contextMenuEventEP17QContextMenuEve'
+        'nt',
+        self._addressOf(e),
+    )
+
+  @overload(QDragEnterEvent)
+  @overload(NoneType)
+  def dragEnterEvent(self, e: Optional[QDragEnterEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::dragEnterEvent(QDragEnterEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#dragEnterEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QDragEnterEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::dragEnterEvent(QDragEnterEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit14dragEnterEventEP15QDragEnterEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QDragLeaveEvent)
+  @overload(NoneType)
+  def dragLeaveEvent(self, e: Optional[QDragLeaveEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::dragLeaveEvent(QDragLeaveEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#dragLeaveEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QDragLeaveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::dragLeaveEvent(QDragLeaveEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit14dragLeaveEventEP15QDragLeaveEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QDragMoveEvent)
+  @overload(NoneType)
+  def dragMoveEvent(self, e: Optional[QDragMoveEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::dragMoveEvent(QDragMoveEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#dragMoveEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QDragMoveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::dragMoveEvent(QDragMoveEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit13dragMoveEventEP14QDragMoveEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QDropEvent)
+  @overload(NoneType)
+  def dropEvent(self, e: Optional[QDropEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::dropEvent(QDropEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#dropEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::dropEvent(QDropEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit9dropEventEP10QDropEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, e: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::focusInEvent(QFocusEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#focusInEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::focusInEvent(QFocusEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit12focusInEventEP11QFocusEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, e: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::focusOutEvent(QFocusEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::focusOutEvent(QFocusEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit13focusOutEventEP11QFocusEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, a0: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::showEvent(QShowEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#showEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::showEvent(QShowEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit9showEventEP10QShowEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, e: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::changeEvent(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#changeEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::changeEvent(QEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit11changeEventEP6QEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QWheelEvent)
+  @overload(NoneType)
+  def wheelEvent(self, e: Optional[QWheelEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::wheelEvent(QWheelEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#wheelEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QWheelEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::wheelEvent(QWheelEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit10wheelEventEP11QWheelEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QMimeData)
+  @overload(NoneType)
+  def insertFromMimeData(self, source: Optional[QMimeData]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::insertFromMimeData(const QMimeData
+    *source)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#insertFromMimeData
+
+    Parameters
+    ----------
+
+    source : Optional[QMimeData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::insertFromMimeData(const QMimeData *source)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit18insertFromMimeDataEPK9QMimeData',
+        self._addressOf(source),
+    )
+
+  @overload(QInputMethodEvent)
+  @overload(NoneType)
+  def inputMethodEvent(self, a0: Optional[QInputMethodEvent]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::inputMethodEvent(QInputMethodEvent
+    *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#inputMethodEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QInputMethodEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEdit::inputMethodEvent(QInputMethodEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit16inputMethodEventEP17QInputMethodEve'
+        'nt',
+        self._addressOf(a0),
+    )
+
+  @overload(int, int)
+  def scrollContentsBy(self, dx: int, dy: int) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::scrollContentsBy(int dx, int dy)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#scrollContentsBy
+
+    Parameters
+    ----------
+
+    dx : int
+      Passed on as it is.
+
+    dy : int
+      Passed on as it is.
+    """
+    #  void QPlainTextEdit::scrollContentsBy(int dx, int dy)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit16scrollContentsByEii', dx, dy,
+    )
+
+  @overload(QTextCursor)
+  def doSetTextCursor(self, cursor: QTextCursor) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::doSetTextCursor(const QTextCursor
+    &cursor)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#doSetTextCursor
+
+    Parameters
+    ----------
+
+    cursor : QTextCursor
+      Passed on as a value: Qt reads the C++ QTextCursor, which stays
+      Python's own.
+    """
+    #  void QPlainTextEdit::doSetTextCursor(const QTextCursor &cursor)
+    self.uglySide.call(
+        'ritual_own_ZN14QPlainTextEdit15doSetTextCursorERK11QTextCursor',
+        self._valueOf(cursor),
+    )

@@ -20,12 +20,28 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QEvent, QMetaObject, QSize, QVariant
+  from ..QtCore import QEvent, QMetaObject, QSize, QTimerEvent, QVariant
+  from ..QtGui import QCloseEvent, QContextMenuEvent, QFocusEvent, QHideEvent
+  from ..QtGui import QKeyEvent, QMouseEvent, QPaintEvent, QResizeEvent
+  from ..QtGui import QShowEvent, QWheelEvent
+  from . import QStyleOptionSpinBox
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QCloseEvent = WAIT['QCloseEvent']
+  QContextMenuEvent = WAIT['QContextMenuEvent']
   QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
+  QHideEvent = WAIT['QHideEvent']
+  QKeyEvent = WAIT['QKeyEvent']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QResizeEvent = WAIT['QResizeEvent']
+  QShowEvent = WAIT['QShowEvent']
+  QStyleOptionSpinBox = WAIT['QStyleOptionSpinBox']
+  QTimerEvent = WAIT['QTimerEvent']
+  QWheelEvent = WAIT['QWheelEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,7 +60,7 @@ class QAbstractSpinBox(QWidget):
   -----------
 
   Every function of Qt's QAbstractSpinBox that has a ritual and that Python
-  can call so far, 34 names in all: 'metaObject', 'tr', 'buttonSymbols',
+  can call so far, 51 names in all: 'metaObject', 'tr', 'buttonSymbols',
   'setButtonSymbols', 'setCorrectionMode', 'correctionMode',
   'hasAcceptableInput', 'text', 'specialValueText', 'setSpecialValueText',
   'wrapping', 'setWrapping', 'setReadOnly', 'isReadOnly',
@@ -52,8 +68,12 @@ class QAbstractSpinBox(QWidget):
   'setFrame', 'hasFrame', 'setAccelerated', 'isAccelerated',
   'setGroupSeparatorShown', 'isGroupSeparatorShown', 'sizeHint',
   'minimumSizeHint', 'interpretText', 'event', 'inputMethodQuery', 'stepBy',
-  'stepUp', 'stepDown', 'selectAll', 'clear'. It can be made from Python, in
-  1 way; see '__init__'.
+  'stepUp', 'stepDown', 'selectAll', 'clear', 'resizeEvent', 'keyPressEvent',
+  'keyReleaseEvent', 'wheelEvent', 'focusInEvent', 'focusOutEvent',
+  'contextMenuEvent', 'changeEvent', 'closeEvent', 'hideEvent',
+  'mousePressEvent', 'mouseReleaseEvent', 'mouseMoveEvent', 'timerEvent',
+  'paintEvent', 'showEvent', 'initStyleOption'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,9 +84,8 @@ class QAbstractSpinBox(QWidget):
   What has no ritual
   ------------------
 
-  33 of the 69 functions Qt declares: 21 protected; 4 takes or gives a type
-  that cannot be passed yet; 3 private; 2 a signal; 2 forbidden; 1 a
-  template.
+  16 of the 69 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 4 protected; 3 private; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -182,6 +201,54 @@ class QAbstractSpinBox(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractSpinBox'
+
+  #  A C++ QAbstractSpinBox Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractSpinBox'
+
+  #  The functions Qt calls itself that QAbstractSpinBox is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'validate': (
+          'QValidator::State QAbstractSpinBox::validate(QString &, int &) '
+          'const',
+      ),
+      'fixup': (
+          'void QAbstractSpinBox::fixup(QString &) const',
+      ),
+      'stepEnabled': (
+          'StepEnabled QAbstractSpinBox::stepEnabled() const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QAbstractSpinBox is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'stepBy': (
+          ('_ZN16QAbstractSpinBox6stepByEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'clear': (
+          ('_ZN16QAbstractSpinBox5clearEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'initStyleOption': (
+          ('_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptionSpinBox',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionSpinBox'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -393,7 +460,10 @@ class QAbstractSpinBox(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QAbstractSpinBox::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK16QAbstractSpinBox8sizeHintEv')
+    ritual = 'ritual_ZNK16QAbstractSpinBox8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QAbstractSpinBox8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -411,9 +481,10 @@ class QAbstractSpinBox(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QAbstractSpinBox::minimumSizeHint() const
-    address = self.uglySide.call(
-        'ritual_ZNK16QAbstractSpinBox15minimumSizeHintEv',
-    )
+    ritual = 'ritual_ZNK16QAbstractSpinBox15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QAbstractSpinBox15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -440,11 +511,14 @@ class QAbstractSpinBox(QWidget):
     """
     #  QVariant QAbstractSpinBox::inputMethodQuery(Qt::InputMethodQuery a0)
     #      const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK16QAbstractSpinBox16inputMethodQueryEN2Qt16InputMethodQu'
-        'eryE',
-        a0.value,
-    )
+        'eryE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK16QAbstractSpinBox16inputMethodQueryEN2Qt16InputMe'
+          'thodQueryE')
+    address = self.uglySide.call(ritual, a0.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -718,9 +792,10 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  bool QAbstractSpinBox::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_ZN16QAbstractSpinBox5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(int)
   def stepBy(self, steps: int) -> None:
@@ -736,7 +811,10 @@ class QAbstractSpinBox(QWidget):
       Passed on as it is.
     """
     #  void QAbstractSpinBox::stepBy(int steps)
-    self.uglySide.call('ritual_ZN16QAbstractSpinBox6stepByEi', steps)
+    ritual = 'ritual_ZN16QAbstractSpinBox6stepByEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox6stepByEi'
+    self.uglySide.call(ritual, steps)
 
   def stepUp(self) -> None:
     """
@@ -772,4 +850,378 @@ class QAbstractSpinBox(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#clear
     """
     #  void QAbstractSpinBox::clear()
-    self.uglySide.call('ritual_ZN16QAbstractSpinBox5clearEv')
+    ritual = 'ritual_ZN16QAbstractSpinBox5clearEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox5clearEv'
+    self.uglySide.call(ritual)
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, event: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::resizeEvent(QResizeEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#resizeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::resizeEvent(QResizeEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox11resizeEventEP12QResizeEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, event: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::keyPressEvent(QKeyEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractspinbox.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::keyPressEvent(QKeyEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox13keyPressEventEP9QKeyEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyReleaseEvent(self, event: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::keyReleaseEvent(QKeyEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractspinbox.html#keyReleaseEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::keyReleaseEvent(QKeyEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox15keyReleaseEventEP9QKeyEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QWheelEvent)
+  @overload(NoneType)
+  def wheelEvent(self, event: Optional[QWheelEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::wheelEvent(QWheelEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#wheelEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QWheelEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::wheelEvent(QWheelEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox10wheelEventEP11QWheelEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::focusInEvent(QFocusEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#focusInEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::focusInEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox12focusInEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::focusOutEvent(QFocusEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractspinbox.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::focusOutEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox13focusOutEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QContextMenuEvent)
+  @overload(NoneType)
+  def contextMenuEvent(self, event: Optional[QContextMenuEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::contextMenuEvent(QContextMenuEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractspinbox.html#contextMenuEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QContextMenuEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::contextMenuEvent(QContextMenuEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox16contextMenuEventEP17QContextMenuE'
+        'vent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::changeEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#changeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::changeEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox11changeEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QCloseEvent)
+  @overload(NoneType)
+  def closeEvent(self, event: Optional[QCloseEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::closeEvent(QCloseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#closeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QCloseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::closeEvent(QCloseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox10closeEventEP11QCloseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QHideEvent)
+  @overload(NoneType)
+  def hideEvent(self, event: Optional[QHideEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::hideEvent(QHideEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#hideEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QHideEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::hideEvent(QHideEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox9hideEventEP10QHideEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::mousePressEvent(QMouseEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractspinbox.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::mousePressEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox15mousePressEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::mouseReleaseEvent(QMouseEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractspinbox.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::mouseReleaseEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::mouseMoveEvent(QMouseEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractspinbox.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::mouseMoveEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, event: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::timerEvent(QTimerEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#timerEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::timerEvent(QTimerEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox10timerEventEP11QTimerEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, event: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::paintEvent(QPaintEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#paintEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::paintEvent(QPaintEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox10paintEventEP11QPaintEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, event: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::showEvent(QShowEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#showEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::showEvent(QShowEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QAbstractSpinBox9showEventEP10QShowEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QStyleOptionSpinBox)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOptionSpinBox]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::initStyleOption(QStyleOptionSpinBox
+    *option) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractspinbox.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionSpinBox]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::initStyleOption(QStyleOptionSpinBox *option)
+    #      const
+    self.uglySide.call(
+        'ritual_own_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptionS'
+        'pinBox',
+        self._addressOf(option),
+    )

@@ -13,6 +13,12 @@
     ],
     "ritual_ZNK27QDynamicPropertyChangeEvent12propertyNameEv": [
       "address", "address"
+    ],
+    "ritual_take_QDynamicPropertyChangeEvent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK27QDynamicPropertyChangeEvent5cloneEv": [
+      "address", "address"
     ]
   }
 }

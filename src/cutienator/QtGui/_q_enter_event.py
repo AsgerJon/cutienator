@@ -84,6 +84,11 @@ class QEnterEvent(QSinglePointEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QEnterEvent'
 
+  #  A C++ QEnterEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QEnterEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -110,7 +115,10 @@ class QEnterEvent(QSinglePointEvent):
       no object.
     """
     #  QEnterEvent *QEnterEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK11QEnterEvent5cloneEv')
+    ritual = 'ritual_ZNK11QEnterEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QEnterEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QEnterEvent._cuteAt(address)
 
   def pos(self) -> QPoint:

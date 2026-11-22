@@ -21,6 +21,13 @@
     "ritual_ZNK12QUndoCommand2idEv": ["int", "address"],
     "ritual_ZN12QUndoCommand9mergeWithEPKS_": ["bool", "address", "address"],
     "ritual_ZNK12QUndoCommand10childCountEv": ["int", "address"],
-    "ritual_ZNK12QUndoCommand5childEi": ["address", "address", "int"]
+    "ritual_ZNK12QUndoCommand5childEi": ["address", "address", "int"],
+    "ritual_take_QUndoCommand": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QUndoCommand4undoEv": ["nothing", "address"],
+    "ritual_own_ZN12QUndoCommand4redoEv": ["nothing", "address"],
+    "ritual_own_ZNK12QUndoCommand2idEv": ["int", "address"],
+    "ritual_own_ZN12QUndoCommand9mergeWithEPKS_": [
+      "bool", "address", "address"
+    ]
   }
 }

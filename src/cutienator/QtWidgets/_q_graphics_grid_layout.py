@@ -94,6 +94,11 @@ class QGraphicsGridLayout(QGraphicsLayout):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsGridLayout'
 
+  #  A C++ QGraphicsGridLayout Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsGridLayout'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -480,9 +485,10 @@ class QGraphicsGridLayout(QGraphicsLayout):
       no object.
     """
     #  QGraphicsLayoutItem *QGraphicsGridLayout::itemAt(int index) const
-    address = self.uglySide.call(
-        'ritual_ZNK19QGraphicsGridLayout6itemAtEi', index,
-    )
+    ritual = 'ritual_ZNK19QGraphicsGridLayout6itemAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QGraphicsGridLayout6itemAtEi'
+    address = self.uglySide.call(ritual, index)
     return QGraphicsLayoutItem._cuteAt(address)
 
   def count(self) -> int:
@@ -492,7 +498,10 @@ class QGraphicsGridLayout(QGraphicsLayout):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsgridlayout.html#count
     """
     #  int QGraphicsGridLayout::count() const
-    return self.uglySide.call('ritual_ZNK19QGraphicsGridLayout5countEv')
+    ritual = 'ritual_ZNK19QGraphicsGridLayout5countEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QGraphicsGridLayout5countEv'
+    return self.uglySide.call(ritual)
 
   @overload(Qt.SizeHint)
   @overload(Qt.SizeHint, QSizeF)
@@ -528,9 +537,14 @@ class QGraphicsGridLayout(QGraphicsLayout):
     if constraint is None:
       from ..QtCore import QSizeF
       constraint = QSizeF()
+    ritual = (
+        'ritual_ZNK19QGraphicsGridLayout8sizeHintEN2Qt8SizeHintERK6QSizeF')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QGraphicsGridLayout8sizeHintEN2Qt8SizeHintERK6QS'
+          'izeF')
     address = self.uglySide.call(
-        'ritual_ZNK19QGraphicsGridLayout8sizeHintEN2Qt8SizeHintERK6QSizeF',
-        which.value, self._valueOf(constraint),
+        ritual, which.value, self._valueOf(constraint),
     )
     from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
@@ -987,10 +1001,10 @@ class QGraphicsGridLayout(QGraphicsLayout):
       own.
     """
     #  void QGraphicsGridLayout::setGeometry(const QRectF &rect)
-    self.uglySide.call(
-        'ritual_ZN19QGraphicsGridLayout11setGeometryERK6QRectF',
-        self._valueOf(rect),
-    )
+    ritual = 'ritual_ZN19QGraphicsGridLayout11setGeometryERK6QRectF'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QGraphicsGridLayout11setGeometryERK6QRectF'
+    self.uglySide.call(ritual, self._valueOf(rect))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1158,7 +1172,10 @@ class QGraphicsGridLayout(QGraphicsLayout):
       Passed on as it is.
     """
     #  void QGraphicsGridLayout::removeAt(int index)
-    self.uglySide.call('ritual_ZN19QGraphicsGridLayout8removeAtEi', index)
+    ritual = 'ritual_ZN19QGraphicsGridLayout8removeAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QGraphicsGridLayout8removeAtEi'
+    self.uglySide.call(ritual, index)
 
   @overload(QGraphicsLayoutItem)
   @overload(NoneType)
@@ -1191,4 +1208,7 @@ class QGraphicsGridLayout(QGraphicsLayout):
     https://doc.qt.io/qt-6/qgraphicsgridlayout.html#invalidate
     """
     #  void QGraphicsGridLayout::invalidate()
-    self.uglySide.call('ritual_ZN19QGraphicsGridLayout10invalidateEv')
+    ritual = 'ritual_ZN19QGraphicsGridLayout10invalidateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QGraphicsGridLayout10invalidateEv'
+    self.uglySide.call(ritual)

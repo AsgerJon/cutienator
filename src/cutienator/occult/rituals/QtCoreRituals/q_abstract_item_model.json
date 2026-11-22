@@ -119,6 +119,74 @@
       "nothing", "address", "address", "address"
     ],
     "ritual_ZN18QAbstractItemModel6submitEv": ["bool", "address"],
-    "ritual_ZN18QAbstractItemModel6revertEv": ["nothing", "address"]
+    "ritual_ZN18QAbstractItemModel6revertEv": ["nothing", "address"],
+    "ritual_take_QAbstractItemModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QAbstractItemModel7siblingEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK18QAbstractItemModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QAbstractItemModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK18QAbstractItemModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti": [
+      "bool", "address", "int", "int", "address", "int"
+    ],
+    "ritual_own_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_own_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_own_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i": [
+      "bool", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_own_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i": [
+      "bool", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_own_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK18QAbstractItemModel5buddyERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK18QAbstractItemModel4spanERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QAbstractItemModel6submitEv": ["bool", "address"],
+    "ritual_own_ZN18QAbstractItemModel6revertEv": ["nothing", "address"],
+    "ritual_own_ZN18QAbstractItemModel17resetInternalDataEv": [
+      "nothing", "address"
+    ]
   }
 }

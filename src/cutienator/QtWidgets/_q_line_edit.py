@@ -22,18 +22,32 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QEvent, QMargins, QMetaObject, QPoint, QSize
   from ..QtCore import QTimerEvent, QVariant
-  from ..QtGui import QAction, QIcon, QValidator
-  from . import QCompleter, QMenu
+  from ..QtGui import QAction, QContextMenuEvent, QDragEnterEvent
+  from ..QtGui import QDragLeaveEvent, QDragMoveEvent, QDropEvent
+  from ..QtGui import QFocusEvent, QIcon, QInputMethodEvent, QKeyEvent
+  from ..QtGui import QMouseEvent, QPaintEvent, QValidator
+  from . import QCompleter, QMenu, QStyleOptionFrame
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAction = WAIT['QAction']
   QCompleter = WAIT['QCompleter']
+  QContextMenuEvent = WAIT['QContextMenuEvent']
+  QDragEnterEvent = WAIT['QDragEnterEvent']
+  QDragLeaveEvent = WAIT['QDragLeaveEvent']
+  QDragMoveEvent = WAIT['QDragMoveEvent']
+  QDropEvent = WAIT['QDropEvent']
   QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
   QIcon = WAIT['QIcon']
+  QInputMethodEvent = WAIT['QInputMethodEvent']
+  QKeyEvent = WAIT['QKeyEvent']
   QMargins = WAIT['QMargins']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QPoint = WAIT['QPoint']
+  QStyleOptionFrame = WAIT['QStyleOptionFrame']
   QTimerEvent = WAIT['QTimerEvent']
   QValidator = WAIT['QValidator']
   QVariant = WAIT['QVariant']
@@ -55,7 +69,7 @@ class QLineEdit(QWidget):
   -----------
 
   Every function of Qt's QLineEdit that has a ritual and that Python can call
-  so far, 69 names in all: 'metaObject', 'tr', 'text', 'displayText',
+  so far, 86 names in all: 'metaObject', 'tr', 'text', 'displayText',
   'placeholderText', 'setPlaceholderText', 'maxLength', 'setMaxLength',
   'setFrame', 'hasFrame', 'setClearButtonEnabled', 'isClearButtonEnabled',
   'echoMode', 'setEchoMode', 'isReadOnly', 'setReadOnly', 'setValidator',
@@ -69,8 +83,13 @@ class QLineEdit(QWidget):
   'cursorMoveStyle', 'inputMask', 'setInputMask', 'hasAcceptableInput',
   'setTextMargins', 'textMargins', 'addAction', 'setText', 'clear',
   'selectAll', 'undo', 'redo', 'cut', 'copy', 'paste', 'deselect', 'insert',
-  'createStandardContextMenu', 'inputMethodQuery', 'timerEvent', 'event'. It
-  can be made from Python, in 2 ways; see '__init__'.
+  'createStandardContextMenu', 'inputMethodQuery', 'timerEvent', 'event',
+  'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
+  'mouseDoubleClickEvent', 'keyPressEvent', 'keyReleaseEvent',
+  'focusInEvent', 'focusOutEvent', 'paintEvent', 'dragEnterEvent',
+  'dragMoveEvent', 'dragLeaveEvent', 'dropEvent', 'changeEvent',
+  'contextMenuEvent', 'inputMethodEvent', 'initStyleOption'. It can be made
+  from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -81,8 +100,9 @@ class QLineEdit(QWidget):
   What has no ritual
   ------------------
 
-  33 of the 108 functions Qt declares: 18 protected; 7 a signal; 3 private; 2
-  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  16 of the 108 functions Qt declares: 7 a signal; 3 private; 2 takes or
+  gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1
+  protected.
 
   What to expect
   --------------
@@ -174,6 +194,25 @@ class QLineEdit(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QLineEdit'
+
+  #  A C++ QLineEdit Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QLineEdit'
+
+  #  The functions Qt calls itself that QLineEdit is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK9QLineEdit15initStyleOptionEP17QStyleOptionFrame',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionFrame'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -354,7 +393,10 @@ class QLineEdit(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QLineEdit::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK9QLineEdit8sizeHintEv')
+    ritual = 'ritual_ZNK9QLineEdit8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QLineEdit8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -371,7 +413,10 @@ class QLineEdit(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QLineEdit::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK9QLineEdit15minimumSizeHintEv')
+    ritual = 'ritual_ZNK9QLineEdit15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QLineEdit15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -569,10 +614,12 @@ class QLineEdit(QWidget):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QLineEdit::inputMethodQuery(Qt::InputMethodQuery a0) const
-    address = self.uglySide.call(
-        'ritual_ZNK9QLineEdit16inputMethodQueryEN2Qt16InputMethodQueryE',
-        a0.value,
-    )
+    ritual = 'ritual_ZNK9QLineEdit16inputMethodQueryEN2Qt16InputMethodQueryE'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK9QLineEdit16inputMethodQueryEN2Qt16InputMethodQuer'
+          'yE')
+    address = self.uglySide.call(ritual, a0.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -1371,10 +1418,10 @@ class QLineEdit(QWidget):
       object.
     """
     #  void QLineEdit::timerEvent(QTimerEvent *a0)
-    self.uglySide.call(
-        'ritual_ZN9QLineEdit10timerEventEP11QTimerEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN9QLineEdit10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QLineEdit10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1392,6 +1439,365 @@ class QLineEdit(QWidget):
       object.
     """
     #  bool QLineEdit::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_ZN9QLineEdit5eventEP6QEvent', self._addressOf(a0),
+    ritual = 'ritual_ZN9QLineEdit5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QLineEdit5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::mousePressEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::mousePressEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit15mousePressEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::mouseMoveEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::mouseMoveEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::mouseReleaseEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::mouseReleaseEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseDoubleClickEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::mouseDoubleClickEvent(QMouseEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlineedit.html#mouseDoubleClickEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::mouseDoubleClickEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit21mouseDoubleClickEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, a0: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::keyPressEvent(QKeyEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::keyPressEvent(QKeyEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit13keyPressEventEP9QKeyEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyReleaseEvent(self, a0: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::keyReleaseEvent(QKeyEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#keyReleaseEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::keyReleaseEvent(QKeyEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit15keyReleaseEventEP9QKeyEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, a0: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::focusInEvent(QFocusEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#focusInEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::focusInEvent(QFocusEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit12focusInEventEP11QFocusEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, a0: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::focusOutEvent(QFocusEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::focusOutEvent(QFocusEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit13focusOutEventEP11QFocusEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QDragEnterEvent)
+  @overload(NoneType)
+  def dragEnterEvent(self, a0: Optional[QDragEnterEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::dragEnterEvent(QDragEnterEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#dragEnterEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QDragEnterEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::dragEnterEvent(QDragEnterEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit14dragEnterEventEP15QDragEnterEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QDragMoveEvent)
+  @overload(NoneType)
+  def dragMoveEvent(self, e: Optional[QDragMoveEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::dragMoveEvent(QDragMoveEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#dragMoveEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QDragMoveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::dragMoveEvent(QDragMoveEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit13dragMoveEventEP14QDragMoveEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QDragLeaveEvent)
+  @overload(NoneType)
+  def dragLeaveEvent(self, e: Optional[QDragLeaveEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::dragLeaveEvent(QDragLeaveEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#dragLeaveEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QDragLeaveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::dragLeaveEvent(QDragLeaveEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit14dragLeaveEventEP15QDragLeaveEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QDropEvent)
+  @overload(NoneType)
+  def dropEvent(self, a0: Optional[QDropEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::dropEvent(QDropEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#dropEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::dropEvent(QDropEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit9dropEventEP10QDropEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, a0: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::changeEvent(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#changeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::changeEvent(QEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit11changeEventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QContextMenuEvent)
+  @overload(NoneType)
+  def contextMenuEvent(self, a0: Optional[QContextMenuEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::contextMenuEvent(QContextMenuEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#contextMenuEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QContextMenuEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::contextMenuEvent(QContextMenuEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit16contextMenuEventEP17QContextMenuEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QInputMethodEvent)
+  @overload(NoneType)
+  def inputMethodEvent(self, a0: Optional[QInputMethodEvent]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::inputMethodEvent(QInputMethodEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#inputMethodEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QInputMethodEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::inputMethodEvent(QInputMethodEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QLineEdit16inputMethodEventEP17QInputMethodEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QStyleOptionFrame)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOptionFrame]) -> None:
+    """
+    Calls Qt's 'void QLineEdit::initStyleOption(QStyleOptionFrame *option)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionFrame]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLineEdit::initStyleOption(QStyleOptionFrame *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK9QLineEdit15initStyleOptionEP17QStyleOptionFrame',
+        self._addressOf(option),
     )

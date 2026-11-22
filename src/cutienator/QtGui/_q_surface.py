@@ -92,6 +92,43 @@ class QSurface(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSurface'
 
+  #  A C++ QSurface Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QSurface'
+
+  #  The functions Qt calls itself that QSurface is the first to declare and
+  #  that cannot be handed to Python yet, each as Qt declares it. A class of
+  #  a program that writes one of them anew is refused, since Qt would never
+  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'surfaceHandle': (
+          'QPlatformSurface *QSurface::surfaceHandle() const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QSurface is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'format': (
+          ('_ZNK8QSurface6formatEv',
+           ('address', 'value', 'QtGui:QSurfaceFormat'),
+           ()),
+      ),
+      'surfaceType': (
+          ('_ZNK8QSurface11surfaceTypeEv',
+           ('int', 'enum', 'QtGui:QSurface.SurfaceType'),
+           ()),
+      ),
+      'size': (
+          ('_ZNK8QSurface4sizeEv',
+           ('address', 'value', 'QtCore:QSize'),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

@@ -41,6 +41,30 @@
     ],
     "ritual_ZN24QPlainTextDocumentLayout13requestUpdateEv": [
       "nothing", "address"
+    ],
+    "ritual_take_QPlainTextDocumentLayout": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QPlainTextDocumentLayout4drawEP8QPainterRKN27QAbstractTextDocumentLayout12PaintContextE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK24QPlainTextDocumentLayout7hitTestERK7QPointFN2Qt15HitTestAccuracyE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_own_ZNK24QPlainTextDocumentLayout9pageCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK24QPlainTextDocumentLayout12documentSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QPlainTextDocumentLayout17frameBoundingRectEP10QTextFrame": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK24QPlainTextDocumentLayout17blockBoundingRectERK10QTextBlock": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN24QPlainTextDocumentLayout15documentChangedEiii": [
+      "nothing", "address", "int", "int", "int"
     ]
   }
 }

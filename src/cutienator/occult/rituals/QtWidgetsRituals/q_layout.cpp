@@ -5,6 +5,474 @@
 #include <QtCore/qmargins.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QLayout may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQLayout : QLayout {
+  using QLayout::childEvent;
+};
+
+//  A QLayout that Python can take functions over in. Every QLayout
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef int (*CuteQLayoutCall0)(const void *, int *);
+typedef void (*CuteQLayoutCall1)(const void *, int, int *);
+typedef void (*CuteQLayoutCall2)(const void *, int *);
+typedef const QRect * (*CuteQLayoutCall3)(const void *, int *);
+typedef void (*CuteQLayoutCall4)(const void *, QLayoutItem *, int *);
+typedef const QSize * (*CuteQLayoutCall5)(const void *, int *);
+typedef const QSize * (*CuteQLayoutCall6)(const void *, int *);
+typedef void (*CuteQLayoutCall7)(const void *, const QRect *, int *);
+typedef void * (*CuteQLayoutCall8)(const void *, int, int *);
+typedef void * (*CuteQLayoutCall9)(const void *, int, int *);
+typedef int (*CuteQLayoutCall10)(const void *, const QWidget *, int *);
+typedef int (*CuteQLayoutCall11)(const void *, const QLayoutItem *, int *);
+typedef int (*CuteQLayoutCall12)(const void *, int *);
+typedef bool (*CuteQLayoutCall13)(const void *, int *);
+typedef void * (*CuteQLayoutCall14)(const void *, int *);
+typedef void (*CuteQLayoutCall15)(const void *, QChildEvent *, int *);
+typedef bool (*CuteQLayoutCall16)(const void *, QEvent *, int *);
+typedef bool (*CuteQLayoutCall17)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQLayoutCall18)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQLayoutCall19)(const void *, QEvent *, int *);
+typedef void (*CuteQLayoutCall20)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQLayoutCall21)(const void *, const QMetaMethod *, int *);
+typedef const QSize * (*CuteQLayoutCall22)(const void *, int *);
+typedef bool (*CuteQLayoutCall23)(const void *, int *);
+typedef int (*CuteQLayoutCall24)(const void *, int, int *);
+typedef int (*CuteQLayoutCall25)(const void *, int, int *);
+typedef void * (*CuteQLayoutCall26)(const void *, int *);
+typedef void * (*CuteQLayoutCall27)(const void *, int *);
+class CuteQLayout : public QLayout {
+public:
+  using QLayout::QLayout;
+  void *taken[28] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK7QLayout7spacingEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QLayout10setSpacingEi")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem10invalidateEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem8geometryEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QLayout7addItemEP11QLayoutItem")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem11minimumSizeEv")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem11maximumSizeEv")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem11setGeometryERK5QRect")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QLayout6itemAtEi")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QLayout6takeAtEi")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QLayout7indexOfEPK7QWidget")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QLayout7indexOfEPK11QLayoutItem")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QLayout5countEv")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem7isEmptyEv")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem6layoutEv")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[19] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[20] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem8sizeHintEv")) {
+      taken[22] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem17hasHeightForWidthEv")) {
+      taken[23] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem14heightForWidthEi")) {
+      taken[24] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem21minimumHeightForWidthEi")) {
+      taken[25] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem6widgetEv")) {
+      taken[26] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem10spacerItemEv")) {
+      taken[27] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  int QLayout::spacing() const
+  int spacing() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQLayoutCall0 call = reinterpret_cast<CuteQLayoutCall0>(taken[0]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QLayout::spacing();
+  }
+
+  //  void QLayout::setSpacing(int a0)
+  void setSpacing(int a0) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQLayoutCall1 call = reinterpret_cast<CuteQLayoutCall1>(taken[1]);
+      call(this, a0, &handled);
+      if (handled) return;
+    }
+    QLayout::setSpacing(a0);
+  }
+
+  //  void QLayout::invalidate()
+  void invalidate() override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQLayoutCall2 call = reinterpret_cast<CuteQLayoutCall2>(taken[2]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QLayout::invalidate();
+  }
+
+  //  QRect QLayout::geometry() const
+  QRect geometry() const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQLayoutCall3 call = reinterpret_cast<CuteQLayoutCall3>(taken[3]);
+      const QRect * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QLayout::geometry();
+  }
+
+  //  void QLayout::addItem(QLayoutItem *a0)
+  void addItem(QLayoutItem *a0) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQLayoutCall4 call = reinterpret_cast<CuteQLayoutCall4>(taken[4]);
+      call(this, a0, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  QSize QLayout::minimumSize() const
+  QSize minimumSize() const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQLayoutCall5 call = reinterpret_cast<CuteQLayoutCall5>(taken[5]);
+      const QSize * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QLayout::minimumSize();
+  }
+
+  //  QSize QLayout::maximumSize() const
+  QSize maximumSize() const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQLayoutCall6 call = reinterpret_cast<CuteQLayoutCall6>(taken[6]);
+      const QSize * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QLayout::maximumSize();
+  }
+
+  //  void QLayout::setGeometry(const QRect &a0)
+  void setGeometry(const QRect &a0) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQLayoutCall7 call = reinterpret_cast<CuteQLayoutCall7>(taken[7]);
+      call(this, &a0, &handled);
+      if (handled) return;
+    }
+    QLayout::setGeometry(a0);
+  }
+
+  //  QLayoutItem *QLayout::itemAt(int index) const
+  QLayoutItem *itemAt(int index) const override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQLayoutCall8 call = reinterpret_cast<CuteQLayoutCall8>(taken[8]);
+      void * given = call(this, index, &handled);
+      if (handled) return static_cast<QLayoutItem *>(given);
+    }
+    return {};
+  }
+
+  //  QLayoutItem *QLayout::takeAt(int index)
+  QLayoutItem *takeAt(int index) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQLayoutCall9 call = reinterpret_cast<CuteQLayoutCall9>(taken[9]);
+      void * given = call(this, index, &handled);
+      if (handled) return static_cast<QLayoutItem *>(given);
+    }
+    return {};
+  }
+
+  //  int QLayout::indexOf(const QWidget *a0) const
+  int indexOf(const QWidget *a0) const override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQLayoutCall10 call = reinterpret_cast<CuteQLayoutCall10>(taken[10]);
+      int given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QLayout::indexOf(a0);
+  }
+
+  //  int QLayout::indexOf(const QLayoutItem *a0) const
+  int indexOf(const QLayoutItem *a0) const override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQLayoutCall11 call = reinterpret_cast<CuteQLayoutCall11>(taken[11]);
+      int given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QLayout::indexOf(a0);
+  }
+
+  //  int QLayout::count() const
+  int count() const override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQLayoutCall12 call = reinterpret_cast<CuteQLayoutCall12>(taken[12]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  bool QLayout::isEmpty() const
+  bool isEmpty() const override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQLayoutCall13 call = reinterpret_cast<CuteQLayoutCall13>(taken[13]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QLayout::isEmpty();
+  }
+
+  //  QLayout *QLayout::layout()
+  QLayout *layout() override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQLayoutCall14 call = reinterpret_cast<CuteQLayoutCall14>(taken[14]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QLayout *>(given);
+    }
+    return QLayout::layout();
+  }
+
+  //  void QLayout::childEvent(QChildEvent *e)
+  void childEvent(QChildEvent *e) override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQLayoutCall15 call = reinterpret_cast<CuteQLayoutCall15>(taken[15]);
+      call(this, e, &handled);
+      if (handled) return;
+    }
+    QLayout::childEvent(e);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQLayoutCall16 call = reinterpret_cast<CuteQLayoutCall16>(taken[16]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQLayoutCall17 call = reinterpret_cast<CuteQLayoutCall17>(taken[17]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQLayoutCall18 call = reinterpret_cast<CuteQLayoutCall18>(taken[18]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQLayoutCall19 call = reinterpret_cast<CuteQLayoutCall19>(taken[19]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQLayoutCall20 call = reinterpret_cast<CuteQLayoutCall20>(taken[20]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[21]) {
+      int handled = 0;
+      CuteQLayoutCall21 call = reinterpret_cast<CuteQLayoutCall21>(taken[21]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+
+  //  QSize QLayoutItem::sizeHint() const
+  QSize sizeHint() const override {
+    if (taken[22]) {
+      int handled = 0;
+      CuteQLayoutCall22 call = reinterpret_cast<CuteQLayoutCall22>(taken[22]);
+      const QSize * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+
+  //  bool QLayoutItem::hasHeightForWidth() const
+  bool hasHeightForWidth() const override {
+    if (taken[23]) {
+      int handled = 0;
+      CuteQLayoutCall23 call = reinterpret_cast<CuteQLayoutCall23>(taken[23]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QLayoutItem::hasHeightForWidth();
+  }
+
+  //  int QLayoutItem::heightForWidth(int a0) const
+  int heightForWidth(int a0) const override {
+    if (taken[24]) {
+      int handled = 0;
+      CuteQLayoutCall24 call = reinterpret_cast<CuteQLayoutCall24>(taken[24]);
+      int given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QLayoutItem::heightForWidth(a0);
+  }
+
+  //  int QLayoutItem::minimumHeightForWidth(int a0) const
+  int minimumHeightForWidth(int a0) const override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQLayoutCall25 call = reinterpret_cast<CuteQLayoutCall25>(taken[25]);
+      int given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QLayoutItem::minimumHeightForWidth(a0);
+  }
+
+  //  QWidget *QLayoutItem::widget() const
+  QWidget *widget() const override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQLayoutCall26 call = reinterpret_cast<CuteQLayoutCall26>(taken[26]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QWidget *>(given);
+    }
+    return QLayoutItem::widget();
+  }
+
+  //  QSpacerItem *QLayoutItem::spacerItem()
+  QSpacerItem *spacerItem() override {
+    if (taken[27]) {
+      int handled = 0;
+      CuteQLayoutCall27 call = reinterpret_cast<CuteQLayoutCall27>(taken[27]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QSpacerItem *>(given);
+    }
+    return QLayoutItem::spacerItem();
+  }
+};
 
 //  const QMetaObject *QLayout::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -381,4 +849,91 @@ QSize *ritual_ZN7QLayout21closestAcceptableSizeEPK7QWidgetRK5QSize(
 extern "C" Q_DECL_EXPORT
 QLayoutItem *ritual_cast_QLayout_QLayoutItem(QLayout *self) {
   return static_cast<QLayoutItem *>(self);
+}
+
+//  a Python function taken by a CuteQLayout, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QLayout(QLayout *self, const char *key, void *call) {
+  return static_cast<CuteQLayout *>(self)->take(key, call);
+}
+
+//  int QLayout::spacing() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK7QLayout7spacingEv(const QLayout *self) {
+  return self->QLayout::spacing();
+}
+
+//  void QLayout::setSpacing(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QLayout10setSpacingEi(QLayout *self, int a0) {
+  self->QLayout::setSpacing(a0);
+}
+
+//  void QLayout::invalidate()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QLayout10invalidateEv(QLayout *self) {
+  self->QLayout::invalidate();
+}
+
+//  QRect QLayout::geometry() const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_own_ZNK7QLayout8geometryEv(const QLayout *self) {
+  return new QRect(self->QLayout::geometry());
+}
+
+//  QSize QLayout::minimumSize() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_own_ZNK7QLayout11minimumSizeEv(const QLayout *self) {
+  return new QSize(self->QLayout::minimumSize());
+}
+
+//  QSize QLayout::maximumSize() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_own_ZNK7QLayout11maximumSizeEv(const QLayout *self) {
+  return new QSize(self->QLayout::maximumSize());
+}
+
+//  void QLayout::setGeometry(const QRect &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QLayout11setGeometryERK5QRect(
+    QLayout *self,
+    const QRect *a0) {
+  self->QLayout::setGeometry(*a0);
+}
+
+//  int QLayout::indexOf(const QWidget *a0) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK7QLayout7indexOfEPK7QWidget(
+    const QLayout *self,
+    const QWidget *a0) {
+  return self->QLayout::indexOf(a0);
+}
+
+//  int QLayout::indexOf(const QLayoutItem *a0) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK7QLayout7indexOfEPK11QLayoutItem(
+    const QLayout *self,
+    const QLayoutItem *a0) {
+  return self->QLayout::indexOf(a0);
+}
+
+//  bool QLayout::isEmpty() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK7QLayout7isEmptyEv(const QLayout *self) {
+  return self->QLayout::isEmpty();
+}
+
+//  QLayout *QLayout::layout()
+extern "C" Q_DECL_EXPORT
+QLayout *ritual_own_ZN7QLayout6layoutEv(QLayout *self) {
+  return self->QLayout::layout();
+}
+
+//  void QLayout::childEvent(QChildEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QLayout10childEventEP11QChildEvent(
+    QLayout *self,
+    QChildEvent *e) {
+  static_cast<OwnQLayout *>(self)->OwnQLayout::childEvent(e);
 }

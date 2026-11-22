@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK11QCloseEvent5cloneEv": ["address", "address"],
     "ritual_ZN11QCloseEventD1Ev": ["nothing", "address"],
-    "ritual_ZN11QCloseEventC1Ev": ["address"]
+    "ritual_ZN11QCloseEventC1Ev": ["address"],
+    "ritual_take_QCloseEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QCloseEvent5cloneEv": ["address", "address"]
   }
 }

@@ -95,6 +95,16 @@
     "ritual_ZNK19QGraphicsLayoutItem12graphicsItemEv": [
       "address", "address"
     ],
-    "ritual_ZNK19QGraphicsLayoutItem13ownedByLayoutEv": ["bool", "address"]
+    "ritual_ZNK19QGraphicsLayoutItem13ownedByLayoutEv": ["bool", "address"],
+    "ritual_take_QGraphicsLayoutItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QGraphicsLayoutItem14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK19QGraphicsLayoutItem7isEmptyEv": ["bool", "address"]
   }
 }

@@ -5,6 +5,15 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qregion.h>
 
+//  Only a class built on QPaintDeviceWindow may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQPaintDeviceWindow : QPaintDeviceWindow {
+  using QPaintDeviceWindow::exposeEvent;
+  using QPaintDeviceWindow::paintEvent;
+  using QPaintDeviceWindow::metric;
+  using QPaintDeviceWindow::event;
+};
+
 //  const QMetaObject *QPaintDeviceWindow::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK18QPaintDeviceWindow10metaObjectEv(
@@ -48,4 +57,40 @@ extern "C" Q_DECL_EXPORT
 QPaintDevice *ritual_cast_QPaintDeviceWindow_QPaintDevice(
     QPaintDeviceWindow *self) {
   return static_cast<QPaintDevice *>(self);
+}
+
+//  void QPaintDeviceWindow::exposeEvent(QExposeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN18QPaintDeviceWindow11exposeEventEP12QExposeEvent(
+    QPaintDeviceWindow *self,
+    QExposeEvent *a0) {
+  static_cast<OwnQPaintDeviceWindow *>(self)->OwnQPaintDeviceWindow::exposeEvent(
+      a0);
+}
+
+//  void QPaintDeviceWindow::paintEvent(QPaintEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN18QPaintDeviceWindow10paintEventEP11QPaintEvent(
+    QPaintDeviceWindow *self,
+    QPaintEvent *event) {
+  static_cast<OwnQPaintDeviceWindow *>(self)->OwnQPaintDeviceWindow::paintEvent(
+      event);
+}
+
+//  int QPaintDeviceWindow::metric(PaintDeviceMetric metric) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK18QPaintDeviceWindow6metricEN12QPaintDevice17PaintDeviceMetricE(
+    const QPaintDeviceWindow *self,
+    QPaintDevice::PaintDeviceMetric metric) {
+  return static_cast<const OwnQPaintDeviceWindow *>(self)->OwnQPaintDeviceWindow::metric(
+      metric);
+}
+
+//  bool QPaintDeviceWindow::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN18QPaintDeviceWindow5eventEP6QEvent(
+    QPaintDeviceWindow *self,
+    QEvent *event) {
+  return static_cast<OwnQPaintDeviceWindow *>(self)->OwnQPaintDeviceWindow::event(
+      event);
 }

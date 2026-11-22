@@ -19,6 +19,11 @@
     "ritual_ZNK11QWheelEvent12isBeginEventEv": ["bool", "address"],
     "ritual_ZNK11QWheelEvent13isUpdateEventEv": ["bool", "address"],
     "ritual_ZNK11QWheelEvent10isEndEventEv": ["bool", "address"],
-    "ritual_ZNK11QWheelEvent6sourceEv": ["int", "address"]
+    "ritual_ZNK11QWheelEvent6sourceEv": ["int", "address"],
+    "ritual_take_QWheelEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QWheelEvent5cloneEv": ["address", "address"],
+    "ritual_own_ZNK11QWheelEvent12isBeginEventEv": ["bool", "address"],
+    "ritual_own_ZNK11QWheelEvent13isUpdateEventEv": ["bool", "address"],
+    "ritual_own_ZNK11QWheelEvent10isEndEventEv": ["bool", "address"]
   }
 }

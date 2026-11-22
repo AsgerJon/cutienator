@@ -131,6 +131,25 @@ class QGraphicsTransform(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsTransform'
 
+  #  A C++ QGraphicsTransform Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsTransform'
+
+  #  The functions Qt calls itself that QGraphicsTransform is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'applyTo': (
+          ('_ZNK18QGraphicsTransform7applyToEP10QMatrix4x4',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QMatrix4x4'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

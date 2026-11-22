@@ -84,6 +84,11 @@ class QHoverEvent(QSinglePointEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QHoverEvent'
 
+  #  A C++ QHoverEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QHoverEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -110,7 +115,10 @@ class QHoverEvent(QSinglePointEvent):
       no object.
     """
     #  QHoverEvent *QHoverEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK11QHoverEvent5cloneEv')
+    ritual = 'ritual_ZNK11QHoverEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QHoverEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QHoverEvent._cuteAt(address)
 
   def pos(self) -> QPoint:
@@ -154,7 +162,10 @@ class QHoverEvent(QSinglePointEvent):
     Qt's own words: https://doc.qt.io/qt-6/qhoverevent.html#isUpdateEvent
     """
     #  bool QHoverEvent::isUpdateEvent() const
-    return self.uglySide.call('ritual_ZNK11QHoverEvent13isUpdateEventEv')
+    ritual = 'ritual_ZNK11QHoverEvent13isUpdateEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QHoverEvent13isUpdateEventEv'
+    return self.uglySide.call(ritual)
 
   def oldPos(self) -> QPoint:
     """

@@ -10,23 +10,140 @@
 #include <QtGui/qtransform.h>
 #include <QtGui/qimage.h>
 #include <QtCore/qbytearray.h>
+#include <cstring>
+
+//  Only a class built on QPixmap may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQPixmap : QPixmap {
+  using QPixmap::metric;
+};
+
+//  A QPixmap that Python can take functions over in. Every QPixmap
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef int (*CuteQPixmapCall0)(const void *, int *);
+typedef void * (*CuteQPixmapCall1)(const void *, int *);
+typedef int (*CuteQPixmapCall2)(const void *, int, int *);
+typedef void (*CuteQPixmapCall3)(const void *, QPainter *, int *);
+typedef void * (*CuteQPixmapCall4)(const void *, QPoint *, int *);
+typedef void * (*CuteQPixmapCall5)(const void *, int *);
+class CuteQPixmap : public QPixmap {
+public:
+  using QPixmap::QPixmap;
+  CuteQPixmap(const QPixmap &other) : QPixmap(other) {}
+  void *taken[6] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice10redirectedEP6QPoint")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
+      taken[5] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  int QPixmap::devType() const
+  int devType() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQPixmapCall0 call = reinterpret_cast<CuteQPixmapCall0>(taken[0]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QPixmap::devType();
+  }
+
+  //  QPaintEngine *QPixmap::paintEngine() const
+  QPaintEngine *paintEngine() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQPixmapCall1 call = reinterpret_cast<CuteQPixmapCall1>(taken[1]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPaintEngine *>(given);
+    }
+    return QPixmap::paintEngine();
+  }
+
+  //  int QPixmap::metric(PaintDeviceMetric a0) const
+  int metric(QPaintDevice::PaintDeviceMetric a0) const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQPixmapCall2 call = reinterpret_cast<CuteQPixmapCall2>(taken[2]);
+      int given = call(this, static_cast<int>(a0), &handled);
+      if (handled) return given;
+    }
+    return QPixmap::metric(a0);
+  }
+
+  //  void QPaintDevice::initPainter(QPainter *painter) const
+  void initPainter(QPainter *painter) const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQPixmapCall3 call = reinterpret_cast<CuteQPixmapCall3>(taken[3]);
+      call(this, painter, &handled);
+      if (handled) return;
+    }
+    QPaintDevice::initPainter(painter);
+  }
+
+  //  QPaintDevice *QPaintDevice::redirected(QPoint *offset) const
+  QPaintDevice *redirected(QPoint *offset) const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQPixmapCall4 call = reinterpret_cast<CuteQPixmapCall4>(taken[4]);
+      void * given = call(this, offset, &handled);
+      if (handled) return static_cast<QPaintDevice *>(given);
+    }
+    return QPaintDevice::redirected(offset);
+  }
+
+  //  QPainter *QPaintDevice::sharedPainter() const
+  QPainter *sharedPainter() const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQPixmapCall5 call = reinterpret_cast<CuteQPixmapCall5>(taken[5]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPainter *>(given);
+    }
+    return QPaintDevice::sharedPainter();
+  }
+};
 
 //  QPixmap::QPixmap()
 extern "C" Q_DECL_EXPORT
 QPixmap *ritual_ZN7QPixmapC1Ev() {
-  return new QPixmap();
+  return new CuteQPixmap();
 }
 
 //  QPixmap::QPixmap(int w, int h)
 extern "C" Q_DECL_EXPORT
 QPixmap *ritual_ZN7QPixmapC1Eii(int w, int h) {
-  return new QPixmap(w, h);
+  return new CuteQPixmap(w, h);
 }
 
 //  QPixmap::QPixmap(const QSize &a0)
 extern "C" Q_DECL_EXPORT
 QPixmap *ritual_ZN7QPixmapC1ERK5QSize(const QSize *a0) {
-  return new QPixmap(*a0);
+  return new CuteQPixmap(*a0);
 }
 
 //  QPixmap::QPixmap(const QString &fileName, const char *format,
@@ -36,7 +153,7 @@ QPixmap *ritual_ZN7QPixmapC1ERK7QStringPKc6QFlagsIN2Qt19ImageConversionFlagEE(
     const QString *fileName,
     const char *format,
     int flags) {
-  return new QPixmap(
+  return new CuteQPixmap(
       *fileName,
       format,
       QFlags<Qt::ImageConversionFlag>::fromInt(flags));
@@ -45,7 +162,7 @@ QPixmap *ritual_ZN7QPixmapC1ERK7QStringPKc6QFlagsIN2Qt19ImageConversionFlagEE(
 //  QPixmap::QPixmap(const QPixmap &a0)
 extern "C" Q_DECL_EXPORT
 QPixmap *ritual_ZN7QPixmapC1ERKS_(const QPixmap *a0) {
-  return new QPixmap(*a0);
+  return new CuteQPixmap(*a0);
 }
 
 //  QPixmap::~QPixmap()
@@ -409,4 +526,31 @@ QPaintEngine *ritual_ZNK7QPixmap11paintEngineEv(const QPixmap *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK7QPixmapntEv(const QPixmap *self) {
   return self->operator!();
+}
+
+//  a Python function taken by a CuteQPixmap, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QPixmap(QPixmap *self, const char *key, void *call) {
+  return static_cast<CuteQPixmap *>(self)->take(key, call);
+}
+
+//  int QPixmap::devType() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK7QPixmap7devTypeEv(const QPixmap *self) {
+  return self->QPixmap::devType();
+}
+
+//  QPaintEngine *QPixmap::paintEngine() const
+extern "C" Q_DECL_EXPORT
+QPaintEngine *ritual_own_ZNK7QPixmap11paintEngineEv(const QPixmap *self) {
+  return self->QPixmap::paintEngine();
+}
+
+//  int QPixmap::metric(PaintDeviceMetric a0) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK7QPixmap6metricEN12QPaintDevice17PaintDeviceMetricE(
+    const QPixmap *self,
+    QPaintDevice::PaintDeviceMetric a0) {
+  return static_cast<const OwnQPixmap *>(self)->OwnQPixmap::metric(a0);
 }

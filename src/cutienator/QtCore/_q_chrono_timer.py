@@ -11,14 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from . import Qt, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject
+  from . import QMetaObject, QTimerEvent
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QTimerEvent = WAIT['QTimerEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,9 +42,9 @@ class QChronoTimer(QObject):
   -----------
 
   Every function of Qt's QChronoTimer that has a ritual and that Python can
-  call so far, 10 names in all: 'metaObject', 'tr', 'isActive', 'id',
+  call so far, 11 names in all: 'metaObject', 'tr', 'isActive', 'id',
   'setTimerType', 'timerType', 'setSingleShot', 'isSingleShot', 'start',
-  'stop'. It can be made from Python, in 1 way; see '__init__'.
+  'stop', 'timerEvent'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -50,8 +55,8 @@ class QChronoTimer(QObject):
   What has no ritual
   ------------------
 
-  21 of the 33 functions Qt declares: 10 takes or gives a type that cannot be
-  passed yet; 4 forbidden; 3 private; 2 a template; 1 a signal; 1 protected.
+  20 of the 33 functions Qt declares: 10 takes or gives a type that cannot be
+  passed yet; 4 forbidden; 3 private; 2 a template; 1 a signal.
 
   What to expect
   --------------
@@ -123,6 +128,11 @@ class QChronoTimer(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QChronoTimer'
+
+  #  A C++ QChronoTimer Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QChronoTimer'
 
   #  Fallback Variables
 
@@ -319,3 +329,24 @@ class QChronoTimer(QObject):
     """
     #  void QChronoTimer::stop()
     self.uglySide.call('ritual_ZN12QChronoTimer4stopEv')
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, a0: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QChronoTimer::timerEvent(QTimerEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchronotimer.html#timerEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QChronoTimer::timerEvent(QTimerEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN12QChronoTimer10timerEventEP11QTimerEvent',
+        self._addressOf(a0),
+    )

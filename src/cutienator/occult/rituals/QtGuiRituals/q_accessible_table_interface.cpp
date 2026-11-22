@@ -2,6 +2,261 @@
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qaccessible.h>
 #include <QtCore/qstring.h>
+#include <cstring>
+
+//  A QAccessibleTableInterface that Python can take functions over in. Every QAccessibleTableInterface
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQAccessibleTableInterfaceCall0)(const void *, int *);
+typedef void * (*CuteQAccessibleTableInterfaceCall1)(const void *, int *);
+typedef void * (*CuteQAccessibleTableInterfaceCall2)(const void *, int, int, int *);
+typedef int (*CuteQAccessibleTableInterfaceCall3)(const void *, int *);
+typedef int (*CuteQAccessibleTableInterfaceCall4)(const void *, int *);
+typedef int (*CuteQAccessibleTableInterfaceCall5)(const void *, int *);
+typedef int (*CuteQAccessibleTableInterfaceCall6)(const void *, int *);
+typedef int (*CuteQAccessibleTableInterfaceCall7)(const void *, int *);
+typedef bool (*CuteQAccessibleTableInterfaceCall8)(const void *, int, int *);
+typedef bool (*CuteQAccessibleTableInterfaceCall9)(const void *, int, int *);
+typedef bool (*CuteQAccessibleTableInterfaceCall10)(const void *, int, int *);
+typedef bool (*CuteQAccessibleTableInterfaceCall11)(const void *, int, int *);
+typedef bool (*CuteQAccessibleTableInterfaceCall12)(const void *, int, int *);
+typedef bool (*CuteQAccessibleTableInterfaceCall13)(const void *, int, int *);
+typedef void (*CuteQAccessibleTableInterfaceCall14)(const void *, QAccessibleTableModelChangeEvent *, int *);
+class CuteQAccessibleTableInterface : public QAccessibleTableInterface {
+public:
+  using QAccessibleTableInterface::QAccessibleTableInterface;
+  void *taken[15] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface7captionEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface7summaryEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface6cellAtEii")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface17selectedCellCountEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface19selectedColumnCountEv")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface16selectedRowCountEv")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface11columnCountEv")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface8rowCountEv")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface16isColumnSelectedEi")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK25QAccessibleTableInterface13isRowSelectedEi")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface9selectRowEi")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface12selectColumnEi")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface11unselectRowEi")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface14unselectColumnEi")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN25QAccessibleTableInterface11modelChangeEP32QAccessibleTableModelChangeEvent")) {
+      taken[14] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QAccessibleInterface *QAccessibleTableInterface::caption() const
+  QAccessibleInterface *caption() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall0 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QAccessibleInterface *>(given);
+    }
+    return {};
+  }
+
+  //  QAccessibleInterface *QAccessibleTableInterface::summary() const
+  QAccessibleInterface *summary() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall1 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall1>(taken[1]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QAccessibleInterface *>(given);
+    }
+    return {};
+  }
+
+  //  QAccessibleInterface *QAccessibleTableInterface::cellAt(int row, int
+  //      column) const
+  QAccessibleInterface *cellAt(int row, int column) const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall2 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall2>(taken[2]);
+      void * given = call(this, row, column, &handled);
+      if (handled) return static_cast<QAccessibleInterface *>(given);
+    }
+    return {};
+  }
+
+  //  int QAccessibleTableInterface::selectedCellCount() const
+  int selectedCellCount() const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall3 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall3>(taken[3]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  int QAccessibleTableInterface::selectedColumnCount() const
+  int selectedColumnCount() const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall4 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall4>(taken[4]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  int QAccessibleTableInterface::selectedRowCount() const
+  int selectedRowCount() const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall5 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall5>(taken[5]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  int QAccessibleTableInterface::columnCount() const
+  int columnCount() const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall6 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall6>(taken[6]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  int QAccessibleTableInterface::rowCount() const
+  int rowCount() const override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall7 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall7>(taken[7]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  bool QAccessibleTableInterface::isColumnSelected(int column) const
+  bool isColumnSelected(int column) const override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall8 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall8>(taken[8]);
+      bool given = call(this, column, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  bool QAccessibleTableInterface::isRowSelected(int row) const
+  bool isRowSelected(int row) const override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall9 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall9>(taken[9]);
+      bool given = call(this, row, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  bool QAccessibleTableInterface::selectRow(int row)
+  bool selectRow(int row) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall10 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall10>(taken[10]);
+      bool given = call(this, row, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  bool QAccessibleTableInterface::selectColumn(int column)
+  bool selectColumn(int column) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall11 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall11>(taken[11]);
+      bool given = call(this, column, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  bool QAccessibleTableInterface::unselectRow(int row)
+  bool unselectRow(int row) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall12 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall12>(taken[12]);
+      bool given = call(this, row, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  bool QAccessibleTableInterface::unselectColumn(int column)
+  bool unselectColumn(int column) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall13 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall13>(taken[13]);
+      bool given = call(this, column, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  void QAccessibleTableInterface::modelChange(QAccessibleTableModelChan
+  //      geEvent *event)
+  void modelChange(QAccessibleTableModelChangeEvent *event) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQAccessibleTableInterfaceCall14 call = reinterpret_cast<CuteQAccessibleTableInterfaceCall14>(taken[14]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+  }
+};
 
 //  QAccessibleTableInterface::~QAccessibleTableInterface()
 extern "C" Q_DECL_EXPORT
@@ -141,4 +396,14 @@ void ritual_ZN25QAccessibleTableInterface11modelChangeEP32QAccessibleTableModelC
     QAccessibleTableInterface *self,
     QAccessibleTableModelChangeEvent *event) {
   self->modelChange(event);
+}
+
+//  a Python function taken by a CuteQAccessibleTableInterface, for the
+//      function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QAccessibleTableInterface(
+    QAccessibleTableInterface *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQAccessibleTableInterface *>(self)->take(key, call);
 }

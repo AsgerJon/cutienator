@@ -20,6 +20,8 @@
     ],
     "ritual_ZN14QDragMoveEvent6ignoreERK5QRect": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_take_QDragMoveEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QDragMoveEvent5cloneEv": ["address", "address"]
   }
 }

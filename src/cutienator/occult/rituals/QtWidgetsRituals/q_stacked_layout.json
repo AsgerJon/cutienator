@@ -45,6 +45,24 @@
     ],
     "ritual_ZN14QStackedLayout16setCurrentWidgetEP7QWidget": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QStackedLayout": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QStackedLayout5countEv": ["int", "address"],
+    "ritual_own_ZN14QStackedLayout7addItemEP11QLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK14QStackedLayout8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK14QStackedLayout11minimumSizeEv": ["address", "address"],
+    "ritual_own_ZNK14QStackedLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_own_ZN14QStackedLayout6takeAtEi": ["address", "address", "int"],
+    "ritual_own_ZN14QStackedLayout11setGeometryERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK14QStackedLayout17hasHeightForWidthEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK14QStackedLayout14heightForWidthEi": [
+      "int", "address", "int"
     ]
   }
 }

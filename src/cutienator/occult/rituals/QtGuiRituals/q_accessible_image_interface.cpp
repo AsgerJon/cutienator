@@ -4,6 +4,52 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
+#include <cstring>
+
+//  A QAccessibleImageInterface that Python can take functions over in. Every QAccessibleImageInterface
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef const QSize * (*CuteQAccessibleImageInterfaceCall0)(const void *, int *);
+typedef const QPoint * (*CuteQAccessibleImageInterfaceCall1)(const void *, int *);
+class CuteQAccessibleImageInterface : public QAccessibleImageInterface {
+public:
+  using QAccessibleImageInterface::QAccessibleImageInterface;
+  void *taken[2] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface9imageSizeEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface13imagePositionEv")) {
+      taken[1] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QSize QAccessibleImageInterface::imageSize() const
+  QSize imageSize() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQAccessibleImageInterfaceCall0 call = reinterpret_cast<CuteQAccessibleImageInterfaceCall0>(taken[0]);
+      const QSize * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+
+  //  QPoint QAccessibleImageInterface::imagePosition() const
+  QPoint imagePosition() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQAccessibleImageInterfaceCall1 call = reinterpret_cast<CuteQAccessibleImageInterfaceCall1>(taken[1]);
+      const QPoint * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+};
 
 //  QAccessibleImageInterface::~QAccessibleImageInterface()
 extern "C" Q_DECL_EXPORT
@@ -31,4 +77,14 @@ extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK25QAccessibleImageInterface13imagePositionEv(
     const QAccessibleImageInterface *self) {
   return new QPoint(self->imagePosition());
+}
+
+//  a Python function taken by a CuteQAccessibleImageInterface, for the
+//      function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QAccessibleImageInterface(
+    QAccessibleImageInterface *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQAccessibleImageInterface *>(self)->take(key, call);
 }

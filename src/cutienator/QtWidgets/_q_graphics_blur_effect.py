@@ -20,10 +20,12 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QRectF
+  from ..QtGui import QPainter
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QPainter = WAIT['QPainter']
   QRectF = WAIT['QRectF']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -43,9 +45,10 @@ class QGraphicsBlurEffect(QGraphicsEffect):
   -----------
 
   Every function of Qt's QGraphicsBlurEffect that has a ritual and that
-  Python can call so far, 7 names in all: 'metaObject', 'tr',
+  Python can call so far, 8 names in all: 'metaObject', 'tr',
   'boundingRectFor', 'blurRadius', 'blurHints', 'setBlurRadius',
-  'setBlurHints'. It can be made from Python, in 1 way; see '__init__'.
+  'setBlurHints', 'draw'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,8 +59,8 @@ class QGraphicsBlurEffect(QGraphicsEffect):
   What has no ritual
   ------------------
 
-  11 of the 20 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template; 1 protected.
+  10 of the 20 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -146,6 +149,11 @@ class QGraphicsBlurEffect(QGraphicsEffect):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsBlurEffect'
 
+  #  A C++ QGraphicsBlurEffect Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsBlurEffect'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -202,10 +210,11 @@ class QGraphicsBlurEffect(QGraphicsEffect):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsBlurEffect::boundingRectFor(const QRectF &rect) const
-    address = self.uglySide.call(
-        'ritual_ZNK19QGraphicsBlurEffect15boundingRectForERK6QRectF',
-        self._valueOf(rect),
-    )
+    ritual = 'ritual_ZNK19QGraphicsBlurEffect15boundingRectForERK6QRectF'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QGraphicsBlurEffect15boundingRectForERK6QRectF')
+    address = self.uglySide.call(ritual, self._valueOf(rect))
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
@@ -338,3 +347,24 @@ class QGraphicsBlurEffect(QGraphicsEffect):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QPainter)
+  @overload(NoneType)
+  def draw(self, painter: Optional[QPainter]) -> None:
+    """
+    Calls Qt's 'void QGraphicsBlurEffect::draw(QPainter *painter)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsBlurEffect::draw(QPainter *painter)
+    self.uglySide.call(
+        'ritual_own_ZN19QGraphicsBlurEffect4drawEP8QPainter',
+        self._addressOf(painter),
+    )

@@ -11,14 +11,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import QPaintDeviceWindow, QWindow
+from . import QPaintDevice, QPaintDeviceWindow, QWindow
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
+  from ..QtCore import QMetaObject, QPoint
+  from . import QResizeEvent
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPoint = WAIT['QPoint']
+  QResizeEvent = WAIT['QResizeEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,8 +44,8 @@ class QRasterWindow(QPaintDeviceWindow):
   -----------
 
   Every function of Qt's QRasterWindow that has a ritual and that Python can
-  call so far, 2 names in all: 'metaObject', 'tr'. It can be made from
-  Python, in 1 way; see '__init__'.
+  call so far, 5 names in all: 'metaObject', 'tr', 'metric', 'redirected',
+  'resizeEvent'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -49,8 +56,8 @@ class QRasterWindow(QPaintDeviceWindow):
   What has no ritual
   ------------------
 
-  11 of the 15 functions Qt declares: 3 private; 3 protected; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 15 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -123,6 +130,11 @@ class QRasterWindow(QPaintDeviceWindow):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QRasterWindow'
 
+  #  A C++ QRasterWindow Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QRasterWindow'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -152,6 +164,55 @@ class QRasterWindow(QPaintDeviceWindow):
     address = self.uglySide.call('ritual_ZNK13QRasterWindow10metaObjectEv')
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
+
+  @overload(QPaintDevice.PaintDeviceMetric)
+  def metric(self, metric: QPaintDevice.PaintDeviceMetric) -> int:
+    """
+    Calls Qt's 'int QRasterWindow::metric(PaintDeviceMetric metric) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrasterwindow.html#metric
+
+    Parameters
+    ----------
+
+    metric : QPaintDevice.PaintDeviceMetric
+      Passed on as its number.
+    """
+    #  int QRasterWindow::metric(PaintDeviceMetric metric) const
+    return self.uglySide.call(
+        'ritual_own_ZNK13QRasterWindow6metricEN12QPaintDevice17PaintDeviceM'
+        'etricE',
+        metric.value,
+    )
+
+  @overload(QPoint)
+  @overload(NoneType)
+  def redirected(self, a0: Optional[QPoint]) -> Optional[QPaintDevice]:
+    """
+    Calls Qt's 'QPaintDevice *QRasterWindow::redirected(QPoint *a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrasterwindow.html#redirected
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPoint]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    Optional[QPaintDevice]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintDevice *QRasterWindow::redirected(QPoint *a0) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK13QRasterWindow10redirectedEP6QPoint',
+        self._addressOf(a0),
+    )
+    return QPaintDevice._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -210,3 +271,24 @@ class QRasterWindow(QPaintDeviceWindow):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, event: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QRasterWindow::resizeEvent(QResizeEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrasterwindow.html#resizeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QRasterWindow::resizeEvent(QResizeEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QRasterWindow11resizeEventEP12QResizeEvent',
+        self._addressOf(event),
+    )

@@ -76,6 +76,11 @@ class QMoveEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QMoveEvent'
 
+  #  A C++ QMoveEvent Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QMoveEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -102,7 +107,10 @@ class QMoveEvent(QEvent):
       no object.
     """
     #  QMoveEvent *QMoveEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK10QMoveEvent5cloneEv')
+    ritual = 'ritual_ZNK10QMoveEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QMoveEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QMoveEvent._cuteAt(address)
 
   def pos(self) -> QPoint:

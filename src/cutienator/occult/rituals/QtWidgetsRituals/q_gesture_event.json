@@ -38,6 +38,7 @@
     "ritual_ZNK13QGestureEvent6widgetEv": ["address", "address"],
     "ritual_ZNK13QGestureEvent18mapToGraphicsSceneERK7QPointF": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_take_QGestureEvent": ["bool", "address", "chars", "address"]
   }
 }

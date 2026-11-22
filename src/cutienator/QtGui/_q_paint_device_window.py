@@ -18,12 +18,15 @@ from . import QPaintDevice, QWindow
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QRect
-  from . import QRegion
+  from ..QtCore import QEvent, QMetaObject, QRect
+  from . import QExposeEvent, QPaintEvent, QRegion
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QExposeEvent = WAIT['QExposeEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QRect = WAIT['QRect']
   QRegion = WAIT['QRegion']
 
@@ -46,15 +49,15 @@ class QPaintDeviceWindow(QWindow, QPaintDevice):
   -----------
 
   Every function of Qt's QPaintDeviceWindow that has a ritual and that Python
-  can call so far, 3 names in all: 'metaObject', 'tr', 'update'. None can be
-  made from Python: one comes out of a function of another class that gives
-  one back.
+  can call so far, 7 names in all: 'metaObject', 'tr', 'update',
+  'exposeEvent', 'paintEvent', 'metric', 'event'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
 
   What has no ritual
   ------------------
 
-  14 of the 20 functions Qt declares: 5 protected; 4 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  10 of the 19 functions Qt declares: 4 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -167,6 +170,27 @@ class QPaintDeviceWindow(QWindow, QPaintDevice):
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
+  @overload(QPaintDevice.PaintDeviceMetric)
+  def metric(self, metric: QPaintDevice.PaintDeviceMetric) -> int:
+    """
+    Calls Qt's 'int QPaintDeviceWindow::metric(PaintDeviceMetric metric)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintdevicewindow.html#metric
+
+    Parameters
+    ----------
+
+    metric : QPaintDevice.PaintDeviceMetric
+      Passed on as its number.
+    """
+    #  int QPaintDeviceWindow::metric(PaintDeviceMetric metric) const
+    return self.uglySide.call(
+        'ritual_own_ZNK18QPaintDeviceWindow6metricEN12QPaintDevice17PaintDe'
+        'viceMetricE',
+        metric.value,
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -250,3 +274,67 @@ class QPaintDeviceWindow(QWindow, QPaintDevice):
     """
     #  void QPaintDeviceWindow::update()
     self.uglySide.call('ritual_ZN18QPaintDeviceWindow6updateEv')
+
+  @overload(QExposeEvent)
+  @overload(NoneType)
+  def exposeEvent(self, a0: Optional[QExposeEvent]) -> None:
+    """
+    Calls Qt's 'void QPaintDeviceWindow::exposeEvent(QExposeEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpaintdevicewindow.html#exposeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QExposeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPaintDeviceWindow::exposeEvent(QExposeEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN18QPaintDeviceWindow11exposeEventEP12QExposeEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, event: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QPaintDeviceWindow::paintEvent(QPaintEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintdevicewindow.html#paintEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPaintDeviceWindow::paintEvent(QPaintEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN18QPaintDeviceWindow10paintEventEP11QPaintEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QPaintDeviceWindow::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintdevicewindow.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QPaintDeviceWindow::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN18QPaintDeviceWindow5eventEP6QEvent',
+        self._addressOf(event),
+    )

@@ -184,6 +184,67 @@
     "ritual_ZN7QWindow16setMaximumHeightEi": ["nothing", "address", "int"],
     "ritual_ZN7QWindow5alertEi": ["nothing", "address", "int"],
     "ritual_ZN7QWindow13requestUpdateEv": ["nothing", "address"],
-    "ritual_cast_QWindow_QSurface": ["address", "address"]
+    "ritual_cast_QWindow_QSurface": ["address", "address"],
+    "ritual_take_QWindow": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK7QWindow11surfaceTypeEv": ["int", "address"],
+    "ritual_own_ZNK7QWindow6formatEv": ["address", "address"],
+    "ritual_own_ZNK7QWindow4sizeEv": ["address", "address"],
+    "ritual_own_ZNK7QWindow14accessibleRootEv": ["address", "address"],
+    "ritual_own_ZNK7QWindow11focusObjectEv": ["address", "address"],
+    "ritual_own_ZN7QWindow11exposeEventEP12QExposeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow9moveEventEP10QMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow10closeEventEP11QCloseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_own_ZN7QWindow13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QWindow11tabletEventEP12QTabletEvent": [
+      "nothing", "address", "address"
+    ]
   }
 }

@@ -86,6 +86,11 @@ class QGraphicsItemGroup(QGraphicsItem):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsItemGroup'
 
+  #  A C++ QGraphicsItemGroup Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsItemGroup'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -112,9 +117,10 @@ class QGraphicsItemGroup(QGraphicsItem):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsItemGroup::boundingRect() const
-    address = self.uglySide.call(
-        'ritual_ZNK18QGraphicsItemGroup12boundingRectEv',
-    )
+    ritual = 'ritual_ZNK18QGraphicsItemGroup12boundingRectEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QGraphicsItemGroup12boundingRectEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
@@ -136,10 +142,12 @@ class QGraphicsItemGroup(QGraphicsItem):
       object.
     """
     #  bool QGraphicsItemGroup::isObscuredBy(const QGraphicsItem *item) const
-    return self.uglySide.call(
-        'ritual_ZNK18QGraphicsItemGroup12isObscuredByEPK13QGraphicsItem',
-        self._addressOf(item, 'QGraphicsItem'),
-    )
+    ritual = 'ritual_ZNK18QGraphicsItemGroup12isObscuredByEPK13QGraphicsItem'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK18QGraphicsItemGroup12isObscuredByEPK13QGraphicsIt'
+          'em')
+    return self.uglySide.call(ritual, self._addressOf(item, 'QGraphicsItem'))
 
   def opaqueArea(self) -> QPainterPath:
     """
@@ -154,9 +162,10 @@ class QGraphicsItemGroup(QGraphicsItem):
       A new cute QPainterPath around the copy Qt gave back. Python owns it.
     """
     #  QPainterPath QGraphicsItemGroup::opaqueArea() const
-    address = self.uglySide.call(
-        'ritual_ZNK18QGraphicsItemGroup10opaqueAreaEv',
-    )
+    ritual = 'ritual_ZNK18QGraphicsItemGroup10opaqueAreaEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QGraphicsItemGroup10opaqueAreaEv'
+    address = self.uglySide.call(ritual)
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
@@ -167,7 +176,10 @@ class QGraphicsItemGroup(QGraphicsItem):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicsitemgroup.html#type
     """
     #  int QGraphicsItemGroup::type() const
-    return self.uglySide.call('ritual_ZNK18QGraphicsItemGroup4typeEv')
+    ritual = 'ritual_ZNK18QGraphicsItemGroup4typeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QGraphicsItemGroup4typeEv'
+    return self.uglySide.call(ritual)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -315,9 +327,15 @@ class QGraphicsItemGroup(QGraphicsItem):
     """
     #  void QGraphicsItemGroup::paint(QPainter *painter, const
     #      QStyleOptionGraphicsItem *option, QWidget *widget)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN18QGraphicsItemGroup5paintEP8QPainterPK24QStyleOptionGrap'
-        'hicsItemP7QWidget',
+        'hicsItemP7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QGraphicsItemGroup5paintEP8QPainterPK24QStyleOpti'
+          'onGraphicsItemP7QWidget')
+    self.uglySide.call(
+        ritual,
         self._addressOf(painter), self._addressOf(option),
         self._addressOf(widget),
     )

@@ -3,6 +3,68 @@
 #include <QtGui/qevent.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qnamespace.h>
+#include <cstring>
+
+//  A QKeyEvent that Python can take functions over in. Every QKeyEvent
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQKeyEventCall0)(const void *, int *);
+typedef void (*CuteQKeyEventCall1)(const void *, quint64, int *);
+typedef void (*CuteQKeyEventCall2)(const void *, bool, int *);
+class CuteQKeyEvent : public QKeyEvent {
+public:
+  using QKeyEvent::QKeyEvent;
+  void *taken[3] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QInputEvent12setTimestampEy")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
+      taken[2] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QKeyEvent *QKeyEvent::clone() const
+  QKeyEvent *clone() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQKeyEventCall0 call = reinterpret_cast<CuteQKeyEventCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QKeyEvent *>(given);
+    }
+    return QKeyEvent::clone();
+  }
+
+  //  void QInputEvent::setTimestamp(quint64 timestamp)
+  void setTimestamp(quint64 timestamp) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQKeyEventCall1 call = reinterpret_cast<CuteQKeyEventCall1>(taken[1]);
+      call(this, timestamp, &handled);
+      if (handled) return;
+    }
+    QInputEvent::setTimestamp(timestamp);
+  }
+
+  //  void QEvent::setAccepted(bool accepted)
+  void setAccepted(bool accepted) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQKeyEventCall2 call = reinterpret_cast<CuteQKeyEventCall2>(taken[2]);
+      call(this, accepted, &handled);
+      if (handled) return;
+    }
+    QEvent::setAccepted(accepted);
+  }
+};
 
 //  QKeyEvent *QKeyEvent::clone() const
 extern "C" Q_DECL_EXPORT
@@ -26,7 +88,7 @@ QKeyEvent *ritual_ZN9QKeyEventC1EN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEE
     const QString *text,
     bool autorep,
     quint16 count) {
-  return new QKeyEvent(
+  return new CuteQKeyEvent(
       type,
       key,
       QFlags<Qt::KeyboardModifier>::fromInt(modifiers),
@@ -51,7 +113,7 @@ QKeyEvent *ritual_ZN9QKeyEventC1EN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifierEE
     bool autorep,
     quint16 count,
     const QInputDevice *device) {
-  return new QKeyEvent(
+  return new CuteQKeyEvent(
       type,
       key,
       QFlags<Qt::KeyboardModifier>::fromInt(modifiers),
@@ -141,4 +203,17 @@ bool ritual_ZeqN12QKeySequence11StandardKeyEP9QKeyEvent(
     QKeySequence::StandardKey key,
     QKeyEvent *e) {
   return operator==(key, e);
+}
+
+//  a Python function taken by a CuteQKeyEvent, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QKeyEvent(QKeyEvent *self, const char *key, void *call) {
+  return static_cast<CuteQKeyEvent *>(self)->take(key, call);
+}
+
+//  QKeyEvent *QKeyEvent::clone() const
+extern "C" Q_DECL_EXPORT
+QKeyEvent *ritual_own_ZNK9QKeyEvent5cloneEv(const QKeyEvent *self) {
+  return self->QKeyEvent::clone();
 }

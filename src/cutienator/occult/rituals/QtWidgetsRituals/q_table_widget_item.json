@@ -78,6 +78,12 @@
       "nothing", "address", "int", "address"
     ],
     "ritual_ZNK16QTableWidgetItemltERKS_": ["bool", "address", "address"],
-    "ritual_ZNK16QTableWidgetItem4typeEv": ["int", "address"]
+    "ritual_ZNK16QTableWidgetItem4typeEv": ["int", "address"],
+    "ritual_take_QTableWidgetItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QTableWidgetItem5cloneEv": ["address", "address"],
+    "ritual_own_ZNK16QTableWidgetItem4dataEi": ["address", "address", "int"],
+    "ritual_own_ZN16QTableWidgetItem7setDataEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ]
   }
 }

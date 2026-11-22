@@ -51,6 +51,7 @@
     ],
     "ritual_ZN11QThreadPool7tryTakeEP9QRunnable": [
       "bool", "address", "address"
-    ]
+    ],
+    "ritual_take_QThreadPool": ["bool", "address", "chars", "address"]
   }
 }

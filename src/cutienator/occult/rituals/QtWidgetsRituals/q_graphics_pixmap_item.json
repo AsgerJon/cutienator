@@ -46,6 +46,29 @@
     "ritual_ZNK19QGraphicsPixmapItem9shapeModeEv": ["int", "address"],
     "ritual_ZN19QGraphicsPixmapItem12setShapeModeENS_9ShapeModeE": [
       "nothing", "address", "int"
+    ],
+    "ritual_take_QGraphicsPixmapItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QGraphicsPixmapItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QGraphicsPixmapItem5shapeEv": ["address", "address"],
+    "ritual_own_ZNK19QGraphicsPixmapItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QGraphicsPixmapItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QGraphicsPixmapItem12isObscuredByEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK19QGraphicsPixmapItem10opaqueAreaEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QGraphicsPixmapItem4typeEv": ["int", "address"],
+    "ritual_own_ZNK19QGraphicsPixmapItem9extensionERK8QVariant": [
+      "address", "address", "address"
     ]
   }
 }

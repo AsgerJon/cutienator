@@ -17,6 +17,19 @@
     ],
     "ritual_ZN13QWidgetAction13releaseWidgetEP7QWidget": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QWidgetAction": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QWidgetAction5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13QWidgetAction11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QWidgetAction12createWidgetEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN13QWidgetAction12deleteWidgetEP7QWidget": [
+      "nothing", "address", "address"
     ]
   }
 }

@@ -52,6 +52,9 @@
     ],
     "ritual_ZN5QFile14setPermissionsERK7QString6QFlagsIN11QFileDevice10PermissionEE": [
       "bool", "text", "int"
-    ]
+    ],
+    "ritual_take_QFile": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK5QFile4sizeEv": ["long long", "address"],
+    "ritual_own_ZN5QFile6resizeEx": ["bool", "address", "long long"]
   }
 }

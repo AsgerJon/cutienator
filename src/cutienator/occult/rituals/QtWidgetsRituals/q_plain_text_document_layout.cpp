@@ -7,6 +7,325 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qtextobject.h>
+#include <QtGui/qtextlayout.h>
+#include <QtGui/qtextformat.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QPlainTextDocumentLayout may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQPlainTextDocumentLayout : QPlainTextDocumentLayout {
+  using QPlainTextDocumentLayout::documentChanged;
+};
+
+//  A QPlainTextDocumentLayout that Python can take functions over in. Every QPlainTextDocumentLayout
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQPlainTextDocumentLayoutCall0)(const void *, QPainter *, const QAbstractTextDocumentLayout::PaintContext *, int *);
+typedef int (*CuteQPlainTextDocumentLayoutCall1)(const void *, const QPointF *, int, int *);
+typedef int (*CuteQPlainTextDocumentLayoutCall2)(const void *, int *);
+typedef const QSizeF * (*CuteQPlainTextDocumentLayoutCall3)(const void *, int *);
+typedef const QRectF * (*CuteQPlainTextDocumentLayoutCall4)(const void *, QTextFrame *, int *);
+typedef const QRectF * (*CuteQPlainTextDocumentLayoutCall5)(const void *, const QTextBlock *, int *);
+typedef void (*CuteQPlainTextDocumentLayoutCall6)(const void *, int, int, int, int *);
+typedef void (*CuteQPlainTextDocumentLayoutCall7)(const void *, const QTextInlineObject *, int, const QTextFormat *, int *);
+typedef void (*CuteQPlainTextDocumentLayoutCall8)(const void *, const QTextInlineObject *, int, const QTextFormat *, int *);
+typedef void (*CuteQPlainTextDocumentLayoutCall9)(const void *, QPainter *, const QRectF *, const QTextInlineObject *, int, const QTextFormat *, int *);
+typedef bool (*CuteQPlainTextDocumentLayoutCall10)(const void *, QEvent *, int *);
+typedef bool (*CuteQPlainTextDocumentLayoutCall11)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQPlainTextDocumentLayoutCall12)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQPlainTextDocumentLayoutCall13)(const void *, QChildEvent *, int *);
+typedef void (*CuteQPlainTextDocumentLayoutCall14)(const void *, QEvent *, int *);
+typedef void (*CuteQPlainTextDocumentLayoutCall15)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQPlainTextDocumentLayoutCall16)(const void *, const QMetaMethod *, int *);
+class CuteQPlainTextDocumentLayout : public QPlainTextDocumentLayout {
+public:
+  using QPlainTextDocumentLayout::QPlainTextDocumentLayout;
+  void *taken[17] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN27QAbstractTextDocumentLayout4drawEP8QPainterRKNS_12PaintContextE")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK27QAbstractTextDocumentLayout7hitTestERK7QPointFN2Qt15HitTestAccuracyE")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK27QAbstractTextDocumentLayout9pageCountEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK27QAbstractTextDocumentLayout12documentSizeEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK27QAbstractTextDocumentLayout17frameBoundingRectEP10QTextFrame")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK27QAbstractTextDocumentLayout17blockBoundingRectERK10QTextBlock")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN27QAbstractTextDocumentLayout15documentChangedEiii")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN27QAbstractTextDocumentLayout18resizeInlineObjectE17QTextInlineObjectiRK11QTextFormat")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN27QAbstractTextDocumentLayout20positionInlineObjectE17QTextInlineObjectiRK11QTextFormat")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN27QAbstractTextDocumentLayout16drawInlineObjectEP8QPainterRK6QRectF17QTextInlineObjectiRK11QTextFormat")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[16] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QPlainTextDocumentLayout::draw(QPainter *a0, const PaintContext
+  //      &a1)
+  void draw(
+      QPainter *a0,
+      const QAbstractTextDocumentLayout::PaintContext &a1) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall0 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall0>(taken[0]);
+      call(this, a0, &a1, &handled);
+      if (handled) return;
+    }
+    QPlainTextDocumentLayout::draw(a0, a1);
+  }
+
+  //  int QPlainTextDocumentLayout::hitTest(const QPointF &a0,
+  //      Qt::HitTestAccuracy a1) const
+  int hitTest(const QPointF &a0, Qt::HitTestAccuracy a1) const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall1 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall1>(taken[1]);
+      int given = call(this, &a0, static_cast<int>(a1), &handled);
+      if (handled) return given;
+    }
+    return QPlainTextDocumentLayout::hitTest(a0, a1);
+  }
+
+  //  int QPlainTextDocumentLayout::pageCount() const
+  int pageCount() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall2 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall2>(taken[2]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QPlainTextDocumentLayout::pageCount();
+  }
+
+  //  QSizeF QPlainTextDocumentLayout::documentSize() const
+  QSizeF documentSize() const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall3 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall3>(taken[3]);
+      const QSizeF * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QPlainTextDocumentLayout::documentSize();
+  }
+
+  //  QRectF QPlainTextDocumentLayout::frameBoundingRect(QTextFrame *a0)
+  //      const
+  QRectF frameBoundingRect(QTextFrame *a0) const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall4 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall4>(taken[4]);
+      const QRectF * given = call(this, a0, &handled);
+      if (handled && given) return *given;
+    }
+    return QPlainTextDocumentLayout::frameBoundingRect(a0);
+  }
+
+  //  QRectF QPlainTextDocumentLayout::blockBoundingRect(const QTextBlock
+  //      &block) const
+  QRectF blockBoundingRect(const QTextBlock &block) const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall5 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall5>(taken[5]);
+      const QRectF * given = call(this, &block, &handled);
+      if (handled && given) return *given;
+    }
+    return QPlainTextDocumentLayout::blockBoundingRect(block);
+  }
+
+  //  void QPlainTextDocumentLayout::documentChanged(int from, int a1, int
+  //      charsAdded)
+  void documentChanged(int from, int a1, int charsAdded) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall6 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall6>(taken[6]);
+      call(this, from, a1, charsAdded, &handled);
+      if (handled) return;
+    }
+    QPlainTextDocumentLayout::documentChanged(from, a1, charsAdded);
+  }
+
+  //  void
+  //      QAbstractTextDocumentLayout::resizeInlineObject(QTextInlineObject
+  //      item, int posInDocument, const QTextFormat &format)
+  void resizeInlineObject(
+      QTextInlineObject item,
+      int posInDocument,
+      const QTextFormat &format) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall7 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall7>(taken[7]);
+      call(this, &item, posInDocument, &format, &handled);
+      if (handled) return;
+    }
+    QAbstractTextDocumentLayout::resizeInlineObject(item, posInDocument, format);
+  }
+
+  //  void
+  //      QAbstractTextDocumentLayout::positionInlineObject(QTextInlineObje
+  //      ct item, int posInDocument, const QTextFormat &format)
+  void positionInlineObject(
+      QTextInlineObject item,
+      int posInDocument,
+      const QTextFormat &format) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall8 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall8>(taken[8]);
+      call(this, &item, posInDocument, &format, &handled);
+      if (handled) return;
+    }
+    QAbstractTextDocumentLayout::positionInlineObject(item, posInDocument, format);
+  }
+
+  //  void QAbstractTextDocumentLayout::drawInlineObject(QPainter *painter,
+  //      const QRectF &rect, QTextInlineObject object, int posInDocument,
+  //      const QTextFormat &format)
+  void drawInlineObject(
+      QPainter *painter,
+      const QRectF &rect,
+      QTextInlineObject object,
+      int posInDocument,
+      const QTextFormat &format) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall9 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall9>(taken[9]);
+      call(this, painter, &rect, &object, posInDocument, &format, &handled);
+      if (handled) return;
+    }
+    QAbstractTextDocumentLayout::drawInlineObject(painter, rect, object, posInDocument, format);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall10 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall10>(taken[10]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall11 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall11>(taken[11]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall12 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall12>(taken[12]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall13 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall13>(taken[13]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall14 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall14>(taken[14]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall15 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall15>(taken[15]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQPlainTextDocumentLayoutCall16 call = reinterpret_cast<CuteQPlainTextDocumentLayoutCall16>(taken[16]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QPlainTextDocumentLayout::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -29,7 +348,7 @@ QString *ritual_ZN24QPlainTextDocumentLayout2trEPKcS1_i(
 extern "C" Q_DECL_EXPORT
 QPlainTextDocumentLayout *ritual_ZN24QPlainTextDocumentLayoutC1EP13QTextDocument(
     QTextDocument *document) {
-  return new QPlainTextDocumentLayout(document);
+  return new CuteQPlainTextDocumentLayout(document);
 }
 
 //  QPlainTextDocumentLayout::~QPlainTextDocumentLayout()
@@ -118,4 +437,80 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QPlainTextDocumentLayout13requestUpdateEv(
     QPlainTextDocumentLayout *self) {
   self->requestUpdate();
+}
+
+//  a Python function taken by a CuteQPlainTextDocumentLayout, for the
+//      function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QPlainTextDocumentLayout(
+    QPlainTextDocumentLayout *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQPlainTextDocumentLayout *>(self)->take(key, call);
+}
+
+//  void QPlainTextDocumentLayout::draw(QPainter *a0, const PaintContext &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN24QPlainTextDocumentLayout4drawEP8QPainterRKN27QAbstractTextDocumentLayout12PaintContextE(
+    QPlainTextDocumentLayout *self,
+    QPainter *a0,
+    const QAbstractTextDocumentLayout::PaintContext *a1) {
+  self->QPlainTextDocumentLayout::draw(a0, *a1);
+}
+
+//  int QPlainTextDocumentLayout::hitTest(const QPointF &a0,
+//      Qt::HitTestAccuracy a1) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK24QPlainTextDocumentLayout7hitTestERK7QPointFN2Qt15HitTestAccuracyE(
+    const QPlainTextDocumentLayout *self,
+    const QPointF *a0,
+    Qt::HitTestAccuracy a1) {
+  return self->QPlainTextDocumentLayout::hitTest(*a0, a1);
+}
+
+//  int QPlainTextDocumentLayout::pageCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK24QPlainTextDocumentLayout9pageCountEv(
+    const QPlainTextDocumentLayout *self) {
+  return self->QPlainTextDocumentLayout::pageCount();
+}
+
+//  QSizeF QPlainTextDocumentLayout::documentSize() const
+extern "C" Q_DECL_EXPORT
+QSizeF *ritual_own_ZNK24QPlainTextDocumentLayout12documentSizeEv(
+    const QPlainTextDocumentLayout *self) {
+  return new QSizeF(self->QPlainTextDocumentLayout::documentSize());
+}
+
+//  QRectF QPlainTextDocumentLayout::frameBoundingRect(QTextFrame *a0) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_own_ZNK24QPlainTextDocumentLayout17frameBoundingRectEP10QTextFrame(
+    const QPlainTextDocumentLayout *self,
+    QTextFrame *a0) {
+  return new QRectF(self->QPlainTextDocumentLayout::frameBoundingRect(a0));
+}
+
+//  QRectF QPlainTextDocumentLayout::blockBoundingRect(const QTextBlock
+//      &block) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_own_ZNK24QPlainTextDocumentLayout17blockBoundingRectERK10QTextBlock(
+    const QPlainTextDocumentLayout *self,
+    const QTextBlock *block) {
+  return new QRectF(
+      self->QPlainTextDocumentLayout::blockBoundingRect(
+          *block));
+}
+
+//  void QPlainTextDocumentLayout::documentChanged(int from, int a1, int
+//      charsAdded)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN24QPlainTextDocumentLayout15documentChangedEiii(
+    QPlainTextDocumentLayout *self,
+    int from,
+    int a1,
+    int charsAdded) {
+  static_cast<OwnQPlainTextDocumentLayout *>(self)->OwnQPlainTextDocumentLayout::documentChanged(
+      from,
+      a1,
+      charsAdded);
 }

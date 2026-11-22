@@ -67,6 +67,64 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleTableCellInterface'
 
+  #  A C++ QAccessibleTableCellInterface Python makes is of a C++ class of
+  #  ours, in which Python can take functions over. This ritual hands one
+  #  over; see 'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAccessibleTableCellInterface'
+
+  #  The functions Qt calls itself that QAccessibleTableCellInterface is the
+  #  first to declare and that cannot be handed to Python yet, each as Qt
+  #  declares it. A class of a program that writes one of them anew is
+  #  refused, since Qt would never call what it wrote; see
+  #  'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'columnHeaderCells': (
+          'QList<QAccessibleInterface *> '
+          'QAccessibleTableCellInterface::columnHeaderCells() const',
+      ),
+      'rowHeaderCells': (
+          'QList<QAccessibleInterface *> '
+          'QAccessibleTableCellInterface::rowHeaderCells() const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QAccessibleTableCellInterface is the
+  #  first to declare. A class of a program built on it can write one anew,
+  #  and Qt then calls that. For each name: the key C++ knows the function
+  #  by, what it gives, and what it takes.
+  __virtual_functions__ = {
+      'isSelected': (
+          ('_ZNK29QAccessibleTableCellInterface10isSelectedEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'columnIndex': (
+          ('_ZNK29QAccessibleTableCellInterface11columnIndexEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'rowIndex': (
+          ('_ZNK29QAccessibleTableCellInterface8rowIndexEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'columnExtent': (
+          ('_ZNK29QAccessibleTableCellInterface12columnExtentEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'rowExtent': (
+          ('_ZNK29QAccessibleTableCellInterface9rowExtentEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'table': (
+          ('_ZNK29QAccessibleTableCellInterface5tableEv',
+           ('address', 'address', 'QtGui:QAccessibleInterface'),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

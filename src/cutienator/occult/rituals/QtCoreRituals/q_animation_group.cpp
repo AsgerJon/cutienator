@@ -2,6 +2,207 @@
 //  QtCore/qanimationgroup.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qanimationgroup.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QAnimationGroup may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQAnimationGroup : QAnimationGroup {
+  using QAnimationGroup::event;
+};
+
+//  A QAnimationGroup that Python can take functions over in. Every QAnimationGroup
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef bool (*CuteQAnimationGroupCall0)(const void *, QEvent *, int *);
+typedef int (*CuteQAnimationGroupCall1)(const void *, int *);
+typedef void (*CuteQAnimationGroupCall2)(const void *, int, int *);
+typedef void (*CuteQAnimationGroupCall3)(const void *, int, int, int *);
+typedef void (*CuteQAnimationGroupCall4)(const void *, int, int *);
+typedef bool (*CuteQAnimationGroupCall5)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQAnimationGroupCall6)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQAnimationGroupCall7)(const void *, QChildEvent *, int *);
+typedef void (*CuteQAnimationGroupCall8)(const void *, QEvent *, int *);
+typedef void (*CuteQAnimationGroupCall9)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQAnimationGroupCall10)(const void *, const QMetaMethod *, int *);
+class CuteQAnimationGroup : public QAnimationGroup {
+public:
+  using QAnimationGroup::QAnimationGroup;
+  void *taken[11] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK18QAbstractAnimation8durationEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN18QAbstractAnimation17updateCurrentTimeEi")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN18QAbstractAnimation11updateStateENS_5StateES0_")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN18QAbstractAnimation15updateDirectionENS_9DirectionE")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[10] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  bool QAnimationGroup::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQAnimationGroupCall0 call = reinterpret_cast<CuteQAnimationGroupCall0>(taken[0]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QAnimationGroup::event(event);
+  }
+
+  //  int QAbstractAnimation::duration() const
+  int duration() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQAnimationGroupCall1 call = reinterpret_cast<CuteQAnimationGroupCall1>(taken[1]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  void QAbstractAnimation::updateCurrentTime(int currentTime)
+  void updateCurrentTime(int currentTime) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQAnimationGroupCall2 call = reinterpret_cast<CuteQAnimationGroupCall2>(taken[2]);
+      call(this, currentTime, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  void QAbstractAnimation::updateState(QAbstractAnimation::State
+  //      newState, QAbstractAnimation::State oldState)
+  void updateState(
+      QAbstractAnimation::State newState,
+      QAbstractAnimation::State oldState) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQAnimationGroupCall3 call = reinterpret_cast<CuteQAnimationGroupCall3>(taken[3]);
+      call(this, static_cast<int>(newState), static_cast<int>(oldState), &handled);
+      if (handled) return;
+    }
+    QAbstractAnimation::updateState(newState, oldState);
+  }
+
+  //  void
+  //      QAbstractAnimation::updateDirection(QAbstractAnimation::Direction
+  //      direction)
+  void updateDirection(QAbstractAnimation::Direction direction) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQAnimationGroupCall4 call = reinterpret_cast<CuteQAnimationGroupCall4>(taken[4]);
+      call(this, static_cast<int>(direction), &handled);
+      if (handled) return;
+    }
+    QAbstractAnimation::updateDirection(direction);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQAnimationGroupCall5 call = reinterpret_cast<CuteQAnimationGroupCall5>(taken[5]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQAnimationGroupCall6 call = reinterpret_cast<CuteQAnimationGroupCall6>(taken[6]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQAnimationGroupCall7 call = reinterpret_cast<CuteQAnimationGroupCall7>(taken[7]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQAnimationGroupCall8 call = reinterpret_cast<CuteQAnimationGroupCall8>(taken[8]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQAnimationGroupCall9 call = reinterpret_cast<CuteQAnimationGroupCall9>(taken[9]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQAnimationGroupCall10 call = reinterpret_cast<CuteQAnimationGroupCall10>(taken[10]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QAnimationGroup::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -87,4 +288,23 @@ QAbstractAnimation *ritual_ZN15QAnimationGroup13takeAnimationEi(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAnimationGroup5clearEv(QAnimationGroup *self) {
   self->clear();
+}
+
+//  a Python function taken by a CuteQAnimationGroup, for the function named
+//      by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QAnimationGroup(
+    QAnimationGroup *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQAnimationGroup *>(self)->take(key, call);
+}
+
+//  bool QAnimationGroup::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN15QAnimationGroup5eventEP6QEvent(
+    QAnimationGroup *self,
+    QEvent *event) {
+  return static_cast<OwnQAnimationGroup *>(self)->OwnQAnimationGroup::event(
+      event);
 }

@@ -37,6 +37,29 @@
     ],
     "ritual_cast_QAccessibleWidget_QAccessibleActionInterface": [
       "address", "address"
+    ],
+    "ritual_take_QAccessibleWidget": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QAccessibleWidget7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK17QAccessibleWidget6windowEv": ["address", "address"],
+    "ritual_own_ZNK17QAccessibleWidget10childCountEv": ["int", "address"],
+    "ritual_own_ZNK17QAccessibleWidget12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK17QAccessibleWidget10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK17QAccessibleWidget4rectEv": ["address", "address"],
+    "ritual_own_ZNK17QAccessibleWidget6parentEv": ["address", "address"],
+    "ritual_own_ZNK17QAccessibleWidget5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK17QAccessibleWidget4roleEv": ["int", "address"],
+    "ritual_own_ZNK17QAccessibleWidget5stateEv": ["address", "address"],
+    "ritual_own_ZNK17QAccessibleWidget15foregroundColorEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK17QAccessibleWidget15backgroundColorEv": [
+      "address", "address"
     ]
   }
 }

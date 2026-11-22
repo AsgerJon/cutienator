@@ -7,6 +7,8 @@
     "ritual_ZN19QUnhandledExceptionD1Ev": ["nothing", "address"],
     "ritual_ZN19QUnhandledExceptionC1ERKS_": ["address", "address"],
     "ritual_ZNK19QUnhandledException5raiseEv": ["nothing", "address"],
-    "ritual_ZNK19QUnhandledException5cloneEv": ["address", "address"]
+    "ritual_ZNK19QUnhandledException5cloneEv": ["address", "address"],
+    "ritual_own_ZNK19QUnhandledException5raiseEv": ["nothing", "address"],
+    "ritual_own_ZNK19QUnhandledException5cloneEv": ["address", "address"]
   }
 }

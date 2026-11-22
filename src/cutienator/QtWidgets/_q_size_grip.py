@@ -11,14 +11,27 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
+from ..QtCore import QObject
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
+  from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtGui import QHideEvent, QMouseEvent, QMoveEvent, QPaintEvent
+  from ..QtGui import QShowEvent
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QHideEvent = WAIT['QHideEvent']
+  QMouseEvent = WAIT['QMouseEvent']
+  QMoveEvent = WAIT['QMoveEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QShowEvent = WAIT['QShowEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,8 +50,10 @@ class QSizeGrip(QWidget):
   -----------
 
   Every function of Qt's QSizeGrip that has a ritual and that Python can call
-  so far, 4 names in all: 'metaObject', 'tr', 'sizeHint', 'setVisible'. It
-  can be made from Python, in 1 way; see '__init__'.
+  so far, 13 names in all: 'metaObject', 'tr', 'sizeHint', 'setVisible',
+  'paintEvent', 'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
+  'moveEvent', 'showEvent', 'hideEvent', 'eventFilter', 'event'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -49,8 +64,8 @@ class QSizeGrip(QWidget):
   What has no ritual
   ------------------
 
-  17 of the 23 functions Qt declares: 9 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 23 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -121,6 +136,11 @@ class QSizeGrip(QWidget):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSizeGrip'
 
+  #  A C++ QSizeGrip Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QSizeGrip'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -164,7 +184,10 @@ class QSizeGrip(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QSizeGrip::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK9QSizeGrip8sizeHintEv')
+    ritual = 'ritual_ZNK9QSizeGrip8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QSizeGrip8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -186,7 +209,10 @@ class QSizeGrip(QWidget):
       Passed on as it is.
     """
     #  void QSizeGrip::setVisible(bool a0)
-    self.uglySide.call('ritual_ZN9QSizeGrip10setVisibleEb', a0)
+    ritual = 'ritual_ZN9QSizeGrip10setVisibleEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSizeGrip10setVisibleEb'
+    self.uglySide.call(ritual, a0)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -240,3 +266,197 @@ class QSizeGrip(QWidget):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QSizeGrip::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsizegrip.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSizeGrip::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QSizeGrip10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QSizeGrip::mousePressEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsizegrip.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSizeGrip::mousePressEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QSizeGrip15mousePressEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QSizeGrip::mouseMoveEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsizegrip.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSizeGrip::mouseMoveEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QSizeGrip14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, mouseEvent: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QSizeGrip::mouseReleaseEvent(QMouseEvent *mouseEvent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsizegrip.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    mouseEvent : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSizeGrip::mouseReleaseEvent(QMouseEvent *mouseEvent)
+    self.uglySide.call(
+        'ritual_own_ZN9QSizeGrip17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(mouseEvent),
+    )
+
+  @overload(QMoveEvent)
+  @overload(NoneType)
+  def moveEvent(self, moveEvent: Optional[QMoveEvent]) -> None:
+    """
+    Calls Qt's 'void QSizeGrip::moveEvent(QMoveEvent *moveEvent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsizegrip.html#moveEvent
+
+    Parameters
+    ----------
+
+    moveEvent : Optional[QMoveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSizeGrip::moveEvent(QMoveEvent *moveEvent)
+    self.uglySide.call(
+        'ritual_own_ZN9QSizeGrip9moveEventEP10QMoveEvent',
+        self._addressOf(moveEvent),
+    )
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, showEvent: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QSizeGrip::showEvent(QShowEvent *showEvent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsizegrip.html#showEvent
+
+    Parameters
+    ----------
+
+    showEvent : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSizeGrip::showEvent(QShowEvent *showEvent)
+    self.uglySide.call(
+        'ritual_own_ZN9QSizeGrip9showEventEP10QShowEvent',
+        self._addressOf(showEvent),
+    )
+
+  @overload(QHideEvent)
+  @overload(NoneType)
+  def hideEvent(self, hideEvent: Optional[QHideEvent]) -> None:
+    """
+    Calls Qt's 'void QSizeGrip::hideEvent(QHideEvent *hideEvent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsizegrip.html#hideEvent
+
+    Parameters
+    ----------
+
+    hideEvent : Optional[QHideEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSizeGrip::hideEvent(QHideEvent *hideEvent)
+    self.uglySide.call(
+        'ritual_own_ZN9QSizeGrip9hideEventEP10QHideEvent',
+        self._addressOf(hideEvent),
+    )
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(self, a0: Optional[QObject], a1: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QSizeGrip::eventFilter(QObject *a0, QEvent *a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsizegrip.html#eventFilter
+
+    Parameters
+    ----------
+
+    a0 : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a1 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QSizeGrip::eventFilter(QObject *a0, QEvent *a1)
+    return self.uglySide.call(
+        'ritual_own_ZN9QSizeGrip11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(a0), self._addressOf(a1),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QSizeGrip::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsizegrip.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QSizeGrip::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN9QSizeGrip5eventEP6QEvent', self._addressOf(a0),
+    )

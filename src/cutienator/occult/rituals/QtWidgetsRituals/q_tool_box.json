@@ -47,6 +47,16 @@
     "ritual_ZN8QToolBox15setCurrentIndexEi": ["nothing", "address", "int"],
     "ritual_ZN8QToolBox16setCurrentWidgetEP7QWidget": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QToolBox": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN8QToolBox5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_own_ZN8QToolBox12itemInsertedEi": ["nothing", "address", "int"],
+    "ritual_own_ZN8QToolBox11itemRemovedEi": ["nothing", "address", "int"],
+    "ritual_own_ZN8QToolBox9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QToolBox11changeEventEP6QEvent": [
+      "nothing", "address", "address"
     ]
   }
 }

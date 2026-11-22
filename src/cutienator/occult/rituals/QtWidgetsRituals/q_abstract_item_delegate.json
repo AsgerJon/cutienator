@@ -41,6 +41,30 @@
     ],
     "ritual_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstractItemViewRK20QStyleOptionViewItemRK11QModelIndex": [
       "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_take_QAbstractItemDelegate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QAbstractItemDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK21QAbstractItemDelegate13destroyEditorEP7QWidgetRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK21QAbstractItemDelegate13setEditorDataEP7QWidgetRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK21QAbstractItemDelegate12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK21QAbstractItemDelegate20updateEditorGeometryEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QAbstractItemDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstractItemViewRK20QStyleOptionViewItemRK11QModelIndex": [
+      "bool", "address", "address", "address", "address", "address"
     ]
   }
 }

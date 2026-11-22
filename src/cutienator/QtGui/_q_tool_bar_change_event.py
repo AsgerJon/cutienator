@@ -69,6 +69,11 @@ class QToolBarChangeEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QToolBarChangeEvent'
 
+  #  A C++ QToolBarChangeEvent Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QToolBarChangeEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -95,7 +100,10 @@ class QToolBarChangeEvent(QEvent):
       no object.
     """
     #  QToolBarChangeEvent *QToolBarChangeEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK19QToolBarChangeEvent5cloneEv')
+    ritual = 'ritual_ZNK19QToolBarChangeEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QToolBarChangeEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QToolBarChangeEvent._cuteAt(address)
 
   def toggle(self) -> bool:

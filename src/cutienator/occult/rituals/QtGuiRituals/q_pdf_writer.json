@@ -47,6 +47,12 @@
     "ritual_ZN10QPdfWriter15setOutputIntentERK16QPdfOutputIntent": [
       "nothing", "address", "address"
     ],
-    "ritual_cast_QPdfWriter_QPagedPaintDevice": ["address", "address"]
+    "ritual_cast_QPdfWriter_QPagedPaintDevice": ["address", "address"],
+    "ritual_take_QPdfWriter": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QPdfWriter7newPageEv": ["bool", "address"],
+    "ritual_own_ZNK10QPdfWriter11paintEngineEv": ["address", "address"],
+    "ritual_own_ZNK10QPdfWriter6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ]
   }
 }

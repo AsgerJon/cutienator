@@ -74,6 +74,29 @@
     "ritual_ZNK10QBoxLayout5countEv": ["int", "address"],
     "ritual_ZN10QBoxLayout11setGeometryERK5QRect": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QBoxLayout": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QBoxLayout7addItemEP11QLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK10QBoxLayout7spacingEv": ["int", "address"],
+    "ritual_own_ZN10QBoxLayout10setSpacingEi": ["nothing", "address", "int"],
+    "ritual_own_ZNK10QBoxLayout8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK10QBoxLayout11minimumSizeEv": ["address", "address"],
+    "ritual_own_ZNK10QBoxLayout11maximumSizeEv": ["address", "address"],
+    "ritual_own_ZNK10QBoxLayout17hasHeightForWidthEv": ["bool", "address"],
+    "ritual_own_ZNK10QBoxLayout14heightForWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK10QBoxLayout21minimumHeightForWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN10QBoxLayout10invalidateEv": ["nothing", "address"],
+    "ritual_own_ZNK10QBoxLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_own_ZN10QBoxLayout6takeAtEi": ["address", "address", "int"],
+    "ritual_own_ZNK10QBoxLayout5countEv": ["int", "address"],
+    "ritual_own_ZN10QBoxLayout11setGeometryERK5QRect": [
+      "nothing", "address", "address"
     ]
   }
 }

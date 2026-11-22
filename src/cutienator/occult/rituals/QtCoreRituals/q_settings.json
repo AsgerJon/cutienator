@@ -72,6 +72,8 @@
     "ritual_ZN9QSettings13defaultFormatEv": ["int"],
     "ritual_ZN9QSettings7setPathENS_6FormatENS_5ScopeERK7QString": [
       "nothing", "int", "int", "text"
-    ]
+    ],
+    "ritual_take_QSettings": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN9QSettings5eventEP6QEvent": ["bool", "address", "address"]
   }
 }

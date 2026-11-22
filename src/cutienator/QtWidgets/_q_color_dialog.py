@@ -19,13 +19,14 @@ from . import QDialog, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
+  from ..QtCore import QEvent, QMetaObject
   from ..QtGui import QColor
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QColor = WAIT['QColor']
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,11 +45,11 @@ class QColorDialog(QDialog):
   -----------
 
   Every function of Qt's QColorDialog that has a ritual and that Python can
-  call so far, 17 names in all: 'metaObject', 'tr', 'setCurrentColor',
+  call so far, 19 names in all: 'metaObject', 'tr', 'setCurrentColor',
   'currentColor', 'selectedColor', 'setOption', 'testOption', 'setOptions',
   'options', 'open', 'setVisible', 'getColor', 'customCount', 'customColor',
-  'setCustomColor', 'standardColor', 'setStandardColor'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  'setCustomColor', 'standardColor', 'setStandardColor', 'changeEvent',
+  'done'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,8 +60,8 @@ class QColorDialog(QDialog):
   What has no ritual
   ------------------
 
-  12 of the 32 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 protected; 2 forbidden; 1 a template.
+  10 of the 32 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -320,6 +321,11 @@ class QColorDialog(QDialog):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QColorDialog'
 
+  #  A C++ QColorDialog Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QColorDialog'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -503,7 +509,10 @@ class QColorDialog(QDialog):
       Passed on as it is.
     """
     #  void QColorDialog::setVisible(bool visible)
-    self.uglySide.call('ritual_ZN12QColorDialog10setVisibleEb', visible)
+    ritual = 'ritual_ZN12QColorDialog10setVisibleEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QColorDialog10setVisibleEb'
+    self.uglySide.call(ritual, visible)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -616,3 +625,40 @@ class QColorDialog(QDialog):
         'ritual_ZN12QColorDialog4openEP7QObjectPKc',
         self._addressOf(receiver), self._bytesOf(member),
     )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QColorDialog::changeEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolordialog.html#changeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QColorDialog::changeEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN12QColorDialog11changeEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(int)
+  def done(self, result: int) -> None:
+    """
+    Calls Qt's 'void QColorDialog::done(int result)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolordialog.html#done
+
+    Parameters
+    ----------
+
+    result : int
+      Passed on as it is.
+    """
+    #  void QColorDialog::done(int result)
+    self.uglySide.call('ritual_own_ZN12QColorDialog4doneEi', result)

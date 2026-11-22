@@ -19,6 +19,8 @@
     ],
     "ritual_ZneRKN17QInputMethodEvent9AttributeES2_": [
       "bool", "address", "address"
-    ]
+    ],
+    "ritual_take_QInputMethodEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QInputMethodEvent5cloneEv": ["address", "address"]
   }
 }

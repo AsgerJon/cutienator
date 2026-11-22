@@ -46,12 +46,13 @@ class QGraphicsItemAnimation(QObject):
   -----------
 
   Every function of Qt's QGraphicsItemAnimation that has a ritual and that
-  Python can call so far, 22 names in all: 'metaObject', 'tr', 'item',
+  Python can call so far, 24 names in all: 'metaObject', 'tr', 'item',
   'setItem', 'timeLine', 'setTimeLine', 'posAt', 'setPosAt', 'transformAt',
   'rotationAt', 'setRotationAt', 'xTranslationAt', 'yTranslationAt',
   'setTranslationAt', 'verticalScaleAt', 'horizontalScaleAt', 'setScaleAt',
-  'verticalShearAt', 'horizontalShearAt', 'setShearAt', 'clear', 'setStep'.
-  It can be made from Python, in 1 way; see '__init__'.
+  'verticalShearAt', 'horizontalShearAt', 'setShearAt', 'clear', 'setStep',
+  'beforeAnimationStep', 'afterAnimationStep'. It can be made from Python, in
+  1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -62,8 +63,8 @@ class QGraphicsItemAnimation(QObject):
   What has no ritual
   ------------------
 
-  13 of the 37 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 2 protected; 2 forbidden; 1 a template; 1 private.
+  11 of the 37 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 private.
 
   What to expect
   --------------
@@ -136,6 +137,32 @@ class QGraphicsItemAnimation(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsItemAnimation'
+
+  #  A C++ QGraphicsItemAnimation Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsItemAnimation'
+
+  #  The functions Qt calls itself that QGraphicsItemAnimation is the first
+  #  to declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'beforeAnimationStep': (
+          ('_ZN22QGraphicsItemAnimation19beforeAnimationStepEd',
+           ('nothing', 'nothing', ''),
+           (
+               ('double', 'number', ''),
+           )),
+      ),
+      'afterAnimationStep': (
+          ('_ZN22QGraphicsItemAnimation18afterAnimationStepEd',
+           ('nothing', 'nothing', ''),
+           (
+               ('double', 'number', ''),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -664,3 +691,42 @@ class QGraphicsItemAnimation(QObject):
     """
     #  void QGraphicsItemAnimation::clear()
     self.uglySide.call('ritual_ZN22QGraphicsItemAnimation5clearEv')
+
+  @overload(float)
+  def beforeAnimationStep(self, step: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItemAnimation::beforeAnimationStep(qreal
+    step)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitemanimation.html#beforeAnimationStep
+
+    Parameters
+    ----------
+
+    step : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItemAnimation::beforeAnimationStep(qreal step)
+    self.uglySide.call(
+        'ritual_own_ZN22QGraphicsItemAnimation19beforeAnimationStepEd', step,
+    )
+
+  @overload(float)
+  def afterAnimationStep(self, step: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsItemAnimation::afterAnimationStep(qreal step)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitemanimation.html#afterAnimationStep
+
+    Parameters
+    ----------
+
+    step : float
+      Passed on as it is.
+    """
+    #  void QGraphicsItemAnimation::afterAnimationStep(qreal step)
+    self.uglySide.call(
+        'ritual_own_ZN22QGraphicsItemAnimation18afterAnimationStepEd', step,
+    )

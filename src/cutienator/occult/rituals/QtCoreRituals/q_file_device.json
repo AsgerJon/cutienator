@@ -29,6 +29,14 @@
     ],
     "ritual_ZN11QFileDevice11setFileTimeERK9QDateTimeNS_8FileTimeE": [
       "bool", "address", "address", "int"
-    ]
+    ],
+    "ritual_take_QFileDevice": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QFileDevice5closeEv": ["nothing", "address"],
+    "ritual_own_ZNK11QFileDevice12isSequentialEv": ["bool", "address"],
+    "ritual_own_ZNK11QFileDevice3posEv": ["long long", "address"],
+    "ritual_own_ZN11QFileDevice4seekEx": ["bool", "address", "long long"],
+    "ritual_own_ZNK11QFileDevice5atEndEv": ["bool", "address"],
+    "ritual_own_ZNK11QFileDevice4sizeEv": ["long long", "address"],
+    "ritual_own_ZN11QFileDevice6resizeEx": ["bool", "address", "long long"]
   }
 }

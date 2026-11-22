@@ -19,12 +19,13 @@ from ..QtGui import QAction
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
+  from ..QtCore import QEvent, QMetaObject
   from . import QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
   QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -44,9 +45,10 @@ class QWidgetAction(QAction):
   -----------
 
   Every function of Qt's QWidgetAction that has a ritual and that Python can
-  call so far, 6 names in all: 'metaObject', 'tr', 'setDefaultWidget',
-  'defaultWidget', 'requestWidget', 'releaseWidget'. It can be made from
-  Python, in 1 way; see '__init__'.
+  call so far, 10 names in all: 'metaObject', 'tr', 'setDefaultWidget',
+  'defaultWidget', 'requestWidget', 'releaseWidget', 'event', 'eventFilter',
+  'createWidget', 'deleteWidget'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,8 +59,8 @@ class QWidgetAction(QAction):
   What has no ritual
   ------------------
 
-  13 of the 21 functions Qt declares: 5 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  9 of the 21 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -130,6 +132,32 @@ class QWidgetAction(QAction):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QWidgetAction'
+
+  #  A C++ QWidgetAction Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QWidgetAction'
+
+  #  The functions Qt calls itself that QWidgetAction is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'createWidget': (
+          ('_ZN13QWidgetAction12createWidgetEP7QWidget',
+           ('address', 'address', 'QtWidgets:QWidget'),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'deleteWidget': (
+          ('_ZN13QWidgetAction12deleteWidgetEP7QWidget',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -308,5 +336,103 @@ class QWidgetAction(QAction):
     #  void QWidgetAction::releaseWidget(QWidget *widget)
     self.uglySide.call(
         'ritual_ZN13QWidgetAction13releaseWidgetEP7QWidget',
+        self._addressOf(widget),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QWidgetAction::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgetaction.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QWidgetAction::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN13QWidgetAction5eventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(self, a0: Optional[QObject], a1: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QWidgetAction::eventFilter(QObject *a0, QEvent *a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter
+
+    Parameters
+    ----------
+
+    a0 : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a1 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QWidgetAction::eventFilter(QObject *a0, QEvent *a1)
+    return self.uglySide.call(
+        'ritual_own_ZN13QWidgetAction11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(a0), self._addressOf(a1),
+    )
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def createWidget(self, parent: Optional[QWidget]) -> Optional[QWidget]:
+    """
+    Calls Qt's 'QWidget *QWidgetAction::createWidget(QWidget *parent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgetaction.html#createWidget
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    Optional[QWidget]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QWidget *QWidgetAction::createWidget(QWidget *parent)
+    address = self.uglySide.call(
+        'ritual_own_ZN13QWidgetAction12createWidgetEP7QWidget',
+        self._addressOf(parent),
+    )
+    from . import QWidget
+    return QWidget._cuteAt(address)
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def deleteWidget(self, widget: Optional[QWidget]) -> None:
+    """
+    Calls Qt's 'void QWidgetAction::deleteWidget(QWidget *widget)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget
+
+    Parameters
+    ----------
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidgetAction::deleteWidget(QWidget *widget)
+    self.uglySide.call(
+        'ritual_own_ZN13QWidgetAction12deleteWidgetEP7QWidget',
         self._addressOf(widget),
     )

@@ -81,6 +81,11 @@ class QScrollPrepareEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QScrollPrepareEvent'
 
+  #  A C++ QScrollPrepareEvent Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QScrollPrepareEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -107,7 +112,10 @@ class QScrollPrepareEvent(QEvent):
       no object.
     """
     #  QScrollPrepareEvent *QScrollPrepareEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK19QScrollPrepareEvent5cloneEv')
+    ritual = 'ritual_ZNK19QScrollPrepareEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QScrollPrepareEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QScrollPrepareEvent._cuteAt(address)
 
   def startPos(self) -> QPointF:

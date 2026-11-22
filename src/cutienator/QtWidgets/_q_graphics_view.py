@@ -21,16 +21,31 @@ from . import QAbstractScrollArea, QGraphicsScene, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QPoint, QPointF, QRect, QRectF, QSize
-  from ..QtCore import QVariant
-  from ..QtGui import QBrush, QPainterPath, QPolygon, QPolygonF, QTransform
+  from ..QtCore import QEvent, QMetaObject, QPoint, QPointF, QRect, QRectF
+  from ..QtCore import QSize, QVariant
+  from ..QtGui import QBrush, QContextMenuEvent, QDragEnterEvent
+  from ..QtGui import QDragLeaveEvent, QDragMoveEvent, QDropEvent
+  from ..QtGui import QFocusEvent, QInputMethodEvent, QKeyEvent, QMouseEvent
+  from ..QtGui import QPaintEvent, QPainterPath, QPolygon, QPolygonF
+  from ..QtGui import QResizeEvent, QShowEvent, QTransform, QWheelEvent
   from . import QGraphicsItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QBrush = WAIT['QBrush']
+  QContextMenuEvent = WAIT['QContextMenuEvent']
+  QDragEnterEvent = WAIT['QDragEnterEvent']
+  QDragLeaveEvent = WAIT['QDragLeaveEvent']
+  QDragMoveEvent = WAIT['QDragMoveEvent']
+  QDropEvent = WAIT['QDropEvent']
+  QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
   QGraphicsItem = WAIT['QGraphicsItem']
+  QInputMethodEvent = WAIT['QInputMethodEvent']
+  QKeyEvent = WAIT['QKeyEvent']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QPainterPath = WAIT['QPainterPath']
   QPoint = WAIT['QPoint']
   QPointF = WAIT['QPointF']
@@ -38,7 +53,10 @@ else:
   QPolygonF = WAIT['QPolygonF']
   QRect = WAIT['QRect']
   QRectF = WAIT['QRectF']
+  QResizeEvent = WAIT['QResizeEvent']
+  QShowEvent = WAIT['QShowEvent']
   QTransform = WAIT['QTransform']
+  QWheelEvent = WAIT['QWheelEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -57,7 +75,7 @@ class QGraphicsView(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QGraphicsView that has a ritual and that Python can
-  call so far, 54 names in all: 'metaObject', 'tr', 'sizeHint',
+  call so far, 79 names in all: 'metaObject', 'tr', 'sizeHint',
   'renderHints', 'setRenderHint', 'setRenderHints', 'alignment',
   'setAlignment', 'transformationAnchor', 'setTransformationAnchor',
   'resizeAnchor', 'setResizeAnchor', 'viewportUpdateMode',
@@ -71,8 +89,14 @@ class QGraphicsView(QAbstractScrollArea):
   'ensureVisible', 'fitInView', 'render', 'itemAt', 'mapToScene',
   'mapFromScene', 'inputMethodQuery', 'backgroundBrush',
   'setBackgroundBrush', 'foregroundBrush', 'setForegroundBrush',
-  'invalidateScene', 'updateSceneRect'. It can be made from Python, in 2
-  ways; see '__init__'.
+  'invalidateScene', 'updateSceneRect', 'setupViewport', 'event',
+  'viewportEvent', 'contextMenuEvent', 'dragEnterEvent', 'dragLeaveEvent',
+  'dragMoveEvent', 'dropEvent', 'focusInEvent', 'focusNextPrevChild',
+  'focusOutEvent', 'keyPressEvent', 'keyReleaseEvent',
+  'mouseDoubleClickEvent', 'mousePressEvent', 'mouseMoveEvent',
+  'mouseReleaseEvent', 'wheelEvent', 'paintEvent', 'resizeEvent',
+  'scrollContentsBy', 'showEvent', 'inputMethodEvent', 'drawBackground',
+  'drawForeground'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -83,8 +107,8 @@ class QGraphicsView(QAbstractScrollArea):
   What has no ritual
   ------------------
 
-  44 of the 119 functions Qt declares: 27 protected; 10 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1 a
+  19 of the 119 functions Qt declares: 10 takes or gives a type that cannot
+  be passed yet; 3 private; 2 protected; 2 forbidden; 1 a template; 1 a
   signal.
 
   What to expect
@@ -218,6 +242,45 @@ class QGraphicsView(QAbstractScrollArea):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsView'
 
+  #  A C++ QGraphicsView Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsView'
+
+  #  The functions Qt calls itself that QGraphicsView is the first to declare
+  #  and that cannot be handed to Python yet, each as Qt declares it. A class
+  #  of a program that writes one of them anew is refused, since Qt would
+  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'drawItems': (
+          'void QGraphicsView::drawItems(QPainter *, int, QGraphicsItem '
+          '**, const QStyleOptionGraphicsItem *)',
+      ),
+  }
+
+  #  The functions Qt calls itself that QGraphicsView is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'drawBackground': (
+          ('_ZN13QGraphicsView14drawBackgroundEP8QPainterRK6QRectF',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'value', 'QtCore:QRectF'),
+           )),
+      ),
+      'drawForeground': (
+          ('_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'value', 'QtCore:QRectF'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -261,7 +324,10 @@ class QGraphicsView(QAbstractScrollArea):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QGraphicsView::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK13QGraphicsView8sizeHintEv')
+    ritual = 'ritual_ZNK13QGraphicsView8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QGraphicsView8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -984,11 +1050,14 @@ class QGraphicsView(QAbstractScrollArea):
     """
     #  QVariant QGraphicsView::inputMethodQuery(Qt::InputMethodQuery query)
     #      const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK13QGraphicsView16inputMethodQueryEN2Qt16InputMethodQuery'
-        'E',
-        query.value,
-    )
+        'E')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK13QGraphicsView16inputMethodQueryEN2Qt16InputMetho'
+          'dQueryE')
+    address = self.uglySide.call(ritual, query.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -2013,4 +2082,557 @@ class QGraphicsView(QAbstractScrollArea):
     self.uglySide.call(
         'ritual_ZN13QGraphicsView15updateSceneRectERK6QRectF',
         self._valueOf(rect),
+    )
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def setupViewport(self, widget: Optional[QWidget]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::setupViewport(QWidget *widget)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#setupViewport
+
+    Parameters
+    ----------
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::setupViewport(QWidget *widget)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView13setupViewportEP7QWidget',
+        self._addressOf(widget),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsView::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGraphicsView::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView5eventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def viewportEvent(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsView::viewportEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#viewportEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGraphicsView::viewportEvent(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView13viewportEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QContextMenuEvent)
+  @overload(NoneType)
+  def contextMenuEvent(self, event: Optional[QContextMenuEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::contextMenuEvent(QContextMenuEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsview.html#contextMenuEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QContextMenuEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::contextMenuEvent(QContextMenuEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView16contextMenuEventEP17QContextMenuEven'
+        't',
+        self._addressOf(event),
+    )
+
+  @overload(QDragEnterEvent)
+  @overload(NoneType)
+  def dragEnterEvent(self, event: Optional[QDragEnterEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::dragEnterEvent(QDragEnterEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#dragEnterEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDragEnterEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::dragEnterEvent(QDragEnterEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView14dragEnterEventEP15QDragEnterEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QDragLeaveEvent)
+  @overload(NoneType)
+  def dragLeaveEvent(self, event: Optional[QDragLeaveEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::dragLeaveEvent(QDragLeaveEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#dragLeaveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDragLeaveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::dragLeaveEvent(QDragLeaveEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView14dragLeaveEventEP15QDragLeaveEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QDragMoveEvent)
+  @overload(NoneType)
+  def dragMoveEvent(self, event: Optional[QDragMoveEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::dragMoveEvent(QDragMoveEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#dragMoveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDragMoveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::dragMoveEvent(QDragMoveEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView13dragMoveEventEP14QDragMoveEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QDropEvent)
+  @overload(NoneType)
+  def dropEvent(self, event: Optional[QDropEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::dropEvent(QDropEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#dropEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::dropEvent(QDropEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView9dropEventEP10QDropEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::focusInEvent(QFocusEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#focusInEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::focusInEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView12focusInEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(bool)
+  def focusNextPrevChild(self, next: bool) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsView::focusNextPrevChild(bool next)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsview.html#focusNextPrevChild
+
+    Parameters
+    ----------
+
+    next : bool
+      Passed on as it is.
+    """
+    #  bool QGraphicsView::focusNextPrevChild(bool next)
+    return self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView18focusNextPrevChildEb', next,
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::focusOutEvent(QFocusEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::focusOutEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView13focusOutEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, event: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::keyPressEvent(QKeyEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::keyPressEvent(QKeyEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView13keyPressEventEP9QKeyEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyReleaseEvent(self, event: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::keyReleaseEvent(QKeyEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#keyReleaseEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::keyReleaseEvent(QKeyEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView15keyReleaseEventEP9QKeyEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseDoubleClickEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::mouseDoubleClickEvent(QMouseEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsview.html#mouseDoubleClickEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::mouseDoubleClickEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView21mouseDoubleClickEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::mousePressEvent(QMouseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::mousePressEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView15mousePressEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::mouseMoveEvent(QMouseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::mouseMoveEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::mouseReleaseEvent(QMouseEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsview.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::mouseReleaseEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QWheelEvent)
+  @overload(NoneType)
+  def wheelEvent(self, event: Optional[QWheelEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::wheelEvent(QWheelEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#wheelEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QWheelEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::wheelEvent(QWheelEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView10wheelEventEP11QWheelEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, event: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::paintEvent(QPaintEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#paintEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::paintEvent(QPaintEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView10paintEventEP11QPaintEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, event: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::resizeEvent(QResizeEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#resizeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::resizeEvent(QResizeEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView11resizeEventEP12QResizeEvent',
+        self._addressOf(event),
+    )
+
+  @overload(int, int)
+  def scrollContentsBy(self, dx: int, dy: int) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::scrollContentsBy(int dx, int dy)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsview.html#scrollContentsBy
+
+    Parameters
+    ----------
+
+    dx : int
+      Passed on as it is.
+
+    dy : int
+      Passed on as it is.
+    """
+    #  void QGraphicsView::scrollContentsBy(int dx, int dy)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView16scrollContentsByEii', dx, dy,
+    )
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, event: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::showEvent(QShowEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#showEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::showEvent(QShowEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView9showEventEP10QShowEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QInputMethodEvent)
+  @overload(NoneType)
+  def inputMethodEvent(self, event: Optional[QInputMethodEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::inputMethodEvent(QInputMethodEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsview.html#inputMethodEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QInputMethodEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsView::inputMethodEvent(QInputMethodEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView16inputMethodEventEP17QInputMethodEven'
+        't',
+        self._addressOf(event),
+    )
+
+  @overload(QPainter, QRectF)
+  @overload(NoneType, QRectF)
+  def drawBackground(
+      self,
+      painter: Optional[QPainter],
+      rect: QRectF,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::drawBackground(QPainter *painter, const
+    QRectF &rect)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#drawBackground
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+    """
+    #  void QGraphicsView::drawBackground(QPainter *painter, const QRectF
+    #      &rect)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView14drawBackgroundEP8QPainterRK6QRectF',
+        self._addressOf(painter), self._valueOf(rect),
+    )
+
+  @overload(QPainter, QRectF)
+  @overload(NoneType, QRectF)
+  def drawForeground(
+      self,
+      painter: Optional[QPainter],
+      rect: QRectF,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::drawForeground(QPainter *painter, const
+    QRectF &rect)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#drawForeground
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+    """
+    #  void QGraphicsView::drawForeground(QPainter *painter, const QRectF
+    #      &rect)
+    self.uglySide.call(
+        'ritual_own_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF',
+        self._addressOf(painter), self._valueOf(rect),
     )

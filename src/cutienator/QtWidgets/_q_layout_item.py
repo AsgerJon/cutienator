@@ -80,6 +80,102 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QLayoutItem'
 
+  #  A C++ QLayoutItem Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QLayoutItem'
+
+  #  The functions Qt calls itself that QLayoutItem is the first to declare
+  #  and that cannot be handed to Python yet, each as Qt declares it. A class
+  #  of a program that writes one of them anew is refused, since Qt would
+  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'expandingDirections': (
+          'Qt::Orientations QLayoutItem::expandingDirections() const',
+      ),
+      'controlTypes': (
+          'QSizePolicy::ControlTypes QLayoutItem::controlTypes() const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QLayoutItem is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'sizeHint': (
+          ('_ZNK11QLayoutItem8sizeHintEv',
+           ('address', 'value', 'QtCore:QSize'),
+           ()),
+      ),
+      'minimumSize': (
+          ('_ZNK11QLayoutItem11minimumSizeEv',
+           ('address', 'value', 'QtCore:QSize'),
+           ()),
+      ),
+      'maximumSize': (
+          ('_ZNK11QLayoutItem11maximumSizeEv',
+           ('address', 'value', 'QtCore:QSize'),
+           ()),
+      ),
+      'setGeometry': (
+          ('_ZN11QLayoutItem11setGeometryERK5QRect',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QRect'),
+           )),
+      ),
+      'geometry': (
+          ('_ZNK11QLayoutItem8geometryEv',
+           ('address', 'value', 'QtCore:QRect'),
+           ()),
+      ),
+      'isEmpty': (
+          ('_ZNK11QLayoutItem7isEmptyEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'hasHeightForWidth': (
+          ('_ZNK11QLayoutItem17hasHeightForWidthEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'heightForWidth': (
+          ('_ZNK11QLayoutItem14heightForWidthEi',
+           ('int', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'minimumHeightForWidth': (
+          ('_ZNK11QLayoutItem21minimumHeightForWidthEi',
+           ('int', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'invalidate': (
+          ('_ZN11QLayoutItem10invalidateEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'widget': (
+          ('_ZNK11QLayoutItem6widgetEv',
+           ('address', 'address', 'QtWidgets:QWidget'),
+           ()),
+      ),
+      'layout': (
+          ('_ZN11QLayoutItem6layoutEv',
+           ('address', 'address', 'QtWidgets:QLayout'),
+           ()),
+      ),
+      'spacerItem': (
+          ('_ZN11QLayoutItem10spacerItemEv',
+           ('address', 'address', 'QtWidgets:QSpacerItem'),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -202,9 +298,10 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth
     """
     #  bool QLayoutItem::hasHeightForWidth() const
-    return self._callAs(
-        'QLayoutItem', 'ritual_ZNK11QLayoutItem17hasHeightForWidthEv',
-    )
+    ritual = 'ritual_ZNK11QLayoutItem17hasHeightForWidthEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QLayoutItem17hasHeightForWidthEv'
+    return self._callAs('QLayoutItem', ritual)
 
   @overload(int)
   def heightForWidth(self, a0: int) -> int:
@@ -220,9 +317,10 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  int QLayoutItem::heightForWidth(int a0) const
-    return self._callAs(
-        'QLayoutItem', 'ritual_ZNK11QLayoutItem14heightForWidthEi', a0,
-    )
+    ritual = 'ritual_ZNK11QLayoutItem14heightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QLayoutItem14heightForWidthEi'
+    return self._callAs('QLayoutItem', ritual, a0)
 
   @overload(int)
   def minimumHeightForWidth(self, a0: int) -> int:
@@ -239,10 +337,10 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  int QLayoutItem::minimumHeightForWidth(int a0) const
-    return self._callAs(
-        'QLayoutItem', 'ritual_ZNK11QLayoutItem21minimumHeightForWidthEi',
-        a0,
-    )
+    ritual = 'ritual_ZNK11QLayoutItem21minimumHeightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QLayoutItem21minimumHeightForWidthEi'
+    return self._callAs('QLayoutItem', ritual, a0)
 
   def widget(self) -> Optional[QWidget]:
     """
@@ -258,7 +356,10 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QWidget *QLayoutItem::widget() const
-    address = self._callAs('QLayoutItem', 'ritual_ZNK11QLayoutItem6widgetEv')
+    ritual = 'ritual_ZNK11QLayoutItem6widgetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QLayoutItem6widgetEv'
+    address = self._callAs('QLayoutItem', ritual)
     from . import QWidget
     return QWidget._cuteAt(address)
 
@@ -378,7 +479,10 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qlayoutitem.html#invalidate
     """
     #  void QLayoutItem::invalidate()
-    self._callAs('QLayoutItem', 'ritual_ZN11QLayoutItem10invalidateEv')
+    ritual = 'ritual_ZN11QLayoutItem10invalidateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QLayoutItem10invalidateEv'
+    self._callAs('QLayoutItem', ritual)
 
   def layout(self) -> Optional[QLayout]:
     """
@@ -394,7 +498,10 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QLayout *QLayoutItem::layout()
-    address = self._callAs('QLayoutItem', 'ritual_ZN11QLayoutItem6layoutEv')
+    ritual = 'ritual_ZN11QLayoutItem6layoutEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QLayoutItem6layoutEv'
+    address = self._callAs('QLayoutItem', ritual)
     from . import QLayout
     return QLayout._cuteAt(address)
 
@@ -412,8 +519,9 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QSpacerItem *QLayoutItem::spacerItem()
-    address = self._callAs(
-        'QLayoutItem', 'ritual_ZN11QLayoutItem10spacerItemEv',
-    )
+    ritual = 'ritual_ZN11QLayoutItem10spacerItemEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QLayoutItem10spacerItemEv'
+    address = self._callAs('QLayoutItem', ritual)
     from . import QSpacerItem
     return QSpacerItem._cuteAt(address)

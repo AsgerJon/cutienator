@@ -20,12 +20,15 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
-  from ..QtGui import QImage
+  from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtGui import QImage, QPaintEvent, QResizeEvent
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QResizeEvent = WAIT['QResizeEvent']
   QSize = WAIT['QSize']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -45,12 +48,13 @@ class QRhiWidget(QWidget):
   -----------
 
   Every function of Qt's QRhiWidget that has a ritual and that Python can
-  call so far, 15 names in all: 'metaObject', 'tr', 'api', 'setApi',
+  call so far, 19 names in all: 'metaObject', 'tr', 'api', 'setApi',
   'isDebugLayerEnabled', 'setDebugLayerEnabled', 'sampleCount',
   'setSampleCount', 'colorBufferFormat', 'setColorBufferFormat',
   'fixedColorBufferSize', 'setFixedColorBufferSize',
-  'isMirrorVerticallyEnabled', 'setMirrorVertically', 'grabFramebuffer'. It
-  can be made from Python, in 1 way; see '__init__'.
+  'isMirrorVerticallyEnabled', 'setMirrorVertically', 'grabFramebuffer',
+  'releaseResources', 'resizeEvent', 'paintEvent', 'event'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -61,7 +65,7 @@ class QRhiWidget(QWidget):
   What has no ritual
   ------------------
 
-  27 of the 45 functions Qt declares: 15 protected; 6 a signal; 3 private; 2
+  23 of the 45 functions Qt declares: 11 protected; 6 a signal; 3 private; 2
   takes or gives a type that cannot be passed yet; 1 a template.
 
   What to expect
@@ -161,6 +165,36 @@ class QRhiWidget(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QRhiWidget'
+
+  #  A C++ QRhiWidget Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QRhiWidget'
+
+  #  The functions Qt calls itself that QRhiWidget is the first to declare
+  #  and that cannot be handed to Python yet, each as Qt declares it. A class
+  #  of a program that writes one of them anew is refused, since Qt would
+  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'initialize': (
+          'void QRhiWidget::initialize(QRhiCommandBuffer *)',
+      ),
+      'render': (
+          'void QRhiWidget::render(QRhiCommandBuffer *)',
+      ),
+  }
+
+  #  The functions Qt calls itself that QRhiWidget is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'releaseResources': (
+          ('_ZN10QRhiWidget16releaseResourcesEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -497,3 +531,74 @@ class QRhiWidget(QWidget):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def releaseResources(self) -> None:
+    """
+    Calls Qt's 'void QRhiWidget::releaseResources()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#releaseResources
+    """
+    #  void QRhiWidget::releaseResources()
+    self.uglySide.call('ritual_own_ZN10QRhiWidget16releaseResourcesEv')
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, e: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QRhiWidget::resizeEvent(QResizeEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#resizeEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QRhiWidget::resizeEvent(QResizeEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN10QRhiWidget11resizeEventEP12QResizeEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, e: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QRhiWidget::paintEvent(QPaintEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#paintEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QRhiWidget::paintEvent(QPaintEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN10QRhiWidget10paintEventEP11QPaintEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QRhiWidget::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QRhiWidget::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN10QRhiWidget5eventEP6QEvent', self._addressOf(e),
+    )

@@ -59,6 +59,39 @@
     ],
     "ritual_ZNK28QConcatenateTablesProxyModel4spanERK11QModelIndex": [
       "address", "address", "address"
+    ],
+    "ritual_take_QConcatenateTablesProxyModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK28QConcatenateTablesProxyModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN28QConcatenateTablesProxyModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK28QConcatenateTablesProxyModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK28QConcatenateTablesProxyModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK28QConcatenateTablesProxyModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK28QConcatenateTablesProxyModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZNK28QConcatenateTablesProxyModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK28QConcatenateTablesProxyModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_own_ZN28QConcatenateTablesProxyModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_own_ZNK28QConcatenateTablesProxyModel4spanERK11QModelIndex": [
+      "address", "address", "address"
     ]
   }
 }

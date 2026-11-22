@@ -35,6 +35,7 @@
     "ritual_ZN8QLibrary12setLoadHintsE6QFlagsINS_8LoadHintEE": [
       "nothing", "address", "int"
     ],
-    "ritual_ZNK8QLibrary9loadHintsEv": ["int", "address"]
+    "ritual_ZNK8QLibrary9loadHintsEv": ["int", "address"],
+    "ritual_take_QLibrary": ["bool", "address", "chars", "address"]
   }
 }

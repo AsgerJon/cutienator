@@ -88,6 +88,11 @@ class QWheelEvent(QSinglePointEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QWheelEvent'
 
+  #  A C++ QWheelEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QWheelEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -114,7 +119,10 @@ class QWheelEvent(QSinglePointEvent):
       no object.
     """
     #  QWheelEvent *QWheelEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK11QWheelEvent5cloneEv')
+    ritual = 'ritual_ZNK11QWheelEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWheelEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QWheelEvent._cuteAt(address)
 
   def pixelDelta(self) -> QPoint:
@@ -204,7 +212,10 @@ class QWheelEvent(QSinglePointEvent):
     Qt's own words: https://doc.qt.io/qt-6/qwheelevent.html#isBeginEvent
     """
     #  bool QWheelEvent::isBeginEvent() const
-    return self.uglySide.call('ritual_ZNK11QWheelEvent12isBeginEventEv')
+    ritual = 'ritual_ZNK11QWheelEvent12isBeginEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWheelEvent12isBeginEventEv'
+    return self.uglySide.call(ritual)
 
   def isUpdateEvent(self) -> bool:
     """
@@ -213,7 +224,10 @@ class QWheelEvent(QSinglePointEvent):
     Qt's own words: https://doc.qt.io/qt-6/qwheelevent.html#isUpdateEvent
     """
     #  bool QWheelEvent::isUpdateEvent() const
-    return self.uglySide.call('ritual_ZNK11QWheelEvent13isUpdateEventEv')
+    ritual = 'ritual_ZNK11QWheelEvent13isUpdateEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWheelEvent13isUpdateEventEv'
+    return self.uglySide.call(ritual)
 
   def isEndEvent(self) -> bool:
     """
@@ -222,7 +236,10 @@ class QWheelEvent(QSinglePointEvent):
     Qt's own words: https://doc.qt.io/qt-6/qwheelevent.html#isEndEvent
     """
     #  bool QWheelEvent::isEndEvent() const
-    return self.uglySide.call('ritual_ZNK11QWheelEvent10isEndEventEv')
+    ritual = 'ritual_ZNK11QWheelEvent10isEndEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QWheelEvent10isEndEventEv'
+    return self.uglySide.call(ritual)
 
   def source(self) -> Qt.MouseEventSource:
     """

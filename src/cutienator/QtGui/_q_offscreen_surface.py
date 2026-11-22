@@ -61,7 +61,7 @@ class QOffscreenSurface(QObject, QSurface):
   What has no ritual
   ------------------
 
-  14 of the 29 functions Qt declares: 5 private; 3 takes or gives a type that
+  14 of the 28 functions Qt declares: 5 private; 3 takes or gives a type that
   cannot be passed yet; 2 a template; 2 forbidden; 1 protected; 1 a signal.
 
   What to expect
@@ -143,6 +143,11 @@ class QOffscreenSurface(QObject, QSurface):
       'QSurface': 'ritual_cast_QOffscreenSurface_QSurface',
   }
 
+  #  A C++ QOffscreenSurface Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QOffscreenSurface'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -190,9 +195,10 @@ class QOffscreenSurface(QObject, QSurface):
       'QSurface.SurfaceType(number)' gives.
     """
     #  SurfaceType QOffscreenSurface::surfaceType() const
-    return QSurface.SurfaceType(self.uglySide.call(
-        'ritual_ZNK17QOffscreenSurface11surfaceTypeEv',
-    ))
+    ritual = 'ritual_ZNK17QOffscreenSurface11surfaceTypeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QOffscreenSurface11surfaceTypeEv'
+    return QSurface.SurfaceType(self.uglySide.call(ritual))
 
   def isValid(self) -> bool:
     """
@@ -216,7 +222,10 @@ class QOffscreenSurface(QObject, QSurface):
       A new cute QSurfaceFormat around the copy Qt gave back. Python owns it.
     """
     #  QSurfaceFormat QOffscreenSurface::format() const
-    address = self.uglySide.call('ritual_ZNK17QOffscreenSurface6formatEv')
+    ritual = 'ritual_ZNK17QOffscreenSurface6formatEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QOffscreenSurface6formatEv'
+    address = self.uglySide.call(ritual)
     from . import QSurfaceFormat
     return QSurfaceFormat._cuteOwning(address)
 
@@ -253,7 +262,10 @@ class QOffscreenSurface(QObject, QSurface):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QOffscreenSurface::size() const
-    address = self.uglySide.call('ritual_ZNK17QOffscreenSurface4sizeEv')
+    ritual = 'ritual_ZNK17QOffscreenSurface4sizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QOffscreenSurface4sizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 

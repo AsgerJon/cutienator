@@ -15,6 +15,10 @@
     "ritual_ZN15QGraphicsObject13ungrabGestureEN2Qt11GestureTypeE": [
       "nothing", "address", "int"
     ],
-    "ritual_cast_QGraphicsObject_QGraphicsItem": ["address", "address"]
+    "ritual_cast_QGraphicsObject_QGraphicsItem": ["address", "address"],
+    "ritual_take_QGraphicsObject": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QGraphicsObject5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
   }
 }

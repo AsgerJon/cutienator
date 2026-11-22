@@ -17,6 +17,7 @@
       "nothing", "address", "int", "int"
     ],
     "ritual_ZNK13QIntValidator6bottomEv": ["int", "address"],
-    "ritual_ZNK13QIntValidator3topEv": ["int", "address"]
+    "ritual_ZNK13QIntValidator3topEv": ["int", "address"],
+    "ritual_take_QIntValidator": ["bool", "address", "chars", "address"]
   }
 }

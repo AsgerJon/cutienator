@@ -11,6 +11,10 @@
     ],
     "ritual_ZNK21QPlatformSurfaceEvent16surfaceEventTypeEv": [
       "int", "address"
-    ]
+    ],
+    "ritual_take_QPlatformSurfaceEvent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QPlatformSurfaceEvent5cloneEv": ["address", "address"]
   }
 }

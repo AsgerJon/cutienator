@@ -20,7 +20,8 @@ from . import QDialog, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QAbstractProxyModel, QByteArray, QMetaObject, QUrl
+  from ..QtCore import QAbstractProxyModel, QByteArray, QEvent, QMetaObject
+  from ..QtCore import QUrl
   from ..QtGui import QAbstractFileIconProvider
   from . import QAbstractItemDelegate
 else:
@@ -31,6 +32,7 @@ else:
   QAbstractItemDelegate = WAIT['QAbstractItemDelegate']
   QAbstractProxyModel = WAIT['QAbstractProxyModel']
   QByteArray = WAIT['QByteArray']
+  QEvent = WAIT['QEvent']
   QUrl = WAIT['QUrl']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -50,7 +52,7 @@ class QFileDialog(QDialog):
   -----------
 
   Every function of Qt's QFileDialog that has a ritual and that Python can
-  call so far, 41 names in all: 'metaObject', 'tr', 'setDirectory',
+  call so far, 44 names in all: 'metaObject', 'tr', 'setDirectory',
   'directory', 'setDirectoryUrl', 'directoryUrl', 'selectFile', 'selectUrl',
   'setNameFilter', 'selectNameFilter', 'selectedMimeTypeFilter',
   'selectedNameFilter', 'selectMimeTypeFilter', 'filter', 'setFilter',
@@ -59,8 +61,8 @@ class QFileDialog(QDialog):
   'defaultSuffix', 'setItemDelegate', 'itemDelegate', 'setIconProvider',
   'iconProvider', 'setLabelText', 'labelText', 'setProxyModel', 'proxyModel',
   'setOption', 'testOption', 'setOptions', 'options', 'open', 'setVisible',
-  'getExistingDirectory', 'saveFileContent'. It can be made from Python, in 2
-  ways; see '__init__'.
+  'getExistingDirectory', 'saveFileContent', 'done', 'accept', 'changeEvent'.
+  It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -79,8 +81,8 @@ class QFileDialog(QDialog):
   What has no ritual
   ------------------
 
-  39 of the 86 functions Qt declares: 20 takes or gives a type that cannot be
-  passed yet; 9 a signal; 4 protected; 3 private; 2 forbidden; 1 a template.
+  36 of the 86 functions Qt declares: 20 takes or gives a type that cannot be
+  passed yet; 9 a signal; 3 private; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -304,6 +306,11 @@ class QFileDialog(QDialog):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFileDialog'
+
+  #  A C++ QFileDialog Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QFileDialog'
 
   #  Fallback Variables
 
@@ -941,7 +948,10 @@ class QFileDialog(QDialog):
       Passed on as it is.
     """
     #  void QFileDialog::setVisible(bool visible)
-    self.uglySide.call('ritual_ZN11QFileDialog10setVisibleEb', visible)
+    ritual = 'ritual_ZN11QFileDialog10setVisibleEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFileDialog10setVisibleEb'
+    self.uglySide.call(ritual, visible)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1168,4 +1178,50 @@ class QFileDialog(QDialog):
     self.uglySide.call(
         'ritual_ZN11QFileDialog4openEP7QObjectPKc',
         self._addressOf(receiver), self._bytesOf(member),
+    )
+
+  @overload(int)
+  def done(self, result: int) -> None:
+    """
+    Calls Qt's 'void QFileDialog::done(int result)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#done
+
+    Parameters
+    ----------
+
+    result : int
+      Passed on as it is.
+    """
+    #  void QFileDialog::done(int result)
+    self.uglySide.call('ritual_own_ZN11QFileDialog4doneEi', result)
+
+  def accept(self) -> None:
+    """
+    Calls Qt's 'void QFileDialog::accept()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#accept
+    """
+    #  void QFileDialog::accept()
+    self.uglySide.call('ritual_own_ZN11QFileDialog6acceptEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, e: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QFileDialog::changeEvent(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#changeEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFileDialog::changeEvent(QEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN11QFileDialog11changeEventEP6QEvent',
+        self._addressOf(e),
     )

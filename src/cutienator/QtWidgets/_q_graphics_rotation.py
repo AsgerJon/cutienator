@@ -132,6 +132,11 @@ class QGraphicsRotation(QGraphicsTransform):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsRotation'
 
+  #  A C++ QGraphicsRotation Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsRotation'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -357,7 +362,7 @@ class QGraphicsRotation(QGraphicsTransform):
       object.
     """
     #  void QGraphicsRotation::applyTo(QMatrix4x4 *matrix) const
-    self.uglySide.call(
-        'ritual_ZNK17QGraphicsRotation7applyToEP10QMatrix4x4',
-        self._addressOf(matrix),
-    )
+    ritual = 'ritual_ZNK17QGraphicsRotation7applyToEP10QMatrix4x4'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QGraphicsRotation7applyToEP10QMatrix4x4'
+    self.uglySide.call(ritual, self._addressOf(matrix))

@@ -19,21 +19,33 @@ from . import QGraphicsItem, QGraphicsObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QPointF, QRectF
-  from ..QtGui import QColor, QFont, QPainter, QPainterPath, QTextCursor
+  from ..QtCore import QEvent, QMetaObject, QPointF, QRectF, QVariant
+  from ..QtGui import QColor, QFocusEvent, QFont, QInputMethodEvent
+  from ..QtGui import QKeyEvent, QPainter, QPainterPath, QTextCursor
   from ..QtGui import QTextDocument
+  from . import QGraphicsSceneContextMenuEvent, QGraphicsSceneDragDropEvent
+  from . import QGraphicsSceneHoverEvent, QGraphicsSceneMouseEvent
   from . import QStyleOptionGraphicsItem, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QColor = WAIT['QColor']
+  QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
   QFont = WAIT['QFont']
+  QGraphicsSceneContextMenuEvent = WAIT['QGraphicsSceneContextMenuEvent']
+  QGraphicsSceneDragDropEvent = WAIT['QGraphicsSceneDragDropEvent']
+  QGraphicsSceneHoverEvent = WAIT['QGraphicsSceneHoverEvent']
+  QGraphicsSceneMouseEvent = WAIT['QGraphicsSceneMouseEvent']
+  QInputMethodEvent = WAIT['QInputMethodEvent']
+  QKeyEvent = WAIT['QKeyEvent']
   QPainter = WAIT['QPainter']
   QPointF = WAIT['QPointF']
   QStyleOptionGraphicsItem = WAIT['QStyleOptionGraphicsItem']
   QTextCursor = WAIT['QTextCursor']
   QTextDocument = WAIT['QTextDocument']
+  QVariant = WAIT['QVariant']
   QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -53,14 +65,19 @@ class QGraphicsTextItem(QGraphicsObject):
   -----------
 
   Every function of Qt's QGraphicsTextItem that has a ritual and that Python
-  can call so far, 30 names in all: 'metaObject', 'tr', 'toHtml', 'setHtml',
+  can call so far, 50 names in all: 'metaObject', 'tr', 'toHtml', 'setHtml',
   'toPlainText', 'setPlainText', 'font', 'setFont', 'setDefaultTextColor',
   'defaultTextColor', 'boundingRect', 'shape', 'contains', 'paint',
   'isObscuredBy', 'opaqueArea', 'type', 'setTextWidth', 'textWidth',
   'adjustSize', 'setDocument', 'document', 'setTextInteractionFlags',
   'textInteractionFlags', 'setTabChangesFocus', 'tabChangesFocus',
-  'setOpenExternalLinks', 'openExternalLinks', 'setTextCursor', 'textCursor'.
-  It can be made from Python, in 2 ways; see '__init__'.
+  'setOpenExternalLinks', 'openExternalLinks', 'setTextCursor', 'textCursor',
+  'sceneEvent', 'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
+  'mouseDoubleClickEvent', 'contextMenuEvent', 'keyPressEvent',
+  'keyReleaseEvent', 'focusInEvent', 'focusOutEvent', 'dragEnterEvent',
+  'dragLeaveEvent', 'dragMoveEvent', 'dropEvent', 'inputMethodEvent',
+  'hoverEnterEvent', 'hoverMoveEvent', 'hoverLeaveEvent', 'inputMethodQuery',
+  'extension'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -71,9 +88,8 @@ class QGraphicsTextItem(QGraphicsObject):
   What has no ritual
   ------------------
 
-  30 of the 63 functions Qt declares: 22 protected; 2 takes or gives a type
-  that cannot be passed yet; 2 a signal; 2 forbidden; 1 a template; 1
-  private.
+  10 of the 63 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 protected; 2 forbidden; 1 a template; 1 private.
 
   What to expect
   --------------
@@ -145,6 +161,11 @@ class QGraphicsTextItem(QGraphicsObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsTextItem'
+
+  #  A C++ QGraphicsTextItem Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsTextItem'
 
   #  Fallback Variables
 
@@ -259,9 +280,10 @@ class QGraphicsTextItem(QGraphicsObject):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsTextItem::boundingRect() const
-    address = self.uglySide.call(
-        'ritual_ZNK17QGraphicsTextItem12boundingRectEv',
-    )
+    ritual = 'ritual_ZNK17QGraphicsTextItem12boundingRectEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QGraphicsTextItem12boundingRectEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
@@ -278,7 +300,10 @@ class QGraphicsTextItem(QGraphicsObject):
       A new cute QPainterPath around the copy Qt gave back. Python owns it.
     """
     #  QPainterPath QGraphicsTextItem::shape() const
-    address = self.uglySide.call('ritual_ZNK17QGraphicsTextItem5shapeEv')
+    ritual = 'ritual_ZNK17QGraphicsTextItem5shapeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QGraphicsTextItem5shapeEv'
+    address = self.uglySide.call(ritual)
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
@@ -298,10 +323,10 @@ class QGraphicsTextItem(QGraphicsObject):
       own.
     """
     #  bool QGraphicsTextItem::contains(const QPointF &point) const
-    return self.uglySide.call(
-        'ritual_ZNK17QGraphicsTextItem8containsERK7QPointF',
-        self._valueOf(point),
-    )
+    ritual = 'ritual_ZNK17QGraphicsTextItem8containsERK7QPointF'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QGraphicsTextItem8containsERK7QPointF'
+    return self.uglySide.call(ritual, self._valueOf(point))
 
   @overload(QGraphicsItem)
   @overload(NoneType)
@@ -321,10 +346,12 @@ class QGraphicsTextItem(QGraphicsObject):
       object.
     """
     #  bool QGraphicsTextItem::isObscuredBy(const QGraphicsItem *item) const
-    return self.uglySide.call(
-        'ritual_ZNK17QGraphicsTextItem12isObscuredByEPK13QGraphicsItem',
-        self._addressOf(item, 'QGraphicsItem'),
-    )
+    ritual = 'ritual_ZNK17QGraphicsTextItem12isObscuredByEPK13QGraphicsItem'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK17QGraphicsTextItem12isObscuredByEPK13QGraphicsIte'
+          'm')
+    return self.uglySide.call(ritual, self._addressOf(item, 'QGraphicsItem'))
 
   def opaqueArea(self) -> QPainterPath:
     """
@@ -339,9 +366,10 @@ class QGraphicsTextItem(QGraphicsObject):
       A new cute QPainterPath around the copy Qt gave back. Python owns it.
     """
     #  QPainterPath QGraphicsTextItem::opaqueArea() const
-    address = self.uglySide.call(
-        'ritual_ZNK17QGraphicsTextItem10opaqueAreaEv',
-    )
+    ritual = 'ritual_ZNK17QGraphicsTextItem10opaqueAreaEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QGraphicsTextItem10opaqueAreaEv'
+    address = self.uglySide.call(ritual)
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
@@ -352,7 +380,10 @@ class QGraphicsTextItem(QGraphicsObject):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicstextitem.html#type
     """
     #  int QGraphicsTextItem::type() const
-    return self.uglySide.call('ritual_ZNK17QGraphicsTextItem4typeEv')
+    ritual = 'ritual_ZNK17QGraphicsTextItem4typeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QGraphicsTextItem4typeEv'
+    return self.uglySide.call(ritual)
 
   def textWidth(self) -> float:
     """
@@ -443,6 +474,66 @@ class QGraphicsTextItem(QGraphicsObject):
     )
     from ..QtGui import QTextCursor
     return QTextCursor._cuteOwning(address)
+
+  @overload(Qt.InputMethodQuery)
+  def inputMethodQuery(self, query: Qt.InputMethodQuery) -> QVariant:
+    """
+    Calls Qt's 'QVariant
+    QGraphicsTextItem::inputMethodQuery(Qt::InputMethodQuery query) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#inputMethodQuery
+
+    Parameters
+    ----------
+
+    query : Qt.InputMethodQuery
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QGraphicsTextItem::inputMethodQuery(Qt::InputMethodQuery
+    #      query) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK17QGraphicsTextItem16inputMethodQueryEN2Qt16InputMet'
+        'hodQueryE',
+        query.value,
+    )
+    from ..QtCore import QVariant
+    return QVariant._cuteOwning(address)
+
+  @overload(QVariant)
+  def extension(self, variant: QVariant) -> QVariant:
+    """
+    Calls Qt's 'QVariant QGraphicsTextItem::extension(const QVariant
+    &variant) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicstextitem.html#extension
+
+    Parameters
+    ----------
+
+    variant : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QGraphicsTextItem::extension(const QVariant &variant) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK17QGraphicsTextItem9extensionERK8QVariant',
+        self._valueOf(variant),
+    )
+    from ..QtCore import QVariant
+    return QVariant._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -775,9 +866,15 @@ class QGraphicsTextItem(QGraphicsObject):
     """
     #  void QGraphicsTextItem::paint(QPainter *painter, const
     #      QStyleOptionGraphicsItem *option, QWidget *widget)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN17QGraphicsTextItem5paintEP8QPainterPK24QStyleOptionGraph'
-        'icsItemP7QWidget',
+        'icsItemP7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QGraphicsTextItem5paintEP8QPainterPK24QStyleOptio'
+          'nGraphicsItemP7QWidget')
+    self.uglySide.call(
+        ritual,
         self._addressOf(painter), self._addressOf(option),
         self._addressOf(widget),
     )
@@ -790,3 +887,470 @@ class QGraphicsTextItem(QGraphicsObject):
     """
     #  void QGraphicsTextItem::adjustSize()
     self.uglySide.call('ritual_ZN17QGraphicsTextItem10adjustSizeEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def sceneEvent(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsTextItem::sceneEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicstextitem.html#sceneEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGraphicsTextItem::sceneEvent(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem10sceneEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(
+      self,
+      event: Optional[QGraphicsSceneMouseEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QGraphicsTextItem::mousePressEvent(QGraphicsSceneMouseEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::mousePressEvent(QGraphicsSceneMouseEvent
+    #      *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem15mousePressEventEP24QGraphicsScen'
+        'eMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(
+      self,
+      event: Optional[QGraphicsSceneMouseEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QGraphicsTextItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::mouseMoveEvent(QGraphicsSceneMouseEvent
+    #      *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem14mouseMoveEventEP24QGraphicsScene'
+        'MouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(
+      self,
+      event: Optional[QGraphicsSceneMouseEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QGraphicsTextItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::mouseReleaseEvent(QGraphicsSceneMouseEvent
+    #      *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem17mouseReleaseEventEP24QGraphicsSc'
+        'eneMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneMouseEvent)
+  @overload(NoneType)
+  def mouseDoubleClickEvent(
+      self,
+      event: Optional[QGraphicsSceneMouseEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QGraphicsTextItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#mouseDoubleClickEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
+    #      *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem21mouseDoubleClickEventEP24QGraphi'
+        'csSceneMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneContextMenuEvent)
+  @overload(NoneType)
+  def contextMenuEvent(
+      self,
+      event: Optional[QGraphicsSceneContextMenuEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QGraphicsTextItem::contextMenuEvent(QGraphicsSceneContextMenuEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#contextMenuEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneContextMenuEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void
+    #      QGraphicsTextItem::contextMenuEvent(QGraphicsSceneContextMenuEvent
+    #      *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem16contextMenuEventEP30QGraphicsSce'
+        'neContextMenuEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, event: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsTextItem::keyPressEvent(QKeyEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::keyPressEvent(QKeyEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem13keyPressEventEP9QKeyEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyReleaseEvent(self, event: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsTextItem::keyReleaseEvent(QKeyEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#keyReleaseEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::keyReleaseEvent(QKeyEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem15keyReleaseEventEP9QKeyEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsTextItem::focusInEvent(QFocusEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#focusInEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::focusInEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem12focusInEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsTextItem::focusOutEvent(QFocusEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::focusOutEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem13focusOutEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneDragDropEvent)
+  @overload(NoneType)
+  def dragEnterEvent(
+      self,
+      event: Optional[QGraphicsSceneDragDropEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QGraphicsTextItem::dragEnterEvent(QGraphicsSceneDragDropEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#dragEnterEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneDragDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::dragEnterEvent(QGraphicsSceneDragDropEvent
+    #      *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem14dragEnterEventEP27QGraphicsScene'
+        'DragDropEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneDragDropEvent)
+  @overload(NoneType)
+  def dragLeaveEvent(
+      self,
+      event: Optional[QGraphicsSceneDragDropEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QGraphicsTextItem::dragLeaveEvent(QGraphicsSceneDragDropEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#dragLeaveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneDragDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::dragLeaveEvent(QGraphicsSceneDragDropEvent
+    #      *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem14dragLeaveEventEP27QGraphicsScene'
+        'DragDropEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneDragDropEvent)
+  @overload(NoneType)
+  def dragMoveEvent(
+      self,
+      event: Optional[QGraphicsSceneDragDropEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QGraphicsTextItem::dragMoveEvent(QGraphicsSceneDragDropEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#dragMoveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneDragDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::dragMoveEvent(QGraphicsSceneDragDropEvent
+    #      *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem13dragMoveEventEP27QGraphicsSceneD'
+        'ragDropEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneDragDropEvent)
+  @overload(NoneType)
+  def dropEvent(self, event: Optional[QGraphicsSceneDragDropEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsTextItem::dropEvent(QGraphicsSceneDragDropEvent
+    *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicstextitem.html#dropEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneDragDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::dropEvent(QGraphicsSceneDragDropEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem9dropEventEP27QGraphicsSceneDragDr'
+        'opEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QInputMethodEvent)
+  @overload(NoneType)
+  def inputMethodEvent(self, event: Optional[QInputMethodEvent]) -> None:
+    """
+    Calls Qt's 'void QGraphicsTextItem::inputMethodEvent(QInputMethodEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#inputMethodEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QInputMethodEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::inputMethodEvent(QInputMethodEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem16inputMethodEventEP17QInputMethod'
+        'Event',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneHoverEvent)
+  @overload(NoneType)
+  def hoverEnterEvent(
+      self,
+      event: Optional[QGraphicsSceneHoverEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QGraphicsTextItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#hoverEnterEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneHoverEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::hoverEnterEvent(QGraphicsSceneHoverEvent
+    #      *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem15hoverEnterEventEP24QGraphicsScen'
+        'eHoverEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneHoverEvent)
+  @overload(NoneType)
+  def hoverMoveEvent(
+      self,
+      event: Optional[QGraphicsSceneHoverEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QGraphicsTextItem::hoverMoveEvent(QGraphicsSceneHoverEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#hoverMoveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneHoverEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::hoverMoveEvent(QGraphicsSceneHoverEvent
+    #      *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem14hoverMoveEventEP24QGraphicsScene'
+        'HoverEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QGraphicsSceneHoverEvent)
+  @overload(NoneType)
+  def hoverLeaveEvent(
+      self,
+      event: Optional[QGraphicsSceneHoverEvent],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QGraphicsTextItem::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#hoverLeaveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QGraphicsSceneHoverEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsTextItem::hoverLeaveEvent(QGraphicsSceneHoverEvent
+    #      *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QGraphicsTextItem15hoverLeaveEventEP24QGraphicsScen'
+        'eHoverEvent',
+        self._addressOf(event),
+    )

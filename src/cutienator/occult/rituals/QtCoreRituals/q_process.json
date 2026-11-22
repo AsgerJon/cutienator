@@ -84,6 +84,14 @@
     "ritual_ZN8QProcess5closeEv": ["nothing", "address"],
     "ritual_ZN8QProcess10nullDeviceEv": ["text"],
     "ritual_ZN8QProcess9terminateEv": ["nothing", "address"],
-    "ritual_ZN8QProcess4killEv": ["nothing", "address"]
+    "ritual_ZN8QProcess4killEv": ["nothing", "address"],
+    "ritual_take_QProcess": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN8QProcess16waitForReadyReadEi": ["bool", "address", "int"],
+    "ritual_own_ZN8QProcess19waitForBytesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK8QProcess12bytesToWriteEv": ["long long", "address"],
+    "ritual_own_ZNK8QProcess12isSequentialEv": ["bool", "address"],
+    "ritual_own_ZN8QProcess5closeEv": ["nothing", "address"]
   }
 }

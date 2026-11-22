@@ -49,10 +49,11 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
   -----------
 
   Every function of Qt's QPlainTextDocumentLayout that has a ritual and that
-  Python can call so far, 12 names in all: 'metaObject', 'tr', 'draw',
+  Python can call so far, 13 names in all: 'metaObject', 'tr', 'draw',
   'hitTest', 'pageCount', 'documentSize', 'frameBoundingRect',
   'blockBoundingRect', 'ensureBlockLayout', 'setCursorWidth', 'cursorWidth',
-  'requestUpdate'. It can be made from Python, in 1 way; see '__init__'.
+  'requestUpdate', 'documentChanged'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,8 +64,8 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
   What has no ritual
   ------------------
 
-  12 of the 26 functions Qt declares: 8 private; 2 takes or gives a type that
-  cannot be passed yet; 1 a template; 1 protected.
+  11 of the 26 functions Qt declares: 8 private; 2 takes or gives a type that
+  cannot be passed yet; 1 a template.
 
   What to expect
   --------------
@@ -138,6 +139,11 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPlainTextDocumentLayout'
 
+  #  A C++ QPlainTextDocumentLayout Python makes is of a C++ class of ours,
+  #  in which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPlainTextDocumentLayout'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -193,11 +199,14 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
     """
     #  int QPlainTextDocumentLayout::hitTest(const QPointF &a0,
     #      Qt::HitTestAccuracy a1) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK24QPlainTextDocumentLayout7hitTestERK7QPointFN2Qt15HitTe'
-        'stAccuracyE',
-        self._valueOf(a0), a1.value,
-    )
+        'stAccuracyE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK24QPlainTextDocumentLayout7hitTestERK7QPointFN2Qt1'
+          '5HitTestAccuracyE')
+    return self.uglySide.call(ritual, self._valueOf(a0), a1.value)
 
   def pageCount(self) -> int:
     """
@@ -207,9 +216,10 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
     https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#pageCount
     """
     #  int QPlainTextDocumentLayout::pageCount() const
-    return self.uglySide.call(
-        'ritual_ZNK24QPlainTextDocumentLayout9pageCountEv',
-    )
+    ritual = 'ritual_ZNK24QPlainTextDocumentLayout9pageCountEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK24QPlainTextDocumentLayout9pageCountEv'
+    return self.uglySide.call(ritual)
 
   def documentSize(self) -> QSizeF:
     """
@@ -225,9 +235,10 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
       A new cute QSizeF around the copy Qt gave back. Python owns it.
     """
     #  QSizeF QPlainTextDocumentLayout::documentSize() const
-    address = self.uglySide.call(
-        'ritual_ZNK24QPlainTextDocumentLayout12documentSizeEv',
-    )
+    ritual = 'ritual_ZNK24QPlainTextDocumentLayout12documentSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK24QPlainTextDocumentLayout12documentSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
 
@@ -256,11 +267,14 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
     """
     #  QRectF QPlainTextDocumentLayout::frameBoundingRect(QTextFrame *a0)
     #      const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK24QPlainTextDocumentLayout17frameBoundingRectEP10QTextFr'
-        'ame',
-        self._addressOf(a0),
-    )
+        'ame')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK24QPlainTextDocumentLayout17frameBoundingRectEP10Q'
+          'TextFrame')
+    address = self.uglySide.call(ritual, self._addressOf(a0))
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
@@ -288,11 +302,14 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
     """
     #  QRectF QPlainTextDocumentLayout::blockBoundingRect(const QTextBlock
     #      &block) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK24QPlainTextDocumentLayout17blockBoundingRectERK10QTextB'
-        'lock',
-        self._valueOf(block),
-    )
+        'lock')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK24QPlainTextDocumentLayout17blockBoundingRectERK10'
+          'QTextBlock')
+    address = self.uglySide.call(ritual, self._valueOf(block))
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
@@ -414,11 +431,14 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
     """
     #  void QPlainTextDocumentLayout::draw(QPainter *a0, const PaintContext
     #      &a1)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN24QPlainTextDocumentLayout4drawEP8QPainterRKN27QAbstractT'
-        'extDocumentLayout12PaintContextE',
-        self._addressOf(a0), self._valueOf(a1),
-    )
+        'extDocumentLayout12PaintContextE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN24QPlainTextDocumentLayout4drawEP8QPainterRKN27QAbs'
+          'tractTextDocumentLayout12PaintContextE')
+    self.uglySide.call(ritual, self._addressOf(a0), self._valueOf(a1))
 
   @overload(QTextBlock)
   def ensureBlockLayout(self, block: QTextBlock) -> None:
@@ -454,4 +474,32 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
     #  void QPlainTextDocumentLayout::requestUpdate()
     self.uglySide.call(
         'ritual_ZN24QPlainTextDocumentLayout13requestUpdateEv',
+    )
+
+  @overload(int, int, int)
+  def documentChanged(self, from_: int, a1: int, charsAdded: int) -> None:
+    """
+    Calls Qt's 'void QPlainTextDocumentLayout::documentChanged(int from, int
+    a1, int charsAdded)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#documentChanged
+
+    Parameters
+    ----------
+
+    from_ : int
+      Passed on as it is.
+
+    a1 : int
+      Passed on as it is.
+
+    charsAdded : int
+      Passed on as it is.
+    """
+    #  void QPlainTextDocumentLayout::documentChanged(int from, int a1, int
+    #      charsAdded)
+    self.uglySide.call(
+        'ritual_own_ZN24QPlainTextDocumentLayout15documentChangedEiii',
+        from_, a1, charsAdded,
     )

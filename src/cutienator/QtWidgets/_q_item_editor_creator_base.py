@@ -73,6 +73,30 @@ class QItemEditorCreatorBase(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QItemEditorCreatorBase'
 
+  #  A C++ QItemEditorCreatorBase Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QItemEditorCreatorBase'
+
+  #  The functions Qt calls itself that QItemEditorCreatorBase is the first
+  #  to declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'createWidget': (
+          ('_ZNK22QItemEditorCreatorBase12createWidgetEP7QWidget',
+           ('address', 'address', 'QtWidgets:QWidget'),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'valuePropertyName': (
+          ('_ZNK22QItemEditorCreatorBase17valuePropertyNameEv',
+           ('address', 'value', 'QtCore:QByteArray'),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

@@ -22,9 +22,11 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QAbstractItemModel, QEvent, QMetaObject, QModelIndex
   from ..QtCore import QSize, QVariant
-  from ..QtGui import QIcon, QValidator
+  from ..QtGui import QContextMenuEvent, QFocusEvent, QHideEvent, QIcon
+  from ..QtGui import QInputMethodEvent, QKeyEvent, QMouseEvent, QPaintEvent
+  from ..QtGui import QResizeEvent, QShowEvent, QValidator, QWheelEvent
   from . import QAbstractItemDelegate, QAbstractItemView, QCompleter
-  from . import QLineEdit
+  from . import QLineEdit, QStyleOptionComboBox
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -33,13 +35,24 @@ else:
   QAbstractItemModel = WAIT['QAbstractItemModel']
   QAbstractItemView = WAIT['QAbstractItemView']
   QCompleter = WAIT['QCompleter']
+  QContextMenuEvent = WAIT['QContextMenuEvent']
   QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
+  QHideEvent = WAIT['QHideEvent']
   QIcon = WAIT['QIcon']
+  QInputMethodEvent = WAIT['QInputMethodEvent']
+  QKeyEvent = WAIT['QKeyEvent']
   QLineEdit = WAIT['QLineEdit']
   QModelIndex = WAIT['QModelIndex']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QResizeEvent = WAIT['QResizeEvent']
+  QShowEvent = WAIT['QShowEvent']
   QSize = WAIT['QSize']
+  QStyleOptionComboBox = WAIT['QStyleOptionComboBox']
   QValidator = WAIT['QValidator']
   QVariant = WAIT['QVariant']
+  QWheelEvent = WAIT['QWheelEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -58,7 +71,7 @@ class QComboBox(QWidget):
   -----------
 
   Every function of Qt's QComboBox that has a ritual and that Python can call
-  so far, 67 names in all: 'metaObject', 'tr', 'maxVisibleItems',
+  so far, 82 names in all: 'metaObject', 'tr', 'maxVisibleItems',
   'setMaxVisibleItems', 'count', 'setMaxCount', 'maxCount',
   'duplicatesEnabled', 'setDuplicatesEnabled', 'setFrame', 'hasFrame',
   'findText', 'findData', 'insertPolicy', 'setInsertPolicy',
@@ -73,8 +86,12 @@ class QComboBox(QWidget):
   'insertSeparator', 'removeItem', 'setItemText', 'setItemIcon',
   'setItemData', 'view', 'setView', 'sizeHint', 'minimumSizeHint',
   'showPopup', 'hidePopup', 'event', 'inputMethodQuery', 'clear',
-  'clearEditText', 'setEditText', 'setCurrentIndex', 'setCurrentText'. It can
-  be made from Python, in 1 way; see '__init__'.
+  'clearEditText', 'setEditText', 'setCurrentIndex', 'setCurrentText',
+  'focusInEvent', 'focusOutEvent', 'changeEvent', 'resizeEvent',
+  'paintEvent', 'showEvent', 'hideEvent', 'mousePressEvent',
+  'mouseReleaseEvent', 'keyPressEvent', 'keyReleaseEvent', 'wheelEvent',
+  'contextMenuEvent', 'inputMethodEvent', 'initStyleOption'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -85,9 +102,9 @@ class QComboBox(QWidget):
   What has no ritual
   ------------------
 
-  33 of the 105 functions Qt declares: 16 protected; 7 a signal; 4 takes or
-  gives a type that cannot be passed yet; 3 private; 2 forbidden; 1 a
-  template.
+  18 of the 105 functions Qt declares: 7 a signal; 4 takes or gives a type
+  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1
+  protected.
 
   What to expect
   --------------
@@ -194,6 +211,42 @@ class QComboBox(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QComboBox'
+
+  #  A C++ QComboBox Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QComboBox'
+
+  #  The functions Qt calls itself that QComboBox is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'setModel': (
+          ('_ZN9QComboBox8setModelEP18QAbstractItemModel',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QAbstractItemModel'),
+           )),
+      ),
+      'showPopup': (
+          ('_ZN9QComboBox9showPopupEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'hidePopup': (
+          ('_ZN9QComboBox9hidePopupEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'initStyleOption': (
+          ('_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionComboBox'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -720,7 +773,10 @@ class QComboBox(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QComboBox::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK9QComboBox8sizeHintEv')
+    ritual = 'ritual_ZNK9QComboBox8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QComboBox8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -737,7 +793,10 @@ class QComboBox(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QComboBox::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK9QComboBox15minimumSizeHintEv')
+    ritual = 'ritual_ZNK9QComboBox15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QComboBox15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -762,10 +821,12 @@ class QComboBox(QWidget):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QComboBox::inputMethodQuery(Qt::InputMethodQuery a0) const
-    address = self.uglySide.call(
-        'ritual_ZNK9QComboBox16inputMethodQueryEN2Qt16InputMethodQueryE',
-        a0.value,
-    )
+    ritual = 'ritual_ZNK9QComboBox16inputMethodQueryEN2Qt16InputMethodQueryE'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK9QComboBox16inputMethodQueryEN2Qt16InputMethodQuer'
+          'yE')
+    address = self.uglySide.call(ritual, a0.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -1092,10 +1153,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::setModel(QAbstractItemModel *model)
-    self.uglySide.call(
-        'ritual_ZN9QComboBox8setModelEP18QAbstractItemModel',
-        self._addressOf(model),
-    )
+    ritual = 'ritual_ZN9QComboBox8setModelEP18QAbstractItemModel'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox8setModelEP18QAbstractItemModel'
+    self.uglySide.call(ritual, self._addressOf(model))
 
   @overload(QModelIndex)
   def setRootModelIndex(self, index: QModelIndex) -> None:
@@ -1539,7 +1600,10 @@ class QComboBox(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#showPopup
     """
     #  void QComboBox::showPopup()
-    self.uglySide.call('ritual_ZN9QComboBox9showPopupEv')
+    ritual = 'ritual_ZN9QComboBox9showPopupEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox9showPopupEv'
+    self.uglySide.call(ritual)
 
   def hidePopup(self) -> None:
     """
@@ -1548,7 +1612,10 @@ class QComboBox(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#hidePopup
     """
     #  void QComboBox::hidePopup()
-    self.uglySide.call('ritual_ZN9QComboBox9hidePopupEv')
+    ritual = 'ritual_ZN9QComboBox9hidePopupEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox9hidePopupEv'
+    self.uglySide.call(ritual)
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1566,9 +1633,10 @@ class QComboBox(QWidget):
       object.
     """
     #  bool QComboBox::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_ZN9QComboBox5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QComboBox5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   def clear(self) -> None:
     """
@@ -1587,3 +1655,318 @@ class QComboBox(QWidget):
     """
     #  void QComboBox::clearEditText()
     self.uglySide.call('ritual_ZN9QComboBox13clearEditTextEv')
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, e: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::focusInEvent(QFocusEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#focusInEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::focusInEvent(QFocusEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox12focusInEventEP11QFocusEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, e: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::focusOutEvent(QFocusEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::focusOutEvent(QFocusEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox13focusOutEventEP11QFocusEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, e: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::changeEvent(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#changeEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::changeEvent(QEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox11changeEventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, e: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::resizeEvent(QResizeEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#resizeEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::resizeEvent(QResizeEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox11resizeEventEP12QResizeEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, e: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::paintEvent(QPaintEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#paintEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::paintEvent(QPaintEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox10paintEventEP11QPaintEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, e: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::showEvent(QShowEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#showEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::showEvent(QShowEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox9showEventEP10QShowEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QHideEvent)
+  @overload(NoneType)
+  def hideEvent(self, e: Optional[QHideEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::hideEvent(QHideEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#hideEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QHideEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::hideEvent(QHideEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox9hideEventEP10QHideEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::mousePressEvent(QMouseEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::mousePressEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox15mousePressEventEP11QMouseEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::mouseReleaseEvent(QMouseEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::mouseReleaseEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, e: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::keyPressEvent(QKeyEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::keyPressEvent(QKeyEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox13keyPressEventEP9QKeyEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyReleaseEvent(self, e: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::keyReleaseEvent(QKeyEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#keyReleaseEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::keyReleaseEvent(QKeyEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox15keyReleaseEventEP9QKeyEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QWheelEvent)
+  @overload(NoneType)
+  def wheelEvent(self, e: Optional[QWheelEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::wheelEvent(QWheelEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#wheelEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QWheelEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::wheelEvent(QWheelEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox10wheelEventEP11QWheelEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QContextMenuEvent)
+  @overload(NoneType)
+  def contextMenuEvent(self, e: Optional[QContextMenuEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::contextMenuEvent(QContextMenuEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#contextMenuEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QContextMenuEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::contextMenuEvent(QContextMenuEvent *e)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox16contextMenuEventEP17QContextMenuEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QInputMethodEvent)
+  @overload(NoneType)
+  def inputMethodEvent(self, a0: Optional[QInputMethodEvent]) -> None:
+    """
+    Calls Qt's 'void QComboBox::inputMethodEvent(QInputMethodEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#inputMethodEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QInputMethodEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::inputMethodEvent(QInputMethodEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QComboBox16inputMethodEventEP17QInputMethodEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QStyleOptionComboBox)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOptionComboBox]) -> None:
+    """
+    Calls Qt's 'void QComboBox::initStyleOption(QStyleOptionComboBox *option)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionComboBox]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QComboBox::initStyleOption(QStyleOptionComboBox *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox',
+        self._addressOf(option),
+    )

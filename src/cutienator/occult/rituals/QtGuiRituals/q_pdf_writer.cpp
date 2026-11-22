@@ -5,6 +5,340 @@
 #include <QtCore/quuid.h>
 #include <QtCore/qbytearray.h>
 #include <QtGui/qpdfoutputintent.h>
+#include <QtGui/qpagelayout.h>
+#include <QtGui/qpagesize.h>
+#include <QtCore/qmargins.h>
+#include <QtGui/qpageranges.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QPdfWriter may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQPdfWriter : QPdfWriter {
+  using QPdfWriter::paintEngine;
+  using QPdfWriter::metric;
+};
+
+//  A QPdfWriter that Python can take functions over in. Every QPdfWriter
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef bool (*CuteQPdfWriterCall0)(const void *, int *);
+typedef void * (*CuteQPdfWriterCall1)(const void *, int *);
+typedef int (*CuteQPdfWriterCall2)(const void *, int, int *);
+typedef bool (*CuteQPdfWriterCall3)(const void *, const QPageLayout *, int *);
+typedef bool (*CuteQPdfWriterCall4)(const void *, const QPageSize *, int *);
+typedef bool (*CuteQPdfWriterCall5)(const void *, int, int *);
+typedef bool (*CuteQPdfWriterCall6)(const void *, const QMarginsF *, int, int *);
+typedef void (*CuteQPdfWriterCall7)(const void *, const QPageRanges *, int *);
+typedef int (*CuteQPdfWriterCall8)(const void *, int *);
+typedef void (*CuteQPdfWriterCall9)(const void *, QPainter *, int *);
+typedef void * (*CuteQPdfWriterCall10)(const void *, QPoint *, int *);
+typedef void * (*CuteQPdfWriterCall11)(const void *, int *);
+typedef bool (*CuteQPdfWriterCall12)(const void *, QEvent *, int *);
+typedef bool (*CuteQPdfWriterCall13)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQPdfWriterCall14)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQPdfWriterCall15)(const void *, QChildEvent *, int *);
+typedef void (*CuteQPdfWriterCall16)(const void *, QEvent *, int *);
+typedef void (*CuteQPdfWriterCall17)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQPdfWriterCall18)(const void *, const QMetaMethod *, int *);
+class CuteQPdfWriter : public QPdfWriter {
+public:
+  using QPdfWriter::QPdfWriter;
+  void *taken[19] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN17QPagedPaintDevice7newPageEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QPagedPaintDevice13setPageLayoutERK11QPageLayout")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QPagedPaintDevice11setPageSizeERK9QPageSize")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QPagedPaintDevice18setPageOrientationEN11QPageLayout11OrientationE")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QPagedPaintDevice14setPageMarginsERK9QMarginsFN11QPageLayout4UnitE")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QPagedPaintDevice13setPageRangesERK11QPageRanges")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice10redirectedEP6QPoint")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[18] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  bool QPdfWriter::newPage()
+  bool newPage() override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQPdfWriterCall0 call = reinterpret_cast<CuteQPdfWriterCall0>(taken[0]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QPdfWriter::newPage();
+  }
+
+  //  QPaintEngine *QPdfWriter::paintEngine() const
+  QPaintEngine *paintEngine() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQPdfWriterCall1 call = reinterpret_cast<CuteQPdfWriterCall1>(taken[1]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPaintEngine *>(given);
+    }
+    return QPdfWriter::paintEngine();
+  }
+
+  //  int QPdfWriter::metric(PaintDeviceMetric id) const
+  int metric(QPaintDevice::PaintDeviceMetric id) const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQPdfWriterCall2 call = reinterpret_cast<CuteQPdfWriterCall2>(taken[2]);
+      int given = call(this, static_cast<int>(id), &handled);
+      if (handled) return given;
+    }
+    return QPdfWriter::metric(id);
+  }
+
+  //  bool QPagedPaintDevice::setPageLayout(const QPageLayout &pageLayout)
+  bool setPageLayout(const QPageLayout &pageLayout) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQPdfWriterCall3 call = reinterpret_cast<CuteQPdfWriterCall3>(taken[3]);
+      bool given = call(this, &pageLayout, &handled);
+      if (handled) return given;
+    }
+    return QPagedPaintDevice::setPageLayout(pageLayout);
+  }
+
+  //  bool QPagedPaintDevice::setPageSize(const QPageSize &pageSize)
+  bool setPageSize(const QPageSize &pageSize) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQPdfWriterCall4 call = reinterpret_cast<CuteQPdfWriterCall4>(taken[4]);
+      bool given = call(this, &pageSize, &handled);
+      if (handled) return given;
+    }
+    return QPagedPaintDevice::setPageSize(pageSize);
+  }
+
+  //  bool QPagedPaintDevice::setPageOrientation(QPageLayout::Orientation
+  //      orientation)
+  bool setPageOrientation(QPageLayout::Orientation orientation) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQPdfWriterCall5 call = reinterpret_cast<CuteQPdfWriterCall5>(taken[5]);
+      bool given = call(this, static_cast<int>(orientation), &handled);
+      if (handled) return given;
+    }
+    return QPagedPaintDevice::setPageOrientation(orientation);
+  }
+
+  //  bool QPagedPaintDevice::setPageMargins(const QMarginsF &margins,
+  //      QPageLayout::Unit units)
+  bool setPageMargins(
+      const QMarginsF &margins,
+      QPageLayout::Unit units) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQPdfWriterCall6 call = reinterpret_cast<CuteQPdfWriterCall6>(taken[6]);
+      bool given = call(this, &margins, static_cast<int>(units), &handled);
+      if (handled) return given;
+    }
+    return QPagedPaintDevice::setPageMargins(margins, units);
+  }
+
+  //  void QPagedPaintDevice::setPageRanges(const QPageRanges &ranges)
+  void setPageRanges(const QPageRanges &ranges) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQPdfWriterCall7 call = reinterpret_cast<CuteQPdfWriterCall7>(taken[7]);
+      call(this, &ranges, &handled);
+      if (handled) return;
+    }
+    QPagedPaintDevice::setPageRanges(ranges);
+  }
+
+  //  int QPaintDevice::devType() const
+  int devType() const override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQPdfWriterCall8 call = reinterpret_cast<CuteQPdfWriterCall8>(taken[8]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QPaintDevice::devType();
+  }
+
+  //  void QPaintDevice::initPainter(QPainter *painter) const
+  void initPainter(QPainter *painter) const override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQPdfWriterCall9 call = reinterpret_cast<CuteQPdfWriterCall9>(taken[9]);
+      call(this, painter, &handled);
+      if (handled) return;
+    }
+    QPaintDevice::initPainter(painter);
+  }
+
+  //  QPaintDevice *QPaintDevice::redirected(QPoint *offset) const
+  QPaintDevice *redirected(QPoint *offset) const override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQPdfWriterCall10 call = reinterpret_cast<CuteQPdfWriterCall10>(taken[10]);
+      void * given = call(this, offset, &handled);
+      if (handled) return static_cast<QPaintDevice *>(given);
+    }
+    return QPaintDevice::redirected(offset);
+  }
+
+  //  QPainter *QPaintDevice::sharedPainter() const
+  QPainter *sharedPainter() const override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQPdfWriterCall11 call = reinterpret_cast<CuteQPdfWriterCall11>(taken[11]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPainter *>(given);
+    }
+    return QPaintDevice::sharedPainter();
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQPdfWriterCall12 call = reinterpret_cast<CuteQPdfWriterCall12>(taken[12]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQPdfWriterCall13 call = reinterpret_cast<CuteQPdfWriterCall13>(taken[13]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQPdfWriterCall14 call = reinterpret_cast<CuteQPdfWriterCall14>(taken[14]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQPdfWriterCall15 call = reinterpret_cast<CuteQPdfWriterCall15>(taken[15]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQPdfWriterCall16 call = reinterpret_cast<CuteQPdfWriterCall16>(taken[16]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQPdfWriterCall17 call = reinterpret_cast<CuteQPdfWriterCall17>(taken[17]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQPdfWriterCall18 call = reinterpret_cast<CuteQPdfWriterCall18>(taken[18]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QPdfWriter::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -25,13 +359,13 @@ QString *ritual_ZN10QPdfWriter2trEPKcS1_i(
 //  QPdfWriter::QPdfWriter(const QString &filename)
 extern "C" Q_DECL_EXPORT
 QPdfWriter *ritual_ZN10QPdfWriterC1ERK7QString(const QString *filename) {
-  return new QPdfWriter(*filename);
+  return new CuteQPdfWriter(*filename);
 }
 
 //  QPdfWriter::QPdfWriter(QIODevice *device)
 extern "C" Q_DECL_EXPORT
 QPdfWriter *ritual_ZN10QPdfWriterC1EP9QIODevice(QIODevice *device) {
-  return new QPdfWriter(device);
+  return new CuteQPdfWriter(device);
 }
 
 //  QPdfWriter::~QPdfWriter()
@@ -192,4 +526,32 @@ extern "C" Q_DECL_EXPORT
 QPagedPaintDevice *ritual_cast_QPdfWriter_QPagedPaintDevice(
     QPdfWriter *self) {
   return static_cast<QPagedPaintDevice *>(self);
+}
+
+//  a Python function taken by a CuteQPdfWriter, for the function named by
+//      the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QPdfWriter(QPdfWriter *self, const char *key, void *call) {
+  return static_cast<CuteQPdfWriter *>(self)->take(key, call);
+}
+
+//  bool QPdfWriter::newPage()
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN10QPdfWriter7newPageEv(QPdfWriter *self) {
+  return self->QPdfWriter::newPage();
+}
+
+//  QPaintEngine *QPdfWriter::paintEngine() const
+extern "C" Q_DECL_EXPORT
+QPaintEngine *ritual_own_ZNK10QPdfWriter11paintEngineEv(
+    const QPdfWriter *self) {
+  return static_cast<const OwnQPdfWriter *>(self)->OwnQPdfWriter::paintEngine();
+}
+
+//  int QPdfWriter::metric(PaintDeviceMetric id) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK10QPdfWriter6metricEN12QPaintDevice17PaintDeviceMetricE(
+    const QPdfWriter *self,
+    QPaintDevice::PaintDeviceMetric id) {
+  return static_cast<const OwnQPdfWriter *>(self)->OwnQPdfWriter::metric(id);
 }

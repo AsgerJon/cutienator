@@ -137,6 +137,11 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QConcatenateTablesProxyModel'
 
+  #  A C++ QConcatenateTablesProxyModel Python makes is of a C++ class of
+  #  ours, in which Python can take functions over. This ritual hands one
+  #  over; see 'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QConcatenateTablesProxyModel'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -263,10 +268,12 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     """
     #  QVariant QConcatenateTablesProxyModel::data(const QModelIndex &index,
     #      int role) const
-    address = self.uglySide.call(
-        'ritual_ZNK28QConcatenateTablesProxyModel4dataERK11QModelIndexi',
-        self._valueOf(index), role,
-    )
+    ritual = 'ritual_ZNK28QConcatenateTablesProxyModel4dataERK11QModelIndexi'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK28QConcatenateTablesProxyModel4dataERK11QModelInde'
+          'xi')
+    address = self.uglySide.call(ritual, self._valueOf(index), role)
     from . import QVariant
     return QVariant._cuteOwning(address)
 
@@ -339,10 +346,13 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    address = self.uglySide.call(
-        'ritual_ZNK28QConcatenateTablesProxyModel5indexEiiRK11QModelIndex',
-        row, column, self._valueOf(parent),
-    )
+    ritual = (
+        'ritual_ZNK28QConcatenateTablesProxyModel5indexEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK28QConcatenateTablesProxyModel5indexEiiRK11QModelI'
+          'ndex')
+    address = self.uglySide.call(ritual, row, column, self._valueOf(parent))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -370,10 +380,13 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     """
     #  QModelIndex QConcatenateTablesProxyModel::parent(const QModelIndex
     #      &index) const
-    address = self.uglySide.call(
-        'ritual_ZNK28QConcatenateTablesProxyModel6parentERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = (
+        'ritual_ZNK28QConcatenateTablesProxyModel6parentERK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK28QConcatenateTablesProxyModel6parentERK11QModelIn'
+          'dex')
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -400,10 +413,13 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZNK28QConcatenateTablesProxyModel8rowCountERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = (
+        'ritual_ZNK28QConcatenateTablesProxyModel8rowCountERK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK28QConcatenateTablesProxyModel8rowCountERK11QModel'
+          'Index')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(int, Qt.Orientation)
   @overload(int, Qt.Orientation, int)
@@ -440,11 +456,14 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     """
     #  QVariant QConcatenateTablesProxyModel::headerData(int section,
     #      Qt::Orientation orientation, int role) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK28QConcatenateTablesProxyModel10headerDataEiN2Qt11Orient'
-        'ationEi',
-        section, orientation.value, role,
-    )
+        'ationEi')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK28QConcatenateTablesProxyModel10headerDataEiN2Qt11'
+          'OrientationEi')
+    address = self.uglySide.call(ritual, section, orientation.value, role)
     from . import QVariant
     return QVariant._cuteOwning(address)
 
@@ -471,11 +490,14 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK28QConcatenateTablesProxyModel11columnCountERK11QModelIn'
-        'dex',
-        self._valueOf(parent),
-    )
+        'dex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK28QConcatenateTablesProxyModel11columnCountERK11QM'
+          'odelIndex')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)
   @overload(NoneType, Qt.DropAction, int, int, QModelIndex)
@@ -518,9 +540,15 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     #  bool QConcatenateTablesProxyModel::canDropMimeData(const QMimeData
     #      *data, Qt::DropAction action, int row, int column, const
     #      QModelIndex &parent) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK28QConcatenateTablesProxyModel15canDropMimeDataEPK9QMime'
-        'DataN2Qt10DropActionEiiRK11QModelIndex',
+        'DataN2Qt10DropActionEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK28QConcatenateTablesProxyModel15canDropMimeDataEPK'
+          '9QMimeDataN2Qt10DropActionEiiRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
@@ -549,10 +577,12 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     """
     #  QSize QConcatenateTablesProxyModel::span(const QModelIndex &index)
     #      const
-    address = self.uglySide.call(
-        'ritual_ZNK28QConcatenateTablesProxyModel4spanERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK28QConcatenateTablesProxyModel4spanERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK28QConcatenateTablesProxyModel4spanERK11QModelInde'
+          'x')
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from . import QSize
     return QSize._cuteOwning(address)
 
@@ -591,10 +621,15 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     """
     #  bool QConcatenateTablesProxyModel::setData(const QModelIndex &index,
     #      const QVariant &value, int role)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN28QConcatenateTablesProxyModel7setDataERK11QModelIndexRK8'
-        'QVarianti',
-        self._valueOf(index), self._valueOf(value), role,
+        'QVarianti')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN28QConcatenateTablesProxyModel7setDataERK11QModelIn'
+          'dexRK8QVarianti')
+    return self.uglySide.call(
+        ritual, self._valueOf(index), self._valueOf(value), role,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -755,9 +790,15 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     #  bool QConcatenateTablesProxyModel::dropMimeData(const QMimeData *data,
     #      Qt::DropAction action, int row, int column, const QModelIndex
     #      &parent)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN28QConcatenateTablesProxyModel12dropMimeDataEPK9QMimeData'
-        'N2Qt10DropActionEiiRK11QModelIndex',
+        'N2Qt10DropActionEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN28QConcatenateTablesProxyModel12dropMimeDataEPK9QMi'
+          'meDataN2Qt10DropActionEiiRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )

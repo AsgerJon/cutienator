@@ -21,6 +21,29 @@
       "text", "address", "int"
     ],
     "ritual_ZNK22QAccessibleApplication4roleEv": ["int", "address"],
-    "ritual_ZNK22QAccessibleApplication5stateEv": ["address", "address"]
+    "ritual_ZNK22QAccessibleApplication5stateEv": ["address", "address"],
+    "ritual_take_QAccessibleApplication": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleApplication6windowEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleApplication10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleApplication12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleApplication10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleApplication6parentEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleApplication5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK22QAccessibleApplication4roleEv": ["int", "address"],
+    "ritual_own_ZNK22QAccessibleApplication5stateEv": ["address", "address"]
   }
 }

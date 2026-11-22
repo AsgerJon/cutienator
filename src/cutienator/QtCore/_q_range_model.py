@@ -14,18 +14,19 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from . import Qt, QAbstractItemModel
+from . import Qt, QAbstractItemModel, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QCollator, QMetaObject, QMimeData, QModelIndex
+  from . import QCollator, QEvent, QMetaObject, QMimeData, QModelIndex
   from . import QModelRoleDataSpan, QSize, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QCollator = WAIT['QCollator']
+  QEvent = WAIT['QEvent']
   QMimeData = WAIT['QMimeData']
   QModelIndex = WAIT['QModelIndex']
   QModelRoleDataSpan = WAIT['QModelRoleDataSpan']
@@ -48,7 +49,7 @@ class QRangeModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QRangeModel that has a ritual and that Python can
-  call so far, 43 names in all: 'metaObject', 'tr', 'index', 'parent',
+  call so far, 46 names in all: 'metaObject', 'tr', 'index', 'parent',
   'sibling', 'rowCount', 'columnCount', 'flags', 'headerData',
   'setHeaderData', 'data', 'setData', 'clearItemData', 'insertColumns',
   'removeColumns', 'moveColumns', 'insertRows', 'removeRows', 'moveRows',
@@ -58,8 +59,9 @@ class QRangeModel(QAbstractItemModel):
   'resetSortRole', 'span', 'supportedDragActions', 'setSupportedDragActions',
   'resetSupportedDragActions', 'supportedDropActions',
   'setSupportedDropActions', 'resetSupportedDropActions',
-  'autoConnectPolicy', 'setAutoConnectPolicy'. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  'autoConnectPolicy', 'setAutoConnectPolicy', 'resetInternalData', 'event',
+  'eventFilter'. None can be made from Python: one comes out of a function of
+  another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -70,8 +72,8 @@ class QRangeModel(QAbstractItemModel):
   What has no ritual
   ------------------
 
-  30 of the 74 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 6 a signal; 4 a template; 4 private; 4 forbidden; 3 protected.
+  27 of the 74 functions Qt declares: 9 takes or gives a type that cannot be
+  passed yet; 6 a signal; 4 a template; 4 private; 4 forbidden.
 
   What to expect
   --------------
@@ -181,6 +183,11 @@ class QRangeModel(QAbstractItemModel):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QRangeModel'
+
+  #  A C++ QRangeModel Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QRangeModel'
 
   #  Fallback Variables
 
@@ -440,10 +447,10 @@ class QRangeModel(QAbstractItemModel):
     """
     #  QVariant QRangeModel::headerData(int section, Qt::Orientation
     #      orientation, int role) const
-    address = self.uglySide.call(
-        'ritual_ZNK11QRangeModel10headerDataEiN2Qt11OrientationEi',
-        section, orientation.value, role,
-    )
+    ritual = 'ritual_ZNK11QRangeModel10headerDataEiN2Qt11OrientationEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QRangeModel10headerDataEiN2Qt11OrientationEi'
+    address = self.uglySide.call(ritual, section, orientation.value, role)
     from . import QVariant
     return QVariant._cuteOwning(address)
 
@@ -473,10 +480,10 @@ class QRangeModel(QAbstractItemModel):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QRangeModel::data(const QModelIndex &index, int role) const
-    address = self.uglySide.call(
-        'ritual_ZNK11QRangeModel4dataERK11QModelIndexi',
-        self._valueOf(index), role,
-    )
+    ritual = 'ritual_ZNK11QRangeModel4dataERK11QModelIndexi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QRangeModel4dataERK11QModelIndexi'
+    address = self.uglySide.call(ritual, self._valueOf(index), role)
     from . import QVariant
     return QVariant._cuteOwning(address)
 
@@ -496,10 +503,10 @@ class QRangeModel(QAbstractItemModel):
       Python's own.
     """
     #  bool QRangeModel::canFetchMore(const QModelIndex &parent) const
-    return self.uglySide.call(
-        'ritual_ZNK11QRangeModel12canFetchMoreERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK11QRangeModel12canFetchMoreERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QRangeModel12canFetchMoreERK11QModelIndex'
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload()
   @overload(QModelIndex)
@@ -549,10 +556,10 @@ class QRangeModel(QAbstractItemModel):
       A new cute QModelIndex around the copy Qt gave back. Python owns it.
     """
     #  QModelIndex QRangeModel::buddy(const QModelIndex &index) const
-    address = self.uglySide.call(
-        'ritual_ZNK11QRangeModel5buddyERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK11QRangeModel5buddyERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QRangeModel5buddyERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -596,9 +603,15 @@ class QRangeModel(QAbstractItemModel):
     #  bool QRangeModel::canDropMimeData(const QMimeData *data,
     #      Qt::DropAction action, int row, int column, const QModelIndex
     #      &parent) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QRangeModel15canDropMimeDataEPK9QMimeDataN2Qt10DropAct'
-        'ionEiiRK11QModelIndex',
+        'ionEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QRangeModel15canDropMimeDataEPK9QMimeDataN2Qt10D'
+          'ropActionEiiRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
@@ -650,9 +663,10 @@ class QRangeModel(QAbstractItemModel):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QRangeModel::span(const QModelIndex &index) const
-    address = self.uglySide.call(
-        'ritual_ZNK11QRangeModel4spanERK11QModelIndex', self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK11QRangeModel4spanERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QRangeModel4spanERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from . import QSize
     return QSize._cuteOwning(address)
 
@@ -748,10 +762,15 @@ class QRangeModel(QAbstractItemModel):
     """
     #  bool QRangeModel::setHeaderData(int section, Qt::Orientation
     #      orientation, const QVariant &data, int role)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN11QRangeModel13setHeaderDataEiN2Qt11OrientationERK8QVaria'
-        'nti',
-        section, orientation.value, self._valueOf(data), role,
+        'nti')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QRangeModel13setHeaderDataEiN2Qt11OrientationERK8'
+          'QVarianti')
+    return self.uglySide.call(
+        ritual, section, orientation.value, self._valueOf(data), role,
     )
 
   @overload(QModelIndex, QVariant)
@@ -784,9 +803,12 @@ class QRangeModel(QAbstractItemModel):
     """
     #  bool QRangeModel::setData(const QModelIndex &index, const QVariant
     #      &data, int role)
+    ritual = 'ritual_ZN11QRangeModel7setDataERK11QModelIndexRK8QVarianti'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QRangeModel7setDataERK11QModelIndexRK8QVarianti')
     return self.uglySide.call(
-        'ritual_ZN11QRangeModel7setDataERK11QModelIndexRK8QVarianti',
-        self._valueOf(index), self._valueOf(data), role,
+        ritual, self._valueOf(index), self._valueOf(data), role,
     )
 
   @overload(QCollator)
@@ -939,10 +961,10 @@ class QRangeModel(QAbstractItemModel):
       Python's own.
     """
     #  bool QRangeModel::clearItemData(const QModelIndex &index)
-    return self.uglySide.call(
-        'ritual_ZN11QRangeModel13clearItemDataERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZN11QRangeModel13clearItemDataERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QRangeModel13clearItemDataERK11QModelIndex'
+    return self.uglySide.call(ritual, self._valueOf(index))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -1208,10 +1230,10 @@ class QRangeModel(QAbstractItemModel):
       Python's own.
     """
     #  void QRangeModel::fetchMore(const QModelIndex &parent)
-    self.uglySide.call(
-        'ritual_ZN11QRangeModel9fetchMoreERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN11QRangeModel9fetchMoreERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QRangeModel9fetchMoreERK11QModelIndex'
+    self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)
   @overload(NoneType, Qt.DropAction, int, int, QModelIndex)
@@ -1251,9 +1273,15 @@ class QRangeModel(QAbstractItemModel):
     """
     #  bool QRangeModel::dropMimeData(const QMimeData *data, Qt::DropAction
     #      action, int row, int column, const QModelIndex &parent)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN11QRangeModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionE'
-        'iiRK11QModelIndex',
+        'iiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QRangeModel12dropMimeDataEPK9QMimeDataN2Qt10DropA'
+          'ctionEiiRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
@@ -1283,10 +1311,15 @@ class QRangeModel(QAbstractItemModel):
     """
     #  void QRangeModel::multiData(const QModelIndex &index,
     #      QModelRoleDataSpan roleDataSpan) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK11QRangeModel9multiDataERK11QModelIndex18QModelRoleDataS'
-        'pan',
-        self._valueOf(index), self._valueOf(roleDataSpan),
+        'pan')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QRangeModel9multiDataERK11QModelIndex18QModelRol'
+          'eDataSpan')
+    self.uglySide.call(
+        ritual, self._valueOf(index), self._valueOf(roleDataSpan),
     )
 
   @overload(int)
@@ -1312,9 +1345,10 @@ class QRangeModel(QAbstractItemModel):
       Qt.SortOrder.AscendingOrder.
     """
     #  void QRangeModel::sort(int column, Qt::SortOrder order)
-    self.uglySide.call(
-        'ritual_ZN11QRangeModel4sortEiN2Qt9SortOrderE', column, order.value,
-    )
+    ritual = 'ritual_ZN11QRangeModel4sortEiN2Qt9SortOrderE'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QRangeModel4sortEiN2Qt9SortOrderE'
+    self.uglySide.call(ritual, column, order.value)
 
   def resetSortCollator(self) -> None:
     """
@@ -1353,3 +1387,59 @@ class QRangeModel(QAbstractItemModel):
     """
     #  void QRangeModel::resetSupportedDropActions()
     self.uglySide.call('ritual_ZN11QRangeModel25resetSupportedDropActionsEv')
+
+  def resetInternalData(self) -> None:
+    """
+    Calls Qt's 'void QRangeModel::resetInternalData()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#resetInternalData
+    """
+    #  void QRangeModel::resetInternalData()
+    self.uglySide.call('ritual_own_ZN11QRangeModel17resetInternalDataEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QRangeModel::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QRangeModel::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN11QRangeModel5eventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(self, a0: Optional[QObject], a1: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QRangeModel::eventFilter(QObject *a0, QEvent *a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#eventFilter
+
+    Parameters
+    ----------
+
+    a0 : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a1 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QRangeModel::eventFilter(QObject *a0, QEvent *a1)
+    return self.uglySide.call(
+        'ritual_own_ZN11QRangeModel11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(a0), self._addressOf(a1),
+    )

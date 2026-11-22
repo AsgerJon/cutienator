@@ -30,6 +30,24 @@
     ],
     "ritual_ZN11QScrollArea19ensureWidgetVisibleEP7QWidgetii": [
       "nothing", "address", "address", "int", "int"
-    ]
+    ],
+    "ritual_take_QScrollArea": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QScrollArea8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN11QScrollArea18focusNextPrevChildEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_own_ZN11QScrollArea5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QScrollArea11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN11QScrollArea11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QScrollArea16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK11QScrollArea16viewportSizeHintEv": ["address", "address"]
   }
 }

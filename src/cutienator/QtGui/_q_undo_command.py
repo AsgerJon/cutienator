@@ -72,6 +72,40 @@ class QUndoCommand(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QUndoCommand'
 
+  #  A C++ QUndoCommand Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QUndoCommand'
+
+  #  The functions Qt calls itself that QUndoCommand is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'undo': (
+          ('_ZN12QUndoCommand4undoEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'redo': (
+          ('_ZN12QUndoCommand4redoEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'id': (
+          ('_ZNK12QUndoCommand2idEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'mergeWith': (
+          ('_ZN12QUndoCommand9mergeWithEPKS_',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtGui:QUndoCommand'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -130,7 +164,10 @@ class QUndoCommand(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qundocommand.html#id
     """
     #  int QUndoCommand::id() const
-    return self.uglySide.call('ritual_ZNK12QUndoCommand2idEv')
+    ritual = 'ritual_ZNK12QUndoCommand2idEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QUndoCommand2idEv'
+    return self.uglySide.call(ritual)
 
   def childCount(self) -> int:
     """
@@ -292,7 +329,10 @@ class QUndoCommand(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qundocommand.html#undo
     """
     #  void QUndoCommand::undo()
-    self.uglySide.call('ritual_ZN12QUndoCommand4undoEv')
+    ritual = 'ritual_ZN12QUndoCommand4undoEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QUndoCommand4undoEv'
+    self.uglySide.call(ritual)
 
   def redo(self) -> None:
     """
@@ -301,7 +341,10 @@ class QUndoCommand(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qundocommand.html#redo
     """
     #  void QUndoCommand::redo()
-    self.uglySide.call('ritual_ZN12QUndoCommand4redoEv')
+    ritual = 'ritual_ZN12QUndoCommand4redoEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QUndoCommand4redoEv'
+    self.uglySide.call(ritual)
 
   @overload(THIS)
   @overload(NoneType)
@@ -319,6 +362,7 @@ class QUndoCommand(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  bool QUndoCommand::mergeWith(const QUndoCommand *other)
-    return self.uglySide.call(
-        'ritual_ZN12QUndoCommand9mergeWithEPKS_', self._addressOf(other),
-    )
+    ritual = 'ritual_ZN12QUndoCommand9mergeWithEPKS_'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QUndoCommand9mergeWithEPKS_'
+    return self.uglySide.call(ritual, self._addressOf(other))

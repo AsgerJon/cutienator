@@ -9,6 +9,524 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qsize.h>
 #include <QtGui/qicon.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  A QStyle that Python can take functions over in. Every QStyle
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQStyleCall0)(const void *, QWidget *, int *);
+typedef void (*CuteQStyleCall1)(const void *, QWidget *, int *);
+typedef void (*CuteQStyleCall2)(const void *, QApplication *, int *);
+typedef void (*CuteQStyleCall3)(const void *, QApplication *, int *);
+typedef const QRect * (*CuteQStyleCall4)(const void *, const QRect *, int, const QPixmap *, int *);
+typedef void (*CuteQStyleCall5)(const void *, QPainter *, const QRect *, int, const QPixmap *, int *);
+typedef const QPalette * (*CuteQStyleCall6)(const void *, int *);
+typedef void (*CuteQStyleCall7)(const void *, int, const QStyleOption *, QPainter *, const QWidget *, int *);
+typedef void (*CuteQStyleCall8)(const void *, int, const QStyleOption *, QPainter *, const QWidget *, int *);
+typedef const QRect * (*CuteQStyleCall9)(const void *, int, const QStyleOption *, const QWidget *, int *);
+typedef void (*CuteQStyleCall10)(const void *, int, const QStyleOptionComplex *, QPainter *, const QWidget *, int *);
+typedef int (*CuteQStyleCall11)(const void *, int, const QStyleOptionComplex *, const QPoint *, const QWidget *, int *);
+typedef const QRect * (*CuteQStyleCall12)(const void *, int, const QStyleOptionComplex *, int, const QWidget *, int *);
+typedef int (*CuteQStyleCall13)(const void *, int, const QStyleOption *, const QWidget *, int *);
+typedef const QSize * (*CuteQStyleCall14)(const void *, int, const QStyleOption *, const QSize *, const QWidget *, int *);
+typedef int (*CuteQStyleCall15)(const void *, int, const QStyleOption *, const QWidget *, QStyleHintReturn *, int *);
+typedef const QPixmap * (*CuteQStyleCall16)(const void *, int, const QStyleOption *, const QWidget *, int *);
+typedef const QIcon * (*CuteQStyleCall17)(const void *, int, const QStyleOption *, const QWidget *, int *);
+typedef const QPixmap * (*CuteQStyleCall18)(const void *, int, const QPixmap *, const QStyleOption *, int *);
+typedef int (*CuteQStyleCall19)(const void *, int, int, int, const QStyleOption *, const QWidget *, int *);
+typedef bool (*CuteQStyleCall20)(const void *, QEvent *, int *);
+typedef bool (*CuteQStyleCall21)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQStyleCall22)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQStyleCall23)(const void *, QChildEvent *, int *);
+typedef void (*CuteQStyleCall24)(const void *, QEvent *, int *);
+typedef void (*CuteQStyleCall25)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQStyleCall26)(const void *, const QMetaMethod *, int *);
+class CuteQStyle : public QStyle {
+public:
+  using QStyle::QStyle;
+  void *taken[27] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN6QStyle6polishEP7QWidget")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN6QStyle8unpolishEP7QWidget")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN6QStyle6polishEP12QApplication")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN6QStyle8unpolishEP12QApplication")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle15standardPaletteEv")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle13drawPrimitiveENS_16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle11drawControlENS_14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle14subElementRectENS_10SubElementEPK12QStyleOptionPK7QWidget")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle18drawComplexControlENS_14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle21hitTestComplexControlENS_14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle14subControlRectENS_14ComplexControlEPK19QStyleOptionComplexNS_10SubControlEPK7QWidget")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle11pixelMetricENS_11PixelMetricEPK12QStyleOptionPK7QWidget")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle16sizeFromContentsENS_12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle9styleHintENS_9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle14standardPixmapENS_14StandardPixmapEPK12QStyleOptionPK7QWidget")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle12standardIconENS_14StandardPixmapEPK12QStyleOptionPK7QWidget")) {
+      taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK6QStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget")) {
+      taken[19] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[20] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[22] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[23] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[24] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[25] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[26] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QStyle::polish(QWidget *widget)
+  void polish(QWidget *widget) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQStyleCall0 call = reinterpret_cast<CuteQStyleCall0>(taken[0]);
+      call(this, widget, &handled);
+      if (handled) return;
+    }
+    QStyle::polish(widget);
+  }
+
+  //  void QStyle::unpolish(QWidget *widget)
+  void unpolish(QWidget *widget) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQStyleCall1 call = reinterpret_cast<CuteQStyleCall1>(taken[1]);
+      call(this, widget, &handled);
+      if (handled) return;
+    }
+    QStyle::unpolish(widget);
+  }
+
+  //  void QStyle::polish(QApplication *application)
+  void polish(QApplication *application) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQStyleCall2 call = reinterpret_cast<CuteQStyleCall2>(taken[2]);
+      call(this, application, &handled);
+      if (handled) return;
+    }
+    QStyle::polish(application);
+  }
+
+  //  void QStyle::unpolish(QApplication *application)
+  void unpolish(QApplication *application) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQStyleCall3 call = reinterpret_cast<CuteQStyleCall3>(taken[3]);
+      call(this, application, &handled);
+      if (handled) return;
+    }
+    QStyle::unpolish(application);
+  }
+
+  //  QRect QStyle::itemPixmapRect(const QRect &r, int flags, const QPixmap
+  //      &pixmap) const
+  QRect itemPixmapRect(
+      const QRect &r,
+      int flags,
+      const QPixmap &pixmap) const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQStyleCall4 call = reinterpret_cast<CuteQStyleCall4>(taken[4]);
+      const QRect * given = call(this, &r, flags, &pixmap, &handled);
+      if (handled && given) return *given;
+    }
+    return QStyle::itemPixmapRect(r, flags, pixmap);
+  }
+
+  //  void QStyle::drawItemPixmap(QPainter *painter, const QRect &rect, int
+  //      alignment, const QPixmap &pixmap) const
+  void drawItemPixmap(
+      QPainter *painter,
+      const QRect &rect,
+      int alignment,
+      const QPixmap &pixmap) const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQStyleCall5 call = reinterpret_cast<CuteQStyleCall5>(taken[5]);
+      call(this, painter, &rect, alignment, &pixmap, &handled);
+      if (handled) return;
+    }
+    QStyle::drawItemPixmap(painter, rect, alignment, pixmap);
+  }
+
+  //  QPalette QStyle::standardPalette() const
+  QPalette standardPalette() const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQStyleCall6 call = reinterpret_cast<CuteQStyleCall6>(taken[6]);
+      const QPalette * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QStyle::standardPalette();
+  }
+
+  //  void QStyle::drawPrimitive(PrimitiveElement pe, const QStyleOption
+  //      *opt, QPainter *p, const QWidget *w) const
+  void drawPrimitive(
+      QStyle::PrimitiveElement pe,
+      const QStyleOption *opt,
+      QPainter *p,
+      const QWidget *w) const override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQStyleCall7 call = reinterpret_cast<CuteQStyleCall7>(taken[7]);
+      call(this, static_cast<int>(pe), opt, p, w, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  void QStyle::drawControl(ControlElement element, const QStyleOption
+  //      *opt, QPainter *p, const QWidget *w) const
+  void drawControl(
+      QStyle::ControlElement element,
+      const QStyleOption *opt,
+      QPainter *p,
+      const QWidget *w) const override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQStyleCall8 call = reinterpret_cast<CuteQStyleCall8>(taken[8]);
+      call(this, static_cast<int>(element), opt, p, w, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  QRect QStyle::subElementRect(SubElement subElement, const
+  //      QStyleOption *option, const QWidget *widget) const
+  QRect subElementRect(
+      QStyle::SubElement subElement,
+      const QStyleOption *option,
+      const QWidget *widget) const override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQStyleCall9 call = reinterpret_cast<CuteQStyleCall9>(taken[9]);
+      const QRect * given = call(this, static_cast<int>(subElement), option, widget, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+
+  //  void QStyle::drawComplexControl(ComplexControl cc, const
+  //      QStyleOptionComplex *opt, QPainter *p, const QWidget *widget)
+  //      const
+  void drawComplexControl(
+      QStyle::ComplexControl cc,
+      const QStyleOptionComplex *opt,
+      QPainter *p,
+      const QWidget *widget) const override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQStyleCall10 call = reinterpret_cast<CuteQStyleCall10>(taken[10]);
+      call(this, static_cast<int>(cc), opt, p, widget, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  SubControl QStyle::hitTestComplexControl(ComplexControl cc, const
+  //      QStyleOptionComplex *opt, const QPoint &pt, const QWidget
+  //      *widget) const
+  QStyle::SubControl hitTestComplexControl(
+      QStyle::ComplexControl cc,
+      const QStyleOptionComplex *opt,
+      const QPoint &pt,
+      const QWidget *widget) const override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQStyleCall11 call = reinterpret_cast<CuteQStyleCall11>(taken[11]);
+      int given = call(this, static_cast<int>(cc), opt, &pt, widget, &handled);
+      if (handled) return static_cast<QStyle::SubControl>(given);
+    }
+    return {};
+  }
+
+  //  QRect QStyle::subControlRect(ComplexControl cc, const
+  //      QStyleOptionComplex *opt, SubControl sc, const QWidget *widget)
+  //      const
+  QRect subControlRect(
+      QStyle::ComplexControl cc,
+      const QStyleOptionComplex *opt,
+      QStyle::SubControl sc,
+      const QWidget *widget) const override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQStyleCall12 call = reinterpret_cast<CuteQStyleCall12>(taken[12]);
+      const QRect * given = call(this, static_cast<int>(cc), opt, static_cast<int>(sc), widget, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+
+  //  int QStyle::pixelMetric(PixelMetric metric, const QStyleOption
+  //      *option, const QWidget *widget) const
+  int pixelMetric(
+      QStyle::PixelMetric metric,
+      const QStyleOption *option,
+      const QWidget *widget) const override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQStyleCall13 call = reinterpret_cast<CuteQStyleCall13>(taken[13]);
+      int given = call(this, static_cast<int>(metric), option, widget, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  QSize QStyle::sizeFromContents(ContentsType ct, const QStyleOption
+  //      *opt, const QSize &contentsSize, const QWidget *w) const
+  QSize sizeFromContents(
+      QStyle::ContentsType ct,
+      const QStyleOption *opt,
+      const QSize &contentsSize,
+      const QWidget *w) const override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQStyleCall14 call = reinterpret_cast<CuteQStyleCall14>(taken[14]);
+      const QSize * given = call(this, static_cast<int>(ct), opt, &contentsSize, w, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+
+  //  int QStyle::styleHint(StyleHint stylehint, const QStyleOption *opt,
+  //      const QWidget *widget, QStyleHintReturn *returnData) const
+  int styleHint(
+      QStyle::StyleHint stylehint,
+      const QStyleOption *opt,
+      const QWidget *widget,
+      QStyleHintReturn *returnData) const override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQStyleCall15 call = reinterpret_cast<CuteQStyleCall15>(taken[15]);
+      int given = call(this, static_cast<int>(stylehint), opt, widget, returnData, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  QPixmap QStyle::standardPixmap(StandardPixmap standardPixmap, const
+  //      QStyleOption *opt, const QWidget *widget) const
+  QPixmap standardPixmap(
+      QStyle::StandardPixmap standardPixmap,
+      const QStyleOption *opt,
+      const QWidget *widget) const override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQStyleCall16 call = reinterpret_cast<CuteQStyleCall16>(taken[16]);
+      const QPixmap * given = call(this, static_cast<int>(standardPixmap), opt, widget, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+
+  //  QIcon QStyle::standardIcon(StandardPixmap standardIcon, const
+  //      QStyleOption *option, const QWidget *widget) const
+  QIcon standardIcon(
+      QStyle::StandardPixmap standardIcon,
+      const QStyleOption *option,
+      const QWidget *widget) const override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQStyleCall17 call = reinterpret_cast<CuteQStyleCall17>(taken[17]);
+      const QIcon * given = call(this, static_cast<int>(standardIcon), option, widget, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+
+  //  QPixmap QStyle::generatedIconPixmap(QIcon::Mode iconMode, const
+  //      QPixmap &pixmap, const QStyleOption *opt) const
+  QPixmap generatedIconPixmap(
+      QIcon::Mode iconMode,
+      const QPixmap &pixmap,
+      const QStyleOption *opt) const override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQStyleCall18 call = reinterpret_cast<CuteQStyleCall18>(taken[18]);
+      const QPixmap * given = call(this, static_cast<int>(iconMode), &pixmap, opt, &handled);
+      if (handled && given) return *given;
+    }
+    return {};
+  }
+
+  //  int QStyle::layoutSpacing(QSizePolicy::ControlType control1,
+  //      QSizePolicy::ControlType control2, Qt::Orientation orientation,
+  //      const QStyleOption *option, const QWidget *widget) const
+  int layoutSpacing(
+      QSizePolicy::ControlType control1,
+      QSizePolicy::ControlType control2,
+      Qt::Orientation orientation,
+      const QStyleOption *option,
+      const QWidget *widget) const override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQStyleCall19 call = reinterpret_cast<CuteQStyleCall19>(taken[19]);
+      int given = call(this, static_cast<int>(control1), static_cast<int>(control2), static_cast<int>(orientation), option, widget, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQStyleCall20 call = reinterpret_cast<CuteQStyleCall20>(taken[20]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[21]) {
+      int handled = 0;
+      CuteQStyleCall21 call = reinterpret_cast<CuteQStyleCall21>(taken[21]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[22]) {
+      int handled = 0;
+      CuteQStyleCall22 call = reinterpret_cast<CuteQStyleCall22>(taken[22]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[23]) {
+      int handled = 0;
+      CuteQStyleCall23 call = reinterpret_cast<CuteQStyleCall23>(taken[23]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[24]) {
+      int handled = 0;
+      CuteQStyleCall24 call = reinterpret_cast<CuteQStyleCall24>(taken[24]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQStyleCall25 call = reinterpret_cast<CuteQStyleCall25>(taken[25]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQStyleCall26 call = reinterpret_cast<CuteQStyleCall26>(taken[26]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QStyle::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -382,4 +900,68 @@ int ritual_ZNK6QStyle21combinedLayoutSpacingE6QFlagsIN11QSizePolicy11ControlType
 extern "C" Q_DECL_EXPORT
 const QStyle *ritual_ZNK6QStyle5proxyEv(const QStyle *self) {
   return self->proxy();
+}
+
+//  a Python function taken by a CuteQStyle, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QStyle(QStyle *self, const char *key, void *call) {
+  return static_cast<CuteQStyle *>(self)->take(key, call);
+}
+
+//  void QStyle::polish(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN6QStyle6polishEP7QWidget(QStyle *self, QWidget *widget) {
+  self->QStyle::polish(widget);
+}
+
+//  void QStyle::unpolish(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN6QStyle8unpolishEP7QWidget(QStyle *self, QWidget *widget) {
+  self->QStyle::unpolish(widget);
+}
+
+//  void QStyle::polish(QApplication *application)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN6QStyle6polishEP12QApplication(
+    QStyle *self,
+    QApplication *application) {
+  self->QStyle::polish(application);
+}
+
+//  void QStyle::unpolish(QApplication *application)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN6QStyle8unpolishEP12QApplication(
+    QStyle *self,
+    QApplication *application) {
+  self->QStyle::unpolish(application);
+}
+
+//  QRect QStyle::itemPixmapRect(const QRect &r, int flags, const QPixmap
+//      &pixmap) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_own_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap(
+    const QStyle *self,
+    const QRect *r,
+    int flags,
+    const QPixmap *pixmap) {
+  return new QRect(self->QStyle::itemPixmapRect(*r, flags, *pixmap));
+}
+
+//  void QStyle::drawItemPixmap(QPainter *painter, const QRect &rect, int
+//      alignment, const QPixmap &pixmap) const
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZNK6QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap(
+    const QStyle *self,
+    QPainter *painter,
+    const QRect *rect,
+    int alignment,
+    const QPixmap *pixmap) {
+  self->QStyle::drawItemPixmap(painter, *rect, alignment, *pixmap);
+}
+
+//  QPalette QStyle::standardPalette() const
+extern "C" Q_DECL_EXPORT
+QPalette *ritual_own_ZNK6QStyle15standardPaletteEv(const QStyle *self) {
+  return new QPalette(self->QStyle::standardPalette());
 }

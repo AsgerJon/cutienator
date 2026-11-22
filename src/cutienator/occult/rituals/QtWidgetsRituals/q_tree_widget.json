@@ -107,6 +107,19 @@
     "ritual_ZN11QTreeWidget12collapseItemEPK15QTreeWidgetItem": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN11QTreeWidget5clearEv": ["nothing", "address"]
+    "ritual_ZN11QTreeWidget5clearEv": ["nothing", "address"],
+    "ritual_take_QTreeWidget": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QTreeWidget17setSelectionModelEP19QItemSelectionModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QTreeWidget5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QTreeWidget12dropMimeDataEP15QTreeWidgetItemiPK9QMimeDataN2Qt10DropActionE": [
+      "bool", "address", "address", "int", "address", "int"
+    ],
+    "ritual_own_ZN11QTreeWidget9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ]
   }
 }

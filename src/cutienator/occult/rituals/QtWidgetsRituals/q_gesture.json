@@ -19,6 +19,7 @@
     "ritual_ZN8QGesture22setGestureCancelPolicyENS_19GestureCancelPolicyE": [
       "nothing", "address", "int"
     ],
-    "ritual_ZNK8QGesture19gestureCancelPolicyEv": ["int", "address"]
+    "ritual_ZNK8QGesture19gestureCancelPolicyEv": ["int", "address"],
+    "ritual_take_QGesture": ["bool", "address", "chars", "address"]
   }
 }

@@ -2,6 +2,116 @@
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
+#include <cstring>
+
+//  A QTabletEvent that Python can take functions over in. Every QTabletEvent
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQTabletEventCall0)(const void *, int *);
+typedef bool (*CuteQTabletEventCall1)(const void *, int *);
+typedef bool (*CuteQTabletEventCall2)(const void *, int *);
+typedef bool (*CuteQTabletEventCall3)(const void *, int *);
+typedef void (*CuteQTabletEventCall4)(const void *, quint64, int *);
+typedef void (*CuteQTabletEventCall5)(const void *, bool, int *);
+class CuteQTabletEvent : public QTabletEvent {
+public:
+  using QTabletEvent::QTabletEvent;
+  void *taken[6] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QPointerEvent12isBeginEventEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QPointerEvent13isUpdateEventEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK13QPointerEvent10isEndEventEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QInputEvent12setTimestampEy")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
+      taken[5] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QTabletEvent *QTabletEvent::clone() const
+  QTabletEvent *clone() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQTabletEventCall0 call = reinterpret_cast<CuteQTabletEventCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QTabletEvent *>(given);
+    }
+    return QTabletEvent::clone();
+  }
+
+  //  bool QSinglePointEvent::isBeginEvent() const
+  bool isBeginEvent() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQTabletEventCall1 call = reinterpret_cast<CuteQTabletEventCall1>(taken[1]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QSinglePointEvent::isBeginEvent();
+  }
+
+  //  bool QSinglePointEvent::isUpdateEvent() const
+  bool isUpdateEvent() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQTabletEventCall2 call = reinterpret_cast<CuteQTabletEventCall2>(taken[2]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QSinglePointEvent::isUpdateEvent();
+  }
+
+  //  bool QSinglePointEvent::isEndEvent() const
+  bool isEndEvent() const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQTabletEventCall3 call = reinterpret_cast<CuteQTabletEventCall3>(taken[3]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QSinglePointEvent::isEndEvent();
+  }
+
+  //  void QPointerEvent::setTimestamp(quint64 timestamp)
+  void setTimestamp(quint64 timestamp) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQTabletEventCall4 call = reinterpret_cast<CuteQTabletEventCall4>(taken[4]);
+      call(this, timestamp, &handled);
+      if (handled) return;
+    }
+    QPointerEvent::setTimestamp(timestamp);
+  }
+
+  //  void QPointerEvent::setAccepted(bool accepted)
+  void setAccepted(bool accepted) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQTabletEventCall5 call = reinterpret_cast<CuteQTabletEventCall5>(taken[5]);
+      call(this, accepted, &handled);
+      if (handled) return;
+    }
+    QPointerEvent::setAccepted(accepted);
+  }
+};
 
 //  QTabletEvent *QTabletEvent::clone() const
 extern "C" Q_DECL_EXPORT
@@ -35,7 +145,7 @@ QTabletEvent *ritual_ZN12QTabletEventC1EN6QEvent4TypeEPK15QPointingDeviceRK7QPoi
     int keyState,
     Qt::MouseButton button,
     int buttons) {
-  return new QTabletEvent(
+  return new CuteQTabletEvent(
       t,
       device,
       *pos,
@@ -152,4 +262,21 @@ qreal ritual_ZNK12QTabletEvent5xTiltEv(const QTabletEvent *self) {
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK12QTabletEvent5yTiltEv(const QTabletEvent *self) {
   return self->yTilt();
+}
+
+//  a Python function taken by a CuteQTabletEvent, for the function named by
+//      the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QTabletEvent(
+    QTabletEvent *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQTabletEvent *>(self)->take(key, call);
+}
+
+//  QTabletEvent *QTabletEvent::clone() const
+extern "C" Q_DECL_EXPORT
+QTabletEvent *ritual_own_ZNK12QTabletEvent5cloneEv(
+    const QTabletEvent *self) {
+  return self->QTabletEvent::clone();
 }

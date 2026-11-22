@@ -8,6 +8,133 @@
 #include <QtGui/qimage.h>
 #include <QtGui/qpixmap.h>
 #include <QtCore/qsize.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  A QMovie that Python can take functions over in. Every QMovie
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef bool (*CuteQMovieCall0)(const void *, QEvent *, int *);
+typedef bool (*CuteQMovieCall1)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQMovieCall2)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQMovieCall3)(const void *, QChildEvent *, int *);
+typedef void (*CuteQMovieCall4)(const void *, QEvent *, int *);
+typedef void (*CuteQMovieCall5)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQMovieCall6)(const void *, const QMetaMethod *, int *);
+class CuteQMovie : public QMovie {
+public:
+  using QMovie::QMovie;
+  void *taken[7] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[6] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQMovieCall0 call = reinterpret_cast<CuteQMovieCall0>(taken[0]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQMovieCall1 call = reinterpret_cast<CuteQMovieCall1>(taken[1]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQMovieCall2 call = reinterpret_cast<CuteQMovieCall2>(taken[2]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQMovieCall3 call = reinterpret_cast<CuteQMovieCall3>(taken[3]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQMovieCall4 call = reinterpret_cast<CuteQMovieCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQMovieCall5 call = reinterpret_cast<CuteQMovieCall5>(taken[5]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQMovieCall6 call = reinterpret_cast<CuteQMovieCall6>(taken[6]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QMovie::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -24,7 +151,7 @@ QString *ritual_ZN6QMovie2trEPKcS1_i(const char *s, const char *c, int n) {
 //  QMovie::QMovie(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QMovie *ritual_ZN6QMovieC1EP7QObject(QObject *parent) {
-  return new QMovie(parent);
+  return new CuteQMovie(parent);
 }
 
 //  QMovie::QMovie(QIODevice *device, const QByteArray &format, QObject
@@ -34,7 +161,7 @@ QMovie *ritual_ZN6QMovieC1EP9QIODeviceRK10QByteArrayP7QObject(
     QIODevice *device,
     const QByteArray *format,
     QObject *parent) {
-  return new QMovie(device, *format, parent);
+  return new CuteQMovie(device, *format, parent);
 }
 
 //  QMovie::QMovie(const QString &fileName, const QByteArray &format, QObject
@@ -44,7 +171,7 @@ QMovie *ritual_ZN6QMovieC1ERK7QStringRK10QByteArrayP7QObject(
     const QString *fileName,
     const QByteArray *format,
     QObject *parent) {
-  return new QMovie(*fileName, *format, parent);
+  return new CuteQMovie(*fileName, *format, parent);
 }
 
 //  QMovie::~QMovie()
@@ -244,4 +371,11 @@ void ritual_ZN6QMovie4stopEv(QMovie *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QMovie8setSpeedEi(QMovie *self, int percentSpeed) {
   self->setSpeed(percentSpeed);
+}
+
+//  a Python function taken by a CuteQMovie, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QMovie(QMovie *self, const char *key, void *call) {
+  return static_cast<CuteQMovie *>(self)->take(key, call);
 }

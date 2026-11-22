@@ -153,6 +153,25 @@ class QDataWidgetMapper(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QDataWidgetMapper'
 
+  #  A C++ QDataWidgetMapper Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QDataWidgetMapper'
+
+  #  The functions Qt calls itself that QDataWidgetMapper is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'setCurrentIndex': (
+          ('_ZN17QDataWidgetMapper15setCurrentIndexEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -508,9 +527,10 @@ class QDataWidgetMapper(QObject):
       Passed on as it is.
     """
     #  void QDataWidgetMapper::setCurrentIndex(int index)
-    self.uglySide.call(
-        'ritual_ZN17QDataWidgetMapper15setCurrentIndexEi', index,
-    )
+    ritual = 'ritual_ZN17QDataWidgetMapper15setCurrentIndexEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QDataWidgetMapper15setCurrentIndexEi'
+    self.uglySide.call(ritual, index)
 
   @overload(QModelIndex)
   def setCurrentModelIndex(self, index: QModelIndex) -> None:

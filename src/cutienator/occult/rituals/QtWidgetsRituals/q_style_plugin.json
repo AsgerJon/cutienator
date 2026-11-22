@@ -9,6 +9,7 @@
     "ritual_ZN12QStylePluginD1Ev": ["nothing", "address"],
     "ritual_ZN12QStylePlugin6createERK7QString": [
       "address", "address", "text"
-    ]
+    ],
+    "ritual_take_QStylePlugin": ["bool", "address", "chars", "address"]
   }
 }

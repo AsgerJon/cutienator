@@ -16,6 +16,9 @@
     "ritual_ZNK11QHoverEvent4posFEv": ["address", "address"],
     "ritual_ZNK11QHoverEvent13isUpdateEventEv": ["bool", "address"],
     "ritual_ZNK11QHoverEvent6oldPosEv": ["address", "address"],
-    "ritual_ZNK11QHoverEvent7oldPosFEv": ["address", "address"]
+    "ritual_ZNK11QHoverEvent7oldPosFEv": ["address", "address"],
+    "ritual_take_QHoverEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QHoverEvent5cloneEv": ["address", "address"],
+    "ritual_own_ZNK11QHoverEvent13isUpdateEventEv": ["bool", "address"]
   }
 }

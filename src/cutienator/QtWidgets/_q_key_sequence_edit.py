@@ -18,13 +18,17 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
-  from ..QtGui import QKeySequence
+  from ..QtCore import QEvent, QMetaObject, QTimerEvent
+  from ..QtGui import QFocusEvent, QKeyEvent, QKeySequence
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
+  QKeyEvent = WAIT['QKeyEvent']
   QKeySequence = WAIT['QKeySequence']
+  QTimerEvent = WAIT['QTimerEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -43,10 +47,11 @@ class QKeySequenceEdit(QWidget):
   -----------
 
   Every function of Qt's QKeySequenceEdit that has a ritual and that Python
-  can call so far, 9 names in all: 'metaObject', 'tr', 'keySequence',
+  can call so far, 14 names in all: 'metaObject', 'tr', 'keySequence',
   'maximumSequenceLength', 'setClearButtonEnabled', 'isClearButtonEnabled',
-  'setKeySequence', 'clear', 'setMaximumSequenceLength'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  'setKeySequence', 'clear', 'setMaximumSequenceLength', 'event',
+  'keyPressEvent', 'keyReleaseEvent', 'timerEvent', 'focusOutEvent'. It can
+  be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,9 +62,8 @@ class QKeySequenceEdit(QWidget):
   What has no ritual
   ------------------
 
-  18 of the 30 functions Qt declares: 6 protected; 4 takes or gives a type
-  that cannot be passed yet; 3 private; 2 a signal; 2 forbidden; 1 a
-  template.
+  13 of the 30 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 3 private; 2 a signal; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -131,6 +135,11 @@ class QKeySequenceEdit(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QKeySequenceEdit'
+
+  #  A C++ QKeySequenceEdit Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QKeySequenceEdit'
 
   #  Fallback Variables
 
@@ -370,3 +379,111 @@ class QKeySequenceEdit(QWidget):
     """
     #  void QKeySequenceEdit::clear()
     self.uglySide.call('ritual_ZN16QKeySequenceEdit5clearEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QKeySequenceEdit::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequenceedit.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QKeySequenceEdit::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN16QKeySequenceEdit5eventEP6QEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, a0: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QKeySequenceEdit::keyPressEvent(QKeyEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qkeysequenceedit.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QKeySequenceEdit::keyPressEvent(QKeyEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN16QKeySequenceEdit13keyPressEventEP9QKeyEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyReleaseEvent(self, a0: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QKeySequenceEdit::keyReleaseEvent(QKeyEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qkeysequenceedit.html#keyReleaseEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QKeySequenceEdit::keyReleaseEvent(QKeyEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN16QKeySequenceEdit15keyReleaseEventEP9QKeyEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, a0: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QKeySequenceEdit::timerEvent(QTimerEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequenceedit.html#timerEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QKeySequenceEdit::timerEvent(QTimerEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN16QKeySequenceEdit10timerEventEP11QTimerEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, a0: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QKeySequenceEdit::focusOutEvent(QFocusEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qkeysequenceedit.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QKeySequenceEdit::focusOutEvent(QFocusEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN16QKeySequenceEdit13focusOutEventEP11QFocusEvent',
+        self._addressOf(a0),
+    )

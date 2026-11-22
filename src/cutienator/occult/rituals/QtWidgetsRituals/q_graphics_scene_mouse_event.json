@@ -78,6 +78,9 @@
     "ritual_ZNK24QGraphicsSceneMouseEvent5flagsEv": ["int", "address"],
     "ritual_ZN24QGraphicsSceneMouseEvent8setFlagsE6QFlagsIN2Qt14MouseEventFlagEE": [
       "nothing", "address", "int"
+    ],
+    "ritual_take_QGraphicsSceneMouseEvent": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

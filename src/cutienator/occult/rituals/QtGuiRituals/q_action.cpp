@@ -6,6 +6,139 @@
 #include <QtGui/qkeysequence.h>
 #include <QtGui/qfont.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QAction may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQAction : QAction {
+  using QAction::event;
+};
+
+//  A QAction that Python can take functions over in. Every QAction
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef bool (*CuteQActionCall0)(const void *, QEvent *, int *);
+typedef bool (*CuteQActionCall1)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQActionCall2)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQActionCall3)(const void *, QChildEvent *, int *);
+typedef void (*CuteQActionCall4)(const void *, QEvent *, int *);
+typedef void (*CuteQActionCall5)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQActionCall6)(const void *, const QMetaMethod *, int *);
+class CuteQAction : public QAction {
+public:
+  using QAction::QAction;
+  void *taken[7] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[6] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  bool QAction::event(QEvent *a0)
+  bool event(QEvent *a0) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQActionCall0 call = reinterpret_cast<CuteQActionCall0>(taken[0]);
+      bool given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QAction::event(a0);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQActionCall1 call = reinterpret_cast<CuteQActionCall1>(taken[1]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQActionCall2 call = reinterpret_cast<CuteQActionCall2>(taken[2]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQActionCall3 call = reinterpret_cast<CuteQActionCall3>(taken[3]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQActionCall4 call = reinterpret_cast<CuteQActionCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQActionCall5 call = reinterpret_cast<CuteQActionCall5>(taken[5]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQActionCall6 call = reinterpret_cast<CuteQActionCall6>(taken[6]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QAction::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -22,7 +155,7 @@ QString *ritual_ZN7QAction2trEPKcS1_i(const char *s, const char *c, int n) {
 //  QAction::QAction(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QAction *ritual_ZN7QActionC1EP7QObject(QObject *parent) {
-  return new QAction(parent);
+  return new CuteQAction(parent);
 }
 
 //  QAction::QAction(const QString &text, QObject *parent)
@@ -30,7 +163,7 @@ extern "C" Q_DECL_EXPORT
 QAction *ritual_ZN7QActionC1ERK7QStringP7QObject(
     const QString *text,
     QObject *parent) {
-  return new QAction(*text, parent);
+  return new CuteQAction(*text, parent);
 }
 
 //  QAction::QAction(const QIcon &icon, const QString &text, QObject *parent)
@@ -39,7 +172,7 @@ QAction *ritual_ZN7QActionC1ERK5QIconRK7QStringP7QObject(
     const QIcon *icon,
     const QString *text,
     QObject *parent) {
-  return new QAction(*icon, *text, parent);
+  return new CuteQAction(*icon, *text, parent);
 }
 
 //  QAction::~QAction()
@@ -378,4 +511,17 @@ void ritual_ZN7QAction11setDisabledEb(QAction *self, bool b) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QAction10setVisibleEb(QAction *self, bool a0) {
   self->setVisible(a0);
+}
+
+//  a Python function taken by a CuteQAction, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QAction(QAction *self, const char *key, void *call) {
+  return static_cast<CuteQAction *>(self)->take(key, call);
+}
+
+//  bool QAction::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN7QAction5eventEP6QEvent(QAction *self, QEvent *a0) {
+  return static_cast<OwnQAction *>(self)->OwnQAction::event(a0);
 }

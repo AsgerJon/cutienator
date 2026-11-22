@@ -77,6 +77,11 @@ class QFileIconProvider(QAbstractFileIconProvider):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFileIconProvider'
 
+  #  A C++ QFileIconProvider Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QFileIconProvider'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -109,11 +114,14 @@ class QFileIconProvider(QAbstractFileIconProvider):
       A new cute QIcon around the copy Qt gave back. Python owns it.
     """
     #  QIcon QFileIconProvider::icon(IconType type) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK17QFileIconProvider4iconEN25QAbstractFileIconProvider8Ic'
-        'onTypeE',
-        type.value,
-    )
+        'onTypeE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK17QFileIconProvider4iconEN25QAbstractFileIconProvi'
+          'der8IconTypeE')
+    address = self.uglySide.call(ritual, type.value)
     from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 
@@ -138,10 +146,10 @@ class QFileIconProvider(QAbstractFileIconProvider):
       A new cute QIcon around the copy Qt gave back. Python owns it.
     """
     #  QIcon QFileIconProvider::icon(const QFileInfo &info) const
-    address = self.uglySide.call(
-        'ritual_ZNK17QFileIconProvider4iconERK9QFileInfo',
-        self._valueOf(info),
-    )
+    ritual = 'ritual_ZNK17QFileIconProvider4iconERK9QFileInfo'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QFileIconProvider4iconERK9QFileInfo'
+    address = self.uglySide.call(ritual, self._valueOf(info))
     from ..QtGui import QIcon
     return QIcon._cuteOwning(address)
 

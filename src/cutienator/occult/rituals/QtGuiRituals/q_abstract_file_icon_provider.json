@@ -19,6 +19,15 @@
     "ritual_ZN25QAbstractFileIconProvider10setOptionsE6QFlagsINS_6OptionEE": [
       "nothing", "address", "int"
     ],
-    "ritual_ZNK25QAbstractFileIconProvider7optionsEv": ["int", "address"]
+    "ritual_ZNK25QAbstractFileIconProvider7optionsEv": ["int", "address"],
+    "ritual_take_QAbstractFileIconProvider": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK25QAbstractFileIconProvider4iconENS_8IconTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK25QAbstractFileIconProvider4iconERK9QFileInfo": [
+      "address", "address", "address"
+    ]
   }
 }

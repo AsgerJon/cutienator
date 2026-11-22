@@ -90,6 +90,26 @@
     "ritual_ZNK6QStyle21combinedLayoutSpacingE6QFlagsIN11QSizePolicy11ControlTypeEES3_N2Qt11OrientationEP12QStyleOptionP7QWidget": [
       "int", "address", "int", "int", "int", "address", "address"
     ],
-    "ritual_ZNK6QStyle5proxyEv": ["address", "address"]
+    "ritual_ZNK6QStyle5proxyEv": ["address", "address"],
+    "ritual_take_QStyle": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN6QStyle6polishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QStyle8unpolishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QStyle6polishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QStyle8unpolishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK6QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK6QStyle15standardPaletteEv": ["address", "address"]
   }
 }

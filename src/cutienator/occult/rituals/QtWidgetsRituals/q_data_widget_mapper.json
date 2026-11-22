@@ -62,6 +62,10 @@
     ],
     "ritual_ZN17QDataWidgetMapper20setCurrentModelIndexERK11QModelIndex": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QDataWidgetMapper": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QDataWidgetMapper15setCurrentIndexEi": [
+      "nothing", "address", "int"
     ]
   }
 }

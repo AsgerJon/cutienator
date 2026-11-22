@@ -1,6 +1,52 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgesturerecognizer.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qgesturerecognizer.h>
+#include <cstring>
+
+//  A QGestureRecognizer that Python can take functions over in. Every QGestureRecognizer
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQGestureRecognizerCall0)(const void *, QObject *, int *);
+typedef void (*CuteQGestureRecognizerCall1)(const void *, QGesture *, int *);
+class CuteQGestureRecognizer : public QGestureRecognizer {
+public:
+  using QGestureRecognizer::QGestureRecognizer;
+  void *taken[2] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN18QGestureRecognizer6createEP7QObject")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN18QGestureRecognizer5resetEP8QGesture")) {
+      taken[1] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QGesture *QGestureRecognizer::create(QObject *target)
+  QGesture *create(QObject *target) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQGestureRecognizerCall0 call = reinterpret_cast<CuteQGestureRecognizerCall0>(taken[0]);
+      void * given = call(this, target, &handled);
+      if (handled) return static_cast<QGesture *>(given);
+    }
+    return QGestureRecognizer::create(target);
+  }
+
+  //  void QGestureRecognizer::reset(QGesture *state)
+  void reset(QGesture *state) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQGestureRecognizerCall1 call = reinterpret_cast<CuteQGestureRecognizerCall1>(taken[1]);
+      call(this, state, &handled);
+      if (handled) return;
+    }
+    QGestureRecognizer::reset(state);
+  }
+};
 
 //  QGestureRecognizer::~QGestureRecognizer()
 extern "C" Q_DECL_EXPORT
@@ -48,4 +94,30 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QGestureRecognizer20unregisterRecognizerEN2Qt11GestureTypeE(
     Qt::GestureType type) {
   QGestureRecognizer::unregisterRecognizer(type);
+}
+
+//  a Python function taken by a CuteQGestureRecognizer, for the function
+//      named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QGestureRecognizer(
+    QGestureRecognizer *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQGestureRecognizer *>(self)->take(key, call);
+}
+
+//  QGesture *QGestureRecognizer::create(QObject *target)
+extern "C" Q_DECL_EXPORT
+QGesture *ritual_own_ZN18QGestureRecognizer6createEP7QObject(
+    QGestureRecognizer *self,
+    QObject *target) {
+  return self->QGestureRecognizer::create(target);
+}
+
+//  void QGestureRecognizer::reset(QGesture *state)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN18QGestureRecognizer5resetEP8QGesture(
+    QGestureRecognizer *self,
+    QGesture *state) {
+  self->QGestureRecognizer::reset(state);
 }

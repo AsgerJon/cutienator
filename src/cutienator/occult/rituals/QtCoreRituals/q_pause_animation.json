@@ -14,6 +14,14 @@
     "ritual_ZNK15QPauseAnimation8durationEv": ["int", "address"],
     "ritual_ZN15QPauseAnimation11setDurationEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_take_QPauseAnimation": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QPauseAnimation8durationEv": ["int", "address"],
+    "ritual_own_ZN15QPauseAnimation5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN15QPauseAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
     ]
   }
 }

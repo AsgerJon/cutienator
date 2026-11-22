@@ -19,15 +19,20 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QPoint, QRect, QSize
-  from ..QtGui import QAction
+  from ..QtCore import QEvent, QMetaObject, QPoint, QRect, QSize
+  from ..QtGui import QAction, QActionEvent, QPaintEvent
+  from . import QStyleOptionToolBar
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAction = WAIT['QAction']
+  QActionEvent = WAIT['QActionEvent']
+  QEvent = WAIT['QEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QPoint = WAIT['QPoint']
   QSize = WAIT['QSize']
+  QStyleOptionToolBar = WAIT['QStyleOptionToolBar']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -46,13 +51,14 @@ class QToolBar(QWidget):
   -----------
 
   Every function of Qt's QToolBar that has a ritual and that Python can call
-  so far, 25 names in all: 'metaObject', 'tr', 'setMovable', 'isMovable',
+  so far, 30 names in all: 'metaObject', 'tr', 'setMovable', 'isMovable',
   'setAllowedAreas', 'allowedAreas', 'isAreaAllowed', 'setOrientation',
   'orientation', 'clear', 'addSeparator', 'insertSeparator', 'addWidget',
   'insertWidget', 'actionGeometry', 'actionAt', 'toggleViewAction',
   'iconSize', 'toolButtonStyle', 'widgetForAction', 'isFloatable',
-  'setFloatable', 'isFloating', 'setIconSize', 'setToolButtonStyle'. It can
-  be made from Python, in 2 ways; see '__init__'.
+  'setFloatable', 'isFloating', 'setIconSize', 'setToolButtonStyle',
+  'actionEvent', 'changeEvent', 'paintEvent', 'event', 'initStyleOption'. It
+  can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,8 +69,8 @@ class QToolBar(QWidget):
   What has no ritual
   ------------------
 
-  21 of the 50 functions Qt declares: 8 a signal; 5 protected; 3 private; 2
-  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  16 of the 50 functions Qt declares: 8 a signal; 3 private; 2 takes or gives
+  a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -134,6 +140,25 @@ class QToolBar(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QToolBar'
+
+  #  A C++ QToolBar Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QToolBar'
+
+  #  The functions Qt calls itself that QToolBar is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionToolBar'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -732,3 +757,108 @@ class QToolBar(QWidget):
     )
     from ..QtGui import QAction
     return QAction._cuteAt(address)
+
+  @overload(QActionEvent)
+  @overload(NoneType)
+  def actionEvent(self, event: Optional[QActionEvent]) -> None:
+    """
+    Calls Qt's 'void QToolBar::actionEvent(QActionEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#actionEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QActionEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolBar::actionEvent(QActionEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN8QToolBar11actionEventEP12QActionEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QToolBar::changeEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#changeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolBar::changeEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN8QToolBar11changeEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, event: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QToolBar::paintEvent(QPaintEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#paintEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolBar::paintEvent(QPaintEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN8QToolBar10paintEventEP11QPaintEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QToolBar::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QToolBar::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN8QToolBar5eventEP6QEvent', self._addressOf(event),
+    )
+
+  @overload(QStyleOptionToolBar)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOptionToolBar]) -> None:
+    """
+    Calls Qt's 'void QToolBar::initStyleOption(QStyleOptionToolBar *option)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionToolBar]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolBar::initStyleOption(QStyleOptionToolBar *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar',
+        self._addressOf(option),
+    )

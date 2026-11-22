@@ -19,12 +19,17 @@ from . import QAbstractItemView, QTableView, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QModelIndex, QPoint, QRect
+  from ..QtCore import QEvent, QMetaObject, QMimeData, QModelIndex, QPoint
+  from ..QtCore import QRect
+  from ..QtGui import QDropEvent
   from . import QTableWidgetItem, QTableWidgetSelectionRange
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QDropEvent = WAIT['QDropEvent']
+  QEvent = WAIT['QEvent']
+  QMimeData = WAIT['QMimeData']
   QModelIndex = WAIT['QModelIndex']
   QPoint = WAIT['QPoint']
   QTableWidgetItem = WAIT['QTableWidgetItem']
@@ -47,7 +52,7 @@ class QTableWidget(QTableView):
   -----------
 
   Every function of Qt's QTableWidget that has a ritual and that Python can
-  call so far, 50 names in all: 'metaObject', 'tr', 'setRowCount',
+  call so far, 53 names in all: 'metaObject', 'tr', 'setRowCount',
   'rowCount', 'setColumnCount', 'columnCount', 'row', 'column', 'item',
   'setItem', 'takeItem', 'indexFromItem', 'itemFromIndex',
   'verticalHeaderItem', 'setVerticalHeaderItem', 'takeVerticalHeaderItem',
@@ -60,8 +65,8 @@ class QTableWidget(QTableView):
   'visualColumn', 'itemAt', 'visualItemRect', 'itemPrototype',
   'setItemPrototype', 'supportedDragActions', 'setSupportedDragActions',
   'scrollToItem', 'insertRow', 'insertColumn', 'removeRow', 'removeColumn',
-  'clear', 'clearContents'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'clear', 'clearContents', 'event', 'dropMimeData', 'dropEvent'. It can be
+  made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -72,8 +77,8 @@ class QTableWidget(QTableView):
   What has no ritual
   ------------------
 
-  36 of the 92 functions Qt declares: 15 a signal; 8 takes or gives a type
-  that cannot be passed yet; 6 protected; 4 private; 2 forbidden; 1 a
+  33 of the 92 functions Qt declares: 15 a signal; 8 takes or gives a type
+  that cannot be passed yet; 4 private; 3 protected; 2 forbidden; 1 a
   template.
 
   What to expect
@@ -146,6 +151,45 @@ class QTableWidget(QTableView):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTableWidget'
+
+  #  A C++ QTableWidget Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTableWidget'
+
+  #  The functions Qt calls itself that QTableWidget is the first to declare
+  #  and that cannot be handed to Python yet, each as Qt declares it. A class
+  #  of a program that writes one of them anew is refused, since Qt would
+  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'mimeTypes': (
+          'QStringList QTableWidget::mimeTypes() const',
+      ),
+      'mimeData': (
+          'QMimeData *QTableWidget::mimeData(const QList<QTableWidgetItem '
+          '*> &) const',
+      ),
+      'supportedDropActions': (
+          'Qt::DropActions QTableWidget::supportedDropActions() const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QTableWidget is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'dropMimeData': (
+          ('_ZN12QTableWidget12dropMimeDataEiiPK9QMimeDataN2Qt10DropActionE',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'address', 'QtCore:QMimeData'),
+               ('int', 'enum', 'QtCore:Qt.DropAction'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -1427,3 +1471,83 @@ class QTableWidget(QTableView):
     """
     #  void QTableWidget::clearContents()
     self.uglySide.call('ritual_ZN12QTableWidget13clearContentsEv')
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QTableWidget::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QTableWidget::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN12QTableWidget5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(int, int, QMimeData, Qt.DropAction)
+  @overload(int, int, NoneType, Qt.DropAction)
+  def dropMimeData(
+      self,
+      row: int,
+      column: int,
+      data: Optional[QMimeData],
+      action: Qt.DropAction,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QTableWidget::dropMimeData(int row, int column, const
+    QMimeData *data, Qt::DropAction action)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#dropMimeData
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    column : int
+      Passed on as it is.
+
+    data : Optional[QMimeData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    action : Qt.DropAction
+      Passed on as its number.
+    """
+    #  bool QTableWidget::dropMimeData(int row, int column, const QMimeData
+    #      *data, Qt::DropAction action)
+    return self.uglySide.call(
+        'ritual_own_ZN12QTableWidget12dropMimeDataEiiPK9QMimeDataN2Qt10Drop'
+        'ActionE',
+        row, column, self._addressOf(data), action.value,
+    )
+
+  @overload(QDropEvent)
+  @overload(NoneType)
+  def dropEvent(self, event: Optional[QDropEvent]) -> None:
+    """
+    Calls Qt's 'void QTableWidget::dropEvent(QDropEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#dropEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableWidget::dropEvent(QDropEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN12QTableWidget9dropEventEP10QDropEvent',
+        self._addressOf(event),
+    )

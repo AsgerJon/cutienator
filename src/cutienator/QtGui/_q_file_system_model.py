@@ -19,17 +19,19 @@ from ..QtCore import Qt, QAbstractItemModel, QDir, QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QDateTime, QFileInfo, QMetaObject, QMimeData
-  from ..QtCore import QModelIndex, QTimeZone, QVariant
+  from ..QtCore import QDateTime, QEvent, QFileInfo, QMetaObject, QMimeData
+  from ..QtCore import QModelIndex, QTimeZone, QTimerEvent, QVariant
   from . import QAbstractFileIconProvider, QIcon
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAbstractFileIconProvider = WAIT['QAbstractFileIconProvider']
+  QEvent = WAIT['QEvent']
   QMimeData = WAIT['QMimeData']
   QModelIndex = WAIT['QModelIndex']
   QTimeZone = WAIT['QTimeZone']
+  QTimerEvent = WAIT['QTimerEvent']
   QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -49,7 +51,7 @@ class QFileSystemModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QFileSystemModel that has a ritual and that Python
-  can call so far, 46 names in all: 'metaObject', 'tr', 'index', 'parent',
+  can call so far, 48 names in all: 'metaObject', 'tr', 'index', 'parent',
   'sibling', 'hasChildren', 'canFetchMore', 'fetchMore', 'rowCount',
   'columnCount', 'myComputer', 'data', 'setData', 'headerData', 'flags',
   'sort', 'dropMimeData', 'supportedDropActions', 'setRootPath', 'rootPath',
@@ -58,7 +60,8 @@ class QFileSystemModel(QAbstractItemModel):
   'setNameFilterDisables', 'nameFilterDisables', 'setOption', 'testOption',
   'setOptions', 'options', 'filePath', 'isDir', 'size', 'type',
   'lastModified', 'mkdir', 'rmdir', 'fileName', 'fileIcon', 'fileInfo',
-  'remove'. It can be made from Python, in 1 way; see '__init__'.
+  'remove', 'timerEvent', 'event'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -69,8 +72,8 @@ class QFileSystemModel(QAbstractItemModel):
   What has no ritual
   ------------------
 
-  20 of the 70 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 3 private; 3 a signal; 3 protected; 2 forbidden; 1 a template.
+  18 of the 70 functions Qt declares: 8 takes or gives a type that cannot be
+  passed yet; 3 private; 3 a signal; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -171,6 +174,11 @@ class QFileSystemModel(QAbstractItemModel):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFileSystemModel'
 
+  #  A C++ QFileSystemModel Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QFileSystemModel'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -242,10 +250,10 @@ class QFileSystemModel(QAbstractItemModel):
     if parent is None:
       from ..QtCore import QModelIndex
       parent = QModelIndex()
-    address = self.uglySide.call(
-        'ritual_ZNK16QFileSystemModel5indexEiiRK11QModelIndex',
-        row, column, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK16QFileSystemModel5indexEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QFileSystemModel5indexEiiRK11QModelIndex'
+    address = self.uglySide.call(ritual, row, column, self._valueOf(parent))
     from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -303,10 +311,10 @@ class QFileSystemModel(QAbstractItemModel):
       A new cute QModelIndex around the copy Qt gave back. Python owns it.
     """
     #  QModelIndex QFileSystemModel::parent(const QModelIndex &child) const
-    address = self.uglySide.call(
-        'ritual_ZNK16QFileSystemModel6parentERK11QModelIndex',
-        self._valueOf(child),
-    )
+    ritual = 'ritual_ZNK16QFileSystemModel6parentERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QFileSystemModel6parentERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(child))
     from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -339,10 +347,10 @@ class QFileSystemModel(QAbstractItemModel):
     """
     #  QModelIndex QFileSystemModel::sibling(int row, int column, const
     #      QModelIndex &idx) const
-    address = self.uglySide.call(
-        'ritual_ZNK16QFileSystemModel7siblingEiiRK11QModelIndex',
-        row, column, self._valueOf(idx),
-    )
+    ritual = 'ritual_ZNK16QFileSystemModel7siblingEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QFileSystemModel7siblingEiiRK11QModelIndex'
+    address = self.uglySide.call(ritual, row, column, self._valueOf(idx))
     from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -367,10 +375,11 @@ class QFileSystemModel(QAbstractItemModel):
     if parent is None:
       from ..QtCore import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZNK16QFileSystemModel11hasChildrenERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK16QFileSystemModel11hasChildrenERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK16QFileSystemModel11hasChildrenERK11QModelIndex')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(QModelIndex)
   def canFetchMore(self, parent: QModelIndex) -> bool:
@@ -388,10 +397,11 @@ class QFileSystemModel(QAbstractItemModel):
       Python's own.
     """
     #  bool QFileSystemModel::canFetchMore(const QModelIndex &parent) const
-    return self.uglySide.call(
-        'ritual_ZNK16QFileSystemModel12canFetchMoreERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK16QFileSystemModel12canFetchMoreERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK16QFileSystemModel12canFetchMoreERK11QModelIndex')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload()
   @overload(QModelIndex)
@@ -414,10 +424,10 @@ class QFileSystemModel(QAbstractItemModel):
     if parent is None:
       from ..QtCore import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZNK16QFileSystemModel8rowCountERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK16QFileSystemModel8rowCountERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QFileSystemModel8rowCountERK11QModelIndex'
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload()
   @overload(QModelIndex)
@@ -440,10 +450,11 @@ class QFileSystemModel(QAbstractItemModel):
     if parent is None:
       from ..QtCore import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZNK16QFileSystemModel11columnCountERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK16QFileSystemModel11columnCountERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK16QFileSystemModel11columnCountERK11QModelIndex')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload()
   @overload(int)
@@ -499,10 +510,10 @@ class QFileSystemModel(QAbstractItemModel):
     """
     #  QVariant QFileSystemModel::data(const QModelIndex &index, int role)
     #      const
-    address = self.uglySide.call(
-        'ritual_ZNK16QFileSystemModel4dataERK11QModelIndexi',
-        self._valueOf(index), role,
-    )
+    ritual = 'ritual_ZNK16QFileSystemModel4dataERK11QModelIndexi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QFileSystemModel4dataERK11QModelIndexi'
+    address = self.uglySide.call(ritual, self._valueOf(index), role)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -540,10 +551,12 @@ class QFileSystemModel(QAbstractItemModel):
     """
     #  QVariant QFileSystemModel::headerData(int section, Qt::Orientation
     #      orientation, int role) const
-    address = self.uglySide.call(
-        'ritual_ZNK16QFileSystemModel10headerDataEiN2Qt11OrientationEi',
-        section, orientation.value, role,
-    )
+    ritual = 'ritual_ZNK16QFileSystemModel10headerDataEiN2Qt11OrientationEi'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK16QFileSystemModel10headerDataEiN2Qt11OrientationE'
+          'i')
+    address = self.uglySide.call(ritual, section, orientation.value, role)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -1013,9 +1026,14 @@ class QFileSystemModel(QAbstractItemModel):
     """
     #  bool QFileSystemModel::setData(const QModelIndex &index, const
     #      QVariant &value, int role)
+    ritual = (
+        'ritual_ZN16QFileSystemModel7setDataERK11QModelIndexRK8QVarianti')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QFileSystemModel7setDataERK11QModelIndexRK8QVaria'
+          'nti')
     return self.uglySide.call(
-        'ritual_ZN16QFileSystemModel7setDataERK11QModelIndexRK8QVarianti',
-        self._valueOf(index), self._valueOf(value), role,
+        ritual, self._valueOf(index), self._valueOf(value), role,
     )
 
   @overload(str)
@@ -1259,10 +1277,10 @@ class QFileSystemModel(QAbstractItemModel):
       Python's own.
     """
     #  void QFileSystemModel::fetchMore(const QModelIndex &parent)
-    self.uglySide.call(
-        'ritual_ZN16QFileSystemModel9fetchMoreERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN16QFileSystemModel9fetchMoreERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QFileSystemModel9fetchMoreERK11QModelIndex'
+    self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(int)
   @overload(int, Qt.SortOrder)
@@ -1288,10 +1306,10 @@ class QFileSystemModel(QAbstractItemModel):
       Qt.SortOrder.AscendingOrder.
     """
     #  void QFileSystemModel::sort(int column, Qt::SortOrder order)
-    self.uglySide.call(
-        'ritual_ZN16QFileSystemModel4sortEiN2Qt9SortOrderE',
-        column, order.value,
-    )
+    ritual = 'ritual_ZN16QFileSystemModel4sortEiN2Qt9SortOrderE'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QFileSystemModel4sortEiN2Qt9SortOrderE'
+    self.uglySide.call(ritual, column, order.value)
 
   @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)
   @overload(NoneType, Qt.DropAction, int, int, QModelIndex)
@@ -1332,9 +1350,15 @@ class QFileSystemModel(QAbstractItemModel):
     #  bool QFileSystemModel::dropMimeData(const QMimeData *data,
     #      Qt::DropAction action, int row, int column, const QModelIndex
     #      &parent)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN16QFileSystemModel12dropMimeDataEPK9QMimeDataN2Qt10DropAc'
-        'tionEiiRK11QModelIndex',
+        'tionEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QFileSystemModel12dropMimeDataEPK9QMimeDataN2Qt10'
+          'DropActionEiiRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
@@ -1410,4 +1434,46 @@ class QFileSystemModel(QAbstractItemModel):
     return self.uglySide.call(
         'ritual_ZN16QFileSystemModel6removeERK11QModelIndex',
         self._valueOf(index),
+    )
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, event: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QFileSystemModel::timerEvent(QTimerEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfilesystemmodel.html#timerEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFileSystemModel::timerEvent(QTimerEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN16QFileSystemModel10timerEventEP11QTimerEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QFileSystemModel::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfilesystemmodel.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QFileSystemModel::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN16QFileSystemModel5eventEP6QEvent',
+        self._addressOf(event),
     )

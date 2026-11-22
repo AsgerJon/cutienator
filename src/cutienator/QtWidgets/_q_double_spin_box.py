@@ -127,6 +127,24 @@ class QDoubleSpinBox(QAbstractSpinBox):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QDoubleSpinBox'
 
+  #  A C++ QDoubleSpinBox Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QDoubleSpinBox'
+
+  #  The functions Qt calls itself that QDoubleSpinBox is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'valueFromText': (
+          'double QDoubleSpinBox::valueFromText(const QString &) const',
+      ),
+      'textFromValue': (
+          'QString QDoubleSpinBox::textFromValue(double) const',
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

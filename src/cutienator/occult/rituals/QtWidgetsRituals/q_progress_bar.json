@@ -45,6 +45,20 @@
     "ritual_ZN12QProgressBar8setValueEi": ["nothing", "address", "int"],
     "ritual_ZN12QProgressBar14setOrientationEN2Qt11OrientationE": [
       "nothing", "address", "int"
+    ],
+    "ritual_take_QProgressBar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QProgressBar8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK12QProgressBar15minimumSizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN12QProgressBar5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN12QProgressBar10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK12QProgressBar15initStyleOptionEP23QStyleOptionProgressBar": [
+      "nothing", "address", "address"
     ]
   }
 }

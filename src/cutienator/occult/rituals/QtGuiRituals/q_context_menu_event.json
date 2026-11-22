@@ -18,6 +18,8 @@
     "ritual_ZNK17QContextMenuEvent7globalYEv": ["int", "address"],
     "ritual_ZNK17QContextMenuEvent3posEv": ["address", "address"],
     "ritual_ZNK17QContextMenuEvent9globalPosEv": ["address", "address"],
-    "ritual_ZNK17QContextMenuEvent6reasonEv": ["int", "address"]
+    "ritual_ZNK17QContextMenuEvent6reasonEv": ["int", "address"],
+    "ritual_take_QContextMenuEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QContextMenuEvent5cloneEv": ["address", "address"]
   }
 }

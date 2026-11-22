@@ -62,7 +62,7 @@ class QImage(QPaintDevice):
   -----------
 
   Every function of Qt's QImage that has a ritual and that Python can call so
-  far, 76 names in all: 'isNull', 'devType', '__eq__', '__ne__', 'detach',
+  far, 77 names in all: 'isNull', 'devType', '__eq__', '__ne__', 'detach',
   'isDetached', 'copy', 'format', 'convertToFormat', 'reinterpretAsFormat',
   'convertedTo', 'convertTo', 'width', 'height', 'size', 'rect', 'depth',
   'colorCount', 'bitPlaneCount', 'color', 'setColor', 'setColorCount',
@@ -77,8 +77,8 @@ class QImage(QPaintDevice):
   'colorTransformed', 'applyColorTransform', 'load', 'loadFromData', 'save',
   'fromData', 'cacheKey', 'paintEngine', 'dotsPerMeterX', 'dotsPerMeterY',
   'setDotsPerMeterX', 'setDotsPerMeterY', 'offset', 'setOffset', 'text',
-  'setText', 'pixelFormat', 'toPixelFormat', 'toImageFormat'. It can be made
-  from Python, in 5 ways; see '__init__'.
+  'setText', 'pixelFormat', 'toPixelFormat', 'toImageFormat', 'metric'. It
+  can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -91,9 +91,9 @@ class QImage(QPaintDevice):
   What has no ritual
   ------------------
 
-  42 of the 143 functions Qt declares: 22 takes or gives a type that cannot
-  be passed yet; 9 protected; 8 can only be called on a value about to be
-  thrown away; 1 declared and nowhere to be found; 1 a template; 1 private.
+  41 of the 143 functions Qt declares: 22 takes or gives a type that cannot
+  be passed yet; 8 can only be called on a value about to be thrown away; 8
+  protected; 1 declared and nowhere to be found; 1 a template; 1 private.
 
   What to expect
   --------------
@@ -334,6 +334,11 @@ class QImage(QPaintDevice):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QImage'
 
+  #  A C++ QImage Python makes is of a C++ class of ours, in which Python can
+  #  take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QImage'
+
   #  Qt's '~QImage()'. Naming it makes this a value class: Python owns every
   #  C++ QImage behind a cute one, and removes it by this ritual.
   __delete_ritual__ = 'ritual_ZN6QImageD1Ev'
@@ -366,7 +371,10 @@ class QImage(QPaintDevice):
     Qt's own words: https://doc.qt.io/qt-6/qimage.html#devType
     """
     #  int QImage::devType() const
-    return self.uglySide.call('ritual_ZNK6QImage7devTypeEv')
+    ritual = 'ritual_ZNK6QImage7devTypeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK6QImage7devTypeEv'
+    return self.uglySide.call(ritual)
 
   def isDetached(self) -> bool:
     """
@@ -1515,7 +1523,10 @@ class QImage(QPaintDevice):
       no object.
     """
     #  QPaintEngine *QImage::paintEngine() const
-    address = self.uglySide.call('ritual_ZNK6QImage11paintEngineEv')
+    ritual = 'ritual_ZNK6QImage11paintEngineEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK6QImage11paintEngineEv'
+    address = self.uglySide.call(ritual)
     from . import QPaintEngine
     return QPaintEngine._cuteAt(address)
 
@@ -1594,6 +1605,25 @@ class QImage(QPaintDevice):
     address = self.uglySide.call('ritual_ZNK6QImage11pixelFormatEv')
     from . import QPixelFormat
     return QPixelFormat._cuteOwning(address)
+
+  @overload(QPaintDevice.PaintDeviceMetric)
+  def metric(self, metric: QPaintDevice.PaintDeviceMetric) -> int:
+    """
+    Calls Qt's 'int QImage::metric(PaintDeviceMetric metric) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#metric
+
+    Parameters
+    ----------
+
+    metric : QPaintDevice.PaintDeviceMetric
+      Passed on as its number.
+    """
+    #  int QImage::metric(PaintDeviceMetric metric) const
+    return self.uglySide.call(
+        'ritual_own_ZNK6QImage6metricEN12QPaintDevice17PaintDeviceMetricE',
+        metric.value,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

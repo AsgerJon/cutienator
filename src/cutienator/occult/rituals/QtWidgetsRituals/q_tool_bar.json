@@ -56,6 +56,20 @@
     ],
     "ritual_ZN8QToolBar18setToolButtonStyleEN2Qt15ToolButtonStyleE": [
       "nothing", "address", "int"
+    ],
+    "ritual_take_QToolBar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN8QToolBar11actionEventEP12QActionEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QToolBar11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QToolBar10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QToolBar5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_own_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar": [
+      "nothing", "address", "address"
     ]
   }
 }

@@ -102,6 +102,29 @@
     "ritual_ZN15QCalendarWidget12showNextYearEv": ["nothing", "address"],
     "ritual_ZN15QCalendarWidget16showPreviousYearEv": ["nothing", "address"],
     "ritual_ZN15QCalendarWidget16showSelectedDateEv": ["nothing", "address"],
-    "ritual_ZN15QCalendarWidget9showTodayEv": ["nothing", "address"]
+    "ritual_ZN15QCalendarWidget9showTodayEv": ["nothing", "address"],
+    "ritual_take_QCalendarWidget": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QCalendarWidget8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK15QCalendarWidget15minimumSizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN15QCalendarWidget5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN15QCalendarWidget11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QCalendarWidget15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QCalendarWidget11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QCalendarWidget13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK15QCalendarWidget9paintCellEP8QPainterRK5QRect5QDate": [
+      "nothing", "address", "address", "address", "address"
+    ]
   }
 }

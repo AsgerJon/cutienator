@@ -7,6 +7,9 @@
     "ritual_ZN30QAccessibleAttributesInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE": [
       "address", "address", "int"
+    ],
+    "ritual_take_QAccessibleAttributesInterface": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

@@ -95,6 +95,8 @@
     "ritual_ZN7QAction10setEnabledEb": ["nothing", "address", "bool"],
     "ritual_ZN7QAction12resetEnabledEv": ["nothing", "address"],
     "ritual_ZN7QAction11setDisabledEb": ["nothing", "address", "bool"],
-    "ritual_ZN7QAction10setVisibleEb": ["nothing", "address", "bool"]
+    "ritual_ZN7QAction10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_take_QAction": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN7QAction5eventEP6QEvent": ["bool", "address", "address"]
   }
 }

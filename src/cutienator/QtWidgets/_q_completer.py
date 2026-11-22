@@ -19,7 +19,8 @@ from ..QtCore import Qt, QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QAbstractItemModel, QMetaObject, QModelIndex, QRect
+  from ..QtCore import QAbstractItemModel, QEvent, QMetaObject, QModelIndex
+  from ..QtCore import QRect
   from . import QAbstractItemView, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -27,6 +28,7 @@ else:
   #  see 'WAIT'.
   QAbstractItemModel = WAIT['QAbstractItemModel']
   QAbstractItemView = WAIT['QAbstractItemView']
+  QEvent = WAIT['QEvent']
   QModelIndex = WAIT['QModelIndex']
   QRect = WAIT['QRect']
   QWidget = WAIT['QWidget']
@@ -48,7 +50,7 @@ class QCompleter(QObject):
   -----------
 
   Every function of Qt's QCompleter that has a ritual and that Python can
-  call so far, 34 names in all: 'metaObject', 'tr', 'setWidget', 'widget',
+  call so far, 36 names in all: 'metaObject', 'tr', 'setWidget', 'widget',
   'setModel', 'model', 'setCompletionMode', 'completionMode',
   'setFilterMode', 'filterMode', 'popup', 'setPopup', 'setCaseSensitivity',
   'caseSensitivity', 'setModelSorting', 'modelSorting',
@@ -56,8 +58,9 @@ class QCompleter(QObject):
   'completionRole', 'wrapAround', 'maxVisibleItems', 'setMaxVisibleItems',
   'completionCount', 'setCurrentRow', 'currentRow', 'currentIndex',
   'currentCompletion', 'completionModel', 'completionPrefix',
-  'setCompletionPrefix', 'complete', 'setWrapAround', 'pathFromIndex'. It can
-  be made from Python, in 2 ways; see '__init__'.
+  'setCompletionPrefix', 'complete', 'setWrapAround', 'pathFromIndex',
+  'eventFilter', 'event'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -68,8 +71,8 @@ class QCompleter(QObject):
   What has no ritual
   ------------------
 
-  16 of the 53 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 a signal; 3 private; 2 protected; 2 forbidden; 1 a template.
+  14 of the 53 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 4 a signal; 3 private; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -162,6 +165,24 @@ class QCompleter(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QCompleter'
+
+  #  A C++ QCompleter Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QCompleter'
+
+  #  The functions Qt calls itself that QCompleter is the first to declare
+  #  and that cannot be handed to Python yet, each as Qt declares it. A class
+  #  of a program that writes one of them anew is refused, since Qt would
+  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'pathFromIndex': (
+          'QString QCompleter::pathFromIndex(const QModelIndex &) const',
+      ),
+      'splitPath': (
+          'QStringList QCompleter::splitPath(const QString &) const',
+      ),
+  }
 
   #  Fallback Variables
 
@@ -823,4 +844,51 @@ class QCompleter(QObject):
       rect = QRect()
     self.uglySide.call(
         'ritual_ZN10QCompleter8completeERK5QRect', self._valueOf(rect),
+    )
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(self, o: Optional[QObject], e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QCompleter::eventFilter(QObject *o, QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompleter.html#eventFilter
+
+    Parameters
+    ----------
+
+    o : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QCompleter::eventFilter(QObject *o, QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN10QCompleter11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(o), self._addressOf(e),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QCompleter::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompleter.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QCompleter::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN10QCompleter5eventEP6QEvent', self._addressOf(a0),
     )

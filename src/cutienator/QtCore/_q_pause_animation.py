@@ -11,14 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from . import QAbstractAnimation, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject
+  from . import QEvent, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,8 +42,9 @@ class QPauseAnimation(QAbstractAnimation):
   -----------
 
   Every function of Qt's QPauseAnimation that has a ritual and that Python
-  can call so far, 4 names in all: 'metaObject', 'tr', 'duration',
-  'setDuration'. It can be made from Python, in 2 ways; see '__init__'.
+  can call so far, 6 names in all: 'metaObject', 'tr', 'duration',
+  'setDuration', 'event', 'updateCurrentTime'. It can be made from Python, in
+  2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -49,8 +55,8 @@ class QPauseAnimation(QAbstractAnimation):
   What has no ritual
   ------------------
 
-  11 of the 18 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 protected; 2 forbidden; 1 a template.
+  9 of the 18 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 3 private; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -123,6 +129,11 @@ class QPauseAnimation(QAbstractAnimation):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPauseAnimation'
 
+  #  A C++ QPauseAnimation Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPauseAnimation'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -160,7 +171,10 @@ class QPauseAnimation(QAbstractAnimation):
     Qt's own words: https://doc.qt.io/qt-6/qpauseanimation.html#duration
     """
     #  int QPauseAnimation::duration() const
-    return self.uglySide.call('ritual_ZNK15QPauseAnimation8durationEv')
+    ritual = 'ritual_ZNK15QPauseAnimation8durationEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QPauseAnimation8durationEv'
+    return self.uglySide.call(ritual)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -263,3 +277,42 @@ class QPauseAnimation(QAbstractAnimation):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QPauseAnimation::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpauseanimation.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QPauseAnimation::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN15QPauseAnimation5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(int)
+  def updateCurrentTime(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QPauseAnimation::updateCurrentTime(int a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpauseanimation.html#updateCurrentTime
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QPauseAnimation::updateCurrentTime(int a0)
+    self.uglySide.call(
+        'ritual_own_ZN15QPauseAnimation17updateCurrentTimeEi', a0,
+    )

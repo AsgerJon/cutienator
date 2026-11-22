@@ -59,7 +59,7 @@ class QTextDocument(QObject):
   -----------
 
   Every function of Qt's QTextDocument that has a ritual and that Python can
-  call so far, 84 names in all: 'metaObject', 'tr', 'clone', 'isEmpty',
+  call so far, 86 names in all: 'metaObject', 'tr', 'clone', 'isEmpty',
   'clear', 'setUndoRedoEnabled', 'isUndoRedoEnabled', 'isUndoAvailable',
   'isRedoAvailable', 'availableUndoSteps', 'availableRedoSteps', 'revision',
   'setDocumentLayout', 'documentLayout', 'setMetaInformation',
@@ -79,7 +79,8 @@ class QTextDocument(QObject):
   'redo', 'clearUndoRedoStacks', 'maximumBlockCount', 'setMaximumBlockCount',
   'defaultTextOption', 'setDefaultTextOption', 'baseUrl', 'setBaseUrl',
   'defaultCursorMoveStyle', 'setDefaultCursorMoveStyle', 'appendUndoItem',
-  'setModified'. It can be made from Python, in 2 ways; see '__init__'.
+  'setModified', 'createObject', 'loadResource'. It can be made from Python,
+  in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -90,9 +91,9 @@ class QTextDocument(QObject):
   What has no ritual
   ------------------
 
-  26 of the 118 functions Qt declares: 10 a signal; 7 takes or gives a type
-  that cannot be passed yet; 3 private; 3 protected; 2 forbidden; 1 a
-  template.
+  24 of the 118 functions Qt declares: 10 a signal; 7 takes or gives a type
+  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1
+  protected.
 
   What to expect
   --------------
@@ -225,6 +226,38 @@ class QTextDocument(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTextDocument'
+
+  #  A C++ QTextDocument Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTextDocument'
+
+  #  The functions Qt calls itself that QTextDocument is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'clear': (
+          ('_ZN13QTextDocument5clearEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'createObject': (
+          ('_ZN13QTextDocument12createObjectERK11QTextFormat',
+           ('address', 'address', 'QtGui:QTextObject'),
+           (
+               ('address', 'value', 'QtGui:QTextFormat'),
+           )),
+      ),
+      'loadResource': (
+          ('_ZN13QTextDocument12loadResourceEiRK4QUrl',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QUrl'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -1772,7 +1805,10 @@ class QTextDocument(QObject):
     Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#clear
     """
     #  void QTextDocument::clear()
-    self.uglySide.call('ritual_ZN13QTextDocument5clearEv')
+    ritual = 'ritual_ZN13QTextDocument5clearEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QTextDocument5clearEv'
+    self.uglySide.call(ritual)
 
   @overload(QPagedPaintDevice)
   @overload(NoneType)
@@ -1998,3 +2034,64 @@ class QTextDocument(QObject):
         'ritual_ZN13QTextDocument14appendUndoItemEP17QAbstractUndoItem',
         self._addressOf(a0),
     )
+
+  @overload(QTextFormat)
+  def createObject(self, f: QTextFormat) -> Optional[QTextObject]:
+    """
+    Calls Qt's 'QTextObject *QTextDocument::createObject(const QTextFormat
+    &f)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#createObject
+
+    Parameters
+    ----------
+
+    f : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Optional[QTextObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextObject *QTextDocument::createObject(const QTextFormat &f)
+    address = self.uglySide.call(
+        'ritual_own_ZN13QTextDocument12createObjectERK11QTextFormat',
+        self._valueOf(f),
+    )
+    from . import QTextObject
+    return QTextObject._cuteAt(address)
+
+  @overload(int, QUrl)
+  def loadResource(self, type: int, name: QUrl) -> QVariant:
+    """
+    Calls Qt's 'QVariant QTextDocument::loadResource(int type, const QUrl
+    &name)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#loadResource
+
+    Parameters
+    ----------
+
+    type : int
+      Passed on as it is.
+
+    name : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QTextDocument::loadResource(int type, const QUrl &name)
+    address = self.uglySide.call(
+        'ritual_own_ZN13QTextDocument12loadResourceEiRK4QUrl',
+        type, self._valueOf(name),
+    )
+    from ..QtCore import QVariant
+    return QVariant._cuteOwning(address)

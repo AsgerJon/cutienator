@@ -18,12 +18,15 @@ from . import QPushButton, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
+  from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtGui import QPaintEvent
   from . import QStyleOptionButton
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QStyleOptionButton = WAIT['QStyleOptionButton']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -43,9 +46,10 @@ class QCommandLinkButton(QPushButton):
   -----------
 
   Every function of Qt's QCommandLinkButton that has a ritual and that Python
-  can call so far, 8 names in all: 'metaObject', 'tr', 'description',
+  can call so far, 10 names in all: 'metaObject', 'tr', 'description',
   'setDescription', 'sizeHint', 'heightForWidth', 'minimumSizeHint',
-  'initStyleOption'. It can be made from Python, in 3 ways; see '__init__'.
+  'initStyleOption', 'event', 'paintEvent'. It can be made from Python, in 3
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,8 +60,8 @@ class QCommandLinkButton(QPushButton):
   What has no ritual
   ------------------
 
-  10 of the 22 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 protected; 2 forbidden; 1 a template.
+  8 of the 22 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -130,6 +134,11 @@ class QCommandLinkButton(QPushButton):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QCommandLinkButton'
 
+  #  A C++ QCommandLinkButton Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QCommandLinkButton'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -193,7 +202,10 @@ class QCommandLinkButton(QPushButton):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QCommandLinkButton::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK18QCommandLinkButton8sizeHintEv')
+    ritual = 'ritual_ZNK18QCommandLinkButton8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QCommandLinkButton8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -212,9 +224,10 @@ class QCommandLinkButton(QPushButton):
       Passed on as it is.
     """
     #  int QCommandLinkButton::heightForWidth(int a0) const
-    return self.uglySide.call(
-        'ritual_ZNK18QCommandLinkButton14heightForWidthEi', a0,
-    )
+    ritual = 'ritual_ZNK18QCommandLinkButton14heightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QCommandLinkButton14heightForWidthEi'
+    return self.uglySide.call(ritual, a0)
 
   def minimumSizeHint(self) -> QSize:
     """
@@ -230,9 +243,10 @@ class QCommandLinkButton(QPushButton):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QCommandLinkButton::minimumSizeHint() const
-    address = self.uglySide.call(
-        'ritual_ZNK18QCommandLinkButton15minimumSizeHintEv',
-    )
+    ritual = 'ritual_ZNK18QCommandLinkButton15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QCommandLinkButton15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -403,8 +417,53 @@ class QCommandLinkButton(QPushButton):
     """
     #  void QCommandLinkButton::initStyleOption(QStyleOptionButton *option)
     #      const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK18QCommandLinkButton15initStyleOptionEP18QStyleOptionBut'
-        'ton',
-        self._addressOf(option),
+        'ton')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK18QCommandLinkButton15initStyleOptionEP18QStyleOpt'
+          'ionButton')
+    self.uglySide.call(ritual, self._addressOf(option))
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QCommandLinkButton::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcommandlinkbutton.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QCommandLinkButton::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN18QCommandLinkButton5eventEP6QEvent',
+        self._addressOf(e),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QCommandLinkButton::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcommandlinkbutton.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QCommandLinkButton::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN18QCommandLinkButton10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
     )

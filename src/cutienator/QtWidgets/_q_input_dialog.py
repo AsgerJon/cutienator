@@ -175,6 +175,11 @@ class QInputDialog(QDialog):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QInputDialog'
 
+  #  A C++ QInputDialog Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QInputDialog'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -436,9 +441,10 @@ class QInputDialog(QDialog):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QInputDialog::minimumSizeHint() const
-    address = self.uglySide.call(
-        'ritual_ZNK12QInputDialog15minimumSizeHintEv',
-    )
+    ritual = 'ritual_ZNK12QInputDialog15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QInputDialog15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -455,7 +461,10 @@ class QInputDialog(QDialog):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QInputDialog::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK12QInputDialog8sizeHintEv')
+    ritual = 'ritual_ZNK12QInputDialog8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QInputDialog8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -831,7 +840,10 @@ class QInputDialog(QDialog):
       Passed on as it is.
     """
     #  void QInputDialog::setVisible(bool visible)
-    self.uglySide.call('ritual_ZN12QInputDialog10setVisibleEb', visible)
+    ritual = 'ritual_ZN12QInputDialog10setVisibleEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QInputDialog10setVisibleEb'
+    self.uglySide.call(ritual, visible)
 
   @overload(float)
   def setDoubleStep(self, step: float) -> None:
@@ -955,4 +967,7 @@ class QInputDialog(QDialog):
       Passed on as it is.
     """
     #  void QInputDialog::done(int result)
-    self.uglySide.call('ritual_ZN12QInputDialog4doneEi', result)
+    ritual = 'ritual_ZN12QInputDialog4doneEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QInputDialog4doneEi'
+    self.uglySide.call(ritual, result)

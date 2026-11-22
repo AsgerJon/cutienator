@@ -69,6 +69,11 @@ class QCloseEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QCloseEvent'
 
+  #  A C++ QCloseEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QCloseEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -95,7 +100,10 @@ class QCloseEvent(QEvent):
       no object.
     """
     #  QCloseEvent *QCloseEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK11QCloseEvent5cloneEv')
+    ritual = 'ritual_ZNK11QCloseEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QCloseEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QCloseEvent._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -86,6 +86,13 @@
     "ritual_ZNK15QGuiApplication9sessionIdEv": ["text", "address"],
     "ritual_ZNK15QGuiApplication10sessionKeyEv": ["text", "address"],
     "ritual_ZNK15QGuiApplication15isSavingSessionEv": ["bool", "address"],
-    "ritual_ZN15QGuiApplication4syncEv": ["nothing"]
+    "ritual_ZN15QGuiApplication4syncEv": ["nothing"],
+    "ritual_take_QGuiApplication": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QGuiApplication6notifyEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QGuiApplication5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
   }
 }

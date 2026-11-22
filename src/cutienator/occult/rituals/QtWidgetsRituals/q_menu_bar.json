@@ -44,6 +44,54 @@
     ],
     "ritual_ZNK8QMenuBar15isNativeMenuBarEv": ["bool", "address"],
     "ritual_ZN8QMenuBar16setNativeMenuBarEb": ["nothing", "address", "bool"],
-    "ritual_ZN8QMenuBar10setVisibleEb": ["nothing", "address", "bool"]
+    "ritual_ZN8QMenuBar10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_take_QMenuBar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK8QMenuBar8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK8QMenuBar15minimumSizeHintEv": ["address", "address"],
+    "ritual_own_ZNK8QMenuBar14heightForWidthEi": ["int", "address", "int"],
+    "ritual_own_ZN8QMenuBar10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_own_ZN8QMenuBar11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar10leaveEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar11actionEventEP12QActionEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN8QMenuBar5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_own_ZNK8QMenuBar15initStyleOptionEP20QStyleOptionMenuItemPK7QAction": [
+      "nothing", "address", "address", "address"
+    ]
   }
 }

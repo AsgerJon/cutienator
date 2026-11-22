@@ -19,6 +19,8 @@
     ],
     "ritual_ZN11QTranslator4loadERK7QLocaleRK7QStringS5_S5_S5_": [
       "bool", "address", "address", "text", "text", "text", "text"
-    ]
+    ],
+    "ritual_take_QTranslator": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QTranslator7isEmptyEv": ["bool", "address"]
   }
 }

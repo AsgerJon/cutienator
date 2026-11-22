@@ -145,6 +145,73 @@
     ],
     "ritual_ZN11QHeaderView17headerDataChangedEN2Qt11OrientationEii": [
       "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_take_QHeaderView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QHeaderView8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK11QHeaderView8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN11QHeaderView10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN11QHeaderView13doItemsLayoutEv": ["nothing", "address"],
+    "ritual_own_ZN11QHeaderView5resetEv": ["nothing", "address"],
+    "ritual_own_ZN11QHeaderView14currentChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN11QHeaderView5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QHeaderView10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QHeaderView15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QHeaderView14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QHeaderView17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QHeaderView21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QHeaderView13viewportEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK11QHeaderView12paintSectionEP8QPainterRK5QRecti": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK11QHeaderView23sectionSizeFromContentsEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK11QHeaderView16horizontalOffsetEv": ["int", "address"],
+    "ritual_own_ZNK11QHeaderView14verticalOffsetEv": ["int", "address"],
+    "ritual_own_ZN11QHeaderView16updateGeometriesEv": ["nothing", "address"],
+    "ritual_own_ZN11QHeaderView16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN11QHeaderView12rowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK11QHeaderView10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN11QHeaderView8scrollToERK11QModelIndexN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZNK11QHeaderView7indexAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK11QHeaderView13isIndexHiddenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK11QHeaderView24visualRegionForSelectionERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK11QHeaderView23initStyleOptionForIndexEP18QStyleOptionHeaderi": [
+      "nothing", "address", "address", "int"
     ]
   }
 }

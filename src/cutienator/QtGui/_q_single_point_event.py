@@ -85,6 +85,11 @@ class QSinglePointEvent(QPointerEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSinglePointEvent'
 
+  #  A C++ QSinglePointEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QSinglePointEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -111,7 +116,10 @@ class QSinglePointEvent(QPointerEvent):
       no object.
     """
     #  QSinglePointEvent *QSinglePointEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK17QSinglePointEvent5cloneEv')
+    ritual = 'ritual_ZNK17QSinglePointEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QSinglePointEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QSinglePointEvent._cuteAt(address)
 
   def button(self) -> Qt.MouseButton:
@@ -215,9 +223,10 @@ class QSinglePointEvent(QPointerEvent):
     https://doc.qt.io/qt-6/qsinglepointevent.html#isBeginEvent
     """
     #  bool QSinglePointEvent::isBeginEvent() const
-    return self.uglySide.call(
-        'ritual_ZNK17QSinglePointEvent12isBeginEventEv',
-    )
+    ritual = 'ritual_ZNK17QSinglePointEvent12isBeginEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QSinglePointEvent12isBeginEventEv'
+    return self.uglySide.call(ritual)
 
   def isUpdateEvent(self) -> bool:
     """
@@ -227,9 +236,10 @@ class QSinglePointEvent(QPointerEvent):
     https://doc.qt.io/qt-6/qsinglepointevent.html#isUpdateEvent
     """
     #  bool QSinglePointEvent::isUpdateEvent() const
-    return self.uglySide.call(
-        'ritual_ZNK17QSinglePointEvent13isUpdateEventEv',
-    )
+    ritual = 'ritual_ZNK17QSinglePointEvent13isUpdateEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QSinglePointEvent13isUpdateEventEv'
+    return self.uglySide.call(ritual)
 
   def isEndEvent(self) -> bool:
     """
@@ -238,7 +248,10 @@ class QSinglePointEvent(QPointerEvent):
     Qt's own words: https://doc.qt.io/qt-6/qsinglepointevent.html#isEndEvent
     """
     #  bool QSinglePointEvent::isEndEvent() const
-    return self.uglySide.call('ritual_ZNK17QSinglePointEvent10isEndEventEv')
+    ritual = 'ritual_ZNK17QSinglePointEvent10isEndEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QSinglePointEvent10isEndEventEv'
+    return self.uglySide.call(ritual)
 
   def exclusivePointGrabber(self) -> Optional[QObject]:
     """

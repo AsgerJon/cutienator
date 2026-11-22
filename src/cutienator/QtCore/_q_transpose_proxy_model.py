@@ -132,6 +132,11 @@ class QTransposeProxyModel(QAbstractProxyModel):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTransposeProxyModel'
 
+  #  A C++ QTransposeProxyModel Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTransposeProxyModel'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -186,10 +191,11 @@ class QTransposeProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZNK20QTransposeProxyModel8rowCountERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK20QTransposeProxyModel8rowCountERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK20QTransposeProxyModel8rowCountERK11QModelIndex')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload()
   @overload(QModelIndex)
@@ -213,10 +219,12 @@ class QTransposeProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZNK20QTransposeProxyModel11columnCountERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK20QTransposeProxyModel11columnCountERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK20QTransposeProxyModel11columnCountERK11QModelInde'
+          'x')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(int, Qt.Orientation)
   @overload(int, Qt.Orientation, int)
@@ -253,10 +261,13 @@ class QTransposeProxyModel(QAbstractProxyModel):
     """
     #  QVariant QTransposeProxyModel::headerData(int section, Qt::Orientation
     #      orientation, int role) const
-    address = self.uglySide.call(
-        'ritual_ZNK20QTransposeProxyModel10headerDataEiN2Qt11OrientationEi',
-        section, orientation.value, role,
-    )
+    ritual = (
+        'ritual_ZNK20QTransposeProxyModel10headerDataEiN2Qt11OrientationEi')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK20QTransposeProxyModel10headerDataEiN2Qt11Orientat'
+          'ionEi')
+    address = self.uglySide.call(ritual, section, orientation.value, role)
     from . import QVariant
     return QVariant._cuteOwning(address)
 
@@ -282,10 +293,10 @@ class QTransposeProxyModel(QAbstractProxyModel):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QTransposeProxyModel::span(const QModelIndex &index) const
-    address = self.uglySide.call(
-        'ritual_ZNK20QTransposeProxyModel4spanERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK20QTransposeProxyModel4spanERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK20QTransposeProxyModel4spanERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from . import QSize
     return QSize._cuteOwning(address)
 
@@ -313,10 +324,13 @@ class QTransposeProxyModel(QAbstractProxyModel):
     """
     #  QModelIndex QTransposeProxyModel::mapFromSource(const QModelIndex
     #      &sourceIndex) const
-    address = self.uglySide.call(
-        'ritual_ZNK20QTransposeProxyModel13mapFromSourceERK11QModelIndex',
-        self._valueOf(sourceIndex),
-    )
+    ritual = (
+        'ritual_ZNK20QTransposeProxyModel13mapFromSourceERK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK20QTransposeProxyModel13mapFromSourceERK11QModelIn'
+          'dex')
+    address = self.uglySide.call(ritual, self._valueOf(sourceIndex))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -344,10 +358,12 @@ class QTransposeProxyModel(QAbstractProxyModel):
     """
     #  QModelIndex QTransposeProxyModel::mapToSource(const QModelIndex
     #      &proxyIndex) const
-    address = self.uglySide.call(
-        'ritual_ZNK20QTransposeProxyModel11mapToSourceERK11QModelIndex',
-        self._valueOf(proxyIndex),
-    )
+    ritual = 'ritual_ZNK20QTransposeProxyModel11mapToSourceERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK20QTransposeProxyModel11mapToSourceERK11QModelInde'
+          'x')
+    address = self.uglySide.call(ritual, self._valueOf(proxyIndex))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -374,10 +390,10 @@ class QTransposeProxyModel(QAbstractProxyModel):
     """
     #  QModelIndex QTransposeProxyModel::parent(const QModelIndex &index)
     #      const
-    address = self.uglySide.call(
-        'ritual_ZNK20QTransposeProxyModel6parentERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK20QTransposeProxyModel6parentERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK20QTransposeProxyModel6parentERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -420,10 +436,10 @@ class QTransposeProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    address = self.uglySide.call(
-        'ritual_ZNK20QTransposeProxyModel5indexEiiRK11QModelIndex',
-        row, column, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK20QTransposeProxyModel5indexEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK20QTransposeProxyModel5indexEiiRK11QModelIndex'
+    address = self.uglySide.call(ritual, row, column, self._valueOf(parent))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -453,11 +469,14 @@ class QTransposeProxyModel(QAbstractProxyModel):
     """
     #  void QTransposeProxyModel::setSourceModel(QAbstractItemModel
     #      *newSourceModel)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN20QTransposeProxyModel14setSourceModelEP18QAbstractItemMo'
-        'del',
-        self._addressOf(newSourceModel),
-    )
+        'del')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN20QTransposeProxyModel14setSourceModelEP18QAbstract'
+          'ItemModel')
+    self.uglySide.call(ritual, self._addressOf(newSourceModel))
 
   @overload(int, Qt.Orientation, QVariant)
   @overload(int, Qt.Orientation, QVariant, int)
@@ -493,10 +512,15 @@ class QTransposeProxyModel(QAbstractProxyModel):
     """
     #  bool QTransposeProxyModel::setHeaderData(int section, Qt::Orientation
     #      orientation, const QVariant &value, int role)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN20QTransposeProxyModel13setHeaderDataEiN2Qt11OrientationE'
-        'RK8QVarianti',
-        section, orientation.value, self._valueOf(value), role,
+        'RK8QVarianti')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN20QTransposeProxyModel13setHeaderDataEiN2Qt11Orient'
+          'ationERK8QVarianti')
+    return self.uglySide.call(
+        ritual, section, orientation.value, self._valueOf(value), role,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -590,10 +614,12 @@ class QTransposeProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN20QTransposeProxyModel10insertRowsEiiRK11QModelIndex',
-        row, count, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN20QTransposeProxyModel10insertRowsEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN20QTransposeProxyModel10insertRowsEiiRK11QModelInde'
+          'x')
+    return self.uglySide.call(ritual, row, count, self._valueOf(parent))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -629,10 +655,12 @@ class QTransposeProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN20QTransposeProxyModel10removeRowsEiiRK11QModelIndex',
-        row, count, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN20QTransposeProxyModel10removeRowsEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN20QTransposeProxyModel10removeRowsEiiRK11QModelInde'
+          'x')
+    return self.uglySide.call(ritual, row, count, self._valueOf(parent))
 
   @overload(QModelIndex, int, int, QModelIndex, int)
   def moveRows(
@@ -673,8 +701,13 @@ class QTransposeProxyModel(QAbstractProxyModel):
     #  bool QTransposeProxyModel::moveRows(const QModelIndex &sourceParent,
     #      int sourceRow, int count, const QModelIndex &destinationParent,
     #      int destinationChild)
+    ritual = 'ritual_ZN20QTransposeProxyModel8moveRowsERK11QModelIndexiiS2_i'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN20QTransposeProxyModel8moveRowsERK11QModelIndexiiS2'
+          '_i')
     return self.uglySide.call(
-        'ritual_ZN20QTransposeProxyModel8moveRowsERK11QModelIndexiiS2_i',
+        ritual,
         self._valueOf(sourceParent), sourceRow, count,
         self._valueOf(destinationParent), destinationChild,
     )
@@ -713,10 +746,13 @@ class QTransposeProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN20QTransposeProxyModel13insertColumnsEiiRK11QModelIndex',
-        column, count, self._valueOf(parent),
-    )
+    ritual = (
+        'ritual_ZN20QTransposeProxyModel13insertColumnsEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN20QTransposeProxyModel13insertColumnsEiiRK11QModelI'
+          'ndex')
+    return self.uglySide.call(ritual, column, count, self._valueOf(parent))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -752,10 +788,13 @@ class QTransposeProxyModel(QAbstractProxyModel):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN20QTransposeProxyModel13removeColumnsEiiRK11QModelIndex',
-        column, count, self._valueOf(parent),
-    )
+    ritual = (
+        'ritual_ZN20QTransposeProxyModel13removeColumnsEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN20QTransposeProxyModel13removeColumnsEiiRK11QModelI'
+          'ndex')
+    return self.uglySide.call(ritual, column, count, self._valueOf(parent))
 
   @overload(QModelIndex, int, int, QModelIndex, int)
   def moveColumns(
@@ -797,8 +836,14 @@ class QTransposeProxyModel(QAbstractProxyModel):
     #  bool QTransposeProxyModel::moveColumns(const QModelIndex
     #      &sourceParent, int sourceColumn, int count, const QModelIndex
     #      &destinationParent, int destinationChild)
+    ritual = (
+        'ritual_ZN20QTransposeProxyModel11moveColumnsERK11QModelIndexiiS2_i')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN20QTransposeProxyModel11moveColumnsERK11QModelIndex'
+          'iiS2_i')
     return self.uglySide.call(
-        'ritual_ZN20QTransposeProxyModel11moveColumnsERK11QModelIndexiiS2_i',
+        ritual,
         self._valueOf(sourceParent), sourceColumn, count,
         self._valueOf(destinationParent), destinationChild,
     )
@@ -827,7 +872,7 @@ class QTransposeProxyModel(QAbstractProxyModel):
       Qt.SortOrder.AscendingOrder.
     """
     #  void QTransposeProxyModel::sort(int column, Qt::SortOrder order)
-    self.uglySide.call(
-        'ritual_ZN20QTransposeProxyModel4sortEiN2Qt9SortOrderE',
-        column, order.value,
-    )
+    ritual = 'ritual_ZN20QTransposeProxyModel4sortEiN2Qt9SortOrderE'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN20QTransposeProxyModel4sortEiN2Qt9SortOrderE'
+    self.uglySide.call(ritual, column, order.value)

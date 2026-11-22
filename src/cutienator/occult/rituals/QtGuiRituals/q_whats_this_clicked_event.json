@@ -7,6 +7,10 @@
     "ritual_ZNK22QWhatsThisClickedEvent5cloneEv": ["address", "address"],
     "ritual_ZN22QWhatsThisClickedEventD1Ev": ["nothing", "address"],
     "ritual_ZN22QWhatsThisClickedEventC1ERK7QString": ["address", "text"],
-    "ritual_ZNK22QWhatsThisClickedEvent4hrefEv": ["text", "address"]
+    "ritual_ZNK22QWhatsThisClickedEvent4hrefEv": ["text", "address"],
+    "ritual_take_QWhatsThisClickedEvent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QWhatsThisClickedEvent5cloneEv": ["address", "address"]
   }
 }

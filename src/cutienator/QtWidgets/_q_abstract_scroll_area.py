@@ -14,19 +14,33 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QObject
 from . import QFrame, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
+  from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtGui import QContextMenuEvent, QDragEnterEvent, QDragLeaveEvent
+  from ..QtGui import QDragMoveEvent, QDropEvent, QKeyEvent, QMouseEvent
+  from ..QtGui import QPaintEvent, QResizeEvent, QWheelEvent
   from . import QScrollBar
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QContextMenuEvent = WAIT['QContextMenuEvent']
+  QDragEnterEvent = WAIT['QDragEnterEvent']
+  QDragLeaveEvent = WAIT['QDragLeaveEvent']
+  QDragMoveEvent = WAIT['QDragMoveEvent']
+  QDropEvent = WAIT['QDropEvent']
+  QEvent = WAIT['QEvent']
+  QKeyEvent = WAIT['QKeyEvent']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QResizeEvent = WAIT['QResizeEvent']
   QScrollBar = WAIT['QScrollBar']
+  QWheelEvent = WAIT['QWheelEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -45,15 +59,19 @@ class QAbstractScrollArea(QFrame):
   -----------
 
   Every function of Qt's QAbstractScrollArea that has a ritual and that
-  Python can call so far, 21 names in all: 'metaObject', 'tr',
+  Python can call so far, 39 names in all: 'metaObject', 'tr',
   'verticalScrollBarPolicy', 'setVerticalScrollBarPolicy',
   'verticalScrollBar', 'setVerticalScrollBar', 'horizontalScrollBarPolicy',
   'setHorizontalScrollBarPolicy', 'horizontalScrollBar',
   'setHorizontalScrollBar', 'cornerWidget', 'setCornerWidget',
   'addScrollBarWidget', 'viewport', 'setViewport', 'maximumViewportSize',
   'minimumSizeHint', 'sizeHint', 'setupViewport', 'sizeAdjustPolicy',
-  'setSizeAdjustPolicy'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'setSizeAdjustPolicy', 'eventFilter', 'event', 'viewportEvent',
+  'resizeEvent', 'paintEvent', 'mousePressEvent', 'mouseReleaseEvent',
+  'mouseDoubleClickEvent', 'mouseMoveEvent', 'wheelEvent',
+  'contextMenuEvent', 'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent',
+  'dropEvent', 'keyPressEvent', 'scrollContentsBy', 'viewportSizeHint'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,7 +82,7 @@ class QAbstractScrollArea(QFrame):
   What has no ritual
   ------------------
 
-  31 of the 54 functions Qt declares: 22 protected; 3 takes or gives a type
+  13 of the 54 functions Qt declares: 4 protected; 3 takes or gives a type
   that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
 
   What to expect
@@ -150,6 +168,45 @@ class QAbstractScrollArea(QFrame):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractScrollArea'
+
+  #  A C++ QAbstractScrollArea Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractScrollArea'
+
+  #  The functions Qt calls itself that QAbstractScrollArea is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'setupViewport': (
+          ('_ZN19QAbstractScrollArea13setupViewportEP7QWidget',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'viewportEvent': (
+          ('_ZN19QAbstractScrollArea13viewportEventEP6QEvent',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'scrollContentsBy': (
+          ('_ZN19QAbstractScrollArea16scrollContentsByEii',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+           )),
+      ),
+      'viewportSizeHint': (
+          ('_ZNK19QAbstractScrollArea16viewportSizeHintEv',
+           ('address', 'value', 'QtCore:QSize'),
+           ()),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -344,9 +401,10 @@ class QAbstractScrollArea(QFrame):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QAbstractScrollArea::minimumSizeHint() const
-    address = self.uglySide.call(
-        'ritual_ZNK19QAbstractScrollArea15minimumSizeHintEv',
-    )
+    ritual = 'ritual_ZNK19QAbstractScrollArea15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QAbstractScrollArea15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -363,9 +421,10 @@ class QAbstractScrollArea(QFrame):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QAbstractScrollArea::sizeHint() const
-    address = self.uglySide.call(
-        'ritual_ZNK19QAbstractScrollArea8sizeHintEv',
-    )
+    ritual = 'ritual_ZNK19QAbstractScrollArea8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QAbstractScrollArea8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -389,6 +448,26 @@ class QAbstractScrollArea(QFrame):
     return QAbstractScrollArea.SizeAdjustPolicy(self.uglySide.call(
         'ritual_ZNK19QAbstractScrollArea16sizeAdjustPolicyEv',
     ))
+
+  def viewportSizeHint(self) -> QSize:
+    """
+    Calls Qt's 'QSize QAbstractScrollArea::viewportSizeHint() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QAbstractScrollArea::viewportSizeHint() const
+    address = self.uglySide.call(
+        'ritual_own_ZNK19QAbstractScrollArea16viewportSizeHintEv',
+    )
+    from ..QtCore import QSize
+    return QSize._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -661,7 +740,397 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::setupViewport(QWidget *viewport)
+    ritual = 'ritual_ZN19QAbstractScrollArea13setupViewportEP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QAbstractScrollArea13setupViewportEP7QWidget'
+    self.uglySide.call(ritual, self._addressOf(viewport))
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(self, a0: Optional[QObject], a1: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QAbstractScrollArea::eventFilter(QObject *a0, QEvent
+    *a1)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter
+
+    Parameters
+    ----------
+
+    a0 : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a1 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QAbstractScrollArea::eventFilter(QObject *a0, QEvent *a1)
+    return self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(a0), self._addressOf(a1),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QAbstractScrollArea::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractscrollarea.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QAbstractScrollArea::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea5eventEP6QEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def viewportEvent(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QAbstractScrollArea::viewportEvent(QEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QAbstractScrollArea::viewportEvent(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea13viewportEventEP6QEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, a0: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::resizeEvent(QResizeEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#resizeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::resizeEvent(QResizeEvent *a0)
     self.uglySide.call(
-        'ritual_ZN19QAbstractScrollArea13setupViewportEP7QWidget',
-        self._addressOf(viewport),
+        'ritual_own_ZN19QAbstractScrollArea11resizeEventEP12QResizeEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::mousePressEvent(QMouseEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::mousePressEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea15mousePressEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::mouseReleaseEvent(QMouseEvent
+    *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::mouseReleaseEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea17mouseReleaseEventEP11QMouseEve'
+        'nt',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseDoubleClickEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::mouseDoubleClickEvent(QMouseEvent
+    *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::mouseDoubleClickEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea21mouseDoubleClickEventEP11QMous'
+        'eEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::mouseMoveEvent(QMouseEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::mouseMoveEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QWheelEvent)
+  @overload(NoneType)
+  def wheelEvent(self, a0: Optional[QWheelEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::wheelEvent(QWheelEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QWheelEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::wheelEvent(QWheelEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea10wheelEventEP11QWheelEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QContextMenuEvent)
+  @overload(NoneType)
+  def contextMenuEvent(self, a0: Optional[QContextMenuEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::contextMenuEvent(QContextMenuEvent
+    *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QContextMenuEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::contextMenuEvent(QContextMenuEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea16contextMenuEventEP17QContextMe'
+        'nuEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QDragEnterEvent)
+  @overload(NoneType)
+  def dragEnterEvent(self, a0: Optional[QDragEnterEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::dragEnterEvent(QDragEnterEvent
+    *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QDragEnterEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::dragEnterEvent(QDragEnterEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea14dragEnterEventEP15QDragEnterEv'
+        'ent',
+        self._addressOf(a0),
+    )
+
+  @overload(QDragMoveEvent)
+  @overload(NoneType)
+  def dragMoveEvent(self, a0: Optional[QDragMoveEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::dragMoveEvent(QDragMoveEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QDragMoveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::dragMoveEvent(QDragMoveEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea13dragMoveEventEP14QDragMoveEven'
+        't',
+        self._addressOf(a0),
+    )
+
+  @overload(QDragLeaveEvent)
+  @overload(NoneType)
+  def dragLeaveEvent(self, a0: Optional[QDragLeaveEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::dragLeaveEvent(QDragLeaveEvent
+    *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QDragLeaveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::dragLeaveEvent(QDragLeaveEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea14dragLeaveEventEP15QDragLeaveEv'
+        'ent',
+        self._addressOf(a0),
+    )
+
+  @overload(QDropEvent)
+  @overload(NoneType)
+  def dropEvent(self, a0: Optional[QDropEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::dropEvent(QDropEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::dropEvent(QDropEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea9dropEventEP10QDropEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, a0: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::keyPressEvent(QKeyEvent *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractScrollArea::keyPressEvent(QKeyEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea13keyPressEventEP9QKeyEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(int, int)
+  def scrollContentsBy(self, dx: int, dy: int) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::scrollContentsBy(int dx, int dy)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollContentsBy
+
+    Parameters
+    ----------
+
+    dx : int
+      Passed on as it is.
+
+    dy : int
+      Passed on as it is.
+    """
+    #  void QAbstractScrollArea::scrollContentsBy(int dx, int dy)
+    self.uglySide.call(
+        'ritual_own_ZN19QAbstractScrollArea16scrollContentsByEii', dx, dy,
     )

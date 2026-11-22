@@ -9,6 +9,8 @@
     "ritual_ZN14QFileOpenEventC1ERK7QString": ["address", "text"],
     "ritual_ZN14QFileOpenEventC1ERK4QUrl": ["address", "address"],
     "ritual_ZNK14QFileOpenEvent4fileEv": ["text", "address"],
-    "ritual_ZNK14QFileOpenEvent3urlEv": ["address", "address"]
+    "ritual_ZNK14QFileOpenEvent3urlEv": ["address", "address"],
+    "ritual_take_QFileOpenEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QFileOpenEvent5cloneEv": ["address", "address"]
   }
 }

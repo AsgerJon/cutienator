@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
 from . import QAbstractButton, QWidget
@@ -19,7 +19,18 @@ from . import QAbstractButton, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
+  from ..QtCore import QEvent, QMetaObject, QPoint, QSize
+  from ..QtGui import QMouseEvent, QPaintEvent
+  from . import QStyleOptionButton
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QPoint = WAIT['QPoint']
+  QStyleOptionButton = WAIT['QStyleOptionButton']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,9 +49,11 @@ class QCheckBox(QAbstractButton):
   -----------
 
   Every function of Qt's QCheckBox that has a ritual and that Python can call
-  so far, 8 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
-  'setTristate', 'isTristate', 'checkState', 'setCheckState'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  so far, 15 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
+  'setTristate', 'isTristate', 'checkState', 'setCheckState', 'event',
+  'hitButton', 'checkStateSet', 'nextCheckState', 'paintEvent',
+  'mouseMoveEvent', 'initStyleOption'. It can be made from Python, in 2 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,9 +64,8 @@ class QCheckBox(QAbstractButton):
   What has no ritual
   ------------------
 
-  17 of the 28 functions Qt declares: 7 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 a signal; 2 forbidden; 1 a
-  template.
+  10 of the 28 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -124,6 +136,25 @@ class QCheckBox(QAbstractButton):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QCheckBox'
 
+  #  A C++ QCheckBox Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QCheckBox'
+
+  #  The functions Qt calls itself that QCheckBox is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK9QCheckBox15initStyleOptionEP18QStyleOptionButton',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionButton'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -167,7 +198,10 @@ class QCheckBox(QAbstractButton):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QCheckBox::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK9QCheckBox8sizeHintEv')
+    ritual = 'ritual_ZNK9QCheckBox8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QCheckBox8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -184,7 +218,10 @@ class QCheckBox(QAbstractButton):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QCheckBox::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK9QCheckBox15minimumSizeHintEv')
+    ritual = 'ritual_ZNK9QCheckBox15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QCheckBox15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -215,6 +252,25 @@ class QCheckBox(QAbstractButton):
     return Qt.CheckState(self.uglySide.call(
         'ritual_ZNK9QCheckBox10checkStateEv',
     ))
+
+  @overload(QPoint)
+  def hitButton(self, pos: QPoint) -> bool:
+    """
+    Calls Qt's 'bool QCheckBox::hitButton(const QPoint &pos) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcheckbox.html#hitButton
+
+    Parameters
+    ----------
+
+    pos : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+    """
+    #  bool QCheckBox::hitButton(const QPoint &pos) const
+    return self.uglySide.call(
+        'ritual_own_ZNK9QCheckBox9hitButtonERK6QPoint', self._valueOf(pos),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -334,3 +390,105 @@ class QCheckBox(QAbstractButton):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QCheckBox::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcheckbox.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QCheckBox::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN9QCheckBox5eventEP6QEvent', self._addressOf(e),
+    )
+
+  def checkStateSet(self) -> None:
+    """
+    Calls Qt's 'void QCheckBox::checkStateSet()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcheckbox.html#checkStateSet
+    """
+    #  void QCheckBox::checkStateSet()
+    self.uglySide.call('ritual_own_ZN9QCheckBox13checkStateSetEv')
+
+  def nextCheckState(self) -> None:
+    """
+    Calls Qt's 'void QCheckBox::nextCheckState()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcheckbox.html#nextCheckState
+    """
+    #  void QCheckBox::nextCheckState()
+    self.uglySide.call('ritual_own_ZN9QCheckBox14nextCheckStateEv')
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QCheckBox::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcheckbox.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QCheckBox::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QCheckBox10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, a0: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QCheckBox::mouseMoveEvent(QMouseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcheckbox.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QCheckBox::mouseMoveEvent(QMouseEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN9QCheckBox14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QStyleOptionButton)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOptionButton]) -> None:
+    """
+    Calls Qt's 'void QCheckBox::initStyleOption(QStyleOptionButton *option)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcheckbox.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionButton]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QCheckBox::initStyleOption(QStyleOptionButton *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK9QCheckBox15initStyleOptionEP18QStyleOptionButton',
+        self._addressOf(option),
+    )

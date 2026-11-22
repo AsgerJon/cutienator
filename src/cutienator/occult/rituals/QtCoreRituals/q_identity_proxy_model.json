@@ -70,6 +70,63 @@
     ],
     "ritual_ZNK19QIdentityProxyModel23handleSourceDataChangesEv": [
       "bool", "address"
+    ],
+    "ritual_take_QIdentityProxyModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QIdentityProxyModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK19QIdentityProxyModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK19QIdentityProxyModel13mapFromSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QIdentityProxyModel11mapToSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QIdentityProxyModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QIdentityProxyModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK19QIdentityProxyModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN19QIdentityProxyModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_own_ZNK19QIdentityProxyModel7siblingEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK19QIdentityProxyModel22mapSelectionFromSourceERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QIdentityProxyModel20mapSelectionToSourceERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN19QIdentityProxyModel14setSourceModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QIdentityProxyModel13insertColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN19QIdentityProxyModel10insertRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN19QIdentityProxyModel13removeColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN19QIdentityProxyModel10removeRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN19QIdentityProxyModel8moveRowsERK11QModelIndexiiS2_i": [
+      "bool", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_own_ZN19QIdentityProxyModel11moveColumnsERK11QModelIndexiiS2_i": [
+      "bool", "address", "address", "int", "int", "address", "int"
     ]
   }
 }

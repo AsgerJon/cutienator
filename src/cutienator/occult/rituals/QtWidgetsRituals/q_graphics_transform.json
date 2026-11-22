@@ -12,6 +12,7 @@
     "ritual_ZN18QGraphicsTransformD1Ev": ["nothing", "address"],
     "ritual_ZNK18QGraphicsTransform7applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_take_QGraphicsTransform": ["bool", "address", "chars", "address"]
   }
 }

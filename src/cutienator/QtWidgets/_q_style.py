@@ -1049,6 +1049,220 @@ class QStyle(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QStyle'
 
+  #  A C++ QStyle Python makes is of a C++ class of ours, in which Python can
+  #  take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QStyle'
+
+  #  The functions Qt calls itself that QStyle is the first to declare and
+  #  that cannot be handed to Python yet, each as Qt declares it. A class of
+  #  a program that writes one of them anew is refused, since Qt would never
+  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'itemTextRect': (
+          'QRect QStyle::itemTextRect(const QFontMetrics &, const QRect &, '
+          'int, bool, const QString &) const',
+      ),
+      'drawItemText': (
+          'void QStyle::drawItemText(QPainter *, const QRect &, int, const '
+          'QPalette &, bool, const QString &, QPalette::ColorRole) const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QStyle is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'polish': (
+          ('_ZN6QStyle6polishEP7QWidget',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+          ('_ZN6QStyle6polishEP12QApplication',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QApplication'),
+           )),
+      ),
+      'unpolish': (
+          ('_ZN6QStyle8unpolishEP7QWidget',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+          ('_ZN6QStyle8unpolishEP12QApplication',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QApplication'),
+           )),
+      ),
+      'itemPixmapRect': (
+          ('_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap',
+           ('address', 'value', 'QtCore:QRect'),
+           (
+               ('address', 'value', 'QtCore:QRect'),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtGui:QPixmap'),
+           )),
+      ),
+      'drawItemPixmap': (
+          ('_ZNK6QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'value', 'QtCore:QRect'),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtGui:QPixmap'),
+           )),
+      ),
+      'standardPalette': (
+          ('_ZNK6QStyle15standardPaletteEv',
+           ('address', 'value', 'QtGui:QPalette'),
+           ()),
+      ),
+      'drawPrimitive': (
+          ('_ZNK6QStyle13drawPrimitiveENS_16PrimitiveElementEPK12QStyleOpti'
+           'onP8QPainterPK7QWidget',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'enum', 'QtWidgets:QStyle.PrimitiveElement'),
+               ('address', 'address', 'QtWidgets:QStyleOption'),
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'drawControl': (
+          ('_ZNK6QStyle11drawControlENS_14ControlElementEPK12QStyleOptionP8'
+           'QPainterPK7QWidget',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'enum', 'QtWidgets:QStyle.ControlElement'),
+               ('address', 'address', 'QtWidgets:QStyleOption'),
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'subElementRect': (
+          ('_ZNK6QStyle14subElementRectENS_10SubElementEPK12QStyleOptionPK7'
+           'QWidget',
+           ('address', 'value', 'QtCore:QRect'),
+           (
+               ('int', 'enum', 'QtWidgets:QStyle.SubElement'),
+               ('address', 'address', 'QtWidgets:QStyleOption'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'drawComplexControl': (
+          ('_ZNK6QStyle18drawComplexControlENS_14ComplexControlEPK19QStyleO'
+           'ptionComplexP8QPainterPK7QWidget',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'enum', 'QtWidgets:QStyle.ComplexControl'),
+               ('address', 'address', 'QtWidgets:QStyleOptionComplex'),
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'hitTestComplexControl': (
+          ('_ZNK6QStyle21hitTestComplexControlENS_14ComplexControlEPK19QSty'
+           'leOptionComplexRK6QPointPK7QWidget',
+           ('int', 'enum', 'QtWidgets:QStyle.SubControl'),
+           (
+               ('int', 'enum', 'QtWidgets:QStyle.ComplexControl'),
+               ('address', 'address', 'QtWidgets:QStyleOptionComplex'),
+               ('address', 'value', 'QtCore:QPoint'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'subControlRect': (
+          ('_ZNK6QStyle14subControlRectENS_14ComplexControlEPK19QStyleOptio'
+           'nComplexNS_10SubControlEPK7QWidget',
+           ('address', 'value', 'QtCore:QRect'),
+           (
+               ('int', 'enum', 'QtWidgets:QStyle.ComplexControl'),
+               ('address', 'address', 'QtWidgets:QStyleOptionComplex'),
+               ('int', 'enum', 'QtWidgets:QStyle.SubControl'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'pixelMetric': (
+          ('_ZNK6QStyle11pixelMetricENS_11PixelMetricEPK12QStyleOptionPK7QW'
+           'idget',
+           ('int', 'number', ''),
+           (
+               ('int', 'enum', 'QtWidgets:QStyle.PixelMetric'),
+               ('address', 'address', 'QtWidgets:QStyleOption'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'sizeFromContents': (
+          ('_ZNK6QStyle16sizeFromContentsENS_12ContentsTypeEPK12QStyleOptio'
+           'nRK5QSizePK7QWidget',
+           ('address', 'value', 'QtCore:QSize'),
+           (
+               ('int', 'enum', 'QtWidgets:QStyle.ContentsType'),
+               ('address', 'address', 'QtWidgets:QStyleOption'),
+               ('address', 'value', 'QtCore:QSize'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'styleHint': (
+          ('_ZNK6QStyle9styleHintENS_9StyleHintEPK12QStyleOptionPK7QWidgetP'
+           '16QStyleHintReturn',
+           ('int', 'number', ''),
+           (
+               ('int', 'enum', 'QtWidgets:QStyle.StyleHint'),
+               ('address', 'address', 'QtWidgets:QStyleOption'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+               ('address', 'address', 'QtWidgets:QStyleHintReturn'),
+           )),
+      ),
+      'standardPixmap': (
+          ('_ZNK6QStyle14standardPixmapENS_14StandardPixmapEPK12QStyleOptio'
+           'nPK7QWidget',
+           ('address', 'value', 'QtGui:QPixmap'),
+           (
+               ('int', 'enum', 'QtWidgets:QStyle.StandardPixmap'),
+               ('address', 'address', 'QtWidgets:QStyleOption'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'standardIcon': (
+          ('_ZNK6QStyle12standardIconENS_14StandardPixmapEPK12QStyleOptionP'
+           'K7QWidget',
+           ('address', 'value', 'QtGui:QIcon'),
+           (
+               ('int', 'enum', 'QtWidgets:QStyle.StandardPixmap'),
+               ('address', 'address', 'QtWidgets:QStyleOption'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'generatedIconPixmap': (
+          ('_ZNK6QStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QSt'
+           'yleOption',
+           ('address', 'value', 'QtGui:QPixmap'),
+           (
+               ('int', 'enum', 'QtGui:QIcon.Mode'),
+               ('address', 'value', 'QtGui:QPixmap'),
+               ('address', 'address', 'QtWidgets:QStyleOption'),
+           )),
+      ),
+      'layoutSpacing': (
+          ('_ZNK6QStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt1'
+           '1OrientationEPK12QStyleOptionPK7QWidget',
+           ('int', 'number', ''),
+           (
+               ('int', 'enum', 'QtWidgets:QSizePolicy.ControlType'),
+               ('int', 'enum', 'QtWidgets:QSizePolicy.ControlType'),
+               ('int', 'enum', 'QtCore:Qt.Orientation'),
+               ('address', 'address', 'QtWidgets:QStyleOption'),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -1173,9 +1387,11 @@ class QStyle(QObject):
     """
     #  QRect QStyle::itemPixmapRect(const QRect &r, int flags, const QPixmap
     #      &pixmap) const
+    ritual = 'ritual_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap'
     address = self.uglySide.call(
-        'ritual_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap',
-        self._valueOf(r), flags, self._valueOf(pixmap),
+        ritual, self._valueOf(r), flags, self._valueOf(pixmap),
     )
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
@@ -1193,7 +1409,10 @@ class QStyle(QObject):
       A new cute QPalette around the copy Qt gave back. Python owns it.
     """
     #  QPalette QStyle::standardPalette() const
-    address = self.uglySide.call('ritual_ZNK6QStyle15standardPaletteEv')
+    ritual = 'ritual_ZNK6QStyle15standardPaletteEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK6QStyle15standardPaletteEv'
+    address = self.uglySide.call(ritual)
     return QPalette._cuteOwning(address)
 
   @overload(SubElement, QStyleOption)
@@ -1854,9 +2073,10 @@ class QStyle(QObject):
       object.
     """
     #  void QStyle::polish(QWidget *widget)
-    self.uglySide.call(
-        'ritual_ZN6QStyle6polishEP7QWidget', self._addressOf(widget),
-    )
+    ritual = 'ritual_ZN6QStyle6polishEP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QStyle6polishEP7QWidget'
+    self.uglySide.call(ritual, self._addressOf(widget))
 
   @overload(QApplication)
   def polish(self, application: Optional[QApplication]) -> None:
@@ -1873,10 +2093,10 @@ class QStyle(QObject):
       object.
     """
     #  void QStyle::polish(QApplication *application)
-    self.uglySide.call(
-        'ritual_ZN6QStyle6polishEP12QApplication',
-        self._addressOf(application),
-    )
+    ritual = 'ritual_ZN6QStyle6polishEP12QApplication'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QStyle6polishEP12QApplication'
+    self.uglySide.call(ritual, self._addressOf(application))
 
   @overload(QWidget)
   @overload(NoneType)
@@ -1894,9 +2114,10 @@ class QStyle(QObject):
       object.
     """
     #  void QStyle::unpolish(QWidget *widget)
-    self.uglySide.call(
-        'ritual_ZN6QStyle8unpolishEP7QWidget', self._addressOf(widget),
-    )
+    ritual = 'ritual_ZN6QStyle8unpolishEP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QStyle8unpolishEP7QWidget'
+    self.uglySide.call(ritual, self._addressOf(widget))
 
   @overload(QApplication)
   def unpolish(self, application: Optional[QApplication]) -> None:
@@ -1913,10 +2134,10 @@ class QStyle(QObject):
       object.
     """
     #  void QStyle::unpolish(QApplication *application)
-    self.uglySide.call(
-        'ritual_ZN6QStyle8unpolishEP12QApplication',
-        self._addressOf(application),
-    )
+    ritual = 'ritual_ZN6QStyle8unpolishEP12QApplication'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QStyle8unpolishEP12QApplication'
+    self.uglySide.call(ritual, self._addressOf(application))
 
   @overload(QPainter, QRect, int, QPalette, bool, str)
   @overload(NoneType, QRect, int, QPalette, bool, str)
@@ -2010,8 +2231,14 @@ class QStyle(QObject):
     """
     #  void QStyle::drawItemPixmap(QPainter *painter, const QRect &rect, int
     #      alignment, const QPixmap &pixmap) const
+    ritual = (
+        'ritual_ZNK6QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK6QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPix'
+          'map')
     self.uglySide.call(
-        'ritual_ZNK6QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap',
+        ritual,
         self._addressOf(painter), self._valueOf(rect), alignment,
         self._valueOf(pixmap),
     )

@@ -207,6 +207,11 @@ class QInputMethodEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QInputMethodEvent'
 
+  #  A C++ QInputMethodEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QInputMethodEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -233,7 +238,10 @@ class QInputMethodEvent(QEvent):
       no object.
     """
     #  QInputMethodEvent *QInputMethodEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK17QInputMethodEvent5cloneEv')
+    ritual = 'ritual_ZNK17QInputMethodEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QInputMethodEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QInputMethodEvent._cuteAt(address)
 
   def preeditString(self) -> str:

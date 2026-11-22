@@ -29,6 +29,7 @@
     ],
     "ritual_ZN9QUndoView8setGroupEP10QUndoGroup": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_take_QUndoView": ["bool", "address", "chars", "address"]
   }
 }

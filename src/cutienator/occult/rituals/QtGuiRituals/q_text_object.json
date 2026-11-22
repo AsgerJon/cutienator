@@ -9,6 +9,7 @@
     "ritual_ZNK11QTextObject6formatEv": ["address", "address"],
     "ritual_ZNK11QTextObject11formatIndexEv": ["int", "address"],
     "ritual_ZNK11QTextObject8documentEv": ["address", "address"],
-    "ritual_ZNK11QTextObject11objectIndexEv": ["int", "address"]
+    "ritual_ZNK11QTextObject11objectIndexEv": ["int", "address"],
+    "ritual_take_QTextObject": ["bool", "address", "chars", "address"]
   }
 }

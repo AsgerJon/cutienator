@@ -35,6 +35,17 @@
     ],
     "ritual_ZN13QPointerEvent20removePassiveGrabberERK11QEventPointP7QObject": [
       "bool", "address", "address", "address"
+    ],
+    "ritual_take_QPointerEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QPointerEvent5cloneEv": ["address", "address"],
+    "ritual_own_ZN13QPointerEvent12setTimestampEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_own_ZNK13QPointerEvent12isBeginEventEv": ["bool", "address"],
+    "ritual_own_ZNK13QPointerEvent13isUpdateEventEv": ["bool", "address"],
+    "ritual_own_ZNK13QPointerEvent10isEndEventEv": ["bool", "address"],
+    "ritual_own_ZN13QPointerEvent11setAcceptedEb": [
+      "nothing", "address", "bool"
     ]
   }
 }

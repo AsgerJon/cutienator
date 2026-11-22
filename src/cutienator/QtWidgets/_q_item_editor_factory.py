@@ -126,6 +126,33 @@ class QItemEditorFactory(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QItemEditorFactory'
 
+  #  A C++ QItemEditorFactory Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QItemEditorFactory'
+
+  #  The functions Qt calls itself that QItemEditorFactory is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'createEditor': (
+          ('_ZNK18QItemEditorFactory12createEditorEiP7QWidget',
+           ('address', 'address', 'QtWidgets:QWidget'),
+           (
+               ('int', 'number', ''),
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'valuePropertyName': (
+          ('_ZNK18QItemEditorFactory17valuePropertyNameEi',
+           ('address', 'value', 'QtCore:QByteArray'),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+  }
+
   #  Qt's '~QItemEditorFactory()'. Naming it makes this a value class: Python
   #  owns every C++ QItemEditorFactory behind a cute one, and removes it by
   #  this ritual.
@@ -176,10 +203,10 @@ class QItemEditorFactory(CuteMixin, metaclass=MetaCute):
     """
     #  QWidget *QItemEditorFactory::createEditor(int userType, QWidget
     #      *parent) const
-    address = self.uglySide.call(
-        'ritual_ZNK18QItemEditorFactory12createEditorEiP7QWidget',
-        userType, self._addressOf(parent),
-    )
+    ritual = 'ritual_ZNK18QItemEditorFactory12createEditorEiP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QItemEditorFactory12createEditorEiP7QWidget'
+    address = self.uglySide.call(ritual, userType, self._addressOf(parent))
     from . import QWidget
     return QWidget._cuteAt(address)
 
@@ -205,9 +232,10 @@ class QItemEditorFactory(CuteMixin, metaclass=MetaCute):
       A new cute QByteArray around the copy Qt gave back. Python owns it.
     """
     #  QByteArray QItemEditorFactory::valuePropertyName(int userType) const
-    address = self.uglySide.call(
-        'ritual_ZNK18QItemEditorFactory17valuePropertyNameEi', userType,
-    )
+    ritual = 'ritual_ZNK18QItemEditorFactory17valuePropertyNameEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QItemEditorFactory17valuePropertyNameEi'
+    address = self.uglySide.call(ritual, userType)
     from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
 

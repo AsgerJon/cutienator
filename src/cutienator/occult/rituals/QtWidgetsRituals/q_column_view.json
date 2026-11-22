@@ -39,6 +39,50 @@
     "ritual_ZNK11QColumnView13previewWidgetEv": ["address", "address"],
     "ritual_ZN11QColumnView16setPreviewWidgetEP7QWidget": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QColumnView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QColumnView7indexAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN11QColumnView8scrollToERK11QModelIndexN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZNK11QColumnView8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK11QColumnView10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN11QColumnView8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QColumnView17setSelectionModelEP19QItemSelectionModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QColumnView12setRootIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QColumnView9selectAllEv": ["nothing", "address"],
+    "ritual_own_ZNK11QColumnView13isIndexHiddenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QColumnView11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK11QColumnView24visualRegionForSelectionERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK11QColumnView16horizontalOffsetEv": ["int", "address"],
+    "ritual_own_ZNK11QColumnView14verticalOffsetEv": ["int", "address"],
+    "ritual_own_ZN11QColumnView12rowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN11QColumnView14currentChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN11QColumnView16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN11QColumnView12createColumnERK11QModelIndex": [
+      "address", "address", "address"
     ]
   }
 }

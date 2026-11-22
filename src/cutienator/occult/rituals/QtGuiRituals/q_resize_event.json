@@ -10,6 +10,8 @@
       "address", "address", "address"
     ],
     "ritual_ZNK12QResizeEvent4sizeEv": ["address", "address"],
-    "ritual_ZNK12QResizeEvent7oldSizeEv": ["address", "address"]
+    "ritual_ZNK12QResizeEvent7oldSizeEv": ["address", "address"],
+    "ritual_take_QResizeEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QResizeEvent5cloneEv": ["address", "address"]
   }
 }

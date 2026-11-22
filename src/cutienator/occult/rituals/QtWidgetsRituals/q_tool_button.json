@@ -32,6 +32,44 @@
     ],
     "ritual_ZN11QToolButton16setDefaultActionEP7QAction": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QToolButton": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QToolButton8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK11QToolButton15minimumSizeHintEv": ["address", "address"],
+    "ritual_own_ZN11QToolButton5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QToolButton15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QToolButton17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QToolButton10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QToolButton11actionEventEP12QActionEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QToolButton10enterEventEP11QEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QToolButton10leaveEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QToolButton10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QToolButton11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK11QToolButton9hitButtonERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QToolButton13checkStateSetEv": ["nothing", "address"],
+    "ritual_own_ZN11QToolButton14nextCheckStateEv": ["nothing", "address"],
+    "ritual_own_ZNK11QToolButton15initStyleOptionEP22QStyleOptionToolButton": [
+      "nothing", "address", "address"
     ]
   }
 }

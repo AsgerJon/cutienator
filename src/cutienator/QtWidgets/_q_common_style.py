@@ -145,6 +145,11 @@ class QCommonStyle(QStyle):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QCommonStyle'
 
+  #  A C++ QCommonStyle Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QCommonStyle'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -215,10 +220,15 @@ class QCommonStyle(QStyle):
     """
     #  QRect QCommonStyle::subElementRect(SubElement r, const QStyleOption
     #      *opt, const QWidget *widget) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle14subElementRectEN6QStyle10SubElementEPK12'
-        'QStyleOptionPK7QWidget',
-        r.value, self._addressOf(opt), self._addressOf(widget),
+        'QStyleOptionPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle14subElementRectEN6QStyle10SubElemen'
+          'tEPK12QStyleOptionPK7QWidget')
+    address = self.uglySide.call(
+        ritual, r.value, self._addressOf(opt), self._addressOf(widget),
     )
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
@@ -273,9 +283,15 @@ class QCommonStyle(QStyle):
     #  SubControl QCommonStyle::hitTestComplexControl(ComplexControl cc,
     #      const QStyleOptionComplex *opt, const QPoint &pt, const QWidget
     #      *w) const
-    return QStyle.SubControl(self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle21hitTestComplexControlEN6QStyle14ComplexC'
-        'ontrolEPK19QStyleOptionComplexRK6QPointPK7QWidget',
+        'ontrolEPK19QStyleOptionComplexRK6QPointPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle21hitTestComplexControlEN6QStyle14Co'
+          'mplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget')
+    return QStyle.SubControl(self.uglySide.call(
+        ritual,
         cc.value, self._addressOf(opt), self._valueOf(pt),
         self._addressOf(w),
     ))
@@ -329,10 +345,15 @@ class QCommonStyle(QStyle):
     """
     #  QRect QCommonStyle::subControlRect(ComplexControl cc, const
     #      QStyleOptionComplex *opt, SubControl sc, const QWidget *w) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle14subControlRectEN6QStyle14ComplexControlE'
-        'PK19QStyleOptionComplexNS0_10SubControlEPK7QWidget',
-        cc.value, self._addressOf(opt), sc.value, self._addressOf(w),
+        'PK19QStyleOptionComplexNS0_10SubControlEPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle14subControlRectEN6QStyle14ComplexCo'
+          'ntrolEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget')
+    address = self.uglySide.call(
+        ritual, cc.value, self._addressOf(opt), sc.value, self._addressOf(w),
     )
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
@@ -383,9 +404,15 @@ class QCommonStyle(QStyle):
     #  QSize QCommonStyle::sizeFromContents(ContentsType ct, const
     #      QStyleOption *opt, const QSize &contentsSize, const QWidget
     #      *widget) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle16sizeFromContentsEN6QStyle12ContentsTypeE'
-        'PK12QStyleOptionRK5QSizePK7QWidget',
+        'PK12QStyleOptionRK5QSizePK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle16sizeFromContentsEN6QStyle12Content'
+          'sTypeEPK12QStyleOptionRK5QSizePK7QWidget')
+    address = self.uglySide.call(
+        ritual,
         ct.value, self._addressOf(opt), self._valueOf(contentsSize),
         self._addressOf(widget),
     )
@@ -427,10 +454,15 @@ class QCommonStyle(QStyle):
     """
     #  int QCommonStyle::pixelMetric(PixelMetric m, const QStyleOption *opt,
     #      const QWidget *widget) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle11pixelMetricEN6QStyle11PixelMetricEPK12QS'
-        'tyleOptionPK7QWidget',
-        m.value, self._addressOf(opt), self._addressOf(widget),
+        'tyleOptionPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle11pixelMetricEN6QStyle11PixelMetricE'
+          'PK12QStyleOptionPK7QWidget')
+    return self.uglySide.call(
+        ritual, m.value, self._addressOf(opt), self._addressOf(widget),
     )
 
   @overload(QStyle.StyleHint)
@@ -481,9 +513,15 @@ class QCommonStyle(QStyle):
     """
     #  int QCommonStyle::styleHint(StyleHint sh, const QStyleOption *opt,
     #      const QWidget *w, QStyleHintReturn *shret) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOp'
-        'tionPK7QWidgetP16QStyleHintReturn',
+        'tionPK7QWidgetP16QStyleHintReturn')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle9styleHintEN6QStyle9StyleHintEPK12QS'
+          'tyleOptionPK7QWidgetP16QStyleHintReturn')
+    return self.uglySide.call(
+        ritual,
         sh.value, self._addressOf(opt), self._addressOf(w),
         self._addressOf(shret),
     )
@@ -529,9 +567,15 @@ class QCommonStyle(QStyle):
     """
     #  QIcon QCommonStyle::standardIcon(StandardPixmap standardIcon, const
     #      QStyleOption *opt, const QWidget *widget) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle12standardIconEN6QStyle14StandardPixmapEPK'
-        '12QStyleOptionPK7QWidget',
+        '12QStyleOptionPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle12standardIconEN6QStyle14StandardPix'
+          'mapEPK12QStyleOptionPK7QWidget')
+    address = self.uglySide.call(
+        ritual,
         standardIcon.value, self._addressOf(opt), self._addressOf(widget),
     )
     return QIcon._cuteOwning(address)
@@ -577,10 +621,15 @@ class QCommonStyle(QStyle):
     """
     #  QPixmap QCommonStyle::standardPixmap(StandardPixmap sp, const
     #      QStyleOption *opt, const QWidget *widget) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle14standardPixmapEN6QStyle14StandardPixmapE'
-        'PK12QStyleOptionPK7QWidget',
-        sp.value, self._addressOf(opt), self._addressOf(widget),
+        'PK12QStyleOptionPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle14standardPixmapEN6QStyle14StandardP'
+          'ixmapEPK12QStyleOptionPK7QWidget')
+    address = self.uglySide.call(
+        ritual, sp.value, self._addressOf(opt), self._addressOf(widget),
     )
     from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
@@ -622,10 +671,15 @@ class QCommonStyle(QStyle):
     """
     #  QPixmap QCommonStyle::generatedIconPixmap(QIcon::Mode iconMode, const
     #      QPixmap &pixmap, const QStyleOption *opt) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle19generatedIconPixmapEN5QIcon4ModeERK7QPix'
-        'mapPK12QStyleOption',
-        iconMode.value, self._valueOf(pixmap), self._addressOf(opt),
+        'mapPK12QStyleOption')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle19generatedIconPixmapEN5QIcon4ModeER'
+          'K7QPixmapPK12QStyleOption')
+    address = self.uglySide.call(
+        ritual, iconMode.value, self._valueOf(pixmap), self._addressOf(opt),
     )
     from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
@@ -693,9 +747,15 @@ class QCommonStyle(QStyle):
     #  int QCommonStyle::layoutSpacing(QSizePolicy::ControlType control1,
     #      QSizePolicy::ControlType control2, Qt::Orientation orientation,
     #      const QStyleOption *option, const QWidget *widget) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle13layoutSpacingEN11QSizePolicy11ControlTyp'
-        'eES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget',
+        'eES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle13layoutSpacingEN11QSizePolicy11Cont'
+          'rolTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget')
+    return self.uglySide.call(
+        ritual,
         control1.value, control2.value, orientation.value,
         self._addressOf(option), self._addressOf(widget),
     )
@@ -794,9 +854,15 @@ class QCommonStyle(QStyle):
     """
     #  void QCommonStyle::drawPrimitive(PrimitiveElement pe, const
     #      QStyleOption *opt, QPainter *p, const QWidget *w) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle13drawPrimitiveEN6QStyle16PrimitiveElement'
-        'EPK12QStyleOptionP8QPainterPK7QWidget',
+        'EPK12QStyleOptionP8QPainterPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle13drawPrimitiveEN6QStyle16PrimitiveE'
+          'lementEPK12QStyleOptionP8QPainterPK7QWidget')
+    self.uglySide.call(
+        ritual,
         pe.value, self._addressOf(opt), self._addressOf(p),
         self._addressOf(w),
     )
@@ -846,9 +912,15 @@ class QCommonStyle(QStyle):
     """
     #  void QCommonStyle::drawControl(ControlElement element, const
     #      QStyleOption *opt, QPainter *p, const QWidget *w) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle11drawControlEN6QStyle14ControlElementEPK1'
-        '2QStyleOptionP8QPainterPK7QWidget',
+        '2QStyleOptionP8QPainterPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle11drawControlEN6QStyle14ControlEleme'
+          'ntEPK12QStyleOptionP8QPainterPK7QWidget')
+    self.uglySide.call(
+        ritual,
         element.value, self._addressOf(opt), self._addressOf(p),
         self._addressOf(w),
     )
@@ -899,9 +971,15 @@ class QCommonStyle(QStyle):
     """
     #  void QCommonStyle::drawComplexControl(ComplexControl cc, const
     #      QStyleOptionComplex *opt, QPainter *p, const QWidget *w) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK12QCommonStyle18drawComplexControlEN6QStyle14ComplexCont'
-        'rolEPK19QStyleOptionComplexP8QPainterPK7QWidget',
+        'rolEPK19QStyleOptionComplexP8QPainterPK7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QCommonStyle18drawComplexControlEN6QStyle14Compl'
+          'exControlEPK19QStyleOptionComplexP8QPainterPK7QWidget')
+    self.uglySide.call(
+        ritual,
         cc.value, self._addressOf(opt), self._addressOf(p),
         self._addressOf(w),
     )
@@ -922,10 +1000,10 @@ class QCommonStyle(QStyle):
       object.
     """
     #  void QCommonStyle::polish(QApplication *app)
-    self.uglySide.call(
-        'ritual_ZN12QCommonStyle6polishEP12QApplication',
-        self._addressOf(app),
-    )
+    ritual = 'ritual_ZN12QCommonStyle6polishEP12QApplication'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QCommonStyle6polishEP12QApplication'
+    self.uglySide.call(ritual, self._addressOf(app))
 
   @overload(QWidget)
   def polish(self, widget: Optional[QWidget]) -> None:
@@ -942,9 +1020,10 @@ class QCommonStyle(QStyle):
       object.
     """
     #  void QCommonStyle::polish(QWidget *widget)
-    self.uglySide.call(
-        'ritual_ZN12QCommonStyle6polishEP7QWidget', self._addressOf(widget),
-    )
+    ritual = 'ritual_ZN12QCommonStyle6polishEP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QCommonStyle6polishEP7QWidget'
+    self.uglySide.call(ritual, self._addressOf(widget))
 
   @overload(QWidget)
   @overload(NoneType)
@@ -962,10 +1041,10 @@ class QCommonStyle(QStyle):
       object.
     """
     #  void QCommonStyle::unpolish(QWidget *widget)
-    self.uglySide.call(
-        'ritual_ZN12QCommonStyle8unpolishEP7QWidget',
-        self._addressOf(widget),
-    )
+    ritual = 'ritual_ZN12QCommonStyle8unpolishEP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QCommonStyle8unpolishEP7QWidget'
+    self.uglySide.call(ritual, self._addressOf(widget))
 
   @overload(QApplication)
   def unpolish(self, application: Optional[QApplication]) -> None:
@@ -982,7 +1061,7 @@ class QCommonStyle(QStyle):
       object.
     """
     #  void QCommonStyle::unpolish(QApplication *application)
-    self.uglySide.call(
-        'ritual_ZN12QCommonStyle8unpolishEP12QApplication',
-        self._addressOf(application),
-    )
+    ritual = 'ritual_ZN12QCommonStyle8unpolishEP12QApplication'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QCommonStyle8unpolishEP12QApplication'
+    self.uglySide.call(ritual, self._addressOf(application))

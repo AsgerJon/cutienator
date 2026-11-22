@@ -215,6 +215,41 @@ class QFileDevice(QIODevice):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFileDevice'
 
+  #  A C++ QFileDevice Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QFileDevice'
+
+  #  The functions Qt calls itself that QFileDevice is the first to declare
+  #  and that cannot be handed to Python yet, each as Qt declares it. A class
+  #  of a program that writes one of them anew is refused, since Qt would
+  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'fileName': (
+          'QString QFileDevice::fileName() const',
+      ),
+      'permissions': (
+          'Permissions QFileDevice::permissions() const',
+      ),
+      'setPermissions': (
+          'bool QFileDevice::setPermissions(Permissions)',
+      ),
+  }
+
+  #  The functions Qt calls itself that QFileDevice is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'resize': (
+          ('_ZN11QFileDevice6resizeEx',
+           ('bool', 'number', ''),
+           (
+               ('long long', 'number', ''),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -270,7 +305,10 @@ class QFileDevice(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qfiledevice.html#isSequential
     """
     #  bool QFileDevice::isSequential() const
-    return self.uglySide.call('ritual_ZNK11QFileDevice12isSequentialEv')
+    ritual = 'ritual_ZNK11QFileDevice12isSequentialEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFileDevice12isSequentialEv'
+    return self.uglySide.call(ritual)
 
   def handle(self) -> int:
     """
@@ -303,7 +341,10 @@ class QFileDevice(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qfiledevice.html#pos
     """
     #  qint64 QFileDevice::pos() const
-    return self.uglySide.call('ritual_ZNK11QFileDevice3posEv')
+    ritual = 'ritual_ZNK11QFileDevice3posEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFileDevice3posEv'
+    return self.uglySide.call(ritual)
 
   def atEnd(self) -> bool:
     """
@@ -312,7 +353,10 @@ class QFileDevice(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qfiledevice.html#atEnd
     """
     #  bool QFileDevice::atEnd() const
-    return self.uglySide.call('ritual_ZNK11QFileDevice5atEndEv')
+    ritual = 'ritual_ZNK11QFileDevice5atEndEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFileDevice5atEndEv'
+    return self.uglySide.call(ritual)
 
   def size(self) -> int:
     """
@@ -321,7 +365,10 @@ class QFileDevice(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qfiledevice.html#size
     """
     #  qint64 QFileDevice::size() const
-    return self.uglySide.call('ritual_ZNK11QFileDevice4sizeEv')
+    ritual = 'ritual_ZNK11QFileDevice4sizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFileDevice4sizeEv'
+    return self.uglySide.call(ritual)
 
   def permissions(self) -> Permissions:
     """
@@ -464,7 +511,10 @@ class QFileDevice(QIODevice):
     Qt's own words: https://doc.qt.io/qt-6/qfiledevice.html#close
     """
     #  void QFileDevice::close()
-    self.uglySide.call('ritual_ZN11QFileDevice5closeEv')
+    ritual = 'ritual_ZN11QFileDevice5closeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFileDevice5closeEv'
+    self.uglySide.call(ritual)
 
   @overload(int)
   def seek(self, offset: int) -> bool:
@@ -480,7 +530,10 @@ class QFileDevice(QIODevice):
       Passed on as it is.
     """
     #  bool QFileDevice::seek(qint64 offset)
-    return self.uglySide.call('ritual_ZN11QFileDevice4seekEx', offset)
+    ritual = 'ritual_ZN11QFileDevice4seekEx'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFileDevice4seekEx'
+    return self.uglySide.call(ritual, offset)
 
   def flush(self) -> bool:
     """
@@ -505,4 +558,7 @@ class QFileDevice(QIODevice):
       Passed on as it is.
     """
     #  bool QFileDevice::resize(qint64 sz)
-    return self.uglySide.call('ritual_ZN11QFileDevice6resizeEx', sz)
+    ritual = 'ritual_ZN11QFileDevice6resizeEx'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFileDevice6resizeEx'
+    return self.uglySide.call(ritual, sz)

@@ -11,14 +11,19 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from . import QAbstractAnimation, QAnimationGroup, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject, QPauseAnimation
+  from . import QEvent, QMetaObject, QPauseAnimation
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,9 +43,10 @@ class QSequentialAnimationGroup(QAnimationGroup):
   -----------
 
   Every function of Qt's QSequentialAnimationGroup that has a ritual and that
-  Python can call so far, 6 names in all: 'metaObject', 'tr', 'addPause',
-  'insertPause', 'currentAnimation', 'duration'. It can be made from Python,
-  in 1 way; see '__init__'.
+  Python can call so far, 10 names in all: 'metaObject', 'tr', 'addPause',
+  'insertPause', 'currentAnimation', 'duration', 'event',
+  'updateCurrentTime', 'updateState', 'updateDirection'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,9 +57,8 @@ class QSequentialAnimationGroup(QAnimationGroup):
   What has no ritual
   ------------------
 
-  15 of the 23 functions Qt declares: 5 protected; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1 a
-  signal.
+  11 of the 23 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 3 private; 2 forbidden; 1 a template; 1 a signal; 1 protected.
 
   What to expect
   --------------
@@ -127,6 +132,11 @@ class QSequentialAnimationGroup(QAnimationGroup):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSequentialAnimationGroup'
 
+  #  A C++ QSequentialAnimationGroup Python makes is of a C++ class of ours,
+  #  in which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QSequentialAnimationGroup'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -191,9 +201,10 @@ class QSequentialAnimationGroup(QAnimationGroup):
     https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration
     """
     #  int QSequentialAnimationGroup::duration() const
-    return self.uglySide.call(
-        'ritual_ZNK25QSequentialAnimationGroup8durationEv',
-    )
+    ritual = 'ritual_ZNK25QSequentialAnimationGroup8durationEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK25QSequentialAnimationGroup8durationEv'
+    return self.uglySide.call(ritual)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -317,3 +328,99 @@ class QSequentialAnimationGroup(QAnimationGroup):
     )
     from . import QPauseAnimation
     return QPauseAnimation._cuteAt(address)
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QSequentialAnimationGroup::event(QEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QSequentialAnimationGroup::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN25QSequentialAnimationGroup5eventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(int)
+  def updateCurrentTime(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QSequentialAnimationGroup::updateCurrentTime(int a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QSequentialAnimationGroup::updateCurrentTime(int a0)
+    self.uglySide.call(
+        'ritual_own_ZN25QSequentialAnimationGroup17updateCurrentTimeEi', a0,
+    )
+
+  @overload(QAbstractAnimation.State, QAbstractAnimation.State)
+  def updateState(
+      self,
+      newState: QAbstractAnimation.State,
+      oldState: QAbstractAnimation.State,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QSequentialAnimationGroup::updateState(QAbstractAnimation::State
+    newState, QAbstractAnimation::State oldState)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState
+
+    Parameters
+    ----------
+
+    newState : QAbstractAnimation.State
+      Passed on as its number.
+
+    oldState : QAbstractAnimation.State
+      Passed on as its number.
+    """
+    #  void QSequentialAnimationGroup::updateState(QAbstractAnimation::State
+    #      newState, QAbstractAnimation::State oldState)
+    self.uglySide.call(
+        'ritual_own_ZN25QSequentialAnimationGroup11updateStateEN18QAbstract'
+        'Animation5StateES1_',
+        newState.value, oldState.value,
+    )
+
+  @overload(QAbstractAnimation.Direction)
+  def updateDirection(self, direction: QAbstractAnimation.Direction) -> None:
+    """
+    Calls Qt's 'void
+    QSequentialAnimationGroup::updateDirection(QAbstractAnimation::Direction
+    direction)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection
+
+    Parameters
+    ----------
+
+    direction : QAbstractAnimation.Direction
+      Passed on as its number.
+    """
+    #  void QSequentialAnimationGroup::updateDirection(QAbstractAnimation::
+    #      Direction direction)
+    self.uglySide.call(
+        'ritual_own_ZN25QSequentialAnimationGroup15updateDirectionEN18QAbst'
+        'ractAnimation9DirectionE',
+        direction.value,
+    )

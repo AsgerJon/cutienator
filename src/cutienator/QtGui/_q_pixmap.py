@@ -59,15 +59,15 @@ class QPixmap(QPaintDevice):
   -----------
 
   Every function of Qt's QPixmap that has a ritual and that Python can call
-  so far, 37 names in all: 'isNull', 'devType', 'width', 'height', 'size',
+  so far, 38 names in all: 'isNull', 'devType', 'width', 'height', 'size',
   'rect', 'depth', 'defaultDepth', 'fill', 'mask', 'setMask',
   'devicePixelRatio', 'setDevicePixelRatio', 'deviceIndependentSize',
   'hasAlpha', 'hasAlphaChannel', 'createHeuristicMask',
   'createMaskFromColor', 'scaled', 'scaledToWidth', 'scaledToHeight',
   'transformed', 'trueMatrix', 'toImage', 'fromImage', 'fromImageReader',
   'load', 'loadFromData', 'save', 'convertFromImage', 'copy', 'scroll',
-  'cacheKey', 'isDetached', 'detach', 'isQBitmap', 'paintEngine'. It can be
-  made from Python, in 5 ways; see '__init__'.
+  'cacheKey', 'isDetached', 'detach', 'isQBitmap', 'paintEngine', 'metric'.
+  It can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -82,8 +82,8 @@ class QPixmap(QPaintDevice):
   What has no ritual
   ------------------
 
-  18 of the 67 functions Qt declares: 11 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 2 protected.
+  17 of the 67 functions Qt declares: 11 takes or gives a type that cannot be
+  passed yet; 3 private; 2 forbidden; 1 protected.
 
   What to expect
   --------------
@@ -236,6 +236,11 @@ class QPixmap(QPaintDevice):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPixmap'
 
+  #  A C++ QPixmap Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPixmap'
+
   #  Qt's '~QPixmap()'. Naming it makes this a value class: Python owns every
   #  C++ QPixmap behind a cute one, and removes it by this ritual.
   __delete_ritual__ = 'ritual_ZN7QPixmapD1Ev'
@@ -268,7 +273,10 @@ class QPixmap(QPaintDevice):
     Qt's own words: https://doc.qt.io/qt-6/qpixmap.html#devType
     """
     #  int QPixmap::devType() const
-    return self.uglySide.call('ritual_ZNK7QPixmap7devTypeEv')
+    ritual = 'ritual_ZNK7QPixmap7devTypeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QPixmap7devTypeEv'
+    return self.uglySide.call(ritual)
 
   def width(self) -> int:
     """
@@ -868,9 +876,31 @@ class QPixmap(QPaintDevice):
       no object.
     """
     #  QPaintEngine *QPixmap::paintEngine() const
-    address = self.uglySide.call('ritual_ZNK7QPixmap11paintEngineEv')
+    ritual = 'ritual_ZNK7QPixmap11paintEngineEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QPixmap11paintEngineEv'
+    address = self.uglySide.call(ritual)
     from . import QPaintEngine
     return QPaintEngine._cuteAt(address)
+
+  @overload(QPaintDevice.PaintDeviceMetric)
+  def metric(self, a0: QPaintDevice.PaintDeviceMetric) -> int:
+    """
+    Calls Qt's 'int QPixmap::metric(PaintDeviceMetric a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpixmap.html#metric
+
+    Parameters
+    ----------
+
+    a0 : QPaintDevice.PaintDeviceMetric
+      Passed on as its number.
+    """
+    #  int QPixmap::metric(PaintDeviceMetric a0) const
+    return self.uglySide.call(
+        'ritual_own_ZNK7QPixmap6metricEN12QPaintDevice17PaintDeviceMetricE',
+        a0.value,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

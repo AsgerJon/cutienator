@@ -10,6 +10,7 @@
     "ritual_ZN10QValidator9setLocaleERK7QLocale": [
       "nothing", "address", "address"
     ],
-    "ritual_ZNK10QValidator6localeEv": ["address", "address"]
+    "ritual_ZNK10QValidator6localeEv": ["address", "address"],
+    "ritual_take_QValidator": ["bool", "address", "chars", "address"]
   }
 }

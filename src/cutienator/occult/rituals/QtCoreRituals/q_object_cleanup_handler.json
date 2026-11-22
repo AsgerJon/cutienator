@@ -20,6 +20,9 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK21QObjectCleanupHandler7isEmptyEv": ["bool", "address"],
-    "ritual_ZN21QObjectCleanupHandler5clearEv": ["nothing", "address"]
+    "ritual_ZN21QObjectCleanupHandler5clearEv": ["nothing", "address"],
+    "ritual_take_QObjectCleanupHandler": [
+      "bool", "address", "chars", "address"
+    ]
   }
 }

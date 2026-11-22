@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
 from . import QKeySequence
@@ -19,7 +19,12 @@ from . import QKeySequence
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
+  from ..QtCore import QEvent, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,10 +43,10 @@ class QShortcut(QObject):
   -----------
 
   Every function of Qt's QShortcut that has a ritual and that Python can call
-  so far, 14 names in all: 'metaObject', 'tr', 'setKey', 'key', 'setKeys',
+  so far, 15 names in all: 'metaObject', 'tr', 'setKey', 'key', 'setKeys',
   'setEnabled', 'isEnabled', 'setContext', 'context', 'setAutoRepeat',
-  'autoRepeat', 'id', 'setWhatsThis', 'whatsThis'. It can be made from
-  Python, in 3 ways; see '__init__'.
+  'autoRepeat', 'id', 'setWhatsThis', 'whatsThis', 'event'. It can be made
+  from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -52,8 +57,8 @@ class QShortcut(QObject):
   What has no ritual
   ------------------
 
-  20 of the 38 functions Qt declares: 10 a template; 4 takes or gives a type
-  that cannot be passed yet; 3 private; 2 a signal; 1 protected.
+  19 of the 38 functions Qt declares: 10 a template; 4 takes or gives a type
+  that cannot be passed yet; 3 private; 2 a signal.
 
   What to expect
   --------------
@@ -123,6 +128,11 @@ class QShortcut(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QShortcut'
+
+  #  A C++ QShortcut Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QShortcut'
 
   #  Fallback Variables
 
@@ -546,3 +556,23 @@ class QShortcut(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QShortcut::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qshortcut.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QShortcut::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN9QShortcut5eventEP6QEvent', self._addressOf(e),
+    )

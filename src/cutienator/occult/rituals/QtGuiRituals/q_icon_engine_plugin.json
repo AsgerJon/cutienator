@@ -11,6 +11,7 @@
     "ritual_ZN17QIconEnginePluginD1Ev": ["nothing", "address"],
     "ritual_ZN17QIconEnginePlugin6createERK7QString": [
       "address", "address", "text"
-    ]
+    ],
+    "ritual_take_QIconEnginePlugin": ["bool", "address", "chars", "address"]
   }
 }

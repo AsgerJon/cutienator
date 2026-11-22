@@ -81,6 +81,136 @@ class QAccessibleTableInterface(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleTableInterface'
 
+  #  A C++ QAccessibleTableInterface Python makes is of a C++ class of ours,
+  #  in which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAccessibleTableInterface'
+
+  #  The functions Qt calls itself that QAccessibleTableInterface is the
+  #  first to declare and that cannot be handed to Python yet, each as Qt
+  #  declares it. A class of a program that writes one of them anew is
+  #  refused, since Qt would never call what it wrote; see
+  #  'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'selectedCells': (
+          'QList<QAccessibleInterface *> '
+          'QAccessibleTableInterface::selectedCells() const',
+      ),
+      'columnDescription': (
+          'QString QAccessibleTableInterface::columnDescription(int) const',
+      ),
+      'rowDescription': (
+          'QString QAccessibleTableInterface::rowDescription(int) const',
+      ),
+      'selectedColumns': (
+          'QList<int> QAccessibleTableInterface::selectedColumns() const',
+      ),
+      'selectedRows': (
+          'QList<int> QAccessibleTableInterface::selectedRows() const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QAccessibleTableInterface is the
+  #  first to declare. A class of a program built on it can write one anew,
+  #  and Qt then calls that. For each name: the key C++ knows the function
+  #  by, what it gives, and what it takes.
+  __virtual_functions__ = {
+      'caption': (
+          ('_ZNK25QAccessibleTableInterface7captionEv',
+           ('address', 'address', 'QtGui:QAccessibleInterface'),
+           ()),
+      ),
+      'summary': (
+          ('_ZNK25QAccessibleTableInterface7summaryEv',
+           ('address', 'address', 'QtGui:QAccessibleInterface'),
+           ()),
+      ),
+      'cellAt': (
+          ('_ZNK25QAccessibleTableInterface6cellAtEii',
+           ('address', 'address', 'QtGui:QAccessibleInterface'),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+           )),
+      ),
+      'selectedCellCount': (
+          ('_ZNK25QAccessibleTableInterface17selectedCellCountEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'selectedColumnCount': (
+          ('_ZNK25QAccessibleTableInterface19selectedColumnCountEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'selectedRowCount': (
+          ('_ZNK25QAccessibleTableInterface16selectedRowCountEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'columnCount': (
+          ('_ZNK25QAccessibleTableInterface11columnCountEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'rowCount': (
+          ('_ZNK25QAccessibleTableInterface8rowCountEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'isColumnSelected': (
+          ('_ZNK25QAccessibleTableInterface16isColumnSelectedEi',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'isRowSelected': (
+          ('_ZNK25QAccessibleTableInterface13isRowSelectedEi',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'selectRow': (
+          ('_ZN25QAccessibleTableInterface9selectRowEi',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'selectColumn': (
+          ('_ZN25QAccessibleTableInterface12selectColumnEi',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'unselectRow': (
+          ('_ZN25QAccessibleTableInterface11unselectRowEi',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'unselectColumn': (
+          ('_ZN25QAccessibleTableInterface14unselectColumnEi',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'modelChange': (
+          ('_ZN25QAccessibleTableInterface11modelChangeEP32QAccessibleTable'
+           'ModelChangeEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address',
+                'QtGui:QAccessibleTableModelChangeEvent'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

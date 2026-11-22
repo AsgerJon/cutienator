@@ -13,6 +13,9 @@
     "ritual_ZN27QAccessibleStateChangeEventD1Ev": ["nothing", "address"],
     "ritual_ZNK27QAccessibleStateChangeEvent13changedStatesEv": [
       "address", "address"
+    ],
+    "ritual_take_QAccessibleStateChangeEvent": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

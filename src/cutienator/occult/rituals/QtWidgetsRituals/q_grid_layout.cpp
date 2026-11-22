@@ -4,6 +4,475 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QGridLayout may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQGridLayout : QGridLayout {
+  using QGridLayout::addItem;
+};
+
+//  A QGridLayout that Python can take functions over in. Every QGridLayout
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef const QSize * (*CuteQGridLayoutCall0)(const void *, int *);
+typedef const QSize * (*CuteQGridLayoutCall1)(const void *, int *);
+typedef const QSize * (*CuteQGridLayoutCall2)(const void *, int *);
+typedef void (*CuteQGridLayoutCall3)(const void *, int, int *);
+typedef int (*CuteQGridLayoutCall4)(const void *, int *);
+typedef bool (*CuteQGridLayoutCall5)(const void *, int *);
+typedef int (*CuteQGridLayoutCall6)(const void *, int, int *);
+typedef int (*CuteQGridLayoutCall7)(const void *, int, int *);
+typedef void (*CuteQGridLayoutCall8)(const void *, int *);
+typedef void * (*CuteQGridLayoutCall9)(const void *, int, int *);
+typedef void * (*CuteQGridLayoutCall10)(const void *, int, int *);
+typedef int (*CuteQGridLayoutCall11)(const void *, int *);
+typedef void (*CuteQGridLayoutCall12)(const void *, const QRect *, int *);
+typedef void (*CuteQGridLayoutCall13)(const void *, QLayoutItem *, int *);
+typedef const QRect * (*CuteQGridLayoutCall14)(const void *, int *);
+typedef int (*CuteQGridLayoutCall15)(const void *, const QWidget *, int *);
+typedef int (*CuteQGridLayoutCall16)(const void *, const QLayoutItem *, int *);
+typedef bool (*CuteQGridLayoutCall17)(const void *, int *);
+typedef void * (*CuteQGridLayoutCall18)(const void *, int *);
+typedef void (*CuteQGridLayoutCall19)(const void *, QChildEvent *, int *);
+typedef bool (*CuteQGridLayoutCall20)(const void *, QEvent *, int *);
+typedef bool (*CuteQGridLayoutCall21)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQGridLayoutCall22)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQGridLayoutCall23)(const void *, QEvent *, int *);
+typedef void (*CuteQGridLayoutCall24)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQGridLayoutCall25)(const void *, const QMetaMethod *, int *);
+typedef void * (*CuteQGridLayoutCall26)(const void *, int *);
+typedef void * (*CuteQGridLayoutCall27)(const void *, int *);
+class CuteQGridLayout : public QGridLayout {
+public:
+  using QGridLayout::QGridLayout;
+  void *taken[28] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK11QLayoutItem8sizeHintEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem11minimumSizeEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem11maximumSizeEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QLayout10setSpacingEi")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QLayout7spacingEv")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem17hasHeightForWidthEv")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem14heightForWidthEi")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem21minimumHeightForWidthEi")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem10invalidateEv")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QLayout6itemAtEi")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QLayout6takeAtEi")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QLayout5countEv")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem11setGeometryERK5QRect")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QLayout7addItemEP11QLayoutItem")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem8geometryEv")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QLayout7indexOfEPK7QWidget")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QLayout7indexOfEPK11QLayoutItem")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem7isEmptyEv")) {
+      taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem6layoutEv")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[19] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[20] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[22] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[23] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[24] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[25] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK11QLayoutItem6widgetEv")) {
+      taken[26] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN11QLayoutItem10spacerItemEv")) {
+      taken[27] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QSize QGridLayout::sizeHint() const
+  QSize sizeHint() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQGridLayoutCall0 call = reinterpret_cast<CuteQGridLayoutCall0>(taken[0]);
+      const QSize * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QGridLayout::sizeHint();
+  }
+
+  //  QSize QGridLayout::minimumSize() const
+  QSize minimumSize() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQGridLayoutCall1 call = reinterpret_cast<CuteQGridLayoutCall1>(taken[1]);
+      const QSize * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QGridLayout::minimumSize();
+  }
+
+  //  QSize QGridLayout::maximumSize() const
+  QSize maximumSize() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQGridLayoutCall2 call = reinterpret_cast<CuteQGridLayoutCall2>(taken[2]);
+      const QSize * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QGridLayout::maximumSize();
+  }
+
+  //  void QGridLayout::setSpacing(int spacing)
+  void setSpacing(int spacing) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQGridLayoutCall3 call = reinterpret_cast<CuteQGridLayoutCall3>(taken[3]);
+      call(this, spacing, &handled);
+      if (handled) return;
+    }
+    QGridLayout::setSpacing(spacing);
+  }
+
+  //  int QGridLayout::spacing() const
+  int spacing() const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQGridLayoutCall4 call = reinterpret_cast<CuteQGridLayoutCall4>(taken[4]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QGridLayout::spacing();
+  }
+
+  //  bool QGridLayout::hasHeightForWidth() const
+  bool hasHeightForWidth() const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQGridLayoutCall5 call = reinterpret_cast<CuteQGridLayoutCall5>(taken[5]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QGridLayout::hasHeightForWidth();
+  }
+
+  //  int QGridLayout::heightForWidth(int a0) const
+  int heightForWidth(int a0) const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQGridLayoutCall6 call = reinterpret_cast<CuteQGridLayoutCall6>(taken[6]);
+      int given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QGridLayout::heightForWidth(a0);
+  }
+
+  //  int QGridLayout::minimumHeightForWidth(int a0) const
+  int minimumHeightForWidth(int a0) const override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQGridLayoutCall7 call = reinterpret_cast<CuteQGridLayoutCall7>(taken[7]);
+      int given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QGridLayout::minimumHeightForWidth(a0);
+  }
+
+  //  void QGridLayout::invalidate()
+  void invalidate() override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQGridLayoutCall8 call = reinterpret_cast<CuteQGridLayoutCall8>(taken[8]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QGridLayout::invalidate();
+  }
+
+  //  QLayoutItem *QGridLayout::itemAt(int index) const
+  QLayoutItem *itemAt(int index) const override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQGridLayoutCall9 call = reinterpret_cast<CuteQGridLayoutCall9>(taken[9]);
+      void * given = call(this, index, &handled);
+      if (handled) return static_cast<QLayoutItem *>(given);
+    }
+    return QGridLayout::itemAt(index);
+  }
+
+  //  QLayoutItem *QGridLayout::takeAt(int index)
+  QLayoutItem *takeAt(int index) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQGridLayoutCall10 call = reinterpret_cast<CuteQGridLayoutCall10>(taken[10]);
+      void * given = call(this, index, &handled);
+      if (handled) return static_cast<QLayoutItem *>(given);
+    }
+    return QGridLayout::takeAt(index);
+  }
+
+  //  int QGridLayout::count() const
+  int count() const override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQGridLayoutCall11 call = reinterpret_cast<CuteQGridLayoutCall11>(taken[11]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QGridLayout::count();
+  }
+
+  //  void QGridLayout::setGeometry(const QRect &a0)
+  void setGeometry(const QRect &a0) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQGridLayoutCall12 call = reinterpret_cast<CuteQGridLayoutCall12>(taken[12]);
+      call(this, &a0, &handled);
+      if (handled) return;
+    }
+    QGridLayout::setGeometry(a0);
+  }
+
+  //  void QGridLayout::addItem(QLayoutItem *a0)
+  void addItem(QLayoutItem *a0) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQGridLayoutCall13 call = reinterpret_cast<CuteQGridLayoutCall13>(taken[13]);
+      call(this, a0, &handled);
+      if (handled) return;
+    }
+    QGridLayout::addItem(a0);
+  }
+
+  //  QRect QLayout::geometry() const
+  QRect geometry() const override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQGridLayoutCall14 call = reinterpret_cast<CuteQGridLayoutCall14>(taken[14]);
+      const QRect * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QLayout::geometry();
+  }
+
+  //  int QLayout::indexOf(const QWidget *a0) const
+  int indexOf(const QWidget *a0) const override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQGridLayoutCall15 call = reinterpret_cast<CuteQGridLayoutCall15>(taken[15]);
+      int given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QLayout::indexOf(a0);
+  }
+
+  //  int QLayout::indexOf(const QLayoutItem *a0) const
+  int indexOf(const QLayoutItem *a0) const override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQGridLayoutCall16 call = reinterpret_cast<CuteQGridLayoutCall16>(taken[16]);
+      int given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QLayout::indexOf(a0);
+  }
+
+  //  bool QLayout::isEmpty() const
+  bool isEmpty() const override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQGridLayoutCall17 call = reinterpret_cast<CuteQGridLayoutCall17>(taken[17]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QLayout::isEmpty();
+  }
+
+  //  QLayout *QLayout::layout()
+  QLayout *layout() override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQGridLayoutCall18 call = reinterpret_cast<CuteQGridLayoutCall18>(taken[18]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QLayout *>(given);
+    }
+    return QLayout::layout();
+  }
+
+  //  void QLayout::childEvent(QChildEvent *e)
+  void childEvent(QChildEvent *e) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQGridLayoutCall19 call = reinterpret_cast<CuteQGridLayoutCall19>(taken[19]);
+      call(this, e, &handled);
+      if (handled) return;
+    }
+    QLayout::childEvent(e);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQGridLayoutCall20 call = reinterpret_cast<CuteQGridLayoutCall20>(taken[20]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[21]) {
+      int handled = 0;
+      CuteQGridLayoutCall21 call = reinterpret_cast<CuteQGridLayoutCall21>(taken[21]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[22]) {
+      int handled = 0;
+      CuteQGridLayoutCall22 call = reinterpret_cast<CuteQGridLayoutCall22>(taken[22]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[23]) {
+      int handled = 0;
+      CuteQGridLayoutCall23 call = reinterpret_cast<CuteQGridLayoutCall23>(taken[23]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[24]) {
+      int handled = 0;
+      CuteQGridLayoutCall24 call = reinterpret_cast<CuteQGridLayoutCall24>(taken[24]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQGridLayoutCall25 call = reinterpret_cast<CuteQGridLayoutCall25>(taken[25]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+
+  //  QWidget *QLayoutItem::widget() const
+  QWidget *widget() const override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQGridLayoutCall26 call = reinterpret_cast<CuteQGridLayoutCall26>(taken[26]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QWidget *>(given);
+    }
+    return QLayoutItem::widget();
+  }
+
+  //  QSpacerItem *QLayoutItem::spacerItem()
+  QSpacerItem *spacerItem() override {
+    if (taken[27]) {
+      int handled = 0;
+      CuteQGridLayoutCall27 call = reinterpret_cast<CuteQGridLayoutCall27>(taken[27]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QSpacerItem *>(given);
+    }
+    return QLayoutItem::spacerItem();
+  }
+};
 
 //  const QMetaObject *QGridLayout::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -24,7 +493,7 @@ QString *ritual_ZN11QGridLayout2trEPKcS1_i(
 //  QGridLayout::QGridLayout(QWidget *parent)
 extern "C" Q_DECL_EXPORT
 QGridLayout *ritual_ZN11QGridLayoutC1EP7QWidget(QWidget *parent) {
-  return new QGridLayout(parent);
+  return new CuteQGridLayout(parent);
 }
 
 //  QGridLayout::~QGridLayout()
@@ -375,4 +844,113 @@ void ritual_ZNK11QGridLayout15getItemPositionEiPiS0_S0_S0_(
     int *rowSpan,
     int *columnSpan) {
   self->getItemPosition(idx, row, column, rowSpan, columnSpan);
+}
+
+//  a Python function taken by a CuteQGridLayout, for the function named by
+//      the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QGridLayout(
+    QGridLayout *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQGridLayout *>(self)->take(key, call);
+}
+
+//  QSize QGridLayout::sizeHint() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_own_ZNK11QGridLayout8sizeHintEv(const QGridLayout *self) {
+  return new QSize(self->QGridLayout::sizeHint());
+}
+
+//  QSize QGridLayout::minimumSize() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_own_ZNK11QGridLayout11minimumSizeEv(const QGridLayout *self) {
+  return new QSize(self->QGridLayout::minimumSize());
+}
+
+//  QSize QGridLayout::maximumSize() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_own_ZNK11QGridLayout11maximumSizeEv(const QGridLayout *self) {
+  return new QSize(self->QGridLayout::maximumSize());
+}
+
+//  void QGridLayout::setSpacing(int spacing)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN11QGridLayout10setSpacingEi(
+    QGridLayout *self,
+    int spacing) {
+  self->QGridLayout::setSpacing(spacing);
+}
+
+//  int QGridLayout::spacing() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK11QGridLayout7spacingEv(const QGridLayout *self) {
+  return self->QGridLayout::spacing();
+}
+
+//  bool QGridLayout::hasHeightForWidth() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK11QGridLayout17hasHeightForWidthEv(
+    const QGridLayout *self) {
+  return self->QGridLayout::hasHeightForWidth();
+}
+
+//  int QGridLayout::heightForWidth(int a0) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK11QGridLayout14heightForWidthEi(
+    const QGridLayout *self,
+    int a0) {
+  return self->QGridLayout::heightForWidth(a0);
+}
+
+//  int QGridLayout::minimumHeightForWidth(int a0) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK11QGridLayout21minimumHeightForWidthEi(
+    const QGridLayout *self,
+    int a0) {
+  return self->QGridLayout::minimumHeightForWidth(a0);
+}
+
+//  void QGridLayout::invalidate()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN11QGridLayout10invalidateEv(QGridLayout *self) {
+  self->QGridLayout::invalidate();
+}
+
+//  QLayoutItem *QGridLayout::itemAt(int index) const
+extern "C" Q_DECL_EXPORT
+QLayoutItem *ritual_own_ZNK11QGridLayout6itemAtEi(
+    const QGridLayout *self,
+    int index) {
+  return self->QGridLayout::itemAt(index);
+}
+
+//  QLayoutItem *QGridLayout::takeAt(int index)
+extern "C" Q_DECL_EXPORT
+QLayoutItem *ritual_own_ZN11QGridLayout6takeAtEi(
+    QGridLayout *self,
+    int index) {
+  return self->QGridLayout::takeAt(index);
+}
+
+//  int QGridLayout::count() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK11QGridLayout5countEv(const QGridLayout *self) {
+  return self->QGridLayout::count();
+}
+
+//  void QGridLayout::setGeometry(const QRect &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN11QGridLayout11setGeometryERK5QRect(
+    QGridLayout *self,
+    const QRect *a0) {
+  self->QGridLayout::setGeometry(*a0);
+}
+
+//  void QGridLayout::addItem(QLayoutItem *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN11QGridLayout7addItemEP11QLayoutItem(
+    QGridLayout *self,
+    QLayoutItem *a0) {
+  static_cast<OwnQGridLayout *>(self)->OwnQGridLayout::addItem(a0);
 }

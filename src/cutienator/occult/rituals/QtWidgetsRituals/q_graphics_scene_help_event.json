@@ -18,6 +18,9 @@
     ],
     "ritual_ZN23QGraphicsSceneHelpEvent12setScreenPosERK6QPoint": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QGraphicsSceneHelpEvent": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

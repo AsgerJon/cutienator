@@ -88,6 +88,11 @@ class QKeyEvent(QInputEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QKeyEvent'
 
+  #  A C++ QKeyEvent Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QKeyEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -114,7 +119,10 @@ class QKeyEvent(QInputEvent):
       no object.
     """
     #  QKeyEvent *QKeyEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK9QKeyEvent5cloneEv')
+    ritual = 'ritual_ZNK9QKeyEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QKeyEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QKeyEvent._cuteAt(address)
 
   def key(self) -> int:

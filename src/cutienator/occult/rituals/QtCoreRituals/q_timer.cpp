@@ -2,6 +2,139 @@
 //  QtCore/qtimer.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qtimer.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QTimer may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQTimer : QTimer {
+  using QTimer::timerEvent;
+};
+
+//  A QTimer that Python can take functions over in. Every QTimer
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQTimerCall0)(const void *, QTimerEvent *, int *);
+typedef bool (*CuteQTimerCall1)(const void *, QEvent *, int *);
+typedef bool (*CuteQTimerCall2)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQTimerCall3)(const void *, QChildEvent *, int *);
+typedef void (*CuteQTimerCall4)(const void *, QEvent *, int *);
+typedef void (*CuteQTimerCall5)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQTimerCall6)(const void *, const QMetaMethod *, int *);
+class CuteQTimer : public QTimer {
+public:
+  using QTimer::QTimer;
+  void *taken[7] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[6] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QTimer::timerEvent(QTimerEvent *a0)
+  void timerEvent(QTimerEvent *a0) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQTimerCall0 call = reinterpret_cast<CuteQTimerCall0>(taken[0]);
+      call(this, a0, &handled);
+      if (handled) return;
+    }
+    QTimer::timerEvent(a0);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQTimerCall1 call = reinterpret_cast<CuteQTimerCall1>(taken[1]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQTimerCall2 call = reinterpret_cast<CuteQTimerCall2>(taken[2]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQTimerCall3 call = reinterpret_cast<CuteQTimerCall3>(taken[3]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQTimerCall4 call = reinterpret_cast<CuteQTimerCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQTimerCall5 call = reinterpret_cast<CuteQTimerCall5>(taken[5]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQTimerCall6 call = reinterpret_cast<CuteQTimerCall6>(taken[6]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QTimer::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -18,7 +151,7 @@ QString *ritual_ZN6QTimer2trEPKcS1_i(const char *s, const char *c, int n) {
 //  QTimer::QTimer(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QTimer *ritual_ZN6QTimerC1EP7QObject(QObject *parent) {
-  return new QTimer(parent);
+  return new CuteQTimer(parent);
 }
 
 //  QTimer::~QTimer()
@@ -126,4 +259,19 @@ void ritual_ZN6QTimer5startEv(QTimer *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QTimer4stopEv(QTimer *self) {
   self->stop();
+}
+
+//  a Python function taken by a CuteQTimer, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QTimer(QTimer *self, const char *key, void *call) {
+  return static_cast<CuteQTimer *>(self)->take(key, call);
+}
+
+//  void QTimer::timerEvent(QTimerEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN6QTimer10timerEventEP11QTimerEvent(
+    QTimer *self,
+    QTimerEvent *a0) {
+  static_cast<OwnQTimer *>(self)->OwnQTimer::timerEvent(a0);
 }

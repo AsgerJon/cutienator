@@ -28,6 +28,10 @@
     ],
     "ritual_ZNK17QGraphicsRotation7applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QGraphicsRotation": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QGraphicsRotation7applyToEP10QMatrix4x4": [
+      "nothing", "address", "address"
     ]
   }
 }

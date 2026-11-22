@@ -44,7 +44,7 @@ class QIODevice(QObject, QIODeviceBase):
   -----------
 
   Every function of Qt's QIODevice that has a ritual and that Python can call
-  so far, 39 names in all: 'metaObject', 'tr', 'openMode',
+  so far, 40 names in all: 'metaObject', 'tr', 'openMode',
   'setTextModeEnabled', 'isTextModeEnabled', 'isOpen', 'isReadable',
   'isWritable', 'isSequential', 'readChannelCount', 'writeChannelCount',
   'currentReadChannel', 'setCurrentReadChannel', 'currentWriteChannel',
@@ -52,9 +52,9 @@ class QIODevice(QObject, QIODeviceBase):
   'reset', 'bytesAvailable', 'bytesToWrite', 'read', 'readAll', 'readLine',
   'readLineInto', 'canReadLine', 'startTransaction', 'commitTransaction',
   'rollbackTransaction', 'isTransactionStarted', 'write', 'peek', 'skip',
-  'waitForReadyRead', 'waitForBytesWritten', 'errorString'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  'waitForReadyRead', 'waitForBytesWritten', 'errorString', 'skipData'. None
+  can be made from Python: one comes out of a function of another class that
+  gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -69,8 +69,8 @@ class QIODevice(QObject, QIODeviceBase):
   What has no ritual
   ------------------
 
-  30 of the 75 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 7 protected; 6 a signal; 3 private; 2 the class is abstract, so
+  29 of the 74 functions Qt declares: 9 takes or gives a type that cannot be
+  passed yet; 6 a signal; 6 protected; 3 private; 2 the class is abstract, so
   C++ cannot make one; 2 forbidden; 1 a template.
 
   What to expect
@@ -148,6 +148,110 @@ class QIODevice(QObject, QIODeviceBase):
   #  'CuteMixin._addressAs'.
   __cast_rituals__ = {
       'QIODeviceBase': 'ritual_cast_QIODevice_QIODeviceBase',
+  }
+
+  #  A C++ QIODevice Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QIODevice'
+
+  #  The functions Qt calls itself that QIODevice is the first to declare and
+  #  that cannot be handed to Python yet, each as Qt declares it. A class of
+  #  a program that writes one of them anew is refused, since Qt would never
+  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'open': (
+          'bool QIODevice::open(QIODeviceBase::OpenMode)',
+      ),
+      'readData': (
+          'qint64 QIODevice::readData(char *, qint64)',
+      ),
+      'readLineData': (
+          'qint64 QIODevice::readLineData(char *, qint64)',
+      ),
+      'writeData': (
+          'qint64 QIODevice::writeData(const char *, qint64)',
+      ),
+  }
+
+  #  The functions Qt calls itself that QIODevice is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'isSequential': (
+          ('_ZNK9QIODevice12isSequentialEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'close': (
+          ('_ZN9QIODevice5closeEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'pos': (
+          ('_ZNK9QIODevice3posEv',
+           ('long long', 'number', ''),
+           ()),
+      ),
+      'size': (
+          ('_ZNK9QIODevice4sizeEv',
+           ('long long', 'number', ''),
+           ()),
+      ),
+      'seek': (
+          ('_ZN9QIODevice4seekEx',
+           ('bool', 'number', ''),
+           (
+               ('long long', 'number', ''),
+           )),
+      ),
+      'atEnd': (
+          ('_ZNK9QIODevice5atEndEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'reset': (
+          ('_ZN9QIODevice5resetEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'bytesAvailable': (
+          ('_ZNK9QIODevice14bytesAvailableEv',
+           ('long long', 'number', ''),
+           ()),
+      ),
+      'bytesToWrite': (
+          ('_ZNK9QIODevice12bytesToWriteEv',
+           ('long long', 'number', ''),
+           ()),
+      ),
+      'canReadLine': (
+          ('_ZNK9QIODevice11canReadLineEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'waitForReadyRead': (
+          ('_ZN9QIODevice16waitForReadyReadEi',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'waitForBytesWritten': (
+          ('_ZN9QIODevice19waitForBytesWrittenEi',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'skipData': (
+          ('_ZN9QIODevice8skipDataEx',
+           ('long long', 'number', ''),
+           (
+               ('long long', 'number', ''),
+           )),
+      ),
   }
 
   #  Fallback Variables
@@ -240,7 +344,10 @@ class QIODevice(QObject, QIODeviceBase):
     Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#isSequential
     """
     #  bool QIODevice::isSequential() const
-    return self.uglySide.call('ritual_ZNK9QIODevice12isSequentialEv')
+    ritual = 'ritual_ZNK9QIODevice12isSequentialEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QIODevice12isSequentialEv'
+    return self.uglySide.call(ritual)
 
   def readChannelCount(self) -> int:
     """
@@ -285,7 +392,10 @@ class QIODevice(QObject, QIODeviceBase):
     Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#pos
     """
     #  qint64 QIODevice::pos() const
-    return self.uglySide.call('ritual_ZNK9QIODevice3posEv')
+    ritual = 'ritual_ZNK9QIODevice3posEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QIODevice3posEv'
+    return self.uglySide.call(ritual)
 
   def size(self) -> int:
     """
@@ -294,7 +404,10 @@ class QIODevice(QObject, QIODeviceBase):
     Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#size
     """
     #  qint64 QIODevice::size() const
-    return self.uglySide.call('ritual_ZNK9QIODevice4sizeEv')
+    ritual = 'ritual_ZNK9QIODevice4sizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QIODevice4sizeEv'
+    return self.uglySide.call(ritual)
 
   def atEnd(self) -> bool:
     """
@@ -303,7 +416,10 @@ class QIODevice(QObject, QIODeviceBase):
     Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#atEnd
     """
     #  bool QIODevice::atEnd() const
-    return self.uglySide.call('ritual_ZNK9QIODevice5atEndEv')
+    ritual = 'ritual_ZNK9QIODevice5atEndEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QIODevice5atEndEv'
+    return self.uglySide.call(ritual)
 
   def bytesAvailable(self) -> int:
     """
@@ -312,7 +428,10 @@ class QIODevice(QObject, QIODeviceBase):
     Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable
     """
     #  qint64 QIODevice::bytesAvailable() const
-    return self.uglySide.call('ritual_ZNK9QIODevice14bytesAvailableEv')
+    ritual = 'ritual_ZNK9QIODevice14bytesAvailableEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QIODevice14bytesAvailableEv'
+    return self.uglySide.call(ritual)
 
   def bytesToWrite(self) -> int:
     """
@@ -321,7 +440,10 @@ class QIODevice(QObject, QIODeviceBase):
     Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite
     """
     #  qint64 QIODevice::bytesToWrite() const
-    return self.uglySide.call('ritual_ZNK9QIODevice12bytesToWriteEv')
+    ritual = 'ritual_ZNK9QIODevice12bytesToWriteEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QIODevice12bytesToWriteEv'
+    return self.uglySide.call(ritual)
 
   def canReadLine(self) -> bool:
     """
@@ -330,7 +452,10 @@ class QIODevice(QObject, QIODeviceBase):
     Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#canReadLine
     """
     #  bool QIODevice::canReadLine() const
-    return self.uglySide.call('ritual_ZNK9QIODevice11canReadLineEv')
+    ritual = 'ritual_ZNK9QIODevice11canReadLineEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QIODevice11canReadLineEv'
+    return self.uglySide.call(ritual)
 
   def isTransactionStarted(self) -> bool:
     """
@@ -473,7 +598,10 @@ class QIODevice(QObject, QIODeviceBase):
     Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#close
     """
     #  void QIODevice::close()
-    self.uglySide.call('ritual_ZN9QIODevice5closeEv')
+    ritual = 'ritual_ZN9QIODevice5closeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QIODevice5closeEv'
+    self.uglySide.call(ritual)
 
   @overload(int)
   def seek(self, pos: int) -> bool:
@@ -489,7 +617,10 @@ class QIODevice(QObject, QIODeviceBase):
       Passed on as it is.
     """
     #  bool QIODevice::seek(qint64 pos)
-    return self.uglySide.call('ritual_ZN9QIODevice4seekEx', pos)
+    ritual = 'ritual_ZN9QIODevice4seekEx'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QIODevice4seekEx'
+    return self.uglySide.call(ritual, pos)
 
   def reset(self) -> bool:
     """
@@ -498,7 +629,10 @@ class QIODevice(QObject, QIODeviceBase):
     Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#reset
     """
     #  bool QIODevice::reset()
-    return self.uglySide.call('ritual_ZN9QIODevice5resetEv')
+    ritual = 'ritual_ZN9QIODevice5resetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QIODevice5resetEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def read(self, maxlen: int) -> QByteArray:
@@ -738,9 +872,10 @@ class QIODevice(QObject, QIODeviceBase):
       Passed on as it is.
     """
     #  bool QIODevice::waitForReadyRead(int msecs)
-    return self.uglySide.call(
-        'ritual_ZN9QIODevice16waitForReadyReadEi', msecs,
-    )
+    ritual = 'ritual_ZN9QIODevice16waitForReadyReadEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QIODevice16waitForReadyReadEi'
+    return self.uglySide.call(ritual, msecs)
 
   @overload(int)
   def waitForBytesWritten(self, msecs: int) -> bool:
@@ -756,6 +891,23 @@ class QIODevice(QObject, QIODeviceBase):
       Passed on as it is.
     """
     #  bool QIODevice::waitForBytesWritten(int msecs)
-    return self.uglySide.call(
-        'ritual_ZN9QIODevice19waitForBytesWrittenEi', msecs,
-    )
+    ritual = 'ritual_ZN9QIODevice19waitForBytesWrittenEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QIODevice19waitForBytesWrittenEi'
+    return self.uglySide.call(ritual, msecs)
+
+  @overload(int)
+  def skipData(self, maxSize: int) -> int:
+    """
+    Calls Qt's 'qint64 QIODevice::skipData(qint64 maxSize)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#skipData
+
+    Parameters
+    ----------
+
+    maxSize : int
+      Passed on as it is.
+    """
+    #  qint64 QIODevice::skipData(qint64 maxSize)
+    return self.uglySide.call('ritual_own_ZN9QIODevice8skipDataEx', maxSize)

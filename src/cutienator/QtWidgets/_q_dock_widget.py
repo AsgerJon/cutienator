@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, CuteFlags
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
 from . import QWidget
@@ -19,8 +19,17 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
-  from ..QtGui import QAction
+  from ..QtCore import QEvent, QMetaObject
+  from ..QtGui import QAction, QCloseEvent, QPaintEvent
+  from . import QStyleOptionDockWidget
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QCloseEvent = WAIT['QCloseEvent']
+  QEvent = WAIT['QEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QStyleOptionDockWidget = WAIT['QStyleOptionDockWidget']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -39,10 +48,11 @@ class QDockWidget(QWidget):
   -----------
 
   Every function of Qt's QDockWidget that has a ritual and that Python can
-  call so far, 16 names in all: 'metaObject', 'tr', 'widget', 'setWidget',
+  call so far, 21 names in all: 'metaObject', 'tr', 'widget', 'setWidget',
   'setFeatures', 'features', 'setFloating', 'isFloating', 'setAllowedAreas',
   'allowedAreas', 'setTitleBarWidget', 'titleBarWidget', 'setDockLocation',
-  'dockLocation', 'isAreaAllowed', 'toggleViewAction'. It can be made from
+  'dockLocation', 'isAreaAllowed', 'toggleViewAction', 'changeEvent',
+  'closeEvent', 'paintEvent', 'event', 'initStyleOption'. It can be made from
   Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
@@ -56,8 +66,8 @@ class QDockWidget(QWidget):
   What has no ritual
   ------------------
 
-  18 of the 38 functions Qt declares: 5 a signal; 5 protected; 3 private; 2
-  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  13 of the 38 functions Qt declares: 5 a signal; 3 private; 2 takes or gives
+  a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -149,6 +159,25 @@ class QDockWidget(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QDockWidget'
+
+  #  A C++ QDockWidget Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QDockWidget'
+
+  #  The functions Qt calls itself that QDockWidget is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK11QDockWidget15initStyleOptionEP22QStyleOptionDockWidget',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionDockWidget'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -542,3 +571,113 @@ class QDockWidget(QWidget):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QDockWidget::changeEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdockwidget.html#changeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDockWidget::changeEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN11QDockWidget11changeEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QCloseEvent)
+  @overload(NoneType)
+  def closeEvent(self, event: Optional[QCloseEvent]) -> None:
+    """
+    Calls Qt's 'void QDockWidget::closeEvent(QCloseEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdockwidget.html#closeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QCloseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDockWidget::closeEvent(QCloseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN11QDockWidget10closeEventEP11QCloseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, event: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QDockWidget::paintEvent(QPaintEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdockwidget.html#paintEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDockWidget::paintEvent(QPaintEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN11QDockWidget10paintEventEP11QPaintEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QDockWidget::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdockwidget.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QDockWidget::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN11QDockWidget5eventEP6QEvent', self._addressOf(event),
+    )
+
+  @overload(QStyleOptionDockWidget)
+  @overload(NoneType)
+  def initStyleOption(
+      self,
+      option: Optional[QStyleOptionDockWidget],
+  ) -> None:
+    """
+    Calls Qt's 'void QDockWidget::initStyleOption(QStyleOptionDockWidget
+    *option) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdockwidget.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionDockWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDockWidget::initStyleOption(QStyleOptionDockWidget *option)
+    #      const
+    self.uglySide.call(
+        'ritual_own_ZNK11QDockWidget15initStyleOptionEP22QStyleOptionDockWi'
+        'dget',
+        self._addressOf(option),
+    )

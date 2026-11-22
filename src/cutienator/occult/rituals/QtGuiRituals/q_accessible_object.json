@@ -12,6 +12,13 @@
     ],
     "ritual_ZNK17QAccessibleObject7childAtEii": [
       "address", "address", "int", "int"
+    ],
+    "ritual_take_QAccessibleObject": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QAccessibleObject7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK17QAccessibleObject6objectEv": ["address", "address"],
+    "ritual_own_ZNK17QAccessibleObject4rectEv": ["address", "address"],
+    "ritual_own_ZNK17QAccessibleObject7childAtEii": [
+      "address", "address", "int", "int"
     ]
   }
 }

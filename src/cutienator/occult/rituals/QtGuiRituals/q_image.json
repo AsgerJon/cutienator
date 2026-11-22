@@ -196,6 +196,12 @@
     ],
     "ritual_ZNK6QImage11pixelFormatEv": ["address", "address"],
     "ritual_ZN6QImage13toPixelFormatENS_6FormatE": ["address", "int"],
-    "ritual_ZN6QImage13toImageFormatE12QPixelFormat": ["int", "address"]
+    "ritual_ZN6QImage13toImageFormatE12QPixelFormat": ["int", "address"],
+    "ritual_take_QImage": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK6QImage7devTypeEv": ["int", "address"],
+    "ritual_own_ZNK6QImage11paintEngineEv": ["address", "address"],
+    "ritual_own_ZNK6QImage6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ]
   }
 }

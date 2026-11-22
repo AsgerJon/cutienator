@@ -277,6 +277,11 @@ class QFormLayout(QLayout):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFormLayout'
 
+  #  A C++ QFormLayout Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QFormLayout'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -404,7 +409,10 @@ class QFormLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#spacing
     """
     #  int QFormLayout::spacing() const
-    return self.uglySide.call('ritual_ZNK11QFormLayout7spacingEv')
+    ritual = 'ritual_ZNK11QFormLayout7spacingEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFormLayout7spacingEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def isRowVisible(self, row: int) -> bool:
@@ -514,7 +522,10 @@ class QFormLayout(QLayout):
       no object.
     """
     #  QLayoutItem *QFormLayout::itemAt(int index) const
-    address = self.uglySide.call('ritual_ZNK11QFormLayout6itemAtEi', index)
+    ritual = 'ritual_ZNK11QFormLayout6itemAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFormLayout6itemAtEi'
+    address = self.uglySide.call(ritual, index)
     return QLayoutItem._cuteAt(address)
 
   @overload(QWidget)
@@ -589,7 +600,10 @@ class QFormLayout(QLayout):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QFormLayout::minimumSize() const
-    address = self.uglySide.call('ritual_ZNK11QFormLayout11minimumSizeEv')
+    ritual = 'ritual_ZNK11QFormLayout11minimumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFormLayout11minimumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -606,7 +620,10 @@ class QFormLayout(QLayout):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QFormLayout::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK11QFormLayout8sizeHintEv')
+    ritual = 'ritual_ZNK11QFormLayout8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFormLayout8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -617,7 +634,10 @@ class QFormLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth
     """
     #  bool QFormLayout::hasHeightForWidth() const
-    return self.uglySide.call('ritual_ZNK11QFormLayout17hasHeightForWidthEv')
+    ritual = 'ritual_ZNK11QFormLayout17hasHeightForWidthEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFormLayout17hasHeightForWidthEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def heightForWidth(self, width: int) -> int:
@@ -633,9 +653,10 @@ class QFormLayout(QLayout):
       Passed on as it is.
     """
     #  int QFormLayout::heightForWidth(int width) const
-    return self.uglySide.call(
-        'ritual_ZNK11QFormLayout14heightForWidthEi', width,
-    )
+    ritual = 'ritual_ZNK11QFormLayout14heightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFormLayout14heightForWidthEi'
+    return self.uglySide.call(ritual, width)
 
   def expandingDirections(self) -> Qt.Orientations:
     """
@@ -662,7 +683,10 @@ class QFormLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#count
     """
     #  int QFormLayout::count() const
-    return self.uglySide.call('ritual_ZNK11QFormLayout5countEv')
+    ritual = 'ritual_ZNK11QFormLayout5countEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFormLayout5countEv'
+    return self.uglySide.call(ritual)
 
   def rowCount(self) -> int:
     """
@@ -811,7 +835,10 @@ class QFormLayout(QLayout):
       Passed on as it is.
     """
     #  void QFormLayout::setSpacing(int a0)
-    self.uglySide.call('ritual_ZN11QFormLayout10setSpacingEi', a0)
+    ritual = 'ritual_ZN11QFormLayout10setSpacingEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFormLayout10setSpacingEi'
+    self.uglySide.call(ritual, a0)
 
   @overload(int, ItemRole, QLayoutItem)
   @overload(int, ItemRole, NoneType)
@@ -992,9 +1019,10 @@ class QFormLayout(QLayout):
       Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
     """
     #  void QFormLayout::setGeometry(const QRect &rect)
-    self.uglySide.call(
-        'ritual_ZN11QFormLayout11setGeometryERK5QRect', self._valueOf(rect),
-    )
+    ritual = 'ritual_ZN11QFormLayout11setGeometryERK5QRect'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFormLayout11setGeometryERK5QRect'
+    self.uglySide.call(ritual, self._valueOf(rect))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1534,10 +1562,10 @@ class QFormLayout(QLayout):
       object.
     """
     #  void QFormLayout::addItem(QLayoutItem *item)
-    self.uglySide.call(
-        'ritual_ZN11QFormLayout7addItemEP11QLayoutItem',
-        self._addressOf(item, 'QLayoutItem'),
-    )
+    ritual = 'ritual_ZN11QFormLayout7addItemEP11QLayoutItem'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFormLayout7addItemEP11QLayoutItem'
+    self.uglySide.call(ritual, self._addressOf(item, 'QLayoutItem'))
 
   @overload(int)
   def takeAt(self, index: int) -> Optional[QLayoutItem]:
@@ -1560,7 +1588,10 @@ class QFormLayout(QLayout):
       no object.
     """
     #  QLayoutItem *QFormLayout::takeAt(int index)
-    address = self.uglySide.call('ritual_ZN11QFormLayout6takeAtEi', index)
+    ritual = 'ritual_ZN11QFormLayout6takeAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFormLayout6takeAtEi'
+    address = self.uglySide.call(ritual, index)
     return QLayoutItem._cuteAt(address)
 
   def invalidate(self) -> None:
@@ -1570,4 +1601,7 @@ class QFormLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qformlayout.html#invalidate
     """
     #  void QFormLayout::invalidate()
-    self.uglySide.call('ritual_ZN11QFormLayout10invalidateEv')
+    ritual = 'ritual_ZN11QFormLayout10invalidateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFormLayout10invalidateEv'
+    self.uglySide.call(ritual)

@@ -183,6 +183,16 @@
     "ritual_ZN13QTextDocument14appendUndoItemEP17QAbstractUndoItem": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN13QTextDocument11setModifiedEb": ["nothing", "address", "bool"]
+    "ritual_ZN13QTextDocument11setModifiedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QTextDocument": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QTextDocument5clearEv": ["nothing", "address"],
+    "ritual_own_ZN13QTextDocument12createObjectERK11QTextFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN13QTextDocument12loadResourceEiRK4QUrl": [
+      "address", "address", "int", "address"
+    ]
   }
 }

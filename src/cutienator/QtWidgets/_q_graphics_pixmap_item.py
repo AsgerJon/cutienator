@@ -20,7 +20,7 @@ from . import QGraphicsItem
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QPointF, QRectF
+  from ..QtCore import QPointF, QRectF, QVariant
   from ..QtGui import QPainter, QPainterPath, QPixmap
   from . import QStyleOptionGraphicsItem, QWidget
 else:
@@ -31,6 +31,7 @@ else:
   QPixmap = WAIT['QPixmap']
   QPointF = WAIT['QPointF']
   QStyleOptionGraphicsItem = WAIT['QStyleOptionGraphicsItem']
+  QVariant = WAIT['QVariant']
   QWidget = WAIT['QWidget']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -50,11 +51,11 @@ class QGraphicsPixmapItem(QGraphicsItem):
   -----------
 
   Every function of Qt's QGraphicsPixmapItem that has a ritual and that
-  Python can call so far, 15 names in all: 'pixmap', 'setPixmap',
+  Python can call so far, 16 names in all: 'pixmap', 'setPixmap',
   'transformationMode', 'setTransformationMode', 'offset', 'setOffset',
   'boundingRect', 'shape', 'contains', 'paint', 'isObscuredBy', 'opaqueArea',
-  'type', 'shapeMode', 'setShapeMode'. It can be made from Python, in 2 ways;
-  see '__init__'.
+  'type', 'shapeMode', 'setShapeMode', 'extension'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -65,7 +66,7 @@ class QGraphicsPixmapItem(QGraphicsItem):
   What has no ritual
   ------------------
 
-  7 of the 26 functions Qt declares: 3 protected; 2 forbidden; 2 private.
+  6 of the 26 functions Qt declares: 2 protected; 2 forbidden; 2 private.
 
   What to expect
   --------------
@@ -104,6 +105,11 @@ class QGraphicsPixmapItem(QGraphicsItem):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsPixmapItem'
+
+  #  A C++ QGraphicsPixmapItem Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsPixmapItem'
 
   #  Fallback Variables
 
@@ -186,9 +192,10 @@ class QGraphicsPixmapItem(QGraphicsItem):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsPixmapItem::boundingRect() const
-    address = self.uglySide.call(
-        'ritual_ZNK19QGraphicsPixmapItem12boundingRectEv',
-    )
+    ritual = 'ritual_ZNK19QGraphicsPixmapItem12boundingRectEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QGraphicsPixmapItem12boundingRectEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
@@ -205,7 +212,10 @@ class QGraphicsPixmapItem(QGraphicsItem):
       A new cute QPainterPath around the copy Qt gave back. Python owns it.
     """
     #  QPainterPath QGraphicsPixmapItem::shape() const
-    address = self.uglySide.call('ritual_ZNK19QGraphicsPixmapItem5shapeEv')
+    ritual = 'ritual_ZNK19QGraphicsPixmapItem5shapeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QGraphicsPixmapItem5shapeEv'
+    address = self.uglySide.call(ritual)
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
@@ -225,10 +235,10 @@ class QGraphicsPixmapItem(QGraphicsItem):
       own.
     """
     #  bool QGraphicsPixmapItem::contains(const QPointF &point) const
-    return self.uglySide.call(
-        'ritual_ZNK19QGraphicsPixmapItem8containsERK7QPointF',
-        self._valueOf(point),
-    )
+    ritual = 'ritual_ZNK19QGraphicsPixmapItem8containsERK7QPointF'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QGraphicsPixmapItem8containsERK7QPointF'
+    return self.uglySide.call(ritual, self._valueOf(point))
 
   @overload(QGraphicsItem)
   @overload(NoneType)
@@ -249,10 +259,13 @@ class QGraphicsPixmapItem(QGraphicsItem):
     """
     #  bool QGraphicsPixmapItem::isObscuredBy(const QGraphicsItem *item)
     #      const
-    return self.uglySide.call(
-        'ritual_ZNK19QGraphicsPixmapItem12isObscuredByEPK13QGraphicsItem',
-        self._addressOf(item, 'QGraphicsItem'),
-    )
+    ritual = (
+        'ritual_ZNK19QGraphicsPixmapItem12isObscuredByEPK13QGraphicsItem')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QGraphicsPixmapItem12isObscuredByEPK13QGraphicsI'
+          'tem')
+    return self.uglySide.call(ritual, self._addressOf(item, 'QGraphicsItem'))
 
   def opaqueArea(self) -> QPainterPath:
     """
@@ -268,9 +281,10 @@ class QGraphicsPixmapItem(QGraphicsItem):
       A new cute QPainterPath around the copy Qt gave back. Python owns it.
     """
     #  QPainterPath QGraphicsPixmapItem::opaqueArea() const
-    address = self.uglySide.call(
-        'ritual_ZNK19QGraphicsPixmapItem10opaqueAreaEv',
-    )
+    ritual = 'ritual_ZNK19QGraphicsPixmapItem10opaqueAreaEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QGraphicsPixmapItem10opaqueAreaEv'
+    address = self.uglySide.call(ritual)
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
@@ -281,7 +295,10 @@ class QGraphicsPixmapItem(QGraphicsItem):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicspixmapitem.html#type
     """
     #  int QGraphicsPixmapItem::type() const
-    return self.uglySide.call('ritual_ZNK19QGraphicsPixmapItem4typeEv')
+    ritual = 'ritual_ZNK19QGraphicsPixmapItem4typeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QGraphicsPixmapItem4typeEv'
+    return self.uglySide.call(ritual)
 
   def shapeMode(self) -> ShapeMode:
     """
@@ -300,6 +317,35 @@ class QGraphicsPixmapItem(QGraphicsItem):
     return QGraphicsPixmapItem.ShapeMode(self.uglySide.call(
         'ritual_ZNK19QGraphicsPixmapItem9shapeModeEv',
     ))
+
+  @overload(QVariant)
+  def extension(self, variant: QVariant) -> QVariant:
+    """
+    Calls Qt's 'QVariant QGraphicsPixmapItem::extension(const QVariant
+    &variant) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicspixmapitem.html#extension
+
+    Parameters
+    ----------
+
+    variant : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QGraphicsPixmapItem::extension(const QVariant &variant) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK19QGraphicsPixmapItem9extensionERK8QVariant',
+        self._valueOf(variant),
+    )
+    from ..QtCore import QVariant
+    return QVariant._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -535,9 +581,15 @@ class QGraphicsPixmapItem(QGraphicsItem):
     """
     #  void QGraphicsPixmapItem::paint(QPainter *painter, const
     #      QStyleOptionGraphicsItem *option, QWidget *widget)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN19QGraphicsPixmapItem5paintEP8QPainterPK24QStyleOptionGra'
-        'phicsItemP7QWidget',
+        'phicsItemP7QWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QGraphicsPixmapItem5paintEP8QPainterPK24QStyleOpt'
+          'ionGraphicsItemP7QWidget')
+    self.uglySide.call(
+        ritual,
         self._addressOf(painter), self._addressOf(option),
         self._addressOf(widget),
     )

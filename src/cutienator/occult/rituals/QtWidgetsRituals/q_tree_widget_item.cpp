@@ -7,11 +7,75 @@
 #include <QtGui/qbrush.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
+#include <cstring>
+
+//  A QTreeWidgetItem that Python can take functions over in. Every QTreeWidgetItem
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void * (*CuteQTreeWidgetItemCall0)(const void *, int *);
+typedef const QVariant * (*CuteQTreeWidgetItemCall1)(const void *, int, int, int *);
+typedef void (*CuteQTreeWidgetItemCall2)(const void *, int, int, const QVariant *, int *);
+class CuteQTreeWidgetItem : public QTreeWidgetItem {
+public:
+  using QTreeWidgetItem::QTreeWidgetItem;
+  CuteQTreeWidgetItem(const QTreeWidgetItem &other) : QTreeWidgetItem(other) {}
+  void *taken[3] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK15QTreeWidgetItem5cloneEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK15QTreeWidgetItem4dataEii")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN15QTreeWidgetItem7setDataEiiRK8QVariant")) {
+      taken[2] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QTreeWidgetItem *QTreeWidgetItem::clone() const
+  QTreeWidgetItem *clone() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQTreeWidgetItemCall0 call = reinterpret_cast<CuteQTreeWidgetItemCall0>(taken[0]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QTreeWidgetItem *>(given);
+    }
+    return QTreeWidgetItem::clone();
+  }
+
+  //  QVariant QTreeWidgetItem::data(int column, int role) const
+  QVariant data(int column, int role) const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQTreeWidgetItemCall1 call = reinterpret_cast<CuteQTreeWidgetItemCall1>(taken[1]);
+      const QVariant * given = call(this, column, role, &handled);
+      if (handled && given) return *given;
+    }
+    return QTreeWidgetItem::data(column, role);
+  }
+
+  //  void QTreeWidgetItem::setData(int column, int role, const QVariant
+  //      &value)
+  void setData(int column, int role, const QVariant &value) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQTreeWidgetItemCall2 call = reinterpret_cast<CuteQTreeWidgetItemCall2>(taken[2]);
+      call(this, column, role, &value, &handled);
+      if (handled) return;
+    }
+    QTreeWidgetItem::setData(column, role, value);
+  }
+};
 
 //  QTreeWidgetItem::QTreeWidgetItem(int type)
 extern "C" Q_DECL_EXPORT
 QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1Ei(int type) {
-  return new QTreeWidgetItem(type);
+  return new CuteQTreeWidgetItem(type);
 }
 
 //  QTreeWidgetItem::QTreeWidgetItem(QTreeWidget *treeview, int type)
@@ -19,7 +83,7 @@ extern "C" Q_DECL_EXPORT
 QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgeti(
     QTreeWidget *treeview,
     int type) {
-  return new QTreeWidgetItem(treeview, type);
+  return new CuteQTreeWidgetItem(treeview, type);
 }
 
 //  QTreeWidgetItem::QTreeWidgetItem(QTreeWidget *treeview, QTreeWidgetItem
@@ -29,7 +93,7 @@ QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgetPS_i(
     QTreeWidget *treeview,
     QTreeWidgetItem *after,
     int type) {
-  return new QTreeWidgetItem(treeview, after, type);
+  return new CuteQTreeWidgetItem(treeview, after, type);
 }
 
 //  QTreeWidgetItem::QTreeWidgetItem(QTreeWidgetItem *parent, int type)
@@ -37,7 +101,7 @@ extern "C" Q_DECL_EXPORT
 QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1EPS_i(
     QTreeWidgetItem *parent,
     int type) {
-  return new QTreeWidgetItem(parent, type);
+  return new CuteQTreeWidgetItem(parent, type);
 }
 
 //  QTreeWidgetItem::QTreeWidgetItem(QTreeWidgetItem *parent, QTreeWidgetItem
@@ -47,14 +111,14 @@ QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1EPS_S0_i(
     QTreeWidgetItem *parent,
     QTreeWidgetItem *after,
     int type) {
-  return new QTreeWidgetItem(parent, after, type);
+  return new CuteQTreeWidgetItem(parent, after, type);
 }
 
 //  QTreeWidgetItem::QTreeWidgetItem(const QTreeWidgetItem &other)
 extern "C" Q_DECL_EXPORT
 QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1ERKS_(
     const QTreeWidgetItem *other) {
-  return new QTreeWidgetItem(*other);
+  return new CuteQTreeWidgetItem(*other);
 }
 
 //  QTreeWidgetItem::~QTreeWidgetItem()
@@ -497,4 +561,41 @@ void ritual_ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE(
     int column,
     Qt::SortOrder order) {
   self->sortChildren(column, order);
+}
+
+//  a Python function taken by a CuteQTreeWidgetItem, for the function named
+//      by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QTreeWidgetItem(
+    QTreeWidgetItem *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQTreeWidgetItem *>(self)->take(key, call);
+}
+
+//  QTreeWidgetItem *QTreeWidgetItem::clone() const
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_own_ZNK15QTreeWidgetItem5cloneEv(
+    const QTreeWidgetItem *self) {
+  return self->QTreeWidgetItem::clone();
+}
+
+//  QVariant QTreeWidgetItem::data(int column, int role) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZNK15QTreeWidgetItem4dataEii(
+    const QTreeWidgetItem *self,
+    int column,
+    int role) {
+  return new QVariant(self->QTreeWidgetItem::data(column, role));
+}
+
+//  void QTreeWidgetItem::setData(int column, int role, const QVariant
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN15QTreeWidgetItem7setDataEiiRK8QVariant(
+    QTreeWidgetItem *self,
+    int column,
+    int role,
+    const QVariant *value) {
+  self->QTreeWidgetItem::setData(column, role, *value);
 }

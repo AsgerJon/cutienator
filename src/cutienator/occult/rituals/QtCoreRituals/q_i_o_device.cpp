@@ -3,6 +3,347 @@
 #include <QtCore/qiodevice.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QIODevice may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQIODevice : QIODevice {
+  using QIODevice::skipData;
+};
+
+//  A QIODevice that Python can take functions over in. Every QIODevice
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef bool (*CuteQIODeviceCall0)(const void *, int *);
+typedef void (*CuteQIODeviceCall1)(const void *, int *);
+typedef qint64 (*CuteQIODeviceCall2)(const void *, int *);
+typedef qint64 (*CuteQIODeviceCall3)(const void *, int *);
+typedef bool (*CuteQIODeviceCall4)(const void *, qint64, int *);
+typedef bool (*CuteQIODeviceCall5)(const void *, int *);
+typedef bool (*CuteQIODeviceCall6)(const void *, int *);
+typedef qint64 (*CuteQIODeviceCall7)(const void *, int *);
+typedef qint64 (*CuteQIODeviceCall8)(const void *, int *);
+typedef bool (*CuteQIODeviceCall9)(const void *, int *);
+typedef bool (*CuteQIODeviceCall10)(const void *, int, int *);
+typedef bool (*CuteQIODeviceCall11)(const void *, int, int *);
+typedef qint64 (*CuteQIODeviceCall12)(const void *, qint64, int *);
+typedef bool (*CuteQIODeviceCall13)(const void *, QEvent *, int *);
+typedef bool (*CuteQIODeviceCall14)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQIODeviceCall15)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQIODeviceCall16)(const void *, QChildEvent *, int *);
+typedef void (*CuteQIODeviceCall17)(const void *, QEvent *, int *);
+typedef void (*CuteQIODeviceCall18)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQIODeviceCall19)(const void *, const QMetaMethod *, int *);
+class CuteQIODevice : public QIODevice {
+public:
+  using QIODevice::QIODevice;
+  void *taken[20] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice5closeEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice4seekEx")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice5atEndEv")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice5resetEv")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice14bytesAvailableEv")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK9QIODevice11canReadLineEv")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN9QIODevice8skipDataEx")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[19] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  bool QIODevice::isSequential() const
+  bool isSequential() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQIODeviceCall0 call = reinterpret_cast<CuteQIODeviceCall0>(taken[0]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::isSequential();
+  }
+
+  //  void QIODevice::close()
+  void close() override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQIODeviceCall1 call = reinterpret_cast<CuteQIODeviceCall1>(taken[1]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QIODevice::close();
+  }
+
+  //  qint64 QIODevice::pos() const
+  qint64 pos() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQIODeviceCall2 call = reinterpret_cast<CuteQIODeviceCall2>(taken[2]);
+      qint64 given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::pos();
+  }
+
+  //  qint64 QIODevice::size() const
+  qint64 size() const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQIODeviceCall3 call = reinterpret_cast<CuteQIODeviceCall3>(taken[3]);
+      qint64 given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::size();
+  }
+
+  //  bool QIODevice::seek(qint64 pos)
+  bool seek(qint64 pos) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQIODeviceCall4 call = reinterpret_cast<CuteQIODeviceCall4>(taken[4]);
+      bool given = call(this, pos, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::seek(pos);
+  }
+
+  //  bool QIODevice::atEnd() const
+  bool atEnd() const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQIODeviceCall5 call = reinterpret_cast<CuteQIODeviceCall5>(taken[5]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::atEnd();
+  }
+
+  //  bool QIODevice::reset()
+  bool reset() override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQIODeviceCall6 call = reinterpret_cast<CuteQIODeviceCall6>(taken[6]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::reset();
+  }
+
+  //  qint64 QIODevice::bytesAvailable() const
+  qint64 bytesAvailable() const override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQIODeviceCall7 call = reinterpret_cast<CuteQIODeviceCall7>(taken[7]);
+      qint64 given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::bytesAvailable();
+  }
+
+  //  qint64 QIODevice::bytesToWrite() const
+  qint64 bytesToWrite() const override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQIODeviceCall8 call = reinterpret_cast<CuteQIODeviceCall8>(taken[8]);
+      qint64 given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::bytesToWrite();
+  }
+
+  //  bool QIODevice::canReadLine() const
+  bool canReadLine() const override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQIODeviceCall9 call = reinterpret_cast<CuteQIODeviceCall9>(taken[9]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::canReadLine();
+  }
+
+  //  bool QIODevice::waitForReadyRead(int msecs)
+  bool waitForReadyRead(int msecs) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQIODeviceCall10 call = reinterpret_cast<CuteQIODeviceCall10>(taken[10]);
+      bool given = call(this, msecs, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::waitForReadyRead(msecs);
+  }
+
+  //  bool QIODevice::waitForBytesWritten(int msecs)
+  bool waitForBytesWritten(int msecs) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQIODeviceCall11 call = reinterpret_cast<CuteQIODeviceCall11>(taken[11]);
+      bool given = call(this, msecs, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::waitForBytesWritten(msecs);
+  }
+
+  //  qint64 QIODevice::skipData(qint64 maxSize)
+  qint64 skipData(qint64 maxSize) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQIODeviceCall12 call = reinterpret_cast<CuteQIODeviceCall12>(taken[12]);
+      qint64 given = call(this, maxSize, &handled);
+      if (handled) return given;
+    }
+    return QIODevice::skipData(maxSize);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQIODeviceCall13 call = reinterpret_cast<CuteQIODeviceCall13>(taken[13]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQIODeviceCall14 call = reinterpret_cast<CuteQIODeviceCall14>(taken[14]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQIODeviceCall15 call = reinterpret_cast<CuteQIODeviceCall15>(taken[15]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQIODeviceCall16 call = reinterpret_cast<CuteQIODeviceCall16>(taken[16]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQIODeviceCall17 call = reinterpret_cast<CuteQIODeviceCall17>(taken[17]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQIODeviceCall18 call = reinterpret_cast<CuteQIODeviceCall18>(taken[18]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQIODeviceCall19 call = reinterpret_cast<CuteQIODeviceCall19>(taken[19]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QIODevice::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -292,4 +633,93 @@ QString *ritual_ZNK9QIODevice11errorStringEv(const QIODevice *self) {
 extern "C" Q_DECL_EXPORT
 QIODeviceBase *ritual_cast_QIODevice_QIODeviceBase(QIODevice *self) {
   return static_cast<QIODeviceBase *>(self);
+}
+
+//  a Python function taken by a CuteQIODevice, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QIODevice(QIODevice *self, const char *key, void *call) {
+  return static_cast<CuteQIODevice *>(self)->take(key, call);
+}
+
+//  bool QIODevice::isSequential() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK9QIODevice12isSequentialEv(const QIODevice *self) {
+  return self->QIODevice::isSequential();
+}
+
+//  void QIODevice::close()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN9QIODevice5closeEv(QIODevice *self) {
+  self->QIODevice::close();
+}
+
+//  qint64 QIODevice::pos() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZNK9QIODevice3posEv(const QIODevice *self) {
+  return self->QIODevice::pos();
+}
+
+//  qint64 QIODevice::size() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZNK9QIODevice4sizeEv(const QIODevice *self) {
+  return self->QIODevice::size();
+}
+
+//  bool QIODevice::seek(qint64 pos)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN9QIODevice4seekEx(QIODevice *self, qint64 pos) {
+  return self->QIODevice::seek(pos);
+}
+
+//  bool QIODevice::atEnd() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK9QIODevice5atEndEv(const QIODevice *self) {
+  return self->QIODevice::atEnd();
+}
+
+//  bool QIODevice::reset()
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN9QIODevice5resetEv(QIODevice *self) {
+  return self->QIODevice::reset();
+}
+
+//  qint64 QIODevice::bytesAvailable() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZNK9QIODevice14bytesAvailableEv(const QIODevice *self) {
+  return self->QIODevice::bytesAvailable();
+}
+
+//  qint64 QIODevice::bytesToWrite() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZNK9QIODevice12bytesToWriteEv(const QIODevice *self) {
+  return self->QIODevice::bytesToWrite();
+}
+
+//  bool QIODevice::canReadLine() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK9QIODevice11canReadLineEv(const QIODevice *self) {
+  return self->QIODevice::canReadLine();
+}
+
+//  bool QIODevice::waitForReadyRead(int msecs)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN9QIODevice16waitForReadyReadEi(
+    QIODevice *self,
+    int msecs) {
+  return self->QIODevice::waitForReadyRead(msecs);
+}
+
+//  bool QIODevice::waitForBytesWritten(int msecs)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN9QIODevice19waitForBytesWrittenEi(
+    QIODevice *self,
+    int msecs) {
+  return self->QIODevice::waitForBytesWritten(msecs);
+}
+
+//  qint64 QIODevice::skipData(qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZN9QIODevice8skipDataEx(QIODevice *self, qint64 maxSize) {
+  return static_cast<OwnQIODevice *>(self)->OwnQIODevice::skipData(maxSize);
 }

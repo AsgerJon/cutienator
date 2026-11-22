@@ -11,6 +11,8 @@
     ],
     "ritual_ZNK12QScrollEvent10contentPosEv": ["address", "address"],
     "ritual_ZNK12QScrollEvent17overshootDistanceEv": ["address", "address"],
-    "ritual_ZNK12QScrollEvent11scrollStateEv": ["int", "address"]
+    "ritual_ZNK12QScrollEvent11scrollStateEv": ["int", "address"],
+    "ritual_take_QScrollEvent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QScrollEvent5cloneEv": ["address", "address"]
   }
 }

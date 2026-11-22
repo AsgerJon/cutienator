@@ -14,25 +14,41 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
-from . import QAbstractScrollArea, QWidget
+from ..QtCore import Qt, QObject
+from . import QAbstractItemDelegate, QAbstractScrollArea, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QAbstractItemModel, QItemSelectionModel, QMetaObject
-  from ..QtCore import QModelIndex, QPoint, QRect, QSize, QVariant
-  from . import QAbstractItemDelegate
+  from ..QtCore import QAbstractItemModel, QEvent, QItemSelection
+  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
+  from ..QtCore import QRect, QSize, QTimerEvent, QVariant
+  from ..QtGui import QDragEnterEvent, QDragLeaveEvent, QDragMoveEvent
+  from ..QtGui import QDropEvent, QFocusEvent, QInputMethodEvent, QKeyEvent
+  from ..QtGui import QMouseEvent, QResizeEvent
+  from . import QStyleOptionViewItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
-  QAbstractItemDelegate = WAIT['QAbstractItemDelegate']
   QAbstractItemModel = WAIT['QAbstractItemModel']
+  QDragEnterEvent = WAIT['QDragEnterEvent']
+  QDragLeaveEvent = WAIT['QDragLeaveEvent']
+  QDragMoveEvent = WAIT['QDragMoveEvent']
+  QDropEvent = WAIT['QDropEvent']
+  QEvent = WAIT['QEvent']
+  QFocusEvent = WAIT['QFocusEvent']
+  QInputMethodEvent = WAIT['QInputMethodEvent']
+  QItemSelection = WAIT['QItemSelection']
   QItemSelectionModel = WAIT['QItemSelectionModel']
+  QKeyEvent = WAIT['QKeyEvent']
   QModelIndex = WAIT['QModelIndex']
+  QMouseEvent = WAIT['QMouseEvent']
   QPoint = WAIT['QPoint']
+  QResizeEvent = WAIT['QResizeEvent']
   QSize = WAIT['QSize']
+  QStyleOptionViewItem = WAIT['QStyleOptionViewItem']
+  QTimerEvent = WAIT['QTimerEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -51,7 +67,7 @@ class QAbstractItemView(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QAbstractItemView that has a ritual and that Python
-  can call so far, 76 names in all: 'metaObject', 'tr', 'setModel', 'model',
+  can call so far, 110 names in all: 'metaObject', 'tr', 'setModel', 'model',
   'setSelectionModel', 'selectionModel', 'setItemDelegate', 'itemDelegate',
   'setSelectionMode', 'selectionMode', 'setSelectionBehavior',
   'selectionBehavior', 'currentIndex', 'rootIndex', 'setEditTriggers',
@@ -73,8 +89,19 @@ class QAbstractItemView(QAbstractScrollArea):
   'setItemDelegateForColumn', 'itemDelegateForColumn',
   'itemDelegateForIndex', 'inputMethodQuery', 'reset', 'setRootIndex',
   'doItemsLayout', 'selectAll', 'edit', 'clearSelection', 'setCurrentIndex',
-  'scrollToTop', 'scrollToBottom', 'update'. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  'scrollToTop', 'scrollToBottom', 'update', 'rowsInserted',
+  'rowsAboutToBeRemoved', 'selectionChanged', 'currentChanged',
+  'updateEditorData', 'updateEditorGeometries', 'updateGeometries',
+  'verticalScrollbarAction', 'horizontalScrollbarAction',
+  'verticalScrollbarValueChanged', 'horizontalScrollbarValueChanged',
+  'closeEditor', 'commitData', 'editorDestroyed', 'initViewItemOption',
+  'focusNextPrevChild', 'event', 'viewportEvent', 'mousePressEvent',
+  'mouseMoveEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
+  'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent', 'dropEvent',
+  'focusInEvent', 'focusOutEvent', 'keyPressEvent', 'resizeEvent',
+  'timerEvent', 'inputMethodEvent', 'eventFilter', 'viewportSizeHint'. None
+  can be made from Python: one comes out of a function of another class that
+  gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -85,7 +112,7 @@ class QAbstractItemView(QAbstractScrollArea):
   What has no ritual
   ------------------
 
-  73 of the 151 functions Qt declares: 57 protected; 7 a signal; 3 private; 2
+  38 of the 151 functions Qt declares: 22 protected; 7 a signal; 3 private; 2
   takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template;
   1 the class is abstract, so C++ cannot make one.
 
@@ -234,6 +261,275 @@ class QAbstractItemView(QAbstractScrollArea):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractItemView'
 
+  #  A C++ QAbstractItemView Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractItemView'
+
+  #  The functions Qt calls itself that QAbstractItemView is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'keyboardSearch': (
+          'void QAbstractItemView::keyboardSearch(const QString &)',
+      ),
+      'dataChanged': (
+          'void QAbstractItemView::dataChanged(const QModelIndex &, const '
+          'QModelIndex &, const QList<int> &)',
+      ),
+      'moveCursor': (
+          'QModelIndex QAbstractItemView::moveCursor(CursorAction, '
+          'Qt::KeyboardModifiers)',
+      ),
+      'setSelection': (
+          'void QAbstractItemView::setSelection(const QRect &, '
+          'QItemSelectionModel::SelectionFlags)',
+      ),
+      'selectedIndexes': (
+          'QModelIndexList QAbstractItemView::selectedIndexes() const',
+      ),
+      'selectionCommand': (
+          'QItemSelectionModel::SelectionFlags '
+          'QAbstractItemView::selectionCommand(const QModelIndex &, const '
+          'QEvent *) const',
+      ),
+      'startDrag': (
+          'void QAbstractItemView::startDrag(Qt::DropActions)',
+      ),
+  }
+
+  #  The functions Qt calls itself that QAbstractItemView is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'setModel': (
+          ('_ZN17QAbstractItemView8setModelEP18QAbstractItemModel',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QAbstractItemModel'),
+           )),
+      ),
+      'setSelectionModel': (
+          ('_ZN17QAbstractItemView17setSelectionModelEP19QItemSelectionMode'
+           'l',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QItemSelectionModel'),
+           )),
+      ),
+      'visualRect': (
+          ('_ZNK17QAbstractItemView10visualRectERK11QModelIndex',
+           ('address', 'value', 'QtCore:QRect'),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'scrollTo': (
+          ('_ZN17QAbstractItemView8scrollToERK11QModelIndexNS_10ScrollHintE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('int', 'enum', 'QtWidgets:QAbstractItemView.ScrollHint'),
+           )),
+      ),
+      'indexAt': (
+          ('_ZNK17QAbstractItemView7indexAtERK6QPoint',
+           ('address', 'value', 'QtCore:QModelIndex'),
+           (
+               ('address', 'value', 'QtCore:QPoint'),
+           )),
+      ),
+      'sizeHintForRow': (
+          ('_ZNK17QAbstractItemView14sizeHintForRowEi',
+           ('int', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'sizeHintForColumn': (
+          ('_ZNK17QAbstractItemView17sizeHintForColumnEi',
+           ('int', 'number', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'itemDelegateForIndex': (
+          ('_ZNK17QAbstractItemView20itemDelegateForIndexERK11QModelIndex',
+           ('address', 'address', 'QtWidgets:QAbstractItemDelegate'),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'reset': (
+          ('_ZN17QAbstractItemView5resetEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'setRootIndex': (
+          ('_ZN17QAbstractItemView12setRootIndexERK11QModelIndex',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'doItemsLayout': (
+          ('_ZN17QAbstractItemView13doItemsLayoutEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'selectAll': (
+          ('_ZN17QAbstractItemView9selectAllEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'rowsInserted': (
+          ('_ZN17QAbstractItemView12rowsInsertedERK11QModelIndexii',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+           )),
+      ),
+      'rowsAboutToBeRemoved': (
+          ('_ZN17QAbstractItemView20rowsAboutToBeRemovedERK11QModelIndexii',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+           )),
+      ),
+      'selectionChanged': (
+          ('_ZN17QAbstractItemView16selectionChangedERK14QItemSelectionS2_',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QItemSelection'),
+               ('address', 'value', 'QtCore:QItemSelection'),
+           )),
+      ),
+      'currentChanged': (
+          ('_ZN17QAbstractItemView14currentChangedERK11QModelIndexS2_',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'updateEditorData': (
+          ('_ZN17QAbstractItemView16updateEditorDataEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'updateEditorGeometries': (
+          ('_ZN17QAbstractItemView22updateEditorGeometriesEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'updateGeometries': (
+          ('_ZN17QAbstractItemView16updateGeometriesEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'verticalScrollbarAction': (
+          ('_ZN17QAbstractItemView23verticalScrollbarActionEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'horizontalScrollbarAction': (
+          ('_ZN17QAbstractItemView25horizontalScrollbarActionEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'verticalScrollbarValueChanged': (
+          ('_ZN17QAbstractItemView29verticalScrollbarValueChangedEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'horizontalScrollbarValueChanged': (
+          ('_ZN17QAbstractItemView31horizontalScrollbarValueChangedEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'closeEditor': (
+          ('_ZN17QAbstractItemView11closeEditorEP7QWidgetN21QAbstractItemDe'
+           'legate11EndEditHintE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+               ('int', 'enum',
+                'QtWidgets:QAbstractItemDelegate.EndEditHint'),
+           )),
+      ),
+      'commitData': (
+          ('_ZN17QAbstractItemView10commitDataEP7QWidget',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QWidget'),
+           )),
+      ),
+      'editorDestroyed': (
+          ('_ZN17QAbstractItemView15editorDestroyedEP7QObject',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QObject'),
+           )),
+      ),
+      'horizontalOffset': (
+          ('_ZNK17QAbstractItemView16horizontalOffsetEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'verticalOffset': (
+          ('_ZNK17QAbstractItemView14verticalOffsetEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'isIndexHidden': (
+          ('_ZNK17QAbstractItemView13isIndexHiddenERK11QModelIndex',
+           ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'visualRegionForSelection': (
+          ('_ZNK17QAbstractItemView24visualRegionForSelectionERK14QItemSele'
+           'ction',
+           ('address', 'value', 'QtGui:QRegion'),
+           (
+               ('address', 'value', 'QtCore:QItemSelection'),
+           )),
+      ),
+      'edit': (
+          ('_ZN17QAbstractItemView4editERK11QModelIndexNS_11EditTriggerEP6Q'
+           'Event',
+           ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('int', 'enum', 'QtWidgets:QAbstractItemView.EditTrigger'),
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'initViewItemOption': (
+          ('_ZNK17QAbstractItemView18initViewItemOptionEP20QStyleOptionView'
+           'Item',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionViewItem'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -326,7 +622,6 @@ class QAbstractItemView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK17QAbstractItemView12itemDelegateEv',
     )
-    from . import QAbstractItemDelegate
     return QAbstractItemDelegate._cuteAt(address)
 
   @overload(QModelIndex)
@@ -361,7 +656,6 @@ class QAbstractItemView(QAbstractScrollArea):
         'ritual_ZNK17QAbstractItemView12itemDelegateERK11QModelIndex',
         self._valueOf(index),
     )
-    from . import QAbstractItemDelegate
     return QAbstractItemDelegate._cuteAt(address)
 
   def selectionMode(self) -> SelectionMode:
@@ -765,9 +1059,10 @@ class QAbstractItemView(QAbstractScrollArea):
       Passed on as it is.
     """
     #  int QAbstractItemView::sizeHintForRow(int row) const
-    return self.uglySide.call(
-        'ritual_ZNK17QAbstractItemView14sizeHintForRowEi', row,
-    )
+    ritual = 'ritual_ZNK17QAbstractItemView14sizeHintForRowEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAbstractItemView14sizeHintForRowEi'
+    return self.uglySide.call(ritual, row)
 
   @overload(int)
   def sizeHintForColumn(self, column: int) -> int:
@@ -784,9 +1079,10 @@ class QAbstractItemView(QAbstractScrollArea):
       Passed on as it is.
     """
     #  int QAbstractItemView::sizeHintForColumn(int column) const
-    return self.uglySide.call(
-        'ritual_ZNK17QAbstractItemView17sizeHintForColumnEi', column,
-    )
+    ritual = 'ritual_ZNK17QAbstractItemView17sizeHintForColumnEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAbstractItemView17sizeHintForColumnEi'
+    return self.uglySide.call(ritual, column)
 
   def updateThreshold(self) -> int:
     """
@@ -900,7 +1196,6 @@ class QAbstractItemView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK17QAbstractItemView18itemDelegateForRowEi', row,
     )
-    from . import QAbstractItemDelegate
     return QAbstractItemDelegate._cuteAt(address)
 
   @overload(int)
@@ -933,7 +1228,6 @@ class QAbstractItemView(QAbstractScrollArea):
     address = self.uglySide.call(
         'ritual_ZNK17QAbstractItemView21itemDelegateForColumnEi', column,
     )
-    from . import QAbstractItemDelegate
     return QAbstractItemDelegate._cuteAt(address)
 
   @overload(QModelIndex)
@@ -965,12 +1259,14 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  QAbstractItemDelegate *QAbstractItemView::itemDelegateForIndex(const
     #      QModelIndex &index) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK17QAbstractItemView20itemDelegateForIndexERK11QModelInde'
-        'x',
-        self._valueOf(index),
-    )
-    from . import QAbstractItemDelegate
+        'x')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK17QAbstractItemView20itemDelegateForIndexERK11QMod'
+          'elIndex')
+    address = self.uglySide.call(ritual, self._valueOf(index))
     return QAbstractItemDelegate._cuteAt(address)
 
   @overload(Qt.InputMethodQuery)
@@ -996,13 +1292,36 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  QVariant QAbstractItemView::inputMethodQuery(Qt::InputMethodQuery
     #      query) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK17QAbstractItemView16inputMethodQueryEN2Qt16InputMethodQ'
-        'ueryE',
-        query.value,
-    )
+        'ueryE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK17QAbstractItemView16inputMethodQueryEN2Qt16InputM'
+          'ethodQueryE')
+    address = self.uglySide.call(ritual, query.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
+
+  def viewportSizeHint(self) -> QSize:
+    """
+    Calls Qt's 'QSize QAbstractItemView::viewportSizeHint() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QAbstractItemView::viewportSizeHint() const
+    address = self.uglySide.call(
+        'ritual_own_ZNK17QAbstractItemView16viewportSizeHintEv',
+    )
+    from ..QtCore import QSize
+    return QSize._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1024,10 +1343,11 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::setModel(QAbstractItemModel *model)
-    self.uglySide.call(
-        'ritual_ZN17QAbstractItemView8setModelEP18QAbstractItemModel',
-        self._addressOf(model),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView8setModelEP18QAbstractItemModel'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView8setModelEP18QAbstractItemModel')
+    self.uglySide.call(ritual, self._addressOf(model))
 
   @overload(QItemSelectionModel)
   @overload(NoneType)
@@ -1051,11 +1371,14 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  void QAbstractItemView::setSelectionModel(QItemSelectionModel
     #      *selectionModel)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN17QAbstractItemView17setSelectionModelEP19QItemSelectionM'
-        'odel',
-        self._addressOf(selectionModel),
-    )
+        'odel')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView17setSelectionModelEP19QItemSele'
+          'ctionModel')
+    self.uglySide.call(ritual, self._addressOf(selectionModel))
 
   @overload(QAbstractItemDelegate)
   @overload(NoneType)
@@ -1575,10 +1898,11 @@ class QAbstractItemView(QAbstractScrollArea):
       Python's own.
     """
     #  void QAbstractItemView::setRootIndex(const QModelIndex &index)
-    self.uglySide.call(
-        'ritual_ZN17QAbstractItemView12setRootIndexERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView12setRootIndexERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView12setRootIndexERK11QModelIndex')
+    self.uglySide.call(ritual, self._valueOf(index))
 
   @overload(QModelIndex)
   def setCurrentIndex(self, index: QModelIndex) -> None:
@@ -1763,7 +2087,10 @@ class QAbstractItemView(QAbstractScrollArea):
     Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#reset
     """
     #  void QAbstractItemView::reset()
-    self.uglySide.call('ritual_ZN17QAbstractItemView5resetEv')
+    ritual = 'ritual_ZN17QAbstractItemView5resetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView5resetEv'
+    self.uglySide.call(ritual)
 
   def doItemsLayout(self) -> None:
     """
@@ -1773,7 +2100,10 @@ class QAbstractItemView(QAbstractScrollArea):
     https://doc.qt.io/qt-6/qabstractitemview.html#doItemsLayout
     """
     #  void QAbstractItemView::doItemsLayout()
-    self.uglySide.call('ritual_ZN17QAbstractItemView13doItemsLayoutEv')
+    ritual = 'ritual_ZN17QAbstractItemView13doItemsLayoutEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView13doItemsLayoutEv'
+    self.uglySide.call(ritual)
 
   def selectAll(self) -> None:
     """
@@ -1782,7 +2112,10 @@ class QAbstractItemView(QAbstractScrollArea):
     Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#selectAll
     """
     #  void QAbstractItemView::selectAll()
-    self.uglySide.call('ritual_ZN17QAbstractItemView9selectAllEv')
+    ritual = 'ritual_ZN17QAbstractItemView9selectAllEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView9selectAllEv'
+    self.uglySide.call(ritual)
 
   @overload(QModelIndex)
   def edit(self, index: QModelIndex) -> None:
@@ -1802,6 +2135,42 @@ class QAbstractItemView(QAbstractScrollArea):
     self.uglySide.call(
         'ritual_ZN17QAbstractItemView4editERK11QModelIndex',
         self._valueOf(index),
+    )
+
+  @overload(QModelIndex, EditTrigger, QEvent)
+  @overload(QModelIndex, EditTrigger, NoneType)
+  def edit(
+      self,
+      index: QModelIndex,
+      trigger: EditTrigger,
+      event: Optional[QEvent],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QAbstractItemView::edit(const QModelIndex &index,
+    EditTrigger trigger, QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#edit
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    trigger : EditTrigger
+      Passed on as its number.
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QAbstractItemView::edit(const QModelIndex &index, EditTrigger
+    #      trigger, QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView4editERK11QModelIndexNS_11EditTrig'
+        'gerEP6QEvent',
+        self._valueOf(index), trigger.value, self._addressOf(event),
     )
 
   def clearSelection(self) -> None:
@@ -1851,4 +2220,764 @@ class QAbstractItemView(QAbstractScrollArea):
     self.uglySide.call(
         'ritual_ZN17QAbstractItemView6updateERK11QModelIndex',
         self._valueOf(index),
+    )
+
+  @overload(QModelIndex, int, int)
+  def rowsInserted(self, parent: QModelIndex, start: int, end: int) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::rowsInserted(const QModelIndex
+    &parent, int start, int end)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    start : int
+      Passed on as it is.
+
+    end : int
+      Passed on as it is.
+    """
+    #  void QAbstractItemView::rowsInserted(const QModelIndex &parent, int
+    #      start, int end)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView12rowsInsertedERK11QModelIndexii',
+        self._valueOf(parent), start, end,
+    )
+
+  @overload(QModelIndex, int, int)
+  def rowsAboutToBeRemoved(
+      self,
+      parent: QModelIndex,
+      start: int,
+      end: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::rowsAboutToBeRemoved(const
+    QModelIndex &parent, int start, int end)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    start : int
+      Passed on as it is.
+
+    end : int
+      Passed on as it is.
+    """
+    #  void QAbstractItemView::rowsAboutToBeRemoved(const QModelIndex
+    #      &parent, int start, int end)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView20rowsAboutToBeRemovedERK11QModelI'
+        'ndexii',
+        self._valueOf(parent), start, end,
+    )
+
+  @overload(QItemSelection, QItemSelection)
+  def selectionChanged(
+      self,
+      selected: QItemSelection,
+      deselected: QItemSelection,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::selectionChanged(const QItemSelection
+    &selected, const QItemSelection &deselected)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged
+
+    Parameters
+    ----------
+
+    selected : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    deselected : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+    """
+    #  void QAbstractItemView::selectionChanged(const QItemSelection
+    #      &selected, const QItemSelection &deselected)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView16selectionChangedERK14QItemSelect'
+        'ionS2_',
+        self._valueOf(selected), self._valueOf(deselected),
+    )
+
+  @overload(QModelIndex, QModelIndex)
+  def currentChanged(
+      self,
+      current: QModelIndex,
+      previous: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::currentChanged(const QModelIndex
+    &current, const QModelIndex &previous)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#currentChanged
+
+    Parameters
+    ----------
+
+    current : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    previous : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QAbstractItemView::currentChanged(const QModelIndex &current,
+    #      const QModelIndex &previous)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView14currentChangedERK11QModelIndexS2'
+        '_',
+        self._valueOf(current), self._valueOf(previous),
+    )
+
+  def updateEditorData(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::updateEditorData()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData
+    """
+    #  void QAbstractItemView::updateEditorData()
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView16updateEditorDataEv',
+    )
+
+  def updateEditorGeometries(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::updateEditorGeometries()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries
+    """
+    #  void QAbstractItemView::updateEditorGeometries()
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView22updateEditorGeometriesEv',
+    )
+
+  def updateGeometries(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::updateGeometries()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#updateGeometries
+    """
+    #  void QAbstractItemView::updateGeometries()
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView16updateGeometriesEv',
+    )
+
+  @overload(int)
+  def verticalScrollbarAction(self, action: int) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::verticalScrollbarAction(int action)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction
+
+    Parameters
+    ----------
+
+    action : int
+      Passed on as it is.
+    """
+    #  void QAbstractItemView::verticalScrollbarAction(int action)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView23verticalScrollbarActionEi',
+        action,
+    )
+
+  @overload(int)
+  def horizontalScrollbarAction(self, action: int) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::horizontalScrollbarAction(int
+    action)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction
+
+    Parameters
+    ----------
+
+    action : int
+      Passed on as it is.
+    """
+    #  void QAbstractItemView::horizontalScrollbarAction(int action)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView25horizontalScrollbarActionEi',
+        action,
+    )
+
+  @overload(int)
+  def verticalScrollbarValueChanged(self, value: int) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::verticalScrollbarValueChanged(int
+    value)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html
+
+    Parameters
+    ----------
+
+    value : int
+      Passed on as it is.
+    """
+    #  void QAbstractItemView::verticalScrollbarValueChanged(int value)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView29verticalScrollbarValueChangedEi',
+        value,
+    )
+
+  @overload(int)
+  def horizontalScrollbarValueChanged(self, value: int) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::horizontalScrollbarValueChanged(int
+    value)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html
+
+    Parameters
+    ----------
+
+    value : int
+      Passed on as it is.
+    """
+    #  void QAbstractItemView::horizontalScrollbarValueChanged(int value)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView31horizontalScrollbarValueChangedE'
+        'i',
+        value,
+    )
+
+  @overload(QWidget, QAbstractItemDelegate.EndEditHint)
+  @overload(NoneType, QAbstractItemDelegate.EndEditHint)
+  def closeEditor(
+      self,
+      editor: Optional[QWidget],
+      hint: QAbstractItemDelegate.EndEditHint,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::closeEditor(QWidget *editor,
+    QAbstractItemDelegate::EndEditHint hint)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor
+
+    Parameters
+    ----------
+
+    editor : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    hint : QAbstractItemDelegate.EndEditHint
+      Passed on as its number.
+    """
+    #  void QAbstractItemView::closeEditor(QWidget *editor,
+    #      QAbstractItemDelegate::EndEditHint hint)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView11closeEditorEP7QWidgetN21QAbstrac'
+        'tItemDelegate11EndEditHintE',
+        self._addressOf(editor), hint.value,
+    )
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def commitData(self, editor: Optional[QWidget]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::commitData(QWidget *editor)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#commitData
+
+    Parameters
+    ----------
+
+    editor : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::commitData(QWidget *editor)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView10commitDataEP7QWidget',
+        self._addressOf(editor),
+    )
+
+  @overload(QObject)
+  @overload(NoneType)
+  def editorDestroyed(self, editor: Optional[QObject]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::editorDestroyed(QObject *editor)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed
+
+    Parameters
+    ----------
+
+    editor : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::editorDestroyed(QObject *editor)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView15editorDestroyedEP7QObject',
+        self._addressOf(editor),
+    )
+
+  @overload(QStyleOptionViewItem)
+  @overload(NoneType)
+  def initViewItemOption(
+      self,
+      option: Optional[QStyleOptionViewItem],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QAbstractItemView::initViewItemOption(QStyleOptionViewItem *option)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionViewItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::initViewItemOption(QStyleOptionViewItem
+    #      *option) const
+    self.uglySide.call(
+        'ritual_own_ZNK17QAbstractItemView18initViewItemOptionEP20QStyleOpt'
+        'ionViewItem',
+        self._addressOf(option),
+    )
+
+  @overload(bool)
+  def focusNextPrevChild(self, next: bool) -> bool:
+    """
+    Calls Qt's 'bool QAbstractItemView::focusNextPrevChild(bool next)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild
+
+    Parameters
+    ----------
+
+    next : bool
+      Passed on as it is.
+    """
+    #  bool QAbstractItemView::focusNextPrevChild(bool next)
+    return self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView18focusNextPrevChildEb', next,
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QAbstractItemView::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QAbstractItemView::event(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView5eventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def viewportEvent(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QAbstractItemView::viewportEvent(QEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QAbstractItemView::viewportEvent(QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView13viewportEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::mousePressEvent(QMouseEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::mousePressEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView15mousePressEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::mouseMoveEvent(QMouseEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::mouseMoveEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseReleaseEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::mouseReleaseEvent(QMouseEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::mouseReleaseEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView17mouseReleaseEventEP11QMouseEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseDoubleClickEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::mouseDoubleClickEvent(QMouseEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::mouseDoubleClickEvent(QMouseEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView21mouseDoubleClickEventEP11QMouseE'
+        'vent',
+        self._addressOf(event),
+    )
+
+  @overload(QDragEnterEvent)
+  @overload(NoneType)
+  def dragEnterEvent(self, event: Optional[QDragEnterEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::dragEnterEvent(QDragEnterEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDragEnterEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::dragEnterEvent(QDragEnterEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView14dragEnterEventEP15QDragEnterEven'
+        't',
+        self._addressOf(event),
+    )
+
+  @overload(QDragMoveEvent)
+  @overload(NoneType)
+  def dragMoveEvent(self, event: Optional[QDragMoveEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::dragMoveEvent(QDragMoveEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDragMoveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::dragMoveEvent(QDragMoveEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView13dragMoveEventEP14QDragMoveEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QDragLeaveEvent)
+  @overload(NoneType)
+  def dragLeaveEvent(self, event: Optional[QDragLeaveEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::dragLeaveEvent(QDragLeaveEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDragLeaveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::dragLeaveEvent(QDragLeaveEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView14dragLeaveEventEP15QDragLeaveEven'
+        't',
+        self._addressOf(event),
+    )
+
+  @overload(QDropEvent)
+  @overload(NoneType)
+  def dropEvent(self, event: Optional[QDropEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::dropEvent(QDropEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::dropEvent(QDropEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView9dropEventEP10QDropEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusInEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::focusInEvent(QFocusEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::focusInEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView12focusInEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QFocusEvent)
+  @overload(NoneType)
+  def focusOutEvent(self, event: Optional[QFocusEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::focusOutEvent(QFocusEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QFocusEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::focusOutEvent(QFocusEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView13focusOutEventEP11QFocusEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, event: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::keyPressEvent(QKeyEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::keyPressEvent(QKeyEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView13keyPressEventEP9QKeyEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, event: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::resizeEvent(QResizeEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::resizeEvent(QResizeEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView11resizeEventEP12QResizeEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, event: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::timerEvent(QTimerEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::timerEvent(QTimerEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView10timerEventEP11QTimerEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QInputMethodEvent)
+  @overload(NoneType)
+  def inputMethodEvent(self, event: Optional[QInputMethodEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::inputMethodEvent(QInputMethodEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QInputMethodEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemView::inputMethodEvent(QInputMethodEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView16inputMethodEventEP17QInputMethod'
+        'Event',
+        self._addressOf(event),
+    )
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(
+      self,
+      object: Optional[QObject],
+      event: Optional[QEvent],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QAbstractItemView::eventFilter(QObject *object, QEvent
+    *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter
+
+    Parameters
+    ----------
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QAbstractItemView::eventFilter(QObject *object, QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN17QAbstractItemView11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(object), self._addressOf(event),
     )

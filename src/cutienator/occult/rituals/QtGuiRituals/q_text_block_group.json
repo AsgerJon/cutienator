@@ -7,6 +7,16 @@
     "ritual_ZNK15QTextBlockGroup10metaObjectEv": ["address", "address"],
     "ritual_ZN15QTextBlockGroup2trEPKcS1_i": [
       "text", "chars", "chars", "int"
+    ],
+    "ritual_take_QTextBlockGroup": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QTextBlockGroup13blockInsertedERK10QTextBlock": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QTextBlockGroup12blockRemovedERK10QTextBlock": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QTextBlockGroup18blockFormatChangedERK10QTextBlock": [
+      "nothing", "address", "address"
     ]
   }
 }

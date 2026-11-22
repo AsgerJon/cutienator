@@ -19,6 +19,9 @@
     ],
     "ritual_ZN28QAccessibleAnnouncementEvent13setPolitenessEN11QAccessible22AnnouncementPolitenessE": [
       "nothing", "address", "int"
+    ],
+    "ritual_take_QAccessibleAnnouncementEvent": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

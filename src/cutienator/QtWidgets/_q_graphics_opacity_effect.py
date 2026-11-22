@@ -20,12 +20,13 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
-  from ..QtGui import QBrush
+  from ..QtGui import QBrush, QPainter
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QBrush = WAIT['QBrush']
+  QPainter = WAIT['QPainter']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,9 +45,9 @@ class QGraphicsOpacityEffect(QGraphicsEffect):
   -----------
 
   Every function of Qt's QGraphicsOpacityEffect that has a ritual and that
-  Python can call so far, 6 names in all: 'metaObject', 'tr', 'opacity',
-  'opacityMask', 'setOpacity', 'setOpacityMask'. It can be made from Python,
-  in 1 way; see '__init__'.
+  Python can call so far, 7 names in all: 'metaObject', 'tr', 'opacity',
+  'opacityMask', 'setOpacity', 'setOpacityMask', 'draw'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,8 +58,8 @@ class QGraphicsOpacityEffect(QGraphicsEffect):
   What has no ritual
   ------------------
 
-  11 of the 19 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template; 1 protected.
+  10 of the 19 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -131,6 +132,11 @@ class QGraphicsOpacityEffect(QGraphicsEffect):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsOpacityEffect'
+
+  #  A C++ QGraphicsOpacityEffect Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsOpacityEffect'
 
   #  Fallback Variables
 
@@ -297,3 +303,24 @@ class QGraphicsOpacityEffect(QGraphicsEffect):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QPainter)
+  @overload(NoneType)
+  def draw(self, painter: Optional[QPainter]) -> None:
+    """
+    Calls Qt's 'void QGraphicsOpacityEffect::draw(QPainter *painter)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsOpacityEffect::draw(QPainter *painter)
+    self.uglySide.call(
+        'ritual_own_ZN22QGraphicsOpacityEffect4drawEP8QPainter',
+        self._addressOf(painter),
+    )

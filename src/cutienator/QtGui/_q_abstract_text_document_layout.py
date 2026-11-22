@@ -21,7 +21,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QMetaObject, QPointF, QRectF, QSizeF
   from . import QPaintDevice, QPainter, QTextBlock, QTextDocument
-  from . import QTextFormat, QTextFrame, QTextObjectInterface
+  from . import QTextFormat, QTextFrame, QTextInlineObject
+  from . import QTextObjectInterface
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -29,8 +30,11 @@ else:
   QPaintDevice = WAIT['QPaintDevice']
   QPainter = WAIT['QPainter']
   QPointF = WAIT['QPointF']
+  QRectF = WAIT['QRectF']
   QTextBlock = WAIT['QTextBlock']
+  QTextFormat = WAIT['QTextFormat']
   QTextFrame = WAIT['QTextFrame']
+  QTextInlineObject = WAIT['QTextInlineObject']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -49,12 +53,13 @@ class QAbstractTextDocumentLayout(QObject):
   -----------
 
   Every function of Qt's QAbstractTextDocumentLayout that has a ritual and
-  that Python can call so far, 18 names in all: 'metaObject', 'tr', 'draw',
+  that Python can call so far, 21 names in all: 'metaObject', 'tr', 'draw',
   'hitTest', 'anchorAt', 'imageAt', 'formatAt', 'blockWithMarkerAt',
   'pageCount', 'documentSize', 'frameBoundingRect', 'blockBoundingRect',
   'setPaintDevice', 'paintDevice', 'document', 'registerHandler',
-  'unregisterHandler', 'handlerForObject'. None can be made from Python: one
-  comes out of a function of another class that gives one back.
+  'unregisterHandler', 'handlerForObject', 'resizeInlineObject',
+  'positionInlineObject', 'drawInlineObject'. None can be made from Python:
+  one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -65,7 +70,7 @@ class QAbstractTextDocumentLayout(QObject):
   What has no ritual
   ------------------
 
-  18 of the 37 functions Qt declares: 7 protected; 4 a signal; 3 private; 2
+  15 of the 37 functions Qt declares: 4 a signal; 4 protected; 3 private; 2
   takes or gives a type that cannot be passed yet; 1 a template; 1 the class
   is abstract, so C++ cannot make one.
 
@@ -375,6 +380,104 @@ class QAbstractTextDocumentLayout(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractTextDocumentLayout'
+
+  #  A C++ QAbstractTextDocumentLayout Python makes is of a C++ class of
+  #  ours, in which Python can take functions over. This ritual hands one
+  #  over; see 'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractTextDocumentLayout'
+
+  #  The functions Qt calls itself that QAbstractTextDocumentLayout is the
+  #  first to declare. A class of a program built on it can write one anew,
+  #  and Qt then calls that. For each name: the key C++ knows the function
+  #  by, what it gives, and what it takes.
+  __virtual_functions__ = {
+      'draw': (
+          ('_ZN27QAbstractTextDocumentLayout4drawEP8QPainterRKNS_12PaintCon'
+           'textE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'value',
+                'QtGui:QAbstractTextDocumentLayout.PaintContext'),
+           )),
+      ),
+      'hitTest': (
+          ('_ZNK27QAbstractTextDocumentLayout7hitTestERK7QPointFN2Qt15HitTe'
+           'stAccuracyE',
+           ('int', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QPointF'),
+               ('int', 'enum', 'QtCore:Qt.HitTestAccuracy'),
+           )),
+      ),
+      'pageCount': (
+          ('_ZNK27QAbstractTextDocumentLayout9pageCountEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'documentSize': (
+          ('_ZNK27QAbstractTextDocumentLayout12documentSizeEv',
+           ('address', 'value', 'QtCore:QSizeF'),
+           ()),
+      ),
+      'frameBoundingRect': (
+          ('_ZNK27QAbstractTextDocumentLayout17frameBoundingRectEP10QTextFr'
+           'ame',
+           ('address', 'value', 'QtCore:QRectF'),
+           (
+               ('address', 'address', 'QtGui:QTextFrame'),
+           )),
+      ),
+      'blockBoundingRect': (
+          ('_ZNK27QAbstractTextDocumentLayout17blockBoundingRectERK10QTextB'
+           'lock',
+           ('address', 'value', 'QtCore:QRectF'),
+           (
+               ('address', 'value', 'QtGui:QTextBlock'),
+           )),
+      ),
+      'documentChanged': (
+          ('_ZN27QAbstractTextDocumentLayout15documentChangedEiii',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+           )),
+      ),
+      'resizeInlineObject': (
+          ('_ZN27QAbstractTextDocumentLayout18resizeInlineObjectE17QTextInl'
+           'ineObjectiRK11QTextFormat',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtGui:QTextInlineObject'),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtGui:QTextFormat'),
+           )),
+      ),
+      'positionInlineObject': (
+          ('_ZN27QAbstractTextDocumentLayout20positionInlineObjectE17QTextI'
+           'nlineObjectiRK11QTextFormat',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtGui:QTextInlineObject'),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtGui:QTextFormat'),
+           )),
+      ),
+      'drawInlineObject': (
+          ('_ZN27QAbstractTextDocumentLayout16drawInlineObjectEP8QPainterRK'
+           '6QRectF17QTextInlineObjectiRK11QTextFormat',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QPainter'),
+               ('address', 'value', 'QtCore:QRectF'),
+               ('address', 'value', 'QtGui:QTextInlineObject'),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtGui:QTextFormat'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -885,4 +988,129 @@ class QAbstractTextDocumentLayout(QObject):
         'ritual_ZN27QAbstractTextDocumentLayout17unregisterHandlerEiP7QObje'
         'ct',
         objectType, self._addressOf(component),
+    )
+
+  @overload(QTextInlineObject, int, QTextFormat)
+  def resizeInlineObject(
+      self,
+      item: QTextInlineObject,
+      posInDocument: int,
+      format: QTextFormat,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QAbstractTextDocumentLayout::resizeInlineObject(QTextInlineObject item,
+    int posInDocument, const QTextFormat &format)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html
+
+    Parameters
+    ----------
+
+    item : QTextInlineObject
+      Passed on as a value: Qt reads the C++ QTextInlineObject, which stays
+      Python's own.
+
+    posInDocument : int
+      Passed on as it is.
+
+    format : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+    """
+    #  void QAbstractTextDocumentLayout::resizeInlineObject(QTextInlineObject
+    #      item, int posInDocument, const QTextFormat &format)
+    self.uglySide.call(
+        'ritual_own_ZN27QAbstractTextDocumentLayout18resizeInlineObjectE17Q'
+        'TextInlineObjectiRK11QTextFormat',
+        self._valueOf(item), posInDocument, self._valueOf(format),
+    )
+
+  @overload(QTextInlineObject, int, QTextFormat)
+  def positionInlineObject(
+      self,
+      item: QTextInlineObject,
+      posInDocument: int,
+      format: QTextFormat,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QAbstractTextDocumentLayout::positionInlineObject(QTextInlineObject item,
+    int posInDocument, const QTextFormat &format)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html
+
+    Parameters
+    ----------
+
+    item : QTextInlineObject
+      Passed on as a value: Qt reads the C++ QTextInlineObject, which stays
+      Python's own.
+
+    posInDocument : int
+      Passed on as it is.
+
+    format : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+    """
+    #  void QAbstractTextDocumentLayout::positionInlineObject(
+    #      QTextInlineObject item, int posInDocument, const QTextFormat
+    #      &format)
+    self.uglySide.call(
+        'ritual_own_ZN27QAbstractTextDocumentLayout20positionInlineObjectE1'
+        '7QTextInlineObjectiRK11QTextFormat',
+        self._valueOf(item), posInDocument, self._valueOf(format),
+    )
+
+  @overload(QPainter, QRectF, QTextInlineObject, int, QTextFormat)
+  @overload(NoneType, QRectF, QTextInlineObject, int, QTextFormat)
+  def drawInlineObject(
+      self,
+      painter: Optional[QPainter],
+      rect: QRectF,
+      object: QTextInlineObject,
+      posInDocument: int,
+      format: QTextFormat,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractTextDocumentLayout::drawInlineObject(QPainter
+    *painter, const QRectF &rect, QTextInlineObject object, int
+    posInDocument, const QTextFormat &format)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    object : QTextInlineObject
+      Passed on as a value: Qt reads the C++ QTextInlineObject, which stays
+      Python's own.
+
+    posInDocument : int
+      Passed on as it is.
+
+    format : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+    """
+    #  void QAbstractTextDocumentLayout::drawInlineObject(QPainter *painter,
+    #      const QRectF &rect, QTextInlineObject object, int posInDocument,
+    #      const QTextFormat &format)
+    self.uglySide.call(
+        'ritual_own_ZN27QAbstractTextDocumentLayout16drawInlineObjectEP8QPa'
+        'interRK6QRectF17QTextInlineObjectiRK11QTextFormat',
+        self._addressOf(painter), self._valueOf(rect), self._valueOf(object),
+        posInDocument, self._valueOf(format),
     )

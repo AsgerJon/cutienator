@@ -3,6 +3,155 @@
 #include <QtCore/qthread.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qdeadlinetimer.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QThread may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQThread : QThread {
+  using QThread::run;
+};
+
+//  A QThread that Python can take functions over in. Every QThread
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef bool (*CuteQThreadCall0)(const void *, QEvent *, int *);
+typedef void (*CuteQThreadCall1)(const void *, int *);
+typedef bool (*CuteQThreadCall2)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQThreadCall3)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQThreadCall4)(const void *, QChildEvent *, int *);
+typedef void (*CuteQThreadCall5)(const void *, QEvent *, int *);
+typedef void (*CuteQThreadCall6)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQThreadCall7)(const void *, const QMetaMethod *, int *);
+class CuteQThread : public QThread {
+public:
+  using QThread::QThread;
+  void *taken[8] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QThread3runEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[7] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  bool QThread::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQThreadCall0 call = reinterpret_cast<CuteQThreadCall0>(taken[0]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QThread::event(event);
+  }
+
+  //  void QThread::run()
+  void run() override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQThreadCall1 call = reinterpret_cast<CuteQThreadCall1>(taken[1]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QThread::run();
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQThreadCall2 call = reinterpret_cast<CuteQThreadCall2>(taken[2]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQThreadCall3 call = reinterpret_cast<CuteQThreadCall3>(taken[3]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQThreadCall4 call = reinterpret_cast<CuteQThreadCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQThreadCall5 call = reinterpret_cast<CuteQThreadCall5>(taken[5]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQThreadCall6 call = reinterpret_cast<CuteQThreadCall6>(taken[6]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQThreadCall7 call = reinterpret_cast<CuteQThreadCall7>(taken[7]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QThread::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -43,7 +192,7 @@ void ritual_ZN7QThread18yieldCurrentThreadEv() {
 //  QThread::QThread(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QThread *ritual_ZN7QThreadC1EP7QObject(QObject *parent) {
-  return new QThread(parent);
+  return new CuteQThread(parent);
 }
 
 //  QThread::~QThread()
@@ -207,4 +356,23 @@ void ritual_ZN7QThread6msleepEm(unsigned long a0) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QThread6usleepEm(unsigned long a0) {
   QThread::usleep(a0);
+}
+
+//  a Python function taken by a CuteQThread, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QThread(QThread *self, const char *key, void *call) {
+  return static_cast<CuteQThread *>(self)->take(key, call);
+}
+
+//  bool QThread::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN7QThread5eventEP6QEvent(QThread *self, QEvent *event) {
+  return self->QThread::event(event);
+}
+
+//  void QThread::run()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QThread3runEv(QThread *self) {
+  static_cast<OwnQThread *>(self)->OwnQThread::run();
 }

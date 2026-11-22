@@ -123,6 +123,49 @@ class QGraphicsLayout(QGraphicsLayoutItem):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGraphicsLayout'
 
+  #  A C++ QGraphicsLayout Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsLayout'
+
+  #  The functions Qt calls itself that QGraphicsLayout is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'invalidate': (
+          ('_ZN15QGraphicsLayout10invalidateEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'widgetEvent': (
+          ('_ZN15QGraphicsLayout11widgetEventEP6QEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'count': (
+          ('_ZNK15QGraphicsLayout5countEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'itemAt': (
+          ('_ZNK15QGraphicsLayout6itemAtEi',
+           ('address', 'address', 'QtWidgets:QGraphicsLayoutItem'),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'removeAt': (
+          ('_ZN15QGraphicsLayout8removeAtEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -266,7 +309,10 @@ class QGraphicsLayout(QGraphicsLayoutItem):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicslayout.html#invalidate
     """
     #  void QGraphicsLayout::invalidate()
-    self.uglySide.call('ritual_ZN15QGraphicsLayout10invalidateEv')
+    ritual = 'ritual_ZN15QGraphicsLayout10invalidateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsLayout10invalidateEv'
+    self.uglySide.call(ritual)
 
   def updateGeometry(self) -> None:
     """
@@ -276,7 +322,10 @@ class QGraphicsLayout(QGraphicsLayoutItem):
     https://doc.qt.io/qt-6/qgraphicslayout.html#updateGeometry
     """
     #  void QGraphicsLayout::updateGeometry()
-    self.uglySide.call('ritual_ZN15QGraphicsLayout14updateGeometryEv')
+    ritual = 'ritual_ZN15QGraphicsLayout14updateGeometryEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsLayout14updateGeometryEv'
+    self.uglySide.call(ritual)
 
   @overload(QEvent)
   @overload(NoneType)
@@ -294,10 +343,10 @@ class QGraphicsLayout(QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsLayout::widgetEvent(QEvent *e)
-    self.uglySide.call(
-        'ritual_ZN15QGraphicsLayout11widgetEventEP6QEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QGraphicsLayout11widgetEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsLayout11widgetEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(int)
   def removeAt(self, index: int) -> None:

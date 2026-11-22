@@ -2,6 +2,809 @@
 //  QtWidgets/qspinbox.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qspinbox.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qsize.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  A QDoubleSpinBox that Python can take functions over in. Every QDoubleSpinBox
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef const QSize * (*CuteQDoubleSpinBoxCall0)(const void *, int *);
+typedef const QSize * (*CuteQDoubleSpinBoxCall1)(const void *, int *);
+typedef bool (*CuteQDoubleSpinBoxCall2)(const void *, QEvent *, int *);
+typedef const QVariant * (*CuteQDoubleSpinBoxCall3)(const void *, int, int *);
+typedef void (*CuteQDoubleSpinBoxCall4)(const void *, int, int *);
+typedef void (*CuteQDoubleSpinBoxCall5)(const void *, int *);
+typedef void (*CuteQDoubleSpinBoxCall6)(const void *, QResizeEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall7)(const void *, QKeyEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall8)(const void *, QKeyEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall9)(const void *, QWheelEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall10)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall11)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall12)(const void *, QContextMenuEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall13)(const void *, QEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall14)(const void *, QCloseEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall15)(const void *, QHideEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall16)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall17)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall18)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall19)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall20)(const void *, QPaintEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall21)(const void *, QShowEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall22)(const void *, QStyleOptionSpinBox *, int *);
+typedef int (*CuteQDoubleSpinBoxCall23)(const void *, int *);
+typedef void (*CuteQDoubleSpinBoxCall24)(const void *, bool, int *);
+typedef int (*CuteQDoubleSpinBoxCall25)(const void *, int, int *);
+typedef bool (*CuteQDoubleSpinBoxCall26)(const void *, int *);
+typedef void * (*CuteQDoubleSpinBoxCall27)(const void *, int *);
+typedef void (*CuteQDoubleSpinBoxCall28)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall29)(const void *, QEnterEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall30)(const void *, QEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall31)(const void *, QMoveEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall32)(const void *, QTabletEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall33)(const void *, QActionEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall34)(const void *, QDragEnterEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall35)(const void *, QDragMoveEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall36)(const void *, QDragLeaveEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall37)(const void *, QDropEvent *, int *);
+typedef int (*CuteQDoubleSpinBoxCall38)(const void *, int, int *);
+typedef void (*CuteQDoubleSpinBoxCall39)(const void *, QPainter *, int *);
+typedef void * (*CuteQDoubleSpinBoxCall40)(const void *, QPoint *, int *);
+typedef void * (*CuteQDoubleSpinBoxCall41)(const void *, int *);
+typedef void (*CuteQDoubleSpinBoxCall42)(const void *, QInputMethodEvent *, int *);
+typedef bool (*CuteQDoubleSpinBoxCall43)(const void *, bool, int *);
+typedef bool (*CuteQDoubleSpinBoxCall44)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall45)(const void *, QChildEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall46)(const void *, QEvent *, int *);
+typedef void (*CuteQDoubleSpinBoxCall47)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQDoubleSpinBoxCall48)(const void *, const QMetaMethod *, int *);
+class CuteQDoubleSpinBox : public QDoubleSpinBox {
+public:
+  using QDoubleSpinBox::QDoubleSpinBox;
+  void *taken[49] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QAbstractSpinBox6stepByEi")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QAbstractSpinBox5clearEv")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
+      taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[19] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
+      taken[20] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
+      taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptionSpinBox")) {
+      taken[22] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
+      taken[23] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
+      taken[24] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QWidget14heightForWidthEi")) {
+      taken[25] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QWidget17hasHeightForWidthEv")) {
+      taken[26] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
+      taken[27] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
+      taken[28] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10enterEventEP11QEnterEvent")) {
+      taken[29] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10leaveEventEP6QEvent")) {
+      taken[30] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget9moveEventEP10QMoveEvent")) {
+      taken[31] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
+      taken[32] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
+      taken[33] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
+      taken[34] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
+      taken[35] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
+      taken[36] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
+      taken[37] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
+      taken[38] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
+      taken[39] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice10redirectedEP6QPoint")) {
+      taken[40] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
+      taken[41] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget16inputMethodEventEP17QInputMethodEvent")) {
+      taken[42] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget18focusNextPrevChildEb")) {
+      taken[43] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[44] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[45] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[46] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[47] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[48] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QSize QAbstractSpinBox::sizeHint() const
+  QSize sizeHint() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall0 call = reinterpret_cast<CuteQDoubleSpinBoxCall0>(taken[0]);
+      const QSize * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QAbstractSpinBox::sizeHint();
+  }
+
+  //  QSize QAbstractSpinBox::minimumSizeHint() const
+  QSize minimumSizeHint() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall1 call = reinterpret_cast<CuteQDoubleSpinBoxCall1>(taken[1]);
+      const QSize * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QAbstractSpinBox::minimumSizeHint();
+  }
+
+  //  bool QAbstractSpinBox::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall2 call = reinterpret_cast<CuteQDoubleSpinBoxCall2>(taken[2]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QAbstractSpinBox::event(event);
+  }
+
+  //  QVariant QAbstractSpinBox::inputMethodQuery(Qt::InputMethodQuery a0)
+  //      const
+  QVariant inputMethodQuery(Qt::InputMethodQuery a0) const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall3 call = reinterpret_cast<CuteQDoubleSpinBoxCall3>(taken[3]);
+      const QVariant * given = call(this, static_cast<int>(a0), &handled);
+      if (handled && given) return *given;
+    }
+    return QAbstractSpinBox::inputMethodQuery(a0);
+  }
+
+  //  void QAbstractSpinBox::stepBy(int steps)
+  void stepBy(int steps) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall4 call = reinterpret_cast<CuteQDoubleSpinBoxCall4>(taken[4]);
+      call(this, steps, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::stepBy(steps);
+  }
+
+  //  void QAbstractSpinBox::clear()
+  void clear() override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall5 call = reinterpret_cast<CuteQDoubleSpinBoxCall5>(taken[5]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::clear();
+  }
+
+  //  void QAbstractSpinBox::resizeEvent(QResizeEvent *event)
+  void resizeEvent(QResizeEvent *event) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall6 call = reinterpret_cast<CuteQDoubleSpinBoxCall6>(taken[6]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::resizeEvent(event);
+  }
+
+  //  void QAbstractSpinBox::keyPressEvent(QKeyEvent *event)
+  void keyPressEvent(QKeyEvent *event) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall7 call = reinterpret_cast<CuteQDoubleSpinBoxCall7>(taken[7]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::keyPressEvent(event);
+  }
+
+  //  void QAbstractSpinBox::keyReleaseEvent(QKeyEvent *event)
+  void keyReleaseEvent(QKeyEvent *event) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall8 call = reinterpret_cast<CuteQDoubleSpinBoxCall8>(taken[8]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::keyReleaseEvent(event);
+  }
+
+  //  void QAbstractSpinBox::wheelEvent(QWheelEvent *event)
+  void wheelEvent(QWheelEvent *event) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall9 call = reinterpret_cast<CuteQDoubleSpinBoxCall9>(taken[9]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::wheelEvent(event);
+  }
+
+  //  void QAbstractSpinBox::focusInEvent(QFocusEvent *event)
+  void focusInEvent(QFocusEvent *event) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall10 call = reinterpret_cast<CuteQDoubleSpinBoxCall10>(taken[10]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::focusInEvent(event);
+  }
+
+  //  void QAbstractSpinBox::focusOutEvent(QFocusEvent *event)
+  void focusOutEvent(QFocusEvent *event) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall11 call = reinterpret_cast<CuteQDoubleSpinBoxCall11>(taken[11]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::focusOutEvent(event);
+  }
+
+  //  void QAbstractSpinBox::contextMenuEvent(QContextMenuEvent *event)
+  void contextMenuEvent(QContextMenuEvent *event) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall12 call = reinterpret_cast<CuteQDoubleSpinBoxCall12>(taken[12]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::contextMenuEvent(event);
+  }
+
+  //  void QAbstractSpinBox::changeEvent(QEvent *event)
+  void changeEvent(QEvent *event) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall13 call = reinterpret_cast<CuteQDoubleSpinBoxCall13>(taken[13]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::changeEvent(event);
+  }
+
+  //  void QAbstractSpinBox::closeEvent(QCloseEvent *event)
+  void closeEvent(QCloseEvent *event) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall14 call = reinterpret_cast<CuteQDoubleSpinBoxCall14>(taken[14]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::closeEvent(event);
+  }
+
+  //  void QAbstractSpinBox::hideEvent(QHideEvent *event)
+  void hideEvent(QHideEvent *event) override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall15 call = reinterpret_cast<CuteQDoubleSpinBoxCall15>(taken[15]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::hideEvent(event);
+  }
+
+  //  void QAbstractSpinBox::mousePressEvent(QMouseEvent *event)
+  void mousePressEvent(QMouseEvent *event) override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall16 call = reinterpret_cast<CuteQDoubleSpinBoxCall16>(taken[16]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::mousePressEvent(event);
+  }
+
+  //  void QAbstractSpinBox::mouseReleaseEvent(QMouseEvent *event)
+  void mouseReleaseEvent(QMouseEvent *event) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall17 call = reinterpret_cast<CuteQDoubleSpinBoxCall17>(taken[17]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::mouseReleaseEvent(event);
+  }
+
+  //  void QAbstractSpinBox::mouseMoveEvent(QMouseEvent *event)
+  void mouseMoveEvent(QMouseEvent *event) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall18 call = reinterpret_cast<CuteQDoubleSpinBoxCall18>(taken[18]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::mouseMoveEvent(event);
+  }
+
+  //  void QAbstractSpinBox::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall19 call = reinterpret_cast<CuteQDoubleSpinBoxCall19>(taken[19]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::timerEvent(event);
+  }
+
+  //  void QAbstractSpinBox::paintEvent(QPaintEvent *event)
+  void paintEvent(QPaintEvent *event) override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall20 call = reinterpret_cast<CuteQDoubleSpinBoxCall20>(taken[20]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::paintEvent(event);
+  }
+
+  //  void QAbstractSpinBox::showEvent(QShowEvent *event)
+  void showEvent(QShowEvent *event) override {
+    if (taken[21]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall21 call = reinterpret_cast<CuteQDoubleSpinBoxCall21>(taken[21]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::showEvent(event);
+  }
+
+  //  void QAbstractSpinBox::initStyleOption(QStyleOptionSpinBox *option)
+  //      const
+  void initStyleOption(QStyleOptionSpinBox *option) const override {
+    if (taken[22]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall22 call = reinterpret_cast<CuteQDoubleSpinBoxCall22>(taken[22]);
+      call(this, option, &handled);
+      if (handled) return;
+    }
+    QAbstractSpinBox::initStyleOption(option);
+  }
+
+  //  int QWidget::devType() const
+  int devType() const override {
+    if (taken[23]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall23 call = reinterpret_cast<CuteQDoubleSpinBoxCall23>(taken[23]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QWidget::devType();
+  }
+
+  //  void QWidget::setVisible(bool visible)
+  void setVisible(bool visible) override {
+    if (taken[24]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall24 call = reinterpret_cast<CuteQDoubleSpinBoxCall24>(taken[24]);
+      call(this, visible, &handled);
+      if (handled) return;
+    }
+    QWidget::setVisible(visible);
+  }
+
+  //  int QWidget::heightForWidth(int a0) const
+  int heightForWidth(int a0) const override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall25 call = reinterpret_cast<CuteQDoubleSpinBoxCall25>(taken[25]);
+      int given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QWidget::heightForWidth(a0);
+  }
+
+  //  bool QWidget::hasHeightForWidth() const
+  bool hasHeightForWidth() const override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall26 call = reinterpret_cast<CuteQDoubleSpinBoxCall26>(taken[26]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QWidget::hasHeightForWidth();
+  }
+
+  //  QPaintEngine *QWidget::paintEngine() const
+  QPaintEngine *paintEngine() const override {
+    if (taken[27]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall27 call = reinterpret_cast<CuteQDoubleSpinBoxCall27>(taken[27]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPaintEngine *>(given);
+    }
+    return QWidget::paintEngine();
+  }
+
+  //  void QWidget::mouseDoubleClickEvent(QMouseEvent *event)
+  void mouseDoubleClickEvent(QMouseEvent *event) override {
+    if (taken[28]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall28 call = reinterpret_cast<CuteQDoubleSpinBoxCall28>(taken[28]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::mouseDoubleClickEvent(event);
+  }
+
+  //  void QWidget::enterEvent(QEnterEvent *event)
+  void enterEvent(QEnterEvent *event) override {
+    if (taken[29]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall29 call = reinterpret_cast<CuteQDoubleSpinBoxCall29>(taken[29]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::enterEvent(event);
+  }
+
+  //  void QWidget::leaveEvent(QEvent *event)
+  void leaveEvent(QEvent *event) override {
+    if (taken[30]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall30 call = reinterpret_cast<CuteQDoubleSpinBoxCall30>(taken[30]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::leaveEvent(event);
+  }
+
+  //  void QWidget::moveEvent(QMoveEvent *event)
+  void moveEvent(QMoveEvent *event) override {
+    if (taken[31]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall31 call = reinterpret_cast<CuteQDoubleSpinBoxCall31>(taken[31]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::moveEvent(event);
+  }
+
+  //  void QWidget::tabletEvent(QTabletEvent *event)
+  void tabletEvent(QTabletEvent *event) override {
+    if (taken[32]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall32 call = reinterpret_cast<CuteQDoubleSpinBoxCall32>(taken[32]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::tabletEvent(event);
+  }
+
+  //  void QWidget::actionEvent(QActionEvent *event)
+  void actionEvent(QActionEvent *event) override {
+    if (taken[33]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall33 call = reinterpret_cast<CuteQDoubleSpinBoxCall33>(taken[33]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::actionEvent(event);
+  }
+
+  //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
+  void dragEnterEvent(QDragEnterEvent *event) override {
+    if (taken[34]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall34 call = reinterpret_cast<CuteQDoubleSpinBoxCall34>(taken[34]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::dragEnterEvent(event);
+  }
+
+  //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
+  void dragMoveEvent(QDragMoveEvent *event) override {
+    if (taken[35]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall35 call = reinterpret_cast<CuteQDoubleSpinBoxCall35>(taken[35]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::dragMoveEvent(event);
+  }
+
+  //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
+  void dragLeaveEvent(QDragLeaveEvent *event) override {
+    if (taken[36]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall36 call = reinterpret_cast<CuteQDoubleSpinBoxCall36>(taken[36]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::dragLeaveEvent(event);
+  }
+
+  //  void QWidget::dropEvent(QDropEvent *event)
+  void dropEvent(QDropEvent *event) override {
+    if (taken[37]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall37 call = reinterpret_cast<CuteQDoubleSpinBoxCall37>(taken[37]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::dropEvent(event);
+  }
+
+  //  int QWidget::metric(PaintDeviceMetric a0) const
+  int metric(QPaintDevice::PaintDeviceMetric a0) const override {
+    if (taken[38]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall38 call = reinterpret_cast<CuteQDoubleSpinBoxCall38>(taken[38]);
+      int given = call(this, static_cast<int>(a0), &handled);
+      if (handled) return given;
+    }
+    return QWidget::metric(a0);
+  }
+
+  //  void QWidget::initPainter(QPainter *painter) const
+  void initPainter(QPainter *painter) const override {
+    if (taken[39]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall39 call = reinterpret_cast<CuteQDoubleSpinBoxCall39>(taken[39]);
+      call(this, painter, &handled);
+      if (handled) return;
+    }
+    QWidget::initPainter(painter);
+  }
+
+  //  QPaintDevice *QWidget::redirected(QPoint *offset) const
+  QPaintDevice *redirected(QPoint *offset) const override {
+    if (taken[40]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall40 call = reinterpret_cast<CuteQDoubleSpinBoxCall40>(taken[40]);
+      void * given = call(this, offset, &handled);
+      if (handled) return static_cast<QPaintDevice *>(given);
+    }
+    return QWidget::redirected(offset);
+  }
+
+  //  QPainter *QWidget::sharedPainter() const
+  QPainter *sharedPainter() const override {
+    if (taken[41]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall41 call = reinterpret_cast<CuteQDoubleSpinBoxCall41>(taken[41]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPainter *>(given);
+    }
+    return QWidget::sharedPainter();
+  }
+
+  //  void QWidget::inputMethodEvent(QInputMethodEvent *a0)
+  void inputMethodEvent(QInputMethodEvent *a0) override {
+    if (taken[42]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall42 call = reinterpret_cast<CuteQDoubleSpinBoxCall42>(taken[42]);
+      call(this, a0, &handled);
+      if (handled) return;
+    }
+    QWidget::inputMethodEvent(a0);
+  }
+
+  //  bool QWidget::focusNextPrevChild(bool next)
+  bool focusNextPrevChild(bool next) override {
+    if (taken[43]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall43 call = reinterpret_cast<CuteQDoubleSpinBoxCall43>(taken[43]);
+      bool given = call(this, next, &handled);
+      if (handled) return given;
+    }
+    return QWidget::focusNextPrevChild(next);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[44]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall44 call = reinterpret_cast<CuteQDoubleSpinBoxCall44>(taken[44]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[45]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall45 call = reinterpret_cast<CuteQDoubleSpinBoxCall45>(taken[45]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[46]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall46 call = reinterpret_cast<CuteQDoubleSpinBoxCall46>(taken[46]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[47]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall47 call = reinterpret_cast<CuteQDoubleSpinBoxCall47>(taken[47]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[48]) {
+      int handled = 0;
+      CuteQDoubleSpinBoxCall48 call = reinterpret_cast<CuteQDoubleSpinBoxCall48>(taken[48]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QDoubleSpinBox::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -22,7 +825,7 @@ QString *ritual_ZN14QDoubleSpinBox2trEPKcS1_i(
 //  QDoubleSpinBox::QDoubleSpinBox(QWidget *parent)
 extern "C" Q_DECL_EXPORT
 QDoubleSpinBox *ritual_ZN14QDoubleSpinBoxC1EP7QWidget(QWidget *parent) {
-  return new QDoubleSpinBox(parent);
+  return new CuteQDoubleSpinBox(parent);
 }
 
 //  QDoubleSpinBox::~QDoubleSpinBox()
@@ -171,4 +974,14 @@ QString *ritual_ZNK14QDoubleSpinBox13textFromValueEd(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QDoubleSpinBox8setValueEd(QDoubleSpinBox *self, double val) {
   self->setValue(val);
+}
+
+//  a Python function taken by a CuteQDoubleSpinBox, for the function named
+//      by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QDoubleSpinBox(
+    QDoubleSpinBox *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQDoubleSpinBox *>(self)->take(key, call);
 }

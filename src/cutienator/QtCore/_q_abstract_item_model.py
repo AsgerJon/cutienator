@@ -47,7 +47,7 @@ class QAbstractItemModel(QObject):
   -----------
 
   Every function of Qt's QAbstractItemModel that has a ritual and that Python
-  can call so far, 40 names in all: 'metaObject', 'tr', 'hasIndex', 'index',
+  can call so far, 41 names in all: 'metaObject', 'tr', 'hasIndex', 'index',
   'parent', 'sibling', 'rowCount', 'columnCount', 'hasChildren', 'data',
   'setData', 'headerData', 'setHeaderData', 'clearItemData',
   'canDropMimeData', 'dropMimeData', 'supportedDropActions',
@@ -55,8 +55,8 @@ class QAbstractItemModel(QObject):
   'removeColumns', 'moveRows', 'moveColumns', 'insertRow', 'insertColumn',
   'removeRow', 'removeColumn', 'moveRow', 'moveColumn', 'fetchMore',
   'canFetchMore', 'flags', 'sort', 'buddy', 'span', 'checkIndex',
-  'multiData', 'submit', 'revert'. None can be made from Python: one comes
-  out of a function of another class that gives one back.
+  'multiData', 'submit', 'revert', 'resetInternalData'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -67,7 +67,7 @@ class QAbstractItemModel(QObject):
   What has no ritual
   ------------------
 
-  59 of the 100 functions Qt declares: 25 protected; 18 a signal; 8 takes or
+  58 of the 100 functions Qt declares: 24 protected; 18 a signal; 8 takes or
   gives a type that cannot be passed yet; 4 private; 2 forbidden; 1 a
   template; 1 the class is abstract, so C++ cannot make one.
 
@@ -169,6 +169,289 @@ class QAbstractItemModel(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAbstractItemModel'
+
+  #  A C++ QAbstractItemModel Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAbstractItemModel'
+
+  #  The functions Qt calls itself that QAbstractItemModel is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'itemData': (
+          'QMap<int, QVariant> QAbstractItemModel::itemData(const '
+          'QModelIndex &) const',
+      ),
+      'setItemData': (
+          'bool QAbstractItemModel::setItemData(const QModelIndex &, const '
+          'QMap<int, QVariant> &)',
+      ),
+      'mimeTypes': (
+          'QStringList QAbstractItemModel::mimeTypes() const',
+      ),
+      'mimeData': (
+          'QMimeData *QAbstractItemModel::mimeData(const QModelIndexList '
+          '&) const',
+      ),
+      'supportedDropActions': (
+          'Qt::DropActions QAbstractItemModel::supportedDropActions() const',
+      ),
+      'supportedDragActions': (
+          'Qt::DropActions QAbstractItemModel::supportedDragActions() const',
+      ),
+      'flags': (
+          'Qt::ItemFlags QAbstractItemModel::flags(const QModelIndex &) '
+          'const',
+      ),
+      'match': (
+          'QModelIndexList QAbstractItemModel::match(const QModelIndex &, '
+          'int, const QVariant &, int, Qt::MatchFlags) const',
+      ),
+      'roleNames': (
+          'QHash<int, QByteArray> QAbstractItemModel::roleNames() const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QAbstractItemModel is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'index': (
+          ('_ZNK18QAbstractItemModel5indexEiiRK11QModelIndex',
+           ('address', 'value', 'QtCore:QModelIndex'),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'parent': (
+          ('_ZNK18QAbstractItemModel6parentERK11QModelIndex',
+           ('address', 'value', 'QtCore:QModelIndex'),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'sibling': (
+          ('_ZNK18QAbstractItemModel7siblingEiiRK11QModelIndex',
+           ('address', 'value', 'QtCore:QModelIndex'),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'rowCount': (
+          ('_ZNK18QAbstractItemModel8rowCountERK11QModelIndex',
+           ('int', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'columnCount': (
+          ('_ZNK18QAbstractItemModel11columnCountERK11QModelIndex',
+           ('int', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'hasChildren': (
+          ('_ZNK18QAbstractItemModel11hasChildrenERK11QModelIndex',
+           ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'data': (
+          ('_ZNK18QAbstractItemModel4dataERK11QModelIndexi',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('int', 'number', ''),
+           )),
+      ),
+      'setData': (
+          ('_ZN18QAbstractItemModel7setDataERK11QModelIndexRK8QVarianti',
+           ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('address', 'value', 'QtCore:QVariant'),
+               ('int', 'number', ''),
+           )),
+      ),
+      'headerData': (
+          ('_ZNK18QAbstractItemModel10headerDataEiN2Qt11OrientationEi',
+           ('address', 'value', 'QtCore:QVariant'),
+           (
+               ('int', 'number', ''),
+               ('int', 'enum', 'QtCore:Qt.Orientation'),
+               ('int', 'number', ''),
+           )),
+      ),
+      'setHeaderData': (
+          ('_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QV'
+           'arianti',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'enum', 'QtCore:Qt.Orientation'),
+               ('address', 'value', 'QtCore:QVariant'),
+               ('int', 'number', ''),
+           )),
+      ),
+      'clearItemData': (
+          ('_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex',
+           ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'canDropMimeData': (
+          ('_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10Dro'
+           'pActionEiiRK11QModelIndex',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtCore:QMimeData'),
+               ('int', 'enum', 'QtCore:Qt.DropAction'),
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'dropMimeData': (
+          ('_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropAct'
+           'ionEiiRK11QModelIndex',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtCore:QMimeData'),
+               ('int', 'enum', 'QtCore:Qt.DropAction'),
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'insertRows': (
+          ('_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'insertColumns': (
+          ('_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'removeRows': (
+          ('_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'removeColumns': (
+          ('_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex',
+           ('bool', 'number', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'moveRows': (
+          ('_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i',
+           ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('int', 'number', ''),
+           )),
+      ),
+      'moveColumns': (
+          ('_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i',
+           ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('int', 'number', ''),
+           )),
+      ),
+      'fetchMore': (
+          ('_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'canFetchMore': (
+          ('_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex',
+           ('bool', 'number', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'sort': (
+          ('_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+               ('int', 'enum', 'QtCore:Qt.SortOrder'),
+           )),
+      ),
+      'buddy': (
+          ('_ZNK18QAbstractItemModel5buddyERK11QModelIndex',
+           ('address', 'value', 'QtCore:QModelIndex'),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'span': (
+          ('_ZNK18QAbstractItemModel4spanERK11QModelIndex',
+           ('address', 'value', 'QtCore:QSize'),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+      'multiData': (
+          ('_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleD'
+           'ataSpan',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+               ('address', 'value', 'QtCore:QModelRoleDataSpan'),
+           )),
+      ),
+      'submit': (
+          ('_ZN18QAbstractItemModel6submitEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'revert': (
+          ('_ZN18QAbstractItemModel6revertEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+      'resetInternalData': (
+          ('_ZN18QAbstractItemModel17resetInternalDataEv',
+           ('nothing', 'nothing', ''),
+           ()),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -344,10 +627,10 @@ class QAbstractItemModel(QObject):
     """
     #  QModelIndex QAbstractItemModel::sibling(int row, int column, const
     #      QModelIndex &idx) const
-    address = self.uglySide.call(
-        'ritual_ZNK18QAbstractItemModel7siblingEiiRK11QModelIndex',
-        row, column, self._valueOf(idx),
-    )
+    ritual = 'ritual_ZNK18QAbstractItemModel7siblingEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QAbstractItemModel7siblingEiiRK11QModelIndex'
+    address = self.uglySide.call(ritual, row, column, self._valueOf(idx))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -426,10 +709,11 @@ class QAbstractItemModel(QObject):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZNK18QAbstractItemModel11hasChildrenERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK18QAbstractItemModel11hasChildrenERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK18QAbstractItemModel11hasChildrenERK11QModelIndex')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(QModelIndex)
   @overload(QModelIndex, int)
@@ -499,10 +783,13 @@ class QAbstractItemModel(QObject):
     """
     #  QVariant QAbstractItemModel::headerData(int section, Qt::Orientation
     #      orientation, int role) const
-    address = self.uglySide.call(
-        'ritual_ZNK18QAbstractItemModel10headerDataEiN2Qt11OrientationEi',
-        section, orientation.value, role,
-    )
+    ritual = (
+        'ritual_ZNK18QAbstractItemModel10headerDataEiN2Qt11OrientationEi')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK18QAbstractItemModel10headerDataEiN2Qt11Orientatio'
+          'nEi')
+    address = self.uglySide.call(ritual, section, orientation.value, role)
     from . import QVariant
     return QVariant._cuteOwning(address)
 
@@ -547,9 +834,15 @@ class QAbstractItemModel(QObject):
     #  bool QAbstractItemModel::canDropMimeData(const QMimeData *data,
     #      Qt::DropAction action, int row, int column, const QModelIndex
     #      &parent) const
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10'
-        'DropActionEiiRK11QModelIndex',
+        'DropActionEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeData'
+          'N2Qt10DropActionEiiRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
@@ -609,10 +902,11 @@ class QAbstractItemModel(QObject):
       Python's own.
     """
     #  bool QAbstractItemModel::canFetchMore(const QModelIndex &parent) const
-    return self.uglySide.call(
-        'ritual_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(QModelIndex)
   def flags(self, index: QModelIndex) -> Qt.ItemFlags:
@@ -664,10 +958,10 @@ class QAbstractItemModel(QObject):
       A new cute QModelIndex around the copy Qt gave back. Python owns it.
     """
     #  QModelIndex QAbstractItemModel::buddy(const QModelIndex &index) const
-    address = self.uglySide.call(
-        'ritual_ZNK18QAbstractItemModel5buddyERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK18QAbstractItemModel5buddyERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QAbstractItemModel5buddyERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -693,10 +987,10 @@ class QAbstractItemModel(QObject):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QAbstractItemModel::span(const QModelIndex &index) const
-    address = self.uglySide.call(
-        'ritual_ZNK18QAbstractItemModel4spanERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK18QAbstractItemModel4spanERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QAbstractItemModel4spanERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from . import QSize
     return QSize._cuteOwning(address)
 
@@ -766,9 +1060,14 @@ class QAbstractItemModel(QObject):
     """
     #  bool QAbstractItemModel::setData(const QModelIndex &index, const
     #      QVariant &value, int role)
+    ritual = (
+        'ritual_ZN18QAbstractItemModel7setDataERK11QModelIndexRK8QVarianti')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QAbstractItemModel7setDataERK11QModelIndexRK8QVar'
+          'ianti')
     return self.uglySide.call(
-        'ritual_ZN18QAbstractItemModel7setDataERK11QModelIndexRK8QVarianti',
-        self._valueOf(index), self._valueOf(value), role,
+        ritual, self._valueOf(index), self._valueOf(value), role,
     )
 
   @overload(int, Qt.Orientation, QVariant)
@@ -805,10 +1104,15 @@ class QAbstractItemModel(QObject):
     """
     #  bool QAbstractItemModel::setHeaderData(int section, Qt::Orientation
     #      orientation, const QVariant &value, int role)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK'
-        '8QVarianti',
-        section, orientation.value, self._valueOf(value), role,
+        '8QVarianti')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11Orientat'
+          'ionERK8QVarianti')
+    return self.uglySide.call(
+        ritual, section, orientation.value, self._valueOf(value), role,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -860,10 +1164,11 @@ class QAbstractItemModel(QObject):
       Python's own.
     """
     #  bool QAbstractItemModel::clearItemData(const QModelIndex &index)
-    return self.uglySide.call(
-        'ritual_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex')
+    return self.uglySide.call(ritual, self._valueOf(index))
 
   @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)
   @overload(NoneType, Qt.DropAction, int, int, QModelIndex)
@@ -905,9 +1210,15 @@ class QAbstractItemModel(QObject):
     #  bool QAbstractItemModel::dropMimeData(const QMimeData *data,
     #      Qt::DropAction action, int row, int column, const QModelIndex
     #      &parent)
-    return self.uglySide.call(
+    ritual = (
         'ritual_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10Drop'
-        'ActionEiiRK11QModelIndex',
+        'ActionEiiRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt'
+          '10DropActionEiiRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
@@ -945,10 +1256,11 @@ class QAbstractItemModel(QObject):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex',
-        row, count, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex')
+    return self.uglySide.call(ritual, row, count, self._valueOf(parent))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -984,10 +1296,12 @@ class QAbstractItemModel(QObject):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex',
-        column, count, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelInd'
+          'ex')
+    return self.uglySide.call(ritual, column, count, self._valueOf(parent))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -1022,10 +1336,11 @@ class QAbstractItemModel(QObject):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex',
-        row, count, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex')
+    return self.uglySide.call(ritual, row, count, self._valueOf(parent))
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -1061,10 +1376,12 @@ class QAbstractItemModel(QObject):
     if parent is None:
       from . import QModelIndex
       parent = QModelIndex()
-    return self.uglySide.call(
-        'ritual_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex',
-        column, count, self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelInd'
+          'ex')
+    return self.uglySide.call(ritual, column, count, self._valueOf(parent))
 
   @overload(QModelIndex, int, int, QModelIndex, int)
   def moveRows(
@@ -1105,8 +1422,12 @@ class QAbstractItemModel(QObject):
     #  bool QAbstractItemModel::moveRows(const QModelIndex &sourceParent, int
     #      sourceRow, int count, const QModelIndex &destinationParent, int
     #      destinationChild)
+    ritual = 'ritual_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i')
     return self.uglySide.call(
-        'ritual_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i',
+        ritual,
         self._valueOf(sourceParent), sourceRow, count,
         self._valueOf(destinationParent), destinationChild,
     )
@@ -1151,8 +1472,14 @@ class QAbstractItemModel(QObject):
     #  bool QAbstractItemModel::moveColumns(const QModelIndex &sourceParent,
     #      int sourceColumn, int count, const QModelIndex &destinationParent,
     #      int destinationChild)
+    ritual = (
+        'ritual_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexii'
+          'S2_i')
     return self.uglySide.call(
-        'ritual_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i',
+        ritual,
         self._valueOf(sourceParent), sourceColumn, count,
         self._valueOf(destinationParent), destinationChild,
     )
@@ -1391,10 +1718,10 @@ class QAbstractItemModel(QObject):
       Python's own.
     """
     #  void QAbstractItemModel::fetchMore(const QModelIndex &parent)
-    self.uglySide.call(
-        'ritual_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex',
-        self._valueOf(parent),
-    )
+    ritual = 'ritual_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex'
+    self.uglySide.call(ritual, self._valueOf(parent))
 
   @overload(int)
   @overload(int, Qt.SortOrder)
@@ -1420,10 +1747,10 @@ class QAbstractItemModel(QObject):
       Qt.SortOrder.AscendingOrder.
     """
     #  void QAbstractItemModel::sort(int column, Qt::SortOrder order)
-    self.uglySide.call(
-        'ritual_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE',
-        column, order.value,
-    )
+    ritual = 'ritual_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE'
+    self.uglySide.call(ritual, column, order.value)
 
   @overload(QModelIndex, QModelRoleDataSpan)
   def multiData(
@@ -1450,10 +1777,15 @@ class QAbstractItemModel(QObject):
     """
     #  void QAbstractItemModel::multiData(const QModelIndex &index,
     #      QModelRoleDataSpan roleDataSpan) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRo'
-        'leDataSpan',
-        self._valueOf(index), self._valueOf(roleDataSpan),
+        'leDataSpan')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QM'
+          'odelRoleDataSpan')
+    self.uglySide.call(
+        ritual, self._valueOf(index), self._valueOf(roleDataSpan),
     )
 
   def submit(self) -> bool:
@@ -1463,7 +1795,10 @@ class QAbstractItemModel(QObject):
     Qt's own words: https://doc.qt.io/qt-6/qabstractitemmodel.html#submit
     """
     #  bool QAbstractItemModel::submit()
-    return self.uglySide.call('ritual_ZN18QAbstractItemModel6submitEv')
+    ritual = 'ritual_ZN18QAbstractItemModel6submitEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN18QAbstractItemModel6submitEv'
+    return self.uglySide.call(ritual)
 
   def revert(self) -> None:
     """
@@ -1472,4 +1807,19 @@ class QAbstractItemModel(QObject):
     Qt's own words: https://doc.qt.io/qt-6/qabstractitemmodel.html#revert
     """
     #  void QAbstractItemModel::revert()
-    self.uglySide.call('ritual_ZN18QAbstractItemModel6revertEv')
+    ritual = 'ritual_ZN18QAbstractItemModel6revertEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN18QAbstractItemModel6revertEv'
+    self.uglySide.call(ritual)
+
+  def resetInternalData(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::resetInternalData()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData
+    """
+    #  void QAbstractItemModel::resetInternalData()
+    self.uglySide.call(
+        'ritual_own_ZN18QAbstractItemModel17resetInternalDataEv',
+    )

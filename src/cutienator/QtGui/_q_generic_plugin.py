@@ -125,6 +125,22 @@ class QGenericPlugin(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QGenericPlugin'
 
+  #  A C++ QGenericPlugin Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGenericPlugin'
+
+  #  The functions Qt calls itself that QGenericPlugin is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'create': (
+          'QObject *QGenericPlugin::create(const QString &, const QString '
+          '&)',
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables

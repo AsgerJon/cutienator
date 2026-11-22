@@ -20,15 +20,21 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QSize
-  from ..QtGui import QIcon
-  from . import QTabBar
+  from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtGui import QIcon, QKeyEvent, QPaintEvent, QResizeEvent, QShowEvent
+  from . import QStyleOptionTabWidgetFrame, QTabBar
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
   QIcon = WAIT['QIcon']
+  QKeyEvent = WAIT['QKeyEvent']
+  QPaintEvent = WAIT['QPaintEvent']
+  QResizeEvent = WAIT['QResizeEvent']
+  QShowEvent = WAIT['QShowEvent']
   QSize = WAIT['QSize']
+  QStyleOptionTabWidgetFrame = WAIT['QStyleOptionTabWidgetFrame']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -47,7 +53,7 @@ class QTabWidget(QWidget):
   -----------
 
   Every function of Qt's QTabWidget that has a ritual and that Python can
-  call so far, 50 names in all: 'metaObject', 'tr', 'addTab', 'insertTab',
+  call so far, 59 names in all: 'metaObject', 'tr', 'addTab', 'insertTab',
   'removeTab', 'isTabEnabled', 'setTabEnabled', 'isTabVisible',
   'setTabVisible', 'tabText', 'setTabText', 'tabIcon', 'setTabIcon',
   'setTabToolTip', 'tabToolTip', 'setTabWhatsThis', 'tabWhatsThis',
@@ -58,8 +64,10 @@ class QTabWidget(QWidget):
   'setCornerWidget', 'cornerWidget', 'elideMode', 'setElideMode', 'iconSize',
   'setIconSize', 'usesScrollButtons', 'setUsesScrollButtons', 'documentMode',
   'setDocumentMode', 'tabBarAutoHide', 'setTabBarAutoHide', 'clear',
-  'tabBar', 'setCurrentIndex', 'setCurrentWidget'. It can be made from
-  Python, in 1 way; see '__init__'.
+  'tabBar', 'setCurrentIndex', 'setCurrentWidget', 'tabInserted',
+  'tabRemoved', 'showEvent', 'resizeEvent', 'keyPressEvent', 'paintEvent',
+  'changeEvent', 'event', 'initStyleOption'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -70,8 +78,8 @@ class QTabWidget(QWidget):
   What has no ritual
   ------------------
 
-  23 of the 77 functions Qt declares: 10 protected; 4 private; 4 a signal; 2
-  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  14 of the 77 functions Qt declares: 4 private; 4 a signal; 2 takes or gives
+  a type that cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -163,6 +171,40 @@ class QTabWidget(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QTabWidget'
+
+  #  A C++ QTabWidget Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QTabWidget'
+
+  #  The functions Qt calls itself that QTabWidget is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'tabInserted': (
+          ('_ZN10QTabWidget11tabInsertedEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'tabRemoved': (
+          ('_ZN10QTabWidget10tabRemovedEi',
+           ('nothing', 'nothing', ''),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'initStyleOption': (
+          ('_ZNK10QTabWidget15initStyleOptionEP26QStyleOptionTabWidgetFrame',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address',
+                'QtWidgets:QStyleOptionTabWidgetFrame'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -469,7 +511,10 @@ class QTabWidget(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QTabWidget::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK10QTabWidget8sizeHintEv')
+    ritual = 'ritual_ZNK10QTabWidget8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QTabWidget8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -486,7 +531,10 @@ class QTabWidget(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QTabWidget::minimumSizeHint() const
-    address = self.uglySide.call('ritual_ZNK10QTabWidget15minimumSizeHintEv')
+    ritual = 'ritual_ZNK10QTabWidget15minimumSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QTabWidget15minimumSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -504,9 +552,10 @@ class QTabWidget(QWidget):
       Passed on as it is.
     """
     #  int QTabWidget::heightForWidth(int width) const
-    return self.uglySide.call(
-        'ritual_ZNK10QTabWidget14heightForWidthEi', width,
-    )
+    ritual = 'ritual_ZNK10QTabWidget14heightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QTabWidget14heightForWidthEi'
+    return self.uglySide.call(ritual, width)
 
   def hasHeightForWidth(self) -> bool:
     """
@@ -515,7 +564,10 @@ class QTabWidget(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#hasHeightForWidth
     """
     #  bool QTabWidget::hasHeightForWidth() const
-    return self.uglySide.call('ritual_ZNK10QTabWidget17hasHeightForWidthEv')
+    ritual = 'ritual_ZNK10QTabWidget17hasHeightForWidthEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QTabWidget17hasHeightForWidthEv'
+    return self.uglySide.call(ritual)
 
   @overload()
   @overload(Qt.Corner)
@@ -1191,3 +1243,187 @@ class QTabWidget(QWidget):
     """
     #  void QTabWidget::clear()
     self.uglySide.call('ritual_ZN10QTabWidget5clearEv')
+
+  @overload(int)
+  def tabInserted(self, index: int) -> None:
+    """
+    Calls Qt's 'void QTabWidget::tabInserted(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#tabInserted
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QTabWidget::tabInserted(int index)
+    self.uglySide.call('ritual_own_ZN10QTabWidget11tabInsertedEi', index)
+
+  @overload(int)
+  def tabRemoved(self, index: int) -> None:
+    """
+    Calls Qt's 'void QTabWidget::tabRemoved(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#tabRemoved
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QTabWidget::tabRemoved(int index)
+    self.uglySide.call('ritual_own_ZN10QTabWidget10tabRemovedEi', index)
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, a0: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QTabWidget::showEvent(QShowEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#showEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTabWidget::showEvent(QShowEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN10QTabWidget9showEventEP10QShowEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, a0: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QTabWidget::resizeEvent(QResizeEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#resizeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTabWidget::resizeEvent(QResizeEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN10QTabWidget11resizeEventEP12QResizeEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, a0: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QTabWidget::keyPressEvent(QKeyEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTabWidget::keyPressEvent(QKeyEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN10QTabWidget13keyPressEventEP9QKeyEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QTabWidget::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTabWidget::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN10QTabWidget10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, a0: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QTabWidget::changeEvent(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#changeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTabWidget::changeEvent(QEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN10QTabWidget11changeEventEP6QEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QTabWidget::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QTabWidget::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN10QTabWidget5eventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QStyleOptionTabWidgetFrame)
+  @overload(NoneType)
+  def initStyleOption(
+      self,
+      option: Optional[QStyleOptionTabWidgetFrame],
+  ) -> None:
+    """
+    Calls Qt's 'void QTabWidget::initStyleOption(QStyleOptionTabWidgetFrame
+    *option) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionTabWidgetFrame]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTabWidget::initStyleOption(QStyleOptionTabWidgetFrame *option)
+    #      const
+    self.uglySide.call(
+        'ritual_own_ZNK10QTabWidget15initStyleOptionEP26QStyleOptionTabWidg'
+        'etFrame',
+        self._addressOf(option),
+    )

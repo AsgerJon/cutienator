@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QObject
 from . import QGraphicsItem
@@ -19,7 +19,12 @@ from . import QGraphicsItem
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
+  from ..QtCore import QEvent, QMetaObject
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -40,9 +45,9 @@ class QGraphicsObject(QObject, QGraphicsItem):
   -----------
 
   Every function of Qt's QGraphicsObject that has a ritual and that Python
-  can call so far, 4 names in all: 'metaObject', 'tr', 'grabGesture',
-  'ungrabGesture'. None can be made from Python: one comes out of a function
-  of another class that gives one back.
+  can call so far, 5 names in all: 'metaObject', 'tr', 'grabGesture',
+  'ungrabGesture', 'event'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -53,8 +58,8 @@ class QGraphicsObject(QObject, QGraphicsItem):
   What has no ritual
   ------------------
 
-  20 of the 26 functions Qt declares: 12 a signal; 3 protected; 2 takes or
-  gives a type that cannot be passed yet; 1 a template; 1 private; 1 the
+  19 of the 25 functions Qt declares: 12 a signal; 2 takes or gives a type
+  that cannot be passed yet; 2 protected; 1 a template; 1 private; 1 the
   class is abstract, so C++ cannot make one.
 
   What to expect
@@ -135,6 +140,11 @@ class QGraphicsObject(QObject, QGraphicsItem):
   __cast_rituals__ = {
       'QGraphicsItem': 'ritual_cast_QGraphicsObject_QGraphicsItem',
   }
+
+  #  A C++ QGraphicsObject Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QGraphicsObject'
 
   #  Fallback Variables
 
@@ -250,4 +260,24 @@ class QGraphicsObject(QObject, QGraphicsItem):
     self.uglySide.call(
         'ritual_ZN15QGraphicsObject13ungrabGestureEN2Qt11GestureTypeE',
         type.value,
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, ev: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsObject::event(QEvent *ev)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsobject.html#event
+
+    Parameters
+    ----------
+
+    ev : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGraphicsObject::event(QEvent *ev)
+    return self.uglySide.call(
+        'ritual_own_ZN15QGraphicsObject5eventEP6QEvent', self._addressOf(ev),
     )

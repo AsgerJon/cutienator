@@ -33,6 +33,8 @@
     "ritual_ZN9QShortcut12setWhatsThisERK7QString": [
       "nothing", "address", "text"
     ],
-    "ritual_ZNK9QShortcut9whatsThisEv": ["text", "address"]
+    "ritual_ZNK9QShortcut9whatsThisEv": ["text", "address"],
+    "ritual_take_QShortcut": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN9QShortcut5eventEP6QEvent": ["bool", "address", "address"]
   }
 }

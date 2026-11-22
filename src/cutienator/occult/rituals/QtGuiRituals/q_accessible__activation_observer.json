@@ -7,6 +7,9 @@
     "ritual_ZN11QAccessible18ActivationObserverD1Ev": ["nothing", "address"],
     "ritual_ZN11QAccessible18ActivationObserver26accessibilityActiveChangedEb": [
       "nothing", "address", "bool"
+    ],
+    "ritual_take_QAccessible_ActivationObserver": [
+      "bool", "address", "chars", "address"
     ]
   }
 }

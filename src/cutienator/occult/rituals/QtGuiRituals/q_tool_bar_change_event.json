@@ -7,6 +7,10 @@
     "ritual_ZNK19QToolBarChangeEvent5cloneEv": ["address", "address"],
     "ritual_ZN19QToolBarChangeEventD1Ev": ["nothing", "address"],
     "ritual_ZN19QToolBarChangeEventC1Eb": ["address", "bool"],
-    "ritual_ZNK19QToolBarChangeEvent6toggleEv": ["bool", "address"]
+    "ritual_ZNK19QToolBarChangeEvent6toggleEv": ["bool", "address"],
+    "ritual_take_QToolBarChangeEvent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QToolBarChangeEvent5cloneEv": ["address", "address"]
   }
 }

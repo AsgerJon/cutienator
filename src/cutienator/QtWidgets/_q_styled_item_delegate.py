@@ -19,8 +19,8 @@ from . import QAbstractItemDelegate
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QAbstractItemModel, QLocale, QMetaObject, QModelIndex
-  from ..QtCore import QSize, QVariant
+  from ..QtCore import QAbstractItemModel, QEvent, QLocale, QMetaObject
+  from ..QtCore import QModelIndex, QSize, QVariant
   from ..QtGui import QPainter
   from . import QItemEditorFactory, QStyleOptionViewItem, QWidget
 else:
@@ -28,6 +28,7 @@ else:
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAbstractItemModel = WAIT['QAbstractItemModel']
+  QEvent = WAIT['QEvent']
   QItemEditorFactory = WAIT['QItemEditorFactory']
   QLocale = WAIT['QLocale']
   QModelIndex = WAIT['QModelIndex']
@@ -54,10 +55,11 @@ class QStyledItemDelegate(QAbstractItemDelegate):
   -----------
 
   Every function of Qt's QStyledItemDelegate that has a ritual and that
-  Python can call so far, 11 names in all: 'metaObject', 'tr', 'paint',
+  Python can call so far, 14 names in all: 'metaObject', 'tr', 'paint',
   'sizeHint', 'createEditor', 'setEditorData', 'setModelData',
   'updateEditorGeometry', 'itemEditorFactory', 'setItemEditorFactory',
-  'displayText'. It can be made from Python, in 1 way; see '__init__'.
+  'displayText', 'initStyleOption', 'eventFilter', 'editorEvent'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -68,8 +70,8 @@ class QStyledItemDelegate(QAbstractItemDelegate):
   What has no ritual
   ------------------
 
-  11 of the 24 functions Qt declares: 3 private; 3 protected; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 24 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -142,6 +144,38 @@ class QStyledItemDelegate(QAbstractItemDelegate):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QStyledItemDelegate'
 
+  #  A C++ QStyledItemDelegate Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QStyledItemDelegate'
+
+  #  The functions Qt calls itself that QStyledItemDelegate is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'displayText': (
+          'QString QStyledItemDelegate::displayText(const QVariant &, '
+          'const QLocale &) const',
+      ),
+  }
+
+  #  The functions Qt calls itself that QStyledItemDelegate is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK19QStyledItemDelegate15initStyleOptionEP20QStyleOptionViewI'
+           'temRK11QModelIndex',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionViewItem'),
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -206,10 +240,15 @@ class QStyledItemDelegate(QAbstractItemDelegate):
     """
     #  QSize QStyledItemDelegate::sizeHint(const QStyleOptionViewItem
     #      &option, const QModelIndex &index) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK19QStyledItemDelegate8sizeHintERK20QStyleOptionViewItemR'
-        'K11QModelIndex',
-        self._valueOf(option), self._valueOf(index),
+        'K11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QStyledItemDelegate8sizeHintERK20QStyleOptionVie'
+          'wItemRK11QModelIndex')
+    address = self.uglySide.call(
+        ritual, self._valueOf(option), self._valueOf(index),
     )
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
@@ -253,9 +292,15 @@ class QStyledItemDelegate(QAbstractItemDelegate):
     """
     #  QWidget *QStyledItemDelegate::createEditor(QWidget *parent, const
     #      QStyleOptionViewItem &option, const QModelIndex &index) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK19QStyledItemDelegate12createEditorEP7QWidgetRK20QStyleO'
-        'ptionViewItemRK11QModelIndex',
+        'ptionViewItemRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QStyledItemDelegate12createEditorEP7QWidgetRK20Q'
+          'StyleOptionViewItemRK11QModelIndex')
+    address = self.uglySide.call(
+        ritual,
         self._addressOf(parent), self._valueOf(option), self._valueOf(index),
     )
     from . import QWidget
@@ -347,11 +392,14 @@ class QStyledItemDelegate(QAbstractItemDelegate):
     """
     #  void QStyledItemDelegate::setEditorData(QWidget *editor, const
     #      QModelIndex &index) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK19QStyledItemDelegate13setEditorDataEP7QWidgetRK11QModel'
-        'Index',
-        self._addressOf(editor), self._valueOf(index),
-    )
+        'Index')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QStyledItemDelegate13setEditorDataEP7QWidgetRK11'
+          'QModelIndex')
+    self.uglySide.call(ritual, self._addressOf(editor), self._valueOf(index))
 
   @overload(QWidget, QAbstractItemModel, QModelIndex)
   @overload(QWidget, NoneType, QModelIndex)
@@ -387,9 +435,15 @@ class QStyledItemDelegate(QAbstractItemDelegate):
     """
     #  void QStyledItemDelegate::setModelData(QWidget *editor,
     #      QAbstractItemModel *model, const QModelIndex &index) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK19QStyledItemDelegate12setModelDataEP7QWidgetP18QAbstrac'
-        'tItemModelRK11QModelIndex',
+        'tItemModelRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QStyledItemDelegate12setModelDataEP7QWidgetP18QA'
+          'bstractItemModelRK11QModelIndex')
+    self.uglySide.call(
+        ritual,
         self._addressOf(editor), self._addressOf(model),
         self._valueOf(index),
     )
@@ -510,9 +564,15 @@ class QStyledItemDelegate(QAbstractItemDelegate):
     """
     #  void QStyledItemDelegate::paint(QPainter *painter, const
     #      QStyleOptionViewItem &option, const QModelIndex &index) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK19QStyledItemDelegate5paintEP8QPainterRK20QStyleOptionVi'
-        'ewItemRK11QModelIndex',
+        'ewItemRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QStyledItemDelegate5paintEP8QPainterRK20QStyleOp'
+          'tionViewItemRK11QModelIndex')
+    self.uglySide.call(
+        ritual,
         self._addressOf(painter), self._valueOf(option),
         self._valueOf(index),
     )
@@ -550,8 +610,129 @@ class QStyledItemDelegate(QAbstractItemDelegate):
     """
     #  void QStyledItemDelegate::updateEditorGeometry(QWidget *editor, const
     #      QStyleOptionViewItem &option, const QModelIndex &index) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK19QStyledItemDelegate20updateEditorGeometryEP7QWidgetRK2'
-        '0QStyleOptionViewItemRK11QModelIndex',
+        '0QStyleOptionViewItemRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QStyledItemDelegate20updateEditorGeometryEP7QWid'
+          'getRK20QStyleOptionViewItemRK11QModelIndex')
+    self.uglySide.call(
+        ritual,
         self._addressOf(editor), self._valueOf(option), self._valueOf(index),
+    )
+
+  @overload(QStyleOptionViewItem, QModelIndex)
+  @overload(NoneType, QModelIndex)
+  def initStyleOption(
+      self,
+      option: Optional[QStyleOptionViewItem],
+      index: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QStyledItemDelegate::initStyleOption(QStyleOptionViewItem *option, const
+    QModelIndex &index) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleditemdelegate.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionViewItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QStyledItemDelegate::initStyleOption(QStyleOptionViewItem
+    #      *option, const QModelIndex &index) const
+    self.uglySide.call(
+        'ritual_own_ZNK19QStyledItemDelegate15initStyleOptionEP20QStyleOpti'
+        'onViewItemRK11QModelIndex',
+        self._addressOf(option), self._valueOf(index),
+    )
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(
+      self,
+      object: Optional[QObject],
+      event: Optional[QEvent],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QStyledItemDelegate::eventFilter(QObject *object, QEvent
+    *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleditemdelegate.html#eventFilter
+
+    Parameters
+    ----------
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QStyledItemDelegate::eventFilter(QObject *object, QEvent *event)
+    return self.uglySide.call(
+        'ritual_own_ZN19QStyledItemDelegate11eventFilterEP7QObjectP6QEvent',
+        self._addressOf(object), self._addressOf(event),
+    )
+
+  @overload(QEvent, QAbstractItemModel, QStyleOptionViewItem, QModelIndex)
+  @overload(QEvent, NoneType, QStyleOptionViewItem, QModelIndex)
+  @overload(NoneType, QAbstractItemModel, QStyleOptionViewItem, QModelIndex)
+  @overload(NoneType, NoneType, QStyleOptionViewItem, QModelIndex)
+  def editorEvent(
+      self,
+      event: Optional[QEvent],
+      model: Optional[QAbstractItemModel],
+      option: QStyleOptionViewItem,
+      index: QModelIndex,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QStyledItemDelegate::editorEvent(QEvent *event,
+    QAbstractItemModel *model, const QStyleOptionViewItem &option, const
+    QModelIndex &index)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleditemdelegate.html#editorEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    model : Optional[QAbstractItemModel]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    option : QStyleOptionViewItem
+      Passed on as a value: Qt reads the C++ QStyleOptionViewItem, which
+      stays Python's own.
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QStyledItemDelegate::editorEvent(QEvent *event,
+    #      QAbstractItemModel *model, const QStyleOptionViewItem &option,
+    #      const QModelIndex &index)
+    return self.uglySide.call(
+        'ritual_own_ZN19QStyledItemDelegate11editorEventEP6QEventP18QAbstra'
+        'ctItemModelRK20QStyleOptionViewItemRK11QModelIndex',
+        self._addressOf(event), self._addressOf(model),
+        self._valueOf(option), self._valueOf(index),
     )

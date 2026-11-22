@@ -48,7 +48,7 @@ class QCoreApplication(QObject):
   -----------
 
   Every function of Qt's QCoreApplication that has a ritual and that Python
-  can call so far, 42 names in all: 'metaObject', 'tr', 'setAttribute',
+  can call so far, 43 names in all: 'metaObject', 'tr', 'setAttribute',
   'testAttribute', 'setOrganizationDomain', 'organizationDomain',
   'setOrganizationName', 'organizationName', 'setApplicationName',
   'applicationName', 'setApplicationVersion', 'applicationVersion',
@@ -59,8 +59,8 @@ class QCoreApplication(QObject):
   'applicationPid', 'checkPermission', 'addLibraryPath', 'removeLibraryPath',
   'installTranslator', 'removeTranslator', 'translate',
   'installNativeEventFilter', 'removeNativeEventFilter', 'isQuitLockEnabled',
-  'setQuitLockEnabled', 'quit', 'exit'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'setQuitLockEnabled', 'quit', 'exit', 'event'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -71,8 +71,8 @@ class QCoreApplication(QObject):
   What has no ritual
   ------------------
 
-  27 of the 73 functions Qt declares: 7 private; 5 takes or gives a type that
-  cannot be passed yet; 5 a signal; 4 a template; 4 protected; 2 forbidden.
+  26 of the 73 functions Qt declares: 7 private; 5 takes or gives a type that
+  cannot be passed yet; 5 a signal; 4 a template; 3 protected; 2 forbidden.
 
   What to expect
   --------------
@@ -981,6 +981,37 @@ class QCoreApplication(QObject):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QCoreApplication'
 
+  #  A C++ QCoreApplication Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QCoreApplication'
+
+  #  The functions Qt calls itself that QCoreApplication is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'compressEvent': (
+          'bool QCoreApplication::compressEvent(QEvent *, QObject *, '
+          'QPostEventList *)',
+      ),
+  }
+
+  #  The functions Qt calls itself that QCoreApplication is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'notify': (
+          ('_ZN16QCoreApplication6notifyEP7QObjectP6QEvent',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtCore:QObject'),
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -1099,9 +1130,11 @@ class QCoreApplication(QObject):
       object.
     """
     #  bool QCoreApplication::notify(QObject *a0, QEvent *a1)
+    ritual = 'ritual_ZN16QCoreApplication6notifyEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QCoreApplication6notifyEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_ZN16QCoreApplication6notifyEP7QObjectP6QEvent',
-        self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0), self._addressOf(a1),
     )
 
   @overload(QPermission)
@@ -1191,4 +1224,25 @@ class QCoreApplication(QObject):
         'ritual_ZN16QCoreApplication23removeNativeEventFilterEP26QAbstractN'
         'ativeEventFilter',
         self._addressOf(filterObj),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QCoreApplication::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcoreapplication.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QCoreApplication::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_own_ZN16QCoreApplication5eventEP6QEvent',
+        self._addressOf(a0),
     )

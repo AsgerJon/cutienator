@@ -69,6 +69,11 @@ class QDragLeaveEvent(QEvent):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QDragLeaveEvent'
 
+  #  A C++ QDragLeaveEvent Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QDragLeaveEvent'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -95,7 +100,10 @@ class QDragLeaveEvent(QEvent):
       no object.
     """
     #  QDragLeaveEvent *QDragLeaveEvent::clone() const
-    address = self.uglySide.call('ritual_ZNK15QDragLeaveEvent5cloneEv')
+    ritual = 'ritual_ZNK15QDragLeaveEvent5cloneEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QDragLeaveEvent5cloneEv'
+    address = self.uglySide.call(ritual)
     return QDragLeaveEvent._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

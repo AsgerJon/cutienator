@@ -16,6 +16,7 @@
     ],
     "ritual_ZN18QFileSystemWatcher10removePathERK7QString": [
       "bool", "address", "text"
-    ]
+    ],
+    "ritual_take_QFileSystemWatcher": ["bool", "address", "chars", "address"]
   }
 }

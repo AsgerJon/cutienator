@@ -19,14 +19,22 @@ from . import QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QPoint, QRect, QSize
+  from ..QtCore import QEvent, QMetaObject, QPoint, QRect, QSize
+  from ..QtGui import QMoveEvent, QPaintEvent, QResizeEvent, QShowEvent
+  from . import QStyleOptionRubberBand
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEvent = WAIT['QEvent']
+  QMoveEvent = WAIT['QMoveEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QPoint = WAIT['QPoint']
   QRect = WAIT['QRect']
+  QResizeEvent = WAIT['QResizeEvent']
+  QShowEvent = WAIT['QShowEvent']
   QSize = WAIT['QSize']
+  QStyleOptionRubberBand = WAIT['QStyleOptionRubberBand']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -45,8 +53,10 @@ class QRubberBand(QWidget):
   -----------
 
   Every function of Qt's QRubberBand that has a ritual and that Python can
-  call so far, 6 names in all: 'metaObject', 'tr', 'shape', 'setGeometry',
-  'move', 'resize'. It can be made from Python, in 1 way; see '__init__'.
+  call so far, 13 names in all: 'metaObject', 'tr', 'shape', 'setGeometry',
+  'move', 'resize', 'event', 'paintEvent', 'changeEvent', 'showEvent',
+  'resizeEvent', 'moveEvent', 'initStyleOption'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,8 +67,8 @@ class QRubberBand(QWidget):
   What has no ritual
   ------------------
 
-  13 of the 24 functions Qt declares: 7 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 1 a template.
+  6 of the 24 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 1 a template.
 
   What to expect
   --------------
@@ -141,6 +151,25 @@ class QRubberBand(QWidget):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QRubberBand'
+
+  #  A C++ QRubberBand Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QRubberBand'
+
+  #  The functions Qt calls itself that QRubberBand is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'initStyleOption': (
+          ('_ZNK11QRubberBand15initStyleOptionEP22QStyleOptionRubberBand',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtWidgets:QStyleOptionRubberBand'),
+           )),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -370,4 +399,156 @@ class QRubberBand(QWidget):
     #  void QRubberBand::resize(const QSize &s)
     self.uglySide.call(
         'ritual_ZN11QRubberBand6resizeERK5QSize', self._valueOf(s),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, e: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QRubberBand::event(QEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrubberband.html#event
+
+    Parameters
+    ----------
+
+    e : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QRubberBand::event(QEvent *e)
+    return self.uglySide.call(
+        'ritual_own_ZN11QRubberBand5eventEP6QEvent', self._addressOf(e),
+    )
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, a0: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QRubberBand::paintEvent(QPaintEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrubberband.html#paintEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QRubberBand::paintEvent(QPaintEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QRubberBand10paintEventEP11QPaintEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def changeEvent(self, a0: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QRubberBand::changeEvent(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrubberband.html#changeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QRubberBand::changeEvent(QEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QRubberBand11changeEventEP6QEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QShowEvent)
+  @overload(NoneType)
+  def showEvent(self, a0: Optional[QShowEvent]) -> None:
+    """
+    Calls Qt's 'void QRubberBand::showEvent(QShowEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrubberband.html#showEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QShowEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QRubberBand::showEvent(QShowEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QRubberBand9showEventEP10QShowEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, a0: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QRubberBand::resizeEvent(QResizeEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrubberband.html#resizeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QRubberBand::resizeEvent(QResizeEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QRubberBand11resizeEventEP12QResizeEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QMoveEvent)
+  @overload(NoneType)
+  def moveEvent(self, a0: Optional[QMoveEvent]) -> None:
+    """
+    Calls Qt's 'void QRubberBand::moveEvent(QMoveEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrubberband.html#moveEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMoveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QRubberBand::moveEvent(QMoveEvent *a0)
+    self.uglySide.call(
+        'ritual_own_ZN11QRubberBand9moveEventEP10QMoveEvent',
+        self._addressOf(a0),
+    )
+
+  @overload(QStyleOptionRubberBand)
+  @overload(NoneType)
+  def initStyleOption(
+      self,
+      option: Optional[QStyleOptionRubberBand],
+  ) -> None:
+    """
+    Calls Qt's 'void QRubberBand::initStyleOption(QStyleOptionRubberBand
+    *option) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrubberband.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOptionRubberBand]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QRubberBand::initStyleOption(QStyleOptionRubberBand *option)
+    #      const
+    self.uglySide.call(
+        'ritual_own_ZNK11QRubberBand15initStyleOptionEP22QStyleOptionRubber'
+        'Band',
+        self._addressOf(option),
     )

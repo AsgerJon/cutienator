@@ -261,6 +261,40 @@ class ClassTester:
       onObject = asPart or isinstance(holder, ast.Attribute) and (
           holder.attr == 'uglySide')
       found.append((first.value, handed, onObject))
+    #  A function may pick between two rituals first, binding the name
+    #  'ritual' to one of them, and then call by that name. Such a call
+    #  counts as a call of each ritual the function binds the name to.
+    for definition in ast.walk(tree):
+      if not isinstance(definition, ast.FunctionDef):
+        continue
+      picked = []  # type: List[str]
+      for node in ast.walk(definition):
+        if not isinstance(node, ast.Assign) or len(node.targets) != 1:
+          continue
+        target, value = node.targets[0], node.value
+        if not isinstance(target, ast.Name) or target.id != 'ritual':
+          continue
+        if isinstance(value, ast.Constant) and isinstance(value.value, str):
+          picked.append(value.value)
+      for node in ast.walk(definition):
+        if not isinstance(node, ast.Call) or not node.args:
+          continue
+        function = node.func
+        if not isinstance(function, ast.Attribute):
+          continue
+        if function.attr not in ('call', '_callAs'):
+          continue
+        asPart = function.attr == '_callAs'
+        taken = node.args[1:] if asPart else node.args
+        if not taken or not isinstance(taken[0], ast.Name):
+          continue
+        if taken[0].id != 'ritual':
+          continue
+        handed = len(taken) - 1
+        holder = function.value
+        onObject = asPart or isinstance(holder, ast.Attribute) and (
+            holder.attr == 'uglySide')
+        found.extend((name, handed, onObject) for name in picked)
     return found
 
   def _checkCalls(self, tree: ast.AST, faults: List[str]) -> None:
@@ -281,8 +315,13 @@ class ClassTester:
           if plan['baseName'] in one.getFurtherBaseNames():
             named.append(plan['ritualName'])
           continue
+        if plan['kind'] == 'take':
+          #  No function of Qt either: the class names it as the ritual
+          #  that hands a Python function over.
+          named.append(plan['ritualName'])
+          continue
         plans[plan['ritualName']] = plan['row']
-        shown[plan['function']] = plan['ritualName']
+        shown.setdefault(plan['function'], plan['ritualName'])
     texts = {
         node.value for node in ast.walk(tree)
         if isinstance(node, ast.Constant) and isinstance(node.value, str)

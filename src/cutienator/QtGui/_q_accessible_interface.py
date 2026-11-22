@@ -81,6 +81,121 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAccessibleInterface'
 
+  #  A C++ QAccessibleInterface Python makes is of a C++ class of ours, in
+  #  which Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QAccessibleInterface'
+
+  #  The functions Qt calls itself that QAccessibleInterface is the first to
+  #  declare and that cannot be handed to Python yet, each as Qt declares it.
+  #  A class of a program that writes one of them anew is refused, since Qt
+  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'relations': (
+          'QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> '
+          'QAccessibleInterface::relations(QAccessible::Relation) const',
+      ),
+      'text': (
+          'QString QAccessibleInterface::text(QAccessible::Text) const',
+      ),
+      'setText': (
+          'void QAccessibleInterface::setText(QAccessible::Text, const '
+          'QString &)',
+      ),
+      'virtual_hook': (
+          'void QAccessibleInterface::virtual_hook(int, void *)',
+      ),
+      'interface_cast': (
+          'void '
+          '*QAccessibleInterface::interface_cast(QAccessible::InterfaceType'
+          ')',
+      ),
+  }
+
+  #  The functions Qt calls itself that QAccessibleInterface is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'isValid': (
+          ('_ZNK20QAccessibleInterface7isValidEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'object': (
+          ('_ZNK20QAccessibleInterface6objectEv',
+           ('address', 'address', 'QtCore:QObject'),
+           ()),
+      ),
+      'window': (
+          ('_ZNK20QAccessibleInterface6windowEv',
+           ('address', 'address', 'QtGui:QWindow'),
+           ()),
+      ),
+      'focusChild': (
+          ('_ZNK20QAccessibleInterface10focusChildEv',
+           ('address', 'address', 'QtGui:QAccessibleInterface'),
+           ()),
+      ),
+      'childAt': (
+          ('_ZNK20QAccessibleInterface7childAtEii',
+           ('address', 'address', 'QtGui:QAccessibleInterface'),
+           (
+               ('int', 'number', ''),
+               ('int', 'number', ''),
+           )),
+      ),
+      'parent': (
+          ('_ZNK20QAccessibleInterface6parentEv',
+           ('address', 'address', 'QtGui:QAccessibleInterface'),
+           ()),
+      ),
+      'child': (
+          ('_ZNK20QAccessibleInterface5childEi',
+           ('address', 'address', 'QtGui:QAccessibleInterface'),
+           (
+               ('int', 'number', ''),
+           )),
+      ),
+      'childCount': (
+          ('_ZNK20QAccessibleInterface10childCountEv',
+           ('int', 'number', ''),
+           ()),
+      ),
+      'indexOfChild': (
+          ('_ZNK20QAccessibleInterface12indexOfChildEPKS_',
+           ('int', 'number', ''),
+           (
+               ('address', 'address', 'QtGui:QAccessibleInterface'),
+           )),
+      ),
+      'rect': (
+          ('_ZNK20QAccessibleInterface4rectEv',
+           ('address', 'value', 'QtCore:QRect'),
+           ()),
+      ),
+      'role': (
+          ('_ZNK20QAccessibleInterface4roleEv',
+           ('int', 'enum', 'QtGui:QAccessible.Role'),
+           ()),
+      ),
+      'state': (
+          ('_ZNK20QAccessibleInterface5stateEv',
+           ('address', 'value', 'QtGui:QAccessible.State'),
+           ()),
+      ),
+      'foregroundColor': (
+          ('_ZNK20QAccessibleInterface15foregroundColorEv',
+           ('address', 'value', 'QtGui:QColor'),
+           ()),
+      ),
+      'backgroundColor': (
+          ('_ZNK20QAccessibleInterface15backgroundColorEv',
+           ('address', 'value', 'QtGui:QColor'),
+           ()),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -134,7 +249,10 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QWindow *QAccessibleInterface::window() const
-    address = self.uglySide.call('ritual_ZNK20QAccessibleInterface6windowEv')
+    ritual = 'ritual_ZNK20QAccessibleInterface6windowEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK20QAccessibleInterface6windowEv'
+    address = self.uglySide.call(ritual)
     from . import QWindow
     return QWindow._cuteAt(address)
 
@@ -154,9 +272,10 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QAccessibleInterface *QAccessibleInterface::focusChild() const
-    address = self.uglySide.call(
-        'ritual_ZNK20QAccessibleInterface10focusChildEv',
-    )
+    ritual = 'ritual_ZNK20QAccessibleInterface10focusChildEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK20QAccessibleInterface10focusChildEv'
+    address = self.uglySide.call(ritual)
     return QAccessibleInterface._cuteAt(address)
 
   @overload(int, int)
@@ -363,9 +482,10 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       A new cute QColor around the copy Qt gave back. Python owns it.
     """
     #  QColor QAccessibleInterface::foregroundColor() const
-    address = self.uglySide.call(
-        'ritual_ZNK20QAccessibleInterface15foregroundColorEv',
-    )
+    ritual = 'ritual_ZNK20QAccessibleInterface15foregroundColorEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK20QAccessibleInterface15foregroundColorEv'
+    address = self.uglySide.call(ritual)
     from . import QColor
     return QColor._cuteOwning(address)
 
@@ -383,9 +503,10 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       A new cute QColor around the copy Qt gave back. Python owns it.
     """
     #  QColor QAccessibleInterface::backgroundColor() const
-    address = self.uglySide.call(
-        'ritual_ZNK20QAccessibleInterface15backgroundColorEv',
-    )
+    ritual = 'ritual_ZNK20QAccessibleInterface15backgroundColorEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK20QAccessibleInterface15backgroundColorEv'
+    address = self.uglySide.call(ritual)
     from . import QColor
     return QColor._cuteOwning(address)
 

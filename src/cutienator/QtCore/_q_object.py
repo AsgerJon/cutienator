@@ -19,13 +19,16 @@ from . import Qt, QMetaObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QBindingStorage, QEvent, QMetaMethod, QThread, QVariant
+  from . import QBindingStorage, QChildEvent, QEvent, QMetaMethod, QThread
+  from . import QTimerEvent, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QChildEvent = WAIT['QChildEvent']
   QEvent = WAIT['QEvent']
   QMetaMethod = WAIT['QMetaMethod']
+  QTimerEvent = WAIT['QTimerEvent']
   QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -42,14 +45,15 @@ class QObject(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QObject that has a ritual and that Python can call
-  so far, 28 names in all: 'metaObject', 'tr', 'event', 'eventFilter',
+  so far, 33 names in all: 'metaObject', 'tr', 'event', 'eventFilter',
   'objectName', 'setObjectName', 'isWidgetType', 'isWindowType',
   'isQuickItemType', 'isQmlExposed', 'signalsBlocked', 'blockSignals',
   'thread', 'startTimer', 'killTimer', 'setParent', 'installEventFilter',
   'removeEventFilter', 'connect', 'disconnect', 'dumpObjectTree',
   'dumpObjectInfo', 'setProperty', 'property', 'bindingStorage', 'parent',
-  'inherits', 'deleteLater'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'inherits', 'deleteLater', 'timerEvent', 'childEvent', 'customEvent',
+  'connectNotify', 'disconnectNotify'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,8 +68,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  41 of the 80 functions Qt declares: 11 a template; 10 protected; 9 takes or
-  gives a type that cannot be passed yet; 7 private; 2 a signal; 2 forbidden.
+  36 of the 80 functions Qt declares: 11 a template; 9 takes or gives a type
+  that cannot be passed yet; 7 private; 5 protected; 2 a signal; 2 forbidden.
 
   What to expect
   --------------
@@ -556,6 +560,68 @@ class QObject(CuteMixin, metaclass=MetaCute):
   #  built on this one is a QObject too, and inherits this.
   __watched_by_qt__ = True
 
+  #  A C++ QObject Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QObject'
+
+  #  The functions Qt calls itself that QObject is the first to declare. A
+  #  class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'event': (
+          ('_ZN7QObject5eventEP6QEvent',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'eventFilter': (
+          ('_ZN7QObject11eventFilterEPS_P6QEvent',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtCore:QObject'),
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'timerEvent': (
+          ('_ZN7QObject10timerEventEP11QTimerEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QTimerEvent'),
+           )),
+      ),
+      'childEvent': (
+          ('_ZN7QObject10childEventEP11QChildEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QChildEvent'),
+           )),
+      ),
+      'customEvent': (
+          ('_ZN7QObject11customEventEP6QEvent',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'connectNotify': (
+          ('_ZN7QObject13connectNotifyERK11QMetaMethod',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QMetaMethod'),
+           )),
+      ),
+      'disconnectNotify': (
+          ('_ZN7QObject16disconnectNotifyERK11QMetaMethod',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QMetaMethod'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -863,9 +929,10 @@ class QObject(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  bool QObject::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_ZN7QObject5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QObject5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QObject5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(THIS, QEvent)
   @overload(THIS, NoneType)
@@ -893,9 +960,11 @@ class QObject(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  bool QObject::eventFilter(QObject *watched, QEvent *event)
+    ritual = 'ritual_ZN7QObject11eventFilterEPS_P6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QObject11eventFilterEPS_P6QEvent'
     return self.uglySide.call(
-        'ritual_ZN7QObject11eventFilterEPS_P6QEvent',
-        self._addressOf(watched), self._addressOf(event),
+        ritual, self._addressOf(watched), self._addressOf(event),
     )
 
   @overload(bool)
@@ -1060,3 +1129,106 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  void QObject::deleteLater()
     self.uglySide.call('ritual_ZN7QObject11deleteLaterEv')
+
+  @overload(QTimerEvent)
+  @overload(NoneType)
+  def timerEvent(self, event: Optional[QTimerEvent]) -> None:
+    """
+    Calls Qt's 'void QObject::timerEvent(QTimerEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#timerEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QTimerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QObject::timerEvent(QTimerEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QObject10timerEventEP11QTimerEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QChildEvent)
+  @overload(NoneType)
+  def childEvent(self, event: Optional[QChildEvent]) -> None:
+    """
+    Calls Qt's 'void QObject::childEvent(QChildEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#childEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QChildEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QObject::childEvent(QChildEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QObject10childEventEP11QChildEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def customEvent(self, event: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QObject::customEvent(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#customEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QObject::customEvent(QEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN7QObject11customEventEP6QEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMetaMethod)
+  def connectNotify(self, signal: QMetaMethod) -> None:
+    """
+    Calls Qt's 'void QObject::connectNotify(const QMetaMethod &signal)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#connectNotify
+
+    Parameters
+    ----------
+
+    signal : QMetaMethod
+      Passed on as a value: Qt reads the C++ QMetaMethod, which stays
+      Python's own.
+    """
+    #  void QObject::connectNotify(const QMetaMethod &signal)
+    self.uglySide.call(
+        'ritual_own_ZN7QObject13connectNotifyERK11QMetaMethod',
+        self._valueOf(signal),
+    )
+
+  @overload(QMetaMethod)
+  def disconnectNotify(self, signal: QMetaMethod) -> None:
+    """
+    Calls Qt's 'void QObject::disconnectNotify(const QMetaMethod &signal)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#disconnectNotify
+
+    Parameters
+    ----------
+
+    signal : QMetaMethod
+      Passed on as a value: Qt reads the C++ QMetaMethod, which stays
+      Python's own.
+    """
+    #  void QObject::disconnectNotify(const QMetaMethod &signal)
+    self.uglySide.call(
+        'ritual_own_ZN7QObject16disconnectNotifyERK11QMetaMethod',
+        self._valueOf(signal),
+    )

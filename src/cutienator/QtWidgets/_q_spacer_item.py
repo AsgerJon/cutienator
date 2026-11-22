@@ -80,6 +80,11 @@ class QSpacerItem(QLayoutItem):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSpacerItem'
 
+  #  A C++ QSpacerItem Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QSpacerItem'
+
   #  Qt's '~QSpacerItem()'. Naming it makes this a value class: Python owns
   #  every C++ QSpacerItem behind a cute one, and removes it by this ritual.
   __delete_ritual__ = 'ritual_ZN11QSpacerItemD1Ev'
@@ -109,7 +114,10 @@ class QSpacerItem(QLayoutItem):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QSpacerItem::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK11QSpacerItem8sizeHintEv')
+    ritual = 'ritual_ZNK11QSpacerItem8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QSpacerItem8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -126,7 +134,10 @@ class QSpacerItem(QLayoutItem):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QSpacerItem::minimumSize() const
-    address = self.uglySide.call('ritual_ZNK11QSpacerItem11minimumSizeEv')
+    ritual = 'ritual_ZNK11QSpacerItem11minimumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QSpacerItem11minimumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -143,7 +154,10 @@ class QSpacerItem(QLayoutItem):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QSpacerItem::maximumSize() const
-    address = self.uglySide.call('ritual_ZNK11QSpacerItem11maximumSizeEv')
+    ritual = 'ritual_ZNK11QSpacerItem11maximumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QSpacerItem11maximumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -172,7 +186,10 @@ class QSpacerItem(QLayoutItem):
     Qt's own words: https://doc.qt.io/qt-6/qspaceritem.html#isEmpty
     """
     #  bool QSpacerItem::isEmpty() const
-    return self.uglySide.call('ritual_ZNK11QSpacerItem7isEmptyEv')
+    ritual = 'ritual_ZNK11QSpacerItem7isEmptyEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QSpacerItem7isEmptyEv'
+    return self.uglySide.call(ritual)
 
   def geometry(self) -> QRect:
     """
@@ -187,7 +204,10 @@ class QSpacerItem(QLayoutItem):
       A new cute QRect around the copy Qt gave back. Python owns it.
     """
     #  QRect QSpacerItem::geometry() const
-    address = self.uglySide.call('ritual_ZNK11QSpacerItem8geometryEv')
+    ritual = 'ritual_ZNK11QSpacerItem8geometryEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QSpacerItem8geometryEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -225,9 +245,10 @@ class QSpacerItem(QLayoutItem):
       Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
     """
     #  void QSpacerItem::setGeometry(const QRect &a0)
-    self.uglySide.call(
-        'ritual_ZN11QSpacerItem11setGeometryERK5QRect', self._valueOf(a0),
-    )
+    ritual = 'ritual_ZN11QSpacerItem11setGeometryERK5QRect'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QSpacerItem11setGeometryERK5QRect'
+    self.uglySide.call(ritual, self._valueOf(a0))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -356,5 +377,8 @@ class QSpacerItem(QLayoutItem):
       no object.
     """
     #  QSpacerItem *QSpacerItem::spacerItem()
-    address = self.uglySide.call('ritual_ZN11QSpacerItem10spacerItemEv')
+    ritual = 'ritual_ZN11QSpacerItem10spacerItemEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QSpacerItem10spacerItemEv'
+    address = self.uglySide.call(ritual)
     return QSpacerItem._cuteAt(address)

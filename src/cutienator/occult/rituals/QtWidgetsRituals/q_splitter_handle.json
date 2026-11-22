@@ -18,6 +18,26 @@
     "ritual_ZNK15QSplitterHandle11orientationEv": ["int", "address"],
     "ritual_ZNK15QSplitterHandle12opaqueResizeEv": ["bool", "address"],
     "ritual_ZNK15QSplitterHandle8splitterEv": ["address", "address"],
-    "ritual_ZNK15QSplitterHandle8sizeHintEv": ["address", "address"]
+    "ritual_ZNK15QSplitterHandle8sizeHintEv": ["address", "address"],
+    "ritual_take_QSplitterHandle": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QSplitterHandle8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN15QSplitterHandle10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QSplitterHandle14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QSplitterHandle15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QSplitterHandle17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QSplitterHandle11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QSplitterHandle5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
   }
 }

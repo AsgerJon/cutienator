@@ -20,6 +20,794 @@
 #include <QtWidgets/qsizepolicy.h>
 #include <QtCore/qmargins.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  Only a class built on QWidget may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQWidget : QWidget {
+  using QWidget::event;
+  using QWidget::mousePressEvent;
+  using QWidget::mouseReleaseEvent;
+  using QWidget::mouseDoubleClickEvent;
+  using QWidget::mouseMoveEvent;
+  using QWidget::wheelEvent;
+  using QWidget::keyPressEvent;
+  using QWidget::keyReleaseEvent;
+  using QWidget::focusInEvent;
+  using QWidget::focusOutEvent;
+  using QWidget::enterEvent;
+  using QWidget::leaveEvent;
+  using QWidget::paintEvent;
+  using QWidget::moveEvent;
+  using QWidget::resizeEvent;
+  using QWidget::closeEvent;
+  using QWidget::contextMenuEvent;
+  using QWidget::tabletEvent;
+  using QWidget::actionEvent;
+  using QWidget::dragEnterEvent;
+  using QWidget::dragMoveEvent;
+  using QWidget::dragLeaveEvent;
+  using QWidget::dropEvent;
+  using QWidget::showEvent;
+  using QWidget::hideEvent;
+  using QWidget::changeEvent;
+  using QWidget::metric;
+  using QWidget::initPainter;
+  using QWidget::redirected;
+  using QWidget::sharedPainter;
+  using QWidget::inputMethodEvent;
+  using QWidget::focusNextPrevChild;
+};
+
+//  A QWidget that Python can take functions over in. Every QWidget
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef int (*CuteQWidgetCall0)(const void *, int *);
+typedef void (*CuteQWidgetCall1)(const void *, bool, int *);
+typedef const QSize * (*CuteQWidgetCall2)(const void *, int *);
+typedef const QSize * (*CuteQWidgetCall3)(const void *, int *);
+typedef int (*CuteQWidgetCall4)(const void *, int, int *);
+typedef bool (*CuteQWidgetCall5)(const void *, int *);
+typedef void * (*CuteQWidgetCall6)(const void *, int *);
+typedef bool (*CuteQWidgetCall7)(const void *, QEvent *, int *);
+typedef void (*CuteQWidgetCall8)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQWidgetCall9)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQWidgetCall10)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQWidgetCall11)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQWidgetCall12)(const void *, QWheelEvent *, int *);
+typedef void (*CuteQWidgetCall13)(const void *, QKeyEvent *, int *);
+typedef void (*CuteQWidgetCall14)(const void *, QKeyEvent *, int *);
+typedef void (*CuteQWidgetCall15)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQWidgetCall16)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQWidgetCall17)(const void *, QEnterEvent *, int *);
+typedef void (*CuteQWidgetCall18)(const void *, QEvent *, int *);
+typedef void (*CuteQWidgetCall19)(const void *, QPaintEvent *, int *);
+typedef void (*CuteQWidgetCall20)(const void *, QMoveEvent *, int *);
+typedef void (*CuteQWidgetCall21)(const void *, QResizeEvent *, int *);
+typedef void (*CuteQWidgetCall22)(const void *, QCloseEvent *, int *);
+typedef void (*CuteQWidgetCall23)(const void *, QContextMenuEvent *, int *);
+typedef void (*CuteQWidgetCall24)(const void *, QTabletEvent *, int *);
+typedef void (*CuteQWidgetCall25)(const void *, QActionEvent *, int *);
+typedef void (*CuteQWidgetCall26)(const void *, QDragEnterEvent *, int *);
+typedef void (*CuteQWidgetCall27)(const void *, QDragMoveEvent *, int *);
+typedef void (*CuteQWidgetCall28)(const void *, QDragLeaveEvent *, int *);
+typedef void (*CuteQWidgetCall29)(const void *, QDropEvent *, int *);
+typedef void (*CuteQWidgetCall30)(const void *, QShowEvent *, int *);
+typedef void (*CuteQWidgetCall31)(const void *, QHideEvent *, int *);
+typedef void (*CuteQWidgetCall32)(const void *, QEvent *, int *);
+typedef int (*CuteQWidgetCall33)(const void *, int, int *);
+typedef void (*CuteQWidgetCall34)(const void *, QPainter *, int *);
+typedef void * (*CuteQWidgetCall35)(const void *, QPoint *, int *);
+typedef void * (*CuteQWidgetCall36)(const void *, int *);
+typedef void (*CuteQWidgetCall37)(const void *, QInputMethodEvent *, int *);
+typedef const QVariant * (*CuteQWidgetCall38)(const void *, int, int *);
+typedef bool (*CuteQWidgetCall39)(const void *, bool, int *);
+typedef bool (*CuteQWidgetCall40)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQWidgetCall41)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQWidgetCall42)(const void *, QChildEvent *, int *);
+typedef void (*CuteQWidgetCall43)(const void *, QEvent *, int *);
+typedef void (*CuteQWidgetCall44)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQWidgetCall45)(const void *, const QMetaMethod *, int *);
+class CuteQWidget : public QWidget {
+public:
+  using QWidget::QWidget;
+  void *taken[46] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QWidget14heightForWidthEi")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QWidget17hasHeightForWidthEv")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10enterEventEP11QEnterEvent")) {
+      taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10leaveEventEP6QEvent")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
+      taken[19] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget9moveEventEP10QMoveEvent")) {
+      taken[20] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
+      taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
+      taken[22] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
+      taken[23] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
+      taken[24] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
+      taken[25] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
+      taken[26] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
+      taken[27] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
+      taken[28] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
+      taken[29] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
+      taken[30] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
+      taken[31] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
+      taken[32] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
+      taken[33] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
+      taken[34] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice10redirectedEP6QPoint")) {
+      taken[35] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
+      taken[36] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget16inputMethodEventEP17QInputMethodEvent")) {
+      taken[37] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
+      taken[38] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QWidget18focusNextPrevChildEb")) {
+      taken[39] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[40] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[41] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[42] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[43] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[44] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[45] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  int QWidget::devType() const
+  int devType() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQWidgetCall0 call = reinterpret_cast<CuteQWidgetCall0>(taken[0]);
+      int given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QWidget::devType();
+  }
+
+  //  void QWidget::setVisible(bool visible)
+  void setVisible(bool visible) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQWidgetCall1 call = reinterpret_cast<CuteQWidgetCall1>(taken[1]);
+      call(this, visible, &handled);
+      if (handled) return;
+    }
+    QWidget::setVisible(visible);
+  }
+
+  //  QSize QWidget::sizeHint() const
+  QSize sizeHint() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQWidgetCall2 call = reinterpret_cast<CuteQWidgetCall2>(taken[2]);
+      const QSize * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QWidget::sizeHint();
+  }
+
+  //  QSize QWidget::minimumSizeHint() const
+  QSize minimumSizeHint() const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQWidgetCall3 call = reinterpret_cast<CuteQWidgetCall3>(taken[3]);
+      const QSize * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QWidget::minimumSizeHint();
+  }
+
+  //  int QWidget::heightForWidth(int a0) const
+  int heightForWidth(int a0) const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQWidgetCall4 call = reinterpret_cast<CuteQWidgetCall4>(taken[4]);
+      int given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QWidget::heightForWidth(a0);
+  }
+
+  //  bool QWidget::hasHeightForWidth() const
+  bool hasHeightForWidth() const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQWidgetCall5 call = reinterpret_cast<CuteQWidgetCall5>(taken[5]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QWidget::hasHeightForWidth();
+  }
+
+  //  QPaintEngine *QWidget::paintEngine() const
+  QPaintEngine *paintEngine() const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQWidgetCall6 call = reinterpret_cast<CuteQWidgetCall6>(taken[6]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPaintEngine *>(given);
+    }
+    return QWidget::paintEngine();
+  }
+
+  //  bool QWidget::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQWidgetCall7 call = reinterpret_cast<CuteQWidgetCall7>(taken[7]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QWidget::event(event);
+  }
+
+  //  void QWidget::mousePressEvent(QMouseEvent *event)
+  void mousePressEvent(QMouseEvent *event) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQWidgetCall8 call = reinterpret_cast<CuteQWidgetCall8>(taken[8]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::mousePressEvent(event);
+  }
+
+  //  void QWidget::mouseReleaseEvent(QMouseEvent *event)
+  void mouseReleaseEvent(QMouseEvent *event) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQWidgetCall9 call = reinterpret_cast<CuteQWidgetCall9>(taken[9]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::mouseReleaseEvent(event);
+  }
+
+  //  void QWidget::mouseDoubleClickEvent(QMouseEvent *event)
+  void mouseDoubleClickEvent(QMouseEvent *event) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQWidgetCall10 call = reinterpret_cast<CuteQWidgetCall10>(taken[10]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::mouseDoubleClickEvent(event);
+  }
+
+  //  void QWidget::mouseMoveEvent(QMouseEvent *event)
+  void mouseMoveEvent(QMouseEvent *event) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQWidgetCall11 call = reinterpret_cast<CuteQWidgetCall11>(taken[11]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::mouseMoveEvent(event);
+  }
+
+  //  void QWidget::wheelEvent(QWheelEvent *event)
+  void wheelEvent(QWheelEvent *event) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQWidgetCall12 call = reinterpret_cast<CuteQWidgetCall12>(taken[12]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::wheelEvent(event);
+  }
+
+  //  void QWidget::keyPressEvent(QKeyEvent *event)
+  void keyPressEvent(QKeyEvent *event) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQWidgetCall13 call = reinterpret_cast<CuteQWidgetCall13>(taken[13]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::keyPressEvent(event);
+  }
+
+  //  void QWidget::keyReleaseEvent(QKeyEvent *event)
+  void keyReleaseEvent(QKeyEvent *event) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQWidgetCall14 call = reinterpret_cast<CuteQWidgetCall14>(taken[14]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::keyReleaseEvent(event);
+  }
+
+  //  void QWidget::focusInEvent(QFocusEvent *event)
+  void focusInEvent(QFocusEvent *event) override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQWidgetCall15 call = reinterpret_cast<CuteQWidgetCall15>(taken[15]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::focusInEvent(event);
+  }
+
+  //  void QWidget::focusOutEvent(QFocusEvent *event)
+  void focusOutEvent(QFocusEvent *event) override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQWidgetCall16 call = reinterpret_cast<CuteQWidgetCall16>(taken[16]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::focusOutEvent(event);
+  }
+
+  //  void QWidget::enterEvent(QEnterEvent *event)
+  void enterEvent(QEnterEvent *event) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQWidgetCall17 call = reinterpret_cast<CuteQWidgetCall17>(taken[17]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::enterEvent(event);
+  }
+
+  //  void QWidget::leaveEvent(QEvent *event)
+  void leaveEvent(QEvent *event) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQWidgetCall18 call = reinterpret_cast<CuteQWidgetCall18>(taken[18]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::leaveEvent(event);
+  }
+
+  //  void QWidget::paintEvent(QPaintEvent *event)
+  void paintEvent(QPaintEvent *event) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQWidgetCall19 call = reinterpret_cast<CuteQWidgetCall19>(taken[19]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::paintEvent(event);
+  }
+
+  //  void QWidget::moveEvent(QMoveEvent *event)
+  void moveEvent(QMoveEvent *event) override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQWidgetCall20 call = reinterpret_cast<CuteQWidgetCall20>(taken[20]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::moveEvent(event);
+  }
+
+  //  void QWidget::resizeEvent(QResizeEvent *event)
+  void resizeEvent(QResizeEvent *event) override {
+    if (taken[21]) {
+      int handled = 0;
+      CuteQWidgetCall21 call = reinterpret_cast<CuteQWidgetCall21>(taken[21]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::resizeEvent(event);
+  }
+
+  //  void QWidget::closeEvent(QCloseEvent *event)
+  void closeEvent(QCloseEvent *event) override {
+    if (taken[22]) {
+      int handled = 0;
+      CuteQWidgetCall22 call = reinterpret_cast<CuteQWidgetCall22>(taken[22]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::closeEvent(event);
+  }
+
+  //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
+  void contextMenuEvent(QContextMenuEvent *event) override {
+    if (taken[23]) {
+      int handled = 0;
+      CuteQWidgetCall23 call = reinterpret_cast<CuteQWidgetCall23>(taken[23]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::contextMenuEvent(event);
+  }
+
+  //  void QWidget::tabletEvent(QTabletEvent *event)
+  void tabletEvent(QTabletEvent *event) override {
+    if (taken[24]) {
+      int handled = 0;
+      CuteQWidgetCall24 call = reinterpret_cast<CuteQWidgetCall24>(taken[24]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::tabletEvent(event);
+  }
+
+  //  void QWidget::actionEvent(QActionEvent *event)
+  void actionEvent(QActionEvent *event) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQWidgetCall25 call = reinterpret_cast<CuteQWidgetCall25>(taken[25]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::actionEvent(event);
+  }
+
+  //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
+  void dragEnterEvent(QDragEnterEvent *event) override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQWidgetCall26 call = reinterpret_cast<CuteQWidgetCall26>(taken[26]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::dragEnterEvent(event);
+  }
+
+  //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
+  void dragMoveEvent(QDragMoveEvent *event) override {
+    if (taken[27]) {
+      int handled = 0;
+      CuteQWidgetCall27 call = reinterpret_cast<CuteQWidgetCall27>(taken[27]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::dragMoveEvent(event);
+  }
+
+  //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
+  void dragLeaveEvent(QDragLeaveEvent *event) override {
+    if (taken[28]) {
+      int handled = 0;
+      CuteQWidgetCall28 call = reinterpret_cast<CuteQWidgetCall28>(taken[28]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::dragLeaveEvent(event);
+  }
+
+  //  void QWidget::dropEvent(QDropEvent *event)
+  void dropEvent(QDropEvent *event) override {
+    if (taken[29]) {
+      int handled = 0;
+      CuteQWidgetCall29 call = reinterpret_cast<CuteQWidgetCall29>(taken[29]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::dropEvent(event);
+  }
+
+  //  void QWidget::showEvent(QShowEvent *event)
+  void showEvent(QShowEvent *event) override {
+    if (taken[30]) {
+      int handled = 0;
+      CuteQWidgetCall30 call = reinterpret_cast<CuteQWidgetCall30>(taken[30]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::showEvent(event);
+  }
+
+  //  void QWidget::hideEvent(QHideEvent *event)
+  void hideEvent(QHideEvent *event) override {
+    if (taken[31]) {
+      int handled = 0;
+      CuteQWidgetCall31 call = reinterpret_cast<CuteQWidgetCall31>(taken[31]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QWidget::hideEvent(event);
+  }
+
+  //  void QWidget::changeEvent(QEvent *a0)
+  void changeEvent(QEvent *a0) override {
+    if (taken[32]) {
+      int handled = 0;
+      CuteQWidgetCall32 call = reinterpret_cast<CuteQWidgetCall32>(taken[32]);
+      call(this, a0, &handled);
+      if (handled) return;
+    }
+    QWidget::changeEvent(a0);
+  }
+
+  //  int QWidget::metric(PaintDeviceMetric a0) const
+  int metric(QPaintDevice::PaintDeviceMetric a0) const override {
+    if (taken[33]) {
+      int handled = 0;
+      CuteQWidgetCall33 call = reinterpret_cast<CuteQWidgetCall33>(taken[33]);
+      int given = call(this, static_cast<int>(a0), &handled);
+      if (handled) return given;
+    }
+    return QWidget::metric(a0);
+  }
+
+  //  void QWidget::initPainter(QPainter *painter) const
+  void initPainter(QPainter *painter) const override {
+    if (taken[34]) {
+      int handled = 0;
+      CuteQWidgetCall34 call = reinterpret_cast<CuteQWidgetCall34>(taken[34]);
+      call(this, painter, &handled);
+      if (handled) return;
+    }
+    QWidget::initPainter(painter);
+  }
+
+  //  QPaintDevice *QWidget::redirected(QPoint *offset) const
+  QPaintDevice *redirected(QPoint *offset) const override {
+    if (taken[35]) {
+      int handled = 0;
+      CuteQWidgetCall35 call = reinterpret_cast<CuteQWidgetCall35>(taken[35]);
+      void * given = call(this, offset, &handled);
+      if (handled) return static_cast<QPaintDevice *>(given);
+    }
+    return QWidget::redirected(offset);
+  }
+
+  //  QPainter *QWidget::sharedPainter() const
+  QPainter *sharedPainter() const override {
+    if (taken[36]) {
+      int handled = 0;
+      CuteQWidgetCall36 call = reinterpret_cast<CuteQWidgetCall36>(taken[36]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPainter *>(given);
+    }
+    return QWidget::sharedPainter();
+  }
+
+  //  void QWidget::inputMethodEvent(QInputMethodEvent *a0)
+  void inputMethodEvent(QInputMethodEvent *a0) override {
+    if (taken[37]) {
+      int handled = 0;
+      CuteQWidgetCall37 call = reinterpret_cast<CuteQWidgetCall37>(taken[37]);
+      call(this, a0, &handled);
+      if (handled) return;
+    }
+    QWidget::inputMethodEvent(a0);
+  }
+
+  //  QVariant QWidget::inputMethodQuery(Qt::InputMethodQuery a0) const
+  QVariant inputMethodQuery(Qt::InputMethodQuery a0) const override {
+    if (taken[38]) {
+      int handled = 0;
+      CuteQWidgetCall38 call = reinterpret_cast<CuteQWidgetCall38>(taken[38]);
+      const QVariant * given = call(this, static_cast<int>(a0), &handled);
+      if (handled && given) return *given;
+    }
+    return QWidget::inputMethodQuery(a0);
+  }
+
+  //  bool QWidget::focusNextPrevChild(bool next)
+  bool focusNextPrevChild(bool next) override {
+    if (taken[39]) {
+      int handled = 0;
+      CuteQWidgetCall39 call = reinterpret_cast<CuteQWidgetCall39>(taken[39]);
+      bool given = call(this, next, &handled);
+      if (handled) return given;
+    }
+    return QWidget::focusNextPrevChild(next);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[40]) {
+      int handled = 0;
+      CuteQWidgetCall40 call = reinterpret_cast<CuteQWidgetCall40>(taken[40]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[41]) {
+      int handled = 0;
+      CuteQWidgetCall41 call = reinterpret_cast<CuteQWidgetCall41>(taken[41]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[42]) {
+      int handled = 0;
+      CuteQWidgetCall42 call = reinterpret_cast<CuteQWidgetCall42>(taken[42]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[43]) {
+      int handled = 0;
+      CuteQWidgetCall43 call = reinterpret_cast<CuteQWidgetCall43>(taken[43]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[44]) {
+      int handled = 0;
+      CuteQWidgetCall44 call = reinterpret_cast<CuteQWidgetCall44>(taken[44]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[45]) {
+      int handled = 0;
+      CuteQWidgetCall45 call = reinterpret_cast<CuteQWidgetCall45>(taken[45]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QWidget::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -38,7 +826,7 @@ extern "C" Q_DECL_EXPORT
 QWidget *ritual_ZN7QWidgetC1EPS_6QFlagsIN2Qt10WindowTypeEE(
     QWidget *parent,
     int f) {
-  return new QWidget(parent, QFlags<Qt::WindowType>::fromInt(f));
+  return new CuteQWidget(parent, QFlags<Qt::WindowType>::fromInt(f));
 }
 
 //  QWidget::~QWidget()
@@ -1874,4 +2662,311 @@ void ritual_ZN7QWidget19setInputMethodHintsE6QFlagsIN2Qt15InputMethodHintEE(
 extern "C" Q_DECL_EXPORT
 QPaintDevice *ritual_cast_QWidget_QPaintDevice(QWidget *self) {
   return static_cast<QPaintDevice *>(self);
+}
+
+//  a Python function taken by a CuteQWidget, for the function named by the
+//      key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QWidget(QWidget *self, const char *key, void *call) {
+  return static_cast<CuteQWidget *>(self)->take(key, call);
+}
+
+//  int QWidget::devType() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK7QWidget7devTypeEv(const QWidget *self) {
+  return self->QWidget::devType();
+}
+
+//  void QWidget::setVisible(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget10setVisibleEb(QWidget *self, bool visible) {
+  self->QWidget::setVisible(visible);
+}
+
+//  QSize QWidget::sizeHint() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_own_ZNK7QWidget8sizeHintEv(const QWidget *self) {
+  return new QSize(self->QWidget::sizeHint());
+}
+
+//  QSize QWidget::minimumSizeHint() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_own_ZNK7QWidget15minimumSizeHintEv(const QWidget *self) {
+  return new QSize(self->QWidget::minimumSizeHint());
+}
+
+//  int QWidget::heightForWidth(int a0) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK7QWidget14heightForWidthEi(const QWidget *self, int a0) {
+  return self->QWidget::heightForWidth(a0);
+}
+
+//  bool QWidget::hasHeightForWidth() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK7QWidget17hasHeightForWidthEv(const QWidget *self) {
+  return self->QWidget::hasHeightForWidth();
+}
+
+//  QPaintEngine *QWidget::paintEngine() const
+extern "C" Q_DECL_EXPORT
+QPaintEngine *ritual_own_ZNK7QWidget11paintEngineEv(const QWidget *self) {
+  return self->QWidget::paintEngine();
+}
+
+//  bool QWidget::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN7QWidget5eventEP6QEvent(QWidget *self, QEvent *event) {
+  return static_cast<OwnQWidget *>(self)->OwnQWidget::event(event);
+}
+
+//  void QWidget::mousePressEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget15mousePressEventEP11QMouseEvent(
+    QWidget *self,
+    QMouseEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::mousePressEvent(event);
+}
+
+//  void QWidget::mouseReleaseEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget17mouseReleaseEventEP11QMouseEvent(
+    QWidget *self,
+    QMouseEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::mouseReleaseEvent(event);
+}
+
+//  void QWidget::mouseDoubleClickEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent(
+    QWidget *self,
+    QMouseEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::mouseDoubleClickEvent(event);
+}
+
+//  void QWidget::mouseMoveEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget14mouseMoveEventEP11QMouseEvent(
+    QWidget *self,
+    QMouseEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::mouseMoveEvent(event);
+}
+
+//  void QWidget::wheelEvent(QWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget10wheelEventEP11QWheelEvent(
+    QWidget *self,
+    QWheelEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::wheelEvent(event);
+}
+
+//  void QWidget::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget13keyPressEventEP9QKeyEvent(
+    QWidget *self,
+    QKeyEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::keyPressEvent(event);
+}
+
+//  void QWidget::keyReleaseEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget15keyReleaseEventEP9QKeyEvent(
+    QWidget *self,
+    QKeyEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::keyReleaseEvent(event);
+}
+
+//  void QWidget::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget12focusInEventEP11QFocusEvent(
+    QWidget *self,
+    QFocusEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::focusInEvent(event);
+}
+
+//  void QWidget::focusOutEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget13focusOutEventEP11QFocusEvent(
+    QWidget *self,
+    QFocusEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::focusOutEvent(event);
+}
+
+//  void QWidget::enterEvent(QEnterEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget10enterEventEP11QEnterEvent(
+    QWidget *self,
+    QEnterEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::enterEvent(event);
+}
+
+//  void QWidget::leaveEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget10leaveEventEP6QEvent(
+    QWidget *self,
+    QEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::leaveEvent(event);
+}
+
+//  void QWidget::paintEvent(QPaintEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget10paintEventEP11QPaintEvent(
+    QWidget *self,
+    QPaintEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::paintEvent(event);
+}
+
+//  void QWidget::moveEvent(QMoveEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget9moveEventEP10QMoveEvent(
+    QWidget *self,
+    QMoveEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::moveEvent(event);
+}
+
+//  void QWidget::resizeEvent(QResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget11resizeEventEP12QResizeEvent(
+    QWidget *self,
+    QResizeEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::resizeEvent(event);
+}
+
+//  void QWidget::closeEvent(QCloseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget10closeEventEP11QCloseEvent(
+    QWidget *self,
+    QCloseEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::closeEvent(event);
+}
+
+//  void QWidget::contextMenuEvent(QContextMenuEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget16contextMenuEventEP17QContextMenuEvent(
+    QWidget *self,
+    QContextMenuEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::contextMenuEvent(event);
+}
+
+//  void QWidget::tabletEvent(QTabletEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget11tabletEventEP12QTabletEvent(
+    QWidget *self,
+    QTabletEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::tabletEvent(event);
+}
+
+//  void QWidget::actionEvent(QActionEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget11actionEventEP12QActionEvent(
+    QWidget *self,
+    QActionEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::actionEvent(event);
+}
+
+//  void QWidget::dragEnterEvent(QDragEnterEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget14dragEnterEventEP15QDragEnterEvent(
+    QWidget *self,
+    QDragEnterEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::dragEnterEvent(event);
+}
+
+//  void QWidget::dragMoveEvent(QDragMoveEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget13dragMoveEventEP14QDragMoveEvent(
+    QWidget *self,
+    QDragMoveEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::dragMoveEvent(event);
+}
+
+//  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent(
+    QWidget *self,
+    QDragLeaveEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::dragLeaveEvent(event);
+}
+
+//  void QWidget::dropEvent(QDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget9dropEventEP10QDropEvent(
+    QWidget *self,
+    QDropEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::dropEvent(event);
+}
+
+//  void QWidget::showEvent(QShowEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget9showEventEP10QShowEvent(
+    QWidget *self,
+    QShowEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::showEvent(event);
+}
+
+//  void QWidget::hideEvent(QHideEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget9hideEventEP10QHideEvent(
+    QWidget *self,
+    QHideEvent *event) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::hideEvent(event);
+}
+
+//  void QWidget::changeEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget11changeEventEP6QEvent(QWidget *self, QEvent *a0) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::changeEvent(a0);
+}
+
+//  int QWidget::metric(PaintDeviceMetric a0) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK7QWidget6metricEN12QPaintDevice17PaintDeviceMetricE(
+    const QWidget *self,
+    QPaintDevice::PaintDeviceMetric a0) {
+  return static_cast<const OwnQWidget *>(self)->OwnQWidget::metric(a0);
+}
+
+//  void QWidget::initPainter(QPainter *painter) const
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZNK7QWidget11initPainterEP8QPainter(
+    const QWidget *self,
+    QPainter *painter) {
+  static_cast<const OwnQWidget *>(self)->OwnQWidget::initPainter(painter);
+}
+
+//  QPaintDevice *QWidget::redirected(QPoint *offset) const
+extern "C" Q_DECL_EXPORT
+QPaintDevice *ritual_own_ZNK7QWidget10redirectedEP6QPoint(
+    const QWidget *self,
+    QPoint *offset) {
+  return static_cast<const OwnQWidget *>(self)->OwnQWidget::redirected(
+      offset);
+}
+
+//  QPainter *QWidget::sharedPainter() const
+extern "C" Q_DECL_EXPORT
+QPainter *ritual_own_ZNK7QWidget13sharedPainterEv(const QWidget *self) {
+  return static_cast<const OwnQWidget *>(self)->OwnQWidget::sharedPainter();
+}
+
+//  void QWidget::inputMethodEvent(QInputMethodEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN7QWidget16inputMethodEventEP17QInputMethodEvent(
+    QWidget *self,
+    QInputMethodEvent *a0) {
+  static_cast<OwnQWidget *>(self)->OwnQWidget::inputMethodEvent(a0);
+}
+
+//  QVariant QWidget::inputMethodQuery(Qt::InputMethodQuery a0) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE(
+    const QWidget *self,
+    Qt::InputMethodQuery a0) {
+  return new QVariant(self->QWidget::inputMethodQuery(a0));
+}
+
+//  bool QWidget::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN7QWidget18focusNextPrevChildEb(QWidget *self, bool next) {
+  return static_cast<OwnQWidget *>(self)->OwnQWidget::focusNextPrevChild(
+      next);
 }

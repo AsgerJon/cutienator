@@ -380,6 +380,26 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
     #  The class of Qt this class stands for.
     __qt_class__ = 'QAccessible::ActivationObserver'
 
+    #  A C++ QAccessible::ActivationObserver Python makes is of a C++ class
+    #  of ours, in which Python can take functions over. This ritual hands
+    #  one over; see 'CuteMixin._takeOver'.
+    __take_ritual__ = 'ritual_take_QAccessible_ActivationObserver'
+
+    #  The functions Qt calls itself that QAccessible::ActivationObserver is
+    #  the first to declare. A class of a program built on it can write one
+    #  anew, and Qt then calls that. For each name: the key C++ knows the
+    #  function by, what it gives, and what it takes.
+    __virtual_functions__ = {
+        'accessibilityActiveChanged': (
+            ('_ZN11QAccessible18ActivationObserver26accessibilityActiveChan'
+             'gedEb',
+             ('nothing', 'nothing', ''),
+             (
+                 ('bool', 'number', ''),
+             )),
+        ),
+    }
+
     #  Fallback Variables
 
     #  Private Variables

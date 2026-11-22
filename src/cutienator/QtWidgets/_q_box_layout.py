@@ -153,6 +153,11 @@ class QBoxLayout(QLayout):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QBoxLayout'
 
+  #  A C++ QBoxLayout Python makes is of a C++ class of ours, in which Python
+  #  can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QBoxLayout'
+
   #  Fallback Variables
 
   #  Private Variables
@@ -208,7 +213,10 @@ class QBoxLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qboxlayout.html#spacing
     """
     #  int QBoxLayout::spacing() const
-    return self.uglySide.call('ritual_ZNK10QBoxLayout7spacingEv')
+    ritual = 'ritual_ZNK10QBoxLayout7spacingEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QBoxLayout7spacingEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def stretch(self, index: int) -> int:
@@ -239,7 +247,10 @@ class QBoxLayout(QLayout):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QBoxLayout::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK10QBoxLayout8sizeHintEv')
+    ritual = 'ritual_ZNK10QBoxLayout8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QBoxLayout8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -256,7 +267,10 @@ class QBoxLayout(QLayout):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QBoxLayout::minimumSize() const
-    address = self.uglySide.call('ritual_ZNK10QBoxLayout11minimumSizeEv')
+    ritual = 'ritual_ZNK10QBoxLayout11minimumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QBoxLayout11minimumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -273,7 +287,10 @@ class QBoxLayout(QLayout):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QBoxLayout::maximumSize() const
-    address = self.uglySide.call('ritual_ZNK10QBoxLayout11maximumSizeEv')
+    ritual = 'ritual_ZNK10QBoxLayout11maximumSizeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QBoxLayout11maximumSizeEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -284,7 +301,10 @@ class QBoxLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth
     """
     #  bool QBoxLayout::hasHeightForWidth() const
-    return self.uglySide.call('ritual_ZNK10QBoxLayout17hasHeightForWidthEv')
+    ritual = 'ritual_ZNK10QBoxLayout17hasHeightForWidthEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QBoxLayout17hasHeightForWidthEv'
+    return self.uglySide.call(ritual)
 
   @overload(int)
   def heightForWidth(self, a0: int) -> int:
@@ -300,7 +320,10 @@ class QBoxLayout(QLayout):
       Passed on as it is.
     """
     #  int QBoxLayout::heightForWidth(int a0) const
-    return self.uglySide.call('ritual_ZNK10QBoxLayout14heightForWidthEi', a0)
+    ritual = 'ritual_ZNK10QBoxLayout14heightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QBoxLayout14heightForWidthEi'
+    return self.uglySide.call(ritual, a0)
 
   @overload(int)
   def minimumHeightForWidth(self, a0: int) -> int:
@@ -317,9 +340,10 @@ class QBoxLayout(QLayout):
       Passed on as it is.
     """
     #  int QBoxLayout::minimumHeightForWidth(int a0) const
-    return self.uglySide.call(
-        'ritual_ZNK10QBoxLayout21minimumHeightForWidthEi', a0,
-    )
+    ritual = 'ritual_ZNK10QBoxLayout21minimumHeightForWidthEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QBoxLayout21minimumHeightForWidthEi'
+    return self.uglySide.call(ritual, a0)
 
   def expandingDirections(self) -> Qt.Orientations:
     """
@@ -360,7 +384,10 @@ class QBoxLayout(QLayout):
       no object.
     """
     #  QLayoutItem *QBoxLayout::itemAt(int a0) const
-    address = self.uglySide.call('ritual_ZNK10QBoxLayout6itemAtEi', a0)
+    ritual = 'ritual_ZNK10QBoxLayout6itemAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QBoxLayout6itemAtEi'
+    address = self.uglySide.call(ritual, a0)
     return QLayoutItem._cuteAt(address)
 
   def count(self) -> int:
@@ -370,7 +397,10 @@ class QBoxLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qboxlayout.html#count
     """
     #  int QBoxLayout::count() const
-    return self.uglySide.call('ritual_ZNK10QBoxLayout5countEv')
+    ritual = 'ritual_ZNK10QBoxLayout5countEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QBoxLayout5countEv'
+    return self.uglySide.call(ritual)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -408,7 +438,10 @@ class QBoxLayout(QLayout):
       Passed on as it is.
     """
     #  void QBoxLayout::setSpacing(int spacing)
-    self.uglySide.call('ritual_ZN10QBoxLayout10setSpacingEi', spacing)
+    ritual = 'ritual_ZN10QBoxLayout10setSpacingEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QBoxLayout10setSpacingEi'
+    self.uglySide.call(ritual, spacing)
 
   @overload(QWidget, int)
   @overload(NoneType, int)
@@ -492,9 +525,10 @@ class QBoxLayout(QLayout):
       Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
     """
     #  void QBoxLayout::setGeometry(const QRect &a0)
-    self.uglySide.call(
-        'ritual_ZN10QBoxLayout11setGeometryERK5QRect', self._valueOf(a0),
-    )
+    ritual = 'ritual_ZN10QBoxLayout11setGeometryERK5QRect'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QBoxLayout11setGeometryERK5QRect'
+    self.uglySide.call(ritual, self._valueOf(a0))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -710,10 +744,10 @@ class QBoxLayout(QLayout):
       object.
     """
     #  void QBoxLayout::addItem(QLayoutItem *a0)
-    self.uglySide.call(
-        'ritual_ZN10QBoxLayout7addItemEP11QLayoutItem',
-        self._addressOf(a0, 'QLayoutItem'),
-    )
+    ritual = 'ritual_ZN10QBoxLayout7addItemEP11QLayoutItem'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QBoxLayout7addItemEP11QLayoutItem'
+    self.uglySide.call(ritual, self._addressOf(a0, 'QLayoutItem'))
 
   @overload(int, int)
   def insertSpacing(self, index: int, size: int) -> None:
@@ -897,7 +931,10 @@ class QBoxLayout(QLayout):
     Qt's own words: https://doc.qt.io/qt-6/qboxlayout.html#invalidate
     """
     #  void QBoxLayout::invalidate()
-    self.uglySide.call('ritual_ZN10QBoxLayout10invalidateEv')
+    ritual = 'ritual_ZN10QBoxLayout10invalidateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QBoxLayout10invalidateEv'
+    self.uglySide.call(ritual)
 
   @overload(int)
   def takeAt(self, a0: int) -> Optional[QLayoutItem]:
@@ -920,5 +957,8 @@ class QBoxLayout(QLayout):
       no object.
     """
     #  QLayoutItem *QBoxLayout::takeAt(int a0)
-    address = self.uglySide.call('ritual_ZN10QBoxLayout6takeAtEi', a0)
+    ritual = 'ritual_ZN10QBoxLayout6takeAtEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QBoxLayout6takeAtEi'
+    address = self.uglySide.call(ritual, a0)
     return QLayoutItem._cuteAt(address)

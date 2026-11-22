@@ -3,6 +3,260 @@
 #include <QtCore/qabstracteventdispatcher.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qdeadlinetimer.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  A QAbstractEventDispatcherV2 that Python can take functions over in. Every QAbstractEventDispatcherV2
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef bool (*CuteQAbstractEventDispatcherV2Call0)(const void *, int, int *);
+typedef void (*CuteQAbstractEventDispatcherV2Call1)(const void *, QSocketNotifier *, int *);
+typedef void (*CuteQAbstractEventDispatcherV2Call2)(const void *, QSocketNotifier *, int *);
+typedef bool (*CuteQAbstractEventDispatcherV2Call3)(const void *, QObject *, int *);
+typedef void (*CuteQAbstractEventDispatcherV2Call4)(const void *, int *);
+typedef void (*CuteQAbstractEventDispatcherV2Call5)(const void *, int *);
+typedef void (*CuteQAbstractEventDispatcherV2Call6)(const void *, int *);
+typedef void (*CuteQAbstractEventDispatcherV2Call7)(const void *, int *);
+typedef bool (*CuteQAbstractEventDispatcherV2Call8)(const void *, QEvent *, int *);
+typedef bool (*CuteQAbstractEventDispatcherV2Call9)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQAbstractEventDispatcherV2Call10)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQAbstractEventDispatcherV2Call11)(const void *, QChildEvent *, int *);
+typedef void (*CuteQAbstractEventDispatcherV2Call12)(const void *, QEvent *, int *);
+typedef void (*CuteQAbstractEventDispatcherV2Call13)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQAbstractEventDispatcherV2Call14)(const void *, const QMetaMethod *, int *);
+class CuteQAbstractEventDispatcherV2 : public QAbstractEventDispatcherV2 {
+public:
+  using QAbstractEventDispatcherV2::QAbstractEventDispatcherV2;
+  void *taken[15] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher15unregisterTimerEN2Qt7TimerIdE")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher22registerSocketNotifierEP15QSocketNotifier")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher24unregisterSocketNotifierEP15QSocketNotifier")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher16unregisterTimersEP7QObject")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher6wakeUpEv")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher9interruptEv")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher10startingUpEv")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher11closingDownEv")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[14] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  bool QAbstractEventDispatcherV2::unregisterTimer(Qt::TimerId timerId)
+  bool unregisterTimer(Qt::TimerId timerId) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call0 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call0>(taken[0]);
+      bool given = call(this, static_cast<int>(timerId), &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  void QAbstractEventDispatcher::registerSocketNotifier(QSocketNotifier
+  //      *notifier)
+  void registerSocketNotifier(QSocketNotifier *notifier) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call1 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call1>(taken[1]);
+      call(this, notifier, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  void
+  //      QAbstractEventDispatcher::unregisterSocketNotifier(QSocketNotifie
+  //      r *notifier)
+  void unregisterSocketNotifier(QSocketNotifier *notifier) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call2 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call2>(taken[2]);
+      call(this, notifier, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  bool QAbstractEventDispatcher::unregisterTimers(QObject *object)
+  bool unregisterTimers(QObject *object) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call3 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call3>(taken[3]);
+      bool given = call(this, object, &handled);
+      if (handled) return given;
+    }
+    return {};
+  }
+
+  //  void QAbstractEventDispatcher::wakeUp()
+  void wakeUp() override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call4 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call4>(taken[4]);
+      call(this, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  void QAbstractEventDispatcher::interrupt()
+  void interrupt() override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call5 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call5>(taken[5]);
+      call(this, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  void QAbstractEventDispatcher::startingUp()
+  void startingUp() override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call6 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call6>(taken[6]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QAbstractEventDispatcher::startingUp();
+  }
+
+  //  void QAbstractEventDispatcher::closingDown()
+  void closingDown() override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call7 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call7>(taken[7]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QAbstractEventDispatcher::closingDown();
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call8 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call8>(taken[8]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call9 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call9>(taken[9]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call10 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call10>(taken[10]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call11 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call11>(taken[11]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call12 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call12>(taken[12]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call13 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call13>(taken[13]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQAbstractEventDispatcherV2Call14 call = reinterpret_cast<CuteQAbstractEventDispatcherV2Call14>(taken[14]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
 
 //  const QMetaObject *QAbstractEventDispatcherV2::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -46,4 +300,14 @@ bool ritual_ZN26QAbstractEventDispatcherV225processEventsWithDeadlineE6QFlagsIN1
   return self->processEventsWithDeadline(
       QFlags<QEventLoop::ProcessEventsFlag>::fromInt(flags),
       *deadline);
+}
+
+//  a Python function taken by a CuteQAbstractEventDispatcherV2, for the
+//      function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QAbstractEventDispatcherV2(
+    QAbstractEventDispatcherV2 *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQAbstractEventDispatcherV2 *>(self)->take(key, call);
 }

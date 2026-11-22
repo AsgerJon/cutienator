@@ -18,16 +18,20 @@ from . import QAbstractItemView, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QAbstractItemModel, QItemSelectionModel, QMetaObject
-  from ..QtCore import QModelIndex, QPoint, QRect, QSize
+  from ..QtCore import QAbstractItemModel, QItemSelection
+  from ..QtCore import QItemSelectionModel, QMetaObject, QModelIndex, QPoint
+  from ..QtCore import QRect, QSize
+  from ..QtGui import QRegion, QResizeEvent
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAbstractItemModel = WAIT['QAbstractItemModel']
+  QItemSelection = WAIT['QItemSelection']
   QItemSelectionModel = WAIT['QItemSelectionModel']
   QModelIndex = WAIT['QModelIndex']
   QPoint = WAIT['QPoint']
+  QResizeEvent = WAIT['QResizeEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -46,11 +50,14 @@ class QColumnView(QAbstractItemView):
   -----------
 
   Every function of Qt's QColumnView that has a ritual and that Python can
-  call so far, 16 names in all: 'metaObject', 'tr', 'indexAt', 'scrollTo',
+  call so far, 25 names in all: 'metaObject', 'tr', 'indexAt', 'scrollTo',
   'sizeHint', 'visualRect', 'setModel', 'setSelectionModel', 'setRootIndex',
   'selectAll', 'setResizeGripsVisible', 'resizeGripsVisible',
   'setPreviewColumnVisible', 'isPreviewColumnVisible', 'previewWidget',
-  'setPreviewWidget'. It can be made from Python, in 1 way; see '__init__'.
+  'setPreviewWidget', 'isIndexHidden', 'resizeEvent',
+  'visualRegionForSelection', 'horizontalOffset', 'verticalOffset',
+  'rowsInserted', 'currentChanged', 'scrollContentsBy', 'createColumn'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -61,9 +68,8 @@ class QColumnView(QAbstractItemView):
   What has no ritual
   ------------------
 
-  24 of the 42 functions Qt declares: 13 protected; 4 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1 a
-  signal.
+  15 of the 42 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 4 protected; 3 private; 2 forbidden; 1 a template; 1 a signal.
 
   What to expect
   --------------
@@ -136,6 +142,25 @@ class QColumnView(QAbstractItemView):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QColumnView'
 
+  #  A C++ QColumnView Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QColumnView'
+
+  #  The functions Qt calls itself that QColumnView is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'createColumn': (
+          ('_ZN11QColumnView12createColumnERK11QModelIndex',
+           ('address', 'address', 'QtWidgets:QAbstractItemView'),
+           (
+               ('address', 'value', 'QtCore:QModelIndex'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -187,9 +212,10 @@ class QColumnView(QAbstractItemView):
       A new cute QModelIndex around the copy Qt gave back. Python owns it.
     """
     #  QModelIndex QColumnView::indexAt(const QPoint &point) const
-    address = self.uglySide.call(
-        'ritual_ZNK11QColumnView7indexAtERK6QPoint', self._valueOf(point),
-    )
+    ritual = 'ritual_ZNK11QColumnView7indexAtERK6QPoint'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QColumnView7indexAtERK6QPoint'
+    address = self.uglySide.call(ritual, self._valueOf(point))
     from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
@@ -206,7 +232,10 @@ class QColumnView(QAbstractItemView):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QColumnView::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK11QColumnView8sizeHintEv')
+    ritual = 'ritual_ZNK11QColumnView8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QColumnView8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -232,10 +261,10 @@ class QColumnView(QAbstractItemView):
       A new cute QRect around the copy Qt gave back. Python owns it.
     """
     #  QRect QColumnView::visualRect(const QModelIndex &index) const
-    address = self.uglySide.call(
-        'ritual_ZNK11QColumnView10visualRectERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK11QColumnView10visualRectERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QColumnView10visualRectERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(index))
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -280,6 +309,81 @@ class QColumnView(QAbstractItemView):
     address = self.uglySide.call('ritual_ZNK11QColumnView13previewWidgetEv')
     return QWidget._cuteAt(address)
 
+  @overload(QModelIndex)
+  def isIndexHidden(self, index: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool QColumnView::isIndexHidden(const QModelIndex &index)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolumnview.html#isIndexHidden
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QColumnView::isIndexHidden(const QModelIndex &index) const
+    return self.uglySide.call(
+        'ritual_own_ZNK11QColumnView13isIndexHiddenERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  @overload(QItemSelection)
+  def visualRegionForSelection(self, selection: QItemSelection) -> QRegion:
+    """
+    Calls Qt's 'QRegion QColumnView::visualRegionForSelection(const
+    QItemSelection &selection) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcolumnview.html#visualRegionForSelection
+
+    Parameters
+    ----------
+
+    selection : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QColumnView::visualRegionForSelection(const QItemSelection
+    #      &selection) const
+    address = self.uglySide.call(
+        'ritual_own_ZNK11QColumnView24visualRegionForSelectionERK14QItemSel'
+        'ection',
+        self._valueOf(selection),
+    )
+    from ..QtGui import QRegion
+    return QRegion._cuteOwning(address)
+
+  def horizontalOffset(self) -> int:
+    """
+    Calls Qt's 'int QColumnView::horizontalOffset() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolumnview.html#horizontalOffset
+    """
+    #  int QColumnView::horizontalOffset() const
+    return self.uglySide.call(
+        'ritual_own_ZNK11QColumnView16horizontalOffsetEv',
+    )
+
+  def verticalOffset(self) -> int:
+    """
+    Calls Qt's 'int QColumnView::verticalOffset() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolumnview.html#verticalOffset
+    """
+    #  int QColumnView::verticalOffset() const
+    return self.uglySide.call(
+        'ritual_own_ZNK11QColumnView14verticalOffsetEv',
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -300,10 +404,10 @@ class QColumnView(QAbstractItemView):
       object.
     """
     #  void QColumnView::setModel(QAbstractItemModel *model)
-    self.uglySide.call(
-        'ritual_ZN11QColumnView8setModelEP18QAbstractItemModel',
-        self._addressOf(model),
-    )
+    ritual = 'ritual_ZN11QColumnView8setModelEP18QAbstractItemModel'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QColumnView8setModelEP18QAbstractItemModel'
+    self.uglySide.call(ritual, self._addressOf(model))
 
   @overload(QItemSelectionModel)
   @overload(NoneType)
@@ -326,10 +430,13 @@ class QColumnView(QAbstractItemView):
     """
     #  void QColumnView::setSelectionModel(QItemSelectionModel
     #      *selectionModel)
-    self.uglySide.call(
-        'ritual_ZN11QColumnView17setSelectionModelEP19QItemSelectionModel',
-        self._addressOf(selectionModel),
-    )
+    ritual = (
+        'ritual_ZN11QColumnView17setSelectionModelEP19QItemSelectionModel')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QColumnView17setSelectionModelEP19QItemSelectionM'
+          'odel')
+    self.uglySide.call(ritual, self._addressOf(selectionModel))
 
   @overload(QModelIndex)
   def setRootIndex(self, index: QModelIndex) -> None:
@@ -346,10 +453,10 @@ class QColumnView(QAbstractItemView):
       Python's own.
     """
     #  void QColumnView::setRootIndex(const QModelIndex &index)
-    self.uglySide.call(
-        'ritual_ZN11QColumnView12setRootIndexERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZN11QColumnView12setRootIndexERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QColumnView12setRootIndexERK11QModelIndex'
+    self.uglySide.call(ritual, self._valueOf(index))
 
   @overload(bool)
   def setResizeGripsVisible(self, visible: bool) -> None:
@@ -490,11 +597,14 @@ class QColumnView(QAbstractItemView):
       QAbstractItemView.ScrollHint.EnsureVisible.
     """
     #  void QColumnView::scrollTo(const QModelIndex &index, ScrollHint hint)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN11QColumnView8scrollToERK11QModelIndexN17QAbstractItemVie'
-        'w10ScrollHintE',
-        self._valueOf(index), hint.value,
-    )
+        'w10ScrollHintE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QColumnView8scrollToERK11QModelIndexN17QAbstractI'
+          'temView10ScrollHintE')
+    self.uglySide.call(ritual, self._valueOf(index), hint.value)
 
   def selectAll(self) -> None:
     """
@@ -503,4 +613,140 @@ class QColumnView(QAbstractItemView):
     Qt's own words: https://doc.qt.io/qt-6/qcolumnview.html#selectAll
     """
     #  void QColumnView::selectAll()
-    self.uglySide.call('ritual_ZN11QColumnView9selectAllEv')
+    ritual = 'ritual_ZN11QColumnView9selectAllEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QColumnView9selectAllEv'
+    self.uglySide.call(ritual)
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, event: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QColumnView::resizeEvent(QResizeEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolumnview.html#resizeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QColumnView::resizeEvent(QResizeEvent *event)
+    self.uglySide.call(
+        'ritual_own_ZN11QColumnView11resizeEventEP12QResizeEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QModelIndex, int, int)
+  def rowsInserted(self, parent: QModelIndex, start: int, end: int) -> None:
+    """
+    Calls Qt's 'void QColumnView::rowsInserted(const QModelIndex &parent, int
+    start, int end)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolumnview.html#rowsInserted
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    start : int
+      Passed on as it is.
+
+    end : int
+      Passed on as it is.
+    """
+    #  void QColumnView::rowsInserted(const QModelIndex &parent, int start,
+    #      int end)
+    self.uglySide.call(
+        'ritual_own_ZN11QColumnView12rowsInsertedERK11QModelIndexii',
+        self._valueOf(parent), start, end,
+    )
+
+  @overload(QModelIndex, QModelIndex)
+  def currentChanged(
+      self,
+      current: QModelIndex,
+      previous: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void QColumnView::currentChanged(const QModelIndex &current,
+    const QModelIndex &previous)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolumnview.html#currentChanged
+
+    Parameters
+    ----------
+
+    current : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    previous : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QColumnView::currentChanged(const QModelIndex &current, const
+    #      QModelIndex &previous)
+    self.uglySide.call(
+        'ritual_own_ZN11QColumnView14currentChangedERK11QModelIndexS2_',
+        self._valueOf(current), self._valueOf(previous),
+    )
+
+  @overload(int, int)
+  def scrollContentsBy(self, dx: int, dy: int) -> None:
+    """
+    Calls Qt's 'void QColumnView::scrollContentsBy(int dx, int dy)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolumnview.html#scrollContentsBy
+
+    Parameters
+    ----------
+
+    dx : int
+      Passed on as it is.
+
+    dy : int
+      Passed on as it is.
+    """
+    #  void QColumnView::scrollContentsBy(int dx, int dy)
+    self.uglySide.call(
+        'ritual_own_ZN11QColumnView16scrollContentsByEii', dx, dy,
+    )
+
+  @overload(QModelIndex)
+  def createColumn(
+      self,
+      rootIndex: QModelIndex,
+  ) -> Optional[QAbstractItemView]:
+    """
+    Calls Qt's 'QAbstractItemView *QColumnView::createColumn(const
+    QModelIndex &rootIndex)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolumnview.html#createColumn
+
+    Parameters
+    ----------
+
+    rootIndex : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Optional[QAbstractItemView]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractItemView *QColumnView::createColumn(const QModelIndex
+    #      &rootIndex)
+    address = self.uglySide.call(
+        'ritual_own_ZN11QColumnView12createColumnERK11QModelIndex',
+        self._valueOf(rootIndex),
+    )
+    return QAbstractItemView._cuteAt(address)

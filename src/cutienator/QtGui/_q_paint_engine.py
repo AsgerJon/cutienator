@@ -196,6 +196,173 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
   #  The class of Qt this class stands for.
   __qt_class__ = 'QPaintEngine'
 
+  #  A C++ QPaintEngine Python makes is of a C++ class of ours, in which
+  #  Python can take functions over. This ritual hands one over; see
+  #  'CuteMixin._takeOver'.
+  __take_ritual__ = 'ritual_take_QPaintEngine'
+
+  #  The functions Qt calls itself that QPaintEngine is the first to declare
+  #  and that cannot be handed to Python yet, each as Qt declares it. A class
+  #  of a program that writes one of them anew is refused, since Qt would
+  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'drawImage': (
+          'void QPaintEngine::drawImage(const QRectF &, const QImage &, '
+          'const QRectF &, Qt::ImageConversionFlags)',
+      ),
+      'createPixmapFromImage': (
+          'QPixmap QPaintEngine::createPixmapFromImage(QImage, '
+          'Qt::ImageConversionFlags)',
+      ),
+  }
+
+  #  The functions Qt calls itself that QPaintEngine is the first to declare.
+  #  A class of a program built on it can write one anew, and Qt then calls
+  #  that. For each name: the key C++ knows the function by, what it gives,
+  #  and what it takes.
+  __virtual_functions__ = {
+      'begin': (
+          ('_ZN12QPaintEngine5beginEP12QPaintDevice',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtGui:QPaintDevice'),
+           )),
+      ),
+      'end': (
+          ('_ZN12QPaintEngine3endEv',
+           ('bool', 'number', ''),
+           ()),
+      ),
+      'updateState': (
+          ('_ZN12QPaintEngine11updateStateERK17QPaintEngineState',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtGui:QPaintEngineState'),
+           )),
+      ),
+      'drawRects': (
+          ('_ZN12QPaintEngine9drawRectsEPK5QRecti',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QRect'),
+               ('int', 'number', ''),
+           )),
+          ('_ZN12QPaintEngine9drawRectsEPK6QRectFi',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QRectF'),
+               ('int', 'number', ''),
+           )),
+      ),
+      'drawLines': (
+          ('_ZN12QPaintEngine9drawLinesEPK5QLinei',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QLine'),
+               ('int', 'number', ''),
+           )),
+          ('_ZN12QPaintEngine9drawLinesEPK6QLineFi',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QLineF'),
+               ('int', 'number', ''),
+           )),
+      ),
+      'drawEllipse': (
+          ('_ZN12QPaintEngine11drawEllipseERK6QRectF',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QRectF'),
+           )),
+          ('_ZN12QPaintEngine11drawEllipseERK5QRect',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QRect'),
+           )),
+      ),
+      'drawPath': (
+          ('_ZN12QPaintEngine8drawPathERK12QPainterPath',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtGui:QPainterPath'),
+           )),
+      ),
+      'drawPoints': (
+          ('_ZN12QPaintEngine10drawPointsEPK7QPointFi',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QPointF'),
+               ('int', 'number', ''),
+           )),
+          ('_ZN12QPaintEngine10drawPointsEPK6QPointi',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QPoint'),
+               ('int', 'number', ''),
+           )),
+      ),
+      'drawPolygon': (
+          ('_ZN12QPaintEngine11drawPolygonEPK7QPointFiNS_15PolygonDrawModeE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QPointF'),
+               ('int', 'number', ''),
+               ('int', 'enum', 'QtGui:QPaintEngine.PolygonDrawMode'),
+           )),
+          ('_ZN12QPaintEngine11drawPolygonEPK6QPointiNS_15PolygonDrawModeE',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtCore:QPoint'),
+               ('int', 'number', ''),
+               ('int', 'enum', 'QtGui:QPaintEngine.PolygonDrawMode'),
+           )),
+      ),
+      'drawPixmap': (
+          ('_ZN12QPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QRectF'),
+               ('address', 'value', 'QtGui:QPixmap'),
+               ('address', 'value', 'QtCore:QRectF'),
+           )),
+      ),
+      'drawTextItem': (
+          ('_ZN12QPaintEngine12drawTextItemERK7QPointFRK9QTextItem',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QPointF'),
+               ('address', 'value', 'QtGui:QTextItem'),
+           )),
+      ),
+      'drawTiledPixmap': (
+          ('_ZN12QPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPoint'
+           'F',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'value', 'QtCore:QRectF'),
+               ('address', 'value', 'QtGui:QPixmap'),
+               ('address', 'value', 'QtCore:QPointF'),
+           )),
+      ),
+      'coordinateOffset': (
+          ('_ZNK12QPaintEngine16coordinateOffsetEv',
+           ('address', 'value', 'QtCore:QPoint'),
+           ()),
+      ),
+      'type': (
+          ('_ZNK12QPaintEngine4typeEv',
+           ('int', 'enum', 'QtGui:QPaintEngine.Type'),
+           ()),
+      ),
+      'createPixmap': (
+          ('_ZN12QPaintEngine12createPixmapE5QSize',
+           ('address', 'value', 'QtGui:QPixmap'),
+           (
+               ('address', 'value', 'QtCore:QSize'),
+           )),
+      ),
+  }
+
   #  Fallback Variables
 
   #  Private Variables
@@ -282,9 +449,10 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
       A new cute QPoint around the copy Qt gave back. Python owns it.
     """
     #  QPoint QPaintEngine::coordinateOffset() const
-    address = self.uglySide.call(
-        'ritual_ZNK12QPaintEngine16coordinateOffsetEv',
-    )
+    ritual = 'ritual_ZNK12QPaintEngine16coordinateOffsetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QPaintEngine16coordinateOffsetEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
 
@@ -555,10 +723,10 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QPaintEngine::drawRects(const QRect *rects, int rectCount)
-    self.uglySide.call(
-        'ritual_ZN12QPaintEngine9drawRectsEPK5QRecti',
-        self._addressOf(rects), rectCount,
-    )
+    ritual = 'ritual_ZN12QPaintEngine9drawRectsEPK5QRecti'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QPaintEngine9drawRectsEPK5QRecti'
+    self.uglySide.call(ritual, self._addressOf(rects), rectCount)
 
   @overload(QRectF, int)
   def drawRects(self, rects: Optional[QRectF], rectCount: int) -> None:
@@ -579,10 +747,10 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QPaintEngine::drawRects(const QRectF *rects, int rectCount)
-    self.uglySide.call(
-        'ritual_ZN12QPaintEngine9drawRectsEPK6QRectFi',
-        self._addressOf(rects), rectCount,
-    )
+    ritual = 'ritual_ZN12QPaintEngine9drawRectsEPK6QRectFi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QPaintEngine9drawRectsEPK6QRectFi'
+    self.uglySide.call(ritual, self._addressOf(rects), rectCount)
 
   @overload(QLine, int)
   @overload(NoneType, int)
@@ -604,10 +772,10 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QPaintEngine::drawLines(const QLine *lines, int lineCount)
-    self.uglySide.call(
-        'ritual_ZN12QPaintEngine9drawLinesEPK5QLinei',
-        self._addressOf(lines), lineCount,
-    )
+    ritual = 'ritual_ZN12QPaintEngine9drawLinesEPK5QLinei'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QPaintEngine9drawLinesEPK5QLinei'
+    self.uglySide.call(ritual, self._addressOf(lines), lineCount)
 
   @overload(QLineF, int)
   def drawLines(self, lines: Optional[QLineF], lineCount: int) -> None:
@@ -628,10 +796,10 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QPaintEngine::drawLines(const QLineF *lines, int lineCount)
-    self.uglySide.call(
-        'ritual_ZN12QPaintEngine9drawLinesEPK6QLineFi',
-        self._addressOf(lines), lineCount,
-    )
+    ritual = 'ritual_ZN12QPaintEngine9drawLinesEPK6QLineFi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QPaintEngine9drawLinesEPK6QLineFi'
+    self.uglySide.call(ritual, self._addressOf(lines), lineCount)
 
   @overload(QRectF)
   def drawEllipse(self, r: QRectF) -> None:
@@ -648,9 +816,10 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QPaintEngine::drawEllipse(const QRectF &r)
-    self.uglySide.call(
-        'ritual_ZN12QPaintEngine11drawEllipseERK6QRectF', self._valueOf(r),
-    )
+    ritual = 'ritual_ZN12QPaintEngine11drawEllipseERK6QRectF'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QPaintEngine11drawEllipseERK6QRectF'
+    self.uglySide.call(ritual, self._valueOf(r))
 
   @overload(QRect)
   def drawEllipse(self, r: QRect) -> None:
@@ -666,9 +835,10 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
       Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
     """
     #  void QPaintEngine::drawEllipse(const QRect &r)
-    self.uglySide.call(
-        'ritual_ZN12QPaintEngine11drawEllipseERK5QRect', self._valueOf(r),
-    )
+    ritual = 'ritual_ZN12QPaintEngine11drawEllipseERK5QRect'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QPaintEngine11drawEllipseERK5QRect'
+    self.uglySide.call(ritual, self._valueOf(r))
 
   @overload(QPainterPath)
   def drawPath(self, path: QPainterPath) -> None:
@@ -685,10 +855,10 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
       Python's own.
     """
     #  void QPaintEngine::drawPath(const QPainterPath &path)
-    self.uglySide.call(
-        'ritual_ZN12QPaintEngine8drawPathERK12QPainterPath',
-        self._valueOf(path),
-    )
+    ritual = 'ritual_ZN12QPaintEngine8drawPathERK12QPainterPath'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QPaintEngine8drawPathERK12QPainterPath'
+    self.uglySide.call(ritual, self._valueOf(path))
 
   @overload(QPointF, int)
   @overload(NoneType, int)
@@ -710,10 +880,10 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QPaintEngine::drawPoints(const QPointF *points, int pointCount)
-    self.uglySide.call(
-        'ritual_ZN12QPaintEngine10drawPointsEPK7QPointFi',
-        self._addressOf(points), pointCount,
-    )
+    ritual = 'ritual_ZN12QPaintEngine10drawPointsEPK7QPointFi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QPaintEngine10drawPointsEPK7QPointFi'
+    self.uglySide.call(ritual, self._addressOf(points), pointCount)
 
   @overload(QPoint, int)
   def drawPoints(self, points: Optional[QPoint], pointCount: int) -> None:
@@ -734,10 +904,10 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QPaintEngine::drawPoints(const QPoint *points, int pointCount)
-    self.uglySide.call(
-        'ritual_ZN12QPaintEngine10drawPointsEPK6QPointi',
-        self._addressOf(points), pointCount,
-    )
+    ritual = 'ritual_ZN12QPaintEngine10drawPointsEPK6QPointi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QPaintEngine10drawPointsEPK6QPointi'
+    self.uglySide.call(ritual, self._addressOf(points), pointCount)
 
   @overload(QPointF, int, PolygonDrawMode)
   @overload(NoneType, int, PolygonDrawMode)
@@ -768,10 +938,15 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     """
     #  void QPaintEngine::drawPolygon(const QPointF *points, int pointCount,
     #      PolygonDrawMode mode)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN12QPaintEngine11drawPolygonEPK7QPointFiNS_15PolygonDrawMo'
-        'deE',
-        self._addressOf(points), pointCount, mode.value,
+        'deE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN12QPaintEngine11drawPolygonEPK7QPointFiNS_15Polygon'
+          'DrawModeE')
+    self.uglySide.call(
+        ritual, self._addressOf(points), pointCount, mode.value,
     )
 
   @overload(QPoint, int, PolygonDrawMode)
@@ -802,10 +977,15 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     """
     #  void QPaintEngine::drawPolygon(const QPoint *points, int pointCount,
     #      PolygonDrawMode mode)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN12QPaintEngine11drawPolygonEPK6QPointiNS_15PolygonDrawMod'
-        'eE',
-        self._addressOf(points), pointCount, mode.value,
+        'eE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN12QPaintEngine11drawPolygonEPK6QPointiNS_15PolygonD'
+          'rawModeE')
+    self.uglySide.call(
+        ritual, self._addressOf(points), pointCount, mode.value,
     )
 
   @overload(QRectF, QPixmap, QRectF)
@@ -859,10 +1039,11 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     """
     #  void QPaintEngine::drawTextItem(const QPointF &p, const QTextItem
     #      &textItem)
-    self.uglySide.call(
-        'ritual_ZN12QPaintEngine12drawTextItemERK7QPointFRK9QTextItem',
-        self._valueOf(p), self._valueOf(textItem),
-    )
+    ritual = 'ritual_ZN12QPaintEngine12drawTextItemERK7QPointFRK9QTextItem'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN12QPaintEngine12drawTextItemERK7QPointFRK9QTextItem')
+    self.uglySide.call(ritual, self._valueOf(p), self._valueOf(textItem))
 
   @overload(QRectF, QPixmap, QPointF)
   def drawTiledPixmap(self, r: QRectF, pixmap: QPixmap, s: QPointF) -> None:
@@ -889,10 +1070,15 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     """
     #  void QPaintEngine::drawTiledPixmap(const QRectF &r, const QPixmap
     #      &pixmap, const QPointF &s)
-    self.uglySide.call(
+    ritual = (
         'ritual_ZN12QPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPo'
-        'intF',
-        self._valueOf(r), self._valueOf(pixmap), self._valueOf(s),
+        'intF')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN12QPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmap'
+          'RK7QPointF')
+    self.uglySide.call(
+        ritual, self._valueOf(r), self._valueOf(pixmap), self._valueOf(s),
     )
 
   @overload(QRectF, QImage, QRectF)
@@ -1004,9 +1190,10 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
       A new cute QPixmap around the copy Qt gave back. Python owns it.
     """
     #  QPixmap QPaintEngine::createPixmap(QSize size)
-    address = self.uglySide.call(
-        'ritual_ZN12QPaintEngine12createPixmapE5QSize', self._valueOf(size),
-    )
+    ritual = 'ritual_ZN12QPaintEngine12createPixmapE5QSize'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QPaintEngine12createPixmapE5QSize'
+    address = self.uglySide.call(ritual, self._valueOf(size))
     from . import QPixmap
     return QPixmap._cuteOwning(address)
 

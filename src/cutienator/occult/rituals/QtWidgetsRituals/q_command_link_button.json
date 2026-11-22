@@ -30,6 +30,25 @@
     ],
     "ritual_ZNK18QCommandLinkButton15initStyleOptionEP18QStyleOptionButton": [
       "nothing", "address", "address"
+    ],
+    "ritual_take_QCommandLinkButton": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QCommandLinkButton8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK18QCommandLinkButton14heightForWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK18QCommandLinkButton15minimumSizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK18QCommandLinkButton15initStyleOptionEP18QStyleOptionButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QCommandLinkButton5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QCommandLinkButton10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
     ]
   }
 }
