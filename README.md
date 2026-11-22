@@ -135,6 +135,66 @@ was 2.32 s against 2.17 s.
 The whole story of a waiting class is in the docstring of
 `cutienator.cute.WAIT`.
 
+# Overriding: Qt Calls What You Wrote
+
+Qt calls some of its functions itself: `paintEvent` when a widget has
+to be drawn, `sizeHint` when a layout wants to know how big a widget
+would like to be, `event` for everything that happens to an object. A
+class of your program writes such a function anew, and Qt calls yours:
+
+```python
+from cutienator.QtGui import QColor, QPainter, QPaintEvent
+from cutienator.QtWidgets import QWidget
+
+
+class Canvas(QWidget):
+
+  def paintEvent(self, event: QPaintEvent) -> None:
+    painter = QPainter(self)
+    painter.fillRect(0, 0, self.width(), self.height(), QColor(255, 0, 0))
+    painter.end()
+```
+
+`super().paintEvent(event)` runs Qt's own function, as you would expect.
+
+## How Qt gets to Python
+
+Every object your program makes is of a C++ class of ours, built on the
+class of Qt: a `Canvas` stands in front of a `CuteQWidget`, which is a
+`QWidget`. In that class each function Qt calls itself asks Python
+first, when Python has handed it a function, and runs Qt's own
+otherwise.
+
+**Only the functions your class wrote are handed over**, when the object
+is made. A plain `QWidget` hands over nothing, and Qt runs as if Python
+were not there.
+
+## What You Will Notice
+
+- **An exception is not swallowed.** What your `paintEvent` raises
+  cannot travel up through C++, so it is kept, Qt's loop of events is
+  told to stop, and it is raised from the function of Qt your program
+  was in: `app.exec()`, or `widget.grab()`. While it is kept, Qt asks
+  Python nothing more.
+- **Keep what Qt still uses.** After `layout.addItem(MySpacer(10, 10))`
+  your program holds the spacer no more, and Qt still does. When Qt then
+  calls a function `MySpacer` wrote, that raises `RuntimeError`, naming
+  the function and the class. Qt's own function is not run in its place,
+  which would hide the mistake. Keep the object, as an attribute of the
+  window it is in.
+- **Give what Qt's function gives.** `None` where Qt's function gives a
+  `bool`, or a number where it gives text, raises `TypeError`.
+- **Some functions cannot be handed to Python yet.** Of the 711 names of
+  functions Qt calls itself in the classes there are so far, 639 can.
+  The others take or give a list or a map, change a text in place, or
+  read raw memory, as `QValidator.validate` and `QIODevice.readData`. A
+  class that writes one of those anew is refused with
+  `NotImplementedError` as soon as an object of it is used, naming the
+  function. Qt would otherwise go on calling its own, without a word.
+- **A class Qt has no code for in some function cannot be built on
+  yet**, as `QAbstractListModel`, which leaves `rowCount` and `data` to
+  your program.
+
 # Where It Runs
 
 On Linux, on macOS and on Windows. On Intel chips and on Apple silicon.
