@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import Qt, QAbstractItemModel, QAbstractProxyModel, QObject
+from . import Qt, QAbstractItemModel, QAbstractProxyModel, QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -26,6 +26,7 @@ else:
   QItemSelection = WAIT['QItemSelection']
   QMimeData = WAIT['QMimeData']
   QModelIndex = WAIT['QModelIndex']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,11 +45,11 @@ class QIdentityProxyModel(QAbstractProxyModel):
   -----------
 
   Every function of Qt's QIdentityProxyModel that has a ritual and that
-  Python can call so far, 22 names in all: 'metaObject', 'tr', 'columnCount',
+  Python can call so far, 23 names in all: 'metaObject', 'tr', 'columnCount',
   'index', 'mapFromSource', 'mapToSource', 'parent', 'rowCount',
   'headerData', 'dropMimeData', 'sibling', 'mapSelectionFromSource',
-  'mapSelectionToSource', 'setSourceModel', 'insertColumns', 'insertRows',
-  'removeColumns', 'removeRows', 'moveRows', 'moveColumns',
+  'mapSelectionToSource', 'match', 'setSourceModel', 'insertColumns',
+  'insertRows', 'removeColumns', 'removeRows', 'moveRows', 'moveColumns',
   'handleSourceLayoutChanges', 'handleSourceDataChanges'. It can be made from
   Python, in 1 way; see '__init__'.
 
@@ -61,8 +62,8 @@ class QIdentityProxyModel(QAbstractProxyModel):
   What has no ritual
   ------------------
 
-  12 of the 36 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 3 protected; 2 forbidden; 1 a template.
+  11 of the 36 functions Qt declares: 3 private; 3 protected; 2 takes or
+  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -527,6 +528,63 @@ class QIdentityProxyModel(QAbstractProxyModel):
     address = self.uglySide.call(ritual, self._valueOf(selection))
     from . import QItemSelection
     return QItemSelection._cuteOwning(address)
+
+  @overload(QModelIndex, int, QVariant)
+  @overload(QModelIndex, int, QVariant, int)
+  @overload(QModelIndex, int, QVariant, int, Qt.MatchFlags)
+  def match(
+      self,
+      start: QModelIndex,
+      role: int,
+      value: QVariant,
+      hits: int = 1,
+      flags: Qt.MatchFlags = (
+          Qt.MatchFlags.MatchStartsWith | Qt.MatchFlags.MatchWrap),
+  ) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QIdentityProxyModel::match(const QModelIndex
+    &start, int role, const QVariant &value, int hits, Qt::MatchFlags flags)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qidentityproxymodel.html#match
+
+    Parameters
+    ----------
+
+    start : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    role : int
+      Passed on as it is.
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    hits : int
+      Passed on as it is. May be left out, as in Qt: it is then 1.
+
+    flags : Qt.MatchFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.MatchFlags.MatchStartsWith | Qt.MatchFlags.MatchWrap.
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QIdentityProxyModel::match(const QModelIndex &start,
+    #      int role, const QVariant &value, int hits, Qt::MatchFlags flags)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK19QIdentityProxyModel5matchERK11QModelIndexiRK8QVarianti'
+        '6QFlagsIN2Qt9MatchFlagEE',
+        self._valueOf(start), role, self._valueOf(value), hits, flags.value,
+    )
+    from . import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
 
   def handleSourceLayoutChanges(self) -> bool:
     """

@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -681,3 +681,16 @@ class QDockWidget(QWidget):
         'dget',
         self._addressOf(option),
     )
+
+
+#  Qt's 'QList<QDockWidget *>': the list of QDockWidget, which
+#  'QList[QDockWidget]' gives. It is made here, so that there is one as soon
+#  as there can be a QDockWidget.
+QList.createKind(
+    QDockWidget, 'address',
+    make='ritual_list_make_QDockWidget_ptr',
+    add='ritual_list_add_QDockWidget_ptr',
+    size='ritual_list_size_QDockWidget_ptr',
+    at='ritual_list_at_QDockWidget_ptr',
+    drop='ritual_list_drop_QDockWidget_ptr',
+)

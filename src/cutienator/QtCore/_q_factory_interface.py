@@ -10,6 +10,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from ..cute import CuteMixin, MetaCute
+from . import QStringList
 
 
 class QFactoryInterface(CuteMixin, metaclass=MetaCute):
@@ -20,20 +21,15 @@ class QFactoryInterface(CuteMixin, metaclass=MetaCute):
   What exists
   -----------
 
-  No function of Qt's QFactoryInterface yet. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  Every function of Qt's QFactoryInterface that has a ritual and that Python
+  can call so far, 1 name in all: 'keys'. None can be made from Python: one
+  comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QFactoryInterface::~QFactoryInterface()': the destructor: Python
     never removes a C++ QFactoryInterface.
-
-  What has no ritual
-  ------------------
-
-  1 of the 2 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -81,6 +77,22 @@ class QFactoryInterface(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def keys(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFactoryInterface::keys() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfactoryinterface.html#keys
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFactoryInterface::keys() const
+    address = self.uglySide.call('ritual_ZNK17QFactoryInterface4keysEv')
+    return QStringList._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

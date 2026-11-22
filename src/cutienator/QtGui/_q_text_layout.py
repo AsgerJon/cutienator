@@ -15,14 +15,14 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QPointF, QRectF
-  from . import QFont, QPaintDevice, QPainter, QRawFont, QTextBlock
-  from . import QTextLine, QTextOption
+  from . import QFont, QGlyphRun, QPaintDevice, QPainter, QRawFont
+  from . import QTextBlock, QTextLine, QTextOption
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -49,7 +49,7 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextLayout that has a ritual and that Python can
-  call so far, 34 names in all: 'setFont', 'font', 'setRawFont', 'setText',
+  call so far, 35 names in all: 'setFont', 'font', 'setRawFont', 'setText',
   'text', 'setTextOption', 'textOption', 'setPreeditArea',
   'preeditAreaPosition', 'preeditAreaText', 'clearFormats',
   'setCacheEnabled', 'cacheEnabled', 'setCursorMoveStyle', 'cursorMoveStyle',
@@ -57,8 +57,8 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
   'lineAt', 'lineForTextPosition', 'isValidCursorPosition',
   'nextCursorPosition', 'previousCursorPosition', 'leftCursorPosition',
   'rightCursorPosition', 'drawCursor', 'position', 'setPosition',
-  'boundingRect', 'minimumWidth', 'maximumWidth', 'setFlags'. It can be made
-  from Python, in 4 ways; see '__init__'.
+  'boundingRect', 'minimumWidth', 'maximumWidth', 'glyphRuns', 'setFlags'. It
+  can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -69,7 +69,7 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  9 of the 49 functions Qt declares: 6 takes or gives a type that cannot be
+  7 of the 49 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 private.
 
   What to expect
@@ -639,6 +639,79 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     """
     #  qreal QTextLayout::maximumWidth() const
     return self.uglySide.call('ritual_ZNK11QTextLayout12maximumWidthEv')
+
+  @overload(int, int, GlyphRunRetrievalFlags)
+  def glyphRuns(
+      self,
+      from_: int,
+      length: int,
+      flags: GlyphRunRetrievalFlags,
+  ) -> QList[QGlyphRun]:
+    """
+    Calls Qt's 'QList<QGlyphRun> QTextLayout::glyphRuns(int from, int length,
+    GlyphRunRetrievalFlags flags) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextlayout.html#glyphRuns
+
+    Parameters
+    ----------
+
+    from_ : int
+      Passed on as it is.
+
+    length : int
+      Passed on as it is.
+
+    flags : GlyphRunRetrievalFlags
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QList[QGlyphRun]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGlyphRun> QTextLayout::glyphRuns(int from, int length,
+    #      GlyphRunRetrievalFlags flags) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QTextLayout9glyphRunsEii6QFlagsINS_21GlyphRunRetrieval'
+        'FlagEE',
+        from_, length, flags.value,
+    )
+    from . import QGlyphRun
+    return QList[QGlyphRun]._cuteOwning(address)
+
+  @overload()
+  @overload(int)
+  @overload(int, int)
+  def glyphRuns(self, from_: int = -1, length: int = -1) -> QList[QGlyphRun]:
+    """
+    Calls Qt's 'QList<QGlyphRun> QTextLayout::glyphRuns(int from, int length)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextlayout.html#glyphRuns
+
+    Parameters
+    ----------
+
+    from_ : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    length : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    Returns
+    -------
+
+    QList[QGlyphRun]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGlyphRun> QTextLayout::glyphRuns(int from, int length) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QTextLayout9glyphRunsEii', from_, length,
+    )
+    from . import QGlyphRun
+    return QList[QGlyphRun]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

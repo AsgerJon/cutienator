@@ -23,6 +23,10 @@
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/qcompare.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 
 //  QVariant::QVariant()
 extern "C" Q_DECL_EXPORT
@@ -120,6 +124,13 @@ QVariant *ritual_ZN8QVariantC1ERK9QDateTime(const QDateTime *datetime) {
   return new QVariant(*datetime);
 }
 
+//  QVariant::QVariant(const QHash<QString, QVariant> &hash)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1ERK5QHashI7QStringS_E(
+    const QHash<QString, QVariant> *hash) {
+  return new QVariant(*hash);
+}
+
 //  QVariant::QVariant(const QJsonArray &jsonArray)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK10QJsonArray(const QJsonArray *jsonArray) {
@@ -133,10 +144,23 @@ QVariant *ritual_ZN8QVariantC1ERK11QJsonObject(
   return new QVariant(*jsonObject);
 }
 
+//  QVariant::QVariant(const QList<QVariant> &list)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1ERK5QListIS_E(const QList<QVariant> *list) {
+  return new QVariant(*list);
+}
+
 //  QVariant::QVariant(const QLocale &locale)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK7QLocale(const QLocale *locale) {
   return new QVariant(*locale);
+}
+
+//  QVariant::QVariant(const QMap<QString, QVariant> &map)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1ERK4QMapI7QStringS_E(
+    const QMap<QString, QVariant> *map) {
+  return new QVariant(*map);
 }
 
 //  QVariant::QVariant(const QRegularExpression &re)
@@ -150,6 +174,13 @@ QVariant *ritual_ZN8QVariantC1ERK18QRegularExpression(
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ERK7QString(const QString *string) {
   return new QVariant(*string);
+}
+
+//  QVariant::QVariant(const QStringList &stringlist)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN8QVariantC1ERK5QListI7QStringE(
+    const QList<QString> *stringlist) {
+  return new QVariant(*stringlist);
 }
 
 //  QVariant::QVariant(const QUrl &url)
@@ -419,6 +450,12 @@ QString *ritual_ZNK8QVariant8toStringEv(const QVariant *self) {
   return new QString(self->toString());
 }
 
+//  QStringList QVariant::toStringList() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK8QVariant12toStringListEv(const QVariant *self) {
+  return new QList<QString>(self->toStringList());
+}
+
 //  QChar QVariant::toChar() const
 extern "C" Q_DECL_EXPORT
 QChar *ritual_ZNK8QVariant6toCharEv(const QVariant *self) {
@@ -441,6 +478,25 @@ QTime *ritual_ZNK8QVariant6toTimeEv(const QVariant *self) {
 extern "C" Q_DECL_EXPORT
 QDateTime *ritual_ZNK8QVariant10toDateTimeEv(const QVariant *self) {
   return new QDateTime(self->toDateTime());
+}
+
+//  QList<QVariant> QVariant::toList() const
+extern "C" Q_DECL_EXPORT
+QList<QVariant> *ritual_ZNK8QVariant6toListEv(const QVariant *self) {
+  return new QList<QVariant>(self->toList());
+}
+
+//  QMap<QString, QVariant> QVariant::toMap() const
+extern "C" Q_DECL_EXPORT
+QMap<QString, QVariant> *ritual_ZNK8QVariant5toMapEv(const QVariant *self) {
+  return new QMap<QString, QVariant>(self->toMap());
+}
+
+//  QHash<QString, QVariant> QVariant::toHash() const
+extern "C" Q_DECL_EXPORT
+QHash<QString, QVariant> *ritual_ZNK8QVariant6toHashEv(
+    const QVariant *self) {
+  return new QHash<QString, QVariant>(self->toHash());
 }
 
 //  QPoint QVariant::toPoint() const
@@ -610,4 +666,218 @@ bool ritual_ZeqRK8QVariantS1_(const QVariant *lhs, const QVariant *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK8QVariantS1_(const QVariant *lhs, const QVariant *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  QList<QVariant>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QVariant> *ritual_list_make_QVariant() {
+  return new QList<QVariant>();
+}
+
+//  void QList<QVariant>::append(const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QVariant(
+    QList<QVariant> *self,
+    const QVariant *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QVariant>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QVariant(const QList<QVariant> *self) {
+  return self->size();
+}
+
+//  const QVariant &QList<QVariant>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_list_at_QVariant(
+    const QList<QVariant> *self,
+    long long index) {
+  return new QVariant(self->at(index));
+}
+
+//  QList<QVariant>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QVariant(QList<QVariant> *self) {
+  delete self;
+}
+
+//  QMap<QString, QVariant>: QMap<QString, QVariant>()
+extern "C" Q_DECL_EXPORT
+QMap<QString, QVariant> *ritual_map_make_QMap_QString_QVariant() {
+  return new QMap<QString, QVariant>();
+}
+
+//  QMap<QString, QVariant>: insert(const Key &key, const T &value)
+extern "C" Q_DECL_EXPORT
+void ritual_map_put_QMap_QString_QVariant(
+    QMap<QString, QVariant> *self,
+    const QString *key,
+    const QVariant *value) {
+  self->insert(*key, *value);
+}
+
+//  QMap<QString, QVariant>: size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_map_size_QMap_QString_QVariant(
+    const QMap<QString, QVariant> *self) {
+  return self->size();
+}
+
+//  QMap<QString, QVariant>: the key at a place
+extern "C" Q_DECL_EXPORT
+QString *ritual_map_key_QMap_QString_QVariant(
+    const QMap<QString, QVariant> *self,
+    long long index) {
+  return new QString(*std::next(self->keyBegin(), index));
+}
+
+//  QMap<QString, QVariant>: the value at a place
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_map_value_QMap_QString_QVariant(
+    const QMap<QString, QVariant> *self,
+    long long index) {
+  return new QVariant(*std::next(self->constBegin(), index));
+}
+
+//  QMap<QString, QVariant>: contains(const Key &key) const
+extern "C" Q_DECL_EXPORT
+bool ritual_map_has_QMap_QString_QVariant(
+    const QMap<QString, QVariant> *self,
+    const QString *key) {
+  return self->contains(*key);
+}
+
+//  QMap<QString, QVariant>: value(const Key &key) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_map_get_QMap_QString_QVariant(
+    const QMap<QString, QVariant> *self,
+    const QString *key) {
+  return new QVariant(self->value(*key));
+}
+
+//  QMap<QString, QVariant>: ~QMap()
+extern "C" Q_DECL_EXPORT
+void ritual_map_drop_QMap_QString_QVariant(QMap<QString, QVariant> *self) {
+  delete self;
+}
+
+//  QHash<QString, QVariant>: QHash<QString, QVariant>()
+extern "C" Q_DECL_EXPORT
+QHash<QString, QVariant> *ritual_map_make_QHash_QString_QVariant() {
+  return new QHash<QString, QVariant>();
+}
+
+//  QHash<QString, QVariant>: insert(const Key &key, const T &value)
+extern "C" Q_DECL_EXPORT
+void ritual_map_put_QHash_QString_QVariant(
+    QHash<QString, QVariant> *self,
+    const QString *key,
+    const QVariant *value) {
+  self->insert(*key, *value);
+}
+
+//  QHash<QString, QVariant>: size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_map_size_QHash_QString_QVariant(
+    const QHash<QString, QVariant> *self) {
+  return self->size();
+}
+
+//  QHash<QString, QVariant>: the key at a place
+extern "C" Q_DECL_EXPORT
+QString *ritual_map_key_QHash_QString_QVariant(
+    const QHash<QString, QVariant> *self,
+    long long index) {
+  return new QString(*std::next(self->keyBegin(), index));
+}
+
+//  QHash<QString, QVariant>: the value at a place
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_map_value_QHash_QString_QVariant(
+    const QHash<QString, QVariant> *self,
+    long long index) {
+  return new QVariant(*std::next(self->constBegin(), index));
+}
+
+//  QHash<QString, QVariant>: contains(const Key &key) const
+extern "C" Q_DECL_EXPORT
+bool ritual_map_has_QHash_QString_QVariant(
+    const QHash<QString, QVariant> *self,
+    const QString *key) {
+  return self->contains(*key);
+}
+
+//  QHash<QString, QVariant>: value(const Key &key) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_map_get_QHash_QString_QVariant(
+    const QHash<QString, QVariant> *self,
+    const QString *key) {
+  return new QVariant(self->value(*key));
+}
+
+//  QHash<QString, QVariant>: ~QHash()
+extern "C" Q_DECL_EXPORT
+void ritual_map_drop_QHash_QString_QVariant(QHash<QString, QVariant> *self) {
+  delete self;
+}
+
+//  QMap<int, QVariant>: QMap<int, QVariant>()
+extern "C" Q_DECL_EXPORT
+QMap<int, QVariant> *ritual_map_make_QMap_int_QVariant() {
+  return new QMap<int, QVariant>();
+}
+
+//  QMap<int, QVariant>: insert(const Key &key, const T &value)
+extern "C" Q_DECL_EXPORT
+void ritual_map_put_QMap_int_QVariant(
+    QMap<int, QVariant> *self,
+    int key,
+    const QVariant *value) {
+  self->insert(key, *value);
+}
+
+//  QMap<int, QVariant>: size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_map_size_QMap_int_QVariant(
+    const QMap<int, QVariant> *self) {
+  return self->size();
+}
+
+//  QMap<int, QVariant>: the key at a place
+extern "C" Q_DECL_EXPORT
+int ritual_map_key_QMap_int_QVariant(
+    const QMap<int, QVariant> *self,
+    long long index) {
+  return *std::next(self->keyBegin(), index);
+}
+
+//  QMap<int, QVariant>: the value at a place
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_map_value_QMap_int_QVariant(
+    const QMap<int, QVariant> *self,
+    long long index) {
+  return new QVariant(*std::next(self->constBegin(), index));
+}
+
+//  QMap<int, QVariant>: contains(const Key &key) const
+extern "C" Q_DECL_EXPORT
+bool ritual_map_has_QMap_int_QVariant(
+    const QMap<int, QVariant> *self,
+    int key) {
+  return self->contains(key);
+}
+
+//  QMap<int, QVariant>: value(const Key &key) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_map_get_QMap_int_QVariant(
+    const QMap<int, QVariant> *self,
+    int key) {
+  return new QVariant(self->value(key));
+}
+
+//  QMap<int, QVariant>: ~QMap()
+extern "C" Q_DECL_EXPORT
+void ritual_map_drop_QMap_int_QVariant(QMap<int, QVariant> *self) {
+  delete self;
 }

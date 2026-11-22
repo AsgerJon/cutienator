@@ -128,6 +128,15 @@
     "ritual_ZN13QStandardItem8setChildEiPS_": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZN13QStandardItem9insertRowEiRK5QListIPS_E": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QStandardItem12insertColumnEiRK5QListIPS_E": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QStandardItem10insertRowsEiRK5QListIPS_E": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN13QStandardItem10insertRowsEii": [
       "nothing", "address", "int", "int"
     ],
@@ -144,6 +153,15 @@
     "ritual_ZN13QStandardItem13removeColumnsEii": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN13QStandardItem9appendRowERK5QListIPS_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QStandardItem10appendRowsERK5QListIPS_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QStandardItem12appendColumnERK5QListIPS_E": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN13QStandardItem9insertRowEiPS_": [
       "nothing", "address", "int", "address"
     ],
@@ -153,6 +171,8 @@
     "ritual_ZN13QStandardItem9takeChildEii": [
       "address", "address", "int", "int"
     ],
+    "ritual_ZN13QStandardItem7takeRowEi": ["address", "address", "int"],
+    "ritual_ZN13QStandardItem10takeColumnEi": ["address", "address", "int"],
     "ritual_ZN13QStandardItem12sortChildrenEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
     ],
@@ -167,6 +187,11 @@
       "nothing", "address", "address", "int"
     ],
     "ritual_own_ZNK13QStandardItem5cloneEv": ["address", "address"],
-    "ritual_own_ZNK13QStandardItem4typeEv": ["int", "address"]
+    "ritual_own_ZNK13QStandardItem4typeEv": ["int", "address"],
+    "ritual_list_make_QStandardItem_ptr": ["address"],
+    "ritual_list_add_QStandardItem_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QStandardItem_ptr": ["long long", "address"],
+    "ritual_list_at_QStandardItem_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QStandardItem_ptr": ["nothing", "address"]
   }
 }

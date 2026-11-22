@@ -55,6 +55,11 @@
     ],
     "ritual_own_ZNK11QDockWidget15initStyleOptionEP22QStyleOptionDockWidget": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_list_make_QDockWidget_ptr": ["address"],
+    "ritual_list_add_QDockWidget_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QDockWidget_ptr": ["long long", "address"],
+    "ritual_list_at_QDockWidget_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QDockWidget_ptr": ["nothing", "address"]
   }
 }

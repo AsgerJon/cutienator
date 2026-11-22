@@ -5,8 +5,10 @@
 #include <QtGui/qpalette.h>
 #include <QtGui/qfont.h>
 #include <QtGui/qfontmetrics.h>
+#include <QtWidgets/qwidget.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QApplication may call these functions of it.
@@ -255,6 +257,18 @@ void ritual_ZN12QApplication7setFontERK5QFontPKc(
 extern "C" Q_DECL_EXPORT
 QFontMetrics *ritual_ZN12QApplication11fontMetricsEv() {
   return new QFontMetrics(QApplication::fontMetrics());
+}
+
+//  QWidgetList QApplication::allWidgets()
+extern "C" Q_DECL_EXPORT
+QList<QWidget *> *ritual_ZN12QApplication10allWidgetsEv() {
+  return new QList<QWidget *>(QApplication::allWidgets());
+}
+
+//  QWidgetList QApplication::topLevelWidgets()
+extern "C" Q_DECL_EXPORT
+QList<QWidget *> *ritual_ZN12QApplication15topLevelWidgetsEv() {
+  return new QList<QWidget *>(QApplication::topLevelWidgets());
 }
 
 //  QWidget *QApplication::activePopupWidget()

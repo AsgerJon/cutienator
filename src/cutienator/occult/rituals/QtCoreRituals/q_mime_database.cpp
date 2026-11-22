@@ -6,6 +6,7 @@
 #include <QtCore/qfileinfo.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qurl.h>
+#include <QtCore/qlist.h>
 
 //  QMimeDatabase::QMimeDatabase()
 extern "C" Q_DECL_EXPORT
@@ -46,6 +47,15 @@ QMimeType *ritual_ZNK13QMimeDatabase15mimeTypeForFileERK9QFileInfoNS_9MatchModeE
     const QFileInfo *fileInfo,
     QMimeDatabase::MatchMode mode) {
   return new QMimeType(self->mimeTypeForFile(*fileInfo, mode));
+}
+
+//  QList<QMimeType> QMimeDatabase::mimeTypesForFileName(const QString
+//      &fileName) const
+extern "C" Q_DECL_EXPORT
+QList<QMimeType> *ritual_ZNK13QMimeDatabase20mimeTypesForFileNameERK7QString(
+    const QMimeDatabase *self,
+    const QString *fileName) {
+  return new QList<QMimeType>(self->mimeTypesForFileName(*fileName));
 }
 
 //  QMimeType QMimeDatabase::mimeTypeForData(const QByteArray &data) const
@@ -98,4 +108,11 @@ QString *ritual_ZNK13QMimeDatabase17suffixForFileNameERK7QString(
     const QMimeDatabase *self,
     const QString *fileName) {
   return new QString(self->suffixForFileName(*fileName));
+}
+
+//  QList<QMimeType> QMimeDatabase::allMimeTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QMimeType> *ritual_ZNK13QMimeDatabase12allMimeTypesEv(
+    const QMimeDatabase *self) {
+  return new QList<QMimeType>(self->allMimeTypes());
 }

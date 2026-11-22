@@ -14,9 +14,10 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, MetaCute
 from ..occult import Rituals
+from . import QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QChar
+  from . import QChar, QFileInfo
 
 
 class QDir(CuteMixin, metaclass=MetaCute):
@@ -32,16 +33,18 @@ class QDir(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QDir that has a ritual and that Python can call so
-  far, 48 names in all: 'setPath', 'path', 'absolutePath', 'canonicalPath',
-  'addSearchPath', 'dirName', 'filePath', 'absoluteFilePath',
-  'relativeFilePath', 'toNativeSeparators', 'fromNativeSeparators', 'cd',
-  'cdUp', 'filter', 'setFilter', 'sorting', 'setSorting', 'isEmpty',
-  '__getitem__', 'rmdir', 'rmpath', 'removeRecursively', 'isReadable',
-  'exists', 'isRoot', 'isRelativePath', 'isAbsolutePath', 'isRelative',
-  'isAbsolute', 'makeAbsolute', 'remove', 'rename', 'listSeparator',
-  'separator', 'setCurrent', 'current', 'currentPath', 'home', 'homePath',
-  'root', 'rootPath', 'temp', 'tempPath', 'match', 'cleanPath', 'refresh',
-  '__eq__', '__ne__'. It can be made from Python, in 3 ways; see '__init__'.
+  far, 56 names in all: 'setPath', 'path', 'absolutePath', 'canonicalPath',
+  'setSearchPaths', 'addSearchPath', 'searchPaths', 'dirName', 'filePath',
+  'absoluteFilePath', 'relativeFilePath', 'toNativeSeparators',
+  'fromNativeSeparators', 'cd', 'cdUp', 'nameFilters', 'setNameFilters',
+  'filter', 'setFilter', 'sorting', 'setSorting', 'isEmpty', '__getitem__',
+  'nameFiltersFromString', 'entryList', 'entryInfoList', 'rmdir', 'rmpath',
+  'removeRecursively', 'isReadable', 'exists', 'isRoot', 'isRelativePath',
+  'isAbsolutePath', 'isRelative', 'isAbsolute', 'makeAbsolute', 'remove',
+  'rename', 'drives', 'listSeparator', 'separator', 'setCurrent', 'current',
+  'currentPath', 'home', 'homePath', 'root', 'rootPath', 'temp', 'tempPath',
+  'match', 'cleanPath', 'refresh', '__eq__', '__ne__'. It can be made from
+  Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -54,7 +57,7 @@ class QDir(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  26 of the 80 functions Qt declares: 19 takes or gives a type that cannot be
+  15 of the 80 functions Qt declares: 8 takes or gives a type that cannot be
   passed yet; 4 a template; 2 private; 1 protected.
 
   What to expect
@@ -128,6 +131,33 @@ class QDir(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @staticmethod
+  @overload(str, QStringList)
+  def setSearchPaths(prefix: str, searchPaths: QStringList) -> None:
+    """
+    Calls Qt's 'void QDir::setSearchPaths(const QString &prefix, const
+    QStringList &searchPaths)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#setSearchPaths
+
+    Parameters
+    ----------
+
+    prefix : str
+      Passed on as it is: a QString is made of it for the call.
+
+    searchPaths : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QDir::setSearchPaths(const QString &prefix, const QStringList
+    #      &searchPaths)
+    Rituals.call(
+        'ritual_ZN4QDir14setSearchPathsERK7QStringRK5QListIS0_E',
+        prefix, CuteMixin._valueOf(searchPaths),
+    )
+
+  @staticmethod
   @overload(str, str)
   def addSearchPath(prefix: str, path: str) -> None:
     """
@@ -147,6 +177,30 @@ class QDir(CuteMixin, metaclass=MetaCute):
     """
     #  void QDir::addSearchPath(const QString &prefix, const QString &path)
     Rituals.call('ritual_ZN4QDir13addSearchPathERK7QStringS2_', prefix, path)
+
+  @staticmethod
+  @overload(str)
+  def searchPaths(prefix: str) -> QStringList:
+    """
+    Calls Qt's 'QStringList QDir::searchPaths(const QString &prefix)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#searchPaths
+
+    Parameters
+    ----------
+
+    prefix : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QDir::searchPaths(const QString &prefix)
+    address = Rituals.call('ritual_ZN4QDir11searchPathsERK7QString', prefix)
+    return QStringList._cuteOwning(address)
 
   @staticmethod
   @overload(str)
@@ -200,6 +254,33 @@ class QDir(CuteMixin, metaclass=MetaCute):
 
   @staticmethod
   @overload(str)
+  def nameFiltersFromString(nameFilter: str) -> QStringList:
+    """
+    Calls Qt's 'QStringList QDir::nameFiltersFromString(const QString
+    &nameFilter)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#nameFiltersFromString
+
+    Parameters
+    ----------
+
+    nameFilter : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QDir::nameFiltersFromString(const QString &nameFilter)
+    address = Rituals.call(
+        'ritual_ZN4QDir21nameFiltersFromStringERK7QString', nameFilter,
+    )
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
+  @overload(str)
   def isRelativePath(path: str) -> bool:
     """
     Calls Qt's 'bool QDir::isRelativePath(const QString &path)'.
@@ -231,6 +312,24 @@ class QDir(CuteMixin, metaclass=MetaCute):
     """
     #  bool QDir::isAbsolutePath(const QString &path)
     return Rituals.call('ritual_ZN4QDir14isAbsolutePathERK7QString', path)
+
+  @staticmethod
+  def drives() -> QList[QFileInfo]:
+    """
+    Calls Qt's 'QFileInfoList QDir::drives()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#drives
+
+    Returns
+    -------
+
+    QList[QFileInfo]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QFileInfoList QDir::drives()
+    address = Rituals.call('ritual_ZN4QDir6drivesEv')
+    from . import QFileInfo
+    return QList[QFileInfo]._cuteOwning(address)
 
   @staticmethod
   def listSeparator() -> QChar:
@@ -416,6 +515,32 @@ class QDir(CuteMixin, metaclass=MetaCute):
     """
     #  QString QDir::tempPath()
     return Rituals.call('ritual_ZN4QDir8tempPathEv')
+
+  @staticmethod
+  @overload(QStringList, str)
+  def match(filters: QStringList, fileName: str) -> bool:
+    """
+    Calls Qt's 'bool QDir::match(const QStringList &filters, const QString
+    &fileName)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#match
+
+    Parameters
+    ----------
+
+    filters : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    fileName : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool QDir::match(const QStringList &filters, const QString &fileName)
+    return Rituals.call(
+        'ritual_ZN4QDir5matchERK5QListI7QStringERKS1_',
+        CuteMixin._valueOf(filters), fileName,
+    )
 
   @staticmethod
   @overload(str, str)
@@ -621,6 +746,22 @@ class QDir(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK4QDir16relativeFilePathERK7QString', fileName,
     )
 
+  def nameFilters(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QDir::nameFilters() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#nameFilters
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QDir::nameFilters() const
+    address = self.uglySide.call('ritual_ZNK4QDir11nameFiltersEv')
+    return QStringList._cuteOwning(address)
+
   def filter(self) -> Filters:
     """
     Calls Qt's 'Filters QDir::filter() const'.
@@ -673,6 +814,178 @@ class QDir(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK4QDir7isEmptyE6QFlagsINS_6FilterEE', filters.value,
     )
+
+  @overload()
+  @overload(Filters)
+  @overload(Filters, SortFlags)
+  def entryList(
+      self,
+      filters: Filters = Filters.NoFilter,
+      sort: SortFlags = SortFlags.NoSort,
+  ) -> QStringList:
+    """
+    Calls Qt's 'QStringList QDir::entryList(Filters filters, SortFlags sort)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#entryList
+
+    Parameters
+    ----------
+
+    filters : Filters
+      Passed on as its number. May be left out, as in Qt: it is then
+      Filters.NoFilter.
+
+    sort : SortFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      SortFlags.NoSort.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QDir::entryList(Filters filters, SortFlags sort) const
+    address = self.uglySide.call(
+        'ritual_ZNK4QDir9entryListE6QFlagsINS_6FilterEES0_INS_8SortFlagEE',
+        filters.value, sort.value,
+    )
+    return QStringList._cuteOwning(address)
+
+  @overload(QStringList)
+  @overload(QStringList, Filters)
+  @overload(QStringList, Filters, SortFlags)
+  def entryList(
+      self,
+      nameFilters: QStringList,
+      filters: Filters = Filters.NoFilter,
+      sort: SortFlags = SortFlags.NoSort,
+  ) -> QStringList:
+    """
+    Calls Qt's 'QStringList QDir::entryList(const QStringList &nameFilters,
+    Filters filters, SortFlags sort) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#entryList
+
+    Parameters
+    ----------
+
+    nameFilters : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    filters : Filters
+      Passed on as its number. May be left out, as in Qt: it is then
+      Filters.NoFilter.
+
+    sort : SortFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      SortFlags.NoSort.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QDir::entryList(const QStringList &nameFilters, Filters
+    #      filters, SortFlags sort) const
+    address = self.uglySide.call(
+        'ritual_ZNK4QDir9entryListERK5QListI7QStringE6QFlagsINS_6FilterEES5'
+        '_INS_8SortFlagEE',
+        self._valueOf(nameFilters), filters.value, sort.value,
+    )
+    return QStringList._cuteOwning(address)
+
+  @overload()
+  @overload(Filters)
+  @overload(Filters, SortFlags)
+  def entryInfoList(
+      self,
+      filters: Filters = Filters.NoFilter,
+      sort: SortFlags = SortFlags.NoSort,
+  ) -> QList[QFileInfo]:
+    """
+    Calls Qt's 'QFileInfoList QDir::entryInfoList(Filters filters, SortFlags
+    sort) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#entryInfoList
+
+    Parameters
+    ----------
+
+    filters : Filters
+      Passed on as its number. May be left out, as in Qt: it is then
+      Filters.NoFilter.
+
+    sort : SortFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      SortFlags.NoSort.
+
+    Returns
+    -------
+
+    QList[QFileInfo]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QFileInfoList QDir::entryInfoList(Filters filters, SortFlags sort)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK4QDir13entryInfoListE6QFlagsINS_6FilterEES0_INS_8SortFla'
+        'gEE',
+        filters.value, sort.value,
+    )
+    from . import QFileInfo
+    return QList[QFileInfo]._cuteOwning(address)
+
+  @overload(QStringList)
+  @overload(QStringList, Filters)
+  @overload(QStringList, Filters, SortFlags)
+  def entryInfoList(
+      self,
+      nameFilters: QStringList,
+      filters: Filters = Filters.NoFilter,
+      sort: SortFlags = SortFlags.NoSort,
+  ) -> QList[QFileInfo]:
+    """
+    Calls Qt's 'QFileInfoList QDir::entryInfoList(const QStringList
+    &nameFilters, Filters filters, SortFlags sort) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#entryInfoList
+
+    Parameters
+    ----------
+
+    nameFilters : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    filters : Filters
+      Passed on as its number. May be left out, as in Qt: it is then
+      Filters.NoFilter.
+
+    sort : SortFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      SortFlags.NoSort.
+
+    Returns
+    -------
+
+    QList[QFileInfo]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QFileInfoList QDir::entryInfoList(const QStringList &nameFilters,
+    #      Filters filters, SortFlags sort) const
+    address = self.uglySide.call(
+        'ritual_ZNK4QDir13entryInfoListERK5QListI7QStringE6QFlagsINS_6Filte'
+        'rEES5_INS_8SortFlagEE',
+        self._valueOf(nameFilters), filters.value, sort.value,
+    )
+    from . import QFileInfo
+    return QList[QFileInfo]._cuteOwning(address)
 
   @overload(str)
   def rmdir(self, dirName: str) -> bool:
@@ -787,6 +1100,27 @@ class QDir(CuteMixin, metaclass=MetaCute):
     """
     #  void QDir::setPath(const QString &path)
     self.uglySide.call('ritual_ZN4QDir7setPathERK7QString', path)
+
+  @overload(QStringList)
+  def setNameFilters(self, nameFilters: QStringList) -> None:
+    """
+    Calls Qt's 'void QDir::setNameFilters(const QStringList &nameFilters)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#setNameFilters
+
+    Parameters
+    ----------
+
+    nameFilters : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QDir::setNameFilters(const QStringList &nameFilters)
+    self.uglySide.call(
+        'ritual_ZN4QDir14setNameFiltersERK5QListI7QStringE',
+        self._valueOf(nameFilters),
+    )
 
   @overload(Filters)
   def setFilter(self, filter: Filters) -> None:

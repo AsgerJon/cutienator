@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QFileSelector that Python can take functions over in. Every QFileSelector
@@ -173,6 +174,28 @@ QUrl *ritual_ZNK13QFileSelector6selectERK4QUrl(
     const QFileSelector *self,
     const QUrl *filePath) {
   return new QUrl(self->select(*filePath));
+}
+
+//  QStringList QFileSelector::extraSelectors() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK13QFileSelector14extraSelectorsEv(
+    const QFileSelector *self) {
+  return new QList<QString>(self->extraSelectors());
+}
+
+//  void QFileSelector::setExtraSelectors(const QStringList &list)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QFileSelector17setExtraSelectorsERK5QListI7QStringE(
+    QFileSelector *self,
+    const QList<QString> *list) {
+  self->setExtraSelectors(*list);
+}
+
+//  QStringList QFileSelector::allSelectors() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK13QFileSelector12allSelectorsEv(
+    const QFileSelector *self) {
+  return new QList<QString>(self->allSelectors());
 }
 
 //  a Python function taken by a CuteQFileSelector, for the function named by

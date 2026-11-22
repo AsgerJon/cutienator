@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 from . import QKeySequence
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -49,15 +49,15 @@ class QAction(QObject):
   -----------
 
   Every function of Qt's QAction that has a ritual and that Python can call
-  so far, 53 names in all: 'metaObject', 'tr', 'setActionGroup',
-  'actionGroup', 'setIcon', 'icon', 'setText', 'text', 'setIconText',
-  'iconText', 'setToolTip', 'toolTip', 'setStatusTip', 'statusTip',
-  'setWhatsThis', 'whatsThis', 'setPriority', 'priority', 'setSeparator',
-  'isSeparator', 'setShortcut', 'shortcut', 'setShortcuts',
-  'setShortcutContext', 'shortcutContext', 'setAutoRepeat', 'autoRepeat',
-  'setFont', 'font', 'setCheckable', 'isCheckable', 'data', 'setData',
-  'isChecked', 'isEnabled', 'isVisible', 'activate', 'setMenuRole',
-  'menuRole', 'setIconVisibleInMenu', 'isIconVisibleInMenu',
+  so far, 55 names in all: 'metaObject', 'tr', 'associatedObjects',
+  'setActionGroup', 'actionGroup', 'setIcon', 'icon', 'setText', 'text',
+  'setIconText', 'iconText', 'setToolTip', 'toolTip', 'setStatusTip',
+  'statusTip', 'setWhatsThis', 'whatsThis', 'setPriority', 'priority',
+  'setSeparator', 'isSeparator', 'setShortcut', 'shortcut', 'setShortcuts',
+  'shortcuts', 'setShortcutContext', 'shortcutContext', 'setAutoRepeat',
+  'autoRepeat', 'setFont', 'font', 'setCheckable', 'isCheckable', 'data',
+  'setData', 'isChecked', 'isEnabled', 'isVisible', 'activate',
+  'setMenuRole', 'menuRole', 'setIconVisibleInMenu', 'isIconVisibleInMenu',
   'setShortcutVisibleInContextMenu', 'isShortcutVisibleInContextMenu',
   'showStatusText', 'trigger', 'hover', 'setChecked', 'toggle', 'setEnabled',
   'resetEnabled', 'setDisabled', 'setVisible', 'event'. It can be made from
@@ -72,9 +72,8 @@ class QAction(QObject):
   What has no ritual
   ------------------
 
-  26 of the 83 functions Qt declares: 7 a signal; 6 a template; 5 takes or
-  gives a type that cannot be passed yet; 5 private; 2 forbidden; 1
-  protected.
+  23 of the 83 functions Qt declares: 7 a signal; 6 a template; 5 private; 2
+  takes or gives a type that cannot be passed yet; 2 forbidden; 1 protected.
 
   What to expect
   --------------
@@ -212,6 +211,22 @@ class QAction(QObject):
     address = self.uglySide.call('ritual_ZNK7QAction10metaObjectEv')
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
+
+  def associatedObjects(self) -> QList[QObject]:
+    """
+    Calls Qt's 'QList<QObject *> QAction::associatedObjects() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#associatedObjects
+
+    Returns
+    -------
+
+    QList[QObject]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QObject *> QAction::associatedObjects() const
+    address = self.uglySide.call('ritual_ZNK7QAction17associatedObjectsEv')
+    return QList[QObject]._cuteOwning(address)
 
   def actionGroup(self) -> Optional[QActionGroup]:
     """
@@ -365,6 +380,22 @@ class QAction(QObject):
     #  QKeySequence QAction::shortcut() const
     address = self.uglySide.call('ritual_ZNK7QAction8shortcutEv')
     return QKeySequence._cuteOwning(address)
+
+  def shortcuts(self) -> QList[QKeySequence]:
+    """
+    Calls Qt's 'QList<QKeySequence> QAction::shortcuts() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#shortcuts
+
+    Returns
+    -------
+
+    QList[QKeySequence]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QKeySequence> QAction::shortcuts() const
+    address = self.uglySide.call('ritual_ZNK7QAction9shortcutsEv')
+    return QList[QKeySequence]._cuteOwning(address)
 
   def shortcutContext(self) -> Qt.ShortcutContext:
     """
@@ -680,6 +711,28 @@ class QAction(QObject):
     self.uglySide.call(
         'ritual_ZN7QAction11setShortcutERK12QKeySequence',
         self._valueOf(shortcut),
+    )
+
+  @overload(QList[QKeySequence])
+  def setShortcuts(self, shortcuts: QList[QKeySequence]) -> None:
+    """
+    Calls Qt's 'void QAction::setShortcuts(const QList<QKeySequence>
+    &shortcuts)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#setShortcuts
+
+    Parameters
+    ----------
+
+    shortcuts : QList[QKeySequence]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QAction::setShortcuts(const QList<QKeySequence> &shortcuts)
+    self.uglySide.call(
+        'ritual_ZN7QAction12setShortcutsERK5QListI12QKeySequenceE',
+        self._valueOf(shortcuts),
     )
 
   @overload(QKeySequence.StandardKey)
@@ -1117,3 +1170,16 @@ class QAction(QObject):
     return self.uglySide.call(
         'ritual_own_ZN7QAction5eventEP6QEvent', self._addressOf(a0),
     )
+
+
+#  Qt's 'QList<QAction *>': the list of QAction, which 'QList[QAction]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QAction.
+QList.createKind(
+    QAction, 'address',
+    make='ritual_list_make_QAction_ptr',
+    add='ritual_list_add_QAction_ptr',
+    size='ritual_list_size_QAction_ptr',
+    at='ritual_list_at_QAction_ptr',
+    drop='ritual_list_drop_QAction_ptr',
+)

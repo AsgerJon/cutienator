@@ -210,6 +210,7 @@ __all__ = (
     'QTreeWidgetItemIterator',
     'QDateEdit',
     'QTimeEdit',
+    'QWidgetList',
 )
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -409,6 +410,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_tree_widget_item_iterator import QTreeWidgetItemIterator
   from ._q_date_edit import QDateEdit
   from ._q_time_edit import QTimeEdit
+  from ._q_widget import QWidgetList
 else:
   #  Where each class is: the file that is brought in the first
   #  time the class is asked for.
@@ -607,13 +609,14 @@ else:
       'QTreeWidgetItemIterator': '_q_tree_widget_item_iterator',
       'QDateEdit': '_q_date_edit',
       'QTimeEdit': '_q_time_edit',
+      'QWidgetList': '_q_widget',
   }
 
 
   def __getattr__(name: str) -> Any:
     """
     Brings in a class of this part the first time it is asked for,
-    as by 'from cutienator.QtWidgets import QTimeEdit'. Python calls
+    as by 'from cutienator.QtWidgets import QWidgetList'. Python calls
     this for a name the package does not hold yet. The file of the
     class is brought in, which brings in the files that class needs
     and no others, and the class is kept here for the next time.

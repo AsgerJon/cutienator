@@ -4,6 +4,7 @@
 #include <QtGui/qfont.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/qlist.h>
 
 //  QFontVariableAxis::QFontVariableAxis()
 extern "C" Q_DECL_EXPORT
@@ -105,4 +106,39 @@ QDebug *ritual_Zls6QDebugRK17QFontVariableAxis(
     const QDebug *debug,
     const QFontVariableAxis *axis) {
   return new QDebug(operator<<(*debug, *axis));
+}
+
+//  QList<QFontVariableAxis>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QFontVariableAxis> *ritual_list_make_QFontVariableAxis() {
+  return new QList<QFontVariableAxis>();
+}
+
+//  void QList<QFontVariableAxis>::append(const QFontVariableAxis &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QFontVariableAxis(
+    QList<QFontVariableAxis> *self,
+    const QFontVariableAxis *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QFontVariableAxis>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QFontVariableAxis(
+    const QList<QFontVariableAxis> *self) {
+  return self->size();
+}
+
+//  const QFontVariableAxis &QList<QFontVariableAxis>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QFontVariableAxis *ritual_list_at_QFontVariableAxis(
+    const QList<QFontVariableAxis> *self,
+    long long index) {
+  return new QFontVariableAxis(self->at(index));
+}
+
+//  QList<QFontVariableAxis>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QFontVariableAxis(QList<QFontVariableAxis> *self) {
+  delete self;
 }

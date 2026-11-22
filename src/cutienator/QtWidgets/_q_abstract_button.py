@@ -13,6 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -867,3 +868,16 @@ class QAbstractButton(QWidget):
         'ritual_own_ZN15QAbstractButton10timerEventEP11QTimerEvent',
         self._addressOf(e),
     )
+
+
+#  Qt's 'QList<QAbstractButton *>': the list of QAbstractButton, which
+#  'QList[QAbstractButton]' gives. It is made here, so that there is one as
+#  soon as there can be a QAbstractButton.
+QList.createKind(
+    QAbstractButton, 'address',
+    make='ritual_list_make_QAbstractButton_ptr',
+    add='ritual_list_add_QAbstractButton_ptr',
+    size='ritual_list_size_QAbstractButton_ptr',
+    at='ritual_list_at_QAbstractButton_ptr',
+    drop='ritual_list_drop_QAbstractButton_ptr',
+)

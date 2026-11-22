@@ -2,6 +2,7 @@
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qaccessible.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QAccessibleTableInterface that Python can take functions over in. Every QAccessibleTableInterface
@@ -335,6 +336,14 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK25QAccessibleTableInterface17selectedCellCountEv(
     const QAccessibleTableInterface *self) {
   return self->selectedCellCount();
+}
+
+//  QList<QAccessibleInterface *> QAccessibleTableInterface::selectedCells()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QAccessibleInterface *> *ritual_ZNK25QAccessibleTableInterface13selectedCellsEv(
+    const QAccessibleTableInterface *self) {
+  return new QList<QAccessibleInterface *>(self->selectedCells());
 }
 
 //  QString QAccessibleTableInterface::columnDescription(int column) const

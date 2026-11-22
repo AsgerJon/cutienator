@@ -3,6 +3,8 @@
 #include <QtGui/qfontinfo.h>
 #include <QtGui/qfont.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qfontvariableaxis.h>
+#include <QtCore/qlist.h>
 
 //  QFontInfo::QFontInfo(const QFont &a0)
 extern "C" Q_DECL_EXPORT
@@ -104,6 +106,13 @@ bool ritual_ZNK9QFontInfo10fixedPitchEv(const QFontInfo *self) {
 extern "C" Q_DECL_EXPORT
 QFont::StyleHint ritual_ZNK9QFontInfo9styleHintEv(const QFontInfo *self) {
   return self->styleHint();
+}
+
+//  QList<QFontVariableAxis> QFontInfo::variableAxes() const
+extern "C" Q_DECL_EXPORT
+QList<QFontVariableAxis> *ritual_ZNK9QFontInfo12variableAxesEv(
+    const QFontInfo *self) {
+  return new QList<QFontVariableAxis>(self->variableAxes());
 }
 
 //  int QFontInfo::legacyWeight() const

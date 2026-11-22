@@ -6,6 +6,10 @@
 #include <QtGui/qcolor.h>
 #include <QtGui/qpen.h>
 #include <QtGui/qbrush.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 
 //  QTextFormat::QTextFormat()
 extern "C" Q_DECL_EXPORT
@@ -166,6 +170,32 @@ QTextLength *ritual_ZNK11QTextFormat14lengthPropertyEi(
     const QTextFormat *self,
     int propertyId) {
   return new QTextLength(self->lengthProperty(propertyId));
+}
+
+//  QList<QTextLength> QTextFormat::lengthVectorProperty(int propertyId)
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QTextLength> *ritual_ZNK11QTextFormat20lengthVectorPropertyEi(
+    const QTextFormat *self,
+    int propertyId) {
+  return new QList<QTextLength>(self->lengthVectorProperty(propertyId));
+}
+
+//  void QTextFormat::setProperty(int propertyId, const QList<QTextLength>
+//      &lengths)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTextFormat11setPropertyEiRK5QListI11QTextLengthE(
+    QTextFormat *self,
+    int propertyId,
+    const QList<QTextLength> *lengths) {
+  self->setProperty(propertyId, *lengths);
+}
+
+//  QMap<int, QVariant> QTextFormat::properties() const
+extern "C" Q_DECL_EXPORT
+QMap<int, QVariant> *ritual_ZNK11QTextFormat10propertiesEv(
+    const QTextFormat *self) {
+  return new QMap<int, QVariant>(self->properties());
 }
 
 //  int QTextFormat::propertyCount() const
@@ -352,4 +382,38 @@ QBrush *ritual_ZNK11QTextFormat10foregroundEv(const QTextFormat *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTextFormat15clearForegroundEv(QTextFormat *self) {
   self->clearForeground();
+}
+
+//  QList<QTextFormat>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QTextFormat> *ritual_list_make_QTextFormat() {
+  return new QList<QTextFormat>();
+}
+
+//  void QList<QTextFormat>::append(const QTextFormat &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QTextFormat(
+    QList<QTextFormat> *self,
+    const QTextFormat *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QTextFormat>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QTextFormat(const QList<QTextFormat> *self) {
+  return self->size();
+}
+
+//  const QTextFormat &QList<QTextFormat>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QTextFormat *ritual_list_at_QTextFormat(
+    const QList<QTextFormat> *self,
+    long long index) {
+  return new QTextFormat(self->at(index));
+}
+
+//  QList<QTextFormat>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QTextFormat(QList<QTextFormat> *self) {
+  delete self;
 }

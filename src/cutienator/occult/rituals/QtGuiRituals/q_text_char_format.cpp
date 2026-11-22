@@ -6,6 +6,7 @@
 #include <QtCore/qvariant.h>
 #include <QtGui/qcolor.h>
 #include <QtGui/qpen.h>
+#include <QtCore/qlist.h>
 
 //  QTextCharFormat::QTextCharFormat()
 extern "C" Q_DECL_EXPORT
@@ -48,6 +49,14 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15QTextCharFormat10fontFamilyEv(
     const QTextCharFormat *self) {
   return new QString(self->fontFamily());
+}
+
+//  void QTextCharFormat::setFontFamilies(const QStringList &families)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTextCharFormat15setFontFamiliesERK5QListI7QStringE(
+    QTextCharFormat *self,
+    const QList<QString> *families) {
+  self->setFontFamilies(*families);
 }
 
 //  QVariant QTextCharFormat::fontFamilies() const
@@ -460,6 +469,21 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15QTextCharFormat10anchorHrefEv(
     const QTextCharFormat *self) {
   return new QString(self->anchorHref());
+}
+
+//  void QTextCharFormat::setAnchorNames(const QStringList &names)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTextCharFormat14setAnchorNamesERK5QListI7QStringE(
+    QTextCharFormat *self,
+    const QList<QString> *names) {
+  self->setAnchorNames(*names);
+}
+
+//  QStringList QTextCharFormat::anchorNames() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK15QTextCharFormat11anchorNamesEv(
+    const QTextCharFormat *self) {
+  return new QList<QString>(self->anchorNames());
 }
 
 //  void QTextCharFormat::setTableCellRowSpan(int tableCellRowSpan)

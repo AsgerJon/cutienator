@@ -2,6 +2,13 @@
 //  QtGui/qgenericpluginfactory.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qgenericpluginfactory.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
+
+//  QStringList QGenericPluginFactory::keys()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN21QGenericPluginFactory4keysEv() {
+  return new QList<QString>(QGenericPluginFactory::keys());
+}
 
 //  QObject *QGenericPluginFactory::create(const QString &a0, const QString
 //      &a1)

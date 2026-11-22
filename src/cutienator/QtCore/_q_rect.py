@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QMargins, QPoint, QRectF, QSize
@@ -1564,3 +1565,15 @@ class QRect(CuteMixin, metaclass=MetaCute):
     """
     #  void QRect::adjust(int x1, int y1, int x2, int y2)
     self.uglySide.call('ritual_ZN5QRect6adjustEiiii', x1, y1, x2, y2)
+
+
+#  Qt's 'QList<QRect>': the list of QRect, which 'QList[QRect]' gives. It is
+#  made here, so that there is one as soon as there can be a QRect.
+QList.createKind(
+    QRect, 'value',
+    make='ritual_list_make_QRect',
+    add='ritual_list_add_QRect',
+    size='ritual_list_size_QRect',
+    at='ritual_list_at_QRect',
+    drop='ritual_list_drop_QRect',
+)

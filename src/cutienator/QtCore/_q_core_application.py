@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import Qt, QEventLoop, QObject
+from . import Qt, QEventLoop, QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -48,16 +48,17 @@ class QCoreApplication(QObject):
   -----------
 
   Every function of Qt's QCoreApplication that has a ritual and that Python
-  can call so far, 43 names in all: 'metaObject', 'tr', 'setAttribute',
-  'testAttribute', 'setOrganizationDomain', 'organizationDomain',
-  'setOrganizationName', 'organizationName', 'setApplicationName',
-  'applicationName', 'setApplicationVersion', 'applicationVersion',
-  'setSetuidAllowed', 'isSetuidAllowed', 'instance', 'instanceExists',
-  'exec', 'processEvents', 'sendEvent', 'postEvent', 'sendPostedEvents',
-  'removePostedEvents', 'eventDispatcher', 'setEventDispatcher', 'notify',
-  'startingUp', 'closingDown', 'applicationDirPath', 'applicationFilePath',
-  'applicationPid', 'checkPermission', 'addLibraryPath', 'removeLibraryPath',
-  'installTranslator', 'removeTranslator', 'translate',
+  can call so far, 46 names in all: 'metaObject', 'tr', 'arguments',
+  'setAttribute', 'testAttribute', 'setOrganizationDomain',
+  'organizationDomain', 'setOrganizationName', 'organizationName',
+  'setApplicationName', 'applicationName', 'setApplicationVersion',
+  'applicationVersion', 'setSetuidAllowed', 'isSetuidAllowed', 'instance',
+  'instanceExists', 'exec', 'processEvents', 'sendEvent', 'postEvent',
+  'sendPostedEvents', 'removePostedEvents', 'eventDispatcher',
+  'setEventDispatcher', 'notify', 'startingUp', 'closingDown',
+  'applicationDirPath', 'applicationFilePath', 'applicationPid',
+  'checkPermission', 'setLibraryPaths', 'libraryPaths', 'addLibraryPath',
+  'removeLibraryPath', 'installTranslator', 'removeTranslator', 'translate',
   'installNativeEventFilter', 'removeNativeEventFilter', 'isQuitLockEnabled',
   'setQuitLockEnabled', 'quit', 'exit', 'event'. It can be made from Python,
   in 1 way; see '__init__'.
@@ -71,8 +72,8 @@ class QCoreApplication(QObject):
   What has no ritual
   ------------------
 
-  26 of the 73 functions Qt declares: 7 private; 5 takes or gives a type that
-  cannot be passed yet; 5 a signal; 4 a template; 3 protected; 2 forbidden.
+  23 of the 73 functions Qt declares: 7 private; 5 a signal; 4 a template; 3
+  protected; 2 takes or gives a type that cannot be passed yet; 2 forbidden.
 
   What to expect
   --------------
@@ -136,6 +137,23 @@ class QCoreApplication(QObject):
         'ritual_ZN16QCoreApplication2trEPKcS1_i',
         CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
     )
+
+  @staticmethod
+  def arguments() -> QStringList:
+    """
+    Calls Qt's 'QStringList QCoreApplication::arguments()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcoreapplication.html#arguments
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QCoreApplication::arguments()
+    address = Rituals.call('ritual_ZN16QCoreApplication9argumentsEv')
+    return QStringList._cuteOwning(address)
 
   @staticmethod
   @overload(Qt.ApplicationAttribute)
@@ -762,6 +780,47 @@ class QCoreApplication(QObject):
     """
     #  qint64 QCoreApplication::applicationPid()
     return Rituals.call('ritual_ZN16QCoreApplication14applicationPidEv')
+
+  @staticmethod
+  @overload(QStringList)
+  def setLibraryPaths(a0: QStringList) -> None:
+    """
+    Calls Qt's 'void QCoreApplication::setLibraryPaths(const QStringList
+    &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#setLibraryPaths
+
+    Parameters
+    ----------
+
+    a0 : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QCoreApplication::setLibraryPaths(const QStringList &a0)
+    Rituals.call(
+        'ritual_ZN16QCoreApplication15setLibraryPathsERK5QListI7QStringE',
+        CuteMixin._valueOf(a0),
+    )
+
+  @staticmethod
+  def libraryPaths() -> QStringList:
+    """
+    Calls Qt's 'QStringList QCoreApplication::libraryPaths()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcoreapplication.html#libraryPaths
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QCoreApplication::libraryPaths()
+    address = Rituals.call('ritual_ZN16QCoreApplication12libraryPathsEv')
+    return QStringList._cuteOwning(address)
 
   @staticmethod
   @overload(str)

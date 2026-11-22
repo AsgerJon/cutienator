@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QCoreApplication, QObject
+from ..QtCore import Qt, QCoreApplication, QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -49,21 +49,22 @@ class QGuiApplication(QCoreApplication):
   -----------
 
   Every function of Qt's QGuiApplication that has a ritual and that Python
-  can call so far, 50 names in all: 'metaObject', 'tr',
+  can call so far, 53 names in all: 'metaObject', 'tr',
   'setApplicationDisplayName', 'applicationDisplayName', 'setBadgeNumber',
-  'setDesktopFileName', 'desktopFileName', 'topLevelAt', 'setWindowIcon',
-  'windowIcon', 'platformName', 'modalWindow', 'focusWindow', 'focusObject',
-  'primaryScreen', 'screenAt', 'devicePixelRatio', 'overrideCursor',
-  'setOverrideCursor', 'changeOverrideCursor', 'restoreOverrideCursor',
-  'font', 'setFont', 'clipboard', 'palette', 'setPalette',
-  'keyboardModifiers', 'queryKeyboardModifiers', 'mouseButtons',
-  'setLayoutDirection', 'layoutDirection', 'isRightToLeft', 'isLeftToRight',
-  'styleHints', 'setDesktopSettingsAware', 'desktopSettingsAware',
-  'inputMethod', 'setQuitOnLastWindowClosed', 'quitOnLastWindowClosed',
-  'applicationState', 'setHighDpiScaleFactorRoundingPolicy',
-  'highDpiScaleFactorRoundingPolicy', 'exec', 'notify', 'isSessionRestored',
-  'sessionId', 'sessionKey', 'isSavingSession', 'sync', 'event'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'setDesktopFileName', 'desktopFileName', 'allWindows', 'topLevelWindows',
+  'topLevelAt', 'setWindowIcon', 'windowIcon', 'platformName', 'modalWindow',
+  'focusWindow', 'focusObject', 'primaryScreen', 'screens', 'screenAt',
+  'devicePixelRatio', 'overrideCursor', 'setOverrideCursor',
+  'changeOverrideCursor', 'restoreOverrideCursor', 'font', 'setFont',
+  'clipboard', 'palette', 'setPalette', 'keyboardModifiers',
+  'queryKeyboardModifiers', 'mouseButtons', 'setLayoutDirection',
+  'layoutDirection', 'isRightToLeft', 'isLeftToRight', 'styleHints',
+  'setDesktopSettingsAware', 'desktopSettingsAware', 'inputMethod',
+  'setQuitOnLastWindowClosed', 'quitOnLastWindowClosed', 'applicationState',
+  'setHighDpiScaleFactorRoundingPolicy', 'highDpiScaleFactorRoundingPolicy',
+  'exec', 'notify', 'isSessionRestored', 'sessionId', 'sessionKey',
+  'isSavingSession', 'sync', 'event'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -74,7 +75,7 @@ class QGuiApplication(QCoreApplication):
   What has no ritual
   ------------------
 
-  31 of the 83 functions Qt declares: 14 a signal; 7 takes or gives a type
+  28 of the 83 functions Qt declares: 14 a signal; 4 takes or gives a type
   that cannot be passed yet; 3 private; 3 protected; 2 a template; 2
   forbidden.
 
@@ -219,6 +220,43 @@ class QGuiApplication(QCoreApplication):
     """
     #  QString QGuiApplication::desktopFileName()
     return Rituals.call('ritual_ZN15QGuiApplication15desktopFileNameEv')
+
+  @staticmethod
+  def allWindows() -> QList[QWindow]:
+    """
+    Calls Qt's 'QWindowList QGuiApplication::allWindows()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qguiapplication.html#allWindows
+
+    Returns
+    -------
+
+    QList[QWindow]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QWindowList QGuiApplication::allWindows()
+    address = Rituals.call('ritual_ZN15QGuiApplication10allWindowsEv')
+    from . import QWindow
+    return QList[QWindow]._cuteOwning(address)
+
+  @staticmethod
+  def topLevelWindows() -> QList[QWindow]:
+    """
+    Calls Qt's 'QWindowList QGuiApplication::topLevelWindows()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qguiapplication.html#topLevelWindows
+
+    Returns
+    -------
+
+    QList[QWindow]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QWindowList QGuiApplication::topLevelWindows()
+    address = Rituals.call('ritual_ZN15QGuiApplication15topLevelWindowsEv')
+    from . import QWindow
+    return QList[QWindow]._cuteOwning(address)
 
   @staticmethod
   @overload(QPoint)
@@ -378,6 +416,24 @@ class QGuiApplication(QCoreApplication):
     address = Rituals.call('ritual_ZN15QGuiApplication13primaryScreenEv')
     from . import QScreen
     return QScreen._cuteAt(address)
+
+  @staticmethod
+  def screens() -> QList[QScreen]:
+    """
+    Calls Qt's 'QList<QScreen *> QGuiApplication::screens()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qguiapplication.html#screens
+
+    Returns
+    -------
+
+    QList[QScreen]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QScreen *> QGuiApplication::screens()
+    address = Rituals.call('ritual_ZN15QGuiApplication7screensEv')
+    from . import QScreen
+    return QList[QScreen]._cuteOwning(address)
 
   @staticmethod
   @overload(QPoint)

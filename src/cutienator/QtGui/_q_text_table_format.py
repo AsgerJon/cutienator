@@ -11,9 +11,18 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 from . import QTextFrameFormat
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QTextLength
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QTextLength = WAIT['QTextLength']
 
 
 class QTextTableFormat(QTextFrameFormat):
@@ -32,7 +41,8 @@ class QTextTableFormat(QTextFrameFormat):
   -----------
 
   Every function of Qt's QTextTableFormat that has a ritual and that Python
-  can call so far, 14 names in all: 'isValid', 'columns', 'setColumns',
+  can call so far, 16 names in all: 'isValid', 'columns', 'setColumns',
+  'setColumnWidthConstraints', 'columnWidthConstraints',
   'clearColumnWidthConstraints', 'cellSpacing', 'setCellSpacing',
   'cellPadding', 'setCellPadding', 'setAlignment', 'alignment',
   'setHeaderRowCount', 'headerRowCount', 'setBorderCollapse',
@@ -47,8 +57,7 @@ class QTextTableFormat(QTextFrameFormat):
   What has no ritual
   ------------------
 
-  3 of the 19 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  1 of the 19 functions Qt declares: 1 protected.
 
   What to expect
   --------------
@@ -110,6 +119,27 @@ class QTextTableFormat(QTextFrameFormat):
     """
     #  int QTextTableFormat::columns() const
     return self.uglySide.call('ritual_ZNK16QTextTableFormat7columnsEv')
+
+  def columnWidthConstraints(self) -> QList[QTextLength]:
+    """
+    Calls Qt's 'QList<QTextLength> QTextTableFormat::columnWidthConstraints()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtexttableformat.html#columnWidthConstraints
+
+    Returns
+    -------
+
+    QList[QTextLength]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QTextLength> QTextTableFormat::columnWidthConstraints() const
+    address = self.uglySide.call(
+        'ritual_ZNK16QTextTableFormat22columnWidthConstraintsEv',
+    )
+    from . import QTextLength
+    return QList[QTextLength]._cuteOwning(address)
 
   def cellSpacing(self) -> float:
     """
@@ -189,6 +219,34 @@ class QTextTableFormat(QTextFrameFormat):
     """
     #  void QTextTableFormat::setColumns(int columns)
     self.uglySide.call('ritual_ZN16QTextTableFormat10setColumnsEi', columns)
+
+  @overload(QList[QTextLength])
+  def setColumnWidthConstraints(
+      self,
+      constraints: QList[QTextLength],
+  ) -> None:
+    """
+    Calls Qt's 'void QTextTableFormat::setColumnWidthConstraints(const
+    QList<QTextLength> &constraints)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtexttableformat.html#setColumnWidthConstraints
+
+    Parameters
+    ----------
+
+    constraints : QList[QTextLength]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QTextTableFormat::setColumnWidthConstraints(const
+    #      QList<QTextLength> &constraints)
+    self.uglySide.call(
+        'ritual_ZN16QTextTableFormat25setColumnWidthConstraintsERK5QListI11'
+        'QTextLengthE',
+        self._valueOf(constraints),
+    )
 
   @overload(float)
   def setCellSpacing(self, spacing: float) -> None:

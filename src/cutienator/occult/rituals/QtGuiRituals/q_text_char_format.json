@@ -14,6 +14,9 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK15QTextCharFormat10fontFamilyEv": ["text", "address"],
+    "ritual_ZN15QTextCharFormat15setFontFamiliesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK15QTextCharFormat12fontFamiliesEv": ["address", "address"],
     "ritual_ZN15QTextCharFormat16setFontStyleNameERK7QString": [
       "nothing", "address", "text"
@@ -131,6 +134,10 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK15QTextCharFormat10anchorHrefEv": ["text", "address"],
+    "ritual_ZN15QTextCharFormat14setAnchorNamesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QTextCharFormat11anchorNamesEv": ["address", "address"],
     "ritual_ZN15QTextCharFormat19setTableCellRowSpanEi": [
       "nothing", "address", "int"
     ],

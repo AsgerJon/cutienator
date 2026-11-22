@@ -43,8 +43,18 @@
     "ritual_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti": [
       "bool", "address", "int", "int", "address", "int"
     ],
+    "ritual_ZNK18QAbstractItemModel8itemDataERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QAbstractItemModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex": [
       "bool", "address", "address"
+    ],
+    "ritual_ZNK18QAbstractItemModel9mimeTypesEv": ["address", "address"],
+    "ritual_ZNK18QAbstractItemModel8mimeDataERK5QListI11QModelIndexE": [
+      "address", "address", "address"
     ],
     "ritual_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
       "bool", "address", "address", "int", "int", "int", "address"
@@ -109,9 +119,13 @@
     "ritual_ZNK18QAbstractItemModel5buddyERK11QModelIndex": [
       "address", "address", "address"
     ],
+    "ritual_ZNK18QAbstractItemModel5matchERK11QModelIndexiRK8QVarianti6QFlagsIN2Qt9MatchFlagEE": [
+      "address", "address", "address", "int", "address", "int", "int"
+    ],
     "ritual_ZNK18QAbstractItemModel4spanERK11QModelIndex": [
       "address", "address", "address"
     ],
+    "ritual_ZNK18QAbstractItemModel9roleNamesEv": ["address", "address"],
     "ritual_ZNK18QAbstractItemModel10checkIndexERK11QModelIndex6QFlagsINS_16CheckIndexOptionEE": [
       "bool", "address", "address", "int"
     ],
@@ -196,6 +210,15 @@
     "ritual_own_ZN18QAbstractItemModel6revertEv": ["nothing", "address"],
     "ritual_own_ZN18QAbstractItemModel17resetInternalDataEv": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_list_make_QAbstractItemModel_ptr": ["address"],
+    "ritual_list_add_QAbstractItemModel_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QAbstractItemModel_ptr": ["long long", "address"],
+    "ritual_list_at_QAbstractItemModel_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QAbstractItemModel_ptr": ["nothing", "address"]
   }
 }

@@ -14,6 +14,7 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qtextoption.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QTextDocument may call these functions of it.
@@ -652,6 +653,13 @@ void ritual_ZN13QTextDocument11addResourceEiRK4QUrlRK8QVariant(
     const QUrl *name,
     const QVariant *resource) {
   self->addResource(type, *name, *resource);
+}
+
+//  QList<QTextFormat> QTextDocument::allFormats() const
+extern "C" Q_DECL_EXPORT
+QList<QTextFormat> *ritual_ZNK13QTextDocument10allFormatsEv(
+    const QTextDocument *self) {
+  return new QList<QTextFormat>(self->allFormats());
 }
 
 //  void QTextDocument::markContentsDirty(int from, int length)

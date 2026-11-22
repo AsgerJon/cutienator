@@ -91,11 +91,17 @@
     "ritual_ZN9QComboBox7addItemERK5QIconRK7QStringRK8QVariant": [
       "nothing", "address", "address", "text", "address"
     ],
+    "ritual_ZN9QComboBox8addItemsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9QComboBox10insertItemEiRK7QStringRK8QVariant": [
       "nothing", "address", "int", "text", "address"
     ],
     "ritual_ZN9QComboBox10insertItemEiRK5QIconRK7QStringRK8QVariant": [
       "nothing", "address", "int", "address", "text", "address"
+    ],
+    "ritual_ZN9QComboBox11insertItemsEiRK5QListI7QStringE": [
+      "nothing", "address", "int", "address"
     ],
     "ritual_ZN9QComboBox15insertSeparatorEi": ["nothing", "address", "int"],
     "ritual_ZN9QComboBox10removeItemEi": ["nothing", "address", "int"],

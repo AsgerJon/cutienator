@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qnamespace.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qlist.h>
 
 //  QKeySequence::QKeySequence()
 extern "C" Q_DECL_EXPORT
@@ -88,6 +89,24 @@ QKeySequence *ritual_ZN12QKeySequence10fromStringERK7QStringNS_14SequenceFormatE
   return new QKeySequence(QKeySequence::fromString(*str, format));
 }
 
+//  QList<QKeySequence> QKeySequence::listFromString(const QString &str,
+//      SequenceFormat format)
+extern "C" Q_DECL_EXPORT
+QList<QKeySequence> *ritual_ZN12QKeySequence14listFromStringERK7QStringNS_14SequenceFormatE(
+    const QString *str,
+    QKeySequence::SequenceFormat format) {
+  return new QList<QKeySequence>(QKeySequence::listFromString(*str, format));
+}
+
+//  QString QKeySequence::listToString(const QList<QKeySequence> &list,
+//      SequenceFormat format)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN12QKeySequence12listToStringERK5QListIS_ENS_14SequenceFormatE(
+    const QList<QKeySequence> *list,
+    QKeySequence::SequenceFormat format) {
+  return new QString(QKeySequence::listToString(*list, format));
+}
+
 //  SequenceMatch QKeySequence::matches(const QKeySequence &seq) const
 extern "C" Q_DECL_EXPORT
 QKeySequence::SequenceMatch ritual_ZNK12QKeySequence7matchesERKS_(
@@ -101,6 +120,13 @@ extern "C" Q_DECL_EXPORT
 QKeySequence *ritual_ZN12QKeySequence8mnemonicERK7QString(
     const QString *text) {
   return new QKeySequence(QKeySequence::mnemonic(*text));
+}
+
+//  QList<QKeySequence> QKeySequence::keyBindings(StandardKey key)
+extern "C" Q_DECL_EXPORT
+QList<QKeySequence> *ritual_ZN12QKeySequence11keyBindingsENS_11StandardKeyE(
+    QKeySequence::StandardKey key) {
+  return new QList<QKeySequence>(QKeySequence::keyBindings(key));
 }
 
 //  QVariant QKeySequence::operator QVariant() const
@@ -169,4 +195,38 @@ bool ritual_ZNK12QKeySequencegeERKS_(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12QKeySequence10isDetachedEv(const QKeySequence *self) {
   return self->isDetached();
+}
+
+//  QList<QKeySequence>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QKeySequence> *ritual_list_make_QKeySequence() {
+  return new QList<QKeySequence>();
+}
+
+//  void QList<QKeySequence>::append(const QKeySequence &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QKeySequence(
+    QList<QKeySequence> *self,
+    const QKeySequence *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QKeySequence>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QKeySequence(const QList<QKeySequence> *self) {
+  return self->size();
+}
+
+//  const QKeySequence &QList<QKeySequence>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QKeySequence *ritual_list_at_QKeySequence(
+    const QList<QKeySequence> *self,
+    long long index) {
+  return new QKeySequence(self->at(index));
+}
+
+//  QList<QKeySequence>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QKeySequence(QList<QKeySequence> *self) {
+  delete self;
 }

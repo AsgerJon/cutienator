@@ -58,9 +58,16 @@
     "ritual_ZN10QCborArraypLERK10QCborValue": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10QCborArray14fromStringListERK5QListI7QStringE": [
+      "address", "address"
+    ],
+    "ritual_ZN10QCborArray15fromVariantListERK5QListI8QVariantE": [
+      "address", "address"
+    ],
     "ritual_ZN10QCborArray13fromJsonArrayERK10QJsonArray": [
       "address", "address"
     ],
+    "ritual_ZNK10QCborArray13toVariantListEv": ["address", "address"],
     "ritual_ZNK10QCborArray11toJsonArrayEv": ["address", "address"],
     "ritual_ZeqRK10QCborArrayS1_": ["bool", "address", "address"],
     "ritual_ZneRK10QCborArrayS1_": ["bool", "address", "address"],

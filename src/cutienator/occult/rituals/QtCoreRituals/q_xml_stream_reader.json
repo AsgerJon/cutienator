@@ -74,8 +74,20 @@
       "text", "address"
     ],
     "ritual_ZNK16QXmlStreamReader4textEv": ["text", "address"],
+    "ritual_ZNK16QXmlStreamReader21namespaceDeclarationsEv": [
+      "address", "address"
+    ],
     "ritual_ZN16QXmlStreamReader28addExtraNamespaceDeclarationERK30QXmlStreamNamespaceDeclaration": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN16QXmlStreamReader29addExtraNamespaceDeclarationsERK5QListI30QXmlStreamNamespaceDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QXmlStreamReader20notationDeclarationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QXmlStreamReader18entityDeclarationsEv": [
+      "address", "address"
     ],
     "ritual_ZNK16QXmlStreamReader7dtdNameEv": ["text", "address"],
     "ritual_ZNK16QXmlStreamReader11dtdPublicIdEv": ["text", "address"],

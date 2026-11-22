@@ -14,11 +14,12 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from . import QHash
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QRangeModel
+  from . import QByteArray, QRangeModel
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -39,9 +40,9 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRangeModelImplBase that has a ritual and that
-  Python can call so far, 1 name in all: 'getImplementation'. None can be
-  made from Python: one comes out of a function of another class that gives
-  one back.
+  Python can call so far, 3 names in all: 'roleNames', 'getImplementation',
+  'roleNamesForSimpleType'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -54,8 +55,8 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  72 of the 74 functions Qt declares: 36 protected; 31 declared and nowhere
-  to be found; 5 takes or gives a type that cannot be passed yet.
+  70 of the 74 functions Qt declares: 36 protected; 31 declared and nowhere
+  to be found; 3 takes or gives a type that cannot be passed yet.
 
   What to expect
   --------------
@@ -137,6 +138,28 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
     )
     return QRangeModelImplBase._cuteAt(address)
 
+  @staticmethod
+  def roleNamesForSimpleType() -> QHash[int, QByteArray]:
+    """
+    Calls Qt's 'QHash<int, QByteArray>
+    QRangeModelImplBase::roleNamesForSimpleType()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#roleNamesForSimpleType
+
+    Returns
+    -------
+
+    QHash[int, QByteArray]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QHash<int, QByteArray> QRangeModelImplBase::roleNamesForSimpleType()
+    address = Rituals.call(
+        'ritual_ZN19QRangeModelImplBase22roleNamesForSimpleTypeEv',
+    )
+    from . import QByteArray
+    return QHash[int, QByteArray]._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -156,6 +179,26 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def roleNames(self) -> QHash[int, QByteArray]:
+    """
+    Calls Qt's 'QHash<int, QByteArray> QRangeModelImplBase::roleNames()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodelimplbase.html#roleNames
+
+    Returns
+    -------
+
+    QHash[int, QByteArray]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QHash<int, QByteArray> QRangeModelImplBase::roleNames() const
+    address = self.uglySide.call(
+        'ritual_ZNK19QRangeModelImplBase9roleNamesEv',
+    )
+    from . import QByteArray
+    return QHash[int, QByteArray]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

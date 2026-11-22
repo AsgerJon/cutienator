@@ -13,18 +13,20 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QAbstractItemModel, QObject
+from ..QtCore import Qt, QAbstractItemModel, QHash, QList, QMap, QObject
+from ..QtCore import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QMimeData, QModelIndex
+  from ..QtCore import QByteArray, QMetaObject, QMimeData, QModelIndex
   from ..QtCore import QModelRoleDataSpan, QVariant
   from . import QStandardItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
   QMimeData = WAIT['QMimeData']
   QModelIndex = WAIT['QModelIndex']
   QModelRoleDataSpan = WAIT['QModelRoleDataSpan']
@@ -48,17 +50,20 @@ class QStandardItemModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QStandardItemModel that has a ritual and that Python
-  can call so far, 43 names in all: 'metaObject', 'tr', 'index', 'parent',
-  'rowCount', 'columnCount', 'hasChildren', 'data', 'multiData', 'setData',
-  'clearItemData', 'headerData', 'setHeaderData', 'insertRows',
-  'insertColumns', 'removeRows', 'removeColumns', 'flags',
-  'supportedDropActions', 'clear', 'sort', 'itemFromIndex', 'indexFromItem',
-  'item', 'setItem', 'invisibleRootItem', 'horizontalHeaderItem',
+  can call so far, 55 names in all: 'metaObject', 'tr', 'setItemRoleNames',
+  'roleNames', 'index', 'parent', 'rowCount', 'columnCount', 'hasChildren',
+  'data', 'multiData', 'setData', 'clearItemData', 'headerData',
+  'setHeaderData', 'insertRows', 'insertColumns', 'removeRows',
+  'removeColumns', 'flags', 'supportedDropActions', 'itemData',
+  'setItemData', 'clear', 'sort', 'itemFromIndex', 'indexFromItem', 'item',
+  'setItem', 'invisibleRootItem', 'horizontalHeaderItem',
   'setHorizontalHeaderItem', 'verticalHeaderItem', 'setVerticalHeaderItem',
-  'setRowCount', 'setColumnCount', 'appendRow', 'insertRow', 'insertColumn',
-  'takeItem', 'takeHorizontalHeaderItem', 'takeVerticalHeaderItem',
-  'itemPrototype', 'setItemPrototype', 'sortRole', 'setSortRole',
-  'dropMimeData'. It can be made from Python, in 2 ways; see '__init__'.
+  'setHorizontalHeaderLabels', 'setVerticalHeaderLabels', 'setRowCount',
+  'setColumnCount', 'appendRow', 'appendColumn', 'insertRow', 'insertColumn',
+  'takeItem', 'takeRow', 'takeColumn', 'takeHorizontalHeaderItem',
+  'takeVerticalHeaderItem', 'itemPrototype', 'setItemPrototype', 'findItems',
+  'sortRole', 'setSortRole', 'mimeTypes', 'mimeData', 'dropMimeData'. It can
+  be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -69,7 +74,7 @@ class QStandardItemModel(QAbstractItemModel):
   What has no ritual
   ------------------
 
-  26 of the 74 functions Qt declares: 18 takes or gives a type that cannot be
+  11 of the 74 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet; 3 private; 2 forbidden; 1 a template; 1 a signal; 1 protected.
 
   What to expect
@@ -179,6 +184,26 @@ class QStandardItemModel(QAbstractItemModel):
     )
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
+
+  def roleNames(self) -> QHash[int, QByteArray]:
+    """
+    Calls Qt's 'QHash<int, QByteArray> QStandardItemModel::roleNames()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditemmodel.html#roleNames
+
+    Returns
+    -------
+
+    QHash[int, QByteArray]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QHash<int, QByteArray> QStandardItemModel::roleNames() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QStandardItemModel9roleNamesEv',
+    )
+    from ..QtCore import QByteArray
+    return QHash[int, QByteArray]._cuteOwning(address)
 
   @overload(int, int)
   @overload(int, int, QModelIndex)
@@ -464,6 +489,36 @@ class QStandardItemModel(QAbstractItemModel):
     return Qt.DropActions(self.uglySide.call(ritual))
 
   @overload(QModelIndex)
+  def itemData(self, index: QModelIndex) -> QMap[int, QVariant]:
+    """
+    Calls Qt's 'QMap<int, QVariant> QStandardItemModel::itemData(const
+    QModelIndex &index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditemmodel.html#itemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QMap[int, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QMap<int, QVariant> QStandardItemModel::itemData(const QModelIndex
+    #      &index) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QStandardItemModel8itemDataERK11QModelIndex',
+        self._valueOf(index),
+    )
+    from ..QtCore import QVariant
+    return QMap[int, QVariant]._cuteOwning(address)
+
+  @overload(QModelIndex)
   def itemFromIndex(self, index: QModelIndex) -> Optional[QStandardItem]:
     """
     Calls Qt's 'QStandardItem *QStandardItemModel::itemFromIndex(const
@@ -662,6 +717,50 @@ class QStandardItemModel(QAbstractItemModel):
     from . import QStandardItem
     return QStandardItem._cuteAt(address)
 
+  @overload(str)
+  @overload(str, Qt.MatchFlags)
+  @overload(str, Qt.MatchFlags, int)
+  def findItems(
+      self,
+      text: str,
+      flags: Qt.MatchFlags = Qt.MatchFlags.MatchExactly,
+      column: int = 0,
+  ) -> QList[QStandardItem]:
+    """
+    Calls Qt's 'QList<QStandardItem *> QStandardItemModel::findItems(const
+    QString &text, Qt::MatchFlags flags, int column) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditemmodel.html#findItems
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+
+    flags : Qt.MatchFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.MatchFlags.MatchExactly.
+
+    column : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    Returns
+    -------
+
+    QList[QStandardItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QStandardItem *> QStandardItemModel::findItems(const QString
+    #      &text, Qt::MatchFlags flags, int column) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QStandardItemModel9findItemsERK7QString6QFlagsIN2Qt9Ma'
+        'tchFlagEEi',
+        text, flags.value, column,
+    )
+    from . import QStandardItem
+    return QList[QStandardItem]._cuteOwning(address)
+
   def sortRole(self) -> int:
     """
     Calls Qt's 'int QStandardItemModel::sortRole() const'.
@@ -671,9 +770,84 @@ class QStandardItemModel(QAbstractItemModel):
     #  int QStandardItemModel::sortRole() const
     return self.uglySide.call('ritual_ZNK18QStandardItemModel8sortRoleEv')
 
+  def mimeTypes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QStandardItemModel::mimeTypes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditemmodel.html#mimeTypes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QStandardItemModel::mimeTypes() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QStandardItemModel9mimeTypesEv',
+    )
+    return QStringList._cuteOwning(address)
+
+  @overload(QList[QModelIndex])
+  def mimeData(self, indexes: QList[QModelIndex]) -> Optional[QMimeData]:
+    """
+    Calls Qt's 'QMimeData *QStandardItemModel::mimeData(const QModelIndexList
+    &indexes) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditemmodel.html#mimeData
+
+    Parameters
+    ----------
+
+    indexes : QList[QModelIndex]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    Optional[QMimeData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMimeData *QStandardItemModel::mimeData(const QModelIndexList
+    #      &indexes) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QStandardItemModel8mimeDataERK5QListI11QModelIndexE',
+        self._valueOf(indexes),
+    )
+    from ..QtCore import QMimeData
+    return QMimeData._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QHash[int, QByteArray])
+  def setItemRoleNames(self, roleNames: QHash[int, QByteArray]) -> None:
+    """
+    Calls Qt's 'void QStandardItemModel::setItemRoleNames(const QHash<int,
+    QByteArray> &roleNames)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstandarditemmodel.html#setItemRoleNames
+
+    Parameters
+    ----------
+
+    roleNames : QHash[int, QByteArray]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  void QStandardItemModel::setItemRoleNames(const QHash<int, QByteArray>
+    #      &roleNames)
+    self.uglySide.call(
+        'ritual_ZN18QStandardItemModel16setItemRoleNamesERK5QHashIi10QByteA'
+        'rrayE',
+        self._valueOf(roleNames),
+    )
 
   @overload(QModelIndex, QVariant)
   @overload(QModelIndex, QVariant, int)
@@ -758,6 +932,39 @@ class QStandardItemModel(QAbstractItemModel):
           'ionERK8QVarianti')
     return self.uglySide.call(
         ritual, section, orientation.value, self._valueOf(value), role,
+    )
+
+  @overload(QModelIndex, QMap[int, QVariant])
+  def setItemData(
+      self,
+      index: QModelIndex,
+      roles: QMap[int, QVariant],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QStandardItemModel::setItemData(const QModelIndex
+    &index, const QMap<int, QVariant> &roles)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstandarditemmodel.html#setItemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    roles : QMap[int, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  bool QStandardItemModel::setItemData(const QModelIndex &index, const
+    #      QMap<int, QVariant> &roles)
+    return self.uglySide.call(
+        'ritual_ZN18QStandardItemModel11setItemDataERK11QModelIndexRK4QMapI'
+        'i8QVariantE',
+        self._valueOf(index), self._valueOf(roles),
     )
 
   @overload(int, int, QStandardItem)
@@ -881,6 +1088,56 @@ class QStandardItemModel(QAbstractItemModel):
         'ritual_ZN18QStandardItemModel21setVerticalHeaderItemEiP13QStandard'
         'Item',
         row, self._addressOf(item),
+    )
+
+  @overload(QStringList)
+  def setHorizontalHeaderLabels(self, labels: QStringList) -> None:
+    """
+    Calls Qt's 'void QStandardItemModel::setHorizontalHeaderLabels(const
+    QStringList &labels)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstandarditemmodel.html#setHorizontalHeaderLabels
+
+    Parameters
+    ----------
+
+    labels : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QStandardItemModel::setHorizontalHeaderLabels(const QStringList
+    #      &labels)
+    self.uglySide.call(
+        'ritual_ZN18QStandardItemModel25setHorizontalHeaderLabelsERK5QListI'
+        '7QStringE',
+        self._valueOf(labels),
+    )
+
+  @overload(QStringList)
+  def setVerticalHeaderLabels(self, labels: QStringList) -> None:
+    """
+    Calls Qt's 'void QStandardItemModel::setVerticalHeaderLabels(const
+    QStringList &labels)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstandarditemmodel.html#setVerticalHeaderLabels
+
+    Parameters
+    ----------
+
+    labels : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QStandardItemModel::setVerticalHeaderLabels(const QStringList
+    #      &labels)
+    self.uglySide.call(
+        'ritual_ZN18QStandardItemModel23setVerticalHeaderLabelsERK5QListI7Q'
+        'StringE',
+        self._valueOf(labels),
     )
 
   @overload(int)
@@ -1309,6 +1566,29 @@ class QStandardItemModel(QAbstractItemModel):
       ritual = 'ritual_own_ZN18QStandardItemModel4sortEiN2Qt9SortOrderE'
     self.uglySide.call(ritual, column, order.value)
 
+  @overload(QList[QStandardItem])
+  def appendRow(self, items: QList[QStandardItem]) -> None:
+    """
+    Calls Qt's 'void QStandardItemModel::appendRow(const QList<QStandardItem
+    *> &items)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditemmodel.html#appendRow
+
+    Parameters
+    ----------
+
+    items : QList[QStandardItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QStandardItemModel::appendRow(const QList<QStandardItem *>
+    #      &items)
+    self.uglySide.call(
+        'ritual_ZN18QStandardItemModel9appendRowERK5QListIP13QStandardItemE',
+        self._valueOf(items),
+    )
+
   @overload(QStandardItem)
   @overload(NoneType)
   def appendRow(self, item: Optional[QStandardItem]) -> None:
@@ -1328,6 +1608,58 @@ class QStandardItemModel(QAbstractItemModel):
     self.uglySide.call(
         'ritual_ZN18QStandardItemModel9appendRowEP13QStandardItem',
         self._addressOf(item),
+    )
+
+  @overload(QList[QStandardItem])
+  def appendColumn(self, items: QList[QStandardItem]) -> None:
+    """
+    Calls Qt's 'void QStandardItemModel::appendColumn(const
+    QList<QStandardItem *> &items)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstandarditemmodel.html#appendColumn
+
+    Parameters
+    ----------
+
+    items : QList[QStandardItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QStandardItemModel::appendColumn(const QList<QStandardItem *>
+    #      &items)
+    self.uglySide.call(
+        'ritual_ZN18QStandardItemModel12appendColumnERK5QListIP13QStandardI'
+        'temE',
+        self._valueOf(items),
+    )
+
+  @overload(int, QList[QStandardItem])
+  def insertRow(self, row: int, items: QList[QStandardItem]) -> None:
+    """
+    Calls Qt's 'void QStandardItemModel::insertRow(int row, const
+    QList<QStandardItem *> &items)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditemmodel.html#insertRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    items : QList[QStandardItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QStandardItemModel::insertRow(int row, const QList<QStandardItem
+    #      *> &items)
+    self.uglySide.call(
+        'ritual_ZN18QStandardItemModel9insertRowEiRK5QListIP13QStandardItem'
+        'E',
+        row, self._valueOf(items),
     )
 
   @overload(int, QStandardItem)
@@ -1386,6 +1718,34 @@ class QStandardItemModel(QAbstractItemModel):
     return self.uglySide.call(
         'ritual_ZN18QStandardItemModel9insertRowEiRK11QModelIndex',
         row, self._valueOf(parent),
+    )
+
+  @overload(int, QList[QStandardItem])
+  def insertColumn(self, column: int, items: QList[QStandardItem]) -> None:
+    """
+    Calls Qt's 'void QStandardItemModel::insertColumn(int column, const
+    QList<QStandardItem *> &items)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstandarditemmodel.html#insertColumn
+
+    Parameters
+    ----------
+
+    column : int
+      Passed on as it is.
+
+    items : QList[QStandardItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QStandardItemModel::insertColumn(int column, const
+    #      QList<QStandardItem *> &items)
+    self.uglySide.call(
+        'ritual_ZN18QStandardItemModel12insertColumnEiRK5QListIP13QStandard'
+        'ItemE',
+        column, self._valueOf(items),
     )
 
   @overload(int)
@@ -1454,6 +1814,59 @@ class QStandardItemModel(QAbstractItemModel):
     )
     from . import QStandardItem
     return QStandardItem._cuteAt(address)
+
+  @overload(int)
+  def takeRow(self, row: int) -> QList[QStandardItem]:
+    """
+    Calls Qt's 'QList<QStandardItem *> QStandardItemModel::takeRow(int row)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditemmodel.html#takeRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QList[QStandardItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QStandardItem *> QStandardItemModel::takeRow(int row)
+    address = self.uglySide.call(
+        'ritual_ZN18QStandardItemModel7takeRowEi', row,
+    )
+    from . import QStandardItem
+    return QList[QStandardItem]._cuteOwning(address)
+
+  @overload(int)
+  def takeColumn(self, column: int) -> QList[QStandardItem]:
+    """
+    Calls Qt's 'QList<QStandardItem *> QStandardItemModel::takeColumn(int
+    column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditemmodel.html#takeColumn
+
+    Parameters
+    ----------
+
+    column : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QList[QStandardItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QStandardItem *> QStandardItemModel::takeColumn(int column)
+    address = self.uglySide.call(
+        'ritual_ZN18QStandardItemModel10takeColumnEi', column,
+    )
+    from . import QStandardItem
+    return QList[QStandardItem]._cuteOwning(address)
 
   @overload(int)
   def takeHorizontalHeaderItem(self, column: int) -> Optional[QStandardItem]:

@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -47,7 +47,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QStandardItem that has a ritual and that Python can
-  call so far, 72 names in all: 'data', 'multiData', 'setData', 'clearData',
+  call so far, 77 names in all: 'data', 'multiData', 'setData', 'clearData',
   'text', 'setText', 'icon', 'setIcon', 'toolTip', 'setToolTip', 'statusTip',
   'setStatusTip', 'whatsThis', 'setWhatsThis', 'sizeHint', 'setSizeHint',
   'font', 'setFont', 'textAlignment', 'setTextAlignment', 'background',
@@ -59,10 +59,11 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   'setAutoTristate', 'isUserTristate', 'setUserTristate', 'isDragEnabled',
   'setDragEnabled', 'isDropEnabled', 'setDropEnabled', 'parent', 'row',
   'column', 'index', 'model', 'rowCount', 'setRowCount', 'columnCount',
-  'setColumnCount', 'hasChildren', 'child', 'setChild', 'insertRows',
-  'insertColumns', 'removeRow', 'removeColumn', 'removeRows',
-  'removeColumns', 'insertRow', 'appendRow', 'takeChild', 'sortChildren',
-  'clone', 'type'. It can be made from Python, in 4 ways; see '__init__'.
+  'setColumnCount', 'hasChildren', 'child', 'setChild', 'insertRow',
+  'insertColumn', 'insertRows', 'insertColumns', 'removeRow', 'removeColumn',
+  'removeRows', 'removeColumns', 'appendRow', 'appendRows', 'appendColumn',
+  'takeChild', 'takeRow', 'takeColumn', 'sortChildren', 'clone', 'type'. It
+  can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -73,8 +74,8 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  17 of the 95 functions Qt declares: 11 takes or gives a type that cannot be
-  passed yet; 4 protected; 2 private.
+  9 of the 95 functions Qt declares: 4 protected; 3 takes or gives a type
+  that cannot be passed yet; 2 private.
 
   What to expect
   --------------
@@ -1337,6 +1338,108 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     #  void QStandardItem::clearData()
     self.uglySide.call('ritual_ZN13QStandardItem9clearDataEv')
 
+  @overload(int, QList[WAIT['QStandardItem']])
+  def insertRow(self, row: int, items: QList[QStandardItem]) -> None:
+    """
+    Calls Qt's 'void QStandardItem::insertRow(int row, const
+    QList<QStandardItem *> &items)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#insertRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    items : QList[QStandardItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QStandardItem::insertRow(int row, const QList<QStandardItem *>
+    #      &items)
+    self.uglySide.call(
+        'ritual_ZN13QStandardItem9insertRowEiRK5QListIPS_E',
+        row, self._valueOf(items),
+    )
+
+  @overload(int, THIS)
+  @overload(int, NoneType)
+  def insertRow(self, row: int, item: Optional[QStandardItem]) -> None:
+    """
+    Calls Qt's 'void QStandardItem::insertRow(int row, QStandardItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#insertRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    item : Optional[QStandardItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QStandardItem::insertRow(int row, QStandardItem *item)
+    self.uglySide.call(
+        'ritual_ZN13QStandardItem9insertRowEiPS_',
+        row, self._addressOf(item),
+    )
+
+  @overload(int, QList[WAIT['QStandardItem']])
+  def insertColumn(self, column: int, items: QList[QStandardItem]) -> None:
+    """
+    Calls Qt's 'void QStandardItem::insertColumn(int column, const
+    QList<QStandardItem *> &items)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#insertColumn
+
+    Parameters
+    ----------
+
+    column : int
+      Passed on as it is.
+
+    items : QList[QStandardItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QStandardItem::insertColumn(int column, const QList<QStandardItem
+    #      *> &items)
+    self.uglySide.call(
+        'ritual_ZN13QStandardItem12insertColumnEiRK5QListIPS_E',
+        column, self._valueOf(items),
+    )
+
+  @overload(int, QList[WAIT['QStandardItem']])
+  def insertRows(self, row: int, items: QList[QStandardItem]) -> None:
+    """
+    Calls Qt's 'void QStandardItem::insertRows(int row, const
+    QList<QStandardItem *> &items)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#insertRows
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    items : QList[QStandardItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QStandardItem::insertRows(int row, const QList<QStandardItem *>
+    #      &items)
+    self.uglySide.call(
+        'ritual_ZN13QStandardItem10insertRowsEiRK5QListIPS_E',
+        row, self._valueOf(items),
+    )
+
   @overload(int, int)
   def insertRows(self, row: int, count: int) -> None:
     """
@@ -1449,28 +1552,26 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
         'ritual_ZN13QStandardItem13removeColumnsEii', column, count,
     )
 
-  @overload(int, THIS)
-  @overload(int, NoneType)
-  def insertRow(self, row: int, item: Optional[QStandardItem]) -> None:
+  @overload(QList[WAIT['QStandardItem']])
+  def appendRow(self, items: QList[QStandardItem]) -> None:
     """
-    Calls Qt's 'void QStandardItem::insertRow(int row, QStandardItem *item)'.
+    Calls Qt's 'void QStandardItem::appendRow(const QList<QStandardItem *>
+    &items)'.
 
-    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#insertRow
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#appendRow
 
     Parameters
     ----------
 
-    row : int
-      Passed on as it is.
-
-    item : Optional[QStandardItem]
-      Passed on as the address of its C++ object. None is passed on as no
-      object.
+    items : QList[QStandardItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
     """
-    #  void QStandardItem::insertRow(int row, QStandardItem *item)
+    #  void QStandardItem::appendRow(const QList<QStandardItem *> &items)
     self.uglySide.call(
-        'ritual_ZN13QStandardItem9insertRowEiPS_',
-        row, self._addressOf(item),
+        'ritual_ZN13QStandardItem9appendRowERK5QListIPS_E',
+        self._valueOf(items),
     )
 
   @overload(THIS)
@@ -1491,6 +1592,50 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     #  void QStandardItem::appendRow(QStandardItem *item)
     self.uglySide.call(
         'ritual_ZN13QStandardItem9appendRowEPS_', self._addressOf(item),
+    )
+
+  @overload(QList[WAIT['QStandardItem']])
+  def appendRows(self, items: QList[QStandardItem]) -> None:
+    """
+    Calls Qt's 'void QStandardItem::appendRows(const QList<QStandardItem *>
+    &items)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#appendRows
+
+    Parameters
+    ----------
+
+    items : QList[QStandardItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QStandardItem::appendRows(const QList<QStandardItem *> &items)
+    self.uglySide.call(
+        'ritual_ZN13QStandardItem10appendRowsERK5QListIPS_E',
+        self._valueOf(items),
+    )
+
+  @overload(QList[WAIT['QStandardItem']])
+  def appendColumn(self, items: QList[QStandardItem]) -> None:
+    """
+    Calls Qt's 'void QStandardItem::appendColumn(const QList<QStandardItem *>
+    &items)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#appendColumn
+
+    Parameters
+    ----------
+
+    items : QList[QStandardItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QStandardItem::appendColumn(const QList<QStandardItem *> &items)
+    self.uglySide.call(
+        'ritual_ZN13QStandardItem12appendColumnERK5QListIPS_E',
+        self._valueOf(items),
     )
 
   @overload(int)
@@ -1525,6 +1670,55 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     return QStandardItem._cuteAt(address)
 
   @overload(int)
+  def takeRow(self, row: int) -> QList[QStandardItem]:
+    """
+    Calls Qt's 'QList<QStandardItem *> QStandardItem::takeRow(int row)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#takeRow
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QList[QStandardItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QStandardItem *> QStandardItem::takeRow(int row)
+    address = self.uglySide.call('ritual_ZN13QStandardItem7takeRowEi', row)
+    return QList[QStandardItem]._cuteOwning(address)
+
+  @overload(int)
+  def takeColumn(self, column: int) -> QList[QStandardItem]:
+    """
+    Calls Qt's 'QList<QStandardItem *> QStandardItem::takeColumn(int
+    column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#takeColumn
+
+    Parameters
+    ----------
+
+    column : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QList[QStandardItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QStandardItem *> QStandardItem::takeColumn(int column)
+    address = self.uglySide.call(
+        'ritual_ZN13QStandardItem10takeColumnEi', column,
+    )
+    return QList[QStandardItem]._cuteOwning(address)
+
+  @overload(int)
   @overload(int, Qt.SortOrder)
   def sortChildren(
       self,
@@ -1552,3 +1746,16 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
         'ritual_ZN13QStandardItem12sortChildrenEiN2Qt9SortOrderE',
         column, order.value,
     )
+
+
+#  Qt's 'QList<QStandardItem *>': the list of QStandardItem, which
+#  'QList[QStandardItem]' gives. It is made here, so that there is one as
+#  soon as there can be a QStandardItem.
+QList.createKind(
+    QStandardItem, 'address',
+    make='ritual_list_make_QStandardItem_ptr',
+    add='ritual_list_add_QStandardItem_ptr',
+    size='ritual_list_size_QStandardItem_ptr',
+    at='ritual_list_at_QStandardItem_ptr',
+    drop='ritual_list_drop_QStandardItem_ptr',
+)

@@ -29,6 +29,11 @@
     ],
     "ritual_Zls6QDebugRK17QFontVariableAxis": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_list_make_QFontVariableAxis": ["address"],
+    "ritual_list_add_QFontVariableAxis": ["nothing", "address", "address"],
+    "ritual_list_size_QFontVariableAxis": ["long long", "address"],
+    "ritual_list_at_QFontVariableAxis": ["address", "address", "long long"],
+    "ritual_list_drop_QFontVariableAxis": ["nothing", "address"]
   }
 }

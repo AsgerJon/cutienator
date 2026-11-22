@@ -2,6 +2,7 @@
 //  QtCore/qsize.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qsize.h>
 #include <QtCore/qmargins.h>
+#include <QtCore/qlist.h>
 
 //  QSize::QSize()
 extern "C" Q_DECL_EXPORT
@@ -212,5 +213,35 @@ QSizeF *ritual_ZNK5QSize7toSizeFEv(const QSize *self) {
 //  QSize::~QSize()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QSizeD1Ev(QSize *self) {
+  delete self;
+}
+
+//  QList<QSize>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QSize> *ritual_list_make_QSize() {
+  return new QList<QSize>();
+}
+
+//  void QList<QSize>::append(const QSize &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QSize(QList<QSize> *self, const QSize *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QSize>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QSize(const QList<QSize> *self) {
+  return self->size();
+}
+
+//  const QSize &QList<QSize>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_list_at_QSize(const QList<QSize> *self, long long index) {
+  return new QSize(self->at(index));
+}
+
+//  QList<QSize>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QSize(QList<QSize> *self) {
   delete self;
 }

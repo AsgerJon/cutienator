@@ -8,6 +8,7 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qregion.h>
 #include <QtGui/qtransform.h>
+#include <QtCore/qlist.h>
 
 //  QPainterPath::QPainterPath()
 extern "C" Q_DECL_EXPORT
@@ -418,6 +419,24 @@ extern "C" Q_DECL_EXPORT
 QPainterPath *ritual_ZNK12QPainterPath10toReversedEv(
     const QPainterPath *self) {
   return new QPainterPath(self->toReversed());
+}
+
+//  QList<QPolygonF> QPainterPath::toSubpathPolygons(const QTransform
+//      &matrix) const
+extern "C" Q_DECL_EXPORT
+QList<QPolygonF> *ritual_ZNK12QPainterPath17toSubpathPolygonsERK10QTransform(
+    const QPainterPath *self,
+    const QTransform *matrix) {
+  return new QList<QPolygonF>(self->toSubpathPolygons(*matrix));
+}
+
+//  QList<QPolygonF> QPainterPath::toFillPolygons(const QTransform &matrix)
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QPolygonF> *ritual_ZNK12QPainterPath14toFillPolygonsERK10QTransform(
+    const QPainterPath *self,
+    const QTransform *matrix) {
+  return new QList<QPolygonF>(self->toFillPolygons(*matrix));
 }
 
 //  QPolygonF QPainterPath::toFillPolygon(const QTransform &matrix) const

@@ -16,6 +16,9 @@
     "ritual_ZNK13QTextFragment10charFormatEv": ["address", "address"],
     "ritual_ZNK13QTextFragment15charFormatIndexEv": ["int", "address"],
     "ritual_ZNK13QTextFragment4textEv": ["text", "address"],
+    "ritual_ZNK13QTextFragment9glyphRunsEii": [
+      "address", "address", "int", "int"
+    ],
     "ritual_ZN13QTextFragmentD1Ev": ["nothing", "address"]
   }
 }

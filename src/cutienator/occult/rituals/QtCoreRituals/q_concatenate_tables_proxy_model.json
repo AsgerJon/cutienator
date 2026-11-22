@@ -15,6 +15,9 @@
       "address", "address"
     ],
     "ritual_ZN28QConcatenateTablesProxyModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QConcatenateTablesProxyModel12sourceModelsEv": [
+      "address", "address"
+    ],
     "ritual_ZN28QConcatenateTablesProxyModel14addSourceModelEP18QAbstractItemModel": [
       "nothing", "address", "address"
     ],
@@ -32,6 +35,12 @@
     ],
     "ritual_ZN28QConcatenateTablesProxyModel7setDataERK11QModelIndexRK8QVarianti": [
       "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK28QConcatenateTablesProxyModel8itemDataERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN28QConcatenateTablesProxyModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE": [
+      "bool", "address", "address", "address"
     ],
     "ritual_ZNK28QConcatenateTablesProxyModel5flagsERK11QModelIndex": [
       "int", "address", "address"
@@ -51,6 +60,12 @@
     "ritual_ZNK28QConcatenateTablesProxyModel11columnCountERK11QModelIndex": [
       "int", "address", "address"
     ],
+    "ritual_ZNK28QConcatenateTablesProxyModel9mimeTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QConcatenateTablesProxyModel8mimeDataERK5QListI11QModelIndexE": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK28QConcatenateTablesProxyModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
       "bool", "address", "address", "int", "int", "int", "address"
     ],
@@ -59,6 +74,9 @@
     ],
     "ritual_ZNK28QConcatenateTablesProxyModel4spanERK11QModelIndex": [
       "address", "address", "address"
+    ],
+    "ritual_ZNK28QConcatenateTablesProxyModel9roleNamesEv": [
+      "address", "address"
     ],
     "ritual_take_QConcatenateTablesProxyModel": [
       "bool", "address", "chars", "address"

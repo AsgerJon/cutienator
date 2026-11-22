@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -43,10 +43,11 @@ class QUndoGroup(QObject):
   -----------
 
   Every function of Qt's QUndoGroup that has a ritual and that Python can
-  call so far, 15 names in all: 'metaObject', 'tr', 'addStack',
-  'removeStack', 'activeStack', 'createUndoAction', 'createRedoAction',
-  'canUndo', 'canRedo', 'undoText', 'redoText', 'isClean', 'undo', 'redo',
-  'setActiveStack'. It can be made from Python, in 1 way; see '__init__'.
+  call so far, 16 names in all: 'metaObject', 'tr', 'addStack',
+  'removeStack', 'stacks', 'activeStack', 'createUndoAction',
+  'createRedoAction', 'canUndo', 'canRedo', 'undoText', 'redoText',
+  'isClean', 'undo', 'redo', 'setActiveStack'. It can be made from Python, in
+  1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,8 +58,8 @@ class QUndoGroup(QObject):
   What has no ritual
   ------------------
 
-  16 of the 33 functions Qt declares: 7 a signal; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
+  15 of the 33 functions Qt declares: 7 a signal; 3 private; 2 takes or gives
+  a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -163,6 +164,23 @@ class QUndoGroup(QObject):
     address = self.uglySide.call('ritual_ZNK10QUndoGroup10metaObjectEv')
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
+
+  def stacks(self) -> QList[QUndoStack]:
+    """
+    Calls Qt's 'QList<QUndoStack *> QUndoGroup::stacks() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundogroup.html#stacks
+
+    Returns
+    -------
+
+    QList[QUndoStack]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QUndoStack *> QUndoGroup::stacks() const
+    address = self.uglySide.call('ritual_ZNK10QUndoGroup6stacksEv')
+    from . import QUndoStack
+    return QList[QUndoStack]._cuteOwning(address)
 
   def activeStack(self) -> Optional[QUndoStack]:
     """

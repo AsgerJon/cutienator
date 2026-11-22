@@ -22,6 +22,15 @@
     "ritual_ZneRK27QXmlStreamEntityDeclarationS1_": [
       "bool", "address", "address"
     ],
-    "ritual_ZN27QXmlStreamEntityDeclarationD1Ev": ["nothing", "address"]
+    "ritual_ZN27QXmlStreamEntityDeclarationD1Ev": ["nothing", "address"],
+    "ritual_list_make_QXmlStreamEntityDeclaration": ["address"],
+    "ritual_list_add_QXmlStreamEntityDeclaration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QXmlStreamEntityDeclaration": ["long long", "address"],
+    "ritual_list_at_QXmlStreamEntityDeclaration": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QXmlStreamEntityDeclaration": ["nothing", "address"]
   }
 }

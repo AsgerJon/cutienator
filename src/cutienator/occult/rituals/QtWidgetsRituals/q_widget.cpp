@@ -19,8 +19,10 @@
 #include <QtCore/qbytearray.h>
 #include <QtWidgets/qsizepolicy.h>
 #include <QtCore/qmargins.h>
+#include <QtGui/qaction.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QWidget may call these functions of it.
@@ -2368,6 +2370,24 @@ void ritual_ZN7QWidget9addActionEP7QAction(QWidget *self, QAction *action) {
   self->addAction(action);
 }
 
+//  void QWidget::addActions(const QList<QAction *> &actions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWidget10addActionsERK5QListIP7QActionE(
+    QWidget *self,
+    const QList<QAction *> *actions) {
+  self->addActions(*actions);
+}
+
+//  void QWidget::insertActions(QAction *before, const QList<QAction *>
+//      &actions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWidget13insertActionsEP7QActionRK5QListIS1_E(
+    QWidget *self,
+    QAction *before,
+    const QList<QAction *> *actions) {
+  self->insertActions(before, *actions);
+}
+
 //  void QWidget::insertAction(QAction *before, QAction *action)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget12insertActionEP7QActionS1_(
@@ -2383,6 +2403,12 @@ void ritual_ZN7QWidget12removeActionEP7QAction(
     QWidget *self,
     QAction *action) {
   self->removeAction(action);
+}
+
+//  QList<QAction *> QWidget::actions() const
+extern "C" Q_DECL_EXPORT
+QList<QAction *> *ritual_ZNK7QWidget7actionsEv(const QWidget *self) {
+  return new QList<QAction *>(self->actions());
 }
 
 //  QAction *QWidget::addAction(const QString &text)
@@ -2969,4 +2995,36 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN7QWidget18focusNextPrevChildEb(QWidget *self, bool next) {
   return static_cast<OwnQWidget *>(self)->OwnQWidget::focusNextPrevChild(
       next);
+}
+
+//  QList<QWidget *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QWidget *> *ritual_list_make_QWidget_ptr() {
+  return new QList<QWidget *>();
+}
+
+//  void QList<QWidget *>::append(const QWidget * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QWidget_ptr(QList<QWidget *> *self, QWidget *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QWidget *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QWidget_ptr(const QList<QWidget *> *self) {
+  return self->size();
+}
+
+//  const QWidget * &QList<QWidget *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_list_at_QWidget_ptr(
+    const QList<QWidget *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QWidget *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QWidget_ptr(QList<QWidget *> *self) {
+  delete self;
 }

@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QByteArray, QDebug, QDir
@@ -38,11 +39,11 @@ class QStorageInfo(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QStorageInfo that has a ritual and that Python can
-  call so far, 20 names in all: 'setPath', 'rootPath', 'device', 'subvolume',
+  call so far, 21 names in all: 'setPath', 'rootPath', 'device', 'subvolume',
   'fileSystemType', 'name', 'displayName', 'bytesTotal', 'bytesFree',
   'bytesAvailable', 'blockSize', 'isRoot', 'isReadOnly', 'isReady',
-  'isValid', 'refresh', 'root', '__eq__', '__ne__', '__rlshift__'. It can be
-  made from Python, in 4 ways; see '__init__'.
+  'isValid', 'refresh', 'mountedVolumes', 'root', '__eq__', '__ne__',
+  '__rlshift__'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -53,7 +54,7 @@ class QStorageInfo(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 31 functions Qt declares: 5 takes or gives a type that cannot be
+  5 of the 31 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -73,6 +74,23 @@ class QStorageInfo(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def mountedVolumes() -> QList[QStorageInfo]:
+    """
+    Calls Qt's 'QList<QStorageInfo> QStorageInfo::mountedVolumes()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstorageinfo.html#mountedVolumes
+
+    Returns
+    -------
+
+    QList[QStorageInfo]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QStorageInfo> QStorageInfo::mountedVolumes()
+    address = Rituals.call('ritual_ZN12QStorageInfo14mountedVolumesEv')
+    return QList[QStorageInfo]._cuteOwning(address)
 
   @staticmethod
   def root() -> QStorageInfo:
@@ -513,3 +531,16 @@ class QStorageInfo(CuteMixin, metaclass=MetaCute):
     """
     #  void QStorageInfo::refresh()
     self.uglySide.call('ritual_ZN12QStorageInfo7refreshEv')
+
+
+#  Qt's 'QList<QStorageInfo>': the list of QStorageInfo, which
+#  'QList[QStorageInfo]' gives. It is made here, so that there is one as soon
+#  as there can be a QStorageInfo.
+QList.createKind(
+    QStorageInfo, 'value',
+    make='ritual_list_make_QStorageInfo',
+    add='ritual_list_add_QStorageInfo',
+    size='ritual_list_size_QStorageInfo',
+    at='ritual_list_at_QStorageInfo',
+    drop='ritual_list_drop_QStorageInfo',
+)

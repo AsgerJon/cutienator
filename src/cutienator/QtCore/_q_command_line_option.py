@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, MetaCute
 from ..occult import Rituals
+from . import QList, QStringList
 
 
 class QCommandLineOption(CuteMixin, metaclass=MetaCute):
@@ -29,9 +30,10 @@ class QCommandLineOption(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCommandLineOption that has a ritual and that Python
-  can call so far, 7 names in all: 'setValueName', 'valueName',
-  'setDescription', 'description', 'setDefaultValue', 'flags', 'setFlags'. It
-  can be made from Python, in 3 ways; see '__init__'.
+  can call so far, 10 names in all: 'names', 'setValueName', 'valueName',
+  'setDescription', 'description', 'setDefaultValue', 'setDefaultValues',
+  'defaultValues', 'flags', 'setFlags'. It can be made from Python, in 5
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -42,7 +44,7 @@ class QCommandLineOption(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  8 of the 19 functions Qt declares: 8 takes or gives a type that cannot be
+  3 of the 19 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -104,6 +106,22 @@ class QCommandLineOption(CuteMixin, metaclass=MetaCute):
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def names(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QCommandLineOption::names() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcommandlineoption.html#names
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QCommandLineOption::names() const
+    address = self.uglySide.call('ritual_ZNK18QCommandLineOption5namesEv')
+    return QStringList._cuteOwning(address)
+
   def valueName(self) -> str:
     """
     Calls Qt's 'QString QCommandLineOption::valueName() const'.
@@ -136,6 +154,25 @@ class QCommandLineOption(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK18QCommandLineOption11descriptionEv',
     )
+
+  def defaultValues(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QCommandLineOption::defaultValues() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcommandlineoption.html#defaultValues
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QCommandLineOption::defaultValues() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QCommandLineOption13defaultValuesEv',
+    )
+    return QStringList._cuteOwning(address)
 
   def flags(self) -> Flags:
     """
@@ -219,6 +256,30 @@ class QCommandLineOption(CuteMixin, metaclass=MetaCute):
         defaultValue,
     )
 
+  @overload(QStringList)
+  def setDefaultValues(self, defaultValues: QStringList) -> None:
+    """
+    Calls Qt's 'void QCommandLineOption::setDefaultValues(const QStringList
+    &defaultValues)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcommandlineoption.html#setDefaultValues
+
+    Parameters
+    ----------
+
+    defaultValues : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QCommandLineOption::setDefaultValues(const QStringList
+    #      &defaultValues)
+    self.uglySide.call(
+        'ritual_ZN18QCommandLineOption16setDefaultValuesERK5QListI7QStringE',
+        self._valueOf(defaultValues),
+    )
+
   @overload(Flags)
   def setFlags(self, aflags: Flags) -> None:
     """
@@ -271,6 +332,30 @@ class QCommandLineOption(CuteMixin, metaclass=MetaCute):
         'ritual_ZN18QCommandLineOptionC1ERK7QString', name,
     ))
 
+  @overload(QStringList)
+  def __init__(self, names: QStringList) -> None:
+    """
+    Notes what was given, for Qt's
+    'QCommandLineOption::QCommandLineOption(const QStringList &names)', which
+    is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcommandlineoption.html#QCommandLineOption
+
+    Parameters
+    ----------
+
+    names : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  QCommandLineOption::QCommandLineOption(const QStringList &names)
+    self._noteCreation(QCommandLineOption, lambda: Rituals.call(
+        'ritual_ZN18QCommandLineOptionC1ERK5QListI7QStringE',
+        self._valueOf(names),
+    ))
+
   @overload(str, str)
   @overload(str, str, str)
   @overload(str, str, str, str)
@@ -315,6 +400,52 @@ class QCommandLineOption(CuteMixin, metaclass=MetaCute):
         name, description, valueName, defaultValue,
     ))
 
+  @overload(QStringList, str)
+  @overload(QStringList, str, str)
+  @overload(QStringList, str, str, str)
+  def __init__(
+      self,
+      names: QStringList,
+      description: str,
+      valueName: str = '',
+      defaultValue: str = '',
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QCommandLineOption::QCommandLineOption(const QStringList &names, const
+    QString &description, const QString &valueName, const QString
+    &defaultValue)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcommandlineoption.html#QCommandLineOption
+
+    Parameters
+    ----------
+
+    names : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    description : str
+      Passed on as it is: a QString is made of it for the call.
+
+    valueName : str
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
+
+    defaultValue : str
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
+    """
+    #  QCommandLineOption::QCommandLineOption(const QStringList &names, const
+    #      QString &description, const QString &valueName, const QString
+    #      &defaultValue)
+    self._noteCreation(QCommandLineOption, lambda: Rituals.call(
+        'ritual_ZN18QCommandLineOptionC1ERK5QListI7QStringERKS1_S6_S6_',
+        self._valueOf(names), description, valueName, defaultValue,
+    ))
+
   @overload(THIS)
   def __init__(self, other: QCommandLineOption) -> None:
     """
@@ -357,3 +488,16 @@ class QCommandLineOption(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QCommandLineOption>': the list of QCommandLineOption, which
+#  'QList[QCommandLineOption]' gives. It is made here, so that there is one
+#  as soon as there can be a QCommandLineOption.
+QList.createKind(
+    QCommandLineOption, 'value',
+    make='ritual_list_make_QCommandLineOption',
+    add='ritual_list_add_QCommandLineOption',
+    size='ritual_list_size_QCommandLineOption',
+    at='ritual_list_at_QCommandLineOption',
+    drop='ritual_list_drop_QCommandLineOption',
+)

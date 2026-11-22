@@ -133,6 +133,11 @@
     "ritual_ZltRK10QCborValueS1_": ["bool", "address", "address"],
     "ritual_ZgtRK10QCborValueS1_": ["bool", "address", "address"],
     "ritual_ZleRK10QCborValueS1_": ["bool", "address", "address"],
-    "ritual_ZgeRK10QCborValueS1_": ["bool", "address", "address"]
+    "ritual_ZgeRK10QCborValueS1_": ["bool", "address", "address"],
+    "ritual_list_make_QCborValue": ["address"],
+    "ritual_list_add_QCborValue": ["nothing", "address", "address"],
+    "ritual_list_size_QCborValue": ["long long", "address"],
+    "ritual_list_at_QCborValue": ["address", "address", "long long"],
+    "ritual_list_drop_QCborValue": ["nothing", "address"]
   }
 }

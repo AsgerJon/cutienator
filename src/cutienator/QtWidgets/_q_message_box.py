@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 from . import QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -55,8 +55,8 @@ class QMessageBox(QDialog):
   -----------
 
   Every function of Qt's QMessageBox that has a ritual and that Python can
-  call so far, 52 names in all: 'metaObject', 'tr', 'addButton',
-  'removeButton', 'open', 'buttonRole', 'setStandardButtons',
+  call so far, 53 names in all: 'metaObject', 'tr', 'addButton',
+  'removeButton', 'open', 'buttons', 'buttonRole', 'setStandardButtons',
   'standardButtons', 'standardButton', 'button', 'defaultButton',
   'setDefaultButton', 'escapeButton', 'setEscapeButton', 'clickedButton',
   'text', 'setText', 'icon', 'setIcon', 'iconPixmap', 'setIconPixmap',
@@ -99,8 +99,8 @@ class QMessageBox(QDialog):
   What has no ritual
   ------------------
 
-  10 of the 82 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template; 1 a signal.
+  9 of the 82 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
 
   What to expect
   --------------
@@ -1087,6 +1087,23 @@ class QMessageBox(QDialog):
     address = self.uglySide.call('ritual_ZNK11QMessageBox10metaObjectEv')
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
+
+  def buttons(self) -> QList[QAbstractButton]:
+    """
+    Calls Qt's 'QList<QAbstractButton *> QMessageBox::buttons() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmessagebox.html#buttons
+
+    Returns
+    -------
+
+    QList[QAbstractButton]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QAbstractButton *> QMessageBox::buttons() const
+    address = self.uglySide.call('ritual_ZNK11QMessageBox7buttonsEv')
+    from . import QAbstractButton
+    return QList[QAbstractButton]._cuteOwning(address)
 
   @overload(QAbstractButton)
   @overload(NoneType)

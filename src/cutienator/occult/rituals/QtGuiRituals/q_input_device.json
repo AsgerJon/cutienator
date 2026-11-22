@@ -22,6 +22,7 @@
     "ritual_ZNK12QInputDevice24availableVirtualGeometryEv": [
       "address", "address"
     ],
+    "ritual_ZN12QInputDevice9seatNamesEv": ["address"],
     "ritual_ZN12QInputDevice15primaryKeyboardERK7QString": [
       "address", "text"
     ],

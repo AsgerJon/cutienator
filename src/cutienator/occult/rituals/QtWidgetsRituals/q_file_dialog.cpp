@@ -8,6 +8,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QFileDialog may call these functions of it.
@@ -932,6 +933,13 @@ void ritual_ZN11QFileDialog10selectFileERK7QString(
   self->selectFile(*filename);
 }
 
+//  QStringList QFileDialog::selectedFiles() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK11QFileDialog13selectedFilesEv(
+    const QFileDialog *self) {
+  return new QList<QString>(self->selectedFiles());
+}
+
 //  void QFileDialog::selectUrl(const QUrl &url)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QFileDialog9selectUrlERK4QUrl(
@@ -940,12 +948,34 @@ void ritual_ZN11QFileDialog9selectUrlERK4QUrl(
   self->selectUrl(*url);
 }
 
+//  QList<QUrl> QFileDialog::selectedUrls() const
+extern "C" Q_DECL_EXPORT
+QList<QUrl> *ritual_ZNK11QFileDialog12selectedUrlsEv(
+    const QFileDialog *self) {
+  return new QList<QUrl>(self->selectedUrls());
+}
+
 //  void QFileDialog::setNameFilter(const QString &filter)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QFileDialog13setNameFilterERK7QString(
     QFileDialog *self,
     const QString *filter) {
   self->setNameFilter(*filter);
+}
+
+//  void QFileDialog::setNameFilters(const QStringList &filters)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog14setNameFiltersERK5QListI7QStringE(
+    QFileDialog *self,
+    const QList<QString> *filters) {
+  self->setNameFilters(*filters);
+}
+
+//  QStringList QFileDialog::nameFilters() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK11QFileDialog11nameFiltersEv(
+    const QFileDialog *self) {
+  return new QList<QString>(self->nameFilters());
 }
 
 //  void QFileDialog::selectNameFilter(const QString &filter)
@@ -968,6 +998,21 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK11QFileDialog18selectedNameFilterEv(
     const QFileDialog *self) {
   return new QString(self->selectedNameFilter());
+}
+
+//  void QFileDialog::setMimeTypeFilters(const QStringList &filters)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog18setMimeTypeFiltersERK5QListI7QStringE(
+    QFileDialog *self,
+    const QList<QString> *filters) {
+  self->setMimeTypeFilters(*filters);
+}
+
+//  QStringList QFileDialog::mimeTypeFilters() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK11QFileDialog15mimeTypeFiltersEv(
+    const QFileDialog *self) {
+  return new QList<QString>(self->mimeTypeFilters());
 }
 
 //  void QFileDialog::selectMimeTypeFilter(const QString &filter)
@@ -1037,6 +1082,21 @@ QFileDialog::AcceptMode ritual_ZNK11QFileDialog10acceptModeEv(
   return self->acceptMode();
 }
 
+//  void QFileDialog::setSidebarUrls(const QList<QUrl> &urls)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog14setSidebarUrlsERK5QListI4QUrlE(
+    QFileDialog *self,
+    const QList<QUrl> *urls) {
+  self->setSidebarUrls(*urls);
+}
+
+//  QList<QUrl> QFileDialog::sidebarUrls() const
+extern "C" Q_DECL_EXPORT
+QList<QUrl> *ritual_ZNK11QFileDialog11sidebarUrlsEv(
+    const QFileDialog *self) {
+  return new QList<QUrl>(self->sidebarUrls());
+}
+
 //  QByteArray QFileDialog::saveState() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK11QFileDialog9saveStateEv(const QFileDialog *self) {
@@ -1063,6 +1123,20 @@ void ritual_ZN11QFileDialog16setDefaultSuffixERK7QString(
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK11QFileDialog13defaultSuffixEv(const QFileDialog *self) {
   return new QString(self->defaultSuffix());
+}
+
+//  void QFileDialog::setHistory(const QStringList &paths)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog10setHistoryERK5QListI7QStringE(
+    QFileDialog *self,
+    const QList<QString> *paths) {
+  self->setHistory(*paths);
+}
+
+//  QStringList QFileDialog::history() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK11QFileDialog7historyEv(const QFileDialog *self) {
+  return new QList<QString>(self->history());
 }
 
 //  void QFileDialog::setItemDelegate(QAbstractItemDelegate *delegate)
@@ -1110,6 +1184,21 @@ QString *ritual_ZNK11QFileDialog9labelTextENS_11DialogLabelE(
     const QFileDialog *self,
     QFileDialog::DialogLabel label) {
   return new QString(self->labelText(label));
+}
+
+//  void QFileDialog::setSupportedSchemes(const QStringList &schemes)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog19setSupportedSchemesERK5QListI7QStringE(
+    QFileDialog *self,
+    const QList<QString> *schemes) {
+  self->setSupportedSchemes(*schemes);
+}
+
+//  QStringList QFileDialog::supportedSchemes() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK11QFileDialog16supportedSchemesEv(
+    const QFileDialog *self) {
+  return new QList<QString>(self->supportedSchemes());
 }
 
 //  void QFileDialog::setProxyModel(QAbstractProxyModel *model)
@@ -1194,6 +1283,29 @@ QString *ritual_ZN11QFileDialog15getOpenFileNameEP7QWidgetRK7QStringS4_S4_PS2_6Q
           QFlags<QFileDialog::Option>::fromInt(options)));
 }
 
+//  QUrl QFileDialog::getOpenFileUrl(QWidget *parent, const QString &caption,
+//      const QUrl &dir, const QString &filter, QString *selectedFilter,
+//      Options options, const QStringList &supportedSchemes)
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZN11QFileDialog14getOpenFileUrlEP7QWidgetRK7QStringRK4QUrlS4_PS2_6QFlagsINS_6OptionEERK5QListIS2_E(
+    QWidget *parent,
+    const QString *caption,
+    const QUrl *dir,
+    const QString *filter,
+    QString *selectedFilter,
+    int options,
+    const QList<QString> *supportedSchemes) {
+  return new QUrl(
+      QFileDialog::getOpenFileUrl(
+          parent,
+          *caption,
+          *dir,
+          *filter,
+          selectedFilter,
+          QFlags<QFileDialog::Option>::fromInt(options),
+          *supportedSchemes));
+}
+
 //  QString QFileDialog::getSaveFileName(QWidget *parent, const QString
 //      &caption, const QString &dir, const QString &filter, QString
 //      *selectedFilter, Options options)
@@ -1215,6 +1327,29 @@ QString *ritual_ZN11QFileDialog15getSaveFileNameEP7QWidgetRK7QStringS4_S4_PS2_6Q
           QFlags<QFileDialog::Option>::fromInt(options)));
 }
 
+//  QUrl QFileDialog::getSaveFileUrl(QWidget *parent, const QString &caption,
+//      const QUrl &dir, const QString &filter, QString *selectedFilter,
+//      Options options, const QStringList &supportedSchemes)
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZN11QFileDialog14getSaveFileUrlEP7QWidgetRK7QStringRK4QUrlS4_PS2_6QFlagsINS_6OptionEERK5QListIS2_E(
+    QWidget *parent,
+    const QString *caption,
+    const QUrl *dir,
+    const QString *filter,
+    QString *selectedFilter,
+    int options,
+    const QList<QString> *supportedSchemes) {
+  return new QUrl(
+      QFileDialog::getSaveFileUrl(
+          parent,
+          *caption,
+          *dir,
+          *filter,
+          selectedFilter,
+          QFlags<QFileDialog::Option>::fromInt(options),
+          *supportedSchemes));
+}
+
 //  QString QFileDialog::getExistingDirectory(QWidget *parent, const QString
 //      &caption, const QString &dir, Options options)
 extern "C" Q_DECL_EXPORT
@@ -1229,6 +1364,70 @@ QString *ritual_ZN11QFileDialog20getExistingDirectoryEP7QWidgetRK7QStringS4_6QFl
           *caption,
           *dir,
           QFlags<QFileDialog::Option>::fromInt(options)));
+}
+
+//  QUrl QFileDialog::getExistingDirectoryUrl(QWidget *parent, const QString
+//      &caption, const QUrl &dir, Options options, const QStringList
+//      &supportedSchemes)
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_ZN11QFileDialog23getExistingDirectoryUrlEP7QWidgetRK7QStringRK4QUrl6QFlagsINS_6OptionEERK5QListIS2_E(
+    QWidget *parent,
+    const QString *caption,
+    const QUrl *dir,
+    int options,
+    const QList<QString> *supportedSchemes) {
+  return new QUrl(
+      QFileDialog::getExistingDirectoryUrl(
+          parent,
+          *caption,
+          *dir,
+          QFlags<QFileDialog::Option>::fromInt(options),
+          *supportedSchemes));
+}
+
+//  QStringList QFileDialog::getOpenFileNames(QWidget *parent, const QString
+//      &caption, const QString &dir, const QString &filter, QString
+//      *selectedFilter, Options options)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN11QFileDialog16getOpenFileNamesEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsINS_6OptionEE(
+    QWidget *parent,
+    const QString *caption,
+    const QString *dir,
+    const QString *filter,
+    QString *selectedFilter,
+    int options) {
+  return new QList<QString>(
+      QFileDialog::getOpenFileNames(
+          parent,
+          *caption,
+          *dir,
+          *filter,
+          selectedFilter,
+          QFlags<QFileDialog::Option>::fromInt(options)));
+}
+
+//  QList<QUrl> QFileDialog::getOpenFileUrls(QWidget *parent, const QString
+//      &caption, const QUrl &dir, const QString &filter, QString
+//      *selectedFilter, Options options, const QStringList
+//      &supportedSchemes)
+extern "C" Q_DECL_EXPORT
+QList<QUrl> *ritual_ZN11QFileDialog15getOpenFileUrlsEP7QWidgetRK7QStringRK4QUrlS4_PS2_6QFlagsINS_6OptionEERK5QListIS2_E(
+    QWidget *parent,
+    const QString *caption,
+    const QUrl *dir,
+    const QString *filter,
+    QString *selectedFilter,
+    int options,
+    const QList<QString> *supportedSchemes) {
+  return new QList<QUrl>(
+      QFileDialog::getOpenFileUrls(
+          parent,
+          *caption,
+          *dir,
+          *filter,
+          selectedFilter,
+          QFlags<QFileDialog::Option>::fromInt(options),
+          *supportedSchemes));
 }
 
 //  void QFileDialog::saveFileContent(const QByteArray &fileContent, const

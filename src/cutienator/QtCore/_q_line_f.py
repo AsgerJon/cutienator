@@ -15,6 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -831,3 +832,15 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     """
     #  void QLineF::translate(qreal dx, qreal dy)
     self.uglySide.call('ritual_ZN6QLineF9translateEdd', dx, dy)
+
+
+#  Qt's 'QList<QLineF>': the list of QLineF, which 'QList[QLineF]' gives. It
+#  is made here, so that there is one as soon as there can be a QLineF.
+QList.createKind(
+    QLineF, 'value',
+    make='ritual_list_make_QLineF',
+    add='ritual_list_add_QLineF',
+    size='ritual_list_size_QLineF',
+    at='ritual_list_at_QLineF',
+    drop='ritual_list_drop_QLineF',
+)

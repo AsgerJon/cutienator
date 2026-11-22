@@ -13,6 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
+from ..QtCore import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -31,10 +32,11 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QAccessibleActionInterface that has a ritual and
-  that Python can call so far, 17 names in all: 'tr', 'localizedActionName',
-  'localizedActionDescription', 'doAction', 'pressAction', 'increaseAction',
-  'decreaseAction', 'showMenuAction', 'setFocusAction', 'showOnScreenAction',
-  'toggleAction', 'scrollLeftAction', 'scrollRightAction', 'scrollUpAction',
+  that Python can call so far, 19 names in all: 'tr', 'actionNames',
+  'localizedActionName', 'localizedActionDescription', 'doAction',
+  'keyBindingsForAction', 'pressAction', 'increaseAction', 'decreaseAction',
+  'showMenuAction', 'setFocusAction', 'showOnScreenAction', 'toggleAction',
+  'scrollLeftAction', 'scrollRightAction', 'scrollUpAction',
   'scrollDownAction', 'nextPageAction', 'previousPageAction'. None can be
   made from Python: one comes out of a function of another class that gives
   one back.
@@ -48,8 +50,8 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 25 functions Qt declares: 4 forbidden; 2 takes or gives a type
-  that cannot be passed yet; 1 the class is abstract, so C++ cannot make one.
+  5 of the 25 functions Qt declares: 4 forbidden; 1 the class is abstract, so
+  C++ cannot make one.
 
   What to expect
   --------------
@@ -436,6 +438,26 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def actionNames(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QAccessibleActionInterface::actionNames() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibleactioninterface.html#actionNames
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QAccessibleActionInterface::actionNames() const
+    address = self._callAs(
+        'QAccessibleActionInterface',
+        'ritual_ZNK26QAccessibleActionInterface11actionNamesEv',
+    )
+    return QStringList._cuteOwning(address)
+
   @overload(str)
   def localizedActionName(self, name: str) -> str:
     """
@@ -500,6 +522,38 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
           'ritual_own_ZNK26QAccessibleActionInterface26localizedActionDescr'
           'iptionERK7QString')
     return self._callAs('QAccessibleActionInterface', ritual, name)
+
+  @overload(str)
+  def keyBindingsForAction(self, actionName: str) -> QStringList:
+    """
+    Calls Qt's 'QStringList
+    QAccessibleActionInterface::keyBindingsForAction(const QString
+    &actionName) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibleactioninterface.html
+
+    Parameters
+    ----------
+
+    actionName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QAccessibleActionInterface::keyBindingsForAction(const
+    #      QString &actionName) const
+    address = self._callAs(
+        'QAccessibleActionInterface',
+        'ritual_ZNK26QAccessibleActionInterface20keyBindingsForActionERK7QS'
+        'tring',
+        actionName,
+    )
+    return QStringList._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -121,6 +121,25 @@
     "ritual_ZN13QGraphicsView6renderEP8QPainterRK6QRectFRK5QRectN2Qt15AspectRatioModeE": [
       "nothing", "address", "address", "address", "address", "int"
     ],
+    "ritual_ZNK13QGraphicsView5itemsEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsView5itemsERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsView5itemsEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK13QGraphicsView5itemsERK5QRectN2Qt17ItemSelectionModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK13QGraphicsView5itemsEiiiiN2Qt17ItemSelectionModeE": [
+      "address", "address", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK13QGraphicsView5itemsERK8QPolygonN2Qt17ItemSelectionModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK13QGraphicsView5itemsERK12QPainterPathN2Qt17ItemSelectionModeE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZNK13QGraphicsView6itemAtERK6QPoint": [
       "address", "address", "address"
     ],
@@ -172,6 +191,9 @@
     ],
     "ritual_ZNK13QGraphicsView15foregroundBrushEv": ["address", "address"],
     "ritual_ZN13QGraphicsView18setForegroundBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsView11updateSceneERK5QListI6QRectFE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN13QGraphicsView15invalidateSceneERK6QRectF6QFlagsIN14QGraphicsScene10SceneLayerEE": [
@@ -259,6 +281,11 @@
     ],
     "ritual_own_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF": [
       "nothing", "address", "address", "address"
-    ]
+    ],
+    "ritual_list_make_QGraphicsView_ptr": ["address"],
+    "ritual_list_add_QGraphicsView_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QGraphicsView_ptr": ["long long", "address"],
+    "ritual_list_at_QGraphicsView_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QGraphicsView_ptr": ["nothing", "address"]
   }
 }

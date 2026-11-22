@@ -8,6 +8,9 @@
     "ritual_ZN5QFontC1ERK7QStringiib": [
       "address", "text", "int", "int", "bool"
     ],
+    "ritual_ZN5QFontC1ERK5QListI7QStringEiib": [
+      "address", "address", "int", "int", "bool"
+    ],
     "ritual_ZN5QFontC1ERKS_PK12QPaintDevice": [
       "address", "address", "address"
     ],
@@ -15,6 +18,10 @@
     "ritual_ZN5QFontD1Ev": ["nothing", "address"],
     "ritual_ZNK5QFont6familyEv": ["text", "address"],
     "ritual_ZN5QFont9setFamilyERK7QString": ["nothing", "address", "text"],
+    "ritual_ZNK5QFont8familiesEv": ["address", "address"],
+    "ritual_ZN5QFont11setFamiliesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK5QFont9styleNameEv": ["text", "address"],
     "ritual_ZN5QFont12setStyleNameERK7QString": [
       "nothing", "address", "text"
@@ -104,8 +111,13 @@
     "ritual_ZNK5QFont8toStringEv": ["text", "address"],
     "ritual_ZN5QFont10fromStringERK7QString": ["bool", "address", "text"],
     "ritual_ZN5QFont10substituteERK7QString": ["text", "text"],
+    "ritual_ZN5QFont11substitutesERK7QString": ["address", "text"],
+    "ritual_ZN5QFont13substitutionsEv": ["address"],
     "ritual_ZN5QFont18insertSubstitutionERK7QStringS2_": [
       "nothing", "text", "text"
+    ],
+    "ritual_ZN5QFont19insertSubstitutionsERK7QStringRK5QListIS0_E": [
+      "nothing", "text", "address"
     ],
     "ritual_ZN5QFont19removeSubstitutionsERK7QString": ["nothing", "text"],
     "ritual_ZN5QFont10initializeEv": ["nothing"],

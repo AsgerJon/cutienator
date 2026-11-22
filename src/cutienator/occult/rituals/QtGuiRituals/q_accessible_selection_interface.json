@@ -8,6 +8,9 @@
     "ritual_ZNK29QAccessibleSelectionInterface17selectedItemCountEv": [
       "int", "address"
     ],
+    "ritual_ZNK29QAccessibleSelectionInterface13selectedItemsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK29QAccessibleSelectionInterface12selectedItemEi": [
       "address", "address", "int"
     ],

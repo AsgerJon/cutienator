@@ -14,12 +14,14 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import Qt, QAbstractItemModel, QObject
+from . import Qt, QAbstractItemModel, QHash, QList, QMap, QObject
+from . import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject, QMimeData, QModelIndex, QSize, QVariant
+  from . import QByteArray, QMetaObject, QMimeData, QModelIndex, QSize
+  from . import QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -46,11 +48,12 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QConcatenateTablesProxyModel that has a ritual and
-  that Python can call so far, 17 names in all: 'metaObject', 'tr',
-  'addSourceModel', 'removeSourceModel', 'mapFromSource', 'mapToSource',
-  'data', 'setData', 'flags', 'index', 'parent', 'rowCount', 'headerData',
-  'columnCount', 'canDropMimeData', 'dropMimeData', 'span'. It can be made
-  from Python, in 1 way; see '__init__'.
+  that Python can call so far, 23 names in all: 'metaObject', 'tr',
+  'sourceModels', 'addSourceModel', 'removeSourceModel', 'mapFromSource',
+  'mapToSource', 'data', 'setData', 'itemData', 'setItemData', 'flags',
+  'index', 'parent', 'rowCount', 'headerData', 'columnCount', 'mimeTypes',
+  'mimeData', 'canDropMimeData', 'dropMimeData', 'span', 'roleNames'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -61,8 +64,8 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
   What has no ritual
   ------------------
 
-  14 of the 33 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template.
+  8 of the 33 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -176,6 +179,27 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
+  def sourceModels(self) -> QList[QAbstractItemModel]:
+    """
+    Calls Qt's 'QList<QAbstractItemModel *>
+    QConcatenateTablesProxyModel::sourceModels() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#sourceModels
+
+    Returns
+    -------
+
+    QList[QAbstractItemModel]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QAbstractItemModel *>
+    #      QConcatenateTablesProxyModel::sourceModels() const
+    address = self.uglySide.call(
+        'ritual_ZNK28QConcatenateTablesProxyModel12sourceModelsEv',
+    )
+    return QList[QAbstractItemModel]._cuteOwning(address)
+
   @overload(QModelIndex)
   def mapFromSource(self, sourceIndex: QModelIndex) -> QModelIndex:
     """
@@ -276,6 +300,38 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     address = self.uglySide.call(ritual, self._valueOf(index), role)
     from . import QVariant
     return QVariant._cuteOwning(address)
+
+  @overload(QModelIndex)
+  def itemData(self, proxyIndex: QModelIndex) -> QMap[int, QVariant]:
+    """
+    Calls Qt's 'QMap<int, QVariant>
+    QConcatenateTablesProxyModel::itemData(const QModelIndex &proxyIndex)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#itemData
+
+    Parameters
+    ----------
+
+    proxyIndex : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QMap[int, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QMap<int, QVariant> QConcatenateTablesProxyModel::itemData(const
+    #      QModelIndex &proxyIndex) const
+    address = self.uglySide.call(
+        'ritual_ZNK28QConcatenateTablesProxyModel8itemDataERK11QModelIndex',
+        self._valueOf(proxyIndex),
+    )
+    from . import QVariant
+    return QMap[int, QVariant]._cuteOwning(address)
 
   @overload(QModelIndex)
   def flags(self, index: QModelIndex) -> Qt.ItemFlags:
@@ -501,6 +557,59 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
           'odelIndex')
     return self.uglySide.call(ritual, self._valueOf(parent))
 
+  def mimeTypes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QConcatenateTablesProxyModel::mimeTypes() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#mimeTypes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QConcatenateTablesProxyModel::mimeTypes() const
+    address = self.uglySide.call(
+        'ritual_ZNK28QConcatenateTablesProxyModel9mimeTypesEv',
+    )
+    return QStringList._cuteOwning(address)
+
+  @overload(QList[QModelIndex])
+  def mimeData(self, indexes: QList[QModelIndex]) -> Optional[QMimeData]:
+    """
+    Calls Qt's 'QMimeData *QConcatenateTablesProxyModel::mimeData(const
+    QModelIndexList &indexes) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#mimeData
+
+    Parameters
+    ----------
+
+    indexes : QList[QModelIndex]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    Optional[QMimeData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMimeData *QConcatenateTablesProxyModel::mimeData(const
+    #      QModelIndexList &indexes) const
+    address = self.uglySide.call(
+        'ritual_ZNK28QConcatenateTablesProxyModel8mimeDataERK5QListI11QMode'
+        'lIndexE',
+        self._valueOf(indexes),
+    )
+    from . import QMimeData
+    return QMimeData._cuteAt(address)
+
   @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)
   @overload(NoneType, Qt.DropAction, int, int, QModelIndex)
   def canDropMimeData(
@@ -588,6 +697,27 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     from . import QSize
     return QSize._cuteOwning(address)
 
+  def roleNames(self) -> QHash[int, QByteArray]:
+    """
+    Calls Qt's 'QHash<int, QByteArray>
+    QConcatenateTablesProxyModel::roleNames() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#roleNames
+
+    Returns
+    -------
+
+    QHash[int, QByteArray]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QHash<int, QByteArray> QConcatenateTablesProxyModel::roleNames() const
+    address = self.uglySide.call(
+        'ritual_ZNK28QConcatenateTablesProxyModel9roleNamesEv',
+    )
+    from . import QByteArray
+    return QHash[int, QByteArray]._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -632,6 +762,39 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
           'dexRK8QVarianti')
     return self.uglySide.call(
         ritual, self._valueOf(index), self._valueOf(value), role,
+    )
+
+  @overload(QModelIndex, QMap[int, QVariant])
+  def setItemData(
+      self,
+      index: QModelIndex,
+      roles: QMap[int, QVariant],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QConcatenateTablesProxyModel::setItemData(const
+    QModelIndex &index, const QMap<int, QVariant> &roles)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#setItemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    roles : QMap[int, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  bool QConcatenateTablesProxyModel::setItemData(const QModelIndex
+    #      &index, const QMap<int, QVariant> &roles)
+    return self.uglySide.call(
+        'ritual_ZN28QConcatenateTablesProxyModel11setItemDataERK11QModelInd'
+        'exRK4QMapIi8QVariantE',
+        self._valueOf(index), self._valueOf(roles),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

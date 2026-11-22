@@ -2,6 +2,7 @@
 //  QtGui/qsessionmanager.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qsessionmanager.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 
 //  const QMetaObject *QSessionManager::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -73,6 +74,36 @@ QSessionManager::RestartHint ritual_ZNK15QSessionManager11restartHintEv(
   return self->restartHint();
 }
 
+//  void QSessionManager::setRestartCommand(const QStringList &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSessionManager17setRestartCommandERK5QListI7QStringE(
+    QSessionManager *self,
+    const QList<QString> *a0) {
+  self->setRestartCommand(*a0);
+}
+
+//  QStringList QSessionManager::restartCommand() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK15QSessionManager14restartCommandEv(
+    const QSessionManager *self) {
+  return new QList<QString>(self->restartCommand());
+}
+
+//  void QSessionManager::setDiscardCommand(const QStringList &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSessionManager17setDiscardCommandERK5QListI7QStringE(
+    QSessionManager *self,
+    const QList<QString> *a0) {
+  self->setDiscardCommand(*a0);
+}
+
+//  QStringList QSessionManager::discardCommand() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK15QSessionManager14discardCommandEv(
+    const QSessionManager *self) {
+  return new QList<QString>(self->discardCommand());
+}
+
 //  void QSessionManager::setManagerProperty(const QString &name, const
 //      QString &value)
 extern "C" Q_DECL_EXPORT
@@ -80,6 +111,16 @@ void ritual_ZN15QSessionManager18setManagerPropertyERK7QStringS2_(
     QSessionManager *self,
     const QString *name,
     const QString *value) {
+  self->setManagerProperty(*name, *value);
+}
+
+//  void QSessionManager::setManagerProperty(const QString &name, const
+//      QStringList &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSessionManager18setManagerPropertyERK7QStringRK5QListIS0_E(
+    QSessionManager *self,
+    const QString *name,
+    const QList<QString> *value) {
   self->setManagerProperty(*name, *value);
 }
 

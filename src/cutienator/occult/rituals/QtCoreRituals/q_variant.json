@@ -20,11 +20,15 @@
     "ritual_ZN8QVariantC1ERK9QBitArray": ["address", "address"],
     "ritual_ZN8QVariantC1ERK10QByteArray": ["address", "address"],
     "ritual_ZN8QVariantC1ERK9QDateTime": ["address", "address"],
+    "ritual_ZN8QVariantC1ERK5QHashI7QStringS_E": ["address", "address"],
     "ritual_ZN8QVariantC1ERK10QJsonArray": ["address", "address"],
     "ritual_ZN8QVariantC1ERK11QJsonObject": ["address", "address"],
+    "ritual_ZN8QVariantC1ERK5QListIS_E": ["address", "address"],
     "ritual_ZN8QVariantC1ERK7QLocale": ["address", "address"],
+    "ritual_ZN8QVariantC1ERK4QMapI7QStringS_E": ["address", "address"],
     "ritual_ZN8QVariantC1ERK18QRegularExpression": ["address", "address"],
     "ritual_ZN8QVariantC1ERK7QString": ["address", "text"],
+    "ritual_ZN8QVariantC1ERK5QListI7QStringE": ["address", "address"],
     "ritual_ZN8QVariantC1ERK4QUrl": ["address", "address"],
     "ritual_ZN8QVariantC1ERK10QJsonValue": ["address", "address"],
     "ritual_ZN8QVariantC1ERK11QModelIndex": ["address", "address"],
@@ -73,10 +77,14 @@
     "ritual_ZNK8QVariant11toByteArrayEv": ["address", "address"],
     "ritual_ZNK8QVariant10toBitArrayEv": ["address", "address"],
     "ritual_ZNK8QVariant8toStringEv": ["text", "address"],
+    "ritual_ZNK8QVariant12toStringListEv": ["address", "address"],
     "ritual_ZNK8QVariant6toCharEv": ["address", "address"],
     "ritual_ZNK8QVariant6toDateEv": ["address", "address"],
     "ritual_ZNK8QVariant6toTimeEv": ["address", "address"],
     "ritual_ZNK8QVariant10toDateTimeEv": ["address", "address"],
+    "ritual_ZNK8QVariant6toListEv": ["address", "address"],
+    "ritual_ZNK8QVariant5toMapEv": ["address", "address"],
+    "ritual_ZNK8QVariant6toHashEv": ["address", "address"],
     "ritual_ZNK8QVariant7toPointEv": ["address", "address"],
     "ritual_ZNK8QVariant8toPointFEv": ["address", "address"],
     "ritual_ZNK8QVariant6toRectEv": ["address", "address"],
@@ -103,6 +111,49 @@
     "ritual_ZN8QVariant8setValueERKS_": ["nothing", "address", "address"],
     "ritual_ZN8QVariant7compareERKS_S1_": ["address", "address", "address"],
     "ritual_ZeqRK8QVariantS1_": ["bool", "address", "address"],
-    "ritual_ZneRK8QVariantS1_": ["bool", "address", "address"]
+    "ritual_ZneRK8QVariantS1_": ["bool", "address", "address"],
+    "ritual_list_make_QVariant": ["address"],
+    "ritual_list_add_QVariant": ["nothing", "address", "address"],
+    "ritual_list_size_QVariant": ["long long", "address"],
+    "ritual_list_at_QVariant": ["address", "address", "long long"],
+    "ritual_list_drop_QVariant": ["nothing", "address"],
+    "ritual_map_make_QMap_QString_QVariant": ["address"],
+    "ritual_map_put_QMap_QString_QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QMap_QString_QVariant": ["long long", "address"],
+    "ritual_map_key_QMap_QString_QVariant": ["text", "address", "long long"],
+    "ritual_map_value_QMap_QString_QVariant": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QMap_QString_QVariant": ["bool", "address", "text"],
+    "ritual_map_get_QMap_QString_QVariant": ["address", "address", "text"],
+    "ritual_map_drop_QMap_QString_QVariant": ["nothing", "address"],
+    "ritual_map_make_QHash_QString_QVariant": ["address"],
+    "ritual_map_put_QHash_QString_QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QHash_QString_QVariant": ["long long", "address"],
+    "ritual_map_key_QHash_QString_QVariant": [
+      "text", "address", "long long"
+    ],
+    "ritual_map_value_QHash_QString_QVariant": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QHash_QString_QVariant": ["bool", "address", "text"],
+    "ritual_map_get_QHash_QString_QVariant": ["address", "address", "text"],
+    "ritual_map_drop_QHash_QString_QVariant": ["nothing", "address"],
+    "ritual_map_make_QMap_int_QVariant": ["address"],
+    "ritual_map_put_QMap_int_QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_map_size_QMap_int_QVariant": ["long long", "address"],
+    "ritual_map_key_QMap_int_QVariant": ["int", "address", "long long"],
+    "ritual_map_value_QMap_int_QVariant": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QMap_int_QVariant": ["bool", "address", "int"],
+    "ritual_map_get_QMap_int_QVariant": ["address", "address", "int"],
+    "ritual_map_drop_QMap_int_QVariant": ["nothing", "address"]
   }
 }

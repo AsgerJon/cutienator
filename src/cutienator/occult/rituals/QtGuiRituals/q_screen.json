@@ -24,6 +24,7 @@
     "ritual_ZNK7QScreen16devicePixelRatioEv": ["double", "address"],
     "ritual_ZNK7QScreen13availableSizeEv": ["address", "address"],
     "ritual_ZNK7QScreen17availableGeometryEv": ["address", "address"],
+    "ritual_ZNK7QScreen15virtualSiblingsEv": ["address", "address"],
     "ritual_ZN7QScreen16virtualSiblingAtE6QPoint": [
       "address", "address", "address"
     ],
@@ -53,6 +54,11 @@
       "address", "address", "unsigned long long", "int", "int", "int", "int"
     ],
     "ritual_ZNK7QScreen11refreshRateEv": ["double", "address"],
-    "ritual_take_QScreen": ["bool", "address", "chars", "address"]
+    "ritual_take_QScreen": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QScreen_ptr": ["address"],
+    "ritual_list_add_QScreen_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QScreen_ptr": ["long long", "address"],
+    "ritual_list_at_QScreen_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QScreen_ptr": ["nothing", "address"]
   }
 }

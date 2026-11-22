@@ -7,6 +7,7 @@
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qlist.h>
 
 //  QColor::QColor()
 extern "C" Q_DECL_EXPORT
@@ -110,6 +111,12 @@ void ritual_ZN6QColor13setNamedColorE13QLatin1String(
     QColor *self,
     const QLatin1String *name) {
   self->setNamedColor(*name);
+}
+
+//  QStringList QColor::colorNames()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN6QColor10colorNamesEv() {
+  return new QList<QString>(QColor::colorNames());
 }
 
 //  Spec QColor::spec() const
@@ -750,5 +757,35 @@ QColor *ritual_ZN6QColorC1ENS_4SpecEttttt(
 //  QColor::~QColor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QColorD1Ev(QColor *self) {
+  delete self;
+}
+
+//  QList<QColor>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QColor> *ritual_list_make_QColor() {
+  return new QList<QColor>();
+}
+
+//  void QList<QColor>::append(const QColor &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QColor(QList<QColor> *self, const QColor *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QColor>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QColor(const QList<QColor> *self) {
+  return self->size();
+}
+
+//  const QColor &QList<QColor>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QColor *ritual_list_at_QColor(const QList<QColor> *self, long long index) {
+  return new QColor(self->at(index));
+}
+
+//  QList<QColor>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QColor(QList<QColor> *self) {
   delete self;
 }

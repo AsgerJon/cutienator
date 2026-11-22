@@ -171,7 +171,7 @@ class TestPackages(BaseTest):
     class in, or a function gives an object of it; its function is
     on the class all the while, and refuses every call until then."""
     expected = [
-      'class files brought in: q_meta_object q_object '
+      'class files brought in: q_list q_meta_object q_object '
       'q_paint_device q_palette q_size_policy q_widget qt',
       'waits for QFont: True',
       'setFont is there: True',

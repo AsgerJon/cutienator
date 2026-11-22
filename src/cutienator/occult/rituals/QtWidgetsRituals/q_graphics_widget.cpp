@@ -8,10 +8,12 @@
 #include <QtCore/qrect.h>
 #include <QtCore/qmargins.h>
 #include <QtGui/qkeysequence.h>
+#include <QtGui/qaction.h>
 #include <QtGui/qpainterpath.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QGraphicsWidget may call these functions of it.
@@ -1451,6 +1453,24 @@ void ritual_ZN15QGraphicsWidget9addActionEP7QAction(
   self->addAction(action);
 }
 
+//  void QGraphicsWidget::addActions(const QList<QAction *> &actions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget10addActionsERK5QListIP7QActionE(
+    QGraphicsWidget *self,
+    const QList<QAction *> *actions) {
+  self->addActions(*actions);
+}
+
+//  void QGraphicsWidget::insertActions(QAction *before, const QList<QAction
+//      *> &actions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget13insertActionsEP7QActionRK5QListIS1_E(
+    QGraphicsWidget *self,
+    QAction *before,
+    const QList<QAction *> *actions) {
+  self->insertActions(before, *actions);
+}
+
 //  void QGraphicsWidget::insertAction(QAction *before, QAction *action)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphicsWidget12insertActionEP7QActionS1_(
@@ -1466,6 +1486,13 @@ void ritual_ZN15QGraphicsWidget12removeActionEP7QAction(
     QGraphicsWidget *self,
     QAction *action) {
   self->removeAction(action);
+}
+
+//  QList<QAction *> QGraphicsWidget::actions() const
+extern "C" Q_DECL_EXPORT
+QList<QAction *> *ritual_ZNK15QGraphicsWidget7actionsEv(
+    const QGraphicsWidget *self) {
+  return new QList<QAction *>(self->actions());
 }
 
 //  void QGraphicsWidget::setAttribute(Qt::WidgetAttribute attribute, bool

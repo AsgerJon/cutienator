@@ -3,6 +3,7 @@
 #include <QtCore/qfilesystemwatcher.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QFileSystemWatcher that Python can take functions over in. Every QFileSystemWatcher
@@ -153,6 +154,15 @@ QFileSystemWatcher *ritual_ZN18QFileSystemWatcherC1EP7QObject(
   return new CuteQFileSystemWatcher(parent);
 }
 
+//  QFileSystemWatcher::QFileSystemWatcher(const QStringList &paths, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QFileSystemWatcher *ritual_ZN18QFileSystemWatcherC1ERK5QListI7QStringEP7QObject(
+    const QList<QString> *paths,
+    QObject *parent) {
+  return new CuteQFileSystemWatcher(*paths, parent);
+}
+
 //  QFileSystemWatcher::~QFileSystemWatcher()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QFileSystemWatcherD1Ev(QFileSystemWatcher *self) {
@@ -167,12 +177,42 @@ bool ritual_ZN18QFileSystemWatcher7addPathERK7QString(
   return self->addPath(*file);
 }
 
+//  QStringList QFileSystemWatcher::addPaths(const QStringList &files)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN18QFileSystemWatcher8addPathsERK5QListI7QStringE(
+    QFileSystemWatcher *self,
+    const QList<QString> *files) {
+  return new QList<QString>(self->addPaths(*files));
+}
+
 //  bool QFileSystemWatcher::removePath(const QString &file)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN18QFileSystemWatcher10removePathERK7QString(
     QFileSystemWatcher *self,
     const QString *file) {
   return self->removePath(*file);
+}
+
+//  QStringList QFileSystemWatcher::removePaths(const QStringList &files)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN18QFileSystemWatcher11removePathsERK5QListI7QStringE(
+    QFileSystemWatcher *self,
+    const QList<QString> *files) {
+  return new QList<QString>(self->removePaths(*files));
+}
+
+//  QStringList QFileSystemWatcher::files() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK18QFileSystemWatcher5filesEv(
+    const QFileSystemWatcher *self) {
+  return new QList<QString>(self->files());
+}
+
+//  QStringList QFileSystemWatcher::directories() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK18QFileSystemWatcher11directoriesEv(
+    const QFileSystemWatcher *self) {
+  return new QList<QString>(self->directories());
 }
 
 //  a Python function taken by a CuteQFileSystemWatcher, for the function

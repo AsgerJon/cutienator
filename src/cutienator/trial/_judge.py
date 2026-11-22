@@ -94,6 +94,9 @@ class Judge:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
+  #  How the compiler's name begins for a function of the C++ library
+  #  itself, in the namespace 'std'. See 'findRitualFaults'.
+  __library_marks__ = ('_ZNSt', '_ZNKSt', '_ZSt')
 
   #  Fallback Variables
   __fallback_timeout__ = 60.
@@ -494,6 +497,13 @@ class Judge:
     runs no ritual. Whether every function of a Qt header has a ritual
     is not checked yet; that needs the header to be read by program.
 
+    One kind of function is offered and not counted: what the C++
+    library itself forces out of every shared object that uses it. On
+    Linux a ritual file that holds a QMap makes the compiler write out
+    functions of 'std::map', and the C++ library marks those to be
+    offered whatever the build asks for. They are no rituals, and
+    their names begin as every name of 'std' does.
+
     Returns
     -------
 
@@ -508,7 +518,10 @@ class Judge:
     """
     listed = {*Rituals.getRitualNames()}
     sharedObject = SharedObject(Rituals.getTargetFile())
-    offered = {symbol.mangled for symbol in sharedObject.functions()}
+    offered = {
+        symbol.mangled for symbol in sharedObject.functions()
+        if not symbol.mangled.startswith(self.__library_marks__)
+    }
     faults = []
     for name in sorted(listed - offered):
       infoSpec = """The ritual '%s' is listed in 'Rituals', but no ritual

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by hand: the rituals of Qt's QStringList, its list of",
+    "text. See q_string_list.cpp."
+  ],
+  "rows": {
+    "ritual_list_make_QString": ["address"],
+    "ritual_list_add_QString": ["nothing", "address", "text"],
+    "ritual_list_size_QString": ["long long", "address"],
+    "ritual_list_at_QString": ["text", "address", "long long"],
+    "ritual_list_drop_QString": ["nothing", "address"]
+  }
+}

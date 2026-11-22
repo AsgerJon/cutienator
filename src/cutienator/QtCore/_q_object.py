@@ -14,13 +14,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt, QMetaObject
+from . import Qt, QList, QMetaObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QBindingStorage, QChildEvent, QEvent, QMetaMethod, QThread
-  from . import QTimerEvent, QVariant
+  from . import QBindingStorage, QByteArray, QChildEvent, QEvent, QMetaMethod
+  from . import QThread, QTimerEvent, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,15 +45,15 @@ class QObject(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QObject that has a ritual and that Python can call
-  so far, 33 names in all: 'metaObject', 'tr', 'event', 'eventFilter',
+  so far, 35 names in all: 'metaObject', 'tr', 'event', 'eventFilter',
   'objectName', 'setObjectName', 'isWidgetType', 'isWindowType',
   'isQuickItemType', 'isQmlExposed', 'signalsBlocked', 'blockSignals',
-  'thread', 'startTimer', 'killTimer', 'setParent', 'installEventFilter',
-  'removeEventFilter', 'connect', 'disconnect', 'dumpObjectTree',
-  'dumpObjectInfo', 'setProperty', 'property', 'bindingStorage', 'parent',
-  'inherits', 'deleteLater', 'timerEvent', 'childEvent', 'customEvent',
-  'connectNotify', 'disconnectNotify'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'thread', 'startTimer', 'killTimer', 'children', 'setParent',
+  'installEventFilter', 'removeEventFilter', 'connect', 'disconnect',
+  'dumpObjectTree', 'dumpObjectInfo', 'setProperty', 'property',
+  'dynamicPropertyNames', 'bindingStorage', 'parent', 'inherits',
+  'deleteLater', 'timerEvent', 'childEvent', 'customEvent', 'connectNotify',
+  'disconnectNotify'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -68,7 +68,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  36 of the 80 functions Qt declares: 11 a template; 9 takes or gives a type
+  34 of the 80 functions Qt declares: 11 a template; 7 takes or gives a type
   that cannot be passed yet; 7 private; 5 protected; 2 a signal; 2 forbidden.
 
   What to expect
@@ -729,6 +729,22 @@ class QObject(CuteMixin, metaclass=MetaCute):
     from . import QThread
     return QThread._cuteAt(address)
 
+  def children(self) -> QList[QObject]:
+    """
+    Calls Qt's 'const QObjectList &QObject::children() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#children
+
+    Returns
+    -------
+
+    QList[QObject]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  const QObjectList &QObject::children() const
+    address = self.uglySide.call('ritual_ZNK7QObject8childrenEv')
+    return QList[QObject]._cuteOwning(address)
+
   @overload(str)
   @overload(NoneType)
   def property(self, name: Optional[str]) -> QVariant:
@@ -755,6 +771,25 @@ class QObject(CuteMixin, metaclass=MetaCute):
     )
     from . import QVariant
     return QVariant._cuteOwning(address)
+
+  def dynamicPropertyNames(self) -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QObject::dynamicPropertyNames() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QObject::dynamicPropertyNames() const
+    address = self.uglySide.call(
+        'ritual_ZNK7QObject20dynamicPropertyNamesEv',
+    )
+    from . import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
 
   def parent(self) -> Optional[QObject]:
     """
@@ -1232,3 +1267,17 @@ class QObject(CuteMixin, metaclass=MetaCute):
         'ritual_own_ZN7QObject16disconnectNotifyERK11QMetaMethod',
         self._valueOf(signal),
     )
+
+
+#  Qt's 'QList<QObject *>': the list of QObject, which 'QList[QObject]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QObject. Qt has a name of its own for it.
+QObjectList = QList.createKind(
+    QObject, 'address',
+    name='QObjectList',
+    make='ritual_list_make_QObject_ptr',
+    add='ritual_list_add_QObject_ptr',
+    size='ritual_list_size_QObject_ptr',
+    at='ritual_list_at_QObject_ptr',
+    drop='ritual_list_drop_QObject_ptr',
+)

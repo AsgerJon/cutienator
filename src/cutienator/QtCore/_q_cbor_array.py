@@ -14,9 +14,11 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QCborValue, QCborValueConstRef, QCborValueRef, QJsonArray
+  from . import QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -24,6 +26,7 @@ else:
   QCborValue = WAIT['QCborValue']
   QCborValueConstRef = WAIT['QCborValueConstRef']
   QJsonArray = WAIT['QJsonArray']
+  QVariant = WAIT['QVariant']
 
 
 class QCborArray(CuteMixin, metaclass=MetaCute):
@@ -39,11 +42,12 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCborArray that has a ritual and that Python can
-  call so far, 35 names in all: 'toCborValue', 'size', 'isEmpty', 'clear',
+  call so far, 38 names in all: 'toCborValue', 'size', 'isEmpty', 'clear',
   'at', 'first', 'last', '__getitem__', 'insert', 'prepend', 'append',
   'extract', 'removeAt', 'takeAt', 'removeFirst', 'removeLast', 'takeFirst',
   'takeLast', 'contains', 'compare', 'push_back', 'push_front', 'pop_front',
-  'pop_back', 'empty', '__add__', '__iadd__', 'fromJsonArray', 'toJsonArray',
+  'pop_back', 'empty', '__add__', '__iadd__', 'fromStringList',
+  'fromVariantList', 'fromJsonArray', 'toVariantList', 'toJsonArray',
   '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made
   from Python, in 2 ways; see '__init__'.
 
@@ -98,7 +102,7 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  31 of the 97 functions Qt declares: 25 takes or gives a type that cannot be
+  28 of the 97 functions Qt declares: 22 takes or gives a type that cannot be
   passed yet; 6 private.
 
   What to expect
@@ -1190,6 +1194,66 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @staticmethod
+  @overload(QStringList)
+  def fromStringList(list: QStringList) -> QCborArray:
+    """
+    Calls Qt's 'QCborArray QCborArray::fromStringList(const QStringList
+    &list)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#fromStringList
+
+    Parameters
+    ----------
+
+    list : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    QCborArray
+      A new cute QCborArray around the copy Qt gave back. Python owns it.
+    """
+    #  QCborArray QCborArray::fromStringList(const QStringList &list)
+    address = Rituals.call(
+        'ritual_ZN10QCborArray14fromStringListERK5QListI7QStringE',
+        CuteMixin._valueOf(list),
+    )
+    return QCborArray._cuteOwning(address)
+
+  @staticmethod
+  @overload(QList[QVariant])
+  def fromVariantList(list: QList[QVariant]) -> QCborArray:
+    """
+    Calls Qt's 'QCborArray QCborArray::fromVariantList(const QVariantList
+    &list)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#fromVariantList
+
+    Parameters
+    ----------
+
+    list : QList[QVariant]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    QCborArray
+      A new cute QCborArray around the copy Qt gave back. Python owns it.
+    """
+    #  QCborArray QCborArray::fromVariantList(const QVariantList &list)
+    address = Rituals.call(
+        'ritual_ZN10QCborArray15fromVariantListERK5QListI8QVariantE',
+        CuteMixin._valueOf(list),
+    )
+    return QCborArray._cuteOwning(address)
+
+  @staticmethod
   @overload(QJsonArray)
   def fromJsonArray(array: QJsonArray) -> QCborArray:
     """
@@ -1382,6 +1446,23 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     """
     #  bool QCborArray::empty() const
     return self.uglySide.call('ritual_ZNK10QCborArray5emptyEv')
+
+  def toVariantList(self) -> QList[QVariant]:
+    """
+    Calls Qt's 'QVariantList QCborArray::toVariantList() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#toVariantList
+
+    Returns
+    -------
+
+    QList[QVariant]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QVariantList QCborArray::toVariantList() const
+    address = self.uglySide.call('ritual_ZNK10QCborArray13toVariantListEv')
+    from . import QVariant
+    return QList[QVariant]._cuteOwning(address)
 
   def toJsonArray(self) -> QJsonArray:
     """

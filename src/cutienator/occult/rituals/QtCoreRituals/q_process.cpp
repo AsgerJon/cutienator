@@ -3,7 +3,9 @@
 #include <QtCore/qprocess.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qstringview.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QProcess that Python can take functions over in. Every QProcess
@@ -379,6 +381,20 @@ void ritual_ZN8QProcessD1Ev(QProcess *self) {
   delete self;
 }
 
+//  void QProcess::start(const QString &program, const QStringList
+//      &arguments, OpenMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QProcess5startERK7QStringRK5QListIS0_E6QFlagsIN13QIODeviceBase12OpenModeFlagEE(
+    QProcess *self,
+    const QString *program,
+    const QList<QString> *arguments,
+    int mode) {
+  self->start(
+      *program,
+      *arguments,
+      QFlags<QIODeviceBase::OpenModeFlag>::fromInt(mode));
+}
+
 //  void QProcess::start(OpenMode mode)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QProcess5startE6QFlagsIN13QIODeviceBase12OpenModeFlagEE(
@@ -424,6 +440,20 @@ void ritual_ZN8QProcess10setProgramERK7QString(
     QProcess *self,
     const QString *program) {
   self->setProgram(*program);
+}
+
+//  QStringList QProcess::arguments() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK8QProcess9argumentsEv(const QProcess *self) {
+  return new QList<QString>(self->arguments());
+}
+
+//  void QProcess::setArguments(const QStringList &arguments)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QProcess12setArgumentsERK5QListI7QStringE(
+    QProcess *self,
+    const QList<QString> *arguments) {
+  self->setArguments(*arguments);
 }
 
 //  ProcessChannelMode QProcess::processChannelMode() const
@@ -574,6 +604,20 @@ void ritual_ZN8QProcess19setWorkingDirectoryERK7QString(
   self->setWorkingDirectory(*dir);
 }
 
+//  void QProcess::setEnvironment(const QStringList &environment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QProcess14setEnvironmentERK5QListI7QStringE(
+    QProcess *self,
+    const QList<QString> *environment) {
+  self->setEnvironment(*environment);
+}
+
+//  QStringList QProcess::environment() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK8QProcess11environmentEv(const QProcess *self) {
+  return new QList<QString>(self->environment());
+}
+
 //  void QProcess::setProcessEnvironment(const QProcessEnvironment
 //      &environment)
 extern "C" Q_DECL_EXPORT
@@ -675,10 +719,47 @@ void ritual_ZN8QProcess5closeEv(QProcess *self) {
   self->close();
 }
 
+//  int QProcess::execute(const QString &program, const QStringList
+//      &arguments)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN8QProcess7executeERK7QStringRK5QListIS0_E(
+    const QString *program,
+    const QList<QString> *arguments) {
+  return QProcess::execute(*program, *arguments);
+}
+
+//  bool QProcess::startDetached(const QString &program, const QStringList
+//      &arguments, const QString &workingDirectory, qint64 *pid)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QProcess13startDetachedERK7QStringRK5QListIS0_ES2_Px(
+    const QString *program,
+    const QList<QString> *arguments,
+    const QString *workingDirectory,
+    qint64 *pid) {
+  return QProcess::startDetached(
+      *program,
+      *arguments,
+      *workingDirectory,
+      pid);
+}
+
+//  QStringList QProcess::systemEnvironment()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN8QProcess17systemEnvironmentEv() {
+  return new QList<QString>(QProcess::systemEnvironment());
+}
+
 //  QString QProcess::nullDevice()
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN8QProcess10nullDeviceEv() {
   return new QString(QProcess::nullDevice());
+}
+
+//  QStringList QProcess::splitCommand(QStringView command)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN8QProcess12splitCommandE11QStringView(
+    const QString *command) {
+  return new QList<QString>(QProcess::splitCommand(QStringView(*command)));
 }
 
 //  void QProcess::terminate()

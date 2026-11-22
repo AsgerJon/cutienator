@@ -18,6 +18,17 @@
     "ritual_ZneRK29QXmlStreamNotationDeclarationS1_": [
       "bool", "address", "address"
     ],
-    "ritual_ZN29QXmlStreamNotationDeclarationD1Ev": ["nothing", "address"]
+    "ritual_ZN29QXmlStreamNotationDeclarationD1Ev": ["nothing", "address"],
+    "ritual_list_make_QXmlStreamNotationDeclaration": ["address"],
+    "ritual_list_add_QXmlStreamNotationDeclaration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QXmlStreamNotationDeclaration": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QXmlStreamNotationDeclaration": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QXmlStreamNotationDeclaration": ["nothing", "address"]
   }
 }

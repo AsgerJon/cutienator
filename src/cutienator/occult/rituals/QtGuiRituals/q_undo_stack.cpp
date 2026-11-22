@@ -3,6 +3,7 @@
 #include <QtGui/qundostack.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QUndoStack that Python can take functions over in. Every QUndoStack
@@ -327,4 +328,38 @@ void ritual_ZN10QUndoStack9setActiveEb(QUndoStack *self, bool active) {
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QUndoStack(QUndoStack *self, const char *key, void *call) {
   return static_cast<CuteQUndoStack *>(self)->take(key, call);
+}
+
+//  QList<QUndoStack *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QUndoStack *> *ritual_list_make_QUndoStack_ptr() {
+  return new QList<QUndoStack *>();
+}
+
+//  void QList<QUndoStack *>::append(const QUndoStack * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QUndoStack_ptr(
+    QList<QUndoStack *> *self,
+    QUndoStack *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QUndoStack *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QUndoStack_ptr(const QList<QUndoStack *> *self) {
+  return self->size();
+}
+
+//  const QUndoStack * &QList<QUndoStack *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QUndoStack *ritual_list_at_QUndoStack_ptr(
+    const QList<QUndoStack *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QUndoStack *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QUndoStack_ptr(QList<QUndoStack *> *self) {
+  delete self;
 }

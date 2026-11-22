@@ -22,6 +22,7 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qtextoption.h>
 #include <QtGui/qpaintengine.h>
+#include <QtCore/qlist.h>
 
 //  QPainter::QPainter()
 extern "C" Q_DECL_EXPORT
@@ -640,6 +641,14 @@ void ritual_ZN8QPainter9drawLinesEPK6QLineFi(
   self->drawLines(lines, lineCount);
 }
 
+//  void QPainter::drawLines(const QList<QLineF> &lines)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPainter9drawLinesERK5QListI6QLineFE(
+    QPainter *self,
+    const QList<QLineF> *lines) {
+  self->drawLines(*lines);
+}
+
 //  void QPainter::drawLines(const QPointF *pointPairs, int lineCount)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QPainter9drawLinesEPK7QPointFi(
@@ -647,6 +656,14 @@ void ritual_ZN8QPainter9drawLinesEPK7QPointFi(
     const QPointF *pointPairs,
     int lineCount) {
   self->drawLines(pointPairs, lineCount);
+}
+
+//  void QPainter::drawLines(const QList<QPointF> &pointPairs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPainter9drawLinesERK5QListI7QPointFE(
+    QPainter *self,
+    const QList<QPointF> *pointPairs) {
+  self->drawLines(*pointPairs);
 }
 
 //  void QPainter::drawLines(const QLine *lines, int lineCount)
@@ -658,6 +675,14 @@ void ritual_ZN8QPainter9drawLinesEPK5QLinei(
   self->drawLines(lines, lineCount);
 }
 
+//  void QPainter::drawLines(const QList<QLine> &lines)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPainter9drawLinesERK5QListI5QLineE(
+    QPainter *self,
+    const QList<QLine> *lines) {
+  self->drawLines(*lines);
+}
+
 //  void QPainter::drawLines(const QPoint *pointPairs, int lineCount)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QPainter9drawLinesEPK6QPointi(
@@ -665,6 +690,14 @@ void ritual_ZN8QPainter9drawLinesEPK6QPointi(
     const QPoint *pointPairs,
     int lineCount) {
   self->drawLines(pointPairs, lineCount);
+}
+
+//  void QPainter::drawLines(const QList<QPoint> &pointPairs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPainter9drawLinesERK5QListI6QPointE(
+    QPainter *self,
+    const QList<QPoint> *pointPairs) {
+  self->drawLines(*pointPairs);
 }
 
 //  void QPainter::drawRect(const QRectF &rect)
@@ -703,6 +736,14 @@ void ritual_ZN8QPainter9drawRectsEPK6QRectFi(
   self->drawRects(rects, rectCount);
 }
 
+//  void QPainter::drawRects(const QList<QRectF> &rectangles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPainter9drawRectsERK5QListI6QRectFE(
+    QPainter *self,
+    const QList<QRectF> *rectangles) {
+  self->drawRects(*rectangles);
+}
+
 //  void QPainter::drawRects(const QRect *rects, int rectCount)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QPainter9drawRectsEPK5QRecti(
@@ -710,6 +751,14 @@ void ritual_ZN8QPainter9drawRectsEPK5QRecti(
     const QRect *rects,
     int rectCount) {
   self->drawRects(rects, rectCount);
+}
+
+//  void QPainter::drawRects(const QList<QRect> &rectangles)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPainter9drawRectsERK5QListI5QRectE(
+    QPainter *self,
+    const QList<QRect> *rectangles) {
+  self->drawRects(*rectangles);
 }
 
 //  void QPainter::drawEllipse(const QRectF &r)

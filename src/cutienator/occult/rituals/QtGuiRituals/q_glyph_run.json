@@ -11,6 +11,10 @@
     "ritual_ZN9QGlyphRun10setRawFontERK8QRawFont": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK9QGlyphRun9positionsEv": ["address", "address"],
+    "ritual_ZN9QGlyphRun12setPositionsERK5QListI7QPointFE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9QGlyphRun5clearEv": ["nothing", "address"],
     "ritual_ZNK9QGlyphRuneqERKS_": ["bool", "address", "address"],
     "ritual_ZNK9QGlyphRunneERKS_": ["bool", "address", "address"],
@@ -37,6 +41,11 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK9QGlyphRun12sourceStringEv": ["text", "address"],
-    "ritual_ZNK9QGlyphRun7isEmptyEv": ["bool", "address"]
+    "ritual_ZNK9QGlyphRun7isEmptyEv": ["bool", "address"],
+    "ritual_list_make_QGlyphRun": ["address"],
+    "ritual_list_add_QGlyphRun": ["nothing", "address", "address"],
+    "ritual_list_size_QGlyphRun": ["long long", "address"],
+    "ritual_list_at_QGlyphRun": ["address", "address", "long long"],
+    "ritual_list_drop_QGlyphRun": ["nothing", "address"]
   }
 }

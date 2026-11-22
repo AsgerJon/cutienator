@@ -13,13 +13,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import Qt, QAbstractItemModel
+from . import Qt, QAbstractItemModel, QHash, QList, QMap, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QItemSelection, QMetaObject, QMimeData, QModelIndex, QSize
-  from . import QVariant
+  from . import QByteArray, QItemSelection, QMetaObject, QMimeData
+  from . import QModelIndex, QSize, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -46,14 +46,15 @@ class QAbstractProxyModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QAbstractProxyModel that has a ritual and that
-  Python can call so far, 27 names in all: 'metaObject', 'tr',
+  Python can call so far, 32 names in all: 'metaObject', 'tr',
   'setSourceModel', 'sourceModel', 'mapToSource', 'mapFromSource',
   'mapSelectionToSource', 'mapSelectionFromSource', 'submit', 'revert',
-  'data', 'headerData', 'flags', 'setData', 'setHeaderData', 'clearItemData',
-  'buddy', 'canFetchMore', 'fetchMore', 'sort', 'span', 'hasChildren',
-  'sibling', 'canDropMimeData', 'dropMimeData', 'supportedDragActions',
-  'supportedDropActions'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'data', 'headerData', 'itemData', 'flags', 'setData', 'setItemData',
+  'setHeaderData', 'clearItemData', 'buddy', 'canFetchMore', 'fetchMore',
+  'sort', 'span', 'hasChildren', 'sibling', 'mimeData', 'canDropMimeData',
+  'dropMimeData', 'mimeTypes', 'supportedDragActions',
+  'supportedDropActions', 'roleNames'. None can be made from Python: one
+  comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,7 +65,7 @@ class QAbstractProxyModel(QAbstractItemModel):
   What has no ritual
   ------------------
 
-  18 of the 46 functions Qt declares: 8 takes or gives a type that cannot be
+  13 of the 46 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet; 3 private; 2 protected; 2 forbidden; 1 a template; 1 the class
   is abstract, so C++ cannot make one; 1 a signal.
 
@@ -462,6 +463,36 @@ class QAbstractProxyModel(QAbstractItemModel):
     return QVariant._cuteOwning(address)
 
   @overload(QModelIndex)
+  def itemData(self, index: QModelIndex) -> QMap[int, QVariant]:
+    """
+    Calls Qt's 'QMap<int, QVariant> QAbstractProxyModel::itemData(const
+    QModelIndex &index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractproxymodel.html#itemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QMap[int, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QMap<int, QVariant> QAbstractProxyModel::itemData(const QModelIndex
+    #      &index) const
+    address = self.uglySide.call(
+        'ritual_ZNK19QAbstractProxyModel8itemDataERK11QModelIndex',
+        self._valueOf(index),
+    )
+    from . import QVariant
+    return QMap[int, QVariant]._cuteOwning(address)
+
+  @overload(QModelIndex)
   def flags(self, index: QModelIndex) -> Qt.ItemFlags:
     """
     Calls Qt's 'Qt::ItemFlags QAbstractProxyModel::flags(const QModelIndex
@@ -637,6 +668,38 @@ class QAbstractProxyModel(QAbstractItemModel):
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
+  @overload(QList[QModelIndex])
+  def mimeData(self, indexes: QList[QModelIndex]) -> Optional[QMimeData]:
+    """
+    Calls Qt's 'QMimeData *QAbstractProxyModel::mimeData(const
+    QModelIndexList &indexes) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractproxymodel.html#mimeData
+
+    Parameters
+    ----------
+
+    indexes : QList[QModelIndex]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    Optional[QMimeData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMimeData *QAbstractProxyModel::mimeData(const QModelIndexList
+    #      &indexes) const
+    address = self.uglySide.call(
+        'ritual_ZNK19QAbstractProxyModel8mimeDataERK5QListI11QModelIndexE',
+        self._valueOf(indexes),
+    )
+    from . import QMimeData
+    return QMimeData._cuteAt(address)
+
   @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)
   @overload(NoneType, Qt.DropAction, int, int, QModelIndex)
   def canDropMimeData(
@@ -691,6 +754,24 @@ class QAbstractProxyModel(QAbstractItemModel):
         self._valueOf(parent),
     )
 
+  def mimeTypes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QAbstractProxyModel::mimeTypes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractproxymodel.html#mimeTypes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QAbstractProxyModel::mimeTypes() const
+    address = self.uglySide.call(
+        'ritual_ZNK19QAbstractProxyModel9mimeTypesEv',
+    )
+    return QStringList._cuteOwning(address)
+
   def supportedDragActions(self) -> Qt.DropActions:
     """
     Calls Qt's 'Qt::DropActions QAbstractProxyModel::supportedDragActions()
@@ -730,6 +811,26 @@ class QAbstractProxyModel(QAbstractItemModel):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK19QAbstractProxyModel20supportedDropActionsEv'
     return Qt.DropActions(self.uglySide.call(ritual))
+
+  def roleNames(self) -> QHash[int, QByteArray]:
+    """
+    Calls Qt's 'QHash<int, QByteArray> QAbstractProxyModel::roleNames()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractproxymodel.html#roleNames
+
+    Returns
+    -------
+
+    QHash[int, QByteArray]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QHash<int, QByteArray> QAbstractProxyModel::roleNames() const
+    address = self.uglySide.call(
+        'ritual_ZNK19QAbstractProxyModel9roleNamesEv',
+    )
+    from . import QByteArray
+    return QHash[int, QByteArray]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -804,6 +905,39 @@ class QAbstractProxyModel(QAbstractItemModel):
           'rianti')
     return self.uglySide.call(
         ritual, self._valueOf(index), self._valueOf(value), role,
+    )
+
+  @overload(QModelIndex, QMap[int, QVariant])
+  def setItemData(
+      self,
+      index: QModelIndex,
+      roles: QMap[int, QVariant],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QAbstractProxyModel::setItemData(const QModelIndex
+    &index, const QMap<int, QVariant> &roles)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractproxymodel.html#setItemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    roles : QMap[int, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  bool QAbstractProxyModel::setItemData(const QModelIndex &index, const
+    #      QMap<int, QVariant> &roles)
+    return self.uglySide.call(
+        'ritual_ZN19QAbstractProxyModel11setItemDataERK11QModelIndexRK4QMap'
+        'Ii8QVariantE',
+        self._valueOf(index), self._valueOf(roles),
     )
 
   @overload(int, Qt.Orientation, QVariant)

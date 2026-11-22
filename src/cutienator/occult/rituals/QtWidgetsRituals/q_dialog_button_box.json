@@ -37,6 +37,7 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN16QDialogButtonBox5clearEv": ["nothing", "address"],
+    "ritual_ZNK16QDialogButtonBox7buttonsEv": ["address", "address"],
     "ritual_ZNK16QDialogButtonBox10buttonRoleEP15QAbstractButton": [
       "int", "address", "address"
     ],

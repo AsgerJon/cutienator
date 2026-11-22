@@ -9,6 +9,7 @@
 #include <QtGui/qvulkaninstance.h>
 #include <QtGui/qvulkanwindow.h>
 #include <QtGui/qcolor.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QAccessibleWidget that Python can take functions over in. Every QAccessibleWidget
@@ -455,12 +456,28 @@ QColor *ritual_ZNK17QAccessibleWidget15backgroundColorEv(
   return new QColor(self->backgroundColor());
 }
 
+//  QStringList QAccessibleWidget::actionNames() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK17QAccessibleWidget11actionNamesEv(
+    const QAccessibleWidget *self) {
+  return new QList<QString>(self->actionNames());
+}
+
 //  void QAccessibleWidget::doAction(const QString &actionName)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QAccessibleWidget8doActionERK7QString(
     QAccessibleWidget *self,
     const QString *actionName) {
   self->doAction(*actionName);
+}
+
+//  QStringList QAccessibleWidget::keyBindingsForAction(const QString
+//      &actionName) const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK17QAccessibleWidget20keyBindingsForActionERK7QString(
+    const QAccessibleWidget *self,
+    const QString *actionName) {
+  return new QList<QString>(self->keyBindingsForAction(*actionName));
 }
 
 //  QAccessibleWidget as the QAccessibleActionInterface it is built on

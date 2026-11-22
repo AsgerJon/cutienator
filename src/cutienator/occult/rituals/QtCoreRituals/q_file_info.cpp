@@ -5,6 +5,7 @@
 #include <QtCore/qdir.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qtimezone.h>
+#include <QtCore/qlist.h>
 
 //  QFileInfo::QFileInfo()
 extern "C" Q_DECL_EXPORT
@@ -407,4 +408,38 @@ bool ritual_ZeqRK9QFileInfoS1_(const QFileInfo *lhs, const QFileInfo *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK9QFileInfoS1_(const QFileInfo *lhs, const QFileInfo *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  QList<QFileInfo>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QFileInfo> *ritual_list_make_QFileInfo() {
+  return new QList<QFileInfo>();
+}
+
+//  void QList<QFileInfo>::append(const QFileInfo &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QFileInfo(
+    QList<QFileInfo> *self,
+    const QFileInfo *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QFileInfo>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QFileInfo(const QList<QFileInfo> *self) {
+  return self->size();
+}
+
+//  const QFileInfo &QList<QFileInfo>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QFileInfo *ritual_list_at_QFileInfo(
+    const QList<QFileInfo> *self,
+    long long index) {
+  return new QFileInfo(self->at(index));
+}
+
+//  QList<QFileInfo>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QFileInfo(QList<QFileInfo> *self) {
+  delete self;
 }

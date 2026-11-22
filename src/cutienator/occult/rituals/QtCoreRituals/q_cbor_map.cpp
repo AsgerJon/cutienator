@@ -4,7 +4,12 @@
 #include <QtCore/qcborvalue.h>
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qjsonobject.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 
 //  QCborMap::QCborMap()
 extern "C" Q_DECL_EXPORT
@@ -46,6 +51,12 @@ bool ritual_ZNK8QCborMap7isEmptyEv(const QCborMap *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QCborMap5clearEv(QCborMap *self) {
   self->clear();
+}
+
+//  QList<QCborValue> QCborMap::keys() const
+extern "C" Q_DECL_EXPORT
+QList<QCborValue> *ritual_ZNK8QCborMap4keysEv(const QCborMap *self) {
+  return new QList<QCborValue>(self->keys());
 }
 
 //  QCborValue QCborMap::value(qint64 key) const
@@ -258,11 +269,39 @@ bool ritual_ZNK8QCborMap5emptyEv(const QCborMap *self) {
   return self->empty();
 }
 
+//  QCborMap QCborMap::fromVariantMap(const QVariantMap &map)
+extern "C" Q_DECL_EXPORT
+QCborMap *ritual_ZN8QCborMap14fromVariantMapERK4QMapI7QString8QVariantE(
+    const QMap<QString, QVariant> *map) {
+  return new QCborMap(QCborMap::fromVariantMap(*map));
+}
+
+//  QCborMap QCborMap::fromVariantHash(const QVariantHash &hash)
+extern "C" Q_DECL_EXPORT
+QCborMap *ritual_ZN8QCborMap15fromVariantHashERK5QHashI7QString8QVariantE(
+    const QHash<QString, QVariant> *hash) {
+  return new QCborMap(QCborMap::fromVariantHash(*hash));
+}
+
 //  QCborMap QCborMap::fromJsonObject(const QJsonObject &o)
 extern "C" Q_DECL_EXPORT
 QCborMap *ritual_ZN8QCborMap14fromJsonObjectERK11QJsonObject(
     const QJsonObject *o) {
   return new QCborMap(QCborMap::fromJsonObject(*o));
+}
+
+//  QVariantMap QCborMap::toVariantMap() const
+extern "C" Q_DECL_EXPORT
+QMap<QString, QVariant> *ritual_ZNK8QCborMap12toVariantMapEv(
+    const QCborMap *self) {
+  return new QMap<QString, QVariant>(self->toVariantMap());
+}
+
+//  QVariantHash QCborMap::toVariantHash() const
+extern "C" Q_DECL_EXPORT
+QHash<QString, QVariant> *ritual_ZNK8QCborMap13toVariantHashEv(
+    const QCborMap *self) {
+  return new QHash<QString, QVariant>(self->toVariantHash());
 }
 
 //  QJsonObject QCborMap::toJsonObject() const

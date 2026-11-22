@@ -3,6 +3,7 @@
 #include <QtCore/qcommandlineparser.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qcommandlineoption.h>
+#include <QtCore/qlist.h>
 
 //  QString QCommandLineParser::tr(const char *sourceText, const char
 //      *disambiguation, int n)
@@ -54,6 +55,15 @@ bool ritual_ZN18QCommandLineParser9addOptionERK18QCommandLineOption(
   return self->addOption(*commandLineOption);
 }
 
+//  bool QCommandLineParser::addOptions(const QList<QCommandLineOption>
+//      &options)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QCommandLineParser10addOptionsERK5QListI18QCommandLineOptionE(
+    QCommandLineParser *self,
+    const QList<QCommandLineOption> *options) {
+  return self->addOptions(*options);
+}
+
 //  QCommandLineOption QCommandLineParser::addVersionOption()
 extern "C" Q_DECL_EXPORT
 QCommandLineOption *ritual_ZN18QCommandLineParser16addVersionOptionEv(
@@ -102,6 +112,22 @@ void ritual_ZN18QCommandLineParser24clearPositionalArgumentsEv(
   self->clearPositionalArguments();
 }
 
+//  void QCommandLineParser::process(const QStringList &arguments)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QCommandLineParser7processERK5QListI7QStringE(
+    QCommandLineParser *self,
+    const QList<QString> *arguments) {
+  self->process(*arguments);
+}
+
+//  bool QCommandLineParser::parse(const QStringList &arguments)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QCommandLineParser5parseERK5QListI7QStringE(
+    QCommandLineParser *self,
+    const QList<QString> *arguments) {
+  return self->parse(*arguments);
+}
+
 //  QString QCommandLineParser::errorText() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK18QCommandLineParser9errorTextEv(
@@ -125,6 +151,14 @@ QString *ritual_ZNK18QCommandLineParser5valueERK7QString(
   return new QString(self->value(*name));
 }
 
+//  QStringList QCommandLineParser::values(const QString &name) const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK18QCommandLineParser6valuesERK7QString(
+    const QCommandLineParser *self,
+    const QString *name) {
+  return new QList<QString>(self->values(*name));
+}
+
 //  bool QCommandLineParser::isSet(const QCommandLineOption &option) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK18QCommandLineParser5isSetERK18QCommandLineOption(
@@ -139,6 +173,36 @@ QString *ritual_ZNK18QCommandLineParser5valueERK18QCommandLineOption(
     const QCommandLineParser *self,
     const QCommandLineOption *option) {
   return new QString(self->value(*option));
+}
+
+//  QStringList QCommandLineParser::values(const QCommandLineOption &option)
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK18QCommandLineParser6valuesERK18QCommandLineOption(
+    const QCommandLineParser *self,
+    const QCommandLineOption *option) {
+  return new QList<QString>(self->values(*option));
+}
+
+//  QStringList QCommandLineParser::positionalArguments() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK18QCommandLineParser19positionalArgumentsEv(
+    const QCommandLineParser *self) {
+  return new QList<QString>(self->positionalArguments());
+}
+
+//  QStringList QCommandLineParser::optionNames() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK18QCommandLineParser11optionNamesEv(
+    const QCommandLineParser *self) {
+  return new QList<QString>(self->optionNames());
+}
+
+//  QStringList QCommandLineParser::unknownOptionNames() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK18QCommandLineParser18unknownOptionNamesEv(
+    const QCommandLineParser *self) {
+  return new QList<QString>(self->unknownOptionNames());
 }
 
 //  void QCommandLineParser::showVersion()

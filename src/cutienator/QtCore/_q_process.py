@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QIODevice, QIODeviceBase, QObject
+from . import QIODevice, QIODeviceBase, QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -44,19 +44,21 @@ class QProcess(QIODevice):
   -----------
 
   Every function of Qt's QProcess that has a ritual and that Python can call
-  so far, 43 names in all: 'metaObject', 'tr', 'start', 'startCommand',
-  'open', 'program', 'setProgram', 'processChannelMode',
-  'setProcessChannelMode', 'inputChannelMode', 'setInputChannelMode',
-  'readChannel', 'setReadChannel', 'closeReadChannel', 'closeWriteChannel',
-  'setStandardInputFile', 'setStandardOutputFile', 'setStandardErrorFile',
-  'setStandardOutputProcess', 'failChildProcessModifier',
-  'unixProcessParameters', 'setUnixProcessParameters', 'workingDirectory',
-  'setWorkingDirectory', 'setProcessEnvironment', 'processEnvironment',
-  'error', 'state', 'processId', 'waitForStarted', 'waitForReadyRead',
-  'waitForBytesWritten', 'waitForFinished', 'readAllStandardOutput',
-  'readAllStandardError', 'exitCode', 'exitStatus', 'bytesToWrite',
-  'isSequential', 'close', 'nullDevice', 'terminate', 'kill'. It can be made
-  from Python, in 1 way; see '__init__'.
+  so far, 50 names in all: 'metaObject', 'tr', 'start', 'startCommand',
+  'open', 'program', 'setProgram', 'arguments', 'setArguments',
+  'processChannelMode', 'setProcessChannelMode', 'inputChannelMode',
+  'setInputChannelMode', 'readChannel', 'setReadChannel', 'closeReadChannel',
+  'closeWriteChannel', 'setStandardInputFile', 'setStandardOutputFile',
+  'setStandardErrorFile', 'setStandardOutputProcess',
+  'failChildProcessModifier', 'unixProcessParameters',
+  'setUnixProcessParameters', 'workingDirectory', 'setWorkingDirectory',
+  'setEnvironment', 'environment', 'setProcessEnvironment',
+  'processEnvironment', 'error', 'state', 'processId', 'waitForStarted',
+  'waitForReadyRead', 'waitForBytesWritten', 'waitForFinished',
+  'readAllStandardOutput', 'readAllStandardError', 'exitCode', 'exitStatus',
+  'bytesToWrite', 'isSequential', 'close', 'execute', 'systemEnvironment',
+  'nullDevice', 'splitCommand', 'terminate', 'kill'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -65,12 +67,16 @@ class QProcess(QIODevice):
     QProcess.
   - Qt's 'bool QProcess::startDetached(qint64 *pid)': takes a number to
     change where it is.
+  - Qt's 'bool QProcess::startDetached(const QString &program, const
+    QStringList &arguments, const QString &workingDirectory, qint64 *pid)':
+    takes a number to change where it is.
 
   What has no ritual
   ------------------
 
-  29 of the 76 functions Qt declares: 13 takes or gives a type that cannot be
-  passed yet; 6 a signal; 4 private; 3 protected; 2 forbidden; 1 a template.
+  20 of the 76 functions Qt declares: 6 a signal; 4 takes or gives a type
+  that cannot be passed yet; 4 private; 3 protected; 2 forbidden; 1 a
+  template.
 
   What to expect
   --------------
@@ -321,6 +327,50 @@ class QProcess(QIODevice):
     )
 
   @staticmethod
+  @overload(str, QStringList)
+  def execute(program: str, arguments: QStringList) -> int:
+    """
+    Calls Qt's 'int QProcess::execute(const QString &program, const
+    QStringList &arguments)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#execute
+
+    Parameters
+    ----------
+
+    program : str
+      Passed on as it is: a QString is made of it for the call.
+
+    arguments : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  int QProcess::execute(const QString &program, const QStringList
+    #      &arguments)
+    return Rituals.call(
+        'ritual_ZN8QProcess7executeERK7QStringRK5QListIS0_E',
+        program, CuteMixin._valueOf(arguments),
+    )
+
+  @staticmethod
+  def systemEnvironment() -> QStringList:
+    """
+    Calls Qt's 'QStringList QProcess::systemEnvironment()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#systemEnvironment
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QProcess::systemEnvironment()
+    address = Rituals.call('ritual_ZN8QProcess17systemEnvironmentEv')
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
   def nullDevice() -> str:
     """
     Calls Qt's 'QString QProcess::nullDevice()'.
@@ -335,6 +385,32 @@ class QProcess(QIODevice):
     """
     #  QString QProcess::nullDevice()
     return Rituals.call('ritual_ZN8QProcess10nullDeviceEv')
+
+  @staticmethod
+  @overload(str)
+  def splitCommand(command: str) -> QStringList:
+    """
+    Calls Qt's 'QStringList QProcess::splitCommand(QStringView command)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#splitCommand
+
+    Parameters
+    ----------
+
+    command : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QProcess::splitCommand(QStringView command)
+    address = Rituals.call(
+        'ritual_ZN8QProcess12splitCommandE11QStringView', command,
+    )
+    return QStringList._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -393,6 +469,22 @@ class QProcess(QIODevice):
     """
     #  QString QProcess::program() const
     return self.uglySide.call('ritual_ZNK8QProcess7programEv')
+
+  def arguments(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QProcess::arguments() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#arguments
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QProcess::arguments() const
+    address = self.uglySide.call('ritual_ZNK8QProcess9argumentsEv')
+    return QStringList._cuteOwning(address)
 
   def processChannelMode(self) -> ProcessChannelMode:
     """
@@ -486,6 +578,22 @@ class QProcess(QIODevice):
     """
     #  QString QProcess::workingDirectory() const
     return self.uglySide.call('ritual_ZNK8QProcess16workingDirectoryEv')
+
+  def environment(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QProcess::environment() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#environment
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QProcess::environment() const
+    address = self.uglySide.call('ritual_ZNK8QProcess11environmentEv')
+    return QStringList._cuteOwning(address)
 
   def processEnvironment(self) -> QProcessEnvironment:
     """
@@ -623,6 +731,27 @@ class QProcess(QIODevice):
     """
     #  void QProcess::setProgram(const QString &program)
     self.uglySide.call('ritual_ZN8QProcess10setProgramERK7QString', program)
+
+  @overload(QStringList)
+  def setArguments(self, arguments: QStringList) -> None:
+    """
+    Calls Qt's 'void QProcess::setArguments(const QStringList &arguments)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#setArguments
+
+    Parameters
+    ----------
+
+    arguments : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QProcess::setArguments(const QStringList &arguments)
+    self.uglySide.call(
+        'ritual_ZN8QProcess12setArgumentsERK5QListI7QStringE',
+        self._valueOf(arguments),
+    )
 
   @overload(ProcessChannelMode)
   def setProcessChannelMode(self, mode: ProcessChannelMode) -> None:
@@ -855,6 +984,28 @@ class QProcess(QIODevice):
         'ritual_ZN8QProcess19setWorkingDirectoryERK7QString', dir,
     )
 
+  @overload(QStringList)
+  def setEnvironment(self, environment: QStringList) -> None:
+    """
+    Calls Qt's 'void QProcess::setEnvironment(const QStringList
+    &environment)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#setEnvironment
+
+    Parameters
+    ----------
+
+    environment : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QProcess::setEnvironment(const QStringList &environment)
+    self.uglySide.call(
+        'ritual_ZN8QProcess14setEnvironmentERK5QListI7QStringE',
+        self._valueOf(environment),
+    )
+
   @overload(QProcessEnvironment)
   def setProcessEnvironment(self, environment: QProcessEnvironment) -> None:
     """
@@ -931,6 +1082,43 @@ class QProcess(QIODevice):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(str, QStringList)
+  @overload(str, QStringList, QIODeviceBase.OpenMode)
+  def start(
+      self,
+      program: str,
+      arguments: QStringList,
+      mode: QIODeviceBase.OpenMode = QIODeviceBase.OpenMode.ReadWrite,
+  ) -> None:
+    """
+    Calls Qt's 'void QProcess::start(const QString &program, const
+    QStringList &arguments, OpenMode mode)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#start
+
+    Parameters
+    ----------
+
+    program : str
+      Passed on as it is: a QString is made of it for the call.
+
+    arguments : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    mode : QIODeviceBase.OpenMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      QIODeviceBase.OpenMode.ReadWrite.
+    """
+    #  void QProcess::start(const QString &program, const QStringList
+    #      &arguments, OpenMode mode)
+    self.uglySide.call(
+        'ritual_ZN8QProcess5startERK7QStringRK5QListIS0_E6QFlagsIN13QIODevi'
+        'ceBase12OpenModeFlagEE',
+        program, self._valueOf(arguments), mode.value,
+    )
 
   @overload()
   @overload(QIODeviceBase.OpenMode)

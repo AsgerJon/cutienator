@@ -9,6 +9,7 @@
 #include <QtGui/qvulkaninstance.h>
 #include <QtGui/qvulkanwindow.h>
 #include <QtGui/qcolor.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QAccessibleInterface that Python can take functions over in. Every QAccessibleInterface
@@ -522,4 +523,42 @@ extern "C" Q_DECL_EXPORT
 QColor *ritual_own_ZNK20QAccessibleInterface15backgroundColorEv(
     const QAccessibleInterface *self) {
   return new QColor(self->QAccessibleInterface::backgroundColor());
+}
+
+//  QList<QAccessibleInterface *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QAccessibleInterface *> *ritual_list_make_QAccessibleInterface_ptr() {
+  return new QList<QAccessibleInterface *>();
+}
+
+//  void QList<QAccessibleInterface *>::append(const QAccessibleInterface *
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QAccessibleInterface_ptr(
+    QList<QAccessibleInterface *> *self,
+    QAccessibleInterface *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QAccessibleInterface *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QAccessibleInterface_ptr(
+    const QList<QAccessibleInterface *> *self) {
+  return self->size();
+}
+
+//  const QAccessibleInterface * &QList<QAccessibleInterface *>::at(qsizetype
+//      i) const
+extern "C" Q_DECL_EXPORT
+QAccessibleInterface *ritual_list_at_QAccessibleInterface_ptr(
+    const QList<QAccessibleInterface *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QAccessibleInterface *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QAccessibleInterface_ptr(
+    QList<QAccessibleInterface *> *self) {
+  delete self;
 }

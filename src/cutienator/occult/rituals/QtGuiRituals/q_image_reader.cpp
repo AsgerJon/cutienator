@@ -7,6 +7,7 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qcolor.h>
 #include <QtGui/qimage.h>
+#include <QtCore/qlist.h>
 
 //  QString QImageReader::tr(const char *sourceText, const char
 //      *disambiguation, int n)
@@ -138,6 +139,13 @@ QImage::Format ritual_ZNK12QImageReader11imageFormatEv(
   return self->imageFormat();
 }
 
+//  QStringList QImageReader::textKeys() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK12QImageReader8textKeysEv(
+    const QImageReader *self) {
+  return new QList<QString>(self->textKeys());
+}
+
 //  QString QImageReader::text(const QString &key) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK12QImageReader4textERK7QString(
@@ -248,6 +256,13 @@ QByteArray *ritual_ZNK12QImageReader7subTypeEv(const QImageReader *self) {
   return new QByteArray(self->subType());
 }
 
+//  QList<QByteArray> QImageReader::supportedSubTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZNK12QImageReader17supportedSubTypesEv(
+    const QImageReader *self) {
+  return new QList<QByteArray>(self->supportedSubTypes());
+}
+
 //  bool QImageReader::canRead() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK12QImageReader7canReadEv(const QImageReader *self) {
@@ -348,6 +363,28 @@ extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN12QImageReader11imageFormatEP9QIODevice(
     QIODevice *device) {
   return new QByteArray(QImageReader::imageFormat(device));
+}
+
+//  QList<QByteArray> QImageReader::supportedImageFormats()
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN12QImageReader21supportedImageFormatsEv() {
+  return new QList<QByteArray>(QImageReader::supportedImageFormats());
+}
+
+//  QList<QByteArray> QImageReader::supportedMimeTypes()
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN12QImageReader18supportedMimeTypesEv() {
+  return new QList<QByteArray>(QImageReader::supportedMimeTypes());
+}
+
+//  QList<QByteArray> QImageReader::imageFormatsForMimeType(const QByteArray
+//      &mimeType)
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN12QImageReader23imageFormatsForMimeTypeERK10QByteArray(
+    const QByteArray *mimeType) {
+  return new QList<QByteArray>(
+      QImageReader::imageFormatsForMimeType(
+          *mimeType));
 }
 
 //  int QImageReader::allocationLimit()

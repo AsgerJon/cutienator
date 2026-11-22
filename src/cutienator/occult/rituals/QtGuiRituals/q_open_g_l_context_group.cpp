@@ -3,6 +3,7 @@
 #include <QtGui/qopenglcontext.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QOpenGLContextGroup that Python can take functions over in. Every QOpenGLContextGroup
@@ -150,6 +151,13 @@ QString *ritual_ZN19QOpenGLContextGroup2trEPKcS1_i(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QOpenGLContextGroupD1Ev(QOpenGLContextGroup *self) {
   delete self;
+}
+
+//  QList<QOpenGLContext *> QOpenGLContextGroup::shares() const
+extern "C" Q_DECL_EXPORT
+QList<QOpenGLContext *> *ritual_ZNK19QOpenGLContextGroup6sharesEv(
+    const QOpenGLContextGroup *self) {
+  return new QList<QOpenGLContext *>(self->shares());
 }
 
 //  QOpenGLContextGroup *QOpenGLContextGroup::currentContextGroup()

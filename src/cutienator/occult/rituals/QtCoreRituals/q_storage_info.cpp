@@ -5,6 +5,7 @@
 #include <QtCore/qdir.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/qlist.h>
 
 //  QStorageInfo::QStorageInfo()
 extern "C" Q_DECL_EXPORT
@@ -135,6 +136,12 @@ void ritual_ZN12QStorageInfo7refreshEv(QStorageInfo *self) {
   self->refresh();
 }
 
+//  QList<QStorageInfo> QStorageInfo::mountedVolumes()
+extern "C" Q_DECL_EXPORT
+QList<QStorageInfo> *ritual_ZN12QStorageInfo14mountedVolumesEv() {
+  return new QList<QStorageInfo>(QStorageInfo::mountedVolumes());
+}
+
 //  QStorageInfo QStorageInfo::root()
 extern "C" Q_DECL_EXPORT
 QStorageInfo *ritual_ZN12QStorageInfo4rootEv() {
@@ -163,4 +170,38 @@ QDebug *ritual_Zls6QDebugRK12QStorageInfo(
     const QDebug *a0,
     const QStorageInfo *a1) {
   return new QDebug(operator<<(*a0, *a1));
+}
+
+//  QList<QStorageInfo>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QStorageInfo> *ritual_list_make_QStorageInfo() {
+  return new QList<QStorageInfo>();
+}
+
+//  void QList<QStorageInfo>::append(const QStorageInfo &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QStorageInfo(
+    QList<QStorageInfo> *self,
+    const QStorageInfo *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QStorageInfo>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QStorageInfo(const QList<QStorageInfo> *self) {
+  return self->size();
+}
+
+//  const QStorageInfo &QList<QStorageInfo>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QStorageInfo *ritual_list_at_QStorageInfo(
+    const QList<QStorageInfo> *self,
+    long long index) {
+  return new QStorageInfo(self->at(index));
+}
+
+//  QList<QStorageInfo>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QStorageInfo(QList<QStorageInfo> *self) {
+  delete self;
 }

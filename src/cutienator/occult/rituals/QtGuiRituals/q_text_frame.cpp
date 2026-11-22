@@ -5,6 +5,7 @@
 #include <QtGui/qtextformat.h>
 #include <QtGui/qtextcursor.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QTextFrame that Python can take functions over in. Every QTextFrame
@@ -216,6 +217,13 @@ void ritual_ZN10QTextFrame13setLayoutDataEP20QTextFrameLayoutData(
   self->setLayoutData(data);
 }
 
+//  QList<QTextFrame *> QTextFrame::childFrames() const
+extern "C" Q_DECL_EXPORT
+QList<QTextFrame *> *ritual_ZNK10QTextFrame11childFramesEv(
+    const QTextFrame *self) {
+  return new QList<QTextFrame *>(self->childFrames());
+}
+
 //  QTextFrame *QTextFrame::parentFrame() const
 extern "C" Q_DECL_EXPORT
 QTextFrame *ritual_ZNK10QTextFrame11parentFrameEv(const QTextFrame *self) {
@@ -240,4 +248,38 @@ QTextFrame::iterator *ritual_ZNK10QTextFrame3endEv(const QTextFrame *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QTextFrame(QTextFrame *self, const char *key, void *call) {
   return static_cast<CuteQTextFrame *>(self)->take(key, call);
+}
+
+//  QList<QTextFrame *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QTextFrame *> *ritual_list_make_QTextFrame_ptr() {
+  return new QList<QTextFrame *>();
+}
+
+//  void QList<QTextFrame *>::append(const QTextFrame * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QTextFrame_ptr(
+    QList<QTextFrame *> *self,
+    QTextFrame *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QTextFrame *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QTextFrame_ptr(const QList<QTextFrame *> *self) {
+  return self->size();
+}
+
+//  const QTextFrame * &QList<QTextFrame *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QTextFrame *ritual_list_at_QTextFrame_ptr(
+    const QList<QTextFrame *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QTextFrame *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QTextFrame_ptr(QList<QTextFrame *> *self) {
+  delete self;
 }

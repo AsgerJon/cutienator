@@ -2,6 +2,7 @@
 //  QtWidgets/qcolormap.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qcolormap.h>
 #include <QtGui/qcolor.h>
+#include <QtCore/qlist.h>
 
 //  void QColormap::initialize()
 extern "C" Q_DECL_EXPORT
@@ -63,4 +64,10 @@ uint ritual_ZNK9QColormap5pixelERK6QColor(
 extern "C" Q_DECL_EXPORT
 QColor *ritual_ZNK9QColormap7colorAtEj(const QColormap *self, uint pixel) {
   return new QColor(self->colorAt(pixel));
+}
+
+//  const QList<QColor> QColormap::colormap() const
+extern "C" Q_DECL_EXPORT
+QList<QColor> *ritual_ZNK9QColormap8colormapEv(const QColormap *self) {
+  return new QList<QColor>(self->colormap());
 }

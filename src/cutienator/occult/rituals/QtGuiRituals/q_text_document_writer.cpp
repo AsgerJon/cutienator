@@ -4,6 +4,7 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qtextdocumentfragment.h>
+#include <QtCore/qlist.h>
 
 //  QTextDocumentWriter::QTextDocumentWriter()
 extern "C" Q_DECL_EXPORT
@@ -94,4 +95,11 @@ bool ritual_ZN19QTextDocumentWriter5writeERK21QTextDocumentFragment(
     QTextDocumentWriter *self,
     const QTextDocumentFragment *fragment) {
   return self->write(*fragment);
+}
+
+//  QList<QByteArray> QTextDocumentWriter::supportedDocumentFormats()
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN19QTextDocumentWriter24supportedDocumentFormatsEv() {
+  return new QList<QByteArray>(
+      QTextDocumentWriter::supportedDocumentFormats());
 }

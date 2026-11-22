@@ -10,6 +10,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QTableWidget may call these functions of it.
@@ -1588,6 +1589,15 @@ QTableWidgetItem *ritual_ZN12QTableWidget8takeItemEii(
   return self->takeItem(row, column);
 }
 
+//  QList<QTableWidgetItem *> QTableWidget::items(const QMimeData *data)
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QTableWidgetItem *> *ritual_ZNK12QTableWidget5itemsEPK9QMimeData(
+    const QTableWidget *self,
+    const QMimeData *data) {
+  return new QList<QTableWidgetItem *>(self->items(data));
+}
+
 //  QModelIndex QTableWidget::indexFromItem(const QTableWidgetItem *item)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -1655,6 +1665,22 @@ QTableWidgetItem *ritual_ZN12QTableWidget24takeHorizontalHeaderItemEi(
     QTableWidget *self,
     int column) {
   return self->takeHorizontalHeaderItem(column);
+}
+
+//  void QTableWidget::setVerticalHeaderLabels(const QStringList &labels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget23setVerticalHeaderLabelsERK5QListI7QStringE(
+    QTableWidget *self,
+    const QList<QString> *labels) {
+  self->setVerticalHeaderLabels(*labels);
+}
+
+//  void QTableWidget::setHorizontalHeaderLabels(const QStringList &labels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget25setHorizontalHeaderLabelsERK5QListI7QStringE(
+    QTableWidget *self,
+    const QList<QString> *labels) {
+  self->setHorizontalHeaderLabels(*labels);
 }
 
 //  int QTableWidget::currentRow() const
@@ -1810,6 +1836,33 @@ void ritual_ZN12QTableWidget16setRangeSelectedERK26QTableWidgetSelectionRangeb(
     const QTableWidgetSelectionRange *range,
     bool select) {
   self->setRangeSelected(*range, select);
+}
+
+//  QList<QTableWidgetSelectionRange> QTableWidget::selectedRanges() const
+extern "C" Q_DECL_EXPORT
+QList<QTableWidgetSelectionRange> *ritual_ZNK12QTableWidget14selectedRangesEv(
+    const QTableWidget *self) {
+  return new QList<QTableWidgetSelectionRange>(self->selectedRanges());
+}
+
+//  QList<QTableWidgetItem *> QTableWidget::selectedItems() const
+extern "C" Q_DECL_EXPORT
+QList<QTableWidgetItem *> *ritual_ZNK12QTableWidget13selectedItemsEv(
+    const QTableWidget *self) {
+  return new QList<QTableWidgetItem *>(self->selectedItems());
+}
+
+//  QList<QTableWidgetItem *> QTableWidget::findItems(const QString &text,
+//      Qt::MatchFlags flags) const
+extern "C" Q_DECL_EXPORT
+QList<QTableWidgetItem *> *ritual_ZNK12QTableWidget9findItemsERK7QString6QFlagsIN2Qt9MatchFlagEE(
+    const QTableWidget *self,
+    const QString *text,
+    int flags) {
+  return new QList<QTableWidgetItem *>(
+      self->findItems(
+          *text,
+          QFlags<Qt::MatchFlag>::fromInt(flags)));
 }
 
 //  int QTableWidget::visualRow(int logicalRow) const

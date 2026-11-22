@@ -5,10 +5,12 @@
 #include <QtGui/qkeysequence.h>
 #include <QtGui/qicon.h>
 #include <QtCore/qpoint.h>
+#include <QtGui/qaction.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QMenu may call these functions of it.
@@ -1035,6 +1037,17 @@ QAction *ritual_ZN5QMenu4execERK6QPointP7QAction(
     const QPoint *pos,
     QAction *at) {
   return self->exec(*pos, at);
+}
+
+//  QAction *QMenu::exec(const QList<QAction *> &actions, const QPoint &pos,
+//      QAction *at, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QAction *ritual_ZN5QMenu4execERK5QListIP7QActionERK6QPointS2_P7QWidget(
+    const QList<QAction *> *actions,
+    const QPoint *pos,
+    QAction *at,
+    QWidget *parent) {
+  return QMenu::exec(*actions, *pos, at, parent);
 }
 
 //  QSize QMenu::sizeHint() const

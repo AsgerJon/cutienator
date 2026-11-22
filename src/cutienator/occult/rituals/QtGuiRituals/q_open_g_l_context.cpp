@@ -5,6 +5,7 @@
 #include <QtGui/qsurfaceformat.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QOpenGLContext that Python can take functions over in. Every QOpenGLContext
@@ -320,4 +321,39 @@ bool ritual_take_QOpenGLContext(
     const char *key,
     void *call) {
   return static_cast<CuteQOpenGLContext *>(self)->take(key, call);
+}
+
+//  QList<QOpenGLContext *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QOpenGLContext *> *ritual_list_make_QOpenGLContext_ptr() {
+  return new QList<QOpenGLContext *>();
+}
+
+//  void QList<QOpenGLContext *>::append(const QOpenGLContext * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QOpenGLContext_ptr(
+    QList<QOpenGLContext *> *self,
+    QOpenGLContext *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QOpenGLContext *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QOpenGLContext_ptr(
+    const QList<QOpenGLContext *> *self) {
+  return self->size();
+}
+
+//  const QOpenGLContext * &QList<QOpenGLContext *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QOpenGLContext *ritual_list_at_QOpenGLContext_ptr(
+    const QList<QOpenGLContext *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QOpenGLContext *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QOpenGLContext_ptr(QList<QOpenGLContext *> *self) {
+  delete self;
 }

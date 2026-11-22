@@ -39,18 +39,44 @@
     "ritual_ZNK14QGraphicsScene17itemsBoundingRectEv": [
       "address", "address"
     ],
+    "ritual_ZNK14QGraphicsScene5itemsEN2Qt9SortOrderE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QGraphicsScene5itemsERK7QPointFN2Qt17ItemSelectionModeENS3_9SortOrderERK10QTransform": [
+      "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene5itemsERK6QRectFN2Qt17ItemSelectionModeENS3_9SortOrderERK10QTransform": [
+      "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene5itemsERK9QPolygonFN2Qt17ItemSelectionModeENS3_9SortOrderERK10QTransform": [
+      "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene5itemsERK12QPainterPathN2Qt17ItemSelectionModeENS3_9SortOrderERK10QTransform": [
+      "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene5itemsEddddN2Qt17ItemSelectionModeENS0_9SortOrderERK10QTransform": [
+      "address", "address", "double", "double", "double", "double", "int",
+      "int", "address"
+    ],
+    "ritual_ZNK14QGraphicsScene14collidingItemsEPK13QGraphicsItemN2Qt17ItemSelectionModeE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZNK14QGraphicsScene6itemAtERK7QPointFRK10QTransform": [
       "address", "address", "address", "address"
     ],
     "ritual_ZNK14QGraphicsScene6itemAtEddRK10QTransform": [
       "address", "address", "double", "double", "address"
     ],
+    "ritual_ZNK14QGraphicsScene13selectedItemsEv": ["address", "address"],
     "ritual_ZNK14QGraphicsScene13selectionAreaEv": ["address", "address"],
     "ritual_ZN14QGraphicsScene16setSelectionAreaERK12QPainterPathRK10QTransform": [
       "nothing", "address", "address", "address"
     ],
     "ritual_ZN14QGraphicsScene16setSelectionAreaERK12QPainterPathN2Qt22ItemSelectionOperationENS3_17ItemSelectionModeERK10QTransform": [
       "nothing", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QGraphicsScene15createItemGroupERK5QListIP13QGraphicsItemE": [
+      "address", "address", "address"
     ],
     "ritual_ZN14QGraphicsScene16destroyItemGroupEP18QGraphicsItemGroup": [
       "nothing", "address", "address"
@@ -124,6 +150,7 @@
     "ritual_ZNK14QGraphicsScene16inputMethodQueryEN2Qt16InputMethodQueryE": [
       "address", "address", "int"
     ],
+    "ritual_ZNK14QGraphicsScene5viewsEv": ["address", "address"],
     "ritual_ZN14QGraphicsScene6updateEdddd": [
       "nothing", "address", "double", "double", "double", "double"
     ],

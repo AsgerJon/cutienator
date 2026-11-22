@@ -14,17 +14,19 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from . import Qt, QAbstractItemModel, QObject
+from . import Qt, QAbstractItemModel, QHash, QList, QMap, QObject
+from . import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QCollator, QEvent, QMetaObject, QMimeData, QModelIndex
-  from . import QModelRoleDataSpan, QSize, QVariant
+  from . import QByteArray, QCollator, QEvent, QMetaObject, QMimeData
+  from . import QModelIndex, QModelRoleDataSpan, QSize, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
   QCollator = WAIT['QCollator']
   QEvent = WAIT['QEvent']
   QMimeData = WAIT['QMimeData']
@@ -49,14 +51,16 @@ class QRangeModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QRangeModel that has a ritual and that Python can
-  call so far, 46 names in all: 'metaObject', 'tr', 'index', 'parent',
+  call so far, 53 names in all: 'metaObject', 'tr', 'index', 'parent',
   'sibling', 'rowCount', 'columnCount', 'flags', 'headerData',
-  'setHeaderData', 'data', 'setData', 'clearItemData', 'insertColumns',
-  'removeColumns', 'moveColumns', 'insertRows', 'removeRows', 'moveRows',
+  'setHeaderData', 'data', 'setData', 'itemData', 'setItemData',
+  'clearItemData', 'insertColumns', 'removeColumns', 'moveColumns',
+  'insertRows', 'removeRows', 'moveRows', 'roleNames', 'setRoleNames',
   'resetRoleNames', 'canFetchMore', 'fetchMore', 'hasChildren', 'buddy',
-  'canDropMimeData', 'dropMimeData', 'multiData', 'sort', 'sortCollator',
-  'setSortCollator', 'resetSortCollator', 'sortRole', 'setSortRole',
-  'resetSortRole', 'span', 'supportedDragActions', 'setSupportedDragActions',
+  'canDropMimeData', 'dropMimeData', 'mimeData', 'mimeTypes', 'match',
+  'multiData', 'sort', 'sortCollator', 'setSortCollator',
+  'resetSortCollator', 'sortRole', 'setSortRole', 'resetSortRole', 'span',
+  'supportedDragActions', 'setSupportedDragActions',
   'resetSupportedDragActions', 'supportedDropActions',
   'setSupportedDropActions', 'resetSupportedDropActions',
   'autoConnectPolicy', 'setAutoConnectPolicy', 'resetInternalData', 'event',
@@ -72,8 +76,8 @@ class QRangeModel(QAbstractItemModel):
   What has no ritual
   ------------------
 
-  27 of the 74 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 6 a signal; 4 a template; 4 private; 4 forbidden.
+  20 of the 74 functions Qt declares: 6 a signal; 4 a template; 4 private; 4
+  forbidden; 2 takes or gives a type that cannot be passed yet.
 
   What to expect
   --------------
@@ -488,6 +492,53 @@ class QRangeModel(QAbstractItemModel):
     return QVariant._cuteOwning(address)
 
   @overload(QModelIndex)
+  def itemData(self, index: QModelIndex) -> QMap[int, QVariant]:
+    """
+    Calls Qt's 'QMap<int, QVariant> QRangeModel::itemData(const QModelIndex
+    &index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#itemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QMap[int, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QMap<int, QVariant> QRangeModel::itemData(const QModelIndex &index)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK11QRangeModel8itemDataERK11QModelIndex',
+        self._valueOf(index),
+    )
+    from . import QVariant
+    return QMap[int, QVariant]._cuteOwning(address)
+
+  def roleNames(self) -> QHash[int, QByteArray]:
+    """
+    Calls Qt's 'QHash<int, QByteArray> QRangeModel::roleNames() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#roleNames
+
+    Returns
+    -------
+
+    QHash[int, QByteArray]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QHash<int, QByteArray> QRangeModel::roleNames() const
+    address = self.uglySide.call('ritual_ZNK11QRangeModel9roleNamesEv')
+    from . import QByteArray
+    return QHash[int, QByteArray]._cuteOwning(address)
+
+  @overload(QModelIndex)
   def canFetchMore(self, parent: QModelIndex) -> bool:
     """
     Calls Qt's 'bool QRangeModel::canFetchMore(const QModelIndex &parent)
@@ -615,6 +666,104 @@ class QRangeModel(QAbstractItemModel):
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
+
+  @overload(QList[QModelIndex])
+  def mimeData(self, indexes: QList[QModelIndex]) -> Optional[QMimeData]:
+    """
+    Calls Qt's 'QMimeData *QRangeModel::mimeData(const QModelIndexList
+    &indexes) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#mimeData
+
+    Parameters
+    ----------
+
+    indexes : QList[QModelIndex]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    Optional[QMimeData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMimeData *QRangeModel::mimeData(const QModelIndexList &indexes) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QRangeModel8mimeDataERK5QListI11QModelIndexE',
+        self._valueOf(indexes),
+    )
+    from . import QMimeData
+    return QMimeData._cuteAt(address)
+
+  def mimeTypes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QRangeModel::mimeTypes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#mimeTypes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QRangeModel::mimeTypes() const
+    address = self.uglySide.call('ritual_ZNK11QRangeModel9mimeTypesEv')
+    return QStringList._cuteOwning(address)
+
+  @overload(QModelIndex, int, QVariant, int, Qt.MatchFlags)
+  def match(
+      self,
+      start: QModelIndex,
+      role: int,
+      value: QVariant,
+      hits: int,
+      flags: Qt.MatchFlags,
+  ) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QRangeModel::match(const QModelIndex &start,
+    int role, const QVariant &value, int hits, Qt::MatchFlags flags) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#match
+
+    Parameters
+    ----------
+
+    start : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    role : int
+      Passed on as it is.
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    hits : int
+      Passed on as it is.
+
+    flags : Qt.MatchFlags
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QRangeModel::match(const QModelIndex &start, int role,
+    #      const QVariant &value, int hits, Qt::MatchFlags flags) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QRangeModel5matchERK11QModelIndexiRK8QVarianti6QFlagsI'
+        'N2Qt9MatchFlagEE',
+        self._valueOf(start), role, self._valueOf(value), hits, flags.value,
+    )
+    from . import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
 
   def sortCollator(self) -> QCollator:
     """
@@ -811,6 +960,60 @@ class QRangeModel(QAbstractItemModel):
           'ritual_own_ZN11QRangeModel7setDataERK11QModelIndexRK8QVarianti')
     return self.uglySide.call(
         ritual, self._valueOf(index), self._valueOf(data), role,
+    )
+
+  @overload(QModelIndex, QMap[int, QVariant])
+  def setItemData(
+      self,
+      index: QModelIndex,
+      data: QMap[int, QVariant],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QRangeModel::setItemData(const QModelIndex &index, const
+    QMap<int, QVariant> &data)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#setItemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    data : QMap[int, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  bool QRangeModel::setItemData(const QModelIndex &index, const
+    #      QMap<int, QVariant> &data)
+    return self.uglySide.call(
+        'ritual_ZN11QRangeModel11setItemDataERK11QModelIndexRK4QMapIi8QVari'
+        'antE',
+        self._valueOf(index), self._valueOf(data),
+    )
+
+  @overload(QHash[int, QByteArray])
+  def setRoleNames(self, names: QHash[int, QByteArray]) -> None:
+    """
+    Calls Qt's 'void QRangeModel::setRoleNames(const QHash<int, QByteArray>
+    &names)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#setRoleNames
+
+    Parameters
+    ----------
+
+    names : QHash[int, QByteArray]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  void QRangeModel::setRoleNames(const QHash<int, QByteArray> &names)
+    self.uglySide.call(
+        'ritual_ZN11QRangeModel12setRoleNamesERK5QHashIi10QByteArrayE',
+        self._valueOf(names),
     )
 
   @overload(QCollator)

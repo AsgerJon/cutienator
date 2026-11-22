@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin
 from ..occult import Rituals
-from . import QObject
+from . import QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -37,8 +37,9 @@ class QFileSystemWatcher(QObject):
   -----------
 
   Every function of Qt's QFileSystemWatcher that has a ritual and that Python
-  can call so far, 4 names in all: 'metaObject', 'tr', 'addPath',
-  'removePath'. It can be made from Python, in 1 way; see '__init__'.
+  can call so far, 8 names in all: 'metaObject', 'tr', 'addPath', 'addPaths',
+  'removePath', 'removePaths', 'files', 'directories'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -49,8 +50,8 @@ class QFileSystemWatcher(QObject):
   What has no ritual
   ------------------
 
-  13 of the 19 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 3 private; 2 a signal; 1 a template.
+  8 of the 19 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 a signal; 1 a template.
 
   What to expect
   --------------
@@ -160,6 +161,41 @@ class QFileSystemWatcher(QObject):
     from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
+  def files(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileSystemWatcher::files() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfilesystemwatcher.html#files
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileSystemWatcher::files() const
+    address = self.uglySide.call('ritual_ZNK18QFileSystemWatcher5filesEv')
+    return QStringList._cuteOwning(address)
+
+  def directories(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileSystemWatcher::directories() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfilesystemwatcher.html#directories
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileSystemWatcher::directories() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QFileSystemWatcher11directoriesEv',
+    )
+    return QStringList._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -200,6 +236,41 @@ class QFileSystemWatcher(QObject):
         'ritual_ZN18QFileSystemWatcherC1EP7QObject', self._addressOf(parent),
     ))
 
+  @overload(QStringList)
+  @overload(QStringList, QObject)
+  @overload(QStringList, NoneType)
+  def __init__(
+      self,
+      paths: QStringList,
+      parent: Optional[QObject] = None,
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QFileSystemWatcher::QFileSystemWatcher(const QStringList &paths, QObject
+    *parent)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfilesystemwatcher.html#QFileSystemWatcher
+
+    Parameters
+    ----------
+
+    paths : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QFileSystemWatcher::QFileSystemWatcher(const QStringList &paths,
+    #      QObject *parent)
+    self._noteCreation(QFileSystemWatcher, lambda: Rituals.call(
+        'ritual_ZN18QFileSystemWatcherC1ERK5QListI7QStringEP7QObject',
+        self._valueOf(paths), self._addressOf(parent),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -238,6 +309,35 @@ class QFileSystemWatcher(QObject):
         'ritual_ZN18QFileSystemWatcher7addPathERK7QString', file,
     )
 
+  @overload(QStringList)
+  def addPaths(self, files: QStringList) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileSystemWatcher::addPaths(const QStringList
+    &files)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfilesystemwatcher.html#addPaths
+
+    Parameters
+    ----------
+
+    files : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileSystemWatcher::addPaths(const QStringList &files)
+    address = self.uglySide.call(
+        'ritual_ZN18QFileSystemWatcher8addPathsERK5QListI7QStringE',
+        self._valueOf(files),
+    )
+    return QStringList._cuteOwning(address)
+
   @overload(str)
   def removePath(self, file: str) -> bool:
     """
@@ -255,3 +355,33 @@ class QFileSystemWatcher(QObject):
     return self.uglySide.call(
         'ritual_ZN18QFileSystemWatcher10removePathERK7QString', file,
     )
+
+  @overload(QStringList)
+  def removePaths(self, files: QStringList) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileSystemWatcher::removePaths(const QStringList
+    &files)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfilesystemwatcher.html#removePaths
+
+    Parameters
+    ----------
+
+    files : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileSystemWatcher::removePaths(const QStringList &files)
+    address = self.uglySide.call(
+        'ritual_ZN18QFileSystemWatcher11removePathsERK5QListI7QStringE',
+        self._valueOf(files),
+    )
+    return QStringList._cuteOwning(address)

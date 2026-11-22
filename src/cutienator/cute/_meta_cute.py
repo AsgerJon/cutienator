@@ -90,7 +90,8 @@ class MetaCute(BaseMeta):
     every cute class of a program is imported it should be empty.
   - A dispatcher built again replaces the one that was there. A method
     that was read off an object before, and kept, still goes by the old
-    one.
+    one, and hands a call the old one has no signature for on to the
+    new one; see the door of 'CuteSpace'.
   - Settling is all or nothing. When one waiting field cannot be
     settled, as when its class has two functions at what becomes one
     signature, the class statement that was running fails, and that

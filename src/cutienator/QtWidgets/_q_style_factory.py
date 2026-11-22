@@ -13,6 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
+from ..QtCore import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -33,20 +34,14 @@ class QStyleFactory(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QStyleFactory that has a ritual and that Python can
-  call so far, 1 name in all: 'create'. None can be made from Python: one
-  comes out of a function of another class that gives one back.
+  call so far, 2 names in all: 'keys', 'create'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QStyleFactory::~QStyleFactory()': the destructor: Python removes
     its C++ QStyleFactory by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 3 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -65,6 +60,23 @@ class QStyleFactory(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def keys() -> QStringList:
+    """
+    Calls Qt's 'QStringList QStyleFactory::keys()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstylefactory.html#keys
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QStyleFactory::keys()
+    address = Rituals.call('ritual_ZN13QStyleFactory4keysEv')
+    return QStringList._cuteOwning(address)
 
   @staticmethod
   @overload(str)

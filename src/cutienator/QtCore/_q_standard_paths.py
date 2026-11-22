@@ -14,6 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute
 from ..occult import Rituals
+from . import QStringList
 
 
 class QStandardPaths(CuteMixin, metaclass=MetaCute):
@@ -25,15 +26,16 @@ class QStandardPaths(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QStandardPaths that has a ritual and that Python can
-  call so far, 5 names in all: 'writableLocation', 'locate', 'displayName',
+  call so far, 8 names in all: 'writableLocation', 'standardLocations',
+  'locate', 'locateAll', 'displayName', 'findExecutable',
   'setTestModeEnabled', 'isTestModeEnabled'. None can be made from Python:
   one comes out of a function of another class that gives one back.
 
   What has no ritual
   ------------------
 
-  8 of the 13 functions Qt declares: 3 private; 3 takes or gives a type that
-  cannot be passed yet; 1 declared and nowhere to be found; 1 a template.
+  5 of the 13 functions Qt declares: 3 private; 1 declared and nowhere to be
+  found; 1 a template.
 
   What to expect
   --------------
@@ -126,6 +128,36 @@ class QStandardPaths(CuteMixin, metaclass=MetaCute):
     )
 
   @staticmethod
+  @overload(StandardLocation)
+  def standardLocations(type: StandardLocation) -> QStringList:
+    """
+    Calls Qt's 'QStringList
+    QStandardPaths::standardLocations(StandardLocation type)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstandardpaths.html#standardLocations
+
+    Parameters
+    ----------
+
+    type : StandardLocation
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QStandardPaths::standardLocations(StandardLocation type)
+    address = Rituals.call(
+        'ritual_ZN14QStandardPaths17standardLocationsENS_16StandardLocation'
+        'E',
+        type.value,
+    )
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
   @overload(StandardLocation, str)
   @overload(StandardLocation, str, LocateOptions)
   def locate(
@@ -167,6 +199,48 @@ class QStandardPaths(CuteMixin, metaclass=MetaCute):
     )
 
   @staticmethod
+  @overload(StandardLocation, str)
+  @overload(StandardLocation, str, LocateOptions)
+  def locateAll(
+      type: StandardLocation,
+      fileName: str,
+      options: LocateOptions = LocateOptions.LocateFile,
+  ) -> QStringList:
+    """
+    Calls Qt's 'QStringList QStandardPaths::locateAll(StandardLocation type,
+    const QString &fileName, LocateOptions options)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandardpaths.html#locateAll
+
+    Parameters
+    ----------
+
+    type : StandardLocation
+      Passed on as its number.
+
+    fileName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    options : LocateOptions
+      Passed on as its number. May be left out, as in Qt: it is then
+      LocateOptions.LocateFile.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QStandardPaths::locateAll(StandardLocation type, const
+    #      QString &fileName, LocateOptions options)
+    address = Rituals.call(
+        'ritual_ZN14QStandardPaths9locateAllENS_16StandardLocationERK7QStri'
+        'ng6QFlagsINS_12LocateOptionEE',
+        type.value, fileName, options.value,
+    )
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
   @overload(StandardLocation)
   def displayName(type: StandardLocation) -> str:
     """
@@ -190,6 +264,39 @@ class QStandardPaths(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZN14QStandardPaths11displayNameENS_16StandardLocationE',
         type.value,
+    )
+
+  @staticmethod
+  @overload(str, QStringList)
+  def findExecutable(executableName: str, paths: QStringList) -> str:
+    """
+    Calls Qt's 'QString QStandardPaths::findExecutable(const QString
+    &executableName, const QStringList &paths)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandardpaths.html#findExecutable
+
+    Parameters
+    ----------
+
+    executableName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    paths : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QStandardPaths::findExecutable(const QString &executableName,
+    #      const QStringList &paths)
+    return Rituals.call(
+        'ritual_ZN14QStandardPaths14findExecutableERK7QStringRK5QListIS0_E',
+        executableName, CuteMixin._valueOf(paths),
     )
 
   @staticmethod

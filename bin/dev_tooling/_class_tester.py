@@ -315,9 +315,10 @@ class ClassTester:
           if plan['baseName'] in one.getFurtherBaseNames():
             named.append(plan['ritualName'])
           continue
-        if plan['kind'] == 'take':
+        if plan['kind'] in ('take', 'list', 'map'):
           #  No function of Qt either: the class names it as the ritual
-          #  that hands a Python function over.
+          #  that hands a Python function over, or as a ritual of a kind
+          #  of list that holds the class.
           named.append(plan['ritualName'])
           continue
         plans[plan['ritualName']] = plan['row']

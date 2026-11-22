@@ -6,8 +6,15 @@
   "rows": {
     "ritual_ZNK11QTouchEvent5cloneEv": ["address", "address"],
     "ritual_ZN11QTouchEventD1Ev": ["nothing", "address"],
+    "ritual_ZN11QTouchEventC1EN6QEvent4TypeEPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEERK5QListI11QEventPointE": [
+      "address", "int", "address", "int", "address"
+    ],
+    "ritual_ZN11QTouchEventC1EN6QEvent4TypeEPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEES5_IN11QEventPoint5StateEERK5QListIS9_E": [
+      "address", "int", "address", "int", "int", "address"
+    ],
     "ritual_ZNK11QTouchEvent6targetEv": ["address", "address"],
     "ritual_ZNK11QTouchEvent16touchPointStatesEv": ["int", "address"],
+    "ritual_ZNK11QTouchEvent11touchPointsEv": ["address", "address"],
     "ritual_ZNK11QTouchEvent12isBeginEventEv": ["bool", "address"],
     "ritual_ZNK11QTouchEvent13isUpdateEventEv": ["bool", "address"],
     "ritual_ZNK11QTouchEvent10isEndEventEv": ["bool", "address"],

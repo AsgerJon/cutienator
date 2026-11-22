@@ -8,6 +8,8 @@
 #include <QtGui/qtextoption.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
+#include <QtGui/qglyphrun.h>
+#include <QtCore/qlist.h>
 
 //  QTextLayout::QTextLayout()
 extern "C" Q_DECL_EXPORT
@@ -290,6 +292,30 @@ qreal ritual_ZNK11QTextLayout12minimumWidthEv(const QTextLayout *self) {
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK11QTextLayout12maximumWidthEv(const QTextLayout *self) {
   return self->maximumWidth();
+}
+
+//  QList<QGlyphRun> QTextLayout::glyphRuns(int from, int length,
+//      GlyphRunRetrievalFlags flags) const
+extern "C" Q_DECL_EXPORT
+QList<QGlyphRun> *ritual_ZNK11QTextLayout9glyphRunsEii6QFlagsINS_21GlyphRunRetrievalFlagEE(
+    const QTextLayout *self,
+    int from,
+    int length,
+    int flags) {
+  return new QList<QGlyphRun>(
+      self->glyphRuns(
+          from,
+          length,
+          QFlags<QTextLayout::GlyphRunRetrievalFlag>::fromInt(flags)));
+}
+
+//  QList<QGlyphRun> QTextLayout::glyphRuns(int from, int length) const
+extern "C" Q_DECL_EXPORT
+QList<QGlyphRun> *ritual_ZNK11QTextLayout9glyphRunsEii(
+    const QTextLayout *self,
+    int from,
+    int length) {
+  return new QList<QGlyphRun>(self->glyphRuns(from, length));
 }
 
 //  void QTextLayout::setFlags(int flags)

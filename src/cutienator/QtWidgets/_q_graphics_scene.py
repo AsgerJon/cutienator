@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -29,7 +29,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QGraphicsSceneContextMenuEvent, QGraphicsSceneDragDropEvent
   from . import QGraphicsSceneHelpEvent, QGraphicsSceneMouseEvent
   from . import QGraphicsSceneWheelEvent, QGraphicsSimpleTextItem
-  from . import QGraphicsTextItem, QGraphicsWidget, QStyle, QWidget
+  from . import QGraphicsTextItem, QGraphicsView, QGraphicsWidget, QStyle
+  from . import QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -78,26 +79,26 @@ class QGraphicsScene(QObject):
   -----------
 
   Every function of Qt's QGraphicsScene that has a ritual and that Python can
-  call so far, 82 names in all: 'metaObject', 'tr', 'sceneRect', 'width',
+  call so far, 87 names in all: 'metaObject', 'tr', 'sceneRect', 'width',
   'height', 'setSceneRect', 'render', 'itemIndexMethod',
   'setItemIndexMethod', 'bspTreeDepth', 'setBspTreeDepth',
-  'itemsBoundingRect', 'itemAt', 'selectionArea', 'setSelectionArea',
-  'destroyItemGroup', 'addItem', 'addEllipse', 'addLine', 'addPath',
-  'addPixmap', 'addPolygon', 'addRect', 'addText', 'addSimpleText',
-  'addWidget', 'removeItem', 'focusItem', 'setFocusItem', 'hasFocus',
-  'setFocus', 'clearFocus', 'setStickyFocus', 'stickyFocus',
-  'mouseGrabberItem', 'backgroundBrush', 'setBackgroundBrush',
-  'foregroundBrush', 'setForegroundBrush', 'inputMethodQuery', 'update',
-  'invalidate', 'style', 'setStyle', 'font', 'setFont', 'palette',
-  'setPalette', 'isActive', 'activePanel', 'setActivePanel', 'activeWindow',
-  'setActiveWindow', 'sendEvent', 'minimumRenderSize',
-  'setMinimumRenderSize', 'focusOnTouch', 'setFocusOnTouch', 'advance',
-  'clearSelection', 'clear', 'event', 'eventFilter', 'contextMenuEvent',
-  'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent', 'dropEvent',
-  'focusInEvent', 'focusOutEvent', 'helpEvent', 'keyPressEvent',
-  'keyReleaseEvent', 'mousePressEvent', 'mouseMoveEvent',
-  'mouseReleaseEvent', 'mouseDoubleClickEvent', 'wheelEvent',
-  'inputMethodEvent', 'drawBackground', 'drawForeground',
+  'itemsBoundingRect', 'items', 'collidingItems', 'itemAt', 'selectedItems',
+  'selectionArea', 'setSelectionArea', 'createItemGroup', 'destroyItemGroup',
+  'addItem', 'addEllipse', 'addLine', 'addPath', 'addPixmap', 'addPolygon',
+  'addRect', 'addText', 'addSimpleText', 'addWidget', 'removeItem',
+  'focusItem', 'setFocusItem', 'hasFocus', 'setFocus', 'clearFocus',
+  'setStickyFocus', 'stickyFocus', 'mouseGrabberItem', 'backgroundBrush',
+  'setBackgroundBrush', 'foregroundBrush', 'setForegroundBrush',
+  'inputMethodQuery', 'views', 'update', 'invalidate', 'style', 'setStyle',
+  'font', 'setFont', 'palette', 'setPalette', 'isActive', 'activePanel',
+  'setActivePanel', 'activeWindow', 'setActiveWindow', 'sendEvent',
+  'minimumRenderSize', 'setMinimumRenderSize', 'focusOnTouch',
+  'setFocusOnTouch', 'advance', 'clearSelection', 'clear', 'event',
+  'eventFilter', 'contextMenuEvent', 'dragEnterEvent', 'dragMoveEvent',
+  'dragLeaveEvent', 'dropEvent', 'focusInEvent', 'focusOutEvent',
+  'helpEvent', 'keyPressEvent', 'keyReleaseEvent', 'mousePressEvent',
+  'mouseMoveEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
+  'wheelEvent', 'inputMethodEvent', 'drawBackground', 'drawForeground',
   'focusNextPrevChild'. It can be made from Python, in 3 ways; see
   '__init__'.
 
@@ -110,8 +111,8 @@ class QGraphicsScene(QObject):
   What has no ritual
   ------------------
 
-  23 of the 117 functions Qt declares: 12 takes or gives a type that cannot
-  be passed yet; 4 a signal; 3 private; 2 forbidden; 1 a template; 1
+  13 of the 117 functions Qt declares: 4 a signal; 3 private; 2 takes or
+  gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1
   protected.
 
   What to expect
@@ -502,6 +503,380 @@ class QGraphicsScene(QObject):
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
+  @overload()
+  @overload(Qt.SortOrder)
+  def items(
+      self,
+      order: Qt.SortOrder = Qt.SortOrder.DescendingOrder,
+  ) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsScene::items(Qt::SortOrder
+    order) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscene.html#items
+
+    Parameters
+    ----------
+
+    order : Qt.SortOrder
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.SortOrder.DescendingOrder.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsScene::items(Qt::SortOrder order)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK14QGraphicsScene5itemsEN2Qt9SortOrderE', order.value,
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
+  @overload(QPointF)
+  @overload(QPointF, Qt.ItemSelectionMode)
+  @overload(QPointF, Qt.ItemSelectionMode, Qt.SortOrder)
+  @overload(QPointF, Qt.ItemSelectionMode, Qt.SortOrder, QTransform)
+  def items(
+      self,
+      pos: QPointF,
+      mode: Qt.ItemSelectionMode = Qt.ItemSelectionMode.IntersectsItemShape,
+      order: Qt.SortOrder = Qt.SortOrder.DescendingOrder,
+      deviceTransform: Optional[QTransform] = None,
+  ) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsScene::items(const QPointF
+    &pos, Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform
+    &deviceTransform) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscene.html#items
+
+    Parameters
+    ----------
+
+    pos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ItemSelectionMode.IntersectsItemShape.
+
+    order : Qt.SortOrder
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.SortOrder.DescendingOrder.
+
+    deviceTransform : Optional[QTransform]
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own. May be left out, as in Qt: a new 'QTransform()' is then passed on.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsScene::items(const QPointF &pos,
+    #      Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform
+    #      &deviceTransform) const
+    if deviceTransform is None:
+      from ..QtGui import QTransform
+      deviceTransform = QTransform()
+    address = self.uglySide.call(
+        'ritual_ZNK14QGraphicsScene5itemsERK7QPointFN2Qt17ItemSelectionMode'
+        'ENS3_9SortOrderERK10QTransform',
+        self._valueOf(pos), mode.value, order.value,
+        self._valueOf(deviceTransform),
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
+  @overload(QRectF)
+  @overload(QRectF, Qt.ItemSelectionMode)
+  @overload(QRectF, Qt.ItemSelectionMode, Qt.SortOrder)
+  @overload(QRectF, Qt.ItemSelectionMode, Qt.SortOrder, QTransform)
+  def items(
+      self,
+      rect: QRectF,
+      mode: Qt.ItemSelectionMode = Qt.ItemSelectionMode.IntersectsItemShape,
+      order: Qt.SortOrder = Qt.SortOrder.DescendingOrder,
+      deviceTransform: Optional[QTransform] = None,
+  ) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsScene::items(const QRectF
+    &rect, Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform
+    &deviceTransform) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscene.html#items
+
+    Parameters
+    ----------
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ItemSelectionMode.IntersectsItemShape.
+
+    order : Qt.SortOrder
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.SortOrder.DescendingOrder.
+
+    deviceTransform : Optional[QTransform]
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own. May be left out, as in Qt: a new 'QTransform()' is then passed on.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsScene::items(const QRectF &rect,
+    #      Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform
+    #      &deviceTransform) const
+    if deviceTransform is None:
+      from ..QtGui import QTransform
+      deviceTransform = QTransform()
+    address = self.uglySide.call(
+        'ritual_ZNK14QGraphicsScene5itemsERK6QRectFN2Qt17ItemSelectionModeE'
+        'NS3_9SortOrderERK10QTransform',
+        self._valueOf(rect), mode.value, order.value,
+        self._valueOf(deviceTransform),
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
+  @overload(QPolygonF)
+  @overload(QPolygonF, Qt.ItemSelectionMode)
+  @overload(QPolygonF, Qt.ItemSelectionMode, Qt.SortOrder)
+  @overload(QPolygonF, Qt.ItemSelectionMode, Qt.SortOrder, QTransform)
+  def items(
+      self,
+      polygon: QPolygonF,
+      mode: Qt.ItemSelectionMode = Qt.ItemSelectionMode.IntersectsItemShape,
+      order: Qt.SortOrder = Qt.SortOrder.DescendingOrder,
+      deviceTransform: Optional[QTransform] = None,
+  ) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsScene::items(const QPolygonF
+    &polygon, Qt::ItemSelectionMode mode, Qt::SortOrder order, const
+    QTransform &deviceTransform) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscene.html#items
+
+    Parameters
+    ----------
+
+    polygon : QPolygonF
+      Passed on as a value: Qt reads the C++ QPolygonF, which stays Python's
+      own.
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ItemSelectionMode.IntersectsItemShape.
+
+    order : Qt.SortOrder
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.SortOrder.DescendingOrder.
+
+    deviceTransform : Optional[QTransform]
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own. May be left out, as in Qt: a new 'QTransform()' is then passed on.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsScene::items(const QPolygonF &polygon,
+    #      Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform
+    #      &deviceTransform) const
+    if deviceTransform is None:
+      from ..QtGui import QTransform
+      deviceTransform = QTransform()
+    address = self.uglySide.call(
+        'ritual_ZNK14QGraphicsScene5itemsERK9QPolygonFN2Qt17ItemSelectionMo'
+        'deENS3_9SortOrderERK10QTransform',
+        self._valueOf(polygon), mode.value, order.value,
+        self._valueOf(deviceTransform),
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
+  @overload(QPainterPath)
+  @overload(QPainterPath, Qt.ItemSelectionMode)
+  @overload(QPainterPath, Qt.ItemSelectionMode, Qt.SortOrder)
+  @overload(QPainterPath, Qt.ItemSelectionMode, Qt.SortOrder, QTransform)
+  def items(
+      self,
+      path: QPainterPath,
+      mode: Qt.ItemSelectionMode = Qt.ItemSelectionMode.IntersectsItemShape,
+      order: Qt.SortOrder = Qt.SortOrder.DescendingOrder,
+      deviceTransform: Optional[QTransform] = None,
+  ) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsScene::items(const
+    QPainterPath &path, Qt::ItemSelectionMode mode, Qt::SortOrder order,
+    const QTransform &deviceTransform) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscene.html#items
+
+    Parameters
+    ----------
+
+    path : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ItemSelectionMode.IntersectsItemShape.
+
+    order : Qt.SortOrder
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.SortOrder.DescendingOrder.
+
+    deviceTransform : Optional[QTransform]
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own. May be left out, as in Qt: a new 'QTransform()' is then passed on.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsScene::items(const QPainterPath &path,
+    #      Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform
+    #      &deviceTransform) const
+    if deviceTransform is None:
+      from ..QtGui import QTransform
+      deviceTransform = QTransform()
+    address = self.uglySide.call(
+        'ritual_ZNK14QGraphicsScene5itemsERK12QPainterPathN2Qt17ItemSelecti'
+        'onModeENS3_9SortOrderERK10QTransform',
+        self._valueOf(path), mode.value, order.value,
+        self._valueOf(deviceTransform),
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
+  @overload(float, float, float, float, Qt.ItemSelectionMode, Qt.SortOrder)
+  @overload(
+      float, float, float, float, Qt.ItemSelectionMode, Qt.SortOrder,
+      QTransform,
+  )
+  def items(
+      self,
+      x: float,
+      y: float,
+      w: float,
+      h: float,
+      mode: Qt.ItemSelectionMode,
+      order: Qt.SortOrder,
+      deviceTransform: Optional[QTransform] = None,
+  ) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsScene::items(qreal x, qreal
+    y, qreal w, qreal h, Qt::ItemSelectionMode mode, Qt::SortOrder order,
+    const QTransform &deviceTransform) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscene.html#items
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+
+    y : float
+      Passed on as it is.
+
+    w : float
+      Passed on as it is.
+
+    h : float
+      Passed on as it is.
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number.
+
+    order : Qt.SortOrder
+      Passed on as its number.
+
+    deviceTransform : Optional[QTransform]
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own. May be left out, as in Qt: a new 'QTransform()' is then passed on.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsScene::items(qreal x, qreal y, qreal
+    #      w, qreal h, Qt::ItemSelectionMode mode, Qt::SortOrder order, const
+    #      QTransform &deviceTransform) const
+    if deviceTransform is None:
+      from ..QtGui import QTransform
+      deviceTransform = QTransform()
+    address = self.uglySide.call(
+        'ritual_ZNK14QGraphicsScene5itemsEddddN2Qt17ItemSelectionModeENS0_9'
+        'SortOrderERK10QTransform',
+        x, y, w, h, mode.value, order.value, self._valueOf(deviceTransform),
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
+  @overload(QGraphicsItem)
+  @overload(NoneType)
+  @overload(QGraphicsItem, Qt.ItemSelectionMode)
+  @overload(NoneType, Qt.ItemSelectionMode)
+  def collidingItems(
+      self,
+      item: Optional[QGraphicsItem],
+      mode: Qt.ItemSelectionMode = Qt.ItemSelectionMode.IntersectsItemShape,
+  ) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsScene::collidingItems(const
+    QGraphicsItem *item, Qt::ItemSelectionMode mode) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscene.html#collidingItems
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ItemSelectionMode.IntersectsItemShape.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsScene::collidingItems(const
+    #      QGraphicsItem *item, Qt::ItemSelectionMode mode) const
+    address = self.uglySide.call(
+        'ritual_ZNK14QGraphicsScene14collidingItemsEPK13QGraphicsItemN2Qt17'
+        'ItemSelectionModeE',
+        self._addressOf(item, 'QGraphicsItem'), mode.value,
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
   @overload(QPointF, QTransform)
   def itemAt(
       self,
@@ -582,6 +957,26 @@ class QGraphicsScene(QObject):
     )
     from . import QGraphicsItem
     return QGraphicsItem._cuteAt(address)
+
+  def selectedItems(self) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsScene::selectedItems()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscene.html#selectedItems
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsScene::selectedItems() const
+    address = self.uglySide.call(
+        'ritual_ZNK14QGraphicsScene13selectedItemsEv',
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
 
   def selectionArea(self) -> QPainterPath:
     """
@@ -732,6 +1127,23 @@ class QGraphicsScene(QObject):
     address = self.uglySide.call(ritual, query.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
+
+  def views(self) -> QList[QGraphicsView]:
+    """
+    Calls Qt's 'QList<QGraphicsView *> QGraphicsScene::views() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscene.html#views
+
+    Returns
+    -------
+
+    QList[QGraphicsView]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsView *> QGraphicsScene::views() const
+    address = self.uglySide.call('ritual_ZNK14QGraphicsScene5viewsEv')
+    from . import QGraphicsView
+    return QList[QGraphicsView]._cuteOwning(address)
 
   def style(self) -> Optional[QStyle]:
     """
@@ -1477,6 +1889,43 @@ class QGraphicsScene(QObject):
         self._addressOf(painter), self._valueOf(target),
         self._valueOf(source), aspectRatioMode.value,
     )
+
+  @overload(QList[QGraphicsItem])
+  def createItemGroup(
+      self,
+      items: QList[QGraphicsItem],
+  ) -> Optional[QGraphicsItemGroup]:
+    """
+    Calls Qt's 'QGraphicsItemGroup *QGraphicsScene::createItemGroup(const
+    QList<QGraphicsItem *> &items)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsscene.html#createItemGroup
+
+    Parameters
+    ----------
+
+    items : QList[QGraphicsItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    Optional[QGraphicsItemGroup]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsItemGroup *QGraphicsScene::createItemGroup(const
+    #      QList<QGraphicsItem *> &items)
+    address = self.uglySide.call(
+        'ritual_ZN14QGraphicsScene15createItemGroupERK5QListIP13QGraphicsIt'
+        'emE',
+        self._valueOf(items),
+    )
+    from . import QGraphicsItemGroup
+    return QGraphicsItemGroup._cuteAt(address)
 
   @overload(QGraphicsItemGroup)
   @overload(NoneType)

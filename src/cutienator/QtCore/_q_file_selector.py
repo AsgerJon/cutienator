@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import QObject
+from . import QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -42,8 +42,9 @@ class QFileSelector(QObject):
   -----------
 
   Every function of Qt's QFileSelector that has a ritual and that Python can
-  call so far, 3 names in all: 'metaObject', 'tr', 'select'. It can be made
-  from Python, in 1 way; see '__init__'.
+  call so far, 6 names in all: 'metaObject', 'tr', 'select',
+  'extraSelectors', 'setExtraSelectors', 'allSelectors'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -54,8 +55,8 @@ class QFileSelector(QObject):
   What has no ritual
   ------------------
 
-  9 of the 15 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 3 private; 1 a template.
+  6 of the 15 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 1 a template.
 
   What to expect
   --------------
@@ -214,9 +215,66 @@ class QFileSelector(QObject):
     from . import QUrl
     return QUrl._cuteOwning(address)
 
+  def extraSelectors(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileSelector::extraSelectors() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfileselector.html#extraSelectors
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileSelector::extraSelectors() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QFileSelector14extraSelectorsEv',
+    )
+    return QStringList._cuteOwning(address)
+
+  def allSelectors(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileSelector::allSelectors() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfileselector.html#allSelectors
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileSelector::allSelectors() const
+    address = self.uglySide.call('ritual_ZNK13QFileSelector12allSelectorsEv')
+    return QStringList._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QStringList)
+  def setExtraSelectors(self, list: QStringList) -> None:
+    """
+    Calls Qt's 'void QFileSelector::setExtraSelectors(const QStringList
+    &list)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfileselector.html#setExtraSelectors
+
+    Parameters
+    ----------
+
+    list : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFileSelector::setExtraSelectors(const QStringList &list)
+    self.uglySide.call(
+        'ritual_ZN13QFileSelector17setExtraSelectorsERK5QListI7QStringE',
+        self._valueOf(list),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

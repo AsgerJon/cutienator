@@ -34,6 +34,11 @@
     "ritual_ZNK5QLine7toLineFEv": ["address", "address"],
     "ritual_ZeqRK5QLineS1_": ["bool", "address", "address"],
     "ritual_ZneRK5QLineS1_": ["bool", "address", "address"],
-    "ritual_ZN5QLineD1Ev": ["nothing", "address"]
+    "ritual_ZN5QLineD1Ev": ["nothing", "address"],
+    "ritual_list_make_QLine": ["address"],
+    "ritual_list_add_QLine": ["nothing", "address", "address"],
+    "ritual_list_size_QLine": ["long long", "address"],
+    "ritual_list_at_QLine": ["address", "address", "long long"],
+    "ritual_list_drop_QLine": ["nothing", "address"]
   }
 }

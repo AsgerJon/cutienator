@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -51,11 +51,13 @@ class QIcon(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QIcon that has a ritual and that Python can call so
-  far, 18 names in all: 'pixmap', 'actualSize', 'name', 'paint', 'isNull',
-  'isDetached', 'detach', 'cacheKey', 'addPixmap', 'addFile', 'setIsMask',
-  'isMask', 'fromTheme', 'hasThemeIcon', 'themeName', 'setThemeName',
-  'fallbackThemeName', 'setFallbackThemeName'. It can be made from Python, in
-  5 ways; see '__init__'.
+  far, 23 names in all: 'pixmap', 'actualSize', 'name', 'paint', 'isNull',
+  'isDetached', 'detach', 'cacheKey', 'addPixmap', 'addFile',
+  'availableSizes', 'setIsMask', 'isMask', 'fromTheme', 'hasThemeIcon',
+  'themeSearchPaths', 'setThemeSearchPaths', 'fallbackSearchPaths',
+  'setFallbackSearchPaths', 'themeName', 'setThemeName', 'fallbackThemeName',
+  'setFallbackThemeName'. It can be made from Python, in 5 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -68,7 +70,7 @@ class QIcon(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  17 of the 52 functions Qt declares: 12 takes or gives a type that cannot be
+  12 of the 52 functions Qt declares: 7 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 declared and nowhere to be found; 1 a template;
   1 private.
 
@@ -411,6 +413,86 @@ class QIcon(CuteMixin, metaclass=MetaCute):
     #  bool QIcon::hasThemeIcon(ThemeIcon icon)
     return Rituals.call(
         'ritual_ZN5QIcon12hasThemeIconENS_9ThemeIconE', icon.value,
+    )
+
+  @staticmethod
+  def themeSearchPaths() -> QStringList:
+    """
+    Calls Qt's 'QStringList QIcon::themeSearchPaths()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qicon.html#themeSearchPaths
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QIcon::themeSearchPaths()
+    address = Rituals.call('ritual_ZN5QIcon16themeSearchPathsEv')
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
+  @overload(QStringList)
+  def setThemeSearchPaths(searchpath: QStringList) -> None:
+    """
+    Calls Qt's 'void QIcon::setThemeSearchPaths(const QStringList
+    &searchpath)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qicon.html#setThemeSearchPaths
+
+    Parameters
+    ----------
+
+    searchpath : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QIcon::setThemeSearchPaths(const QStringList &searchpath)
+    Rituals.call(
+        'ritual_ZN5QIcon19setThemeSearchPathsERK5QListI7QStringE',
+        CuteMixin._valueOf(searchpath),
+    )
+
+  @staticmethod
+  def fallbackSearchPaths() -> QStringList:
+    """
+    Calls Qt's 'QStringList QIcon::fallbackSearchPaths()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qicon.html#fallbackSearchPaths
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QIcon::fallbackSearchPaths()
+    address = Rituals.call('ritual_ZN5QIcon19fallbackSearchPathsEv')
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
+  @overload(QStringList)
+  def setFallbackSearchPaths(paths: QStringList) -> None:
+    """
+    Calls Qt's 'void QIcon::setFallbackSearchPaths(const QStringList
+    &paths)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qicon.html#setFallbackSearchPaths
+
+    Parameters
+    ----------
+
+    paths : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QIcon::setFallbackSearchPaths(const QStringList &paths)
+    Rituals.call(
+        'ritual_ZN5QIcon22setFallbackSearchPathsERK5QListI7QStringE',
+        CuteMixin._valueOf(paths),
     )
 
   @staticmethod
@@ -875,6 +957,45 @@ class QIcon(CuteMixin, metaclass=MetaCute):
     """
     #  qint64 QIcon::cacheKey() const
     return self.uglySide.call('ritual_ZNK5QIcon8cacheKeyEv')
+
+  @overload()
+  @overload(Mode)
+  @overload(Mode, State)
+  def availableSizes(
+      self,
+      mode: Mode = Mode.Normal,
+      state: State = State.Off,
+  ) -> QList[QSize]:
+    """
+    Calls Qt's 'QList<QSize> QIcon::availableSizes(Mode mode, State state)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qicon.html#availableSizes
+
+    Parameters
+    ----------
+
+    mode : Mode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Mode.Normal.
+
+    state : State
+      Passed on as its number. May be left out, as in Qt: it is then
+      State.Off.
+
+    Returns
+    -------
+
+    QList[QSize]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QSize> QIcon::availableSizes(Mode mode, State state) const
+    address = self.uglySide.call(
+        'ritual_ZNK5QIcon14availableSizesENS_4ModeENS_5StateE',
+        mode.value, state.value,
+    )
+    from ..QtCore import QSize
+    return QList[QSize]._cuteOwning(address)
 
   def isMask(self) -> bool:
     """

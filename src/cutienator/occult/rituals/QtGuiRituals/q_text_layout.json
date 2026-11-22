@@ -77,6 +77,12 @@
     "ritual_ZNK11QTextLayout12boundingRectEv": ["address", "address"],
     "ritual_ZNK11QTextLayout12minimumWidthEv": ["double", "address"],
     "ritual_ZNK11QTextLayout12maximumWidthEv": ["double", "address"],
+    "ritual_ZNK11QTextLayout9glyphRunsEii6QFlagsINS_21GlyphRunRetrievalFlagEE": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK11QTextLayout9glyphRunsEii": [
+      "address", "address", "int", "int"
+    ],
     "ritual_ZN11QTextLayout8setFlagsEi": ["nothing", "address", "int"]
   }
 }

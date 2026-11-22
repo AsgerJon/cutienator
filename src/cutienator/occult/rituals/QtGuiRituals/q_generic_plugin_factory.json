@@ -5,6 +5,7 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN21QGenericPluginFactory4keysEv": ["address"],
     "ritual_ZN21QGenericPluginFactory6createERK7QStringS2_": [
       "address", "text", "text"
     ],

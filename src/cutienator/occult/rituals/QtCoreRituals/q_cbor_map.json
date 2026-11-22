@@ -11,6 +11,7 @@
     "ritual_ZNK8QCborMap4sizeEv": ["long long", "address"],
     "ritual_ZNK8QCborMap7isEmptyEv": ["bool", "address"],
     "ritual_ZN8QCborMap5clearEv": ["nothing", "address"],
+    "ritual_ZNK8QCborMap4keysEv": ["address", "address"],
     "ritual_ZNK8QCborMap5valueEx": ["address", "address", "long long"],
     "ritual_ZNK8QCborMap5valueE13QLatin1String": [
       "address", "address", "address"
@@ -65,9 +66,17 @@
       "address", "address", "address"
     ],
     "ritual_ZNK8QCborMap5emptyEv": ["bool", "address"],
+    "ritual_ZN8QCborMap14fromVariantMapERK4QMapI7QString8QVariantE": [
+      "address", "address"
+    ],
+    "ritual_ZN8QCborMap15fromVariantHashERK5QHashI7QString8QVariantE": [
+      "address", "address"
+    ],
     "ritual_ZN8QCborMap14fromJsonObjectERK11QJsonObject": [
       "address", "address"
     ],
+    "ritual_ZNK8QCborMap12toVariantMapEv": ["address", "address"],
+    "ritual_ZNK8QCborMap13toVariantHashEv": ["address", "address"],
     "ritual_ZNK8QCborMap12toJsonObjectEv": ["address", "address"],
     "ritual_ZeqRK8QCborMapS1_": ["bool", "address", "address"],
     "ritual_ZneRK8QCborMapS1_": ["bool", "address", "address"],

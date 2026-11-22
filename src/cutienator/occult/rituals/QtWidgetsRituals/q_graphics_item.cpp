@@ -7,10 +7,12 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qtransform.h>
+#include <QtWidgets/qgraphicstransform.h>
 #include <QtGui/qpainterpath.h>
 #include <QtGui/qregion.h>
 #include <QtGui/qpolygon.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QGraphicsItem may call these functions of it.
@@ -670,6 +672,13 @@ void ritual_ZN13QGraphicsItem13setParentItemEPS_(
   self->setParentItem(parent);
 }
 
+//  QList<QGraphicsItem *> QGraphicsItem::childItems() const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK13QGraphicsItem10childItemsEv(
+    const QGraphicsItem *self) {
+  return new QList<QGraphicsItem *>(self->childItems());
+}
+
 //  bool QGraphicsItem::isWidget() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QGraphicsItem8isWidgetEv(const QGraphicsItem *self) {
@@ -1244,6 +1253,22 @@ qreal ritual_ZNK13QGraphicsItem5scaleEv(const QGraphicsItem *self) {
   return self->scale();
 }
 
+//  QList<QGraphicsTransform *> QGraphicsItem::transformations() const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsTransform *> *ritual_ZNK13QGraphicsItem15transformationsEv(
+    const QGraphicsItem *self) {
+  return new QList<QGraphicsTransform *>(self->transformations());
+}
+
+//  void QGraphicsItem::setTransformations(const QList<QGraphicsTransform *>
+//      &transformations)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem18setTransformationsERK5QListIP18QGraphicsTransformE(
+    QGraphicsItem *self,
+    const QList<QGraphicsTransform *> *transformations) {
+  self->setTransformations(*transformations);
+}
+
 //  QPointF QGraphicsItem::transformOriginPoint() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK13QGraphicsItem20transformOriginPointEv(
@@ -1360,6 +1385,15 @@ bool ritual_ZNK13QGraphicsItem16collidesWithPathERK12QPainterPathN2Qt17ItemSelec
     const QPainterPath *path,
     Qt::ItemSelectionMode mode) {
   return self->collidesWithPath(*path, mode);
+}
+
+//  QList<QGraphicsItem *>
+//      QGraphicsItem::collidingItems(Qt::ItemSelectionMode mode) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK13QGraphicsItem14collidingItemsEN2Qt17ItemSelectionModeE(
+    const QGraphicsItem *self,
+    Qt::ItemSelectionMode mode) {
+  return new QList<QGraphicsItem *>(self->collidingItems(mode));
 }
 
 //  bool QGraphicsItem::isObscured(const QRectF &rect) const
@@ -2290,4 +2324,39 @@ QVariant *ritual_own_ZNK13QGraphicsItem9extensionERK8QVariant(
   return new QVariant(
       static_cast<const OwnQGraphicsItem *>(self)->OwnQGraphicsItem::extension(
           *variant));
+}
+
+//  QList<QGraphicsItem *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_list_make_QGraphicsItem_ptr() {
+  return new QList<QGraphicsItem *>();
+}
+
+//  void QList<QGraphicsItem *>::append(const QGraphicsItem * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QGraphicsItem_ptr(
+    QList<QGraphicsItem *> *self,
+    QGraphicsItem *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QGraphicsItem *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QGraphicsItem_ptr(
+    const QList<QGraphicsItem *> *self) {
+  return self->size();
+}
+
+//  const QGraphicsItem * &QList<QGraphicsItem *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QGraphicsItem *ritual_list_at_QGraphicsItem_ptr(
+    const QList<QGraphicsItem *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QGraphicsItem *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QGraphicsItem_ptr(QList<QGraphicsItem *> *self) {
+  delete self;
 }

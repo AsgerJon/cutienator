@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, MetaCute
 from ..occult import Rituals
-from . import QDir
+from . import QDir, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QFileInfo
@@ -29,7 +29,7 @@ class QDirIterator(CuteMixin, metaclass=MetaCute):
 
   Every function of Qt's QDirIterator that has a ritual and that Python can
   call so far, 7 names in all: 'next', 'nextFileInfo', 'hasNext', 'fileName',
-  'filePath', 'fileInfo', 'path'. It can be made from Python, in 3 ways; see
+  'filePath', 'fileInfo', 'path'. It can be made from Python, in 4 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
@@ -41,8 +41,7 @@ class QDirIterator(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 14 functions Qt declares: 2 forbidden; 1 takes or gives a type
-  that cannot be passed yet.
+  2 of the 14 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -276,6 +275,50 @@ class QDirIterator(CuteMixin, metaclass=MetaCute):
         'ritual_ZN12QDirIteratorC1ERK7QString6QFlagsIN4QDir6FilterEES3_INS_'
         '12IteratorFlagEE',
         path, filter.value, flags.value,
+    ))
+
+  @overload(str, QStringList)
+  @overload(str, QStringList, QDir.Filters)
+  @overload(str, QStringList, QDir.Filters, IteratorFlags)
+  def __init__(
+      self,
+      path: str,
+      nameFilters: QStringList,
+      filters: QDir.Filters = QDir.Filters.NoFilter,
+      flags: IteratorFlags = IteratorFlags.NoIteratorFlags,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QDirIterator::QDirIterator(const QString
+    &path, const QStringList &nameFilters, QDir::Filters filters,
+    IteratorFlags flags)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdiriterator.html#QDirIterator
+
+    Parameters
+    ----------
+
+    path : str
+      Passed on as it is: a QString is made of it for the call.
+
+    nameFilters : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    filters : QDir.Filters
+      Passed on as its number. May be left out, as in Qt: it is then
+      QDir.Filters.NoFilter.
+
+    flags : IteratorFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      IteratorFlags.NoIteratorFlags.
+    """
+    #  QDirIterator::QDirIterator(const QString &path, const QStringList
+    #      &nameFilters, QDir::Filters filters, IteratorFlags flags)
+    self._noteCreation(QDirIterator, lambda: Rituals.call(
+        'ritual_ZN12QDirIteratorC1ERK7QStringRK5QListIS0_E6QFlagsIN4QDir6Fi'
+        'lterEES7_INS_12IteratorFlagEE',
+        path, self._valueOf(nameFilters), filters.value, flags.value,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

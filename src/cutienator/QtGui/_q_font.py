@@ -15,6 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -46,23 +47,25 @@ class QFont(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFont that has a ritual and that Python can call so
-  far, 74 names in all: 'family', 'setFamily', 'styleName', 'setStyleName',
-  'pointSize', 'setPointSize', 'pointSizeF', 'setPointSizeF', 'pixelSize',
-  'setPixelSize', 'weight', 'setWeight', 'bold', 'setBold', 'setStyle',
-  'style', 'italic', 'setItalic', 'underline', 'setUnderline', 'overline',
-  'setOverline', 'strikeOut', 'setStrikeOut', 'fixedPitch', 'setFixedPitch',
-  'kerning', 'setKerning', 'styleHint', 'styleStrategy', 'setStyleHint',
-  'setStyleStrategy', 'stretch', 'setStretch', 'letterSpacing',
-  'letterSpacingType', 'setLetterSpacing', 'wordSpacing', 'setWordSpacing',
-  'setCapitalization', 'capitalization', 'setHintingPreference',
-  'hintingPreference', 'setFeature', 'unsetFeature', 'featureValue',
-  'isFeatureSet', 'clearFeatures', 'setVariableAxis', 'unsetVariableAxis',
-  'isVariableAxisSet', 'variableAxisValue', 'clearVariableAxes',
-  'exactMatch', '__eq__', '__ne__', '__lt__', 'isCopyOf', 'key', 'toString',
-  'fromString', 'substitute', 'insertSubstitution', 'removeSubstitutions',
-  'initialize', 'cleanup', 'cacheStatistics', 'defaultFamily', 'resolve',
-  'resolveMask', 'setResolveMask', 'setLegacyWeight', 'legacyWeight',
-  '__rlshift__'. It can be made from Python, in 4 ways; see '__init__'.
+  far, 79 names in all: 'family', 'setFamily', 'families', 'setFamilies',
+  'styleName', 'setStyleName', 'pointSize', 'setPointSize', 'pointSizeF',
+  'setPointSizeF', 'pixelSize', 'setPixelSize', 'weight', 'setWeight',
+  'bold', 'setBold', 'setStyle', 'style', 'italic', 'setItalic', 'underline',
+  'setUnderline', 'overline', 'setOverline', 'strikeOut', 'setStrikeOut',
+  'fixedPitch', 'setFixedPitch', 'kerning', 'setKerning', 'styleHint',
+  'styleStrategy', 'setStyleHint', 'setStyleStrategy', 'stretch',
+  'setStretch', 'letterSpacing', 'letterSpacingType', 'setLetterSpacing',
+  'wordSpacing', 'setWordSpacing', 'setCapitalization', 'capitalization',
+  'setHintingPreference', 'hintingPreference', 'setFeature', 'unsetFeature',
+  'featureValue', 'isFeatureSet', 'clearFeatures', 'setVariableAxis',
+  'unsetVariableAxis', 'isVariableAxisSet', 'variableAxisValue',
+  'clearVariableAxes', 'exactMatch', '__eq__', '__ne__', '__lt__',
+  'isCopyOf', 'key', 'toString', 'fromString', 'substitute', 'substitutes',
+  'substitutions', 'insertSubstitution', 'insertSubstitutions',
+  'removeSubstitutions', 'initialize', 'cleanup', 'cacheStatistics',
+  'defaultFamily', 'resolve', 'resolveMask', 'setResolveMask',
+  'setLegacyWeight', 'legacyWeight', '__rlshift__'. It can be made from
+  Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -75,7 +78,7 @@ class QFont(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  19 of the 99 functions Qt declares: 14 takes or gives a type that cannot be
+  13 of the 99 functions Qt declares: 8 takes or gives a type that cannot be
   passed yet; 3 private; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
@@ -634,6 +637,47 @@ class QFont(CuteMixin, metaclass=MetaCute):
     return Rituals.call('ritual_ZN5QFont10substituteERK7QString', a0)
 
   @staticmethod
+  @overload(str)
+  def substitutes(a0: str) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFont::substitutes(const QString &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#substitutes
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFont::substitutes(const QString &a0)
+    address = Rituals.call('ritual_ZN5QFont11substitutesERK7QString', a0)
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
+  def substitutions() -> QStringList:
+    """
+    Calls Qt's 'QStringList QFont::substitutions()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#substitutions
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFont::substitutions()
+    address = Rituals.call('ritual_ZN5QFont13substitutionsEv')
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
   @overload(str, str)
   def insertSubstitution(a0: str, a1: str) -> None:
     """
@@ -653,6 +697,33 @@ class QFont(CuteMixin, metaclass=MetaCute):
     """
     #  void QFont::insertSubstitution(const QString &a0, const QString &a1)
     Rituals.call('ritual_ZN5QFont18insertSubstitutionERK7QStringS2_', a0, a1)
+
+  @staticmethod
+  @overload(str, QStringList)
+  def insertSubstitutions(a0: str, a1: QStringList) -> None:
+    """
+    Calls Qt's 'void QFont::insertSubstitutions(const QString &a0, const
+    QStringList &a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#insertSubstitutions
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+
+    a1 : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFont::insertSubstitutions(const QString &a0, const QStringList
+    #      &a1)
+    Rituals.call(
+        'ritual_ZN5QFont19insertSubstitutionsERK7QStringRK5QListIS0_E',
+        a0, CuteMixin._valueOf(a1),
+    )
 
   @staticmethod
   @overload(str)
@@ -739,6 +810,22 @@ class QFont(CuteMixin, metaclass=MetaCute):
     """
     #  QString QFont::family() const
     return self.uglySide.call('ritual_ZNK5QFont6familyEv')
+
+  def families(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFont::families() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#families
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFont::families() const
+    address = self.uglySide.call('ritual_ZNK5QFont8familiesEv')
+    return QStringList._cuteOwning(address)
 
   def styleName(self) -> str:
     """
@@ -1208,6 +1295,26 @@ class QFont(CuteMixin, metaclass=MetaCute):
     """
     #  void QFont::setFamily(const QString &a0)
     self.uglySide.call('ritual_ZN5QFont9setFamilyERK7QString', a0)
+
+  @overload(QStringList)
+  def setFamilies(self, a0: QStringList) -> None:
+    """
+    Calls Qt's 'void QFont::setFamilies(const QStringList &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#setFamilies
+
+    Parameters
+    ----------
+
+    a0 : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFont::setFamilies(const QStringList &a0)
+    self.uglySide.call(
+        'ritual_ZN5QFont11setFamiliesERK5QListI7QStringE', self._valueOf(a0),
+    )
 
   @overload(str)
   def setStyleName(self, a0: str) -> None:
@@ -1807,6 +1914,48 @@ class QFont(CuteMixin, metaclass=MetaCute):
     #      italic)
     self._noteCreation(QFont, lambda: Rituals.call(
         'ritual_ZN5QFontC1ERK7QStringiib', family, pointSize, weight, italic,
+    ))
+
+  @overload(QStringList)
+  @overload(QStringList, int)
+  @overload(QStringList, int, int)
+  @overload(QStringList, int, int, bool)
+  def __init__(
+      self,
+      families: QStringList,
+      pointSize: int = -1,
+      weight: int = -1,
+      italic: bool = False,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QFont::QFont(const QStringList &families,
+    int pointSize, int weight, bool italic)', which is called at the first
+    use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#QFont
+
+    Parameters
+    ----------
+
+    families : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    pointSize : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    weight : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    italic : bool
+      Passed on as it is. May be left out, as in Qt: it is then False.
+    """
+    #  QFont::QFont(const QStringList &families, int pointSize, int weight,
+    #      bool italic)
+    self._noteCreation(QFont, lambda: Rituals.call(
+        'ritual_ZN5QFontC1ERK5QListI7QStringEiib',
+        self._valueOf(families), pointSize, weight, italic,
     ))
 
   @overload(THIS, QPaintDevice)

@@ -3,6 +3,7 @@
 #include <QtWidgets/qgraphicstransform.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QGraphicsTransform that Python can take functions over in. Every QGraphicsTransform
@@ -183,4 +184,42 @@ bool ritual_take_QGraphicsTransform(
     const char *key,
     void *call) {
   return static_cast<CuteQGraphicsTransform *>(self)->take(key, call);
+}
+
+//  QList<QGraphicsTransform *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsTransform *> *ritual_list_make_QGraphicsTransform_ptr() {
+  return new QList<QGraphicsTransform *>();
+}
+
+//  void QList<QGraphicsTransform *>::append(const QGraphicsTransform *
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QGraphicsTransform_ptr(
+    QList<QGraphicsTransform *> *self,
+    QGraphicsTransform *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QGraphicsTransform *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QGraphicsTransform_ptr(
+    const QList<QGraphicsTransform *> *self) {
+  return self->size();
+}
+
+//  const QGraphicsTransform * &QList<QGraphicsTransform *>::at(qsizetype i)
+//      const
+extern "C" Q_DECL_EXPORT
+QGraphicsTransform *ritual_list_at_QGraphicsTransform_ptr(
+    const QList<QGraphicsTransform *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QGraphicsTransform *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QGraphicsTransform_ptr(
+    QList<QGraphicsTransform *> *self) {
+  delete self;
 }

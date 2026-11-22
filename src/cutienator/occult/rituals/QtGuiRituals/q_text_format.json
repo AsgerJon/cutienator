@@ -38,6 +38,13 @@
     "ritual_ZNK11QTextFormat14lengthPropertyEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK11QTextFormat20lengthVectorPropertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QTextFormat11setPropertyEiRK5QListI11QTextLengthE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK11QTextFormat10propertiesEv": ["address", "address"],
     "ritual_ZNK11QTextFormat13propertyCountEv": ["int", "address"],
     "ritual_ZN11QTextFormat13setObjectTypeEi": ["nothing", "address", "int"],
     "ritual_ZNK11QTextFormat10objectTypeEv": ["int", "address"],
@@ -71,6 +78,11 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK11QTextFormat10foregroundEv": ["address", "address"],
-    "ritual_ZN11QTextFormat15clearForegroundEv": ["nothing", "address"]
+    "ritual_ZN11QTextFormat15clearForegroundEv": ["nothing", "address"],
+    "ritual_list_make_QTextFormat": ["address"],
+    "ritual_list_add_QTextFormat": ["nothing", "address", "address"],
+    "ritual_list_size_QTextFormat": ["long long", "address"],
+    "ritual_list_at_QTextFormat": ["address", "address", "long long"],
+    "ritual_list_drop_QTextFormat": ["nothing", "address"]
   }
 }

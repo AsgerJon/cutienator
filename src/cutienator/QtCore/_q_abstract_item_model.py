@@ -14,13 +14,13 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from . import Qt, QObject
+from . import Qt, QHash, QList, QMap, QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject, QMimeData, QModelIndex, QModelRoleDataSpan
-  from . import QSize, QVariant
+  from . import QByteArray, QMetaObject, QMimeData, QModelIndex
+  from . import QModelRoleDataSpan, QSize, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -47,16 +47,17 @@ class QAbstractItemModel(QObject):
   -----------
 
   Every function of Qt's QAbstractItemModel that has a ritual and that Python
-  can call so far, 41 names in all: 'metaObject', 'tr', 'hasIndex', 'index',
+  can call so far, 47 names in all: 'metaObject', 'tr', 'hasIndex', 'index',
   'parent', 'sibling', 'rowCount', 'columnCount', 'hasChildren', 'data',
-  'setData', 'headerData', 'setHeaderData', 'clearItemData',
-  'canDropMimeData', 'dropMimeData', 'supportedDropActions',
-  'supportedDragActions', 'insertRows', 'insertColumns', 'removeRows',
-  'removeColumns', 'moveRows', 'moveColumns', 'insertRow', 'insertColumn',
-  'removeRow', 'removeColumn', 'moveRow', 'moveColumn', 'fetchMore',
-  'canFetchMore', 'flags', 'sort', 'buddy', 'span', 'checkIndex',
-  'multiData', 'submit', 'revert', 'resetInternalData'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  'setData', 'headerData', 'setHeaderData', 'itemData', 'setItemData',
+  'clearItemData', 'mimeTypes', 'mimeData', 'canDropMimeData',
+  'dropMimeData', 'supportedDropActions', 'supportedDragActions',
+  'insertRows', 'insertColumns', 'removeRows', 'removeColumns', 'moveRows',
+  'moveColumns', 'insertRow', 'insertColumn', 'removeRow', 'removeColumn',
+  'moveRow', 'moveColumn', 'fetchMore', 'canFetchMore', 'flags', 'sort',
+  'buddy', 'match', 'span', 'roleNames', 'checkIndex', 'multiData', 'submit',
+  'revert', 'resetInternalData'. None can be made from Python: one comes out
+  of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -67,8 +68,8 @@ class QAbstractItemModel(QObject):
   What has no ritual
   ------------------
 
-  58 of the 100 functions Qt declares: 24 protected; 18 a signal; 8 takes or
-  gives a type that cannot be passed yet; 4 private; 2 forbidden; 1 a
+  52 of the 100 functions Qt declares: 24 protected; 18 a signal; 4 private;
+  2 takes or gives a type that cannot be passed yet; 2 forbidden; 1 a
   template; 1 the class is abstract, so C++ cannot make one.
 
   What to expect
@@ -800,6 +801,86 @@ class QAbstractItemModel(QObject):
     from . import QVariant
     return QVariant._cuteOwning(address)
 
+  @overload(QModelIndex)
+  def itemData(self, index: QModelIndex) -> QMap[int, QVariant]:
+    """
+    Calls Qt's 'QMap<int, QVariant> QAbstractItemModel::itemData(const
+    QModelIndex &index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QMap[int, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QMap<int, QVariant> QAbstractItemModel::itemData(const QModelIndex
+    #      &index) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QAbstractItemModel8itemDataERK11QModelIndex',
+        self._valueOf(index),
+    )
+    from . import QVariant
+    return QMap[int, QVariant]._cuteOwning(address)
+
+  def mimeTypes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QAbstractItemModel::mimeTypes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QAbstractItemModel::mimeTypes() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QAbstractItemModel9mimeTypesEv',
+    )
+    return QStringList._cuteOwning(address)
+
+  @overload(QList[QModelIndex])
+  def mimeData(self, indexes: QList[QModelIndex]) -> Optional[QMimeData]:
+    """
+    Calls Qt's 'QMimeData *QAbstractItemModel::mimeData(const QModelIndexList
+    &indexes) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData
+
+    Parameters
+    ----------
+
+    indexes : QList[QModelIndex]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    Optional[QMimeData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMimeData *QAbstractItemModel::mimeData(const QModelIndexList
+    #      &indexes) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QAbstractItemModel8mimeDataERK5QListI11QModelIndexE',
+        self._valueOf(indexes),
+    )
+    from . import QMimeData
+    return QMimeData._cuteAt(address)
+
   @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)
   @overload(NoneType, Qt.DropAction, int, int, QModelIndex)
   def canDropMimeData(
@@ -974,6 +1055,63 @@ class QAbstractItemModel(QObject):
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
+  @overload(QModelIndex, int, QVariant)
+  @overload(QModelIndex, int, QVariant, int)
+  @overload(QModelIndex, int, QVariant, int, Qt.MatchFlags)
+  def match(
+      self,
+      start: QModelIndex,
+      role: int,
+      value: QVariant,
+      hits: int = 1,
+      flags: Qt.MatchFlags = (
+          Qt.MatchFlags.MatchStartsWith | Qt.MatchFlags.MatchWrap),
+  ) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QAbstractItemModel::match(const QModelIndex
+    &start, int role, const QVariant &value, int hits, Qt::MatchFlags flags)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemmodel.html#match
+
+    Parameters
+    ----------
+
+    start : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    role : int
+      Passed on as it is.
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    hits : int
+      Passed on as it is. May be left out, as in Qt: it is then 1.
+
+    flags : Qt.MatchFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.MatchFlags.MatchStartsWith | Qt.MatchFlags.MatchWrap.
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QAbstractItemModel::match(const QModelIndex &start,
+    #      int role, const QVariant &value, int hits, Qt::MatchFlags flags)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK18QAbstractItemModel5matchERK11QModelIndexiRK8QVarianti6'
+        'QFlagsIN2Qt9MatchFlagEE',
+        self._valueOf(start), role, self._valueOf(value), hits, flags.value,
+    )
+    from . import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
+
   @overload(QModelIndex)
   def span(self, index: QModelIndex) -> QSize:
     """
@@ -1002,6 +1140,26 @@ class QAbstractItemModel(QObject):
     address = self.uglySide.call(ritual, self._valueOf(index))
     from . import QSize
     return QSize._cuteOwning(address)
+
+  def roleNames(self) -> QHash[int, QByteArray]:
+    """
+    Calls Qt's 'QHash<int, QByteArray> QAbstractItemModel::roleNames()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemmodel.html#roleNames
+
+    Returns
+    -------
+
+    QHash[int, QByteArray]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QHash<int, QByteArray> QAbstractItemModel::roleNames() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QAbstractItemModel9roleNamesEv',
+    )
+    from . import QByteArray
+    return QHash[int, QByteArray]._cuteOwning(address)
 
   @overload(QModelIndex)
   @overload(QModelIndex, CheckIndexOptions)
@@ -1122,6 +1280,39 @@ class QAbstractItemModel(QObject):
           'ionERK8QVarianti')
     return self.uglySide.call(
         ritual, section, orientation.value, self._valueOf(value), role,
+    )
+
+  @overload(QModelIndex, QMap[int, QVariant])
+  def setItemData(
+      self,
+      index: QModelIndex,
+      roles: QMap[int, QVariant],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QAbstractItemModel::setItemData(const QModelIndex
+    &index, const QMap<int, QVariant> &roles)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    roles : QMap[int, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  bool QAbstractItemModel::setItemData(const QModelIndex &index, const
+    #      QMap<int, QVariant> &roles)
+    return self.uglySide.call(
+        'ritual_ZN18QAbstractItemModel11setItemDataERK11QModelIndexRK4QMapI'
+        'i8QVariantE',
+        self._valueOf(index), self._valueOf(roles),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1832,3 +2023,16 @@ class QAbstractItemModel(QObject):
     self.uglySide.call(
         'ritual_own_ZN18QAbstractItemModel17resetInternalDataEv',
     )
+
+
+#  Qt's 'QList<QAbstractItemModel *>': the list of QAbstractItemModel, which
+#  'QList[QAbstractItemModel]' gives. It is made here, so that there is one
+#  as soon as there can be a QAbstractItemModel.
+QList.createKind(
+    QAbstractItemModel, 'address',
+    make='ritual_list_make_QAbstractItemModel_ptr',
+    add='ritual_list_add_QAbstractItemModel_ptr',
+    size='ritual_list_size_QAbstractItemModel_ptr',
+    at='ritual_list_at_QAbstractItemModel_ptr',
+    drop='ritual_list_drop_QAbstractItemModel_ptr',
+)

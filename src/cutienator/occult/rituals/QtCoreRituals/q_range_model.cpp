@@ -4,9 +4,14 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qcollator.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  Only a class built on QRangeModel may call these functions of it.
@@ -594,6 +599,24 @@ bool ritual_ZN11QRangeModel7setDataERK11QModelIndexRK8QVarianti(
   return self->setData(*index, *data, role);
 }
 
+//  QMap<int, QVariant> QRangeModel::itemData(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+QMap<int, QVariant> *ritual_ZNK11QRangeModel8itemDataERK11QModelIndex(
+    const QRangeModel *self,
+    const QModelIndex *index) {
+  return new QMap<int, QVariant>(self->itemData(*index));
+}
+
+//  bool QRangeModel::setItemData(const QModelIndex &index, const QMap<int,
+//      QVariant> &data)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QRangeModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE(
+    QRangeModel *self,
+    const QModelIndex *index,
+    const QMap<int, QVariant> *data) {
+  return self->setItemData(*index, *data);
+}
+
 //  bool QRangeModel::clearItemData(const QModelIndex &index)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN11QRangeModel13clearItemDataERK11QModelIndex(
@@ -683,6 +706,21 @@ bool ritual_ZN11QRangeModel8moveRowsERK11QModelIndexiiS2_i(
       destRow);
 }
 
+//  QHash<int, QByteArray> QRangeModel::roleNames() const
+extern "C" Q_DECL_EXPORT
+QHash<int, QByteArray> *ritual_ZNK11QRangeModel9roleNamesEv(
+    const QRangeModel *self) {
+  return new QHash<int, QByteArray>(self->roleNames());
+}
+
+//  void QRangeModel::setRoleNames(const QHash<int, QByteArray> &names)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRangeModel12setRoleNamesERK5QHashIi10QByteArrayE(
+    QRangeModel *self,
+    const QHash<int, QByteArray> *names) {
+  self->setRoleNames(*names);
+}
+
 //  void QRangeModel::resetRoleNames()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QRangeModel14resetRoleNamesEv(QRangeModel *self) {
@@ -745,6 +783,40 @@ bool ritual_ZN11QRangeModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QMo
     int column,
     const QModelIndex *parent) {
   return self->dropMimeData(data, action, row, column, *parent);
+}
+
+//  QMimeData *QRangeModel::mimeData(const QModelIndexList &indexes) const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_ZNK11QRangeModel8mimeDataERK5QListI11QModelIndexE(
+    const QRangeModel *self,
+    const QList<QModelIndex> *indexes) {
+  return self->mimeData(*indexes);
+}
+
+//  QStringList QRangeModel::mimeTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK11QRangeModel9mimeTypesEv(
+    const QRangeModel *self) {
+  return new QList<QString>(self->mimeTypes());
+}
+
+//  QModelIndexList QRangeModel::match(const QModelIndex &start, int role,
+//      const QVariant &value, int hits, Qt::MatchFlags flags) const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK11QRangeModel5matchERK11QModelIndexiRK8QVarianti6QFlagsIN2Qt9MatchFlagEE(
+    const QRangeModel *self,
+    const QModelIndex *start,
+    int role,
+    const QVariant *value,
+    int hits,
+    int flags) {
+  return new QList<QModelIndex>(
+      self->match(
+          *start,
+          role,
+          *value,
+          hits,
+          QFlags<Qt::MatchFlag>::fromInt(flags)));
 }
 
 //  void QRangeModel::multiData(const QModelIndex &index, QModelRoleDataSpan

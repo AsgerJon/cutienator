@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QItemSelectionModel
+from ..QtCore import Qt, QItemSelectionModel, QList, QStringList
 from . import QAbstractItemView, QTreeView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -51,19 +51,20 @@ class QTreeWidget(QTreeView):
   -----------
 
   Every function of Qt's QTreeWidget that has a ritual and that Python can
-  call so far, 43 names in all: 'metaObject', 'tr', 'columnCount',
+  call so far, 48 names in all: 'metaObject', 'tr', 'columnCount',
   'setColumnCount', 'invisibleRootItem', 'topLevelItem', 'topLevelItemCount',
   'insertTopLevelItem', 'addTopLevelItem', 'takeTopLevelItem',
-  'indexOfTopLevelItem', 'headerItem', 'setHeaderItem', 'setHeaderLabel',
+  'indexOfTopLevelItem', 'insertTopLevelItems', 'addTopLevelItems',
+  'headerItem', 'setHeaderItem', 'setHeaderLabels', 'setHeaderLabel',
   'currentItem', 'currentColumn', 'setCurrentItem', 'itemAt',
   'visualItemRect', 'sortColumn', 'sortItems', 'editItem',
   'openPersistentEditor', 'closePersistentEditor', 'isPersistentEditorOpen',
-  'itemWidget', 'setItemWidget', 'removeItemWidget', 'itemAbove',
-  'itemBelow', 'indexFromItem', 'itemFromIndex', 'setSelectionModel',
-  'supportedDragActions', 'setSupportedDragActions', 'scrollToItem',
-  'expandItem', 'collapseItem', 'clear', 'event', 'dropMimeData',
-  'supportedDropActions', 'dropEvent'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'itemWidget', 'setItemWidget', 'removeItemWidget', 'selectedItems',
+  'findItems', 'itemAbove', 'itemBelow', 'indexFromItem', 'itemFromIndex',
+  'setSelectionModel', 'supportedDragActions', 'setSupportedDragActions',
+  'scrollToItem', 'expandItem', 'collapseItem', 'clear', 'event',
+  'dropMimeData', 'supportedDropActions', 'dropEvent'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -74,8 +75,8 @@ class QTreeWidget(QTreeView):
   What has no ritual
   ------------------
 
-  26 of the 74 functions Qt declares: 10 a signal; 7 takes or gives a type
-  that cannot be passed yet; 4 private; 2 protected; 2 forbidden; 1 a
+  21 of the 74 functions Qt declares: 10 a signal; 4 private; 2 takes or
+  gives a type that cannot be passed yet; 2 protected; 2 forbidden; 1 a
   template.
 
   What to expect
@@ -521,6 +522,65 @@ class QTreeWidget(QTreeView):
     )
     return QWidget._cuteAt(address)
 
+  def selectedItems(self) -> QList[QTreeWidgetItem]:
+    """
+    Calls Qt's 'QList<QTreeWidgetItem *> QTreeWidget::selectedItems() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#selectedItems
+
+    Returns
+    -------
+
+    QList[QTreeWidgetItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QTreeWidgetItem *> QTreeWidget::selectedItems() const
+    address = self.uglySide.call('ritual_ZNK11QTreeWidget13selectedItemsEv')
+    from . import QTreeWidgetItem
+    return QList[QTreeWidgetItem]._cuteOwning(address)
+
+  @overload(str, Qt.MatchFlags)
+  @overload(str, Qt.MatchFlags, int)
+  def findItems(
+      self,
+      text: str,
+      flags: Qt.MatchFlags,
+      column: int = 0,
+  ) -> QList[QTreeWidgetItem]:
+    """
+    Calls Qt's 'QList<QTreeWidgetItem *> QTreeWidget::findItems(const QString
+    &text, Qt::MatchFlags flags, int column) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#findItems
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+
+    flags : Qt.MatchFlags
+      Passed on as its number.
+
+    column : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    Returns
+    -------
+
+    QList[QTreeWidgetItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QTreeWidgetItem *> QTreeWidget::findItems(const QString &text,
+    #      Qt::MatchFlags flags, int column) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QTreeWidget9findItemsERK7QString6QFlagsIN2Qt9MatchFlag'
+        'EEi',
+        text, flags.value, column,
+    )
+    from . import QTreeWidgetItem
+    return QList[QTreeWidgetItem]._cuteOwning(address)
+
   @overload(QTreeWidgetItem)
   @overload(NoneType)
   def itemAbove(
@@ -737,6 +797,28 @@ class QTreeWidget(QTreeView):
     self.uglySide.call(
         'ritual_ZN11QTreeWidget13setHeaderItemEP15QTreeWidgetItem',
         self._addressOf(item),
+    )
+
+  @overload(QStringList)
+  def setHeaderLabels(self, labels: QStringList) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::setHeaderLabels(const QStringList
+    &labels)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#setHeaderLabels
+
+    Parameters
+    ----------
+
+    labels : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QTreeWidget::setHeaderLabels(const QStringList &labels)
+    self.uglySide.call(
+        'ritual_ZN11QTreeWidget15setHeaderLabelsERK5QListI7QStringE',
+        self._valueOf(labels),
     )
 
   @overload(str)
@@ -1061,6 +1143,62 @@ class QTreeWidget(QTreeView):
     )
     from . import QTreeWidgetItem
     return QTreeWidgetItem._cuteAt(address)
+
+  @overload(int, QList[QTreeWidgetItem])
+  def insertTopLevelItems(
+      self,
+      index: int,
+      items: QList[QTreeWidgetItem],
+  ) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::insertTopLevelItems(int index, const
+    QList<QTreeWidgetItem *> &items)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidget.html#insertTopLevelItems
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+
+    items : QList[QTreeWidgetItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QTreeWidget::insertTopLevelItems(int index, const
+    #      QList<QTreeWidgetItem *> &items)
+    self.uglySide.call(
+        'ritual_ZN11QTreeWidget19insertTopLevelItemsEiRK5QListIP15QTreeWidg'
+        'etItemE',
+        index, self._valueOf(items),
+    )
+
+  @overload(QList[QTreeWidgetItem])
+  def addTopLevelItems(self, items: QList[QTreeWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::addTopLevelItems(const
+    QList<QTreeWidgetItem *> &items)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#addTopLevelItems
+
+    Parameters
+    ----------
+
+    items : QList[QTreeWidgetItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QTreeWidget::addTopLevelItems(const QList<QTreeWidgetItem *>
+    #      &items)
+    self.uglySide.call(
+        'ritual_ZN11QTreeWidget16addTopLevelItemsERK5QListIP15QTreeWidgetIt'
+        'emE',
+        self._valueOf(items),
+    )
 
   @overload(int, Qt.SortOrder)
   def sortItems(self, column: int, order: Qt.SortOrder) -> None:

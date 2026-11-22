@@ -19,9 +19,11 @@
     "ritual_ZNK11QMetaMethod17getParameterTypesEPi": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK11QMetaMethod14parameterTypesEv": ["address", "address"],
     "ritual_ZNK11QMetaMethod17parameterTypeNameEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK11QMetaMethod14parameterNamesEv": ["address", "address"],
     "ritual_ZNK11QMetaMethod3tagEv": ["chars", "address"],
     "ritual_ZNK11QMetaMethod6accessEv": ["int", "address"],
     "ritual_ZNK11QMetaMethod10methodTypeEv": ["int", "address"],

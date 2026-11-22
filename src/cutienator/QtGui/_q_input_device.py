@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -37,10 +37,10 @@ class QInputDevice(QObject):
   -----------
 
   Every function of Qt's QInputDevice that has a ritual and that Python can
-  call so far, 10 names in all: 'metaObject', 'tr', 'name', 'type',
+  call so far, 11 names in all: 'metaObject', 'tr', 'name', 'type',
   'capabilities', 'hasCapability', 'systemId', 'seatName',
-  'availableVirtualGeometry', 'primaryKeyboard'. It can be made from Python,
-  in 2 ways; see '__init__'.
+  'availableVirtualGeometry', 'seatNames', 'primaryKeyboard'. It can be made
+  from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,7 +51,7 @@ class QInputDevice(QObject):
   What has no ritual
   ------------------
 
-  16 of the 29 functions Qt declares: 5 takes or gives a type that cannot be
+  15 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 4 forbidden; 3 private; 2 a signal; 1 a template; 1 protected.
 
   What to expect
@@ -166,6 +166,23 @@ class QInputDevice(QObject):
         'ritual_ZN12QInputDevice2trEPKcS1_i',
         CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
     )
+
+  @staticmethod
+  def seatNames() -> QStringList:
+    """
+    Calls Qt's 'QStringList QInputDevice::seatNames()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputdevice.html#seatNames
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QInputDevice::seatNames()
+    address = Rituals.call('ritual_ZN12QInputDevice9seatNamesEv')
+    return QStringList._cuteOwning(address)
 
   @staticmethod
   @overload()

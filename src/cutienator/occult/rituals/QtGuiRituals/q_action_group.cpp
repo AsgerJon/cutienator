@@ -3,7 +3,9 @@
 #include <QtGui/qactiongroup.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
+#include <QtGui/qaction.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QActionGroup that Python can take functions over in. Every QActionGroup
@@ -190,6 +192,13 @@ void ritual_ZN12QActionGroup12removeActionEP7QAction(
     QActionGroup *self,
     QAction *a) {
   self->removeAction(a);
+}
+
+//  QList<QAction *> QActionGroup::actions() const
+extern "C" Q_DECL_EXPORT
+QList<QAction *> *ritual_ZNK12QActionGroup7actionsEv(
+    const QActionGroup *self) {
+  return new QList<QAction *>(self->actions());
 }
 
 //  QAction *QActionGroup::checkedAction() const

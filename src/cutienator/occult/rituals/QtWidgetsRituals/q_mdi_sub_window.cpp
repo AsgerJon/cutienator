@@ -5,6 +5,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QMdiSubWindow may call these functions of it.
@@ -1143,4 +1144,39 @@ void ritual_own_ZN13QMdiSubWindow10childEventEP11QChildEvent(
     QChildEvent *childEvent) {
   static_cast<OwnQMdiSubWindow *>(self)->OwnQMdiSubWindow::childEvent(
       childEvent);
+}
+
+//  QList<QMdiSubWindow *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QMdiSubWindow *> *ritual_list_make_QMdiSubWindow_ptr() {
+  return new QList<QMdiSubWindow *>();
+}
+
+//  void QList<QMdiSubWindow *>::append(const QMdiSubWindow * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QMdiSubWindow_ptr(
+    QList<QMdiSubWindow *> *self,
+    QMdiSubWindow *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QMdiSubWindow *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QMdiSubWindow_ptr(
+    const QList<QMdiSubWindow *> *self) {
+  return self->size();
+}
+
+//  const QMdiSubWindow * &QList<QMdiSubWindow *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QMdiSubWindow *ritual_list_at_QMdiSubWindow_ptr(
+    const QList<QMdiSubWindow *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QMdiSubWindow *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QMdiSubWindow_ptr(QList<QMdiSubWindow *> *self) {
+  delete self;
 }

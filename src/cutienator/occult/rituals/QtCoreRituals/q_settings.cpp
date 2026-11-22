@@ -5,6 +5,7 @@
 #include <QtCore/qanystringview.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QSettings may call these functions of it.
@@ -301,6 +302,24 @@ void ritual_ZN9QSettings8endArrayEv(QSettings *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QSettings13setArrayIndexEi(QSettings *self, int i) {
   self->setArrayIndex(i);
+}
+
+//  QStringList QSettings::allKeys() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9QSettings7allKeysEv(const QSettings *self) {
+  return new QList<QString>(self->allKeys());
+}
+
+//  QStringList QSettings::childKeys() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9QSettings9childKeysEv(const QSettings *self) {
+  return new QList<QString>(self->childKeys());
+}
+
+//  QStringList QSettings::childGroups() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9QSettings11childGroupsEv(const QSettings *self) {
+  return new QList<QString>(self->childGroups());
 }
 
 //  bool QSettings::isWritable() const

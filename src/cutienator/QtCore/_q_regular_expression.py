@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute
 from ..occult import Rituals
-from . import Qt
+from . import Qt, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QRegularExpressionMatch, QRegularExpressionMatchIterator
@@ -34,12 +34,12 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRegularExpression that has a ritual and that Python
-  can call so far, 19 names in all: 'patternOptions', 'setPatternOptions',
+  can call so far, 20 names in all: 'patternOptions', 'setPatternOptions',
   'pattern', 'setPattern', 'isValid', 'patternErrorOffset', 'errorString',
-  'captureCount', 'match', 'matchView', 'globalMatch', 'globalMatchView',
-  'optimize', 'escape', 'wildcardToRegularExpression', 'anchoredPattern',
-  'fromWildcard', '__eq__', '__ne__'. It can be made from Python, in 3 ways;
-  see '__init__'.
+  'captureCount', 'namedCaptureGroups', 'match', 'matchView', 'globalMatch',
+  'globalMatchView', 'optimize', 'escape', 'wildcardToRegularExpression',
+  'anchoredPattern', 'fromWildcard', '__eq__', '__ne__'. It can be made from
+  Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -71,7 +71,7 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 34 functions Qt declares: 5 takes or gives a type that cannot be
+  5 of the 34 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -400,6 +400,25 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK18QRegularExpression12captureCountEv',
     )
+
+  def namedCaptureGroups(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QRegularExpression::namedCaptureGroups() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qregularexpression.html#namedCaptureGroups
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QRegularExpression::namedCaptureGroups() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QRegularExpression18namedCaptureGroupsEv',
+    )
+    return QStringList._cuteOwning(address)
 
   @overload(str)
   @overload(str, int)

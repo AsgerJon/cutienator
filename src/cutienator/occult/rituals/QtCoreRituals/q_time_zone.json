@@ -63,10 +63,15 @@
     "ritual_ZN9QTimeZone21isTimeZoneIdAvailableE14QByteArrayView": [
       "bool", "address"
     ],
+    "ritual_ZN9QTimeZone20availableTimeZoneIdsEv": ["address"],
+    "ritual_ZN9QTimeZone20availableTimeZoneIdsEi": ["address", "int"],
     "ritual_ZN9QTimeZone17ianaIdToWindowsIdERK10QByteArray": [
       "address", "address"
     ],
     "ritual_ZN9QTimeZone24windowsIdToDefaultIanaIdERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN9QTimeZone18windowsIdToIanaIdsERK10QByteArray": [
       "address", "address"
     ],
     "ritual_ZeqRK9QTimeZoneS1_": ["bool", "address", "address"],

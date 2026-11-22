@@ -7,6 +7,7 @@
 #include <QtGui/qbrush.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QTreeWidgetItem that Python can take functions over in. Every QTreeWidgetItem
@@ -78,12 +79,30 @@ QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1Ei(int type) {
   return new CuteQTreeWidgetItem(type);
 }
 
+//  QTreeWidgetItem::QTreeWidgetItem(const QStringList &strings, int type)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1ERK5QListI7QStringEi(
+    const QList<QString> *strings,
+    int type) {
+  return new CuteQTreeWidgetItem(*strings, type);
+}
+
 //  QTreeWidgetItem::QTreeWidgetItem(QTreeWidget *treeview, int type)
 extern "C" Q_DECL_EXPORT
 QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgeti(
     QTreeWidget *treeview,
     int type) {
   return new CuteQTreeWidgetItem(treeview, type);
+}
+
+//  QTreeWidgetItem::QTreeWidgetItem(QTreeWidget *treeview, const QStringList
+//      &strings, int type)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgetRK5QListI7QStringEi(
+    QTreeWidget *treeview,
+    const QList<QString> *strings,
+    int type) {
+  return new CuteQTreeWidgetItem(treeview, *strings, type);
 }
 
 //  QTreeWidgetItem::QTreeWidgetItem(QTreeWidget *treeview, QTreeWidgetItem
@@ -102,6 +121,16 @@ QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1EPS_i(
     QTreeWidgetItem *parent,
     int type) {
   return new CuteQTreeWidgetItem(parent, type);
+}
+
+//  QTreeWidgetItem::QTreeWidgetItem(QTreeWidgetItem *parent, const
+//      QStringList &strings, int type)
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZN15QTreeWidgetItemC1EPS_RK5QListI7QStringEi(
+    QTreeWidgetItem *parent,
+    const QList<QString> *strings,
+    int type) {
+  return new CuteQTreeWidgetItem(parent, *strings, type);
 }
 
 //  QTreeWidgetItem::QTreeWidgetItem(QTreeWidgetItem *parent, QTreeWidgetItem
@@ -548,6 +577,32 @@ QTreeWidgetItem *ritual_ZN15QTreeWidgetItem9takeChildEi(
   return self->takeChild(index);
 }
 
+//  void QTreeWidgetItem::addChildren(const QList<QTreeWidgetItem *>
+//      &children)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem11addChildrenERK5QListIPS_E(
+    QTreeWidgetItem *self,
+    const QList<QTreeWidgetItem *> *children) {
+  self->addChildren(*children);
+}
+
+//  void QTreeWidgetItem::insertChildren(int index, const
+//      QList<QTreeWidgetItem *> &children)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem14insertChildrenEiRK5QListIPS_E(
+    QTreeWidgetItem *self,
+    int index,
+    const QList<QTreeWidgetItem *> *children) {
+  self->insertChildren(index, *children);
+}
+
+//  QList<QTreeWidgetItem *> QTreeWidgetItem::takeChildren()
+extern "C" Q_DECL_EXPORT
+QList<QTreeWidgetItem *> *ritual_ZN15QTreeWidgetItem12takeChildrenEv(
+    QTreeWidgetItem *self) {
+  return new QList<QTreeWidgetItem *>(self->takeChildren());
+}
+
 //  int QTreeWidgetItem::type() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK15QTreeWidgetItem4typeEv(const QTreeWidgetItem *self) {
@@ -598,4 +653,39 @@ void ritual_own_ZN15QTreeWidgetItem7setDataEiiRK8QVariant(
     int role,
     const QVariant *value) {
   self->QTreeWidgetItem::setData(column, role, *value);
+}
+
+//  QList<QTreeWidgetItem *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QTreeWidgetItem *> *ritual_list_make_QTreeWidgetItem_ptr() {
+  return new QList<QTreeWidgetItem *>();
+}
+
+//  void QList<QTreeWidgetItem *>::append(const QTreeWidgetItem * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QTreeWidgetItem_ptr(
+    QList<QTreeWidgetItem *> *self,
+    QTreeWidgetItem *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QTreeWidgetItem *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QTreeWidgetItem_ptr(
+    const QList<QTreeWidgetItem *> *self) {
+  return self->size();
+}
+
+//  const QTreeWidgetItem * &QList<QTreeWidgetItem *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_list_at_QTreeWidgetItem_ptr(
+    const QList<QTreeWidgetItem *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QTreeWidgetItem *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QTreeWidgetItem_ptr(QList<QTreeWidgetItem *> *self) {
+  delete self;
 }

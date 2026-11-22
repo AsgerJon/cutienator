@@ -7,6 +7,7 @@
 #include <QtGui/qbrush.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QListWidgetItem that Python can take functions over in. Every QListWidgetItem
@@ -408,4 +409,39 @@ void ritual_own_ZN15QListWidgetItem7setDataEiRK8QVariant(
     int role,
     const QVariant *value) {
   self->QListWidgetItem::setData(role, *value);
+}
+
+//  QList<QListWidgetItem *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QListWidgetItem *> *ritual_list_make_QListWidgetItem_ptr() {
+  return new QList<QListWidgetItem *>();
+}
+
+//  void QList<QListWidgetItem *>::append(const QListWidgetItem * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QListWidgetItem_ptr(
+    QList<QListWidgetItem *> *self,
+    QListWidgetItem *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QListWidgetItem *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QListWidgetItem_ptr(
+    const QList<QListWidgetItem *> *self) {
+  return self->size();
+}
+
+//  const QListWidgetItem * &QList<QListWidgetItem *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QListWidgetItem *ritual_list_at_QListWidgetItem_ptr(
+    const QList<QListWidgetItem *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QListWidgetItem *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QListWidgetItem_ptr(QList<QListWidgetItem *> *self) {
+  delete self;
 }

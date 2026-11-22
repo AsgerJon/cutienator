@@ -3,10 +3,12 @@
 #include <QtGui/qaction.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
+#include <QtCore/qobject.h>
 #include <QtGui/qkeysequence.h>
 #include <QtGui/qfont.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QAction may call these functions of it.
@@ -181,6 +183,13 @@ void ritual_ZN7QActionD1Ev(QAction *self) {
   delete self;
 }
 
+//  QList<QObject *> QAction::associatedObjects() const
+extern "C" Q_DECL_EXPORT
+QList<QObject *> *ritual_ZNK7QAction17associatedObjectsEv(
+    const QAction *self) {
+  return new QList<QObject *>(self->associatedObjects());
+}
+
 //  void QAction::setActionGroup(QActionGroup *group)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QAction14setActionGroupEP12QActionGroup(
@@ -317,12 +326,26 @@ QKeySequence *ritual_ZNK7QAction8shortcutEv(const QAction *self) {
   return new QKeySequence(self->shortcut());
 }
 
+//  void QAction::setShortcuts(const QList<QKeySequence> &shortcuts)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QAction12setShortcutsERK5QListI12QKeySequenceE(
+    QAction *self,
+    const QList<QKeySequence> *shortcuts) {
+  self->setShortcuts(*shortcuts);
+}
+
 //  void QAction::setShortcuts(QKeySequence::StandardKey a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QAction12setShortcutsEN12QKeySequence11StandardKeyE(
     QAction *self,
     QKeySequence::StandardKey a0) {
   self->setShortcuts(a0);
+}
+
+//  QList<QKeySequence> QAction::shortcuts() const
+extern "C" Q_DECL_EXPORT
+QList<QKeySequence> *ritual_ZNK7QAction9shortcutsEv(const QAction *self) {
+  return new QList<QKeySequence>(self->shortcuts());
 }
 
 //  void QAction::setShortcutContext(Qt::ShortcutContext context)
@@ -524,4 +547,36 @@ bool ritual_take_QAction(QAction *self, const char *key, void *call) {
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN7QAction5eventEP6QEvent(QAction *self, QEvent *a0) {
   return static_cast<OwnQAction *>(self)->OwnQAction::event(a0);
+}
+
+//  QList<QAction *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QAction *> *ritual_list_make_QAction_ptr() {
+  return new QList<QAction *>();
+}
+
+//  void QList<QAction *>::append(const QAction * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QAction_ptr(QList<QAction *> *self, QAction *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QAction *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QAction_ptr(const QList<QAction *> *self) {
+  return self->size();
+}
+
+//  const QAction * &QList<QAction *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QAction *ritual_list_at_QAction_ptr(
+    const QList<QAction *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QAction *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QAction_ptr(QList<QAction *> *self) {
+  delete self;
 }

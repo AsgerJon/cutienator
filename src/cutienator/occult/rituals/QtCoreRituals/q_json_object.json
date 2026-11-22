@@ -7,6 +7,15 @@
     "ritual_ZN11QJsonObjectC1Ev": ["address"],
     "ritual_ZN11QJsonObjectD1Ev": ["nothing", "address"],
     "ritual_ZN11QJsonObjectC1ERKS_": ["address", "address"],
+    "ritual_ZN11QJsonObject14fromVariantMapERK4QMapI7QString8QVariantE": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QJsonObject12toVariantMapEv": ["address", "address"],
+    "ritual_ZN11QJsonObject15fromVariantHashERK5QHashI7QString8QVariantE": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QJsonObject13toVariantHashEv": ["address", "address"],
+    "ritual_ZNK11QJsonObject4keysEv": ["address", "address"],
     "ritual_ZNK11QJsonObject4sizeEv": ["long long", "address"],
     "ritual_ZNK11QJsonObject5countEv": ["long long", "address"],
     "ritual_ZNK11QJsonObject6lengthEv": ["long long", "address"],

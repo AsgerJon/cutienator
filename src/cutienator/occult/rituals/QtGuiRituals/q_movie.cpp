@@ -9,6 +9,7 @@
 #include <QtGui/qpixmap.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QMovie that Python can take functions over in. Every QMovie
@@ -178,6 +179,12 @@ QMovie *ritual_ZN6QMovieC1ERK7QStringRK10QByteArrayP7QObject(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QMovieD1Ev(QMovie *self) {
   delete self;
+}
+
+//  QList<QByteArray> QMovie::supportedFormats()
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN6QMovie16supportedFormatsEv() {
+  return new QList<QByteArray>(QMovie::supportedFormats());
 }
 
 //  void QMovie::setDevice(QIODevice *device)

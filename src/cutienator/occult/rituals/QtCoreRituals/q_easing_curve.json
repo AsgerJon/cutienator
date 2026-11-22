@@ -23,6 +23,7 @@
     "ritual_ZN12QEasingCurve13addTCBSegmentERK7QPointFddd": [
       "nothing", "address", "address", "double", "double", "double"
     ],
+    "ritual_ZNK12QEasingCurve13toCubicSplineEv": ["address", "address"],
     "ritual_ZNK12QEasingCurve4typeEv": ["int", "address"],
     "ritual_ZN12QEasingCurve7setTypeENS_4TypeE": [
       "nothing", "address", "int"

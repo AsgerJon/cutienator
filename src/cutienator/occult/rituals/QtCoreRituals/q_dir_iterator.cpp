@@ -4,6 +4,7 @@
 #include <QtCore/qdir.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qfileinfo.h>
+#include <QtCore/qlist.h>
 
 //  QDirIterator::QDirIterator(const QDir &dir, IteratorFlags flags)
 extern "C" Q_DECL_EXPORT
@@ -35,6 +36,21 @@ QDirIterator *ritual_ZN12QDirIteratorC1ERK7QString6QFlagsIN4QDir6FilterEES3_INS_
   return new QDirIterator(
       *path,
       QFlags<QDir::Filter>::fromInt(filter),
+      QFlags<QDirIterator::IteratorFlag>::fromInt(flags));
+}
+
+//  QDirIterator::QDirIterator(const QString &path, const QStringList
+//      &nameFilters, QDir::Filters filters, IteratorFlags flags)
+extern "C" Q_DECL_EXPORT
+QDirIterator *ritual_ZN12QDirIteratorC1ERK7QStringRK5QListIS0_E6QFlagsIN4QDir6FilterEES7_INS_12IteratorFlagEE(
+    const QString *path,
+    const QList<QString> *nameFilters,
+    int filters,
+    int flags) {
+  return new QDirIterator(
+      *path,
+      *nameFilters,
+      QFlags<QDir::Filter>::fromInt(filters),
       QFlags<QDirIterator::IteratorFlag>::fromInt(flags));
 }
 

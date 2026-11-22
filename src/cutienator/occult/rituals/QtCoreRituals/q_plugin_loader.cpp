@@ -3,7 +3,10 @@
 #include <QtCore/qpluginloader.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qjsonobject.h>
+#include <QtCore/qobject.h>
+#include <QtCore/qplugin.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QPluginLoader that Python can take functions over in. Every QPluginLoader
@@ -178,6 +181,18 @@ extern "C" Q_DECL_EXPORT
 QJsonObject *ritual_ZNK13QPluginLoader8metaDataEv(
     const QPluginLoader *self) {
   return new QJsonObject(self->metaData());
+}
+
+//  QObjectList QPluginLoader::staticInstances()
+extern "C" Q_DECL_EXPORT
+QList<QObject *> *ritual_ZN13QPluginLoader15staticInstancesEv() {
+  return new QList<QObject *>(QPluginLoader::staticInstances());
+}
+
+//  QList<QStaticPlugin> QPluginLoader::staticPlugins()
+extern "C" Q_DECL_EXPORT
+QList<QStaticPlugin> *ritual_ZN13QPluginLoader13staticPluginsEv() {
+  return new QList<QStaticPlugin>(QPluginLoader::staticPlugins());
 }
 
 //  bool QPluginLoader::load()

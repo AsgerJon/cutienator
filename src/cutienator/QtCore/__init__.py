@@ -17,6 +17,10 @@ from typing import TYPE_CHECKING
 
 __all__ = (
     'Qt',
+    'QList',
+    'QStringList',
+    'QMap',
+    'QHash',
     'QAdoptSharedDataTag',
     'QArrayData',
     'QAtomicInt',
@@ -263,12 +267,26 @@ __all__ = (
     'QMimeDatabase',
     'QSortFilterProxyModel',
     'QTransposeProxyModel',
+    'QXmlStreamEntityDeclarations',
+    'QXmlStreamNotationDeclarations',
+    'QByteArrayList',
+    'QModelIndexList',
+    'QXmlStreamNamespaceDeclarations',
+    'QObjectList',
+    'QVariantList',
+    'QVariantMap',
+    'QVariantHash',
+    'QFileInfoList',
 )
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, List
 
   from ._qt import Qt
+  from ._q_list import QList
+  from ._q_string_list import QStringList
+  from ._q_map import QMap
+  from ._q_hash import QHash
   from ._q_adopt_shared_data_tag import QAdoptSharedDataTag
   from ._q_array_data import QArrayData
   from ._q_atomic_int import QAtomicInt
@@ -515,11 +533,25 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_mime_database import QMimeDatabase
   from ._q_sort_filter_proxy_model import QSortFilterProxyModel
   from ._q_transpose_proxy_model import QTransposeProxyModel
+  from ._q_xml_stream_entity_declaration import QXmlStreamEntityDeclarations
+  from ._q_xml_stream_notation_declaration import QXmlStreamNotationDeclarations
+  from ._q_byte_array import QByteArrayList
+  from ._q_model_index import QModelIndexList
+  from ._q_xml_stream_namespace_declaration import QXmlStreamNamespaceDeclarations
+  from ._q_object import QObjectList
+  from ._q_variant import QVariantList
+  from ._q_variant import QVariantMap
+  from ._q_variant import QVariantHash
+  from ._q_file_info import QFileInfoList
 else:
   #  Where each class is: the file that is brought in the first
   #  time the class is asked for.
   __class_files__ = {
       'Qt': '_qt',
+      'QList': '_q_list',
+      'QStringList': '_q_string_list',
+      'QMap': '_q_map',
+      'QHash': '_q_hash',
       'QAdoptSharedDataTag': '_q_adopt_shared_data_tag',
       'QArrayData': '_q_array_data',
       'QAtomicInt': '_q_atomic_int',
@@ -766,13 +798,23 @@ else:
       'QMimeDatabase': '_q_mime_database',
       'QSortFilterProxyModel': '_q_sort_filter_proxy_model',
       'QTransposeProxyModel': '_q_transpose_proxy_model',
+      'QXmlStreamEntityDeclarations': '_q_xml_stream_entity_declaration',
+      'QXmlStreamNotationDeclarations': '_q_xml_stream_notation_declaration',
+      'QByteArrayList': '_q_byte_array',
+      'QModelIndexList': '_q_model_index',
+      'QXmlStreamNamespaceDeclarations': '_q_xml_stream_namespace_declaration',
+      'QObjectList': '_q_object',
+      'QVariantList': '_q_variant',
+      'QVariantMap': '_q_variant',
+      'QVariantHash': '_q_variant',
+      'QFileInfoList': '_q_file_info',
   }
 
 
   def __getattr__(name: str) -> Any:
     """
     Brings in a class of this part the first time it is asked for,
-    as by 'from cutienator.QtCore import QTransposeProxyModel'. Python calls
+    as by 'from cutienator.QtCore import QFileInfoList'. Python calls
     this for a name the package does not hold yet. The file of the
     class is brought in, which brings in the files that class needs
     and no others, and the class is kept here for the next time.

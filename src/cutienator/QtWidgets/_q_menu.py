@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import QList, QObject
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -83,8 +83,8 @@ class QMenu(QWidget):
   What has no ritual
   ------------------
 
-  22 of the 83 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 5 a template; 4 private; 4 a signal; 2 protected; 2 forbidden.
+  21 of the 83 functions Qt declares: 5 a template; 4 takes or gives a type
+  that cannot be passed yet; 4 private; 4 a signal; 2 protected; 2 forbidden.
 
   What to expect
   --------------
@@ -1219,6 +1219,63 @@ class QMenu(QWidget):
     address = self.uglySide.call(
         'ritual_ZN5QMenu4execERK6QPointP7QAction',
         self._valueOf(pos), self._addressOf(at),
+    )
+    from ..QtGui import QAction
+    return QAction._cuteAt(address)
+
+  @staticmethod
+  @overload(QList[QAction], QPoint)
+  @overload(QList[QAction], QPoint, QAction)
+  @overload(QList[QAction], QPoint, NoneType)
+  @overload(QList[QAction], QPoint, QAction, QWidget)
+  @overload(QList[QAction], QPoint, QAction, NoneType)
+  @overload(QList[QAction], QPoint, NoneType, QWidget)
+  @overload(QList[QAction], QPoint, NoneType, NoneType)
+  def exec(
+      actions: QList[QAction],
+      pos: QPoint,
+      at: Optional[QAction] = None,
+      parent: Optional[QWidget] = None,
+  ) -> Optional[QAction]:
+    """
+    Calls Qt's 'QAction *QMenu::exec(const QList<QAction *> &actions, const
+    QPoint &pos, QAction *at, QWidget *parent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenu.html#exec
+
+    Parameters
+    ----------
+
+    actions : QList[QAction]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    pos : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    at : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    Returns
+    -------
+
+    Optional[QAction]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAction *QMenu::exec(const QList<QAction *> &actions, const QPoint
+    #      &pos, QAction *at, QWidget *parent)
+    address = Rituals.call(
+        'ritual_ZN5QMenu4execERK5QListIP7QActionERK6QPointS2_P7QWidget',
+        CuteMixin._valueOf(actions), CuteMixin._valueOf(pos),
+        CuteMixin._addressOf(at), CuteMixin._addressOf(parent),
     )
     from ..QtGui import QAction
     return QAction._cuteAt(address)

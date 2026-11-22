@@ -17,6 +17,9 @@
     "ritual_ZNK25QAccessibleTableInterface17selectedCellCountEv": [
       "int", "address"
     ],
+    "ritual_ZNK25QAccessibleTableInterface13selectedCellsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK25QAccessibleTableInterface17columnDescriptionEi": [
       "text", "address", "int"
     ],

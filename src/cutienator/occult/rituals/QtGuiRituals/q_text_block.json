@@ -42,6 +42,11 @@
     "ritual_ZNK10QTextBlock4nextEv": ["address", "address"],
     "ritual_ZNK10QTextBlock8previousEv": ["address", "address"],
     "ritual_ZNK10QTextBlock13fragmentIndexEv": ["int", "address"],
-    "ritual_ZN10QTextBlockD1Ev": ["nothing", "address"]
+    "ritual_ZN10QTextBlockD1Ev": ["nothing", "address"],
+    "ritual_list_make_QTextBlock": ["address"],
+    "ritual_list_add_QTextBlock": ["nothing", "address", "address"],
+    "ritual_list_size_QTextBlock": ["long long", "address"],
+    "ritual_list_at_QTextBlock": ["address", "address", "long long"],
+    "ritual_list_drop_QTextBlock": ["nothing", "address"]
   }
 }

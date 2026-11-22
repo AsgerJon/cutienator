@@ -10,6 +10,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from ..cute import CuteMixin, MetaCute
+from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -26,9 +27,10 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QAccessibleTableCellInterface that has a ritual and
-  that Python can call so far, 6 names in all: 'isSelected', 'columnIndex',
-  'rowIndex', 'columnExtent', 'rowExtent', 'table'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  that Python can call so far, 8 names in all: 'isSelected',
+  'columnHeaderCells', 'rowHeaderCells', 'columnIndex', 'rowIndex',
+  'columnExtent', 'rowExtent', 'table'. None can be made from Python: one
+  comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -39,8 +41,8 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 14 functions Qt declares: 4 forbidden; 2 takes or gives a type
-  that cannot be passed yet; 1 the class is abstract, so C++ cannot make one.
+  5 of the 14 functions Qt declares: 4 forbidden; 1 the class is abstract, so
+  C++ cannot make one.
 
   What to expect
   --------------
@@ -148,6 +150,50 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK29QAccessibleTableCellInterface10isSelectedEv',
     )
+
+  def columnHeaderCells(self) -> QList[QAccessibleInterface]:
+    """
+    Calls Qt's 'QList<QAccessibleInterface *>
+    QAccessibleTableCellInterface::columnHeaderCells() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibletablecellinterface.html
+
+    Returns
+    -------
+
+    QList[QAccessibleInterface]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QAccessibleInterface *>
+    #      QAccessibleTableCellInterface::columnHeaderCells() const
+    address = self.uglySide.call(
+        'ritual_ZNK29QAccessibleTableCellInterface17columnHeaderCellsEv',
+    )
+    from . import QAccessibleInterface
+    return QList[QAccessibleInterface]._cuteOwning(address)
+
+  def rowHeaderCells(self) -> QList[QAccessibleInterface]:
+    """
+    Calls Qt's 'QList<QAccessibleInterface *>
+    QAccessibleTableCellInterface::rowHeaderCells() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#rowHeaderCells
+
+    Returns
+    -------
+
+    QList[QAccessibleInterface]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QAccessibleInterface *>
+    #      QAccessibleTableCellInterface::rowHeaderCells() const
+    address = self.uglySide.call(
+        'ritual_ZNK29QAccessibleTableCellInterface14rowHeaderCellsEv',
+    )
+    from . import QAccessibleInterface
+    return QList[QAccessibleInterface]._cuteOwning(address)
 
   def columnIndex(self) -> int:
     """

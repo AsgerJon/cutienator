@@ -4,6 +4,9 @@
 #include <QtCore/qmetatype.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qproperty.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 
 //  QMetaProperty::QMetaProperty()
 extern "C" Q_DECL_EXPORT
@@ -245,5 +248,66 @@ const QMetaObject *ritual_ZNK13QMetaProperty19enclosingMetaObjectEv(
 //  QMetaProperty::~QMetaProperty()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QMetaPropertyD1Ev(QMetaProperty *self) {
+  delete self;
+}
+
+//  QHash<int, QMetaProperty>: QHash<int, QMetaProperty>()
+extern "C" Q_DECL_EXPORT
+QHash<int, QMetaProperty> *ritual_map_make_QHash_int_QMetaProperty() {
+  return new QHash<int, QMetaProperty>();
+}
+
+//  QHash<int, QMetaProperty>: insert(const Key &key, const T &value)
+extern "C" Q_DECL_EXPORT
+void ritual_map_put_QHash_int_QMetaProperty(
+    QHash<int, QMetaProperty> *self,
+    int key,
+    const QMetaProperty *value) {
+  self->insert(key, *value);
+}
+
+//  QHash<int, QMetaProperty>: size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_map_size_QHash_int_QMetaProperty(
+    const QHash<int, QMetaProperty> *self) {
+  return self->size();
+}
+
+//  QHash<int, QMetaProperty>: the key at a place
+extern "C" Q_DECL_EXPORT
+int ritual_map_key_QHash_int_QMetaProperty(
+    const QHash<int, QMetaProperty> *self,
+    long long index) {
+  return *std::next(self->keyBegin(), index);
+}
+
+//  QHash<int, QMetaProperty>: the value at a place
+extern "C" Q_DECL_EXPORT
+QMetaProperty *ritual_map_value_QHash_int_QMetaProperty(
+    const QHash<int, QMetaProperty> *self,
+    long long index) {
+  return new QMetaProperty(*std::next(self->constBegin(), index));
+}
+
+//  QHash<int, QMetaProperty>: contains(const Key &key) const
+extern "C" Q_DECL_EXPORT
+bool ritual_map_has_QHash_int_QMetaProperty(
+    const QHash<int, QMetaProperty> *self,
+    int key) {
+  return self->contains(key);
+}
+
+//  QHash<int, QMetaProperty>: value(const Key &key) const
+extern "C" Q_DECL_EXPORT
+QMetaProperty *ritual_map_get_QHash_int_QMetaProperty(
+    const QHash<int, QMetaProperty> *self,
+    int key) {
+  return new QMetaProperty(self->value(key));
+}
+
+//  QHash<int, QMetaProperty>: ~QHash()
+extern "C" Q_DECL_EXPORT
+void ritual_map_drop_QHash_int_QMetaProperty(
+    QHash<int, QMetaProperty> *self) {
   delete self;
 }

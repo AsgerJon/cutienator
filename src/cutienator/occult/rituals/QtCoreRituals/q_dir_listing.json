@@ -7,9 +7,13 @@
     "ritual_ZN11QDirListingC1ERK7QString6QFlagsINS_12IteratorFlagEE": [
       "address", "text", "int"
     ],
+    "ritual_ZN11QDirListingC1ERK7QStringRK5QListIS0_E6QFlagsINS_12IteratorFlagEE": [
+      "address", "text", "address", "int"
+    ],
     "ritual_ZN11QDirListingD1Ev": ["nothing", "address"],
     "ritual_ZNK11QDirListing12iteratorPathEv": ["text", "address"],
     "ritual_ZNK11QDirListing13iteratorFlagsEv": ["int", "address"],
+    "ritual_ZNK11QDirListing11nameFiltersEv": ["address", "address"],
     "ritual_ZNK11QDirListing3endEv": ["address", "address"],
     "ritual_ZNK11QDirListing4cendEv": ["address", "address"],
     "ritual_ZNK11QDirListing8constEndEv": ["address", "address"]

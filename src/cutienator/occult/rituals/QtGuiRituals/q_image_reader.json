@@ -38,6 +38,7 @@
     "ritual_ZNK12QImageReader4sizeEv": ["address", "address"],
     "ritual_ZNK12QImageReader13effectiveSizeEv": ["address", "address"],
     "ritual_ZNK12QImageReader11imageFormatEv": ["int", "address"],
+    "ritual_ZNK12QImageReader8textKeysEv": ["address", "address"],
     "ritual_ZNK12QImageReader4textERK7QString": ["text", "address", "text"],
     "ritual_ZN12QImageReader11setClipRectERK5QRect": [
       "nothing", "address", "address"
@@ -64,6 +65,7 @@
     ],
     "ritual_ZNK12QImageReader13autoTransformEv": ["bool", "address"],
     "ritual_ZNK12QImageReader7subTypeEv": ["address", "address"],
+    "ritual_ZNK12QImageReader17supportedSubTypesEv": ["address", "address"],
     "ritual_ZNK12QImageReader7canReadEv": ["bool", "address"],
     "ritual_ZN12QImageReader4readEv": ["address", "address"],
     "ritual_ZN12QImageReader4readEP6QImage": ["bool", "address", "address"],
@@ -81,6 +83,11 @@
     ],
     "ritual_ZN12QImageReader11imageFormatERK7QString": ["address", "text"],
     "ritual_ZN12QImageReader11imageFormatEP9QIODevice": [
+      "address", "address"
+    ],
+    "ritual_ZN12QImageReader21supportedImageFormatsEv": ["address"],
+    "ritual_ZN12QImageReader18supportedMimeTypesEv": ["address"],
+    "ritual_ZN12QImageReader23imageFormatsForMimeTypeERK10QByteArray": [
       "address", "address"
     ],
     "ritual_ZN12QImageReader15allocationLimitEv": ["int"],

@@ -44,8 +44,9 @@ not needed.
 An enum is written inside its class, as in C++: `QPalette.ColorRole` is
 a class in the body of `QPalette`, and has no other name. So a file
 also brings in the few classes that hold an enum it names, as `QWidget`
-brings in `QPalette` for `setBackgroundRole`. For `QWidget` that makes
-seven files in all.
+brings in `QPalette` for `setBackgroundRole`. And it brings in `QList`,
+the lists of Qt, when its class hands a list around. For `QWidget` that
+makes eight files in all.
 
 ## 3. Every other class waits
 
@@ -102,8 +103,9 @@ are different from a binding that loads everything at once:
   it you need a `QFont`, and by then it takes one.
 - **A class changes when a class it waited for comes in.** The function
   is built again with the signature that came back. A function you read
-  off an object earlier and kept, as `kept = widget.setFont`, still
-  goes by what the function was when you read it.
+  off an object earlier and kept, as `kept = widget.setFont`, takes the
+  call all the same: what it has no signature for, it hands on to the
+  function as it is now.
 - **A class that is waited for is known by its name.** A class of your
   own that is built on a class of **cutienator** must not have the name
   of a class of Qt, as `QFont` or `Connection`. Any other name is fine.

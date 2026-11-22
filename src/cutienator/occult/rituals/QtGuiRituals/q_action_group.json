@@ -20,6 +20,7 @@
     "ritual_ZN12QActionGroup12removeActionEP7QAction": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK12QActionGroup7actionsEv": ["address", "address"],
     "ritual_ZNK12QActionGroup13checkedActionEv": ["address", "address"],
     "ritual_ZNK12QActionGroup11isExclusiveEv": ["bool", "address"],
     "ritual_ZNK12QActionGroup9isEnabledEv": ["bool", "address"],

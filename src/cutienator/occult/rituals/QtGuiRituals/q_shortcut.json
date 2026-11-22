@@ -21,6 +21,10 @@
     "ritual_ZN9QShortcut7setKeysEN12QKeySequence11StandardKeyE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN9QShortcut7setKeysERK5QListI12QKeySequenceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QShortcut4keysEv": ["address", "address"],
     "ritual_ZN9QShortcut10setEnabledEb": ["nothing", "address", "bool"],
     "ritual_ZNK9QShortcut9isEnabledEv": ["bool", "address"],
     "ritual_ZN9QShortcut10setContextEN2Qt15ShortcutContextE": [

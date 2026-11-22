@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import Qt, QAbstractItemModel, QAbstractProxyModel, QObject
+from . import Qt, QAbstractItemModel, QAbstractProxyModel, QMap, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -43,11 +43,12 @@ class QTransposeProxyModel(QAbstractProxyModel):
   -----------
 
   Every function of Qt's QTransposeProxyModel that has a ritual and that
-  Python can call so far, 19 names in all: 'metaObject', 'tr',
+  Python can call so far, 21 names in all: 'metaObject', 'tr',
   'setSourceModel', 'rowCount', 'columnCount', 'headerData', 'setHeaderData',
-  'span', 'mapFromSource', 'mapToSource', 'parent', 'index', 'insertRows',
-  'removeRows', 'moveRows', 'insertColumns', 'removeColumns', 'moveColumns',
-  'sort'. It can be made from Python, in 1 way; see '__init__'.
+  'setItemData', 'span', 'itemData', 'mapFromSource', 'mapToSource',
+  'parent', 'index', 'insertRows', 'removeRows', 'moveRows', 'insertColumns',
+  'removeColumns', 'moveColumns', 'sort'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -58,8 +59,8 @@ class QTransposeProxyModel(QAbstractProxyModel):
   What has no ritual
   ------------------
 
-  11 of the 32 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template; 1 protected.
+  9 of the 32 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -301,6 +302,36 @@ class QTransposeProxyModel(QAbstractProxyModel):
     return QSize._cuteOwning(address)
 
   @overload(QModelIndex)
+  def itemData(self, index: QModelIndex) -> QMap[int, QVariant]:
+    """
+    Calls Qt's 'QMap<int, QVariant> QTransposeProxyModel::itemData(const
+    QModelIndex &index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtransposeproxymodel.html#itemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QMap[int, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QMap<int, QVariant> QTransposeProxyModel::itemData(const QModelIndex
+    #      &index) const
+    address = self.uglySide.call(
+        'ritual_ZNK20QTransposeProxyModel8itemDataERK11QModelIndex',
+        self._valueOf(index),
+    )
+    from . import QVariant
+    return QMap[int, QVariant]._cuteOwning(address)
+
+  @overload(QModelIndex)
   def mapFromSource(self, sourceIndex: QModelIndex) -> QModelIndex:
     """
     Calls Qt's 'QModelIndex QTransposeProxyModel::mapFromSource(const
@@ -521,6 +552,39 @@ class QTransposeProxyModel(QAbstractProxyModel):
           'ationERK8QVarianti')
     return self.uglySide.call(
         ritual, section, orientation.value, self._valueOf(value), role,
+    )
+
+  @overload(QModelIndex, QMap[int, QVariant])
+  def setItemData(
+      self,
+      index: QModelIndex,
+      roles: QMap[int, QVariant],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QTransposeProxyModel::setItemData(const QModelIndex
+    &index, const QMap<int, QVariant> &roles)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtransposeproxymodel.html#setItemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    roles : QMap[int, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  bool QTransposeProxyModel::setItemData(const QModelIndex &index, const
+    #      QMap<int, QVariant> &roles)
+    return self.uglySide.call(
+        'ritual_ZN20QTransposeProxyModel11setItemDataERK11QModelIndexRK4QMa'
+        'pIi8QVariantE',
+        self._valueOf(index), self._valueOf(roles),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

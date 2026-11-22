@@ -5,6 +5,7 @@
   ],
   "rows": {
     "ritual_ZN9QPolygonFC1Ev": ["address"],
+    "ritual_ZN9QPolygonFC1ERK5QListI7QPointFE": ["address", "address"],
     "ritual_ZN9QPolygonFC1ERK6QRectF": ["address", "address"],
     "ritual_ZN9QPolygonFC1ERK8QPolygon": ["address", "address"],
     "ritual_ZNK9QPolygonFcv8QVariantEv": ["address", "address"],
@@ -34,6 +35,11 @@
       "address", "address", "address"
     ],
     "ritual_ZNK9QPolygonF10intersectsERKS_": ["bool", "address", "address"],
-    "ritual_ZN9QPolygonFD1Ev": ["nothing", "address"]
+    "ritual_ZN9QPolygonFD1Ev": ["nothing", "address"],
+    "ritual_list_make_QPolygonF": ["address"],
+    "ritual_list_add_QPolygonF": ["nothing", "address", "address"],
+    "ritual_list_size_QPolygonF": ["long long", "address"],
+    "ritual_list_at_QPolygonF": ["address", "address", "long long"],
+    "ritual_list_drop_QPolygonF": ["nothing", "address"]
   }
 }

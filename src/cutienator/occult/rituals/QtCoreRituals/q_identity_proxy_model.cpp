@@ -7,6 +7,7 @@
 #include <QtCore/qitemselectionmodel.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QIdentityProxyModel that Python can take functions over in. Every QIdentityProxyModel
@@ -919,6 +920,25 @@ QItemSelection *ritual_ZNK19QIdentityProxyModel20mapSelectionToSourceERK14QItemS
     const QIdentityProxyModel *self,
     const QItemSelection *selection) {
   return new QItemSelection(self->mapSelectionToSource(*selection));
+}
+
+//  QModelIndexList QIdentityProxyModel::match(const QModelIndex &start, int
+//      role, const QVariant &value, int hits, Qt::MatchFlags flags) const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK19QIdentityProxyModel5matchERK11QModelIndexiRK8QVarianti6QFlagsIN2Qt9MatchFlagEE(
+    const QIdentityProxyModel *self,
+    const QModelIndex *start,
+    int role,
+    const QVariant *value,
+    int hits,
+    int flags) {
+  return new QList<QModelIndex>(
+      self->match(
+          *start,
+          role,
+          *value,
+          hits,
+          QFlags<Qt::MatchFlag>::fromInt(flags)));
 }
 
 //  void QIdentityProxyModel::setSourceModel(QAbstractItemModel *sourceModel)

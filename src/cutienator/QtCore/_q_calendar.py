@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QLocale
+from . import QLocale, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QDate, QDateTime, QTime
@@ -40,13 +40,14 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCalendar that has a ritual and that Python can call
-  so far, 25 names in all: 'isValid', 'daysInMonth', 'daysInYear',
+  so far, 26 names in all: 'isValid', 'daysInMonth', 'daysInYear',
   'monthsInYear', 'isDateValid', 'isLeapYear', 'isGregorian', 'isLunar',
   'isLuniSolar', 'isSolar', 'isProleptic', 'hasYearZero',
   'maximumDaysInMonth', 'minimumDaysInMonth', 'maximumMonthsInYear', 'name',
   'dateFromParts', 'matchCenturyToWeekday', 'partsFromDate', 'dayOfWeek',
   'monthName', 'standaloneMonthName', 'weekDayName', 'standaloneWeekDayName',
-  'dateTimeToString'. It can be made from Python, in 4 ways; see '__init__'.
+  'dateTimeToString', 'availableCalendars'. It can be made from Python, in 4
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,8 +58,8 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 35 functions Qt declares: 1 declared and nowhere to be found; 1 a
-  template; 1 private; 1 takes or gives a type that cannot be passed yet.
+  3 of the 35 functions Qt declares: 1 declared and nowhere to be found; 1 a
+  template; 1 private.
 
   What to expect
   --------------
@@ -383,6 +384,23 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def availableCalendars() -> QStringList:
+    """
+    Calls Qt's 'QStringList QCalendar::availableCalendars()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendar.html#availableCalendars
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QCalendar::availableCalendars()
+    address = Rituals.call('ritual_ZN9QCalendar18availableCalendarsEv')
+    return QStringList._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

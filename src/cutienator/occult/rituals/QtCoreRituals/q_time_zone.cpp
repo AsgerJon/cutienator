@@ -7,6 +7,7 @@
 #include <QtCore/qdatetime.h>
 #include <QtCore/qlocale.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/qlist.h>
 
 //  QTimeZone::QTimeZone()
 extern "C" Q_DECL_EXPORT
@@ -241,6 +242,21 @@ bool ritual_ZN9QTimeZone21isTimeZoneIdAvailableE14QByteArrayView(
   return QTimeZone::isTimeZoneIdAvailable(*ianaId);
 }
 
+//  QList<QByteArray> QTimeZone::availableTimeZoneIds()
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN9QTimeZone20availableTimeZoneIdsEv() {
+  return new QList<QByteArray>(QTimeZone::availableTimeZoneIds());
+}
+
+//  QList<QByteArray> QTimeZone::availableTimeZoneIds(int offsetSeconds)
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN9QTimeZone20availableTimeZoneIdsEi(
+    int offsetSeconds) {
+  return new QList<QByteArray>(
+      QTimeZone::availableTimeZoneIds(
+          offsetSeconds));
+}
+
 //  QByteArray QTimeZone::ianaIdToWindowsId(const QByteArray &ianaId)
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN9QTimeZone17ianaIdToWindowsIdERK10QByteArray(
@@ -254,6 +270,14 @@ extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN9QTimeZone24windowsIdToDefaultIanaIdERK10QByteArray(
     const QByteArray *windowsId) {
   return new QByteArray(QTimeZone::windowsIdToDefaultIanaId(*windowsId));
+}
+
+//  QList<QByteArray> QTimeZone::windowsIdToIanaIds(const QByteArray
+//      &windowsId)
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN9QTimeZone18windowsIdToIanaIdsERK10QByteArray(
+    const QByteArray *windowsId) {
+  return new QList<QByteArray>(QTimeZone::windowsIdToIanaIds(*windowsId));
 }
 
 //  bool operator==(const QTimeZone &lhs, const QTimeZone &rhs)

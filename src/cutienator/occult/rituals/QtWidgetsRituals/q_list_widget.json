@@ -21,10 +21,16 @@
     "ritual_ZN11QListWidget10insertItemEiRK7QString": [
       "nothing", "address", "int", "text"
     ],
+    "ritual_ZN11QListWidget11insertItemsEiRK5QListI7QStringE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN11QListWidget7addItemERK7QString": [
       "nothing", "address", "text"
     ],
     "ritual_ZN11QListWidget7addItemEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QListWidget8addItemsERK5QListI7QStringE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN11QListWidget8takeItemEi": ["address", "address", "int"],
@@ -77,6 +83,13 @@
     ],
     "ritual_ZN11QListWidget16removeItemWidgetEP15QListWidgetItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QListWidget13selectedItemsEv": ["address", "address"],
+    "ritual_ZNK11QListWidget9findItemsERK7QString6QFlagsIN2Qt9MatchFlagEE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZNK11QListWidget5itemsEPK9QMimeData": [
+      "address", "address", "address"
     ],
     "ritual_ZNK11QListWidget13indexFromItemEPK15QListWidgetItem": [
       "address", "address", "address"

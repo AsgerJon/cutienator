@@ -62,6 +62,9 @@
     "ritual_ZN5QMenu4execERK6QPointP7QAction": [
       "address", "address", "address", "address"
     ],
+    "ritual_ZN5QMenu4execERK5QListIP7QActionERK6QPointS2_P7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK5QMenu8sizeHintEv": ["address", "address"],
     "ritual_ZNK5QMenu14actionGeometryEP7QAction": [
       "address", "address", "address"

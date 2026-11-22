@@ -14,6 +14,7 @@
     "ritual_ZN10QUndoGroup11removeStackEP10QUndoStack": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK10QUndoGroup6stacksEv": ["address", "address"],
     "ritual_ZNK10QUndoGroup11activeStackEv": ["address", "address"],
     "ritual_ZNK10QUndoGroup16createUndoActionEP7QObjectRK7QString": [
       "address", "address", "address", "text"

@@ -5,6 +5,7 @@
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/qobjectdefs.h>
+#include <QtCore/qlist.h>
 
 //  QMetaMethod::QMetaMethod()
 extern "C" Q_DECL_EXPORT
@@ -80,12 +81,26 @@ void ritual_ZNK11QMetaMethod17getParameterTypesEPi(
   self->getParameterTypes(types);
 }
 
+//  QList<QByteArray> QMetaMethod::parameterTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZNK11QMetaMethod14parameterTypesEv(
+    const QMetaMethod *self) {
+  return new QList<QByteArray>(self->parameterTypes());
+}
+
 //  QByteArray QMetaMethod::parameterTypeName(int index) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK11QMetaMethod17parameterTypeNameEi(
     const QMetaMethod *self,
     int index) {
   return new QByteArray(self->parameterTypeName(index));
+}
+
+//  QList<QByteArray> QMetaMethod::parameterNames() const
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZNK11QMetaMethod14parameterNamesEv(
+    const QMetaMethod *self) {
+  return new QList<QByteArray>(self->parameterNames());
 }
 
 //  const char *QMetaMethod::tag() const

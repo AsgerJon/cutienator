@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
+from . import QList
 
 
 class QXmlStreamEntityDeclaration(CuteMixin, metaclass=MetaCute):
@@ -289,3 +290,18 @@ class QXmlStreamEntityDeclaration(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QXmlStreamEntityDeclaration>': the list of
+#  QXmlStreamEntityDeclaration, which 'QList[QXmlStreamEntityDeclaration]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QXmlStreamEntityDeclaration. Qt has a name of its own for it.
+QXmlStreamEntityDeclarations = QList.createKind(
+    QXmlStreamEntityDeclaration, 'value',
+    name='QXmlStreamEntityDeclarations',
+    make='ritual_list_make_QXmlStreamEntityDeclaration',
+    add='ritual_list_add_QXmlStreamEntityDeclaration',
+    size='ritual_list_size_QXmlStreamEntityDeclaration',
+    at='ritual_list_at_QXmlStreamEntityDeclaration',
+    drop='ritual_list_drop_QXmlStreamEntityDeclaration',
+)

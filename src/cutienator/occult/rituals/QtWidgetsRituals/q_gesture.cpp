@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QGesture that Python can take functions over in. Every QGesture
@@ -213,4 +214,38 @@ QGesture::GestureCancelPolicy ritual_ZNK8QGesture19gestureCancelPolicyEv(
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QGesture(QGesture *self, const char *key, void *call) {
   return static_cast<CuteQGesture *>(self)->take(key, call);
+}
+
+//  QList<QGesture *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QGesture *> *ritual_list_make_QGesture_ptr() {
+  return new QList<QGesture *>();
+}
+
+//  void QList<QGesture *>::append(const QGesture * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QGesture_ptr(
+    QList<QGesture *> *self,
+    QGesture *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QGesture *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QGesture_ptr(const QList<QGesture *> *self) {
+  return self->size();
+}
+
+//  const QGesture * &QList<QGesture *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QGesture *ritual_list_at_QGesture_ptr(
+    const QList<QGesture *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QGesture *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QGesture_ptr(QList<QGesture *> *self) {
+  delete self;
 }

@@ -50,6 +50,9 @@
     "ritual_ZN5QIcon7addFileERK7QStringRK5QSizeNS_4ModeENS_5StateE": [
       "nothing", "address", "text", "address", "int", "int"
     ],
+    "ritual_ZNK5QIcon14availableSizesENS_4ModeENS_5StateE": [
+      "address", "address", "int", "int"
+    ],
     "ritual_ZN5QIcon9setIsMaskEb": ["nothing", "address", "bool"],
     "ritual_ZNK5QIcon6isMaskEv": ["bool", "address"],
     "ritual_ZN5QIcon9fromThemeERK7QString": ["address", "text"],
@@ -62,6 +65,14 @@
       "address", "int", "address"
     ],
     "ritual_ZN5QIcon12hasThemeIconENS_9ThemeIconE": ["bool", "int"],
+    "ritual_ZN5QIcon16themeSearchPathsEv": ["address"],
+    "ritual_ZN5QIcon19setThemeSearchPathsERK5QListI7QStringE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN5QIcon19fallbackSearchPathsEv": ["address"],
+    "ritual_ZN5QIcon22setFallbackSearchPathsERK5QListI7QStringE": [
+      "nothing", "address"
+    ],
     "ritual_ZN5QIcon9themeNameEv": ["text"],
     "ritual_ZN5QIcon12setThemeNameERK7QString": ["nothing", "text"],
     "ritual_ZN5QIcon17fallbackThemeNameEv": ["text"],

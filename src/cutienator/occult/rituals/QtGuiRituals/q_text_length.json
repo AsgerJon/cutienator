@@ -12,6 +12,11 @@
     "ritual_ZNK11QTextLengtheqERKS_": ["bool", "address", "address"],
     "ritual_ZNK11QTextLengthneERKS_": ["bool", "address", "address"],
     "ritual_ZNK11QTextLengthcv8QVariantEv": ["address", "address"],
-    "ritual_ZN11QTextLengthD1Ev": ["nothing", "address"]
+    "ritual_ZN11QTextLengthD1Ev": ["nothing", "address"],
+    "ritual_list_make_QTextLength": ["address"],
+    "ritual_list_add_QTextLength": ["nothing", "address", "address"],
+    "ritual_list_size_QTextLength": ["long long", "address"],
+    "ritual_list_at_QTextLength": ["address", "address", "long long"],
+    "ritual_list_drop_QTextLength": ["nothing", "address"]
   }
 }

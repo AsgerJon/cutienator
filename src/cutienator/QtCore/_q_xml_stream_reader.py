@@ -14,12 +14,14 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QIODevice, QXmlStreamAttributes, QXmlStreamEntityResolver
-  from . import QXmlStreamNamespaceDeclaration
+  from . import QIODevice, QXmlStreamAttributes, QXmlStreamEntityDeclaration
+  from . import QXmlStreamEntityResolver, QXmlStreamNamespaceDeclaration
+  from . import QXmlStreamNotationDeclaration
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -42,7 +44,7 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QXmlStreamReader that has a ritual and that Python
-  can call so far, 52 names in all: 'setDevice', 'device', 'addData',
+  can call so far, 56 names in all: 'setDevice', 'device', 'addData',
   'clear', 'atEnd', 'readNext', 'readNextStartElement', 'skipCurrentElement',
   'readRawInnerData', 'tokenType', 'tokenString', 'setNamespaceProcessing',
   'namespaceProcessing', 'isStartDocument', 'isEndDocument',
@@ -53,7 +55,9 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
   'lineNumber', 'columnNumber', 'characterOffset', 'attributes',
   'readElementText', 'name', 'namespaceUri', 'qualifiedName', 'prefix',
   'processingInstructionTarget', 'processingInstructionData', 'text',
-  'addExtraNamespaceDeclaration', 'dtdName', 'dtdPublicId', 'dtdSystemId',
+  'namespaceDeclarations', 'addExtraNamespaceDeclaration',
+  'addExtraNamespaceDeclarations', 'notationDeclarations',
+  'entityDeclarations', 'dtdName', 'dtdPublicId', 'dtdSystemId',
   'entityExpansionLimit', 'setEntityExpansionLimit', 'raiseError',
   'errorString', 'error', 'hasError', 'setEntityResolver', 'entityResolver'.
   It can be made from Python, in 3 ways; see '__init__'.
@@ -67,8 +71,7 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  12 of the 68 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 private; 2 a template; 2 forbidden.
+  8 of the 68 functions Qt declares: 4 private; 2 a template; 2 forbidden.
 
   What to expect
   --------------
@@ -562,6 +565,72 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
     #  QStringView QXmlStreamReader::text() const
     return self.uglySide.call('ritual_ZNK16QXmlStreamReader4textEv')
 
+  def namespaceDeclarations(self) -> QList[QXmlStreamNamespaceDeclaration]:
+    """
+    Calls Qt's 'QXmlStreamNamespaceDeclarations
+    QXmlStreamReader::namespaceDeclarations() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qxmlstreamreader.html#namespaceDeclarations
+
+    Returns
+    -------
+
+    QList[QXmlStreamNamespaceDeclaration]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QXmlStreamNamespaceDeclarations
+    #      QXmlStreamReader::namespaceDeclarations() const
+    address = self.uglySide.call(
+        'ritual_ZNK16QXmlStreamReader21namespaceDeclarationsEv',
+    )
+    from . import QXmlStreamNamespaceDeclaration
+    return QList[QXmlStreamNamespaceDeclaration]._cuteOwning(address)
+
+  def notationDeclarations(self) -> QList[QXmlStreamNotationDeclaration]:
+    """
+    Calls Qt's 'QXmlStreamNotationDeclarations
+    QXmlStreamReader::notationDeclarations() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qxmlstreamreader.html#notationDeclarations
+
+    Returns
+    -------
+
+    QList[QXmlStreamNotationDeclaration]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QXmlStreamNotationDeclarations
+    #      QXmlStreamReader::notationDeclarations() const
+    address = self.uglySide.call(
+        'ritual_ZNK16QXmlStreamReader20notationDeclarationsEv',
+    )
+    from . import QXmlStreamNotationDeclaration
+    return QList[QXmlStreamNotationDeclaration]._cuteOwning(address)
+
+  def entityDeclarations(self) -> QList[QXmlStreamEntityDeclaration]:
+    """
+    Calls Qt's 'QXmlStreamEntityDeclarations
+    QXmlStreamReader::entityDeclarations() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qxmlstreamreader.html#entityDeclarations
+
+    Returns
+    -------
+
+    QList[QXmlStreamEntityDeclaration]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QXmlStreamEntityDeclarations QXmlStreamReader::entityDeclarations()
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK16QXmlStreamReader18entityDeclarationsEv',
+    )
+    from . import QXmlStreamEntityDeclaration
+    return QList[QXmlStreamEntityDeclaration]._cuteOwning(address)
+
   def dtdName(self) -> str:
     """
     Calls Qt's 'QStringView QXmlStreamReader::dtdName() const'.
@@ -1009,6 +1078,34 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
         'ritual_ZN16QXmlStreamReader28addExtraNamespaceDeclarationERK30QXml'
         'StreamNamespaceDeclaration',
         self._valueOf(extraNamespaceDeclaraction),
+    )
+
+  @overload(QList[QXmlStreamNamespaceDeclaration])
+  def addExtraNamespaceDeclarations(
+      self,
+      extraNamespaceDeclaractions: QList[QXmlStreamNamespaceDeclaration],
+  ) -> None:
+    """
+    Calls Qt's 'void QXmlStreamReader::addExtraNamespaceDeclarations(const
+    QXmlStreamNamespaceDeclarations &extraNamespaceDeclaractions)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qxmlstreamreader.html
+
+    Parameters
+    ----------
+
+    extraNamespaceDeclaractions : QList[QXmlStreamNamespaceDeclaration]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QXmlStreamReader::addExtraNamespaceDeclarations(const
+    #      QXmlStreamNamespaceDeclarations &extraNamespaceDeclaractions)
+    self.uglySide.call(
+        'ritual_ZN16QXmlStreamReader29addExtraNamespaceDeclarationsERK5QLis'
+        'tI30QXmlStreamNamespaceDeclarationE',
+        self._valueOf(extraNamespaceDeclaractions),
     )
 
   @overload()

@@ -7,6 +7,8 @@
 #include <QtCore/qobjectdefs.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QObject may call these functions of it.
@@ -271,6 +273,12 @@ void ritual_ZN7QObject9killTimerEN2Qt7TimerIdE(
   self->killTimer(id);
 }
 
+//  const QObjectList &QObject::children() const
+extern "C" Q_DECL_EXPORT
+QList<QObject *> *ritual_ZNK7QObject8childrenEv(const QObject *self) {
+  return new QList<QObject *>(self->children());
+}
+
 //  void QObject::setParent(QObject *parent)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QObject9setParentEPS_(QObject *self, QObject *parent) {
@@ -425,6 +433,13 @@ QVariant *ritual_ZNK7QObject8propertyEPKc(
   return new QVariant(self->property(name));
 }
 
+//  QList<QByteArray> QObject::dynamicPropertyNames() const
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZNK7QObject20dynamicPropertyNamesEv(
+    const QObject *self) {
+  return new QList<QByteArray>(self->dynamicPropertyNames());
+}
+
 //  QBindingStorage *QObject::bindingStorage()
 extern "C" Q_DECL_EXPORT
 QBindingStorage *ritual_ZN7QObject14bindingStorageEv(QObject *self) {
@@ -518,4 +533,36 @@ void ritual_own_ZN7QObject16disconnectNotifyERK11QMetaMethod(
     QObject *self,
     const QMetaMethod *signal) {
   static_cast<OwnQObject *>(self)->OwnQObject::disconnectNotify(*signal);
+}
+
+//  QList<QObject *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QObject *> *ritual_list_make_QObject_ptr() {
+  return new QList<QObject *>();
+}
+
+//  void QList<QObject *>::append(const QObject * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QObject_ptr(QList<QObject *> *self, QObject *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QObject *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QObject_ptr(const QList<QObject *> *self) {
+  return self->size();
+}
+
+//  const QObject * &QList<QObject *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_list_at_QObject_ptr(
+    const QList<QObject *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QObject *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QObject_ptr(QList<QObject *> *self) {
+  delete self;
 }

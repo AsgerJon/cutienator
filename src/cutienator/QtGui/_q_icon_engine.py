@@ -13,6 +13,7 @@ from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
+from ..QtCore import QList
 from . import QIcon
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -43,10 +44,10 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QIconEngine that has a ritual and that Python can
-  call so far, 10 names in all: 'paint', 'actualSize', 'pixmap', 'addPixmap',
-  'addFile', 'key', 'clone', 'iconName', 'isNull', 'scaledPixmap'. None can
-  be made from Python: one comes out of a function of another class that
-  gives one back.
+  call so far, 11 names in all: 'paint', 'actualSize', 'pixmap', 'addPixmap',
+  'addFile', 'key', 'clone', 'availableSizes', 'iconName', 'isNull',
+  'scaledPixmap'. None can be made from Python: one comes out of a function
+  of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,7 +58,7 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 18 functions Qt declares: 4 takes or gives a type that cannot be
+  6 of the 18 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet; 1 the class is abstract, so C++ cannot make one; 1 protected; 1
   forbidden.
 
@@ -610,6 +611,46 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         ritual, fileName, self._valueOf(size), mode.value, state.value,
     )
+
+  @overload()
+  @overload(QIcon.Mode)
+  @overload(QIcon.Mode, QIcon.State)
+  def availableSizes(
+      self,
+      mode: QIcon.Mode = QIcon.Mode.Normal,
+      state: QIcon.State = QIcon.State.Off,
+  ) -> QList[QSize]:
+    """
+    Calls Qt's 'QList<QSize> QIconEngine::availableSizes(QIcon::Mode mode,
+    QIcon::State state)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiconengine.html#availableSizes
+
+    Parameters
+    ----------
+
+    mode : QIcon.Mode
+      Passed on as its number. May be left out, as in Qt: it is then
+      QIcon.Mode.Normal.
+
+    state : QIcon.State
+      Passed on as its number. May be left out, as in Qt: it is then
+      QIcon.State.Off.
+
+    Returns
+    -------
+
+    QList[QSize]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QSize> QIconEngine::availableSizes(QIcon::Mode mode,
+    #      QIcon::State state)
+    address = self.uglySide.call(
+        'ritual_ZN11QIconEngine14availableSizesEN5QIcon4ModeENS0_5StateE',
+        mode.value, state.value,
+    )
+    from ..QtCore import QSize
+    return QList[QSize]._cuteOwning(address)
 
   def iconName(self) -> str:
     """

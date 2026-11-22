@@ -5,6 +5,7 @@
 #include <QtGui/qvectornd.h>
 #include <QtGui/qpointingdevice.h>
 #include <QtCore/qsize.h>
+#include <QtCore/qlist.h>
 
 //  QEventPoint::QEventPoint(int id, const QPointingDevice *device)
 extern "C" Q_DECL_EXPORT
@@ -299,4 +300,38 @@ void ritual_ZN11QEventPoint11setAcceptedEb(
     QEventPoint *self,
     bool accepted) {
   self->setAccepted(accepted);
+}
+
+//  QList<QEventPoint>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QEventPoint> *ritual_list_make_QEventPoint() {
+  return new QList<QEventPoint>();
+}
+
+//  void QList<QEventPoint>::append(const QEventPoint &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QEventPoint(
+    QList<QEventPoint> *self,
+    const QEventPoint *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QEventPoint>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QEventPoint(const QList<QEventPoint> *self) {
+  return self->size();
+}
+
+//  const QEventPoint &QList<QEventPoint>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QEventPoint *ritual_list_at_QEventPoint(
+    const QList<QEventPoint> *self,
+    long long index) {
+  return new QEventPoint(self->at(index));
+}
+
+//  QList<QEventPoint>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QEventPoint(QList<QEventPoint> *self) {
+  delete self;
 }

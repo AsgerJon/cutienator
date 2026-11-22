@@ -79,6 +79,15 @@
     ],
     "ritual_own_ZNK20QAccessibleInterface15backgroundColorEv": [
       "address", "address"
-    ]
+    ],
+    "ritual_list_make_QAccessibleInterface_ptr": ["address"],
+    "ritual_list_add_QAccessibleInterface_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QAccessibleInterface_ptr": ["long long", "address"],
+    "ritual_list_at_QAccessibleInterface_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QAccessibleInterface_ptr": ["nothing", "address"]
   }
 }

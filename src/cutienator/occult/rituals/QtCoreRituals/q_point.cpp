@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qpoint.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qpoint.h>
+#include <QtCore/qlist.h>
 
 //  QPoint::QPoint()
 extern "C" Q_DECL_EXPORT
@@ -187,5 +188,35 @@ QPointF *ritual_ZNK6QPoint8toPointFEv(const QPoint *self) {
 //  QPoint::~QPoint()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QPointD1Ev(QPoint *self) {
+  delete self;
+}
+
+//  QList<QPoint>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QPoint> *ritual_list_make_QPoint() {
+  return new QList<QPoint>();
+}
+
+//  void QList<QPoint>::append(const QPoint &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QPoint(QList<QPoint> *self, const QPoint *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QPoint>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QPoint(const QList<QPoint> *self) {
+  return self->size();
+}
+
+//  const QPoint &QList<QPoint>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_list_at_QPoint(const QList<QPoint> *self, long long index) {
+  return new QPoint(self->at(index));
+}
+
+//  QList<QPoint>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QPoint(QList<QPoint> *self) {
   delete self;
 }

@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
+from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QPointF
@@ -728,3 +729,15 @@ class QPoint(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QPoint>': the list of QPoint, which 'QList[QPoint]' gives. It
+#  is made here, so that there is one as soon as there can be a QPoint.
+QList.createKind(
+    QPoint, 'value',
+    make='ritual_list_make_QPoint',
+    add='ritual_list_add_QPoint',
+    size='ritual_list_size_QPoint',
+    at='ritual_list_at_QPoint',
+    drop='ritual_list_drop_QPoint',
+)

@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -595,3 +595,16 @@ class QUndoStack(QObject):
     """
     #  void QUndoStack::redo()
     self.uglySide.call('ritual_ZN10QUndoStack4redoEv')
+
+
+#  Qt's 'QList<QUndoStack *>': the list of QUndoStack, which
+#  'QList[QUndoStack]' gives. It is made here, so that there is one as soon
+#  as there can be a QUndoStack.
+QList.createKind(
+    QUndoStack, 'address',
+    make='ritual_list_make_QUndoStack_ptr',
+    add='ritual_list_add_QUndoStack_ptr',
+    size='ritual_list_size_QUndoStack_ptr',
+    at='ritual_list_at_QUndoStack_ptr',
+    drop='ritual_list_drop_QUndoStack_ptr',
+)

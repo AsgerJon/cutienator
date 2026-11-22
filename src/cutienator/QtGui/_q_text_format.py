@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList, QMap
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QVariant
@@ -27,6 +27,7 @@ else:
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QBrush = WAIT['QBrush']
+  QTextLength = WAIT['QTextLength']
   QVariant = WAIT['QVariant']
 
 
@@ -43,18 +44,19 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextFormat that has a ritual and that Python can
-  call so far, 45 names in all: 'merge', 'isValid', 'isEmpty', 'type',
+  call so far, 47 names in all: 'merge', 'isValid', 'isEmpty', 'type',
   'objectIndex', 'setObjectIndex', 'property', 'setProperty',
   'clearProperty', 'hasProperty', 'boolProperty', 'intProperty',
   'doubleProperty', 'stringProperty', 'colorProperty', 'penProperty',
-  'brushProperty', 'lengthProperty', 'propertyCount', 'setObjectType',
-  'objectType', 'isCharFormat', 'isBlockFormat', 'isListFormat',
-  'isFrameFormat', 'isImageFormat', 'isTableFormat', 'isTableCellFormat',
-  'toBlockFormat', 'toCharFormat', 'toListFormat', 'toTableFormat',
-  'toFrameFormat', 'toImageFormat', 'toTableCellFormat', '__eq__', '__ne__',
-  'setLayoutDirection', 'layoutDirection', 'setBackground', 'background',
-  'clearBackground', 'setForeground', 'foreground', 'clearForeground'. It can
-  be made from Python, in 3 ways; see '__init__'.
+  'brushProperty', 'lengthProperty', 'lengthVectorProperty', 'properties',
+  'propertyCount', 'setObjectType', 'objectType', 'isCharFormat',
+  'isBlockFormat', 'isListFormat', 'isFrameFormat', 'isImageFormat',
+  'isTableFormat', 'isTableCellFormat', 'toBlockFormat', 'toCharFormat',
+  'toListFormat', 'toTableFormat', 'toFrameFormat', 'toImageFormat',
+  'toTableCellFormat', '__eq__', '__ne__', 'setLayoutDirection',
+  'layoutDirection', 'setBackground', 'background', 'clearBackground',
+  'setForeground', 'foreground', 'clearForeground'. It can be made from
+  Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -67,7 +69,7 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  10 of the 60 functions Qt declares: 7 takes or gives a type that cannot be
+  7 of the 60 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 1 declared and nowhere to be found; 1 a template; 1 private.
 
   What to expect
@@ -539,6 +541,52 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     from . import QTextLength
     return QTextLength._cuteOwning(address)
 
+  @overload(int)
+  def lengthVectorProperty(self, propertyId: int) -> QList[QTextLength]:
+    """
+    Calls Qt's 'QList<QTextLength> QTextFormat::lengthVectorProperty(int
+    propertyId) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty
+
+    Parameters
+    ----------
+
+    propertyId : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QList[QTextLength]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QTextLength> QTextFormat::lengthVectorProperty(int propertyId)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK11QTextFormat20lengthVectorPropertyEi', propertyId,
+    )
+    from . import QTextLength
+    return QList[QTextLength]._cuteOwning(address)
+
+  def properties(self) -> QMap[int, QVariant]:
+    """
+    Calls Qt's 'QMap<int, QVariant> QTextFormat::properties() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextformat.html#properties
+
+    Returns
+    -------
+
+    QMap[int, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QMap<int, QVariant> QTextFormat::properties() const
+    address = self.uglySide.call('ritual_ZNK11QTextFormat10propertiesEv')
+    from ..QtCore import QVariant
+    return QMap[int, QVariant]._cuteOwning(address)
+
   def propertyCount(self) -> int:
     """
     Calls Qt's 'int QTextFormat::propertyCount() const'.
@@ -845,6 +893,36 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
         propertyId, self._valueOf(value),
     )
 
+  @overload(int, QList[QTextLength])
+  def setProperty(
+      self,
+      propertyId: int,
+      lengths: QList[QTextLength],
+  ) -> None:
+    """
+    Calls Qt's 'void QTextFormat::setProperty(int propertyId, const
+    QList<QTextLength> &lengths)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextformat.html#setProperty
+
+    Parameters
+    ----------
+
+    propertyId : int
+      Passed on as it is.
+
+    lengths : QList[QTextLength]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QTextFormat::setProperty(int propertyId, const QList<QTextLength>
+    #      &lengths)
+    self.uglySide.call(
+        'ritual_ZN11QTextFormat11setPropertyEiRK5QListI11QTextLengthE',
+        propertyId, self._valueOf(lengths),
+    )
+
   @overload(int)
   def setObjectType(self, type: int) -> None:
     """
@@ -1114,3 +1192,16 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     """
     #  void QTextFormat::clearForeground()
     self.uglySide.call('ritual_ZN11QTextFormat15clearForegroundEv')
+
+
+#  Qt's 'QList<QTextFormat>': the list of QTextFormat, which
+#  'QList[QTextFormat]' gives. It is made here, so that there is one as soon
+#  as there can be a QTextFormat.
+QList.createKind(
+    QTextFormat, 'value',
+    make='ritual_list_make_QTextFormat',
+    add='ritual_list_add_QTextFormat',
+    size='ritual_list_size_QTextFormat',
+    at='ritual_list_at_QTextFormat',
+    drop='ritual_list_drop_QTextFormat',
+)

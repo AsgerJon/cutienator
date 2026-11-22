@@ -15,6 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -1667,3 +1668,16 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QCborValue>': the list of QCborValue, which
+#  'QList[QCborValue]' gives. It is made here, so that there is one as soon
+#  as there can be a QCborValue.
+QList.createKind(
+    QCborValue, 'value',
+    make='ritual_list_make_QCborValue',
+    add='ritual_list_add_QCborValue',
+    size='ritual_list_size_QCborValue',
+    at='ritual_list_at_QCborValue',
+    drop='ritual_list_drop_QCborValue',
+)

@@ -11,6 +11,7 @@
     "ritual_ZNK16QStringConverter4nameEv": ["chars", "address"],
     "ritual_ZN16QStringConverter15nameForEncodingENS_8EncodingE": [
       "chars", "int"
-    ]
+    ],
+    "ritual_ZN16QStringConverter15availableCodecsEv": ["address"]
   }
 }

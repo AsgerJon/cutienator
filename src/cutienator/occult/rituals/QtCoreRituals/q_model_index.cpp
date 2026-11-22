@@ -2,6 +2,7 @@
 //  QtCore/qabstractitemmodel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qlist.h>
 
 //  QModelIndex::QModelIndex()
 extern "C" Q_DECL_EXPORT
@@ -142,5 +143,39 @@ bool ritual_ZgeRK11QModelIndexS1_(
 //  QModelIndex::~QModelIndex()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QModelIndexD1Ev(QModelIndex *self) {
+  delete self;
+}
+
+//  QList<QModelIndex>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_list_make_QModelIndex() {
+  return new QList<QModelIndex>();
+}
+
+//  void QList<QModelIndex>::append(const QModelIndex &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QModelIndex(
+    QList<QModelIndex> *self,
+    const QModelIndex *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QModelIndex>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QModelIndex(const QList<QModelIndex> *self) {
+  return self->size();
+}
+
+//  const QModelIndex &QList<QModelIndex>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_list_at_QModelIndex(
+    const QList<QModelIndex> *self,
+    long long index) {
+  return new QModelIndex(self->at(index));
+}
+
+//  QList<QModelIndex>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QModelIndex(QList<QModelIndex> *self) {
   delete self;
 }

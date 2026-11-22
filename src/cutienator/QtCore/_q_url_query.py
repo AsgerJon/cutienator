@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QUrl
+from . import QStringList, QUrl
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QChar
@@ -38,11 +38,11 @@ class QUrlQuery(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QUrlQuery that has a ritual and that Python can call
-  so far, 16 names in all: 'isEmpty', 'isDetached', 'clear', 'query',
+  so far, 17 names in all: 'isEmpty', 'isDetached', 'clear', 'query',
   'setQuery', 'toString', 'setQueryDelimiters', 'queryValueDelimiter',
   'queryPairDelimiter', 'hasQueryItem', 'addQueryItem', 'removeQueryItem',
-  'queryItemValue', 'removeAllQueryItems', '__eq__', '__ne__'. It can be made
-  from Python, in 4 ways; see '__init__'.
+  'queryItemValue', 'allQueryItemValues', 'removeAllQueryItems', '__eq__',
+  '__ne__'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -53,7 +53,7 @@ class QUrlQuery(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  11 of the 32 functions Qt declares: 11 takes or gives a type that cannot be
+  10 of the 32 functions Qt declares: 10 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -276,6 +276,45 @@ class QUrlQuery(CuteMixin, metaclass=MetaCute):
         'ponentFormattingOptionEE',
         key, encoding.value,
     )
+
+  @overload(str)
+  @overload(str, QUrl.ComponentFormattingOptions)
+  def allQueryItemValues(
+      self,
+      key: str,
+      encoding: QUrl.ComponentFormattingOptions = (
+          QUrl.ComponentFormattingOptions.PrettyDecoded),
+  ) -> QStringList:
+    """
+    Calls Qt's 'QStringList QUrlQuery::allQueryItemValues(const QString &key,
+    QUrl::ComponentFormattingOptions encoding) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurlquery.html#allQueryItemValues
+
+    Parameters
+    ----------
+
+    key : str
+      Passed on as it is: a QString is made of it for the call.
+
+    encoding : QUrl.ComponentFormattingOptions
+      Passed on as its number. May be left out, as in Qt: it is then
+      QUrl.ComponentFormattingOptions.PrettyDecoded.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QUrlQuery::allQueryItemValues(const QString &key,
+    #      QUrl::ComponentFormattingOptions encoding) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QUrlQuery18allQueryItemValuesERK7QString6QFlagsIN4QUrl2'
+        '5ComponentFormattingOptionEE',
+        key, encoding.value,
+    )
+    return QStringList._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

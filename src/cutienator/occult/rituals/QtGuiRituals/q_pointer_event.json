@@ -6,12 +6,16 @@
   "rows": {
     "ritual_ZNK13QPointerEvent5cloneEv": ["address", "address"],
     "ritual_ZN13QPointerEventD1Ev": ["nothing", "address"],
+    "ritual_ZN13QPointerEventC1EN6QEvent4TypeEPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEERK5QListI11QEventPointE": [
+      "address", "int", "address", "int", "address"
+    ],
     "ritual_ZNK13QPointerEvent14pointingDeviceEv": ["address", "address"],
     "ritual_ZNK13QPointerEvent11pointerTypeEv": ["int", "address"],
     "ritual_ZN13QPointerEvent12setTimestampEy": [
       "nothing", "address", "unsigned long long"
     ],
     "ritual_ZNK13QPointerEvent10pointCountEv": ["long long", "address"],
+    "ritual_ZNK13QPointerEvent6pointsEv": ["address", "address"],
     "ritual_ZN13QPointerEvent9pointByIdEi": ["address", "address", "int"],
     "ritual_ZNK13QPointerEvent16allPointsGrabbedEv": ["bool", "address"],
     "ritual_ZNK13QPointerEvent12isBeginEventEv": ["bool", "address"],

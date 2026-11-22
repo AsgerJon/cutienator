@@ -2,6 +2,7 @@
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qevent.h>
 #include <QtGui/qeventpoint.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QPointerEvent that Python can take functions over in. Every QPointerEvent
@@ -125,6 +126,21 @@ void ritual_ZN13QPointerEventD1Ev(QPointerEvent *self) {
   delete self;
 }
 
+//  QPointerEvent::QPointerEvent(Type type, const QPointingDevice *dev,
+//      Qt::KeyboardModifiers modifiers, const QList<QEventPoint> &points)
+extern "C" Q_DECL_EXPORT
+QPointerEvent *ritual_ZN13QPointerEventC1EN6QEvent4TypeEPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEERK5QListI11QEventPointE(
+    QEvent::Type type,
+    const QPointingDevice *dev,
+    int modifiers,
+    const QList<QEventPoint> *points) {
+  return new CuteQPointerEvent(
+      type,
+      dev,
+      QFlags<Qt::KeyboardModifier>::fromInt(modifiers),
+      *points);
+}
+
 //  const QPointingDevice *QPointerEvent::pointingDevice() const
 extern "C" Q_DECL_EXPORT
 const QPointingDevice *ritual_ZNK13QPointerEvent14pointingDeviceEv(
@@ -152,6 +168,13 @@ extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK13QPointerEvent10pointCountEv(
     const QPointerEvent *self) {
   return self->pointCount();
+}
+
+//  const QList<QEventPoint> &QPointerEvent::points() const
+extern "C" Q_DECL_EXPORT
+QList<QEventPoint> *ritual_ZNK13QPointerEvent6pointsEv(
+    const QPointerEvent *self) {
+  return new QList<QEventPoint>(self->points());
 }
 
 //  QEventPoint *QPointerEvent::pointById(int id)

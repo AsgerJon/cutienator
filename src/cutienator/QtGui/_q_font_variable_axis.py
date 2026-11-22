@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 from . import QFont
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -369,3 +370,16 @@ class QFontVariableAxis(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QFontVariableAxis>': the list of QFontVariableAxis, which
+#  'QList[QFontVariableAxis]' gives. It is made here, so that there is one as
+#  soon as there can be a QFontVariableAxis.
+QList.createKind(
+    QFontVariableAxis, 'value',
+    make='ritual_list_make_QFontVariableAxis',
+    add='ritual_list_add_QFontVariableAxis',
+    size='ritual_list_size_QFontVariableAxis',
+    at='ritual_list_at_QFontVariableAxis',
+    drop='ritual_list_drop_QFontVariableAxis',
+)

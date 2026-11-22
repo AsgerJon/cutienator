@@ -2,10 +2,15 @@
 //  QtGui/qstandarditemmodel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qstandarditemmodel.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  A QStandardItemModel that Python can take functions over in. Every QStandardItemModel
@@ -734,6 +739,22 @@ void ritual_ZN18QStandardItemModelD1Ev(QStandardItemModel *self) {
   delete self;
 }
 
+//  void QStandardItemModel::setItemRoleNames(const QHash<int, QByteArray>
+//      &roleNames)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QStandardItemModel16setItemRoleNamesERK5QHashIi10QByteArrayE(
+    QStandardItemModel *self,
+    const QHash<int, QByteArray> *roleNames) {
+  self->setItemRoleNames(*roleNames);
+}
+
+//  QHash<int, QByteArray> QStandardItemModel::roleNames() const
+extern "C" Q_DECL_EXPORT
+QHash<int, QByteArray> *ritual_ZNK18QStandardItemModel9roleNamesEv(
+    const QStandardItemModel *self) {
+  return new QHash<int, QByteArray>(self->roleNames());
+}
+
 //  QModelIndex QStandardItemModel::index(int row, int column, const
 //      QModelIndex &parent) const
 extern "C" Q_DECL_EXPORT
@@ -898,6 +919,25 @@ int ritual_ZNK18QStandardItemModel20supportedDropActionsEv(
   return static_cast<int>(self->supportedDropActions().toInt());
 }
 
+//  QMap<int, QVariant> QStandardItemModel::itemData(const QModelIndex
+//      &index) const
+extern "C" Q_DECL_EXPORT
+QMap<int, QVariant> *ritual_ZNK18QStandardItemModel8itemDataERK11QModelIndex(
+    const QStandardItemModel *self,
+    const QModelIndex *index) {
+  return new QMap<int, QVariant>(self->itemData(*index));
+}
+
+//  bool QStandardItemModel::setItemData(const QModelIndex &index, const
+//      QMap<int, QVariant> &roles)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QStandardItemModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE(
+    QStandardItemModel *self,
+    const QModelIndex *index,
+    const QMap<int, QVariant> *roles) {
+  return self->setItemData(*index, *roles);
+}
+
 //  void QStandardItemModel::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QStandardItemModel5clearEv(QStandardItemModel *self) {
@@ -1003,6 +1043,24 @@ void ritual_ZN18QStandardItemModel21setVerticalHeaderItemEiP13QStandardItem(
   self->setVerticalHeaderItem(row, item);
 }
 
+//  void QStandardItemModel::setHorizontalHeaderLabels(const QStringList
+//      &labels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QStandardItemModel25setHorizontalHeaderLabelsERK5QListI7QStringE(
+    QStandardItemModel *self,
+    const QList<QString> *labels) {
+  self->setHorizontalHeaderLabels(*labels);
+}
+
+//  void QStandardItemModel::setVerticalHeaderLabels(const QStringList
+//      &labels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QStandardItemModel23setVerticalHeaderLabelsERK5QListI7QStringE(
+    QStandardItemModel *self,
+    const QList<QString> *labels) {
+  self->setVerticalHeaderLabels(*labels);
+}
+
 //  void QStandardItemModel::setRowCount(int rows)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QStandardItemModel11setRowCountEi(
@@ -1019,12 +1077,49 @@ void ritual_ZN18QStandardItemModel14setColumnCountEi(
   self->setColumnCount(columns);
 }
 
+//  void QStandardItemModel::appendRow(const QList<QStandardItem *> &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QStandardItemModel9appendRowERK5QListIP13QStandardItemE(
+    QStandardItemModel *self,
+    const QList<QStandardItem *> *items) {
+  self->appendRow(*items);
+}
+
+//  void QStandardItemModel::appendColumn(const QList<QStandardItem *>
+//      &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QStandardItemModel12appendColumnERK5QListIP13QStandardItemE(
+    QStandardItemModel *self,
+    const QList<QStandardItem *> *items) {
+  self->appendColumn(*items);
+}
+
 //  void QStandardItemModel::appendRow(QStandardItem *item)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QStandardItemModel9appendRowEP13QStandardItem(
     QStandardItemModel *self,
     QStandardItem *item) {
   self->appendRow(item);
+}
+
+//  void QStandardItemModel::insertRow(int row, const QList<QStandardItem *>
+//      &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QStandardItemModel9insertRowEiRK5QListIP13QStandardItemE(
+    QStandardItemModel *self,
+    int row,
+    const QList<QStandardItem *> *items) {
+  self->insertRow(row, *items);
+}
+
+//  void QStandardItemModel::insertColumn(int column, const
+//      QList<QStandardItem *> &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QStandardItemModel12insertColumnEiRK5QListIP13QStandardItemE(
+    QStandardItemModel *self,
+    int column,
+    const QList<QStandardItem *> *items) {
+  self->insertColumn(column, *items);
 }
 
 //  void QStandardItemModel::insertRow(int row, QStandardItem *item)
@@ -1064,6 +1159,22 @@ QStandardItem *ritual_ZN18QStandardItemModel8takeItemEii(
   return self->takeItem(row, column);
 }
 
+//  QList<QStandardItem *> QStandardItemModel::takeRow(int row)
+extern "C" Q_DECL_EXPORT
+QList<QStandardItem *> *ritual_ZN18QStandardItemModel7takeRowEi(
+    QStandardItemModel *self,
+    int row) {
+  return new QList<QStandardItem *>(self->takeRow(row));
+}
+
+//  QList<QStandardItem *> QStandardItemModel::takeColumn(int column)
+extern "C" Q_DECL_EXPORT
+QList<QStandardItem *> *ritual_ZN18QStandardItemModel10takeColumnEi(
+    QStandardItemModel *self,
+    int column) {
+  return new QList<QStandardItem *>(self->takeColumn(column));
+}
+
 //  QStandardItem *QStandardItemModel::takeHorizontalHeaderItem(int column)
 extern "C" Q_DECL_EXPORT
 QStandardItem *ritual_ZN18QStandardItemModel24takeHorizontalHeaderItemEi(
@@ -1095,6 +1206,21 @@ void ritual_ZN18QStandardItemModel16setItemPrototypeEPK13QStandardItem(
   self->setItemPrototype(item);
 }
 
+//  QList<QStandardItem *> QStandardItemModel::findItems(const QString &text,
+//      Qt::MatchFlags flags, int column) const
+extern "C" Q_DECL_EXPORT
+QList<QStandardItem *> *ritual_ZNK18QStandardItemModel9findItemsERK7QString6QFlagsIN2Qt9MatchFlagEEi(
+    const QStandardItemModel *self,
+    const QString *text,
+    int flags,
+    int column) {
+  return new QList<QStandardItem *>(
+      self->findItems(
+          *text,
+          QFlags<Qt::MatchFlag>::fromInt(flags),
+          column));
+}
+
 //  int QStandardItemModel::sortRole() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK18QStandardItemModel8sortRoleEv(
@@ -1108,6 +1234,22 @@ void ritual_ZN18QStandardItemModel11setSortRoleEi(
     QStandardItemModel *self,
     int role) {
   self->setSortRole(role);
+}
+
+//  QStringList QStandardItemModel::mimeTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK18QStandardItemModel9mimeTypesEv(
+    const QStandardItemModel *self) {
+  return new QList<QString>(self->mimeTypes());
+}
+
+//  QMimeData *QStandardItemModel::mimeData(const QModelIndexList &indexes)
+//      const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_ZNK18QStandardItemModel8mimeDataERK5QListI11QModelIndexE(
+    const QStandardItemModel *self,
+    const QList<QModelIndex> *indexes) {
+  return self->mimeData(*indexes);
 }
 
 //  bool QStandardItemModel::dropMimeData(const QMimeData *data,

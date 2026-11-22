@@ -14,13 +14,15 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QAbstractItemModel, QDir, QObject
+from ..QtCore import Qt, QAbstractItemModel, QDir, QHash, QList, QObject
+from ..QtCore import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QDateTime, QEvent, QFileInfo, QMetaObject, QMimeData
-  from ..QtCore import QModelIndex, QTimeZone, QTimerEvent, QVariant
+  from ..QtCore import QByteArray, QDateTime, QEvent, QFileInfo, QMetaObject
+  from ..QtCore import QMimeData, QModelIndex, QTimeZone, QTimerEvent
+  from ..QtCore import QVariant
   from . import QAbstractFileIconProvider, QIcon
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -51,14 +53,15 @@ class QFileSystemModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QFileSystemModel that has a ritual and that Python
-  can call so far, 48 names in all: 'metaObject', 'tr', 'index', 'parent',
+  can call so far, 53 names in all: 'metaObject', 'tr', 'index', 'parent',
   'sibling', 'hasChildren', 'canFetchMore', 'fetchMore', 'rowCount',
   'columnCount', 'myComputer', 'data', 'setData', 'headerData', 'flags',
-  'sort', 'dropMimeData', 'supportedDropActions', 'setRootPath', 'rootPath',
-  'rootDirectory', 'setIconProvider', 'iconProvider', 'setFilter', 'filter',
-  'setResolveSymlinks', 'resolveSymlinks', 'setReadOnly', 'isReadOnly',
-  'setNameFilterDisables', 'nameFilterDisables', 'setOption', 'testOption',
-  'setOptions', 'options', 'filePath', 'isDir', 'size', 'type',
+  'sort', 'mimeTypes', 'mimeData', 'dropMimeData', 'supportedDropActions',
+  'roleNames', 'setRootPath', 'rootPath', 'rootDirectory', 'setIconProvider',
+  'iconProvider', 'setFilter', 'filter', 'setResolveSymlinks',
+  'resolveSymlinks', 'setReadOnly', 'isReadOnly', 'setNameFilterDisables',
+  'nameFilterDisables', 'setNameFilters', 'nameFilters', 'setOption',
+  'testOption', 'setOptions', 'options', 'filePath', 'isDir', 'size', 'type',
   'lastModified', 'mkdir', 'rmdir', 'fileName', 'fileIcon', 'fileInfo',
   'remove', 'timerEvent', 'event'. It can be made from Python, in 1 way; see
   '__init__'.
@@ -72,7 +75,7 @@ class QFileSystemModel(QAbstractItemModel):
   What has no ritual
   ------------------
 
-  18 of the 70 functions Qt declares: 8 takes or gives a type that cannot be
+  13 of the 70 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet; 3 private; 3 a signal; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
@@ -587,6 +590,54 @@ class QFileSystemModel(QAbstractItemModel):
       ritual = 'ritual_own_ZNK16QFileSystemModel5flagsERK11QModelIndex'
     return Qt.ItemFlags(self.uglySide.call(ritual, self._valueOf(index)))
 
+  def mimeTypes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileSystemModel::mimeTypes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeTypes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileSystemModel::mimeTypes() const
+    address = self.uglySide.call('ritual_ZNK16QFileSystemModel9mimeTypesEv')
+    return QStringList._cuteOwning(address)
+
+  @overload(QList[QModelIndex])
+  def mimeData(self, indexes: QList[QModelIndex]) -> Optional[QMimeData]:
+    """
+    Calls Qt's 'QMimeData *QFileSystemModel::mimeData(const QModelIndexList
+    &indexes) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfilesystemmodel.html#mimeData
+
+    Parameters
+    ----------
+
+    indexes : QList[QModelIndex]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    Optional[QMimeData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMimeData *QFileSystemModel::mimeData(const QModelIndexList &indexes)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK16QFileSystemModel8mimeDataERK5QListI11QModelIndexE',
+        self._valueOf(indexes),
+    )
+    from ..QtCore import QMimeData
+    return QMimeData._cuteAt(address)
+
   def supportedDropActions(self) -> Qt.DropActions:
     """
     Calls Qt's 'Qt::DropActions QFileSystemModel::supportedDropActions()
@@ -606,6 +657,23 @@ class QFileSystemModel(QAbstractItemModel):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK16QFileSystemModel20supportedDropActionsEv'
     return Qt.DropActions(self.uglySide.call(ritual))
+
+  def roleNames(self) -> QHash[int, QByteArray]:
+    """
+    Calls Qt's 'QHash<int, QByteArray> QFileSystemModel::roleNames() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfilesystemmodel.html#roleNames
+
+    Returns
+    -------
+
+    QHash[int, QByteArray]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QHash<int, QByteArray> QFileSystemModel::roleNames() const
+    address = self.uglySide.call('ritual_ZNK16QFileSystemModel9roleNamesEv')
+    from ..QtCore import QByteArray
+    return QHash[int, QByteArray]._cuteOwning(address)
 
   def rootPath(self) -> str:
     """
@@ -711,6 +779,24 @@ class QFileSystemModel(QAbstractItemModel):
     return self.uglySide.call(
         'ritual_ZNK16QFileSystemModel18nameFilterDisablesEv',
     )
+
+  def nameFilters(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileSystemModel::nameFilters() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfilesystemmodel.html#nameFilters
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileSystemModel::nameFilters() const
+    address = self.uglySide.call(
+        'ritual_ZNK16QFileSystemModel11nameFiltersEv',
+    )
+    return QStringList._cuteOwning(address)
 
   @overload(Option)
   def testOption(self, option: Option) -> bool:
@@ -1163,6 +1249,29 @@ class QFileSystemModel(QAbstractItemModel):
     #  void QFileSystemModel::setNameFilterDisables(bool enable)
     self.uglySide.call(
         'ritual_ZN16QFileSystemModel21setNameFilterDisablesEb', enable,
+    )
+
+  @overload(QStringList)
+  def setNameFilters(self, filters: QStringList) -> None:
+    """
+    Calls Qt's 'void QFileSystemModel::setNameFilters(const QStringList
+    &filters)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfilesystemmodel.html#setNameFilters
+
+    Parameters
+    ----------
+
+    filters : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFileSystemModel::setNameFilters(const QStringList &filters)
+    self.uglySide.call(
+        'ritual_ZN16QFileSystemModel14setNameFiltersERK5QListI7QStringE',
+        self._valueOf(filters),
     )
 
   @overload(Option)

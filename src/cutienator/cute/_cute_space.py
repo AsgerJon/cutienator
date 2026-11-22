@@ -5,6 +5,7 @@ CuteSpace is the namespace the body of a cute class runs in.
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import threading
 from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload, TypeSig
@@ -23,6 +24,10 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Callable, Dict, List, Optional, Tuple
 
   WaitingItem = Tuple[str, WaitingSignature]
+
+#  The doors a call is passing through right now, for each thread apart;
+#  see 'CuteSpace._createDoor'.
+_PASSING = threading.local()
 
 
 class CuteSpace(BaseSpace):
@@ -142,6 +147,16 @@ class CuteSpace(BaseSpace):
   member of an enum or value of flags in it is swapped for its number,
   and the call is tried once more. A call that is taken as written
   never comes near the door. See 'collectFallback' and 'DoorNumber'.
+
+  The door does one thing more. When a late class is made, each name
+  that got a signature back gets a new dispatcher, and a function read
+  off an object before that still goes by the old one. Python reads
+  the function before it works out what the call hands over, so in
+  'mime.setData(name, mime.data(name))' the function is read first,
+  'mime.data' then brings in QByteArray, and the call arrives at a
+  function that still waits for it. So when the door is reached, the
+  call is tried once more on the function as it is now, whether or
+  not a member was swapped.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -724,8 +739,19 @@ class CuteSpace(BaseSpace):
         if isinstance(arg, (CuteNum, CuteFlags)):
           arg, wasSwapped = DoorNumber(arg.value), True
         swapped.append(arg)
-      if not wasSwapped:
+      #  The call is tried once more on the function as it is now, with
+      #  each member swapped. With nothing swapped it is still tried:
+      #  the function that sent it here may have been read off its
+      #  object before a class it waited for was made. A try that ends
+      #  at this very door again, for the same object, is refused.
+      try:
+        passing = _PASSING.doors
+      except AttributeError:
+        passing = _PASSING.doors = set()
+      mark = (door, id(receiver))
+      if mark in passing:
         raise DispatchException(dispatcher, given, kwargs)
+      passing.add(mark)
       try:
         return function(receiver, *swapped, **kwargs)
       except DispatchException as dispatchException:
@@ -733,6 +759,8 @@ class CuteSpace(BaseSpace):
           if dispatchException.dispatch is not getattr(
               dispatcher, '__class_dispatcher__', None):
             raise
+      finally:
+        passing.discard(mark)
       #  The refusal names the call as it was written, members and all.
       raise DispatchException(dispatcher, given, kwargs)
 

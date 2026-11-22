@@ -41,6 +41,9 @@
     "ritual_ZNK23QRegularExpressionMatch12capturedViewE14QAnyStringView": [
       "text", "address", "text"
     ],
+    "ritual_ZNK23QRegularExpressionMatch13capturedTextsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK23QRegularExpressionMatch13capturedStartEi": [
       "long long", "address", "int"
     ],

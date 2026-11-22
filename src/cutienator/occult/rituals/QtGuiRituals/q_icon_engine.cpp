@@ -5,6 +5,7 @@
 #include <QtCore/qsize.h>
 #include <QtGui/qpixmap.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QIconEngine that Python can take functions over in. Every QIconEngine
@@ -287,6 +288,16 @@ QString *ritual_ZNK11QIconEngine3keyEv(const QIconEngine *self) {
 extern "C" Q_DECL_EXPORT
 QIconEngine *ritual_ZNK11QIconEngine5cloneEv(const QIconEngine *self) {
   return self->clone();
+}
+
+//  QList<QSize> QIconEngine::availableSizes(QIcon::Mode mode, QIcon::State
+//      state)
+extern "C" Q_DECL_EXPORT
+QList<QSize> *ritual_ZN11QIconEngine14availableSizesEN5QIcon4ModeENS0_5StateE(
+    QIconEngine *self,
+    QIcon::Mode mode,
+    QIcon::State state) {
+  return new QList<QSize>(self->availableSizes(mode, state));
 }
 
 //  QString QIconEngine::iconName()

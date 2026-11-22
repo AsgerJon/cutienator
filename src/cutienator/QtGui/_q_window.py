@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 from . import QSurface
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -2673,3 +2673,17 @@ class QWindow(QObject, QSurface):
         'ritual_own_ZN7QWindow11tabletEventEP12QTabletEvent',
         self._addressOf(a0),
     )
+
+
+#  Qt's 'QList<QWindow *>': the list of QWindow, which 'QList[QWindow]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QWindow. Qt has a name of its own for it.
+QWindowList = QList.createKind(
+    QWindow, 'address',
+    name='QWindowList',
+    make='ritual_list_make_QWindow_ptr',
+    add='ritual_list_add_QWindow_ptr',
+    size='ritual_list_size_QWindow_ptr',
+    at='ritual_list_at_QWindow_ptr',
+    drop='ritual_list_drop_QWindow_ptr',
+)

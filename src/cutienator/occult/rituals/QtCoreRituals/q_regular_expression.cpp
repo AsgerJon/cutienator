@@ -3,6 +3,7 @@
 #include <QtCore/qregularexpression.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
+#include <QtCore/qlist.h>
 
 //  PatternOptions QRegularExpression::patternOptions() const
 extern "C" Q_DECL_EXPORT
@@ -91,6 +92,13 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK18QRegularExpression12captureCountEv(
     const QRegularExpression *self) {
   return self->captureCount();
+}
+
+//  QStringList QRegularExpression::namedCaptureGroups() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK18QRegularExpression18namedCaptureGroupsEv(
+    const QRegularExpression *self) {
+  return new QList<QString>(self->namedCaptureGroups());
 }
 
 //  QRegularExpressionMatch QRegularExpression::match(const QString &subject,

@@ -6,6 +6,7 @@
 #include <QtCore/qdatetime.h>
 #include <QtCore/qlocale.h>
 #include <QtCore/qstringview.h>
+#include <QtCore/qlist.h>
 
 //  QCalendar::QCalendar()
 extern "C" Q_DECL_EXPORT
@@ -248,6 +249,12 @@ QString *ritual_ZNK9QCalendar16dateTimeToStringE11QStringViewRK9QDateTime5QDate5
           *dateOnly,
           *timeOnly,
           *locale));
+}
+
+//  QStringList QCalendar::availableCalendars()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN9QCalendar18availableCalendarsEv() {
+  return new QList<QString>(QCalendar::availableCalendars());
 }
 
 //  QCalendar::~QCalendar()

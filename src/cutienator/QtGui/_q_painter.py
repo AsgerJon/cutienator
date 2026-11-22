@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 from . import QGradient
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -98,9 +98,9 @@ class QPainter(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  17 of the 211 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 5 private; 2 forbidden; 1 declared and nowhere to be found; 1 a
-  template.
+  11 of the 211 functions Qt declares: 5 private; 2 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 declared and nowhere to be found;
+  1 a template.
 
   What to expect
   --------------
@@ -2141,6 +2141,27 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         self._addressOf(lines), lineCount,
     )
 
+  @overload(QList[QLineF])
+  def drawLines(self, lines: QList[QLineF]) -> None:
+    """
+    Calls Qt's 'void QPainter::drawLines(const QList<QLineF> &lines)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawLines
+
+    Parameters
+    ----------
+
+    lines : QList[QLineF]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QPainter::drawLines(const QList<QLineF> &lines)
+    self.uglySide.call(
+        'ritual_ZN8QPainter9drawLinesERK5QListI6QLineFE',
+        self._valueOf(lines),
+    )
+
   @overload(QPointF, int)
   def drawLines(self, pointPairs: Optional[QPointF], lineCount: int) -> None:
     """
@@ -2163,6 +2184,27 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN8QPainter9drawLinesEPK7QPointFi',
         self._addressOf(pointPairs), lineCount,
+    )
+
+  @overload(QList[QPointF])
+  def drawLines(self, pointPairs: QList[QPointF]) -> None:
+    """
+    Calls Qt's 'void QPainter::drawLines(const QList<QPointF> &pointPairs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawLines
+
+    Parameters
+    ----------
+
+    pointPairs : QList[QPointF]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QPainter::drawLines(const QList<QPointF> &pointPairs)
+    self.uglySide.call(
+        'ritual_ZN8QPainter9drawLinesERK5QListI7QPointFE',
+        self._valueOf(pointPairs),
     )
 
   @overload(QLine, int)
@@ -2188,6 +2230,27 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         self._addressOf(lines), lineCount,
     )
 
+  @overload(QList[QLine])
+  def drawLines(self, lines: QList[QLine]) -> None:
+    """
+    Calls Qt's 'void QPainter::drawLines(const QList<QLine> &lines)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawLines
+
+    Parameters
+    ----------
+
+    lines : QList[QLine]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QPainter::drawLines(const QList<QLine> &lines)
+    self.uglySide.call(
+        'ritual_ZN8QPainter9drawLinesERK5QListI5QLineE',
+        self._valueOf(lines),
+    )
+
   @overload(QPoint, int)
   def drawLines(self, pointPairs: Optional[QPoint], lineCount: int) -> None:
     """
@@ -2210,6 +2273,27 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN8QPainter9drawLinesEPK6QPointi',
         self._addressOf(pointPairs), lineCount,
+    )
+
+  @overload(QList[QPoint])
+  def drawLines(self, pointPairs: QList[QPoint]) -> None:
+    """
+    Calls Qt's 'void QPainter::drawLines(const QList<QPoint> &pointPairs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawLines
+
+    Parameters
+    ----------
+
+    pointPairs : QList[QPoint]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QPainter::drawLines(const QList<QPoint> &pointPairs)
+    self.uglySide.call(
+        'ritual_ZN8QPainter9drawLinesERK5QListI6QPointE',
+        self._valueOf(pointPairs),
     )
 
   @overload(QRectF)
@@ -2299,6 +2383,27 @@ class QPainter(CuteMixin, metaclass=MetaCute):
         self._addressOf(rects), rectCount,
     )
 
+  @overload(QList[QRectF])
+  def drawRects(self, rectangles: QList[QRectF]) -> None:
+    """
+    Calls Qt's 'void QPainter::drawRects(const QList<QRectF> &rectangles)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawRects
+
+    Parameters
+    ----------
+
+    rectangles : QList[QRectF]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QPainter::drawRects(const QList<QRectF> &rectangles)
+    self.uglySide.call(
+        'ritual_ZN8QPainter9drawRectsERK5QListI6QRectFE',
+        self._valueOf(rectangles),
+    )
+
   @overload(QRect, int)
   def drawRects(self, rects: Optional[QRect], rectCount: int) -> None:
     """
@@ -2320,6 +2425,27 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN8QPainter9drawRectsEPK5QRecti',
         self._addressOf(rects), rectCount,
+    )
+
+  @overload(QList[QRect])
+  def drawRects(self, rectangles: QList[QRect]) -> None:
+    """
+    Calls Qt's 'void QPainter::drawRects(const QList<QRect> &rectangles)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#drawRects
+
+    Parameters
+    ----------
+
+    rectangles : QList[QRect]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QPainter::drawRects(const QList<QRect> &rectangles)
+    self.uglySide.call(
+        'ritual_ZN8QPainter9drawRectsERK5QListI5QRectE',
+        self._valueOf(rectangles),
     )
 
   @overload(QRectF)

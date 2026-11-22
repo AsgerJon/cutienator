@@ -3,18 +3,21 @@
 #include <QtWidgets/qgraphicsscene.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
+#include <QtWidgets/qgraphicsitem.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qtransform.h>
+#include <QtGui/qpolygon.h>
 #include <QtGui/qpainterpath.h>
 #include <QtGui/qpen.h>
 #include <QtGui/qbrush.h>
 #include <QtCore/qline.h>
 #include <QtGui/qpixmap.h>
-#include <QtGui/qpolygon.h>
 #include <QtGui/qfont.h>
 #include <QtCore/qvariant.h>
+#include <QtWidgets/qgraphicsview.h>
 #include <QtGui/qpalette.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QGraphicsScene may call these functions of it.
@@ -630,6 +633,120 @@ QRectF *ritual_ZNK14QGraphicsScene17itemsBoundingRectEv(
   return new QRectF(self->itemsBoundingRect());
 }
 
+//  QList<QGraphicsItem *> QGraphicsScene::items(Qt::SortOrder order) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK14QGraphicsScene5itemsEN2Qt9SortOrderE(
+    const QGraphicsScene *self,
+    Qt::SortOrder order) {
+  return new QList<QGraphicsItem *>(self->items(order));
+}
+
+//  QList<QGraphicsItem *> QGraphicsScene::items(const QPointF &pos,
+//      Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform
+//      &deviceTransform) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK14QGraphicsScene5itemsERK7QPointFN2Qt17ItemSelectionModeENS3_9SortOrderERK10QTransform(
+    const QGraphicsScene *self,
+    const QPointF *pos,
+    Qt::ItemSelectionMode mode,
+    Qt::SortOrder order,
+    const QTransform *deviceTransform) {
+  return new QList<QGraphicsItem *>(
+      self->items(
+          *pos,
+          mode,
+          order,
+          *deviceTransform));
+}
+
+//  QList<QGraphicsItem *> QGraphicsScene::items(const QRectF &rect,
+//      Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform
+//      &deviceTransform) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK14QGraphicsScene5itemsERK6QRectFN2Qt17ItemSelectionModeENS3_9SortOrderERK10QTransform(
+    const QGraphicsScene *self,
+    const QRectF *rect,
+    Qt::ItemSelectionMode mode,
+    Qt::SortOrder order,
+    const QTransform *deviceTransform) {
+  return new QList<QGraphicsItem *>(
+      self->items(
+          *rect,
+          mode,
+          order,
+          *deviceTransform));
+}
+
+//  QList<QGraphicsItem *> QGraphicsScene::items(const QPolygonF &polygon,
+//      Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform
+//      &deviceTransform) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK14QGraphicsScene5itemsERK9QPolygonFN2Qt17ItemSelectionModeENS3_9SortOrderERK10QTransform(
+    const QGraphicsScene *self,
+    const QPolygonF *polygon,
+    Qt::ItemSelectionMode mode,
+    Qt::SortOrder order,
+    const QTransform *deviceTransform) {
+  return new QList<QGraphicsItem *>(
+      self->items(
+          *polygon,
+          mode,
+          order,
+          *deviceTransform));
+}
+
+//  QList<QGraphicsItem *> QGraphicsScene::items(const QPainterPath &path,
+//      Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform
+//      &deviceTransform) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK14QGraphicsScene5itemsERK12QPainterPathN2Qt17ItemSelectionModeENS3_9SortOrderERK10QTransform(
+    const QGraphicsScene *self,
+    const QPainterPath *path,
+    Qt::ItemSelectionMode mode,
+    Qt::SortOrder order,
+    const QTransform *deviceTransform) {
+  return new QList<QGraphicsItem *>(
+      self->items(
+          *path,
+          mode,
+          order,
+          *deviceTransform));
+}
+
+//  QList<QGraphicsItem *> QGraphicsScene::items(qreal x, qreal y, qreal w,
+//      qreal h, Qt::ItemSelectionMode mode, Qt::SortOrder order, const
+//      QTransform &deviceTransform) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK14QGraphicsScene5itemsEddddN2Qt17ItemSelectionModeENS0_9SortOrderERK10QTransform(
+    const QGraphicsScene *self,
+    qreal x,
+    qreal y,
+    qreal w,
+    qreal h,
+    Qt::ItemSelectionMode mode,
+    Qt::SortOrder order,
+    const QTransform *deviceTransform) {
+  return new QList<QGraphicsItem *>(
+      self->items(
+          x,
+          y,
+          w,
+          h,
+          mode,
+          order,
+          *deviceTransform));
+}
+
+//  QList<QGraphicsItem *> QGraphicsScene::collidingItems(const QGraphicsItem
+//      *item, Qt::ItemSelectionMode mode) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK14QGraphicsScene14collidingItemsEPK13QGraphicsItemN2Qt17ItemSelectionModeE(
+    const QGraphicsScene *self,
+    const QGraphicsItem *item,
+    Qt::ItemSelectionMode mode) {
+  return new QList<QGraphicsItem *>(self->collidingItems(item, mode));
+}
+
 //  QGraphicsItem *QGraphicsScene::itemAt(const QPointF &pos, const
 //      QTransform &deviceTransform) const
 extern "C" Q_DECL_EXPORT
@@ -649,6 +766,13 @@ QGraphicsItem *ritual_ZNK14QGraphicsScene6itemAtEddRK10QTransform(
     qreal y,
     const QTransform *deviceTransform) {
   return self->itemAt(x, y, *deviceTransform);
+}
+
+//  QList<QGraphicsItem *> QGraphicsScene::selectedItems() const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK14QGraphicsScene13selectedItemsEv(
+    const QGraphicsScene *self) {
+  return new QList<QGraphicsItem *>(self->selectedItems());
 }
 
 //  QPainterPath QGraphicsScene::selectionArea() const
@@ -679,6 +803,15 @@ void ritual_ZN14QGraphicsScene16setSelectionAreaERK12QPainterPathN2Qt22ItemSelec
     Qt::ItemSelectionMode mode,
     const QTransform *deviceTransform) {
   self->setSelectionArea(*path, selectionOperation, mode, *deviceTransform);
+}
+
+//  QGraphicsItemGroup *QGraphicsScene::createItemGroup(const
+//      QList<QGraphicsItem *> &items)
+extern "C" Q_DECL_EXPORT
+QGraphicsItemGroup *ritual_ZN14QGraphicsScene15createItemGroupERK5QListIP13QGraphicsItemE(
+    QGraphicsScene *self,
+    const QList<QGraphicsItem *> *items) {
+  return self->createItemGroup(*items);
 }
 
 //  void QGraphicsScene::destroyItemGroup(QGraphicsItemGroup *group)
@@ -933,6 +1066,13 @@ QVariant *ritual_ZNK14QGraphicsScene16inputMethodQueryEN2Qt16InputMethodQueryE(
     const QGraphicsScene *self,
     Qt::InputMethodQuery query) {
   return new QVariant(self->inputMethodQuery(query));
+}
+
+//  QList<QGraphicsView *> QGraphicsScene::views() const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsView *> *ritual_ZNK14QGraphicsScene5viewsEv(
+    const QGraphicsScene *self) {
+  return new QList<QGraphicsView *>(self->views());
 }
 
 //  void QGraphicsScene::update(qreal x, qreal y, qreal w, qreal h)

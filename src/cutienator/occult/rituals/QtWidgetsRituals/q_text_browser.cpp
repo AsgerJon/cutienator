@@ -7,6 +7,7 @@
 #include <QtGui/qtextcursor.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QTextBrowser may call these functions of it.
@@ -1055,6 +1056,21 @@ extern "C" Q_DECL_EXPORT
 QTextDocument::ResourceType ritual_ZNK12QTextBrowser10sourceTypeEv(
     const QTextBrowser *self) {
   return self->sourceType();
+}
+
+//  QStringList QTextBrowser::searchPaths() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK12QTextBrowser11searchPathsEv(
+    const QTextBrowser *self) {
+  return new QList<QString>(self->searchPaths());
+}
+
+//  void QTextBrowser::setSearchPaths(const QStringList &paths)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser14setSearchPathsERK5QListI7QStringE(
+    QTextBrowser *self,
+    const QList<QString> *paths) {
+  self->setSearchPaths(*paths);
 }
 
 //  QVariant QTextBrowser::loadResource(int type, const QUrl &name)

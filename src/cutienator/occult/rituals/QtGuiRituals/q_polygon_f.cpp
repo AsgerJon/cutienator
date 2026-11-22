@@ -1,14 +1,22 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qpolygon.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qpolygon.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qvariant.h>
-#include <QtCore/qpoint.h>
+#include <QtCore/qlist.h>
 
 //  QPolygonF::QPolygonF()
 extern "C" Q_DECL_EXPORT
 QPolygonF *ritual_ZN9QPolygonFC1Ev() {
   return new QPolygonF();
+}
+
+//  QPolygonF::QPolygonF(const QList<QPointF> &v)
+extern "C" Q_DECL_EXPORT
+QPolygonF *ritual_ZN9QPolygonFC1ERK5QListI7QPointFE(
+    const QList<QPointF> *v) {
+  return new QPolygonF(*v);
 }
 
 //  QPolygonF::QPolygonF(const QRectF &r)
@@ -123,5 +131,39 @@ bool ritual_ZNK9QPolygonF10intersectsERKS_(
 //  QPolygonF::~QPolygonF()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QPolygonFD1Ev(QPolygonF *self) {
+  delete self;
+}
+
+//  QList<QPolygonF>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QPolygonF> *ritual_list_make_QPolygonF() {
+  return new QList<QPolygonF>();
+}
+
+//  void QList<QPolygonF>::append(const QPolygonF &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QPolygonF(
+    QList<QPolygonF> *self,
+    const QPolygonF *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QPolygonF>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QPolygonF(const QList<QPolygonF> *self) {
+  return self->size();
+}
+
+//  const QPolygonF &QList<QPolygonF>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QPolygonF *ritual_list_at_QPolygonF(
+    const QList<QPolygonF> *self,
+    long long index) {
+  return new QPolygonF(self->at(index));
+}
+
+//  QList<QPolygonF>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QPolygonF(QList<QPolygonF> *self) {
   delete self;
 }

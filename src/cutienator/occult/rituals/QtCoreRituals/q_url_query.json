@@ -38,6 +38,9 @@
     "ritual_ZNK9QUrlQuery14queryItemValueERK7QString6QFlagsIN4QUrl25ComponentFormattingOptionEE": [
       "text", "address", "text", "int"
     ],
+    "ritual_ZNK9QUrlQuery18allQueryItemValuesERK7QString6QFlagsIN4QUrl25ComponentFormattingOptionEE": [
+      "address", "address", "text", "int"
+    ],
     "ritual_ZN9QUrlQuery19removeAllQueryItemsERK7QString": [
       "nothing", "address", "text"
     ],

@@ -15,6 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QKeyCombination
@@ -38,10 +39,10 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QKeySequence that has a ritual and that Python can
-  call so far, 14 names in all: 'count', 'isEmpty', 'toString', 'fromString',
-  'matches', 'mnemonic', '__getitem__', '__eq__', '__ne__', '__lt__',
-  '__gt__', '__le__', '__ge__', 'isDetached'. It can be made from Python, in
-  6 ways; see '__init__'.
+  call so far, 17 names in all: 'count', 'isEmpty', 'toString', 'fromString',
+  'listFromString', 'listToString', 'matches', 'mnemonic', 'keyBindings',
+  '__getitem__', '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__',
+  'isDetached'. It can be made from Python, in 6 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -54,7 +55,7 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  15 of the 37 functions Qt declares: 9 takes or gives a type that cannot be
+  12 of the 37 functions Qt declares: 6 takes or gives a type that cannot be
   passed yet; 4 private; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
@@ -214,6 +215,83 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
 
   @staticmethod
   @overload(str)
+  @overload(str, SequenceFormat)
+  def listFromString(
+      str: str,
+      format: SequenceFormat = SequenceFormat.PortableText,
+  ) -> QList[QKeySequence]:
+    """
+    Calls Qt's 'QList<QKeySequence> QKeySequence::listFromString(const
+    QString &str, SequenceFormat format)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#listFromString
+
+    Parameters
+    ----------
+
+    str : str
+      Passed on as it is: a QString is made of it for the call.
+
+    format : SequenceFormat
+      Passed on as its number. May be left out, as in Qt: it is then
+      SequenceFormat.PortableText.
+
+    Returns
+    -------
+
+    QList[QKeySequence]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QKeySequence> QKeySequence::listFromString(const QString &str,
+    #      SequenceFormat format)
+    address = Rituals.call(
+        'ritual_ZN12QKeySequence14listFromStringERK7QStringNS_14SequenceFor'
+        'matE',
+        str, format.value,
+    )
+    return QList[QKeySequence]._cuteOwning(address)
+
+  @staticmethod
+  @overload(QList[WAIT['QKeySequence']])
+  @overload(QList[WAIT['QKeySequence']], SequenceFormat)
+  def listToString(
+      list: QList[QKeySequence],
+      format: SequenceFormat = SequenceFormat.PortableText,
+  ) -> str:
+    """
+    Calls Qt's 'QString QKeySequence::listToString(const QList<QKeySequence>
+    &list, SequenceFormat format)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#listToString
+
+    Parameters
+    ----------
+
+    list : QList[QKeySequence]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    format : SequenceFormat
+      Passed on as its number. May be left out, as in Qt: it is then
+      SequenceFormat.PortableText.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QKeySequence::listToString(const QList<QKeySequence> &list,
+    #      SequenceFormat format)
+    return Rituals.call(
+        'ritual_ZN12QKeySequence12listToStringERK5QListIS_ENS_14SequenceFor'
+        'matE',
+        CuteMixin._valueOf(list), format.value,
+    )
+
+  @staticmethod
+  @overload(str)
   def mnemonic(text: str) -> QKeySequence:
     """
     Calls Qt's 'QKeySequence QKeySequence::mnemonic(const QString &text)'.
@@ -237,6 +315,33 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
         'ritual_ZN12QKeySequence8mnemonicERK7QString', text,
     )
     return QKeySequence._cuteOwning(address)
+
+  @staticmethod
+  @overload(StandardKey)
+  def keyBindings(key: StandardKey) -> QList[QKeySequence]:
+    """
+    Calls Qt's 'QList<QKeySequence> QKeySequence::keyBindings(StandardKey
+    key)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#keyBindings
+
+    Parameters
+    ----------
+
+    key : StandardKey
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QList[QKeySequence]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QKeySequence> QKeySequence::keyBindings(StandardKey key)
+    address = Rituals.call(
+        'ritual_ZN12QKeySequence11keyBindingsENS_11StandardKeyE', key.value,
+    )
+    return QList[QKeySequence]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -737,3 +842,16 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QKeySequence>': the list of QKeySequence, which
+#  'QList[QKeySequence]' gives. It is made here, so that there is one as soon
+#  as there can be a QKeySequence.
+QList.createKind(
+    QKeySequence, 'value',
+    make='ritual_list_make_QKeySequence',
+    add='ritual_list_add_QKeySequence',
+    size='ritual_list_size_QKeySequence',
+    at='ritual_list_at_QKeySequence',
+    drop='ritual_list_drop_QKeySequence',
+)

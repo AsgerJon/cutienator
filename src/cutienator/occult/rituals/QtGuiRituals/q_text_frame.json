@@ -20,9 +20,15 @@
     "ritual_ZN10QTextFrame13setLayoutDataEP20QTextFrameLayoutData": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK10QTextFrame11childFramesEv": ["address", "address"],
     "ritual_ZNK10QTextFrame11parentFrameEv": ["address", "address"],
     "ritual_ZNK10QTextFrame5beginEv": ["address", "address"],
     "ritual_ZNK10QTextFrame3endEv": ["address", "address"],
-    "ritual_take_QTextFrame": ["bool", "address", "chars", "address"]
+    "ritual_take_QTextFrame": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QTextFrame_ptr": ["address"],
+    "ritual_list_add_QTextFrame_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QTextFrame_ptr": ["long long", "address"],
+    "ritual_list_at_QTextFrame_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QTextFrame_ptr": ["nothing", "address"]
   }
 }

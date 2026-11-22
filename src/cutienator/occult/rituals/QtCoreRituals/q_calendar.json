@@ -54,6 +54,7 @@
     "ritual_ZNK9QCalendar16dateTimeToStringE11QStringViewRK9QDateTime5QDate5QTimeRK7QLocale": [
       "text", "address", "text", "address", "address", "address", "address"
     ],
+    "ritual_ZN9QCalendar18availableCalendarsEv": ["address"],
     "ritual_ZN9QCalendarD1Ev": ["nothing", "address"]
   }
 }

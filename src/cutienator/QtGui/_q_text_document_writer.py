@@ -13,6 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -42,9 +43,9 @@ class QTextDocumentWriter(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextDocumentWriter that has a ritual and that
-  Python can call so far, 7 names in all: 'setFormat', 'format', 'setDevice',
-  'device', 'setFileName', 'fileName', 'write'. It can be made from Python,
-  in 3 ways; see '__init__'.
+  Python can call so far, 8 names in all: 'setFormat', 'format', 'setDevice',
+  'device', 'setFileName', 'fileName', 'write', 'supportedDocumentFormats'.
+  It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -55,8 +56,7 @@ class QTextDocumentWriter(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 15 functions Qt declares: 2 forbidden; 1 takes or gives a type
-  that cannot be passed yet.
+  2 of the 15 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -74,6 +74,28 @@ class QTextDocumentWriter(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def supportedDocumentFormats() -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray>
+    QTextDocumentWriter::supportedDocumentFormats()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextdocumentwriter.html#supportedDocumentFormats
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QTextDocumentWriter::supportedDocumentFormats()
+    address = Rituals.call(
+        'ritual_ZN19QTextDocumentWriter24supportedDocumentFormatsEv',
+    )
+    from ..QtCore import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

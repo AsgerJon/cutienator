@@ -12,6 +12,8 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import WAIT
+from ..occult import Rituals
+from ..QtCore import Qt, QEvent, QList
 from . import QInputEvent, QPointingDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -43,13 +45,12 @@ class QPointerEvent(QInputEvent):
   -----------
 
   Every function of Qt's QPointerEvent that has a ritual and that Python can
-  call so far, 17 names in all: 'clone', 'pointingDevice', 'pointerType',
-  'setTimestamp', 'pointCount', 'pointById', 'allPointsGrabbed',
+  call so far, 18 names in all: 'clone', 'pointingDevice', 'pointerType',
+  'setTimestamp', 'pointCount', 'points', 'pointById', 'allPointsGrabbed',
   'isBeginEvent', 'isUpdateEvent', 'isEndEvent', 'allPointsAccepted',
   'setAccepted', 'exclusiveGrabber', 'setExclusiveGrabber',
-  'clearPassiveGrabbers', 'addPassiveGrabber', 'removePassiveGrabber'. None
-  can be made from Python: one comes out of a function of another class that
-  gives one back.
+  'clearPassiveGrabbers', 'addPassiveGrabber', 'removePassiveGrabber'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,9 +61,9 @@ class QPointerEvent(QInputEvent):
   What has no ritual
   ------------------
 
-  12 of the 30 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 protected; 2 forbidden; 1 declared and nowhere to be found; 1
-  a template; 1 private.
+  10 of the 30 functions Qt declares: 3 protected; 2 forbidden; 2 takes or
+  gives a type that cannot be passed yet; 1 declared and nowhere to be found;
+  1 a template; 1 private.
 
   What to expect
   --------------
@@ -196,6 +197,23 @@ class QPointerEvent(QInputEvent):
     """
     #  qsizetype QPointerEvent::pointCount() const
     return self.uglySide.call('ritual_ZNK13QPointerEvent10pointCountEv')
+
+  def points(self) -> QList[QEventPoint]:
+    """
+    Calls Qt's 'const QList<QEventPoint> &QPointerEvent::points() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointerevent.html#points
+
+    Returns
+    -------
+
+    QList[QEventPoint]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  const QList<QEventPoint> &QPointerEvent::points() const
+    address = self.uglySide.call('ritual_ZNK13QPointerEvent6pointsEv')
+    from . import QEventPoint
+    return QList[QEventPoint]._cuteOwning(address)
 
   def allPointsGrabbed(self) -> bool:
     """
@@ -375,6 +393,51 @@ class QPointerEvent(QInputEvent):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(
+      QEvent.Type, QPointingDevice, Qt.KeyboardModifiers, QList[QEventPoint],
+  )
+  @overload(QEvent.Type, NoneType, Qt.KeyboardModifiers, QList[QEventPoint])
+  def __init__(
+      self,
+      type: QEvent.Type,
+      dev: Optional[QPointingDevice],
+      modifiers: Qt.KeyboardModifiers,
+      points: QList[QEventPoint],
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QPointerEvent::QPointerEvent(Type type,
+    const QPointingDevice *dev, Qt::KeyboardModifiers modifiers, const
+    QList<QEventPoint> &points)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointerevent.html#QPointerEvent
+
+    Parameters
+    ----------
+
+    type : QEvent.Type
+      Passed on as its number.
+
+    dev : Optional[QPointingDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    modifiers : Qt.KeyboardModifiers
+      Passed on as its number.
+
+    points : QList[QEventPoint]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  QPointerEvent::QPointerEvent(Type type, const QPointingDevice *dev,
+    #      Qt::KeyboardModifiers modifiers, const QList<QEventPoint> &points)
+    self._noteCreation(QPointerEvent, lambda: Rituals.call(
+        'ritual_ZN13QPointerEventC1EN6QEvent4TypeEPK15QPointingDevice6QFlag'
+        'sIN2Qt16KeyboardModifierEERK5QListI11QEventPointE',
+        type.value, self._addressOf(dev), modifiers.value,
+        self._valueOf(points),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

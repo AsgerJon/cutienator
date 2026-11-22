@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
-from . import QObject
+from . import QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -44,12 +44,13 @@ class QItemSelectionModel(QObject):
   -----------
 
   Every function of Qt's QItemSelectionModel that has a ritual and that
-  Python can call so far, 18 names in all: 'metaObject', 'tr',
+  Python can call so far, 21 names in all: 'metaObject', 'tr',
   'currentIndex', 'isSelected', 'isRowSelected', 'isColumnSelected',
   'rowIntersectsSelection', 'columnIntersectsSelection', 'hasSelection',
-  'selection', 'model', 'setModel', 'setCurrentIndex', 'select', 'clear',
-  'reset', 'clearSelection', 'clearCurrentIndex'. It can be made from Python,
-  in 2 ways; see '__init__'.
+  'selectedIndexes', 'selectedRows', 'selectedColumns', 'selection', 'model',
+  'setModel', 'setCurrentIndex', 'select', 'clear', 'reset',
+  'clearSelection', 'clearCurrentIndex'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,8 +64,9 @@ class QItemSelectionModel(QObject):
   What has no ritual
   ------------------
 
-  19 of the 42 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 5 a signal; 3 private; 2 protected; 2 forbidden; 1 a template.
+  16 of the 42 functions Qt declares: 5 a signal; 3 takes or gives a type
+  that cannot be passed yet; 3 private; 2 protected; 2 forbidden; 1 a
+  template.
 
   What to expect
   --------------
@@ -441,6 +443,85 @@ class QItemSelectionModel(QObject):
     return self.uglySide.call(
         'ritual_ZNK19QItemSelectionModel12hasSelectionEv',
     )
+
+  def selectedIndexes(self) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QItemSelectionModel::selectedIndexes()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedIndexes
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QItemSelectionModel::selectedIndexes() const
+    address = self.uglySide.call(
+        'ritual_ZNK19QItemSelectionModel15selectedIndexesEv',
+    )
+    from . import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
+
+  @overload()
+  @overload(int)
+  def selectedRows(self, column: int = 0) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QItemSelectionModel::selectedRows(int column)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedRows
+
+    Parameters
+    ----------
+
+    column : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QItemSelectionModel::selectedRows(int column) const
+    address = self.uglySide.call(
+        'ritual_ZNK19QItemSelectionModel12selectedRowsEi', column,
+    )
+    from . import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
+
+  @overload()
+  @overload(int)
+  def selectedColumns(self, row: int = 0) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QItemSelectionModel::selectedColumns(int row)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedColumns
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QItemSelectionModel::selectedColumns(int row) const
+    address = self.uglySide.call(
+        'ritual_ZNK19QItemSelectionModel15selectedColumnsEi', row,
+    )
+    from . import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
 
   def selection(self) -> QItemSelection:
     """

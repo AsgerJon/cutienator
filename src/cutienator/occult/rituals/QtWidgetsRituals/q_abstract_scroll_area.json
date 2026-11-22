@@ -44,6 +44,9 @@
     "ritual_ZN19QAbstractScrollArea18addScrollBarWidgetEP7QWidget6QFlagsIN2Qt13AlignmentFlagEE": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZN19QAbstractScrollArea16scrollBarWidgetsE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK19QAbstractScrollArea8viewportEv": ["address", "address"],
     "ritual_ZN19QAbstractScrollArea11setViewportEP7QWidget": [
       "nothing", "address", "address"

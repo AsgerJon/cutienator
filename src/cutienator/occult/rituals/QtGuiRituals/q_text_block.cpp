@@ -3,6 +3,7 @@
 #include <QtGui/qtextobject.h>
 #include <QtGui/qtextformat.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 
 //  QTextBlock::QTextBlock()
 extern "C" Q_DECL_EXPORT
@@ -239,5 +240,39 @@ int ritual_ZNK10QTextBlock13fragmentIndexEv(const QTextBlock *self) {
 //  QTextBlock::~QTextBlock()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QTextBlockD1Ev(QTextBlock *self) {
+  delete self;
+}
+
+//  QList<QTextBlock>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QTextBlock> *ritual_list_make_QTextBlock() {
+  return new QList<QTextBlock>();
+}
+
+//  void QList<QTextBlock>::append(const QTextBlock &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QTextBlock(
+    QList<QTextBlock> *self,
+    const QTextBlock *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QTextBlock>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QTextBlock(const QList<QTextBlock> *self) {
+  return self->size();
+}
+
+//  const QTextBlock &QList<QTextBlock>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QTextBlock *ritual_list_at_QTextBlock(
+    const QList<QTextBlock> *self,
+    long long index) {
+  return new QTextBlock(self->at(index));
+}
+
+//  QList<QTextBlock>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QTextBlock(QList<QTextBlock> *self) {
   delete self;
 }

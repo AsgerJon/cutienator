@@ -3,6 +3,8 @@
 #include <QtGui/qtextlayout.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
+#include <QtGui/qglyphrun.h>
+#include <QtCore/qlist.h>
 
 //  QTextLine::QTextLine()
 extern "C" Q_DECL_EXPORT
@@ -183,6 +185,30 @@ void ritual_ZNK9QTextLine4drawEP8QPainterRK7QPointF(
     QPainter *painter,
     const QPointF *position) {
   self->draw(painter, *position);
+}
+
+//  QList<QGlyphRun> QTextLine::glyphRuns(int from, int length,
+//      QTextLayout::GlyphRunRetrievalFlags flags) const
+extern "C" Q_DECL_EXPORT
+QList<QGlyphRun> *ritual_ZNK9QTextLine9glyphRunsEii6QFlagsIN11QTextLayout21GlyphRunRetrievalFlagEE(
+    const QTextLine *self,
+    int from,
+    int length,
+    int flags) {
+  return new QList<QGlyphRun>(
+      self->glyphRuns(
+          from,
+          length,
+          QFlags<QTextLayout::GlyphRunRetrievalFlag>::fromInt(flags)));
+}
+
+//  QList<QGlyphRun> QTextLine::glyphRuns(int from, int length) const
+extern "C" Q_DECL_EXPORT
+QList<QGlyphRun> *ritual_ZNK9QTextLine9glyphRunsEii(
+    const QTextLine *self,
+    int from,
+    int length) {
+  return new QList<QGlyphRun>(self->glyphRuns(from, length));
 }
 
 //  QTextLine::~QTextLine()

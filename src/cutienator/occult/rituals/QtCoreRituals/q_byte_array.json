@@ -107,6 +107,7 @@
     "ritual_ZN10QByteArraypLE14QByteArrayView": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK10QByteArray5splitEc": ["address", "address", "char"],
     "ritual_ZNK10QByteArray8repeatedEx": ["address", "address", "long long"],
     "ritual_ZNK10QByteArray7toShortEPbi": [
       "short", "address", "address", "int"
@@ -223,6 +224,23 @@
     "ritual_ZltRK5QCharRK10QByteArray": ["bool", "address", "address"],
     "ritual_ZgtRK5QCharRK10QByteArray": ["bool", "address", "address"],
     "ritual_ZleRK5QCharRK10QByteArray": ["bool", "address", "address"],
-    "ritual_ZgeRK5QCharRK10QByteArray": ["bool", "address", "address"]
+    "ritual_ZgeRK5QCharRK10QByteArray": ["bool", "address", "address"],
+    "ritual_list_make_QByteArray": ["address"],
+    "ritual_list_add_QByteArray": ["nothing", "address", "address"],
+    "ritual_list_size_QByteArray": ["long long", "address"],
+    "ritual_list_at_QByteArray": ["address", "address", "long long"],
+    "ritual_list_drop_QByteArray": ["nothing", "address"],
+    "ritual_map_make_QHash_int_QByteArray": ["address"],
+    "ritual_map_put_QHash_int_QByteArray": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_map_size_QHash_int_QByteArray": ["long long", "address"],
+    "ritual_map_key_QHash_int_QByteArray": ["int", "address", "long long"],
+    "ritual_map_value_QHash_int_QByteArray": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QHash_int_QByteArray": ["bool", "address", "int"],
+    "ritual_map_get_QHash_int_QByteArray": ["address", "address", "int"],
+    "ritual_map_drop_QHash_int_QByteArray": ["nothing", "address"]
   }
 }

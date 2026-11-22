@@ -10,6 +10,12 @@
     "ritual_ZN16QTextTableFormat10setColumnsEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN16QTextTableFormat25setColumnWidthConstraintsERK5QListI11QTextLengthE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QTextTableFormat22columnWidthConstraintsEv": [
+      "address", "address"
+    ],
     "ritual_ZN16QTextTableFormat27clearColumnWidthConstraintsEv": [
       "nothing", "address"
     ],

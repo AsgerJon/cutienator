@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteNum
 from ..occult import Rituals
-from . import QStringConverterBase
+from . import QStringConverterBase, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -32,15 +32,15 @@ class QStringConverter(QStringConverterBase):
   -----------
 
   Every function of Qt's QStringConverter that has a ritual and that Python
-  can call so far, 5 names in all: 'isValid', 'resetState', 'hasError',
-  'name', 'nameForEncoding'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  can call so far, 6 names in all: 'isValid', 'resetState', 'hasError',
+  'name', 'nameForEncoding', 'availableCodecs'. None can be made from Python:
+  one comes out of a function of another class that gives one back.
 
   What has no ritual
   ------------------
 
-  11 of the 16 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 5 protected.
+  10 of the 16 functions Qt declares: 5 protected; 5 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------
@@ -117,6 +117,24 @@ class QStringConverter(QStringConverterBase):
         e.value,
     )
     return None if chars is None else chars.decode()
+
+  @staticmethod
+  def availableCodecs() -> QStringList:
+    """
+    Calls Qt's 'QStringList QStringConverter::availableCodecs()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringconverter.html#availableCodecs
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QStringConverter::availableCodecs()
+    address = Rituals.call('ritual_ZN16QStringConverter15availableCodecsEv')
+    return QStringList._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

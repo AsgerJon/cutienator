@@ -3,9 +3,11 @@
 #include <QtWidgets/qmdiarea.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
+#include <QtWidgets/qmdisubwindow.h>
 #include <QtGui/qbrush.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QMdiArea may call these functions of it.
@@ -899,6 +901,14 @@ QMdiSubWindow *ritual_ZNK8QMdiArea16currentSubWindowEv(
 extern "C" Q_DECL_EXPORT
 QMdiSubWindow *ritual_ZNK8QMdiArea15activeSubWindowEv(const QMdiArea *self) {
   return self->activeSubWindow();
+}
+
+//  QList<QMdiSubWindow *> QMdiArea::subWindowList(WindowOrder order) const
+extern "C" Q_DECL_EXPORT
+QList<QMdiSubWindow *> *ritual_ZNK8QMdiArea13subWindowListENS_11WindowOrderE(
+    const QMdiArea *self,
+    QMdiArea::WindowOrder order) {
+  return new QList<QMdiSubWindow *>(self->subWindowList(order));
 }
 
 //  QMdiSubWindow *QMdiArea::addSubWindow(QWidget *widget, Qt::WindowFlags

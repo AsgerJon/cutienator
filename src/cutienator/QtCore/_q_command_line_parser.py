@@ -14,6 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -39,12 +40,14 @@ class QCommandLineParser(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCommandLineParser that has a ritual and that Python
-  can call so far, 17 names in all: 'tr', 'setSingleDashWordOptionMode',
-  'setOptionsAfterPositionalArgumentsMode', 'addOption', 'addVersionOption',
-  'addHelpOption', 'setApplicationDescription', 'applicationDescription',
-  'addPositionalArgument', 'clearPositionalArguments', 'errorText', 'isSet',
-  'value', 'showVersion', 'showHelp', 'helpText', 'showMessageAndExit'. It
-  can be made from Python, in 1 way; see '__init__'.
+  can call so far, 24 names in all: 'tr', 'setSingleDashWordOptionMode',
+  'setOptionsAfterPositionalArgumentsMode', 'addOption', 'addOptions',
+  'addVersionOption', 'addHelpOption', 'setApplicationDescription',
+  'applicationDescription', 'addPositionalArgument',
+  'clearPositionalArguments', 'process', 'parse', 'errorText', 'isSet',
+  'value', 'values', 'positionalArguments', 'optionNames',
+  'unknownOptionNames', 'showVersion', 'showHelp', 'helpText',
+  'showMessageAndExit'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -55,8 +58,8 @@ class QCommandLineParser(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  11 of the 32 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  3 of the 32 functions Qt declares: 2 forbidden; 1 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------
@@ -335,6 +338,118 @@ class QCommandLineParser(CuteMixin, metaclass=MetaCute):
         self._valueOf(option),
     )
 
+  @overload(str)
+  def values(self, name: str) -> QStringList:
+    """
+    Calls Qt's 'QStringList QCommandLineParser::values(const QString &name)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcommandlineparser.html#values
+
+    Parameters
+    ----------
+
+    name : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QCommandLineParser::values(const QString &name) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QCommandLineParser6valuesERK7QString', name,
+    )
+    return QStringList._cuteOwning(address)
+
+  @overload(QCommandLineOption)
+  def values(self, option: QCommandLineOption) -> QStringList:
+    """
+    Calls Qt's 'QStringList QCommandLineParser::values(const
+    QCommandLineOption &option) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcommandlineparser.html#values
+
+    Parameters
+    ----------
+
+    option : QCommandLineOption
+      Passed on as a value: Qt reads the C++ QCommandLineOption, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QCommandLineParser::values(const QCommandLineOption
+    #      &option) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QCommandLineParser6valuesERK18QCommandLineOption',
+        self._valueOf(option),
+    )
+    return QStringList._cuteOwning(address)
+
+  def positionalArguments(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QCommandLineParser::positionalArguments() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcommandlineparser.html#positionalArguments
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QCommandLineParser::positionalArguments() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QCommandLineParser19positionalArgumentsEv',
+    )
+    return QStringList._cuteOwning(address)
+
+  def optionNames(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QCommandLineParser::optionNames() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcommandlineparser.html#optionNames
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QCommandLineParser::optionNames() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QCommandLineParser11optionNamesEv',
+    )
+    return QStringList._cuteOwning(address)
+
+  def unknownOptionNames(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QCommandLineParser::unknownOptionNames() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcommandlineparser.html#unknownOptionNames
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QCommandLineParser::unknownOptionNames() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QCommandLineParser18unknownOptionNamesEv',
+    )
+    return QStringList._cuteOwning(address)
+
   def helpText(self) -> str:
     """
     Calls Qt's 'QString QCommandLineParser::helpText() const'.
@@ -500,6 +615,30 @@ class QCommandLineParser(CuteMixin, metaclass=MetaCute):
         self._valueOf(commandLineOption),
     )
 
+  @overload(QList[QCommandLineOption])
+  def addOptions(self, options: QList[QCommandLineOption]) -> bool:
+    """
+    Calls Qt's 'bool QCommandLineParser::addOptions(const
+    QList<QCommandLineOption> &options)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcommandlineparser.html#addOptions
+
+    Parameters
+    ----------
+
+    options : QList[QCommandLineOption]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  bool QCommandLineParser::addOptions(const QList<QCommandLineOption>
+    #      &options)
+    return self.uglySide.call(
+        'ritual_ZN18QCommandLineParser10addOptionsERK5QListI18QCommandLineO'
+        'ptionE',
+        self._valueOf(options),
+    )
+
   def addVersionOption(self) -> QCommandLineOption:
     """
     Calls Qt's 'QCommandLineOption QCommandLineParser::addVersionOption()'.
@@ -588,6 +727,50 @@ class QCommandLineParser(CuteMixin, metaclass=MetaCute):
     #  void QCommandLineParser::clearPositionalArguments()
     self.uglySide.call(
         'ritual_ZN18QCommandLineParser24clearPositionalArgumentsEv',
+    )
+
+  @overload(QStringList)
+  def process(self, arguments: QStringList) -> None:
+    """
+    Calls Qt's 'void QCommandLineParser::process(const QStringList
+    &arguments)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcommandlineparser.html#process
+
+    Parameters
+    ----------
+
+    arguments : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QCommandLineParser::process(const QStringList &arguments)
+    self.uglySide.call(
+        'ritual_ZN18QCommandLineParser7processERK5QListI7QStringE',
+        self._valueOf(arguments),
+    )
+
+  @overload(QStringList)
+  def parse(self, arguments: QStringList) -> bool:
+    """
+    Calls Qt's 'bool QCommandLineParser::parse(const QStringList
+    &arguments)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcommandlineparser.html#parse
+
+    Parameters
+    ----------
+
+    arguments : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  bool QCommandLineParser::parse(const QStringList &arguments)
+    return self.uglySide.call(
+        'ritual_ZN18QCommandLineParser5parseERK5QListI7QStringE',
+        self._valueOf(arguments),
     )
 
   def showVersion(self) -> None:

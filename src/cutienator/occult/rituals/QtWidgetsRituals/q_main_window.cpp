@@ -4,9 +4,11 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
+#include <QtWidgets/qdockwidget.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QMainWindow may call these functions of it.
@@ -1133,6 +1135,15 @@ void ritual_ZN11QMainWindow16tabifyDockWidgetEP11QDockWidgetS1_(
     QDockWidget *first,
     QDockWidget *second) {
   self->tabifyDockWidget(first, second);
+}
+
+//  QList<QDockWidget *> QMainWindow::tabifiedDockWidgets(QDockWidget
+//      *dockwidget) const
+extern "C" Q_DECL_EXPORT
+QList<QDockWidget *> *ritual_ZNK11QMainWindow19tabifiedDockWidgetsEP11QDockWidget(
+    const QMainWindow *self,
+    QDockWidget *dockwidget) {
+  return new QList<QDockWidget *>(self->tabifiedDockWidgets(dockwidget));
 }
 
 //  void QMainWindow::removeDockWidget(QDockWidget *dockwidget)

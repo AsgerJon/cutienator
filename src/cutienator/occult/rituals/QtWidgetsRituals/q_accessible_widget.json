@@ -32,8 +32,12 @@
     "ritual_ZNK17QAccessibleWidget15backgroundColorEv": [
       "address", "address"
     ],
+    "ritual_ZNK17QAccessibleWidget11actionNamesEv": ["address", "address"],
     "ritual_ZN17QAccessibleWidget8doActionERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QAccessibleWidget20keyBindingsForActionERK7QString": [
+      "address", "address", "text"
     ],
     "ritual_cast_QAccessibleWidget_QAccessibleActionInterface": [
       "address", "address"

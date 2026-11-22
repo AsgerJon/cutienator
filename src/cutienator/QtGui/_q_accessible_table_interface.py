@@ -12,6 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
+from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -37,12 +38,13 @@ class QAccessibleTableInterface(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QAccessibleTableInterface that has a ritual and that
-  Python can call so far, 17 names in all: 'caption', 'summary', 'cellAt',
-  'selectedCellCount', 'columnDescription', 'rowDescription',
-  'selectedColumnCount', 'selectedRowCount', 'columnCount', 'rowCount',
-  'isColumnSelected', 'isRowSelected', 'selectRow', 'selectColumn',
-  'unselectRow', 'unselectColumn', 'modelChange'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  Python can call so far, 18 names in all: 'caption', 'summary', 'cellAt',
+  'selectedCellCount', 'selectedCells', 'columnDescription',
+  'rowDescription', 'selectedColumnCount', 'selectedRowCount', 'columnCount',
+  'rowCount', 'isColumnSelected', 'isRowSelected', 'selectRow',
+  'selectColumn', 'unselectRow', 'unselectColumn', 'modelChange'. None can be
+  made from Python: one comes out of a function of another class that gives
+  one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -53,7 +55,7 @@ class QAccessibleTableInterface(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  8 of the 26 functions Qt declares: 4 forbidden; 3 takes or gives a type
+  7 of the 26 functions Qt declares: 4 forbidden; 2 takes or gives a type
   that cannot be passed yet; 1 the class is abstract, so C++ cannot make one.
 
   What to expect
@@ -319,6 +321,28 @@ class QAccessibleTableInterface(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK25QAccessibleTableInterface17selectedCellCountEv',
     )
+
+  def selectedCells(self) -> QList[QAccessibleInterface]:
+    """
+    Calls Qt's 'QList<QAccessibleInterface *>
+    QAccessibleTableInterface::selectedCells() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibletableinterface.html#selectedCells
+
+    Returns
+    -------
+
+    QList[QAccessibleInterface]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QAccessibleInterface *>
+    #      QAccessibleTableInterface::selectedCells() const
+    address = self.uglySide.call(
+        'ritual_ZNK25QAccessibleTableInterface13selectedCellsEv',
+    )
+    from . import QAccessibleInterface
+    return QList[QAccessibleInterface]._cuteOwning(address)
 
   @overload(int)
   def columnDescription(self, column: int) -> str:

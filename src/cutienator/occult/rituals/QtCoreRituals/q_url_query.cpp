@@ -4,6 +4,7 @@
 #include <QtCore/qurl.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qchar.h>
+#include <QtCore/qlist.h>
 
 //  QUrlQuery::QUrlQuery()
 extern "C" Q_DECL_EXPORT
@@ -138,6 +139,19 @@ QString *ritual_ZNK9QUrlQuery14queryItemValueERK7QString6QFlagsIN4QUrl25Componen
     int encoding) {
   return new QString(
       self->queryItemValue(
+          *key,
+          QFlags<QUrl::ComponentFormattingOption>::fromInt(encoding)));
+}
+
+//  QStringList QUrlQuery::allQueryItemValues(const QString &key,
+//      QUrl::ComponentFormattingOptions encoding) const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9QUrlQuery18allQueryItemValuesERK7QString6QFlagsIN4QUrl25ComponentFormattingOptionEE(
+    const QUrlQuery *self,
+    const QString *key,
+    int encoding) {
+  return new QList<QString>(
+      self->allQueryItemValues(
           *key,
           QFlags<QUrl::ComponentFormattingOption>::fromInt(encoding)));
 }

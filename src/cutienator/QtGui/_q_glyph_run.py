@@ -14,14 +14,16 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from ..QtCore import QRectF
+  from ..QtCore import QPointF, QRectF
   from . import QRawFont
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QPointF = WAIT['QPointF']
   QRawFont = WAIT['QRawFont']
   QRectF = WAIT['QRectF']
 
@@ -39,12 +41,12 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QGlyphRun that has a ritual and that Python can call
-  so far, 21 names in all: 'rawFont', 'setRawFont', 'clear', '__eq__',
-  '__ne__', 'setOverline', 'overline', 'setUnderline', 'underline',
-  'setStrikeOut', 'strikeOut', 'setRightToLeft', 'isRightToLeft', 'setFlag',
-  'setFlags', 'flags', 'setBoundingRect', 'boundingRect', 'setSourceString',
-  'sourceString', 'isEmpty'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  so far, 23 names in all: 'rawFont', 'setRawFont', 'positions',
+  'setPositions', 'clear', '__eq__', '__ne__', 'setOverline', 'overline',
+  'setUnderline', 'underline', 'setStrikeOut', 'strikeOut', 'setRightToLeft',
+  'isRightToLeft', 'setFlag', 'setFlags', 'flags', 'setBoundingRect',
+  'boundingRect', 'setSourceString', 'sourceString', 'isEmpty'. It can be
+  made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -55,7 +57,7 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  13 of the 37 functions Qt declares: 10 takes or gives a type that cannot be
+  11 of the 37 functions Qt declares: 8 takes or gives a type that cannot be
   passed yet; 3 private.
 
   What to expect
@@ -132,6 +134,23 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK9QGlyphRun7rawFontEv')
     from . import QRawFont
     return QRawFont._cuteOwning(address)
+
+  def positions(self) -> QList[QPointF]:
+    """
+    Calls Qt's 'QList<QPointF> QGlyphRun::positions() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qglyphrun.html#positions
+
+    Returns
+    -------
+
+    QList[QPointF]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QPointF> QGlyphRun::positions() const
+    address = self.uglySide.call('ritual_ZNK9QGlyphRun9positionsEv')
+    from ..QtCore import QPointF
+    return QList[QPointF]._cuteOwning(address)
 
   def overline(self) -> bool:
     """
@@ -249,6 +268,28 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN9QGlyphRun10setRawFontERK8QRawFont',
         self._valueOf(rawFont),
+    )
+
+  @overload(QList[QPointF])
+  def setPositions(self, positions: QList[QPointF]) -> None:
+    """
+    Calls Qt's 'void QGlyphRun::setPositions(const QList<QPointF>
+    &positions)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qglyphrun.html#setPositions
+
+    Parameters
+    ----------
+
+    positions : QList[QPointF]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QGlyphRun::setPositions(const QList<QPointF> &positions)
+    self.uglySide.call(
+        'ritual_ZN9QGlyphRun12setPositionsERK5QListI7QPointFE',
+        self._valueOf(positions),
     )
 
   @overload(bool)
@@ -525,3 +566,16 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
     """
     #  void QGlyphRun::clear()
     self.uglySide.call('ritual_ZN9QGlyphRun5clearEv')
+
+
+#  Qt's 'QList<QGlyphRun>': the list of QGlyphRun, which 'QList[QGlyphRun]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QGlyphRun.
+QList.createKind(
+    QGlyphRun, 'value',
+    make='ritual_list_make_QGlyphRun',
+    add='ritual_list_add_QGlyphRun',
+    size='ritual_list_size_QGlyphRun',
+    at='ritual_list_at_QGlyphRun',
+    drop='ritual_list_drop_QGlyphRun',
+)

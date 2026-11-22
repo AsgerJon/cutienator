@@ -14,6 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteNum, WAIT
 from ..occult import Rituals
+from ..QtCore import QStringList
 from . import QFont, QTextFormat
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -43,25 +44,27 @@ class QTextCharFormat(QTextFormat):
   -----------
 
   Every function of Qt's QTextCharFormat that has a ritual and that Python
-  can call so far, 64 names in all: 'isValid', 'setFont', 'font',
-  'setFontFamily', 'fontFamily', 'fontFamilies', 'setFontStyleName',
-  'fontStyleName', 'setFontPointSize', 'fontPointSize', 'setFontWeight',
-  'fontWeight', 'setFontItalic', 'fontItalic', 'setFontCapitalization',
-  'fontCapitalization', 'setFontLetterSpacingType', 'fontLetterSpacingType',
-  'setFontLetterSpacing', 'fontLetterSpacing', 'setFontWordSpacing',
-  'fontWordSpacing', 'setFontUnderline', 'fontUnderline', 'setFontOverline',
-  'fontOverline', 'setFontStrikeOut', 'fontStrikeOut', 'setUnderlineColor',
-  'underlineColor', 'setFontFixedPitch', 'fontFixedPitch', 'setFontStretch',
-  'fontStretch', 'setFontStyleHint', 'setFontStyleStrategy', 'fontStyleHint',
+  can call so far, 67 names in all: 'isValid', 'setFont', 'font',
+  'setFontFamily', 'fontFamily', 'setFontFamilies', 'fontFamilies',
+  'setFontStyleName', 'fontStyleName', 'setFontPointSize', 'fontPointSize',
+  'setFontWeight', 'fontWeight', 'setFontItalic', 'fontItalic',
+  'setFontCapitalization', 'fontCapitalization', 'setFontLetterSpacingType',
+  'fontLetterSpacingType', 'setFontLetterSpacing', 'fontLetterSpacing',
+  'setFontWordSpacing', 'fontWordSpacing', 'setFontUnderline',
+  'fontUnderline', 'setFontOverline', 'fontOverline', 'setFontStrikeOut',
+  'fontStrikeOut', 'setUnderlineColor', 'underlineColor',
+  'setFontFixedPitch', 'fontFixedPitch', 'setFontStretch', 'fontStretch',
+  'setFontStyleHint', 'setFontStyleStrategy', 'fontStyleHint',
   'fontStyleStrategy', 'setFontHintingPreference', 'fontHintingPreference',
   'setFontKerning', 'fontKerning', 'setUnderlineStyle', 'underlineStyle',
   'setVerticalAlignment', 'verticalAlignment', 'setTextOutline',
   'textOutline', 'setToolTip', 'toolTip', 'setSuperScriptBaseline',
   'superScriptBaseline', 'setSubScriptBaseline', 'subScriptBaseline',
   'setBaselineOffset', 'baselineOffset', 'setAnchor', 'isAnchor',
-  'setAnchorHref', 'anchorHref', 'setTableCellRowSpan', 'tableCellRowSpan',
-  'setTableCellColumnSpan', 'tableCellColumnSpan'. It can be made from
-  Python, in 1 way; see '__init__'.
+  'setAnchorHref', 'anchorHref', 'setAnchorNames', 'anchorNames',
+  'setTableCellRowSpan', 'tableCellRowSpan', 'setTableCellColumnSpan',
+  'tableCellColumnSpan'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -72,7 +75,7 @@ class QTextCharFormat(QTextFormat):
   What has no ritual
   ------------------
 
-  10 of the 76 functions Qt declares: 9 takes or gives a type that cannot be
+  7 of the 76 functions Qt declares: 6 takes or gives a type that cannot be
   passed yet; 1 protected.
 
   What to expect
@@ -604,6 +607,24 @@ class QTextCharFormat(QTextFormat):
     #  QString QTextCharFormat::anchorHref() const
     return self.uglySide.call('ritual_ZNK15QTextCharFormat10anchorHrefEv')
 
+  def anchorNames(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QTextCharFormat::anchorNames() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcharformat.html#anchorNames
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QTextCharFormat::anchorNames() const
+    address = self.uglySide.call(
+        'ritual_ZNK15QTextCharFormat11anchorNamesEv',
+    )
+    return QStringList._cuteOwning(address)
+
   def tableCellRowSpan(self) -> int:
     """
     Calls Qt's 'int QTextCharFormat::tableCellRowSpan() const'.
@@ -680,6 +701,29 @@ class QTextCharFormat(QTextFormat):
     #  void QTextCharFormat::setFontFamily(const QString &family)
     self.uglySide.call(
         'ritual_ZN15QTextCharFormat13setFontFamilyERK7QString', family,
+    )
+
+  @overload(QStringList)
+  def setFontFamilies(self, families: QStringList) -> None:
+    """
+    Calls Qt's 'void QTextCharFormat::setFontFamilies(const QStringList
+    &families)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamilies
+
+    Parameters
+    ----------
+
+    families : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QTextCharFormat::setFontFamilies(const QStringList &families)
+    self.uglySide.call(
+        'ritual_ZN15QTextCharFormat15setFontFamiliesERK5QListI7QStringE',
+        self._valueOf(families),
     )
 
   @overload(str)
@@ -1236,6 +1280,29 @@ class QTextCharFormat(QTextFormat):
     #  void QTextCharFormat::setAnchorHref(const QString &value)
     self.uglySide.call(
         'ritual_ZN15QTextCharFormat13setAnchorHrefERK7QString', value,
+    )
+
+  @overload(QStringList)
+  def setAnchorNames(self, names: QStringList) -> None:
+    """
+    Calls Qt's 'void QTextCharFormat::setAnchorNames(const QStringList
+    &names)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorNames
+
+    Parameters
+    ----------
+
+    names : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QTextCharFormat::setAnchorNames(const QStringList &names)
+    self.uglySide.call(
+        'ritual_ZN15QTextCharFormat14setAnchorNamesERK5QListI7QStringE',
+        self._valueOf(names),
     )
 
   @overload(int)

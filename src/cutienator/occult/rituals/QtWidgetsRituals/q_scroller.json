@@ -14,6 +14,7 @@
     ],
     "ritual_ZN9QScroller14grabbedGestureEP7QObject": ["int", "address"],
     "ritual_ZN9QScroller13ungrabGestureEP7QObject": ["nothing", "address"],
+    "ritual_ZN9QScroller15activeScrollersEv": ["address"],
     "ritual_ZNK9QScroller6targetEv": ["address", "address"],
     "ritual_ZNK9QScroller5stateEv": ["int", "address"],
     "ritual_ZN9QScroller11handleInputENS_5InputERK7QPointFx": [
@@ -45,6 +46,11 @@
     "ritual_ZN9QScroller13ensureVisibleERK6QRectFddi": [
       "nothing", "address", "address", "double", "double", "int"
     ],
-    "ritual_ZN9QScroller18resendPrepareEventEv": ["nothing", "address"]
+    "ritual_ZN9QScroller18resendPrepareEventEv": ["nothing", "address"],
+    "ritual_list_make_QScroller_ptr": ["address"],
+    "ritual_list_add_QScroller_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QScroller_ptr": ["long long", "address"],
+    "ritual_list_at_QScroller_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QScroller_ptr": ["nothing", "address"]
   }
 }

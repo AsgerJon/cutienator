@@ -2,6 +2,13 @@
 //  QtWidgets/qstylefactory.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qstylefactory.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
+
+//  QStringList QStyleFactory::keys()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN13QStyleFactory4keysEv() {
+  return new QList<QString>(QStyleFactory::keys());
+}
 
 //  QStyle *QStyleFactory::create(const QString &a0)
 extern "C" Q_DECL_EXPORT

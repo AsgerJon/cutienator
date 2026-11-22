@@ -26,6 +26,7 @@
     "ritual_ZN11QMessageBox4openEP7QObjectPKc": [
       "nothing", "address", "address", "chars"
     ],
+    "ritual_ZNK11QMessageBox7buttonsEv": ["address", "address"],
     "ritual_ZNK11QMessageBox10buttonRoleEP15QAbstractButton": [
       "int", "address", "address"
     ],

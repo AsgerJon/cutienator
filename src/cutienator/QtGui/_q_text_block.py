@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -903,3 +903,16 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
     """
     #  void QTextBlock::clearLayout()
     self.uglySide.call('ritual_ZN10QTextBlock11clearLayoutEv')
+
+
+#  Qt's 'QList<QTextBlock>': the list of QTextBlock, which
+#  'QList[QTextBlock]' gives. It is made here, so that there is one as soon
+#  as there can be a QTextBlock.
+QList.createKind(
+    QTextBlock, 'value',
+    make='ritual_list_make_QTextBlock',
+    add='ritual_list_add_QTextBlock',
+    size='ritual_list_size_QTextBlock',
+    at='ritual_list_at_QTextBlock',
+    drop='ritual_list_drop_QTextBlock',
+)

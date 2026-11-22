@@ -4,6 +4,7 @@
 #include <QtCore/qanystringview.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
+#include <QtCore/qlist.h>
 
 //  QRegularExpressionMatch::QRegularExpressionMatch()
 extern "C" Q_DECL_EXPORT
@@ -122,6 +123,13 @@ QString *ritual_ZNK23QRegularExpressionMatch12capturedViewE14QAnyStringView(
     const QRegularExpressionMatch *self,
     const QString *name) {
   return new QString(self->capturedView(QAnyStringView(*name)).toString());
+}
+
+//  QStringList QRegularExpressionMatch::capturedTexts() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK23QRegularExpressionMatch13capturedTextsEv(
+    const QRegularExpressionMatch *self) {
+  return new QList<QString>(self->capturedTexts());
 }
 
 //  qsizetype QRegularExpressionMatch::capturedStart(int nth) const

@@ -16,6 +16,7 @@
     "ritual_ZN13QGraphicsItem13setParentItemEPS_": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK13QGraphicsItem10childItemsEv": ["address", "address"],
     "ritual_ZNK13QGraphicsItem8isWidgetEv": ["bool", "address"],
     "ritual_ZNK13QGraphicsItem8isWindowEv": ["bool", "address"],
     "ritual_ZNK13QGraphicsItem7isPanelEv": ["bool", "address"],
@@ -153,6 +154,10 @@
     "ritual_ZNK13QGraphicsItem8rotationEv": ["double", "address"],
     "ritual_ZN13QGraphicsItem8setScaleEd": ["nothing", "address", "double"],
     "ritual_ZNK13QGraphicsItem5scaleEv": ["double", "address"],
+    "ritual_ZNK13QGraphicsItem15transformationsEv": ["address", "address"],
+    "ritual_ZN13QGraphicsItem18setTransformationsERK5QListIP18QGraphicsTransformE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK13QGraphicsItem20transformOriginPointEv": [
       "address", "address"
     ],
@@ -184,6 +189,9 @@
     ],
     "ritual_ZNK13QGraphicsItem16collidesWithPathERK12QPainterPathN2Qt17ItemSelectionModeE": [
       "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK13QGraphicsItem14collidingItemsEN2Qt17ItemSelectionModeE": [
+      "address", "address", "int"
     ],
     "ritual_ZNK13QGraphicsItem10isObscuredERK6QRectF": [
       "bool", "address", "address"
@@ -467,6 +475,11 @@
     ],
     "ritual_own_ZNK13QGraphicsItem9extensionERK8QVariant": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_list_make_QGraphicsItem_ptr": ["address"],
+    "ritual_list_add_QGraphicsItem_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QGraphicsItem_ptr": ["long long", "address"],
+    "ritual_list_at_QGraphicsItem_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QGraphicsItem_ptr": ["nothing", "address"]
   }
 }

@@ -15,6 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
+from ..QtCore import QList
 
 
 class QTextLength(CuteMixin, metaclass=MetaCute):
@@ -274,3 +275,16 @@ class QTextLength(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QTextLength>': the list of QTextLength, which
+#  'QList[QTextLength]' gives. It is made here, so that there is one as soon
+#  as there can be a QTextLength.
+QList.createKind(
+    QTextLength, 'value',
+    make='ritual_list_make_QTextLength',
+    add='ritual_list_add_QTextLength',
+    size='ritual_list_size_QTextLength',
+    at='ritual_list_at_QTextLength',
+    drop='ritual_list_drop_QTextLength',
+)

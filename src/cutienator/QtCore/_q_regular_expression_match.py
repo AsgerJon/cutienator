@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from . import QRegularExpression
+from . import QRegularExpression, QStringList
 
 
 class QRegularExpressionMatch(CuteMixin, metaclass=MetaCute):
@@ -30,11 +30,11 @@ class QRegularExpressionMatch(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRegularExpressionMatch that has a ritual and that
-  Python can call so far, 13 names in all: 'regularExpression', 'matchType',
+  Python can call so far, 14 names in all: 'regularExpression', 'matchType',
   'matchOptions', 'hasMatch', 'hasPartialMatch', 'isValid',
   'lastCapturedIndex', 'hasCaptured', 'captured', 'capturedView',
-  'capturedStart', 'capturedLength', 'capturedEnd'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  'capturedTexts', 'capturedStart', 'capturedLength', 'capturedEnd'. It can
+  be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -46,7 +46,7 @@ class QRegularExpressionMatch(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 28 functions Qt declares: 5 takes or gives a type that cannot be
+  5 of the 28 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -350,6 +350,25 @@ class QRegularExpressionMatch(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK23QRegularExpressionMatch12capturedViewE14QAnyStringView',
         name,
     )
+
+  def capturedTexts(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QRegularExpressionMatch::capturedTexts() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qregularexpressionmatch.html#capturedTexts
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QRegularExpressionMatch::capturedTexts() const
+    address = self.uglySide.call(
+        'ritual_ZNK23QRegularExpressionMatch13capturedTextsEv',
+    )
+    return QStringList._cuteOwning(address)
 
   @overload()
   @overload(int)

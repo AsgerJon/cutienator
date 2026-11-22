@@ -4,6 +4,7 @@
     "QtCore/qfactoryinterface.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
-    "ritual_ZN17QFactoryInterfaceD1Ev": ["nothing", "address"]
+    "ritual_ZN17QFactoryInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QFactoryInterface4keysEv": ["address", "address"]
   }
 }

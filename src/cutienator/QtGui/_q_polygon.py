@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QPoint, QRect
@@ -42,7 +42,7 @@ class QPolygon(CuteMixin, metaclass=MetaCute):
   Every function of Qt's QPolygon that has a ritual and that Python can call
   so far, 12 names in all: 'translate', 'translated', 'boundingRect',
   'point', 'setPoint', 'putPoints', 'containsPoint', 'united', 'intersected',
-  'subtracted', 'intersects', 'toPolygonF'. It can be made from Python, in 2
+  'subtracted', 'intersects', 'toPolygonF'. It can be made from Python, in 3
   ways; see '__init__'.
 
   What has a ritual and is left out, and why
@@ -58,7 +58,7 @@ class QPolygon(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  8 of the 28 functions Qt declares: 6 takes or gives a type that cannot be
+  7 of the 28 functions Qt declares: 5 takes or gives a type that cannot be
   passed yet; 2 takes any number of arguments.
 
   What to expect
@@ -407,6 +407,27 @@ class QPolygon(CuteMixin, metaclass=MetaCute):
     #  QPolygon::QPolygon()
     self._noteCreation(QPolygon, lambda: Rituals.call(
         'ritual_ZN8QPolygonC1Ev',
+    ))
+
+  @overload(QList[QPoint])
+  def __init__(self, v: QList[QPoint]) -> None:
+    """
+    Notes what was given, for Qt's 'QPolygon::QPolygon(const QList<QPoint>
+    &v)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpolygon.html#QPolygon
+
+    Parameters
+    ----------
+
+    v : QList[QPoint]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  QPolygon::QPolygon(const QList<QPoint> &v)
+    self._noteCreation(QPolygon, lambda: Rituals.call(
+        'ritual_ZN8QPolygonC1ERK5QListI6QPointE', self._valueOf(v),
     ))
 
   @overload(QRect)

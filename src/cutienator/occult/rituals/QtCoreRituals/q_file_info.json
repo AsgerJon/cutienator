@@ -81,6 +81,11 @@
     "ritual_ZN9QFileInfo10setCachingEb": ["nothing", "address", "bool"],
     "ritual_ZN9QFileInfo4statEv": ["nothing", "address"],
     "ritual_ZeqRK9QFileInfoS1_": ["bool", "address", "address"],
-    "ritual_ZneRK9QFileInfoS1_": ["bool", "address", "address"]
+    "ritual_ZneRK9QFileInfoS1_": ["bool", "address", "address"],
+    "ritual_list_make_QFileInfo": ["address"],
+    "ritual_list_add_QFileInfo": ["nothing", "address", "address"],
+    "ritual_list_size_QFileInfo": ["long long", "address"],
+    "ritual_list_at_QFileInfo": ["address", "address", "long long"],
+    "ritual_list_drop_QFileInfo": ["nothing", "address"]
   }
 }

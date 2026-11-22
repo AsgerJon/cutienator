@@ -13,12 +13,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QEvent, QMetaObject, QTimerEvent
+  from ..QtCore import QEvent, QKeyCombination, QMetaObject, QTimerEvent
   from ..QtGui import QFocusEvent, QKeyEvent, QKeySequence
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -26,6 +27,7 @@ else:
   #  see 'WAIT'.
   QEvent = WAIT['QEvent']
   QFocusEvent = WAIT['QFocusEvent']
+  QKeyCombination = WAIT['QKeyCombination']
   QKeyEvent = WAIT['QKeyEvent']
   QKeySequence = WAIT['QKeySequence']
   QTimerEvent = WAIT['QTimerEvent']
@@ -47,8 +49,9 @@ class QKeySequenceEdit(QWidget):
   -----------
 
   Every function of Qt's QKeySequenceEdit that has a ritual and that Python
-  can call so far, 14 names in all: 'metaObject', 'tr', 'keySequence',
+  can call so far, 16 names in all: 'metaObject', 'tr', 'keySequence',
   'maximumSequenceLength', 'setClearButtonEnabled', 'isClearButtonEnabled',
+  'setFinishingKeyCombinations', 'finishingKeyCombinations',
   'setKeySequence', 'clear', 'setMaximumSequenceLength', 'event',
   'keyPressEvent', 'keyReleaseEvent', 'timerEvent', 'focusOutEvent'. It can
   be made from Python, in 2 ways; see '__init__'.
@@ -62,8 +65,8 @@ class QKeySequenceEdit(QWidget):
   What has no ritual
   ------------------
 
-  13 of the 30 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 private; 2 a signal; 2 forbidden; 1 a template; 1 protected.
+  11 of the 30 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -216,6 +219,28 @@ class QKeySequenceEdit(QWidget):
         'ritual_ZNK16QKeySequenceEdit20isClearButtonEnabledEv',
     )
 
+  def finishingKeyCombinations(self) -> QList[QKeyCombination]:
+    """
+    Calls Qt's 'QList<QKeyCombination>
+    QKeySequenceEdit::finishingKeyCombinations() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qkeysequenceedit.html#finishingKeyCombinations
+
+    Returns
+    -------
+
+    QList[QKeyCombination]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QKeyCombination> QKeySequenceEdit::finishingKeyCombinations()
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK16QKeySequenceEdit24finishingKeyCombinationsEv',
+    )
+    from ..QtCore import QKeyCombination
+    return QList[QKeyCombination]._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -237,6 +262,34 @@ class QKeySequenceEdit(QWidget):
     #  void QKeySequenceEdit::setClearButtonEnabled(bool enable)
     self.uglySide.call(
         'ritual_ZN16QKeySequenceEdit21setClearButtonEnabledEb', enable,
+    )
+
+  @overload(QList[QKeyCombination])
+  def setFinishingKeyCombinations(
+      self,
+      finishingKeyCombinations: QList[QKeyCombination],
+  ) -> None:
+    """
+    Calls Qt's 'void QKeySequenceEdit::setFinishingKeyCombinations(const
+    QList<QKeyCombination> &finishingKeyCombinations)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qkeysequenceedit.html#setFinishingKeyCombinations
+
+    Parameters
+    ----------
+
+    finishingKeyCombinations : QList[QKeyCombination]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QKeySequenceEdit::setFinishingKeyCombinations(const
+    #      QList<QKeyCombination> &finishingKeyCombinations)
+    self.uglySide.call(
+        'ritual_ZN16QKeySequenceEdit27setFinishingKeyCombinationsERK5QListI'
+        '15QKeyCombinationE',
+        self._valueOf(finishingKeyCombinations),
     )
 
   @overload(QKeySequence)

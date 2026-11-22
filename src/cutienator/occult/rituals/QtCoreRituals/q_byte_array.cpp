@@ -3,6 +3,10 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qchar.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 
 //  QByteArray::QByteArray()
 extern "C" Q_DECL_EXPORT
@@ -448,6 +452,14 @@ void ritual_ZN10QByteArraypLE14QByteArrayView(
     QByteArray *self,
     const QByteArrayView *a) {
   self->operator+=(*a);
+}
+
+//  QList<QByteArray> QByteArray::split(char sep) const
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZNK10QByteArray5splitEc(
+    const QByteArray *self,
+    char sep) {
+  return new QList<QByteArray>(self->split(sep));
 }
 
 //  QByteArray QByteArray::repeated(qsizetype times) const
@@ -1040,4 +1052,98 @@ bool ritual_ZgeRK5QCharRK10QByteArray(
     const QChar *lhs,
     const QByteArray *rhs) {
   return operator>=(*lhs, *rhs);
+}
+
+//  QList<QByteArray>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_list_make_QByteArray() {
+  return new QList<QByteArray>();
+}
+
+//  void QList<QByteArray>::append(const QByteArray &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QByteArray(
+    QList<QByteArray> *self,
+    const QByteArray *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QByteArray>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QByteArray(const QList<QByteArray> *self) {
+  return self->size();
+}
+
+//  const QByteArray &QList<QByteArray>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_list_at_QByteArray(
+    const QList<QByteArray> *self,
+    long long index) {
+  return new QByteArray(self->at(index));
+}
+
+//  QList<QByteArray>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QByteArray(QList<QByteArray> *self) {
+  delete self;
+}
+
+//  QHash<int, QByteArray>: QHash<int, QByteArray>()
+extern "C" Q_DECL_EXPORT
+QHash<int, QByteArray> *ritual_map_make_QHash_int_QByteArray() {
+  return new QHash<int, QByteArray>();
+}
+
+//  QHash<int, QByteArray>: insert(const Key &key, const T &value)
+extern "C" Q_DECL_EXPORT
+void ritual_map_put_QHash_int_QByteArray(
+    QHash<int, QByteArray> *self,
+    int key,
+    const QByteArray *value) {
+  self->insert(key, *value);
+}
+
+//  QHash<int, QByteArray>: size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_map_size_QHash_int_QByteArray(
+    const QHash<int, QByteArray> *self) {
+  return self->size();
+}
+
+//  QHash<int, QByteArray>: the key at a place
+extern "C" Q_DECL_EXPORT
+int ritual_map_key_QHash_int_QByteArray(
+    const QHash<int, QByteArray> *self,
+    long long index) {
+  return *std::next(self->keyBegin(), index);
+}
+
+//  QHash<int, QByteArray>: the value at a place
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_map_value_QHash_int_QByteArray(
+    const QHash<int, QByteArray> *self,
+    long long index) {
+  return new QByteArray(*std::next(self->constBegin(), index));
+}
+
+//  QHash<int, QByteArray>: contains(const Key &key) const
+extern "C" Q_DECL_EXPORT
+bool ritual_map_has_QHash_int_QByteArray(
+    const QHash<int, QByteArray> *self,
+    int key) {
+  return self->contains(key);
+}
+
+//  QHash<int, QByteArray>: value(const Key &key) const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_map_get_QHash_int_QByteArray(
+    const QHash<int, QByteArray> *self,
+    int key) {
+  return new QByteArray(self->value(key));
+}
+
+//  QHash<int, QByteArray>: ~QHash()
+extern "C" Q_DECL_EXPORT
+void ritual_map_drop_QHash_int_QByteArray(QHash<int, QByteArray> *self) {
+  delete self;
 }

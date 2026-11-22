@@ -103,11 +103,23 @@
     "ritual_ZN4QUrl5toAceERK7QString6QFlagsINS_19AceProcessingOptionEE": [
       "address", "text", "int"
     ],
+    "ritual_ZN4QUrl12idnWhitelistEv": ["address"],
+    "ritual_ZN4QUrl14fromStringListERK5QListI7QStringENS_11ParsingModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN4QUrl15setIdnWhitelistERK5QListI7QStringE": [
+      "nothing", "address"
+    ],
     "ritual_ZeqRK4QUrlS1_": ["bool", "address", "address"],
     "ritual_ZneRK4QUrlS1_": ["bool", "address", "address"],
     "ritual_ZltRK4QUrlS1_": ["bool", "address", "address"],
     "ritual_ZgtRK4QUrlS1_": ["bool", "address", "address"],
     "ritual_ZleRK4QUrlS1_": ["bool", "address", "address"],
-    "ritual_ZgeRK4QUrlS1_": ["bool", "address", "address"]
+    "ritual_ZgeRK4QUrlS1_": ["bool", "address", "address"],
+    "ritual_list_make_QUrl": ["address"],
+    "ritual_list_add_QUrl": ["nothing", "address", "address"],
+    "ritual_list_size_QUrl": ["long long", "address"],
+    "ritual_list_at_QUrl": ["address", "address", "long long"],
+    "ritual_list_drop_QUrl": ["nothing", "address"]
   }
 }

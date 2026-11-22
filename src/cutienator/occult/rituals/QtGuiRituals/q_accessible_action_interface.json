@@ -8,6 +8,9 @@
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN26QAccessibleActionInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QAccessibleActionInterface11actionNamesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString": [
       "text", "address", "text"
     ],
@@ -16,6 +19,9 @@
     ],
     "ritual_ZN26QAccessibleActionInterface8doActionERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QAccessibleActionInterface20keyBindingsForActionERK7QString": [
+      "address", "address", "text"
     ],
     "ritual_ZN26QAccessibleActionInterface11pressActionEv": ["text"],
     "ritual_ZN26QAccessibleActionInterface14increaseActionEv": ["text"],

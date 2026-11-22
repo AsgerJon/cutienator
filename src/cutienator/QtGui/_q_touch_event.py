@@ -9,12 +9,27 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.dispatch import overload
+
+from ..cute import WAIT
+from ..occult import Rituals
+from ..QtCore import Qt, QEvent, QList
 from . import QEventPoint, QPointerEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QObject
+  from . import QPointingDevice
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QPointingDevice = WAIT['QPointingDevice']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QTouchEvent(QPointerEvent):
@@ -29,9 +44,9 @@ class QTouchEvent(QPointerEvent):
   -----------
 
   Every function of Qt's QTouchEvent that has a ritual and that Python can
-  call so far, 6 names in all: 'clone', 'target', 'touchPointStates',
-  'isBeginEvent', 'isUpdateEvent', 'isEndEvent'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  call so far, 7 names in all: 'clone', 'target', 'touchPointStates',
+  'touchPoints', 'isBeginEvent', 'isUpdateEvent', 'isEndEvent'. It can be
+  made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -42,8 +57,7 @@ class QTouchEvent(QPointerEvent):
   What has no ritual
   ------------------
 
-  7 of the 14 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 protected; 2 forbidden.
+  4 of the 14 functions Qt declares: 2 protected; 2 forbidden.
 
   What to expect
   --------------
@@ -142,6 +156,22 @@ class QTouchEvent(QPointerEvent):
         'ritual_ZNK11QTouchEvent16touchPointStatesEv',
     ))
 
+  def touchPoints(self) -> QList[QEventPoint]:
+    """
+    Calls Qt's 'const QList<QEventPoint> &QTouchEvent::touchPoints() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtouchevent.html#touchPoints
+
+    Returns
+    -------
+
+    QList[QEventPoint]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  const QList<QEventPoint> &QTouchEvent::touchPoints() const
+    address = self.uglySide.call('ritual_ZNK11QTouchEvent11touchPointsEv')
+    return QList[QEventPoint]._cuteOwning(address)
+
   def isBeginEvent(self) -> bool:
     """
     Calls Qt's 'bool QTouchEvent::isBeginEvent() const'.
@@ -193,6 +223,108 @@ class QTouchEvent(QPointerEvent):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(
+      QEvent.Type, QPointingDevice, Qt.KeyboardModifiers, QList[QEventPoint],
+  )
+  @overload(QEvent.Type, NoneType, Qt.KeyboardModifiers, QList[QEventPoint])
+  def __init__(
+      self,
+      eventType: QEvent.Type,
+      device: Optional[QPointingDevice],
+      modifiers: Qt.KeyboardModifiers,
+      touchPoints: QList[QEventPoint],
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QTouchEvent::QTouchEvent(QEvent::Type
+    eventType, const QPointingDevice *device, Qt::KeyboardModifiers
+    modifiers, const QList<QEventPoint> &touchPoints)', which is called at
+    the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtouchevent.html#QTouchEvent
+
+    Parameters
+    ----------
+
+    eventType : QEvent.Type
+      Passed on as its number.
+
+    device : Optional[QPointingDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    modifiers : Qt.KeyboardModifiers
+      Passed on as its number.
+
+    touchPoints : QList[QEventPoint]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  QTouchEvent::QTouchEvent(QEvent::Type eventType, const QPointingDevice
+    #      *device, Qt::KeyboardModifiers modifiers, const QList<QEventPoint>
+    #      &touchPoints)
+    self._noteCreation(QTouchEvent, lambda: Rituals.call(
+        'ritual_ZN11QTouchEventC1EN6QEvent4TypeEPK15QPointingDevice6QFlagsI'
+        'N2Qt16KeyboardModifierEERK5QListI11QEventPointE',
+        eventType.value, self._addressOf(device), modifiers.value,
+        self._valueOf(touchPoints),
+    ))
+
+  @overload(
+      QEvent.Type, QPointingDevice, Qt.KeyboardModifiers, QEventPoint.States,
+      QList[QEventPoint],
+  )
+  @overload(
+      QEvent.Type, NoneType, Qt.KeyboardModifiers, QEventPoint.States,
+      QList[QEventPoint],
+  )
+  def __init__(
+      self,
+      eventType: QEvent.Type,
+      device: Optional[QPointingDevice],
+      modifiers: Qt.KeyboardModifiers,
+      touchPointStates: QEventPoint.States,
+      touchPoints: QList[QEventPoint],
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QTouchEvent::QTouchEvent(QEvent::Type
+    eventType, const QPointingDevice *device, Qt::KeyboardModifiers
+    modifiers, QEventPoint::States touchPointStates, const QList<QEventPoint>
+    &touchPoints)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtouchevent.html#QTouchEvent
+
+    Parameters
+    ----------
+
+    eventType : QEvent.Type
+      Passed on as its number.
+
+    device : Optional[QPointingDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    modifiers : Qt.KeyboardModifiers
+      Passed on as its number.
+
+    touchPointStates : QEventPoint.States
+      Passed on as its number.
+
+    touchPoints : QList[QEventPoint]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  QTouchEvent::QTouchEvent(QEvent::Type eventType, const QPointingDevice
+    #      *device, Qt::KeyboardModifiers modifiers, QEventPoint::States
+    #      touchPointStates, const QList<QEventPoint> &touchPoints)
+    self._noteCreation(QTouchEvent, lambda: Rituals.call(
+        'ritual_ZN11QTouchEventC1EN6QEvent4TypeEPK15QPointingDevice6QFlagsI'
+        'N2Qt16KeyboardModifierEES5_IN11QEventPoint5StateEERK5QListIS9_E',
+        eventType.value, self._addressOf(device), modifiers.value,
+        touchPointStates.value, self._valueOf(touchPoints),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

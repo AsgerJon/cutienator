@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
+from . import QList, QStringList
 
 
 class QMimeType(CuteMixin, metaclass=MetaCute):
@@ -29,8 +30,9 @@ class QMimeType(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMimeType that has a ritual and that Python can call
-  so far, 11 names in all: 'isValid', 'isDefault', 'name', 'comment',
-  'genericIconName', 'iconName', 'preferredSuffix', 'inherits',
+  so far, 16 names in all: 'isValid', 'isDefault', 'name', 'comment',
+  'genericIconName', 'iconName', 'globPatterns', 'parentMimeTypes',
+  'allAncestors', 'aliases', 'suffixes', 'preferredSuffix', 'inherits',
   'filterString', '__eq__', '__ne__'. It can be made from Python, in 2 ways;
   see '__init__'.
 
@@ -43,7 +45,7 @@ class QMimeType(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  12 of the 26 functions Qt declares: 9 takes or gives a type that cannot be
+  7 of the 26 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 1 declared and nowhere to be found; 1 a template; 1 private.
 
   What to expect
@@ -164,6 +166,86 @@ class QMimeType(CuteMixin, metaclass=MetaCute):
     """
     #  QString QMimeType::iconName() const
     return self.uglySide.call('ritual_ZNK9QMimeType8iconNameEv')
+
+  def globPatterns(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QMimeType::globPatterns() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#globPatterns
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QMimeType::globPatterns() const
+    address = self.uglySide.call('ritual_ZNK9QMimeType12globPatternsEv')
+    return QStringList._cuteOwning(address)
+
+  def parentMimeTypes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QMimeType::parentMimeTypes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#parentMimeTypes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QMimeType::parentMimeTypes() const
+    address = self.uglySide.call('ritual_ZNK9QMimeType15parentMimeTypesEv')
+    return QStringList._cuteOwning(address)
+
+  def allAncestors(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QMimeType::allAncestors() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#allAncestors
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QMimeType::allAncestors() const
+    address = self.uglySide.call('ritual_ZNK9QMimeType12allAncestorsEv')
+    return QStringList._cuteOwning(address)
+
+  def aliases(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QMimeType::aliases() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#aliases
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QMimeType::aliases() const
+    address = self.uglySide.call('ritual_ZNK9QMimeType7aliasesEv')
+    return QStringList._cuteOwning(address)
+
+  def suffixes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QMimeType::suffixes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#suffixes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QMimeType::suffixes() const
+    address = self.uglySide.call('ritual_ZNK9QMimeType8suffixesEv')
+    return QStringList._cuteOwning(address)
 
   def preferredSuffix(self) -> str:
     """
@@ -339,3 +421,16 @@ class QMimeType(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QMimeType>': the list of QMimeType, which 'QList[QMimeType]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QMimeType.
+QList.createKind(
+    QMimeType, 'value',
+    make='ritual_list_make_QMimeType',
+    add='ritual_list_add_QMimeType',
+    size='ritual_list_size_QMimeType',
+    at='ritual_list_at_QMimeType',
+    drop='ritual_list_drop_QMimeType',
+)

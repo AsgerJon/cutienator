@@ -3,6 +3,7 @@
 #include <QtCore/qlibraryinfo.h>
 #include <QtCore/qversionnumber.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 
 //  const char *QLibraryInfo::build()
 extern "C" Q_DECL_EXPORT
@@ -35,11 +36,28 @@ QString *ritual_ZN12QLibraryInfo4pathENS_11LibraryPathE(
   return new QString(QLibraryInfo::path(p));
 }
 
+//  QStringList QLibraryInfo::paths(LibraryPath p)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN12QLibraryInfo5pathsENS_11LibraryPathE(
+    QLibraryInfo::LibraryPath p) {
+  return new QList<QString>(QLibraryInfo::paths(p));
+}
+
 //  QString QLibraryInfo::location(LibraryLocation location)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QLibraryInfo8locationENS_11LibraryPathE(
     QLibraryInfo::LibraryLocation location) {
   return new QString(QLibraryInfo::location(location));
+}
+
+//  QStringList QLibraryInfo::platformPluginArguments(const QString
+//      &platformName)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN12QLibraryInfo23platformPluginArgumentsERK7QString(
+    const QString *platformName) {
+  return new QList<QString>(
+      QLibraryInfo::platformPluginArguments(
+          *platformName));
 }
 
 //  QLibraryInfo::~QLibraryInfo()

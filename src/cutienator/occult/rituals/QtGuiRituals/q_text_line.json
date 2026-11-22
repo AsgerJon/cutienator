@@ -45,6 +45,12 @@
     "ritual_ZNK9QTextLine4drawEP8QPainterRK7QPointF": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZNK9QTextLine9glyphRunsEii6QFlagsIN11QTextLayout21GlyphRunRetrievalFlagEE": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK9QTextLine9glyphRunsEii": [
+      "address", "address", "int", "int"
+    ],
     "ritual_ZN9QTextLineD1Ev": ["nothing", "address"]
   }
 }

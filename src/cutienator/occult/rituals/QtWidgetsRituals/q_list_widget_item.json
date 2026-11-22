@@ -88,6 +88,13 @@
     "ritual_own_ZNK15QListWidgetItem4dataEi": ["address", "address", "int"],
     "ritual_own_ZN15QListWidgetItem7setDataEiRK8QVariant": [
       "nothing", "address", "int", "address"
-    ]
+    ],
+    "ritual_list_make_QListWidgetItem_ptr": ["address"],
+    "ritual_list_add_QListWidgetItem_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QListWidgetItem_ptr": ["long long", "address"],
+    "ritual_list_at_QListWidgetItem_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QListWidgetItem_ptr": ["nothing", "address"]
   }
 }

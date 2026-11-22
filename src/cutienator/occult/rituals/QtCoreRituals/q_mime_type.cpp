@@ -2,6 +2,7 @@
 //  QtCore/qmimetype.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qmimetype.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 
 //  QMimeType::QMimeType()
 extern "C" Q_DECL_EXPORT
@@ -57,6 +58,37 @@ QString *ritual_ZNK9QMimeType8iconNameEv(const QMimeType *self) {
   return new QString(self->iconName());
 }
 
+//  QStringList QMimeType::globPatterns() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9QMimeType12globPatternsEv(const QMimeType *self) {
+  return new QList<QString>(self->globPatterns());
+}
+
+//  QStringList QMimeType::parentMimeTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9QMimeType15parentMimeTypesEv(
+    const QMimeType *self) {
+  return new QList<QString>(self->parentMimeTypes());
+}
+
+//  QStringList QMimeType::allAncestors() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9QMimeType12allAncestorsEv(const QMimeType *self) {
+  return new QList<QString>(self->allAncestors());
+}
+
+//  QStringList QMimeType::aliases() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9QMimeType7aliasesEv(const QMimeType *self) {
+  return new QList<QString>(self->aliases());
+}
+
+//  QStringList QMimeType::suffixes() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9QMimeType8suffixesEv(const QMimeType *self) {
+  return new QList<QString>(self->suffixes());
+}
+
 //  QString QMimeType::preferredSuffix() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK9QMimeType15preferredSuffixEv(const QMimeType *self) {
@@ -87,4 +119,38 @@ bool ritual_ZeqRK9QMimeTypeS1_(const QMimeType *lhs, const QMimeType *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK9QMimeTypeS1_(const QMimeType *lhs, const QMimeType *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  QList<QMimeType>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QMimeType> *ritual_list_make_QMimeType() {
+  return new QList<QMimeType>();
+}
+
+//  void QList<QMimeType>::append(const QMimeType &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QMimeType(
+    QList<QMimeType> *self,
+    const QMimeType *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QMimeType>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QMimeType(const QList<QMimeType> *self) {
+  return self->size();
+}
+
+//  const QMimeType &QList<QMimeType>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QMimeType *ritual_list_at_QMimeType(
+    const QList<QMimeType> *self,
+    long long index) {
+  return new QMimeType(self->at(index));
+}
+
+//  QList<QMimeType>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QMimeType(QList<QMimeType> *self) {
+  delete self;
 }

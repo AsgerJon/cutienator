@@ -5,6 +5,7 @@
 #include <QtCore/qpoint.h>
 #include <QtWidgets/qscrollerproperties.h>
 #include <QtCore/qrect.h>
+#include <QtCore/qlist.h>
 
 //  const QMetaObject *QScroller::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -61,6 +62,12 @@ Qt::GestureType ritual_ZN9QScroller14grabbedGestureEP7QObject(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QScroller13ungrabGestureEP7QObject(QObject *target) {
   QScroller::ungrabGesture(target);
+}
+
+//  QList<QScroller *> QScroller::activeScrollers()
+extern "C" Q_DECL_EXPORT
+QList<QScroller *> *ritual_ZN9QScroller15activeScrollersEv() {
+  return new QList<QScroller *>(QScroller::activeScrollers());
 }
 
 //  QObject *QScroller::target() const
@@ -187,4 +194,38 @@ void ritual_ZN9QScroller13ensureVisibleERK6QRectFddi(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QScroller18resendPrepareEventEv(QScroller *self) {
   self->resendPrepareEvent();
+}
+
+//  QList<QScroller *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QScroller *> *ritual_list_make_QScroller_ptr() {
+  return new QList<QScroller *>();
+}
+
+//  void QList<QScroller *>::append(const QScroller * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QScroller_ptr(
+    QList<QScroller *> *self,
+    QScroller *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QScroller *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QScroller_ptr(const QList<QScroller *> *self) {
+  return self->size();
+}
+
+//  const QScroller * &QList<QScroller *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QScroller *ritual_list_at_QScroller_ptr(
+    const QList<QScroller *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QScroller *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QScroller_ptr(QList<QScroller *> *self) {
+  delete self;
 }

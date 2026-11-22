@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, MetaCute, WAIT
 from ..occult import Rituals
-from . import QFileDevice
+from . import QFileDevice, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QDateTime, QFileInfo, QTimeZone
@@ -29,8 +29,9 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QDirListing that has a ritual and that Python can
-  call so far, 5 names in all: 'iteratorPath', 'iteratorFlags', 'end',
-  'cend', 'constEnd'. It can be made from Python, in 1 way; see '__init__'.
+  call so far, 6 names in all: 'iteratorPath', 'iteratorFlags',
+  'nameFilters', 'end', 'cend', 'constEnd'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -41,7 +42,7 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  14 of the 21 functions Qt declares: 8 takes or gives a type that cannot be
+  12 of the 21 functions Qt declares: 6 takes or gives a type that cannot be
   passed yet; 2 private; 2 forbidden; 1 declared and nowhere to be found; 1 a
   template.
 
@@ -991,6 +992,22 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK11QDirListing13iteratorFlagsEv',
     ))
 
+  def nameFilters(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QDirListing::nameFilters() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdirlisting.html#nameFilters
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QDirListing::nameFilters() const
+    address = self.uglySide.call('ritual_ZNK11QDirListing11nameFiltersEv')
+    return QStringList._cuteOwning(address)
+
   def end(self) -> sentinel:
     """
     Calls Qt's 'sentinel QDirListing::end() const'.
@@ -1085,6 +1102,44 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
     self._noteCreation(QDirListing, lambda: Rituals.call(
         'ritual_ZN11QDirListingC1ERK7QString6QFlagsINS_12IteratorFlagEE',
         path, flags.value,
+    ))
+
+  @overload(str, QStringList)
+  @overload(str, QStringList, IteratorFlags)
+  def __init__(
+      self,
+      path: str,
+      nameFilters: QStringList,
+      flags: IteratorFlags = IteratorFlags.Default,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QDirListing::QDirListing(const QString
+    &path, const QStringList &nameFilters, IteratorFlags flags)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdirlisting.html#QDirListing
+
+    Parameters
+    ----------
+
+    path : str
+      Passed on as it is: a QString is made of it for the call.
+
+    nameFilters : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    flags : IteratorFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      IteratorFlags.Default.
+    """
+    #  QDirListing::QDirListing(const QString &path, const QStringList
+    #      &nameFilters, IteratorFlags flags)
+    self._noteCreation(QDirListing, lambda: Rituals.call(
+        'ritual_ZN11QDirListingC1ERK7QStringRK5QListIS0_E6QFlagsINS_12Itera'
+        'torFlagEE',
+        path, self._valueOf(nameFilters), flags.value,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

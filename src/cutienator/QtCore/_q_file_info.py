@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QFileDevice
+from . import QFileDevice, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QDateTime, QDir, QTimeZone
@@ -1065,3 +1065,17 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
     """
     #  void QFileInfo::stat()
     self.uglySide.call('ritual_ZN9QFileInfo4statEv')
+
+
+#  Qt's 'QList<QFileInfo>': the list of QFileInfo, which 'QList[QFileInfo]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QFileInfo. Qt has a name of its own for it.
+QFileInfoList = QList.createKind(
+    QFileInfo, 'value',
+    name='QFileInfoList',
+    make='ritual_list_make_QFileInfo',
+    add='ritual_list_add_QFileInfo',
+    size='ritual_list_size_QFileInfo',
+    at='ritual_list_at_QFileInfo',
+    drop='ritual_list_drop_QFileInfo',
+)

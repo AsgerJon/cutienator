@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import Qt, QAbstractListModel, QObject
+from . import Qt, QAbstractListModel, QMap, QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -43,15 +43,16 @@ class QStringListModel(QAbstractListModel):
   -----------
 
   Every function of Qt's QStringListModel that has a ritual and that Python
-  can call so far, 13 names in all: 'metaObject', 'tr', 'rowCount',
+  can call so far, 17 names in all: 'metaObject', 'tr', 'rowCount',
   'sibling', 'data', 'setData', 'clearItemData', 'flags', 'insertRows',
-  'removeRows', 'moveRows', 'sort', 'supportedDropActions'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'removeRows', 'moveRows', 'itemData', 'setItemData', 'sort', 'stringList',
+  'setStringList', 'supportedDropActions'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has no ritual
   ------------------
 
-  11 of the 25 functions Qt declares: 7 takes or gives a type that cannot be
+  6 of the 25 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 a template; 1 private.
 
   What to expect
@@ -280,6 +281,54 @@ class QStringListModel(QAbstractListModel):
       ritual = 'ritual_own_ZNK16QStringListModel5flagsERK11QModelIndex'
     return Qt.ItemFlags(self.uglySide.call(ritual, self._valueOf(index)))
 
+  @overload(QModelIndex)
+  def itemData(self, index: QModelIndex) -> QMap[int, QVariant]:
+    """
+    Calls Qt's 'QMap<int, QVariant> QStringListModel::itemData(const
+    QModelIndex &index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstringlistmodel.html#itemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QMap[int, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QMap<int, QVariant> QStringListModel::itemData(const QModelIndex
+    #      &index) const
+    address = self.uglySide.call(
+        'ritual_ZNK16QStringListModel8itemDataERK11QModelIndex',
+        self._valueOf(index),
+    )
+    from . import QVariant
+    return QMap[int, QVariant]._cuteOwning(address)
+
+  def stringList(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QStringListModel::stringList() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstringlistmodel.html#stringList
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QStringListModel::stringList() const
+    address = self.uglySide.call(
+        'ritual_ZNK16QStringListModel10stringListEv',
+    )
+    return QStringList._cuteOwning(address)
+
   def supportedDropActions(self) -> Qt.DropActions:
     """
     Calls Qt's 'Qt::DropActions QStringListModel::supportedDropActions()
@@ -344,6 +393,61 @@ class QStringListModel(QAbstractListModel):
         ritual, self._valueOf(index), self._valueOf(value), role,
     )
 
+  @overload(QModelIndex, QMap[int, QVariant])
+  def setItemData(
+      self,
+      index: QModelIndex,
+      roles: QMap[int, QVariant],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QStringListModel::setItemData(const QModelIndex &index,
+    const QMap<int, QVariant> &roles)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstringlistmodel.html#setItemData
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    roles : QMap[int, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  bool QStringListModel::setItemData(const QModelIndex &index, const
+    #      QMap<int, QVariant> &roles)
+    return self.uglySide.call(
+        'ritual_ZN16QStringListModel11setItemDataERK11QModelIndexRK4QMapIi8'
+        'QVariantE',
+        self._valueOf(index), self._valueOf(roles),
+    )
+
+  @overload(QStringList)
+  def setStringList(self, strings: QStringList) -> None:
+    """
+    Calls Qt's 'void QStringListModel::setStringList(const QStringList
+    &strings)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringlistmodel.html#setStringList
+
+    Parameters
+    ----------
+
+    strings : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QStringListModel::setStringList(const QStringList &strings)
+    self.uglySide.call(
+        'ritual_ZN16QStringListModel13setStringListERK5QListI7QStringE',
+        self._valueOf(strings),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -378,6 +482,41 @@ class QStringListModel(QAbstractListModel):
     #  QStringListModel::QStringListModel(QObject *parent)
     self._noteCreation(QStringListModel, lambda: Rituals.call(
         'ritual_ZN16QStringListModelC1EP7QObject', self._addressOf(parent),
+    ))
+
+  @overload(QStringList)
+  @overload(QStringList, QObject)
+  @overload(QStringList, NoneType)
+  def __init__(
+      self,
+      strings: QStringList,
+      parent: Optional[QObject] = None,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QStringListModel::QStringListModel(const
+    QStringList &strings, QObject *parent)', which is called at the first
+    use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringlistmodel.html#QStringListModel
+
+    Parameters
+    ----------
+
+    strings : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QStringListModel::QStringListModel(const QStringList &strings, QObject
+    #      *parent)
+    self._noteCreation(QStringListModel, lambda: Rituals.call(
+        'ritual_ZN16QStringListModelC1ERK5QListI7QStringEP7QObject',
+        self._valueOf(strings), self._addressOf(parent),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

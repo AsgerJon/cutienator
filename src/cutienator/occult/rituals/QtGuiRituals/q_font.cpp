@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/qlist.h>
 
 //  QFont::QFont()
 extern "C" Q_DECL_EXPORT
@@ -20,6 +21,17 @@ QFont *ritual_ZN5QFontC1ERK7QStringiib(
     int weight,
     bool italic) {
   return new QFont(*family, pointSize, weight, italic);
+}
+
+//  QFont::QFont(const QStringList &families, int pointSize, int weight, bool
+//      italic)
+extern "C" Q_DECL_EXPORT
+QFont *ritual_ZN5QFontC1ERK5QListI7QStringEiib(
+    const QList<QString> *families,
+    int pointSize,
+    int weight,
+    bool italic) {
+  return new QFont(*families, pointSize, weight, italic);
 }
 
 //  QFont::QFont(const QFont &font, const QPaintDevice *pd)
@@ -52,6 +64,20 @@ QString *ritual_ZNK5QFont6familyEv(const QFont *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QFont9setFamilyERK7QString(QFont *self, const QString *a0) {
   self->setFamily(*a0);
+}
+
+//  QStringList QFont::families() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK5QFont8familiesEv(const QFont *self) {
+  return new QList<QString>(self->families());
+}
+
+//  void QFont::setFamilies(const QStringList &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QFont11setFamiliesERK5QListI7QStringE(
+    QFont *self,
+    const QList<QString> *a0) {
+  self->setFamilies(*a0);
 }
 
 //  QString QFont::styleName() const
@@ -455,12 +481,32 @@ QString *ritual_ZN5QFont10substituteERK7QString(const QString *a0) {
   return new QString(QFont::substitute(*a0));
 }
 
+//  QStringList QFont::substitutes(const QString &a0)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN5QFont11substitutesERK7QString(const QString *a0) {
+  return new QList<QString>(QFont::substitutes(*a0));
+}
+
+//  QStringList QFont::substitutions()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN5QFont13substitutionsEv() {
+  return new QList<QString>(QFont::substitutions());
+}
+
 //  void QFont::insertSubstitution(const QString &a0, const QString &a1)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QFont18insertSubstitutionERK7QStringS2_(
     const QString *a0,
     const QString *a1) {
   QFont::insertSubstitution(*a0, *a1);
+}
+
+//  void QFont::insertSubstitutions(const QString &a0, const QStringList &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QFont19insertSubstitutionsERK7QStringRK5QListIS0_E(
+    const QString *a0,
+    const QList<QString> *a1) {
+  QFont::insertSubstitutions(*a0, *a1);
 }
 
 //  void QFont::removeSubstitutions(const QString &a0)

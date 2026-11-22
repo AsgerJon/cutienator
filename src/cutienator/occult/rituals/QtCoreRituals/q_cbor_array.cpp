@@ -2,7 +2,10 @@
 //  QtCore/qcborarray.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qcborarray.h>
 #include <QtCore/qcborvalue.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qjsonarray.h>
+#include <QtCore/qlist.h>
 
 //  QCborArray::QCborArray()
 extern "C" Q_DECL_EXPORT
@@ -233,11 +236,32 @@ void ritual_ZN10QCborArraypLERK10QCborValue(
   self->operator+=(*v);
 }
 
+//  QCborArray QCborArray::fromStringList(const QStringList &list)
+extern "C" Q_DECL_EXPORT
+QCborArray *ritual_ZN10QCborArray14fromStringListERK5QListI7QStringE(
+    const QList<QString> *list) {
+  return new QCborArray(QCborArray::fromStringList(*list));
+}
+
+//  QCborArray QCborArray::fromVariantList(const QVariantList &list)
+extern "C" Q_DECL_EXPORT
+QCborArray *ritual_ZN10QCborArray15fromVariantListERK5QListI8QVariantE(
+    const QList<QVariant> *list) {
+  return new QCborArray(QCborArray::fromVariantList(*list));
+}
+
 //  QCborArray QCborArray::fromJsonArray(const QJsonArray &array)
 extern "C" Q_DECL_EXPORT
 QCborArray *ritual_ZN10QCborArray13fromJsonArrayERK10QJsonArray(
     const QJsonArray *array) {
   return new QCborArray(QCborArray::fromJsonArray(*array));
+}
+
+//  QVariantList QCborArray::toVariantList() const
+extern "C" Q_DECL_EXPORT
+QList<QVariant> *ritual_ZNK10QCborArray13toVariantListEv(
+    const QCborArray *self) {
+  return new QList<QVariant>(self->toVariantList());
 }
 
 //  QJsonArray QCborArray::toJsonArray() const

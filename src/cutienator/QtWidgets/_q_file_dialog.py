@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QDir, QObject
+from ..QtCore import Qt, QDir, QList, QObject, QStringList
 from . import QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -52,17 +52,21 @@ class QFileDialog(QDialog):
   -----------
 
   Every function of Qt's QFileDialog that has a ritual and that Python can
-  call so far, 44 names in all: 'metaObject', 'tr', 'setDirectory',
-  'directory', 'setDirectoryUrl', 'directoryUrl', 'selectFile', 'selectUrl',
-  'setNameFilter', 'selectNameFilter', 'selectedMimeTypeFilter',
-  'selectedNameFilter', 'selectMimeTypeFilter', 'filter', 'setFilter',
+  call so far, 57 names in all: 'metaObject', 'tr', 'setDirectory',
+  'directory', 'setDirectoryUrl', 'directoryUrl', 'selectFile',
+  'selectedFiles', 'selectUrl', 'selectedUrls', 'setNameFilter',
+  'setNameFilters', 'nameFilters', 'selectNameFilter',
+  'selectedMimeTypeFilter', 'selectedNameFilter', 'setMimeTypeFilters',
+  'mimeTypeFilters', 'selectMimeTypeFilter', 'filter', 'setFilter',
   'setViewMode', 'viewMode', 'setFileMode', 'fileMode', 'setAcceptMode',
-  'acceptMode', 'saveState', 'restoreState', 'setDefaultSuffix',
-  'defaultSuffix', 'setItemDelegate', 'itemDelegate', 'setIconProvider',
-  'iconProvider', 'setLabelText', 'labelText', 'setProxyModel', 'proxyModel',
-  'setOption', 'testOption', 'setOptions', 'options', 'open', 'setVisible',
-  'getExistingDirectory', 'saveFileContent', 'done', 'accept', 'changeEvent'.
-  It can be made from Python, in 2 ways; see '__init__'.
+  'acceptMode', 'setSidebarUrls', 'sidebarUrls', 'saveState', 'restoreState',
+  'setDefaultSuffix', 'defaultSuffix', 'setHistory', 'history',
+  'setItemDelegate', 'itemDelegate', 'setIconProvider', 'iconProvider',
+  'setLabelText', 'labelText', 'setSupportedSchemes', 'supportedSchemes',
+  'setProxyModel', 'proxyModel', 'setOption', 'testOption', 'setOptions',
+  'options', 'open', 'setVisible', 'getExistingDirectory',
+  'getExistingDirectoryUrl', 'saveFileContent', 'done', 'accept',
+  'changeEvent'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -73,16 +77,33 @@ class QFileDialog(QDialog):
     &caption, const QString &dir, const QString &filter, QString
     *selectedFilter, Options options)': names 'QString', which has no cute
     class yet.
+  - Qt's 'QUrl QFileDialog::getOpenFileUrl(QWidget *parent, const QString
+    &caption, const QUrl &dir, const QString &filter, QString
+    *selectedFilter, Options options, const QStringList &supportedSchemes)':
+    names 'QString', which has no cute class yet.
   - Qt's 'QString QFileDialog::getSaveFileName(QWidget *parent, const QString
     &caption, const QString &dir, const QString &filter, QString
     *selectedFilter, Options options)': names 'QString', which has no cute
     class yet.
+  - Qt's 'QUrl QFileDialog::getSaveFileUrl(QWidget *parent, const QString
+    &caption, const QUrl &dir, const QString &filter, QString
+    *selectedFilter, Options options, const QStringList &supportedSchemes)':
+    names 'QString', which has no cute class yet.
+  - Qt's 'QStringList QFileDialog::getOpenFileNames(QWidget *parent, const
+    QString &caption, const QString &dir, const QString &filter, QString
+    *selectedFilter, Options options)': names 'QString', which has no cute
+    class yet.
+  - Qt's 'QList<QUrl> QFileDialog::getOpenFileUrls(QWidget *parent, const
+    QString &caption, const QUrl &dir, const QString &filter, QString
+    *selectedFilter, Options options, const QStringList &supportedSchemes)':
+    names 'QString', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  36 of the 86 functions Qt declares: 20 takes or gives a type that cannot be
-  passed yet; 9 a signal; 3 private; 2 forbidden; 1 a template; 1 protected.
+  19 of the 86 functions Qt declares: 9 a signal; 3 takes or gives a type
+  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1
+  protected.
 
   What to expect
   --------------
@@ -262,6 +283,63 @@ class QFileDialog(QDialog):
     )
 
   @staticmethod
+  @overload(QWidget, str, QUrl, Options, QStringList)
+  @overload(NoneType, str, QUrl, Options, QStringList)
+  def getExistingDirectoryUrl(
+      parent: Optional[QWidget],
+      caption: str,
+      dir: QUrl,
+      options: Options,
+      supportedSchemes: QStringList,
+  ) -> QUrl:
+    """
+    Calls Qt's 'QUrl QFileDialog::getExistingDirectoryUrl(QWidget *parent,
+    const QString &caption, const QUrl &dir, Options options, const
+    QStringList &supportedSchemes)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectoryUrl
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    caption : str
+      Passed on as it is: a QString is made of it for the call.
+
+    dir : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+
+    options : Options
+      Passed on as its number.
+
+    supportedSchemes : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    QUrl
+      A new cute QUrl around the copy Qt gave back. Python owns it.
+    """
+    #  QUrl QFileDialog::getExistingDirectoryUrl(QWidget *parent, const
+    #      QString &caption, const QUrl &dir, Options options, const
+    #      QStringList &supportedSchemes)
+    address = Rituals.call(
+        'ritual_ZN11QFileDialog23getExistingDirectoryUrlEP7QWidgetRK7QStrin'
+        'gRK4QUrl6QFlagsINS_6OptionEERK5QListIS2_E',
+        CuteMixin._addressOf(parent), caption, CuteMixin._valueOf(dir),
+        options.value, CuteMixin._valueOf(supportedSchemes),
+    )
+    from ..QtCore import QUrl
+    return QUrl._cuteOwning(address)
+
+  @staticmethod
   @overload(QByteArray, str)
   @overload(QByteArray, str, QWidget)
   @overload(QByteArray, str, NoneType)
@@ -375,6 +453,55 @@ class QFileDialog(QDialog):
     from ..QtCore import QUrl
     return QUrl._cuteOwning(address)
 
+  def selectedFiles(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileDialog::selectedFiles() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#selectedFiles
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileDialog::selectedFiles() const
+    address = self.uglySide.call('ritual_ZNK11QFileDialog13selectedFilesEv')
+    return QStringList._cuteOwning(address)
+
+  def selectedUrls(self) -> QList[QUrl]:
+    """
+    Calls Qt's 'QList<QUrl> QFileDialog::selectedUrls() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#selectedUrls
+
+    Returns
+    -------
+
+    QList[QUrl]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QUrl> QFileDialog::selectedUrls() const
+    address = self.uglySide.call('ritual_ZNK11QFileDialog12selectedUrlsEv')
+    from ..QtCore import QUrl
+    return QList[QUrl]._cuteOwning(address)
+
+  def nameFilters(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileDialog::nameFilters() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#nameFilters
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileDialog::nameFilters() const
+    address = self.uglySide.call('ritual_ZNK11QFileDialog11nameFiltersEv')
+    return QStringList._cuteOwning(address)
+
   def selectedMimeTypeFilter(self) -> str:
     """
     Calls Qt's 'QString QFileDialog::selectedMimeTypeFilter() const'.
@@ -410,6 +537,24 @@ class QFileDialog(QDialog):
     return self.uglySide.call(
         'ritual_ZNK11QFileDialog18selectedNameFilterEv',
     )
+
+  def mimeTypeFilters(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileDialog::mimeTypeFilters() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#mimeTypeFilters
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileDialog::mimeTypeFilters() const
+    address = self.uglySide.call(
+        'ritual_ZNK11QFileDialog15mimeTypeFiltersEv',
+    )
+    return QStringList._cuteOwning(address)
 
   def filter(self) -> QDir.Filters:
     """
@@ -483,6 +628,23 @@ class QFileDialog(QDialog):
         'ritual_ZNK11QFileDialog10acceptModeEv',
     ))
 
+  def sidebarUrls(self) -> QList[QUrl]:
+    """
+    Calls Qt's 'QList<QUrl> QFileDialog::sidebarUrls() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#sidebarUrls
+
+    Returns
+    -------
+
+    QList[QUrl]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QUrl> QFileDialog::sidebarUrls() const
+    address = self.uglySide.call('ritual_ZNK11QFileDialog11sidebarUrlsEv')
+    from ..QtCore import QUrl
+    return QList[QUrl]._cuteOwning(address)
+
   def saveState(self) -> QByteArray:
     """
     Calls Qt's 'QByteArray QFileDialog::saveState() const'.
@@ -514,6 +676,22 @@ class QFileDialog(QDialog):
     """
     #  QString QFileDialog::defaultSuffix() const
     return self.uglySide.call('ritual_ZNK11QFileDialog13defaultSuffixEv')
+
+  def history(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileDialog::history() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#history
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileDialog::history() const
+    address = self.uglySide.call('ritual_ZNK11QFileDialog7historyEv')
+    return QStringList._cuteOwning(address)
 
   def itemDelegate(self) -> Optional[QAbstractItemDelegate]:
     """
@@ -575,6 +753,24 @@ class QFileDialog(QDialog):
     return self.uglySide.call(
         'ritual_ZNK11QFileDialog9labelTextENS_11DialogLabelE', label.value,
     )
+
+  def supportedSchemes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileDialog::supportedSchemes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#supportedSchemes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileDialog::supportedSchemes() const
+    address = self.uglySide.call(
+        'ritual_ZNK11QFileDialog16supportedSchemesEv',
+    )
+    return QStringList._cuteOwning(address)
 
   def proxyModel(self) -> Optional[QAbstractProxyModel]:
     """
@@ -707,6 +903,51 @@ class QFileDialog(QDialog):
         'ritual_ZN11QFileDialog13setNameFilterERK7QString', filter,
     )
 
+  @overload(QStringList)
+  def setNameFilters(self, filters: QStringList) -> None:
+    """
+    Calls Qt's 'void QFileDialog::setNameFilters(const QStringList
+    &filters)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#setNameFilters
+
+    Parameters
+    ----------
+
+    filters : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFileDialog::setNameFilters(const QStringList &filters)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog14setNameFiltersERK5QListI7QStringE',
+        self._valueOf(filters),
+    )
+
+  @overload(QStringList)
+  def setMimeTypeFilters(self, filters: QStringList) -> None:
+    """
+    Calls Qt's 'void QFileDialog::setMimeTypeFilters(const QStringList
+    &filters)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfiledialog.html#setMimeTypeFilters
+
+    Parameters
+    ----------
+
+    filters : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFileDialog::setMimeTypeFilters(const QStringList &filters)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog18setMimeTypeFiltersERK5QListI7QStringE',
+        self._valueOf(filters),
+    )
+
   @overload(QDir.Filters)
   def setFilter(self, filters: QDir.Filters) -> None:
     """
@@ -780,6 +1021,27 @@ class QFileDialog(QDialog):
         'ritual_ZN11QFileDialog13setAcceptModeENS_10AcceptModeE', mode.value,
     )
 
+  @overload(QList[QUrl])
+  def setSidebarUrls(self, urls: QList[QUrl]) -> None:
+    """
+    Calls Qt's 'void QFileDialog::setSidebarUrls(const QList<QUrl> &urls)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#setSidebarUrls
+
+    Parameters
+    ----------
+
+    urls : QList[QUrl]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFileDialog::setSidebarUrls(const QList<QUrl> &urls)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog14setSidebarUrlsERK5QListI4QUrlE',
+        self._valueOf(urls),
+    )
+
   @overload(str)
   def setDefaultSuffix(self, suffix: str) -> None:
     """
@@ -796,6 +1058,27 @@ class QFileDialog(QDialog):
     #  void QFileDialog::setDefaultSuffix(const QString &suffix)
     self.uglySide.call(
         'ritual_ZN11QFileDialog16setDefaultSuffixERK7QString', suffix,
+    )
+
+  @overload(QStringList)
+  def setHistory(self, paths: QStringList) -> None:
+    """
+    Calls Qt's 'void QFileDialog::setHistory(const QStringList &paths)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#setHistory
+
+    Parameters
+    ----------
+
+    paths : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFileDialog::setHistory(const QStringList &paths)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog10setHistoryERK5QListI7QStringE',
+        self._valueOf(paths),
     )
 
   @overload(QAbstractItemDelegate)
@@ -870,6 +1153,29 @@ class QFileDialog(QDialog):
     self.uglySide.call(
         'ritual_ZN11QFileDialog12setLabelTextENS_11DialogLabelERK7QString',
         label.value, text,
+    )
+
+  @overload(QStringList)
+  def setSupportedSchemes(self, schemes: QStringList) -> None:
+    """
+    Calls Qt's 'void QFileDialog::setSupportedSchemes(const QStringList
+    &schemes)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfiledialog.html#setSupportedSchemes
+
+    Parameters
+    ----------
+
+    schemes : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFileDialog::setSupportedSchemes(const QStringList &schemes)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog19setSupportedSchemesERK5QListI7QStringE',
+        self._valueOf(schemes),
     )
 
   @overload(QAbstractProxyModel)

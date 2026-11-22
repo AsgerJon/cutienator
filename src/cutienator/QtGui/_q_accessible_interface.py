@@ -13,6 +13,7 @@ from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
+from ..QtCore import QList
 from . import QAccessible
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -829,3 +830,16 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     )
     from . import QAccessibleViewportInterface
     return QAccessibleViewportInterface._cuteAt(address)
+
+
+#  Qt's 'QList<QAccessibleInterface *>': the list of QAccessibleInterface,
+#  which 'QList[QAccessibleInterface]' gives. It is made here, so that there
+#  is one as soon as there can be a QAccessibleInterface.
+QList.createKind(
+    QAccessibleInterface, 'address',
+    make='ritual_list_make_QAccessibleInterface_ptr',
+    add='ritual_list_add_QAccessibleInterface_ptr',
+    size='ritual_list_size_QAccessibleInterface_ptr',
+    at='ritual_list_at_QAccessibleInterface_ptr',
+    drop='ritual_list_drop_QAccessibleInterface_ptr',
+)

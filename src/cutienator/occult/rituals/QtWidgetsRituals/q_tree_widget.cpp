@@ -11,6 +11,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QTreeWidget may call these functions of it.
@@ -1618,6 +1619,24 @@ int ritual_ZNK11QTreeWidget19indexOfTopLevelItemEP15QTreeWidgetItem(
   return self->indexOfTopLevelItem(item);
 }
 
+//  void QTreeWidget::insertTopLevelItems(int index, const
+//      QList<QTreeWidgetItem *> &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget19insertTopLevelItemsEiRK5QListIP15QTreeWidgetItemE(
+    QTreeWidget *self,
+    int index,
+    const QList<QTreeWidgetItem *> *items) {
+  self->insertTopLevelItems(index, *items);
+}
+
+//  void QTreeWidget::addTopLevelItems(const QList<QTreeWidgetItem *> &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget16addTopLevelItemsERK5QListIP15QTreeWidgetItemE(
+    QTreeWidget *self,
+    const QList<QTreeWidgetItem *> *items) {
+  self->addTopLevelItems(*items);
+}
+
 //  QTreeWidgetItem *QTreeWidget::headerItem() const
 extern "C" Q_DECL_EXPORT
 QTreeWidgetItem *ritual_ZNK11QTreeWidget10headerItemEv(
@@ -1631,6 +1650,14 @@ void ritual_ZN11QTreeWidget13setHeaderItemEP15QTreeWidgetItem(
     QTreeWidget *self,
     QTreeWidgetItem *item) {
   self->setHeaderItem(item);
+}
+
+//  void QTreeWidget::setHeaderLabels(const QStringList &labels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTreeWidget15setHeaderLabelsERK5QListI7QStringE(
+    QTreeWidget *self,
+    const QList<QString> *labels) {
+  self->setHeaderLabels(*labels);
 }
 
 //  void QTreeWidget::setHeaderLabel(const QString &label)
@@ -1790,6 +1817,28 @@ void ritual_ZN11QTreeWidget16removeItemWidgetEP15QTreeWidgetItemi(
     QTreeWidgetItem *item,
     int column) {
   self->removeItemWidget(item, column);
+}
+
+//  QList<QTreeWidgetItem *> QTreeWidget::selectedItems() const
+extern "C" Q_DECL_EXPORT
+QList<QTreeWidgetItem *> *ritual_ZNK11QTreeWidget13selectedItemsEv(
+    const QTreeWidget *self) {
+  return new QList<QTreeWidgetItem *>(self->selectedItems());
+}
+
+//  QList<QTreeWidgetItem *> QTreeWidget::findItems(const QString &text,
+//      Qt::MatchFlags flags, int column) const
+extern "C" Q_DECL_EXPORT
+QList<QTreeWidgetItem *> *ritual_ZNK11QTreeWidget9findItemsERK7QString6QFlagsIN2Qt9MatchFlagEEi(
+    const QTreeWidget *self,
+    const QString *text,
+    int flags,
+    int column) {
+  return new QList<QTreeWidgetItem *>(
+      self->findItems(
+          *text,
+          QFlags<Qt::MatchFlag>::fromInt(flags),
+          column));
 }
 
 //  QTreeWidgetItem *QTreeWidget::itemAbove(const QTreeWidgetItem *item)

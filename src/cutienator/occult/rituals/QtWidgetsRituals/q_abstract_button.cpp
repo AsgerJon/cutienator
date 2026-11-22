@@ -8,6 +8,7 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QAbstractButton may call these functions of it.
@@ -1147,4 +1148,39 @@ void ritual_own_ZN15QAbstractButton10timerEventEP11QTimerEvent(
     QAbstractButton *self,
     QTimerEvent *e) {
   static_cast<OwnQAbstractButton *>(self)->OwnQAbstractButton::timerEvent(e);
+}
+
+//  QList<QAbstractButton *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QAbstractButton *> *ritual_list_make_QAbstractButton_ptr() {
+  return new QList<QAbstractButton *>();
+}
+
+//  void QList<QAbstractButton *>::append(const QAbstractButton * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QAbstractButton_ptr(
+    QList<QAbstractButton *> *self,
+    QAbstractButton *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QAbstractButton *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QAbstractButton_ptr(
+    const QList<QAbstractButton *> *self) {
+  return self->size();
+}
+
+//  const QAbstractButton * &QList<QAbstractButton *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QAbstractButton *ritual_list_at_QAbstractButton_ptr(
+    const QList<QAbstractButton *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QAbstractButton *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QAbstractButton_ptr(QList<QAbstractButton *> *self) {
+  delete self;
 }

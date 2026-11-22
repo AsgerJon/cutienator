@@ -130,6 +130,11 @@
     "ritual_ZneRK5QRectRK6QRectF": ["bool", "address", "address"],
     "ritual_ZNK6QRectF6toRectEv": ["address", "address"],
     "ritual_ZNK6QRectF13toAlignedRectEv": ["address", "address"],
-    "ritual_ZN6QRectFD1Ev": ["nothing", "address"]
+    "ritual_ZN6QRectFD1Ev": ["nothing", "address"],
+    "ritual_list_make_QRectF": ["address"],
+    "ritual_list_add_QRectF": ["nothing", "address", "address"],
+    "ritual_list_size_QRectF": ["long long", "address"],
+    "ritual_list_at_QRectF": ["address", "address", "long long"],
+    "ritual_list_drop_QRectF": ["nothing", "address"]
   }
 }

@@ -25,6 +25,8 @@
       "nothing", "address", "chars"
     ],
     "ritual_ZN12QApplication11fontMetricsEv": ["address"],
+    "ritual_ZN12QApplication10allWidgetsEv": ["address"],
+    "ritual_ZN12QApplication15topLevelWidgetsEv": ["address"],
     "ritual_ZN12QApplication17activePopupWidgetEv": ["address"],
     "ritual_ZN12QApplication17activeModalWidgetEv": ["address"],
     "ritual_ZN12QApplication11focusWidgetEv": ["address"],

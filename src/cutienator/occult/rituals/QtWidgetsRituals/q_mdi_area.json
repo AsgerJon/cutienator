@@ -12,6 +12,9 @@
     "ritual_ZNK8QMdiArea15minimumSizeHintEv": ["address", "address"],
     "ritual_ZNK8QMdiArea16currentSubWindowEv": ["address", "address"],
     "ritual_ZNK8QMdiArea15activeSubWindowEv": ["address", "address"],
+    "ritual_ZNK8QMdiArea13subWindowListENS_11WindowOrderE": [
+      "address", "address", "int"
+    ],
     "ritual_ZN8QMdiArea12addSubWindowEP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "address", "int"
     ],

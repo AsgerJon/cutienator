@@ -14,6 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -42,9 +43,10 @@ class QMimeDatabase(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMimeDatabase that has a ritual and that Python can
-  call so far, 6 names in all: 'mimeTypeForName', 'mimeTypeForFile',
-  'mimeTypeForData', 'mimeTypeForUrl', 'mimeTypeForFileNameAndData',
-  'suffixForFileName'. It can be made from Python, in 1 way; see '__init__'.
+  call so far, 8 names in all: 'mimeTypeForName', 'mimeTypeForFile',
+  'mimeTypesForFileName', 'mimeTypeForData', 'mimeTypeForUrl',
+  'mimeTypeForFileNameAndData', 'suffixForFileName', 'allMimeTypes'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -55,8 +57,7 @@ class QMimeDatabase(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 15 functions Qt declares: 2 forbidden; 2 takes or gives a type
-  that cannot be passed yet.
+  2 of the 15 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -214,6 +215,36 @@ class QMimeDatabase(CuteMixin, metaclass=MetaCute):
     )
     from . import QMimeType
     return QMimeType._cuteOwning(address)
+
+  @overload(str)
+  def mimeTypesForFileName(self, fileName: str) -> QList[QMimeType]:
+    """
+    Calls Qt's 'QList<QMimeType> QMimeDatabase::mimeTypesForFileName(const
+    QString &fileName) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmimedatabase.html#mimeTypesForFileName
+
+    Parameters
+    ----------
+
+    fileName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QList[QMimeType]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QMimeType> QMimeDatabase::mimeTypesForFileName(const QString
+    #      &fileName) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QMimeDatabase20mimeTypesForFileNameERK7QString',
+        fileName,
+    )
+    from . import QMimeType
+    return QList[QMimeType]._cuteOwning(address)
 
   @overload(QByteArray)
   def mimeTypeForData(self, data: QByteArray) -> QMimeType:
@@ -407,6 +438,23 @@ class QMimeDatabase(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK13QMimeDatabase17suffixForFileNameERK7QString', fileName,
     )
+
+  def allMimeTypes(self) -> QList[QMimeType]:
+    """
+    Calls Qt's 'QList<QMimeType> QMimeDatabase::allMimeTypes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedatabase.html#allMimeTypes
+
+    Returns
+    -------
+
+    QList[QMimeType]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QMimeType> QMimeDatabase::allMimeTypes() const
+    address = self.uglySide.call('ritual_ZNK13QMimeDatabase12allMimeTypesEv')
+    from . import QMimeType
+    return QList[QMimeType]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -15,6 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QDebug, QPointF
@@ -39,11 +40,11 @@ class QEasingCurve(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QEasingCurve that has a ritual and that Python can
-  call so far, 15 names in all: 'amplitude', 'setAmplitude', 'period',
+  call so far, 16 names in all: 'amplitude', 'setAmplitude', 'period',
   'setPeriod', 'overshoot', 'setOvershoot', 'addCubicBezierSegment',
-  'addTCBSegment', 'type', 'setType', 'valueForProgress', 'fromCubicBezier',
-  '__rlshift__', '__eq__', '__ne__'. It can be made from Python, in 2 ways;
-  see '__init__'.
+  'addTCBSegment', 'toCubicSpline', 'type', 'setType', 'valueForProgress',
+  'fromCubicBezier', '__rlshift__', '__eq__', '__ne__'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -54,7 +55,7 @@ class QEasingCurve(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  12 of the 30 functions Qt declares: 9 takes or gives a type that cannot be
+  11 of the 30 functions Qt declares: 8 takes or gives a type that cannot be
   passed yet; 1 declared and nowhere to be found; 1 a template; 1 private.
 
   What to expect
@@ -216,6 +217,23 @@ class QEasingCurve(CuteMixin, metaclass=MetaCute):
     """
     #  qreal QEasingCurve::overshoot() const
     return self.uglySide.call('ritual_ZNK12QEasingCurve9overshootEv')
+
+  def toCubicSpline(self) -> QList[QPointF]:
+    """
+    Calls Qt's 'QList<QPointF> QEasingCurve::toCubicSpline() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qeasingcurve.html#toCubicSpline
+
+    Returns
+    -------
+
+    QList[QPointF]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QPointF> QEasingCurve::toCubicSpline() const
+    address = self.uglySide.call('ritual_ZNK12QEasingCurve13toCubicSplineEv')
+    from . import QPointF
+    return QList[QPointF]._cuteOwning(address)
 
   def type(self) -> Type:
     """

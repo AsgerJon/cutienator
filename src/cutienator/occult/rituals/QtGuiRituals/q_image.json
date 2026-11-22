@@ -190,6 +190,7 @@
     "ritual_ZN6QImage9setOffsetERK6QPoint": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK6QImage8textKeysEv": ["address", "address"],
     "ritual_ZNK6QImage4textERK7QString": ["text", "address", "text"],
     "ritual_ZN6QImage7setTextERK7QStringS2_": [
       "nothing", "address", "text", "text"

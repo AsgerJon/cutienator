@@ -13,18 +13,19 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import QObject
+from . import QList, QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QMetaObject, QMetaType, QVariant
+  from . import QByteArray, QMetaObject, QMetaType, QUrl, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
   QMetaType = WAIT['QMetaType']
+  QUrl = WAIT['QUrl']
   QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -44,11 +45,11 @@ class QMimeData(QObject):
   -----------
 
   Every function of Qt's QMimeData that has a ritual and that Python can call
-  so far, 21 names in all: 'metaObject', 'tr', 'hasUrls', 'text', 'setText',
-  'hasText', 'html', 'setHtml', 'hasHtml', 'imageData', 'setImageData',
-  'hasImage', 'colorData', 'setColorData', 'hasColor', 'data', 'setData',
-  'removeFormat', 'hasFormat', 'clear', 'retrieveData'. It can be made from
-  Python, in 1 way; see '__init__'.
+  so far, 24 names in all: 'metaObject', 'tr', 'urls', 'setUrls', 'hasUrls',
+  'text', 'setText', 'hasText', 'html', 'setHtml', 'hasHtml', 'imageData',
+  'setImageData', 'hasImage', 'colorData', 'setColorData', 'hasColor',
+  'data', 'setData', 'removeFormat', 'hasFormat', 'formats', 'clear',
+  'retrieveData'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,8 +60,8 @@ class QMimeData(QObject):
   What has no ritual
   ------------------
 
-  11 of the 34 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template.
+  8 of the 34 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -197,6 +198,23 @@ class QMimeData(QObject):
     address = self.uglySide.call('ritual_ZNK9QMimeData10metaObjectEv')
     from . import QMetaObject
     return QMetaObject._cuteAt(address)
+
+  def urls(self) -> QList[QUrl]:
+    """
+    Calls Qt's 'QList<QUrl> QMimeData::urls() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#urls
+
+    Returns
+    -------
+
+    QList[QUrl]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QUrl> QMimeData::urls() const
+    address = self.uglySide.call('ritual_ZNK9QMimeData4urlsEv')
+    from . import QUrl
+    return QList[QUrl]._cuteOwning(address)
 
   def hasUrls(self) -> bool:
     """
@@ -352,6 +370,22 @@ class QMimeData(QObject):
       ritual = 'ritual_own_ZNK9QMimeData9hasFormatERK7QString'
     return self.uglySide.call(ritual, mimetype)
 
+  def formats(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QMimeData::formats() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#formats
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QMimeData::formats() const
+    address = self.uglySide.call('ritual_ZNK9QMimeData7formatsEv')
+    return QStringList._cuteOwning(address)
+
   @overload(str, QMetaType)
   def retrieveData(
       self,
@@ -392,6 +426,26 @@ class QMimeData(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QList[QUrl])
+  def setUrls(self, urls: QList[QUrl]) -> None:
+    """
+    Calls Qt's 'void QMimeData::setUrls(const QList<QUrl> &urls)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimedata.html#setUrls
+
+    Parameters
+    ----------
+
+    urls : QList[QUrl]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QMimeData::setUrls(const QList<QUrl> &urls)
+    self.uglySide.call(
+        'ritual_ZN9QMimeData7setUrlsERK5QListI4QUrlE', self._valueOf(urls),
+    )
 
   @overload(str)
   def setText(self, text: str) -> None:

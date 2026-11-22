@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 from . import QTextObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -47,11 +48,11 @@ class QTextFrame(QTextObject):
   -----------
 
   Every function of Qt's QTextFrame that has a ritual and that Python can
-  call so far, 13 names in all: 'metaObject', 'tr', 'setFrameFormat',
+  call so far, 14 names in all: 'metaObject', 'tr', 'setFrameFormat',
   'frameFormat', 'firstCursorPosition', 'lastCursorPosition',
   'firstPosition', 'lastPosition', 'layoutData', 'setLayoutData',
-  'parentFrame', 'begin', 'end'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'childFrames', 'parentFrame', 'begin', 'end'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -62,8 +63,8 @@ class QTextFrame(QTextObject):
   What has no ritual
   ------------------
 
-  10 of the 25 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template; 1 protected.
+  9 of the 25 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -520,6 +521,22 @@ class QTextFrame(QTextObject):
     from . import QTextFrameLayoutData
     return QTextFrameLayoutData._cuteAt(address)
 
+  def childFrames(self) -> QList[QTextFrame]:
+    """
+    Calls Qt's 'QList<QTextFrame *> QTextFrame::childFrames() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextframe.html#childFrames
+
+    Returns
+    -------
+
+    QList[QTextFrame]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QTextFrame *> QTextFrame::childFrames() const
+    address = self.uglySide.call('ritual_ZNK10QTextFrame11childFramesEv')
+    return QList[QTextFrame]._cuteOwning(address)
+
   def parentFrame(self) -> Optional[QTextFrame]:
     """
     Calls Qt's 'QTextFrame *QTextFrame::parentFrame() const'.
@@ -669,3 +686,16 @@ class QTextFrame(QTextObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QTextFrame *>': the list of QTextFrame, which
+#  'QList[QTextFrame]' gives. It is made here, so that there is one as soon
+#  as there can be a QTextFrame.
+QList.createKind(
+    QTextFrame, 'address',
+    make='ritual_list_make_QTextFrame_ptr',
+    add='ritual_list_add_QTextFrame_ptr',
+    size='ritual_list_size_QTextFrame_ptr',
+    at='ritual_list_at_QTextFrame_ptr',
+    drop='ritual_list_drop_QTextFrame_ptr',
+)

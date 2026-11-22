@@ -13,6 +13,17 @@
     "ritual_ZNK18QGraphicsTransform7applyToEP10QMatrix4x4": [
       "nothing", "address", "address"
     ],
-    "ritual_take_QGraphicsTransform": ["bool", "address", "chars", "address"]
+    "ritual_take_QGraphicsTransform": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_list_make_QGraphicsTransform_ptr": ["address"],
+    "ritual_list_add_QGraphicsTransform_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QGraphicsTransform_ptr": ["long long", "address"],
+    "ritual_list_at_QGraphicsTransform_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QGraphicsTransform_ptr": ["nothing", "address"]
   }
 }

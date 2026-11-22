@@ -245,6 +245,11 @@
     ],
     "ritual_own_ZN7QWindow11tabletEventEP12QTabletEvent": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_list_make_QWindow_ptr": ["address"],
+    "ritual_list_add_QWindow_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QWindow_ptr": ["long long", "address"],
+    "ritual_list_at_QWindow_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QWindow_ptr": ["nothing", "address"]
   }
 }

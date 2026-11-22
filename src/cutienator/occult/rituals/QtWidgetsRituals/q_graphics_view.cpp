@@ -6,11 +6,13 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qtransform.h>
 #include <QtCore/qpoint.h>
+#include <QtWidgets/qgraphicsitem.h>
 #include <QtGui/qpolygon.h>
 #include <QtGui/qpainterpath.h>
 #include <QtCore/qvariant.h>
 #include <QtGui/qbrush.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QGraphicsView may call these functions of it.
@@ -1344,6 +1346,73 @@ void ritual_ZN13QGraphicsView6renderEP8QPainterRK6QRectFRK5QRectN2Qt15AspectRati
   self->render(painter, *target, *source, aspectRatioMode);
 }
 
+//  QList<QGraphicsItem *> QGraphicsView::items() const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK13QGraphicsView5itemsEv(
+    const QGraphicsView *self) {
+  return new QList<QGraphicsItem *>(self->items());
+}
+
+//  QList<QGraphicsItem *> QGraphicsView::items(const QPoint &pos) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK13QGraphicsView5itemsERK6QPoint(
+    const QGraphicsView *self,
+    const QPoint *pos) {
+  return new QList<QGraphicsItem *>(self->items(*pos));
+}
+
+//  QList<QGraphicsItem *> QGraphicsView::items(int x, int y) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK13QGraphicsView5itemsEii(
+    const QGraphicsView *self,
+    int x,
+    int y) {
+  return new QList<QGraphicsItem *>(self->items(x, y));
+}
+
+//  QList<QGraphicsItem *> QGraphicsView::items(const QRect &rect,
+//      Qt::ItemSelectionMode mode) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK13QGraphicsView5itemsERK5QRectN2Qt17ItemSelectionModeE(
+    const QGraphicsView *self,
+    const QRect *rect,
+    Qt::ItemSelectionMode mode) {
+  return new QList<QGraphicsItem *>(self->items(*rect, mode));
+}
+
+//  QList<QGraphicsItem *> QGraphicsView::items(int x, int y, int w, int h,
+//      Qt::ItemSelectionMode mode) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK13QGraphicsView5itemsEiiiiN2Qt17ItemSelectionModeE(
+    const QGraphicsView *self,
+    int x,
+    int y,
+    int w,
+    int h,
+    Qt::ItemSelectionMode mode) {
+  return new QList<QGraphicsItem *>(self->items(x, y, w, h, mode));
+}
+
+//  QList<QGraphicsItem *> QGraphicsView::items(const QPolygon &polygon,
+//      Qt::ItemSelectionMode mode) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK13QGraphicsView5itemsERK8QPolygonN2Qt17ItemSelectionModeE(
+    const QGraphicsView *self,
+    const QPolygon *polygon,
+    Qt::ItemSelectionMode mode) {
+  return new QList<QGraphicsItem *>(self->items(*polygon, mode));
+}
+
+//  QList<QGraphicsItem *> QGraphicsView::items(const QPainterPath &path,
+//      Qt::ItemSelectionMode mode) const
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsItem *> *ritual_ZNK13QGraphicsView5itemsERK12QPainterPathN2Qt17ItemSelectionModeE(
+    const QGraphicsView *self,
+    const QPainterPath *path,
+    Qt::ItemSelectionMode mode) {
+  return new QList<QGraphicsItem *>(self->items(*path, mode));
+}
+
 //  QGraphicsItem *QGraphicsView::itemAt(const QPoint &pos) const
 extern "C" Q_DECL_EXPORT
 QGraphicsItem *ritual_ZNK13QGraphicsView6itemAtERK6QPoint(
@@ -1503,6 +1572,14 @@ void ritual_ZN13QGraphicsView18setForegroundBrushERK6QBrush(
     QGraphicsView *self,
     const QBrush *brush) {
   self->setForegroundBrush(*brush);
+}
+
+//  void QGraphicsView::updateScene(const QList<QRectF> &rects)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView11updateSceneERK5QListI6QRectFE(
+    QGraphicsView *self,
+    const QList<QRectF> *rects) {
+  self->updateScene(*rects);
 }
 
 //  void QGraphicsView::invalidateScene(const QRectF &rect,
@@ -1775,4 +1852,39 @@ void ritual_own_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF(
   static_cast<OwnQGraphicsView *>(self)->OwnQGraphicsView::drawForeground(
       painter,
       *rect);
+}
+
+//  QList<QGraphicsView *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QGraphicsView *> *ritual_list_make_QGraphicsView_ptr() {
+  return new QList<QGraphicsView *>();
+}
+
+//  void QList<QGraphicsView *>::append(const QGraphicsView * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QGraphicsView_ptr(
+    QList<QGraphicsView *> *self,
+    QGraphicsView *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QGraphicsView *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QGraphicsView_ptr(
+    const QList<QGraphicsView *> *self) {
+  return self->size();
+}
+
+//  const QGraphicsView * &QList<QGraphicsView *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QGraphicsView *ritual_list_at_QGraphicsView_ptr(
+    const QList<QGraphicsView *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QGraphicsView *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QGraphicsView_ptr(QList<QGraphicsView *> *self) {
+  delete self;
 }

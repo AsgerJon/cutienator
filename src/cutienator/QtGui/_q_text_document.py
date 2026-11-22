@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -59,7 +59,7 @@ class QTextDocument(QObject):
   -----------
 
   Every function of Qt's QTextDocument that has a ritual and that Python can
-  call so far, 86 names in all: 'metaObject', 'tr', 'clone', 'isEmpty',
+  call so far, 87 names in all: 'metaObject', 'tr', 'clone', 'isEmpty',
   'clear', 'setUndoRedoEnabled', 'isUndoRedoEnabled', 'isUndoAvailable',
   'isRedoAvailable', 'availableUndoSteps', 'availableRedoSteps', 'revision',
   'setDocumentLayout', 'documentLayout', 'setMetaInformation',
@@ -70,17 +70,18 @@ class QTextDocument(QObject):
   'lastBlock', 'setPageSize', 'pageSize', 'setDefaultFont', 'defaultFont',
   'setSuperScriptBaseline', 'superScriptBaseline', 'setSubScriptBaseline',
   'subScriptBaseline', 'setBaselineOffset', 'baselineOffset', 'pageCount',
-  'isModified', 'print', 'resource', 'addResource', 'markContentsDirty',
-  'setUseDesignMetrics', 'useDesignMetrics', 'setLayoutEnabled',
-  'isLayoutEnabled', 'drawContents', 'setTextWidth', 'textWidth',
-  'idealWidth', 'indentWidth', 'setIndentWidth', 'documentMargin',
-  'setDocumentMargin', 'adjustSize', 'size', 'blockCount', 'lineCount',
-  'characterCount', 'setDefaultStyleSheet', 'defaultStyleSheet', 'undo',
-  'redo', 'clearUndoRedoStacks', 'maximumBlockCount', 'setMaximumBlockCount',
-  'defaultTextOption', 'setDefaultTextOption', 'baseUrl', 'setBaseUrl',
-  'defaultCursorMoveStyle', 'setDefaultCursorMoveStyle', 'appendUndoItem',
-  'setModified', 'createObject', 'loadResource'. It can be made from Python,
-  in 2 ways; see '__init__'.
+  'isModified', 'print', 'resource', 'addResource', 'allFormats',
+  'markContentsDirty', 'setUseDesignMetrics', 'useDesignMetrics',
+  'setLayoutEnabled', 'isLayoutEnabled', 'drawContents', 'setTextWidth',
+  'textWidth', 'idealWidth', 'indentWidth', 'setIndentWidth',
+  'documentMargin', 'setDocumentMargin', 'adjustSize', 'size', 'blockCount',
+  'lineCount', 'characterCount', 'setDefaultStyleSheet', 'defaultStyleSheet',
+  'undo', 'redo', 'clearUndoRedoStacks', 'maximumBlockCount',
+  'setMaximumBlockCount', 'defaultTextOption', 'setDefaultTextOption',
+  'baseUrl', 'setBaseUrl', 'defaultCursorMoveStyle',
+  'setDefaultCursorMoveStyle', 'appendUndoItem', 'setModified',
+  'createObject', 'loadResource'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -91,7 +92,7 @@ class QTextDocument(QObject):
   What has no ritual
   ------------------
 
-  24 of the 118 functions Qt declares: 10 a signal; 7 takes or gives a type
+  23 of the 118 functions Qt declares: 10 a signal; 6 takes or gives a type
   that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1
   protected.
 
@@ -1086,6 +1087,23 @@ class QTextDocument(QObject):
     )
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
+
+  def allFormats(self) -> QList[QTextFormat]:
+    """
+    Calls Qt's 'QList<QTextFormat> QTextDocument::allFormats() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#allFormats
+
+    Returns
+    -------
+
+    QList[QTextFormat]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QTextFormat> QTextDocument::allFormats() const
+    address = self.uglySide.call('ritual_ZNK13QTextDocument10allFormatsEv')
+    from . import QTextFormat
+    return QList[QTextFormat]._cuteOwning(address)
 
   def useDesignMetrics(self) -> bool:
     """

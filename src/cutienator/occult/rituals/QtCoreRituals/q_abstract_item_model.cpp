@@ -4,7 +4,12 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  Only a class built on QAbstractItemModel may call these functions of it.
@@ -831,12 +836,47 @@ bool ritual_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QVariant
   return self->setHeaderData(section, orientation, *value, role);
 }
 
+//  QMap<int, QVariant> QAbstractItemModel::itemData(const QModelIndex
+//      &index) const
+extern "C" Q_DECL_EXPORT
+QMap<int, QVariant> *ritual_ZNK18QAbstractItemModel8itemDataERK11QModelIndex(
+    const QAbstractItemModel *self,
+    const QModelIndex *index) {
+  return new QMap<int, QVariant>(self->itemData(*index));
+}
+
+//  bool QAbstractItemModel::setItemData(const QModelIndex &index, const
+//      QMap<int, QVariant> &roles)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QAbstractItemModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE(
+    QAbstractItemModel *self,
+    const QModelIndex *index,
+    const QMap<int, QVariant> *roles) {
+  return self->setItemData(*index, *roles);
+}
+
 //  bool QAbstractItemModel::clearItemData(const QModelIndex &index)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex(
     QAbstractItemModel *self,
     const QModelIndex *index) {
   return self->clearItemData(*index);
+}
+
+//  QStringList QAbstractItemModel::mimeTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK18QAbstractItemModel9mimeTypesEv(
+    const QAbstractItemModel *self) {
+  return new QList<QString>(self->mimeTypes());
+}
+
+//  QMimeData *QAbstractItemModel::mimeData(const QModelIndexList &indexes)
+//      const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_ZNK18QAbstractItemModel8mimeDataERK5QListI11QModelIndexE(
+    const QAbstractItemModel *self,
+    const QList<QModelIndex> *indexes) {
+  return self->mimeData(*indexes);
 }
 
 //  bool QAbstractItemModel::canDropMimeData(const QMimeData *data,
@@ -1076,12 +1116,38 @@ QModelIndex *ritual_ZNK18QAbstractItemModel5buddyERK11QModelIndex(
   return new QModelIndex(self->buddy(*index));
 }
 
+//  QModelIndexList QAbstractItemModel::match(const QModelIndex &start, int
+//      role, const QVariant &value, int hits, Qt::MatchFlags flags) const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK18QAbstractItemModel5matchERK11QModelIndexiRK8QVarianti6QFlagsIN2Qt9MatchFlagEE(
+    const QAbstractItemModel *self,
+    const QModelIndex *start,
+    int role,
+    const QVariant *value,
+    int hits,
+    int flags) {
+  return new QList<QModelIndex>(
+      self->match(
+          *start,
+          role,
+          *value,
+          hits,
+          QFlags<Qt::MatchFlag>::fromInt(flags)));
+}
+
 //  QSize QAbstractItemModel::span(const QModelIndex &index) const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK18QAbstractItemModel4spanERK11QModelIndex(
     const QAbstractItemModel *self,
     const QModelIndex *index) {
   return new QSize(self->span(*index));
+}
+
+//  QHash<int, QByteArray> QAbstractItemModel::roleNames() const
+extern "C" Q_DECL_EXPORT
+QHash<int, QByteArray> *ritual_ZNK18QAbstractItemModel9roleNamesEv(
+    const QAbstractItemModel *self) {
+  return new QHash<int, QByteArray>(self->roleNames());
 }
 
 //  bool QAbstractItemModel::checkIndex(const QModelIndex &index,
@@ -1413,4 +1479,42 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN18QAbstractItemModel17resetInternalDataEv(
     QAbstractItemModel *self) {
   static_cast<OwnQAbstractItemModel *>(self)->OwnQAbstractItemModel::resetInternalData();
+}
+
+//  QList<QAbstractItemModel *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QAbstractItemModel *> *ritual_list_make_QAbstractItemModel_ptr() {
+  return new QList<QAbstractItemModel *>();
+}
+
+//  void QList<QAbstractItemModel *>::append(const QAbstractItemModel *
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QAbstractItemModel_ptr(
+    QList<QAbstractItemModel *> *self,
+    QAbstractItemModel *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QAbstractItemModel *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QAbstractItemModel_ptr(
+    const QList<QAbstractItemModel *> *self) {
+  return self->size();
+}
+
+//  const QAbstractItemModel * &QList<QAbstractItemModel *>::at(qsizetype i)
+//      const
+extern "C" Q_DECL_EXPORT
+QAbstractItemModel *ritual_list_at_QAbstractItemModel_ptr(
+    const QList<QAbstractItemModel *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QAbstractItemModel *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QAbstractItemModel_ptr(
+    QList<QAbstractItemModel *> *self) {
+  delete self;
 }

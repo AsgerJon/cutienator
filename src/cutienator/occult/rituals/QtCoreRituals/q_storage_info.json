@@ -27,9 +27,15 @@
     "ritual_ZNK12QStorageInfo7isReadyEv": ["bool", "address"],
     "ritual_ZNK12QStorageInfo7isValidEv": ["bool", "address"],
     "ritual_ZN12QStorageInfo7refreshEv": ["nothing", "address"],
+    "ritual_ZN12QStorageInfo14mountedVolumesEv": ["address"],
     "ritual_ZN12QStorageInfo4rootEv": ["address"],
     "ritual_ZeqRK12QStorageInfoS1_": ["bool", "address", "address"],
     "ritual_ZneRK12QStorageInfoS1_": ["bool", "address", "address"],
-    "ritual_Zls6QDebugRK12QStorageInfo": ["address", "address", "address"]
+    "ritual_Zls6QDebugRK12QStorageInfo": ["address", "address", "address"],
+    "ritual_list_make_QStorageInfo": ["address"],
+    "ritual_list_add_QStorageInfo": ["nothing", "address", "address"],
+    "ritual_list_size_QStorageInfo": ["long long", "address"],
+    "ritual_list_at_QStorageInfo": ["address", "address", "long long"],
+    "ritual_list_drop_QStorageInfo": ["nothing", "address"]
   }
 }

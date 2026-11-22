@@ -4,6 +4,7 @@
 #include <QtCore/qanystringview.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
+#include <QtCore/qlist.h>
 
 //  QXmlStreamReader::QXmlStreamReader()
 extern "C" Q_DECL_EXPORT
@@ -309,6 +310,15 @@ QString *ritual_ZNK16QXmlStreamReader4textEv(const QXmlStreamReader *self) {
   return new QString(self->text().toString());
 }
 
+//  QXmlStreamNamespaceDeclarations QXmlStreamReader::namespaceDeclarations()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QXmlStreamNamespaceDeclaration> *ritual_ZNK16QXmlStreamReader21namespaceDeclarationsEv(
+    const QXmlStreamReader *self) {
+  return new QList<QXmlStreamNamespaceDeclaration>(
+      self->namespaceDeclarations());
+}
+
 //  void QXmlStreamReader::addExtraNamespaceDeclaration(const
 //      QXmlStreamNamespaceDeclaration &extraNamespaceDeclaraction)
 extern "C" Q_DECL_EXPORT
@@ -316,6 +326,31 @@ void ritual_ZN16QXmlStreamReader28addExtraNamespaceDeclarationERK30QXmlStreamNam
     QXmlStreamReader *self,
     const QXmlStreamNamespaceDeclaration *extraNamespaceDeclaraction) {
   self->addExtraNamespaceDeclaration(*extraNamespaceDeclaraction);
+}
+
+//  void QXmlStreamReader::addExtraNamespaceDeclarations(const
+//      QXmlStreamNamespaceDeclarations &extraNamespaceDeclaractions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QXmlStreamReader29addExtraNamespaceDeclarationsERK5QListI30QXmlStreamNamespaceDeclarationE(
+    QXmlStreamReader *self,
+    const QList<QXmlStreamNamespaceDeclaration> *extraNamespaceDeclaractions) {
+  self->addExtraNamespaceDeclarations(*extraNamespaceDeclaractions);
+}
+
+//  QXmlStreamNotationDeclarations QXmlStreamReader::notationDeclarations()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QXmlStreamNotationDeclaration> *ritual_ZNK16QXmlStreamReader20notationDeclarationsEv(
+    const QXmlStreamReader *self) {
+  return new QList<QXmlStreamNotationDeclaration>(
+      self->notationDeclarations());
+}
+
+//  QXmlStreamEntityDeclarations QXmlStreamReader::entityDeclarations() const
+extern "C" Q_DECL_EXPORT
+QList<QXmlStreamEntityDeclaration> *ritual_ZNK16QXmlStreamReader18entityDeclarationsEv(
+    const QXmlStreamReader *self) {
+  return new QList<QXmlStreamEntityDeclaration>(self->entityDeclarations());
 }
 
 //  QStringView QXmlStreamReader::dtdName() const

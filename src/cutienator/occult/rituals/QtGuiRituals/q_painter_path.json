@@ -120,6 +120,12 @@
     ],
     "ritual_ZNK12QPainterPath7isEmptyEv": ["bool", "address"],
     "ritual_ZNK12QPainterPath10toReversedEv": ["address", "address"],
+    "ritual_ZNK12QPainterPath17toSubpathPolygonsERK10QTransform": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QPainterPath14toFillPolygonsERK10QTransform": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK12QPainterPath13toFillPolygonERK10QTransform": [
       "address", "address", "address"
     ],

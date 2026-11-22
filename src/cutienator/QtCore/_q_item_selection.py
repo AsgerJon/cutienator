@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QItemSelectionModel
+from . import QItemSelectionModel, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -45,20 +45,14 @@ class QItemSelection(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QItemSelection that has a ritual and that Python can
-  call so far, 4 names in all: 'select', 'contains', 'merge', 'split'. It can
-  be made from Python, in 1 way; see '__init__'.
+  call so far, 5 names in all: 'select', 'contains', 'indexes', 'merge',
+  'split'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QItemSelection::~QItemSelection()': the destructor: Python removes
     its C++ QItemSelection by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 7 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -160,6 +154,23 @@ class QItemSelection(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK14QItemSelection8containsERK11QModelIndex',
         self._valueOf(index),
     )
+
+  def indexes(self) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QItemSelection::indexes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qitemselection.html#indexes
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QItemSelection::indexes() const
+    address = self.uglySide.call('ritual_ZNK14QItemSelection7indexesEv')
+    from . import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

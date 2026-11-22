@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -940,3 +941,16 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QEventPoint>': the list of QEventPoint, which
+#  'QList[QEventPoint]' gives. It is made here, so that there is one as soon
+#  as there can be a QEventPoint.
+QList.createKind(
+    QEventPoint, 'value',
+    make='ritual_list_make_QEventPoint',
+    add='ritual_list_add_QEventPoint',
+    size='ritual_list_size_QEventPoint',
+    at='ritual_list_at_QEventPoint',
+    drop='ritual_list_drop_QEventPoint',
+)

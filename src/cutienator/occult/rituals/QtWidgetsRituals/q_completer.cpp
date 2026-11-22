@@ -5,6 +5,7 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QCompleter may call these functions of it.
@@ -187,6 +188,14 @@ QCompleter *ritual_ZN10QCompleterC1EP18QAbstractItemModelP7QObject(
     QAbstractItemModel *model,
     QObject *parent) {
   return new CuteQCompleter(model, parent);
+}
+
+//  QCompleter::QCompleter(const QStringList &completions, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QCompleter *ritual_ZN10QCompleterC1ERK5QListI7QStringEP7QObject(
+    const QList<QString> *completions,
+    QObject *parent) {
+  return new CuteQCompleter(*completions, parent);
 }
 
 //  QCompleter::~QCompleter()
@@ -414,6 +423,14 @@ QString *ritual_ZNK10QCompleter13pathFromIndexERK11QModelIndex(
     const QCompleter *self,
     const QModelIndex *index) {
   return new QString(self->pathFromIndex(*index));
+}
+
+//  QStringList QCompleter::splitPath(const QString &path) const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK10QCompleter9splitPathERK7QString(
+    const QCompleter *self,
+    const QString *path) {
+  return new QList<QString>(self->splitPath(*path));
 }
 
 //  a Python function taken by a CuteQCompleter, for the function named by

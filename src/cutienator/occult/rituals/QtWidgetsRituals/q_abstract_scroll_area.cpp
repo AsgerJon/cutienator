@@ -2,9 +2,11 @@
 //  QtWidgets/qabstractscrollarea.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qabstractscrollarea.h>
 #include <QtCore/qstring.h>
+#include <QtWidgets/qwidget.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QAbstractScrollArea may call these functions of it.
@@ -977,6 +979,17 @@ void ritual_ZN19QAbstractScrollArea18addScrollBarWidgetEP7QWidget6QFlagsIN2Qt13A
   self->addScrollBarWidget(
       widget,
       QFlags<Qt::AlignmentFlag>::fromInt(alignment));
+}
+
+//  QWidgetList QAbstractScrollArea::scrollBarWidgets(Qt::Alignment
+//      alignment)
+extern "C" Q_DECL_EXPORT
+QList<QWidget *> *ritual_ZN19QAbstractScrollArea16scrollBarWidgetsE6QFlagsIN2Qt13AlignmentFlagEE(
+    QAbstractScrollArea *self,
+    int alignment) {
+  return new QList<QWidget *>(
+      self->scrollBarWidgets(
+          QFlags<Qt::AlignmentFlag>::fromInt(alignment)));
 }
 
 //  QWidget *QAbstractScrollArea::viewport() const

@@ -2,6 +2,7 @@
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qaccessible.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QAccessibleActionInterface that Python can take functions over in. Every QAccessibleActionInterface
@@ -95,6 +96,13 @@ void ritual_ZN26QAccessibleActionInterfaceD1Ev(
   delete self;
 }
 
+//  QStringList QAccessibleActionInterface::actionNames() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK26QAccessibleActionInterface11actionNamesEv(
+    const QAccessibleActionInterface *self) {
+  return new QList<QString>(self->actionNames());
+}
+
 //  QString QAccessibleActionInterface::localizedActionName(const QString
 //      &name) const
 extern "C" Q_DECL_EXPORT
@@ -119,6 +127,15 @@ void ritual_ZN26QAccessibleActionInterface8doActionERK7QString(
     QAccessibleActionInterface *self,
     const QString *actionName) {
   self->doAction(*actionName);
+}
+
+//  QStringList QAccessibleActionInterface::keyBindingsForAction(const
+//      QString &actionName) const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK26QAccessibleActionInterface20keyBindingsForActionERK7QString(
+    const QAccessibleActionInterface *self,
+    const QString *actionName) {
+  return new QList<QString>(self->keyBindingsForAction(*actionName));
 }
 
 //  const QString &QAccessibleActionInterface::pressAction()

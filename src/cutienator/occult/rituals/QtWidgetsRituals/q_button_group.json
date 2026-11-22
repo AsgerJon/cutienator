@@ -18,6 +18,7 @@
     "ritual_ZN12QButtonGroup12removeButtonEP15QAbstractButton": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK12QButtonGroup7buttonsEv": ["address", "address"],
     "ritual_ZNK12QButtonGroup13checkedButtonEv": ["address", "address"],
     "ritual_ZNK12QButtonGroup6buttonEi": ["address", "address", "int"],
     "ritual_ZN12QButtonGroup5setIdEP15QAbstractButtoni": [

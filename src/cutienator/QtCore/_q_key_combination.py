@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
-from . import Qt
+from . import Qt, QList
 
 
 class QKeyCombination(CuteMixin, metaclass=MetaCute):
@@ -344,3 +344,16 @@ class QKeyCombination(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QKeyCombination>': the list of QKeyCombination, which
+#  'QList[QKeyCombination]' gives. It is made here, so that there is one as
+#  soon as there can be a QKeyCombination.
+QList.createKind(
+    QKeyCombination, 'value',
+    make='ritual_list_make_QKeyCombination',
+    add='ritual_list_add_QKeyCombination',
+    size='ritual_list_size_QKeyCombination',
+    at='ritual_list_at_QKeyCombination',
+    drop='ritual_list_drop_QKeyCombination',
+)

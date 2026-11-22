@@ -13,12 +13,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin
 from ..occult import Rituals
-from . import QLibrary, QObject
+from . import QLibrary, QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QJsonObject, QMetaObject
+  from . import QJsonObject, QMetaObject, QStaticPlugin
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,10 +37,10 @@ class QPluginLoader(QObject):
   -----------
 
   Every function of Qt's QPluginLoader that has a ritual and that Python can
-  call so far, 12 names in all: 'metaObject', 'tr', 'instance', 'metaData',
-  'load', 'unload', 'isLoaded', 'setFileName', 'fileName', 'errorString',
-  'setLoadHints', 'loadHints'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  call so far, 14 names in all: 'metaObject', 'tr', 'instance', 'metaData',
+  'staticInstances', 'staticPlugins', 'load', 'unload', 'isLoaded',
+  'setFileName', 'fileName', 'errorString', 'setLoadHints', 'loadHints'. It
+  can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,7 +51,7 @@ class QPluginLoader(QObject):
   What has no ritual
   ------------------
 
-  8 of the 23 functions Qt declares: 4 takes or gives a type that cannot be
+  6 of the 23 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 a template; 1 private.
 
   What to expect
@@ -116,6 +116,41 @@ class QPluginLoader(QObject):
         'ritual_ZN13QPluginLoader2trEPKcS1_i',
         CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
     )
+
+  @staticmethod
+  def staticInstances() -> QList[QObject]:
+    """
+    Calls Qt's 'QObjectList QPluginLoader::staticInstances()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpluginloader.html#staticInstances
+
+    Returns
+    -------
+
+    QList[QObject]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QObjectList QPluginLoader::staticInstances()
+    address = Rituals.call('ritual_ZN13QPluginLoader15staticInstancesEv')
+    return QList[QObject]._cuteOwning(address)
+
+  @staticmethod
+  def staticPlugins() -> QList[QStaticPlugin]:
+    """
+    Calls Qt's 'QList<QStaticPlugin> QPluginLoader::staticPlugins()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpluginloader.html#staticPlugins
+
+    Returns
+    -------
+
+    QList[QStaticPlugin]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QStaticPlugin> QPluginLoader::staticPlugins()
+    address = Rituals.call('ritual_ZN13QPluginLoader13staticPluginsEv')
+    from . import QStaticPlugin
+    return QList[QStaticPlugin]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

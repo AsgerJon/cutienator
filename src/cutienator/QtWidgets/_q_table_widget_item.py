@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -921,3 +921,16 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QTableWidgetItem *>': the list of QTableWidgetItem, which
+#  'QList[QTableWidgetItem]' gives. It is made here, so that there is one as
+#  soon as there can be a QTableWidgetItem.
+QList.createKind(
+    QTableWidgetItem, 'address',
+    make='ritual_list_make_QTableWidgetItem_ptr',
+    add='ritual_list_add_QTableWidgetItem_ptr',
+    size='ritual_list_size_QTableWidgetItem_ptr',
+    at='ritual_list_at_QTableWidgetItem_ptr',
+    drop='ritual_list_drop_QTableWidgetItem_ptr',
+)

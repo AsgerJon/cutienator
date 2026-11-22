@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -47,18 +47,19 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPainterPath that has a ritual and that Python can
-  call so far, 55 names in all: 'clear', 'reserve', 'capacity',
+  call so far, 57 names in all: 'clear', 'reserve', 'capacity',
   'closeSubpath', 'moveTo', 'lineTo', 'arcMoveTo', 'arcTo', 'cubicTo',
   'quadTo', 'currentPosition', 'addRect', 'addEllipse', 'addPolygon',
   'addText', 'addPath', 'addRegion', 'addRoundedRect', 'connectPath',
   'contains', 'intersects', 'translate', 'translated', 'boundingRect',
   'controlPointRect', 'fillRule', 'setFillRule', 'isEmpty', 'toReversed',
-  'toFillPolygon', 'elementCount', 'elementAt', 'setElementPositionAt',
-  'isCachingEnabled', 'setCachingEnabled', 'length', 'percentAtLength',
-  'pointAtPercent', 'angleAtPercent', 'slopeAtPercent', 'trimmed', 'united',
-  'intersected', 'subtracted', 'simplified', '__eq__', '__ne__', '__and__',
-  '__or__', '__add__', '__sub__', '__iand__', '__ior__', '__iadd__',
-  '__isub__'. It can be made from Python, in 3 ways; see '__init__'.
+  'toSubpathPolygons', 'toFillPolygons', 'toFillPolygon', 'elementCount',
+  'elementAt', 'setElementPositionAt', 'isCachingEnabled',
+  'setCachingEnabled', 'length', 'percentAtLength', 'pointAtPercent',
+  'angleAtPercent', 'slopeAtPercent', 'trimmed', 'united', 'intersected',
+  'subtracted', 'simplified', '__eq__', '__ne__', '__and__', '__or__',
+  '__add__', '__sub__', '__iand__', '__ior__', '__iadd__', '__isub__'. It can
+  be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -69,7 +70,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  14 of the 89 functions Qt declares: 8 takes or gives a type that cannot be
+  12 of the 89 functions Qt declares: 6 takes or gives a type that cannot be
   passed yet; 6 private.
 
   What to expect
@@ -592,6 +593,81 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     #  QPainterPath QPainterPath::toReversed() const
     address = self.uglySide.call('ritual_ZNK12QPainterPath10toReversedEv')
     return QPainterPath._cuteOwning(address)
+
+  @overload()
+  @overload(QTransform)
+  def toSubpathPolygons(
+      self,
+      matrix: Optional[QTransform] = None,
+  ) -> QList[QPolygonF]:
+    """
+    Calls Qt's 'QList<QPolygonF> QPainterPath::toSubpathPolygons(const
+    QTransform &matrix) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpainterpath.html#toSubpathPolygons
+
+    Parameters
+    ----------
+
+    matrix : Optional[QTransform]
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own. May be left out, as in Qt: a new 'QTransform()' is then passed on.
+
+    Returns
+    -------
+
+    QList[QPolygonF]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QPolygonF> QPainterPath::toSubpathPolygons(const QTransform
+    #      &matrix) const
+    if matrix is None:
+      from . import QTransform
+      matrix = QTransform()
+    address = self.uglySide.call(
+        'ritual_ZNK12QPainterPath17toSubpathPolygonsERK10QTransform',
+        self._valueOf(matrix),
+    )
+    from . import QPolygonF
+    return QList[QPolygonF]._cuteOwning(address)
+
+  @overload()
+  @overload(QTransform)
+  def toFillPolygons(
+      self,
+      matrix: Optional[QTransform] = None,
+  ) -> QList[QPolygonF]:
+    """
+    Calls Qt's 'QList<QPolygonF> QPainterPath::toFillPolygons(const
+    QTransform &matrix) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#toFillPolygons
+
+    Parameters
+    ----------
+
+    matrix : Optional[QTransform]
+      Passed on as a value: Qt reads the C++ QTransform, which stays Python's
+      own. May be left out, as in Qt: a new 'QTransform()' is then passed on.
+
+    Returns
+    -------
+
+    QList[QPolygonF]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QPolygonF> QPainterPath::toFillPolygons(const QTransform
+    #      &matrix) const
+    if matrix is None:
+      from . import QTransform
+      matrix = QTransform()
+    address = self.uglySide.call(
+        'ritual_ZNK12QPainterPath14toFillPolygonsERK10QTransform',
+        self._valueOf(matrix),
+    )
+    from . import QPolygonF
+    return QList[QPolygonF]._cuteOwning(address)
 
   @overload()
   @overload(QTransform)

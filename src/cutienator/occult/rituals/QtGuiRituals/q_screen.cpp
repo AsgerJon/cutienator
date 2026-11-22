@@ -8,6 +8,7 @@
 #include <QtGui/qtransform.h>
 #include <QtGui/qpixmap.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QScreen that Python can take functions over in. Every QScreen
@@ -255,6 +256,13 @@ QRect *ritual_ZNK7QScreen17availableGeometryEv(const QScreen *self) {
   return new QRect(self->availableGeometry());
 }
 
+//  QList<QScreen *> QScreen::virtualSiblings() const
+extern "C" Q_DECL_EXPORT
+QList<QScreen *> *ritual_ZNK7QScreen15virtualSiblingsEv(
+    const QScreen *self) {
+  return new QList<QScreen *>(self->virtualSiblings());
+}
+
 //  QScreen *QScreen::virtualSiblingAt(QPoint point)
 extern "C" Q_DECL_EXPORT
 QScreen *ritual_ZN7QScreen16virtualSiblingAtE6QPoint(
@@ -379,4 +387,36 @@ qreal ritual_ZNK7QScreen11refreshRateEv(const QScreen *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QScreen(QScreen *self, const char *key, void *call) {
   return static_cast<CuteQScreen *>(self)->take(key, call);
+}
+
+//  QList<QScreen *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QScreen *> *ritual_list_make_QScreen_ptr() {
+  return new QList<QScreen *>();
+}
+
+//  void QList<QScreen *>::append(const QScreen * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QScreen_ptr(QList<QScreen *> *self, QScreen *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QScreen *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QScreen_ptr(const QList<QScreen *> *self) {
+  return self->size();
+}
+
+//  const QScreen * &QList<QScreen *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QScreen *ritual_list_at_QScreen_ptr(
+    const QList<QScreen *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QScreen *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QScreen_ptr(QList<QScreen *> *self) {
+  delete self;
 }

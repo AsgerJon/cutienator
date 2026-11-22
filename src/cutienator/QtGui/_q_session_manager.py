@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -38,17 +38,18 @@ class QSessionManager(QObject):
   -----------
 
   Every function of Qt's QSessionManager that has a ritual and that Python
-  can call so far, 13 names in all: 'metaObject', 'tr', 'sessionId',
+  can call so far, 17 names in all: 'metaObject', 'tr', 'sessionId',
   'sessionKey', 'allowsInteraction', 'allowsErrorInteraction', 'release',
-  'cancel', 'setRestartHint', 'restartHint', 'setManagerProperty',
-  'isPhase2', 'requestPhase2'. None can be made from Python: one comes out of
-  a function of another class that gives one back.
+  'cancel', 'setRestartHint', 'restartHint', 'setRestartCommand',
+  'restartCommand', 'setDiscardCommand', 'discardCommand',
+  'setManagerProperty', 'isPhase2', 'requestPhase2'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
 
   What has no ritual
   ------------------
 
-  13 of the 26 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 5 private; 1 a template.
+  8 of the 26 functions Qt declares: 5 private; 2 takes or gives a type that
+  cannot be passed yet; 1 a template.
 
   What to expect
   --------------
@@ -214,6 +215,44 @@ class QSessionManager(QObject):
         'ritual_ZNK15QSessionManager11restartHintEv',
     ))
 
+  def restartCommand(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QSessionManager::restartCommand() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsessionmanager.html#restartCommand
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QSessionManager::restartCommand() const
+    address = self.uglySide.call(
+        'ritual_ZNK15QSessionManager14restartCommandEv',
+    )
+    return QStringList._cuteOwning(address)
+
+  def discardCommand(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QSessionManager::discardCommand() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsessionmanager.html#discardCommand
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QSessionManager::discardCommand() const
+    address = self.uglySide.call(
+        'ritual_ZNK15QSessionManager14discardCommandEv',
+    )
+    return QStringList._cuteOwning(address)
+
   def isPhase2(self) -> bool:
     """
     Calls Qt's 'bool QSessionManager::isPhase2() const'.
@@ -247,6 +286,52 @@ class QSessionManager(QObject):
         a0.value,
     )
 
+  @overload(QStringList)
+  def setRestartCommand(self, a0: QStringList) -> None:
+    """
+    Calls Qt's 'void QSessionManager::setRestartCommand(const QStringList
+    &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsessionmanager.html#setRestartCommand
+
+    Parameters
+    ----------
+
+    a0 : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QSessionManager::setRestartCommand(const QStringList &a0)
+    self.uglySide.call(
+        'ritual_ZN15QSessionManager17setRestartCommandERK5QListI7QStringE',
+        self._valueOf(a0),
+    )
+
+  @overload(QStringList)
+  def setDiscardCommand(self, a0: QStringList) -> None:
+    """
+    Calls Qt's 'void QSessionManager::setDiscardCommand(const QStringList
+    &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsessionmanager.html#setDiscardCommand
+
+    Parameters
+    ----------
+
+    a0 : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QSessionManager::setDiscardCommand(const QStringList &a0)
+    self.uglySide.call(
+        'ritual_ZN15QSessionManager17setDiscardCommandERK5QListI7QStringE',
+        self._valueOf(a0),
+    )
+
   @overload(str, str)
   def setManagerProperty(self, name: str, value: str) -> None:
     """
@@ -270,6 +355,34 @@ class QSessionManager(QObject):
     self.uglySide.call(
         'ritual_ZN15QSessionManager18setManagerPropertyERK7QStringS2_',
         name, value,
+    )
+
+  @overload(str, QStringList)
+  def setManagerProperty(self, name: str, value: QStringList) -> None:
+    """
+    Calls Qt's 'void QSessionManager::setManagerProperty(const QString &name,
+    const QStringList &value)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsessionmanager.html#setManagerProperty
+
+    Parameters
+    ----------
+
+    name : str
+      Passed on as it is: a QString is made of it for the call.
+
+    value : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QSessionManager::setManagerProperty(const QString &name, const
+    #      QStringList &value)
+    self.uglySide.call(
+        'ritual_ZN15QSessionManager18setManagerPropertyERK7QStringRK5QListI'
+        'S0_E',
+        name, self._valueOf(value),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

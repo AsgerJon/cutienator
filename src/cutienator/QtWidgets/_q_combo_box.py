@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QStringList
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -71,7 +71,7 @@ class QComboBox(QWidget):
   -----------
 
   Every function of Qt's QComboBox that has a ritual and that Python can call
-  so far, 82 names in all: 'metaObject', 'tr', 'maxVisibleItems',
+  so far, 84 names in all: 'metaObject', 'tr', 'maxVisibleItems',
   'setMaxVisibleItems', 'count', 'setMaxCount', 'maxCount',
   'duplicatesEnabled', 'setDuplicatesEnabled', 'setFrame', 'hasFrame',
   'findText', 'findData', 'insertPolicy', 'setInsertPolicy',
@@ -82,13 +82,13 @@ class QComboBox(QWidget):
   'completer', 'itemDelegate', 'setItemDelegate', 'model', 'setModel',
   'rootModelIndex', 'setRootModelIndex', 'modelColumn', 'setModelColumn',
   'labelDrawingMode', 'setLabelDrawingMode', 'currentIndex', 'currentText',
-  'currentData', 'itemText', 'itemIcon', 'itemData', 'addItem', 'insertItem',
-  'insertSeparator', 'removeItem', 'setItemText', 'setItemIcon',
-  'setItemData', 'view', 'setView', 'sizeHint', 'minimumSizeHint',
-  'showPopup', 'hidePopup', 'event', 'inputMethodQuery', 'clear',
-  'clearEditText', 'setEditText', 'setCurrentIndex', 'setCurrentText',
-  'focusInEvent', 'focusOutEvent', 'changeEvent', 'resizeEvent',
-  'paintEvent', 'showEvent', 'hideEvent', 'mousePressEvent',
+  'currentData', 'itemText', 'itemIcon', 'itemData', 'addItem', 'addItems',
+  'insertItem', 'insertItems', 'insertSeparator', 'removeItem',
+  'setItemText', 'setItemIcon', 'setItemData', 'view', 'setView', 'sizeHint',
+  'minimumSizeHint', 'showPopup', 'hidePopup', 'event', 'inputMethodQuery',
+  'clear', 'clearEditText', 'setEditText', 'setCurrentIndex',
+  'setCurrentText', 'focusInEvent', 'focusOutEvent', 'changeEvent',
+  'resizeEvent', 'paintEvent', 'showEvent', 'hideEvent', 'mousePressEvent',
   'mouseReleaseEvent', 'keyPressEvent', 'keyReleaseEvent', 'wheelEvent',
   'contextMenuEvent', 'inputMethodEvent', 'initStyleOption'. It can be made
   from Python, in 1 way; see '__init__'.
@@ -102,8 +102,8 @@ class QComboBox(QWidget):
   What has no ritual
   ------------------
 
-  18 of the 105 functions Qt declares: 7 a signal; 4 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1
+  16 of the 105 functions Qt declares: 7 a signal; 3 private; 2 takes or
+  gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1
   protected.
 
   What to expect
@@ -1483,6 +1483,27 @@ class QComboBox(QWidget):
         self._valueOf(icon), text, self._valueOf(userData),
     )
 
+  @overload(QStringList)
+  def addItems(self, texts: QStringList) -> None:
+    """
+    Calls Qt's 'void QComboBox::addItems(const QStringList &texts)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#addItems
+
+    Parameters
+    ----------
+
+    texts : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QComboBox::addItems(const QStringList &texts)
+    self.uglySide.call(
+        'ritual_ZN9QComboBox8addItemsERK5QListI7QStringE',
+        self._valueOf(texts),
+    )
+
   @overload(int, str)
   @overload(int, str, QVariant)
   def insertItem(
@@ -1559,6 +1580,31 @@ class QComboBox(QWidget):
     self.uglySide.call(
         'ritual_ZN9QComboBox10insertItemEiRK5QIconRK7QStringRK8QVariant',
         index, self._valueOf(icon), text, self._valueOf(userData),
+    )
+
+  @overload(int, QStringList)
+  def insertItems(self, index: int, texts: QStringList) -> None:
+    """
+    Calls Qt's 'void QComboBox::insertItems(int index, const QStringList
+    &texts)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#insertItems
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+
+    texts : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QComboBox::insertItems(int index, const QStringList &texts)
+    self.uglySide.call(
+        'ritual_ZN9QComboBox11insertItemsEiRK5QListI7QStringE',
+        index, self._valueOf(texts),
     )
 
   @overload(int)

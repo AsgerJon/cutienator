@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import QList, QObject
 from . import QImageReader
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -48,14 +48,14 @@ class QMovie(QObject):
   -----------
 
   Every function of Qt's QMovie that has a ritual and that Python can call so
-  far, 32 names in all: 'metaObject', 'tr', 'setDevice', 'device',
-  'setFileName', 'fileName', 'setFormat', 'format', 'setBackgroundColor',
-  'backgroundColor', 'state', 'frameRect', 'currentImage', 'currentPixmap',
-  'isValid', 'lastError', 'lastErrorString', 'jumpToFrame', 'loopCount',
-  'frameCount', 'nextFrameDelay', 'currentFrameNumber', 'speed',
-  'scaledSize', 'setScaledSize', 'cacheMode', 'setCacheMode', 'start',
-  'jumpToNextFrame', 'setPaused', 'stop', 'setSpeed'. It can be made from
-  Python, in 3 ways; see '__init__'.
+  far, 33 names in all: 'metaObject', 'tr', 'supportedFormats', 'setDevice',
+  'device', 'setFileName', 'fileName', 'setFormat', 'format',
+  'setBackgroundColor', 'backgroundColor', 'state', 'frameRect',
+  'currentImage', 'currentPixmap', 'isValid', 'lastError', 'lastErrorString',
+  'jumpToFrame', 'loopCount', 'frameCount', 'nextFrameDelay',
+  'currentFrameNumber', 'speed', 'scaledSize', 'setScaledSize', 'cacheMode',
+  'setCacheMode', 'start', 'jumpToNextFrame', 'setPaused', 'stop',
+  'setSpeed'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,7 +66,7 @@ class QMovie(QObject):
   What has no ritual
   ------------------
 
-  18 of the 54 functions Qt declares: 7 a signal; 5 takes or gives a type
+  17 of the 54 functions Qt declares: 7 a signal; 4 takes or gives a type
   that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
 
   What to expect
@@ -149,6 +149,24 @@ class QMovie(QObject):
         'ritual_ZN6QMovie2trEPKcS1_i',
         CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
     )
+
+  @staticmethod
+  def supportedFormats() -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QMovie::supportedFormats()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmovie.html#supportedFormats
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QMovie::supportedFormats()
+    address = Rituals.call('ritual_ZN6QMovie16supportedFormatsEv')
+    from ..QtCore import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -14,12 +14,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QHash, QMap, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from . import QDebug, QJsonValue, QJsonValueConstRef, QJsonValueRef
-  from . import QLatin1String
+  from . import QLatin1String, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -28,6 +29,7 @@ else:
   QJsonValue = WAIT['QJsonValue']
   QJsonValueConstRef = WAIT['QJsonValueConstRef']
   QLatin1String = WAIT['QLatin1String']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -47,11 +49,12 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QJsonObject that has a ritual and that Python can
-  call so far, 23 names in all: 'size', 'count', 'length', 'isEmpty',
-  'value', '__getitem__', 'remove', 'take', 'contains', 'begin', 'cbegin',
-  'constBegin', 'end', 'cend', 'constEnd', 'erase', 'find', 'constFind',
-  'insert', 'empty', '__eq__', '__ne__', '__rlshift__'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  call so far, 28 names in all: 'fromVariantMap', 'toVariantMap',
+  'fromVariantHash', 'toVariantHash', 'keys', 'size', 'count', 'length',
+  'isEmpty', 'value', '__getitem__', 'remove', 'take', 'contains', 'begin',
+  'cbegin', 'constBegin', 'end', 'cend', 'constEnd', 'erase', 'find',
+  'constFind', 'insert', 'empty', '__eq__', '__ne__', '__rlshift__'. It can
+  be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -114,7 +117,7 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  35 of the 93 functions Qt declares: 18 takes or gives a type that cannot be
+  30 of the 93 functions Qt declares: 13 takes or gives a type that cannot be
   passed yet; 9 a template; 6 private; 2 can only be called on a value about
   to be thrown away.
 
@@ -1395,6 +1398,67 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  @overload(QMap[str, QVariant])
+  def fromVariantMap(map: QMap[str, QVariant]) -> QJsonObject:
+    """
+    Calls Qt's 'QJsonObject QJsonObject::fromVariantMap(const QVariantMap
+    &map)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonobject.html#fromVariantMap
+
+    Parameters
+    ----------
+
+    map : QMap[str, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+
+    Returns
+    -------
+
+    QJsonObject
+      A new cute QJsonObject around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonObject QJsonObject::fromVariantMap(const QVariantMap &map)
+    address = Rituals.call(
+        'ritual_ZN11QJsonObject14fromVariantMapERK4QMapI7QString8QVariantE',
+        CuteMixin._valueOf(map),
+    )
+    return QJsonObject._cuteOwning(address)
+
+  @staticmethod
+  @overload(QHash[str, QVariant])
+  def fromVariantHash(map: QHash[str, QVariant]) -> QJsonObject:
+    """
+    Calls Qt's 'QJsonObject QJsonObject::fromVariantHash(const QVariantHash
+    &map)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonobject.html#fromVariantHash
+
+    Parameters
+    ----------
+
+    map : QHash[str, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+
+    Returns
+    -------
+
+    QJsonObject
+      A new cute QJsonObject around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonObject QJsonObject::fromVariantHash(const QVariantHash &map)
+    address = Rituals.call(
+        'ritual_ZN11QJsonObject15fromVariantHashERK5QHashI7QString8QVariant'
+        'E',
+        CuteMixin._valueOf(map),
+    )
+    return QJsonObject._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1418,6 +1482,56 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def toVariantMap(self) -> QMap[str, QVariant]:
+    """
+    Calls Qt's 'QVariantMap QJsonObject::toVariantMap() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonobject.html#toVariantMap
+
+    Returns
+    -------
+
+    QMap[str, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QVariantMap QJsonObject::toVariantMap() const
+    address = self.uglySide.call('ritual_ZNK11QJsonObject12toVariantMapEv')
+    from . import QVariant
+    return QMap[str, QVariant]._cuteOwning(address)
+
+  def toVariantHash(self) -> QHash[str, QVariant]:
+    """
+    Calls Qt's 'QVariantHash QJsonObject::toVariantHash() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonobject.html#toVariantHash
+
+    Returns
+    -------
+
+    QHash[str, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QVariantHash QJsonObject::toVariantHash() const
+    address = self.uglySide.call('ritual_ZNK11QJsonObject13toVariantHashEv')
+    from . import QVariant
+    return QHash[str, QVariant]._cuteOwning(address)
+
+  def keys(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QJsonObject::keys() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonobject.html#keys
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QJsonObject::keys() const
+    address = self.uglySide.call('ritual_ZNK11QJsonObject4keysEv')
+    return QStringList._cuteOwning(address)
 
   def size(self) -> int:
     """

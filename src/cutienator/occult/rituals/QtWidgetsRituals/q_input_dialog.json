@@ -40,6 +40,10 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK12QInputDialog18isComboBoxEditableEv": ["bool", "address"],
+    "ritual_ZN12QInputDialog16setComboBoxItemsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QInputDialog13comboBoxItemsEv": ["address", "address"],
     "ritual_ZN12QInputDialog11setIntValueEi": ["nothing", "address", "int"],
     "ritual_ZNK12QInputDialog8intValueEv": ["int", "address"],
     "ritual_ZN12QInputDialog13setIntMinimumEi": [
@@ -94,6 +98,10 @@
     ],
     "ritual_ZN12QInputDialog16getMultiLineTextEP7QWidgetRK7QStringS4_S4_Pb6QFlagsIN2Qt10WindowTypeEES6_INS7_15InputMethodHintEE": [
       "text", "address", "text", "text", "text", "address", "int", "int"
+    ],
+    "ritual_ZN12QInputDialog7getItemEP7QWidgetRK7QStringS4_RK5QListIS2_EibPb6QFlagsIN2Qt10WindowTypeEESA_INSB_15InputMethodHintEE": [
+      "text", "address", "text", "text", "address", "int", "bool", "address",
+      "int", "int"
     ],
     "ritual_ZN12QInputDialog6getIntEP7QWidgetRK7QStringS4_iiiiPb6QFlagsIN2Qt10WindowTypeEE": [
       "int", "address", "text", "text", "int", "int", "int", "int",

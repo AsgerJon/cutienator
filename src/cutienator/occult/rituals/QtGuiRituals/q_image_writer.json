@@ -35,6 +35,7 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK12QImageWriter7subTypeEv": ["address", "address"],
+    "ritual_ZNK12QImageWriter17supportedSubTypesEv": ["address", "address"],
     "ritual_ZN12QImageWriter17setOptimizedWriteEb": [
       "nothing", "address", "bool"
     ],
@@ -58,6 +59,11 @@
     "ritual_ZNK12QImageWriter11errorStringEv": ["text", "address"],
     "ritual_ZNK12QImageWriter14supportsOptionEN15QImageIOHandler11ImageOptionE": [
       "bool", "address", "int"
+    ],
+    "ritual_ZN12QImageWriter21supportedImageFormatsEv": ["address"],
+    "ritual_ZN12QImageWriter18supportedMimeTypesEv": ["address"],
+    "ritual_ZN12QImageWriter23imageFormatsForMimeTypeERK10QByteArray": [
+      "address", "address"
     ]
   }
 }

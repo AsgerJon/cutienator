@@ -2,6 +2,7 @@
 //  QtCore/qitemselectionmodel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qitemselectionmodel.h>
 #include <QtCore/qabstractitemmodel.h>
+#include <QtCore/qlist.h>
 
 //  QItemSelection::QItemSelection(const QModelIndex &topLeft, const
 //      QModelIndex &bottomRight)
@@ -28,6 +29,13 @@ bool ritual_ZNK14QItemSelection8containsERK11QModelIndex(
     const QItemSelection *self,
     const QModelIndex *index) {
   return self->contains(*index);
+}
+
+//  QModelIndexList QItemSelection::indexes() const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK14QItemSelection7indexesEv(
+    const QItemSelection *self) {
+  return new QList<QModelIndex>(self->indexes());
 }
 
 //  void QItemSelection::merge(const QItemSelection &other,

@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QVariant
+from . import QHash, QVariant
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -616,3 +616,19 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QHash<int, QMetaProperty>': the QHash from a number to
+#  QMetaProperty, which 'QHash[int, QMetaProperty]' gives. It is completed
+#  here, in the file of the class of its values.
+QHash.createKind(
+    int, QMetaProperty, 'value',
+    make='ritual_map_make_QHash_int_QMetaProperty',
+    put='ritual_map_put_QHash_int_QMetaProperty',
+    size='ritual_map_size_QHash_int_QMetaProperty',
+    key='ritual_map_key_QHash_int_QMetaProperty',
+    value='ritual_map_value_QHash_int_QMetaProperty',
+    has='ritual_map_has_QHash_int_QMetaProperty',
+    get='ritual_map_get_QHash_int_QMetaProperty',
+    drop='ritual_map_drop_QHash_int_QMetaProperty',
+)

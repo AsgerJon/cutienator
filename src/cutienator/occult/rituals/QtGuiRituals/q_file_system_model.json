@@ -55,12 +55,17 @@
     "ritual_ZN16QFileSystemModel4sortEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZNK16QFileSystemModel9mimeTypesEv": ["address", "address"],
+    "ritual_ZNK16QFileSystemModel8mimeDataERK5QListI11QModelIndexE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN16QFileSystemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
       "bool", "address", "address", "int", "int", "int", "address"
     ],
     "ritual_ZNK16QFileSystemModel20supportedDropActionsEv": [
       "int", "address"
     ],
+    "ritual_ZNK16QFileSystemModel9roleNamesEv": ["address", "address"],
     "ritual_ZN16QFileSystemModel11setRootPathERK7QString": [
       "address", "address", "text"
     ],
@@ -88,6 +93,10 @@
     "ritual_ZNK16QFileSystemModel18nameFilterDisablesEv": [
       "bool", "address"
     ],
+    "ritual_ZN16QFileSystemModel14setNameFiltersERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QFileSystemModel11nameFiltersEv": ["address", "address"],
     "ritual_ZN16QFileSystemModel9setOptionENS_6OptionEb": [
       "nothing", "address", "int", "bool"
     ],

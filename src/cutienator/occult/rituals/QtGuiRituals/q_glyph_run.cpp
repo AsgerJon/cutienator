@@ -2,8 +2,10 @@
 //  QtGui/qglyphrun.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qglyphrun.h>
 #include <QtGui/qrawfont.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 
 //  QGlyphRun::QGlyphRun()
 extern "C" Q_DECL_EXPORT
@@ -35,6 +37,20 @@ void ritual_ZN9QGlyphRun10setRawFontERK8QRawFont(
     QGlyphRun *self,
     const QRawFont *rawFont) {
   self->setRawFont(*rawFont);
+}
+
+//  QList<QPointF> QGlyphRun::positions() const
+extern "C" Q_DECL_EXPORT
+QList<QPointF> *ritual_ZNK9QGlyphRun9positionsEv(const QGlyphRun *self) {
+  return new QList<QPointF>(self->positions());
+}
+
+//  void QGlyphRun::setPositions(const QList<QPointF> &positions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGlyphRun12setPositionsERK5QListI7QPointFE(
+    QGlyphRun *self,
+    const QList<QPointF> *positions) {
+  self->setPositions(*positions);
 }
 
 //  void QGlyphRun::clear()
@@ -162,4 +178,38 @@ QString *ritual_ZNK9QGlyphRun12sourceStringEv(const QGlyphRun *self) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9QGlyphRun7isEmptyEv(const QGlyphRun *self) {
   return self->isEmpty();
+}
+
+//  QList<QGlyphRun>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QGlyphRun> *ritual_list_make_QGlyphRun() {
+  return new QList<QGlyphRun>();
+}
+
+//  void QList<QGlyphRun>::append(const QGlyphRun &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QGlyphRun(
+    QList<QGlyphRun> *self,
+    const QGlyphRun *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QGlyphRun>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QGlyphRun(const QList<QGlyphRun> *self) {
+  return self->size();
+}
+
+//  const QGlyphRun &QList<QGlyphRun>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QGlyphRun *ritual_list_at_QGlyphRun(
+    const QList<QGlyphRun> *self,
+    long long index) {
+  return new QGlyphRun(self->at(index));
+}
+
+//  QList<QGlyphRun>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QGlyphRun(QList<QGlyphRun> *self) {
+  delete self;
 }

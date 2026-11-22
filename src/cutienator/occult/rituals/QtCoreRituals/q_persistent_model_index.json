@@ -76,6 +76,15 @@
     ],
     "ritual_Zls6QDebugRK21QPersistentModelIndex": [
       "address", "address", "address"
-    ]
+    ],
+    "ritual_list_make_QPersistentModelIndex": ["address"],
+    "ritual_list_add_QPersistentModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QPersistentModelIndex": ["long long", "address"],
+    "ritual_list_at_QPersistentModelIndex": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QPersistentModelIndex": ["nothing", "address"]
   }
 }

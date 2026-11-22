@@ -2,10 +2,12 @@
 //  QtWidgets/qmessagebox.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qmessagebox.h>
 #include <QtCore/qstring.h>
+#include <QtWidgets/qabstractbutton.h>
 #include <QtGui/qpixmap.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QMessageBox may call these functions of it.
@@ -937,6 +939,13 @@ void ritual_ZN11QMessageBox4openEP7QObjectPKc(
     QObject *receiver,
     const char *member) {
   self->open(receiver, member);
+}
+
+//  QList<QAbstractButton *> QMessageBox::buttons() const
+extern "C" Q_DECL_EXPORT
+QList<QAbstractButton *> *ritual_ZNK11QMessageBox7buttonsEv(
+    const QMessageBox *self) {
+  return new QList<QAbstractButton *>(self->buttons());
 }
 
 //  ButtonRole QMessageBox::buttonRole(QAbstractButton *button) const

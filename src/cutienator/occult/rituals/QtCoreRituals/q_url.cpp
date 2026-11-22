@@ -5,6 +5,7 @@
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qurlquery.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qlist.h>
 
 //  QUrl::QUrl()
 extern "C" Q_DECL_EXPORT
@@ -382,6 +383,28 @@ QByteArray *ritual_ZN4QUrl5toAceERK7QString6QFlagsINS_19AceProcessingOptionEE(
           QFlags<QUrl::AceProcessingOption>::fromInt(options)));
 }
 
+//  QStringList QUrl::idnWhitelist()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN4QUrl12idnWhitelistEv() {
+  return new QList<QString>(QUrl::idnWhitelist());
+}
+
+//  QList<QUrl> QUrl::fromStringList(const QStringList &uris, ParsingMode
+//      mode)
+extern "C" Q_DECL_EXPORT
+QList<QUrl> *ritual_ZN4QUrl14fromStringListERK5QListI7QStringENS_11ParsingModeE(
+    const QList<QString> *uris,
+    QUrl::ParsingMode mode) {
+  return new QList<QUrl>(QUrl::fromStringList(*uris, mode));
+}
+
+//  void QUrl::setIdnWhitelist(const QStringList &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QUrl15setIdnWhitelistERK5QListI7QStringE(
+    const QList<QString> *a0) {
+  QUrl::setIdnWhitelist(*a0);
+}
+
 //  bool operator==(const QUrl &lhs, const QUrl &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK4QUrlS1_(const QUrl *lhs, const QUrl *rhs) {
@@ -416,4 +439,34 @@ bool ritual_ZleRK4QUrlS1_(const QUrl *lhs, const QUrl *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK4QUrlS1_(const QUrl *lhs, const QUrl *rhs) {
   return operator>=(*lhs, *rhs);
+}
+
+//  QList<QUrl>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QUrl> *ritual_list_make_QUrl() {
+  return new QList<QUrl>();
+}
+
+//  void QList<QUrl>::append(const QUrl &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QUrl(QList<QUrl> *self, const QUrl *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QUrl>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QUrl(const QList<QUrl> *self) {
+  return self->size();
+}
+
+//  const QUrl &QList<QUrl>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QUrl *ritual_list_at_QUrl(const QList<QUrl> *self, long long index) {
+  return new QUrl(self->at(index));
+}
+
+//  QList<QUrl>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QUrl(QList<QUrl> *self) {
+  delete self;
 }

@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
+from . import QList
 
 
 class QXmlStreamNamespaceDeclaration(CuteMixin, metaclass=MetaCute):
@@ -261,3 +262,19 @@ class QXmlStreamNamespaceDeclaration(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QXmlStreamNamespaceDeclaration>': the list of
+#  QXmlStreamNamespaceDeclaration, which
+#  'QList[QXmlStreamNamespaceDeclaration]' gives. It is made here, so that
+#  there is one as soon as there can be a QXmlStreamNamespaceDeclaration. Qt
+#  has a name of its own for it.
+QXmlStreamNamespaceDeclarations = QList.createKind(
+    QXmlStreamNamespaceDeclaration, 'value',
+    name='QXmlStreamNamespaceDeclarations',
+    make='ritual_list_make_QXmlStreamNamespaceDeclaration',
+    add='ritual_list_add_QXmlStreamNamespaceDeclaration',
+    size='ritual_list_size_QXmlStreamNamespaceDeclaration',
+    at='ritual_list_at_QXmlStreamNamespaceDeclaration',
+    drop='ritual_list_drop_QXmlStreamNamespaceDeclaration',
+)

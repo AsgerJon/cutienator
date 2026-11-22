@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 from . import QGraphicsItem, QGraphicsLayoutItem, QGraphicsObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -75,7 +75,7 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   -----------
 
   Every function of Qt's QGraphicsWidget that has a ritual and that Python
-  can call so far, 75 names in all: 'metaObject', 'tr', 'layout',
+  can call so far, 78 names in all: 'metaObject', 'tr', 'layout',
   'setLayout', 'adjustSize', 'layoutDirection', 'setLayoutDirection',
   'unsetLayoutDirection', 'style', 'setStyle', 'font', 'setFont', 'palette',
   'setPalette', 'autoFillBackground', 'setAutoFillBackground', 'resize',
@@ -85,14 +85,14 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   'isActiveWindow', 'setWindowTitle', 'windowTitle', 'focusPolicy',
   'setFocusPolicy', 'setTabOrder', 'focusWidget', 'grabShortcut',
   'releaseShortcut', 'setShortcutEnabled', 'setShortcutAutoRepeat',
-  'addAction', 'insertAction', 'removeAction', 'setAttribute',
-  'testAttribute', 'type', 'paint', 'paintWindowFrame', 'boundingRect',
-  'shape', 'close', 'initStyleOption', 'sizeHint', 'updateGeometry',
-  'itemChange', 'propertyChange', 'sceneEvent', 'windowFrameEvent',
-  'windowFrameSectionAt', 'event', 'changeEvent', 'closeEvent',
-  'focusInEvent', 'focusNextPrevChild', 'focusOutEvent', 'hideEvent',
-  'moveEvent', 'polishEvent', 'resizeEvent', 'showEvent', 'hoverMoveEvent',
-  'hoverLeaveEvent', 'grabMouseEvent', 'ungrabMouseEvent',
+  'addAction', 'addActions', 'insertActions', 'insertAction', 'removeAction',
+  'actions', 'setAttribute', 'testAttribute', 'type', 'paint',
+  'paintWindowFrame', 'boundingRect', 'shape', 'close', 'initStyleOption',
+  'sizeHint', 'updateGeometry', 'itemChange', 'propertyChange', 'sceneEvent',
+  'windowFrameEvent', 'windowFrameSectionAt', 'event', 'changeEvent',
+  'closeEvent', 'focusInEvent', 'focusNextPrevChild', 'focusOutEvent',
+  'hideEvent', 'moveEvent', 'polishEvent', 'resizeEvent', 'showEvent',
+  'hoverMoveEvent', 'hoverLeaveEvent', 'grabMouseEvent', 'ungrabMouseEvent',
   'grabKeyboardEvent', 'ungrabKeyboardEvent'. It can be made from Python, in
   1 way; see '__init__'.
 
@@ -111,8 +111,8 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   What has no ritual
   ------------------
 
-  14 of the 97 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 3 private; 2 a signal; 2 forbidden; 1 a template; 1 protected.
+  11 of the 97 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
   --------------
@@ -667,6 +667,23 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
         'ritual_ZNK15QGraphicsWidget11focusWidgetEv',
     )
     return QGraphicsWidget._cuteAt(address)
+
+  def actions(self) -> QList[QAction]:
+    """
+    Calls Qt's 'QList<QAction *> QGraphicsWidget::actions() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#actions
+
+    Returns
+    -------
+
+    QList[QAction]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QAction *> QGraphicsWidget::actions() const
+    address = self.uglySide.call('ritual_ZNK15QGraphicsWidget7actionsEv')
+    from ..QtGui import QAction
+    return QList[QAction]._cuteOwning(address)
 
   @overload(Qt.WidgetAttribute)
   def testAttribute(self, attribute: Qt.WidgetAttribute) -> bool:
@@ -1449,6 +1466,60 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
     self.uglySide.call(
         'ritual_ZN15QGraphicsWidget9addActionEP7QAction',
         self._addressOf(action),
+    )
+
+  @overload(QList[QAction])
+  def addActions(self, actions: QList[QAction]) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::addActions(const QList<QAction *>
+    &actions)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#addActions
+
+    Parameters
+    ----------
+
+    actions : QList[QAction]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QGraphicsWidget::addActions(const QList<QAction *> &actions)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget10addActionsERK5QListIP7QActionE',
+        self._valueOf(actions),
+    )
+
+  @overload(QAction, QList[QAction])
+  @overload(NoneType, QList[QAction])
+  def insertActions(
+      self,
+      before: Optional[QAction],
+      actions: QList[QAction],
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::insertActions(QAction *before, const
+    QList<QAction *> &actions)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#insertActions
+
+    Parameters
+    ----------
+
+    before : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    actions : QList[QAction]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QGraphicsWidget::insertActions(QAction *before, const
+    #      QList<QAction *> &actions)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsWidget13insertActionsEP7QActionRK5QListIS1_E',
+        self._addressOf(before), self._valueOf(actions),
     )
 
   @overload(QAction, QAction)

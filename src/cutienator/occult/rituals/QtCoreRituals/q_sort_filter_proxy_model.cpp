@@ -8,6 +8,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QSortFilterProxyModel may call these functions of it.
@@ -1223,6 +1224,15 @@ bool ritual_ZN21QSortFilterProxyModel13setHeaderDataEiN2Qt11OrientationERK8QVari
   return self->setHeaderData(section, orientation, *value, role);
 }
 
+//  QMimeData *QSortFilterProxyModel::mimeData(const QModelIndexList
+//      &indexes) const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_ZNK21QSortFilterProxyModel8mimeDataERK5QListI11QModelIndexE(
+    const QSortFilterProxyModel *self,
+    const QList<QModelIndex> *indexes) {
+  return self->mimeData(*indexes);
+}
+
 //  bool QSortFilterProxyModel::dropMimeData(const QMimeData *data,
 //      Qt::DropAction action, int row, int column, const QModelIndex
 //      &parent)
@@ -1314,6 +1324,26 @@ QModelIndex *ritual_ZNK21QSortFilterProxyModel5buddyERK11QModelIndex(
   return new QModelIndex(self->buddy(*index));
 }
 
+//  QModelIndexList QSortFilterProxyModel::match(const QModelIndex &start,
+//      int role, const QVariant &value, int hits, Qt::MatchFlags flags)
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK21QSortFilterProxyModel5matchERK11QModelIndexiRK8QVarianti6QFlagsIN2Qt9MatchFlagEE(
+    const QSortFilterProxyModel *self,
+    const QModelIndex *start,
+    int role,
+    const QVariant *value,
+    int hits,
+    int flags) {
+  return new QList<QModelIndex>(
+      self->match(
+          *start,
+          role,
+          *value,
+          hits,
+          QFlags<Qt::MatchFlag>::fromInt(flags)));
+}
+
 //  QSize QSortFilterProxyModel::span(const QModelIndex &index) const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK21QSortFilterProxyModel4spanERK11QModelIndex(
@@ -1329,6 +1359,13 @@ void ritual_ZN21QSortFilterProxyModel4sortEiN2Qt9SortOrderE(
     int column,
     Qt::SortOrder order) {
   self->sort(column, order);
+}
+
+//  QStringList QSortFilterProxyModel::mimeTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK21QSortFilterProxyModel9mimeTypesEv(
+    const QSortFilterProxyModel *self) {
+  return new QList<QString>(self->mimeTypes());
 }
 
 //  Qt::DropActions QSortFilterProxyModel::supportedDropActions() const

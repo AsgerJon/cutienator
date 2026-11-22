@@ -7,6 +7,9 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qitemselectionmodel.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  A QTransposeProxyModel that Python can take functions over in. Every QTransposeProxyModel
@@ -863,12 +866,31 @@ bool ritual_ZN20QTransposeProxyModel13setHeaderDataEiN2Qt11OrientationERK8QVaria
   return self->setHeaderData(section, orientation, *value, role);
 }
 
+//  bool QTransposeProxyModel::setItemData(const QModelIndex &index, const
+//      QMap<int, QVariant> &roles)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QTransposeProxyModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE(
+    QTransposeProxyModel *self,
+    const QModelIndex *index,
+    const QMap<int, QVariant> *roles) {
+  return self->setItemData(*index, *roles);
+}
+
 //  QSize QTransposeProxyModel::span(const QModelIndex &index) const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK20QTransposeProxyModel4spanERK11QModelIndex(
     const QTransposeProxyModel *self,
     const QModelIndex *index) {
   return new QSize(self->span(*index));
+}
+
+//  QMap<int, QVariant> QTransposeProxyModel::itemData(const QModelIndex
+//      &index) const
+extern "C" Q_DECL_EXPORT
+QMap<int, QVariant> *ritual_ZNK20QTransposeProxyModel8itemDataERK11QModelIndex(
+    const QTransposeProxyModel *self,
+    const QModelIndex *index) {
+  return new QMap<int, QVariant>(self->itemData(*index));
 }
 
 //  QModelIndex QTransposeProxyModel::mapFromSource(const QModelIndex

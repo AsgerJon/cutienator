@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt
+from . import Qt, QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QCalendar, QDate, QDateTime, QTime
@@ -42,7 +42,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLocale that has a ritual and that Python can call
-  so far, 56 names in all: 'language', 'script', 'country', 'name',
+  so far, 59 names in all: 'language', 'script', 'country', 'name',
   'bcp47Name', 'nativeLanguageName', 'nativeTerritoryName',
   'nativeCountryName', 'toString', 'dateFormat', 'timeFormat',
   'dateTimeFormat', 'toTime', 'toDate', 'toDateTime', 'decimalPoint',
@@ -50,12 +50,13 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   'exponential', 'monthName', 'standaloneMonthName', 'dayName',
   'standaloneDayName', 'firstDayOfWeek', 'amText', 'pmText',
   'measurementSystem', 'collation', 'textDirection', 'toUpper', 'toLower',
-  'currencySymbol', 'toCurrencyString', 'formattedDataSize',
+  'currencySymbol', 'toCurrencyString', 'formattedDataSize', 'uiLanguages',
   'languageToCode', 'codeToLanguage', 'territoryToCode', 'countryToCode',
   'codeToCountry', 'scriptToCode', 'codeToScript', 'languageToString',
   'territoryToString', 'countryToString', 'scriptToString', 'setDefault',
-  'c', 'system', 'setNumberOptions', 'numberOptions', 'quoteString',
-  '__eq__', '__ne__'. It can be made from Python, in 5 ways; see '__init__'.
+  'c', 'system', 'matchingLocales', 'setNumberOptions', 'numberOptions',
+  'quoteString', 'createSeparatedList', '__eq__', '__ne__'. It can be made
+  from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -158,7 +159,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  27 of the 147 functions Qt declares: 22 takes or gives a type that cannot
+  24 of the 147 functions Qt declares: 19 takes or gives a type that cannot
   be passed yet; 3 private; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
@@ -1467,6 +1468,46 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     #  QLocale QLocale::system()
     address = Rituals.call('ritual_ZN7QLocale6systemEv')
     return QLocale._cuteOwning(address)
+
+  @staticmethod
+  @overload(Language, Script, Country)
+  def matchingLocales(
+      language: Language,
+      script: Script,
+      territory: Country,
+  ) -> QList[QLocale]:
+    """
+    Calls Qt's 'QList<QLocale> QLocale::matchingLocales(QLocale::Language
+    language, QLocale::Script script, QLocale::Territory territory)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#matchingLocales
+
+    Parameters
+    ----------
+
+    language : Language
+      Passed on as its number.
+
+    script : Script
+      Passed on as its number.
+
+    territory : Country
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QList[QLocale]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QLocale> QLocale::matchingLocales(QLocale::Language language,
+    #      QLocale::Script script, QLocale::Territory territory)
+    address = Rituals.call(
+        'ritual_ZN7QLocale15matchingLocalesENS_8LanguageENS_6ScriptENS_7Cou'
+        'ntryE',
+        language.value, script.value, territory.value,
+    )
+    return QList[QLocale]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -3036,6 +3077,38 @@ class QLocale(CuteMixin, metaclass=MetaCute):
         bytes, precision, format.value,
     )
 
+  @overload()
+  @overload(TagSeparator)
+  def uiLanguages(
+      self,
+      separator: TagSeparator = TagSeparator.Dash,
+  ) -> QStringList:
+    """
+    Calls Qt's 'QStringList QLocale::uiLanguages(TagSeparator separator)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#uiLanguages
+
+    Parameters
+    ----------
+
+    separator : TagSeparator
+      Passed on as its number. May be left out, as in Qt: it is then
+      TagSeparator.Dash.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QLocale::uiLanguages(TagSeparator separator) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QLocale11uiLanguagesENS_12TagSeparatorE',
+        separator.value,
+    )
+    return QStringList._cuteOwning(address)
+
   def numberOptions(self) -> NumberOptions:
     """
     Calls Qt's 'NumberOptions QLocale::numberOptions() const'.
@@ -3087,6 +3160,34 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK7QLocale11quoteStringERK7QStringNS_14QuotationStyleE',
         str, style.value,
+    )
+
+  @overload(QStringList)
+  def createSeparatedList(self, strl: QStringList) -> str:
+    """
+    Calls Qt's 'QString QLocale::createSeparatedList(const QStringList &strl)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#createSeparatedList
+
+    Parameters
+    ----------
+
+    strl : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QLocale::createSeparatedList(const QStringList &strl) const
+    return self.uglySide.call(
+        'ritual_ZNK7QLocale19createSeparatedListERK5QListI7QStringE',
+        self._valueOf(strl),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -3312,3 +3413,15 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QLocale>': the list of QLocale, which 'QList[QLocale]' gives.
+#  It is made here, so that there is one as soon as there can be a QLocale.
+QList.createKind(
+    QLocale, 'value',
+    make='ritual_list_make_QLocale',
+    add='ritual_list_add_QLocale',
+    size='ritual_list_size_QLocale',
+    at='ritual_list_at_QLocale',
+    drop='ritual_list_drop_QLocale',
+)

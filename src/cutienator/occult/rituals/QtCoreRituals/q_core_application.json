@@ -12,6 +12,7 @@
       "address", "address", "address", "int"
     ],
     "ritual_ZN16QCoreApplicationD1Ev": ["nothing", "address"],
+    "ritual_ZN16QCoreApplication9argumentsEv": ["address"],
     "ritual_ZN16QCoreApplication12setAttributeEN2Qt20ApplicationAttributeEb": [
       "nothing", "int", "bool"
     ],
@@ -75,6 +76,10 @@
     "ritual_ZN16QCoreApplication15checkPermissionERK11QPermission": [
       "int", "address", "address"
     ],
+    "ritual_ZN16QCoreApplication15setLibraryPathsERK5QListI7QStringE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QCoreApplication12libraryPathsEv": ["address"],
     "ritual_ZN16QCoreApplication14addLibraryPathERK7QString": [
       "nothing", "text"
     ],

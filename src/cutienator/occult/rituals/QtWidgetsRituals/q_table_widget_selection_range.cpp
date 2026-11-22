@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtablewidget.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtablewidget.h>
+#include <QtCore/qlist.h>
 
 //  QTableWidgetSelectionRange::QTableWidgetSelectionRange()
 extern "C" Q_DECL_EXPORT
@@ -83,5 +84,43 @@ int ritual_ZNK26QTableWidgetSelectionRange11columnCountEv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QTableWidgetSelectionRangeD1Ev(
     QTableWidgetSelectionRange *self) {
+  delete self;
+}
+
+//  QList<QTableWidgetSelectionRange>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QTableWidgetSelectionRange> *ritual_list_make_QTableWidgetSelectionRange() {
+  return new QList<QTableWidgetSelectionRange>();
+}
+
+//  void QList<QTableWidgetSelectionRange>::append(const
+//      QTableWidgetSelectionRange &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QTableWidgetSelectionRange(
+    QList<QTableWidgetSelectionRange> *self,
+    const QTableWidgetSelectionRange *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QTableWidgetSelectionRange>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QTableWidgetSelectionRange(
+    const QList<QTableWidgetSelectionRange> *self) {
+  return self->size();
+}
+
+//  const QTableWidgetSelectionRange
+//      &QList<QTableWidgetSelectionRange>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QTableWidgetSelectionRange *ritual_list_at_QTableWidgetSelectionRange(
+    const QList<QTableWidgetSelectionRange> *self,
+    long long index) {
+  return new QTableWidgetSelectionRange(self->at(index));
+}
+
+//  QList<QTableWidgetSelectionRange>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QTableWidgetSelectionRange(
+    QList<QTableWidgetSelectionRange> *self) {
   delete self;
 }

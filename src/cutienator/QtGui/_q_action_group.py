@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -45,9 +45,9 @@ class QActionGroup(QObject):
   -----------
 
   Every function of Qt's QActionGroup that has a ritual and that Python can
-  call so far, 14 names in all: 'metaObject', 'tr', 'addAction',
-  'removeAction', 'checkedAction', 'isExclusive', 'isEnabled', 'isVisible',
-  'exclusionPolicy', 'setEnabled', 'setDisabled', 'setVisible',
+  call so far, 15 names in all: 'metaObject', 'tr', 'addAction',
+  'removeAction', 'actions', 'checkedAction', 'isExclusive', 'isEnabled',
+  'isVisible', 'exclusionPolicy', 'setEnabled', 'setDisabled', 'setVisible',
   'setExclusive', 'setExclusionPolicy'. It can be made from Python, in 1 way;
   see '__init__'.
 
@@ -60,7 +60,7 @@ class QActionGroup(QObject):
   What has no ritual
   ------------------
 
-  15 of the 33 functions Qt declares: 6 private; 3 takes or gives a type that
+  14 of the 33 functions Qt declares: 6 private; 2 takes or gives a type that
   cannot be passed yet; 2 a signal; 2 forbidden; 1 a template; 1 protected.
 
   What to expect
@@ -182,6 +182,23 @@ class QActionGroup(QObject):
     address = self.uglySide.call('ritual_ZNK12QActionGroup10metaObjectEv')
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
+
+  def actions(self) -> QList[QAction]:
+    """
+    Calls Qt's 'QList<QAction *> QActionGroup::actions() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qactiongroup.html#actions
+
+    Returns
+    -------
+
+    QList[QAction]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QAction *> QActionGroup::actions() const
+    address = self.uglySide.call('ritual_ZNK12QActionGroup7actionsEv')
+    from . import QAction
+    return QList[QAction]._cuteOwning(address)
 
   def checkedAction(self) -> Optional[QAction]:
     """

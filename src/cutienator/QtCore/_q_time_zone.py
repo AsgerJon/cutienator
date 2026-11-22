@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt, QLocale
+from . import Qt, QList, QLocale
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -44,15 +44,16 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTimeZone that has a ritual and that Python can call
-  so far, 30 names in all: 'isValid', 'fromSecondsAheadOfUtc', 'timeSpec',
+  so far, 32 names in all: 'isValid', 'fromSecondsAheadOfUtc', 'timeSpec',
   'fixedSecondsAheadOfUtc', 'isUtcOrFixedOffset', 'asBackendZone',
   'hasAlternativeName', 'id', 'country', 'comment', 'displayName',
   'abbreviation', 'offsetFromUtc', 'standardTimeOffset',
   'daylightTimeOffset', 'hasDaylightTime', 'isDaylightTime', 'offsetData',
   'hasTransitions', 'nextTransition', 'previousTransition',
   'systemTimeZoneId', 'systemTimeZone', 'utc', 'isTimeZoneIdAvailable',
-  'ianaIdToWindowsId', 'windowsIdToDefaultIanaId', '__eq__', '__ne__',
-  '__rlshift__'. It can be made from Python, in 5 ways; see '__init__'.
+  'availableTimeZoneIds', 'ianaIdToWindowsId', 'windowsIdToDefaultIanaId',
+  'windowsIdToIanaIds', '__eq__', '__ne__', '__rlshift__'. It can be made
+  from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,7 +64,7 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  18 of the 56 functions Qt declares: 15 takes or gives a type that cannot be
+  15 of the 56 functions Qt declares: 12 takes or gives a type that cannot be
   passed yet; 2 private; 1 forbidden.
 
   What to expect
@@ -349,6 +350,55 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
     )
 
   @staticmethod
+  @overload()
+  def availableTimeZoneIds() -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QTimeZone::availableTimeZoneIds()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtimezone.html#availableTimeZoneIds
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QTimeZone::availableTimeZoneIds()
+    address = Rituals.call('ritual_ZN9QTimeZone20availableTimeZoneIdsEv')
+    from . import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
+
+  @staticmethod
+  @overload(int)
+  def availableTimeZoneIds(offsetSeconds: int) -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QTimeZone::availableTimeZoneIds(int
+    offsetSeconds)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtimezone.html#availableTimeZoneIds
+
+    Parameters
+    ----------
+
+    offsetSeconds : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QTimeZone::availableTimeZoneIds(int offsetSeconds)
+    address = Rituals.call(
+        'ritual_ZN9QTimeZone20availableTimeZoneIdsEi', offsetSeconds,
+    )
+    from . import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
+
+  @staticmethod
   @overload(QByteArray)
   def ianaIdToWindowsId(ianaId: QByteArray) -> QByteArray:
     """
@@ -409,6 +459,37 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
     )
     from . import QByteArray
     return QByteArray._cuteOwning(address)
+
+  @staticmethod
+  @overload(QByteArray)
+  def windowsIdToIanaIds(windowsId: QByteArray) -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QTimeZone::windowsIdToIanaIds(const
+    QByteArray &windowsId)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimezone.html#windowsIdToIanaIds
+
+    Parameters
+    ----------
+
+    windowsId : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QTimeZone::windowsIdToIanaIds(const QByteArray
+    #      &windowsId)
+    address = Rituals.call(
+        'ritual_ZN9QTimeZone18windowsIdToIanaIdsERK10QByteArray',
+        CuteMixin._valueOf(windowsId),
+    )
+    from . import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -2,7 +2,9 @@
 //  QtWidgets/qbuttongroup.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qbuttongroup.h>
 #include <QtCore/qstring.h>
+#include <QtWidgets/qabstractbutton.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QButtonGroup that Python can take functions over in. Every QButtonGroup
@@ -185,6 +187,13 @@ void ritual_ZN12QButtonGroup12removeButtonEP15QAbstractButton(
     QButtonGroup *self,
     QAbstractButton *a0) {
   self->removeButton(a0);
+}
+
+//  QList<QAbstractButton *> QButtonGroup::buttons() const
+extern "C" Q_DECL_EXPORT
+QList<QAbstractButton *> *ritual_ZNK12QButtonGroup7buttonsEv(
+    const QButtonGroup *self) {
+  return new QList<QAbstractButton *>(self->buttons());
 }
 
 //  QAbstractButton *QButtonGroup::checkedButton() const

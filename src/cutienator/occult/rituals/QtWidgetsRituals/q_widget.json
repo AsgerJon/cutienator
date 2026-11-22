@@ -385,12 +385,19 @@
     "ritual_ZN7QWidget9addActionEP7QAction": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN7QWidget10addActionsERK5QListIP7QActionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget13insertActionsEP7QActionRK5QListIS1_E": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN7QWidget12insertActionEP7QActionS1_": [
       "nothing", "address", "address", "address"
     ],
     "ritual_ZN7QWidget12removeActionEP7QAction": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK7QWidget7actionsEv": ["address", "address"],
     "ritual_ZN7QWidget9addActionERK7QString": ["address", "address", "text"],
     "ritual_ZN7QWidget9addActionERK5QIconRK7QString": [
       "address", "address", "address", "text"
@@ -566,6 +573,11 @@
     ],
     "ritual_own_ZN7QWidget18focusNextPrevChildEb": [
       "bool", "address", "bool"
-    ]
+    ],
+    "ritual_list_make_QWidget_ptr": ["address"],
+    "ritual_list_add_QWidget_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QWidget_ptr": ["long long", "address"],
+    "ritual_list_at_QWidget_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QWidget_ptr": ["nothing", "address"]
   }
 }

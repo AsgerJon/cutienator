@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -44,12 +44,12 @@ class QScreen(QObject):
   -----------
 
   Every function of Qt's QScreen that has a ritual and that Python can call
-  so far, 34 names in all: 'metaObject', 'tr', 'name', 'manufacturer',
+  so far, 35 names in all: 'metaObject', 'tr', 'name', 'manufacturer',
   'model', 'serialNumber', 'depth', 'size', 'geometry', 'physicalSize',
   'physicalDotsPerInchX', 'physicalDotsPerInchY', 'physicalDotsPerInch',
   'logicalDotsPerInchX', 'logicalDotsPerInchY', 'logicalDotsPerInch',
   'devicePixelRatio', 'availableSize', 'availableGeometry',
-  'virtualSiblingAt', 'virtualSize', 'virtualGeometry',
+  'virtualSiblings', 'virtualSiblingAt', 'virtualSize', 'virtualGeometry',
   'availableVirtualSize', 'availableVirtualGeometry', 'primaryOrientation',
   'orientation', 'nativeOrientation', 'angleBetween', 'transformBetween',
   'mapBetween', 'isPortrait', 'isLandscape', 'grabWindow', 'refreshRate'.
@@ -65,9 +65,8 @@ class QScreen(QObject):
   What has no ritual
   ------------------
 
-  22 of the 57 functions Qt declares: 9 a signal; 4 takes or gives a type
-  that cannot be passed yet; 4 private; 2 a template; 2 forbidden; 1
-  protected.
+  21 of the 57 functions Qt declares: 9 a signal; 4 private; 3 takes or gives
+  a type that cannot be passed yet; 2 a template; 2 forbidden; 1 protected.
 
   What to expect
   --------------
@@ -389,6 +388,22 @@ class QScreen(QObject):
     address = self.uglySide.call('ritual_ZNK7QScreen17availableGeometryEv')
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
+
+  def virtualSiblings(self) -> QList[QScreen]:
+    """
+    Calls Qt's 'QList<QScreen *> QScreen::virtualSiblings() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscreen.html#virtualSiblings
+
+    Returns
+    -------
+
+    QList[QScreen]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QScreen *> QScreen::virtualSiblings() const
+    address = self.uglySide.call('ritual_ZNK7QScreen15virtualSiblingsEv')
+    return QList[QScreen]._cuteOwning(address)
 
   def virtualSize(self) -> QSize:
     """
@@ -791,3 +806,16 @@ class QScreen(QObject):
     )
     from . import QPixmap
     return QPixmap._cuteOwning(address)
+
+
+#  Qt's 'QList<QScreen *>': the list of QScreen, which 'QList[QScreen]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QScreen.
+QList.createKind(
+    QScreen, 'address',
+    make='ritual_list_make_QScreen_ptr',
+    add='ritual_list_add_QScreen_ptr',
+    size='ritual_list_size_QScreen_ptr',
+    at='ritual_list_at_QScreen_ptr',
+    drop='ritual_list_drop_QScreen_ptr',
+)

@@ -5,6 +5,7 @@
 #include <QtCore/qdeadlinetimer.h>
 #include <QtCore/qpermissions.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QCoreApplication may call these functions of it.
@@ -183,6 +184,12 @@ QCoreApplication *ritual_ZN16QCoreApplicationC1ERiPPci(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QCoreApplicationD1Ev(QCoreApplication *self) {
   delete self;
+}
+
+//  QStringList QCoreApplication::arguments()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN16QCoreApplication9argumentsEv() {
+  return new QList<QString>(QCoreApplication::arguments());
 }
 
 //  void QCoreApplication::setAttribute(Qt::ApplicationAttribute attribute,
@@ -410,6 +417,19 @@ Qt::PermissionStatus ritual_ZN16QCoreApplication15checkPermissionERK11QPermissio
     QCoreApplication *self,
     const QPermission *permission) {
   return self->checkPermission(*permission);
+}
+
+//  void QCoreApplication::setLibraryPaths(const QStringList &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QCoreApplication15setLibraryPathsERK5QListI7QStringE(
+    const QList<QString> *a0) {
+  QCoreApplication::setLibraryPaths(*a0);
+}
+
+//  QStringList QCoreApplication::libraryPaths()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN16QCoreApplication12libraryPathsEv() {
+  return new QList<QString>(QCoreApplication::libraryPaths());
 }
 
 //  void QCoreApplication::addLibraryPath(const QString &a0)

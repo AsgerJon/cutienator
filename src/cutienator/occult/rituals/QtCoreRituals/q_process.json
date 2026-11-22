@@ -8,6 +8,9 @@
     "ritual_ZN8QProcess2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN8QProcessC1EP7QObject": ["address", "address"],
     "ritual_ZN8QProcessD1Ev": ["nothing", "address"],
+    "ritual_ZN8QProcess5startERK7QStringRK5QListIS0_E6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "text", "address", "int"
+    ],
     "ritual_ZN8QProcess5startE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "nothing", "address", "int"
     ],
@@ -21,6 +24,10 @@
     "ritual_ZNK8QProcess7programEv": ["text", "address"],
     "ritual_ZN8QProcess10setProgramERK7QString": [
       "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QProcess9argumentsEv": ["address", "address"],
+    "ritual_ZN8QProcess12setArgumentsERK5QListI7QStringE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK8QProcess18processChannelModeEv": ["int", "address"],
     "ritual_ZN8QProcess21setProcessChannelModeENS_18ProcessChannelModeE": [
@@ -64,6 +71,10 @@
     "ritual_ZN8QProcess19setWorkingDirectoryERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN8QProcess14setEnvironmentERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QProcess11environmentEv": ["address", "address"],
     "ritual_ZN8QProcess21setProcessEnvironmentERK19QProcessEnvironment": [
       "nothing", "address", "address"
     ],
@@ -82,7 +93,15 @@
     "ritual_ZNK8QProcess12bytesToWriteEv": ["long long", "address"],
     "ritual_ZNK8QProcess12isSequentialEv": ["bool", "address"],
     "ritual_ZN8QProcess5closeEv": ["nothing", "address"],
+    "ritual_ZN8QProcess7executeERK7QStringRK5QListIS0_E": [
+      "int", "text", "address"
+    ],
+    "ritual_ZN8QProcess13startDetachedERK7QStringRK5QListIS0_ES2_Px": [
+      "bool", "text", "address", "text", "address"
+    ],
+    "ritual_ZN8QProcess17systemEnvironmentEv": ["address"],
     "ritual_ZN8QProcess10nullDeviceEv": ["text"],
+    "ritual_ZN8QProcess12splitCommandE11QStringView": ["address", "text"],
     "ritual_ZN8QProcess9terminateEv": ["nothing", "address"],
     "ritual_ZN8QProcess4killEv": ["nothing", "address"],
     "ritual_take_QProcess": ["bool", "address", "chars", "address"],

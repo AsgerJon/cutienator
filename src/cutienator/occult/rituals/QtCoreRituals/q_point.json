@@ -34,6 +34,11 @@
     "ritual_ZngRK6QPoint": ["address", "address"],
     "ritual_ZdvRK6QPointd": ["address", "address", "double"],
     "ritual_ZNK6QPoint8toPointFEv": ["address", "address"],
-    "ritual_ZN6QPointD1Ev": ["nothing", "address"]
+    "ritual_ZN6QPointD1Ev": ["nothing", "address"],
+    "ritual_list_make_QPoint": ["address"],
+    "ritual_list_add_QPoint": ["nothing", "address", "address"],
+    "ritual_list_size_QPoint": ["long long", "address"],
+    "ritual_list_at_QPoint": ["address", "address", "long long"],
+    "ritual_list_drop_QPoint": ["nothing", "address"]
   }
 }

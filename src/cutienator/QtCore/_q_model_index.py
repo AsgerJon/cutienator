@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt
+from . import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -538,3 +538,17 @@ class QModelIndex(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK11QModelIndex9multiDataE18QModelRoleDataSpan',
         self._valueOf(roleDataSpan),
     )
+
+
+#  Qt's 'QList<QModelIndex>': the list of QModelIndex, which
+#  'QList[QModelIndex]' gives. It is made here, so that there is one as soon
+#  as there can be a QModelIndex. Qt has a name of its own for it.
+QModelIndexList = QList.createKind(
+    QModelIndex, 'value',
+    name='QModelIndexList',
+    make='ritual_list_make_QModelIndex',
+    add='ritual_list_add_QModelIndex',
+    size='ritual_list_size_QModelIndex',
+    at='ritual_list_at_QModelIndex',
+    drop='ritual_list_drop_QModelIndex',
+)

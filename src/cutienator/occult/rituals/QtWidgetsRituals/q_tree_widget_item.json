@@ -5,13 +5,22 @@
   ],
   "rows": {
     "ritual_ZN15QTreeWidgetItemC1Ei": ["address", "int"],
+    "ritual_ZN15QTreeWidgetItemC1ERK5QListI7QStringEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgeti": [
       "address", "address", "int"
+    ],
+    "ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgetRK5QListI7QStringEi": [
+      "address", "address", "address", "int"
     ],
     "ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgetPS_i": [
       "address", "address", "address", "int"
     ],
     "ritual_ZN15QTreeWidgetItemC1EPS_i": ["address", "address", "int"],
+    "ritual_ZN15QTreeWidgetItemC1EPS_RK5QListI7QStringEi": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZN15QTreeWidgetItemC1EPS_S0_i": [
       "address", "address", "address", "int"
     ],
@@ -129,6 +138,13 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN15QTreeWidgetItem9takeChildEi": ["address", "address", "int"],
+    "ritual_ZN15QTreeWidgetItem11addChildrenERK5QListIPS_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QTreeWidgetItem14insertChildrenEiRK5QListIPS_E": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QTreeWidgetItem12takeChildrenEv": ["address", "address"],
     "ritual_ZNK15QTreeWidgetItem4typeEv": ["int", "address"],
     "ritual_ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
@@ -140,6 +156,13 @@
     ],
     "ritual_own_ZN15QTreeWidgetItem7setDataEiiRK8QVariant": [
       "nothing", "address", "int", "int", "address"
-    ]
+    ],
+    "ritual_list_make_QTreeWidgetItem_ptr": ["address"],
+    "ritual_list_add_QTreeWidgetItem_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QTreeWidgetItem_ptr": ["long long", "address"],
+    "ritual_list_at_QTreeWidgetItem_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QTreeWidgetItem_ptr": ["nothing", "address"]
   }
 }

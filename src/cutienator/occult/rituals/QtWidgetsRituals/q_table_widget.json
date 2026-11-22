@@ -30,6 +30,9 @@
     "ritual_ZN12QTableWidget8takeItemEii": [
       "address", "address", "int", "int"
     ],
+    "ritual_ZNK12QTableWidget5itemsEPK9QMimeData": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK12QTableWidget13indexFromItemEPK16QTableWidgetItem": [
       "address", "address", "address"
     ],
@@ -53,6 +56,12 @@
     ],
     "ritual_ZN12QTableWidget24takeHorizontalHeaderItemEi": [
       "address", "address", "int"
+    ],
+    "ritual_ZN12QTableWidget23setVerticalHeaderLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget25setHorizontalHeaderLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK12QTableWidget10currentRowEv": ["int", "address"],
     "ritual_ZNK12QTableWidget13currentColumnEv": ["int", "address"],
@@ -99,6 +108,11 @@
     ],
     "ritual_ZN12QTableWidget16setRangeSelectedERK26QTableWidgetSelectionRangeb": [
       "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK12QTableWidget14selectedRangesEv": ["address", "address"],
+    "ritual_ZNK12QTableWidget13selectedItemsEv": ["address", "address"],
+    "ritual_ZNK12QTableWidget9findItemsERK7QString6QFlagsIN2Qt9MatchFlagEE": [
+      "address", "address", "text", "int"
     ],
     "ritual_ZNK12QTableWidget9visualRowEi": ["int", "address", "int"],
     "ritual_ZNK12QTableWidget12visualColumnEi": ["int", "address", "int"],

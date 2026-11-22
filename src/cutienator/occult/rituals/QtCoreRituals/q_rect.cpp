@@ -4,6 +4,7 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmargins.h>
+#include <QtCore/qlist.h>
 
 //  QRect::QRect()
 extern "C" Q_DECL_EXPORT
@@ -519,5 +520,35 @@ QRectF *ritual_ZNK5QRect7toRectFEv(const QRect *self) {
 //  QRect::~QRect()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QRectD1Ev(QRect *self) {
+  delete self;
+}
+
+//  QList<QRect>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QRect> *ritual_list_make_QRect() {
+  return new QList<QRect>();
+}
+
+//  void QList<QRect>::append(const QRect &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QRect(QList<QRect> *self, const QRect *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QRect>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QRect(const QList<QRect> *self) {
+  return self->size();
+}
+
+//  const QRect &QList<QRect>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_list_at_QRect(const QList<QRect> *self, long long index) {
+  return new QRect(self->at(index));
+}
+
+//  QList<QRect>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QRect(QList<QRect> *self) {
   delete self;
 }

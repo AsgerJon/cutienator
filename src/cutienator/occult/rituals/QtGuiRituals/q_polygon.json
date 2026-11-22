@@ -5,6 +5,7 @@
   ],
   "rows": {
     "ritual_ZN8QPolygonC1Ev": ["address"],
+    "ritual_ZN8QPolygonC1ERK5QListI6QPointE": ["address", "address"],
     "ritual_ZN8QPolygonC1ERK5QRectb": ["address", "address", "bool"],
     "ritual_ZNK8QPolygoncv8QVariantEv": ["address", "address"],
     "ritual_ZN8QPolygon9translateEii": ["nothing", "address", "int", "int"],

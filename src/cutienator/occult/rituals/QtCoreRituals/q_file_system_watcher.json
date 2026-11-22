@@ -10,13 +10,24 @@
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN18QFileSystemWatcherC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QFileSystemWatcherC1ERK5QListI7QStringEP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN18QFileSystemWatcherD1Ev": ["nothing", "address"],
     "ritual_ZN18QFileSystemWatcher7addPathERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZN18QFileSystemWatcher8addPathsERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
     "ritual_ZN18QFileSystemWatcher10removePathERK7QString": [
       "bool", "address", "text"
     ],
+    "ritual_ZN18QFileSystemWatcher11removePathsERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QFileSystemWatcher5filesEv": ["address", "address"],
+    "ritual_ZNK18QFileSystemWatcher11directoriesEv": ["address", "address"],
     "ritual_take_QFileSystemWatcher": ["bool", "address", "chars", "address"]
   }
 }

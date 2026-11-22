@@ -14,17 +14,20 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from . import QDebug, QJsonValue, QJsonValueConstRef, QJsonValueRef
+  from . import QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QDebug = WAIT['QDebug']
   QJsonValue = WAIT['QJsonValue']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,13 +47,13 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QJsonArray that has a ritual and that Python can
-  call so far, 33 names in all: 'size', 'count', 'isEmpty', 'at', 'first',
-  'last', 'prepend', 'append', 'removeAt', 'takeAt', 'removeFirst',
-  'removeLast', 'insert', 'replace', 'contains', '__getitem__', 'begin',
-  'constBegin', 'cbegin', 'end', 'constEnd', 'cend', 'erase', '__add__',
-  '__iadd__', 'push_back', 'push_front', 'pop_front', 'pop_back', 'empty',
-  '__rlshift__', '__eq__', '__ne__'. It can be made from Python, in 2 ways;
-  see '__init__'.
+  call so far, 36 names in all: 'fromStringList', 'fromVariantList',
+  'toVariantList', 'size', 'count', 'isEmpty', 'at', 'first', 'last',
+  'prepend', 'append', 'removeAt', 'takeAt', 'removeFirst', 'removeLast',
+  'insert', 'replace', 'contains', '__getitem__', 'begin', 'constBegin',
+  'cbegin', 'end', 'constEnd', 'cend', 'erase', '__add__', '__iadd__',
+  'push_back', 'push_front', 'pop_front', 'pop_back', 'empty', '__rlshift__',
+  '__eq__', '__ne__'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -73,7 +76,7 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  11 of the 55 functions Qt declares: 9 takes or gives a type that cannot be
+  8 of the 55 functions Qt declares: 6 takes or gives a type that cannot be
   passed yet; 2 private.
 
   What to expect
@@ -1241,6 +1244,66 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  @overload(QStringList)
+  def fromStringList(list: QStringList) -> QJsonArray:
+    """
+    Calls Qt's 'QJsonArray QJsonArray::fromStringList(const QStringList
+    &list)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#fromStringList
+
+    Parameters
+    ----------
+
+    list : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    QJsonArray
+      A new cute QJsonArray around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonArray QJsonArray::fromStringList(const QStringList &list)
+    address = Rituals.call(
+        'ritual_ZN10QJsonArray14fromStringListERK5QListI7QStringE',
+        CuteMixin._valueOf(list),
+    )
+    return QJsonArray._cuteOwning(address)
+
+  @staticmethod
+  @overload(QList[QVariant])
+  def fromVariantList(list: QList[QVariant]) -> QJsonArray:
+    """
+    Calls Qt's 'QJsonArray QJsonArray::fromVariantList(const QVariantList
+    &list)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#fromVariantList
+
+    Parameters
+    ----------
+
+    list : QList[QVariant]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    QJsonArray
+      A new cute QJsonArray around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonArray QJsonArray::fromVariantList(const QVariantList &list)
+    address = Rituals.call(
+        'ritual_ZN10QJsonArray15fromVariantListERK5QListI8QVariantE',
+        CuteMixin._valueOf(list),
+    )
+    return QJsonArray._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1264,6 +1327,23 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def toVariantList(self) -> QList[QVariant]:
+    """
+    Calls Qt's 'QVariantList QJsonArray::toVariantList() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#toVariantList
+
+    Returns
+    -------
+
+    QList[QVariant]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QVariantList QJsonArray::toVariantList() const
+    address = self.uglySide.call('ritual_ZNK10QJsonArray13toVariantListEv')
+    from . import QVariant
+    return QList[QVariant]._cuteOwning(address)
 
   def size(self) -> int:
     """

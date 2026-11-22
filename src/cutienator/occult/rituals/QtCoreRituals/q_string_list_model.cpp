@@ -4,6 +4,10 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 
 //  const QMetaObject *QStringListModel::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -25,6 +29,15 @@ QString *ritual_ZN16QStringListModel2trEPKcS1_i(
 extern "C" Q_DECL_EXPORT
 QStringListModel *ritual_ZN16QStringListModelC1EP7QObject(QObject *parent) {
   return new QStringListModel(parent);
+}
+
+//  QStringListModel::QStringListModel(const QStringList &strings, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QStringListModel *ritual_ZN16QStringListModelC1ERK5QListI7QStringEP7QObject(
+    const QList<QString> *strings,
+    QObject *parent) {
+  return new QStringListModel(*strings, parent);
 }
 
 //  int QStringListModel::rowCount(const QModelIndex &parent) const
@@ -123,6 +136,25 @@ bool ritual_ZN16QStringListModel8moveRowsERK11QModelIndexiiS2_i(
       destinationChild);
 }
 
+//  QMap<int, QVariant> QStringListModel::itemData(const QModelIndex &index)
+//      const
+extern "C" Q_DECL_EXPORT
+QMap<int, QVariant> *ritual_ZNK16QStringListModel8itemDataERK11QModelIndex(
+    const QStringListModel *self,
+    const QModelIndex *index) {
+  return new QMap<int, QVariant>(self->itemData(*index));
+}
+
+//  bool QStringListModel::setItemData(const QModelIndex &index, const
+//      QMap<int, QVariant> &roles)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QStringListModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE(
+    QStringListModel *self,
+    const QModelIndex *index,
+    const QMap<int, QVariant> *roles) {
+  return self->setItemData(*index, *roles);
+}
+
 //  void QStringListModel::sort(int column, Qt::SortOrder order)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QStringListModel4sortEiN2Qt9SortOrderE(
@@ -130,6 +162,21 @@ void ritual_ZN16QStringListModel4sortEiN2Qt9SortOrderE(
     int column,
     Qt::SortOrder order) {
   self->sort(column, order);
+}
+
+//  QStringList QStringListModel::stringList() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK16QStringListModel10stringListEv(
+    const QStringListModel *self) {
+  return new QList<QString>(self->stringList());
+}
+
+//  void QStringListModel::setStringList(const QStringList &strings)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QStringListModel13setStringListERK5QListI7QStringE(
+    QStringListModel *self,
+    const QList<QString> *strings) {
+  self->setStringList(*strings);
 }
 
 //  Qt::DropActions QStringListModel::supportedDropActions() const

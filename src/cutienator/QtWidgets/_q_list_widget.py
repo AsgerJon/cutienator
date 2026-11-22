@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QItemSelectionModel
+from ..QtCore import Qt, QItemSelectionModel, QList, QStringList
 from . import QAbstractItemView, QListView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -51,13 +51,14 @@ class QListWidget(QListView):
   -----------
 
   Every function of Qt's QListWidget that has a ritual and that Python can
-  call so far, 35 names in all: 'metaObject', 'tr', 'setSelectionModel',
-  'item', 'row', 'insertItem', 'addItem', 'takeItem', 'count', 'currentItem',
-  'setCurrentItem', 'currentRow', 'setCurrentRow', 'itemAt',
-  'visualItemRect', 'sortItems', 'setSortingEnabled', 'isSortingEnabled',
-  'editItem', 'openPersistentEditor', 'closePersistentEditor',
-  'isPersistentEditorOpen', 'itemWidget', 'setItemWidget',
-  'removeItemWidget', 'indexFromItem', 'itemFromIndex',
+  call so far, 40 names in all: 'metaObject', 'tr', 'setSelectionModel',
+  'item', 'row', 'insertItem', 'insertItems', 'addItem', 'addItems',
+  'takeItem', 'count', 'currentItem', 'setCurrentItem', 'currentRow',
+  'setCurrentRow', 'itemAt', 'visualItemRect', 'sortItems',
+  'setSortingEnabled', 'isSortingEnabled', 'editItem',
+  'openPersistentEditor', 'closePersistentEditor', 'isPersistentEditorOpen',
+  'itemWidget', 'setItemWidget', 'removeItemWidget', 'selectedItems',
+  'findItems', 'items', 'indexFromItem', 'itemFromIndex',
   'setSupportedDragActions', 'supportedDragActions', 'scrollToItem', 'clear',
   'dropEvent', 'event', 'dropMimeData', 'supportedDropActions'. It can be
   made from Python, in 1 way; see '__init__'.
@@ -71,8 +72,8 @@ class QListWidget(QListView):
   What has no ritual
   ------------------
 
-  27 of the 69 functions Qt declares: 10 a signal; 7 takes or gives a type
-  that cannot be passed yet; 5 private; 2 protected; 2 forbidden; 1 a
+  22 of the 69 functions Qt declares: 10 a signal; 5 private; 2 takes or
+  gives a type that cannot be passed yet; 2 protected; 2 forbidden; 1 a
   template.
 
   What to expect
@@ -445,6 +446,90 @@ class QListWidget(QListView):
         self._addressOf(item),
     )
     return QWidget._cuteAt(address)
+
+  def selectedItems(self) -> QList[QListWidgetItem]:
+    """
+    Calls Qt's 'QList<QListWidgetItem *> QListWidget::selectedItems() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#selectedItems
+
+    Returns
+    -------
+
+    QList[QListWidgetItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QListWidgetItem *> QListWidget::selectedItems() const
+    address = self.uglySide.call('ritual_ZNK11QListWidget13selectedItemsEv')
+    from . import QListWidgetItem
+    return QList[QListWidgetItem]._cuteOwning(address)
+
+  @overload(str, Qt.MatchFlags)
+  def findItems(
+      self,
+      text: str,
+      flags: Qt.MatchFlags,
+  ) -> QList[QListWidgetItem]:
+    """
+    Calls Qt's 'QList<QListWidgetItem *> QListWidget::findItems(const QString
+    &text, Qt::MatchFlags flags) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#findItems
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+
+    flags : Qt.MatchFlags
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QList[QListWidgetItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QListWidgetItem *> QListWidget::findItems(const QString &text,
+    #      Qt::MatchFlags flags) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QListWidget9findItemsERK7QString6QFlagsIN2Qt9MatchFlag'
+        'EE',
+        text, flags.value,
+    )
+    from . import QListWidgetItem
+    return QList[QListWidgetItem]._cuteOwning(address)
+
+  @overload(QMimeData)
+  @overload(NoneType)
+  def items(self, data: Optional[QMimeData]) -> QList[QListWidgetItem]:
+    """
+    Calls Qt's 'QList<QListWidgetItem *> QListWidget::items(const QMimeData
+    *data) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#items
+
+    Parameters
+    ----------
+
+    data : Optional[QMimeData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    QList[QListWidgetItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QListWidgetItem *> QListWidget::items(const QMimeData *data)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK11QListWidget5itemsEPK9QMimeData', self._addressOf(data),
+    )
+    from . import QListWidgetItem
+    return QList[QListWidgetItem]._cuteOwning(address)
 
   @overload(QListWidgetItem)
   @overload(NoneType)
@@ -845,6 +930,31 @@ class QListWidget(QListView):
         'ritual_ZN11QListWidget10insertItemEiRK7QString', row, label,
     )
 
+  @overload(int, QStringList)
+  def insertItems(self, row: int, labels: QStringList) -> None:
+    """
+    Calls Qt's 'void QListWidget::insertItems(int row, const QStringList
+    &labels)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#insertItems
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    labels : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QListWidget::insertItems(int row, const QStringList &labels)
+    self.uglySide.call(
+        'ritual_ZN11QListWidget11insertItemsEiRK5QListI7QStringE',
+        row, self._valueOf(labels),
+    )
+
   @overload(str)
   def addItem(self, label: str) -> None:
     """
@@ -880,6 +990,27 @@ class QListWidget(QListView):
     self.uglySide.call(
         'ritual_ZN11QListWidget7addItemEP15QListWidgetItem',
         self._addressOf(item),
+    )
+
+  @overload(QStringList)
+  def addItems(self, labels: QStringList) -> None:
+    """
+    Calls Qt's 'void QListWidget::addItems(const QStringList &labels)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#addItems
+
+    Parameters
+    ----------
+
+    labels : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QListWidget::addItems(const QStringList &labels)
+    self.uglySide.call(
+        'ritual_ZN11QListWidget8addItemsERK5QListI7QStringE',
+        self._valueOf(labels),
     )
 
   @overload(int)

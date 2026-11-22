@@ -25,8 +25,17 @@
     "ritual_ZN12QKeySequence10fromStringERK7QStringNS_14SequenceFormatE": [
       "address", "text", "int"
     ],
+    "ritual_ZN12QKeySequence14listFromStringERK7QStringNS_14SequenceFormatE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN12QKeySequence12listToStringERK5QListIS_ENS_14SequenceFormatE": [
+      "text", "address", "int"
+    ],
     "ritual_ZNK12QKeySequence7matchesERKS_": ["int", "address", "address"],
     "ritual_ZN12QKeySequence8mnemonicERK7QString": ["address", "text"],
+    "ritual_ZN12QKeySequence11keyBindingsENS_11StandardKeyE": [
+      "address", "int"
+    ],
     "ritual_ZNK12QKeySequencecv8QVariantEv": ["address", "address"],
     "ritual_ZNK12QKeySequenceixEj": ["address", "address", "unsigned int"],
     "ritual_ZNK12QKeySequenceeqERKS_": ["bool", "address", "address"],
@@ -35,6 +44,11 @@
     "ritual_ZNK12QKeySequencegtERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QKeySequenceleERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QKeySequencegeERKS_": ["bool", "address", "address"],
-    "ritual_ZNK12QKeySequence10isDetachedEv": ["bool", "address"]
+    "ritual_ZNK12QKeySequence10isDetachedEv": ["bool", "address"],
+    "ritual_list_make_QKeySequence": ["address"],
+    "ritual_list_add_QKeySequence": ["nothing", "address", "address"],
+    "ritual_list_size_QKeySequence": ["long long", "address"],
+    "ritual_list_at_QKeySequence": ["address", "address", "long long"],
+    "ritual_list_drop_QKeySequence": ["nothing", "address"]
   }
 }

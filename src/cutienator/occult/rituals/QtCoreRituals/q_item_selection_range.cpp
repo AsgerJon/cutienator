@@ -2,6 +2,7 @@
 //  QtCore/qitemselectionmodel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qitemselectionmodel.h>
 #include <QtCore/qabstractitemmodel.h>
+#include <QtCore/qlist.h>
 
 //  QItemSelectionRange::QItemSelectionRange()
 extern "C" Q_DECL_EXPORT
@@ -142,6 +143,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QItemSelectionRange7isEmptyEv(
     const QItemSelectionRange *self) {
   return self->isEmpty();
+}
+
+//  QModelIndexList QItemSelectionRange::indexes() const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK19QItemSelectionRange7indexesEv(
+    const QItemSelectionRange *self) {
+  return new QList<QModelIndex>(self->indexes());
 }
 
 //  bool operator==(const QItemSelectionRange &lhs, const QItemSelectionRange

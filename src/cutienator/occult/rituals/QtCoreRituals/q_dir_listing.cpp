@@ -2,6 +2,7 @@
 //  QtCore/qdirlisting.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qdirlisting.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 
 //  QDirListing::QDirListing(const QString &path, IteratorFlags flags)
 extern "C" Q_DECL_EXPORT
@@ -10,6 +11,19 @@ QDirListing *ritual_ZN11QDirListingC1ERK7QString6QFlagsINS_12IteratorFlagEE(
     int flags) {
   return new QDirListing(
       *path,
+      QFlags<QDirListing::IteratorFlag>::fromInt(flags));
+}
+
+//  QDirListing::QDirListing(const QString &path, const QStringList
+//      &nameFilters, IteratorFlags flags)
+extern "C" Q_DECL_EXPORT
+QDirListing *ritual_ZN11QDirListingC1ERK7QStringRK5QListIS0_E6QFlagsINS_12IteratorFlagEE(
+    const QString *path,
+    const QList<QString> *nameFilters,
+    int flags) {
+  return new QDirListing(
+      *path,
+      *nameFilters,
       QFlags<QDirListing::IteratorFlag>::fromInt(flags));
 }
 
@@ -29,6 +43,13 @@ QString *ritual_ZNK11QDirListing12iteratorPathEv(const QDirListing *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QDirListing13iteratorFlagsEv(const QDirListing *self) {
   return static_cast<int>(self->iteratorFlags().toInt());
+}
+
+//  QStringList QDirListing::nameFilters() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK11QDirListing11nameFiltersEv(
+    const QDirListing *self) {
+  return new QList<QString>(self->nameFilters());
 }
 
 //  sentinel QDirListing::end() const

@@ -95,6 +95,13 @@
     ],
     "ritual_own_ZN15QAbstractButton10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_list_make_QAbstractButton_ptr": ["address"],
+    "ritual_list_add_QAbstractButton_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QAbstractButton_ptr": ["long long", "address"],
+    "ritual_list_at_QAbstractButton_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QAbstractButton_ptr": ["nothing", "address"]
   }
 }

@@ -8,6 +8,7 @@
 #include <QtCore/qsize.h>
 #include <QtGui/qfont.h>
 #include <QtGui/qbrush.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QStandardItem that Python can take functions over in. Every QStandardItem
@@ -570,6 +571,36 @@ void ritual_ZN13QStandardItem8setChildEiPS_(
   self->setChild(row, item);
 }
 
+//  void QStandardItem::insertRow(int row, const QList<QStandardItem *>
+//      &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QStandardItem9insertRowEiRK5QListIPS_E(
+    QStandardItem *self,
+    int row,
+    const QList<QStandardItem *> *items) {
+  self->insertRow(row, *items);
+}
+
+//  void QStandardItem::insertColumn(int column, const QList<QStandardItem *>
+//      &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QStandardItem12insertColumnEiRK5QListIPS_E(
+    QStandardItem *self,
+    int column,
+    const QList<QStandardItem *> *items) {
+  self->insertColumn(column, *items);
+}
+
+//  void QStandardItem::insertRows(int row, const QList<QStandardItem *>
+//      &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QStandardItem10insertRowsEiRK5QListIPS_E(
+    QStandardItem *self,
+    int row,
+    const QList<QStandardItem *> *items) {
+  self->insertRows(row, *items);
+}
+
 //  void QStandardItem::insertRows(int row, int count)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QStandardItem10insertRowsEii(
@@ -620,6 +651,30 @@ void ritual_ZN13QStandardItem13removeColumnsEii(
   self->removeColumns(column, count);
 }
 
+//  void QStandardItem::appendRow(const QList<QStandardItem *> &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QStandardItem9appendRowERK5QListIPS_E(
+    QStandardItem *self,
+    const QList<QStandardItem *> *items) {
+  self->appendRow(*items);
+}
+
+//  void QStandardItem::appendRows(const QList<QStandardItem *> &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QStandardItem10appendRowsERK5QListIPS_E(
+    QStandardItem *self,
+    const QList<QStandardItem *> *items) {
+  self->appendRows(*items);
+}
+
+//  void QStandardItem::appendColumn(const QList<QStandardItem *> &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QStandardItem12appendColumnERK5QListIPS_E(
+    QStandardItem *self,
+    const QList<QStandardItem *> *items) {
+  self->appendColumn(*items);
+}
+
 //  void QStandardItem::insertRow(int row, QStandardItem *item)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QStandardItem9insertRowEiPS_(
@@ -644,6 +699,22 @@ QStandardItem *ritual_ZN13QStandardItem9takeChildEii(
     int row,
     int column) {
   return self->takeChild(row, column);
+}
+
+//  QList<QStandardItem *> QStandardItem::takeRow(int row)
+extern "C" Q_DECL_EXPORT
+QList<QStandardItem *> *ritual_ZN13QStandardItem7takeRowEi(
+    QStandardItem *self,
+    int row) {
+  return new QList<QStandardItem *>(self->takeRow(row));
+}
+
+//  QList<QStandardItem *> QStandardItem::takeColumn(int column)
+extern "C" Q_DECL_EXPORT
+QList<QStandardItem *> *ritual_ZN13QStandardItem10takeColumnEi(
+    QStandardItem *self,
+    int column) {
+  return new QList<QStandardItem *>(self->takeColumn(column));
 }
 
 //  void QStandardItem::sortChildren(int column, Qt::SortOrder order)
@@ -713,4 +784,39 @@ QStandardItem *ritual_own_ZNK13QStandardItem5cloneEv(
 extern "C" Q_DECL_EXPORT
 int ritual_own_ZNK13QStandardItem4typeEv(const QStandardItem *self) {
   return self->QStandardItem::type();
+}
+
+//  QList<QStandardItem *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QStandardItem *> *ritual_list_make_QStandardItem_ptr() {
+  return new QList<QStandardItem *>();
+}
+
+//  void QList<QStandardItem *>::append(const QStandardItem * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QStandardItem_ptr(
+    QList<QStandardItem *> *self,
+    QStandardItem *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QStandardItem *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QStandardItem_ptr(
+    const QList<QStandardItem *> *self) {
+  return self->size();
+}
+
+//  const QStandardItem * &QList<QStandardItem *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QStandardItem *ritual_list_at_QStandardItem_ptr(
+    const QList<QStandardItem *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QStandardItem *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QStandardItem_ptr(QList<QStandardItem *> *self) {
+  delete self;
 }

@@ -14,6 +14,7 @@
       "address", "address", "text", "address"
     ],
     "ritual_ZN7QActionD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QAction17associatedObjectsEv": ["address", "address"],
     "ritual_ZN7QAction14setActionGroupEP12QActionGroup": [
       "nothing", "address", "address"
     ],
@@ -48,9 +49,13 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK7QAction8shortcutEv": ["address", "address"],
+    "ritual_ZN7QAction12setShortcutsERK5QListI12QKeySequenceE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN7QAction12setShortcutsEN12QKeySequence11StandardKeyE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK7QAction9shortcutsEv": ["address", "address"],
     "ritual_ZN7QAction18setShortcutContextEN2Qt15ShortcutContextE": [
       "nothing", "address", "int"
     ],
@@ -97,6 +102,11 @@
     "ritual_ZN7QAction11setDisabledEb": ["nothing", "address", "bool"],
     "ritual_ZN7QAction10setVisibleEb": ["nothing", "address", "bool"],
     "ritual_take_QAction": ["bool", "address", "chars", "address"],
-    "ritual_own_ZN7QAction5eventEP6QEvent": ["bool", "address", "address"]
+    "ritual_own_ZN7QAction5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_list_make_QAction_ptr": ["address"],
+    "ritual_list_add_QAction_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QAction_ptr": ["long long", "address"],
+    "ritual_list_at_QAction_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QAction_ptr": ["nothing", "address"]
   }
 }

@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QInputDevice that Python can take functions over in. Every QInputDevice
@@ -215,6 +216,12 @@ extern "C" Q_DECL_EXPORT
 QRect *ritual_ZNK12QInputDevice24availableVirtualGeometryEv(
     const QInputDevice *self) {
   return new QRect(self->availableVirtualGeometry());
+}
+
+//  QStringList QInputDevice::seatNames()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN12QInputDevice9seatNamesEv() {
+  return new QList<QString>(QInputDevice::seatNames());
 }
 
 //  const QInputDevice *QInputDevice::primaryKeyboard(const QString

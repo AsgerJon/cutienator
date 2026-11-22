@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 from ..QtGui import QPainter
 from . import QAbstractScrollArea, QGraphicsScene, QWidget
 
@@ -75,7 +75,7 @@ class QGraphicsView(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QGraphicsView that has a ritual and that Python can
-  call so far, 79 names in all: 'metaObject', 'tr', 'sizeHint',
+  call so far, 81 names in all: 'metaObject', 'tr', 'sizeHint',
   'renderHints', 'setRenderHint', 'setRenderHints', 'alignment',
   'setAlignment', 'transformationAnchor', 'setTransformationAnchor',
   'resizeAnchor', 'setResizeAnchor', 'viewportUpdateMode',
@@ -86,13 +86,13 @@ class QGraphicsView(QAbstractScrollArea):
   'setInteractive', 'scene', 'setScene', 'sceneRect', 'setSceneRect',
   'transform', 'viewportTransform', 'isTransformed', 'setTransform',
   'resetTransform', 'rotate', 'scale', 'shear', 'translate', 'centerOn',
-  'ensureVisible', 'fitInView', 'render', 'itemAt', 'mapToScene',
+  'ensureVisible', 'fitInView', 'render', 'items', 'itemAt', 'mapToScene',
   'mapFromScene', 'inputMethodQuery', 'backgroundBrush',
   'setBackgroundBrush', 'foregroundBrush', 'setForegroundBrush',
-  'invalidateScene', 'updateSceneRect', 'setupViewport', 'event',
-  'viewportEvent', 'contextMenuEvent', 'dragEnterEvent', 'dragLeaveEvent',
-  'dragMoveEvent', 'dropEvent', 'focusInEvent', 'focusNextPrevChild',
-  'focusOutEvent', 'keyPressEvent', 'keyReleaseEvent',
+  'updateScene', 'invalidateScene', 'updateSceneRect', 'setupViewport',
+  'event', 'viewportEvent', 'contextMenuEvent', 'dragEnterEvent',
+  'dragLeaveEvent', 'dragMoveEvent', 'dropEvent', 'focusInEvent',
+  'focusNextPrevChild', 'focusOutEvent', 'keyPressEvent', 'keyReleaseEvent',
   'mouseDoubleClickEvent', 'mousePressEvent', 'mouseMoveEvent',
   'mouseReleaseEvent', 'wheelEvent', 'paintEvent', 'resizeEvent',
   'scrollContentsBy', 'showEvent', 'inputMethodEvent', 'drawBackground',
@@ -107,8 +107,8 @@ class QGraphicsView(QAbstractScrollArea):
   What has no ritual
   ------------------
 
-  19 of the 119 functions Qt declares: 10 takes or gives a type that cannot
-  be passed yet; 3 private; 2 protected; 2 forbidden; 1 a template; 1 a
+  11 of the 119 functions Qt declares: 3 private; 2 takes or gives a type
+  that cannot be passed yet; 2 protected; 2 forbidden; 1 a template; 1 a
   signal.
 
   What to expect
@@ -606,6 +606,248 @@ class QGraphicsView(QAbstractScrollArea):
     """
     #  bool QGraphicsView::isTransformed() const
     return self.uglySide.call('ritual_ZNK13QGraphicsView13isTransformedEv')
+
+  @overload()
+  def items(self) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsView::items() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#items
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsView::items() const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsView5itemsEv')
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
+  @overload(QPoint)
+  def items(self, pos: QPoint) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsView::items(const QPoint
+    &pos) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#items
+
+    Parameters
+    ----------
+
+    pos : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsView::items(const QPoint &pos) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsView5itemsERK6QPoint', self._valueOf(pos),
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
+  @overload(int, int)
+  def items(self, x: int, y: int) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsView::items(int x, int y)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#items
+
+    Parameters
+    ----------
+
+    x : int
+      Passed on as it is.
+
+    y : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsView::items(int x, int y) const
+    address = self.uglySide.call('ritual_ZNK13QGraphicsView5itemsEii', x, y)
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
+  @overload(QRect)
+  @overload(QRect, Qt.ItemSelectionMode)
+  def items(
+      self,
+      rect: QRect,
+      mode: Qt.ItemSelectionMode = Qt.ItemSelectionMode.IntersectsItemShape,
+  ) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsView::items(const QRect
+    &rect, Qt::ItemSelectionMode mode) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#items
+
+    Parameters
+    ----------
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ItemSelectionMode.IntersectsItemShape.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsView::items(const QRect &rect,
+    #      Qt::ItemSelectionMode mode) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsView5itemsERK5QRectN2Qt17ItemSelectionModeE',
+        self._valueOf(rect), mode.value,
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
+  @overload(int, int, int, int)
+  @overload(int, int, int, int, Qt.ItemSelectionMode)
+  def items(
+      self,
+      x: int,
+      y: int,
+      w: int,
+      h: int,
+      mode: Qt.ItemSelectionMode = Qt.ItemSelectionMode.IntersectsItemShape,
+  ) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsView::items(int x, int y, int
+    w, int h, Qt::ItemSelectionMode mode) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#items
+
+    Parameters
+    ----------
+
+    x : int
+      Passed on as it is.
+
+    y : int
+      Passed on as it is.
+
+    w : int
+      Passed on as it is.
+
+    h : int
+      Passed on as it is.
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ItemSelectionMode.IntersectsItemShape.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsView::items(int x, int y, int w, int
+    #      h, Qt::ItemSelectionMode mode) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsView5itemsEiiiiN2Qt17ItemSelectionModeE',
+        x, y, w, h, mode.value,
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
+  @overload(QPolygon)
+  @overload(QPolygon, Qt.ItemSelectionMode)
+  def items(
+      self,
+      polygon: QPolygon,
+      mode: Qt.ItemSelectionMode = Qt.ItemSelectionMode.IntersectsItemShape,
+  ) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsView::items(const QPolygon
+    &polygon, Qt::ItemSelectionMode mode) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#items
+
+    Parameters
+    ----------
+
+    polygon : QPolygon
+      Passed on as a value: Qt reads the C++ QPolygon, which stays Python's
+      own.
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ItemSelectionMode.IntersectsItemShape.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsView::items(const QPolygon &polygon,
+    #      Qt::ItemSelectionMode mode) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsView5itemsERK8QPolygonN2Qt17ItemSelectionMode'
+        'E',
+        self._valueOf(polygon), mode.value,
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
+
+  @overload(QPainterPath)
+  @overload(QPainterPath, Qt.ItemSelectionMode)
+  def items(
+      self,
+      path: QPainterPath,
+      mode: Qt.ItemSelectionMode = Qt.ItemSelectionMode.IntersectsItemShape,
+  ) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsView::items(const
+    QPainterPath &path, Qt::ItemSelectionMode mode) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#items
+
+    Parameters
+    ----------
+
+    path : QPainterPath
+      Passed on as a value: Qt reads the C++ QPainterPath, which stays
+      Python's own.
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ItemSelectionMode.IntersectsItemShape.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsView::items(const QPainterPath &path,
+    #      Qt::ItemSelectionMode mode) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGraphicsView5itemsERK12QPainterPathN2Qt17ItemSelectio'
+        'nModeE',
+        self._valueOf(path), mode.value,
+    )
+    from . import QGraphicsItem
+    return QList[QGraphicsItem]._cuteOwning(address)
 
   @overload(QPoint)
   def itemAt(self, pos: QPoint) -> Optional[QGraphicsItem]:
@@ -2027,6 +2269,27 @@ class QGraphicsView(QAbstractScrollArea):
         self._valueOf(source), aspectRatioMode.value,
     )
 
+  @overload(QList[QRectF])
+  def updateScene(self, rects: QList[QRectF]) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::updateScene(const QList<QRectF> &rects)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#updateScene
+
+    Parameters
+    ----------
+
+    rects : QList[QRectF]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QGraphicsView::updateScene(const QList<QRectF> &rects)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsView11updateSceneERK5QListI6QRectFE',
+        self._valueOf(rects),
+    )
+
   @overload()
   @overload(QRectF)
   @overload(QRectF, QGraphicsScene.SceneLayers)
@@ -2636,3 +2899,16 @@ class QGraphicsView(QAbstractScrollArea):
         'ritual_own_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF',
         self._addressOf(painter), self._valueOf(rect),
     )
+
+
+#  Qt's 'QList<QGraphicsView *>': the list of QGraphicsView, which
+#  'QList[QGraphicsView]' gives. It is made here, so that there is one as
+#  soon as there can be a QGraphicsView.
+QList.createKind(
+    QGraphicsView, 'address',
+    make='ritual_list_make_QGraphicsView_ptr',
+    add='ritual_list_add_QGraphicsView_ptr',
+    size='ritual_list_size_QGraphicsView_ptr',
+    at='ritual_list_at_QGraphicsView_ptr',
+    drop='ritual_list_drop_QGraphicsView_ptr',
+)

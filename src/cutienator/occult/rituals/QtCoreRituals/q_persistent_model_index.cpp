@@ -3,6 +3,7 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/qlist.h>
 
 //  QPersistentModelIndex::QPersistentModelIndex()
 extern "C" Q_DECL_EXPORT
@@ -269,4 +270,42 @@ QDebug *ritual_Zls6QDebugRK21QPersistentModelIndex(
     const QDebug *a0,
     const QPersistentModelIndex *a1) {
   return new QDebug(operator<<(*a0, *a1));
+}
+
+//  QList<QPersistentModelIndex>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QPersistentModelIndex> *ritual_list_make_QPersistentModelIndex() {
+  return new QList<QPersistentModelIndex>();
+}
+
+//  void QList<QPersistentModelIndex>::append(const QPersistentModelIndex
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QPersistentModelIndex(
+    QList<QPersistentModelIndex> *self,
+    const QPersistentModelIndex *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QPersistentModelIndex>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QPersistentModelIndex(
+    const QList<QPersistentModelIndex> *self) {
+  return self->size();
+}
+
+//  const QPersistentModelIndex &QList<QPersistentModelIndex>::at(qsizetype
+//      i) const
+extern "C" Q_DECL_EXPORT
+QPersistentModelIndex *ritual_list_at_QPersistentModelIndex(
+    const QList<QPersistentModelIndex> *self,
+    long long index) {
+  return new QPersistentModelIndex(self->at(index));
+}
+
+//  QList<QPersistentModelIndex>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QPersistentModelIndex(
+    QList<QPersistentModelIndex> *self) {
+  delete self;
 }

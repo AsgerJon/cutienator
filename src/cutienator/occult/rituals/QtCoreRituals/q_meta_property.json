@@ -51,6 +51,20 @@
     "ritual_ZNK13QMetaProperty19enclosingMetaObjectEv": [
       "address", "address"
     ],
-    "ritual_ZN13QMetaPropertyD1Ev": ["nothing", "address"]
+    "ritual_ZN13QMetaPropertyD1Ev": ["nothing", "address"],
+    "ritual_map_make_QHash_int_QMetaProperty": ["address"],
+    "ritual_map_put_QHash_int_QMetaProperty": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_map_size_QHash_int_QMetaProperty": ["long long", "address"],
+    "ritual_map_key_QHash_int_QMetaProperty": [
+      "int", "address", "long long"
+    ],
+    "ritual_map_value_QHash_int_QMetaProperty": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QHash_int_QMetaProperty": ["bool", "address", "int"],
+    "ritual_map_get_QHash_int_QMetaProperty": ["address", "address", "int"],
+    "ritual_map_drop_QHash_int_QMetaProperty": ["nothing", "address"]
   }
 }

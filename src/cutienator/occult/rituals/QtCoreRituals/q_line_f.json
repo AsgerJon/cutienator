@@ -59,6 +59,11 @@
     "ritual_ZneRK6QLineFRK5QLine": ["bool", "address", "address"],
     "ritual_ZeqRK5QLineRK6QLineF": ["bool", "address", "address"],
     "ritual_ZneRK5QLineRK6QLineF": ["bool", "address", "address"],
-    "ritual_ZN6QLineFD1Ev": ["nothing", "address"]
+    "ritual_ZN6QLineFD1Ev": ["nothing", "address"],
+    "ritual_list_make_QLineF": ["address"],
+    "ritual_list_add_QLineF": ["nothing", "address", "address"],
+    "ritual_list_size_QLineF": ["long long", "address"],
+    "ritual_list_at_QLineF": ["address", "address", "long long"],
+    "ritual_list_drop_QLineF": ["nothing", "address"]
   }
 }

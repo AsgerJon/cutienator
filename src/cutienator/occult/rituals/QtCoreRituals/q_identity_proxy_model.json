@@ -44,6 +44,9 @@
     "ritual_ZNK19QIdentityProxyModel20mapSelectionToSourceERK14QItemSelection": [
       "address", "address", "address"
     ],
+    "ritual_ZNK19QIdentityProxyModel5matchERK11QModelIndexiRK8QVarianti6QFlagsIN2Qt9MatchFlagEE": [
+      "address", "address", "address", "int", "address", "int", "int"
+    ],
     "ritual_ZN19QIdentityProxyModel14setSourceModelEP18QAbstractItemModel": [
       "nothing", "address", "address"
     ],

@@ -1,11 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qjsonobject.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qjsonobject.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qjsonvalue.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 
 //  QJsonObject::QJsonObject()
 extern "C" Q_DECL_EXPORT
@@ -23,6 +28,40 @@ void ritual_ZN11QJsonObjectD1Ev(QJsonObject *self) {
 extern "C" Q_DECL_EXPORT
 QJsonObject *ritual_ZN11QJsonObjectC1ERKS_(const QJsonObject *other) {
   return new QJsonObject(*other);
+}
+
+//  QJsonObject QJsonObject::fromVariantMap(const QVariantMap &map)
+extern "C" Q_DECL_EXPORT
+QJsonObject *ritual_ZN11QJsonObject14fromVariantMapERK4QMapI7QString8QVariantE(
+    const QMap<QString, QVariant> *map) {
+  return new QJsonObject(QJsonObject::fromVariantMap(*map));
+}
+
+//  QVariantMap QJsonObject::toVariantMap() const
+extern "C" Q_DECL_EXPORT
+QMap<QString, QVariant> *ritual_ZNK11QJsonObject12toVariantMapEv(
+    const QJsonObject *self) {
+  return new QMap<QString, QVariant>(self->toVariantMap());
+}
+
+//  QJsonObject QJsonObject::fromVariantHash(const QVariantHash &map)
+extern "C" Q_DECL_EXPORT
+QJsonObject *ritual_ZN11QJsonObject15fromVariantHashERK5QHashI7QString8QVariantE(
+    const QHash<QString, QVariant> *map) {
+  return new QJsonObject(QJsonObject::fromVariantHash(*map));
+}
+
+//  QVariantHash QJsonObject::toVariantHash() const
+extern "C" Q_DECL_EXPORT
+QHash<QString, QVariant> *ritual_ZNK11QJsonObject13toVariantHashEv(
+    const QJsonObject *self) {
+  return new QHash<QString, QVariant>(self->toVariantHash());
+}
+
+//  QStringList QJsonObject::keys() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK11QJsonObject4keysEv(const QJsonObject *self) {
+  return new QList<QString>(self->keys());
 }
 
 //  qsizetype QJsonObject::size() const

@@ -107,6 +107,9 @@
     "ritual_ZN11QMainWindow16tabifyDockWidgetEP11QDockWidgetS1_": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZNK11QMainWindow19tabifiedDockWidgetsEP11QDockWidget": [
+      "address", "address", "address"
+    ],
     "ritual_ZN11QMainWindow16removeDockWidgetEP11QDockWidget": [
       "nothing", "address", "address"
     ],

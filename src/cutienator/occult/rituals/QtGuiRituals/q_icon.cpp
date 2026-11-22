@@ -6,6 +6,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
+#include <QtCore/qlist.h>
 
 //  QIcon::QIcon()
 extern "C" Q_DECL_EXPORT
@@ -220,6 +221,15 @@ void ritual_ZN5QIcon7addFileERK7QStringRK5QSizeNS_4ModeENS_5StateE(
   self->addFile(*fileName, *size, mode, state);
 }
 
+//  QList<QSize> QIcon::availableSizes(Mode mode, State state) const
+extern "C" Q_DECL_EXPORT
+QList<QSize> *ritual_ZNK5QIcon14availableSizesENS_4ModeENS_5StateE(
+    const QIcon *self,
+    QIcon::Mode mode,
+    QIcon::State state) {
+  return new QList<QSize>(self->availableSizes(mode, state));
+}
+
 //  void QIcon::setIsMask(bool isMask)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QIcon9setIsMaskEb(QIcon *self, bool isMask) {
@@ -270,6 +280,32 @@ QIcon *ritual_ZN5QIcon9fromThemeENS_9ThemeIconERKS_(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN5QIcon12hasThemeIconENS_9ThemeIconE(QIcon::ThemeIcon icon) {
   return QIcon::hasThemeIcon(icon);
+}
+
+//  QStringList QIcon::themeSearchPaths()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN5QIcon16themeSearchPathsEv() {
+  return new QList<QString>(QIcon::themeSearchPaths());
+}
+
+//  void QIcon::setThemeSearchPaths(const QStringList &searchpath)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QIcon19setThemeSearchPathsERK5QListI7QStringE(
+    const QList<QString> *searchpath) {
+  QIcon::setThemeSearchPaths(*searchpath);
+}
+
+//  QStringList QIcon::fallbackSearchPaths()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN5QIcon19fallbackSearchPathsEv() {
+  return new QList<QString>(QIcon::fallbackSearchPaths());
+}
+
+//  void QIcon::setFallbackSearchPaths(const QStringList &paths)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QIcon22setFallbackSearchPathsERK5QListI7QStringE(
+    const QList<QString> *paths) {
+  QIcon::setFallbackSearchPaths(*paths);
 }
 
 //  QString QIcon::themeName()

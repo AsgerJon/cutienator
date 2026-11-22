@@ -15,6 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from . import QHash, QList, QMap, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -75,16 +76,16 @@ class QVariant(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QVariant that has a ritual and that Python can call
-  so far, 46 names in all: 'userType', 'typeId', 'typeName', 'metaType',
+  so far, 50 names in all: 'userType', 'typeId', 'typeName', 'metaType',
   'canConvert', 'convert', 'canView', 'isValid', 'isNull', 'clear', 'detach',
-  'isDetached', 'toBool', 'toByteArray', 'toBitArray', 'toString', 'toChar',
-  'toDate', 'toTime', 'toDateTime', 'toPoint', 'toPointF', 'toRect',
-  'toSize', 'toSizeF', 'toLine', 'toLineF', 'toRectF', 'toLocale',
-  'toRegularExpression', 'toEasingCurve', 'toUuid', 'toUrl', 'toJsonValue',
-  'toJsonObject', 'toJsonArray', 'toJsonDocument', 'toModelIndex',
-  'toPersistentModelIndex', 'type', 'typeToName', 'nameToType', 'setValue',
-  'compare', '__eq__', '__ne__'. It can be made from Python, in 34 ways; see
-  '__init__'.
+  'isDetached', 'toBool', 'toByteArray', 'toBitArray', 'toString',
+  'toStringList', 'toChar', 'toDate', 'toTime', 'toDateTime', 'toList',
+  'toMap', 'toHash', 'toPoint', 'toPointF', 'toRect', 'toSize', 'toSizeF',
+  'toLine', 'toLineF', 'toRectF', 'toLocale', 'toRegularExpression',
+  'toEasingCurve', 'toUuid', 'toUrl', 'toJsonValue', 'toJsonObject',
+  'toJsonArray', 'toJsonDocument', 'toModelIndex', 'toPersistentModelIndex',
+  'type', 'typeToName', 'nameToType', 'setValue', 'compare', '__eq__',
+  '__ne__'. It can be made from Python, in 38 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -117,7 +118,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  76 of the 170 functions Qt declares: 39 takes or gives a type that cannot
+  68 of the 170 functions Qt declares: 31 takes or gives a type that cannot
   be passed yet; 21 a template; 6 forbidden; 5 private; 5 protected.
 
   What to expect
@@ -760,6 +761,22 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     #  QString QVariant::toString() const
     return self.uglySide.call('ritual_ZNK8QVariant8toStringEv')
 
+  def toStringList(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QVariant::toStringList() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toStringList
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QVariant::toStringList() const
+    address = self.uglySide.call('ritual_ZNK8QVariant12toStringListEv')
+    return QStringList._cuteOwning(address)
+
   def toChar(self) -> QChar:
     """
     Calls Qt's 'QChar QVariant::toChar() const'.
@@ -827,6 +844,54 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK8QVariant10toDateTimeEv')
     from . import QDateTime
     return QDateTime._cuteOwning(address)
+
+  def toList(self) -> QList[QVariant]:
+    """
+    Calls Qt's 'QList<QVariant> QVariant::toList() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toList
+
+    Returns
+    -------
+
+    QList[QVariant]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QVariant> QVariant::toList() const
+    address = self.uglySide.call('ritual_ZNK8QVariant6toListEv')
+    return QList[QVariant]._cuteOwning(address)
+
+  def toMap(self) -> QMap[str, QVariant]:
+    """
+    Calls Qt's 'QMap<QString, QVariant> QVariant::toMap() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toMap
+
+    Returns
+    -------
+
+    QMap[str, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QMap<QString, QVariant> QVariant::toMap() const
+    address = self.uglySide.call('ritual_ZNK8QVariant5toMapEv')
+    return QMap[str, QVariant]._cuteOwning(address)
+
+  def toHash(self) -> QHash[str, QVariant]:
+    """
+    Calls Qt's 'QHash<QString, QVariant> QVariant::toHash() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#toHash
+
+    Returns
+    -------
+
+    QHash[str, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QHash<QString, QVariant> QVariant::toHash() const
+    address = self.uglySide.call('ritual_ZNK8QVariant6toHashEv')
+    return QHash[str, QVariant]._cuteOwning(address)
 
   def toPoint(self) -> QPoint:
     """
@@ -1475,6 +1540,27 @@ class QVariant(CuteMixin, metaclass=MetaCute):
         'ritual_ZN8QVariantC1ERK9QDateTime', self._valueOf(datetime),
     ))
 
+  @overload(QHash[str, WAIT['QVariant']])
+  def __init__(self, hash: QHash[str, QVariant]) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(const QHash<QString,
+    QVariant> &hash)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    hash : QHash[str, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  QVariant::QVariant(const QHash<QString, QVariant> &hash)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1ERK5QHashI7QStringS_E', self._valueOf(hash),
+    ))
+
   @overload(QJsonArray)
   def __init__(self, jsonArray: QJsonArray) -> None:
     """
@@ -1515,6 +1601,27 @@ class QVariant(CuteMixin, metaclass=MetaCute):
         'ritual_ZN8QVariantC1ERK11QJsonObject', self._valueOf(jsonObject),
     ))
 
+  @overload(QList[WAIT['QVariant']])
+  def __init__(self, list: QList[QVariant]) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(const QList<QVariant>
+    &list)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    list : QList[QVariant]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  QVariant::QVariant(const QList<QVariant> &list)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1ERK5QListIS_E', self._valueOf(list),
+    ))
+
   @overload(QLocale)
   def __init__(self, locale: QLocale) -> None:
     """
@@ -1533,6 +1640,27 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     #  QVariant::QVariant(const QLocale &locale)
     self._noteCreation(QVariant, lambda: Rituals.call(
         'ritual_ZN8QVariantC1ERK7QLocale', self._valueOf(locale),
+    ))
+
+  @overload(QMap[str, WAIT['QVariant']])
+  def __init__(self, map: QMap[str, QVariant]) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(const QMap<QString,
+    QVariant> &map)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    map : QMap[str, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  QVariant::QVariant(const QMap<QString, QVariant> &map)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1ERK4QMapI7QStringS_E', self._valueOf(map),
     ))
 
   @overload(QRegularExpression)
@@ -1572,6 +1700,27 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     #  QVariant::QVariant(const QString &string)
     self._noteCreation(QVariant, lambda: Rituals.call(
         'ritual_ZN8QVariantC1ERK7QString', string,
+    ))
+
+  @overload(QStringList)
+  def __init__(self, stringlist: QStringList) -> None:
+    """
+    Notes what was given, for Qt's 'QVariant::QVariant(const QStringList
+    &stringlist)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#QVariant
+
+    Parameters
+    ----------
+
+    stringlist : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  QVariant::QVariant(const QStringList &stringlist)
+    self._noteCreation(QVariant, lambda: Rituals.call(
+        'ritual_ZN8QVariantC1ERK5QListI7QStringE', self._valueOf(stringlist),
     ))
 
   @overload(QUrl)
@@ -2001,3 +2150,67 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  void QVariant::detach()
     self.uglySide.call('ritual_ZN8QVariant6detachEv')
+
+
+#  Qt's 'QList<QVariant>': the list of QVariant, which 'QList[QVariant]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QVariant. Qt has a name of its own for it.
+QVariantList = QList.createKind(
+    QVariant, 'value',
+    name='QVariantList',
+    make='ritual_list_make_QVariant',
+    add='ritual_list_add_QVariant',
+    size='ritual_list_size_QVariant',
+    at='ritual_list_at_QVariant',
+    drop='ritual_list_drop_QVariant',
+)
+
+
+#  Qt's 'QMap<QString, QVariant>': the QMap from text to QVariant, which
+#  'QMap[str, QVariant]' gives. It is completed here, in the file of the
+#  class of its values. Qt has a name of its own for it.
+QVariantMap = QMap.createKind(
+    str, QVariant, 'value',
+    name='QVariantMap',
+    make='ritual_map_make_QMap_QString_QVariant',
+    put='ritual_map_put_QMap_QString_QVariant',
+    size='ritual_map_size_QMap_QString_QVariant',
+    key='ritual_map_key_QMap_QString_QVariant',
+    value='ritual_map_value_QMap_QString_QVariant',
+    has='ritual_map_has_QMap_QString_QVariant',
+    get='ritual_map_get_QMap_QString_QVariant',
+    drop='ritual_map_drop_QMap_QString_QVariant',
+)
+
+
+#  Qt's 'QHash<QString, QVariant>': the QHash from text to QVariant, which
+#  'QHash[str, QVariant]' gives. It is completed here, in the file of the
+#  class of its values. Qt has a name of its own for it.
+QVariantHash = QHash.createKind(
+    str, QVariant, 'value',
+    name='QVariantHash',
+    make='ritual_map_make_QHash_QString_QVariant',
+    put='ritual_map_put_QHash_QString_QVariant',
+    size='ritual_map_size_QHash_QString_QVariant',
+    key='ritual_map_key_QHash_QString_QVariant',
+    value='ritual_map_value_QHash_QString_QVariant',
+    has='ritual_map_has_QHash_QString_QVariant',
+    get='ritual_map_get_QHash_QString_QVariant',
+    drop='ritual_map_drop_QHash_QString_QVariant',
+)
+
+
+#  Qt's 'QMap<int, QVariant>': the QMap from a number to QVariant, which
+#  'QMap[int, QVariant]' gives. It is completed here, in the file of the
+#  class of its values.
+QMap.createKind(
+    int, QVariant, 'value',
+    make='ritual_map_make_QMap_int_QVariant',
+    put='ritual_map_put_QMap_int_QVariant',
+    size='ritual_map_size_QMap_int_QVariant',
+    key='ritual_map_key_QMap_int_QVariant',
+    value='ritual_map_value_QMap_int_QVariant',
+    has='ritual_map_has_QMap_int_QVariant',
+    get='ritual_map_get_QMap_int_QVariant',
+    drop='ritual_map_drop_QMap_int_QVariant',
+)

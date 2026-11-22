@@ -9,6 +9,7 @@ import json
 import os
 import re
 import textwrap
+import threading
 from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
@@ -287,6 +288,10 @@ class RitualGenerator:
   #  the generators '_getOther' made, each kept for the tree they
   #  belong to: both are asked for thousands of times.
   __hidden_types__ = dict()  # type: Dict[Tuple[int, str], bool]
+  #  The kinds of list the functions of each tree hand around, and what
+  #  keeps two threads from both going through the tree for them.
+  __list_kinds__ = dict()  # type: Dict[int, Dict[str, Record]]
+  __list_kinds_lock__ = threading.Lock()
   #  The record of each class read so far. The tree reads a record anew
   #  at every asking, and the work on the functions Python can take
   #  over asks for the same ones over and over.
@@ -486,6 +491,10 @@ class RitualGenerator:
     limit = self.__cute_class_limit__
     if limit is None or className in limit:
       written.extend(self._planOwn())
+    #  A class some list of Qt holds gets the rituals of that list, and
+    #  a class some map of Qt has for its values those of that map.
+    written.extend(self._planLists())
+    written.extend(self._planMaps())
     self.__written_rituals__ = (*written,)
     self.__unwritten_functions__ = (*unwritten,)
 
@@ -966,6 +975,232 @@ class RitualGenerator:
     lines.append('  }')
     return lines
 
+  @staticmethod
+  def _usesList(plan: Record) -> bool:
+    """Says whether a ritual takes or gives a list, or is one of the
+    rituals of a list itself."""
+    if plan['kind'] == 'list':
+      return True
+    giving = plan.get('giving') or dict()
+    if giving.get('kind') == 'list':
+      return True
+    arguments = plan.get('arguments') or ()
+    return any(a['passing'].get('kind') == 'list' for a in arguments)
+
+  @staticmethod
+  def _usesMap(plan: Record) -> bool:
+    """Says whether a ritual takes or gives a map, or is one of the
+    rituals of a map itself."""
+    if plan['kind'] == 'map':
+      return True
+    giving = plan.get('giving') or dict()
+    if giving.get('kind') == 'map':
+      return True
+    arguments = plan.get('arguments') or ()
+    return any(a['passing'].get('kind') == 'map' for a in arguments)
+
+  def getListKinds(self) -> Dict[str, Record]:
+    """
+    Gives every kind of list the functions of Qt take or give, as
+    '_findListKind' describes it, under its tag.
+
+    Found for you by going through every class the tree knows, once
+    for each tree. The class a kind holds writes the rituals of that
+    kind, and its cute class collects the kind, so each has to know
+    whether some function somewhere hands such a list around.
+    """
+    tree = self.getDependencyTree()
+    with self.__list_kinds_lock__:
+      if id(tree) not in self.__list_kinds__:
+        self.__list_kinds__[id(tree)] = self._findListKinds()
+      return self.__list_kinds__[id(tree)]
+
+  def _findListKinds(self) -> Dict[str, Record]:
+    """Does the going through the tree for 'getListKinds', which keeps
+    the answer."""
+    tree = self.getDependencyTree()
+    kinds = dict()  # type: Dict[str, Record]
+    aliases = self._getTypeTables()['aliases']
+    wanted = ('CXXMethodDecl', 'CXXConstructorDecl')
+    for className in tree.getClassNames():
+      other = self._getOther(className)
+      for member in other._readRecord(className).get('inner', ()):
+        if member.get('kind') not in wanted:
+          continue
+        given = self._splitFunctionType(member['type']['qualType'])[0]
+        types = [given, *(
+            child['type']['qualType']
+            for child in member.get('inner', ())
+            if isinstance(child, dict) and child.get('kind') == 'ParmVarDecl'
+        )]
+        for cppType in types:
+          bare = cppType.replace('const ', '').replace(' &', '').strip()
+          templated = any(
+              mark in cppType for mark in ('QList<', 'QMap<', 'QHash<'))
+          if not templated and bare not in aliases:
+            #  A list is written 'QList<...>', or by a second name Qt
+            #  has for one, as 'QStringList'. Anything else is spared
+            #  the spelling out.
+            continue
+          spelled = other._spellOutside(cppType)
+          listed = other._findListKind(spelled)
+          if listed is not None:
+            kinds.setdefault(listed['tag'], listed)
+          mapped = other._findMapKind(spelled)
+          if mapped is not None:
+            kinds.setdefault(mapped['tag'], mapped)
+    return kinds
+
+  def getOwnListKinds(self) -> List[Record]:
+    """Gives the kinds of list that hold the class, as 'QList<QUrl>'
+    for QUrl and 'QList<QAction *>' for QAction: most classes none."""
+    className = self.getClassName()
+    return [
+        listed for listed in self.getListKinds().values()
+        if 'listType' in listed and listed['holds'] == className
+        and listed['crossing'] != 'text'
+    ]
+
+  def getOwnMapKinds(self) -> List[Record]:
+    """Gives the kinds of map whose values are of the class, as
+    'QMap<int, QVariant>' for QVariant: most classes none. They are
+    found in the same going through the tree as the lists."""
+    className = self.getClassName()
+    return [
+        mapped for mapped in self.getListKinds().values()
+        if 'mapType' in mapped and mapped['holds'] == className
+    ]
+
+  def getMapNames(self, mapped: Record) -> List[str]:
+    """Gives the names Qt itself has for one kind of map, as
+    'QVariantMap' for 'QMap<QString, QVariant>': for most kinds none."""
+    aliases = self._getTypeTables()['aliases']
+    return sorted(
+        name for name, meant in aliases.items()
+        if meant == mapped['mapType'] and name.isidentifier()
+    )
+
+  def _planMaps(self) -> List[Record]:
+    """
+    Works out the eight rituals of each kind of map whose values are
+    of the class: the one making an empty map, the one putting a value
+    at a key, the one giving how many keys it has, the ones giving the
+    key and the value at a place, the one saying whether it has a key,
+    the one giving the value at a key, and the one removing the map.
+    """
+    plans = []  # type: List[Record]
+    for mapped in self.getOwnMapKinds():
+      mapType, value = mapped['mapType'], mapped['value']
+      byValue = mapped['crossing'] == 'value'
+      byText = mapped['keyWord'] == 'text'
+      keyTaken = 'const %s *' % mapped['key'] if byText else 'int'
+      keyGiven = '%s *' % mapped['key'] if byText else 'int'
+      keyHanded = '*key' if byText else 'key'
+      keyBack = '*std::next(self->keyBegin(), index)'
+      if byText:
+        keyBack = 'new %s(%s)' % (mapped['key'], keyBack)
+      taken = 'const %s *' % value if byValue else value
+      given = '%s *' % value if byValue else value
+      handed = '*value' if byValue else 'value'
+      word = mapped['keyWord']
+      own, read = '%s *' % mapType, 'const %s *' % mapType
+
+      def back(found: str) -> str:
+        """What goes back for a value found in the map."""
+        return 'new %s(%s)' % (value, found) if byValue else found
+
+      shapes = (
+          ('make', '%s()' % mapType, own, (), ('address',),
+           'return new %s();' % mapType),
+          ('put', 'insert(const Key &key, const T &value)', 'void',
+           (('self', own), ('key', keyTaken), ('value', taken)),
+           ('nothing', 'address', word, 'address'),
+           'self->insert(%s, %s);' % (keyHanded, handed)),
+          ('size', 'size() const', 'long long', (('self', read),),
+           ('long long', 'address'), 'return self->size();'),
+          ('key', 'the key at a place', keyGiven,
+           (('self', read), ('index', 'long long')),
+           (word, 'address', 'long long'), 'return %s;' % keyBack),
+          ('value', 'the value at a place', given,
+           (('self', read), ('index', 'long long')),
+           ('address', 'address', 'long long'),
+           'return %s;' % back('*std::next(self->constBegin(), index)')),
+          ('has', 'contains(const Key &key) const', 'bool',
+           (('self', read), ('key', keyTaken)), ('bool', 'address', word),
+           'return self->contains(%s);' % keyHanded),
+          ('get', 'value(const Key &key) const', given,
+           (('self', read), ('key', keyTaken)),
+           ('address', 'address', word),
+           'return %s;' % back('self->value(%s)' % keyHanded)),
+          ('drop', '~%s()' % mapped['pattern'], 'void', (('self', own),),
+           ('nothing', 'address'), 'delete self;'),
+      )
+      for role, shown, gives, takes, row, line in shapes:
+        plan = dict(
+            ritualName='ritual_map_%s_%s' % (role, mapped['tag']),
+            function='%s: %s' % (mapType, shown), kind='map',
+            gives=gives, takes=takes, row=row, needs=(),
+            unknownTypes=(), unsureNumbers=(), words=(), variadic=False,
+            name='', arguments=(), giving=None, inPlace=False,
+            mapped=mapped, mapRole=role,
+        )
+        plan['text'] = self._writeRitual(plan, ['  %s' % line])
+        plans.append(plan)
+    return plans
+
+  def getListNames(self, listed: Record) -> List[str]:
+    """Gives the names Qt itself has for one kind of list, as
+    'QModelIndexList' for 'QList<QModelIndex>': for most kinds none."""
+    aliases = self._getTypeTables()['aliases']
+    return sorted(
+        name for name, meant in aliases.items()
+        if meant == listed['listType'] and name.isidentifier()
+    )
+
+  def _planLists(self) -> List[Record]:
+    """
+    Works out the five rituals of each kind of list that holds the
+    class: the one making an empty list, the one adding an element, the
+    one giving how many it holds, the one giving the element at a
+    place, and the one removing the list.
+    """
+    plans = []  # type: List[Record]
+    for listed in self.getOwnListKinds():
+      listType, element = listed['listType'], listed['element']
+      byValue = listed['crossing'] == 'value'
+      handed = 'const %s *' % element if byValue else element
+      back = '%s *' % element if byValue else element
+      shapes = (
+          ('make', '%s::QList()' % listType, '%s *' % listType, (),
+           ('address',), 'return new %s();' % listType),
+          ('add', 'void %s::append(const %s &value)' % (listType, element),
+           'void', (('self', '%s *' % listType), ('element', handed)),
+           ('nothing', 'address', 'address'),
+           'self->append(%selement);' % ('*' if byValue else '')),
+          ('size', 'qsizetype %s::size() const' % listType, 'long long',
+           (('self', 'const %s *' % listType),), ('long long', 'address'),
+           'return self->size();'),
+          ('at', 'const %s &%s::at(qsizetype i) const' % (element, listType),
+           back, (('self', 'const %s *' % listType), ('index', 'long long')),
+           ('address', 'address', 'long long'),
+           'return new %s(self->at(index));' % element if byValue
+           else 'return self->at(index);'),
+          ('drop', '%s::~QList()' % listType, 'void',
+           (('self', '%s *' % listType),), ('nothing', 'address'),
+           'delete self;'),
+      )
+      for role, shown, gives, takes, row, line in shapes:
+        plan = dict(
+            ritualName='ritual_list_%s_%s' % (role, listed['tag']),
+            function=shown, kind='list', gives=gives, takes=takes,
+            row=row, needs=(), unknownTypes=(), unsureNumbers=(),
+            words=(), variadic=False, name='', arguments=(), giving=None,
+            inPlace=False, listed=listed, listRole=role,
+        )
+        plan['text'] = self._writeRitual(plan, ['  %s' % line])
+        plans.append(plan)
+    return plans
+
   def _planTake(self) -> Record:
     """Works out the ritual that hands a Python function over to an
     object of the C++ class of ours, for one of its functions."""
@@ -1193,6 +1428,12 @@ class RitualGenerator:
         if line.strip() and line not in includeLines:
           includeLines.append(line)
     owned = [r for r in self.getWritten() if r['kind'] == 'own']
+    if any(self._usesList(ritual) for ritual in self.getWritten()):
+      includeLines.append('#include <QtCore/qlist.h>')
+    if any(self._usesMap(ritual) for ritual in self.getWritten()):
+      includeLines.append('#include <QtCore/qmap.h>')
+      includeLines.append('#include <QtCore/qhash.h>')
+      includeLines.append('#include <iterator>')
     if self.hasCuteClass():
       includeLines.append('#include <cstring>')
     blocks[0] = '%s\n%s' % (blocks[0], '\n'.join(includeLines))
@@ -1467,6 +1708,124 @@ class RitualGenerator:
       return cppType
     return ''
 
+  def _findListKind(self, cppType: str) -> Optional[Record]:
+    """
+    Says which kind of list a type hands around as a value. Qt has one
+    class of list for each thing a list can hold: 'QList<QUrl>',
+    'QList<QAction *>', and 'QStringList', its second name for
+    'QList<QString>'.
+
+    Parameters
+    ----------
+
+    cppType : str
+      A type with every name in full, as 'QList<QUrl>', 'const
+      QList<QUrl> &' or 'QStringList'.
+
+    Returns
+    -------
+
+    Optional[Record]
+      None for a type that is no list handed around as a value, and for
+      a list of something that cannot be an element yet: a number, an
+      enum, a pair, a class Qt writes inside another. Else 'listType':
+      the list as C++ writes it;
+      'element': what it holds, as C++ writes it; 'crossing': how one
+      element crosses, 'value', 'address' or 'text'; 'holds': the class
+      of the element; 'tag': the kind as the names of its rituals have
+      it, as 'QUrl' and 'QAction_ptr'.
+    """
+    if cppType.endswith(' &'):
+      if not cppType.startswith('const '):
+        return None
+      cppType = cppType[:-2]
+    if cppType.startswith('const '):
+      cppType = cppType[6:]
+    cppType = self._followAliases(cppType.strip())
+    if not cppType.startswith('QList<') or not cppType.endswith('>'):
+      return None
+    element = cppType[len('QList<'):-1].strip()
+    tables = self._getTypeTables()
+    if element == self.__text_name__:
+      crossing, holds, tag = 'text', element, element
+    elif element.endswith(' *') and element[:-2] in tables['classes']:
+      crossing, holds = 'address', element[:-2]
+      tag = '%s_ptr' % holds
+    elif element in tables['copyable']:
+      crossing, holds, tag = 'value', element, element
+    else:
+      return None
+    if '::' in holds:
+      #  A class Qt writes inside another: not as an element yet.
+      return None
+    return dict(
+        listType='QList<%s>' % element, element=element,
+        crossing=crossing, holds=holds, tag=tag,
+    )
+
+  def _findMapKind(self, cppType: str) -> Optional[Record]:
+    """
+    Says which kind of map a type hands around as a value. Qt has one
+    class of map for each kind of key and value: 'QMap<int, QVariant>',
+    'QHash<int, QByteArray>', and 'QVariantMap', its second name for
+    'QMap<QString, QVariant>'.
+
+    Parameters
+    ----------
+
+    cppType : str
+      A type with every name in full.
+
+    Returns
+    -------
+
+    Optional[Record]
+      None for a type that is no map handed around as a value, and for
+      a map that cannot be passed yet: its keys are neither 'int' nor
+      text, or its values are no class written inside no other. Else
+      'mapType': the map as C++ writes it; 'pattern': 'QMap' or
+      'QHash'; 'key': the keys, as C++ writes them; 'keyWord': their
+      word in a row, 'int' or 'text'; 'value': the values, as C++
+      writes them; 'crossing': how one value crosses, 'value' or
+      'address'; 'holds': the class of the values; 'tag': the kind as
+      the names of its rituals have it, as 'QMap_int_QVariant'.
+    """
+    if cppType.endswith(' &'):
+      if not cppType.startswith('const '):
+        return None
+      cppType = cppType[:-2]
+    if cppType.startswith('const '):
+      cppType = cppType[6:]
+    cppType = self._followAliases(cppType.strip())
+    pattern = cppType.partition('<')[0]
+    if pattern not in ('QMap', 'QHash') or not cppType.endswith('>'):
+      return None
+    key, comma, value = cppType[len(pattern) + 1:-1].partition(',')
+    key, value = key.strip(), value.strip()
+    if not comma:
+      return None
+    tables = self._getTypeTables()
+    if self._followAliases(key) == 'int':
+      keyWord, keyTag = 'int', 'int'
+    elif key == self.__text_name__:
+      keyWord, keyTag = 'text', key
+    else:
+      return None
+    if value.endswith(' *') and value[:-2] in tables['classes']:
+      crossing, holds = 'address', value[:-2]
+    elif value in tables['copyable'] and value != self.__text_name__:
+      crossing, holds = 'value', value
+    else:
+      return None
+    if '::' in holds:
+      return None
+    ending = '_ptr' if crossing == 'address' else ''
+    return dict(
+        mapType='%s<%s, %s>' % (pattern, key, value), pattern=pattern,
+        key=key, keyWord=keyWord, value=value, crossing=crossing,
+        holds=holds, tag='%s_%s_%s%s' % (pattern, keyTag, holds, ending),
+    )
+
   @staticmethod
   def _stripReadOnly(cppType: str) -> str:
     """Gives 'int' for 'int', 'const int' and 'const int &'."""
@@ -1577,6 +1936,20 @@ class RitualGenerator:
       if pointed in tables['classes']:
         return dict(kind='address', word='address')
       return None
+    listed = self._findListKind(plain)
+    if listed:
+      #  A list crosses as a value does: by the address of the C++ list.
+      return dict(
+          kind='list', word='address', className=listed['listType'],
+          listed=listed,
+      )
+    mapped = self._findMapKind(plain)
+    if mapped:
+      #  A map crosses as a value does too.
+      return dict(
+          kind='map', word='address', className=mapped['mapType'],
+          mapped=mapped,
+      )
     valueName = self._findValueName(plain)
     if not valueName:
       return None
@@ -1779,7 +2152,14 @@ class RitualGenerator:
           name=name, written=written, plain=self._followAliases(plain),
           passing=passing, default=default,
       ))
-      if passing['kind'] in ('value', 'text', 'view'):
+      if passing['kind'] in ('list', 'map'):
+        #  Qt reads the list or the map at the address, and the header
+        #  of what it holds has to be known for that.
+        held = passing.get('listed') or passing.get('mapped')
+        needs.append(held['holds'])
+        takes.append((name, 'const %s *' % passing['className']))
+        passed.append('*%s' % name)
+      elif passing['kind'] in ('value', 'text', 'view'):
         valueName = passing['className']
         needs.append(valueName)
         if passing['kind'] == 'view':
@@ -1864,7 +2244,14 @@ class RitualGenerator:
       giving = dict(giving, written=given)
       if giving['kind'] == 'number':
         given = self._stripReadOnly(given)
-      if giving['kind'] in ('value', 'text', 'view'):
+      if giving['kind'] in ('list', 'map'):
+        #  A copy of the list or the map is made here, and its address
+        #  goes back.
+        held = giving.get('listed') or giving.get('mapped')
+        needs.append(held['holds'])
+        given = '%s *' % giving['className']
+        opening, closing = 'return new %s(' % giving['className'], '));'
+      elif giving['kind'] in ('value', 'text', 'view'):
         #  The copy is made here, and its address is what goes back.
         valueName = giving['className']
         needs.append(valueName)

@@ -14,6 +14,7 @@
       "address", "text", "address", "address"
     ],
     "ritual_ZN6QMovieD1Ev": ["nothing", "address"],
+    "ritual_ZN6QMovie16supportedFormatsEv": ["address"],
     "ritual_ZN6QMovie9setDeviceEP9QIODevice": [
       "nothing", "address", "address"
     ],

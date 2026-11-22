@@ -14,7 +14,11 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
+from ..QtCore import QList
 from . import QFont
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QFontVariableAxis
 
 
 class QFontInfo(CuteMixin, metaclass=MetaCute):
@@ -30,10 +34,10 @@ class QFontInfo(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFontInfo that has a ritual and that Python can call
-  so far, 16 names in all: 'family', 'styleName', 'pixelSize', 'pointSize',
+  so far, 17 names in all: 'family', 'styleName', 'pixelSize', 'pointSize',
   'pointSizeF', 'italic', 'style', 'weight', 'bold', 'underline', 'overline',
-  'strikeOut', 'fixedPitch', 'styleHint', 'legacyWeight', 'exactMatch'. It
-  can be made from Python, in 2 ways; see '__init__'.
+  'strikeOut', 'fixedPitch', 'styleHint', 'variableAxes', 'legacyWeight',
+  'exactMatch'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -44,7 +48,7 @@ class QFontInfo(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 24 functions Qt declares: 5 takes or gives a type that cannot be
+  4 of the 24 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -243,6 +247,23 @@ class QFontInfo(CuteMixin, metaclass=MetaCute):
     return QFont.StyleHint(self.uglySide.call(
         'ritual_ZNK9QFontInfo9styleHintEv',
     ))
+
+  def variableAxes(self) -> QList[QFontVariableAxis]:
+    """
+    Calls Qt's 'QList<QFontVariableAxis> QFontInfo::variableAxes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontinfo.html#variableAxes
+
+    Returns
+    -------
+
+    QList[QFontVariableAxis]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QFontVariableAxis> QFontInfo::variableAxes() const
+    address = self.uglySide.call('ritual_ZNK9QFontInfo12variableAxesEv')
+    from . import QFontVariableAxis
+    return QList[QFontVariableAxis]._cuteOwning(address)
 
   def legacyWeight(self) -> int:
     """

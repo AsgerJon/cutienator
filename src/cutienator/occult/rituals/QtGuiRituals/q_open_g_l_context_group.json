@@ -9,6 +9,7 @@
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN19QOpenGLContextGroupD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QOpenGLContextGroup6sharesEv": ["address", "address"],
     "ritual_ZN19QOpenGLContextGroup19currentContextGroupEv": ["address"],
     "ritual_take_QOpenGLContextGroup": [
       "bool", "address", "chars", "address"

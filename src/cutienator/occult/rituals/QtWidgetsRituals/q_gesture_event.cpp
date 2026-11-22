@@ -2,6 +2,7 @@
 //  QtWidgets/qgesture.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qgesture.h>
 #include <QtCore/qpoint.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QGestureEvent that Python can take functions over in. Every QGestureEvent
@@ -50,10 +51,24 @@ public:
   }
 };
 
+//  QGestureEvent::QGestureEvent(const QList<QGesture *> &gestures)
+extern "C" Q_DECL_EXPORT
+QGestureEvent *ritual_ZN13QGestureEventC1ERK5QListIP8QGestureE(
+    const QList<QGesture *> *gestures) {
+  return new CuteQGestureEvent(*gestures);
+}
+
 //  QGestureEvent::~QGestureEvent()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QGestureEventD1Ev(QGestureEvent *self) {
   delete self;
+}
+
+//  QList<QGesture *> QGestureEvent::gestures() const
+extern "C" Q_DECL_EXPORT
+QList<QGesture *> *ritual_ZNK13QGestureEvent8gesturesEv(
+    const QGestureEvent *self) {
+  return new QList<QGesture *>(self->gestures());
 }
 
 //  QGesture *QGestureEvent::gesture(Qt::GestureType type) const
@@ -62,6 +77,20 @@ QGesture *ritual_ZNK13QGestureEvent7gestureEN2Qt11GestureTypeE(
     const QGestureEvent *self,
     Qt::GestureType type) {
   return self->gesture(type);
+}
+
+//  QList<QGesture *> QGestureEvent::activeGestures() const
+extern "C" Q_DECL_EXPORT
+QList<QGesture *> *ritual_ZNK13QGestureEvent14activeGesturesEv(
+    const QGestureEvent *self) {
+  return new QList<QGesture *>(self->activeGestures());
+}
+
+//  QList<QGesture *> QGestureEvent::canceledGestures() const
+extern "C" Q_DECL_EXPORT
+QList<QGesture *> *ritual_ZNK13QGestureEvent16canceledGesturesEv(
+    const QGestureEvent *self) {
+  return new QList<QGesture *>(self->canceledGestures());
 }
 
 //  void QGestureEvent::setAccepted(QGesture *a0, bool a1)

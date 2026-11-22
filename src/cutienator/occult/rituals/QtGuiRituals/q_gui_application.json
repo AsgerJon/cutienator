@@ -23,6 +23,8 @@
       "nothing", "text"
     ],
     "ritual_ZN15QGuiApplication15desktopFileNameEv": ["text"],
+    "ritual_ZN15QGuiApplication10allWindowsEv": ["address"],
+    "ritual_ZN15QGuiApplication15topLevelWindowsEv": ["address"],
     "ritual_ZN15QGuiApplication10topLevelAtERK6QPoint": [
       "address", "address"
     ],
@@ -35,6 +37,7 @@
     "ritual_ZN15QGuiApplication11focusWindowEv": ["address"],
     "ritual_ZN15QGuiApplication11focusObjectEv": ["address"],
     "ritual_ZN15QGuiApplication13primaryScreenEv": ["address"],
+    "ritual_ZN15QGuiApplication7screensEv": ["address"],
     "ritual_ZN15QGuiApplication8screenAtERK6QPoint": ["address", "address"],
     "ritual_ZNK15QGuiApplication16devicePixelRatioEv": ["double", "address"],
     "ritual_ZN15QGuiApplication14overrideCursorEv": ["address"],

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qevent.h>
+#include <QtGui/qeventpoint.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QTouchEvent that Python can take functions over in. Every QTouchEvent
@@ -124,6 +126,40 @@ void ritual_ZN11QTouchEventD1Ev(QTouchEvent *self) {
   delete self;
 }
 
+//  QTouchEvent::QTouchEvent(QEvent::Type eventType, const QPointingDevice
+//      *device, Qt::KeyboardModifiers modifiers, const QList<QEventPoint>
+//      &touchPoints)
+extern "C" Q_DECL_EXPORT
+QTouchEvent *ritual_ZN11QTouchEventC1EN6QEvent4TypeEPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEERK5QListI11QEventPointE(
+    QEvent::Type eventType,
+    const QPointingDevice *device,
+    int modifiers,
+    const QList<QEventPoint> *touchPoints) {
+  return new CuteQTouchEvent(
+      eventType,
+      device,
+      QFlags<Qt::KeyboardModifier>::fromInt(modifiers),
+      *touchPoints);
+}
+
+//  QTouchEvent::QTouchEvent(QEvent::Type eventType, const QPointingDevice
+//      *device, Qt::KeyboardModifiers modifiers, QEventPoint::States
+//      touchPointStates, const QList<QEventPoint> &touchPoints)
+extern "C" Q_DECL_EXPORT
+QTouchEvent *ritual_ZN11QTouchEventC1EN6QEvent4TypeEPK15QPointingDevice6QFlagsIN2Qt16KeyboardModifierEES5_IN11QEventPoint5StateEERK5QListIS9_E(
+    QEvent::Type eventType,
+    const QPointingDevice *device,
+    int modifiers,
+    int touchPointStates,
+    const QList<QEventPoint> *touchPoints) {
+  return new CuteQTouchEvent(
+      eventType,
+      device,
+      QFlags<Qt::KeyboardModifier>::fromInt(modifiers),
+      QFlags<QEventPoint::State>::fromInt(touchPointStates),
+      *touchPoints);
+}
+
 //  QObject *QTouchEvent::target() const
 extern "C" Q_DECL_EXPORT
 QObject *ritual_ZNK11QTouchEvent6targetEv(const QTouchEvent *self) {
@@ -134,6 +170,13 @@ QObject *ritual_ZNK11QTouchEvent6targetEv(const QTouchEvent *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QTouchEvent16touchPointStatesEv(const QTouchEvent *self) {
   return static_cast<int>(self->touchPointStates().toInt());
+}
+
+//  const QList<QEventPoint> &QTouchEvent::touchPoints() const
+extern "C" Q_DECL_EXPORT
+QList<QEventPoint> *ritual_ZNK11QTouchEvent11touchPointsEv(
+    const QTouchEvent *self) {
+  return new QList<QEventPoint>(self->touchPoints());
 }
 
 //  bool QTouchEvent::isBeginEvent() const

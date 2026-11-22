@@ -2,6 +2,7 @@
 //  QtCore/qprocess.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qprocess.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 
 //  QProcessEnvironment::QProcessEnvironment()
 extern "C" Q_DECL_EXPORT
@@ -84,6 +85,20 @@ QString *ritual_ZNK19QProcessEnvironment5valueERK7QStringS2_(
     const QString *name,
     const QString *defaultValue) {
   return new QString(self->value(*name, *defaultValue));
+}
+
+//  QStringList QProcessEnvironment::toStringList() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK19QProcessEnvironment12toStringListEv(
+    const QProcessEnvironment *self) {
+  return new QList<QString>(self->toStringList());
+}
+
+//  QStringList QProcessEnvironment::keys() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK19QProcessEnvironment4keysEv(
+    const QProcessEnvironment *self) {
+  return new QList<QString>(self->keys());
 }
 
 //  void QProcessEnvironment::insert(const QProcessEnvironment &e)

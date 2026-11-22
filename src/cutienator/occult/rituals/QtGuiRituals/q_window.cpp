@@ -11,6 +11,7 @@
 #include <QtGui/qicon.h>
 #include <QtGui/qcursor.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QWindow may call these functions of it.
@@ -1486,4 +1487,36 @@ void ritual_own_ZN7QWindow11tabletEventEP12QTabletEvent(
     QWindow *self,
     QTabletEvent *a0) {
   static_cast<OwnQWindow *>(self)->OwnQWindow::tabletEvent(a0);
+}
+
+//  QList<QWindow *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QWindow *> *ritual_list_make_QWindow_ptr() {
+  return new QList<QWindow *>();
+}
+
+//  void QList<QWindow *>::append(const QWindow * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QWindow_ptr(QList<QWindow *> *self, QWindow *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QWindow *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QWindow_ptr(const QList<QWindow *> *self) {
+  return self->size();
+}
+
+//  const QWindow * &QList<QWindow *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QWindow *ritual_list_at_QWindow_ptr(
+    const QList<QWindow *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QWindow *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QWindow_ptr(QList<QWindow *> *self) {
+  delete self;
 }

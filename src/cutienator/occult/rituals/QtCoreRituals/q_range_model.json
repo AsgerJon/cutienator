@@ -37,6 +37,12 @@
     "ritual_ZN11QRangeModel7setDataERK11QModelIndexRK8QVarianti": [
       "bool", "address", "address", "address", "int"
     ],
+    "ritual_ZNK11QRangeModel8itemDataERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QRangeModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN11QRangeModel13clearItemDataERK11QModelIndex": [
       "bool", "address", "address"
     ],
@@ -58,6 +64,10 @@
     "ritual_ZN11QRangeModel8moveRowsERK11QModelIndexiiS2_i": [
       "bool", "address", "address", "int", "int", "address", "int"
     ],
+    "ritual_ZNK11QRangeModel9roleNamesEv": ["address", "address"],
+    "ritual_ZN11QRangeModel12setRoleNamesERK5QHashIi10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN11QRangeModel14resetRoleNamesEv": ["nothing", "address"],
     "ritual_ZNK11QRangeModel12canFetchMoreERK11QModelIndex": [
       "bool", "address", "address"
@@ -76,6 +86,13 @@
     ],
     "ritual_ZN11QRangeModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
       "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZNK11QRangeModel8mimeDataERK5QListI11QModelIndexE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QRangeModel9mimeTypesEv": ["address", "address"],
+    "ritual_ZNK11QRangeModel5matchERK11QModelIndexiRK8QVarianti6QFlagsIN2Qt9MatchFlagEE": [
+      "address", "address", "address", "int", "address", "int", "int"
     ],
     "ritual_ZNK11QRangeModel9multiDataERK11QModelIndex18QModelRoleDataSpan": [
       "nothing", "address", "address", "address"

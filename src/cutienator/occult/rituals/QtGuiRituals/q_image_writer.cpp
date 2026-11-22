@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <QtGui/qimage.h>
+#include <QtCore/qlist.h>
 
 //  QString QImageWriter::tr(const char *sourceText, const char
 //      *disambiguation, int n)
@@ -126,6 +127,13 @@ QByteArray *ritual_ZNK12QImageWriter7subTypeEv(const QImageWriter *self) {
   return new QByteArray(self->subType());
 }
 
+//  QList<QByteArray> QImageWriter::supportedSubTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZNK12QImageWriter17supportedSubTypesEv(
+    const QImageWriter *self) {
+  return new QList<QByteArray>(self->supportedSubTypes());
+}
+
 //  void QImageWriter::setOptimizedWrite(bool optimize)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QImageWriter17setOptimizedWriteEb(
@@ -214,4 +222,26 @@ bool ritual_ZNK12QImageWriter14supportsOptionEN15QImageIOHandler11ImageOptionE(
     const QImageWriter *self,
     QImageIOHandler::ImageOption option) {
   return self->supportsOption(option);
+}
+
+//  QList<QByteArray> QImageWriter::supportedImageFormats()
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN12QImageWriter21supportedImageFormatsEv() {
+  return new QList<QByteArray>(QImageWriter::supportedImageFormats());
+}
+
+//  QList<QByteArray> QImageWriter::supportedMimeTypes()
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN12QImageWriter18supportedMimeTypesEv() {
+  return new QList<QByteArray>(QImageWriter::supportedMimeTypes());
+}
+
+//  QList<QByteArray> QImageWriter::imageFormatsForMimeType(const QByteArray
+//      &mimeType)
+extern "C" Q_DECL_EXPORT
+QList<QByteArray> *ritual_ZN12QImageWriter23imageFormatsForMimeTypeERK10QByteArray(
+    const QByteArray *mimeType) {
+  return new QList<QByteArray>(
+      QImageWriter::imageFormatsForMimeType(
+          *mimeType));
 }

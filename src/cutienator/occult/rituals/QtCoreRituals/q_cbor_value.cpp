@@ -14,6 +14,7 @@
 #include <QtCore/qanystringview.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qjsonvalue.h>
+#include <QtCore/qlist.h>
 
 //  QCborValue::QCborValue()
 extern "C" Q_DECL_EXPORT
@@ -587,4 +588,38 @@ bool ritual_ZgeRK10QCborValueS1_(
     const QCborValue *lhs,
     const QCborValue *rhs) {
   return operator>=(*lhs, *rhs);
+}
+
+//  QList<QCborValue>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QCborValue> *ritual_list_make_QCborValue() {
+  return new QList<QCborValue>();
+}
+
+//  void QList<QCborValue>::append(const QCborValue &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QCborValue(
+    QList<QCborValue> *self,
+    const QCborValue *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QCborValue>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QCborValue(const QList<QCborValue> *self) {
+  return self->size();
+}
+
+//  const QCborValue &QList<QCborValue>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_list_at_QCborValue(
+    const QList<QCborValue> *self,
+    long long index) {
+  return new QCborValue(self->at(index));
+}
+
+//  QList<QCborValue>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QCborValue(QList<QCborValue> *self) {
+  delete self;
 }

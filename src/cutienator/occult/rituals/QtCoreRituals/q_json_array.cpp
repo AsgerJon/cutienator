@@ -1,8 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qjsonarray.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qjsonarray.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qjsonvalue.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/qlist.h>
 
 //  QJsonArray::QJsonArray()
 extern "C" Q_DECL_EXPORT
@@ -20,6 +23,27 @@ void ritual_ZN10QJsonArrayD1Ev(QJsonArray *self) {
 extern "C" Q_DECL_EXPORT
 QJsonArray *ritual_ZN10QJsonArrayC1ERKS_(const QJsonArray *other) {
   return new QJsonArray(*other);
+}
+
+//  QJsonArray QJsonArray::fromStringList(const QStringList &list)
+extern "C" Q_DECL_EXPORT
+QJsonArray *ritual_ZN10QJsonArray14fromStringListERK5QListI7QStringE(
+    const QList<QString> *list) {
+  return new QJsonArray(QJsonArray::fromStringList(*list));
+}
+
+//  QJsonArray QJsonArray::fromVariantList(const QVariantList &list)
+extern "C" Q_DECL_EXPORT
+QJsonArray *ritual_ZN10QJsonArray15fromVariantListERK5QListI8QVariantE(
+    const QList<QVariant> *list) {
+  return new QJsonArray(QJsonArray::fromVariantList(*list));
+}
+
+//  QVariantList QJsonArray::toVariantList() const
+extern "C" Q_DECL_EXPORT
+QList<QVariant> *ritual_ZNK10QJsonArray13toVariantListEv(
+    const QJsonArray *self) {
+  return new QList<QVariant>(self->toVariantList());
 }
 
 //  qsizetype QJsonArray::size() const

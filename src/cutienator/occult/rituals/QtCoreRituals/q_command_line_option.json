@@ -6,11 +6,18 @@
   ],
   "rows": {
     "ritual_ZN18QCommandLineOptionC1ERK7QString": ["address", "text"],
+    "ritual_ZN18QCommandLineOptionC1ERK5QListI7QStringE": [
+      "address", "address"
+    ],
     "ritual_ZN18QCommandLineOptionC1ERK7QStringS2_S2_S2_": [
       "address", "text", "text", "text", "text"
     ],
+    "ritual_ZN18QCommandLineOptionC1ERK5QListI7QStringERKS1_S6_S6_": [
+      "address", "address", "text", "text", "text"
+    ],
     "ritual_ZN18QCommandLineOptionC1ERKS_": ["address", "address"],
     "ritual_ZN18QCommandLineOptionD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QCommandLineOption5namesEv": ["address", "address"],
     "ritual_ZN18QCommandLineOption12setValueNameERK7QString": [
       "nothing", "address", "text"
     ],
@@ -22,9 +29,20 @@
     "ritual_ZN18QCommandLineOption15setDefaultValueERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN18QCommandLineOption16setDefaultValuesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QCommandLineOption13defaultValuesEv": [
+      "address", "address"
+    ],
     "ritual_ZNK18QCommandLineOption5flagsEv": ["int", "address"],
     "ritual_ZN18QCommandLineOption8setFlagsE6QFlagsINS_4FlagEE": [
       "nothing", "address", "int"
-    ]
+    ],
+    "ritual_list_make_QCommandLineOption": ["address"],
+    "ritual_list_add_QCommandLineOption": ["nothing", "address", "address"],
+    "ritual_list_size_QCommandLineOption": ["long long", "address"],
+    "ritual_list_at_QCommandLineOption": ["address", "address", "long long"],
+    "ritual_list_drop_QCommandLineOption": ["nothing", "address"]
   }
 }

@@ -108,6 +108,11 @@
     ],
     "ritual_own_ZN13QMdiSubWindow10childEventEP11QChildEvent": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_list_make_QMdiSubWindow_ptr": ["address"],
+    "ritual_list_add_QMdiSubWindow_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QMdiSubWindow_ptr": ["long long", "address"],
+    "ritual_list_at_QMdiSubWindow_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QMdiSubWindow_ptr": ["nothing", "address"]
   }
 }

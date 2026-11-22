@@ -3,7 +3,9 @@
 #include <QtCore/qdir.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qnamespace.h>
+#include <QtCore/qfileinfo.h>
 #include <QtCore/qchar.h>
+#include <QtCore/qlist.h>
 
 //  QDir::QDir(const QDir &a0)
 extern "C" Q_DECL_EXPORT
@@ -62,12 +64,28 @@ QString *ritual_ZNK4QDir13canonicalPathEv(const QDir *self) {
   return new QString(self->canonicalPath());
 }
 
+//  void QDir::setSearchPaths(const QString &prefix, const QStringList
+//      &searchPaths)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QDir14setSearchPathsERK7QStringRK5QListIS0_E(
+    const QString *prefix,
+    const QList<QString> *searchPaths) {
+  QDir::setSearchPaths(*prefix, *searchPaths);
+}
+
 //  void QDir::addSearchPath(const QString &prefix, const QString &path)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN4QDir13addSearchPathERK7QStringS2_(
     const QString *prefix,
     const QString *path) {
   QDir::addSearchPath(*prefix, *path);
+}
+
+//  QStringList QDir::searchPaths(const QString &prefix)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN4QDir11searchPathsERK7QString(
+    const QString *prefix) {
+  return new QList<QString>(QDir::searchPaths(*prefix));
 }
 
 //  QString QDir::dirName() const
@@ -126,6 +144,20 @@ bool ritual_ZN4QDir4cdUpEv(QDir *self) {
   return self->cdUp();
 }
 
+//  QStringList QDir::nameFilters() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK4QDir11nameFiltersEv(const QDir *self) {
+  return new QList<QString>(self->nameFilters());
+}
+
+//  void QDir::setNameFilters(const QStringList &nameFilters)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QDir14setNameFiltersERK5QListI7QStringE(
+    QDir *self,
+    const QList<QString> *nameFilters) {
+  self->setNameFilters(*nameFilters);
+}
+
 //  Filters QDir::filter() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK4QDir6filterEv(const QDir *self) {
@@ -172,6 +204,67 @@ bool ritual_ZNK4QDir7isEmptyE6QFlagsINS_6FilterEE(
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK4QDirixEx(const QDir *self, qsizetype a0) {
   return new QString(self->operator[](a0));
+}
+
+//  QStringList QDir::nameFiltersFromString(const QString &nameFilter)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN4QDir21nameFiltersFromStringERK7QString(
+    const QString *nameFilter) {
+  return new QList<QString>(QDir::nameFiltersFromString(*nameFilter));
+}
+
+//  QStringList QDir::entryList(Filters filters, SortFlags sort) const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK4QDir9entryListE6QFlagsINS_6FilterEES0_INS_8SortFlagEE(
+    const QDir *self,
+    int filters,
+    int sort) {
+  return new QList<QString>(
+      self->entryList(
+          QFlags<QDir::Filter>::fromInt(filters),
+          QFlags<QDir::SortFlag>::fromInt(sort)));
+}
+
+//  QStringList QDir::entryList(const QStringList &nameFilters, Filters
+//      filters, SortFlags sort) const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK4QDir9entryListERK5QListI7QStringE6QFlagsINS_6FilterEES5_INS_8SortFlagEE(
+    const QDir *self,
+    const QList<QString> *nameFilters,
+    int filters,
+    int sort) {
+  return new QList<QString>(
+      self->entryList(
+          *nameFilters,
+          QFlags<QDir::Filter>::fromInt(filters),
+          QFlags<QDir::SortFlag>::fromInt(sort)));
+}
+
+//  QFileInfoList QDir::entryInfoList(Filters filters, SortFlags sort) const
+extern "C" Q_DECL_EXPORT
+QList<QFileInfo> *ritual_ZNK4QDir13entryInfoListE6QFlagsINS_6FilterEES0_INS_8SortFlagEE(
+    const QDir *self,
+    int filters,
+    int sort) {
+  return new QList<QFileInfo>(
+      self->entryInfoList(
+          QFlags<QDir::Filter>::fromInt(filters),
+          QFlags<QDir::SortFlag>::fromInt(sort)));
+}
+
+//  QFileInfoList QDir::entryInfoList(const QStringList &nameFilters, Filters
+//      filters, SortFlags sort) const
+extern "C" Q_DECL_EXPORT
+QList<QFileInfo> *ritual_ZNK4QDir13entryInfoListERK5QListI7QStringE6QFlagsINS_6FilterEES5_INS_8SortFlagEE(
+    const QDir *self,
+    const QList<QString> *nameFilters,
+    int filters,
+    int sort) {
+  return new QList<QFileInfo>(
+      self->entryInfoList(
+          *nameFilters,
+          QFlags<QDir::Filter>::fromInt(filters),
+          QFlags<QDir::SortFlag>::fromInt(sort)));
 }
 
 //  bool QDir::rmdir(const QString &dirName) const
@@ -267,6 +360,12 @@ bool ritual_ZNK4QDir6existsERK7QString(
   return self->exists(*name);
 }
 
+//  QFileInfoList QDir::drives()
+extern "C" Q_DECL_EXPORT
+QList<QFileInfo> *ritual_ZN4QDir6drivesEv() {
+  return new QList<QFileInfo>(QDir::drives());
+}
+
 //  QChar QDir::listSeparator()
 extern "C" Q_DECL_EXPORT
 QChar *ritual_ZN4QDir13listSeparatorEv() {
@@ -331,6 +430,14 @@ QDir *ritual_ZN4QDir4tempEv() {
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN4QDir8tempPathEv() {
   return new QString(QDir::tempPath());
+}
+
+//  bool QDir::match(const QStringList &filters, const QString &fileName)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN4QDir5matchERK5QListI7QStringERKS1_(
+    const QList<QString> *filters,
+    const QString *fileName) {
+  return QDir::match(*filters, *fileName);
 }
 
 //  bool QDir::match(const QString &filter, const QString &fileName)

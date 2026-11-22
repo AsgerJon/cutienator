@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -47,20 +47,21 @@ class QColor(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QColor that has a ritual and that Python can call so
-  far, 80 names in all: 'fromString', 'isValid', 'name', 'setNamedColor',
-  'spec', 'alpha', 'setAlpha', 'alphaF', 'setAlphaF', 'red', 'green', 'blue',
-  'setRed', 'setGreen', 'setBlue', 'redF', 'greenF', 'blueF', 'setRedF',
-  'setGreenF', 'setBlueF', 'setRgb', 'setRgbF', 'rgba64', 'setRgba64',
-  'rgba', 'setRgba', 'rgb', 'hue', 'saturation', 'hsvHue', 'hsvSaturation',
-  'value', 'hueF', 'saturationF', 'hsvHueF', 'hsvSaturationF', 'valueF',
-  'setHsv', 'setHsvF', 'cyan', 'magenta', 'yellow', 'black', 'cyanF',
-  'magentaF', 'yellowF', 'blackF', 'setCmyk', 'setCmykF', 'hslHue',
-  'hslSaturation', 'lightness', 'hslHueF', 'hslSaturationF', 'lightnessF',
-  'setHsl', 'setHslF', 'toRgb', 'toHsv', 'toCmyk', 'toHsl', 'toExtendedRgb',
-  'convertTo', 'fromRgb', 'fromRgba', 'fromRgbF', 'fromRgba64', 'fromHsv',
-  'fromHsvF', 'fromCmyk', 'fromCmykF', 'fromHsl', 'fromHslF', 'lighter',
-  'darker', '__eq__', '__ne__', 'isValidColor', 'isValidColorName'. It can be
-  made from Python, in 10 ways; see '__init__'.
+  far, 81 names in all: 'fromString', 'isValid', 'name', 'setNamedColor',
+  'colorNames', 'spec', 'alpha', 'setAlpha', 'alphaF', 'setAlphaF', 'red',
+  'green', 'blue', 'setRed', 'setGreen', 'setBlue', 'redF', 'greenF',
+  'blueF', 'setRedF', 'setGreenF', 'setBlueF', 'setRgb', 'setRgbF', 'rgba64',
+  'setRgba64', 'rgba', 'setRgba', 'rgb', 'hue', 'saturation', 'hsvHue',
+  'hsvSaturation', 'value', 'hueF', 'saturationF', 'hsvHueF',
+  'hsvSaturationF', 'valueF', 'setHsv', 'setHsvF', 'cyan', 'magenta',
+  'yellow', 'black', 'cyanF', 'magentaF', 'yellowF', 'blackF', 'setCmyk',
+  'setCmykF', 'hslHue', 'hslSaturation', 'lightness', 'hslHueF',
+  'hslSaturationF', 'lightnessF', 'setHsl', 'setHslF', 'toRgb', 'toHsv',
+  'toCmyk', 'toHsl', 'toExtendedRgb', 'convertTo', 'fromRgb', 'fromRgba',
+  'fromRgbF', 'fromRgba64', 'fromHsv', 'fromHsvF', 'fromCmyk', 'fromCmykF',
+  'fromHsl', 'fromHslF', 'lighter', 'darker', '__eq__', '__ne__',
+  'isValidColor', 'isValidColorName'. It can be made from Python, in 10 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -95,7 +96,7 @@ class QColor(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 114 functions Qt declares: 4 takes or gives a type that cannot be
+  5 of the 114 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet; 2 private.
 
   What to expect
@@ -161,6 +162,23 @@ class QColor(CuteMixin, metaclass=MetaCute):
         'ritual_ZN6QColor10fromStringE14QAnyStringView', name,
     )
     return QColor._cuteOwning(address)
+
+  @staticmethod
+  def colorNames() -> QStringList:
+    """
+    Calls Qt's 'QStringList QColor::colorNames()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolor.html#colorNames
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QColor::colorNames()
+    address = Rituals.call('ritual_ZN6QColor10colorNamesEv')
+    return QStringList._cuteOwning(address)
 
   @staticmethod
   @overload(int)
@@ -1909,3 +1927,15 @@ class QColor(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QColor>': the list of QColor, which 'QList[QColor]' gives. It
+#  is made here, so that there is one as soon as there can be a QColor.
+QList.createKind(
+    QColor, 'value',
+    make='ritual_list_make_QColor',
+    add='ritual_list_add_QColor',
+    size='ritual_list_size_QColor',
+    at='ritual_list_at_QColor',
+    drop='ritual_list_drop_QColor',
+)

@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
+from ..QtCore import QList
 
 
 class QTableWidgetSelectionRange(CuteMixin, metaclass=MetaCute):
@@ -302,3 +303,17 @@ class QTableWidgetSelectionRange(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QTableWidgetSelectionRange>': the list of
+#  QTableWidgetSelectionRange, which 'QList[QTableWidgetSelectionRange]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QTableWidgetSelectionRange.
+QList.createKind(
+    QTableWidgetSelectionRange, 'value',
+    make='ritual_list_make_QTableWidgetSelectionRange',
+    add='ritual_list_add_QTableWidgetSelectionRange',
+    size='ritual_list_size_QTableWidgetSelectionRange',
+    at='ritual_list_at_QTableWidgetSelectionRange',
+    drop='ritual_list_drop_QTableWidgetSelectionRange',
+)

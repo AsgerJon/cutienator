@@ -84,6 +84,15 @@
     "ritual_own_ZNK16QTableWidgetItem4dataEi": ["address", "address", "int"],
     "ritual_own_ZN16QTableWidgetItem7setDataEiRK8QVariant": [
       "nothing", "address", "int", "address"
-    ]
+    ],
+    "ritual_list_make_QTableWidgetItem_ptr": ["address"],
+    "ritual_list_add_QTableWidgetItem_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QTableWidgetItem_ptr": ["long long", "address"],
+    "ritual_list_at_QTableWidgetItem_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QTableWidgetItem_ptr": ["nothing", "address"]
   }
 }

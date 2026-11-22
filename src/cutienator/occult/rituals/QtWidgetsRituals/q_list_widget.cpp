@@ -10,6 +10,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QListWidget may call these functions of it.
@@ -1550,6 +1551,15 @@ void ritual_ZN11QListWidget10insertItemEiRK7QString(
   self->insertItem(row, *label);
 }
 
+//  void QListWidget::insertItems(int row, const QStringList &labels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QListWidget11insertItemsEiRK5QListI7QStringE(
+    QListWidget *self,
+    int row,
+    const QList<QString> *labels) {
+  self->insertItems(row, *labels);
+}
+
 //  void QListWidget::addItem(const QString &label)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QListWidget7addItemERK7QString(
@@ -1564,6 +1574,14 @@ void ritual_ZN11QListWidget7addItemEP15QListWidgetItem(
     QListWidget *self,
     QListWidgetItem *item) {
   self->addItem(item);
+}
+
+//  void QListWidget::addItems(const QStringList &labels)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QListWidget8addItemsERK5QListI7QStringE(
+    QListWidget *self,
+    const QList<QString> *labels) {
+  self->addItems(*labels);
 }
 
 //  QListWidgetItem *QListWidget::takeItem(int row)
@@ -1733,6 +1751,34 @@ void ritual_ZN11QListWidget16removeItemWidgetEP15QListWidgetItem(
     QListWidget *self,
     QListWidgetItem *item) {
   self->removeItemWidget(item);
+}
+
+//  QList<QListWidgetItem *> QListWidget::selectedItems() const
+extern "C" Q_DECL_EXPORT
+QList<QListWidgetItem *> *ritual_ZNK11QListWidget13selectedItemsEv(
+    const QListWidget *self) {
+  return new QList<QListWidgetItem *>(self->selectedItems());
+}
+
+//  QList<QListWidgetItem *> QListWidget::findItems(const QString &text,
+//      Qt::MatchFlags flags) const
+extern "C" Q_DECL_EXPORT
+QList<QListWidgetItem *> *ritual_ZNK11QListWidget9findItemsERK7QString6QFlagsIN2Qt9MatchFlagEE(
+    const QListWidget *self,
+    const QString *text,
+    int flags) {
+  return new QList<QListWidgetItem *>(
+      self->findItems(
+          *text,
+          QFlags<Qt::MatchFlag>::fromInt(flags)));
+}
+
+//  QList<QListWidgetItem *> QListWidget::items(const QMimeData *data) const
+extern "C" Q_DECL_EXPORT
+QList<QListWidgetItem *> *ritual_ZNK11QListWidget5itemsEPK9QMimeData(
+    const QListWidget *self,
+    const QMimeData *data) {
+  return new QList<QListWidgetItem *>(self->items(data));
 }
 
 //  QModelIndex QListWidget::indexFromItem(const QListWidgetItem *item) const

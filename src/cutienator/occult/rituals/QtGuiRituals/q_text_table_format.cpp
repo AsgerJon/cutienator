@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qtextformat.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtextformat.h>
+#include <QtCore/qlist.h>
 
 //  QTextTableFormat::QTextTableFormat()
 extern "C" Q_DECL_EXPORT
@@ -26,6 +27,22 @@ void ritual_ZN16QTextTableFormat10setColumnsEi(
     QTextTableFormat *self,
     int columns) {
   self->setColumns(columns);
+}
+
+//  void QTextTableFormat::setColumnWidthConstraints(const QList<QTextLength>
+//      &constraints)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QTextTableFormat25setColumnWidthConstraintsERK5QListI11QTextLengthE(
+    QTextTableFormat *self,
+    const QList<QTextLength> *constraints) {
+  self->setColumnWidthConstraints(*constraints);
+}
+
+//  QList<QTextLength> QTextTableFormat::columnWidthConstraints() const
+extern "C" Q_DECL_EXPORT
+QList<QTextLength> *ritual_ZNK16QTextTableFormat22columnWidthConstraintsEv(
+    const QTextTableFormat *self) {
+  return new QList<QTextLength>(self->columnWidthConstraints());
 }
 
 //  void QTextTableFormat::clearColumnWidthConstraints()

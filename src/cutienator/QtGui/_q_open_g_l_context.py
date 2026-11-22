@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -641,3 +641,16 @@ class QOpenGLContext(QObject):
         'ritual_ZN14QOpenGLContext11swapBuffersEP8QSurface',
         self._addressOf(surface, 'QSurface'),
     )
+
+
+#  Qt's 'QList<QOpenGLContext *>': the list of QOpenGLContext, which
+#  'QList[QOpenGLContext]' gives. It is made here, so that there is one as
+#  soon as there can be a QOpenGLContext.
+QList.createKind(
+    QOpenGLContext, 'address',
+    make='ritual_list_make_QOpenGLContext_ptr',
+    add='ritual_list_add_QOpenGLContext_ptr',
+    size='ritual_list_size_QOpenGLContext_ptr',
+    at='ritual_list_at_QOpenGLContext_ptr',
+    drop='ritual_list_drop_QOpenGLContext_ptr',
+)

@@ -2,10 +2,12 @@
 //  QtCore/qmimedata.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qmimedata.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qurl.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QMimeData may call these functions of it.
@@ -202,6 +204,20 @@ void ritual_ZN9QMimeDataD1Ev(QMimeData *self) {
   delete self;
 }
 
+//  QList<QUrl> QMimeData::urls() const
+extern "C" Q_DECL_EXPORT
+QList<QUrl> *ritual_ZNK9QMimeData4urlsEv(const QMimeData *self) {
+  return new QList<QUrl>(self->urls());
+}
+
+//  void QMimeData::setUrls(const QList<QUrl> &urls)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QMimeData7setUrlsERK5QListI4QUrlE(
+    QMimeData *self,
+    const QList<QUrl> *urls) {
+  self->setUrls(*urls);
+}
+
 //  bool QMimeData::hasUrls() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK9QMimeData7hasUrlsEv(const QMimeData *self) {
@@ -319,6 +335,12 @@ bool ritual_ZNK9QMimeData9hasFormatERK7QString(
     const QMimeData *self,
     const QString *mimetype) {
   return self->hasFormat(*mimetype);
+}
+
+//  QStringList QMimeData::formats() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9QMimeData7formatsEv(const QMimeData *self) {
+  return new QList<QString>(self->formats());
 }
 
 //  void QMimeData::clear()

@@ -14,6 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 from . import QImageIOHandler
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -43,13 +44,15 @@ class QImageWriter(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QImageWriter that has a ritual and that Python can
-  call so far, 25 names in all: 'tr', 'setFormat', 'format', 'setDevice',
+  call so far, 29 names in all: 'tr', 'setFormat', 'format', 'setDevice',
   'device', 'setFileName', 'fileName', 'setQuality', 'quality',
   'setCompression', 'compression', 'setSubType', 'subType',
-  'setOptimizedWrite', 'optimizedWrite', 'setProgressiveScanWrite',
-  'progressiveScanWrite', 'transformation', 'setTransformation', 'setText',
-  'canWrite', 'write', 'error', 'errorString', 'supportsOption'. It can be
-  made from Python, in 3 ways; see '__init__'.
+  'supportedSubTypes', 'setOptimizedWrite', 'optimizedWrite',
+  'setProgressiveScanWrite', 'progressiveScanWrite', 'transformation',
+  'setTransformation', 'setText', 'canWrite', 'write', 'error',
+  'errorString', 'supportsOption', 'supportedImageFormats',
+  'supportedMimeTypes', 'imageFormatsForMimeType'. It can be made from
+  Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,8 +63,7 @@ class QImageWriter(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 35 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 35 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -142,6 +144,78 @@ class QImageWriter(CuteMixin, metaclass=MetaCute):
         CuteMixin._bytesOf(sourceText), CuteMixin._bytesOf(disambiguation),
         n,
     )
+
+  @staticmethod
+  def supportedImageFormats() -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QImageWriter::supportedImageFormats()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qimagewriter.html#supportedImageFormats
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QImageWriter::supportedImageFormats()
+    address = Rituals.call(
+        'ritual_ZN12QImageWriter21supportedImageFormatsEv',
+    )
+    from ..QtCore import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
+
+  @staticmethod
+  def supportedMimeTypes() -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QImageWriter::supportedMimeTypes()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qimagewriter.html#supportedMimeTypes
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QImageWriter::supportedMimeTypes()
+    address = Rituals.call('ritual_ZN12QImageWriter18supportedMimeTypesEv')
+    from ..QtCore import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
+
+  @staticmethod
+  @overload(QByteArray)
+  def imageFormatsForMimeType(mimeType: QByteArray) -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QImageWriter::imageFormatsForMimeType(const
+    QByteArray &mimeType)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qimagewriter.html#imageFormatsForMimeType
+
+    Parameters
+    ----------
+
+    mimeType : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QImageWriter::imageFormatsForMimeType(const
+    #      QByteArray &mimeType)
+    address = Rituals.call(
+        'ritual_ZN12QImageWriter23imageFormatsForMimeTypeERK10QByteArray',
+        CuteMixin._valueOf(mimeType),
+    )
+    from ..QtCore import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -247,6 +321,26 @@ class QImageWriter(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK12QImageWriter7subTypeEv')
     from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
+
+  def supportedSubTypes(self) -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QImageWriter::supportedSubTypes() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qimagewriter.html#supportedSubTypes
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QImageWriter::supportedSubTypes() const
+    address = self.uglySide.call(
+        'ritual_ZNK12QImageWriter17supportedSubTypesEv',
+    )
+    from ..QtCore import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
 
   def optimizedWrite(self) -> bool:
     """

@@ -2,6 +2,7 @@
 //  QtCore/qline.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qline.h>
 #include <QtCore/qpoint.h>
+#include <QtCore/qlist.h>
 
 //  QLineF::QLineF()
 extern "C" Q_DECL_EXPORT
@@ -259,5 +260,35 @@ bool ritual_ZneRK5QLineRK6QLineF(const QLine *lhs, const QLineF *rhs) {
 //  QLineF::~QLineF()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QLineFD1Ev(QLineF *self) {
+  delete self;
+}
+
+//  QList<QLineF>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QLineF> *ritual_list_make_QLineF() {
+  return new QList<QLineF>();
+}
+
+//  void QList<QLineF>::append(const QLineF &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QLineF(QList<QLineF> *self, const QLineF *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QLineF>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QLineF(const QList<QLineF> *self) {
+  return self->size();
+}
+
+//  const QLineF &QList<QLineF>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QLineF *ritual_list_at_QLineF(const QList<QLineF> *self, long long index) {
+  return new QLineF(self->at(index));
+}
+
+//  QList<QLineF>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QLineF(QList<QLineF> *self) {
   delete self;
 }

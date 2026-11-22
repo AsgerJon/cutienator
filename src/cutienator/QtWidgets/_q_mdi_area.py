@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 from . import QAbstractScrollArea, QTabWidget, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -53,18 +53,18 @@ class QMdiArea(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QMdiArea that has a ritual and that Python can call
-  so far, 43 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
-  'currentSubWindow', 'activeSubWindow', 'addSubWindow', 'removeSubWindow',
-  'background', 'setBackground', 'activationOrder', 'setActivationOrder',
-  'setOption', 'testOption', 'setViewMode', 'viewMode', 'documentMode',
-  'setDocumentMode', 'setTabsClosable', 'tabsClosable', 'setTabsMovable',
-  'tabsMovable', 'setTabShape', 'tabShape', 'setTabPosition', 'tabPosition',
-  'setActiveSubWindow', 'tileSubWindows', 'cascadeSubWindows',
-  'closeActiveSubWindow', 'closeAllSubWindows', 'activateNextSubWindow',
-  'activatePreviousSubWindow', 'setupViewport', 'event', 'eventFilter',
-  'paintEvent', 'childEvent', 'resizeEvent', 'timerEvent', 'showEvent',
-  'viewportEvent', 'scrollContentsBy'. It can be made from Python, in 1 way;
-  see '__init__'.
+  so far, 44 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
+  'currentSubWindow', 'activeSubWindow', 'subWindowList', 'addSubWindow',
+  'removeSubWindow', 'background', 'setBackground', 'activationOrder',
+  'setActivationOrder', 'setOption', 'testOption', 'setViewMode', 'viewMode',
+  'documentMode', 'setDocumentMode', 'setTabsClosable', 'tabsClosable',
+  'setTabsMovable', 'tabsMovable', 'setTabShape', 'tabShape',
+  'setTabPosition', 'tabPosition', 'setActiveSubWindow', 'tileSubWindows',
+  'cascadeSubWindows', 'closeActiveSubWindow', 'closeAllSubWindows',
+  'activateNextSubWindow', 'activatePreviousSubWindow', 'setupViewport',
+  'event', 'eventFilter', 'paintEvent', 'childEvent', 'resizeEvent',
+  'timerEvent', 'showEvent', 'viewportEvent', 'scrollContentsBy'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -75,8 +75,8 @@ class QMdiArea(QAbstractScrollArea):
   What has no ritual
   ------------------
 
-  10 of the 55 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template; 1 a signal.
+  9 of the 55 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
 
   What to expect
   --------------
@@ -287,6 +287,39 @@ class QMdiArea(QAbstractScrollArea):
     address = self.uglySide.call('ritual_ZNK8QMdiArea15activeSubWindowEv')
     from . import QMdiSubWindow
     return QMdiSubWindow._cuteAt(address)
+
+  @overload()
+  @overload(WindowOrder)
+  def subWindowList(
+      self,
+      order: WindowOrder = WindowOrder.CreationOrder,
+  ) -> QList[QMdiSubWindow]:
+    """
+    Calls Qt's 'QList<QMdiSubWindow *> QMdiArea::subWindowList(WindowOrder
+    order) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#subWindowList
+
+    Parameters
+    ----------
+
+    order : WindowOrder
+      Passed on as its number. May be left out, as in Qt: it is then
+      WindowOrder.CreationOrder.
+
+    Returns
+    -------
+
+    QList[QMdiSubWindow]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QMdiSubWindow *> QMdiArea::subWindowList(WindowOrder order)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK8QMdiArea13subWindowListENS_11WindowOrderE', order.value,
+    )
+    from . import QMdiSubWindow
+    return QList[QMdiSubWindow]._cuteOwning(address)
 
   def background(self) -> QBrush:
     """

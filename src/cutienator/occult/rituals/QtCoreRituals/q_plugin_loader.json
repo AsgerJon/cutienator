@@ -13,6 +13,8 @@
     "ritual_ZN13QPluginLoaderD1Ev": ["nothing", "address"],
     "ritual_ZN13QPluginLoader8instanceEv": ["address", "address"],
     "ritual_ZNK13QPluginLoader8metaDataEv": ["address", "address"],
+    "ritual_ZN13QPluginLoader15staticInstancesEv": ["address"],
+    "ritual_ZN13QPluginLoader13staticPluginsEv": ["address"],
     "ritual_ZN13QPluginLoader4loadEv": ["bool", "address"],
     "ritual_ZN13QPluginLoader6unloadEv": ["bool", "address"],
     "ritual_ZNK13QPluginLoader8isLoadedEv": ["bool", "address"],

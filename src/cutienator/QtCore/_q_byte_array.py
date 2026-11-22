@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt
+from . import Qt, QHash, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -94,6 +94,8 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     bool truncate) const': takes a single letter as C has it.
   - Qt's 'QByteArray &QByteArray::operator+=(char c)': takes a single letter
     as C has it.
+  - Qt's 'QList<QByteArray> QByteArray::split(char sep) const': takes a
+    single letter as C has it.
   - Qt's 'short QByteArray::toShort(bool *ok, int base) const': takes a
     number to change where it is.
   - Qt's 'ushort QByteArray::toUShort(bool *ok, int base) const': takes a
@@ -185,7 +187,7 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  141 of the 283 functions Qt declares: 111 takes or gives a type that cannot
+  140 of the 283 functions Qt declares: 110 takes or gives a type that cannot
   be passed yet; 14 can only be called on a value about to be thrown away; 13
   private; 3 a template.
 
@@ -2124,3 +2126,33 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     """
     #  void QByteArray::shrink_to_fit()
     self.uglySide.call('ritual_ZN10QByteArray13shrink_to_fitEv')
+
+
+#  Qt's 'QList<QByteArray>': the list of QByteArray, which
+#  'QList[QByteArray]' gives. It is made here, so that there is one as soon
+#  as there can be a QByteArray. Qt has a name of its own for it.
+QByteArrayList = QList.createKind(
+    QByteArray, 'value',
+    name='QByteArrayList',
+    make='ritual_list_make_QByteArray',
+    add='ritual_list_add_QByteArray',
+    size='ritual_list_size_QByteArray',
+    at='ritual_list_at_QByteArray',
+    drop='ritual_list_drop_QByteArray',
+)
+
+
+#  Qt's 'QHash<int, QByteArray>': the QHash from a number to QByteArray,
+#  which 'QHash[int, QByteArray]' gives. It is completed here, in the file of
+#  the class of its values.
+QHash.createKind(
+    int, QByteArray, 'value',
+    make='ritual_map_make_QHash_int_QByteArray',
+    put='ritual_map_put_QHash_int_QByteArray',
+    size='ritual_map_size_QHash_int_QByteArray',
+    key='ritual_map_key_QHash_int_QByteArray',
+    value='ritual_map_value_QHash_int_QByteArray',
+    has='ritual_map_has_QHash_int_QByteArray',
+    get='ritual_map_get_QHash_int_QByteArray',
+    drop='ritual_map_drop_QHash_int_QByteArray',
+)

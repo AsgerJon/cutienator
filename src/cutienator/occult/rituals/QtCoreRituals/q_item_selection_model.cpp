@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QItemSelectionModel that Python can take functions over in. Every QItemSelectionModel
@@ -334,6 +335,29 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK19QItemSelectionModel12hasSelectionEv(
     const QItemSelectionModel *self) {
   return self->hasSelection();
+}
+
+//  QModelIndexList QItemSelectionModel::selectedIndexes() const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK19QItemSelectionModel15selectedIndexesEv(
+    const QItemSelectionModel *self) {
+  return new QList<QModelIndex>(self->selectedIndexes());
+}
+
+//  QModelIndexList QItemSelectionModel::selectedRows(int column) const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK19QItemSelectionModel12selectedRowsEi(
+    const QItemSelectionModel *self,
+    int column) {
+  return new QList<QModelIndex>(self->selectedRows(column));
+}
+
+//  QModelIndexList QItemSelectionModel::selectedColumns(int row) const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK19QItemSelectionModel15selectedColumnsEi(
+    const QItemSelectionModel *self,
+    int row) {
+  return new QList<QModelIndex>(self->selectedColumns(row));
 }
 
 //  const QItemSelection QItemSelectionModel::selection() const

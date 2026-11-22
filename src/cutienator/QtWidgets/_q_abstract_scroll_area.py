@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 from . import QFrame, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -59,19 +59,19 @@ class QAbstractScrollArea(QFrame):
   -----------
 
   Every function of Qt's QAbstractScrollArea that has a ritual and that
-  Python can call so far, 39 names in all: 'metaObject', 'tr',
+  Python can call so far, 40 names in all: 'metaObject', 'tr',
   'verticalScrollBarPolicy', 'setVerticalScrollBarPolicy',
   'verticalScrollBar', 'setVerticalScrollBar', 'horizontalScrollBarPolicy',
   'setHorizontalScrollBarPolicy', 'horizontalScrollBar',
   'setHorizontalScrollBar', 'cornerWidget', 'setCornerWidget',
-  'addScrollBarWidget', 'viewport', 'setViewport', 'maximumViewportSize',
-  'minimumSizeHint', 'sizeHint', 'setupViewport', 'sizeAdjustPolicy',
-  'setSizeAdjustPolicy', 'eventFilter', 'event', 'viewportEvent',
-  'resizeEvent', 'paintEvent', 'mousePressEvent', 'mouseReleaseEvent',
-  'mouseDoubleClickEvent', 'mouseMoveEvent', 'wheelEvent',
-  'contextMenuEvent', 'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent',
-  'dropEvent', 'keyPressEvent', 'scrollContentsBy', 'viewportSizeHint'. It
-  can be made from Python, in 1 way; see '__init__'.
+  'addScrollBarWidget', 'scrollBarWidgets', 'viewport', 'setViewport',
+  'maximumViewportSize', 'minimumSizeHint', 'sizeHint', 'setupViewport',
+  'sizeAdjustPolicy', 'setSizeAdjustPolicy', 'eventFilter', 'event',
+  'viewportEvent', 'resizeEvent', 'paintEvent', 'mousePressEvent',
+  'mouseReleaseEvent', 'mouseDoubleClickEvent', 'mouseMoveEvent',
+  'wheelEvent', 'contextMenuEvent', 'dragEnterEvent', 'dragMoveEvent',
+  'dragLeaveEvent', 'dropEvent', 'keyPressEvent', 'scrollContentsBy',
+  'viewportSizeHint'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -82,8 +82,8 @@ class QAbstractScrollArea(QFrame):
   What has no ritual
   ------------------
 
-  13 of the 54 functions Qt declares: 4 protected; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
+  12 of the 54 functions Qt declares: 4 protected; 3 private; 2 takes or
+  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -722,6 +722,36 @@ class QAbstractScrollArea(QFrame):
         'sIN2Qt13AlignmentFlagEE',
         self._addressOf(widget), alignment.value,
     )
+
+  @overload(Qt.Alignment)
+  def scrollBarWidgets(self, alignment: Qt.Alignment) -> QList[QWidget]:
+    """
+    Calls Qt's 'QWidgetList
+    QAbstractScrollArea::scrollBarWidgets(Qt::Alignment alignment)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets
+
+    Parameters
+    ----------
+
+    alignment : Qt.Alignment
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QList[QWidget]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QWidgetList QAbstractScrollArea::scrollBarWidgets(Qt::Alignment
+    #      alignment)
+    address = self.uglySide.call(
+        'ritual_ZN19QAbstractScrollArea16scrollBarWidgetsE6QFlagsIN2Qt13Ali'
+        'gnmentFlagEE',
+        alignment.value,
+    )
+    return QList[QWidget]._cuteOwning(address)
 
   @overload(QWidget)
   @overload(NoneType)

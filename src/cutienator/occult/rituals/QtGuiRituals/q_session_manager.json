@@ -20,8 +20,19 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK15QSessionManager11restartHintEv": ["int", "address"],
+    "ritual_ZN15QSessionManager17setRestartCommandERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QSessionManager14restartCommandEv": ["address", "address"],
+    "ritual_ZN15QSessionManager17setDiscardCommandERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QSessionManager14discardCommandEv": ["address", "address"],
     "ritual_ZN15QSessionManager18setManagerPropertyERK7QStringS2_": [
       "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN15QSessionManager18setManagerPropertyERK7QStringRK5QListIS0_E": [
+      "nothing", "address", "text", "address"
     ],
     "ritual_ZNK15QSessionManager8isPhase2Ev": ["bool", "address"],
     "ritual_ZN15QSessionManager13requestPhase2Ev": ["nothing", "address"]

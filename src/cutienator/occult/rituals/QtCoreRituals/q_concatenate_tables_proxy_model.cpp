@@ -6,7 +6,12 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  A QConcatenateTablesProxyModel that Python can take functions over in. Every QConcatenateTablesProxyModel
@@ -731,6 +736,14 @@ void ritual_ZN28QConcatenateTablesProxyModelD1Ev(
   delete self;
 }
 
+//  QList<QAbstractItemModel *> QConcatenateTablesProxyModel::sourceModels()
+//      const
+extern "C" Q_DECL_EXPORT
+QList<QAbstractItemModel *> *ritual_ZNK28QConcatenateTablesProxyModel12sourceModelsEv(
+    const QConcatenateTablesProxyModel *self) {
+  return new QList<QAbstractItemModel *>(self->sourceModels());
+}
+
 //  void QConcatenateTablesProxyModel::addSourceModel(QAbstractItemModel
 //      *sourceModel)
 extern "C" Q_DECL_EXPORT
@@ -786,6 +799,25 @@ bool ritual_ZN28QConcatenateTablesProxyModel7setDataERK11QModelIndexRK8QVarianti
     const QVariant *value,
     int role) {
   return self->setData(*index, *value, role);
+}
+
+//  QMap<int, QVariant> QConcatenateTablesProxyModel::itemData(const
+//      QModelIndex &proxyIndex) const
+extern "C" Q_DECL_EXPORT
+QMap<int, QVariant> *ritual_ZNK28QConcatenateTablesProxyModel8itemDataERK11QModelIndex(
+    const QConcatenateTablesProxyModel *self,
+    const QModelIndex *proxyIndex) {
+  return new QMap<int, QVariant>(self->itemData(*proxyIndex));
+}
+
+//  bool QConcatenateTablesProxyModel::setItemData(const QModelIndex &index,
+//      const QMap<int, QVariant> &roles)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN28QConcatenateTablesProxyModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE(
+    QConcatenateTablesProxyModel *self,
+    const QModelIndex *index,
+    const QMap<int, QVariant> *roles) {
+  return self->setItemData(*index, *roles);
 }
 
 //  Qt::ItemFlags QConcatenateTablesProxyModel::flags(const QModelIndex
@@ -846,6 +878,22 @@ int ritual_ZNK28QConcatenateTablesProxyModel11columnCountERK11QModelIndex(
   return self->columnCount(*parent);
 }
 
+//  QStringList QConcatenateTablesProxyModel::mimeTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK28QConcatenateTablesProxyModel9mimeTypesEv(
+    const QConcatenateTablesProxyModel *self) {
+  return new QList<QString>(self->mimeTypes());
+}
+
+//  QMimeData *QConcatenateTablesProxyModel::mimeData(const QModelIndexList
+//      &indexes) const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_ZNK28QConcatenateTablesProxyModel8mimeDataERK5QListI11QModelIndexE(
+    const QConcatenateTablesProxyModel *self,
+    const QList<QModelIndex> *indexes) {
+  return self->mimeData(*indexes);
+}
+
 //  bool QConcatenateTablesProxyModel::canDropMimeData(const QMimeData *data,
 //      Qt::DropAction action, int row, int column, const QModelIndex
 //      &parent) const
@@ -880,6 +928,13 @@ QSize *ritual_ZNK28QConcatenateTablesProxyModel4spanERK11QModelIndex(
     const QConcatenateTablesProxyModel *self,
     const QModelIndex *index) {
   return new QSize(self->span(*index));
+}
+
+//  QHash<int, QByteArray> QConcatenateTablesProxyModel::roleNames() const
+extern "C" Q_DECL_EXPORT
+QHash<int, QByteArray> *ritual_ZNK28QConcatenateTablesProxyModel9roleNamesEv(
+    const QConcatenateTablesProxyModel *self) {
+  return new QHash<int, QByteArray>(self->roleNames());
 }
 
 //  a Python function taken by a CuteQConcatenateTablesProxyModel, for the

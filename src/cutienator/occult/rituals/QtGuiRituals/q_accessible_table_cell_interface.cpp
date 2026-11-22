@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qaccessible.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QAccessibleTableCellInterface that Python can take functions over in. Every QAccessibleTableCellInterface
@@ -124,6 +125,22 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK29QAccessibleTableCellInterface10isSelectedEv(
     const QAccessibleTableCellInterface *self) {
   return self->isSelected();
+}
+
+//  QList<QAccessibleInterface *>
+//      QAccessibleTableCellInterface::columnHeaderCells() const
+extern "C" Q_DECL_EXPORT
+QList<QAccessibleInterface *> *ritual_ZNK29QAccessibleTableCellInterface17columnHeaderCellsEv(
+    const QAccessibleTableCellInterface *self) {
+  return new QList<QAccessibleInterface *>(self->columnHeaderCells());
+}
+
+//  QList<QAccessibleInterface *>
+//      QAccessibleTableCellInterface::rowHeaderCells() const
+extern "C" Q_DECL_EXPORT
+QList<QAccessibleInterface *> *ritual_ZNK29QAccessibleTableCellInterface14rowHeaderCellsEv(
+    const QAccessibleTableCellInterface *self) {
+  return new QList<QAccessibleInterface *>(self->rowHeaderCells());
 }
 
 //  int QAccessibleTableCellInterface::columnIndex() const

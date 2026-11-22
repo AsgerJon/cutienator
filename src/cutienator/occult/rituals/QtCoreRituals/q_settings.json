@@ -43,6 +43,9 @@
     ],
     "ritual_ZN9QSettings8endArrayEv": ["nothing", "address"],
     "ritual_ZN9QSettings13setArrayIndexEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QSettings7allKeysEv": ["address", "address"],
+    "ritual_ZNK9QSettings9childKeysEv": ["address", "address"],
+    "ritual_ZNK9QSettings11childGroupsEv": ["address", "address"],
     "ritual_ZNK9QSettings10isWritableEv": ["bool", "address"],
     "ritual_ZN9QSettings8setValueE14QAnyStringViewRK8QVariant": [
       "nothing", "address", "text", "address"

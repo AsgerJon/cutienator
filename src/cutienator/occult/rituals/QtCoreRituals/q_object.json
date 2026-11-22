@@ -33,6 +33,7 @@
     "ritual_ZN7QObject9killTimerEN2Qt7TimerIdE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK7QObject8childrenEv": ["address", "address"],
     "ritual_ZN7QObject9setParentEPS_": ["nothing", "address", "address"],
     "ritual_ZN7QObject18installEventFilterEPS_": [
       "nothing", "address", "address"
@@ -70,6 +71,7 @@
       "bool", "address", "chars", "address"
     ],
     "ritual_ZNK7QObject8propertyEPKc": ["address", "address", "chars"],
+    "ritual_ZNK7QObject20dynamicPropertyNamesEv": ["address", "address"],
     "ritual_ZN7QObject14bindingStorageEv": ["address", "address"],
     "ritual_ZNK7QObject14bindingStorageEv": ["address", "address"],
     "ritual_ZNK7QObject6parentEv": ["address", "address"],
@@ -94,6 +96,11 @@
     ],
     "ritual_own_ZN7QObject16disconnectNotifyERK11QMetaMethod": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_list_make_QObject_ptr": ["address"],
+    "ritual_list_add_QObject_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QObject_ptr": ["long long", "address"],
+    "ritual_list_at_QObject_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QObject_ptr": ["nothing", "address"]
   }
 }

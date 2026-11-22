@@ -2,12 +2,15 @@
 //  QtGui/qguiapplication.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qguiapplication.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qwindow.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qicon.h>
+#include <QtGui/qscreen.h>
 #include <QtGui/qcursor.h>
 #include <QtGui/qfont.h>
 #include <QtGui/qpalette.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QGuiApplication may call these functions of it.
@@ -222,6 +225,18 @@ QString *ritual_ZN15QGuiApplication15desktopFileNameEv() {
   return new QString(QGuiApplication::desktopFileName());
 }
 
+//  QWindowList QGuiApplication::allWindows()
+extern "C" Q_DECL_EXPORT
+QList<QWindow *> *ritual_ZN15QGuiApplication10allWindowsEv() {
+  return new QList<QWindow *>(QGuiApplication::allWindows());
+}
+
+//  QWindowList QGuiApplication::topLevelWindows()
+extern "C" Q_DECL_EXPORT
+QList<QWindow *> *ritual_ZN15QGuiApplication15topLevelWindowsEv() {
+  return new QList<QWindow *>(QGuiApplication::topLevelWindows());
+}
+
 //  QWindow *QGuiApplication::topLevelAt(const QPoint &pos)
 extern "C" Q_DECL_EXPORT
 QWindow *ritual_ZN15QGuiApplication10topLevelAtERK6QPoint(
@@ -269,6 +284,12 @@ QObject *ritual_ZN15QGuiApplication11focusObjectEv() {
 extern "C" Q_DECL_EXPORT
 QScreen *ritual_ZN15QGuiApplication13primaryScreenEv() {
   return QGuiApplication::primaryScreen();
+}
+
+//  QList<QScreen *> QGuiApplication::screens()
+extern "C" Q_DECL_EXPORT
+QList<QScreen *> *ritual_ZN15QGuiApplication7screensEv() {
+  return new QList<QScreen *>(QGuiApplication::screens());
 }
 
 //  QScreen *QGuiApplication::screenAt(const QPoint &point)

@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QObject, QStringList
 from . import QDialog, QLineEdit, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -39,11 +39,12 @@ class QInputDialog(QDialog):
   -----------
 
   Every function of Qt's QInputDialog that has a ritual and that Python can
-  call so far, 45 names in all: 'metaObject', 'tr', 'setInputMode',
+  call so far, 47 names in all: 'metaObject', 'tr', 'setInputMode',
   'inputMode', 'setLabelText', 'labelText', 'setOption', 'testOption',
   'setOptions', 'options', 'setTextValue', 'textValue', 'setTextEchoMode',
-  'textEchoMode', 'setComboBoxEditable', 'isComboBoxEditable', 'setIntValue',
-  'intValue', 'setIntMinimum', 'intMinimum', 'setIntMaximum', 'intMaximum',
+  'textEchoMode', 'setComboBoxEditable', 'isComboBoxEditable',
+  'setComboBoxItems', 'comboBoxItems', 'setIntValue', 'intValue',
+  'setIntMinimum', 'intMinimum', 'setIntMaximum', 'intMaximum',
   'setIntRange', 'setIntStep', 'intStep', 'setDoubleValue', 'doubleValue',
   'setDoubleMinimum', 'doubleMinimum', 'setDoubleMaximum', 'doubleMaximum',
   'setDoubleRange', 'setDoubleDecimals', 'doubleDecimals', 'setOkButtonText',
@@ -64,6 +65,10 @@ class QInputDialog(QDialog):
     QString &title, const QString &label, const QString &text, bool *ok,
     Qt::WindowFlags flags, Qt::InputMethodHints inputMethodHints)': takes a
     number to change where it is.
+  - Qt's 'QString QInputDialog::getItem(QWidget *parent, const QString
+    &title, const QString &label, const QStringList &items, int current, bool
+    editable, bool *ok, Qt::WindowFlags flags, Qt::InputMethodHints
+    inputMethodHints)': takes a number to change where it is.
   - Qt's 'int QInputDialog::getInt(QWidget *parent, const QString &title,
     const QString &label, int value, int minValue, int maxValue, int step,
     bool *ok, Qt::WindowFlags flags)': takes a number to change where it is.
@@ -75,8 +80,8 @@ class QInputDialog(QDialog):
   What has no ritual
   ------------------
 
-  17 of the 68 functions Qt declares: 6 a signal; 5 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
+  14 of the 68 functions Qt declares: 6 a signal; 3 private; 2 takes or gives
+  a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -325,6 +330,22 @@ class QInputDialog(QDialog):
     return self.uglySide.call(
         'ritual_ZNK12QInputDialog18isComboBoxEditableEv',
     )
+
+  def comboBoxItems(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QInputDialog::comboBoxItems() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputdialog.html#comboBoxItems
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QInputDialog::comboBoxItems() const
+    address = self.uglySide.call('ritual_ZNK12QInputDialog13comboBoxItemsEv')
+    return QStringList._cuteOwning(address)
 
   def intValue(self) -> int:
     """
@@ -616,6 +637,28 @@ class QInputDialog(QDialog):
     #  void QInputDialog::setComboBoxEditable(bool editable)
     self.uglySide.call(
         'ritual_ZN12QInputDialog19setComboBoxEditableEb', editable,
+    )
+
+  @overload(QStringList)
+  def setComboBoxItems(self, items: QStringList) -> None:
+    """
+    Calls Qt's 'void QInputDialog::setComboBoxItems(const QStringList
+    &items)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputdialog.html#setComboBoxItems
+
+    Parameters
+    ----------
+
+    items : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QInputDialog::setComboBoxItems(const QStringList &items)
+    self.uglySide.call(
+        'ritual_ZN12QInputDialog16setComboBoxItemsERK5QListI7QStringE',
+        self._valueOf(items),
     )
 
   @overload(int)

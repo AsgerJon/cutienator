@@ -13,7 +13,8 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
-from . import Qt, QAbstractItemModel, QAbstractProxyModel, QObject
+from . import Qt, QAbstractItemModel, QAbstractProxyModel, QList, QObject
+from . import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -48,7 +49,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
   -----------
 
   Every function of Qt's QSortFilterProxyModel that has a ritual and that
-  Python can call so far, 57 names in all: 'metaObject', 'tr',
+  Python can call so far, 60 names in all: 'metaObject', 'tr',
   'setSourceModel', 'mapToSource', 'mapFromSource', 'mapSelectionToSource',
   'mapSelectionFromSource', 'filterRegularExpression', 'filterKeyColumn',
   'setFilterKeyColumn', 'filterCaseSensitivity', 'setFilterCaseSensitivity',
@@ -60,11 +61,11 @@ class QSortFilterProxyModel(QAbstractProxyModel):
   'setAutoAcceptChildRows', 'setFilterRegularExpression',
   'setFilterWildcard', 'setFilterFixedString', 'invalidate', 'index',
   'parent', 'sibling', 'rowCount', 'columnCount', 'hasChildren', 'data',
-  'setData', 'headerData', 'setHeaderData', 'dropMimeData', 'insertRows',
-  'insertColumns', 'removeRows', 'removeColumns', 'fetchMore',
-  'canFetchMore', 'flags', 'buddy', 'span', 'sort', 'supportedDropActions',
-  'filterAcceptsRow', 'filterAcceptsColumn', 'lessThan'. It can be made from
-  Python, in 1 way; see '__init__'.
+  'setData', 'headerData', 'setHeaderData', 'mimeData', 'dropMimeData',
+  'insertRows', 'insertColumns', 'removeRows', 'removeColumns', 'fetchMore',
+  'canFetchMore', 'flags', 'buddy', 'match', 'span', 'sort', 'mimeTypes',
+  'supportedDropActions', 'filterAcceptsRow', 'filterAcceptsColumn',
+  'lessThan'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -75,7 +76,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
   What has no ritual
   ------------------
 
-  35 of the 95 functions Qt declares: 15 takes or gives a type that cannot be
+  32 of the 95 functions Qt declares: 12 takes or gives a type that cannot be
   passed yet; 8 a signal; 6 protected; 3 private; 2 forbidden; 1 a template.
 
   What to expect
@@ -859,6 +860,39 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     from . import QVariant
     return QVariant._cuteOwning(address)
 
+  @overload(QList[QModelIndex])
+  def mimeData(self, indexes: QList[QModelIndex]) -> Optional[QMimeData]:
+    """
+    Calls Qt's 'QMimeData *QSortFilterProxyModel::mimeData(const
+    QModelIndexList &indexes) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#mimeData
+
+    Parameters
+    ----------
+
+    indexes : QList[QModelIndex]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    Optional[QMimeData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMimeData *QSortFilterProxyModel::mimeData(const QModelIndexList
+    #      &indexes) const
+    address = self.uglySide.call(
+        'ritual_ZNK21QSortFilterProxyModel8mimeDataERK5QListI11QModelIndexE',
+        self._valueOf(indexes),
+    )
+    from . import QMimeData
+    return QMimeData._cuteAt(address)
+
   @overload(QModelIndex)
   def canFetchMore(self, parent: QModelIndex) -> bool:
     """
@@ -943,6 +977,63 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     from . import QModelIndex
     return QModelIndex._cuteOwning(address)
 
+  @overload(QModelIndex, int, QVariant)
+  @overload(QModelIndex, int, QVariant, int)
+  @overload(QModelIndex, int, QVariant, int, Qt.MatchFlags)
+  def match(
+      self,
+      start: QModelIndex,
+      role: int,
+      value: QVariant,
+      hits: int = 1,
+      flags: Qt.MatchFlags = (
+          Qt.MatchFlags.MatchStartsWith | Qt.MatchFlags.MatchWrap),
+  ) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QSortFilterProxyModel::match(const
+    QModelIndex &start, int role, const QVariant &value, int hits,
+    Qt::MatchFlags flags) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsortfilterproxymodel.html#match
+
+    Parameters
+    ----------
+
+    start : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    role : int
+      Passed on as it is.
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    hits : int
+      Passed on as it is. May be left out, as in Qt: it is then 1.
+
+    flags : Qt.MatchFlags
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.MatchFlags.MatchStartsWith | Qt.MatchFlags.MatchWrap.
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QSortFilterProxyModel::match(const QModelIndex &start,
+    #      int role, const QVariant &value, int hits, Qt::MatchFlags flags)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK21QSortFilterProxyModel5matchERK11QModelIndexiRK8QVarian'
+        'ti6QFlagsIN2Qt9MatchFlagEE',
+        self._valueOf(start), role, self._valueOf(value), hits, flags.value,
+    )
+    from . import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
+
   @overload(QModelIndex)
   def span(self, index: QModelIndex) -> QSize:
     """
@@ -971,6 +1062,25 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     address = self.uglySide.call(ritual, self._valueOf(index))
     from . import QSize
     return QSize._cuteOwning(address)
+
+  def mimeTypes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QSortFilterProxyModel::mimeTypes() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#mimeTypes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QSortFilterProxyModel::mimeTypes() const
+    address = self.uglySide.call(
+        'ritual_ZNK21QSortFilterProxyModel9mimeTypesEv',
+    )
+    return QStringList._cuteOwning(address)
 
   def supportedDropActions(self) -> Qt.DropActions:
     """

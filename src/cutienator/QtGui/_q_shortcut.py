@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 from . import QKeySequence
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -43,10 +43,10 @@ class QShortcut(QObject):
   -----------
 
   Every function of Qt's QShortcut that has a ritual and that Python can call
-  so far, 15 names in all: 'metaObject', 'tr', 'setKey', 'key', 'setKeys',
-  'setEnabled', 'isEnabled', 'setContext', 'context', 'setAutoRepeat',
-  'autoRepeat', 'id', 'setWhatsThis', 'whatsThis', 'event'. It can be made
-  from Python, in 3 ways; see '__init__'.
+  so far, 16 names in all: 'metaObject', 'tr', 'setKey', 'key', 'setKeys',
+  'keys', 'setEnabled', 'isEnabled', 'setContext', 'context',
+  'setAutoRepeat', 'autoRepeat', 'id', 'setWhatsThis', 'whatsThis', 'event'.
+  It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,8 +57,8 @@ class QShortcut(QObject):
   What has no ritual
   ------------------
 
-  19 of the 38 functions Qt declares: 10 a template; 4 takes or gives a type
-  that cannot be passed yet; 3 private; 2 a signal.
+  17 of the 38 functions Qt declares: 10 a template; 3 private; 2 takes or
+  gives a type that cannot be passed yet; 2 a signal.
 
   What to expect
   --------------
@@ -180,6 +180,22 @@ class QShortcut(QObject):
     address = self.uglySide.call('ritual_ZNK9QShortcut3keyEv')
     return QKeySequence._cuteOwning(address)
 
+  def keys(self) -> QList[QKeySequence]:
+    """
+    Calls Qt's 'QList<QKeySequence> QShortcut::keys() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qshortcut.html#keys
+
+    Returns
+    -------
+
+    QList[QKeySequence]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QKeySequence> QShortcut::keys() const
+    address = self.uglySide.call('ritual_ZNK9QShortcut4keysEv')
+    return QList[QKeySequence]._cuteOwning(address)
+
   def isEnabled(self) -> bool:
     """
     Calls Qt's 'bool QShortcut::isEnabled() const'.
@@ -281,6 +297,27 @@ class QShortcut(QObject):
     self.uglySide.call(
         'ritual_ZN9QShortcut7setKeysEN12QKeySequence11StandardKeyE',
         key.value,
+    )
+
+  @overload(QList[QKeySequence])
+  def setKeys(self, keys: QList[QKeySequence]) -> None:
+    """
+    Calls Qt's 'void QShortcut::setKeys(const QList<QKeySequence> &keys)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qshortcut.html#setKeys
+
+    Parameters
+    ----------
+
+    keys : QList[QKeySequence]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QShortcut::setKeys(const QList<QKeySequence> &keys)
+    self.uglySide.call(
+        'ritual_ZN9QShortcut7setKeysERK5QListI12QKeySequenceE',
+        self._valueOf(keys),
     )
 
   @overload(bool)

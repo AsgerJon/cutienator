@@ -14,6 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
+from . import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -34,9 +35,10 @@ class QLibraryInfo(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLibraryInfo that has a ritual and that Python can
-  call so far, 6 names in all: 'build', 'isDebugBuild', 'isSharedBuild',
-  'version', 'path', 'location'. None can be made from Python: one comes out
-  of a function of another class that gives one back.
+  call so far, 8 names in all: 'build', 'isDebugBuild', 'isSharedBuild',
+  'version', 'path', 'paths', 'location', 'platformPluginArguments'. None can
+  be made from Python: one comes out of a function of another class that
+  gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -47,8 +49,8 @@ class QLibraryInfo(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 13 functions Qt declares: 2 private; 2 takes or gives a type that
-  cannot be passed yet; 1 declared and nowhere to be found; 1 a template.
+  4 of the 13 functions Qt declares: 2 private; 1 declared and nowhere to be
+  found; 1 a template.
 
   What to expect
   --------------
@@ -175,6 +177,32 @@ class QLibraryInfo(CuteMixin, metaclass=MetaCute):
 
   @staticmethod
   @overload(LibraryPath)
+  def paths(p: LibraryPath) -> QStringList:
+    """
+    Calls Qt's 'QStringList QLibraryInfo::paths(LibraryPath p)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlibraryinfo.html#paths
+
+    Parameters
+    ----------
+
+    p : LibraryPath
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QLibraryInfo::paths(LibraryPath p)
+    address = Rituals.call(
+        'ritual_ZN12QLibraryInfo5pathsENS_11LibraryPathE', p.value,
+    )
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
+  @overload(LibraryPath)
   def location(location: LibraryPath) -> str:
     """
     Calls Qt's 'QString QLibraryInfo::location(LibraryLocation location)'.
@@ -197,6 +225,36 @@ class QLibraryInfo(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZN12QLibraryInfo8locationENS_11LibraryPathE', location.value,
     )
+
+  @staticmethod
+  @overload(str)
+  def platformPluginArguments(platformName: str) -> QStringList:
+    """
+    Calls Qt's 'QStringList QLibraryInfo::platformPluginArguments(const
+    QString &platformName)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlibraryinfo.html#platformPluginArguments
+
+    Parameters
+    ----------
+
+    platformName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QLibraryInfo::platformPluginArguments(const QString
+    #      &platformName)
+    address = Rituals.call(
+        'ritual_ZN12QLibraryInfo23platformPluginArgumentsERK7QString',
+        platformName,
+    )
+    return QStringList._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

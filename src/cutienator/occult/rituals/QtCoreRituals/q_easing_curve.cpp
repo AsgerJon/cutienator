@@ -3,6 +3,7 @@
 #include <QtCore/qeasingcurve.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/qlist.h>
 
 //  QEasingCurve::QEasingCurve(Type type)
 extern "C" Q_DECL_EXPORT
@@ -83,6 +84,13 @@ void ritual_ZN12QEasingCurve13addTCBSegmentERK7QPointFddd(
     qreal c,
     qreal b) {
   self->addTCBSegment(*nextPoint, t, c, b);
+}
+
+//  QList<QPointF> QEasingCurve::toCubicSpline() const
+extern "C" Q_DECL_EXPORT
+QList<QPointF> *ritual_ZNK12QEasingCurve13toCubicSplineEv(
+    const QEasingCurve *self) {
+  return new QList<QPointF>(self->toCubicSpline());
 }
 
 //  Type QEasingCurve::type() const

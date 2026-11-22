@@ -14,6 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QList, QStringList
 from . import QImage, QImageIOHandler
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -45,19 +46,21 @@ class QImageReader(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QImageReader that has a ritual and that Python can
-  call so far, 44 names in all: 'tr', 'setFormat', 'format',
+  call so far, 49 names in all: 'tr', 'setFormat', 'format',
   'setAutoDetectImageFormat', 'autoDetectImageFormat',
   'setDecideFormatFromContent', 'decideFormatFromContent', 'setDevice',
   'device', 'setFileName', 'fileName', 'size', 'effectiveSize',
-  'imageFormat', 'text', 'setClipRect', 'clipRect', 'setScaledSize',
-  'scaledSize', 'setQuality', 'quality', 'setScaledClipRect',
-  'scaledClipRect', 'setBackgroundColor', 'backgroundColor',
-  'supportsAnimation', 'transformation', 'setAutoTransform', 'autoTransform',
-  'subType', 'canRead', 'read', 'jumpToNextImage', 'jumpToImage',
-  'loopCount', 'imageCount', 'nextImageDelay', 'currentImageNumber',
-  'currentImageRect', 'error', 'errorString', 'supportsOption',
-  'allocationLimit', 'setAllocationLimit'. It can be made from Python, in 3
-  ways; see '__init__'.
+  'imageFormat', 'textKeys', 'text', 'setClipRect', 'clipRect',
+  'setScaledSize', 'scaledSize', 'setQuality', 'quality',
+  'setScaledClipRect', 'scaledClipRect', 'setBackgroundColor',
+  'backgroundColor', 'supportsAnimation', 'transformation',
+  'setAutoTransform', 'autoTransform', 'subType', 'supportedSubTypes',
+  'canRead', 'read', 'jumpToNextImage', 'jumpToImage', 'loopCount',
+  'imageCount', 'nextImageDelay', 'currentImageNumber', 'currentImageRect',
+  'error', 'errorString', 'supportsOption', 'supportedImageFormats',
+  'supportedMimeTypes', 'imageFormatsForMimeType', 'allocationLimit',
+  'setAllocationLimit'. It can be made from Python, in 3 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -68,8 +71,7 @@ class QImageReader(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 58 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 58 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -151,6 +153,78 @@ class QImageReader(CuteMixin, metaclass=MetaCute):
         CuteMixin._bytesOf(sourceText), CuteMixin._bytesOf(disambiguation),
         n,
     )
+
+  @staticmethod
+  def supportedImageFormats() -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QImageReader::supportedImageFormats()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qimagereader.html#supportedImageFormats
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QImageReader::supportedImageFormats()
+    address = Rituals.call(
+        'ritual_ZN12QImageReader21supportedImageFormatsEv',
+    )
+    from ..QtCore import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
+
+  @staticmethod
+  def supportedMimeTypes() -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QImageReader::supportedMimeTypes()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qimagereader.html#supportedMimeTypes
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QImageReader::supportedMimeTypes()
+    address = Rituals.call('ritual_ZN12QImageReader18supportedMimeTypesEv')
+    from ..QtCore import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
+
+  @staticmethod
+  @overload(QByteArray)
+  def imageFormatsForMimeType(mimeType: QByteArray) -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QImageReader::imageFormatsForMimeType(const
+    QByteArray &mimeType)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qimagereader.html#imageFormatsForMimeType
+
+    Parameters
+    ----------
+
+    mimeType : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QImageReader::imageFormatsForMimeType(const
+    #      QByteArray &mimeType)
+    address = Rituals.call(
+        'ritual_ZN12QImageReader23imageFormatsForMimeTypeERK10QByteArray',
+        CuteMixin._valueOf(mimeType),
+    )
+    from ..QtCore import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
 
   @staticmethod
   def allocationLimit() -> int:
@@ -386,6 +460,22 @@ class QImageReader(CuteMixin, metaclass=MetaCute):
     from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
 
+  def textKeys(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QImageReader::textKeys() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimagereader.html#textKeys
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QImageReader::textKeys() const
+    address = self.uglySide.call('ritual_ZNK12QImageReader8textKeysEv')
+    return QStringList._cuteOwning(address)
+
   @overload(str)
   def text(self, key: str) -> str:
     """
@@ -546,6 +636,26 @@ class QImageReader(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK12QImageReader7subTypeEv')
     from ..QtCore import QByteArray
     return QByteArray._cuteOwning(address)
+
+  def supportedSubTypes(self) -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QImageReader::supportedSubTypes() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qimagereader.html#supportedSubTypes
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QImageReader::supportedSubTypes() const
+    address = self.uglySide.call(
+        'ritual_ZNK12QImageReader17supportedSubTypesEv',
+    )
+    from ..QtCore import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
 
   def canRead(self) -> bool:
     """

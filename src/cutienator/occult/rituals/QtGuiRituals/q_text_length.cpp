@@ -2,6 +2,7 @@
 //  QtGui/qtextformat.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtextformat.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qlist.h>
 
 //  QTextLength::QTextLength()
 extern "C" Q_DECL_EXPORT
@@ -62,5 +63,39 @@ QVariant *ritual_ZNK11QTextLengthcv8QVariantEv(const QTextLength *self) {
 //  QTextLength::~QTextLength()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTextLengthD1Ev(QTextLength *self) {
+  delete self;
+}
+
+//  QList<QTextLength>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QTextLength> *ritual_list_make_QTextLength() {
+  return new QList<QTextLength>();
+}
+
+//  void QList<QTextLength>::append(const QTextLength &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QTextLength(
+    QList<QTextLength> *self,
+    const QTextLength *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QTextLength>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QTextLength(const QList<QTextLength> *self) {
+  return self->size();
+}
+
+//  const QTextLength &QList<QTextLength>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QTextLength *ritual_list_at_QTextLength(
+    const QList<QTextLength> *self,
+    long long index) {
+  return new QTextLength(self->at(index));
+}
+
+//  QList<QTextLength>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QTextLength(QList<QTextLength> *self) {
   delete self;
 }

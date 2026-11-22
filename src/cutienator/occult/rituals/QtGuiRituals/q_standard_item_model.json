@@ -13,6 +13,10 @@
       "address", "int", "int", "address"
     ],
     "ritual_ZN18QStandardItemModelD1Ev": ["nothing", "address"],
+    "ritual_ZN18QStandardItemModel16setItemRoleNamesERK5QHashIi10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QStandardItemModel9roleNamesEv": ["address", "address"],
     "ritual_ZNK18QStandardItemModel5indexEiiRK11QModelIndex": [
       "address", "address", "int", "int", "address"
     ],
@@ -64,6 +68,12 @@
     "ritual_ZNK18QStandardItemModel20supportedDropActionsEv": [
       "int", "address"
     ],
+    "ritual_ZNK18QStandardItemModel8itemDataERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QStandardItemModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN18QStandardItemModel5clearEv": ["nothing", "address"],
     "ritual_ZN18QStandardItemModel4sortEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
@@ -98,14 +108,32 @@
     "ritual_ZN18QStandardItemModel21setVerticalHeaderItemEiP13QStandardItem": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZN18QStandardItemModel25setHorizontalHeaderLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QStandardItemModel23setVerticalHeaderLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QStandardItemModel11setRowCountEi": [
       "nothing", "address", "int"
     ],
     "ritual_ZN18QStandardItemModel14setColumnCountEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN18QStandardItemModel9appendRowERK5QListIP13QStandardItemE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QStandardItemModel12appendColumnERK5QListIP13QStandardItemE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QStandardItemModel9appendRowEP13QStandardItem": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN18QStandardItemModel9insertRowEiRK5QListIP13QStandardItemE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QStandardItemModel12insertColumnEiRK5QListIP13QStandardItemE": [
+      "nothing", "address", "int", "address"
     ],
     "ritual_ZN18QStandardItemModel9insertRowEiP13QStandardItem": [
       "nothing", "address", "int", "address"
@@ -119,6 +147,10 @@
     "ritual_ZN18QStandardItemModel8takeItemEii": [
       "address", "address", "int", "int"
     ],
+    "ritual_ZN18QStandardItemModel7takeRowEi": ["address", "address", "int"],
+    "ritual_ZN18QStandardItemModel10takeColumnEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZN18QStandardItemModel24takeHorizontalHeaderItemEi": [
       "address", "address", "int"
     ],
@@ -131,9 +163,16 @@
     "ritual_ZN18QStandardItemModel16setItemPrototypeEPK13QStandardItem": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK18QStandardItemModel9findItemsERK7QString6QFlagsIN2Qt9MatchFlagEEi": [
+      "address", "address", "text", "int", "int"
+    ],
     "ritual_ZNK18QStandardItemModel8sortRoleEv": ["int", "address"],
     "ritual_ZN18QStandardItemModel11setSortRoleEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QStandardItemModel9mimeTypesEv": ["address", "address"],
+    "ritual_ZNK18QStandardItemModel8mimeDataERK5QListI11QModelIndexE": [
+      "address", "address", "address"
     ],
     "ritual_ZN18QStandardItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
       "bool", "address", "address", "int", "int", "int", "address"

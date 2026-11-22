@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QLineF, QPoint
@@ -548,3 +549,15 @@ class QLine(CuteMixin, metaclass=MetaCute):
     """
     #  void QLine::translate(int dx, int dy)
     self.uglySide.call('ritual_ZN5QLine9translateEii', dx, dy)
+
+
+#  Qt's 'QList<QLine>': the list of QLine, which 'QList[QLine]' gives. It is
+#  made here, so that there is one as soon as there can be a QLine.
+QList.createKind(
+    QLine, 'value',
+    make='ritual_list_make_QLine',
+    add='ritual_list_add_QLine',
+    size='ritual_list_size_QLine',
+    at='ritual_list_at_QLine',
+    drop='ritual_list_drop_QLine',
+)

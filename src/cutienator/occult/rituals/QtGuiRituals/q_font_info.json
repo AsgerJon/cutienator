@@ -21,6 +21,7 @@
     "ritual_ZNK9QFontInfo9strikeOutEv": ["bool", "address"],
     "ritual_ZNK9QFontInfo10fixedPitchEv": ["bool", "address"],
     "ritual_ZNK9QFontInfo9styleHintEv": ["int", "address"],
+    "ritual_ZNK9QFontInfo12variableAxesEv": ["address", "address"],
     "ritual_ZNK9QFontInfo12legacyWeightEv": ["int", "address"],
     "ritual_ZNK9QFontInfo10exactMatchEv": ["bool", "address"]
   }

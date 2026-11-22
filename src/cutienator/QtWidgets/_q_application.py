@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 from ..QtGui import QGuiApplication
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -50,11 +50,11 @@ class QApplication(QGuiApplication):
   -----------
 
   Every function of Qt's QApplication that has a ritual and that Python can
-  call so far, 41 names in all: 'metaObject', 'tr', 'style', 'setStyle',
-  'palette', 'setPalette', 'font', 'setFont', 'fontMetrics',
-  'activePopupWidget', 'activeModalWidget', 'focusWidget', 'activeWindow',
-  'setActiveWindow', 'widgetAt', 'topLevelAt', 'beep', 'alert',
-  'setCursorFlashTime', 'cursorFlashTime', 'setDoubleClickInterval',
+  call so far, 43 names in all: 'metaObject', 'tr', 'style', 'setStyle',
+  'palette', 'setPalette', 'font', 'setFont', 'fontMetrics', 'allWidgets',
+  'topLevelWidgets', 'activePopupWidget', 'activeModalWidget', 'focusWidget',
+  'activeWindow', 'setActiveWindow', 'widgetAt', 'topLevelAt', 'beep',
+  'alert', 'setCursorFlashTime', 'cursorFlashTime', 'setDoubleClickInterval',
   'doubleClickInterval', 'setKeyboardInputInterval', 'keyboardInputInterval',
   'setWheelScrollLines', 'wheelScrollLines', 'setStartDragTime',
   'startDragTime', 'setStartDragDistance', 'startDragDistance',
@@ -71,8 +71,8 @@ class QApplication(QGuiApplication):
   What has no ritual
   ------------------
 
-  14 of the 63 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 private; 2 a template; 2 protected; 2 forbidden; 1 a signal.
+  12 of the 63 functions Qt declares: 3 private; 2 takes or gives a type that
+  cannot be passed yet; 2 a template; 2 protected; 2 forbidden; 1 a signal.
 
   What to expect
   --------------
@@ -409,6 +409,42 @@ class QApplication(QGuiApplication):
     address = Rituals.call('ritual_ZN12QApplication11fontMetricsEv')
     from ..QtGui import QFontMetrics
     return QFontMetrics._cuteOwning(address)
+
+  @staticmethod
+  def allWidgets() -> QList[QWidget]:
+    """
+    Calls Qt's 'QWidgetList QApplication::allWidgets()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qapplication.html#allWidgets
+
+    Returns
+    -------
+
+    QList[QWidget]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QWidgetList QApplication::allWidgets()
+    address = Rituals.call('ritual_ZN12QApplication10allWidgetsEv')
+    from . import QWidget
+    return QList[QWidget]._cuteOwning(address)
+
+  @staticmethod
+  def topLevelWidgets() -> QList[QWidget]:
+    """
+    Calls Qt's 'QWidgetList QApplication::topLevelWidgets()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qapplication.html#topLevelWidgets
+
+    Returns
+    -------
+
+    QList[QWidget]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QWidgetList QApplication::topLevelWidgets()
+    address = Rituals.call('ritual_ZN12QApplication15topLevelWidgetsEv')
+    from . import QWidget
+    return QList[QWidget]._cuteOwning(address)
 
   @staticmethod
   def activePopupWidget() -> Optional[QWidget]:

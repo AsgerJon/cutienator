@@ -888,6 +888,12 @@ class ClassGenerator:
         note('top', 'CuteFlags')
       else:
         note('top', 'CuteNum', 'Kee')
+    if self.getRitualGenerator().getOwnListKinds():
+      #  The end of the file makes the list of the class.
+      note('lists', 'QList')
+    for mapped in self.getRitualGenerator().getOwnMapKinds():
+      #  And the maps that have the class for their values.
+      note('lists', mapped['pattern'])
     baseName, further = self.getBaseName(), self.getFurtherBaseNames()
     if baseName is None and not further:
       note('top', 'CuteMixin', 'MetaCute')
@@ -897,7 +903,7 @@ class ClassGenerator:
     note('classes', *needs['owners'])
     for generator in self.getInnerGenerators():
       inner = generator._getNeeds()
-      for kind in ('top', 'typing', 'classes', 'namespace'):
+      for kind in ('top', 'typing', 'classes', 'namespace', 'lists'):
         note(kind, *inner[kind])
       #  What the class inside waits for is shown to a type checker by
       #  the file, beside what its annotations name.
@@ -913,6 +919,82 @@ class ClassGenerator:
       self.__needed_names__ = collections.defaultdict(list)
     if name not in self.__needed_names__[kind]:
       self.__needed_names__[kind].append(name)
+
+  def _findList(self, listed: Record) -> Any:
+    """
+    Says how the body names the cute class of one kind of list of Qt.
+
+    Parameters
+    ----------
+
+    listed : Record
+      The kind, as 'RitualGenerator._findListKind' describes it.
+
+    Returns
+    -------
+
+    Any
+      The reason, in words, when the list cannot be named from here.
+      Else what '_findClass' gives for the class the list holds, with
+      'entry', 'name' and 'holder' written as the list of it, as
+      'QList[QUrl]', or as 'QStringList' for the list of text; and
+      'lateName': the class to wait for, and 'className': the class
+      the list holds.
+    """
+    if listed['crossing'] == 'text':
+      self._note('lists', 'QStringList')
+      return dict(
+          entry='QStringList', name='QStringList', holder='QStringList',
+          late=False, lateName='', bring='', hint='', className='QString',
+      )
+    holds = listed['holds']
+    found = self._findClass(holds)
+    if isinstance(found, str):
+      return "a list of '%s': %s" % (holds, found)
+    if found is None:
+      return "a list of '%s', which has no cute class yet" % holds
+    self._note('lists', 'QList')
+    entry = found['entry']
+    if entry == 'THIS':
+      #  The list of the class being written is made after the class,
+      #  further down this file, so a signature naming it waits.
+      self._note('top', 'WAIT')
+      entry = "WAIT['%s']" % holds
+    return dict(
+        found, entry='QList[%s]' % entry, name='QList[%s]' % found['name'],
+        holder='QList[%s]' % found['holder'], lateName=found['entry'],
+        className=holds,
+    )
+
+  def _findMap(self, mapped: Record) -> Any:
+    """
+    Says how the body names the cute class of one kind of map of Qt,
+    as '_findList' says it for a list: 'QMap[int, QVariant]'.
+
+    Parameters
+    ----------
+
+    mapped : Record
+      The kind, as 'RitualGenerator._findMapKind' describes it.
+    """
+    holds, pattern = mapped['holds'], mapped['pattern']
+    found = self._findClass(holds)
+    if isinstance(found, str):
+      return "a map to '%s': %s" % (holds, found)
+    if found is None:
+      return "a map to '%s', which has no cute class yet" % holds
+    self._note('lists', pattern)
+    entry = found['entry']
+    if entry == 'THIS':
+      self._note('top', 'WAIT')
+      entry = "WAIT['%s']" % holds
+    key = 'str' if mapped['keyWord'] == 'text' else 'int'
+    return dict(
+        found, entry='%s[%s, %s]' % (pattern, key, entry),
+        name='%s[%s, %s]' % (pattern, key, found['name']),
+        holder='%s[%s, %s]' % (pattern, key, found['holder']),
+        lateName=found['entry'], className=holds,
+    )
 
   def _findClass(self, otherName: str) -> Optional[Record]:
     """
@@ -1521,6 +1603,36 @@ class ClassGenerator:
           passed='%s.value' % name, words='Passed on as its number.',
           enumGenerator=found['generator'], key='enum %s' % enumName,
       )
+    if kind == 'map':
+      found = self._findMap(passing['mapped'])
+      if isinstance(found, str):
+        return 'names %s' % found
+      infoSpec = """Passed on as a map of Qt: Qt reads the C++ map,
+      which stays Python's own. A dict of Python is made into one
+      first, and refused when a key or a value does not fit."""
+      return dict(
+          record, entry=found['entry'], annotation=found['name'],
+          passed='%s._valueOf(%s)' % (helper, name),
+          words=' '.join(infoSpec.split()), late=found['late'],
+          lateName=found['lateName'], className=found['className'],
+          bring=found['bring'], hint=found['hint'],
+          holder=found['holder'], key='map %s' % found['entry'],
+      )
+    if kind == 'list':
+      found = self._findList(passing['listed'])
+      if isinstance(found, str):
+        return 'names %s' % found
+      infoSpec = """Passed on as a list of Qt: Qt reads the C++ list,
+      which stays Python's own. A list or tuple of Python is made into
+      one first, and refused when an element does not fit."""
+      return dict(
+          record, entry=found['entry'], annotation=found['name'],
+          passed='%s._valueOf(%s)' % (helper, name),
+          words=' '.join(infoSpec.split()), late=found['late'],
+          lateName=found['lateName'], className=found['className'],
+          bring=found['bring'], hint=found['hint'],
+          holder=found['holder'], key='list %s' % found['className'],
+      )
     if kind in ('address', 'value'):
       if kind == 'address':
         pointed = argument['plain'][:-2]
@@ -1614,6 +1726,30 @@ class ClassGenerator:
       return dict(
           kind=kind, annotation=found['shown'], words=words,
           entry=found['entry'], maker=maker,
+      )
+    if kind == 'map':
+      found = self._findMap(giving['mapped'])
+      if isinstance(found, str):
+        return 'gives %s' % found
+      infoSpec = """A new cute map around the copy Qt gave back. Python
+      owns it."""
+      return dict(
+          kind=kind, annotation=found['name'], name=found['name'],
+          words=' '.join(infoSpec.split()), late=found['late'],
+          bring=found['bring'], hint=found['hint'],
+          holder=found['holder'],
+      )
+    if kind == 'list':
+      found = self._findList(giving['listed'])
+      if isinstance(found, str):
+        return 'gives %s' % found
+      infoSpec = """A new cute list around the copy Qt gave back. Python
+      owns it."""
+      return dict(
+          kind=kind, annotation=found['name'], name=found['name'],
+          words=' '.join(infoSpec.split()), late=found['late'],
+          bring=found['bring'], hint=found['hint'],
+          holder=found['holder'],
       )
     if kind in ('address', 'value'):
       if kind == 'address':
@@ -1902,7 +2038,7 @@ class ClassGenerator:
     #  '__take_ritual__'. And the one that runs just the class's own
     #  function, where the ordinary ritual lets C++ look the function
     #  up in the object: it belongs to the function of that name.
-    apart = ('cast', 'take', 'own')
+    apart = ('cast', 'take', 'own', 'list', 'map')
     written = self.getRitualGenerator().getWritten()
     start = len('ritual_own')
     owned = {
@@ -2025,7 +2161,8 @@ class ClassGenerator:
       if static and parameter['kind'] in ('address', 'value', 'chars'):
         self._note('top', 'CuteMixin')
       if parameter.get('late'):
-        self._note('late', parameter['entry'])
+        #  A list waits for the class it holds.
+        self._note('late', parameter.get('lateName') or parameter['entry'])
         if parameter['hint']:
           self._note('hinted', parameter['hint'])
       elif parameter.get('bring'):
@@ -2083,6 +2220,10 @@ class ClassGenerator:
     #  the one file each of them is in, and no other.
     for partName in self.__part_order__:
       names = sorted(n for n in classes if self.getPartName(n) == partName)
+      if partName == 'QtCore':
+        #  'QList' and 'QStringList' are classes of QtCore the tree
+        #  knows nothing of: cutienator writes them by hand.
+        names = sorted({*names, *needed['lists']})
       if partName == 'QtCore' and 'Qt' in needed['namespace']:
         names.insert(0, 'Qt')
       ours.extend(self._writeAsking(partName, names, ''))
@@ -2249,7 +2390,7 @@ class ClassGenerator:
       #  A ritual of our own making stands for no function Qt declares,
       #  and one that runs just the class's own function for one that
       #  has a ritual already.
-      ours = ('cast', 'take', 'own')
+      ours = ('cast', 'take', 'own', 'list', 'map')
       declared = [plan for plan in written if plan['kind'] not in ours]
       total = len(declared) + len(notWritten)
       counted = '; '.join(
@@ -2933,7 +3074,81 @@ class ClassGenerator:
     lines.extend(self._writeImports())
     lines.extend(('', ''))
     lines.extend(self._getClassLines())
+    lines.extend(self._writeListKinds())
     return '%s\n' % '\n'.join(lines)
+
+  def getNamedLists(self) -> List[str]:
+    """Gives the names Qt has for the kinds of list that hold the
+    class, as 'QModelIndexList' in the file of QModelIndex. The package
+    of the part has to know that each is found in this file."""
+    generator = self.getRitualGenerator()
+    names = []  # type: List[str]
+    for listed in generator.getOwnListKinds():
+      names.extend(generator.getListNames(listed))
+    for mapped in generator.getOwnMapKinds():
+      names.extend(generator.getMapNames(mapped))
+    return names
+
+  def _writeListKinds(self) -> List[str]:
+    """
+    Gives the lines at the end of the file that make the class of each
+    kind of list holding the class, and collect it in 'QList'. The
+    list of a class is made in the file of that class, so that there
+    is one as soon as there can be an object of the class.
+    """
+    generator = self.getRitualGenerator()
+    className, lines = self.getClassName(), []  # type: str, List[str]
+    for listed in generator.getOwnListKinds():
+      names = generator.getListNames(listed)
+      rituals = {
+          plan['listRole']: plan['ritualName']
+          for plan in generator.getWritten()
+          if plan['kind'] == 'list' and plan['listed'] is listed
+      }
+      infoSpec = """Qt's '%s': the list of %s, which 'QList[%s]' gives.
+      It is made here, so that there is one as soon as there can be a
+      %s.""" % (listed['listType'], className, className, className)
+      if names:
+        infoSpec = """%s Qt has a name of its own for it.""" % infoSpec
+      lines.extend(('', ''))
+      lines.extend(self._wrapWords(infoSpec, '#  '))
+      lines.append('%sQList.createKind(' % ''.join(
+          '%s = ' % name for name in names))
+      lines.append("    %s, '%s'," % (className, listed['crossing']))
+      if names:
+        lines.append("    name='%s'," % names[0])
+      for role in ('make', 'add', 'size', 'at', 'drop'):
+        lines.append("    %s='%s'," % (role, rituals[role]))
+      lines.append(')')
+    for mapped in generator.getOwnMapKinds():
+      names = generator.getMapNames(mapped)
+      rituals = {
+          plan['mapRole']: plan['ritualName']
+          for plan in generator.getWritten()
+          if plan['kind'] == 'map' and plan['mapped'] is mapped
+      }
+      key = 'str' if mapped['keyWord'] == 'text' else 'int'
+      pattern = mapped['pattern']
+      infoSpec = """Qt's '%s': the %s from %s to %s, which '%s[%s, %s]'
+      gives. It is completed here, in the file of the class of its
+      values.""" % (
+          mapped['mapType'], pattern, 'text' if key == 'str' else 'a number',
+          className, pattern, key, className)
+      if names:
+        infoSpec = """%s Qt has a name of its own for it.""" % infoSpec
+      lines.extend(('', ''))
+      lines.extend(self._wrapWords(infoSpec, '#  '))
+      lines.append('%s%s.createKind(' % (
+          ''.join('%s = ' % name for name in names), pattern))
+      lines.append("    %s, %s, '%s'," % (
+          key, className, mapped['crossing']))
+      if names:
+        lines.append("    name='%s'," % names[0])
+      for role in ('make', 'put', 'size', 'key', 'value', 'has', 'get',
+                   'drop'):
+        lines.append("    %s='%s'," % (role, rituals[role]))
+      lines.append(')')
+    return lines
 
   def _getClassLines(self) -> List[str]:
     """Gives the class statement and everything below it."""

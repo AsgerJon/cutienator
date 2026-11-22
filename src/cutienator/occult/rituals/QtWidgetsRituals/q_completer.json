@@ -10,6 +10,9 @@
     "ritual_ZN10QCompleterC1EP18QAbstractItemModelP7QObject": [
       "address", "address", "address"
     ],
+    "ritual_ZN10QCompleterC1ERK5QListI7QStringEP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZN10QCompleterD1Ev": ["nothing", "address"],
     "ritual_ZN10QCompleter9setWidgetEP7QWidget": [
       "nothing", "address", "address"
@@ -68,6 +71,9 @@
     "ritual_ZN10QCompleter13setWrapAroundEb": ["nothing", "address", "bool"],
     "ritual_ZNK10QCompleter13pathFromIndexERK11QModelIndex": [
       "text", "address", "address"
+    ],
+    "ritual_ZNK10QCompleter9splitPathERK7QString": [
+      "address", "address", "text"
     ],
     "ritual_take_QCompleter": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK10QCompleter13pathFromIndexERK11QModelIndex": [

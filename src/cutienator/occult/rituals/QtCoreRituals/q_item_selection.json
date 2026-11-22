@@ -14,6 +14,7 @@
     "ritual_ZNK14QItemSelection8containsERK11QModelIndex": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK14QItemSelection7indexesEv": ["address", "address"],
     "ritual_ZN14QItemSelection5mergeERKS_6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
       "nothing", "address", "address", "int"
     ],

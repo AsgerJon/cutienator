@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -238,3 +238,16 @@ class QGraphicsTransform(QObject):
         'ritual_ZNK18QGraphicsTransform7applyToEP10QMatrix4x4',
         self._addressOf(matrix),
     )
+
+
+#  Qt's 'QList<QGraphicsTransform *>': the list of QGraphicsTransform, which
+#  'QList[QGraphicsTransform]' gives. It is made here, so that there is one
+#  as soon as there can be a QGraphicsTransform.
+QList.createKind(
+    QGraphicsTransform, 'address',
+    make='ritual_list_make_QGraphicsTransform_ptr',
+    add='ritual_list_add_QGraphicsTransform_ptr',
+    size='ritual_list_size_QGraphicsTransform_ptr',
+    at='ritual_list_at_QGraphicsTransform_ptr',
+    drop='ritual_list_drop_QGraphicsTransform_ptr',
+)

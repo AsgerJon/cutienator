@@ -32,6 +32,11 @@
     "ritual_ZgtRK11QModelIndexS1_": ["bool", "address", "address"],
     "ritual_ZleRK11QModelIndexS1_": ["bool", "address", "address"],
     "ritual_ZgeRK11QModelIndexS1_": ["bool", "address", "address"],
-    "ritual_ZN11QModelIndexD1Ev": ["nothing", "address"]
+    "ritual_ZN11QModelIndexD1Ev": ["nothing", "address"],
+    "ritual_list_make_QModelIndex": ["address"],
+    "ritual_list_add_QModelIndex": ["nothing", "address", "address"],
+    "ritual_list_size_QModelIndex": ["long long", "address"],
+    "ritual_list_at_QModelIndex": ["address", "address", "long long"],
+    "ritual_list_drop_QModelIndex": ["nothing", "address"]
   }
 }

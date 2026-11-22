@@ -6,6 +6,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QDockWidget may call these functions of it.
@@ -985,4 +986,39 @@ void ritual_own_ZNK11QDockWidget15initStyleOptionEP22QStyleOptionDockWidget(
     QStyleOptionDockWidget *option) {
   static_cast<const OwnQDockWidget *>(self)->OwnQDockWidget::initStyleOption(
       option);
+}
+
+//  QList<QDockWidget *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QDockWidget *> *ritual_list_make_QDockWidget_ptr() {
+  return new QList<QDockWidget *>();
+}
+
+//  void QList<QDockWidget *>::append(const QDockWidget * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QDockWidget_ptr(
+    QList<QDockWidget *> *self,
+    QDockWidget *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QDockWidget *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QDockWidget_ptr(
+    const QList<QDockWidget *> *self) {
+  return self->size();
+}
+
+//  const QDockWidget * &QList<QDockWidget *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QDockWidget *ritual_list_at_QDockWidget_ptr(
+    const QList<QDockWidget *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QDockWidget *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QDockWidget_ptr(QList<QDockWidget *> *self) {
+  delete self;
 }

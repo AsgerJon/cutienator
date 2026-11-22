@@ -18,6 +18,11 @@
     "ritual_ZNK15QKeyCombinationcviEv": ["int", "address"],
     "ritual_ZeqRK15QKeyCombinationS1_": ["bool", "address", "address"],
     "ritual_ZneRK15QKeyCombinationS1_": ["bool", "address", "address"],
-    "ritual_ZN15QKeyCombinationD1Ev": ["nothing", "address"]
+    "ritual_ZN15QKeyCombinationD1Ev": ["nothing", "address"],
+    "ritual_list_make_QKeyCombination": ["address"],
+    "ritual_list_add_QKeyCombination": ["nothing", "address", "address"],
+    "ritual_list_size_QKeyCombination": ["long long", "address"],
+    "ritual_list_at_QKeyCombination": ["address", "address", "long long"],
+    "ritual_list_drop_QKeyCombination": ["nothing", "address"]
   }
 }

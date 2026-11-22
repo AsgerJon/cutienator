@@ -219,6 +219,7 @@ __all__ = (
     'QActionEvent',
     'QRasterWindow',
     'QStandardItemModel',
+    'QWindowList',
 )
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -427,6 +428,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_action_event import QActionEvent
   from ._q_raster_window import QRasterWindow
   from ._q_standard_item_model import QStandardItemModel
+  from ._q_window import QWindowList
 else:
   #  Where each class is: the file that is brought in the first
   #  time the class is asked for.
@@ -634,13 +636,14 @@ else:
       'QActionEvent': '_q_action_event',
       'QRasterWindow': '_q_raster_window',
       'QStandardItemModel': '_q_standard_item_model',
+      'QWindowList': '_q_window',
   }
 
 
   def __getattr__(name: str) -> Any:
     """
     Brings in a class of this part the first time it is asked for,
-    as by 'from cutienator.QtGui import QStandardItemModel'. Python calls
+    as by 'from cutienator.QtGui import QWindowList'. Python calls
     this for a name the package does not hold yet. The file of the
     class is brought in, which brings in the files that class needs
     and no others, and the class is kept here for the next time.

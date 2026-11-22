@@ -23,6 +23,7 @@ from ._cute_overload import CuteOverload
 from ._cute_space import CuteSpace
 from ._meta_cute import MetaCute
 from ._cute_mixin import CuteMixin
+from ._cute_map import CuteMap
 
 __all__ = (
     'DoorNumber',
@@ -42,4 +43,5 @@ __all__ = (
     'CuteSpace',
     'MetaCute',
     'CuteMixin',
+    'CuteMap',
 )

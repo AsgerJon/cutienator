@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -47,10 +47,10 @@ class QDialogButtonBox(QWidget):
   -----------
 
   Every function of Qt's QDialogButtonBox that has a ritual and that Python
-  can call so far, 18 names in all: 'metaObject', 'tr', 'setOrientation',
-  'orientation', 'addButton', 'removeButton', 'clear', 'buttonRole',
-  'setStandardButtons', 'standardButtons', 'standardButton', 'button',
-  'setCenterButtons', 'centerButtons', 'standardButtonText',
+  can call so far, 19 names in all: 'metaObject', 'tr', 'setOrientation',
+  'orientation', 'addButton', 'removeButton', 'clear', 'buttons',
+  'buttonRole', 'setStandardButtons', 'standardButtons', 'standardButton',
+  'button', 'setCenterButtons', 'centerButtons', 'standardButtonText',
   'standardButtonShortcut', 'changeEvent', 'event'. It can be made from
   Python, in 4 ways; see '__init__'.
 
@@ -63,8 +63,8 @@ class QDialogButtonBox(QWidget):
   What has no ritual
   ------------------
 
-  13 of the 38 functions Qt declares: 4 a signal; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
+  12 of the 38 functions Qt declares: 4 a signal; 3 private; 2 takes or gives
+  a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -317,6 +317,23 @@ class QDialogButtonBox(QWidget):
     return Qt.Orientation(self.uglySide.call(
         'ritual_ZNK16QDialogButtonBox11orientationEv',
     ))
+
+  def buttons(self) -> QList[QAbstractButton]:
+    """
+    Calls Qt's 'QList<QAbstractButton *> QDialogButtonBox::buttons() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialogbuttonbox.html#buttons
+
+    Returns
+    -------
+
+    QList[QAbstractButton]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QAbstractButton *> QDialogButtonBox::buttons() const
+    address = self.uglySide.call('ritual_ZNK16QDialogButtonBox7buttonsEv')
+    from . import QAbstractButton
+    return QList[QAbstractButton]._cuteOwning(address)
 
   @overload(QAbstractButton)
   @overload(NoneType)

@@ -3,6 +3,7 @@
 #include <QtCore/qxmlstream.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
+#include <QtCore/qlist.h>
 
 //  QXmlStreamNamespaceDeclaration::QXmlStreamNamespaceDeclaration()
 extern "C" Q_DECL_EXPORT
@@ -55,5 +56,43 @@ bool ritual_ZneRK30QXmlStreamNamespaceDeclarationS1_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QXmlStreamNamespaceDeclarationD1Ev(
     QXmlStreamNamespaceDeclaration *self) {
+  delete self;
+}
+
+//  QList<QXmlStreamNamespaceDeclaration>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QXmlStreamNamespaceDeclaration> *ritual_list_make_QXmlStreamNamespaceDeclaration() {
+  return new QList<QXmlStreamNamespaceDeclaration>();
+}
+
+//  void QList<QXmlStreamNamespaceDeclaration>::append(const
+//      QXmlStreamNamespaceDeclaration &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QXmlStreamNamespaceDeclaration(
+    QList<QXmlStreamNamespaceDeclaration> *self,
+    const QXmlStreamNamespaceDeclaration *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QXmlStreamNamespaceDeclaration>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QXmlStreamNamespaceDeclaration(
+    const QList<QXmlStreamNamespaceDeclaration> *self) {
+  return self->size();
+}
+
+//  const QXmlStreamNamespaceDeclaration
+//      &QList<QXmlStreamNamespaceDeclaration>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QXmlStreamNamespaceDeclaration *ritual_list_at_QXmlStreamNamespaceDeclaration(
+    const QList<QXmlStreamNamespaceDeclaration> *self,
+    long long index) {
+  return new QXmlStreamNamespaceDeclaration(self->at(index));
+}
+
+//  QList<QXmlStreamNamespaceDeclaration>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QXmlStreamNamespaceDeclaration(
+    QList<QXmlStreamNamespaceDeclaration> *self) {
   delete self;
 }

@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -26,7 +26,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QGraphicsScene, QGraphicsSceneContextMenuEvent
   from . import QGraphicsSceneDragDropEvent, QGraphicsSceneHoverEvent
   from . import QGraphicsSceneMouseEvent, QGraphicsSceneWheelEvent
-  from . import QGraphicsWidget, QStyleOptionGraphicsItem, QWidget
+  from . import QGraphicsTransform, QGraphicsWidget, QStyleOptionGraphicsItem
+  from . import QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -41,6 +42,7 @@ else:
   QGraphicsSceneHoverEvent = WAIT['QGraphicsSceneHoverEvent']
   QGraphicsSceneMouseEvent = WAIT['QGraphicsSceneMouseEvent']
   QGraphicsSceneWheelEvent = WAIT['QGraphicsSceneWheelEvent']
+  QGraphicsTransform = WAIT['QGraphicsTransform']
   QInputMethodEvent = WAIT['QInputMethodEvent']
   QKeyEvent = WAIT['QKeyEvent']
   QPainter = WAIT['QPainter']
@@ -68,12 +70,12 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QGraphicsItem that has a ritual and that Python can
-  call so far, 154 names in all: 'scene', 'parentItem', 'topLevelItem',
+  call so far, 158 names in all: 'scene', 'parentItem', 'topLevelItem',
   'parentObject', 'parentWidget', 'topLevelWidget', 'window', 'panel',
-  'setParentItem', 'isWidget', 'isWindow', 'isPanel', 'toGraphicsObject',
-  'group', 'setGroup', 'flags', 'setFlag', 'setFlags', 'cacheMode',
-  'setCacheMode', 'panelModality', 'setPanelModality', 'toolTip',
-  'setToolTip', 'cursor', 'setCursor', 'hasCursor', 'unsetCursor',
+  'setParentItem', 'childItems', 'isWidget', 'isWindow', 'isPanel',
+  'toGraphicsObject', 'group', 'setGroup', 'flags', 'setFlag', 'setFlags',
+  'cacheMode', 'setCacheMode', 'panelModality', 'setPanelModality',
+  'toolTip', 'setToolTip', 'cursor', 'setCursor', 'hasCursor', 'unsetCursor',
   'isVisible', 'isVisibleTo', 'setVisible', 'hide', 'show', 'isEnabled',
   'setEnabled', 'isSelected', 'setSelected', 'acceptDrops', 'setAcceptDrops',
   'opacity', 'effectiveOpacity', 'setOpacity', 'graphicsEffect',
@@ -86,18 +88,18 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
   'ungrabKeyboard', 'pos', 'x', 'setX', 'y', 'setY', 'scenePos', 'setPos',
   'moveBy', 'ensureVisible', 'transform', 'sceneTransform',
   'deviceTransform', 'setTransform', 'resetTransform', 'setRotation',
-  'rotation', 'setScale', 'scale', 'transformOriginPoint',
-  'setTransformOriginPoint', 'advance', 'zValue', 'setZValue', 'stackBefore',
-  'boundingRect', 'childrenBoundingRect', 'sceneBoundingRect', 'shape',
-  'isClipped', 'clipPath', 'contains', 'collidesWithItem',
-  'collidesWithPath', 'isObscured', 'isObscuredBy', 'opaqueArea',
-  'boundingRegion', 'boundingRegionGranularity',
-  'setBoundingRegionGranularity', 'paint', 'update', 'scroll', 'mapToItem',
-  'mapToParent', 'mapToScene', 'mapRectToItem', 'mapRectToParent',
-  'mapRectToScene', 'mapFromItem', 'mapFromParent', 'mapFromScene',
-  'mapRectFromItem', 'mapRectFromParent', 'mapRectFromScene', 'isAncestorOf',
-  'commonAncestorItem', 'isUnderMouse', 'data', 'setData',
-  'inputMethodHints', 'setInputMethodHints', 'type',
+  'rotation', 'setScale', 'scale', 'transformations', 'setTransformations',
+  'transformOriginPoint', 'setTransformOriginPoint', 'advance', 'zValue',
+  'setZValue', 'stackBefore', 'boundingRect', 'childrenBoundingRect',
+  'sceneBoundingRect', 'shape', 'isClipped', 'clipPath', 'contains',
+  'collidesWithItem', 'collidesWithPath', 'collidingItems', 'isObscured',
+  'isObscuredBy', 'opaqueArea', 'boundingRegion',
+  'boundingRegionGranularity', 'setBoundingRegionGranularity', 'paint',
+  'update', 'scroll', 'mapToItem', 'mapToParent', 'mapToScene',
+  'mapRectToItem', 'mapRectToParent', 'mapRectToScene', 'mapFromItem',
+  'mapFromParent', 'mapFromScene', 'mapRectFromItem', 'mapRectFromParent',
+  'mapRectFromScene', 'isAncestorOf', 'commonAncestorItem', 'isUnderMouse',
+  'data', 'setData', 'inputMethodHints', 'setInputMethodHints', 'type',
   'installSceneEventFilter', 'removeSceneEventFilter', 'sceneEventFilter',
   'sceneEvent', 'contextMenuEvent', 'dragEnterEvent', 'dragLeaveEvent',
   'dragMoveEvent', 'dropEvent', 'focusInEvent', 'focusOutEvent',
@@ -122,9 +124,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  17 of the 215 functions Qt declares: 7 protected; 5 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 2 private; 1 the class is abstract,
-  so C++ cannot make one.
+  13 of the 215 functions Qt declares: 7 protected; 2 forbidden; 2 private; 1
+  the class is abstract, so C++ cannot make one; 1 takes or gives a type that
+  cannot be passed yet.
 
   What to expect
   --------------
@@ -682,6 +684,24 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     )
     return QGraphicsItem._cuteAt(address)
 
+  def childItems(self) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *> QGraphicsItem::childItems() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#childItems
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *> QGraphicsItem::childItems() const
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem10childItemsEv',
+    )
+    return QList[QGraphicsItem]._cuteOwning(address)
+
   def isWidget(self) -> bool:
     """
     Calls Qt's 'bool QGraphicsItem::isWidget() const'.
@@ -1236,6 +1256,26 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     #  qreal QGraphicsItem::scale() const
     return self._callAs('QGraphicsItem', 'ritual_ZNK13QGraphicsItem5scaleEv')
 
+  def transformations(self) -> QList[QGraphicsTransform]:
+    """
+    Calls Qt's 'QList<QGraphicsTransform *> QGraphicsItem::transformations()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#transformations
+
+    Returns
+    -------
+
+    QList[QGraphicsTransform]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsTransform *> QGraphicsItem::transformations() const
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZNK13QGraphicsItem15transformationsEv',
+    )
+    from . import QGraphicsTransform
+    return QList[QGraphicsTransform]._cuteOwning(address)
+
   def transformOriginPoint(self) -> QPointF:
     """
     Calls Qt's 'QPointF QGraphicsItem::transformOriginPoint() const'.
@@ -1474,6 +1514,40 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     return self._callAs(
         'QGraphicsItem', ritual, self._valueOf(path), mode.value,
     )
+
+  @overload()
+  @overload(Qt.ItemSelectionMode)
+  def collidingItems(
+      self,
+      mode: Qt.ItemSelectionMode = Qt.ItemSelectionMode.IntersectsItemShape,
+  ) -> QList[QGraphicsItem]:
+    """
+    Calls Qt's 'QList<QGraphicsItem *>
+    QGraphicsItem::collidingItems(Qt::ItemSelectionMode mode) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems
+
+    Parameters
+    ----------
+
+    mode : Qt.ItemSelectionMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.ItemSelectionMode.IntersectsItemShape.
+
+    Returns
+    -------
+
+    QList[QGraphicsItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGraphicsItem *>
+    #      QGraphicsItem::collidingItems(Qt::ItemSelectionMode mode) const
+    address = self._callAs(
+        'QGraphicsItem',
+        'ritual_ZNK13QGraphicsItem14collidingItemsEN2Qt17ItemSelectionModeE',
+        mode.value,
+    )
+    return QList[QGraphicsItem]._cuteOwning(address)
 
   @overload()
   @overload(QRectF)
@@ -4144,6 +4218,35 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
         'QGraphicsItem', 'ritual_ZN13QGraphicsItem8setScaleEd', scale,
     )
 
+  @overload(QList[QGraphicsTransform])
+  def setTransformations(
+      self,
+      transformations: QList[QGraphicsTransform],
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::setTransformations(const
+    QList<QGraphicsTransform *> &transformations)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformations
+
+    Parameters
+    ----------
+
+    transformations : QList[QGraphicsTransform]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QGraphicsItem::setTransformations(const QList<QGraphicsTransform
+    #      *> &transformations)
+    self._callAs(
+        'QGraphicsItem',
+        'ritual_ZN13QGraphicsItem18setTransformationsERK5QListIP18QGraphics'
+        'TransformE',
+        self._valueOf(transformations),
+    )
+
   @overload(QPointF)
   def setTransformOriginPoint(self, origin: QPointF) -> None:
     """
@@ -5312,3 +5415,16 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     )
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
+
+
+#  Qt's 'QList<QGraphicsItem *>': the list of QGraphicsItem, which
+#  'QList[QGraphicsItem]' gives. It is made here, so that there is one as
+#  soon as there can be a QGraphicsItem.
+QList.createKind(
+    QGraphicsItem, 'address',
+    make='ritual_list_make_QGraphicsItem_ptr',
+    add='ritual_list_add_QGraphicsItem_ptr',
+    size='ritual_list_size_QGraphicsItem_ptr',
+    at='ritual_list_at_QGraphicsItem_ptr',
+    drop='ritual_list_drop_QGraphicsItem_ptr',
+)

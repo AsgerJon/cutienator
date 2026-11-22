@@ -15,6 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
+from . import QStringList
 
 
 class QProcessEnvironment(CuteMixin, metaclass=MetaCute):
@@ -30,9 +31,10 @@ class QProcessEnvironment(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QProcessEnvironment that has a ritual and that
-  Python can call so far, 10 names in all: 'isEmpty', 'inheritsFromParent',
-  'clear', 'contains', 'insert', 'remove', 'value', 'systemEnvironment',
-  '__eq__', '__ne__'. It can be made from Python, in 3 ways; see '__init__'.
+  Python can call so far, 12 names in all: 'isEmpty', 'inheritsFromParent',
+  'clear', 'contains', 'insert', 'remove', 'value', 'toStringList', 'keys',
+  'systemEnvironment', '__eq__', '__ne__'. It can be made from Python, in 3
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -44,7 +46,7 @@ class QProcessEnvironment(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 20 functions Qt declares: 5 takes or gives a type that cannot be
+  3 of the 20 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -194,6 +196,41 @@ class QProcessEnvironment(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK19QProcessEnvironment5valueERK7QStringS2_',
         name, defaultValue,
     )
+
+  def toStringList(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QProcessEnvironment::toStringList() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qprocessenvironment.html#toStringList
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QProcessEnvironment::toStringList() const
+    address = self.uglySide.call(
+        'ritual_ZNK19QProcessEnvironment12toStringListEv',
+    )
+    return QStringList._cuteOwning(address)
+
+  def keys(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QProcessEnvironment::keys() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocessenvironment.html#keys
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QProcessEnvironment::keys() const
+    address = self.uglySide.call('ritual_ZNK19QProcessEnvironment4keysEv')
+    return QStringList._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

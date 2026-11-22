@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import QChar
+from ..QtCore import QChar, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QByteArray
@@ -41,13 +41,16 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFontDatabase that has a ritual and that Python can
-  call so far, 22 names in all: 'styleString', 'font', 'isBitmapScalable',
-  'isSmoothlyScalable', 'isScalable', 'isFixedPitch', 'italic', 'bold',
-  'weight', 'hasFamily', 'isPrivateFamily', 'writingSystemName',
-  'writingSystemSample', 'addApplicationFont', 'addApplicationFontFromData',
+  call so far, 29 names in all: 'families', 'styles', 'styleString', 'font',
+  'isBitmapScalable', 'isSmoothlyScalable', 'isScalable', 'isFixedPitch',
+  'italic', 'bold', 'weight', 'hasFamily', 'isPrivateFamily',
+  'writingSystemName', 'writingSystemSample', 'addApplicationFont',
+  'addApplicationFontFromData', 'applicationFontFamilies',
   'removeApplicationFont', 'removeAllApplicationFonts',
   'addApplicationFallbackFontFamily', 'removeApplicationFallbackFontFamily',
+  'setApplicationFallbackFontFamilies', 'applicationFallbackFontFamilies',
   'addApplicationEmojiFontFamily', 'removeApplicationEmojiFontFamily',
+  'setApplicationEmojiFontFamilies', 'applicationEmojiFontFamilies',
   'systemFont'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
@@ -59,7 +62,7 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  15 of the 40 functions Qt declares: 12 takes or gives a type that cannot be
+  8 of the 40 functions Qt declares: 5 takes or gives a type that cannot be
   passed yet; 1 declared and nowhere to be found; 1 a template; 1 private.
 
   What to expect
@@ -136,6 +139,64 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload()
+  @overload(WritingSystem)
+  def families(
+      writingSystem: WritingSystem = WritingSystem.Any,
+  ) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFontDatabase::families(WritingSystem
+    writingSystem)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontdatabase.html#families
+
+    Parameters
+    ----------
+
+    writingSystem : WritingSystem
+      Passed on as its number. May be left out, as in Qt: it is then
+      WritingSystem.Any.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFontDatabase::families(WritingSystem writingSystem)
+    address = Rituals.call(
+        'ritual_ZN13QFontDatabase8familiesENS_13WritingSystemE',
+        writingSystem.value,
+    )
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
+  @overload(str)
+  def styles(family: str) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFontDatabase::styles(const QString &family)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontdatabase.html#styles
+
+    Parameters
+    ----------
+
+    family : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFontDatabase::styles(const QString &family)
+    address = Rituals.call(
+        'ritual_ZN13QFontDatabase6stylesERK7QString', family,
+    )
+    return QStringList._cuteOwning(address)
 
   @staticmethod
   @overload(QFont)
@@ -549,6 +610,33 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
 
   @staticmethod
   @overload(int)
+  def applicationFontFamilies(id: int) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFontDatabase::applicationFontFamilies(int id)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfontdatabase.html#applicationFontFamilies
+
+    Parameters
+    ----------
+
+    id : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFontDatabase::applicationFontFamilies(int id)
+    address = Rituals.call(
+        'ritual_ZN13QFontDatabase23applicationFontFamiliesEi', id,
+    )
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
+  @overload(int)
   def removeApplicationFont(id: int) -> bool:
     """
     Calls Qt's 'bool QFontDatabase::removeApplicationFont(int id)'.
@@ -643,6 +731,71 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
     )
 
   @staticmethod
+  @overload(QChar.Script, QStringList)
+  def setApplicationFallbackFontFamilies(
+      a0: QChar.Script,
+      familyNames: QStringList,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QFontDatabase::setApplicationFallbackFontFamilies(QChar::Script a0, const
+    QStringList &familyNames)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfontdatabase.html
+
+    Parameters
+    ----------
+
+    a0 : QChar.Script
+      Passed on as its number.
+
+    familyNames : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFontDatabase::setApplicationFallbackFontFamilies(QChar::Script
+    #      a0, const QStringList &familyNames)
+    Rituals.call(
+        'ritual_ZN13QFontDatabase34setApplicationFallbackFontFamiliesEN5QCh'
+        'ar6ScriptERK5QListI7QStringE',
+        a0.value, CuteMixin._valueOf(familyNames),
+    )
+
+  @staticmethod
+  @overload(QChar.Script)
+  def applicationFallbackFontFamilies(script: QChar.Script) -> QStringList:
+    """
+    Calls Qt's 'QStringList
+    QFontDatabase::applicationFallbackFontFamilies(QChar::Script script)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfontdatabase.html#applicationFallbackFontFamilies
+
+    Parameters
+    ----------
+
+    script : QChar.Script
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList
+    #      QFontDatabase::applicationFallbackFontFamilies(QChar::Script
+    #      script)
+    address = Rituals.call(
+        'ritual_ZN13QFontDatabase31applicationFallbackFontFamiliesEN5QChar6'
+        'ScriptE',
+        script.value,
+    )
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
   @overload(str)
   def addApplicationEmojiFontFamily(familyName: str) -> None:
     """
@@ -688,6 +841,52 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
         'ing',
         familyName,
     )
+
+  @staticmethod
+  @overload(QStringList)
+  def setApplicationEmojiFontFamilies(familyNames: QStringList) -> None:
+    """
+    Calls Qt's 'void QFontDatabase::setApplicationEmojiFontFamilies(const
+    QStringList &familyNames)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfontdatabase.html#setApplicationEmojiFontFamilies
+
+    Parameters
+    ----------
+
+    familyNames : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFontDatabase::setApplicationEmojiFontFamilies(const QStringList
+    #      &familyNames)
+    Rituals.call(
+        'ritual_ZN13QFontDatabase31setApplicationEmojiFontFamiliesERK5QList'
+        'I7QStringE',
+        CuteMixin._valueOf(familyNames),
+    )
+
+  @staticmethod
+  def applicationEmojiFontFamilies() -> QStringList:
+    """
+    Calls Qt's 'QStringList QFontDatabase::applicationEmojiFontFamilies()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfontdatabase.html#applicationEmojiFontFamilies
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFontDatabase::applicationEmojiFontFamilies()
+    address = Rituals.call(
+        'ritual_ZN13QFontDatabase28applicationEmojiFontFamiliesEv',
+    )
+    return QStringList._cuteOwning(address)
 
   @staticmethod
   @overload(SystemFont)

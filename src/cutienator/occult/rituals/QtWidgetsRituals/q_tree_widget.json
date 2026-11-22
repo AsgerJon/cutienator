@@ -27,8 +27,17 @@
     "ritual_ZNK11QTreeWidget19indexOfTopLevelItemEP15QTreeWidgetItem": [
       "int", "address", "address"
     ],
+    "ritual_ZN11QTreeWidget19insertTopLevelItemsEiRK5QListIP15QTreeWidgetItemE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN11QTreeWidget16addTopLevelItemsERK5QListIP15QTreeWidgetItemE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK11QTreeWidget10headerItemEv": ["address", "address"],
     "ritual_ZN11QTreeWidget13setHeaderItemEP15QTreeWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTreeWidget15setHeaderLabelsERK5QListI7QStringE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN11QTreeWidget14setHeaderLabelERK7QString": [
@@ -78,6 +87,10 @@
     ],
     "ritual_ZN11QTreeWidget16removeItemWidgetEP15QTreeWidgetItemi": [
       "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QTreeWidget13selectedItemsEv": ["address", "address"],
+    "ritual_ZNK11QTreeWidget9findItemsERK7QString6QFlagsIN2Qt9MatchFlagEEi": [
+      "address", "address", "text", "int", "int"
     ],
     "ritual_ZNK11QTreeWidget9itemAboveEPK15QTreeWidgetItem": [
       "address", "address", "address"

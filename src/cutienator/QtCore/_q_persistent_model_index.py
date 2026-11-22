@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt
+from . import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -763,3 +763,16 @@ class QPersistentModelIndex(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK21QPersistentModelIndex9multiDataE18QModelRoleDataSpan',
         self._valueOf(roleDataSpan),
     )
+
+
+#  Qt's 'QList<QPersistentModelIndex>': the list of QPersistentModelIndex,
+#  which 'QList[QPersistentModelIndex]' gives. It is made here, so that there
+#  is one as soon as there can be a QPersistentModelIndex.
+QList.createKind(
+    QPersistentModelIndex, 'value',
+    make='ritual_list_make_QPersistentModelIndex',
+    add='ritual_list_add_QPersistentModelIndex',
+    size='ritual_list_size_QPersistentModelIndex',
+    at='ritual_list_at_QPersistentModelIndex',
+    drop='ritual_list_drop_QPersistentModelIndex',
+)

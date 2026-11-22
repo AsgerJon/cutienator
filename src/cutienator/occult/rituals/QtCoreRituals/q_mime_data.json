@@ -8,6 +8,10 @@
     "ritual_ZN9QMimeData2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN9QMimeDataC1Ev": ["address"],
     "ritual_ZN9QMimeDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QMimeData4urlsEv": ["address", "address"],
+    "ritual_ZN9QMimeData7setUrlsERK5QListI4QUrlE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK9QMimeData7hasUrlsEv": ["bool", "address"],
     "ritual_ZNK9QMimeData4textEv": ["text", "address"],
     "ritual_ZN9QMimeData7setTextERK7QString": ["nothing", "address", "text"],
@@ -33,6 +37,7 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK9QMimeData9hasFormatERK7QString": ["bool", "address", "text"],
+    "ritual_ZNK9QMimeData7formatsEv": ["address", "address"],
     "ritual_ZN9QMimeData5clearEv": ["nothing", "address"],
     "ritual_take_QMimeData": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QMimeData9hasFormatERK7QString": [

@@ -14,6 +14,11 @@
     "ritual_ZNK13QFileSelector6selectERK4QUrl": [
       "address", "address", "address"
     ],
+    "ritual_ZNK13QFileSelector14extraSelectorsEv": ["address", "address"],
+    "ritual_ZN13QFileSelector17setExtraSelectorsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QFileSelector12allSelectorsEv": ["address", "address"],
     "ritual_take_QFileSelector": ["bool", "address", "chars", "address"]
   }
 }

@@ -19,6 +19,9 @@
     "ritual_ZN18QCommandLineParser9addOptionERK18QCommandLineOption": [
       "bool", "address", "address"
     ],
+    "ritual_ZN18QCommandLineParser10addOptionsERK5QListI18QCommandLineOptionE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN18QCommandLineParser16addVersionOptionEv": [
       "address", "address"
     ],
@@ -35,6 +38,12 @@
     "ritual_ZN18QCommandLineParser24clearPositionalArgumentsEv": [
       "nothing", "address"
     ],
+    "ritual_ZN18QCommandLineParser7processERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCommandLineParser5parseERK5QListI7QStringE": [
+      "bool", "address", "address"
+    ],
     "ritual_ZNK18QCommandLineParser9errorTextEv": ["text", "address"],
     "ritual_ZNK18QCommandLineParser5isSetERK7QString": [
       "bool", "address", "text"
@@ -42,11 +51,24 @@
     "ritual_ZNK18QCommandLineParser5valueERK7QString": [
       "text", "address", "text"
     ],
+    "ritual_ZNK18QCommandLineParser6valuesERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZNK18QCommandLineParser5isSetERK18QCommandLineOption": [
       "bool", "address", "address"
     ],
     "ritual_ZNK18QCommandLineParser5valueERK18QCommandLineOption": [
       "text", "address", "address"
+    ],
+    "ritual_ZNK18QCommandLineParser6valuesERK18QCommandLineOption": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QCommandLineParser19positionalArgumentsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QCommandLineParser11optionNamesEv": ["address", "address"],
+    "ritual_ZNK18QCommandLineParser18unknownOptionNamesEv": [
+      "address", "address"
     ],
     "ritual_ZN18QCommandLineParser11showVersionEv": ["nothing", "address"],
     "ritual_ZN18QCommandLineParser8showHelpEi": [

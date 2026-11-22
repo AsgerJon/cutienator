@@ -7,6 +7,7 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <QtGui/qicon.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QComboBox may call these functions of it.
@@ -1207,6 +1208,14 @@ void ritual_ZN9QComboBox7addItemERK5QIconRK7QStringRK8QVariant(
   self->addItem(*icon, *text, *userData);
 }
 
+//  void QComboBox::addItems(const QStringList &texts)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox8addItemsERK5QListI7QStringE(
+    QComboBox *self,
+    const QList<QString> *texts) {
+  self->addItems(*texts);
+}
+
 //  void QComboBox::insertItem(int index, const QString &text, const QVariant
 //      &userData)
 extern "C" Q_DECL_EXPORT
@@ -1228,6 +1237,15 @@ void ritual_ZN9QComboBox10insertItemEiRK5QIconRK7QStringRK8QVariant(
     const QString *text,
     const QVariant *userData) {
   self->insertItem(index, *icon, *text, *userData);
+}
+
+//  void QComboBox::insertItems(int index, const QStringList &texts)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox11insertItemsEiRK5QListI7QStringE(
+    QComboBox *self,
+    int index,
+    const QList<QString> *texts) {
+  self->insertItems(index, *texts);
 }
 
 //  void QComboBox::insertSeparator(int index)

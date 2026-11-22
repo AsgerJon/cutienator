@@ -14,9 +14,10 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
+from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QTextCharFormat
+  from . import QGlyphRun, QTextCharFormat
 
 
 class QTextFragment(CuteMixin, metaclass=MetaCute):
@@ -32,9 +33,9 @@ class QTextFragment(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextFragment that has a ritual and that Python can
-  call so far, 10 names in all: 'isValid', '__eq__', '__ne__', '__lt__',
-  'position', 'length', 'contains', 'charFormat', 'charFormatIndex', 'text'.
-  It can be made from Python, in 2 ways; see '__init__'.
+  call so far, 11 names in all: 'isValid', '__eq__', '__ne__', '__lt__',
+  'position', 'length', 'contains', 'charFormat', 'charFormatIndex', 'text',
+  'glyphRuns'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -45,7 +46,7 @@ class QTextFragment(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 16 functions Qt declares: 3 takes or gives a type that cannot be
+  2 of the 16 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -177,6 +178,38 @@ class QTextFragment(CuteMixin, metaclass=MetaCute):
     """
     #  QString QTextFragment::text() const
     return self.uglySide.call('ritual_ZNK13QTextFragment4textEv')
+
+  @overload()
+  @overload(int)
+  @overload(int, int)
+  def glyphRuns(self, from_: int = -1, length: int = -1) -> QList[QGlyphRun]:
+    """
+    Calls Qt's 'QList<QGlyphRun> QTextFragment::glyphRuns(int from, int
+    length) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextfragment.html#glyphRuns
+
+    Parameters
+    ----------
+
+    from_ : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    length : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    Returns
+    -------
+
+    QList[QGlyphRun]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGlyphRun> QTextFragment::glyphRuns(int from, int length) const
+    address = self.uglySide.call(
+        'ritual_ZNK13QTextFragment9glyphRunsEii', from_, length,
+    )
+    from . import QGlyphRun
+    return QList[QGlyphRun]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

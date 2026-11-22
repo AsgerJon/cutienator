@@ -15,6 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -42,16 +43,17 @@ class QUrl(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QUrl that has a ritual and that Python can call so
-  far, 48 names in all: 'setUrl', 'fromEncoded', 'fromUserInput', 'isValid',
+  far, 51 names in all: 'setUrl', 'fromEncoded', 'fromUserInput', 'isValid',
   'errorString', 'isEmpty', 'clear', 'setScheme', 'scheme', 'setAuthority',
   'authority', 'setUserInfo', 'userInfo', 'setUserName', 'userName',
   'setPassword', 'password', 'setHost', 'host', 'setPort', 'port', 'setPath',
   'path', 'fileName', 'hasQuery', 'setQuery', 'query', 'hasFragment',
   'fragment', 'setFragment', 'resolved', 'isRelative', 'isParentOf',
   'isLocalFile', 'fromLocalFile', 'toLocalFile', 'detach', 'isDetached',
-  'fromPercentEncoding', 'toPercentEncoding', 'fromAce', 'toAce', '__eq__',
-  '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made from
-  Python, in 3 ways; see '__init__'.
+  'fromPercentEncoding', 'toPercentEncoding', 'fromAce', 'toAce',
+  'idnWhitelist', 'fromStringList', 'setIdnWhitelist', '__eq__', '__ne__',
+  '__lt__', '__gt__', '__le__', '__ge__'. It can be made from Python, in 3
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -62,7 +64,7 @@ class QUrl(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  17 of the 70 functions Qt declares: 16 takes or gives a type that cannot be
+  14 of the 70 functions Qt declares: 13 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -416,6 +418,84 @@ class QUrl(CuteMixin, metaclass=MetaCute):
     )
     from . import QByteArray
     return QByteArray._cuteOwning(address)
+
+  @staticmethod
+  def idnWhitelist() -> QStringList:
+    """
+    Calls Qt's 'QStringList QUrl::idnWhitelist()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurl.html#idnWhitelist
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QUrl::idnWhitelist()
+    address = Rituals.call('ritual_ZN4QUrl12idnWhitelistEv')
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
+  @overload(QStringList)
+  @overload(QStringList, ParsingMode)
+  def fromStringList(
+      uris: QStringList,
+      mode: ParsingMode = ParsingMode.TolerantMode,
+  ) -> QList[QUrl]:
+    """
+    Calls Qt's 'QList<QUrl> QUrl::fromStringList(const QStringList &uris,
+    ParsingMode mode)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurl.html#fromStringList
+
+    Parameters
+    ----------
+
+    uris : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    mode : ParsingMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      ParsingMode.TolerantMode.
+
+    Returns
+    -------
+
+    QList[QUrl]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QUrl> QUrl::fromStringList(const QStringList &uris, ParsingMode
+    #      mode)
+    address = Rituals.call(
+        'ritual_ZN4QUrl14fromStringListERK5QListI7QStringENS_11ParsingModeE',
+        CuteMixin._valueOf(uris), mode.value,
+    )
+    return QList[QUrl]._cuteOwning(address)
+
+  @staticmethod
+  @overload(QStringList)
+  def setIdnWhitelist(a0: QStringList) -> None:
+    """
+    Calls Qt's 'void QUrl::setIdnWhitelist(const QStringList &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurl.html#setIdnWhitelist
+
+    Parameters
+    ----------
+
+    a0 : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QUrl::setIdnWhitelist(const QStringList &a0)
+    Rituals.call(
+        'ritual_ZN4QUrl15setIdnWhitelistERK5QListI7QStringE',
+        CuteMixin._valueOf(a0),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1480,3 +1560,15 @@ class QUrl(CuteMixin, metaclass=MetaCute):
     """
     #  void QUrl::detach()
     self.uglySide.call('ritual_ZN4QUrl6detachEv')
+
+
+#  Qt's 'QList<QUrl>': the list of QUrl, which 'QList[QUrl]' gives. It is
+#  made here, so that there is one as soon as there can be a QUrl.
+QList.createKind(
+    QUrl, 'value',
+    make='ritual_list_make_QUrl',
+    add='ritual_list_add_QUrl',
+    size='ritual_list_size_QUrl',
+    at='ritual_list_at_QUrl',
+    drop='ritual_list_drop_QUrl',
+)

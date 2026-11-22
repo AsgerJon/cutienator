@@ -14,12 +14,14 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
+from . import QTextLayout
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QPointF, QRectF
-  from . import QPainter
+  from . import QGlyphRun, QPainter
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,12 +47,12 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextLine that has a ritual and that Python can call
-  so far, 24 names in all: 'isValid', 'rect', 'x', 'y', 'width', 'ascent',
+  so far, 25 names in all: 'isValid', 'rect', 'x', 'y', 'width', 'ascent',
   'descent', 'height', 'leading', 'setLeadingIncluded', 'leadingIncluded',
   'naturalTextWidth', 'horizontalAdvance', 'naturalTextRect', 'cursorToX',
   'xToCursor', 'setLineWidth', 'setNumColumns', 'setPosition', 'position',
-  'textStart', 'textLength', 'lineNumber', 'draw'. It can be made from
-  Python, in 1 way; see '__init__'.
+  'textStart', 'textLength', 'lineNumber', 'draw', 'glyphRuns'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,8 +65,7 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 33 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet.
+  3 of the 33 functions Qt declares: 3 private.
 
   What to expect
   --------------
@@ -351,6 +352,79 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
     """
     #  int QTextLine::lineNumber() const
     return self.uglySide.call('ritual_ZNK9QTextLine10lineNumberEv')
+
+  @overload(int, int, QTextLayout.GlyphRunRetrievalFlags)
+  def glyphRuns(
+      self,
+      from_: int,
+      length: int,
+      flags: QTextLayout.GlyphRunRetrievalFlags,
+  ) -> QList[QGlyphRun]:
+    """
+    Calls Qt's 'QList<QGlyphRun> QTextLine::glyphRuns(int from, int length,
+    QTextLayout::GlyphRunRetrievalFlags flags) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextline.html#glyphRuns
+
+    Parameters
+    ----------
+
+    from_ : int
+      Passed on as it is.
+
+    length : int
+      Passed on as it is.
+
+    flags : QTextLayout.GlyphRunRetrievalFlags
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QList[QGlyphRun]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGlyphRun> QTextLine::glyphRuns(int from, int length,
+    #      QTextLayout::GlyphRunRetrievalFlags flags) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QTextLine9glyphRunsEii6QFlagsIN11QTextLayout21GlyphRunR'
+        'etrievalFlagEE',
+        from_, length, flags.value,
+    )
+    from . import QGlyphRun
+    return QList[QGlyphRun]._cuteOwning(address)
+
+  @overload()
+  @overload(int)
+  @overload(int, int)
+  def glyphRuns(self, from_: int = -1, length: int = -1) -> QList[QGlyphRun]:
+    """
+    Calls Qt's 'QList<QGlyphRun> QTextLine::glyphRuns(int from, int length)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextline.html#glyphRuns
+
+    Parameters
+    ----------
+
+    from_ : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    length : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    Returns
+    -------
+
+    QList[QGlyphRun]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGlyphRun> QTextLine::glyphRuns(int from, int length) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QTextLine9glyphRunsEii', from_, length,
+    )
+    from . import QGlyphRun
+    return QList[QGlyphRun]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

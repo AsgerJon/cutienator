@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -1027,3 +1027,16 @@ class QMdiSubWindow(QWidget):
         'ritual_own_ZN13QMdiSubWindow10childEventEP11QChildEvent',
         self._addressOf(childEvent),
     )
+
+
+#  Qt's 'QList<QMdiSubWindow *>': the list of QMdiSubWindow, which
+#  'QList[QMdiSubWindow]' gives. It is made here, so that there is one as
+#  soon as there can be a QMdiSubWindow.
+QList.createKind(
+    QMdiSubWindow, 'address',
+    make='ritual_list_make_QMdiSubWindow_ptr',
+    add='ritual_list_add_QMdiSubWindow_ptr',
+    size='ritual_list_size_QMdiSubWindow_ptr',
+    at='ritual_list_at_QMdiSubWindow_ptr',
+    drop='ritual_list_drop_QMdiSubWindow_ptr',
+)

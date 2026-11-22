@@ -276,10 +276,10 @@ class RitualTester:
     #  themselves: the one giving where a part of an object is, the one
     #  handing a Python function over, and the one running just the
     #  class's own function, which is named after that function.
-    apart = ('cast', 'take', 'own')
+    apart = ('cast', 'take', 'own', 'list', 'map')
     for ritual in written:
       name, kind = ritual['ritualName'], ritual['kind']
-      if kind in ('cast', 'take'):
+      if kind in ('cast', 'take', 'list', 'map'):
         continue
       start = len('ritual_own') if kind == 'own' else len('ritual')
       if name[start:] not in compilerNames:

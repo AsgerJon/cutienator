@@ -9,7 +9,11 @@
     "ritual_ZN12QLibraryInfo13isSharedBuildEv": ["bool"],
     "ritual_ZN12QLibraryInfo7versionEv": ["address"],
     "ritual_ZN12QLibraryInfo4pathENS_11LibraryPathE": ["text", "int"],
+    "ritual_ZN12QLibraryInfo5pathsENS_11LibraryPathE": ["address", "int"],
     "ritual_ZN12QLibraryInfo8locationENS_11LibraryPathE": ["text", "int"],
+    "ritual_ZN12QLibraryInfo23platformPluginArgumentsERK7QString": [
+      "address", "text"
+    ],
     "ritual_ZN12QLibraryInfoD1Ev": ["nothing", "address"]
   }
 }

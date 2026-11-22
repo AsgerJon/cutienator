@@ -4,6 +4,7 @@
     "QtWidgets/qstylefactory.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QStyleFactory4keysEv": ["address"],
     "ritual_ZN13QStyleFactory6createERK7QString": ["address", "text"],
     "ritual_ZN13QStyleFactoryD1Ev": ["nothing", "address"]
   }

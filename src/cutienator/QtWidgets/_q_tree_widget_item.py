@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -52,7 +52,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTreeWidgetItem that has a ritual and that Python
-  can call so far, 52 names in all: 'clone', 'treeWidget', 'setSelected',
+  can call so far, 55 names in all: 'clone', 'treeWidget', 'setSelected',
   'isSelected', 'setHidden', 'isHidden', 'setExpanded', 'isExpanded',
   'setFirstColumnSpanned', 'isFirstColumnSpanned', 'setDisabled',
   'isDisabled', 'setChildIndicatorPolicy', 'childIndicatorPolicy', 'flags',
@@ -62,8 +62,9 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   'setBackground', 'foreground', 'setForeground', 'checkState',
   'setCheckState', 'sizeHint', 'setSizeHint', 'data', 'setData', '__lt__',
   'parent', 'child', 'childCount', 'columnCount', 'indexOfChild', 'addChild',
-  'insertChild', 'removeChild', 'takeChild', 'type', 'sortChildren'. It can
-  be made from Python, in 5 ways; see '__init__'.
+  'insertChild', 'removeChild', 'takeChild', 'addChildren', 'insertChildren',
+  'takeChildren', 'type', 'sortChildren'. It can be made from Python, in 8
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -81,8 +82,8 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  15 of the 76 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 5 private; 1 protected.
+  9 of the 76 functions Qt declares: 5 private; 3 takes or gives a type that
+  cannot be passed yet; 1 protected.
 
   What to expect
   --------------
@@ -1217,6 +1218,33 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
         'ritual_ZN15QTreeWidgetItemC1Ei', type,
     ))
 
+  @overload(QStringList)
+  @overload(QStringList, int)
+  def __init__(self, strings: QStringList, type: int = 0) -> None:
+    """
+    Notes what was given, for Qt's 'QTreeWidgetItem::QTreeWidgetItem(const
+    QStringList &strings, int type)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidgetitem.html#QTreeWidgetItem
+
+    Parameters
+    ----------
+
+    strings : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    type : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+    """
+    #  QTreeWidgetItem::QTreeWidgetItem(const QStringList &strings, int type)
+    self._noteCreation(QTreeWidgetItem, lambda: Rituals.call(
+        'ritual_ZN15QTreeWidgetItemC1ERK5QListI7QStringEi',
+        self._valueOf(strings), type,
+    ))
+
   @overload(QTreeWidget)
   @overload(NoneType)
   @overload(QTreeWidget, int)
@@ -1244,6 +1272,46 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     self._noteCreation(QTreeWidgetItem, lambda: Rituals.call(
         'ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgeti',
         self._addressOf(treeview), type,
+    ))
+
+  @overload(QTreeWidget, QStringList)
+  @overload(NoneType, QStringList)
+  @overload(QTreeWidget, QStringList, int)
+  @overload(NoneType, QStringList, int)
+  def __init__(
+      self,
+      treeview: Optional[QTreeWidget],
+      strings: QStringList,
+      type: int = 0,
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QTreeWidgetItem::QTreeWidgetItem(QTreeWidget *treeview, const
+    QStringList &strings, int type)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidgetitem.html#QTreeWidgetItem
+
+    Parameters
+    ----------
+
+    treeview : Optional[QTreeWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    strings : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    type : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+    """
+    #  QTreeWidgetItem::QTreeWidgetItem(QTreeWidget *treeview, const
+    #      QStringList &strings, int type)
+    self._noteCreation(QTreeWidgetItem, lambda: Rituals.call(
+        'ritual_ZN15QTreeWidgetItemC1EP11QTreeWidgetRK5QListI7QStringEi',
+        self._addressOf(treeview), self._valueOf(strings), type,
     ))
 
   @overload(QTreeWidget, THIS)
@@ -1317,6 +1385,44 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     #  QTreeWidgetItem::QTreeWidgetItem(QTreeWidgetItem *parent, int type)
     self._noteCreation(QTreeWidgetItem, lambda: Rituals.call(
         'ritual_ZN15QTreeWidgetItemC1EPS_i', self._addressOf(parent), type,
+    ))
+
+  @overload(THIS, QStringList)
+  @overload(THIS, QStringList, int)
+  def __init__(
+      self,
+      parent: Optional[QTreeWidgetItem],
+      strings: QStringList,
+      type: int = 0,
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QTreeWidgetItem::QTreeWidgetItem(QTreeWidgetItem *parent, const
+    QStringList &strings, int type)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidgetitem.html#QTreeWidgetItem
+
+    Parameters
+    ----------
+
+    parent : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    strings : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    type : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+    """
+    #  QTreeWidgetItem::QTreeWidgetItem(QTreeWidgetItem *parent, const
+    #      QStringList &strings, int type)
+    self._noteCreation(QTreeWidgetItem, lambda: Rituals.call(
+        'ritual_ZN15QTreeWidgetItemC1EPS_RK5QListI7QStringEi',
+        self._addressOf(parent), self._valueOf(strings), type,
     ))
 
   @overload(THIS, THIS)
@@ -1474,6 +1580,78 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     )
     return QTreeWidgetItem._cuteAt(address)
 
+  @overload(QList[WAIT['QTreeWidgetItem']])
+  def addChildren(self, children: QList[QTreeWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QTreeWidgetItem::addChildren(const QList<QTreeWidgetItem
+    *> &children)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidgetitem.html#addChildren
+
+    Parameters
+    ----------
+
+    children : QList[QTreeWidgetItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QTreeWidgetItem::addChildren(const QList<QTreeWidgetItem *>
+    #      &children)
+    self.uglySide.call(
+        'ritual_ZN15QTreeWidgetItem11addChildrenERK5QListIPS_E',
+        self._valueOf(children),
+    )
+
+  @overload(int, QList[WAIT['QTreeWidgetItem']])
+  def insertChildren(
+      self,
+      index: int,
+      children: QList[QTreeWidgetItem],
+  ) -> None:
+    """
+    Calls Qt's 'void QTreeWidgetItem::insertChildren(int index, const
+    QList<QTreeWidgetItem *> &children)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidgetitem.html#insertChildren
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+
+    children : QList[QTreeWidgetItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QTreeWidgetItem::insertChildren(int index, const
+    #      QList<QTreeWidgetItem *> &children)
+    self.uglySide.call(
+        'ritual_ZN15QTreeWidgetItem14insertChildrenEiRK5QListIPS_E',
+        index, self._valueOf(children),
+    )
+
+  def takeChildren(self) -> QList[QTreeWidgetItem]:
+    """
+    Calls Qt's 'QList<QTreeWidgetItem *> QTreeWidgetItem::takeChildren()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidgetitem.html#takeChildren
+
+    Returns
+    -------
+
+    QList[QTreeWidgetItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QTreeWidgetItem *> QTreeWidgetItem::takeChildren()
+    address = self.uglySide.call(
+        'ritual_ZN15QTreeWidgetItem12takeChildrenEv',
+    )
+    return QList[QTreeWidgetItem]._cuteOwning(address)
+
   @overload(int, Qt.SortOrder)
   def sortChildren(self, column: int, order: Qt.SortOrder) -> None:
     """
@@ -1496,3 +1674,16 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
         'ritual_ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE',
         column, order.value,
     )
+
+
+#  Qt's 'QList<QTreeWidgetItem *>': the list of QTreeWidgetItem, which
+#  'QList[QTreeWidgetItem]' gives. It is made here, so that there is one as
+#  soon as there can be a QTreeWidgetItem.
+QList.createKind(
+    QTreeWidgetItem, 'address',
+    make='ritual_list_make_QTreeWidgetItem_ptr',
+    add='ritual_list_add_QTreeWidgetItem_ptr',
+    size='ritual_list_size_QTreeWidgetItem_ptr',
+    at='ritual_list_at_QTreeWidgetItem_ptr',
+    drop='ritual_list_drop_QTreeWidgetItem_ptr',
+)

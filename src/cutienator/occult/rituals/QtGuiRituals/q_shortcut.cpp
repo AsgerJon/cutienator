@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtGui/qkeysequence.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QShortcut may call these functions of it.
@@ -210,6 +211,20 @@ void ritual_ZN9QShortcut7setKeysEN12QKeySequence11StandardKeyE(
     QShortcut *self,
     QKeySequence::StandardKey key) {
   self->setKeys(key);
+}
+
+//  void QShortcut::setKeys(const QList<QKeySequence> &keys)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QShortcut7setKeysERK5QListI12QKeySequenceE(
+    QShortcut *self,
+    const QList<QKeySequence> *keys) {
+  self->setKeys(*keys);
+}
+
+//  QList<QKeySequence> QShortcut::keys() const
+extern "C" Q_DECL_EXPORT
+QList<QKeySequence> *ritual_ZNK9QShortcut4keysEv(const QShortcut *self) {
+  return new QList<QKeySequence>(self->keys());
 }
 
 //  void QShortcut::setEnabled(bool enable)

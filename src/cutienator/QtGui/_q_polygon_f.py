@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QPointF, QRectF
@@ -43,7 +43,7 @@ class QPolygonF(CuteMixin, metaclass=MetaCute):
   Every function of Qt's QPolygonF that has a ritual and that Python can call
   so far, 10 names in all: 'translate', 'translated', 'toPolygon',
   'isClosed', 'boundingRect', 'containsPoint', 'united', 'intersected',
-  'subtracted', 'intersects'. It can be made from Python, in 3 ways; see
+  'subtracted', 'intersects'. It can be made from Python, in 4 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
@@ -57,7 +57,7 @@ class QPolygonF(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 20 functions Qt declares: 3 takes or gives a type that cannot be
+  2 of the 20 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -350,6 +350,27 @@ class QPolygonF(CuteMixin, metaclass=MetaCute):
         'ritual_ZN9QPolygonFC1Ev',
     ))
 
+  @overload(QList[QPointF])
+  def __init__(self, v: QList[QPointF]) -> None:
+    """
+    Notes what was given, for Qt's 'QPolygonF::QPolygonF(const QList<QPointF>
+    &v)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpolygonf.html#QPolygonF
+
+    Parameters
+    ----------
+
+    v : QList[QPointF]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  QPolygonF::QPolygonF(const QList<QPointF> &v)
+    self._noteCreation(QPolygonF, lambda: Rituals.call(
+        'ritual_ZN9QPolygonFC1ERK5QListI7QPointFE', self._valueOf(v),
+    ))
+
   @overload(QRectF)
   def __init__(self, r: QRectF) -> None:
     """
@@ -447,3 +468,16 @@ class QPolygonF(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN9QPolygonF9translateERK7QPointF', self._valueOf(offset),
     )
+
+
+#  Qt's 'QList<QPolygonF>': the list of QPolygonF, which 'QList[QPolygonF]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QPolygonF.
+QList.createKind(
+    QPolygonF, 'value',
+    make='ritual_list_make_QPolygonF',
+    add='ritual_list_add_QPolygonF',
+    size='ritual_list_size_QPolygonF',
+    at='ritual_list_at_QPolygonF',
+    drop='ritual_list_drop_QPolygonF',
+)

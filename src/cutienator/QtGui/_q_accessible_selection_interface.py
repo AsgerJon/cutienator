@@ -12,6 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
+from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -37,10 +38,10 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QAccessibleSelectionInterface that has a ritual and
-  that Python can call so far, 7 names in all: 'selectedItemCount',
-  'selectedItem', 'isSelected', 'select', 'unselect', 'selectAll', 'clear'.
-  None can be made from Python: one comes out of a function of another class
-  that gives one back.
+  that Python can call so far, 8 names in all: 'selectedItemCount',
+  'selectedItems', 'selectedItem', 'isSelected', 'select', 'unselect',
+  'selectAll', 'clear'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,8 +52,8 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 14 functions Qt declares: 4 forbidden; 1 the class is abstract, so
-  C++ cannot make one; 1 takes or gives a type that cannot be passed yet.
+  5 of the 14 functions Qt declares: 4 forbidden; 1 the class is abstract, so
+  C++ cannot make one.
 
   What to expect
   --------------
@@ -173,6 +174,28 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK29QAccessibleSelectionInterface17selectedItemCountEv',
     )
+
+  def selectedItems(self) -> QList[QAccessibleInterface]:
+    """
+    Calls Qt's 'QList<QAccessibleInterface *>
+    QAccessibleSelectionInterface::selectedItems() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#selectedItems
+
+    Returns
+    -------
+
+    QList[QAccessibleInterface]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QAccessibleInterface *>
+    #      QAccessibleSelectionInterface::selectedItems() const
+    address = self.uglySide.call(
+        'ritual_ZNK29QAccessibleSelectionInterface13selectedItemsEv',
+    )
+    from . import QAccessibleInterface
+    return QList[QAccessibleInterface]._cuteOwning(address)
 
   @overload(int)
   def selectedItem(

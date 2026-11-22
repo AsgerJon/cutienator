@@ -13,6 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import WAIT
 from ..occult import Rituals
+from ..QtCore import QStringList
 from ..QtGui import QAccessible, QAccessibleActionInterface
 from ..QtGui import QAccessibleInterface, QAccessibleObject
 
@@ -48,16 +49,17 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
   -----------
 
   Every function of Qt's QAccessibleWidget that has a ritual and that Python
-  can call so far, 14 names in all: 'isValid', 'window', 'childCount',
+  can call so far, 16 names in all: 'isValid', 'window', 'childCount',
   'indexOfChild', 'focusChild', 'rect', 'parent', 'child', 'text', 'role',
-  'state', 'foregroundColor', 'backgroundColor', 'doAction'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  'state', 'foregroundColor', 'backgroundColor', 'actionNames', 'doAction',
+  'keyBindingsForAction'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has no ritual
   ------------------
 
-  10 of the 26 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 protected; 2 forbidden.
+  8 of the 26 functions Qt declares: 4 protected; 2 takes or gives a type
+  that cannot be passed yet; 2 forbidden.
 
   What to expect
   --------------
@@ -377,6 +379,53 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
     address = self.uglySide.call(ritual)
     from ..QtGui import QColor
     return QColor._cuteOwning(address)
+
+  def actionNames(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QAccessibleWidget::actionNames() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaccessiblewidget.html#actionNames
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QAccessibleWidget::actionNames() const
+    address = self.uglySide.call(
+        'ritual_ZNK17QAccessibleWidget11actionNamesEv',
+    )
+    return QStringList._cuteOwning(address)
+
+  @overload(str)
+  def keyBindingsForAction(self, actionName: str) -> QStringList:
+    """
+    Calls Qt's 'QStringList QAccessibleWidget::keyBindingsForAction(const
+    QString &actionName) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessiblewidget.html#keyBindingsForAction
+
+    Parameters
+    ----------
+
+    actionName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QAccessibleWidget::keyBindingsForAction(const QString
+    #      &actionName) const
+    address = self.uglySide.call(
+        'ritual_ZNK17QAccessibleWidget20keyBindingsForActionERK7QString',
+        actionName,
+    )
+    return QStringList._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

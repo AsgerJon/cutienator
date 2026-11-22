@@ -26,6 +26,7 @@
     "ritual_ZN6QColor13setNamedColorE13QLatin1String": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN6QColor10colorNamesEv": ["address"],
     "ritual_ZNK6QColor4specEv": ["int", "address"],
     "ritual_ZNK6QColor5alphaEv": ["int", "address"],
     "ritual_ZN6QColor8setAlphaEi": ["nothing", "address", "int"],
@@ -167,6 +168,11 @@
       "address", "int", "unsigned short", "unsigned short", "unsigned short",
       "unsigned short", "unsigned short"
     ],
-    "ritual_ZN6QColorD1Ev": ["nothing", "address"]
+    "ritual_ZN6QColorD1Ev": ["nothing", "address"],
+    "ritual_list_make_QColor": ["address"],
+    "ritual_list_add_QColor": ["nothing", "address", "address"],
+    "ritual_list_size_QColor": ["long long", "address"],
+    "ritual_list_at_QColor": ["address", "address", "long long"],
+    "ritual_list_drop_QColor": ["nothing", "address"]
   }
 }

@@ -13,6 +13,7 @@
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qbytearray.h>
 #include <QtGui/qpixelformat.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QImage may call these functions of it.
@@ -881,6 +882,12 @@ QPoint *ritual_ZNK6QImage6offsetEv(const QImage *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QImage9setOffsetERK6QPoint(QImage *self, const QPoint *a0) {
   self->setOffset(*a0);
+}
+
+//  QStringList QImage::textKeys() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK6QImage8textKeysEv(const QImage *self) {
+  return new QList<QString>(self->textKeys());
 }
 
 //  QString QImage::text(const QString &key) const

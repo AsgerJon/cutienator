@@ -10,6 +10,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from ..cute import CuteMixin, MetaCute
+from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QJsonObject
@@ -138,3 +139,16 @@ class QStaticPlugin(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QStaticPlugin>': the list of QStaticPlugin, which
+#  'QList[QStaticPlugin]' gives. It is made here, so that there is one as
+#  soon as there can be a QStaticPlugin.
+QList.createKind(
+    QStaticPlugin, 'value',
+    make='ritual_list_make_QStaticPlugin',
+    add='ritual_list_add_QStaticPlugin',
+    size='ritual_list_size_QStaticPlugin',
+    at='ritual_list_at_QStaticPlugin',
+    drop='ritual_list_drop_QStaticPlugin',
+)

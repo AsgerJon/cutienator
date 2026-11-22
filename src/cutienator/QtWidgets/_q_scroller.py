@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -46,13 +46,13 @@ class QScroller(QObject):
   -----------
 
   Every function of Qt's QScroller that has a ritual and that Python can call
-  so far, 21 names in all: 'metaObject', 'tr', 'hasScroller', 'scroller',
-  'grabGesture', 'grabbedGesture', 'ungrabGesture', 'target', 'state',
-  'handleInput', 'stop', 'velocity', 'finalPosition', 'pixelPerMeter',
-  'scrollerProperties', 'setSnapPositionsX', 'setSnapPositionsY',
-  'setScrollerProperties', 'scrollTo', 'ensureVisible', 'resendPrepareEvent'.
-  None can be made from Python: one comes out of a function of another class
-  that gives one back.
+  so far, 22 names in all: 'metaObject', 'tr', 'hasScroller', 'scroller',
+  'grabGesture', 'grabbedGesture', 'ungrabGesture', 'activeScrollers',
+  'target', 'state', 'handleInput', 'stop', 'velocity', 'finalPosition',
+  'pixelPerMeter', 'scrollerProperties', 'setSnapPositionsX',
+  'setSnapPositionsY', 'setScrollerProperties', 'scrollTo', 'ensureVisible',
+  'resendPrepareEvent'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,8 +63,8 @@ class QScroller(QObject):
   What has no ritual
   ------------------
 
-  15 of the 39 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 5 private; 2 a signal; 2 forbidden; 1 a template.
+  14 of the 39 functions Qt declares: 5 private; 4 takes or gives a type that
+  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -301,6 +301,23 @@ class QScroller(QObject):
         'ritual_ZN9QScroller13ungrabGestureEP7QObject',
         CuteMixin._addressOf(target),
     )
+
+  @staticmethod
+  def activeScrollers() -> QList[QScroller]:
+    """
+    Calls Qt's 'QList<QScroller *> QScroller::activeScrollers()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscroller.html#activeScrollers
+
+    Returns
+    -------
+
+    QList[QScroller]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QScroller *> QScroller::activeScrollers()
+    address = Rituals.call('ritual_ZN9QScroller15activeScrollersEv')
+    return QList[QScroller]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -712,3 +729,16 @@ class QScroller(QObject):
     """
     #  void QScroller::resendPrepareEvent()
     self.uglySide.call('ritual_ZN9QScroller18resendPrepareEventEv')
+
+
+#  Qt's 'QList<QScroller *>': the list of QScroller, which 'QList[QScroller]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QScroller.
+QList.createKind(
+    QScroller, 'address',
+    make='ritual_list_make_QScroller_ptr',
+    add='ritual_list_add_QScroller_ptr',
+    size='ritual_list_size_QScroller_ptr',
+    at='ritual_list_at_QScroller_ptr',
+    drop='ritual_list_drop_QScroller_ptr',
+)

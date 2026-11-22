@@ -5,6 +5,7 @@
 #include <QtCore/qstringview.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qcalendar.h>
+#include <QtCore/qlist.h>
 
 //  QLocale::QLocale()
 extern "C" Q_DECL_EXPORT
@@ -848,6 +849,14 @@ QString *ritual_ZNK7QLocale17formattedDataSizeExi6QFlagsINS_14DataSizeFormatEE(
           QFlags<QLocale::DataSizeFormat>::fromInt(format)));
 }
 
+//  QStringList QLocale::uiLanguages(TagSeparator separator) const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK7QLocale11uiLanguagesENS_12TagSeparatorE(
+    const QLocale *self,
+    QLocale::TagSeparator separator) {
+  return new QList<QString>(self->uiLanguages(separator));
+}
+
 //  QString QLocale::languageToCode(Language language, LanguageCodeTypes
 //      codeTypes)
 extern "C" Q_DECL_EXPORT
@@ -952,6 +961,20 @@ QLocale *ritual_ZN7QLocale6systemEv() {
   return new QLocale(QLocale::system());
 }
 
+//  QList<QLocale> QLocale::matchingLocales(QLocale::Language language,
+//      QLocale::Script script, QLocale::Territory territory)
+extern "C" Q_DECL_EXPORT
+QList<QLocale> *ritual_ZN7QLocale15matchingLocalesENS_8LanguageENS_6ScriptENS_7CountryE(
+    QLocale::Language language,
+    QLocale::Script script,
+    QLocale::Territory territory) {
+  return new QList<QLocale>(
+      QLocale::matchingLocales(
+          language,
+          script,
+          territory));
+}
+
 //  void QLocale::setNumberOptions(NumberOptions options)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QLocale16setNumberOptionsE6QFlagsINS_12NumberOptionEE(
@@ -985,6 +1008,14 @@ QString *ritual_ZNK7QLocale11quoteStringE11QStringViewNS_14QuotationStyleE(
   return new QString(self->quoteString(QStringView(*str), style));
 }
 
+//  QString QLocale::createSeparatedList(const QStringList &strl) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK7QLocale19createSeparatedListERK5QListI7QStringE(
+    const QLocale *self,
+    const QList<QString> *strl) {
+  return new QString(self->createSeparatedList(*strl));
+}
+
 //  bool operator==(const QLocale &lhs, const QLocale &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK7QLocaleS1_(const QLocale *lhs, const QLocale *rhs) {
@@ -995,4 +1026,36 @@ bool ritual_ZeqRK7QLocaleS1_(const QLocale *lhs, const QLocale *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK7QLocaleS1_(const QLocale *lhs, const QLocale *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  QList<QLocale>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QLocale> *ritual_list_make_QLocale() {
+  return new QList<QLocale>();
+}
+
+//  void QList<QLocale>::append(const QLocale &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QLocale(QList<QLocale> *self, const QLocale *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QLocale>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QLocale(const QList<QLocale> *self) {
+  return self->size();
+}
+
+//  const QLocale &QList<QLocale>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QLocale *ritual_list_at_QLocale(
+    const QList<QLocale> *self,
+    long long index) {
+  return new QLocale(self->at(index));
+}
+
+//  QList<QLocale>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QLocale(QList<QLocale> *self) {
+  delete self;
 }

@@ -25,6 +25,9 @@
     ],
     "ritual_ZNK18QRegularExpression11errorStringEv": ["text", "address"],
     "ritual_ZNK18QRegularExpression12captureCountEv": ["int", "address"],
+    "ritual_ZNK18QRegularExpression18namedCaptureGroupsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK18QRegularExpression5matchERK7QStringxNS_9MatchTypeE6QFlagsINS_11MatchOptionEE": [
       "address", "address", "text", "long long", "int", "int"
     ],

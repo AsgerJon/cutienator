@@ -5,6 +5,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QInputDialog that Python can take functions over in. Every QInputDialog
@@ -973,6 +974,21 @@ bool ritual_ZNK12QInputDialog18isComboBoxEditableEv(
   return self->isComboBoxEditable();
 }
 
+//  void QInputDialog::setComboBoxItems(const QStringList &items)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputDialog16setComboBoxItemsERK5QListI7QStringE(
+    QInputDialog *self,
+    const QList<QString> *items) {
+  self->setComboBoxItems(*items);
+}
+
+//  QStringList QInputDialog::comboBoxItems() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK12QInputDialog13comboBoxItemsEv(
+    const QInputDialog *self) {
+  return new QList<QString>(self->comboBoxItems());
+}
+
 //  void QInputDialog::setIntValue(int value)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QInputDialog11setIntValueEi(QInputDialog *self, int value) {
@@ -1198,6 +1214,34 @@ QString *ritual_ZN12QInputDialog16getMultiLineTextEP7QWidgetRK7QStringS4_S4_Pb6Q
           *title,
           *label,
           *text,
+          ok,
+          QFlags<Qt::WindowType>::fromInt(flags),
+          QFlags<Qt::InputMethodHint>::fromInt(inputMethodHints)));
+}
+
+//  QString QInputDialog::getItem(QWidget *parent, const QString &title,
+//      const QString &label, const QStringList &items, int current, bool
+//      editable, bool *ok, Qt::WindowFlags flags, Qt::InputMethodHints
+//      inputMethodHints)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN12QInputDialog7getItemEP7QWidgetRK7QStringS4_RK5QListIS2_EibPb6QFlagsIN2Qt10WindowTypeEESA_INSB_15InputMethodHintEE(
+    QWidget *parent,
+    const QString *title,
+    const QString *label,
+    const QList<QString> *items,
+    int current,
+    bool editable,
+    bool *ok,
+    int flags,
+    int inputMethodHints) {
+  return new QString(
+      QInputDialog::getItem(
+          parent,
+          *title,
+          *label,
+          *items,
+          current,
+          editable,
           ok,
           QFlags<Qt::WindowType>::fromInt(flags),
           QFlags<Qt::InputMethodHint>::fromInt(inputMethodHints)));

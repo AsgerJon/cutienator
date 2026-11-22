@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -43,10 +43,10 @@ class QButtonGroup(QObject):
   -----------
 
   Every function of Qt's QButtonGroup that has a ritual and that Python can
-  call so far, 11 names in all: 'metaObject', 'tr', 'setExclusive',
-  'exclusive', 'addButton', 'removeButton', 'checkedButton', 'button',
-  'setId', 'id', 'checkedId'. It can be made from Python, in 1 way; see
-  '__init__'.
+  call so far, 12 names in all: 'metaObject', 'tr', 'setExclusive',
+  'exclusive', 'addButton', 'removeButton', 'buttons', 'checkedButton',
+  'button', 'setId', 'id', 'checkedId'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,8 +57,8 @@ class QButtonGroup(QObject):
   What has no ritual
   ------------------
 
-  17 of the 30 functions Qt declares: 8 a signal; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
+  16 of the 30 functions Qt declares: 8 a signal; 3 private; 2 takes or gives
+  a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -174,6 +174,23 @@ class QButtonGroup(QObject):
     """
     #  bool QButtonGroup::exclusive() const
     return self.uglySide.call('ritual_ZNK12QButtonGroup9exclusiveEv')
+
+  def buttons(self) -> QList[QAbstractButton]:
+    """
+    Calls Qt's 'QList<QAbstractButton *> QButtonGroup::buttons() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuttongroup.html#buttons
+
+    Returns
+    -------
+
+    QList[QAbstractButton]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QAbstractButton *> QButtonGroup::buttons() const
+    address = self.uglySide.call('ritual_ZNK12QButtonGroup7buttonsEv')
+    from . import QAbstractButton
+    return QList[QAbstractButton]._cuteOwning(address)
 
   def checkedButton(self) -> Optional[QAbstractButton]:
     """

@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qdir.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qtimezone.h>
@@ -11,6 +12,10 @@
 #include <QtCore/qfileinfo.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  Only a class built on QFileSystemModel may call these functions of it.
@@ -868,6 +873,22 @@ void ritual_ZN16QFileSystemModel4sortEiN2Qt9SortOrderE(
   self->sort(column, order);
 }
 
+//  QStringList QFileSystemModel::mimeTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK16QFileSystemModel9mimeTypesEv(
+    const QFileSystemModel *self) {
+  return new QList<QString>(self->mimeTypes());
+}
+
+//  QMimeData *QFileSystemModel::mimeData(const QModelIndexList &indexes)
+//      const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_ZNK16QFileSystemModel8mimeDataERK5QListI11QModelIndexE(
+    const QFileSystemModel *self,
+    const QList<QModelIndex> *indexes) {
+  return self->mimeData(*indexes);
+}
+
 //  bool QFileSystemModel::dropMimeData(const QMimeData *data, Qt::DropAction
 //      action, int row, int column, const QModelIndex &parent)
 extern "C" Q_DECL_EXPORT
@@ -886,6 +907,13 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK16QFileSystemModel20supportedDropActionsEv(
     const QFileSystemModel *self) {
   return static_cast<int>(self->supportedDropActions().toInt());
+}
+
+//  QHash<int, QByteArray> QFileSystemModel::roleNames() const
+extern "C" Q_DECL_EXPORT
+QHash<int, QByteArray> *ritual_ZNK16QFileSystemModel9roleNamesEv(
+    const QFileSystemModel *self) {
+  return new QHash<int, QByteArray>(self->roleNames());
 }
 
 //  QModelIndex QFileSystemModel::setRootPath(const QString &path)
@@ -983,6 +1011,21 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QFileSystemModel18nameFilterDisablesEv(
     const QFileSystemModel *self) {
   return self->nameFilterDisables();
+}
+
+//  void QFileSystemModel::setNameFilters(const QStringList &filters)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QFileSystemModel14setNameFiltersERK5QListI7QStringE(
+    QFileSystemModel *self,
+    const QList<QString> *filters) {
+  self->setNameFilters(*filters);
+}
+
+//  QStringList QFileSystemModel::nameFilters() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK16QFileSystemModel11nameFiltersEv(
+    const QFileSystemModel *self) {
+  return new QList<QString>(self->nameFilters());
 }
 
 //  void QFileSystemModel::setOption(Option option, bool on)

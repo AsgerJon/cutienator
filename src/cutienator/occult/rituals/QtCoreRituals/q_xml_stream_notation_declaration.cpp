@@ -3,6 +3,7 @@
 #include <QtCore/qxmlstream.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qlist.h>
 
 //  QXmlStreamNotationDeclaration::QXmlStreamNotationDeclaration()
 extern "C" Q_DECL_EXPORT
@@ -53,5 +54,43 @@ bool ritual_ZneRK29QXmlStreamNotationDeclarationS1_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QXmlStreamNotationDeclarationD1Ev(
     QXmlStreamNotationDeclaration *self) {
+  delete self;
+}
+
+//  QList<QXmlStreamNotationDeclaration>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QXmlStreamNotationDeclaration> *ritual_list_make_QXmlStreamNotationDeclaration() {
+  return new QList<QXmlStreamNotationDeclaration>();
+}
+
+//  void QList<QXmlStreamNotationDeclaration>::append(const
+//      QXmlStreamNotationDeclaration &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QXmlStreamNotationDeclaration(
+    QList<QXmlStreamNotationDeclaration> *self,
+    const QXmlStreamNotationDeclaration *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QXmlStreamNotationDeclaration>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QXmlStreamNotationDeclaration(
+    const QList<QXmlStreamNotationDeclaration> *self) {
+  return self->size();
+}
+
+//  const QXmlStreamNotationDeclaration
+//      &QList<QXmlStreamNotationDeclaration>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QXmlStreamNotationDeclaration *ritual_list_at_QXmlStreamNotationDeclaration(
+    const QList<QXmlStreamNotationDeclaration> *self,
+    long long index) {
+  return new QXmlStreamNotationDeclaration(self->at(index));
+}
+
+//  QList<QXmlStreamNotationDeclaration>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QXmlStreamNotationDeclaration(
+    QList<QXmlStreamNotationDeclaration> *self) {
   delete self;
 }

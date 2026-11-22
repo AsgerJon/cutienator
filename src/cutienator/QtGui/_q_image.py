@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QStringList
 from . import QPaintDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -62,7 +62,7 @@ class QImage(QPaintDevice):
   -----------
 
   Every function of Qt's QImage that has a ritual and that Python can call so
-  far, 77 names in all: 'isNull', 'devType', '__eq__', '__ne__', 'detach',
+  far, 78 names in all: 'isNull', 'devType', '__eq__', '__ne__', 'detach',
   'isDetached', 'copy', 'format', 'convertToFormat', 'reinterpretAsFormat',
   'convertedTo', 'convertTo', 'width', 'height', 'size', 'rect', 'depth',
   'colorCount', 'bitPlaneCount', 'color', 'setColor', 'setColorCount',
@@ -76,9 +76,9 @@ class QImage(QPaintDevice):
   'convertedToColorSpace', 'convertToColorSpace', 'setColorSpace',
   'colorTransformed', 'applyColorTransform', 'load', 'loadFromData', 'save',
   'fromData', 'cacheKey', 'paintEngine', 'dotsPerMeterX', 'dotsPerMeterY',
-  'setDotsPerMeterX', 'setDotsPerMeterY', 'offset', 'setOffset', 'text',
-  'setText', 'pixelFormat', 'toPixelFormat', 'toImageFormat', 'metric'. It
-  can be made from Python, in 5 ways; see '__init__'.
+  'setDotsPerMeterX', 'setDotsPerMeterY', 'offset', 'setOffset', 'textKeys',
+  'text', 'setText', 'pixelFormat', 'toPixelFormat', 'toImageFormat',
+  'metric'. It can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -91,7 +91,7 @@ class QImage(QPaintDevice):
   What has no ritual
   ------------------
 
-  41 of the 143 functions Qt declares: 22 takes or gives a type that cannot
+  40 of the 143 functions Qt declares: 21 takes or gives a type that cannot
   be passed yet; 8 can only be called on a value about to be thrown away; 8
   protected; 1 declared and nowhere to be found; 1 a template; 1 private.
 
@@ -1564,6 +1564,22 @@ class QImage(QPaintDevice):
     address = self.uglySide.call('ritual_ZNK6QImage6offsetEv')
     from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
+
+  def textKeys(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QImage::textKeys() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#textKeys
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QImage::textKeys() const
+    address = self.uglySide.call('ritual_ZNK6QImage8textKeysEv')
+    return QStringList._cuteOwning(address)
 
   @overload()
   @overload(str)

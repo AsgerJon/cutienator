@@ -3,9 +3,11 @@
 #include <QtWidgets/qkeysequenceedit.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qkeysequence.h>
+#include <QtCore/qnamespace.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QKeySequenceEdit may call these functions of it.
@@ -831,6 +833,22 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QKeySequenceEdit20isClearButtonEnabledEv(
     const QKeySequenceEdit *self) {
   return self->isClearButtonEnabled();
+}
+
+//  void QKeySequenceEdit::setFinishingKeyCombinations(const
+//      QList<QKeyCombination> &finishingKeyCombinations)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QKeySequenceEdit27setFinishingKeyCombinationsERK5QListI15QKeyCombinationE(
+    QKeySequenceEdit *self,
+    const QList<QKeyCombination> *finishingKeyCombinations) {
+  self->setFinishingKeyCombinations(*finishingKeyCombinations);
+}
+
+//  QList<QKeyCombination> QKeySequenceEdit::finishingKeyCombinations() const
+extern "C" Q_DECL_EXPORT
+QList<QKeyCombination> *ritual_ZNK16QKeySequenceEdit24finishingKeyCombinationsEv(
+    const QKeySequenceEdit *self) {
+  return new QList<QKeyCombination>(self->finishingKeyCombinations());
 }
 
 //  void QKeySequenceEdit::setKeySequence(const QKeySequence &keySequence)

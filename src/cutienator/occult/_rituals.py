@@ -249,6 +249,13 @@ class Rituals:
     return os.path.join(here, 'libcutienator.so')
 
   @classmethod
+  def getQtParts(cls) -> Paths:
+    """Gives the parts of Qt the rituals call into, as 'QtCore'. Each
+    is a package of cutienator as well, holding the cute classes of
+    that part."""
+    return cls.__qt_parts__
+
+  @classmethod
   def getQtSharedObjects(cls) -> Paths:
     """
     Gives the Qt shared objects the rituals call into.

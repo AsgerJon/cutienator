@@ -13,6 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
+from ..QtCore import QStringList
 from ..QtGui import QTextDocument
 from . import QTextEdit, QWidget
 
@@ -49,14 +50,15 @@ class QTextBrowser(QTextEdit):
   -----------
 
   Every function of Qt's QTextBrowser that has a ritual and that Python can
-  call so far, 30 names in all: 'metaObject', 'tr', 'source', 'sourceType',
-  'loadResource', 'isBackwardAvailable', 'isForwardAvailable',
-  'clearHistory', 'historyTitle', 'historyUrl', 'backwardHistoryCount',
-  'forwardHistoryCount', 'openExternalLinks', 'setOpenExternalLinks',
-  'openLinks', 'setOpenLinks', 'setSource', 'backward', 'forward', 'home',
-  'reload', 'event', 'keyPressEvent', 'mouseMoveEvent', 'mousePressEvent',
-  'mouseReleaseEvent', 'focusOutEvent', 'focusNextPrevChild', 'paintEvent',
-  'doSetSource'. It can be made from Python, in 1 way; see '__init__'.
+  call so far, 32 names in all: 'metaObject', 'tr', 'source', 'sourceType',
+  'searchPaths', 'setSearchPaths', 'loadResource', 'isBackwardAvailable',
+  'isForwardAvailable', 'clearHistory', 'historyTitle', 'historyUrl',
+  'backwardHistoryCount', 'forwardHistoryCount', 'openExternalLinks',
+  'setOpenExternalLinks', 'openLinks', 'setOpenLinks', 'setSource',
+  'backward', 'forward', 'home', 'reload', 'event', 'keyPressEvent',
+  'mouseMoveEvent', 'mousePressEvent', 'mouseReleaseEvent', 'focusOutEvent',
+  'focusNextPrevChild', 'paintEvent', 'doSetSource'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -67,8 +69,8 @@ class QTextBrowser(QTextEdit):
   What has no ritual
   ------------------
 
-  16 of the 48 functions Qt declares: 6 a signal; 4 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
+  14 of the 48 functions Qt declares: 6 a signal; 3 private; 2 takes or gives
+  a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -249,6 +251,22 @@ class QTextBrowser(QTextEdit):
         'ritual_ZNK12QTextBrowser10sourceTypeEv',
     ))
 
+  def searchPaths(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QTextBrowser::searchPaths() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#searchPaths
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QTextBrowser::searchPaths() const
+    address = self.uglySide.call('ritual_ZNK12QTextBrowser11searchPathsEv')
+    return QStringList._cuteOwning(address)
+
   def isBackwardAvailable(self) -> bool:
     """
     Calls Qt's 'bool QTextBrowser::isBackwardAvailable() const'.
@@ -369,6 +387,27 @@ class QTextBrowser(QTextEdit):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QStringList)
+  def setSearchPaths(self, paths: QStringList) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::setSearchPaths(const QStringList &paths)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#setSearchPaths
+
+    Parameters
+    ----------
+
+    paths : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QTextBrowser::setSearchPaths(const QStringList &paths)
+    self.uglySide.call(
+        'ritual_ZN12QTextBrowser14setSearchPathsERK5QListI7QStringE',
+        self._valueOf(paths),
+    )
 
   @overload(bool)
   def setOpenExternalLinks(self, open: bool) -> None:

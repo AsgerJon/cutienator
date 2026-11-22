@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt
+from . import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QMargins, QSizeF
@@ -827,3 +827,15 @@ class QSize(CuteMixin, metaclass=MetaCute):
         'ritual_ZN5QSize5scaleERKS_N2Qt15AspectRatioModeE',
         self._valueOf(s), mode.value,
     )
+
+
+#  Qt's 'QList<QSize>': the list of QSize, which 'QList[QSize]' gives. It is
+#  made here, so that there is one as soon as there can be a QSize.
+QList.createKind(
+    QSize, 'value',
+    make='ritual_list_make_QSize',
+    add='ritual_list_add_QSize',
+    size='ritual_list_size_QSize',
+    at='ritual_list_at_QSize',
+    drop='ritual_list_drop_QSize',
+)

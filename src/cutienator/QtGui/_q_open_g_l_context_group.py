@@ -13,12 +13,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
+  from . import QOpenGLContext
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,7 +38,7 @@ class QOpenGLContextGroup(QObject):
   -----------
 
   Every function of Qt's QOpenGLContextGroup that has a ritual and that
-  Python can call so far, 3 names in all: 'metaObject', 'tr',
+  Python can call so far, 4 names in all: 'metaObject', 'tr', 'shares',
   'currentContextGroup'. None can be made from Python: one comes out of a
   function of another class that gives one back.
 
@@ -50,7 +51,7 @@ class QOpenGLContextGroup(QObject):
   What has no ritual
   ------------------
 
-  8 of the 12 functions Qt declares: 4 private; 3 takes or gives a type that
+  7 of the 12 functions Qt declares: 4 private; 2 takes or gives a type that
   cannot be passed yet; 1 a template.
 
   What to expect
@@ -183,6 +184,23 @@ class QOpenGLContextGroup(QObject):
     )
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
+
+  def shares(self) -> QList[QOpenGLContext]:
+    """
+    Calls Qt's 'QList<QOpenGLContext *> QOpenGLContextGroup::shares() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglcontextgroup.html#shares
+
+    Returns
+    -------
+
+    QList[QOpenGLContext]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QOpenGLContext *> QOpenGLContextGroup::shares() const
+    address = self.uglySide.call('ritual_ZNK19QOpenGLContextGroup6sharesEv')
+    from . import QOpenGLContext
+    return QList[QOpenGLContext]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

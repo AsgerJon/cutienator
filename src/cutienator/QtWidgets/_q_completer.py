@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -50,7 +50,7 @@ class QCompleter(QObject):
   -----------
 
   Every function of Qt's QCompleter that has a ritual and that Python can
-  call so far, 36 names in all: 'metaObject', 'tr', 'setWidget', 'widget',
+  call so far, 37 names in all: 'metaObject', 'tr', 'setWidget', 'widget',
   'setModel', 'model', 'setCompletionMode', 'completionMode',
   'setFilterMode', 'filterMode', 'popup', 'setPopup', 'setCaseSensitivity',
   'caseSensitivity', 'setModelSorting', 'modelSorting',
@@ -59,8 +59,8 @@ class QCompleter(QObject):
   'completionCount', 'setCurrentRow', 'currentRow', 'currentIndex',
   'currentCompletion', 'completionModel', 'completionPrefix',
   'setCompletionPrefix', 'complete', 'setWrapAround', 'pathFromIndex',
-  'eventFilter', 'event'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'splitPath', 'eventFilter', 'event'. It can be made from Python, in 3 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -71,8 +71,8 @@ class QCompleter(QObject):
   What has no ritual
   ------------------
 
-  14 of the 53 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 a signal; 3 private; 2 forbidden; 1 a template.
+  12 of the 53 functions Qt declares: 4 a signal; 3 private; 2 takes or gives
+  a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -499,6 +499,32 @@ class QCompleter(QObject):
       ritual = 'ritual_own_ZNK10QCompleter13pathFromIndexERK11QModelIndex'
     return self.uglySide.call(ritual, self._valueOf(index))
 
+  @overload(str)
+  def splitPath(self, path: str) -> QStringList:
+    """
+    Calls Qt's 'QStringList QCompleter::splitPath(const QString &path)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompleter.html#splitPath
+
+    Parameters
+    ----------
+
+    path : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QCompleter::splitPath(const QString &path) const
+    address = self.uglySide.call(
+        'ritual_ZNK10QCompleter9splitPathERK7QString', path,
+    )
+    return QStringList._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -812,6 +838,39 @@ class QCompleter(QObject):
     #  QCompleter::QCompleter(QObject *parent)
     self._noteCreation(QCompleter, lambda: Rituals.call(
         'ritual_ZN10QCompleterC1EP7QObject', self._addressOf(parent),
+    ))
+
+  @overload(QStringList)
+  @overload(QStringList, QObject)
+  @overload(QStringList, NoneType)
+  def __init__(
+      self,
+      completions: QStringList,
+      parent: Optional[QObject] = None,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QCompleter::QCompleter(const QStringList
+    &completions, QObject *parent)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompleter.html#QCompleter
+
+    Parameters
+    ----------
+
+    completions : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QCompleter::QCompleter(const QStringList &completions, QObject
+    #      *parent)
+    self._noteCreation(QCompleter, lambda: Rituals.call(
+        'ritual_ZN10QCompleterC1ERK5QListI7QStringEP7QObject',
+        self._valueOf(completions), self._addressOf(parent),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

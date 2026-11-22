@@ -6,7 +6,12 @@
 #include <QtCore/qitemselectionmodel.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  A QAbstractProxyModel that Python can take functions over in. Every QAbstractProxyModel
@@ -891,6 +896,15 @@ QVariant *ritual_ZNK19QAbstractProxyModel10headerDataEiN2Qt11OrientationEi(
   return new QVariant(self->headerData(section, orientation, role));
 }
 
+//  QMap<int, QVariant> QAbstractProxyModel::itemData(const QModelIndex
+//      &index) const
+extern "C" Q_DECL_EXPORT
+QMap<int, QVariant> *ritual_ZNK19QAbstractProxyModel8itemDataERK11QModelIndex(
+    const QAbstractProxyModel *self,
+    const QModelIndex *index) {
+  return new QMap<int, QVariant>(self->itemData(*index));
+}
+
 //  Qt::ItemFlags QAbstractProxyModel::flags(const QModelIndex &index) const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK19QAbstractProxyModel5flagsERK11QModelIndex(
@@ -908,6 +922,16 @@ bool ritual_ZN19QAbstractProxyModel7setDataERK11QModelIndexRK8QVarianti(
     const QVariant *value,
     int role) {
   return self->setData(*index, *value, role);
+}
+
+//  bool QAbstractProxyModel::setItemData(const QModelIndex &index, const
+//      QMap<int, QVariant> &roles)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QAbstractProxyModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE(
+    QAbstractProxyModel *self,
+    const QModelIndex *index,
+    const QMap<int, QVariant> *roles) {
+  return self->setItemData(*index, *roles);
 }
 
 //  bool QAbstractProxyModel::setHeaderData(int section, Qt::Orientation
@@ -990,6 +1014,15 @@ QModelIndex *ritual_ZNK19QAbstractProxyModel7siblingEiiRK11QModelIndex(
   return new QModelIndex(self->sibling(row, column, *idx));
 }
 
+//  QMimeData *QAbstractProxyModel::mimeData(const QModelIndexList &indexes)
+//      const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_ZNK19QAbstractProxyModel8mimeDataERK5QListI11QModelIndexE(
+    const QAbstractProxyModel *self,
+    const QList<QModelIndex> *indexes) {
+  return self->mimeData(*indexes);
+}
+
 //  bool QAbstractProxyModel::canDropMimeData(const QMimeData *data,
 //      Qt::DropAction action, int row, int column, const QModelIndex
 //      &parent) const
@@ -1018,6 +1051,13 @@ bool ritual_ZN19QAbstractProxyModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEi
   return self->dropMimeData(data, action, row, column, *parent);
 }
 
+//  QStringList QAbstractProxyModel::mimeTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK19QAbstractProxyModel9mimeTypesEv(
+    const QAbstractProxyModel *self) {
+  return new QList<QString>(self->mimeTypes());
+}
+
 //  Qt::DropActions QAbstractProxyModel::supportedDragActions() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK19QAbstractProxyModel20supportedDragActionsEv(
@@ -1030,6 +1070,13 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK19QAbstractProxyModel20supportedDropActionsEv(
     const QAbstractProxyModel *self) {
   return static_cast<int>(self->supportedDropActions().toInt());
+}
+
+//  QHash<int, QByteArray> QAbstractProxyModel::roleNames() const
+extern "C" Q_DECL_EXPORT
+QHash<int, QByteArray> *ritual_ZNK19QAbstractProxyModel9roleNamesEv(
+    const QAbstractProxyModel *self) {
+  return new QHash<int, QByteArray>(self->roleNames());
 }
 
 //  a Python function taken by a CuteQAbstractProxyModel, for the function

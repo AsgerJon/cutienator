@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 from . import QTabWidget, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -53,7 +53,7 @@ class QMainWindow(QWidget):
   -----------
 
   Every function of Qt's QMainWindow that has a ritual and that Python can
-  call so far, 51 names in all: 'metaObject', 'tr', 'iconSize',
+  call so far, 52 names in all: 'metaObject', 'tr', 'iconSize',
   'setIconSize', 'toolButtonStyle', 'setToolButtonStyle', 'isAnimated',
   'isDockNestingEnabled', 'documentMode', 'setDocumentMode', 'tabShape',
   'setTabShape', 'tabPosition', 'setTabPosition', 'setDockOptions',
@@ -63,11 +63,11 @@ class QMainWindow(QWidget):
   'addToolBarBreak', 'insertToolBarBreak', 'addToolBar', 'insertToolBar',
   'removeToolBar', 'removeToolBarBreak', 'unifiedTitleAndToolBarOnMac',
   'toolBarArea', 'toolBarBreak', 'addDockWidget', 'splitDockWidget',
-  'tabifyDockWidget', 'removeDockWidget', 'restoreDockWidget',
-  'dockWidgetArea', 'saveState', 'restoreState', 'createPopupMenu',
-  'setAnimated', 'setDockNestingEnabled', 'setUnifiedTitleAndToolBarOnMac',
-  'contextMenuEvent', 'event'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'tabifyDockWidget', 'tabifiedDockWidgets', 'removeDockWidget',
+  'restoreDockWidget', 'dockWidgetArea', 'saveState', 'restoreState',
+  'createPopupMenu', 'setAnimated', 'setDockNestingEnabled',
+  'setUnifiedTitleAndToolBarOnMac', 'contextMenuEvent', 'event'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -78,7 +78,7 @@ class QMainWindow(QWidget):
   What has no ritual
   ------------------
 
-  13 of the 69 functions Qt declares: 4 takes or gives a type that cannot be
+  12 of the 69 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet; 3 private; 3 a signal; 2 forbidden; 1 a template.
 
   What to expect
@@ -527,6 +527,41 @@ class QMainWindow(QWidget):
         'ritual_ZNK11QMainWindow12toolBarBreakEP8QToolBar',
         self._addressOf(toolbar),
     )
+
+  @overload(QDockWidget)
+  @overload(NoneType)
+  def tabifiedDockWidgets(
+      self,
+      dockwidget: Optional[QDockWidget],
+  ) -> QList[QDockWidget]:
+    """
+    Calls Qt's 'QList<QDockWidget *>
+    QMainWindow::tabifiedDockWidgets(QDockWidget *dockwidget) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmainwindow.html#tabifiedDockWidgets
+
+    Parameters
+    ----------
+
+    dockwidget : Optional[QDockWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    QList[QDockWidget]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QDockWidget *> QMainWindow::tabifiedDockWidgets(QDockWidget
+    #      *dockwidget) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QMainWindow19tabifiedDockWidgetsEP11QDockWidget',
+        self._addressOf(dockwidget),
+    )
+    from . import QDockWidget
+    return QList[QDockWidget]._cuteOwning(address)
 
   @overload(QDockWidget)
   @overload(NoneType)

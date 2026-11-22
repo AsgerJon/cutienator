@@ -15,6 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QColor
@@ -38,9 +39,9 @@ class QColormap(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QColormap that has a ritual and that Python can call
-  so far, 8 names in all: 'initialize', 'cleanup', 'instance', 'mode',
-  'depth', 'size', 'pixel', 'colorAt'. It can be made from Python, in 1 way;
-  see '__init__'.
+  so far, 9 names in all: 'initialize', 'cleanup', 'instance', 'mode',
+  'depth', 'size', 'pixel', 'colorAt', 'colormap'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,7 +52,7 @@ class QColormap(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 13 functions Qt declares: 2 takes or gives a type that cannot be
+  2 of the 13 functions Qt declares: 1 takes or gives a type that cannot be
   passed yet; 1 private.
 
   What to expect
@@ -226,6 +227,23 @@ class QColormap(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK9QColormap7colorAtEj', pixel)
     from ..QtGui import QColor
     return QColor._cuteOwning(address)
+
+  def colormap(self) -> QList[QColor]:
+    """
+    Calls Qt's 'const QList<QColor> QColormap::colormap() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolormap.html#colormap
+
+    Returns
+    -------
+
+    QList[QColor]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  const QList<QColor> QColormap::colormap() const
+    address = self.uglySide.call('ritual_ZNK9QColormap8colormapEv')
+    from ..QtGui import QColor
+    return QList[QColor]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

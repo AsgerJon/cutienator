@@ -13,10 +13,20 @@
     "ritual_ZNK9QMimeType7commentEv": ["text", "address"],
     "ritual_ZNK9QMimeType15genericIconNameEv": ["text", "address"],
     "ritual_ZNK9QMimeType8iconNameEv": ["text", "address"],
+    "ritual_ZNK9QMimeType12globPatternsEv": ["address", "address"],
+    "ritual_ZNK9QMimeType15parentMimeTypesEv": ["address", "address"],
+    "ritual_ZNK9QMimeType12allAncestorsEv": ["address", "address"],
+    "ritual_ZNK9QMimeType7aliasesEv": ["address", "address"],
+    "ritual_ZNK9QMimeType8suffixesEv": ["address", "address"],
     "ritual_ZNK9QMimeType15preferredSuffixEv": ["text", "address"],
     "ritual_ZNK9QMimeType8inheritsERK7QString": ["bool", "address", "text"],
     "ritual_ZNK9QMimeType12filterStringEv": ["text", "address"],
     "ritual_ZeqRK9QMimeTypeS1_": ["bool", "address", "address"],
-    "ritual_ZneRK9QMimeTypeS1_": ["bool", "address", "address"]
+    "ritual_ZneRK9QMimeTypeS1_": ["bool", "address", "address"],
+    "ritual_list_make_QMimeType": ["address"],
+    "ritual_list_add_QMimeType": ["nothing", "address", "address"],
+    "ritual_list_size_QMimeType": ["long long", "address"],
+    "ritual_list_at_QMimeType": ["address", "address", "long long"],
+    "ritual_list_drop_QMimeType": ["nothing", "address"]
   }
 }

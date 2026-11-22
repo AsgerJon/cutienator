@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt
+from . import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -48,12 +48,13 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMetaMethod that has a ritual and that Python can
-  call so far, 23 names in all: 'methodSignature', 'name', 'nameView',
+  call so far, 25 names in all: 'methodSignature', 'name', 'nameView',
   'typeName', 'returnType', 'returnMetaType', 'parameterCount',
-  'parameterType', 'parameterMetaType', 'parameterTypeName', 'tag', 'access',
-  'methodType', 'attributes', 'methodIndex', 'relativeMethodIndex',
-  'revision', 'isConst', 'enclosingMetaObject', 'invoke', 'isValid',
-  '__eq__', '__ne__'. It can be made from Python, in 1 way; see '__init__'.
+  'parameterType', 'parameterMetaType', 'parameterTypes',
+  'parameterTypeName', 'parameterNames', 'tag', 'access', 'methodType',
+  'attributes', 'methodIndex', 'relativeMethodIndex', 'revision', 'isConst',
+  'enclosingMetaObject', 'invoke', 'isValid', '__eq__', '__ne__'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,7 +67,7 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  16 of the 45 functions Qt declares: 7 a template; 5 private; 4 takes or
+  14 of the 45 functions Qt declares: 7 a template; 5 private; 2 takes or
   gives a type that cannot be passed yet.
 
   What to expect
@@ -292,6 +293,23 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     from . import QMetaType
     return QMetaType._cuteOwning(address)
 
+  def parameterTypes(self) -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QMetaMethod::parameterTypes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetamethod.html#parameterTypes
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QMetaMethod::parameterTypes() const
+    address = self.uglySide.call('ritual_ZNK11QMetaMethod14parameterTypesEv')
+    from . import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
+
   @overload(int)
   def parameterTypeName(self, index: int) -> QByteArray:
     """
@@ -317,6 +335,23 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     )
     from . import QByteArray
     return QByteArray._cuteOwning(address)
+
+  def parameterNames(self) -> QList[QByteArray]:
+    """
+    Calls Qt's 'QList<QByteArray> QMetaMethod::parameterNames() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetamethod.html#parameterNames
+
+    Returns
+    -------
+
+    QList[QByteArray]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QByteArray> QMetaMethod::parameterNames() const
+    address = self.uglySide.call('ritual_ZNK11QMetaMethod14parameterNamesEv')
+    from . import QByteArray
+    return QList[QByteArray]._cuteOwning(address)
 
   def tag(self) -> Optional[str]:
     """

@@ -8,6 +8,12 @@
     "ritual_ZNK29QAccessibleTableCellInterface10isSelectedEv": [
       "bool", "address"
     ],
+    "ritual_ZNK29QAccessibleTableCellInterface17columnHeaderCellsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QAccessibleTableCellInterface14rowHeaderCellsEv": [
+      "address", "address"
+    ],
     "ritual_ZNK29QAccessibleTableCellInterface11columnIndexEv": [
       "int", "address"
     ],

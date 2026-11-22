@@ -14,6 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -39,10 +40,10 @@ class QItemSelectionRange(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QItemSelectionRange that has a ritual and that
-  Python can call so far, 17 names in all: 'top', 'left', 'bottom', 'right',
+  Python can call so far, 18 names in all: 'top', 'left', 'bottom', 'right',
   'width', 'height', 'topLeft', 'bottomRight', 'parent', 'model', 'contains',
-  'intersects', 'intersected', 'isValid', 'isEmpty', '__eq__', '__ne__'. It
-  can be made from Python, in 3 ways; see '__init__'.
+  'intersects', 'intersected', 'isValid', 'isEmpty', 'indexes', '__eq__',
+  '__ne__'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -54,7 +55,7 @@ class QItemSelectionRange(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  2 of the 24 functions Qt declares: 2 takes or gives a type that cannot be
+  1 of the 24 functions Qt declares: 1 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -356,6 +357,23 @@ class QItemSelectionRange(CuteMixin, metaclass=MetaCute):
     """
     #  bool QItemSelectionRange::isEmpty() const
     return self.uglySide.call('ritual_ZNK19QItemSelectionRange7isEmptyEv')
+
+  def indexes(self) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QItemSelectionRange::indexes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qitemselectionrange.html#indexes
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QItemSelectionRange::indexes() const
+    address = self.uglySide.call('ritual_ZNK19QItemSelectionRange7indexesEv')
+    from . import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

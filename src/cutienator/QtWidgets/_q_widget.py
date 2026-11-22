@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 from ..QtGui import QPaintDevice, QPalette
 from . import QSizePolicy
 
@@ -97,7 +97,7 @@ class QWidget(QObject, QPaintDevice):
   -----------
 
   Every function of Qt's QWidget that has a ritual and that Python can call
-  so far, 256 names in all: 'metaObject', 'tr', 'devType', 'winId',
+  so far, 259 names in all: 'metaObject', 'tr', 'devType', 'winId',
   'createWinId', 'internalWinId', 'effectiveWinId', 'style', 'setStyle',
   'isTopLevel', 'isWindow', 'isModal', 'windowModality', 'setWindowModality',
   'isEnabled', 'isEnabledTo', 'setEnabled', 'setDisabled',
@@ -143,20 +143,21 @@ class QWidget(QObject, QPaintDevice):
   'setContentsMargins', 'contentsMargins', 'contentsRect', 'layout',
   'setLayout', 'updateGeometry', 'setParent', 'scroll', 'focusWidget',
   'nextInFocusChain', 'previousInFocusChain', 'acceptDrops',
-  'setAcceptDrops', 'addAction', 'insertAction', 'removeAction',
-  'parentWidget', 'setWindowFlags', 'windowFlags', 'setWindowFlag',
-  'overrideWindowFlags', 'windowType', 'find', 'childAt', 'setAttribute',
-  'testAttribute', 'paintEngine', 'ensurePolished', 'isAncestorOf',
-  'autoFillBackground', 'setAutoFillBackground', 'backingStore',
-  'windowHandle', 'screen', 'setScreen', 'createWindowContainer',
-  'inputMethodQuery', 'inputMethodHints', 'setInputMethodHints', 'event',
-  'mousePressEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
-  'mouseMoveEvent', 'wheelEvent', 'keyPressEvent', 'keyReleaseEvent',
-  'focusInEvent', 'focusOutEvent', 'enterEvent', 'leaveEvent', 'paintEvent',
-  'moveEvent', 'resizeEvent', 'closeEvent', 'contextMenuEvent',
-  'tabletEvent', 'actionEvent', 'dragEnterEvent', 'dragMoveEvent',
-  'dragLeaveEvent', 'dropEvent', 'showEvent', 'hideEvent', 'changeEvent',
-  'metric', 'initPainter', 'redirected', 'sharedPainter', 'inputMethodEvent',
+  'setAcceptDrops', 'addAction', 'addActions', 'insertActions',
+  'insertAction', 'removeAction', 'actions', 'parentWidget',
+  'setWindowFlags', 'windowFlags', 'setWindowFlag', 'overrideWindowFlags',
+  'windowType', 'find', 'childAt', 'setAttribute', 'testAttribute',
+  'paintEngine', 'ensurePolished', 'isAncestorOf', 'autoFillBackground',
+  'setAutoFillBackground', 'backingStore', 'windowHandle', 'screen',
+  'setScreen', 'createWindowContainer', 'inputMethodQuery',
+  'inputMethodHints', 'setInputMethodHints', 'event', 'mousePressEvent',
+  'mouseReleaseEvent', 'mouseDoubleClickEvent', 'mouseMoveEvent',
+  'wheelEvent', 'keyPressEvent', 'keyReleaseEvent', 'focusInEvent',
+  'focusOutEvent', 'enterEvent', 'leaveEvent', 'paintEvent', 'moveEvent',
+  'resizeEvent', 'closeEvent', 'contextMenuEvent', 'tabletEvent',
+  'actionEvent', 'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent',
+  'dropEvent', 'showEvent', 'hideEvent', 'changeEvent', 'metric',
+  'initPainter', 'redirected', 'sharedPainter', 'inputMethodEvent',
   'focusNextPrevChild'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
@@ -168,9 +169,8 @@ class QWidget(QObject, QPaintDevice):
   What has no ritual
   ------------------
 
-  30 of the 326 functions Qt declares: 7 protected; 6 takes or gives a type
-  that cannot be passed yet; 6 private; 5 a template; 4 a signal; 2
-  forbidden.
+  27 of the 326 functions Qt declares: 7 protected; 6 private; 5 a template;
+  4 a signal; 3 takes or gives a type that cannot be passed yet; 2 forbidden.
 
   What to expect
   --------------
@@ -2375,6 +2375,23 @@ class QWidget(QObject, QPaintDevice):
     """
     #  bool QWidget::acceptDrops() const
     return self.uglySide.call('ritual_ZNK7QWidget11acceptDropsEv')
+
+  def actions(self) -> QList[QAction]:
+    """
+    Calls Qt's 'QList<QAction *> QWidget::actions() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#actions
+
+    Returns
+    -------
+
+    QList[QAction]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QAction *> QWidget::actions() const
+    address = self.uglySide.call('ritual_ZNK7QWidget7actionsEv')
+    from ..QtGui import QAction
+    return QList[QAction]._cuteOwning(address)
 
   def parentWidget(self) -> Optional[QWidget]:
     """
@@ -5376,6 +5393,59 @@ class QWidget(QObject, QPaintDevice):
     from ..QtGui import QAction
     return QAction._cuteAt(address)
 
+  @overload(QList[QAction])
+  def addActions(self, actions: QList[QAction]) -> None:
+    """
+    Calls Qt's 'void QWidget::addActions(const QList<QAction *> &actions)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#addActions
+
+    Parameters
+    ----------
+
+    actions : QList[QAction]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QWidget::addActions(const QList<QAction *> &actions)
+    self.uglySide.call(
+        'ritual_ZN7QWidget10addActionsERK5QListIP7QActionE',
+        self._valueOf(actions),
+    )
+
+  @overload(QAction, QList[QAction])
+  @overload(NoneType, QList[QAction])
+  def insertActions(
+      self,
+      before: Optional[QAction],
+      actions: QList[QAction],
+  ) -> None:
+    """
+    Calls Qt's 'void QWidget::insertActions(QAction *before, const
+    QList<QAction *> &actions)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#insertActions
+
+    Parameters
+    ----------
+
+    before : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    actions : QList[QAction]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QWidget::insertActions(QAction *before, const QList<QAction *>
+    #      &actions)
+    self.uglySide.call(
+        'ritual_ZN7QWidget13insertActionsEP7QActionRK5QListIS1_E',
+        self._addressOf(before), self._valueOf(actions),
+    )
+
   @overload(QAction, QAction)
   @overload(QAction, NoneType)
   @overload(NoneType, QAction)
@@ -6058,3 +6128,17 @@ class QWidget(QObject, QPaintDevice):
     return self.uglySide.call(
         'ritual_own_ZN7QWidget18focusNextPrevChildEb', next,
     )
+
+
+#  Qt's 'QList<QWidget *>': the list of QWidget, which 'QList[QWidget]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QWidget. Qt has a name of its own for it.
+QWidgetList = QList.createKind(
+    QWidget, 'address',
+    name='QWidgetList',
+    make='ritual_list_make_QWidget_ptr',
+    add='ritual_list_add_QWidget_ptr',
+    size='ritual_list_size_QWidget_ptr',
+    at='ritual_list_at_QWidget_ptr',
+    drop='ritual_list_drop_QWidget_ptr',
+)

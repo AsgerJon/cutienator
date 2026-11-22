@@ -13,6 +13,9 @@
     "ritual_ZN12QDirIteratorC1ERK7QString6QFlagsIN4QDir6FilterEES3_INS_12IteratorFlagEE": [
       "address", "text", "int", "int"
     ],
+    "ritual_ZN12QDirIteratorC1ERK7QStringRK5QListIS0_E6QFlagsIN4QDir6FilterEES7_INS_12IteratorFlagEE": [
+      "address", "text", "address", "int", "int"
+    ],
     "ritual_ZN12QDirIteratorD1Ev": ["nothing", "address"],
     "ritual_ZN12QDirIterator4nextEv": ["text", "address"],
     "ritual_ZN12QDirIterator12nextFileInfoEv": ["address", "address"],

@@ -1,14 +1,21 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qpolygon.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qpolygon.h>
+#include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qvariant.h>
-#include <QtCore/qpoint.h>
+#include <QtCore/qlist.h>
 
 //  QPolygon::QPolygon()
 extern "C" Q_DECL_EXPORT
 QPolygon *ritual_ZN8QPolygonC1Ev() {
   return new QPolygon();
+}
+
+//  QPolygon::QPolygon(const QList<QPoint> &v)
+extern "C" Q_DECL_EXPORT
+QPolygon *ritual_ZN8QPolygonC1ERK5QListI6QPointE(const QList<QPoint> *v) {
+  return new QPolygon(*v);
 }
 
 //  QPolygon::QPolygon(const QRect &r, bool closed)

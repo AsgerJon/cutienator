@@ -30,6 +30,7 @@
     ],
     "ritual_ZN19QTextDocumentWriter5writeERK21QTextDocumentFragment": [
       "bool", "address", "address"
-    ]
+    ],
+    "ritual_ZN19QTextDocumentWriter24supportedDocumentFormatsEv": ["address"]
   }
 }

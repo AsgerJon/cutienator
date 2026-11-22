@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from . import QObject
+from . import QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -44,13 +44,14 @@ class QSettings(QObject):
   -----------
 
   Every function of Qt's QSettings that has a ritual and that Python can call
-  so far, 30 names in all: 'metaObject', 'tr', 'clear', 'sync', 'status',
+  so far, 33 names in all: 'metaObject', 'tr', 'clear', 'sync', 'status',
   'isAtomicSyncRequired', 'setAtomicSyncRequired', 'beginGroup', 'endGroup',
   'group', 'beginReadArray', 'beginWriteArray', 'endArray', 'setArrayIndex',
-  'isWritable', 'setValue', 'value', 'remove', 'contains',
-  'setFallbacksEnabled', 'fallbacksEnabled', 'fileName', 'format', 'scope',
-  'organizationName', 'applicationName', 'setDefaultFormat', 'defaultFormat',
-  'setPath', 'event'. It can be made from Python, in 6 ways; see '__init__'.
+  'allKeys', 'childKeys', 'childGroups', 'isWritable', 'setValue', 'value',
+  'remove', 'contains', 'setFallbacksEnabled', 'fallbacksEnabled',
+  'fileName', 'format', 'scope', 'organizationName', 'applicationName',
+  'setDefaultFormat', 'defaultFormat', 'setPath', 'event'. It can be made
+  from Python, in 6 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -61,7 +62,7 @@ class QSettings(QObject):
   What has no ritual
   ------------------
 
-  12 of the 50 functions Qt declares: 6 takes or gives a type that cannot be
+  9 of the 50 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet; 3 private; 2 forbidden; 1 a template.
 
   What to expect
@@ -319,6 +320,54 @@ class QSettings(QObject):
     """
     #  QString QSettings::group() const
     return self.uglySide.call('ritual_ZNK9QSettings5groupEv')
+
+  def allKeys(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QSettings::allKeys() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsettings.html#allKeys
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QSettings::allKeys() const
+    address = self.uglySide.call('ritual_ZNK9QSettings7allKeysEv')
+    return QStringList._cuteOwning(address)
+
+  def childKeys(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QSettings::childKeys() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsettings.html#childKeys
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QSettings::childKeys() const
+    address = self.uglySide.call('ritual_ZNK9QSettings9childKeysEv')
+    return QStringList._cuteOwning(address)
+
+  def childGroups(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QSettings::childGroups() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsettings.html#childGroups
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QSettings::childGroups() const
+    address = self.uglySide.call('ritual_ZNK9QSettings11childGroupsEv')
+    return QStringList._cuteOwning(address)
 
   def isWritable(self) -> bool:
     """

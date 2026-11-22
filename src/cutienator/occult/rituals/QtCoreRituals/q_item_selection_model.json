@@ -35,6 +35,15 @@
       "bool", "address", "int", "address"
     ],
     "ritual_ZNK19QItemSelectionModel12hasSelectionEv": ["bool", "address"],
+    "ritual_ZNK19QItemSelectionModel15selectedIndexesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QItemSelectionModel12selectedRowsEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QItemSelectionModel15selectedColumnsEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZNK19QItemSelectionModel9selectionEv": ["address", "address"],
     "ritual_ZNK19QItemSelectionModel5modelEv": ["address", "address"],
     "ritual_ZN19QItemSelectionModel5modelEv": ["address", "address"],

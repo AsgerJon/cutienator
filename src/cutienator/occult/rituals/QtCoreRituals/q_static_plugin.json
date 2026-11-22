@@ -5,6 +5,11 @@
   ],
   "rows": {
     "ritual_ZNK13QStaticPlugin8metaDataEv": ["address", "address"],
-    "ritual_ZN13QStaticPluginD1Ev": ["nothing", "address"]
+    "ritual_ZN13QStaticPluginD1Ev": ["nothing", "address"],
+    "ritual_list_make_QStaticPlugin": ["address"],
+    "ritual_list_add_QStaticPlugin": ["nothing", "address", "address"],
+    "ritual_list_size_QStaticPlugin": ["long long", "address"],
+    "ritual_list_at_QStaticPlugin": ["address", "address", "long long"],
+    "ritual_list_drop_QStaticPlugin": ["nothing", "address"]
   }
 }

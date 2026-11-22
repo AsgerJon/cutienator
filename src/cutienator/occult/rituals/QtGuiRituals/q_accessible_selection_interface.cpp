@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qaccessible.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QAccessibleSelectionInterface that Python can take functions over in. Every QAccessibleSelectionInterface
@@ -144,6 +145,14 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK29QAccessibleSelectionInterface17selectedItemCountEv(
     const QAccessibleSelectionInterface *self) {
   return self->selectedItemCount();
+}
+
+//  QList<QAccessibleInterface *>
+//      QAccessibleSelectionInterface::selectedItems() const
+extern "C" Q_DECL_EXPORT
+QList<QAccessibleInterface *> *ritual_ZNK29QAccessibleSelectionInterface13selectedItemsEv(
+    const QAccessibleSelectionInterface *self) {
+  return new QList<QAccessibleInterface *>(self->selectedItems());
 }
 
 //  QAccessibleInterface *QAccessibleSelectionInterface::selectedItem(int

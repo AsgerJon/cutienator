@@ -54,6 +54,11 @@
     "ritual_ZNK11QEventPoint8rotationEv": ["double", "address"],
     "ritual_ZNK11QEventPoint16ellipseDiametersEv": ["address", "address"],
     "ritual_ZNK11QEventPoint10isAcceptedEv": ["bool", "address"],
-    "ritual_ZN11QEventPoint11setAcceptedEb": ["nothing", "address", "bool"]
+    "ritual_ZN11QEventPoint11setAcceptedEb": ["nothing", "address", "bool"],
+    "ritual_list_make_QEventPoint": ["address"],
+    "ritual_list_add_QEventPoint": ["nothing", "address", "address"],
+    "ritual_list_size_QEventPoint": ["long long", "address"],
+    "ritual_list_at_QEventPoint": ["address", "address", "long long"],
+    "ritual_list_drop_QEventPoint": ["nothing", "address"]
   }
 }

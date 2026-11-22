@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QItemSelectionModel
+from ..QtCore import Qt, QItemSelectionModel, QList, QStringList
 from . import QAbstractItemView, QTableView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -52,20 +52,22 @@ class QTableWidget(QTableView):
   -----------
 
   Every function of Qt's QTableWidget that has a ritual and that Python can
-  call so far, 54 names in all: 'metaObject', 'tr', 'setRowCount',
+  call so far, 60 names in all: 'metaObject', 'tr', 'setRowCount',
   'rowCount', 'setColumnCount', 'columnCount', 'row', 'column', 'item',
-  'setItem', 'takeItem', 'indexFromItem', 'itemFromIndex',
+  'setItem', 'takeItem', 'items', 'indexFromItem', 'itemFromIndex',
   'verticalHeaderItem', 'setVerticalHeaderItem', 'takeVerticalHeaderItem',
   'horizontalHeaderItem', 'setHorizontalHeaderItem',
-  'takeHorizontalHeaderItem', 'currentRow', 'currentColumn', 'currentItem',
+  'takeHorizontalHeaderItem', 'setVerticalHeaderLabels',
+  'setHorizontalHeaderLabels', 'currentRow', 'currentColumn', 'currentItem',
   'setCurrentItem', 'setCurrentCell', 'sortItems', 'setSortingEnabled',
   'isSortingEnabled', 'editItem', 'openPersistentEditor',
   'closePersistentEditor', 'isPersistentEditorOpen', 'cellWidget',
-  'setCellWidget', 'removeCellWidget', 'setRangeSelected', 'visualRow',
-  'visualColumn', 'itemAt', 'visualItemRect', 'itemPrototype',
-  'setItemPrototype', 'supportedDragActions', 'setSupportedDragActions',
-  'scrollToItem', 'insertRow', 'insertColumn', 'removeRow', 'removeColumn',
-  'clear', 'clearContents', 'event', 'dropMimeData', 'supportedDropActions',
+  'setCellWidget', 'removeCellWidget', 'setRangeSelected', 'selectedRanges',
+  'selectedItems', 'findItems', 'visualRow', 'visualColumn', 'itemAt',
+  'visualItemRect', 'itemPrototype', 'setItemPrototype',
+  'supportedDragActions', 'setSupportedDragActions', 'scrollToItem',
+  'insertRow', 'insertColumn', 'removeRow', 'removeColumn', 'clear',
+  'clearContents', 'event', 'dropMimeData', 'supportedDropActions',
   'dropEvent'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
@@ -77,8 +79,8 @@ class QTableWidget(QTableView):
   What has no ritual
   ------------------
 
-  32 of the 92 functions Qt declares: 15 a signal; 8 takes or gives a type
-  that cannot be passed yet; 4 private; 2 protected; 2 forbidden; 1 a
+  26 of the 92 functions Qt declares: 15 a signal; 4 private; 2 takes or
+  gives a type that cannot be passed yet; 2 protected; 2 forbidden; 1 a
   template.
 
   What to expect
@@ -315,6 +317,36 @@ class QTableWidget(QTableView):
     from . import QTableWidgetItem
     return QTableWidgetItem._cuteAt(address)
 
+  @overload(QMimeData)
+  @overload(NoneType)
+  def items(self, data: Optional[QMimeData]) -> QList[QTableWidgetItem]:
+    """
+    Calls Qt's 'QList<QTableWidgetItem *> QTableWidget::items(const QMimeData
+    *data) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#items
+
+    Parameters
+    ----------
+
+    data : Optional[QMimeData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    QList[QTableWidgetItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QTableWidgetItem *> QTableWidget::items(const QMimeData *data)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK12QTableWidget5itemsEPK9QMimeData', self._addressOf(data),
+    )
+    from . import QTableWidgetItem
+    return QList[QTableWidgetItem]._cuteOwning(address)
+
   @overload(QTableWidgetItem)
   @overload(NoneType)
   def indexFromItem(self, item: Optional[QTableWidgetItem]) -> QModelIndex:
@@ -534,6 +566,81 @@ class QTableWidget(QTableView):
         'ritual_ZNK12QTableWidget10cellWidgetEii', row, column,
     )
     return QWidget._cuteAt(address)
+
+  def selectedRanges(self) -> QList[QTableWidgetSelectionRange]:
+    """
+    Calls Qt's 'QList<QTableWidgetSelectionRange>
+    QTableWidget::selectedRanges() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#selectedRanges
+
+    Returns
+    -------
+
+    QList[QTableWidgetSelectionRange]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QTableWidgetSelectionRange> QTableWidget::selectedRanges() const
+    address = self.uglySide.call(
+        'ritual_ZNK12QTableWidget14selectedRangesEv',
+    )
+    from . import QTableWidgetSelectionRange
+    return QList[QTableWidgetSelectionRange]._cuteOwning(address)
+
+  def selectedItems(self) -> QList[QTableWidgetItem]:
+    """
+    Calls Qt's 'QList<QTableWidgetItem *> QTableWidget::selectedItems()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#selectedItems
+
+    Returns
+    -------
+
+    QList[QTableWidgetItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QTableWidgetItem *> QTableWidget::selectedItems() const
+    address = self.uglySide.call('ritual_ZNK12QTableWidget13selectedItemsEv')
+    from . import QTableWidgetItem
+    return QList[QTableWidgetItem]._cuteOwning(address)
+
+  @overload(str, Qt.MatchFlags)
+  def findItems(
+      self,
+      text: str,
+      flags: Qt.MatchFlags,
+  ) -> QList[QTableWidgetItem]:
+    """
+    Calls Qt's 'QList<QTableWidgetItem *> QTableWidget::findItems(const
+    QString &text, Qt::MatchFlags flags) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#findItems
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+
+    flags : Qt.MatchFlags
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QList[QTableWidgetItem]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QTableWidgetItem *> QTableWidget::findItems(const QString &text,
+    #      Qt::MatchFlags flags) const
+    address = self.uglySide.call(
+        'ritual_ZNK12QTableWidget9findItemsERK7QString6QFlagsIN2Qt9MatchFla'
+        'gEE',
+        text, flags.value,
+    )
+    from . import QTableWidgetItem
+    return QList[QTableWidgetItem]._cuteOwning(address)
 
   @overload(int)
   def visualRow(self, logicalRow: int) -> int:
@@ -844,6 +951,55 @@ class QTableWidget(QTableView):
         'ritual_ZN12QTableWidget23setHorizontalHeaderItemEiP16QTableWidgetI'
         'tem',
         column, self._addressOf(item),
+    )
+
+  @overload(QStringList)
+  def setVerticalHeaderLabels(self, labels: QStringList) -> None:
+    """
+    Calls Qt's 'void QTableWidget::setVerticalHeaderLabels(const QStringList
+    &labels)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtablewidget.html#setVerticalHeaderLabels
+
+    Parameters
+    ----------
+
+    labels : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QTableWidget::setVerticalHeaderLabels(const QStringList &labels)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget23setVerticalHeaderLabelsERK5QListI7QString'
+        'E',
+        self._valueOf(labels),
+    )
+
+  @overload(QStringList)
+  def setHorizontalHeaderLabels(self, labels: QStringList) -> None:
+    """
+    Calls Qt's 'void QTableWidget::setHorizontalHeaderLabels(const
+    QStringList &labels)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtablewidget.html#setHorizontalHeaderLabels
+
+    Parameters
+    ----------
+
+    labels : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QTableWidget::setHorizontalHeaderLabels(const QStringList
+    #      &labels)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget25setHorizontalHeaderLabelsERK5QListI7QStri'
+        'ngE',
+        self._valueOf(labels),
     )
 
   @overload(QTableWidgetItem)

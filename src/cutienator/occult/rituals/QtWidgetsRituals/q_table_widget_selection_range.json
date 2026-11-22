@@ -26,6 +26,15 @@
     "ritual_ZNK26QTableWidgetSelectionRange11columnCountEv": [
       "int", "address"
     ],
-    "ritual_ZN26QTableWidgetSelectionRangeD1Ev": ["nothing", "address"]
+    "ritual_ZN26QTableWidgetSelectionRangeD1Ev": ["nothing", "address"],
+    "ritual_list_make_QTableWidgetSelectionRange": ["address"],
+    "ritual_list_add_QTableWidgetSelectionRange": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QTableWidgetSelectionRange": ["long long", "address"],
+    "ritual_list_at_QTableWidgetSelectionRange": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QTableWidgetSelectionRange": ["nothing", "address"]
   }
 }

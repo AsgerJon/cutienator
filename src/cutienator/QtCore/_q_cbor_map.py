@@ -14,10 +14,11 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QHash, QList, QMap
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QCborValue, QCborValueConstRef, QCborValueRef, QJsonObject
-  from . import QLatin1String
+  from . import QLatin1String, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -26,6 +27,7 @@ else:
   QCborValueConstRef = WAIT['QCborValueConstRef']
   QJsonObject = WAIT['QJsonObject']
   QLatin1String = WAIT['QLatin1String']
+  QVariant = WAIT['QVariant']
 
 
 class QCborMap(CuteMixin, metaclass=MetaCute):
@@ -41,11 +43,12 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCborMap that has a ritual and that Python can call
-  so far, 20 names in all: 'toCborValue', 'size', 'isEmpty', 'clear',
+  so far, 25 names in all: 'toCborValue', 'size', 'isEmpty', 'clear', 'keys',
   'value', '__getitem__', 'take', 'remove', 'contains', 'compare', 'extract',
-  'empty', 'fromJsonObject', 'toJsonObject', '__eq__', '__ne__', '__lt__',
-  '__gt__', '__le__', '__ge__'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'empty', 'fromVariantMap', 'fromVariantHash', 'fromJsonObject',
+  'toVariantMap', 'toVariantHash', 'toJsonObject', '__eq__', '__ne__',
+  '__lt__', '__gt__', '__le__', '__ge__'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -103,7 +106,7 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  56 of the 123 functions Qt declares: 46 takes or gives a type that cannot
+  51 of the 123 functions Qt declares: 41 takes or gives a type that cannot
   be passed yet; 6 private; 2 a template; 2 can only be called on a value
   about to be thrown away.
 
@@ -1235,6 +1238,65 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @staticmethod
+  @overload(QMap[str, QVariant])
+  def fromVariantMap(map: QMap[str, QVariant]) -> QCborMap:
+    """
+    Calls Qt's 'QCborMap QCborMap::fromVariantMap(const QVariantMap &map)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcbormap.html#fromVariantMap
+
+    Parameters
+    ----------
+
+    map : QMap[str, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+
+    Returns
+    -------
+
+    QCborMap
+      A new cute QCborMap around the copy Qt gave back. Python owns it.
+    """
+    #  QCborMap QCborMap::fromVariantMap(const QVariantMap &map)
+    address = Rituals.call(
+        'ritual_ZN8QCborMap14fromVariantMapERK4QMapI7QString8QVariantE',
+        CuteMixin._valueOf(map),
+    )
+    return QCborMap._cuteOwning(address)
+
+  @staticmethod
+  @overload(QHash[str, QVariant])
+  def fromVariantHash(hash: QHash[str, QVariant]) -> QCborMap:
+    """
+    Calls Qt's 'QCborMap QCborMap::fromVariantHash(const QVariantHash
+    &hash)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcbormap.html#fromVariantHash
+
+    Parameters
+    ----------
+
+    hash : QHash[str, QVariant]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+
+    Returns
+    -------
+
+    QCborMap
+      A new cute QCborMap around the copy Qt gave back. Python owns it.
+    """
+    #  QCborMap QCborMap::fromVariantHash(const QVariantHash &hash)
+    address = Rituals.call(
+        'ritual_ZN8QCborMap15fromVariantHashERK5QHashI7QString8QVariantE',
+        CuteMixin._valueOf(hash),
+    )
+    return QCborMap._cuteOwning(address)
+
+  @staticmethod
   @overload(QJsonObject)
   def fromJsonObject(o: QJsonObject) -> QCborMap:
     """
@@ -1320,6 +1382,23 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     """
     #  bool QCborMap::isEmpty() const
     return self.uglySide.call('ritual_ZNK8QCborMap7isEmptyEv')
+
+  def keys(self) -> QList[QCborValue]:
+    """
+    Calls Qt's 'QList<QCborValue> QCborMap::keys() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcbormap.html#keys
+
+    Returns
+    -------
+
+    QList[QCborValue]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QCborValue> QCborMap::keys() const
+    address = self.uglySide.call('ritual_ZNK8QCborMap4keysEv')
+    from . import QCborValue
+    return QList[QCborValue]._cuteOwning(address)
 
   @overload(int)
   def value(self, key: int) -> QCborValue:
@@ -1520,6 +1599,40 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     """
     #  bool QCborMap::empty() const
     return self.uglySide.call('ritual_ZNK8QCborMap5emptyEv')
+
+  def toVariantMap(self) -> QMap[str, QVariant]:
+    """
+    Calls Qt's 'QVariantMap QCborMap::toVariantMap() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcbormap.html#toVariantMap
+
+    Returns
+    -------
+
+    QMap[str, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QVariantMap QCborMap::toVariantMap() const
+    address = self.uglySide.call('ritual_ZNK8QCborMap12toVariantMapEv')
+    from . import QVariant
+    return QMap[str, QVariant]._cuteOwning(address)
+
+  def toVariantHash(self) -> QHash[str, QVariant]:
+    """
+    Calls Qt's 'QVariantHash QCborMap::toVariantHash() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcbormap.html#toVariantHash
+
+    Returns
+    -------
+
+    QHash[str, QVariant]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QVariantHash QCborMap::toVariantHash() const
+    address = self.uglySide.call('ritual_ZNK8QCborMap13toVariantHashEv')
+    from . import QVariant
+    return QHash[str, QVariant]._cuteOwning(address)
 
   def toJsonObject(self) -> QJsonObject:
     """

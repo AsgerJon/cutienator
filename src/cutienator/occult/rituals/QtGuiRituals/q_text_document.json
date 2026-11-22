@@ -115,6 +115,7 @@
     "ritual_ZN13QTextDocument11addResourceEiRK4QUrlRK8QVariant": [
       "nothing", "address", "int", "address", "address"
     ],
+    "ritual_ZNK13QTextDocument10allFormatsEv": ["address", "address"],
     "ritual_ZN13QTextDocument17markContentsDirtyEii": [
       "nothing", "address", "int", "int"
     ],

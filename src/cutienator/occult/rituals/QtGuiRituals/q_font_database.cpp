@@ -1,15 +1,30 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qfontdatabase.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qfontdatabase.h>
-#include <QtGui/qfont.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qfont.h>
 #include <QtGui/qfontinfo.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qlist.h>
 
 //  QFontDatabase::QFontDatabase()
 extern "C" Q_DECL_EXPORT
 QFontDatabase *ritual_ZN13QFontDatabaseC1Ev() {
   return new QFontDatabase();
+}
+
+//  QStringList QFontDatabase::families(WritingSystem writingSystem)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN13QFontDatabase8familiesENS_13WritingSystemE(
+    QFontDatabase::WritingSystem writingSystem) {
+  return new QList<QString>(QFontDatabase::families(writingSystem));
+}
+
+//  QStringList QFontDatabase::styles(const QString &family)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN13QFontDatabase6stylesERK7QString(
+    const QString *family) {
+  return new QList<QString>(QFontDatabase::styles(*family));
 }
 
 //  QString QFontDatabase::styleString(const QFont &font)
@@ -136,6 +151,12 @@ int ritual_ZN13QFontDatabase26addApplicationFontFromDataERK10QByteArray(
   return QFontDatabase::addApplicationFontFromData(*fontData);
 }
 
+//  QStringList QFontDatabase::applicationFontFamilies(int id)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN13QFontDatabase23applicationFontFamiliesEi(int id) {
+  return new QList<QString>(QFontDatabase::applicationFontFamilies(id));
+}
+
 //  bool QFontDatabase::removeApplicationFont(int id)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN13QFontDatabase21removeApplicationFontEi(int id) {
@@ -168,6 +189,25 @@ bool ritual_ZN13QFontDatabase35removeApplicationFallbackFontFamilyEN5QChar6Scrip
       *familyName);
 }
 
+//  void QFontDatabase::setApplicationFallbackFontFamilies(QChar::Script a0,
+//      const QStringList &familyNames)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QFontDatabase34setApplicationFallbackFontFamiliesEN5QChar6ScriptERK5QListI7QStringE(
+    QChar::Script a0,
+    const QList<QString> *familyNames) {
+  QFontDatabase::setApplicationFallbackFontFamilies(a0, *familyNames);
+}
+
+//  QStringList QFontDatabase::applicationFallbackFontFamilies(QChar::Script
+//      script)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN13QFontDatabase31applicationFallbackFontFamiliesEN5QChar6ScriptE(
+    QChar::Script script) {
+  return new QList<QString>(
+      QFontDatabase::applicationFallbackFontFamilies(
+          script));
+}
+
 //  void QFontDatabase::addApplicationEmojiFontFamily(const QString
 //      &familyName)
 extern "C" Q_DECL_EXPORT
@@ -182,6 +222,20 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN13QFontDatabase32removeApplicationEmojiFontFamilyERK7QString(
     const QString *familyName) {
   return QFontDatabase::removeApplicationEmojiFontFamily(*familyName);
+}
+
+//  void QFontDatabase::setApplicationEmojiFontFamilies(const QStringList
+//      &familyNames)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QFontDatabase31setApplicationEmojiFontFamiliesERK5QListI7QStringE(
+    const QList<QString> *familyNames) {
+  QFontDatabase::setApplicationEmojiFontFamilies(*familyNames);
+}
+
+//  QStringList QFontDatabase::applicationEmojiFontFamilies()
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN13QFontDatabase28applicationEmojiFontFamiliesEv() {
+  return new QList<QString>(QFontDatabase::applicationEmojiFontFamilies());
 }
 
 //  QFont QFontDatabase::systemFont(SystemFont type)

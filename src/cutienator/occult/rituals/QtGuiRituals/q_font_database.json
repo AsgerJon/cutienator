@@ -5,6 +5,10 @@
   ],
   "rows": {
     "ritual_ZN13QFontDatabaseC1Ev": ["address"],
+    "ritual_ZN13QFontDatabase8familiesENS_13WritingSystemE": [
+      "address", "int"
+    ],
+    "ritual_ZN13QFontDatabase6stylesERK7QString": ["address", "text"],
     "ritual_ZN13QFontDatabase11styleStringERK5QFont": ["text", "address"],
     "ritual_ZN13QFontDatabase11styleStringERK9QFontInfo": [
       "text", "address"
@@ -43,6 +47,9 @@
     "ritual_ZN13QFontDatabase26addApplicationFontFromDataERK10QByteArray": [
       "int", "address"
     ],
+    "ritual_ZN13QFontDatabase23applicationFontFamiliesEi": [
+      "address", "int"
+    ],
     "ritual_ZN13QFontDatabase21removeApplicationFontEi": ["bool", "int"],
     "ritual_ZN13QFontDatabase25removeAllApplicationFontsEv": ["bool"],
     "ritual_ZN13QFontDatabase32addApplicationFallbackFontFamilyEN5QChar6ScriptERK7QString": [
@@ -51,12 +58,22 @@
     "ritual_ZN13QFontDatabase35removeApplicationFallbackFontFamilyEN5QChar6ScriptERK7QString": [
       "bool", "int", "text"
     ],
+    "ritual_ZN13QFontDatabase34setApplicationFallbackFontFamiliesEN5QChar6ScriptERK5QListI7QStringE": [
+      "nothing", "int", "address"
+    ],
+    "ritual_ZN13QFontDatabase31applicationFallbackFontFamiliesEN5QChar6ScriptE": [
+      "address", "int"
+    ],
     "ritual_ZN13QFontDatabase29addApplicationEmojiFontFamilyERK7QString": [
       "nothing", "text"
     ],
     "ritual_ZN13QFontDatabase32removeApplicationEmojiFontFamilyERK7QString": [
       "bool", "text"
     ],
+    "ritual_ZN13QFontDatabase31setApplicationEmojiFontFamiliesERK5QListI7QStringE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QFontDatabase28applicationEmojiFontFamiliesEv": ["address"],
     "ritual_ZN13QFontDatabase10systemFontENS_10SystemFontE": [
       "address", "int"
     ],

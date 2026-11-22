@@ -10,6 +10,10 @@
     "ritual_ZN12QTextBrowserD1Ev": ["nothing", "address"],
     "ritual_ZNK12QTextBrowser6sourceEv": ["address", "address"],
     "ritual_ZNK12QTextBrowser10sourceTypeEv": ["int", "address"],
+    "ritual_ZNK12QTextBrowser11searchPathsEv": ["address", "address"],
+    "ritual_ZN12QTextBrowser14setSearchPathsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN12QTextBrowser12loadResourceEiRK4QUrl": [
       "address", "address", "int", "address"
     ],

@@ -9,6 +9,9 @@
       "text", "chars", "chars", "int"
     ],
     "ritual_ZN16QStringListModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QStringListModelC1ERK5QListI7QStringEP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK16QStringListModel8rowCountERK11QModelIndex": [
       "int", "address", "address"
     ],
@@ -36,8 +39,18 @@
     "ritual_ZN16QStringListModel8moveRowsERK11QModelIndexiiS2_i": [
       "bool", "address", "address", "int", "int", "address", "int"
     ],
+    "ritual_ZNK16QStringListModel8itemDataERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QStringListModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN16QStringListModel4sortEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK16QStringListModel10stringListEv": ["address", "address"],
+    "ritual_ZN16QStringListModel13setStringListERK5QListI7QStringE": [
+      "nothing", "address", "address"
     ],
     "ritual_ZNK16QStringListModel20supportedDropActionsEv": [
       "int", "address"

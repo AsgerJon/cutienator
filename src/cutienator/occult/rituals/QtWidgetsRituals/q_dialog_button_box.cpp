@@ -2,10 +2,12 @@
 //  QtWidgets/qdialogbuttonbox.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qdialogbuttonbox.h>
 #include <QtCore/qstring.h>
+#include <QtWidgets/qabstractbutton.h>
 #include <QtGui/qkeysequence.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QDialogButtonBox may call these functions of it.
@@ -880,6 +882,13 @@ void ritual_ZN16QDialogButtonBox12removeButtonEP15QAbstractButton(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QDialogButtonBox5clearEv(QDialogButtonBox *self) {
   self->clear();
+}
+
+//  QList<QAbstractButton *> QDialogButtonBox::buttons() const
+extern "C" Q_DECL_EXPORT
+QList<QAbstractButton *> *ritual_ZNK16QDialogButtonBox7buttonsEv(
+    const QDialogButtonBox *self) {
+  return new QList<QAbstractButton *>(self->buttons());
 }
 
 //  ButtonRole QDialogButtonBox::buttonRole(QAbstractButton *button) const

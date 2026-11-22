@@ -22,6 +22,9 @@
     ],
     "ritual_ZNK11QIconEngine3keyEv": ["text", "address"],
     "ritual_ZNK11QIconEngine5cloneEv": ["address", "address"],
+    "ritual_ZN11QIconEngine14availableSizesEN5QIcon4ModeENS0_5StateE": [
+      "address", "address", "int", "int"
+    ],
     "ritual_ZN11QIconEngine8iconNameEv": ["text", "address"],
     "ritual_ZN11QIconEngine6isNullEv": ["bool", "address"],
     "ritual_ZN11QIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [

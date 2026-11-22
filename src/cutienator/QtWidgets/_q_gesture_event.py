@@ -12,7 +12,8 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import WAIT
-from ..QtCore import Qt, QEvent
+from ..occult import Rituals
+from ..QtCore import Qt, QEvent, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -48,22 +49,16 @@ class QGestureEvent(QEvent):
   -----------
 
   Every function of Qt's QGestureEvent that has a ritual and that Python can
-  call so far, 8 names in all: 'gesture', 'setAccepted', 'accept', 'ignore',
-  'isAccepted', 'setWidget', 'widget', 'mapToGraphicsScene'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  call so far, 11 names in all: 'gestures', 'gesture', 'activeGestures',
+  'canceledGestures', 'setAccepted', 'accept', 'ignore', 'isAccepted',
+  'setWidget', 'widget', 'mapToGraphicsScene'. It can be made from Python, in
+  1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QGestureEvent::~QGestureEvent()': the destructor: Python removes
     its C++ QGestureEvent by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  4 of the 17 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -113,6 +108,23 @@ class QGestureEvent(QEvent):
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def gestures(self) -> QList[QGesture]:
+    """
+    Calls Qt's 'QList<QGesture *> QGestureEvent::gestures() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgestureevent.html#gestures
+
+    Returns
+    -------
+
+    QList[QGesture]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGesture *> QGestureEvent::gestures() const
+    address = self.uglySide.call('ritual_ZNK13QGestureEvent8gesturesEv')
+    from . import QGesture
+    return QList[QGesture]._cuteOwning(address)
+
   @overload(Qt.GestureType)
   def gesture(self, type: Qt.GestureType) -> Optional[QGesture]:
     """
@@ -140,6 +152,45 @@ class QGestureEvent(QEvent):
     )
     from . import QGesture
     return QGesture._cuteAt(address)
+
+  def activeGestures(self) -> QList[QGesture]:
+    """
+    Calls Qt's 'QList<QGesture *> QGestureEvent::activeGestures() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgestureevent.html#activeGestures
+
+    Returns
+    -------
+
+    QList[QGesture]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGesture *> QGestureEvent::activeGestures() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGestureEvent14activeGesturesEv',
+    )
+    from . import QGesture
+    return QList[QGesture]._cuteOwning(address)
+
+  def canceledGestures(self) -> QList[QGesture]:
+    """
+    Calls Qt's 'QList<QGesture *> QGestureEvent::canceledGestures() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgestureevent.html#canceledGestures
+
+    Returns
+    -------
+
+    QList[QGesture]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QGesture *> QGestureEvent::canceledGestures() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QGestureEvent16canceledGesturesEv',
+    )
+    from . import QGesture
+    return QList[QGesture]._cuteOwning(address)
 
   @overload(QGesture)
   @overload(NoneType)
@@ -312,6 +363,28 @@ class QGestureEvent(QEvent):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QList[QGesture])
+  def __init__(self, gestures: QList[QGesture]) -> None:
+    """
+    Notes what was given, for Qt's 'QGestureEvent::QGestureEvent(const
+    QList<QGesture *> &gestures)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgestureevent.html#QGestureEvent
+
+    Parameters
+    ----------
+
+    gestures : QList[QGesture]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  QGestureEvent::QGestureEvent(const QList<QGesture *> &gestures)
+    self._noteCreation(QGestureEvent, lambda: Rituals.call(
+        'ritual_ZN13QGestureEventC1ERK5QListIP8QGestureE',
+        self._valueOf(gestures),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

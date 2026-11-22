@@ -27,6 +27,10 @@
     "ritual_ZNK19QProcessEnvironment5valueERK7QStringS2_": [
       "text", "address", "text", "text"
     ],
+    "ritual_ZNK19QProcessEnvironment12toStringListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QProcessEnvironment4keysEv": ["address", "address"],
     "ritual_ZN19QProcessEnvironment6insertERKS_": [
       "nothing", "address", "address"
     ],

@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QObject
+from ..QtCore import Qt, QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -364,3 +364,16 @@ class QGesture(QObject):
     """
     #  void QGesture::unsetHotSpot()
     self.uglySide.call('ritual_ZN8QGesture12unsetHotSpotEv')
+
+
+#  Qt's 'QList<QGesture *>': the list of QGesture, which 'QList[QGesture]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QGesture.
+QList.createKind(
+    QGesture, 'address',
+    make='ritual_list_make_QGesture_ptr',
+    add='ritual_list_add_QGesture_ptr',
+    size='ritual_list_size_QGesture_ptr',
+    at='ritual_list_at_QGesture_ptr',
+    drop='ritual_list_drop_QGesture_ptr',
+)

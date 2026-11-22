@@ -14,9 +14,13 @@
     "ritual_ZNK4QDir4pathEv": ["text", "address"],
     "ritual_ZNK4QDir12absolutePathEv": ["text", "address"],
     "ritual_ZNK4QDir13canonicalPathEv": ["text", "address"],
+    "ritual_ZN4QDir14setSearchPathsERK7QStringRK5QListIS0_E": [
+      "nothing", "text", "address"
+    ],
     "ritual_ZN4QDir13addSearchPathERK7QStringS2_": [
       "nothing", "text", "text"
     ],
+    "ritual_ZN4QDir11searchPathsERK7QString": ["address", "text"],
     "ritual_ZNK4QDir7dirNameEv": ["text", "address"],
     "ritual_ZNK4QDir8filePathERK7QString": ["text", "address", "text"],
     "ritual_ZNK4QDir16absoluteFilePathERK7QString": [
@@ -29,6 +33,10 @@
     "ritual_ZN4QDir20fromNativeSeparatorsERK7QString": ["text", "text"],
     "ritual_ZN4QDir2cdERK7QString": ["bool", "address", "text"],
     "ritual_ZN4QDir4cdUpEv": ["bool", "address"],
+    "ritual_ZNK4QDir11nameFiltersEv": ["address", "address"],
+    "ritual_ZN4QDir14setNameFiltersERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK4QDir6filterEv": ["int", "address"],
     "ritual_ZN4QDir9setFilterE6QFlagsINS_6FilterEE": [
       "nothing", "address", "int"
@@ -44,6 +52,19 @@
       "bool", "address", "int"
     ],
     "ritual_ZNK4QDirixEx": ["text", "address", "long long"],
+    "ritual_ZN4QDir21nameFiltersFromStringERK7QString": ["address", "text"],
+    "ritual_ZNK4QDir9entryListE6QFlagsINS_6FilterEES0_INS_8SortFlagEE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK4QDir9entryListERK5QListI7QStringE6QFlagsINS_6FilterEES5_INS_8SortFlagEE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK4QDir13entryInfoListE6QFlagsINS_6FilterEES0_INS_8SortFlagEE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK4QDir13entryInfoListERK5QListI7QStringE6QFlagsINS_6FilterEES5_INS_8SortFlagEE": [
+      "address", "address", "address", "int", "int"
+    ],
     "ritual_ZNK4QDir5rmdirERK7QString": ["bool", "address", "text"],
     "ritual_ZNK4QDir6rmpathERK7QString": ["bool", "address", "text"],
     "ritual_ZN4QDir17removeRecursivelyEv": ["bool", "address"],
@@ -60,6 +81,7 @@
       "bool", "address", "text", "text"
     ],
     "ritual_ZNK4QDir6existsERK7QString": ["bool", "address", "text"],
+    "ritual_ZN4QDir6drivesEv": ["address"],
     "ritual_ZN4QDir13listSeparatorEv": ["address"],
     "ritual_ZN4QDir9separatorEv": ["address"],
     "ritual_ZN4QDir10setCurrentERK7QString": ["bool", "text"],
@@ -71,6 +93,9 @@
     "ritual_ZN4QDir8rootPathEv": ["text"],
     "ritual_ZN4QDir4tempEv": ["address"],
     "ritual_ZN4QDir8tempPathEv": ["text"],
+    "ritual_ZN4QDir5matchERK5QListI7QStringERKS1_": [
+      "bool", "address", "text"
+    ],
     "ritual_ZN4QDir5matchERK7QStringS2_": ["bool", "text", "text"],
     "ritual_ZN4QDir9cleanPathERK7QString": ["text", "text"],
     "ritual_ZNK4QDir7refreshEv": ["nothing", "address"],

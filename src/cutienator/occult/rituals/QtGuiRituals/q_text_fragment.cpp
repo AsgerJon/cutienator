@@ -3,6 +3,8 @@
 #include <QtGui/qtextobject.h>
 #include <QtGui/qtextformat.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qglyphrun.h>
+#include <QtCore/qlist.h>
 
 //  QTextFragment::QTextFragment()
 extern "C" Q_DECL_EXPORT
@@ -83,6 +85,15 @@ int ritual_ZNK13QTextFragment15charFormatIndexEv(const QTextFragment *self) {
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK13QTextFragment4textEv(const QTextFragment *self) {
   return new QString(self->text());
+}
+
+//  QList<QGlyphRun> QTextFragment::glyphRuns(int from, int length) const
+extern "C" Q_DECL_EXPORT
+QList<QGlyphRun> *ritual_ZNK13QTextFragment9glyphRunsEii(
+    const QTextFragment *self,
+    int from,
+    int length) {
+  return new QList<QGlyphRun>(self->glyphRuns(from, length));
 }
 
 //  QTextFragment::~QTextFragment()

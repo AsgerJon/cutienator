@@ -4,6 +4,7 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmargins.h>
+#include <QtCore/qlist.h>
 
 //  QRectF::QRectF()
 extern "C" Q_DECL_EXPORT
@@ -565,5 +566,35 @@ QRect *ritual_ZNK6QRectF13toAlignedRectEv(const QRectF *self) {
 //  QRectF::~QRectF()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QRectFD1Ev(QRectF *self) {
+  delete self;
+}
+
+//  QList<QRectF>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QRectF> *ritual_list_make_QRectF() {
+  return new QList<QRectF>();
+}
+
+//  void QList<QRectF>::append(const QRectF &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QRectF(QList<QRectF> *self, const QRectF *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QRectF>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QRectF(const QList<QRectF> *self) {
+  return self->size();
+}
+
+//  const QRectF &QList<QRectF>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_list_at_QRectF(const QList<QRectF> *self, long long index) {
+  return new QRectF(self->at(index));
+}
+
+//  QList<QRectF>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QRectF(QList<QRectF> *self) {
   delete self;
 }

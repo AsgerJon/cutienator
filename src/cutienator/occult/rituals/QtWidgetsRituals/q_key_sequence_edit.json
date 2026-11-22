@@ -24,6 +24,12 @@
     "ritual_ZNK16QKeySequenceEdit20isClearButtonEnabledEv": [
       "bool", "address"
     ],
+    "ritual_ZN16QKeySequenceEdit27setFinishingKeyCombinationsERK5QListI15QKeyCombinationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QKeySequenceEdit24finishingKeyCombinationsEv": [
+      "address", "address"
+    ],
     "ritual_ZN16QKeySequenceEdit14setKeySequenceERK12QKeySequence": [
       "nothing", "address", "address"
     ],

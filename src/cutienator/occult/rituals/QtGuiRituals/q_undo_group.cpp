@@ -2,7 +2,9 @@
 //  QtGui/qundogroup.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qundogroup.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qundostack.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QUndoGroup that Python can take functions over in. Every QUndoGroup
@@ -172,6 +174,13 @@ void ritual_ZN10QUndoGroup11removeStackEP10QUndoStack(
     QUndoGroup *self,
     QUndoStack *stack) {
   self->removeStack(stack);
+}
+
+//  QList<QUndoStack *> QUndoGroup::stacks() const
+extern "C" Q_DECL_EXPORT
+QList<QUndoStack *> *ritual_ZNK10QUndoGroup6stacksEv(
+    const QUndoGroup *self) {
+  return new QList<QUndoStack *>(self->stacks());
 }
 
 //  QUndoStack *QUndoGroup::activeStack() const

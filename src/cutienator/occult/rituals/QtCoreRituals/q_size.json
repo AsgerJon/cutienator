@@ -43,6 +43,11 @@
     "ritual_ZmldRK5QSize": ["address", "double", "address"],
     "ritual_ZdvRK5QSized": ["address", "address", "double"],
     "ritual_ZNK5QSize7toSizeFEv": ["address", "address"],
-    "ritual_ZN5QSizeD1Ev": ["nothing", "address"]
+    "ritual_ZN5QSizeD1Ev": ["nothing", "address"],
+    "ritual_list_make_QSize": ["address"],
+    "ritual_list_add_QSize": ["nothing", "address", "address"],
+    "ritual_list_size_QSize": ["long long", "address"],
+    "ritual_list_at_QSize": ["address", "address", "long long"],
+    "ritual_list_drop_QSize": ["nothing", "address"]
   }
 }
