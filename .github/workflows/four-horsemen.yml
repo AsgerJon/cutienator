@@ -1,0 +1,86 @@
+# Four horsemen: makes the demons of all four systems at one press.
+# Manual trigger only. On a Linux machine, a Windows machine, an Apple
+# silicon Mac and an Intel Mac it compiles every ritual file and joins
+# them, with 'bin/check_build.py', which names EVERYTHING the compiler
+# and the linker refuse, not the first. It releases nothing, changes
+# nothing on 'main' and reads no safety.
+# Each machine hands over what its compile produced as an artifact of
+# the run, to download from the page of the run: every object file
+# (the folder 'demons'), the joined library when there is one, and the
+# report. They are for looking at during development. They are not
+# given out with cutienator: each fits only the Qt and the compiler of
+# the machine that made it.
+on:
+  workflow_dispatch:
+
+jobs:
+  demons:
+    strategy:
+      # One system refusing must not keep the others from reporting.
+      fail-fast: false
+      matrix:
+        include:
+          - { name: 'linux', os: ubuntu-latest }
+          - { name: 'windows', os: windows-latest }
+          - { name: 'mac', os: macos-latest }
+          - { name: 'intel-mac', os: macos-26-intel }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      # The same Qt, fetched the same way, as the release workflows
+      # fetch it; see 'micro-dev.yml' for why each line is there.
+      - name: Install Qt 6.12.0
+        uses: jurplel/install-qt-action@v4.5.0
+        with:
+          version: '6.12.0'
+          archives: 'qtbase icu'
+          install-deps: false
+          aqtsource: 'git+https://github.com/miurahr/aqtinstall.git@5a49f2b391ae8ee1d3c0dd87f8b33c1d49a4deb7'
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      # Windows only, as in the release workflows: the 'clang++' that
+      # comes with Visual Studio is put first in line; see
+      # 'micro-dev.yml'.
+      - name: Use the clang++ of Visual Studio
+        if: ${{ runner.os == 'Windows' }}
+        shell: pwsh
+        run: |
+          $installer = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer"
+          $studio = & "$installer\vswhere.exe" -latest -products * -property installationPath
+          $folder = Join-Path $studio 'VC\Tools\Llvm\x64\bin'
+          if (-not (Test-Path (Join-Path $folder 'clang++.exe'))) {
+            throw "Visual Studio has no clang++.exe in '$folder'."
+          }
+          Add-Content -Path $env:GITHUB_PATH -Value $folder
+      - name: Check the Qt and the compiler
+        shell: bash
+        run: |
+          qmake6 -query QT_VERSION | tr -d '\r' | grep -Fx '6.12.0'
+          clang++ --version
+      # The report is written whatever the check finds, and the step
+      # fails when something was refused, so the run shows red.
+      - name: Compile and join every ritual file
+        shell: bash
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: |
+          mkdir -p horsemen
+          python -B bin/check_build.py horsemen/report.txt
+      # Also when the step above failed. The object files lie in
+      # 'demons', one for each ritual file that compiled.
+      - name: Hand over what the compile produced
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: demons-${{ matrix.name }}
+          path: |
+            src/cutienator/occult/demons/
+            src/cutienator/occult/libcutienator.*
+            horsemen/
+          if-no-files-found: warn
