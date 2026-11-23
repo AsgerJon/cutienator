@@ -20,6 +20,7 @@ the plan of its ritual file, and verifies that file.
 from __future__ import annotations
 
 from ._header_file import HeaderFile
+from ._header_folder import HeaderFolder
 from ._qt_part import QtPart
 from ._qt_source import QtSource
 from ._dependency_tree import DependencyTree
@@ -32,7 +33,7 @@ from ._class_generator import ClassGenerator
 from ._class_tester import ClassTester
 
 __all__ = (
-    'HeaderFile',
+    'HeaderFile', 'HeaderFolder',
     'QtPart', 'QtSource',
     'DependencyTree',
     'RitualGenerator',

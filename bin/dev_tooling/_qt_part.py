@@ -15,10 +15,11 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import HeaderFile
+from . import HeaderFile, HeaderFolder
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Any, Dict, Iterator, List, Optional, Set, Tuple
+  from typing import (Any, Dict, FrozenSet, Iterator, List, Optional, Set,
+                      Tuple)
 
   Record = Dict[str, Any]
   HeaderFiles = Tuple[HeaderFile, ...]
@@ -62,21 +63,28 @@ class QtPart:
   You provide
   -----------
 
+  - 'setHeaderFolder': the 'HeaderFolder' that makes, from Qt's source,
+    the folder Qt's header files are read in. Once, for every
+    'QtPart'. Required.
   - 'setPartName': the part of Qt to read. Required.
   - 'setWorkFolder': an existing folder to keep readings in. Required.
 
   Found for you
   -------------
 
-  - 'getQtHeaderFolder' and 'getQtVersion': asked of Qt's own program
-    'qmake6'.
+  - 'getQtHeaderFolder' and 'getQtVersion': from Qt's source, through
+    the 'HeaderFolder'. No Qt that is installed is asked.
   - 'getHeaderPaths': every header file lying right in the folder of
     the part.
   - 'getHeaderFiles': one 'HeaderFile' per header file, once the part
     has been read.
   - 'getIncludeLines': the lines of C++ that pull a header file in.
-  - 'getQtSharedObject': the compiled Qt code of this part.
-  - 'getClassSummary': what Qt's own summary says about a class.
+  - 'getSignalLines': the lines of a header file that declare signals,
+    read from its text.
+  - 'getQtSharedObject': the compiled Qt code of this part, of the Qt
+    installed on the machine, asked of Qt's own program 'qmake6'. It
+    is for compiling against, and 'getOfferedNames' lists the names it
+    offers.
 
   What to expect
   --------------
@@ -197,11 +205,27 @@ class QtPart:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
-  #  Where Qt keeps its headers and which version it is. Asked of
-  #  'qmake6' once, and kept for every 'QtPart'.
+  #  The 'HeaderFolder' that makes the folder Qt's header files are
+  #  read in, and what is taken from it: where that folder is and which
+  #  version of Qt it is made from. Kept for every 'QtPart'.
+  __header_folder__ = None  # type: Optional[HeaderFolder]
   __qt_header_folder__ = None  # type: Optional[str]
   __qt_version__ = None  # type: Optional[str]
+  #  Where the Qt installed on the machine keeps its shared objects.
+  #  Asked of 'qmake6' once, and kept for every 'QtPart'.
   __qt_shared_object_folder__ = None  # type: Optional[str]
+  #  The lines of each header file read so far on which Qt declares
+  #  signals, kept for every 'QtPart'.
+  __signal_lines__ = dict()  # type: Dict[str, FrozenSet[int]]
+  #  A line that defines a shorthand taking arguments, with the lines it
+  #  goes on to after a backslash: the name, what it takes, and the
+  #  text it stands for.
+  __shorthand_line__ = re.compile(
+      r'^[ \t]*#[ \t]*define[ \t]+([A-Za-z_]\w*)\(([^)]*)\)'
+      r'((?:.*\\\n)*.*)', re.M)
+  #  The shorthands of each header file read so far, kept for every
+  #  'QtPart'.
+  __read_shorthands__ = dict()  # type: Dict[str, Tuple[Any, ...]]
 
   #  How the compiler lays out its report. A top-level thing opens with
   #  a line of four spaces and a bracket, and closes the same way. The
@@ -230,7 +254,6 @@ class QtPart:
   __part_name__ = None  # type: Optional[str]
   __work_folder__ = None  # type: Optional[str]
   __header_files__ = None  # type: Optional[HeaderFiles]
-  __class_summaries__ = None  # type: Optional[Dict[str, Record]]
   __named_header_paths__ = None  # type: Optional[Paths]
   __offered_names__ = None  # type: Optional[FrozenSet[str]]
   __found_pullers__ = None  # type: Optional[Dict[str, Optional[str]]]
@@ -249,28 +272,68 @@ class QtPart:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @classmethod
-  def _createQtHeaderFolder(cls, ) -> None:
-    """Asks 'qmake6' where Qt keeps its headers and remembers it."""
-    answer = cls._run('qmake6', '-query', 'QT_INSTALL_HEADERS')
-    cls.__qt_header_folder__ = answer.strip()
-
-  @classmethod
-  def getQtHeaderFolder(cls, **kwargs) -> str:
+  def getHeaderFolder(cls) -> HeaderFolder:
     """
-    Gives the folder where Qt keeps its headers, as '/usr/include/qt6'.
+    Gives the 'HeaderFolder' that makes, from Qt's source, the folder
+    Qt's header files are read in.
 
-    Found for you: there is no setter. The first call asks Qt's own
-    program 'qmake6', and the answer is kept for every 'QtPart'. You
-    pass nothing; the keyword is for the method's own use.
+    Provided by you, through 'setHeaderFolder', once for every
+    'QtPart'.
 
     Raises
     ------
 
-    FileNotFoundError
-      'qmake6' is not installed.
+    MissingVariable
+      'setHeaderFolder' has not been called.
+    """
+    if cls.__header_folder__ is None:
+      raise MissingVariable(cls, '__header_folder__', HeaderFolder)
+    return cls.__header_folder__
 
-    RuntimeError
-      'qmake6' ran and reported a failure; its message is included.
+  @classmethod
+  def setHeaderFolder(cls, headerFolder: HeaderFolder) -> None:
+    """
+    Tells where Qt's header files are read: in the folder a
+    'HeaderFolder' makes from Qt's source. Every 'QtPart' reads there,
+    and no Qt that is installed is asked where its header files are or
+    which version it is.
+
+    Raises
+    ------
+
+    TypeException
+      It is no 'HeaderFolder'.
+    """
+    if not isinstance(headerFolder, HeaderFolder):
+      raise TypeException('headerFolder', headerFolder, HeaderFolder)
+    cls.__header_folder__ = headerFolder
+    cls.__qt_header_folder__ = None
+    cls.__qt_version__ = None
+
+  @classmethod
+  def _createQtHeaderFolder(cls, ) -> None:
+    """Has the 'HeaderFolder' make its folder, where that has not been
+    done from this very source, and remembers where the folder is."""
+    headerFolder = cls.getHeaderFolder()
+    if not headerFolder.isMade():
+      headerFolder.make()
+    cls.__qt_header_folder__ = headerFolder.getFolder()
+
+  @classmethod
+  def getQtHeaderFolder(cls, **kwargs) -> str:
+    """
+    Gives the folder in which the compiler finds Qt's header files.
+
+    Found for you: it is the folder the 'HeaderFolder' makes from Qt's
+    source, laid out the way the header folder of an installed Qt is.
+    It is made at the first call where it is not there yet. You pass
+    nothing; the keyword is for the method's own use.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setHeaderFolder' has not been called.
     """
     if cls.__qt_header_folder__ is None:
       if kwargs.get('_recursion', False):
@@ -281,27 +344,23 @@ class QtPart:
 
   @classmethod
   def _createQtVersion(cls, ) -> None:
-    """Asks 'qmake6' which version of Qt is installed and remembers it."""
-    answer = cls._run('qmake6', '-query', 'QT_VERSION')
-    cls.__qt_version__ = answer.strip()
+    """Takes the version of Qt from its source and remembers it."""
+    cls.__qt_version__ = cls.getHeaderFolder().getQtVersion()
 
   @classmethod
   def getQtVersion(cls, **kwargs) -> str:
     """
-    Gives the version of the Qt that is installed, as '6.12.0'.
+    Gives the version of Qt that is read, as '6.12.0'.
 
-    Found for you: there is no setter. The first call asks Qt's own
-    program 'qmake6', and the answer is kept for every 'QtPart'. You
-    pass nothing; the keyword is for the method's own use.
+    Found for you: Qt's source names its own version, and the
+    'HeaderFolder' reads it there. You pass nothing; the keyword is for
+    the method's own use.
 
     Raises
     ------
 
-    FileNotFoundError
-      'qmake6' is not installed.
-
-    RuntimeError
-      'qmake6' ran and reported a failure; its message is included.
+    MissingVariable
+      'setHeaderFolder' has not been called.
     """
     if cls.__qt_version__ is None:
       if kwargs.get('_recursion', False):
@@ -364,64 +423,130 @@ class QtPart:
       raise FileNotFoundError(' '.join(info.split()))
     return path
 
-  def getSummaryFile(self) -> str:
+  @classmethod
+  def getSignalLines(cls, headerPath: str) -> FrozenSet[int]:
     """
-    Gives the path of Qt's own summary of this part, as
-    '/usr/lib/qt6/metatypes/qt6core_metatypes.json'.
+    Gives the lines of a header file on which Qt declares signals,
+    read from the text of the file alone.
 
-    Found for you. Qt installs one such file per part. It says what the
-    compiler cannot: which functions are signals and slots, and which
-    properties a class has.
-    """
-    folder = self._run('qmake6', '-query', 'QT_INSTALL_ARCHDATA').strip()
-    name = 'qt6%s_metatypes.json' % self.getPartName()[2:].lower()
-    return os.path.join(folder, 'metatypes', name)
+    Qt writes the signals of a class under a line 'Q_SIGNALS:' or
+    'signals:', up to the next line that opens another section of the
+    class, as 'public:' and 'private Q_SLOTS:', or the line that closes
+    the class. A function marked 'Q_SIGNAL' by itself counts as well.
+    The compiler does not report which functions are signals, and
+    Qt's own list of them is made when Qt is built, so it is no part
+    of Qt's source.
 
-  def _createClassSummaries(self, ) -> None:
-    """Loads Qt's own summary of this part, by the name of each class."""
-    summaryFile = self.getSummaryFile()
-    if not os.path.isfile(summaryFile):
-      infoSpec = """Qt's summary of the part '%s' was expected at '%s',
-      and there is no such file."""
-      info = infoSpec % (self.getPartName(), summaryFile)
-      raise FileNotFoundError(' '.join(info.split()))
-    with open(summaryFile) as file:
-      units = json.load(file)
-    summaries = dict()
-    for unit in units:
-      for entry in unit.get('classes', ()):
-        summaries[entry.get('qualifiedClassName')] = entry
-    self.__class_summaries__ = summaries
+    Parameters
+    ----------
 
-  def getClassSummary(self, className: str, **kwargs) -> Record:
-    """
-    Gives what Qt's own summary says about one class, untouched.
-
-    Loaded for you from the summary file, at the first call, and kept.
-    You pass the name of the class; the keyword is for the method's own
-    use.
+    headerPath : str
+      The full path of the header file, as a record names it under
+      'loc'.
 
     Returns
     -------
 
-    Record
-      A 'Dict[str, Any]'. Its entries 'signals', 'slots' and
-      'properties' list what the class has of each. It is empty for a
-      class the summary does not mention, as every class not built on
-      'QObject'.
-
-    Raises
-    ------
-
-    FileNotFoundError
-      The summary file is not where it is expected to be.
+    FrozenSet[int]
+      The numbers of those lines, the first line of the file being 1.
     """
-    if self.__class_summaries__ is None:
-      if kwargs.get('_recursion', False):
-        raise RecursionError
-      self._createClassSummaries()
-      return self.getClassSummary(className, _recursion=True)
-    return self.__class_summaries__.get(className, dict())
+    kept = cls.__signal_lines__
+    if headerPath in kept:
+      return kept[headerPath]
+    with open(headerPath, errors='replace') as file:
+      text = file.read().replace('\r', '')
+    #  Comments go, and the lines keep their numbers.
+    text = re.sub(
+        r'/\*.*?\*/', lambda found: '\n' * found.group(0).count('\n'),
+        text, flags=re.S)
+    opens = re.compile(r'^\s*(?:Q_SIGNALS|signals)\s*:')
+    closes = re.compile(
+        r'^\s*(?:(?:public|protected|private)\b[^;()]*:\s*$'
+        r'|(?:Q_SLOTS|slots)\s*:|\};)')
+    found, inside = set(), False  # type: Set[int], bool
+    for number, line in enumerate(text.split('\n'), 1):
+      line = re.sub(r'//.*$', '', line)
+      if opens.match(line):
+        inside = True
+      elif closes.match(line):
+        inside = False
+      elif inside or re.search(r'\bQ_SIGNAL\b', line):
+        found.add(number)
+    kept[headerPath] = frozenset(found)
+    return kept[headerPath]
+
+  @classmethod
+  def getShorthands(cls, headerPath: str) -> Tuple[Any, ...]:
+    """
+    Gives the shorthands a header file defines, read from its text
+    alone. C++ calls them macros.
+
+    A shorthand is a line '#define NAME(...)' and the lines it goes on
+    to after a backslash. Where code writes 'NAME(...)', the compiler
+    reads the text of the shorthand in its place, with what was written
+    between the brackets put in for its arguments. Qt writes the code of
+    some functions that way: 'qcoreevent.h' defines
+    'Q_IMPL_EVENT_COMMON(Class)', whose text holds
+    'Class::~Class() = default;', and 'qcoreevent.cpp' writes
+    'Q_IMPL_EVENT_COMMON(QChildEvent)'. Only a shorthand with brackets
+    after its name is read; one without, as '#define QT_NO_CAST', is
+    left out.
+
+    Parameters
+    ----------
+
+    headerPath : str
+      The full path of the header file.
+
+    Returns
+    -------
+
+    Tuple[Any, ...]
+      One 'Tuple[str, Tuple[str, ...], str]' per shorthand, in the
+      order the file defines them: the name, the names of what it
+      takes, and the text it stands for, without comments and as one
+      line.
+    """
+    kept = cls.__read_shorthands__
+    if headerPath in kept:
+      return kept[headerPath]
+    with open(headerPath, errors='replace') as file:
+      text = file.read().replace('\r', '')
+    found = []
+    for match in cls.__shorthand_line__.finditer(text):
+      body = match.group(3).replace('\\\n', ' ')
+      body = re.sub(r'/\*.*?\*/', ' ', body)
+      body = re.sub(r'//.*$', '', body)
+      taken = (*(one.strip() for one in match.group(2).split(',')),)
+      found.append((match.group(1), taken, ' '.join(body.split())))
+    kept[headerPath] = (*found,)
+    return kept[headerPath]
+
+  def getMarkedNames(self) -> FrozenSet[str]:
+    """
+    Gives the names of the functions and values that the header files
+    of the part declare with Qt's mark for use from outside Qt in
+    front, as 'Q_CORE_EXPORT', read from the text of the files. It is
+    for what stands outside of every class: a class says by its own
+    declaration whether it is marked. 'Q_AUTOTEST_EXPORT' is no such
+    mark: it holds only in a Qt built for Qt's own tests.
+
+    Returns
+    -------
+
+    FrozenSet[str]
+      The bare names, without a namespace and without what a function
+      takes.
+    """
+    marked = re.compile(
+        r'^\s*(?:(?:\[\[nodiscard\]\]|Q_DECL_\w+|Q_REQUIRED_RESULT|'
+        r'extern|constexpr|inline)\s+)*Q_(?:CORE|GUI|WIDGETS)_EXPORT\b'
+        r'[^;{(=]*?\b([A-Za-z_]\w*)\s*(?:\(|;|=|\[)', re.M)
+    found = set()  # type: Set[str]
+    for headerPath in self.getHeaderPaths():
+      with open(headerPath, errors='replace') as file:
+        found.update(marked.findall(file.read()))
+    return frozenset(found)
 
   def getPartName(self) -> str:
     """
@@ -459,20 +584,21 @@ class QtPart:
   def getPartFolder(self) -> str:
     """
     Gives the folder holding the header files of the part, as
-    '/usr/include/qt6/QtCore'.
+    '/some/folder/headers/QtCore'.
 
-    Found for you: the folder named as the part in Qt's header folder.
+    Found for you: the folder named as the part in the folder the
+    'HeaderFolder' made.
 
     Raises
     ------
 
     LookupError
-      Qt's header folder has no folder of that name, so the Qt that is
-      installed has no such part.
+      That folder has no folder of that name, so Qt's source has no
+      such part.
     """
     partFolder = os.path.join(self.getQtHeaderFolder(), self.getPartName())
     if not os.path.isdir(partFolder):
-      infoSpec = """The Qt that is installed has no part named '%s':
+      infoSpec = """Qt's source has no part named '%s':
       there is no folder '%s'."""
       info = infoSpec % (self.getPartName(), partFolder)
       raise LookupError(' '.join(info.split()))
@@ -545,11 +671,9 @@ class QtPart:
         found.append(os.path.join(folder, name))
         found.append(os.path.join(folder, name, 'private'))
     #  Some of those headers name 'qplatformdefs.h', which Qt keeps
-    #  with what it knows of the system and the compiler it was built
-    #  for, as '/usr/lib/qt6/mkspecs/linux-g++'.
-    found.append(os.path.join(
-        self._run('qmake6', '-query', 'QT_HOST_DATA').strip(), 'mkspecs',
-        self._run('qmake6', '-query', 'QMAKE_SPEC').strip()))
+    #  with what it knows of the system and the compiler it is built
+    #  for, in its source as 'mkspecs/linux-g++'.
+    found.append(self.getHeaderFolder().getSpecFolder())
     return (*found,)
 
   def getCompilerCommand(self) -> Tuple[str, ...]:
@@ -923,7 +1047,6 @@ class QtPart:
       raise ValueError(' '.join((infoSpec % partName).split()))
     self.__part_name__ = partName
     self.__header_files__ = None
-    self.__class_summaries__ = None
     self.__named_header_paths__ = None
     self.__offered_names__ = None
     self.__found_pullers__ = None
@@ -1501,14 +1624,14 @@ class QtPart:
     ------
 
     MissingVariable
-      'setPartName' or 'setWorkFolder' has not been called.
+      'setHeaderFolder', 'setPartName' or 'setWorkFolder' has not been
+      called.
 
     LookupError
-      The Qt that is installed has no such part, or the part has no
-      header files.
+      Qt's source has no such part, or the part has no header files.
 
     FileNotFoundError
-      'clang++' or 'qmake6' is not installed.
+      'clang++' is not installed.
 
     RuntimeError
       The compiler refused the header files, a check did not pass, or

@@ -308,7 +308,9 @@ class RitualGenerator:
   __written_rituals__ = None  # type: Optional[Rituals]
   __unwritten_functions__ = None  # type: Optional[Reasons]
   __known_names__ = None  # type: Optional[FrozenSet[str]]
-  __offered_names__ = None  # type: Optional[FrozenSet[str]]
+  #  How the names of the functions begin that Qt declares only for
+  #  the compiler to check something, and writes no code for.
+  __never_written__ = ('qt_check_for_',)
   __type_tables__ = None  # type: Optional[Record]
 
   #  Public Variables
@@ -426,8 +428,16 @@ class RitualGenerator:
     tree = self.getDependencyTree()
     className = self.getClassName()
     record = tree.getClassRecord(className)
-    summary = self.getQtPart().getClassSummary(className)
-    signals = {signal['name'] for signal in summary.get('signals', ())}
+    #  Which functions are signals is read from the text of the header
+    #  file: the compiler does not report it.
+    signals = set()  # type: Set[str]
+    for member in record.get('inner', ()):
+      place = member.get('loc', dict())
+      place = place.get('expansionLoc', place)
+      headerPath, line = place.get('file'), place.get('line')
+      if headerPath and line:
+        if line in QtPart.getSignalLines(headerPath):
+          signals.add(member.get('name'))
     abstract = record.get('definitionData', dict()).get('isAbstract', False)
     barred = self._findBarred(record)
     written, unwritten = [], []  # type: List[Record], List[Tuple[str, str]]
@@ -1580,7 +1590,6 @@ class RitualGenerator:
     self.__overridable_functions__ = None
     self.__has_cute_class__ = None
     self.__known_names__ = None
-    self.__offered_names__ = None
     self.__type_tables__ = None
 
   def setClassName(self, className: str) -> None:
@@ -2038,22 +2047,6 @@ class RitualGenerator:
       return self._getKnownNames(_recursion=True)
     return self.__known_names__
 
-  def _getOfferedNames(self, **kwargs) -> FrozenSet[str]:
-    """
-    Gives the name of everything the Qt shared objects of the parts of
-    the dependency tree offer, each as the compiler names it. Kept
-    after the first call.
-    """
-    if self.__offered_names__ is None:
-      if kwargs.get('_recursion', False):
-        raise RecursionError
-      offered = set()  # type: Set[str]
-      for qtPart in self.getDependencyTree().getQtParts():
-        offered.update(qtPart.getOfferedNames())
-      self.__offered_names__ = frozenset(offered)
-      return self._getOfferedNames(_recursion=True)
-    return self.__offered_names__
-
   @classmethod
   def _findSystemLines(cls, headerPath: str) -> Dict[int, str]:
     """
@@ -2177,18 +2170,24 @@ class RitualGenerator:
       self.getWritten()
     return self.__source_includes__ or ()
 
-  def _findSourceCode(self, member: Record) -> Optional[Record]:
+  def _findSourceCode(
+      self,
+      member: Record,
+      className: Optional[str] = None,
+  ) -> Optional[Record]:
     """
     Gives the definition of a function in Qt's own source, as
     'QtSource.findDefinitions' has it, or None when no source was
     provided or the source has not exactly one definition that takes
-    what the function takes.
+    what the function takes. The function is one of the class of the
+    generator, or of 'className' where that is given.
     """
     tree = self.getDependencyTree()
     source = tree.getQtSource()
     if source is None:
       return None
-    className = self.getClassName()
+    if className is None:
+      className = self.getClassName()
     name = member.get('name', '')
     if member.get('kind') == 'CXXConstructorDecl':
       name = className.rpartition('::')[2]
@@ -2410,20 +2409,20 @@ class RitualGenerator:
     """
     Decides which functions get their code from Qt's own source, keeps
     that code for 'getSourceText', and takes out every ritual that
-    leans on something nothing offers.
+    leans on something that cannot be had.
 
     It does so for a class that has a function '_findReason' let
-    through though nothing offers it, and for a class of a header Qt
-    calls private, whose own names Qt's library does not offer. The
-    whole ritual file is compiled to an object file. For each ritual
-    it is then looked up what its code leans on, through everything
-    the object file holds itself. What Qt's library offers is fine.
-    For what it does not offer, Qt's source is asked for a definition,
-    which is then taken along. A ritual leaning on something that
-    cannot be had that way, as the table through which C++ looks
-    functions up in an object of a class Qt's library keeps to itself,
-    is moved from 'written' to 'unwritten', with what stood in the
-    way.
+    through though it cannot be called, and for a class of a header Qt
+    calls private. The whole ritual file is compiled to an object
+    file, against the header files made from Qt's source. For each
+    ritual it is then looked up what its code leans on, through
+    everything the object file holds itself. What Qt's source marks
+    for use from outside Qt is fine; see '_isMarkedName'. For anything
+    else, Qt's source is asked for a definition, which is then taken
+    along. A ritual leaning on something that cannot be had that way,
+    as the table through which C++ looks functions up in an object of
+    a class Qt keeps to itself, is moved from 'written' to
+    'unwritten', with what stood in the way.
 
     Raises
     ------
@@ -2458,9 +2457,8 @@ class RitualGenerator:
     if not private and not any(name in named for name in chosen):
       #  No ritual calls a function whose code would be taken, so
       #  there is nothing to compile for: every ritual calls what Qt's
-      #  library offers or what a header has the code of.
+      #  source marks or what a header has the code of.
       return
-    offered = self._getOfferedNames()
     helpers = dict()  # type: Dict[str, Record]
     lost = set()  # type: Set[str]
     marker = '//  ' + '-' * 71
@@ -2539,14 +2537,16 @@ class RitualGenerator:
           info = infoSpec % (className, shown[:600])
           raise RuntimeError(' '.join(info.split()))
         continue
-      #  What Qt's library offers here and not on every system counts
-      #  as not offered: its code is taken along, or the ritual goes.
+      #  What the code leans on is sorted by Qt's source: a thing Qt
+      #  marks for use from outside Qt, and writes so that it can be
+      #  called from there, can be called. Of anything else the code
+      #  is taken along as well, or the ritual goes. No Qt that is
+      #  compiled or installed is asked which names it has.
       shownNames = self._demangle(sorted(
-          symbol for symbol in wanted
-          if symbol in offered and self._isOfQt(symbol)))
-      elsewhere = {
+          symbol for symbol in wanted if self._isOfQt(symbol)))
+      marked = {
           symbol for symbol, shown in shownNames.items()
-          if not self._isOfferedEverywhere(shown)
+          if self._isMarkedName(shown, symbol)
       }
       for plan in [*written]:
         ritualName = plan.get('ritualName')
@@ -2561,9 +2561,7 @@ class RitualGenerator:
         for symbol in sorted(reached):
           if symbol not in wanted:
             continue
-          if symbol in offered and symbol not in elsewhere:
-            continue
-          if not self._isOfQt(symbol):
+          if symbol in marked or not self._isOfQt(symbol):
             continue
           found = None
           if symbol in helpers and symbol not in compiled:
@@ -2584,12 +2582,9 @@ class RitualGenerator:
           said = subprocess.run(
               ('c++filt', symbol), stdout=subprocess.PIPE,
               universal_newlines=True).stdout.strip()
-          infoSpec = """leans on '%s', which Qt's library does not offer
-          and Qt's source has no code for that could be taken"""
-          if symbol in elsewhere:
-            infoSpec = """leans on '%s', which Qt's library does not
-            offer on every system, and Qt's source has no code for
-            that could be taken"""
+          infoSpec = """leans on '%s', which Qt's source does not
+          mark for use from outside Qt and has no code for that could
+          be taken"""
           drop(plan, ' '.join((infoSpec % said).split()))
           changed = True
           break
@@ -2629,7 +2624,7 @@ class RitualGenerator:
         '//  Copyright (C) The Qt Company Ltd. It is licensed',
         '//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so',
         '//  here. Each function is as Qt wrote it, with the word',
-        "//  'inline' put before it.",
+        "//  'inline' put before it where Qt did not write it.",
     ]
     kept, seen = [], set()  # type: List[str], Set[str]
     for name, definition in taken:
@@ -2637,7 +2632,10 @@ class RitualGenerator:
       lines.append('')
       lines.append('//  from %s, line %d, as %s' % (
           where, definition['line'], name))
-      lines.append('inline %s' % definition['text'])
+      text = definition['text']
+      if not re.search(r'\binline\b', text.split('(')[0]):
+        text = 'inline %s' % text
+      lines.append(text)
       if definition['path'] in seen:
         continue
       #  The lines of each file once, whole and in their order: an
@@ -2704,51 +2702,90 @@ class RitualGenerator:
     kept[className] = marked
     return marked
 
-  def _isInsideClass(self, className: str) -> bool:
-    """Says whether a class is written inside another class, and not
-    just in a namespace, as 'QtPrivate::QCalendarModel' is."""
-    outer = className.split('<')[0].rpartition('::')[0]
-    if not outer:
-      return False
-    return outer in self.getDependencyTree().getClassNames()
+  def _getMarkedFreeNames(self) -> FrozenSet[str]:
+    """Gives the names of the functions and values that Qt's header
+    files declare outside of every class with Qt's mark for use from
+    outside Qt, as 'QtPart.getMarkedNames' reads them from the text.
+    Kept on the tree after the first call."""
+    tree = self.getDependencyTree()
+    kept = tree.getKept('marked free names')
+    if 'names' not in kept:
+      names = set()  # type: Set[str]
+      for qtPart in tree.getQtParts():
+        names.update(qtPart.getMarkedNames())
+      kept['names'] = frozenset(names)
+    return kept['names']
 
-  def _isOfferedEverywhere(self, shown: str) -> bool:
+  @staticmethod
+  def _hasMark(member: Record) -> bool:
+    """Says whether the compiler wrote down Qt's mark for use from
+    outside Qt on a function itself, as 'Q_CORE_EXPORT'."""
+    return any(
+        isinstance(child, dict) and child.get('kind') == 'VisibilityAttr'
+        for child in member.get('inner', ()))
+
+  @staticmethod
+  def _sameFunction(first: str, second: str) -> bool:
     """
-    Says whether a function that Qt's library offers here is offered
-    by Qt's library on every system, going by the name of the function
-    as C++ writes it, as 'c++filt' gives it.
+    Says whether two names the compiler made stand for one function.
+    The compiler makes two names for one constructor, one ending its
+    name with 'C1' and one with 'C2', and three for one destructor,
+    'D0', 'D1' and 'D2'; a record has only the first of them.
+    """
+    def plain(symbol: str) -> str:
+      symbol = re.sub(r'C[123](?=E)', 'C1', symbol)
+      return re.sub(r'D[012](?=E)', 'D1', symbol)
+    return plain(first) == plain(second)
 
-    Two kinds are offered on Linux and on macOS and not on Windows: a
-    function made from a template, as
-    'QWidgetRepaintManager::markDirty<QRect>(...)', and a function of
-    a class that is written inside another class and not marked for
-    export on its own, as
-    'QBackingStoreRhiSupport::SwapchainData::reset()'. What is no
-    function, and an operator, is taken to be offered everywhere.
+  def _isMarkedName(self, shown: str, symbol: str) -> bool:
+    """
+    Says whether Qt's source marks, for use from outside Qt, the thing
+    a name of the compiler stands for, and writes it so that it can be
+    called from there.
+
+    A function of a class is marked when the class itself is, or the
+    function. The class is that very class: one written inside a
+    marked class with no mark of its own is not marked. What the
+    compiler makes for a class, as its table of virtual functions,
+    goes with the class. A function made from a template is not
+    marked: its code is in a header file or nowhere. A function
+    outside of every class is marked when a header file declares one
+    of its name with the mark. A marked function that Qt writes
+    'inline' with its code in no header file counts as not marked:
+    see '_isWrittenInline'.
 
     Parameters
     ----------
 
     shown : str
-      The name as C++ writes it, with what the function takes.
+      The name as C++ writes it, with what a function takes, as
+      'c++filt' gives it.
+
+    symbol : str
+      The same name as the compiler made it.
     """
-    if not shown.rstrip().endswith((')', 'const', '&')):
-      return True
-    end = shown.rfind(')')
-    if end < 0 or 'operator' in shown:
-      return True
-    depth, start = 0, -1
-    for index in range(end, -1, -1):
-      letter = shown[index]
-      depth += 1 if letter == ')' else -1 if letter == '(' else 0
-      if depth == 0:
-        start = index
-        break
-    if start < 0:
-      return True
-    #  What stands before the brackets: the type it gives, for a
-    #  function made from a template, and then the name in full.
-    head, depth, cut = shown[:start], 0, 0
+    for start in self.__made_for_class__:
+      if shown.startswith(start):
+        className = shown[len(start):].split('<')[0].strip()
+        return self._isMarkedForExport(className)
+    for start in self.__made_for_function__:
+      if shown.startswith(start):
+        shown = shown[len(start):]
+    head, end = shown, shown.rfind(')')
+    if end >= 0:
+      depth, start = 0, -1
+      for index in range(end, -1, -1):
+        letter = shown[index]
+        depth += 1 if letter == ')' else -1 if letter == '(' else 0
+        if depth == 0:
+          start = index
+          break
+      if start < 0:
+        return False
+      head = shown[:start]
+    #  What stands before the name: the type a function made from a
+    #  template gives.
+    depth, cut = 0, 0
     for index, letter in enumerate(head):
       depth += 1 if letter == '<' else -1 if letter == '>' else 0
       if letter == ' ' and depth == 0:
@@ -2760,12 +2797,27 @@ class RitualGenerator:
         parts.append(name[last:index])
         last = index + 2
     parts.append(name[last:])
-    if '<' in parts[-1]:
+    if '<' in parts[-1] and 'operator' not in parts[-1]:
       return False
     className = '::'.join(part.split('<')[0] for part in parts[:-1])
-    if not self._isInsideClass(className):
-      return True
-    return self._isMarkedForExport(className)
+    bare = parts[-1].split('<')[0]
+    if not className or className not in self._getKnownNames():
+      return True if bare in self._getMarkedFreeNames() else False
+    try:
+      record = self.getDependencyTree().getClassRecord(className)
+    except (ValueError, LookupError):
+      return False
+    members = [
+        member for member in record.get('inner', ())
+        if isinstance(member, dict) and member.get('name') == bare
+    ]
+    if not self._isMarkedForExport(className):
+      if not any(self._hasMark(member) for member in members):
+        return False
+    for member in members:
+      if self._sameFunction(member.get('mangledName', ''), symbol):
+        return not self._isWrittenInline(className, member)
+    return True
 
   @staticmethod
   def _demangle(symbols: List[str]) -> Dict[str, str]:
@@ -2778,32 +2830,39 @@ class RitualGenerator:
         stderr=subprocess.PIPE, universal_newlines=True).stdout
     return dict(zip(symbols, said.split('\n')))
 
-  def _isOfferedHereOnly(self, member: Record) -> bool:
-    """Says whether a function of the class is offered by Qt's library
-    here and not on every system: the class is written inside another
-    and neither it nor the function is marked for export."""
-    if member.get('mangledName') not in self._getOfferedNames():
-      return False
-    className = self.getClassName()
-    if not self._isInsideClass(className):
-      return False
-    if self._isMarkedForExport(className):
-      return False
-    return not any(
-        isinstance(child, dict) and child.get('kind') == 'VisibilityAttr'
-        for child in member.get('inner', ()))
+  def _isMarked(self, member: Record) -> bool:
+    """
+    Says whether Qt's source marks a function of the class for use
+    from outside Qt: the function carries a word such as
+    'Q_CORE_EXPORT' itself, or the class it belongs to does.
+
+    The class it belongs to is that very class. A class written inside
+    a marked class, with no mark of its own, counts as not marked:
+    only then does every system agree that the function is there.
+    """
+    if self._hasMark(member):
+      return True
+    return self._isMarkedForExport(self.getClassName())
 
   def _canBeCalled(self, member: Record) -> bool:
     """
-    Says whether a ritual calling this function could ever run.
+    Says whether a ritual can call this function of Qt, going by Qt's
+    source alone. No Qt that is compiled or installed is looked at.
 
-    A function can be called when its code is somewhere: in a header,
-    so the ritual gets a copy of it, or in a Qt shared object, which
-    then offers it by name. A virtual function is found through the
-    object it is called on and needs neither. Qt's headers declare a
-    few functions that are nowhere, as
-    'QEvent::qt_check_for_QGADGET_macro()'. One ritual calling such a
-    function keeps the whole shared object of rituals from being opened.
+    A function can be called in three cases. Its code is written in a
+    header file, so the compiler of each machine makes it where the
+    ritual is compiled. Or it is virtual, so it is found through the
+    object it is called on. Or Qt's source marks it, or the class it
+    belongs to, for use from outside, and writes its code so that it
+    can be called from there; see '_isMarked' and
+    '_isWrittenToBeCalled'. Any other function has no name by which
+    anything outside Qt could reach it, and a ritual for it has to
+    carry a copy of its code.
+
+    A few functions Qt declares only to have the compiler check
+    something, and writes no code for anywhere, as
+    'QEvent::qt_check_for_QGADGET_macro()'. They cannot be called
+    whatever they are marked.
 
     Parameters
     ----------
@@ -2813,15 +2872,89 @@ class RitualGenerator:
       for it under 'mangledName'.
     """
     tree = self.getDependencyTree()
+    if member.get('name', '').startswith(self.__never_written__):
+      return False
     name = member['mangledName']
     if member.get('virtual') or tree.hasBody(member):
       return True
     if name in tree.getDefinedNames():
       return True
-    if self._isOfferedHereOnly(member):
-      #  Offered here, and not by Qt's library for Windows.
+    if not self._isMarked(member):
       return False
-    return True if name in self._getOfferedNames() else False
+    return self._isWrittenToBeCalled(member)
+
+  def _isWrittenToBeCalled(self, member: Record) -> bool:
+    """
+    Says whether Qt's source writes the code of a marked function of
+    the class in a way that lets it be called from outside Qt.
+
+    Two things in the source say no, whatever the mark. Qt writes code
+    for the function nowhere: it only declares it, as it declares the
+    constructor of 'QStandardPaths' so that nobody can make one. Or
+    Qt writes it 'inline' with its code in no header file; see
+    '_isWrittenInline'.
+
+    The source is asked under every name C++ code can give the class,
+    as 'DependencyTree.getSpellings' has them: Qt writes the code of
+    'QLatin1String::compare_helper' as 'QLatin1StringView::...'. A
+    constructor or destructor is named after the class as spelled.
+    Without Qt's source at hand the mark alone decides.
+    """
+    if member.get('kind') == 'FunctionDecl':
+      #  A function outside of every class, which Qt wrote inside the
+      #  class with 'friend' in front: it has no class in its name.
+      return True
+    tree = self.getDependencyTree()
+    source = tree.getQtSource()
+    if source is None:
+      return True
+    className = self.getClassName()
+    name, kind = member.get('name', ''), member.get('kind', '')
+    partName = tree.getPartName(className.split('::')[0])
+    for spelled in tree.getSpellings(className):
+      last = spelled.rpartition('::')[2]
+      if kind == 'CXXConstructorDecl':
+        asked = '%s::%s' % (spelled, last)
+      elif kind == 'CXXDestructorDecl':
+        asked = '%s::~%s' % (spelled, last)
+      else:
+        asked = '%s::%s' % (spelled, name)
+      if source.hasCode(partName, asked):
+        break
+    else:
+      return False
+    return not self._isWrittenInline(className, member)
+
+  def _isWrittenInline(self, className: str, member: Record) -> bool:
+    """
+    Says whether Qt writes a function of a class 'inline' with its code
+    in no header file. The compiler then puts the code where Qt calls
+    it, and Qt's library keeps no function under its name. Qt writes
+    the word in the header file, as
+    'inline explicit QJsonDocument(QCborValue data);', or in front of
+    the code in the '.cpp' file, as 'QCborStreamReader::preparse()'.
+
+    Parameters
+    ----------
+
+    className : str
+      The class the function belongs to.
+
+    member : Record
+      What the compiler wrote down about the function.
+    """
+    tree = self.getDependencyTree()
+    if tree.hasBody(member):
+      return False
+    if member.get('mangledName', '') in tree.getDefinedNames():
+      return False
+    if member.get('inline'):
+      return True
+    definition = self._findSourceCode(member, className)
+    if definition is None:
+      return False
+    head = definition['text'].split('(')[0]
+    return True if re.search(r'\binline\b', head) else False
 
   def _spellOutside(self, cppType: str) -> str:
     """
@@ -3208,16 +3341,11 @@ class RitualGenerator:
       return 'the compiler gave it no name of its own'
     if not self._canBeCalled(member):
       if self._findSourceCode(member) is None:
-        if self._isOfferedHereOnly(member):
-          infoSpec = """Qt's library offers it on some systems only:
-          its class is written inside another class and is not marked
-          for export on its own, so Qt's library for Windows has no
-          name for it, and Qt's source has no code for it that could
-          be told from the rest"""
-          return ' '.join(infoSpec.split())
-        infoSpec = """declared and nowhere to be found: no header has
-        its code, no Qt shared object offers it, and Qt's source has no
-        code for it that could be told from the rest"""
+        infoSpec = """cannot be called and cannot be copied: no header
+        file has its code, Qt's source does not mark it or its class
+        for use from outside Qt or writes it 'inline' or nowhere, and
+        Qt's source has no code for it that could be told from the
+        rest"""
         return ' '.join(infoSpec.split())
     if plan['unknownTypes']:
       names = ', '.join(plan['unknownTypes'])

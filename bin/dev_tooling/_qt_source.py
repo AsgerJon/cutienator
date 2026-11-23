@@ -9,10 +9,13 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
+from . import QtPart
+
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Any, Dict, List, Optional, Tuple
+  from typing import Any, Dict, FrozenSet, List, Optional, Set, Tuple
 
   Record = Dict[str, Any]
+  Shorthands = Dict[str, List[Tuple[Tuple[str, ...], str]]]
 
 
 class QtSource:
@@ -41,6 +44,8 @@ class QtSource:
 
   - 'setSourceFolder': the folder 'qtbase' of Qt's source, of exactly
     the Qt that is installed.
+  - 'setQtParts': the 'QtPart' of each part, for the
+    shorthands its header files define. Needed by 'hasCode' only.
 
   What to expect
   --------------
@@ -71,9 +76,29 @@ class QtSource:
   #  A line of the file that pulls another file in.
   __include_line__ = re.compile(r'^\s*#\s*include\s+([<"])([^>"]+)[>"]')
 
+  #  The name of a function with its class in front, right before the
+  #  bracket that opens what it takes, as 'QListModel::at(' and
+  #  'QSize::operator+=('.
+  __named_code__ = re.compile(
+      r'((?:[A-Za-z_]\w*\s*::\s*)+(?:operator\s*(?:\(\s*\)|\[\s*\]'
+      r'|[^\s\w(\[]+|\s[^(;{}]+?)|~?[A-Za-z_]\w*))\s*\(')
+  #  A line of a '.cpp' file that defines a shorthand taking arguments,
+  #  the same as 'QtPart.getShorthands' reads in a header file.
+  __shorthand_line__ = re.compile(
+      r'^[ \t]*#[ \t]*define[ \t]+([A-Za-z_]\w*)\(([^)]*)\)'
+      r'((?:.*\\\n)*.*)', re.M)
+  #  A comment, either kind.
+  __comment__ = re.compile(r'/\*.*?\*/|//[^\n]*', re.S)
+  #  A name right before a bracket: a shorthand where one is defined
+  #  under that name.
+  __called_name__ = re.compile(r'\b([A-Za-z_]\w*)\s*\(')
+
   #  Private Variables
   __source_folder__ = None  # type: Optional[str]
   __found_definitions__ = None  # type: Optional[Dict[str, Any]]
+  __named_functions__ = None  # type: Optional[Dict[str, Any]]
+  __qt_parts__ = None  # type: Optional[Tuple[QtPart, ...]]
+  __header_shorthands__ = None  # type: Optional[Shorthands]
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -125,6 +150,36 @@ class QtSource:
           found.append(os.path.join(folder, name))
     return (*sorted(found),)
 
+  def getQtParts(self) -> Tuple[QtPart, ...]:
+    """
+    Gives the 'QtPart' of each part whose header files' shorthands
+    are written out.
+
+    Provided by you, through 'setQtParts'.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setQtParts' has not been called.
+    """
+    if self.__qt_parts__ is None:
+      raise MissingVariable(self, '__qt_parts__', tuple)
+    return self.__qt_parts__
+
+  def _getHeaderShorthands(self) -> Shorthands:
+    """Gives every shorthand the header files of the parts define, as
+    'QtPart.getShorthands' reads them, by name."""
+    if self.__header_shorthands__ is not None:
+      return self.__header_shorthands__
+    found = dict()  # type: Shorthands
+    for qtPart in self.getQtParts():
+      for headerPath in qtPart.getHeaderPaths():
+        for name, taken, text in QtPart.getShorthands(headerPath):
+          found.setdefault(name, []).append((taken, text))
+    self.__header_shorthands__ = found
+    return found
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -156,9 +211,155 @@ class QtSource:
       raise FileNotFoundError(infoSpec % sourceFolder)
     self.__source_folder__ = sourceFolder
     self.__found_definitions__ = None
+    self.__named_functions__ = None
+
+  def setQtParts(self, *qtParts: QtPart) -> None:
+    """
+    Tells whose header files define the shorthands 'hasCode' writes
+    out: one 'QtPart' per part, set up as for a reading. Their
+    header files are read for '#define' lines only, by
+    'QtPart.getShorthands'.
+
+    Raises
+    ------
+
+    TypeException
+      One of them is no 'QtPart'.
+
+    ValueError
+      None was given.
+    """
+    if not qtParts:
+      raise ValueError("'setQtParts' was given no 'QtPart'.")
+    for qtPart in qtParts:
+      if not isinstance(qtPart, QtPart):
+        raise TypeException('qtPart', qtPart, QtPart)
+    self.__qt_parts__ = (*qtParts,)
+    self.__header_shorthands__ = None
+    self.__named_functions__ = None
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @classmethod
+  def _readShorthands(cls, text: str) -> Shorthands:
+    """Gives the shorthands a '.cpp' file defines, by name, read as
+    'QtPart.getShorthands' reads those of a header file."""
+    found = dict()  # type: Shorthands
+    for match in cls.__shorthand_line__.finditer(text):
+      body = cls.__comment__.sub(' ', match.group(3).replace('\\\n', ' '))
+      taken = (*(one.strip() for one in match.group(2).split(',')),)
+      found.setdefault(match.group(1), []).append(
+          (taken, ' '.join(body.split())))
+    return found
+
+  @staticmethod
+  def _cutCall(text: str, opened: int) -> Tuple[List[str], int]:
+    """
+    Gives what a call writes between its brackets, cut at the commas
+    that stand in no other brackets, and where the call ends.
+
+    Parameters
+    ----------
+
+    text : str
+      The text holding the call.
+
+    opened : int
+      Where in the text the bracket opening the call stands.
+    """
+    depth, start, found = 0, opened + 1, []  # type: int, int, List[str]
+    for index in range(opened, len(text)):
+      letter = text[index]
+      if letter in '([{':
+        depth += 1
+      elif letter in ')]}':
+        depth -= 1
+        if depth == 0:
+          found.append(text[start:index].strip())
+          return found, index + 1
+      elif letter == ',' and depth == 1:
+        found.append(text[start:index].strip())
+        start = index + 1
+    return found, len(text)
+
+  @staticmethod
+  def _fillIn(taken: Tuple[str, ...], text: str, given: List[str]) -> str:
+    """
+    Gives the text of a shorthand with what a call gave put in for what
+    it takes, as the compiler does: '#X' becomes a string, 'A ## B'
+    joins two words into one, and '__VA_ARGS__' stands for whatever was
+    given after the named arguments.
+    """
+    named = [one for one in taken if one and one != '...']
+    extra = given[len(named):]
+    for word, value in zip(named, given):
+      text = re.sub(r'#\s*%s\b' % re.escape(word), '""', text)
+      text = re.sub(r'\b%s\b' % re.escape(word),
+                    lambda _, value=value: value, text)
+    if taken and taken[-1] == '...':
+      text = re.sub(r'#\s*__VA_ARGS__\b', '""', text)
+      text = text.replace('__VA_ARGS__', ', '.join(extra))
+    return re.sub(r'\s*##\s*', '', text)
+
+  @staticmethod
+  def _fits(taken: Tuple[str, ...], given: List[str]) -> bool:
+    """Says whether a call gives as many arguments as a shorthand
+    takes: none for '()', any number more for '...'."""
+    if taken == ('',):
+      return given == ['']
+    if taken and taken[-1] == '...':
+      return len(given) >= len(taken) - 1
+    return len(given) == len(taken)
+
+  def _writeOut(self, text: str, shorthands: Shorthands) -> str:
+    """
+    Gives what the shorthands used in a text stand for, with what each
+    call gave put in. A shorthand used inside the text of another is
+    written out too, as the compiler does, and never inside its own
+    text, so this ends. The text itself is not part of what is given.
+
+    Parameters
+    ----------
+
+    text : str
+      Code with no comments in it.
+
+    shorthands : Shorthands
+      Every shorthand known where the text stands, by name.
+    """
+    out = []  # type: List[str]
+    waiting = [(text, frozenset())]  # type: List[Tuple[str, FrozenSet]]
+    while waiting:
+      here, inside = waiting.pop()
+      for match in self.__called_name__.finditer(here):
+        name = match.group(1)
+        if name not in shorthands or name in inside:
+          continue
+        given, _ = self._cutCall(here, match.end() - 1)
+        for taken, body in shorthands[name]:
+          if not self._fits(taken, given):
+            continue
+          made = self._fillIn(taken, body, given)
+          out.append(made)
+          waiting.append((made, inside | {name}))
+    return '\n'.join(out)
+
+  def _findCodeNames(self, path: str, shorthands: Shorthands) -> Set[str]:
+    """Gives every name of a function with its class that stands right
+    before a bracket in one file of code, with its shorthands written
+    out, each name without blanks."""
+    with open(path, errors='replace') as code:
+      text = code.read().replace('\r', '')
+    known = dict()  # type: Shorthands
+    for name, forms in shorthands.items():
+      known[name] = [*forms]
+    for name, forms in self._readShorthands(text).items():
+      known.setdefault(name, []).extend(forms)
+    written = self._writeOut(self.__comment__.sub(' ', text), known)
+    found = set(self.__named_code__.findall(text))
+    found.update(self.__named_code__.findall(written))
+    return {''.join(one.split()) for one in found}
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @staticmethod
@@ -336,3 +537,62 @@ class QtSource:
     if found is None or partName not in found:
       self._createDefinitions(partName)
     return [*self.__found_definitions__[partName].get(name, ())]
+
+  def hasCode(self, partName: str, name: str) -> bool:
+    """
+    Says whether Qt's source writes code under the name of a function:
+    whether the name, with its class in front, stands right before a
+    bracket in any file of code of the part. The files of code are
+    those ending in '.cpp', and those ending in '.mm', in which Qt
+    writes for Apple's systems.
+
+    Qt declares some functions and writes code for them nowhere, as
+    the constructor of 'QStandardPaths', which is there only so that
+    nobody can make one. Such a function is in no Qt on any system.
+
+    This is a look at the text. It finds a name wherever it is written
+    before a bracket, a call among them, so a yes does not say that a
+    definition was found; a no says that there is none.
+
+    The text looked at is the file as written and, beside it, what the
+    shorthands it uses stand for. Qt writes the code of some functions
+    through a shorthand: 'qcoreevent.cpp' has the line
+    'Q_IMPL_EVENT_COMMON(QChildEvent)', and only what it stands for
+    holds 'QChildEvent::~QChildEvent('. A file knows the shorthands of
+    the header files of the parts, as 'QtPart.getShorthands'
+    reads them, and its own.
+
+    The name is looked for exactly as given. A class Qt writes in more
+    than one way, as 'QLatin1String', which Qt's source also writes as
+    'QLatin1StringView', is asked once for each way.
+
+    Parameters
+    ----------
+
+    partName : str
+      The part of Qt, as 'QtCore'.
+
+    name : str
+      The name as C++ writes it with its class, as
+      'QStandardPaths::QStandardPaths' or 'QGlyphRun::operator+'.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setQtParts' has not been called.
+    """
+    kept = self.__named_functions__
+    if kept is None:
+      kept = self.__named_functions__ = dict()
+    if partName not in kept:
+      shorthands = self._getHeaderShorthands()
+      names = set()  # type: Set[str]
+      for folder, _, files in os.walk(self.getPartFolder(partName)):
+        for file in files:
+          if not file.endswith(('.cpp', '.mm')):
+            continue
+          names.update(self._findCodeNames(
+              os.path.join(folder, file), shorthands))
+      kept[partName] = frozenset(names)
+    return True if ''.join(name.split()) in kept[partName] else False

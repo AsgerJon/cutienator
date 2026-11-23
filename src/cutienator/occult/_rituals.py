@@ -399,9 +399,9 @@ class Rituals:
   def _createOpened(cls) -> None:
     """Opens the target file and readies every listed ritual."""
     target = cls.getTargetFile()
-    if cls.isStale():
-      infoSpec = """The shared object '%s' is missing, or older than a
-      ritual file. Call 'Rituals.build()' first."""
+    if not os.path.isfile(target):
+      infoSpec = """The shared object '%s' is missing. Call
+      'Rituals.build()' first."""
       raise FileNotFoundError(' '.join((infoSpec % target).split()))
     rows = cls.getRows()
     if any('text' in row for row in rows.values()):
