@@ -311,6 +311,14 @@ class RitualGenerator:
   #  How the names of the functions begin that Qt declares only for
   #  the compiler to check something, and writes no code for.
   __never_written__ = ('qt_check_for_',)
+  #  How 'c++filt' writes the name of what the compiler makes for a
+  #  class as a whole, and of what it makes around one function.
+  __made_for_class__ = (
+      'vtable for ', 'typeinfo name for ', 'typeinfo for ', 'VTT for ',
+  )
+  __made_for_function__ = (
+      'non-virtual thunk to ', 'virtual thunk to ', 'guard variable for ',
+  )
   __type_tables__ = None  # type: Optional[Record]
 
   #  Public Variables
@@ -2198,7 +2206,7 @@ class RitualGenerator:
     ]
     whole = member.get('type', dict()).get('qualType', '')
     const = True if re.search(r'\)\s*const\b', whole) else False
-    partName = tree.getPartName(className.split('::')[0])
+    partName = tree.getPartName(className)
     found = [
         definition for definition
         in source.findDefinitions(partName, '%s::%s' % (className, name))
@@ -2913,7 +2921,7 @@ class RitualGenerator:
       return True
     className = self.getClassName()
     name, kind = member.get('name', ''), member.get('kind', '')
-    partName = tree.getPartName(className.split('::')[0])
+    partName = tree.getPartName(className)
     for spelled in tree.getSpellings(className):
       last = spelled.rpartition('::')[2]
       if kind == 'CXXConstructorDecl':
