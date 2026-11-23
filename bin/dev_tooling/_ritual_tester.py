@@ -292,8 +292,16 @@ class RitualTester:
         infoSpec = """The ritual '%s' is named after no function the
         class '%s' has."""
         faults.append(' '.join((infoSpec % (name, className)).split()))
-    counting = [r for r in written if r['kind'] not in apart]
+    #  The functions read from the text of the header file are none
+    #  the compiler reported, so they are no part of what is counted:
+    #  neither the ones written nor the ones not written.
+    fromText = len(generator._findTextMembers())
+    textWritten = [r for r in written if r.get('fromText')]
+    counting = [
+        r for r in written
+        if r['kind'] not in apart and not r.get('fromText')]
     accounted = len(counting) + len(notWritten)
+    accounted -= fromText - len(textWritten)
     if accounted != counted:
       infoSpec = """The header declares %d functions for the class '%s',
       and the generator accounts for %d: %d written and %d not."""
@@ -313,7 +321,17 @@ class RitualTester:
       return
     offered = self._listOffered()
     self.__offered_names__ = (*sorted(offered),)
+    #  A ritual that stands between '#if' lines is rightly missing
+    #  where one of them does not hold, as one written for another
+    #  system is here. One that stands under no '#if' has to be there.
+    tree = generator.getDependencyTree()
+    wholeFile = generator._findConditions(tree.getClassRecord(className))
+    conditional = {
+        ritual['ritualName'] for ritual in written
+        if ritual.get('conditions') or ritual.get('fromText')}
     for name in sorted({*names} - offered):
+      if wholeFile or name in conditional:
+        continue
       infoSpec = """The ritual '%s' was written, and the target file does
       not offer it."""
       faults.append(' '.join((infoSpec % name).split()))

@@ -1879,6 +1879,32 @@ class HeaderReader:
       raise LookupError(infoSpec % (headerPath, len(found), line))
     return found[line - 1]
 
+  def getMarkedNames(self) -> FrozenSet[str]:
+    """
+    Gives the names of the functions and values that the header files
+    of the part declare with Qt's mark for use from outside Qt in
+    front, as 'Q_CORE_EXPORT', read from the text of the files. It is
+    for what stands outside of every class: a class says by its own
+    declaration whether it is marked. 'Q_AUTOTEST_EXPORT' is no such
+    mark: it holds only in a Qt built for Qt's own tests.
+
+    Returns
+    -------
+
+    FrozenSet[str]
+      The bare names, without a namespace and without what a function
+      takes.
+    """
+    marked = re.compile(
+        r'^\s*(?:(?:\[\[nodiscard\]\]|Q_DECL_\w+|Q_REQUIRED_RESULT|'
+        r'extern|constexpr|inline)\s+)*Q_(?:CORE|GUI|WIDGETS)_EXPORT\b'
+        r'[^;{(=]*?\b([A-Za-z_]\w*)\s*(?:\(|;|=|\[)', re.M)
+    found = set()  # type: Set[str]
+    for headerPath in self.getHeaderPaths():
+      with open(headerPath, errors='replace') as file:
+        found.update(marked.findall(file.read()))
+    return frozenset(found)
+
   @classmethod
   def getSignalLines(cls, headerPath: str) -> FrozenSet[int]:
     """

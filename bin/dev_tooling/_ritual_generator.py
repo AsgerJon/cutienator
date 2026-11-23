@@ -322,6 +322,14 @@ class RitualGenerator:
       '&&': 'both', '||': 'either', '++': 'inc', '--': 'dec',
       '->': 'arrow', '->*': 'arrow_star', ',': 'comma',
   }
+  #  How 'c++filt' writes the name of what the compiler makes for a
+  #  class as a whole, and of what it makes around one function.
+  __made_for_class__ = (
+      'vtable for ', 'typeinfo name for ', 'typeinfo for ', 'VTT for ',
+  )
+  __made_for_function__ = (
+      'non-virtual thunk to ', 'virtual thunk to ', 'guard variable for ',
+  )
   #  What an '#if' of Qt's names when it asks which system this is.
   __system_word__ = re.compile(r'\bQ_OS_\w+')
   #  An '#if' that holds for no program: only for Qt's documentation,
@@ -2661,16 +2669,6 @@ class RitualGenerator:
       #  there is nothing to compile for: every ritual calls what Qt's
       #  library offers or what a header has the code of.
       return
-    #  From here on the code that is taken along is compiled, and
-    #  what it leans on is sorted into what can be called and what has
-    #  to be taken along as well. That sorting used to ask the Qt that
-    #  is installed which names it has. It is to go by Qt's source, as
-    #  '_canBeCalled' does, and until it does nothing is settled.
-    infoSpec = """The class '%s' needs code copied from Qt's source,
-    and what that code leans on cannot be sorted from Qt's source
-    alone yet."""
-    raise RuntimeError(' '.join((infoSpec % className).split()))
-    offered = frozenset()  # type: FrozenSet[str]
     helpers = dict()  # type: Dict[str, Record]
     lost = set()  # type: Set[str]
     marker = '//  ' + '-' * 71
@@ -2749,14 +2747,15 @@ class RitualGenerator:
           info = infoSpec % (className, shown[:600])
           raise RuntimeError(' '.join(info.split()))
         continue
-      #  What Qt's library offers here and not on every system counts
-      #  as not offered: its code is taken along, or the ritual goes.
+      #  What the code leans on is sorted by Qt's source: a thing Qt
+      #  marks for use from outside Qt can be called. Of anything else
+      #  the code is taken along as well, or the ritual goes. No Qt
+      #  that is compiled is asked which names it has.
       shownNames = self._demangle(sorted(
-          symbol for symbol in wanted
-          if symbol in offered and self._isOfQt(symbol)))
-      elsewhere = {
+          symbol for symbol in wanted if self._isOfQt(symbol)))
+      marked = {
           symbol for symbol, shown in shownNames.items()
-          if not self._isOfferedEverywhere(shown)
+          if self._isMarkedName(shown)
       }
       for plan in [*written]:
         ritualName = plan.get('ritualName')
@@ -2771,9 +2770,7 @@ class RitualGenerator:
         for symbol in sorted(reached):
           if symbol not in wanted:
             continue
-          if symbol in offered and symbol not in elsewhere:
-            continue
-          if not self._isOfQt(symbol):
+          if symbol in marked or not self._isOfQt(symbol):
             continue
           found = None
           if symbol in helpers and symbol not in compiled:
@@ -2794,12 +2791,9 @@ class RitualGenerator:
           said = subprocess.run(
               ('c++filt', symbol), stdout=subprocess.PIPE,
               universal_newlines=True).stdout.strip()
-          infoSpec = """leans on '%s', which Qt's library does not offer
-          and Qt's source has no code for that could be taken"""
-          if symbol in elsewhere:
-            infoSpec = """leans on '%s', which Qt's library does not
-            offer on every system, and Qt's source has no code for
-            that could be taken"""
+          infoSpec = """leans on '%s', which Qt's source does not
+          mark for use from outside Qt and has no code for that could
+          be taken"""
           drop(plan, ' '.join((infoSpec % said).split()))
           changed = True
           break
@@ -2914,51 +2908,63 @@ class RitualGenerator:
     kept[className] = marked
     return marked
 
-  def _isInsideClass(self, className: str) -> bool:
-    """Says whether a class is written inside another class, and not
-    just in a namespace, as 'QtPrivate::QCalendarModel' is."""
-    outer = className.split('<')[0].rpartition('::')[0]
-    if not outer:
-      return False
-    return outer in self.getDependencyTree().getClassNames()
+  def _getMarkedFreeNames(self) -> FrozenSet[str]:
+    """Gives the names of the functions and values that Qt's header
+    files declare outside of every class with Qt's mark for use from
+    outside Qt, as 'HeaderReader.getMarkedNames' reads them from the
+    text. Kept on the tree after the first call."""
+    tree = self.getDependencyTree()
+    kept = tree.getKept('marked free names')
+    if 'names' not in kept:
+      names = set()  # type: Set[str]
+      for headerReader in tree.getHeaderReaders():
+        names.update(headerReader.getMarkedNames())
+      kept['names'] = frozenset(names)
+    return kept['names']
 
-  def _isOfferedEverywhere(self, shown: str) -> bool:
+  def _isMarkedName(self, shown: str) -> bool:
     """
-    Says whether a function that Qt's library offers here is offered
-    by Qt's library on every system, going by the name of the function
-    as C++ writes it, as 'c++filt' gives it.
+    Says whether Qt's source marks, for use from outside Qt, the thing
+    a name of the compiler stands for, going by that name as C++
+    writes it, as 'c++filt' gives it.
 
-    Two kinds are offered on Linux and on macOS and not on Windows: a
-    function made from a template, as
-    'QWidgetRepaintManager::markDirty<QRect>(...)', and a function of
-    a class that is written inside another class and not marked for
-    export on its own, as
-    'QBackingStoreRhiSupport::SwapchainData::reset()'. What is no
-    function, and an operator, is taken to be offered everywhere.
+    A function of a class is marked when the class itself is, or the
+    function. The class is that very class: one written inside a
+    marked class with no mark of its own is not marked. What the
+    compiler makes for a class, as its table of virtual functions,
+    goes with the class. A function made from a template is not
+    marked: its code is in a header file or nowhere. A function
+    outside of every class is marked when a header file declares one
+    of its name with the mark.
 
     Parameters
     ----------
 
     shown : str
-      The name as C++ writes it, with what the function takes.
+      The name as C++ writes it, with what a function takes.
     """
-    if not shown.rstrip().endswith((')', 'const', '&')):
-      return True
-    end = shown.rfind(')')
-    if end < 0 or 'operator' in shown:
-      return True
-    depth, start = 0, -1
-    for index in range(end, -1, -1):
-      letter = shown[index]
-      depth += 1 if letter == ')' else -1 if letter == '(' else 0
-      if depth == 0:
-        start = index
-        break
-    if start < 0:
-      return True
-    #  What stands before the brackets: the type it gives, for a
-    #  function made from a template, and then the name in full.
-    head, depth, cut = shown[:start], 0, 0
+    for start in self.__made_for_class__:
+      if shown.startswith(start):
+        className = shown[len(start):].split('<')[0].strip()
+        return self._isMarkedForExport(className)
+    for start in self.__made_for_function__:
+      if shown.startswith(start):
+        shown = shown[len(start):]
+    head, end = shown, shown.rfind(')')
+    if end >= 0:
+      depth, start = 0, -1
+      for index in range(end, -1, -1):
+        letter = shown[index]
+        depth += 1 if letter == ')' else -1 if letter == '(' else 0
+        if depth == 0:
+          start = index
+          break
+      if start < 0:
+        return False
+      head = shown[:start]
+    #  What stands before the name: the type a function made from a
+    #  template gives.
+    depth, cut = 0, 0
     for index, letter in enumerate(head):
       depth += 1 if letter == '<' else -1 if letter == '>' else 0
       if letter == ' ' and depth == 0:
@@ -2970,12 +2976,27 @@ class RitualGenerator:
         parts.append(name[last:index])
         last = index + 2
     parts.append(name[last:])
-    if '<' in parts[-1]:
+    if '<' in parts[-1] and 'operator' not in parts[-1]:
       return False
     className = '::'.join(part.split('<')[0] for part in parts[:-1])
-    if not self._isInsideClass(className):
-      return True
-    return self._isMarkedForExport(className)
+    bare = parts[-1].split('<')[0]
+    tree = self.getDependencyTree()
+    if className and className in self._getKnownNames():
+      if self._isMarkedForExport(className):
+        return True
+      try:
+        record = tree.getClassRecord(className)
+      except (ValueError, LookupError):
+        return False
+      for member in record.get('inner', ()):
+        if not isinstance(member, dict) or member.get('name') != bare:
+          continue
+        if any(isinstance(child, dict)
+               and child.get('kind') == 'VisibilityAttr'
+               for child in member.get('inner', ())):
+          return True
+      return False
+    return True if bare in self._getMarkedFreeNames() else False
 
   @staticmethod
   def _demangle(symbols: List[str]) -> Dict[str, str]:
