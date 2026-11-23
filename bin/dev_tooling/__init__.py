@@ -21,8 +21,8 @@ from __future__ import annotations
 
 from ._header_file import HeaderFile
 from ._header_folder import HeaderFolder
-from ._qt_part import QtPart
-from ._qt_source import QtSource
+from ._header_reader import HeaderReader
+from ._source_reader import SourceReader
 from ._dependency_tree import DependencyTree
 from ._ritual_generator import RitualGenerator
 from ._ritual_tester import RitualTester
@@ -34,7 +34,7 @@ from ._class_tester import ClassTester
 
 __all__ = (
     'HeaderFile', 'HeaderFolder',
-    'QtPart', 'QtSource',
+    'HeaderReader', 'SourceReader',
     'DependencyTree',
     'RitualGenerator',
     'RitualTester',

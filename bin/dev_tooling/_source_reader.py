@@ -1,4 +1,4 @@
-"""QtSource finds the code of a function in Qt's own source."""
+"""SourceReader finds the code of a function in Qt's own source."""
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
@@ -9,7 +9,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import QtPart
+from . import HeaderReader
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, FrozenSet, List, Optional, Set, Tuple
@@ -18,12 +18,12 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   Shorthands = Dict[str, List[Tuple[Tuple[str, ...], str]]]
 
 
-class QtSource:
+class SourceReader:
   """
   Finds, in Qt's own source, the code of a function that Qt's library
   carries under no name.
 
-    source = QtSource()
+    source = SourceReader()
     source.setSourceFolder('/here/qt-everywhere-src-6.12.0/qtbase')
     found = source.findDefinitions('QtWidgets', 'QListModel::at')
     found[0]['text']        # 'QListWidgetItem *QListModel::at(int row)...'
@@ -44,7 +44,7 @@ class QtSource:
 
   - 'setSourceFolder': the folder 'qtbase' of Qt's source, of exactly
     the Qt that is installed.
-  - 'setQtParts': the 'QtPart' of each part, for the
+  - 'setHeaderReaders': the 'HeaderReader' of each part, for the
     shorthands its header files define. Needed by 'hasCode' only.
 
   What to expect
@@ -83,7 +83,7 @@ class QtSource:
       r'((?:[A-Za-z_]\w*\s*::\s*)+(?:operator\s*(?:\(\s*\)|\[\s*\]'
       r'|[^\s\w(\[]+|\s[^(;{}]+?)|~?[A-Za-z_]\w*))\s*\(')
   #  A line of a '.cpp' file that defines a shorthand taking arguments,
-  #  the same as 'QtPart.getShorthands' reads in a header file.
+  #  the same as 'HeaderReader.getShorthands' reads in a header file.
   __shorthand_line__ = re.compile(
       r'^[ \t]*#[ \t]*define[ \t]+([A-Za-z_]\w*)\(([^)]*)\)'
       r'((?:.*\\\n)*.*)', re.M)
@@ -97,7 +97,7 @@ class QtSource:
   __source_folder__ = None  # type: Optional[str]
   __found_definitions__ = None  # type: Optional[Dict[str, Any]]
   __named_functions__ = None  # type: Optional[Dict[str, Any]]
-  __qt_parts__ = None  # type: Optional[Tuple[QtPart, ...]]
+  __header_readers__ = None  # type: Optional[Tuple[HeaderReader, ...]]
   __header_shorthands__ = None  # type: Optional[Shorthands]
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -150,32 +150,32 @@ class QtSource:
           found.append(os.path.join(folder, name))
     return (*sorted(found),)
 
-  def getQtParts(self) -> Tuple[QtPart, ...]:
+  def getHeaderReaders(self) -> Tuple[HeaderReader, ...]:
     """
-    Gives the 'QtPart' of each part whose header files' shorthands
+    Gives the 'HeaderReader' of each part whose header files' shorthands
     are written out.
 
-    Provided by you, through 'setQtParts'.
+    Provided by you, through 'setHeaderReaders'.
 
     Raises
     ------
 
     MissingVariable
-      'setQtParts' has not been called.
+      'setHeaderReaders' has not been called.
     """
-    if self.__qt_parts__ is None:
-      raise MissingVariable(self, '__qt_parts__', tuple)
-    return self.__qt_parts__
+    if self.__header_readers__ is None:
+      raise MissingVariable(self, '__header_readers__', tuple)
+    return self.__header_readers__
 
   def _getHeaderShorthands(self) -> Shorthands:
     """Gives every shorthand the header files of the parts define, as
-    'QtPart.getShorthands' reads them, by name."""
+    'HeaderReader.getShorthands' reads them, by name."""
     if self.__header_shorthands__ is not None:
       return self.__header_shorthands__
     found = dict()  # type: Shorthands
-    for qtPart in self.getQtParts():
-      for headerPath in qtPart.getHeaderPaths():
-        for name, taken, text in QtPart.getShorthands(headerPath):
+    for headerReader in self.getHeaderReaders():
+      for headerPath in headerReader.getHeaderPaths():
+        for name, taken, text in HeaderReader.getShorthands(headerPath):
           found.setdefault(name, []).append((taken, text))
     self.__header_shorthands__ = found
     return found
@@ -213,28 +213,28 @@ class QtSource:
     self.__found_definitions__ = None
     self.__named_functions__ = None
 
-  def setQtParts(self, *qtParts: QtPart) -> None:
+  def setHeaderReaders(self, *headerReaders: HeaderReader) -> None:
     """
     Tells whose header files define the shorthands 'hasCode' writes
-    out: one 'QtPart' per part, set up as for a reading. Their
+    out: one 'HeaderReader' per part, set up as for a reading. Their
     header files are read for '#define' lines only, by
-    'QtPart.getShorthands'.
+    'HeaderReader.getShorthands'.
 
     Raises
     ------
 
     TypeException
-      One of them is no 'QtPart'.
+      One of them is no 'HeaderReader'.
 
     ValueError
       None was given.
     """
-    if not qtParts:
-      raise ValueError("'setQtParts' was given no 'QtPart'.")
-    for qtPart in qtParts:
-      if not isinstance(qtPart, QtPart):
-        raise TypeException('qtPart', qtPart, QtPart)
-    self.__qt_parts__ = (*qtParts,)
+    if not headerReaders:
+      raise ValueError("'setHeaderReaders' was given no 'HeaderReader'.")
+    for headerReader in headerReaders:
+      if not isinstance(headerReader, HeaderReader):
+        raise TypeException('headerReader', headerReader, HeaderReader)
+    self.__header_readers__ = (*headerReaders,)
     self.__header_shorthands__ = None
     self.__named_functions__ = None
 
@@ -244,7 +244,7 @@ class QtSource:
   @classmethod
   def _readShorthands(cls, text: str) -> Shorthands:
     """Gives the shorthands a '.cpp' file defines, by name, read as
-    'QtPart.getShorthands' reads those of a header file."""
+    'HeaderReader.getShorthands' reads those of a header file."""
     found = dict()  # type: Shorthands
     for match in cls.__shorthand_line__.finditer(text):
       body = cls.__comment__.sub(' ', match.group(3).replace('\\\n', ' '))
@@ -559,7 +559,7 @@ class QtSource:
     through a shorthand: 'qcoreevent.cpp' has the line
     'Q_IMPL_EVENT_COMMON(QChildEvent)', and only what it stands for
     holds 'QChildEvent::~QChildEvent('. A file knows the shorthands of
-    the header files of the parts, as 'QtPart.getShorthands'
+    the header files of the parts, as 'HeaderReader.getShorthands'
     reads them, and its own.
 
     The name is looked for exactly as given. A class Qt writes in more
@@ -580,7 +580,7 @@ class QtSource:
     ------
 
     MissingVariable
-      'setQtParts' has not been called.
+      'setHeaderReaders' has not been called.
     """
     kept = self.__named_functions__
     if kept is None:

@@ -10,7 +10,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import DependencyTree, QtPart
+from . import DependencyTree, HeaderReader
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, Optional, Tuple
@@ -254,10 +254,10 @@ class EnumGenerator:
   def _getHeading(self) -> str:
     """Says who wrote a file, from what, and that it is written anew."""
     headerPath = self.getEnumRecord()['headerPath']
-    relative = os.path.relpath(headerPath, QtPart.getQtHeaderFolder())
+    relative = os.path.relpath(headerPath, HeaderReader.getQtHeaderFolder())
     infoSpec = """Written by dev_tooling.EnumGenerator from the records
     of %s, Qt %s. Changes made here are lost."""
-    info = infoSpec % (relative, QtPart.getQtVersion())
+    info = infoSpec % (relative, HeaderReader.getQtVersion())
     return ' '.join(info.split())
 
   def _getMemberLine(self, name: str, number: int) -> str:

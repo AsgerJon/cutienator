@@ -9,7 +9,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import DependencyTree, QtPart, EnumGenerator
+from . import DependencyTree, HeaderReader, EnumGenerator
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import List, Optional, Tuple
@@ -172,7 +172,7 @@ class NamespaceGenerator:
     imports.append('from ..cute import %s' % ', '.join(sorted(bases)))
     infoSpec = """Written by dev_tooling.NamespaceGenerator from the
     records of Qt %s. Changes made here are lost."""
-    heading = ' '.join((infoSpec % QtPart.getQtVersion()).split())
+    heading = ' '.join((infoSpec % HeaderReader.getQtVersion()).split())
     infoSpec = """The namespace '%s' of Qt, which holds no objects. It
     holds the %d enums Qt writes in it, each under its name, and the %d
     names Qt has for the combinations of a flags enum, each holding the

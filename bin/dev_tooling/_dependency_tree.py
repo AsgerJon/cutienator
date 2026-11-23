@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import QtPart
+from . import HeaderReader
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, FrozenSet, List, Optional, Set, Tuple
@@ -26,7 +26,7 @@ class DependencyTree:
   classes it needs.
 
     tree = DependencyTree()
-    tree.setQtParts(qtCore, qtGui, qtWidgets)  # parts that were read
+    tree.setHeaderReaders(qtCore, qtGui, qtWidgets)  # parts that were read
     tree.getClassNames()         # 770, each after what it is built on
     tree.getParents('QWidget')   # ('QObject', 'QPaintDevice')
     tree.getChildren('QObject')  # the classes built right on it
@@ -50,8 +50,8 @@ class DependencyTree:
   You provide
   -----------
 
-  - 'setQtParts': the parts of Qt to make the tree of, each a 'QtPart'
-    that has been read. Required.
+  - 'setHeaderReaders': the parts of Qt to make the tree of, each a
+    'HeaderReader' that has been read. Required.
 
   What to expect
   --------------
@@ -189,8 +189,8 @@ class DependencyTree:
   #  Fallback Variables
 
   #  Private Variables
-  __qt_parts__ = None  # type: Optional[Tuple[QtPart, ...]]
-  __qt_source__ = None  # type: Optional[Any]
+  __header_readers__ = None  # type: Optional[Tuple[HeaderReader, ...]]
+  __source_reader__ = None  # type: Optional[Any]
   __kept_for_users__ = None  # type: Optional[Dict[str, Dict[Any, Any]]]
   __cute_names__ = None  # type: Optional[FrozenSet[str]]
   __ordered_names__ = None  # type: Optional[Names]
@@ -220,18 +220,18 @@ class DependencyTree:
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def getQtSource(self) -> Any:
-    """Gives the 'QtSource' the code of a function is looked up in
+  def getSourceReader(self) -> Any:
+    """Gives the 'SourceReader' the code of a function is looked up in
     where Qt's library has no name for it, or None when no source was
-    provided; 'setQtSource' provides it."""
-    return self.__qt_source__
+    provided; 'setSourceReader' provides it."""
+    return self.__source_reader__
 
-  def setQtSource(self, qtSource: Any) -> None:
+  def setSourceReader(self, sourceReader: Any) -> None:
     """
     Tells where Qt's own source is. Optional. With it, a function
     that Qt's library carries under no name gets its code from there.
     """
-    self.__qt_source__ = qtSource
+    self.__source_reader__ = sourceReader
   def getCuteNames(self) -> FrozenSet[str]:
     """
     Gives the name of every class of the tree that gets a cute class:
@@ -272,7 +272,7 @@ class DependencyTree:
       A name is no class of the tree.
 
     MissingVariable
-      'setQtParts' has not been called.
+      'setHeaderReaders' has not been called.
     """
     known = frozenset(self.getClassNames())
     for cuteName in cuteNames:
@@ -305,27 +305,27 @@ class DependencyTree:
     ------
 
     MissingVariable
-      'setQtParts' has not been called on this tree.
+      'setHeaderReaders' has not been called on this tree.
     """
     if self.__kept_for_users__ is None:
-      raise MissingVariable(self, '__qt_parts__', tuple)
+      raise MissingVariable(self, '__header_readers__', tuple)
     return self.__kept_for_users__.setdefault(what, dict())
 
-  def getQtParts(self) -> Tuple[QtPart, ...]:
+  def getHeaderReaders(self) -> Tuple[HeaderReader, ...]:
     """
     Gives the parts of Qt the tree is made of.
 
-    Provided by you, through 'setQtParts'. Nothing fills it in for you.
+    Provided by you, through 'setHeaderReaders'. Nothing fills it in for you.
 
     Raises
     ------
 
     MissingVariable
-      'setQtParts' has not been called.
+      'setHeaderReaders' has not been called.
     """
-    if self.__qt_parts__ is None:
-      raise MissingVariable(self, '__qt_parts__', tuple)
-    return self.__qt_parts__
+    if self.__header_readers__ is None:
+      raise MissingVariable(self, '__header_readers__', tuple)
+    return self.__header_readers__
 
   def _createTree(self, ) -> None:
     """Makes the tree from every record of the parts."""
@@ -340,8 +340,8 @@ class DependencyTree:
     aliasTypes = dict()  # type: Dict[str, str]
     definedNames = dict()  # type: Dict[str, str]
     leftOut = []  # type: List[str]
-    for qtPart in self.getQtParts():
-      partName = qtPart.getPartName()
+    for headerReader in self.getHeaderReaders():
+      partName = headerReader.getPartName()
       #  Every declaration of a class in this part, and every namespace,
       #  under the number the compiler gave it. Those numbers hold within
       #  one reading, so each part is worked through on its own.
@@ -349,7 +349,7 @@ class DependencyTree:
           entries=dict(), namespaces=dict(), enums=[], aliases=[],
           defined=definedNames,
       )  # type: Dict[str, Any]
-      for headerFile in qtPart.getHeaderFiles():
+      for headerFile in headerReader.getHeaderFiles():
         if not headerFile.wasRead():
           #  The reading left it out, with what the compiler said of it,
           #  so it has no records to give.
@@ -449,7 +449,7 @@ class DependencyTree:
     ------
 
     MissingVariable
-      'setQtParts' has not been called.
+      'setHeaderReaders' has not been called.
 
     FileNotFoundError
       A part has not been read. Call its 'read' first.
@@ -659,7 +659,7 @@ class DependencyTree:
     ------
 
     MissingVariable
-      'setQtParts' has not been called.
+      'setHeaderReaders' has not been called.
 
     FileNotFoundError
       A part has not been read. Call its 'read' first.
@@ -746,9 +746,9 @@ class DependencyTree:
     """
     return self._lookUp('__class_places__', className)[1]
 
-  def getQtPart(self, className: str) -> QtPart:
+  def getHeaderReader(self, className: str) -> HeaderReader:
     """
-    Gives the 'QtPart' a class belongs to, of the ones you provided.
+    Gives the 'HeaderReader' a class belongs to, of the ones you provided.
 
     Raises
     ------
@@ -757,9 +757,9 @@ class DependencyTree:
       The tree has no class of that name.
     """
     partName = self.getPartName(className)
-    for qtPart in self.getQtParts():
-      if qtPart.getPartName() == partName:
-        return qtPart
+    for headerReader in self.getHeaderReaders():
+      if headerReader.getPartName() == partName:
+        return headerReader
     raise RuntimeError("The part '%s' is not among the parts." % partName)
 
   def getClassRecord(self, className: str) -> Record:
@@ -782,7 +782,7 @@ class DependencyTree:
     """
     number = self._lookUp('__class_numbers__', className)
     headerPath = self.getHeaderPath(className)
-    for headerFile in self.getQtPart(className).getHeaderFiles():
+    for headerFile in self.getHeaderReader(className).getHeaderFiles():
       if headerFile.getHeaderPath() != headerPath:
         continue
       waiting = [*headerFile.getContents()]
@@ -908,8 +908,8 @@ class DependencyTree:
     classNames = self.getClassNames()
     includeLines = []  # type: List[str]
     for className in classNames:
-      qtPart = self.getQtPart(className)
-      lines = qtPart.getIncludeLines(self.getHeaderPath(className))
+      headerReader = self.getHeaderReader(className)
+      lines = headerReader.getIncludeLines(self.getHeaderPath(className))
       for line in lines.split('\n'):
         if line.strip() and line not in includeLines:
           includeLines.append(line)
@@ -934,7 +934,7 @@ class DependencyTree:
     lineSpec = "    char('0' + int(CanCopy<%s>::value)),"
     lines.extend(lineSpec % name for name in classNames)
     lines.extend(('    0,', '};', ''))
-    qtParts = self.getQtParts()
+    headerReaders = self.getHeaderReaders()
     with tempfile.TemporaryDirectory() as folder:
       sourceFile = os.path.join(folder, 'copyable.cpp')
       objectFile = os.path.join(folder, 'copyable.o')
@@ -942,16 +942,16 @@ class DependencyTree:
       with open(sourceFile, 'w') as file:
         file.write('\n'.join(lines))
       private = []  # type: List[str]
-      for qtPart in qtParts:
-        if qtPart.hasPrivate():
-          for privateFolder in qtPart.getPrivateIncludeFolders():
+      for headerReader in headerReaders:
+        if headerReader.hasPrivate():
+          for privateFolder in headerReader.getPrivateIncludeFolders():
             if '-I%s' % privateFolder not in private:
               private.append('-I%s' % privateFolder)
       #  '-fdata-sections' gives the letters a stretch of the object
       #  file to themselves, under their own name.
       command = (
           'clang++', '-std=c++17', '-fPIC', '-fdata-sections', '-c',
-          '-I%s' % QtPart.getQtHeaderFolder(), *private, sourceFile,
+          '-I%s' % HeaderReader.getQtHeaderFolder(), *private, sourceFile,
           '-o', objectFile,
       )
       handOver = (
@@ -1127,7 +1127,7 @@ class DependencyTree:
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def setQtParts(self, *qtParts: QtPart) -> None:
+  def setHeaderReaders(self, *headerReaders: HeaderReader) -> None:
     """
     Tells which parts of Qt to make the tree of.
 
@@ -1136,7 +1136,7 @@ class DependencyTree:
     Parameters
     ----------
 
-    *qtParts : QtPart
+    *headerReaders : HeaderReader
       One or more parts, each with its name and work folder set and
       already read. A class built on a class of another part finds its
       parent only when that part is given too: give 'QtCore' and
@@ -1149,16 +1149,16 @@ class DependencyTree:
       Called with no part at all.
 
     TypeException
-      An argument is not a 'QtPart'.
+      An argument is not a 'HeaderReader'.
     """
-    if not qtParts:
+    if not headerReaders:
       infoSpec = """A dependency tree needs at least one part of Qt, and
       none was given."""
       raise ValueError(' '.join(infoSpec.split()))
-    for qtPart in qtParts:
-      if not isinstance(qtPart, QtPart):
-        raise TypeException('qtPart', qtPart, QtPart)
-    self.__qt_parts__ = (*qtParts,)
+    for headerReader in headerReaders:
+      if not isinstance(headerReader, HeaderReader):
+        raise TypeException('headerReader', headerReader, HeaderReader)
+    self.__header_readers__ = (*headerReaders,)
     self.__kept_for_users__ = dict()
     self.__cute_names__ = None
     self.__ordered_names__ = None
@@ -1191,9 +1191,9 @@ class DependencyTree:
   def __str__(self) -> str:
     """Says which parts the tree is of, and whether it is made yet."""
     clsName = type(self).__name__
-    if self.__qt_parts__ is None:
-      return '<%s still waiting for: setQtParts>' % clsName
-    names = ', '.join(part.getPartName() for part in self.__qt_parts__)
+    if self.__header_readers__ is None:
+      return '<%s still waiting for: setHeaderReaders>' % clsName
+    names = ', '.join(part.getPartName() for part in self.__header_readers__)
     if self.__ordered_names__ is None:
       return '<%s of %s, not made yet>' % (clsName, names)
     count = len(self.__ordered_names__)

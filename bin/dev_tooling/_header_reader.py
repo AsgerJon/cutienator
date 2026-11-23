@@ -1,4 +1,4 @@
-"""QtPart reads every header file of one part of Qt."""
+"""HeaderReader reads every header file of one part of Qt."""
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
@@ -27,16 +27,16 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   Place = Tuple[Optional[str], Optional[int]]
 
 
-class QtPart:
+class HeaderReader:
   """
   Reads every header file of one part of Qt, as 'QtCore', in a single
   run of the compiler, and keeps what each header file holds.
 
-    qtPart = QtPart()
-    qtPart.setPartName('QtCore')
-    qtPart.setWorkFolder('/some/folder')
-    qtPart.read()                               # two to three minutes
-    for headerFile in qtPart.getHeaderFiles():  # 286 of them
+    headerReader = HeaderReader()
+    headerReader.setPartName('QtCore')
+    headerReader.setWorkFolder('/some/folder')
+    headerReader.read()                               # two to three minutes
+    for headerFile in headerReader.getHeaderFiles():  # 286 of them
       headerFile.getContents()                  # a tuple of records
 
   Terms
@@ -65,7 +65,7 @@ class QtPart:
 
   - 'setHeaderFolder': the 'HeaderFolder' that makes, from Qt's source,
     the folder Qt's header files are read in. Once, for every
-    'QtPart'. Required.
+    'HeaderReader'. Required.
   - 'setPartName': the part of Qt to read. Required.
   - 'setWorkFolder': an existing folder to keep readings in. Required.
 
@@ -182,11 +182,11 @@ class QtPart:
         return
       for value in node.values():
         if isinstance(value, (dict, list)):
-          QtPart._fillPlaces(value, lastPlace)
+          HeaderReader._fillPlaces(value, lastPlace)
     elif isinstance(node, list):
       for value in node:
         if isinstance(value, (dict, list)):
-          QtPart._fillPlaces(value, lastPlace)
+          HeaderReader._fillPlaces(value, lastPlace)
 
   @staticmethod
   def _getPlace(record: Record) -> Place:
@@ -207,15 +207,15 @@ class QtPart:
   #  Class Variables
   #  The 'HeaderFolder' that makes the folder Qt's header files are
   #  read in, and what is taken from it: where that folder is and which
-  #  version of Qt it is made from. Kept for every 'QtPart'.
+  #  version of Qt it is made from. Kept for every 'HeaderReader'.
   __header_folder__ = None  # type: Optional[HeaderFolder]
   __qt_header_folder__ = None  # type: Optional[str]
   __qt_version__ = None  # type: Optional[str]
   #  Where the Qt installed on the machine keeps its shared objects.
-  #  Asked of 'qmake6' once, and kept for every 'QtPart'.
+  #  Asked of 'qmake6' once, and kept for every 'HeaderReader'.
   __qt_shared_object_folder__ = None  # type: Optional[str]
   #  The lines of each header file read so far on which Qt declares
-  #  signals, kept for every 'QtPart'.
+  #  signals, kept for every 'HeaderReader'.
   __signal_lines__ = dict()  # type: Dict[str, FrozenSet[int]]
   #  A line that defines a shorthand taking arguments, with the lines it
   #  goes on to after a backslash: the name, what it takes, and the
@@ -224,7 +224,7 @@ class QtPart:
       r'^[ \t]*#[ \t]*define[ \t]+([A-Za-z_]\w*)\(([^)]*)\)'
       r'((?:.*\\\n)*.*)', re.M)
   #  The shorthands of each header file read so far, kept for every
-  #  'QtPart'.
+  #  'HeaderReader'.
   __read_shorthands__ = dict()  # type: Dict[str, Tuple[Any, ...]]
 
   #  How the compiler lays out its report. A top-level thing opens with
@@ -278,7 +278,7 @@ class QtPart:
     Qt's header files are read in.
 
     Provided by you, through 'setHeaderFolder', once for every
-    'QtPart'.
+    'HeaderReader'.
 
     Raises
     ------
@@ -294,7 +294,7 @@ class QtPart:
   def setHeaderFolder(cls, headerFolder: HeaderFolder) -> None:
     """
     Tells where Qt's header files are read: in the folder a
-    'HeaderFolder' makes from Qt's source. Every 'QtPart' reads there,
+    'HeaderFolder' makes from Qt's source. Every 'HeaderReader' reads there,
     and no Qt that is installed is asked where its header files are or
     which version it is.
 
@@ -381,7 +381,7 @@ class QtPart:
     Gives the folder where Qt keeps its shared objects, as '/usr/lib'.
 
     Found for you: there is no setter. The first call asks Qt's own
-    program 'qmake6', and the answer is kept for every 'QtPart'. You
+    program 'qmake6', and the answer is kept for every 'HeaderReader'. You
     pass nothing; the keyword is for the method's own use.
 
     Raises
@@ -1351,6 +1351,16 @@ class QtPart:
     are the header files that warn for being pulled in, and those
     'setLeftOutHeaders' named.
 
+    A header file the compiler takes alone may still keep the others
+    from being read together with it: one that pulls in a file from
+    outside Qt, as X11's 'X.h', which gives plain words as 'Expose' a
+    meaning of its own. Where the lines so far are refused together,
+    each header file among them that pulls in a file from outside Qt
+    the compiler names in its refusal is skipped, and the reason kept
+    with the others; see '_skipOutside'. The lines are then tried
+    again. Where no such header file is among them, the refusal is
+    raised.
+
     The compiler reads the lines so far once in each round, and writes
     down what it made of them, as a precompiled header in the work
     folder. Every trial of the round starts from that, so a trial costs
@@ -1369,7 +1379,8 @@ class QtPart:
 
     RuntimeError
       The compiler refused the lines so far, which it had taken one by
-      one. The message holds what it said.
+      one, and no file from outside Qt is to blame. The message holds
+      what it said.
     """
     partName = self.getPartName()
     feed = ''
@@ -1394,10 +1405,9 @@ class QtPart:
             feed, '-x', 'c++-header', '-fpch-instantiate-templates',
             '-o', feedHeader)
         if made.returncode:
-          infoSpec = """The compiler refused the header files of the
-          part '%s' read together, which it took one by one: %s"""
-          info = infoSpec % (partName, made.stderr[:1200])
-          raise RuntimeError(' '.join(info.split()))
+          feed = self._skipOutside(feed, filesRead, made.stderr,
+                                   complaints)
+          continue
 
         def findComplaint(headerPath: str) -> str:
           return self._findComplaint(
@@ -1417,7 +1427,120 @@ class QtPart:
       if len(refused) == len(leftOut):
         break
       leftOut = refused
+    #  The lines of the last round, read together once more.
+    checked = self._runCompiler(feed, '-fsyntax-only')
+    while checked.returncode:
+      feed = self._skipOutside(feed, filesRead, checked.stderr, complaints)
+      checked = self._runCompiler(feed, '-fsyntax-only')
     return feed, complaints
+
+  def _findOutside(self, headerPath: str, known: Set[str]) -> Set[str]:
+    """
+    Gives the files from outside Qt a header file pulls in that the own
+    list of the part does not: files of the system or of another
+    library, as those of X11. A file of Qt is one in Qt's source or in
+    the folder made from it. Each file is given as its real path.
+
+    A header file that cannot be followed alone, because it leans on
+    one read before it, gives none.
+
+    Parameters
+    ----------
+
+    headerPath : str
+      The header file.
+
+    known : Set[str]
+      The real path of every file the own list of the part pulls in.
+    """
+    try:
+      opened = self._listFilesRead(self._getIncludeLine(headerPath))
+    except RuntimeError:
+      return set()
+    ours = (
+        '%s%s' % (os.path.realpath(self.getQtHeaderFolder()), os.sep),
+        '%s%s' % (os.path.realpath(
+            self.getHeaderFolder().getSourceFolder()), os.sep),
+    )
+    return {
+        path for path in opened
+        if path not in known and not path.startswith(ours)
+    }
+
+  def _skipOutside(
+      self,
+      feed: str,
+      known: Set[str],
+      said: str,
+      complaints: Dict[str, str],
+  ) -> str:
+    """
+    Takes out of the lines of C++ each header file that pulls in a file
+    from outside Qt which the compiler names in its refusal of them,
+    and keeps the reason with the complaints.
+
+    Parameters
+    ----------
+
+    feed : str
+      The lines the compiler refused, read together.
+
+    known : Set[str]
+      The real path of every file the own list of the part pulls in.
+
+    said : str
+      What the compiler said when it refused them.
+
+    complaints : Dict[str, str]
+      Why each header file is left out, by its path. A skipped one is
+      added.
+
+    Returns
+    -------
+
+    str
+      The lines without the skipped header files.
+
+    Raises
+    ------
+
+    RuntimeError
+      No header file among the lines pulls in a file the compiler
+      names: the refusal is no matter of a file from outside Qt.
+    """
+    named = set()  # type: Set[str]
+    for path in re.findall(r'(/[^\s:]+):\d+:\d+', said):
+      if os.path.isfile(path):
+        named.add(os.path.realpath(path))
+    byLine = {
+        self._getIncludeLine(path): path for path in self.getHeaderPaths()
+    }
+    fed = [byLine[line] for line in feed.splitlines(True) if line in byLine]
+
+    def findOutside(headerPath: str) -> Set[str]:
+      return self._findOutside(headerPath, known)
+
+    with ThreadPoolExecutor(max_workers=os.cpu_count() or 1) as pool:
+      outside = (*pool.map(findOutside, fed),)
+    skipped = []  # type: List[str]
+    for headerPath, files in zip(fed, outside):
+      blamed = sorted(files & named)
+      if not blamed:
+        continue
+      skipped.append(self._getIncludeLine(headerPath))
+      infoSpec = """skipped: it pulls in '%s' from outside Qt, and the
+      header files of the part are not read together with it: %s"""
+      first = ' '.join(said.split())[:600]
+      complaints[headerPath] = ' '.join(
+          (infoSpec % ("', '".join(blamed), first)).split())
+    if not skipped:
+      infoSpec = """The compiler refused the header files of the part
+      '%s' read together, which it took one by one, and no file from
+      outside Qt is to blame: %s"""
+      info = infoSpec % (self.getPartName(), said[:1200])
+      raise RuntimeError(' '.join(info.split()))
+    return ''.join(
+        line for line in feed.splitlines(True) if line not in skipped)
 
   def _cutReport(
       self,
