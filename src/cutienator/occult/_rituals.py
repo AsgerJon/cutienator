@@ -149,7 +149,7 @@ class Rituals:
 
   #  The parts of Qt the rituals call into. 'System' knows the file of
   #  each part on the system Python runs on.
-  __qt_parts__ = ('QtCore', 'QtGui', 'QtWidgets')
+  __components__ = ('QtCore', 'QtGui', 'QtWidgets')
 
   #  The ritual of Qt's 'QCoreApplication::exit(int)', which tells the
   #  loop of events to stop. See 'keepException'.
@@ -249,18 +249,18 @@ class Rituals:
     return os.path.join(here, 'libcutienator.so')
 
   @classmethod
-  def getQtParts(cls) -> Paths:
+  def getComponents(cls) -> Paths:
     """Gives the parts of Qt the rituals call into, as 'QtCore'. Each
     is a package of cutienator as well, holding the cute classes of
     that part."""
-    return cls.__qt_parts__
+    return cls.__components__
 
   @classmethod
   def getQtSharedObjects(cls) -> Paths:
     """
     Gives the Qt shared objects the rituals call into.
 
-    Found for you: one file for each part of Qt in '__qt_parts__', in
+    Found for you: one file for each part of Qt in '__components__', in
     the folder where Qt keeps its shared objects. 'System' gives the
     name the file has on the system Python runs on, which on Linux is
     'libQt6Core.so.6' for 'QtCore'.
@@ -273,7 +273,7 @@ class Rituals:
     """
     folder = Build.getQtSharedObjectFolder()
     system = System.getHere()
-    names = (*(system.getQtFileName(part) for part in cls.__qt_parts__),)
+    names = (*(system.getQtFileName(part) for part in cls.__components__),)
     return (*(os.path.join(folder, name) for name in names),)
 
   @classmethod
@@ -832,7 +832,7 @@ class Rituals:
     build.setRitualFiles(*ritualFiles)
     build.setTargetFile(cls.getTargetFile())
     build.setQtSharedObjects(*cls.getQtSharedObjects())
-    build.setQtParts(*cls.getQtParts())
+    build.setComponents(*cls.getComponents())
     return build.run()
 
   @classmethod

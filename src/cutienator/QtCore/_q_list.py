@@ -166,7 +166,7 @@ class QList(CuteMixin, metaclass=MetaCute):
     kind = cls._getKind()
     if kind.__element_class__ is None:
       name = kind.__element_name__
-      for partName in Rituals.getQtParts():
+      for partName in Rituals.getComponents():
         package = importlib.import_module('..%s' % partName, __package__)
         if name in package.__class_files__:
           getattr(package, name)

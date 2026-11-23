@@ -749,7 +749,7 @@ class CuteMixin(BaseObject):
       name = name.decode('ascii', 'replace')
       if name == cls.__name__:
         return cls
-      for partName in Rituals.getQtParts():
+      for partName in Rituals.getComponents():
         part = importlib.import_module('..%s' % partName, __package__)
         try:
           found = getattr(part, name)

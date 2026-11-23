@@ -61,7 +61,7 @@ class Build:
 
   One more is optional:
 
-  - 'setQtParts': the parts of Qt the ritual files are of, as 'QtCore'.
+  - 'setComponents': the parts of Qt the ritual files are of, as 'QtCore'.
     With it 'clang++' also looks in the folders of the headers Qt calls
     private, which a ritual file may name; see
     'getPrivateIncludeFolders'.
@@ -175,7 +175,7 @@ class Build:
   __target_file__ = None
   __qt_shared_objects__ = None
   __job_count__ = None
-  __qt_parts__ = None
+  __components__ = None
 
   #  Public Variables
 
@@ -532,25 +532,25 @@ class Build:
       return os.cpu_count() or 1
     return self.__job_count__
 
-  def getQtParts(self) -> Paths:
+  def getComponents(self) -> Paths:
     """
     Gives the parts of Qt whose private headers the ritual files may
-    name, as 'QtCore'. Provided by you, through 'setQtParts'; none
+    name, as 'QtCore'. Provided by you, through 'setComponents'; none
     when it was not called.
     """
-    return self.__qt_parts__ or ()
+    return self.__components__ or ()
 
   def getPrivateIncludeFolders(self) -> Paths:
     """
     Gives every folder 'clang++' has to look in for the headers Qt
     calls private: what 'System.getPrivateFolders' gives for each part
-    of 'getQtParts', leaving out a folder that is not there.
+    of 'getComponents', leaving out a folder that is not there.
     """
     system = System.getHere()
     headerFolder = self.getQtHeaderFolder()
     qtFolder, version = self.getQtSharedObjectFolder(), self.getQtVersion()
     found = []
-    for part in self.getQtParts():
+    for part in self.getComponents():
       for folder in system.getPrivateFolders(
           headerFolder, qtFolder, version, part):
         if os.path.isdir(folder) and folder not in found:
@@ -800,16 +800,16 @@ class Build:
         *(os.path.abspath(path) for path in ritualFiles),
     )
 
-  def setQtParts(self, *qtParts: str) -> None:
+  def setComponents(self, *components: str) -> None:
     """
     Tells the build which parts of Qt the ritual files are of, as
     'QtCore', so that it looks in the folders of their private headers
     too. Optional: without it only Qt's header folder is looked in.
     """
-    for qtPart in qtParts:
-      if not isinstance(qtPart, str):
-        raise TypeException('qtPart', qtPart, str)
-    self.__qt_parts__ = (*qtParts,)
+    for component in components:
+      if not isinstance(component, str):
+        raise TypeException('component', component, str)
+    self.__components__ = (*components,)
 
   def setJobCount(self, jobCount: int) -> None:
     """

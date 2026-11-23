@@ -368,7 +368,7 @@ class TestBuild(BaseTest):
     build = Build()
     build.setTargetFile(Rituals.getTargetFile())
     self.assertEqual(build.getPrivateIncludeFolders(), ())
-    build.setQtParts(*Rituals.getQtParts())
+    build.setComponents(*Rituals.getComponents())
     folders = build.getPrivateIncludeFolders()
     self.assertTrue(folders)
     for folder in folders:
