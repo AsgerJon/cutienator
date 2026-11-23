@@ -86,6 +86,9 @@ class HeaderReader:
     file ask, read from its text.
   - 'getSignalLines': the lines of a header file that declare signals,
     read from its text.
+  - 'getShorthands': the shorthands ('#define NAME(...)') a header file
+    defines, read from its text. 'SourceReader' writes them out where
+    a '.cpp' file uses them.
   - 'getQtSharedObject': the compiled Qt code of this part, of the Qt
     installed on the machine. It is for the testers alone, which have
     to try what was written against a Qt; nothing that is written is
@@ -290,6 +293,15 @@ class HeaderReader:
   #  The lines of each header file read so far on which Qt declares
   #  signals, kept for every 'HeaderReader'.
   __signal_lines__ = dict()  # type: Dict[str, FrozenSet[int]]
+  #  A line that defines a shorthand taking arguments, with the lines it
+  #  goes on to after a backslash: the name, what it takes, and the
+  #  text it stands for.
+  __shorthand_line__ = re.compile(
+      r'^[ \t]*#[ \t]*define[ \t]+([A-Za-z_]\w*)\(([^)]*)\)'
+      r'((?:.*\\\n)*.*)', re.M)
+  #  The shorthands of each header file read so far, kept for every
+  #  'HeaderReader'.
+  __read_shorthands__ = dict()  # type: Dict[str, Tuple[Any, ...]]
 
   #  A line of C++ pulling a header file in by its place in Qt's header
   #  folder, as the own list of a part has them.
@@ -2006,6 +2018,53 @@ class HeaderReader:
       elif inside or re.search(r'\bQ_SIGNAL\b', line):
         found.add(number)
     kept[headerPath] = frozenset(found)
+    return kept[headerPath]
+
+  @classmethod
+  def getShorthands(cls, headerPath: str) -> Tuple[Any, ...]:
+    """
+    Gives the shorthands a header file defines, read from its text
+    alone. C++ calls them macros.
+
+    A shorthand is a line '#define NAME(...)' and the lines it goes on
+    to after a backslash. Where code writes 'NAME(...)', the compiler
+    reads the text of the shorthand in its place, with what was written
+    between the brackets put in for its arguments. Qt writes the code of
+    some functions that way: 'qcoreevent.h' defines
+    'Q_IMPL_EVENT_COMMON(Class)', whose text holds
+    'Class::~Class() = default;', and 'qcoreevent.cpp' writes
+    'Q_IMPL_EVENT_COMMON(QChildEvent)'. Only a shorthand with brackets
+    after its name is read; one without, as '#define QT_NO_CAST', is
+    left out.
+
+    Parameters
+    ----------
+
+    headerPath : str
+      The full path of the header file.
+
+    Returns
+    -------
+
+    Tuple[Any, ...]
+      One 'Tuple[str, Tuple[str, ...], str]' per shorthand, in the
+      order the file defines them: the name, the names of what it
+      takes, and the text it stands for, without comments and as one
+      line.
+    """
+    kept = cls.__read_shorthands__
+    if headerPath in kept:
+      return kept[headerPath]
+    with open(headerPath, errors='replace') as file:
+      text = file.read().replace('\r', '')
+    found = []
+    for match in cls.__shorthand_line__.finditer(text):
+      body = match.group(3).replace('\\\n', ' ')
+      body = re.sub(r'/\*.*?\*/', ' ', body)
+      body = re.sub(r'//.*$', '', body)
+      taken = (*(one.strip() for one in match.group(2).split(',')),)
+      found.append((match.group(1), taken, ' '.join(body.split())))
+    kept[headerPath] = (*found,)
     return kept[headerPath]
 
   @staticmethod

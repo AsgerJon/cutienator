@@ -1047,6 +1047,49 @@ class DependencyTree:
     self.getClassNames()
     return dict(self.__alias_types__)
 
+  def getSpellings(self, className: str) -> Names:
+    """
+    Gives every name by which C++ code can write a class, its own name
+    first.
+
+    The others are of two kinds, both from the records. A name the
+    parts give the class, as 'QLatin1StringView' from 'using
+    QLatin1StringView = QLatin1String;'. And, for a class written
+    inside another class, the same through each class built on that
+    other class: 'QStringConverterBase::State' is also written
+    'QStringConverter::State', since 'QStringConverter' is built on
+    'QStringConverterBase'. Qt's source writes code under such names,
+    as 'void QStringConverter::State::clear() noexcept'.
+
+    Parameters
+    ----------
+
+    className : str
+      The name of the class, with every class around it, as
+      'QStringConverterBase::State'.
+    """
+    classNames = {*self.getClassNames()}
+    others = dict()  # type: Dict[str, List[str]]
+    for alias, cppType in sorted(self.getAliasTypes().items()):
+      bare = re.sub(r'^(?:class|struct)\s+', '', cppType.strip())
+      others.setdefault(bare, []).append(alias)
+
+    def named(fullName: str) -> List[str]:
+      """The class by its full name and by every other name for it."""
+      return [fullName, *others.get(fullName, ())]
+
+    words = className.split('::')
+    found = [words[0]]  # type: List[str]
+    for depth, word in enumerate(words):
+      own = '::'.join(words[:depth + 1])
+      if depth:
+        found = ['%s::%s' % (outer, word) for outer in found]
+      found.extend(named(own)[1:])
+      if depth < len(words) - 1 and own in classNames:
+        for built in self.getDescendants(own):
+          found.extend(named(built))
+    return (*dict.fromkeys(found),)
+
   def getTreeText(self, *classNames: str) -> str:
     """
     Gives the tree as text, one class per line, each class two spaces

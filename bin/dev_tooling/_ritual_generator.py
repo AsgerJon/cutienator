@@ -3079,6 +3079,11 @@ class RitualGenerator:
     'QCborStreamReader::preparse()': the compiler then puts the code
     where Qt calls it and keeps no function that could be called.
     Without Qt's source at hand the mark alone decides.
+
+    The source is asked under every name C++ code can give the class,
+    as 'DependencyTree.getSpellings' has them: Qt writes the code of
+    'QLatin1String::compare_helper' as 'QLatin1StringView::...'. A
+    constructor or destructor is named after the class as spelled.
     """
     if member.get('kind') == 'FunctionDecl':
       #  A function outside of every class, which Qt wrote inside the
@@ -3090,8 +3095,19 @@ class RitualGenerator:
       return True
     className = self.getClassName()
     name = member.get('name', '')
+    kind = member.get('kind', '')
     partName = tree.getPartName(className.split('::')[0])
-    if not source.hasCode(partName, '%s::%s' % (className, name)):
+    for spelled in tree.getSpellings(className):
+      last = spelled.rpartition('::')[2]
+      if kind == 'CXXConstructorDecl':
+        asked = '%s::%s' % (spelled, last)
+      elif kind == 'CXXDestructorDecl':
+        asked = '%s::~%s' % (spelled, last)
+      else:
+        asked = '%s::%s' % (spelled, name)
+      if source.hasCode(partName, asked):
+        break
+    else:
       return False
     definition = self._findSourceCode(member)
     if definition is None:
