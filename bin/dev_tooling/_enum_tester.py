@@ -10,7 +10,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import QtPart, EnumGenerator
+from . import HeaderReader, EnumGenerator
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Dict, List, Optional, Tuple
@@ -94,10 +94,12 @@ class EnumTester:
     lineSpec = '  std::printf("%%lld %%s\\n", (long long)(%s), "%s");'
     for generator in self.getEnumGenerators():
       record, enumName = generator.getEnumRecord(), generator.getEnumName()
-      qtParts = generator.getDependencyTree().getQtParts()
-      named = [p for p in qtParts if p.getPartName() == record['partName']]
-      qtPart = named[0]
-      for line in qtPart.getIncludeLines(record['headerPath']).split('\n'):
+      headerReaders = generator.getDependencyTree().getHeaderReaders()
+      named = [
+          p for p in headerReaders if p.getPartName() == record['partName']]
+      headerReader = named[0]
+      pulled = headerReader.getIncludeLines(record['headerPath'])
+      for line in pulled.split('\n'):
         if line.strip() and line not in includeLines:
           includeLines.append(line)
       for name, _ in record['members']:
@@ -127,7 +129,8 @@ class EnumTester:
       'clang++' refused the program, or the program did not run. What
       it said is in the message.
     """
-    qtParts = self.getEnumGenerators()[0].getDependencyTree().getQtParts()
+    tree = self.getEnumGenerators()[0].getDependencyTree()
+    headerReaders = tree.getHeaderReaders()
     with tempfile.TemporaryDirectory() as folder:
       sourceFile = os.path.join(folder, 'enums.cpp')
       programFile = os.path.join(folder, 'enums')
@@ -135,10 +138,10 @@ class EnumTester:
         file.write(self.getProgramText())
       command = (
           'clang++', '-std=c++17', '-fPIC', '-Wno-deprecated-declarations',
-          '-I%s' % QtPart.getQtHeaderFolder(), sourceFile,
+          '-I%s' % HeaderReader.getQtHeaderFolder(), sourceFile,
           '-o', programFile,
-          '-Wl,-rpath,%s' % QtPart.getQtSharedObjectFolder(),
-          *(qtPart.getQtSharedObject() for qtPart in qtParts),
+          '-Wl,-rpath,%s' % HeaderReader.getQtSharedObjectFolder(),
+          *(reader.getQtSharedObject() for reader in headerReaders),
       )
       said = ''
       for step in (command, (programFile,)):

@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import DependencyTree, QtPart, RitualGenerator, EnumGenerator
+from . import DependencyTree, HeaderReader, RitualGenerator, EnumGenerator
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, List, Optional, Set, Tuple
@@ -2246,14 +2246,14 @@ class ClassGenerator:
     anew."""
     tree, className = self.getDependencyTree(), self.getClassName()
     headerPath = tree.getHeaderPath(className)
-    relative = os.path.relpath(headerPath, QtPart.getQtHeaderFolder())
+    relative = os.path.relpath(headerPath, HeaderReader.getQtHeaderFolder())
     infoSpec = """Written by dev_tooling.ClassGenerator from the records
     of %s, Qt %s. Changes made here are lost."""
-    info = infoSpec % (relative, QtPart.getQtVersion())
+    info = infoSpec % (relative, HeaderReader.getQtVersion())
     lines = self._wrapWords(info, '#  ')
-    qtPart = tree.getQtPart(className)
-    if qtPart.hasPrivate():
-      if headerPath.startswith(qtPart.getPrivateFolder()):
+    headerReader = tree.getHeaderReader(className)
+    if headerReader.hasPrivate():
+      if headerPath.startswith(headerReader.getPrivateFolder()):
         infoSpec = """Qt means %s to be private: it declares the
         class in a header it calls private. cutienator does not care.
         Qt hands objects of the class out all the same, and a class we

@@ -18,7 +18,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import DependencyTree, QtPart
+from . import DependencyTree, HeaderReader
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, FrozenSet, List, Optional, Set, Tuple
@@ -300,6 +300,12 @@ class RitualGenerator:
   #  found in each header read so far.
   __system_name__ = re.compile(r'\b(?:Q_OS|Q_CC)_\w+')
   __system_lines__ = dict()  # type: Dict[str, Dict[int, str]]
+  #  The header file of each part of Qt that has to be read before an
+  #  '#if QT_CONFIG(...)' of that part can be answered.
+  __global_headers__ = dict(
+      QtCore='qglobal.h', QtGui='qtguiglobal.h',
+      QtWidgets='qtwidgetsglobal.h',
+  )
   __has_cute_class__ = None  # type: Optional[bool]
   #  The code taken from Qt's source for the class, and the lines that
   #  pull in what that code needs; see '_settleSource'.
@@ -370,7 +376,7 @@ class RitualGenerator:
       raise MissingVariable(self, '__work_folder__', str)
     return self.__work_folder__
 
-  def getQtPart(self) -> QtPart:
+  def getHeaderReader(self) -> HeaderReader:
     """
     Gives the part of Qt the class belongs to.
 
@@ -382,7 +388,7 @@ class RitualGenerator:
     LookupError
       The tree has no class of the name you set.
     """
-    return self.getDependencyTree().getQtPart(self.getClassName())
+    return self.getDependencyTree().getHeaderReader(self.getClassName())
 
   def getFileStem(self) -> str:
     """
@@ -426,7 +432,7 @@ class RitualGenerator:
     tree = self.getDependencyTree()
     className = self.getClassName()
     record = tree.getClassRecord(className)
-    summary = self.getQtPart().getClassSummary(className)
+    summary = self.getHeaderReader().getClassSummary(className)
     signals = {signal['name'] for signal in summary.get('signals', ())}
     abstract = record.get('definitionData', dict()).get('isAbstract', False)
     barred = self._findBarred(record)
@@ -1414,12 +1420,12 @@ class RitualGenerator:
 
   def _getHeading(self) -> str:
     """Says who wrote a file, from what, and that it is written anew."""
-    qtPart = self.getQtPart()
+    headerReader = self.getHeaderReader()
     headerPath = self.getDependencyTree().getHeaderPath(self.getClassName())
-    relative = os.path.relpath(headerPath, qtPart.getQtHeaderFolder())
+    relative = os.path.relpath(headerPath, headerReader.getQtHeaderFolder())
     infoSpec = """Written by dev_tooling.RitualGenerator from the records
     of %s, Qt %s. Changes made here are lost."""
-    info = infoSpec % (relative, qtPart.getQtVersion())
+    info = infoSpec % (relative, headerReader.getQtVersion())
     return ' '.join(info.split())
 
   def getRitualText(self) -> str:
@@ -1427,7 +1433,7 @@ class RitualGenerator:
     Gives the whole text of the ritual file, without writing it.
 
     Written for you from 'getWritten': a heading, the lines pulling in
-    the header file of the class, as 'QtPart.getIncludeLines' gives
+    the header file of the class, as 'HeaderReader.getIncludeLines' gives
     them, the same for each value class a ritual copies, and then each
     ritual under the Qt function it calls.
     """
@@ -1446,7 +1452,8 @@ class RitualGenerator:
         needed.extend(n for n in function['needs'] if n not in needed)
     includeLines = []  # type: List[str]
     for name in needed:
-      lines = tree.getQtPart(name).getIncludeLines(tree.getHeaderPath(name))
+      reader = tree.getHeaderReader(name)
+      lines = reader.getIncludeLines(tree.getHeaderPath(name))
       for line in lines.split('\n'):
         if line.strip() and line not in includeLines:
           includeLines.append(line)
@@ -1461,10 +1468,10 @@ class RitualGenerator:
       codePath = tree.getDefinedPath(ritualName[len(start):])
       if codePath is None or codePath == ownPath:
         continue
-      for qtPart in tree.getQtParts():
-        if not codePath.startswith('%s/' % qtPart.getPartFolder()):
+      for headerReader in tree.getHeaderReaders():
+        if not codePath.startswith('%s/' % headerReader.getPartFolder()):
           continue
-        for line in qtPart.getIncludeLines(codePath).split('\n'):
+        for line in headerReader.getIncludeLines(codePath).split('\n'):
           if line.strip() and line not in includeLines:
             includeLines.append(line)
     owned = [r for r in self.getWritten() if r['kind'] == 'own']
@@ -1480,7 +1487,19 @@ class RitualGenerator:
     #  have it, with the '#if' lines around it, so no line of it is
     #  left out for standing above already.
     includeLines.extend(self.getSourceIncludes())
-    blocks[0] = '%s\n%s' % (blocks[0], '\n'.join(includeLines))
+    conditions = self._findConditions(tree.getClassRecord(className))
+    if conditions:
+      #  Qt declares the class under an '#if', so the whole file stands
+      #  under it: where a Qt has no such class, nothing of the file is
+      #  compiled. What an '#if' of Qt's asks can only be answered once
+      #  the header file of the part has been read, so that comes first.
+      partName = tree.getPartName(className)
+      asked = '#include <%s/%s>' % (
+          partName, self.__global_headers__[partName])
+      opening = [asked, *('#if %s' % one for one in conditions)]
+      blocks[0] = '\n'.join((blocks[0], *opening, *includeLines))
+    else:
+      blocks[0] = '%s\n%s' % (blocks[0], '\n'.join(includeLines))
     if self.getSourceText():
       blocks.append(self.getSourceText())
     ownClass = self._writeOwnClass(owned)
@@ -1489,6 +1508,9 @@ class RitualGenerator:
     if self.hasCuteClass():
       blocks.append(self._writeCuteClass())
     blocks.extend(ritual['text'] for ritual in self.getWritten())
+    if conditions:
+      blocks.append('\n'.join(
+          '#endif  // %s' % one for one in reversed(conditions)))
     return '%s\n' % '\n\n'.join(blocks)
 
   def getRows(self) -> Rows:
@@ -2048,8 +2070,8 @@ class RitualGenerator:
       if kwargs.get('_recursion', False):
         raise RecursionError
       offered = set()  # type: Set[str]
-      for qtPart in self.getDependencyTree().getQtParts():
-        offered.update(qtPart.getOfferedNames())
+      for headerReader in self.getDependencyTree().getHeaderReaders():
+        offered.update(headerReader.getOfferedNames())
       self.__offered_names__ = frozenset(offered)
       return self._getOfferedNames(_recursion=True)
     return self.__offered_names__
@@ -2149,6 +2171,66 @@ class RitualGenerator:
     record = self.getDependencyTree().getClassRecord(self.getClassName())
     return True if self._findSystemCondition(record) else False
 
+  def _findConditions(self, record: Record) -> Tuple[str, ...]:
+    """
+    Gives the conditions under which Qt declares a function, a class
+    or an enum: what each '#if' line around its declaration asks,
+    outermost first, as 'HeaderReader.getConditions' reads them from
+    the text of the header file. Empty for a thing under no '#if', and
+    for one the compiler made itself, which stands at no line.
+
+    Parameters
+    ----------
+
+    record : Record
+      What the compiler wrote down about the thing, with the place it
+      is declared at under 'loc'.
+    """
+    place = record.get('loc', dict())
+    place = place.get('expansionLoc', place)
+    headerPath, line = place.get('file'), place.get('line')
+    if not headerPath or not line:
+      return ()
+    return HeaderReader.getConditions(headerPath, line)
+
+  def _findOwnConditions(self, member: Record) -> Tuple[str, ...]:
+    """Gives the conditions of a function of the class that go beyond
+    those of the class itself. The ones of the class stand around the
+    whole ritual file; see 'getRitualText'."""
+    tree = self.getDependencyTree()
+    whole = self._findConditions(tree.getClassRecord(self.getClassName()))
+    own = self._findConditions(member)
+    if own[:len(whole)] == whole:
+      return own[len(whole):]
+    return own
+
+  @staticmethod
+  def _wrapInConditions(text: str, conditions: Tuple[str, ...]) -> str:
+    """
+    Gives a piece of C++ text with one '#if' line for each condition
+    above it, outermost first, and the '#endif' lines below it.
+
+    A ritual stands between the same '#if' lines as the function it
+    calls stands between in Qt's header file. The compiler of each
+    machine then compiles the ritual exactly where that machine's Qt
+    has the function, and leaves it out where it has not. Nothing is
+    decided here: the text is the same for every system.
+    """
+    if not conditions:
+      return text
+    opening, closing = [], []  # type: List[str], List[str]
+    for condition in conditions:
+      line = '#if %s' % condition
+      if len(line) > 77:
+        #  A long question goes on in the next line after a backslash.
+        pieces = textwrap.wrap(
+            line, 73, break_long_words=False, break_on_hyphens=False)
+        line = ' \\\n    '.join(pieces)
+      opening.append(line)
+      note = '#endif  // %s' % condition
+      closing.insert(0, note if len(note) <= 77 else '#endif')
+    return '\n'.join((*opening, text, *closing))
+
   def getPrivateArguments(self) -> Tuple[str, ...]:
     """
     Gives the '-I' arguments by which the compiler finds the headers
@@ -2156,11 +2238,11 @@ class RitualGenerator:
     no source of Qt was provided.
     """
     tree = self.getDependencyTree()
-    qtParts = tree.getQtParts()
-    if tree.getQtSource() is None:
-      if not any(qtPart.hasPrivate() for qtPart in qtParts):
+    headerReaders = tree.getHeaderReaders()
+    if tree.getSourceReader() is None:
+      if not any(reader.hasPrivate() for reader in headerReaders):
         return ()
-    folders = qtParts[0].getPrivateIncludeFolders()
+    folders = headerReaders[0].getPrivateIncludeFolders()
     return (*('-I%s' % folder for folder in folders),)
 
   def getSourceText(self) -> str:
@@ -2180,12 +2262,12 @@ class RitualGenerator:
   def _findSourceCode(self, member: Record) -> Optional[Record]:
     """
     Gives the definition of a function in Qt's own source, as
-    'QtSource.findDefinitions' has it, or None when no source was
+    'SourceReader.findDefinitions' has it, or None when no source was
     provided or the source has not exactly one definition that takes
     what the function takes.
     """
     tree = self.getDependencyTree()
-    source = tree.getQtSource()
+    source = tree.getSourceReader()
     if source is None:
       return None
     className = self.getClassName()
@@ -2231,7 +2313,8 @@ class RitualGenerator:
     return (
         'clang++', '-std=c++17', '-fPIC', '-O0', '-w',
         '-fno-access-control', '-ffunction-sections', '-ferror-limit=0',
-        '-I%s' % QtPart.getQtHeaderFolder(), *self.getPrivateArguments(),
+        '-I%s' % HeaderReader.getQtHeaderFolder(),
+        *self.getPrivateArguments(),
     )
 
   def getProbeHeader(self) -> str:
@@ -2260,13 +2343,14 @@ class RitualGenerator:
     if 'path' in kept:
       return kept['path']
     lines = []
-    qtParts = self.getDependencyTree().getQtParts()
-    for qtPart in qtParts:
-      partName = qtPart.getPartName()
-      if os.path.isfile(os.path.join(qtPart.getPartFolder(), partName)):
+    headerReaders = self.getDependencyTree().getHeaderReaders()
+    for headerReader in headerReaders:
+      partName = headerReader.getPartName()
+      whole = os.path.join(headerReader.getPartFolder(), partName)
+      if os.path.isfile(whole):
         lines.append('#include <%s/%s>' % (partName, partName))
     folder = tempfile.mkdtemp(
-        prefix='probe_header_', dir=qtParts[0].getWorkFolder())
+        prefix='probe_header_', dir=headerReaders[0].getWorkFolder())
     Finalize(
         None, shutil.rmtree, args=(folder,),
         kwargs=dict(ignore_errors=True), exitpriority=0)
@@ -2435,7 +2519,7 @@ class RitualGenerator:
     """
     self.__source_text__, self.__source_includes__ = '', ()
     tree = self.getDependencyTree()
-    source = tree.getQtSource()
+    source = tree.getSourceReader()
     if source is None:
       return
     className = self.getClassName()
@@ -2449,11 +2533,11 @@ class RitualGenerator:
       definition = self._findSourceCode(member)
       if definition is not None:
         chosen[member['mangledName']] = definition
-    qtPart = tree.getQtPart(className)
+    headerReader = tree.getHeaderReader(className)
     private = False
-    if qtPart.hasPrivate():
+    if headerReader.hasPrivate():
       headerPath = tree.getHeaderPath(className)
-      private = headerPath.startswith(qtPart.getPrivateFolder())
+      private = headerPath.startswith(headerReader.getPrivateFolder())
     named = self._nameWritten(written)
     if not private and not any(name in named for name in chosen):
       #  No ritual calls a function whose code would be taken, so
@@ -2622,7 +2706,7 @@ class RitualGenerator:
     self.__source_text__, self.__source_includes__ = '', ()
     if not taken:
       return
-    folder = self.getDependencyTree().getQtSource().getSourceFolder()
+    folder = self.getDependencyTree().getSourceReader().getSourceFolder()
     lines = [
         "//  Qt's own code, from here to the line of dashes: taken from",
         "//  Qt's source, because Qt's library carries it under no name.",
@@ -2654,7 +2738,7 @@ class RitualGenerator:
     the name the compiler made for it, or None when the source has not
     exactly one that takes as many arguments.
     """
-    source = self.getDependencyTree().getQtSource()
+    source = self.getDependencyTree().getSourceReader()
     said = subprocess.run(
         ('c++filt', symbol), stdout=subprocess.PIPE,
         stderr=subprocess.PIPE, universal_newlines=True).stdout.strip()
@@ -2664,10 +2748,10 @@ class RitualGenerator:
     inside = said[said.index('(') + 1:said.rindex(')')]
     count = len(source._splitArguments(inside))
     const = said.rstrip().endswith('const')
-    for qtPart in self.getDependencyTree().getQtParts():
+    for headerReader in self.getDependencyTree().getHeaderReaders():
       found = [
           definition for definition
-          in source.findDefinitions(qtPart.getPartName(), name)
+          in source.findDefinitions(headerReader.getPartName(), name)
           if len(definition['arguments']) == count
           and definition['const'] == const
       ]
@@ -3088,7 +3172,9 @@ class RitualGenerator:
       body = ['  delete self;']
     else:
       body = self._writeBody(opening, called, passed, closing)
-    plan['text'] = self._writeRitual(plan, body)
+    plan['conditions'] = self._findOwnConditions(member)
+    plan['text'] = self._wrapInConditions(
+        self._writeRitual(plan, body), plan['conditions'])
     return plan
 
   def getFurtherBases(self) -> Names:
@@ -3195,11 +3281,6 @@ class RitualGenerator:
       infoSpec = """the class keeps 'delete' to itself, so no ritual can
       remove one"""
       return ' '.join(infoSpec.split())
-    condition = self._findSystemCondition(member)
-    if condition:
-      infoSpec = """Qt has it on some systems only: it stands under
-      '%s'"""
-      return ' '.join((infoSpec % condition).split())
     if plan['variadic']:
       return 'takes any number of arguments'
     if '&&' in plan['words']:

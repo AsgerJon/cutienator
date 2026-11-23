@@ -10,7 +10,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import QtPart, RitualGenerator
+from . import HeaderReader, RitualGenerator
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, List, Optional, Set, Tuple
@@ -185,7 +185,7 @@ class RitualTester:
     running it.
 
     Found for you. The compiler and its '-std' are those the headers
-    were read with: see 'QtPart.getCompilerCommand'. A header may give
+    were read with: see 'HeaderReader.getCompilerCommand'. A header may give
     a class other functions for another compiler or another standard,
     as Qt's 'qfloat16.h' does, and a ritual written from what one of
     them read would then not compile with the other.
@@ -214,16 +214,16 @@ class RitualTester:
       the Qt shared object of each part of the dependency tree.
     """
     generator = self.getRitualGenerator()
-    qtParts = generator.getDependencyTree().getQtParts()
+    headerReaders = generator.getDependencyTree().getHeaderReaders()
     return (
         'clang++', '-std=c++17', '-shared', '-fPIC', '-O2',
         '-fno-access-control', '-fvisibility-inlines-hidden',
         '-Wl,--version-script=%s' % self.getOfferFile(),
         '-Wl,--no-undefined',
-        '-I%s' % QtPart.getQtHeaderFolder(),
+        '-I%s' % HeaderReader.getQtHeaderFolder(),
         *generator.getPrivateArguments(), generator.getRitualFile(),
         '-o', self.getTargetFile(),
-        *(qtPart.getQtSharedObject() for qtPart in qtParts),
+        *(reader.getQtSharedObject() for reader in headerReaders),
     )
 
   def _createFaults(self, ) -> None:

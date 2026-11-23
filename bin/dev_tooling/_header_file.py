@@ -20,7 +20,7 @@ class HeaderFile:
   """
   One header file of Qt, and what it holds as the compiler read it.
 
-    for headerFile in qtPart.getHeaderFiles():
+    for headerFile in headerReader.getHeaderFiles():
       headerFile.getHeaderPath()  # '/usr/include/qt6/QtCore/qobject.h'
       headerFile.getContents()    # a tuple of 40 records
 
@@ -39,7 +39,7 @@ class HeaderFile:
   You provide
   -----------
 
-  Nothing. A 'QtPart' fills each header file in, through the setters,
+  Nothing. A 'HeaderReader' fills each header file in, through the setters,
   from the reading of its part of Qt. You read it.
 
   What to expect
@@ -89,7 +89,7 @@ class HeaderFile:
     Gives the full path of the header file, as
     '/usr/include/qt6/QtCore/qobject.h'.
 
-    Filled in by the 'QtPart'.
+    Filled in by the 'HeaderReader'.
     """
     if self.__header_path__ is None:
       raise MissingVariable(self, '__header_path__', str)
@@ -100,8 +100,8 @@ class HeaderFile:
     Gives the full path of the record file: where the records of this
     header file are kept, one per line.
 
-    Filled in by the 'QtPart'. Having the path does not mean the file is
-    there: none is written for a header file with no records.
+    Filled in by the 'HeaderReader'. Having the path does not mean the
+    file is there: none is written for a header file with no records.
     """
     if self.__record_path__ is None:
       raise MissingVariable(self, '__record_path__', str)
@@ -112,7 +112,7 @@ class HeaderFile:
     Says whether the compiler read this header file when the part was
     read.
 
-    Filled in by the 'QtPart'. It is False for a header file that is in
+    Filled in by the 'HeaderReader'. It is False for a header file that is in
     no other header and that the compiler refused when handed it
     directly; 'getComplaint' then gives what the compiler said.
     """
@@ -124,7 +124,7 @@ class HeaderFile:
     """
     Gives what the compiler said when it refused this header file.
 
-    Filled in by the 'QtPart'. It is '' for a header file that was
+    Filled in by the 'HeaderReader'. It is '' for a header file that was
     read.
     """
     if self.__compiler_complaint__ is None:
@@ -136,7 +136,7 @@ class HeaderFile:
     Gives how many top-level things the header file holds, without
     loading them.
 
-    Filled in by the 'QtPart'. It is 0 for a header file holding only
+    Filled in by the 'HeaderReader'. It is 0 for a header file holding only
     macros and '#include' lines, and for one that was not read.
     """
     if self.__record_count__ is None:
@@ -207,27 +207,28 @@ class HeaderFile:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def setHeaderPath(self, headerPath: str) -> None:
-    """Called by the 'QtPart' with the full path of the header file."""
+    """Called by the 'HeaderReader' with the full path of the header file."""
     if not isinstance(headerPath, str):
       raise TypeException('headerPath', headerPath, str)
     self.__header_path__ = headerPath
 
   def setRecordPath(self, recordPath: str) -> None:
-    """Called by the 'QtPart' with the full path of the record file."""
+    """Called by the 'HeaderReader' with the full path of the record file."""
     if not isinstance(recordPath, str):
       raise TypeException('recordPath', recordPath, str)
     self.__record_path__ = recordPath
     self.__loaded_contents__ = None
 
   def setRead(self, wasRead: bool) -> None:
-    """Called by the 'QtPart': did the compiler read the header file?"""
+    """Called by the 'HeaderReader': did the compiler read the header
+    file?"""
     if not isinstance(wasRead, bool):
       raise TypeException('wasRead', wasRead, bool)
     self.__was_read__ = wasRead
 
   def setComplaint(self, complaint: str) -> None:
     """
-    Called by the 'QtPart' with what the compiler said when it refused
+    Called by the 'HeaderReader' with what the compiler said when it refused
     the header file, or with '' when it was read.
     """
     if not isinstance(complaint, str):
@@ -235,7 +236,7 @@ class HeaderFile:
     self.__compiler_complaint__ = complaint
 
   def setRecordCount(self, recordCount: int) -> None:
-    """Called by the 'QtPart' with the number of top-level things."""
+    """Called by the 'HeaderReader' with the number of top-level things."""
     if isinstance(recordCount, bool) or not isinstance(recordCount, int):
       raise TypeException('recordCount', recordCount, int)
     self.__record_count__ = recordCount

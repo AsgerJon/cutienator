@@ -1,4 +1,4 @@
-"""QtPart reads every header file of one part of Qt."""
+"""HeaderReader reads every header file of one part of Qt."""
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
@@ -26,16 +26,16 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   Place = Tuple[Optional[str], Optional[int]]
 
 
-class QtPart:
+class HeaderReader:
   """
   Reads every header file of one part of Qt, as 'QtCore', in a single
   run of the compiler, and keeps what each header file holds.
 
-    qtPart = QtPart()
-    qtPart.setPartName('QtCore')
-    qtPart.setWorkFolder('/some/folder')
-    qtPart.read()                               # two to three minutes
-    for headerFile in qtPart.getHeaderFiles():  # 286 of them
+    headerReader = HeaderReader()
+    headerReader.setPartName('QtCore')
+    headerReader.setWorkFolder('/some/folder')
+    headerReader.read()                               # two to three minutes
+    for headerFile in headerReader.getHeaderFiles():  # 286 of them
       headerFile.getContents()                  # a tuple of records
 
   Terms
@@ -54,6 +54,12 @@ class QtPart:
   - A record is what the compiler wrote down about one top-level thing,
     as JSON turned into Python.
   - A place is a file and a line in it.
+  - A condition is what an '#if' line of a header file asks, as
+    'QT_CONFIG(tooltip)'. The compiler reads the lines between that
+    '#if' and its '#endif' only where the answer is yes. Which answer
+    a Qt gives differs from one system to the next and from one build
+    of Qt to the next. The text of the header files does not: it is
+    the same everywhere.
   - A reading is the finished result for one part: a folder in the work
     folder, named as the part, with one record file per header file.
   - The stamp is a small file written last into a reading. It says
@@ -174,11 +180,11 @@ class QtPart:
         return
       for value in node.values():
         if isinstance(value, (dict, list)):
-          QtPart._fillPlaces(value, lastPlace)
+          HeaderReader._fillPlaces(value, lastPlace)
     elif isinstance(node, list):
       for value in node:
         if isinstance(value, (dict, list)):
-          QtPart._fillPlaces(value, lastPlace)
+          HeaderReader._fillPlaces(value, lastPlace)
 
   @staticmethod
   def _getPlace(record: Record) -> Place:
@@ -198,7 +204,7 @@ class QtPart:
 
   #  Class Variables
   #  Where Qt keeps its headers and which version it is. Asked of
-  #  'qmake6' once, and kept for every 'QtPart'.
+  #  'qmake6' once, and kept for every 'HeaderReader'.
   __qt_header_folder__ = None  # type: Optional[str]
   __qt_version__ = None  # type: Optional[str]
   __qt_shared_object_folder__ = None  # type: Optional[str]
@@ -219,6 +225,17 @@ class QtPart:
   #  The file and the line of a place, as the compiler writes them.
   __file_key__ = re.compile(rb'^ *"file": (".*"),?\n$')
   __line_key__ = re.compile(rb'^ *"line": (\d+),?\n$')
+
+  #  A line of a header file that asks the compiler a question, goes on
+  #  to the next answer of one, or ends one.
+  __directive_line__ = re.compile(
+      r'^\s*#\s*(if|ifdef|ifndef|elif|else|endif)\b(.*)$')
+  #  A line by which a header file says that all of it belongs to one
+  #  part of Qt that a build of Qt may leave out.
+  __required_line__ = re.compile(r'^\s*QT_REQUIRE_CONFIG\((\w+)\)')
+  #  The conditions of each header file whose text was read for them,
+  #  kept for every 'HeaderReader'.
+  __read_conditions__ = dict()  # type: Dict[str, Any]
 
   #  A line of C++ pulling a header file in by its place in Qt's header
   #  folder, as the own list of a part has them.
@@ -260,7 +277,7 @@ class QtPart:
     Gives the folder where Qt keeps its headers, as '/usr/include/qt6'.
 
     Found for you: there is no setter. The first call asks Qt's own
-    program 'qmake6', and the answer is kept for every 'QtPart'. You
+    program 'qmake6', and the answer is kept for every 'HeaderReader'. You
     pass nothing; the keyword is for the method's own use.
 
     Raises
@@ -291,7 +308,7 @@ class QtPart:
     Gives the version of the Qt that is installed, as '6.12.0'.
 
     Found for you: there is no setter. The first call asks Qt's own
-    program 'qmake6', and the answer is kept for every 'QtPart'. You
+    program 'qmake6', and the answer is kept for every 'HeaderReader'. You
     pass nothing; the keyword is for the method's own use.
 
     Raises
@@ -322,7 +339,7 @@ class QtPart:
     Gives the folder where Qt keeps its shared objects, as '/usr/lib'.
 
     Found for you: there is no setter. The first call asks Qt's own
-    program 'qmake6', and the answer is kept for every 'QtPart'. You
+    program 'qmake6', and the answer is kept for every 'HeaderReader'. You
     pass nothing; the keyword is for the method's own use.
 
     Raises
@@ -1585,3 +1602,218 @@ class QtPart:
     if os.path.isdir(previous):
       shutil.rmtree(previous)
     self.__header_files__ = None
+
+  @staticmethod
+  def _stripComment(text: str) -> str:
+    """Gives what an '#if' line asks without a comment written after
+    it, and without blanks around it."""
+    text = re.sub(r'/\*.*?\*/', ' ', text)
+    return ' '.join(re.sub(r'//.*$', '', text).split())
+
+  @classmethod
+  def _askedBy(cls, word: str, rest: str) -> str:
+    """Gives what an opening line asks, written the way '#if' asks it:
+    '#ifdef X' asks 'defined(X)' and '#ifndef X' asks '!defined(X)'."""
+    rest = cls._stripComment(rest)
+    if word == 'ifdef':
+      return 'defined(%s)' % rest
+    if word == 'ifndef':
+      return '!defined(%s)' % rest
+    return rest
+
+  @classmethod
+  def _isGuard(cls, lines: List[str], index: int, rest: str) -> bool:
+    """Says whether the '#ifndef' at the index only keeps its file from
+    being read twice: one of the next lines then defines the very name
+    it asks for. Such a line asks nothing about Qt."""
+    name = re.escape(cls._stripComment(rest))
+    for line in lines[index + 1:index + 4]:
+      if re.match(r'^\s*#\s*define\s+%s\b' % name, line):
+        return True
+    return False
+
+  @staticmethod
+  def _endsInComment(line: str, commented: bool) -> bool:
+    """Says whether a comment written between '/*' and '*/' is still
+    open at the end of a line, given whether one was open where the
+    line began."""
+    index = 0
+    while index < len(line):
+      if commented:
+        closes = line.find('*/', index)
+        if closes < 0:
+          return True
+        commented, index = False, closes + 2
+        continue
+      opens = line.find('/*', index)
+      short = line.find('//', index)
+      if opens < 0 or 0 <= short < opens:
+        return False
+      commented, index = True, opens + 2
+    return commented
+
+  @classmethod
+  def _readConditions(cls, headerPath: str) -> Tuple[Any, ...]:
+    """
+    Reads the text of one header file and gives, for each of its lines,
+    the conditions that have to hold for the compiler to read that
+    line. No compiler is asked: the text alone says it.
+
+    Returns
+    -------
+
+    Tuple[Any, ...]
+      Two entries. The first: the conditions that hold for the whole
+      file, one 'QT_CONFIG(x)' for each 'QT_REQUIRE_CONFIG(x)' in it.
+      The second: one entry for each line, the first line at index 0,
+      each the conditions of the '#if' lines that line stands under,
+      outermost first, after those of the whole file.
+
+    Raises
+    ------
+
+    ValueError
+      The '#if' and '#endif' lines of the file do not pair up.
+    """
+    kept = cls.__read_conditions__
+    if headerPath in kept:
+      return kept[headerPath]
+    with open(headerPath, errors='replace') as file:
+      lines = file.read().replace('\r', '').split('\n')
+    whole = []  # type: List[str]
+    #  One entry for each '#if' that is open: the answers that lead to
+    #  the lines now being read, or None for the guard of the file.
+    opened = []  # type: List[Optional[List[str]]]
+    current = ()  # type: Tuple[str, ...]
+    found = []  # type: List[Tuple[str, ...]]
+    commented = False
+    number = 0
+    while number < len(lines):
+      first, line = number, lines[number]
+      #  A line ending in a backslash goes on in the next one.
+      while line.endswith('\\') and number + 1 < len(lines):
+        number += 1
+        line = '%s %s' % (line[:-1], lines[number].strip())
+      number += 1
+      found.extend([current] * (number - first))
+      #  A line that begins inside a comment asks nothing, whatever it
+      #  looks like: Qt's comments show '#if' lines as examples.
+      began = commented
+      commented = cls._endsInComment(line, commented)
+      if began:
+        continue
+      required = cls.__required_line__.match(line)
+      if required is not None:
+        whole.append('QT_CONFIG(%s)' % required.group(1))
+        continue
+      directive = cls.__directive_line__.match(line)
+      if directive is None:
+        continue
+      word, rest = directive.group(1), directive.group(2)
+      if word in ('if', 'ifdef', 'ifndef'):
+        if word == 'ifndef' and cls._isGuard(lines, first, rest):
+          opened.append(None)
+        else:
+          opened.append([cls._askedBy(word, rest)])
+      elif not opened:
+        infoSpec = """Line %d of '%s' is '#%s' with no '#if' above it."""
+        raise ValueError(infoSpec % (first + 1, headerPath, word))
+      elif word == 'endif':
+        opened.pop()
+      elif opened[-1] is not None:
+        #  '#elif' and '#else': the answer before was no, and for
+        #  '#elif' the new one is yes.
+        answers = opened[-1]
+        answers[-1] = '!(%s)' % answers[-1]
+        if word == 'elif':
+          answers.append(cls._stripComment(rest))
+        else:
+          answers.append('1')
+      current = ()
+      for answers in opened:
+        if answers is None:
+          continue
+        said = [answer for answer in answers if answer != '1']
+        if len(said) == 1:
+          current = (*current, said[0])
+        elif said:
+          joined = ' && '.join('(%s)' % answer for answer in said)
+          current = (*current, joined)
+    if opened:
+      infoSpec = """'%s' ends with %d '#if' lines still open."""
+      raise ValueError(infoSpec % (headerPath, len(opened)))
+    whole = (*whole,)
+    kept[headerPath] = (whole, [(*whole, *one) for one in found])
+    return kept[headerPath]
+
+  @classmethod
+  def getFileConditions(cls, headerPath: str) -> Tuple[str, ...]:
+    """
+    Gives the conditions that hold for a whole header file: one
+    'QT_CONFIG(x)' for each 'QT_REQUIRE_CONFIG(x)' the file has. Where
+    one of them does not hold, the compiler refuses the file itself,
+    so the line that pulls the file in has to stand under them too.
+
+    Parameters
+    ----------
+
+    headerPath : str
+      The full path of the header file.
+
+    Raises
+    ------
+
+    ValueError
+      The '#if' and '#endif' lines of the file do not pair up.
+    """
+    return cls._readConditions(headerPath)[0]
+
+  @classmethod
+  def getConditions(cls, headerPath: str, line: int) -> Tuple[str, ...]:
+    """
+    Gives the conditions that have to hold for the compiler to read
+    one line of a header file: what each '#if' line around it asks.
+
+      HeaderReader.getConditions('/usr/include/qt6/QtWidgets/qwidget.h', 392)
+      #  ('QT_CONFIG(tooltip)',): line 392 declares 'setToolTip'
+
+    They are read from the text of the file alone. No compiler is
+    asked and no system's answers are used, so they hold for every
+    system. A ritual written between the same '#if' lines is compiled
+    exactly where Qt has the function it calls.
+
+    Parameters
+    ----------
+
+    headerPath : str
+      The full path of the header file, as a record names it under
+      'loc'.
+
+    line : int
+      The number of the line, the first line of the file being 1.
+
+    Returns
+    -------
+
+    Tuple[str, ...]
+      The conditions, outermost first, each written so that '#if' can
+      ask it: 'QT_CONFIG(tooltip)', '!defined(QT_NO_QOBJECT)'. Those
+      of the whole file come first; see 'getFileConditions'. A line in
+      an '#else' or '#elif' gets the answers before it turned around,
+      as '(!(A)) && (B)'. The guard that keeps a file from being read
+      twice is not among them. Empty for a line under no '#if'.
+
+    Raises
+    ------
+
+    LookupError
+      The file has no such line.
+
+    ValueError
+      The '#if' and '#endif' lines of the file do not pair up.
+    """
+    found = cls._readConditions(headerPath)[1]
+    if not 1 <= line <= len(found):
+      infoSpec = """'%s' has %d lines and no line %d."""
+      raise LookupError(infoSpec % (headerPath, len(found), line))
+    return found[line - 1]

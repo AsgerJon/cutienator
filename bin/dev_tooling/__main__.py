@@ -8,7 +8,7 @@ import sys
 from concurrent.futures import ThreadPoolExecutor
 from typing import TYPE_CHECKING
 
-from . import QtPart
+from . import HeaderReader
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Tuple
@@ -35,12 +35,12 @@ def readPart(workFolder: str, partName: str) -> str:
     records and how many records, and each header file that was not
     read with what the compiler said of it.
   """
-  qtPart = QtPart()
-  qtPart.setPartName(partName)
-  qtPart.setWorkFolder(workFolder)
-  qtPart.read()
-  stamp = qtPart.getStamp()
-  headerFiles = qtPart.getHeaderFiles()
+  headerReader = HeaderReader()
+  headerReader.setPartName(partName)
+  headerReader.setWorkFolder(workFolder)
+  headerReader.read()
+  stamp = headerReader.getStamp()
+  headerFiles = headerReader.getHeaderFiles()
   holding = [h for h in headerFiles if h.getRecordCount()]
   unread = [h for h in headerFiles if not h.wasRead()]
   empty = len(headerFiles) - len(holding) - len(unread)
@@ -59,7 +59,7 @@ def readPart(workFolder: str, partName: str) -> str:
     infoSpec = """  not read: %s"""
     lines.append(infoSpec % headerFile.getHeaderPath())
     lines.append('    %s' % errors[0].strip())
-  lines.append('  kept in %s' % qtPart.getReadingFolder())
+  lines.append('  kept in %s' % headerReader.getReadingFolder())
   return '\n'.join(lines)
 
 

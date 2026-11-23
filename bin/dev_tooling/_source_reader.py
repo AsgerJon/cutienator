@@ -1,4 +1,4 @@
-"""QtSource finds the code of a function in Qt's own source."""
+"""SourceReader finds the code of a function in Qt's own source."""
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
@@ -15,12 +15,12 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   Record = Dict[str, Any]
 
 
-class QtSource:
+class SourceReader:
   """
   Finds, in Qt's own source, the code of a function that Qt's library
   carries under no name.
 
-    source = QtSource()
+    source = SourceReader()
     source.setSourceFolder('/here/qt-everywhere-src-6.12.0/qtbase')
     found = source.findDefinitions('QtWidgets', 'QListModel::at')
     found[0]['text']        # 'QListWidgetItem *QListModel::at(int row)...'
