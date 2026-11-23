@@ -46,12 +46,15 @@ class QFileIconProvider(QAbstractFileIconProvider):
 
   - Qt's 'QFileIconProvider::~QFileIconProvider()': the destructor: Python
     never removes a C++ QFileIconProvider.
+  - Qt's 'QFileIconProviderPrivate *QFileIconProvider::d_func()': gives
+    'QFileIconProviderPrivate', which has no cute class yet.
+  - Qt's 'const QFileIconProviderPrivate *QFileIconProvider::d_func() const':
+    gives 'QFileIconProviderPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  4 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 8 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

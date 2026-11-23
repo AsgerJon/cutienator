@@ -73,13 +73,17 @@ class QStyle(QObject):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QStylePrivate *QStyle::d_func()': gives 'QStylePrivate', which has
+    no cute class yet.
+  - Qt's 'const QStylePrivate *QStyle::d_func() const': gives
+    'QStylePrivate', which has no cute class yet.
   - Qt's 'QStyle::~QStyle()': the destructor: Python never removes a C++
     QStyle.
 
   What has no ritual
   ------------------
 
-  11 of the 47 functions Qt declares: 5 takes or gives a type that cannot be
+  9 of the 47 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
   a template; 1 declared and nowhere to be found.
 

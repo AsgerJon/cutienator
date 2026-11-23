@@ -144,6 +144,18 @@ QString *ritual_ZN8QGesture2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QGesture::tr(s, c, n));
 }
 
+//  QGesturePrivate *QGesture::d_func()
+extern "C" Q_DECL_EXPORT
+QGesturePrivate *ritual_ZN8QGesture6d_funcEv(QGesture *self) {
+  return self->d_func();
+}
+
+//  const QGesturePrivate *QGesture::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGesturePrivate *ritual_ZNK8QGesture6d_funcEv(const QGesture *self) {
+  return self->d_func();
+}
+
 //  QGesture::QGesture(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QGesture *ritual_ZN8QGestureC1EP7QObject(QObject *parent) {

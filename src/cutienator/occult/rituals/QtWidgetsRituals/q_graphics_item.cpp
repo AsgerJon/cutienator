@@ -2270,6 +2270,20 @@ void ritual_ZN13QGraphicsItem21prepareGeometryChangeEv(QGraphicsItem *self) {
   self->prepareGeometryChange();
 }
 
+//  QGraphicsItemPrivate *QGraphicsItem::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsItemPrivate *ritual_ZN13QGraphicsItem6d_funcEv(
+    QGraphicsItem *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsItemPrivate *QGraphicsItem::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsItemPrivate *ritual_ZNK13QGraphicsItem6d_funcEv(
+    const QGraphicsItem *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsItem, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

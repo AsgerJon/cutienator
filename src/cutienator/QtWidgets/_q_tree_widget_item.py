@@ -22,7 +22,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QSize, QVariant
   from ..QtGui import QBrush, QFont, QIcon
-  from . import QTreeWidget
+  from . import QTreeModel, QTreeWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -52,7 +52,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTreeWidgetItem that has a ritual and that Python
-  can call so far, 59 names in all: 'clone', 'treeWidget', 'setSelected',
+  can call so far, 60 names in all: 'clone', 'treeWidget', 'setSelected',
   'isSelected', 'setHidden', 'isHidden', 'setExpanded', 'isExpanded',
   'setFirstColumnSpanned', 'isFirstColumnSpanned', 'setDisabled',
   'isDisabled', 'setChildIndicatorPolicy', 'childIndicatorPolicy', 'flags',
@@ -64,8 +64,8 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   'parent', 'child', 'childCount', 'columnCount', 'indexOfChild', 'addChild',
   'insertChild', 'removeChild', 'takeChild', 'addChildren', 'insertChildren',
   'takeChildren', 'type', 'sortChildren', 'emitDataChanged',
-  'childrenCheckState', 'itemChanged', 'executePendingSort'. It can be made
-  from Python, in 8 ways; see '__init__'.
+  'childrenCheckState', 'itemChanged', 'executePendingSort', 'treeModel'. It
+  can be made from Python, in 8 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -83,7 +83,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 76 functions Qt declares: 4 takes or gives a type that cannot be
+  3 of the 76 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -741,6 +741,41 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     )
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
+
+  @overload()
+  @overload(QTreeWidget)
+  @overload(NoneType)
+  def treeModel(
+      self,
+      v: Optional[QTreeWidget] = None,
+  ) -> Optional[QTreeModel]:
+    """
+    Calls Qt's 'QTreeModel *QTreeWidgetItem::treeModel(QTreeWidget *v)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidgetitem.html#treeModel
+
+    Parameters
+    ----------
+
+    v : Optional[QTreeWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    Returns
+    -------
+
+    Optional[QTreeModel]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTreeModel *QTreeWidgetItem::treeModel(QTreeWidget *v) const
+    address = self.uglySide.call(
+        'ritual_ZNK15QTreeWidgetItem9treeModelEP11QTreeWidget',
+        self._addressOf(v),
+    )
+    from . import QTreeModel
+    return QTreeModel._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

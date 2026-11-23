@@ -98,11 +98,15 @@ class QComboBox(QWidget):
 
   - Qt's 'QComboBox::~QComboBox()': the destructor: Python never removes a
     C++ QComboBox.
+  - Qt's 'QComboBoxPrivate *QComboBox::d_func()': gives 'QComboBoxPrivate',
+    which has no cute class yet.
+  - Qt's 'const QComboBoxPrivate *QComboBox::d_func() const': gives
+    'QComboBoxPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  16 of the 105 functions Qt declares: 7 a signal; 5 takes or gives a type
+  14 of the 105 functions Qt declares: 7 a signal; 3 takes or gives a type
   that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
   nowhere to be found.
 

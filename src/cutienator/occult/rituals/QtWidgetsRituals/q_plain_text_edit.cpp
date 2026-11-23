@@ -974,6 +974,20 @@ QString *ritual_ZN14QPlainTextEdit2trEPKcS1_i(
   return new QString(QPlainTextEdit::tr(s, c, n));
 }
 
+//  QPlainTextEditPrivate *QPlainTextEdit::d_func()
+extern "C" Q_DECL_EXPORT
+QPlainTextEditPrivate *ritual_ZN14QPlainTextEdit6d_funcEv(
+    QPlainTextEdit *self) {
+  return self->d_func();
+}
+
+//  const QPlainTextEditPrivate *QPlainTextEdit::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPlainTextEditPrivate *ritual_ZNK14QPlainTextEdit6d_funcEv(
+    const QPlainTextEdit *self) {
+  return self->d_func();
+}
+
 //  QPlainTextEdit::QPlainTextEdit(QWidget *parent)
 extern "C" Q_DECL_EXPORT
 QPlainTextEdit *ritual_ZN14QPlainTextEditC1EP7QWidget(QWidget *parent) {

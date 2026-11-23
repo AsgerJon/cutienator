@@ -270,6 +270,20 @@ void ritual_ZN15QGraphicsLayout18addChildLayoutItemEP19QGraphicsLayoutItem(
   self->addChildLayoutItem(layoutItem);
 }
 
+//  QGraphicsLayoutPrivate *QGraphicsLayout::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsLayoutPrivate *ritual_ZN15QGraphicsLayout6d_funcEv(
+    QGraphicsLayout *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsLayoutPrivate *QGraphicsLayout::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsLayoutPrivate *ritual_ZNK15QGraphicsLayout6d_funcEv(
+    const QGraphicsLayout *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsLayout, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

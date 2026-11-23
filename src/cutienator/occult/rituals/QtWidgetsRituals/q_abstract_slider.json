@@ -81,6 +81,8 @@
     "ritual_ZN15QAbstractSlider11changeEventEP6QEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QAbstractSlider6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QAbstractSlider6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractSlider": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QAbstractSlider5eventEP6QEvent": [
       "bool", "address", "address"

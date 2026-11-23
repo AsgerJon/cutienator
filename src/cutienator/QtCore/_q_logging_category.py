@@ -48,8 +48,8 @@ class QLoggingCategory(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 17 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 declared and nowhere to be found.
+  6 of the 17 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------

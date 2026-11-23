@@ -1,0 +1,110 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qlistwidget_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QListModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QListModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QListModel4viewEv": ["address", "address"],
+    "ritual_ZN10QListModel5clearEv": ["nothing", "address"],
+    "ritual_ZNK10QListModel2atEi": ["address", "address", "int"],
+    "ritual_ZN10QListModel6insertEiP15QListWidgetItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN10QListModel6insertEiRK5QListI7QStringE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN10QListModel6removeEP15QListWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QListModel4takeEi": ["address", "address", "int"],
+    "ritual_ZN10QListModel4moveEii": ["nothing", "address", "int", "int"],
+    "ritual_ZNK10QListModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK10QListModel5indexEPK15QListWidgetItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QListModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK10QListModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN10QListModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN10QListModel13clearItemDataERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10QListModel8itemDataERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QListModel10insertRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10QListModel10removeRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10QListModel8moveRowsERK11QModelIndexiiS2_i": [
+      "bool", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZNK10QListModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN10QListModel4sortEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QListModel12ensureSortedEiN2Qt9SortOrderEii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK10QListModel9mimeTypesEv": ["address", "address"],
+    "ritual_ZNK10QListModel8mimeDataERK5QListI11QModelIndexE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QListModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZNK10QListModel20supportedDropActionsEv": ["int", "address"],
+    "ritual_ZNK10QListModel20supportedDragActionsEv": ["int", "address"],
+    "ritual_ZNK10QListModel16internalMimeDataEv": ["address", "address"],
+    "ritual_take_QListModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QListModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK10QListModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK10QListModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN10QListModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN10QListModel13clearItemDataERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN10QListModel10insertRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN10QListModel10removeRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN10QListModel8moveRowsERK11QModelIndexiiS2_i": [
+      "bool", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_own_ZNK10QListModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN10QListModel4sortEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN10QListModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_own_ZNK10QListModel20supportedDropActionsEv": ["int", "address"],
+    "ritual_own_ZNK10QListModel20supportedDragActionsEv": ["int", "address"]
+  }
+}

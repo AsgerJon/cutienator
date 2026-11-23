@@ -861,6 +861,19 @@ QString *ritual_ZN11QFontDialog2trEPKcS1_i(
   return new QString(QFontDialog::tr(s, c, n));
 }
 
+//  QFontDialogPrivate *QFontDialog::d_func()
+extern "C" Q_DECL_EXPORT
+QFontDialogPrivate *ritual_ZN11QFontDialog6d_funcEv(QFontDialog *self) {
+  return self->d_func();
+}
+
+//  const QFontDialogPrivate *QFontDialog::d_func() const
+extern "C" Q_DECL_EXPORT
+const QFontDialogPrivate *ritual_ZNK11QFontDialog6d_funcEv(
+    const QFontDialog *self) {
+  return self->d_func();
+}
+
 //  QFontDialog::QFontDialog(QWidget *parent)
 extern "C" Q_DECL_EXPORT
 QFontDialog *ritual_ZN11QFontDialogC1EP7QWidget(QWidget *parent) {

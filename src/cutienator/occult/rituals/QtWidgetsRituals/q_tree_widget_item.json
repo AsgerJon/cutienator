@@ -160,6 +160,9 @@
     "ritual_ZNK15QTreeWidgetItem18executePendingSortEv": [
       "nothing", "address"
     ],
+    "ritual_ZNK15QTreeWidgetItem9treeModelEP11QTreeWidget": [
+      "address", "address", "address"
+    ],
     "ritual_take_QTreeWidgetItem": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QTreeWidgetItem5cloneEv": ["address", "address"],
     "ritual_own_ZNK15QTreeWidgetItem4dataEii": [

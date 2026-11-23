@@ -147,6 +147,20 @@ QString *ritual_ZN13QPinchGesture2trEPKcS1_i(
   return new QString(QPinchGesture::tr(s, c, n));
 }
 
+//  QPinchGesturePrivate *QPinchGesture::d_func()
+extern "C" Q_DECL_EXPORT
+QPinchGesturePrivate *ritual_ZN13QPinchGesture6d_funcEv(
+    QPinchGesture *self) {
+  return self->d_func();
+}
+
+//  const QPinchGesturePrivate *QPinchGesture::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPinchGesturePrivate *ritual_ZNK13QPinchGesture6d_funcEv(
+    const QPinchGesture *self) {
+  return self->d_func();
+}
+
 //  QPinchGesture::QPinchGesture(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QPinchGesture *ritual_ZN13QPinchGestureC1EP7QObject(QObject *parent) {

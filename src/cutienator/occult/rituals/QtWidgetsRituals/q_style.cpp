@@ -587,6 +587,18 @@ QString *ritual_ZN6QStyle2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QStyle::tr(s, c, n));
 }
 
+//  QStylePrivate *QStyle::d_func()
+extern "C" Q_DECL_EXPORT
+QStylePrivate *ritual_ZN6QStyle6d_funcEv(QStyle *self) {
+  return self->d_func();
+}
+
+//  const QStylePrivate *QStyle::d_func() const
+extern "C" Q_DECL_EXPORT
+const QStylePrivate *ritual_ZNK6QStyle6d_funcEv(const QStyle *self) {
+  return self->d_func();
+}
+
 //  QStyle::~QStyle()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QStyleD1Ev(QStyle *self) {

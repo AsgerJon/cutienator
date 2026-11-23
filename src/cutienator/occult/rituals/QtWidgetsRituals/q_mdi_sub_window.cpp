@@ -1102,6 +1102,20 @@ void ritual_ZN13QMdiSubWindow10childEventEP11QChildEvent(
   self->childEvent(childEvent);
 }
 
+//  QMdiSubWindowPrivate *QMdiSubWindow::d_func()
+extern "C" Q_DECL_EXPORT
+QMdiSubWindowPrivate *ritual_ZN13QMdiSubWindow6d_funcEv(
+    QMdiSubWindow *self) {
+  return self->d_func();
+}
+
+//  const QMdiSubWindowPrivate *QMdiSubWindow::d_func() const
+extern "C" Q_DECL_EXPORT
+const QMdiSubWindowPrivate *ritual_ZNK13QMdiSubWindow6d_funcEv(
+    const QMdiSubWindow *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQMdiSubWindow, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

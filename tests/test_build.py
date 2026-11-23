@@ -161,7 +161,8 @@ class TestBuild(BaseTest):
 
   def test_the_common_header_of_the_package(self) -> None:
     """It holds each '#include' line of the ritual files once, the
-    header of 'QObject' among them, and nothing else."""
+    header of 'QObject' among them, and nothing else. A line taken
+    along from Qt's source may name its file between quotes."""
     build = Build()
     build.setRitualFiles(*Rituals.getRitualFiles())
     lines = build.getCommonHeaderText().split('\n')
@@ -169,7 +170,7 @@ class TestBuild(BaseTest):
     self.assertIn('#include <QtCore/qobject.h>', lines)
     self.assertEqual(len(lines), len({*lines}))
     for line in lines:
-      self.assertTrue(line.startswith('#include <'), line)
+      self.assertTrue(line.startswith(('#include <', '#include "')), line)
 
   def test_job_count(self) -> None:
     """As many at once as the machine has processors, or as told."""
@@ -343,3 +344,37 @@ class TestBuild(BaseTest):
     self.assertIn(two, str(context.exception))
     self.assertTrue(os.path.isfile(build.getObjectFile(one)))
     self.assertFalse(os.path.isfile(build.getPrecompiledHeaderFile()))
+
+  def test_a_line_under_an_if_stays_with_its_ritual_file(self) -> None:
+    """The common header takes no '#include' line that stands under an
+    '#if': such a line is for some systems only."""
+    build = self._makeBuildWithHeaders()
+    one, two = build.getRitualFiles()
+    with open(two, 'a') as file:
+      file.write('#if defined(NO_SYSTEM_HAS_THIS)\n')
+      file.write('#  include <no_such_header_of_cutienator.h>\n')
+      file.write('#include <also_no_such_header.h>\n')
+      file.write('#endif\n#include <cstdio>\n')
+    text = build.getCommonHeaderText()
+    self.assertNotIn('no_such_header', text)
+    self.assertIn('#include <cstdio>', text)
+    build.run()
+    self.assertTrue(os.path.isfile(build.getObjectFile(two)))
+
+  def test_the_folders_of_the_private_headers(self) -> None:
+    """A build told the parts of Qt looks in the folders of the headers
+    Qt calls private, and in the one of 'qplatformdefs.h'; a build
+    told none looks in Qt's header folder alone."""
+    build = Build()
+    build.setTargetFile(Rituals.getTargetFile())
+    self.assertEqual(build.getPrivateIncludeFolders(), ())
+    build.setQtParts(*Rituals.getQtParts())
+    folders = build.getPrivateIncludeFolders()
+    self.assertTrue(folders)
+    for folder in folders:
+      self.assertTrue(os.path.isdir(folder), folder)
+    self.assertTrue(
+        os.path.isfile(os.path.join(folders[-1], 'qplatformdefs.h')))
+    command = build.getCompileCommand('q_object.cpp')
+    for folder in folders:
+      self.assertIn('-I%s' % folder, command)

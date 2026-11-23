@@ -121,6 +121,8 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK11QListWidget9sortOrderEv": ["int", "address"],
+    "ritual_ZN11QListWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QListWidget6d_funcEv": ["address", "address"],
     "ritual_take_QListWidget": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QListWidget17setSelectionModelEP19QItemSelectionModel": [
       "nothing", "address", "address"

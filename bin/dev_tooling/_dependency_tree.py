@@ -190,6 +190,8 @@ class DependencyTree:
 
   #  Private Variables
   __qt_parts__ = None  # type: Optional[Tuple[QtPart, ...]]
+  __qt_source__ = None  # type: Optional[Any]
+  __kept_for_users__ = None  # type: Optional[Dict[str, Dict[Any, Any]]]
   __ordered_names__ = None  # type: Optional[Names]
   __class_parents__ = None  # type: Optional[Dict[str, Names]]
   __class_children__ = None  # type: Optional[Dict[str, Names]]
@@ -215,6 +217,44 @@ class DependencyTree:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def getQtSource(self) -> Any:
+    """Gives the 'QtSource' the code of a function is looked up in
+    where Qt's library has no name for it, or None when no source was
+    provided; 'setQtSource' provides it."""
+    return self.__qt_source__
+
+  def setQtSource(self, qtSource: Any) -> None:
+    """
+    Tells where Qt's own source is. Optional. With it, a function
+    that Qt's library carries under no name gets its code from there.
+    """
+    self.__qt_source__ = qtSource
+  def getKept(self, what: str) -> Dict[Any, Any]:
+    """
+    Gives a dict in which the generators keep what they worked out of
+    this tree and would have to work out again: one dict for each
+    word, as 'hidden types'.
+
+    The dict is the tree's own. It is new and empty when the parts are
+    set, and it goes when the tree goes, so nothing kept for one tree
+    is ever read for another.
+
+    Parameters
+    ----------
+
+    what : str
+      A word for what is kept. The same word gives the same dict.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setQtParts' has not been called on this tree.
+    """
+    if self.__kept_for_users__ is None:
+      raise MissingVariable(self, '__qt_parts__', tuple)
+    return self.__kept_for_users__.setdefault(what, dict())
 
   def getQtParts(self) -> Tuple[QtPart, ...]:
     """
@@ -839,9 +879,15 @@ class DependencyTree:
       programFile = os.path.join(folder, 'copyable')
       with open(sourceFile, 'w') as file:
         file.write('\n'.join(lines))
+      private = []  # type: List[str]
+      for qtPart in qtParts:
+        if qtPart.hasPrivate():
+          for privateFolder in qtPart.getPrivateIncludeFolders():
+            if '-I%s' % privateFolder not in private:
+              private.append('-I%s' % privateFolder)
       command = (
           'clang++', '-std=c++17', '-fPIC',
-          '-I%s' % QtPart.getQtHeaderFolder(), sourceFile,
+          '-I%s' % QtPart.getQtHeaderFolder(), *private, sourceFile,
           '-o', programFile,
           '-Wl,-rpath,%s' % QtPart.getQtSharedObjectFolder(),
           *(qtPart.getQtSharedObject() for qtPart in qtParts),
@@ -984,6 +1030,7 @@ class DependencyTree:
       if not isinstance(qtPart, QtPart):
         raise TypeException('qtPart', qtPart, QtPart)
     self.__qt_parts__ = (*qtParts,)
+    self.__kept_for_users__ = dict()
     self.__ordered_names__ = None
     self.__class_parents__ = None
     self.__class_children__ = None

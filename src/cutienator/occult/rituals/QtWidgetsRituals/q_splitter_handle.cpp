@@ -896,6 +896,20 @@ int ritual_ZN15QSplitterHandle20closestLegalPositionEi(
   return self->closestLegalPosition(p);
 }
 
+//  QSplitterHandlePrivate *QSplitterHandle::d_func()
+extern "C" Q_DECL_EXPORT
+QSplitterHandlePrivate *ritual_ZN15QSplitterHandle6d_funcEv(
+    QSplitterHandle *self) {
+  return self->d_func();
+}
+
+//  const QSplitterHandlePrivate *QSplitterHandle::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSplitterHandlePrivate *ritual_ZNK15QSplitterHandle6d_funcEv(
+    const QSplitterHandle *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQSplitterHandle, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

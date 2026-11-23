@@ -301,6 +301,27 @@ QPixmap *ritual_ZNK15QGraphicsEffect12sourcePixmapEN2Qt16CoordinateSystemEP6QPoi
   return new QPixmap(self->sourcePixmap(system, offset, mode));
 }
 
+//  QGraphicsEffectPrivate *QGraphicsEffect::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsEffectPrivate *ritual_ZN15QGraphicsEffect6d_funcEv(
+    QGraphicsEffect *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsEffectPrivate *QGraphicsEffect::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsEffectPrivate *ritual_ZNK15QGraphicsEffect6d_funcEv(
+    const QGraphicsEffect *self) {
+  return self->d_func();
+}
+
+//  QGraphicsEffectSource *QGraphicsEffect::source() const
+extern "C" Q_DECL_EXPORT
+QGraphicsEffectSource *ritual_ZNK15QGraphicsEffect6sourceEv(
+    const QGraphicsEffect *self) {
+  return self->source();
+}
+
 //  a Python function taken by a CuteQGraphicsEffect, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

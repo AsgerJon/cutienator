@@ -147,6 +147,20 @@ QString *ritual_ZN18QTapAndHoldGesture2trEPKcS1_i(
   return new QString(QTapAndHoldGesture::tr(s, c, n));
 }
 
+//  QTapAndHoldGesturePrivate *QTapAndHoldGesture::d_func()
+extern "C" Q_DECL_EXPORT
+QTapAndHoldGesturePrivate *ritual_ZN18QTapAndHoldGesture6d_funcEv(
+    QTapAndHoldGesture *self) {
+  return self->d_func();
+}
+
+//  const QTapAndHoldGesturePrivate *QTapAndHoldGesture::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTapAndHoldGesturePrivate *ritual_ZNK18QTapAndHoldGesture6d_funcEv(
+    const QTapAndHoldGesture *self) {
+  return self->d_func();
+}
+
 //  QTapAndHoldGesture::QTapAndHoldGesture(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QTapAndHoldGesture *ritual_ZN18QTapAndHoldGestureC1EP7QObject(

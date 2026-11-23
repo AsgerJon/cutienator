@@ -832,6 +832,7 @@ class Rituals:
     build.setRitualFiles(*ritualFiles)
     build.setTargetFile(cls.getTargetFile())
     build.setQtSharedObjects(*cls.getQtSharedObjects())
+    build.setQtParts(*cls.getQtParts())
     return build.run()
 
   @classmethod

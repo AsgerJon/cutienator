@@ -2088,6 +2088,19 @@ int ritual_ZNK10QTableView11visualIndexERK11QModelIndex(
   return self->visualIndex(*index);
 }
 
+//  QTableViewPrivate *QTableView::d_func()
+extern "C" Q_DECL_EXPORT
+QTableViewPrivate *ritual_ZN10QTableView6d_funcEv(QTableView *self) {
+  return self->d_func();
+}
+
+//  const QTableViewPrivate *QTableView::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTableViewPrivate *ritual_ZNK10QTableView6d_funcEv(
+    const QTableView *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQTableView, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

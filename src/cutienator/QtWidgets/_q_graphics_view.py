@@ -103,11 +103,15 @@ class QGraphicsView(QAbstractScrollArea):
 
   - Qt's 'QGraphicsView::~QGraphicsView()': the destructor: Python never
     removes a C++ QGraphicsView.
+  - Qt's 'QGraphicsViewPrivate *QGraphicsView::d_func()': gives
+    'QGraphicsViewPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsViewPrivate *QGraphicsView::d_func() const': gives
+    'QGraphicsViewPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  11 of the 119 functions Qt declares: 6 takes or gives a type that cannot be
+  9 of the 119 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
   1 a signal.
 

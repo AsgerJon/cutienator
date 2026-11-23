@@ -109,8 +109,8 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  23 of the 97 functions Qt declares: 22 takes or gives a type that cannot be
-  passed yet; 1 declared and nowhere to be found.
+  23 of the 97 functions Qt declares: 23 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------

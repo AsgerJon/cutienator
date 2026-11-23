@@ -90,11 +90,15 @@ class QListView(QAbstractItemView):
   - Qt's 'QModelIndex QListView::moveCursor(CursorAction cursorAction,
     Qt::KeyboardModifiers modifiers)': names the enum
     'QAbstractItemView::CursorAction', whose class cannot be named here.
+  - Qt's 'QListViewPrivate *QListView::d_func()': gives 'QListViewPrivate',
+    which has no cute class yet.
+  - Qt's 'const QListViewPrivate *QListView::d_func() const': gives
+    'QListViewPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  11 of the 83 functions Qt declares: 6 takes or gives a type that cannot be
+  9 of the 83 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
   1 a signal.
 

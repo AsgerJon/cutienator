@@ -2059,6 +2059,19 @@ void ritual_ZN12QTableWidget8setModelEP18QAbstractItemModel(
   self->setModel(model);
 }
 
+//  QTableWidgetPrivate *QTableWidget::d_func()
+extern "C" Q_DECL_EXPORT
+QTableWidgetPrivate *ritual_ZN12QTableWidget6d_funcEv(QTableWidget *self) {
+  return self->d_func();
+}
+
+//  const QTableWidgetPrivate *QTableWidget::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTableWidgetPrivate *ritual_ZNK12QTableWidget6d_funcEv(
+    const QTableWidget *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQTableWidget, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

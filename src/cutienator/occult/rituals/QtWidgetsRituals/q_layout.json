@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK7QLayout10metaObjectEv": ["address", "address"],
     "ritual_ZN7QLayout2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QLayout6d_funcEv": ["address", "address"],
+    "ritual_ZNK7QLayout6d_funcEv": ["address", "address"],
     "ritual_ZN7QLayoutD1Ev": ["nothing", "address"],
     "ritual_ZNK7QLayout7spacingEv": ["int", "address"],
     "ritual_ZN7QLayout10setSpacingEi": ["nothing", "address", "int"],

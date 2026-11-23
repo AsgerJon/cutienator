@@ -1009,6 +1009,19 @@ bool ritual_ZNK11QPushButton9hitButtonERK6QPoint(
   return self->hitButton(*pos);
 }
 
+//  QPushButtonPrivate *QPushButton::d_func()
+extern "C" Q_DECL_EXPORT
+QPushButtonPrivate *ritual_ZN11QPushButton6d_funcEv(QPushButton *self) {
+  return self->d_func();
+}
+
+//  const QPushButtonPrivate *QPushButton::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPushButtonPrivate *ritual_ZNK11QPushButton6d_funcEv(
+    const QPushButton *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQPushButton, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

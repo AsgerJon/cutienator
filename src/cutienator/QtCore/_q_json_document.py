@@ -69,7 +69,8 @@ class QJsonDocument(CuteMixin, metaclass=MetaCute):
   ------------------
 
   7 of the 31 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 1 declared and nowhere to be found.
+  passed yet; 1 Qt's library has no name for it, and its code in Qt's source
+  does not compile apart from its file.
 
   What to expect
   --------------

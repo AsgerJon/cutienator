@@ -22,7 +22,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QSize, QVariant
   from ..QtGui import QBrush, QFont, QIcon
-  from . import QTableWidget
+  from . import QTableModel, QTableWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -47,14 +47,14 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTableWidgetItem that has a ritual and that Python
-  can call so far, 34 names in all: 'clone', 'tableWidget', 'row', 'column',
+  can call so far, 35 names in all: 'clone', 'tableWidget', 'row', 'column',
   'setSelected', 'isSelected', 'flags', 'setFlags', 'text', 'setText',
   'icon', 'setIcon', 'statusTip', 'setStatusTip', 'toolTip', 'setToolTip',
   'whatsThis', 'setWhatsThis', 'font', 'setFont', 'textAlignment',
   'setTextAlignment', 'background', 'setBackground', 'foreground',
   'setForeground', 'checkState', 'setCheckState', 'sizeHint', 'setSizeHint',
-  'data', 'setData', '__lt__', 'type'. It can be made from Python, in 4 ways;
-  see '__init__'.
+  'data', 'setData', '__lt__', 'type', 'tableModel'. It can be made from
+  Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -68,7 +68,7 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 45 functions Qt declares: 4 takes or gives a type that cannot be
+  3 of the 45 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -470,6 +470,26 @@ class QTableWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  int QTableWidgetItem::type() const
     return self.uglySide.call('ritual_ZNK16QTableWidgetItem4typeEv')
+
+  def tableModel(self) -> Optional[QTableModel]:
+    """
+    Calls Qt's 'QTableModel *QTableWidgetItem::tableModel() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidgetitem.html#tableModel
+
+    Returns
+    -------
+
+    Optional[QTableModel]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTableModel *QTableWidgetItem::tableModel() const
+    address = self.uglySide.call(
+        'ritual_ZNK16QTableWidgetItem10tableModelEv',
+    )
+    from . import QTableModel
+    return QTableModel._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

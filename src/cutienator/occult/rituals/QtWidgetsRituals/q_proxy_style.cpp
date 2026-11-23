@@ -893,6 +893,19 @@ bool ritual_ZN11QProxyStyle5eventEP6QEvent(QProxyStyle *self, QEvent *e) {
   return self->event(e);
 }
 
+//  QProxyStylePrivate *QProxyStyle::d_func()
+extern "C" Q_DECL_EXPORT
+QProxyStylePrivate *ritual_ZN11QProxyStyle6d_funcEv(QProxyStyle *self) {
+  return self->d_func();
+}
+
+//  const QProxyStylePrivate *QProxyStyle::d_func() const
+extern "C" Q_DECL_EXPORT
+const QProxyStylePrivate *ritual_ZNK11QProxyStyle6d_funcEv(
+    const QProxyStyle *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQProxyStyle, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

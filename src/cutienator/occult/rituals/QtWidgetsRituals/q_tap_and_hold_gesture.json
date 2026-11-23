@@ -8,6 +8,8 @@
     "ritual_ZN18QTapAndHoldGesture2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18QTapAndHoldGesture6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QTapAndHoldGesture6d_funcEv": ["address", "address"],
     "ritual_ZN18QTapAndHoldGestureC1EP7QObject": ["address", "address"],
     "ritual_ZN18QTapAndHoldGestureD1Ev": ["nothing", "address"],
     "ritual_ZNK18QTapAndHoldGesture8positionEv": ["address", "address"],

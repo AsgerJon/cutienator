@@ -46,8 +46,8 @@ class QPropertyBindingPrivatePtr(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  24 of the 32 functions Qt declares: 23 takes or gives a type that cannot be
-  passed yet; 1 declared and nowhere to be found.
+  24 of the 32 functions Qt declares: 24 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------

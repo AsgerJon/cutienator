@@ -49,13 +49,17 @@ class QTapGesture(QGesture):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QTapGesturePrivate *QTapGesture::d_func()': gives
+    'QTapGesturePrivate', which has no cute class yet.
+  - Qt's 'const QTapGesturePrivate *QTapGesture::d_func() const': gives
+    'QTapGesturePrivate', which has no cute class yet.
   - Qt's 'QTapGesture::~QTapGesture()': the destructor: Python never removes
     a C++ QTapGesture.
 
   What has no ritual
   ------------------
 
-  6 of the 12 functions Qt declares: 4 takes or gives a type that cannot be
+  4 of the 12 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 1 a template; 1 declared and nowhere to be found.
 
   What to expect

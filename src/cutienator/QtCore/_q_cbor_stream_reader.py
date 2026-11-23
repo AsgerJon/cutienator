@@ -71,7 +71,9 @@ class QCborStreamReader(CuteMixin, metaclass=MetaCute):
   ------------------
 
   22 of the 81 functions Qt declares: 15 takes or gives a type that cannot be
-  passed yet; 3 declared and nowhere to be found; 2 a template; 2 forbidden.
+  passed yet; 2 declared and nowhere to be found; 2 a template; 2 forbidden;
+  1 Qt's library has no name for it, and its code in Qt's source does not
+  compile apart from its file.
 
   What to expect
   --------------

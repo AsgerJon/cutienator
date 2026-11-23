@@ -67,13 +67,17 @@ class QCompleter(QObject):
 
   - Qt's 'QCompleter::~QCompleter()': the destructor: Python never removes a
     C++ QCompleter.
+  - Qt's 'QCompleterPrivate *QCompleter::d_func()': gives
+    'QCompleterPrivate', which has no cute class yet.
+  - Qt's 'const QCompleterPrivate *QCompleter::d_func() const': gives
+    'QCompleterPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  12 of the 53 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  10 of the 53 functions Qt declares: 4 a signal; 2 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------

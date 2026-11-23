@@ -71,12 +71,14 @@ class QRandomGenerator(CuteMixin, metaclass=MetaCute):
     QRandomGenerator::bounded(quint32 lowest, quint32 highest)' takes.
   - Qt's 'void QRandomGenerator::generate(quint32 *begin, quint32 *end)':
     takes a number to change where it is.
+  - Qt's 'QRandomGenerator::QRandomGenerator(System a0)': names the enum
+    'QRandomGenerator::System', whose class cannot be named here.
 
   What has no ritual
   ------------------
 
-  11 of the 41 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 4 a template; 1 declared and nowhere to be found.
+  10 of the 41 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 4 a template.
 
   What to expect
   --------------

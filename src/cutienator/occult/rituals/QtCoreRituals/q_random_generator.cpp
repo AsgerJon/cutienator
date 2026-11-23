@@ -1,6 +1,54 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qrandom.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qrandom.h>
+#include "qrandom.h"
+#include "qrandom_p.h"
+#include <qendian.h>
+#include <qmutex.h>
+#include <qobjectdefs.h>
+#include <QtCore/qtcoreglobal.h> // for FEATURE macros
+#include <errno.h>
+#if QT_CONFIG(getauxval)
+#  include <sys/auxv.h>
+#endif
+#if QT_CONFIG(getentropy) && __has_include(<sys/random.h>)
+#  include <sys/random.h>
+#elif !QT_CONFIG(getentropy) && (!defined(Q_OS_BSD4) || defined(__GLIBC__)) && !defined(Q_OS_WIN)
+#  include "qdeadlinetimer.h"
+#  include "qhashfunctions.h"
+#  include <cstdio>
+#  include <cstdlib>
+#  include <mutex>
+#endif
+#ifdef Q_OS_UNIX
+#  include <fcntl.h>
+#  include <private/qcore_unix_p.h>
+#else
+#  include <qt_windows.h>
+#endif
+#include <assert.h>
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it.
+
+//  from src/corelib/global/qrandom.cpp, line 1161, as _ZN16QRandomGenerator7StorageC1Ev
+inline constexpr QRandomGenerator::Storage::Storage()
+    : dummy(0)
+{
+    // nothing
+}
+
+//  from src/corelib/global/qrandom.cpp, line 1207, as _ZN16QRandomGeneratorC1ENS_6SystemE
+inline inline QRandomGenerator::QRandomGenerator(System)
+    : type(SystemRNG)
+{
+    // don't touch storage
+}
+//  -----------------------------------------------------------------------
 
 //  QRandomGenerator::QRandomGenerator(quint32 seedValue)
 extern "C" Q_DECL_EXPORT
@@ -228,4 +276,11 @@ QRandomGenerator *ritual_ZN16QRandomGenerator6globalEv() {
 extern "C" Q_DECL_EXPORT
 QRandomGenerator *ritual_ZN16QRandomGenerator14securelySeededEv() {
   return new QRandomGenerator(QRandomGenerator::securelySeeded());
+}
+
+//  QRandomGenerator::QRandomGenerator(System a0)
+extern "C" Q_DECL_EXPORT
+QRandomGenerator *ritual_ZN16QRandomGeneratorC1ENS_6SystemE(
+    QRandomGenerator::System a0) {
+  return new QRandomGenerator(a0);
 }

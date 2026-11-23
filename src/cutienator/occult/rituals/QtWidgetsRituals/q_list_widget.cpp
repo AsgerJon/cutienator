@@ -1907,6 +1907,19 @@ Qt::SortOrder ritual_ZNK11QListWidget9sortOrderEv(const QListWidget *self) {
   return self->sortOrder();
 }
 
+//  QListWidgetPrivate *QListWidget::d_func()
+extern "C" Q_DECL_EXPORT
+QListWidgetPrivate *ritual_ZN11QListWidget6d_funcEv(QListWidget *self) {
+  return self->d_func();
+}
+
+//  const QListWidgetPrivate *QListWidget::d_func() const
+extern "C" Q_DECL_EXPORT
+const QListWidgetPrivate *ritual_ZNK11QListWidget6d_funcEv(
+    const QListWidget *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQListWidget, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

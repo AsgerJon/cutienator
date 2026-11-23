@@ -42,33 +42,24 @@ __all__ = (
     'QGraphicsColorizeEffect',
     'QGraphicsDropShadowEffect',
     'QGraphicsOpacityEffect',
-    'QGraphicsTransform',
-    'QGraphicsRotation',
-    'QGraphicsScale',
     'QFileIconProvider',
     'QPlainTextDocumentLayout',
     'QTableWidgetItem',
     'QWidget',
     'QStyleOption',
-    'QStyleOptionComplex',
+    'QStyle',
     'QApplication',
     'QLayout',
-    'QStyle',
-    'QAbstractButton',
-    'QAbstractSlider',
+    'QStyleOptionComplex',
     'QAccessibleWidget',
     'QBoxLayout',
     'QCalendarWidget',
-    'QCommonStyle',
-    'QDialog',
     'QFocusFrame',
     'QFormLayout',
     'QGestureEvent',
     'QGraphicsSceneEvent',
     'QGridLayout',
     'QItemEditorCreatorBase',
-    'QKeySequenceEdit',
-    'QRhiWidget',
     'QSizeGrip',
     'QSplashScreen',
     'QStackedLayout',
@@ -100,15 +91,11 @@ __all__ = (
     'QWhatsThis',
     'QWidgetAction',
     'QWidgetItem',
+    'QAbstractButton',
+    'QAbstractSlider',
     'QAccessibleWidgetV2',
-    'QButtonGroup',
-    'QCheckBox',
-    'QColorDialog',
-    'QDial',
-    'QDialogButtonBox',
+    'QCommonStyle',
     'QDockWidget',
-    'QErrorMessage',
-    'QFontDialog',
     'QFrame',
     'QGraphicsSceneContextMenuEvent',
     'QGraphicsSceneDragDropEvent',
@@ -121,29 +108,33 @@ __all__ = (
     'QGroupBox',
     'QHBoxLayout',
     'QItemEditorFactory',
+    'QKeySequenceEdit',
     'QMenu',
     'QProgressBar',
-    'QProxyStyle',
-    'QRadioButton',
+    'QRhiWidget',
     'QRubberBand',
-    'QScrollBar',
-    'QSlider',
     'QStyleOptionHeaderV2',
     'QStyleOptionMenuItemV2',
     'QTabBar',
     'QToolBar',
     'QVBoxLayout',
     'QWidgetItemV2',
-    'QWizard',
-    'QWizardPage',
-    'QAbstractScrollArea',
+    'QButtonGroup',
+    'QCheckBox',
+    'QDial',
+    'QDialogButtonBox',
+    'QGraphicsTransform',
     'QGraphicsItem',
     'QGraphicsItemGroup',
     'QLCDNumber',
     'QLabel',
     'QMdiSubWindow',
     'QMenuBar',
+    'QProxyStyle',
     'QPushButton',
+    'QRadioButton',
+    'QScrollBar',
+    'QSlider',
     'QSplitter',
     'QStackedWidget',
     'QSystemTrayIcon',
@@ -151,64 +142,76 @@ __all__ = (
     'QToolBox',
     'QToolButton',
     'QAbstractGraphicsShapeItem',
-    'QAbstractItemDelegate',
-    'QAbstractItemView',
     'QCommandLinkButton',
+    'QDialog',
     'QGraphicsItemAnimation',
     'QGraphicsLayoutItem',
     'QGraphicsLineItem',
     'QGraphicsObject',
     'QGraphicsPixmapItem',
+    'QGraphicsRotation',
+    'QGraphicsScale',
     'QMainWindow',
-    'QMdiArea',
-    'QMessageBox',
-    'QPlainTextEdit',
-    'QProgressDialog',
-    'QScrollArea',
     'QSplitterHandle',
-    'QTextEdit',
-    'QColumnView',
-    'QCompleter',
-    'QDataWidgetMapper',
-    'QFileDialog',
+    'QAbstractScrollArea',
+    'QColorDialog',
+    'QErrorMessage',
+    'QFontDialog',
     'QGraphicsEllipseItem',
-    'QGraphicsLayout',
     'QGraphicsPathItem',
     'QGraphicsPolygonItem',
     'QGraphicsRectItem',
     'QGraphicsSimpleTextItem',
     'QGraphicsTextItem',
+    'QMessageBox',
+    'QProgressDialog',
+    'QWizard',
+    'QWizardPage',
+    'QAbstractItemDelegate',
+    'QAbstractItemView',
+    'QGraphicsLayout',
+    'QMdiArea',
+    'QPlainTextEdit',
+    'QScrollArea',
+    'QTextEdit',
+    'QCompleter',
+    'QDataWidgetMapper',
+    'QFileDialog',
+    'QGraphicsAnchorLayout',
+    'QGraphicsGridLayout',
+    'QGraphicsLinearLayout',
+    'QGraphicsWidget',
+    'QGraphicsScene',
     'QHeaderView',
     'QItemDelegate',
     'QListView',
     'QStyledItemDelegate',
     'QTextBrowser',
-    'QGraphicsAnchorLayout',
-    'QGraphicsGridLayout',
-    'QGraphicsLinearLayout',
-    'QGraphicsWidget',
+    'QColumnView',
+    'QGraphicsAnchor',
+    'QGraphicsProxyWidget',
+    'QGraphicsView',
     'QLineEdit',
     'QListWidget',
     'QListWidgetItem',
-    'QTableView',
     'QTreeView',
     'QUndoView',
     'QAbstractSpinBox',
     'QComboBox',
-    'QGraphicsAnchor',
-    'QGraphicsProxyWidget',
-    'QGraphicsScene',
     'QInputDialog',
-    'QTableWidget',
+    'QListModel',
+    'QTableView',
     'QTreeWidget',
     'QTreeWidgetItem',
     'QDateTimeEdit',
     'QDoubleSpinBox',
     'QFontComboBox',
-    'QGraphicsView',
     'QSpinBox',
+    'QTableWidget',
+    'QTreeModel',
     'QTreeWidgetItemIterator',
     'QDateEdit',
+    'QTableModel',
     'QTimeEdit',
     'QWidgetList',
 )
@@ -242,33 +245,24 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_graphics_colorize_effect import QGraphicsColorizeEffect
   from ._q_graphics_drop_shadow_effect import QGraphicsDropShadowEffect
   from ._q_graphics_opacity_effect import QGraphicsOpacityEffect
-  from ._q_graphics_transform import QGraphicsTransform
-  from ._q_graphics_rotation import QGraphicsRotation
-  from ._q_graphics_scale import QGraphicsScale
   from ._q_file_icon_provider import QFileIconProvider
   from ._q_plain_text_document_layout import QPlainTextDocumentLayout
   from ._q_table_widget_item import QTableWidgetItem
   from ._q_widget import QWidget
   from ._q_style_option import QStyleOption
-  from ._q_style_option_complex import QStyleOptionComplex
+  from ._q_style import QStyle
   from ._q_application import QApplication
   from ._q_layout import QLayout
-  from ._q_style import QStyle
-  from ._q_abstract_button import QAbstractButton
-  from ._q_abstract_slider import QAbstractSlider
+  from ._q_style_option_complex import QStyleOptionComplex
   from ._q_accessible_widget import QAccessibleWidget
   from ._q_box_layout import QBoxLayout
   from ._q_calendar_widget import QCalendarWidget
-  from ._q_common_style import QCommonStyle
-  from ._q_dialog import QDialog
   from ._q_focus_frame import QFocusFrame
   from ._q_form_layout import QFormLayout
   from ._q_gesture_event import QGestureEvent
   from ._q_graphics_scene_event import QGraphicsSceneEvent
   from ._q_grid_layout import QGridLayout
   from ._q_item_editor_creator_base import QItemEditorCreatorBase
-  from ._q_key_sequence_edit import QKeySequenceEdit
-  from ._q_rhi_widget import QRhiWidget
   from ._q_size_grip import QSizeGrip
   from ._q_splash_screen import QSplashScreen
   from ._q_stacked_layout import QStackedLayout
@@ -300,15 +294,11 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_whats_this import QWhatsThis
   from ._q_widget_action import QWidgetAction
   from ._q_widget_item import QWidgetItem
+  from ._q_abstract_button import QAbstractButton
+  from ._q_abstract_slider import QAbstractSlider
   from ._q_accessible_widget_v2 import QAccessibleWidgetV2
-  from ._q_button_group import QButtonGroup
-  from ._q_check_box import QCheckBox
-  from ._q_color_dialog import QColorDialog
-  from ._q_dial import QDial
-  from ._q_dialog_button_box import QDialogButtonBox
+  from ._q_common_style import QCommonStyle
   from ._q_dock_widget import QDockWidget
-  from ._q_error_message import QErrorMessage
-  from ._q_font_dialog import QFontDialog
   from ._q_frame import QFrame
   from ._q_graphics_scene_context_menu_event import QGraphicsSceneContextMenuEvent
   from ._q_graphics_scene_drag_drop_event import QGraphicsSceneDragDropEvent
@@ -321,29 +311,33 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_group_box import QGroupBox
   from ._q_h_box_layout import QHBoxLayout
   from ._q_item_editor_factory import QItemEditorFactory
+  from ._q_key_sequence_edit import QKeySequenceEdit
   from ._q_menu import QMenu
   from ._q_progress_bar import QProgressBar
-  from ._q_proxy_style import QProxyStyle
-  from ._q_radio_button import QRadioButton
+  from ._q_rhi_widget import QRhiWidget
   from ._q_rubber_band import QRubberBand
-  from ._q_scroll_bar import QScrollBar
-  from ._q_slider import QSlider
   from ._q_style_option_header_v2 import QStyleOptionHeaderV2
   from ._q_style_option_menu_item_v2 import QStyleOptionMenuItemV2
   from ._q_tab_bar import QTabBar
   from ._q_tool_bar import QToolBar
   from ._q_v_box_layout import QVBoxLayout
   from ._q_widget_item_v2 import QWidgetItemV2
-  from ._q_wizard import QWizard
-  from ._q_wizard_page import QWizardPage
-  from ._q_abstract_scroll_area import QAbstractScrollArea
+  from ._q_button_group import QButtonGroup
+  from ._q_check_box import QCheckBox
+  from ._q_dial import QDial
+  from ._q_dialog_button_box import QDialogButtonBox
+  from ._q_graphics_transform import QGraphicsTransform
   from ._q_graphics_item import QGraphicsItem
   from ._q_graphics_item_group import QGraphicsItemGroup
   from ._q_l_c_d_number import QLCDNumber
   from ._q_label import QLabel
   from ._q_mdi_sub_window import QMdiSubWindow
   from ._q_menu_bar import QMenuBar
+  from ._q_proxy_style import QProxyStyle
   from ._q_push_button import QPushButton
+  from ._q_radio_button import QRadioButton
+  from ._q_scroll_bar import QScrollBar
+  from ._q_slider import QSlider
   from ._q_splitter import QSplitter
   from ._q_stacked_widget import QStackedWidget
   from ._q_system_tray_icon import QSystemTrayIcon
@@ -351,64 +345,76 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_tool_box import QToolBox
   from ._q_tool_button import QToolButton
   from ._q_abstract_graphics_shape_item import QAbstractGraphicsShapeItem
-  from ._q_abstract_item_delegate import QAbstractItemDelegate
-  from ._q_abstract_item_view import QAbstractItemView
   from ._q_command_link_button import QCommandLinkButton
+  from ._q_dialog import QDialog
   from ._q_graphics_item_animation import QGraphicsItemAnimation
   from ._q_graphics_layout_item import QGraphicsLayoutItem
   from ._q_graphics_line_item import QGraphicsLineItem
   from ._q_graphics_object import QGraphicsObject
   from ._q_graphics_pixmap_item import QGraphicsPixmapItem
+  from ._q_graphics_rotation import QGraphicsRotation
+  from ._q_graphics_scale import QGraphicsScale
   from ._q_main_window import QMainWindow
-  from ._q_mdi_area import QMdiArea
-  from ._q_message_box import QMessageBox
-  from ._q_plain_text_edit import QPlainTextEdit
-  from ._q_progress_dialog import QProgressDialog
-  from ._q_scroll_area import QScrollArea
   from ._q_splitter_handle import QSplitterHandle
-  from ._q_text_edit import QTextEdit
-  from ._q_column_view import QColumnView
-  from ._q_completer import QCompleter
-  from ._q_data_widget_mapper import QDataWidgetMapper
-  from ._q_file_dialog import QFileDialog
+  from ._q_abstract_scroll_area import QAbstractScrollArea
+  from ._q_color_dialog import QColorDialog
+  from ._q_error_message import QErrorMessage
+  from ._q_font_dialog import QFontDialog
   from ._q_graphics_ellipse_item import QGraphicsEllipseItem
-  from ._q_graphics_layout import QGraphicsLayout
   from ._q_graphics_path_item import QGraphicsPathItem
   from ._q_graphics_polygon_item import QGraphicsPolygonItem
   from ._q_graphics_rect_item import QGraphicsRectItem
   from ._q_graphics_simple_text_item import QGraphicsSimpleTextItem
   from ._q_graphics_text_item import QGraphicsTextItem
+  from ._q_message_box import QMessageBox
+  from ._q_progress_dialog import QProgressDialog
+  from ._q_wizard import QWizard
+  from ._q_wizard_page import QWizardPage
+  from ._q_abstract_item_delegate import QAbstractItemDelegate
+  from ._q_abstract_item_view import QAbstractItemView
+  from ._q_graphics_layout import QGraphicsLayout
+  from ._q_mdi_area import QMdiArea
+  from ._q_plain_text_edit import QPlainTextEdit
+  from ._q_scroll_area import QScrollArea
+  from ._q_text_edit import QTextEdit
+  from ._q_completer import QCompleter
+  from ._q_data_widget_mapper import QDataWidgetMapper
+  from ._q_file_dialog import QFileDialog
+  from ._q_graphics_anchor_layout import QGraphicsAnchorLayout
+  from ._q_graphics_grid_layout import QGraphicsGridLayout
+  from ._q_graphics_linear_layout import QGraphicsLinearLayout
+  from ._q_graphics_widget import QGraphicsWidget
+  from ._q_graphics_scene import QGraphicsScene
   from ._q_header_view import QHeaderView
   from ._q_item_delegate import QItemDelegate
   from ._q_list_view import QListView
   from ._q_styled_item_delegate import QStyledItemDelegate
   from ._q_text_browser import QTextBrowser
-  from ._q_graphics_anchor_layout import QGraphicsAnchorLayout
-  from ._q_graphics_grid_layout import QGraphicsGridLayout
-  from ._q_graphics_linear_layout import QGraphicsLinearLayout
-  from ._q_graphics_widget import QGraphicsWidget
+  from ._q_column_view import QColumnView
+  from ._q_graphics_anchor import QGraphicsAnchor
+  from ._q_graphics_proxy_widget import QGraphicsProxyWidget
+  from ._q_graphics_view import QGraphicsView
   from ._q_line_edit import QLineEdit
   from ._q_list_widget import QListWidget
   from ._q_list_widget_item import QListWidgetItem
-  from ._q_table_view import QTableView
   from ._q_tree_view import QTreeView
   from ._q_undo_view import QUndoView
   from ._q_abstract_spin_box import QAbstractSpinBox
   from ._q_combo_box import QComboBox
-  from ._q_graphics_anchor import QGraphicsAnchor
-  from ._q_graphics_proxy_widget import QGraphicsProxyWidget
-  from ._q_graphics_scene import QGraphicsScene
   from ._q_input_dialog import QInputDialog
-  from ._q_table_widget import QTableWidget
+  from ._q_list_model import QListModel
+  from ._q_table_view import QTableView
   from ._q_tree_widget import QTreeWidget
   from ._q_tree_widget_item import QTreeWidgetItem
   from ._q_date_time_edit import QDateTimeEdit
   from ._q_double_spin_box import QDoubleSpinBox
   from ._q_font_combo_box import QFontComboBox
-  from ._q_graphics_view import QGraphicsView
   from ._q_spin_box import QSpinBox
+  from ._q_table_widget import QTableWidget
+  from ._q_tree_model import QTreeModel
   from ._q_tree_widget_item_iterator import QTreeWidgetItemIterator
   from ._q_date_edit import QDateEdit
+  from ._q_table_model import QTableModel
   from ._q_time_edit import QTimeEdit
   from ._q_widget import QWidgetList
 else:
@@ -441,33 +447,24 @@ else:
       'QGraphicsColorizeEffect': '_q_graphics_colorize_effect',
       'QGraphicsDropShadowEffect': '_q_graphics_drop_shadow_effect',
       'QGraphicsOpacityEffect': '_q_graphics_opacity_effect',
-      'QGraphicsTransform': '_q_graphics_transform',
-      'QGraphicsRotation': '_q_graphics_rotation',
-      'QGraphicsScale': '_q_graphics_scale',
       'QFileIconProvider': '_q_file_icon_provider',
       'QPlainTextDocumentLayout': '_q_plain_text_document_layout',
       'QTableWidgetItem': '_q_table_widget_item',
       'QWidget': '_q_widget',
       'QStyleOption': '_q_style_option',
-      'QStyleOptionComplex': '_q_style_option_complex',
+      'QStyle': '_q_style',
       'QApplication': '_q_application',
       'QLayout': '_q_layout',
-      'QStyle': '_q_style',
-      'QAbstractButton': '_q_abstract_button',
-      'QAbstractSlider': '_q_abstract_slider',
+      'QStyleOptionComplex': '_q_style_option_complex',
       'QAccessibleWidget': '_q_accessible_widget',
       'QBoxLayout': '_q_box_layout',
       'QCalendarWidget': '_q_calendar_widget',
-      'QCommonStyle': '_q_common_style',
-      'QDialog': '_q_dialog',
       'QFocusFrame': '_q_focus_frame',
       'QFormLayout': '_q_form_layout',
       'QGestureEvent': '_q_gesture_event',
       'QGraphicsSceneEvent': '_q_graphics_scene_event',
       'QGridLayout': '_q_grid_layout',
       'QItemEditorCreatorBase': '_q_item_editor_creator_base',
-      'QKeySequenceEdit': '_q_key_sequence_edit',
-      'QRhiWidget': '_q_rhi_widget',
       'QSizeGrip': '_q_size_grip',
       'QSplashScreen': '_q_splash_screen',
       'QStackedLayout': '_q_stacked_layout',
@@ -499,15 +496,11 @@ else:
       'QWhatsThis': '_q_whats_this',
       'QWidgetAction': '_q_widget_action',
       'QWidgetItem': '_q_widget_item',
+      'QAbstractButton': '_q_abstract_button',
+      'QAbstractSlider': '_q_abstract_slider',
       'QAccessibleWidgetV2': '_q_accessible_widget_v2',
-      'QButtonGroup': '_q_button_group',
-      'QCheckBox': '_q_check_box',
-      'QColorDialog': '_q_color_dialog',
-      'QDial': '_q_dial',
-      'QDialogButtonBox': '_q_dialog_button_box',
+      'QCommonStyle': '_q_common_style',
       'QDockWidget': '_q_dock_widget',
-      'QErrorMessage': '_q_error_message',
-      'QFontDialog': '_q_font_dialog',
       'QFrame': '_q_frame',
       'QGraphicsSceneContextMenuEvent': '_q_graphics_scene_context_menu_event',
       'QGraphicsSceneDragDropEvent': '_q_graphics_scene_drag_drop_event',
@@ -520,29 +513,33 @@ else:
       'QGroupBox': '_q_group_box',
       'QHBoxLayout': '_q_h_box_layout',
       'QItemEditorFactory': '_q_item_editor_factory',
+      'QKeySequenceEdit': '_q_key_sequence_edit',
       'QMenu': '_q_menu',
       'QProgressBar': '_q_progress_bar',
-      'QProxyStyle': '_q_proxy_style',
-      'QRadioButton': '_q_radio_button',
+      'QRhiWidget': '_q_rhi_widget',
       'QRubberBand': '_q_rubber_band',
-      'QScrollBar': '_q_scroll_bar',
-      'QSlider': '_q_slider',
       'QStyleOptionHeaderV2': '_q_style_option_header_v2',
       'QStyleOptionMenuItemV2': '_q_style_option_menu_item_v2',
       'QTabBar': '_q_tab_bar',
       'QToolBar': '_q_tool_bar',
       'QVBoxLayout': '_q_v_box_layout',
       'QWidgetItemV2': '_q_widget_item_v2',
-      'QWizard': '_q_wizard',
-      'QWizardPage': '_q_wizard_page',
-      'QAbstractScrollArea': '_q_abstract_scroll_area',
+      'QButtonGroup': '_q_button_group',
+      'QCheckBox': '_q_check_box',
+      'QDial': '_q_dial',
+      'QDialogButtonBox': '_q_dialog_button_box',
+      'QGraphicsTransform': '_q_graphics_transform',
       'QGraphicsItem': '_q_graphics_item',
       'QGraphicsItemGroup': '_q_graphics_item_group',
       'QLCDNumber': '_q_l_c_d_number',
       'QLabel': '_q_label',
       'QMdiSubWindow': '_q_mdi_sub_window',
       'QMenuBar': '_q_menu_bar',
+      'QProxyStyle': '_q_proxy_style',
       'QPushButton': '_q_push_button',
+      'QRadioButton': '_q_radio_button',
+      'QScrollBar': '_q_scroll_bar',
+      'QSlider': '_q_slider',
       'QSplitter': '_q_splitter',
       'QStackedWidget': '_q_stacked_widget',
       'QSystemTrayIcon': '_q_system_tray_icon',
@@ -550,64 +547,76 @@ else:
       'QToolBox': '_q_tool_box',
       'QToolButton': '_q_tool_button',
       'QAbstractGraphicsShapeItem': '_q_abstract_graphics_shape_item',
-      'QAbstractItemDelegate': '_q_abstract_item_delegate',
-      'QAbstractItemView': '_q_abstract_item_view',
       'QCommandLinkButton': '_q_command_link_button',
+      'QDialog': '_q_dialog',
       'QGraphicsItemAnimation': '_q_graphics_item_animation',
       'QGraphicsLayoutItem': '_q_graphics_layout_item',
       'QGraphicsLineItem': '_q_graphics_line_item',
       'QGraphicsObject': '_q_graphics_object',
       'QGraphicsPixmapItem': '_q_graphics_pixmap_item',
+      'QGraphicsRotation': '_q_graphics_rotation',
+      'QGraphicsScale': '_q_graphics_scale',
       'QMainWindow': '_q_main_window',
-      'QMdiArea': '_q_mdi_area',
-      'QMessageBox': '_q_message_box',
-      'QPlainTextEdit': '_q_plain_text_edit',
-      'QProgressDialog': '_q_progress_dialog',
-      'QScrollArea': '_q_scroll_area',
       'QSplitterHandle': '_q_splitter_handle',
-      'QTextEdit': '_q_text_edit',
-      'QColumnView': '_q_column_view',
-      'QCompleter': '_q_completer',
-      'QDataWidgetMapper': '_q_data_widget_mapper',
-      'QFileDialog': '_q_file_dialog',
+      'QAbstractScrollArea': '_q_abstract_scroll_area',
+      'QColorDialog': '_q_color_dialog',
+      'QErrorMessage': '_q_error_message',
+      'QFontDialog': '_q_font_dialog',
       'QGraphicsEllipseItem': '_q_graphics_ellipse_item',
-      'QGraphicsLayout': '_q_graphics_layout',
       'QGraphicsPathItem': '_q_graphics_path_item',
       'QGraphicsPolygonItem': '_q_graphics_polygon_item',
       'QGraphicsRectItem': '_q_graphics_rect_item',
       'QGraphicsSimpleTextItem': '_q_graphics_simple_text_item',
       'QGraphicsTextItem': '_q_graphics_text_item',
+      'QMessageBox': '_q_message_box',
+      'QProgressDialog': '_q_progress_dialog',
+      'QWizard': '_q_wizard',
+      'QWizardPage': '_q_wizard_page',
+      'QAbstractItemDelegate': '_q_abstract_item_delegate',
+      'QAbstractItemView': '_q_abstract_item_view',
+      'QGraphicsLayout': '_q_graphics_layout',
+      'QMdiArea': '_q_mdi_area',
+      'QPlainTextEdit': '_q_plain_text_edit',
+      'QScrollArea': '_q_scroll_area',
+      'QTextEdit': '_q_text_edit',
+      'QCompleter': '_q_completer',
+      'QDataWidgetMapper': '_q_data_widget_mapper',
+      'QFileDialog': '_q_file_dialog',
+      'QGraphicsAnchorLayout': '_q_graphics_anchor_layout',
+      'QGraphicsGridLayout': '_q_graphics_grid_layout',
+      'QGraphicsLinearLayout': '_q_graphics_linear_layout',
+      'QGraphicsWidget': '_q_graphics_widget',
+      'QGraphicsScene': '_q_graphics_scene',
       'QHeaderView': '_q_header_view',
       'QItemDelegate': '_q_item_delegate',
       'QListView': '_q_list_view',
       'QStyledItemDelegate': '_q_styled_item_delegate',
       'QTextBrowser': '_q_text_browser',
-      'QGraphicsAnchorLayout': '_q_graphics_anchor_layout',
-      'QGraphicsGridLayout': '_q_graphics_grid_layout',
-      'QGraphicsLinearLayout': '_q_graphics_linear_layout',
-      'QGraphicsWidget': '_q_graphics_widget',
+      'QColumnView': '_q_column_view',
+      'QGraphicsAnchor': '_q_graphics_anchor',
+      'QGraphicsProxyWidget': '_q_graphics_proxy_widget',
+      'QGraphicsView': '_q_graphics_view',
       'QLineEdit': '_q_line_edit',
       'QListWidget': '_q_list_widget',
       'QListWidgetItem': '_q_list_widget_item',
-      'QTableView': '_q_table_view',
       'QTreeView': '_q_tree_view',
       'QUndoView': '_q_undo_view',
       'QAbstractSpinBox': '_q_abstract_spin_box',
       'QComboBox': '_q_combo_box',
-      'QGraphicsAnchor': '_q_graphics_anchor',
-      'QGraphicsProxyWidget': '_q_graphics_proxy_widget',
-      'QGraphicsScene': '_q_graphics_scene',
       'QInputDialog': '_q_input_dialog',
-      'QTableWidget': '_q_table_widget',
+      'QListModel': '_q_list_model',
+      'QTableView': '_q_table_view',
       'QTreeWidget': '_q_tree_widget',
       'QTreeWidgetItem': '_q_tree_widget_item',
       'QDateTimeEdit': '_q_date_time_edit',
       'QDoubleSpinBox': '_q_double_spin_box',
       'QFontComboBox': '_q_font_combo_box',
-      'QGraphicsView': '_q_graphics_view',
       'QSpinBox': '_q_spin_box',
+      'QTableWidget': '_q_table_widget',
+      'QTreeModel': '_q_tree_model',
       'QTreeWidgetItemIterator': '_q_tree_widget_item_iterator',
       'QDateEdit': '_q_date_edit',
+      'QTableModel': '_q_table_model',
       'QTimeEdit': '_q_time_edit',
       'QWidgetList': '_q_widget',
   }

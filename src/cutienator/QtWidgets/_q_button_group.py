@@ -53,11 +53,15 @@ class QButtonGroup(QObject):
 
   - Qt's 'QButtonGroup::~QButtonGroup()': the destructor: Python never
     removes a C++ QButtonGroup.
+  - Qt's 'QButtonGroupPrivate *QButtonGroup::d_func()': gives
+    'QButtonGroupPrivate', which has no cute class yet.
+  - Qt's 'const QButtonGroupPrivate *QButtonGroup::d_func() const': gives
+    'QButtonGroupPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  16 of the 30 functions Qt declares: 8 a signal; 4 takes or gives a type
+  14 of the 30 functions Qt declares: 8 a signal; 2 takes or gives a type
   that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
   nowhere to be found.
 

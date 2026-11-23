@@ -445,6 +445,20 @@ bool ritual_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstractItemVie
   return self->helpEvent(event, view, *option, *index);
 }
 
+//  QAbstractItemDelegatePrivate *QAbstractItemDelegate::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractItemDelegatePrivate *ritual_ZN21QAbstractItemDelegate6d_funcEv(
+    QAbstractItemDelegate *self) {
+  return self->d_func();
+}
+
+//  const QAbstractItemDelegatePrivate *QAbstractItemDelegate::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractItemDelegatePrivate *ritual_ZNK21QAbstractItemDelegate6d_funcEv(
+    const QAbstractItemDelegate *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQAbstractItemDelegate, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

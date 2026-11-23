@@ -1764,6 +1764,20 @@ void ritual_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent(
   self->ungrabKeyboardEvent(event);
 }
 
+//  QGraphicsWidgetPrivate *QGraphicsWidget::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsWidgetPrivate *ritual_ZN15QGraphicsWidget6d_funcEv(
+    QGraphicsWidget *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsWidgetPrivate *QGraphicsWidget::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsWidgetPrivate *ritual_ZNK15QGraphicsWidget6d_funcEv(
+    const QGraphicsWidget *self) {
+  return self->d_func();
+}
+
 //  QGraphicsWidget as the QGraphicsLayoutItem it is built on
 extern "C" Q_DECL_EXPORT
 QGraphicsLayoutItem *ritual_cast_QGraphicsWidget_QGraphicsLayoutItem(

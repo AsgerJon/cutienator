@@ -8,6 +8,8 @@ import collections
 import json
 import os
 import re
+import subprocess
+import tempfile
 import textwrap
 import threading
 from typing import TYPE_CHECKING
@@ -284,25 +286,23 @@ class RitualGenerator:
   #  workings, and are never taken over.
   __qt_own_virtuals__ = ('metaObject', 'qt_metacast', 'qt_metacall')
   __overridable_functions__ = None  # type: Optional[Records]
-  #  What '_isHiddenType' found for each type asked about so far, and
-  #  the generators '_getOther' made, each kept for the tree they
-  #  belong to: both are asked for thousands of times.
-  __hidden_types__ = dict()  # type: Dict[Tuple[int, str], bool]
-  #  The kinds of list the functions of each tree hand around, and what
-  #  keeps two threads from both going through the tree for them.
-  __list_kinds__ = dict()  # type: Dict[int, Dict[str, Record]]
+  #  Four things are asked for thousands of times and kept, each in a
+  #  dict the tree gives for it, 'DependencyTree.getKept': what
+  #  '_isHiddenType' found for each type; the generators '_getOther'
+  #  made; the record of each class '_readRecord' read; and the kinds
+  #  of list the functions of the tree hand around. The lock keeps two
+  #  threads from both going through the tree for those kinds.
   __list_kinds_lock__ = threading.Lock()
-  #  The record of each class read so far. The tree reads a record anew
-  #  at every asking, and the work on the functions Python can take
-  #  over asks for the same ones over and over.
-  __class_records__ = dict()  # type: Dict[Tuple[int, str], Record]
   #  A name Qt's headers go by to tell one system or one compiler from
   #  another, as 'Q_OS_UNIX' and 'Q_CC_MSVC', and what '_findSystemLines'
   #  found in each header read so far.
   __system_name__ = re.compile(r'\b(?:Q_OS|Q_CC)_\w+')
   __system_lines__ = dict()  # type: Dict[str, Dict[int, str]]
   __has_cute_class__ = None  # type: Optional[bool]
-  __other_generators__ = dict()  # type: Dict[Tuple[int, str], Any]
+  #  The code taken from Qt's source for the class, and the lines that
+  #  pull in what that code needs; see '_settleSource'.
+  __source_text__ = None  # type: Optional[str]
+  __source_includes__ = None  # type: Optional[Tuple[str, ...]]
   __written_rituals__ = None  # type: Optional[Rituals]
   __unwritten_functions__ = None  # type: Optional[Reasons]
   __known_names__ = None  # type: Optional[FrozenSet[str]]
@@ -500,6 +500,9 @@ class RitualGenerator:
     #  a class some map of Qt has for its values those of that map.
     written.extend(self._planLists())
     written.extend(self._planMaps())
+    #  A function Qt's library has no name for gets its code from Qt's
+    #  source, where that code can be taken.
+    self._settleSource(written, unwritten)
     self.__written_rituals__ = (*written,)
     self.__unwritten_functions__ = (*unwritten,)
 
@@ -512,27 +515,27 @@ class RitualGenerator:
     """Gives a generator for another class of the same tree."""
     if className == self.getClassName():
       return self
-    key = (id(self.getDependencyTree()), className)
+    kept = self.getDependencyTree().getKept('other generators')
     try:
-      return self.__other_generators__[key]
+      return kept[className]
     except KeyError:
       other = type(self)()
       other.setDependencyTree(self.getDependencyTree())
       other.setClassName(className)
       #  It only works out plans and never writes a file, so it needs
       #  no folder.
-      self.__other_generators__[key] = other
+      kept[className] = other
       return other
 
   def _readRecord(self, className: str) -> Record:
     """Gives the record of a class as the tree has it, read once."""
     tree = self.getDependencyTree()
-    key = (id(tree), className)
+    kept = tree.getKept('class records')
     try:
-      return self.__class_records__[key]
+      return kept[className]
     except KeyError:
       record = tree.getClassRecord(className)
-      self.__class_records__[key] = record
+      kept[className] = record
       return record
 
   def _findVirtuals(self) -> List[Record]:
@@ -825,12 +828,12 @@ class RitualGenerator:
     owner, _, own = plain.rpartition('::')
     if not owner:
       return False
-    key = (id(self.getDependencyTree()), plain)
+    kept = self.getDependencyTree().getKept('hidden types')
     try:
-      return self.__hidden_types__[key]
+      return kept[plain]
     except KeyError:
       hidden = self._findHiddenType(owner, own)
-      self.__hidden_types__[key] = hidden
+      kept[plain] = hidden
       return hidden
 
   def _findHiddenType(self, owner: str, own: str) -> bool:
@@ -1017,11 +1020,11 @@ class RitualGenerator:
     kind, and its cute class collects the kind, so each has to know
     whether some function somewhere hands such a list around.
     """
-    tree = self.getDependencyTree()
+    kept = self.getDependencyTree().getKept('list kinds')
     with self.__list_kinds_lock__:
-      if id(tree) not in self.__list_kinds__:
-        self.__list_kinds__[id(tree)] = self._findListKinds()
-      return self.__list_kinds__[id(tree)]
+      if 'found' not in kept:
+        kept['found'] = self._findListKinds()
+      return kept['found']
 
   def _findListKinds(self) -> Dict[str, Record]:
     """Does the going through the tree for 'getListKinds', which keeps
@@ -1444,7 +1447,13 @@ class RitualGenerator:
       includeLines.append('#include <iterator>')
     if self.hasCuteClass():
       includeLines.append('#include <cstring>')
+    #  What the code taken from Qt's source needs comes as Qt's files
+    #  have it, with the '#if' lines around it, so no line of it is
+    #  left out for standing above already.
+    includeLines.extend(self.getSourceIncludes())
     blocks[0] = '%s\n%s' % (blocks[0], '\n'.join(includeLines))
+    if self.getSourceText():
+      blocks.append(self.getSourceText())
     ownClass = self._writeOwnClass(owned)
     if ownClass:
       blocks.append(ownClass)
@@ -2095,6 +2104,397 @@ class RitualGenerator:
     record = self.getDependencyTree().getClassRecord(self.getClassName())
     return True if self._findSystemCondition(record) else False
 
+  def getPrivateArguments(self) -> Tuple[str, ...]:
+    """
+    Gives the '-I' arguments by which the compiler finds the headers
+    Qt calls private, or none when no part of the tree reads those and
+    no source of Qt was provided.
+    """
+    tree = self.getDependencyTree()
+    qtParts = tree.getQtParts()
+    if tree.getQtSource() is None:
+      if not any(qtPart.hasPrivate() for qtPart in qtParts):
+        return ()
+    folders = qtParts[0].getPrivateIncludeFolders()
+    return (*('-I%s' % folder for folder in folders),)
+
+  def getSourceText(self) -> str:
+    """Gives the code taken from Qt's own source for the class, as C++
+    text under a heading saying whose it is, or '' when none was."""
+    if self.__source_text__ is None:
+      self.getWritten()
+    return self.__source_text__ or ''
+
+  def getSourceIncludes(self) -> Tuple[str, ...]:
+    """Gives the lines that pull in what the code of 'getSourceText'
+    needs, as the files of Qt's source it was taken from have them."""
+    if self.__source_includes__ is None:
+      self.getWritten()
+    return self.__source_includes__ or ()
+
+  def _findSourceCode(self, member: Record) -> Optional[Record]:
+    """
+    Gives the definition of a function in Qt's own source, as
+    'QtSource.findDefinitions' has it, or None when no source was
+    provided or the source has not exactly one definition that takes
+    what the function takes.
+    """
+    tree = self.getDependencyTree()
+    source = tree.getQtSource()
+    if source is None:
+      return None
+    className = self.getClassName()
+    name = member.get('name', '')
+    if member.get('kind') == 'CXXConstructorDecl':
+      name = className.rpartition('::')[2]
+    taken = [
+        entry['type']['qualType'] for entry in member.get('inner', ())
+        if entry.get('kind') == 'ParmVarDecl'
+    ]
+    whole = member.get('type', dict()).get('qualType', '')
+    const = True if re.search(r'\)\s*const\b', whole) else False
+    partName = tree.getPartName(className.split('::')[0])
+    found = [
+        definition for definition
+        in source.findDefinitions(partName, '%s::%s' % (className, name))
+        if len(definition['arguments']) == len(taken)
+        and definition['const'] == const
+    ]
+    if len(found) > 1:
+      #  Several forms take as many: the one whose every argument
+      #  begins with the type the header declares.
+      def squeeze(written: str) -> str:
+        return ''.join(written.split())
+      found = [
+          definition for definition in found
+          if all(squeeze(argument).startswith(squeeze(cppType))
+                 for argument, cppType
+                 in zip(definition['arguments'], taken))
+      ]
+    return found[0] if len(found) == 1 else None
+
+  @staticmethod
+  def _isOfQt(symbol: str) -> bool:
+    """Says whether a name the compiler made stands for something of
+    Qt: a name of the C++ library or of the system does not."""
+    return True if re.search(r'\d+[Qq][A-Za-z_]', symbol) else False
+
+  def _probeText(
+      self,
+      text: str,
+  ) -> Tuple[Dict[int, str], Dict[str, Set[str]], Set[str]]:
+    """
+    Compiles the text of a ritual file to an object file, joining
+    nothing, and says what came of it.
+
+    Returns
+    -------
+
+    Tuple
+      What the compiler refused: for each line it complained of, what
+      it said. Then, when it refused nothing: for each name the object
+      file holds, the names its code leans on directly; and the names
+      the object file needs from elsewhere.
+    """
+    with tempfile.TemporaryDirectory() as folder:
+      probeFile = os.path.join(folder, 'probe.cpp')
+      objectFile = os.path.join(folder, 'probe.o')
+      with open(probeFile, 'w') as file:
+        file.write(text)
+      command = (
+          'clang++', '-std=c++17', '-fPIC', '-O0', '-w', '-c',
+          '-fno-access-control', '-ffunction-sections',
+          '-ferror-limit=0', '-I%s' % QtPart.getQtHeaderFolder(),
+          *self.getPrivateArguments(), probeFile, '-o', objectFile,
+      )
+      done = subprocess.run(
+          command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+          universal_newlines=True)
+      if done.returncode:
+        #  Each thing the compiler refuses, with the first line of the
+        #  file it names for it: the line of the error itself, or,
+        #  where the error lies in a header of Qt, the line of the
+        #  file that the compiler says asked for it.
+        refused = dict()  # type: Dict[int, str]
+        error = re.compile(r':\d+:\d+: (?:fatal )?error: (.*)')
+        place = re.compile(r'probe\.cpp:(\d+):\d+: ')
+        said = None  # type: Optional[str]
+        for line in done.stderr.split('\n'):
+          match = error.search(line)
+          if match is not None:
+            said = match.group(1)
+          where = place.search(line)
+          if said is not None and where is not None:
+            refused.setdefault(int(where.group(1)), said)
+            said = None
+        if not refused:
+          refused[0] = ' '.join(done.stderr.split())[:400]
+        return refused, dict(), set()
+
+      def ask(*command: str) -> List[str]:
+        return subprocess.run(
+            command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            universal_newlines=True).stdout.split('\n')
+
+      #  Each stretch of the object file by its number, and each name
+      #  by the stretch its code lies in. Two names may share one, as
+      #  the two the compiler makes for one constructor.
+      stretches = dict()  # type: Dict[str, str]
+      for line in ask('readelf', '-SW', objectFile):
+        match = re.match(r'\s*\[\s*(\d+)\]\s+(\S+)', line)
+        if match is not None:
+          stretches[match.group(1)] = match.group(2)
+      lies, wanted = dict(), set()  # type: Dict[str, str], Set[str]
+      for line in ask('readelf', '-sW', objectFile):
+        parts = line.split()
+        if len(parts) != 8 or not parts[0].rstrip(':').isdigit():
+          continue
+        if parts[6] == 'UND':
+          wanted.add(parts[7])
+        elif parts[6] in stretches:
+          lies[parts[7]] = stretches[parts[6]]
+      byStretch = dict()  # type: Dict[str, Set[str]]
+      stretch = None  # type: Optional[str]
+      for line in ask('readelf', '-rW', objectFile):
+        if line.startswith('Relocation section'):
+          stretch = line.split("'")[1][len('.rela'):]
+          byStretch.setdefault(stretch, set())
+          continue
+        parts = line.split()
+        if stretch is not None and len(parts) >= 5 and parts[2][:2] == 'R_':
+          byStretch[stretch].add(parts[4])
+      leans = {
+          name: byStretch.get(stretch, set())
+          for name, stretch in lies.items()
+      }
+      return dict(), leans, wanted
+
+  def _settleSource(
+      self,
+      written: List[Record],
+      unwritten: List[Tuple[str, str]],
+  ) -> None:
+    """
+    Decides which functions get their code from Qt's own source, keeps
+    that code for 'getSourceText', and takes out every ritual that
+    leans on something nothing offers.
+
+    It does so for a class that has a function '_findReason' let
+    through though nothing offers it, and for a class of a header Qt
+    calls private, whose own names Qt's library does not offer. The
+    whole ritual file is compiled to an object file. For each ritual
+    it is then looked up what its code leans on, through everything
+    the object file holds itself. What Qt's library offers is fine.
+    For what it does not offer, Qt's source is asked for a definition,
+    which is then taken along. A ritual leaning on something that
+    cannot be had that way, as the table through which C++ looks
+    functions up in an object of a class Qt's library keeps to itself,
+    is moved from 'written' to 'unwritten', with what stood in the
+    way.
+    """
+    self.__source_text__, self.__source_includes__ = '', ()
+    tree = self.getDependencyTree()
+    source = tree.getQtSource()
+    if source is None:
+      return
+    className = self.getClassName()
+    record = tree.getClassRecord(className)
+    chosen = dict()  # type: Dict[str, Record]
+    for member in record.get('inner', ()):
+      if member.get('kind') not in self.__function_kinds__:
+        continue
+      if 'mangledName' not in member or self._canBeCalled(member):
+        continue
+      definition = self._findSourceCode(member)
+      if definition is not None:
+        chosen[member['mangledName']] = definition
+    qtPart = tree.getQtPart(className)
+    private = False
+    if qtPart.hasPrivate():
+      headerPath = tree.getHeaderPath(className)
+      private = headerPath.startswith(qtPart.getPrivateFolder())
+    if not chosen and not private:
+      return
+    offered = self._getOfferedNames()
+    helpers = dict()  # type: Dict[str, Record]
+    lost = set()  # type: Set[str]
+    marker = '//  ' + '-' * 71
+
+    def drop(plan: Record, reason: str) -> None:
+      written.remove(plan)
+      unwritten.append((plan['function'], reason))
+
+    for _ in range(60):
+      #  One round: write the file as it would be, compile it, look at
+      #  what each ritual leans on. A round that changes nothing is
+      #  the last.
+      named = self._nameWritten(written)
+      taken = [*helpers.items()]
+      taken.extend(
+          (name, definition) for name, definition in chosen.items()
+          if name in named and name not in helpers)
+      self._keepSource(taken, lost, marker)
+      self.__written_rituals__ = (*written,)
+      self.__unwritten_functions__ = (*unwritten,)
+      text = self.getRitualText()
+      self.__written_rituals__ = None
+      self.__unwritten_functions__ = None
+      refused, leans, wanted = self._probeText(text)
+      lines = text.split('\n')
+      changed = False
+      if refused:
+        #  Which line belongs to what: a line pulling a file in, a
+        #  definition taken from Qt's source, or a ritual.
+        starts = []  # type: List[Tuple[int, str]]
+        for number, line in enumerate(lines, 1):
+          match = re.match(r'//  from (\S+), line \d+, as (\S+)$', line)
+          if match is not None:
+            starts.append((number, match.group(2)))
+        ends = lines.index(marker) + 1 if marker in lines else 0
+        for lineNumber, said in sorted(refused.items()):
+          line = ''
+          if 0 < lineNumber <= len(lines):
+            line = lines[lineNumber - 1]
+          pulled = self.__source_includes__
+          squeezed = ''.join(line.split())
+          if squeezed.startswith('#include') and line in pulled:
+            lost.add(line)
+            changed = True
+            continue
+          owner = None  # type: Optional[str]
+          if lineNumber <= ends:
+            for number, name in starts:
+              if number <= lineNumber:
+                owner = name
+          if owner is None:
+            continue
+          infoSpec = """Qt's library has no name for it, and its code in
+          Qt's source does not compile apart from its file: %s"""
+          reason = ' '.join((infoSpec % said).split())
+          if owner in helpers:
+            del helpers[owner]
+            lost.add(owner)
+            changed = True
+          elif owner in chosen:
+            for plan in [*written]:
+              if plan.get('ritualName', '')[len('ritual'):] == owner:
+                drop(plan, reason)
+            del chosen[owner]
+            changed = True
+        if not changed:
+          #  The compiler refuses something else: the tester says what.
+          break
+        continue
+      for plan in [*written]:
+        ritualName = plan.get('ritualName')
+        if ritualName not in leans:
+          continue
+        reached, waiting = set(), [ritualName]
+        while waiting:
+          for other in leans.get(waiting.pop(), ()):
+            if other not in reached:
+              reached.add(other)
+              waiting.append(other)
+        for symbol in sorted(reached):
+          if symbol not in wanted or symbol in offered:
+            continue
+          if not self._isOfQt(symbol) or symbol in helpers:
+            continue
+          found = None if symbol in lost else self._findHelper(symbol)
+          if found is not None:
+            helpers[symbol] = found
+            changed = True
+            continue
+          said = subprocess.run(
+              ('c++filt', symbol), stdout=subprocess.PIPE,
+              universal_newlines=True).stdout.strip()
+          infoSpec = """leans on '%s', which Qt's library does not offer
+          and Qt's source has no code for that could be taken"""
+          drop(plan, ' '.join((infoSpec % said).split()))
+          changed = True
+          break
+      if not changed:
+        break
+    named = self._nameWritten(written)
+    taken = [*helpers.items()]
+    taken.extend(
+        (name, definition) for name, definition in chosen.items()
+        if name in named and name not in helpers)
+    self._keepSource(taken, lost, marker)
+
+  @staticmethod
+  def _nameWritten(written: List[Record]) -> Set[str]:
+    """Gives the name the compiler has for the function each ritual
+    calls: the name of the ritual without 'ritual' in front."""
+    return {
+        plan.get('ritualName', '')[len('ritual'):] for plan in written
+    }
+
+  def _keepSource(
+      self,
+      taken: List[Tuple[str, Record]],
+      lost: Set[str],
+      marker: str,
+  ) -> None:
+    """Writes the code taken from Qt's source, with its heading, and
+    the lines pulling in what it needs, where 'getSourceText' and
+    'getSourceIncludes' find them."""
+    self.__source_text__, self.__source_includes__ = '', ()
+    if not taken:
+      return
+    folder = self.getDependencyTree().getQtSource().getSourceFolder()
+    lines = [
+        "//  Qt's own code, from here to the line of dashes: taken from",
+        "//  Qt's source, because Qt's library carries it under no name.",
+        '//  Copyright (C) The Qt Company Ltd. It is licensed',
+        '//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so',
+        '//  here. Each function is as Qt wrote it, with the word',
+        "//  'inline' put before it.",
+    ]
+    kept, seen = [], set()  # type: List[str], Set[str]
+    for name, definition in taken:
+      where = os.path.relpath(definition['path'], folder)
+      lines.append('')
+      lines.append('//  from %s, line %d, as %s' % (
+          where, definition['line'], name))
+      lines.append('inline %s' % definition['text'])
+      if definition['path'] in seen:
+        continue
+      #  The lines of each file once, whole and in their order: an
+      #  '#if' among them has its '#endif' among them.
+      seen.add(definition['path'])
+      kept.extend(l for l in definition['includes'] if l not in lost)
+    lines.append(marker)
+    self.__source_text__ = '\n'.join(lines)
+    self.__source_includes__ = (*kept,)
+
+  def _findHelper(self, symbol: str) -> Optional[Record]:
+    """
+    Gives the definition, in Qt's source, of a function known only by
+    the name the compiler made for it, or None when the source has not
+    exactly one that takes as many arguments.
+    """
+    source = self.getDependencyTree().getQtSource()
+    said = subprocess.run(
+        ('c++filt', symbol), stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE, universal_newlines=True).stdout.strip()
+    if '(' not in said or said == symbol:
+      return None
+    name = said[:said.index('(')].strip()
+    inside = said[said.index('(') + 1:said.rindex(')')]
+    count = len(source._splitArguments(inside))
+    const = said.rstrip().endswith('const')
+    for qtPart in self.getDependencyTree().getQtParts():
+      found = [
+          definition for definition
+          in source.findDefinitions(qtPart.getPartName(), name)
+          if len(definition['arguments']) == count
+          and definition['const'] == const
+      ]
+      if len(found) == 1:
+        return found[0]
+    return None
+
   def _canBeCalled(self, member: Record) -> bool:
     """
     Says whether a ritual calling this function could ever run.
@@ -2506,9 +2906,11 @@ class RitualGenerator:
     if 'mangledName' not in member:
       return 'the compiler gave it no name of its own'
     if not self._canBeCalled(member):
-      infoSpec = """declared and nowhere to be found: no header has its
-      code and no Qt shared object offers it"""
-      return ' '.join(infoSpec.split())
+      if self._findSourceCode(member) is None:
+        infoSpec = """declared and nowhere to be found: no header has
+        its code, no Qt shared object offers it, and Qt's source has no
+        code for it that could be told from the rest"""
+        return ' '.join(infoSpec.split())
     if plan['unknownTypes']:
       names = ', '.join(plan['unknownTypes'])
       return 'takes or gives a type that cannot be passed yet: %s' % names

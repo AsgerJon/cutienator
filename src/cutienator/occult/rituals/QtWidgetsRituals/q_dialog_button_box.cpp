@@ -978,6 +978,20 @@ bool ritual_ZN16QDialogButtonBox5eventEP6QEvent(
   return self->event(event);
 }
 
+//  QDialogButtonBoxPrivate *QDialogButtonBox::d_func()
+extern "C" Q_DECL_EXPORT
+QDialogButtonBoxPrivate *ritual_ZN16QDialogButtonBox6d_funcEv(
+    QDialogButtonBox *self) {
+  return self->d_func();
+}
+
+//  const QDialogButtonBoxPrivate *QDialogButtonBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QDialogButtonBoxPrivate *ritual_ZNK16QDialogButtonBox6d_funcEv(
+    const QDialogButtonBox *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQDialogButtonBox, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

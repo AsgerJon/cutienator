@@ -71,6 +71,8 @@
     "ritual_ZN9QSplitter20closestLegalPositionEii": [
       "int", "address", "int", "int"
     ],
+    "ritual_ZN9QSplitter6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QSplitter6d_funcEv": ["address", "address"],
     "ritual_take_QSplitter": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QSplitter8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK9QSplitter15minimumSizeHintEv": ["address", "address"],

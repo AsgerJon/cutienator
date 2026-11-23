@@ -813,6 +813,18 @@ QString *ritual_ZN5QMenu2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QMenu::tr(s, c, n));
 }
 
+//  QMenuPrivate *QMenu::d_func()
+extern "C" Q_DECL_EXPORT
+QMenuPrivate *ritual_ZN5QMenu6d_funcEv(QMenu *self) {
+  return self->d_func();
+}
+
+//  const QMenuPrivate *QMenu::d_func() const
+extern "C" Q_DECL_EXPORT
+const QMenuPrivate *ritual_ZNK5QMenu6d_funcEv(const QMenu *self) {
+  return self->d_func();
+}
+
 //  QMenu::QMenu(QWidget *parent)
 extern "C" Q_DECL_EXPORT
 QMenu *ritual_ZN5QMenuC1EP7QWidget(QWidget *parent) {

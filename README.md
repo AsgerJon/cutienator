@@ -227,3 +227,36 @@ and the `clang++` that comes with Visual Studio.
 Both programs are found by name, so their folders have to be in `PATH`.
 On Windows the `clang++` of Visual Studio lies in `VC\Tools\Llvm\x64\bin`
 of the Visual Studio folder, and that folder has to come first.
+
+It also needs the headers of Qt that Qt calls private. Qt's own
+installer brings them along. On Linux, where Qt comes from the system,
+they may be a package of their own, as `qt6-base-private-dev`.
+
+# Nothing Is Private
+
+Qt marks functions `private` and `protected`, and keeps whole classes
+in headers it calls private. **cutienator** does not care. A class Qt
+hands out is a class you have, and a function Qt has is a function you
+can call:
+
+```python
+model = QListWidget().model()   # a QListModel, which Qt calls private
+model.at(1)                     # one of its own functions
+```
+
+Where Qt's library has no name for a function, **cutienator** takes
+the code of that function from Qt's own source and compiles it with
+its bridge.
+
+# Licences
+
+What **cutienator** is written of itself is under the Apache licence,
+version 2.0; see `LICENSE`.
+
+The code taken from Qt's source is Qt's, and stays under the licences
+Qt gives it out under: the GNU Lesser General Public License version 3,
+or the GNU General Public License version 2 or version 3, as you
+choose. It stands in the ritual files, between a heading that says so
+and a line of dashes, each function as Qt wrote it with the word
+`inline` put before it. The three licences are in the folder
+`LICENSES`.

@@ -112,9 +112,9 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  46 of the 123 functions Qt declares: 41 takes or gives a type that cannot
+  46 of the 123 functions Qt declares: 42 takes or gives a type that cannot
   be passed yet; 2 a template; 2 can only be called on a value about to be
-  thrown away; 1 declared and nowhere to be found.
+  thrown away.
 
   What to expect
   --------------

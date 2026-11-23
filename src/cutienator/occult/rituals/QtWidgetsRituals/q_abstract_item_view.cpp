@@ -2555,6 +2555,20 @@ QSize *ritual_ZNK17QAbstractItemView16viewportSizeHintEv(
   return new QSize(self->viewportSizeHint());
 }
 
+//  QAbstractItemViewPrivate *QAbstractItemView::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractItemViewPrivate *ritual_ZN17QAbstractItemView6d_funcEv(
+    QAbstractItemView *self) {
+  return self->d_func();
+}
+
+//  const QAbstractItemViewPrivate *QAbstractItemView::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractItemViewPrivate *ritual_ZNK17QAbstractItemView6d_funcEv(
+    const QAbstractItemView *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQAbstractItemView, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

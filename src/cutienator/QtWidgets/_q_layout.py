@@ -74,6 +74,10 @@ class QLayout(QObject, QLayoutItem):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QLayoutPrivate *QLayout::d_func()': gives 'QLayoutPrivate', which
+    has no cute class yet.
+  - Qt's 'const QLayoutPrivate *QLayout::d_func() const': gives
+    'QLayoutPrivate', which has no cute class yet.
   - Qt's 'QLayout::~QLayout()': the destructor: Python never removes a C++
     QLayout.
   - Qt's 'void QLayout::getContentsMargins(int *left, int *top, int *right,
@@ -82,7 +86,7 @@ class QLayout(QObject, QLayoutItem):
   What has no ritual
   ------------------
 
-  10 of the 69 functions Qt declares: 4 takes or gives a type that cannot be
+  8 of the 69 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
   a template; 1 declared and nowhere to be found.
 

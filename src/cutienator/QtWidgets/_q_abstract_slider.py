@@ -65,11 +65,15 @@ class QAbstractSlider(QWidget):
     removes a C++ QAbstractSlider.
   - Qt's 'void QAbstractSlider::sliderChange(SliderChange change)': names the
     enum 'QAbstractSlider::SliderChange', whose class cannot be named here.
+  - Qt's 'QAbstractSliderPrivate *QAbstractSlider::d_func()': gives
+    'QAbstractSliderPrivate', which has no cute class yet.
+  - Qt's 'const QAbstractSliderPrivate *QAbstractSlider::d_func() const':
+    gives 'QAbstractSliderPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  15 of the 51 functions Qt declares: 6 a signal; 5 takes or gives a type
+  13 of the 51 functions Qt declares: 6 a signal; 3 takes or gives a type
   that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
   nowhere to be found.
 

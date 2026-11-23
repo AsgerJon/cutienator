@@ -88,6 +88,8 @@
     "ritual_ZNK8QMenuBar15initStyleOptionEP20QStyleOptionMenuItemPK7QAction": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN8QMenuBar6d_funcEv": ["address", "address"],
+    "ritual_ZNK8QMenuBar6d_funcEv": ["address", "address"],
     "ritual_take_QMenuBar": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK8QMenuBar8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK8QMenuBar15minimumSizeHintEv": ["address", "address"],

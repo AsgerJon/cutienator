@@ -64,6 +64,7 @@
     "ritual_ZN16QRandomGenerator3maxEv": ["unsigned int"],
     "ritual_ZN16QRandomGenerator6systemEv": ["address"],
     "ritual_ZN16QRandomGenerator6globalEv": ["address"],
-    "ritual_ZN16QRandomGenerator14securelySeededEv": ["address"]
+    "ritual_ZN16QRandomGenerator14securelySeededEv": ["address"],
+    "ritual_ZN16QRandomGeneratorC1ENS_6SystemE": ["address", "int"]
   }
 }

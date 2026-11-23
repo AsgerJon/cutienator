@@ -59,6 +59,8 @@
     "ritual_ZN12QCommonStyle8unpolishEP12QApplication": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN12QCommonStyle6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QCommonStyle6d_funcEv": ["address", "address"],
     "ritual_take_QCommonStyle": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK12QCommonStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget": [
       "nothing", "address", "int", "address", "address", "address"

@@ -49,6 +49,8 @@
     "ritual_ZN9QScroller18resendPrepareEventEv": ["nothing", "address"],
     "ritual_ZN9QScrollerC1EP7QObject": ["address", "address"],
     "ritual_ZN9QScrollerD1Ev": ["nothing", "address"],
+    "ritual_ZN9QScroller6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QScroller6d_funcEv": ["address", "address"],
     "ritual_list_make_QScroller_ptr": ["address"],
     "ritual_list_add_QScroller_ptr": ["nothing", "address", "address"],
     "ritual_list_size_QScroller_ptr": ["long long", "address"],

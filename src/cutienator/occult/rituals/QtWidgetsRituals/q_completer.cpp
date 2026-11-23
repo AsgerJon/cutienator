@@ -448,6 +448,19 @@ bool ritual_ZN10QCompleter5eventEP6QEvent(QCompleter *self, QEvent *a0) {
   return self->event(a0);
 }
 
+//  QCompleterPrivate *QCompleter::d_func()
+extern "C" Q_DECL_EXPORT
+QCompleterPrivate *ritual_ZN10QCompleter6d_funcEv(QCompleter *self) {
+  return self->d_func();
+}
+
+//  const QCompleterPrivate *QCompleter::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCompleterPrivate *ritual_ZNK10QCompleter6d_funcEv(
+    const QCompleter *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQCompleter, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

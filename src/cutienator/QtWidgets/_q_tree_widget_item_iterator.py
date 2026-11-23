@@ -62,11 +62,16 @@ class QTreeWidgetItemIterator(CuteMixin, metaclass=MetaCute):
     name for.
   - Qt's 'QTreeWidgetItem *QTreeWidgetItemIterator::operator*() const': an
     operator Python has no name for.
+  - Qt's 'QTreeWidgetItemIteratorPrivate *QTreeWidgetItemIterator::d_func()':
+    gives 'QTreeWidgetItemIteratorPrivate', which has no cute class yet.
+  - Qt's 'const QTreeWidgetItemIteratorPrivate
+    *QTreeWidgetItemIterator::d_func() const': gives
+    'QTreeWidgetItemIteratorPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  5 of the 15 functions Qt declares: 5 takes or gives a type that cannot be
+  3 of the 15 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet.
 
   What to expect

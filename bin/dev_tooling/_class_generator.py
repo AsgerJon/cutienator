@@ -263,10 +263,11 @@ class ClassGenerator:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
-  #  The constants of the classes of Qt that are numbers, gathered once
-  #  for each tree; see '_findConstantNumber'.
+  #  The constants of the classes of Qt that are numbers are gathered
+  #  once for each tree and kept in a dict the tree gives for it; see
+  #  '_findConstantNumber'. The lock keeps two threads from both
+  #  gathering them.
   __constant_lock__ = threading.RLock()
-  __constant_numbers__ = dict()  # type: Dict[int, Dict[str, Set[Any]]]
   #  The name Python has for each operator of C++ that takes two: the
   #  one asked of what stands on the left, and the one asked of what
   #  stands on the right when the left has said it cannot. For a
@@ -1229,12 +1230,13 @@ class ClassGenerator:
     """
     tree = self.getDependencyTree()
     with self.__constant_lock__:
-      numbers = self.__constant_numbers__.get(id(tree), None)
+      kept = tree.getKept('constant numbers')
+      numbers = kept.get('found', None)
       if numbers is None:
         #  Kept before it is filled: a constant written in terms of
         #  another one asks here again, and finds what is there so far.
         numbers = dict()
-        self.__constant_numbers__[id(tree)] = numbers
+        kept['found'] = numbers
         for className in self.getCuteNames():
           for child in tree.getClassRecord(className).get('inner', ()):
             if child.get('kind') != 'VarDecl':
@@ -1289,7 +1291,7 @@ class ClassGenerator:
       names.extend(found)
     return names or None
 
-  def _findMadeOf(self, node: Optional[Record]) -> Optional[Tuple[str, ...]]:
+  def _findMadeOf(self, node: Optional[Record]) -> Optional[Record]:
     """
     Says in Python one thing a default of Qt makes a value of, as the
     'Qt::white' of 'QColor(Qt::white)': a number written out, or a
@@ -1299,12 +1301,13 @@ class ClassGenerator:
     Returns
     -------
 
-    Optional[Tuple[Any, ...]]
-      None when it is anything else. Else the kind, 'number', 'enum' or
-      'value'; the enum or the class as C++ names it, or '' for a
-      number; the text in Python, as '0', 'Qt.GlobalColor.white' or
-      'QPoint(0, 0)'; and the late classes the text names, which have
-      to be brought in before it is run.
+    Optional[Record]
+      None when it is anything else. Else 'kind': 'number', 'enum' or
+      'value'; 'cppName': the enum or the class as C++ names it, or ''
+      for a number; 'text': how it is written in Python, as '0',
+      'Qt.GlobalColor.white' or 'QPoint(0, 0)'; and 'brings': the late
+      classes the text names, which have to be brought in before it is
+      run.
     """
     node = self._unwrap(node)
     if node is None:
@@ -1325,12 +1328,13 @@ class ClassGenerator:
         return None
       if not parts and not self._canBeMadeEmpty(cppName):
         return None
-      brings = [name for part in parts for name in part[3]]
+      brings = [name for part in parts for name in part['brings']]
       if found['late'] and found['bring']:
         brings.append(found['bring'])
       made = '%s(%s)' % (
-          found['holder'], ', '.join(part[2] for part in parts))
-      return ('value', cppName, made, (*brings,))
+          found['holder'], ', '.join(part['text'] for part in parts))
+      return dict(
+          kind='value', cppName=cppName, text=made, brings=(*brings,))
     if kind == 'DeclRefExpr':
       referenced = node.get('referencedDecl', dict())
       if referenced.get('kind') != 'EnumConstantDecl':
@@ -1346,7 +1350,9 @@ class ClassGenerator:
       if all(name != member for member, _ in record['members']):
         return None
       name = self.__python_words__.get(name, name)
-      return ('enum', enumName, '%s.%s' % (found['entry'], name), ())
+      return dict(
+          kind='enum', cppName=enumName, brings=(),
+          text='%s.%s' % (found['entry'], name))
     literals = ('IntegerLiteral', 'FloatingLiteral')
     if kind == 'UnaryOperator':
       inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
@@ -1358,9 +1364,9 @@ class ClassGenerator:
     number = self._findNumber(node)
     if number is None or isinstance(number, bool):
       return None
-    return ('number', '', repr(number), ())
+    return dict(kind='number', cppName='', text=repr(number), brings=())
 
-  def _canBeMadeOf(self, className: str, parts: List[Any]) -> bool:
+  def _canBeMadeOf(self, className: str, parts: List[Record]) -> bool:
     """Says whether the cute class of a class of Qt can be made of what
     '_findMadeOf' gave: whether it has a ritual for a constructor
     taking just that: number for number, enum for enum and value for
@@ -1372,7 +1378,8 @@ class ClassGenerator:
       if len(arguments) != len(parts):
         continue
       for argument, part in zip(arguments, parts):
-        kind, cppName, passing = part[0], part[1], argument['passing']
+        kind, cppName = part['kind'], part['cppName']
+        passing = argument['passing']
         if passing['kind'] != kind:
           break
         if kind == 'number' and passing['className'] == 'char':
@@ -1489,10 +1496,10 @@ class ClassGenerator:
       if not self._canBeMadeOf(parameter['className'], parts):
         return None
       made = '%s(%s)' % (
-          parameter['holder'], ', '.join(part[2] for part in parts))
+          parameter['holder'], ', '.join(part['text'] for part in parts))
       brings = []  # type: List[str]
       for part in parts:
-        brings.extend(n for n in part[3] if n not in brings)
+        brings.extend(n for n in part['brings'] if n not in brings)
       return dict(text='None', made=made, brings=(*brings,))
     return None
 
@@ -1540,9 +1547,7 @@ class ClassGenerator:
     name, className = referenced.get('name'), parameter['className']
     found = [
         plan for plan in self.getRitualGenerator(className).getWritten()
-        if plan['kind'] == 'static method'
-        and plan['function'].split('(')[0].endswith(
-            ' *%s::%s' % (className, name))
+        if plan['kind'] == 'static method' and plan['name'] == name
     ]
     if len(found) != 1:
       return None
@@ -2245,7 +2250,17 @@ class ClassGenerator:
     infoSpec = """Written by dev_tooling.ClassGenerator from the records
     of %s, Qt %s. Changes made here are lost."""
     info = infoSpec % (relative, QtPart.getQtVersion())
-    return self._wrapWords(info, '#  ')
+    lines = self._wrapWords(info, '#  ')
+    qtPart = tree.getQtPart(className)
+    if qtPart.hasPrivate():
+      if headerPath.startswith(qtPart.getPrivateFolder()):
+        infoSpec = """Qt means %s to be private: it declares the
+        class in a header it calls private. cutienator does not care.
+        Qt hands objects of the class out all the same, and a class we
+        are handed is a class we have."""
+        lines.append('#')
+        lines.extend(self._wrapWords(infoSpec % className, '#  '))
+    return lines
 
   def _writeImports(self) -> List[str]:
     """Gives the lines at the top of the file that bring in names."""

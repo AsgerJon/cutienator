@@ -4,6 +4,27 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <cstring>
+#include "qlayout.h"
+#include "qapplication.h"
+#include "qlayoutengine_p.h"
+#include "qevent.h"
+#include "qstyle.h"
+#include "qvariant.h"
+#include "qwidget_p.h"
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it.
+
+//  from src/widgets/kernel/qlayoutitem.cpp, line 712, as _ZNK13QWidgetItemV212useSizeCacheEv
+inline inline bool QWidgetItemV2::useSizeCache() const
+{
+    return wid->d_func()->widgetItem == this;
+}
+//  -----------------------------------------------------------------------
 
 //  A QWidgetItemV2 that Python can take functions over in. Every QWidgetItemV2
 //  Python makes is one. Each function below asks the Python
@@ -294,6 +315,12 @@ int ritual_ZNK13QWidgetItemV214heightForWidthEi(
     const QWidgetItemV2 *self,
     int width) {
   return self->heightForWidth(width);
+}
+
+//  bool QWidgetItemV2::useSizeCache() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13QWidgetItemV212useSizeCacheEv(const QWidgetItemV2 *self) {
+  return self->useSizeCache();
 }
 
 //  void QWidgetItemV2::updateCacheIfNecessary() const

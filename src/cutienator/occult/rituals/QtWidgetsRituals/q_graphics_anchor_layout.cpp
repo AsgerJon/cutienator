@@ -323,6 +323,20 @@ QSizeF *ritual_ZNK21QGraphicsAnchorLayout8sizeHintEN2Qt8SizeHintERK6QSizeF(
   return new QSizeF(self->sizeHint(which, *constraint));
 }
 
+//  QGraphicsAnchorLayoutPrivate *QGraphicsAnchorLayout::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsAnchorLayoutPrivate *ritual_ZN21QGraphicsAnchorLayout6d_funcEv(
+    QGraphicsAnchorLayout *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsAnchorLayoutPrivate *QGraphicsAnchorLayout::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsAnchorLayoutPrivate *ritual_ZNK21QGraphicsAnchorLayout6d_funcEv(
+    const QGraphicsAnchorLayout *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsAnchorLayout, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

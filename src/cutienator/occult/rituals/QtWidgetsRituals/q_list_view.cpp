@@ -2022,6 +2022,19 @@ int ritual_ZNK9QListView11visualIndexERK11QModelIndex(
   return self->visualIndex(*index);
 }
 
+//  QListViewPrivate *QListView::d_func()
+extern "C" Q_DECL_EXPORT
+QListViewPrivate *ritual_ZN9QListView6d_funcEv(QListView *self) {
+  return self->d_func();
+}
+
+//  const QListViewPrivate *QListView::d_func() const
+extern "C" Q_DECL_EXPORT
+const QListViewPrivate *ritual_ZNK9QListView6d_funcEv(
+    const QListView *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQListView, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

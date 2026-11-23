@@ -157,6 +157,8 @@
     "ritual_ZN12QTableWidget8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN12QTableWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QTableWidget6d_funcEv": ["address", "address"],
     "ritual_take_QTableWidget": ["bool", "address", "chars", "address"],
     "ritual_own_ZN12QTableWidget5eventEP6QEvent": [
       "bool", "address", "address"

@@ -3,6 +3,8 @@
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import os
+
 from typing import TYPE_CHECKING
 
 from . import System
@@ -124,6 +126,27 @@ class MacOS(System):
     return (
         '-fPIC', '-fvisibility=hidden', '-fvisibility-inlines-hidden',
         '-F%s' % qtFolder,
+    )
+
+  def getPrivateFolders(
+      self,
+      headerFolder: str,
+      qtFolder: str,
+      version: str,
+      part: str,
+  ) -> Paths:
+    """
+    Gives the folders 'clang++' has to look in for the headers of one
+    part of Qt that Qt calls private. On macOS they lie inside the
+    framework of the part, as
+    'QtCore.framework/Headers/6.12.0/QtCore/private'.
+    """
+    partFolder = os.path.join(
+        qtFolder, '%s.framework' % part, 'Headers')
+    inner = os.path.join(partFolder, version, part)
+    return (
+        partFolder, os.path.join(partFolder, version), inner,
+        os.path.join(inner, 'private'),
     )
 
   def getLinkerFlags(self, qtFolder: str) -> Paths:

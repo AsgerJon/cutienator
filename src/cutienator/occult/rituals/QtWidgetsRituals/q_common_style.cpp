@@ -795,6 +795,19 @@ void ritual_ZN12QCommonStyle8unpolishEP12QApplication(
   self->unpolish(application);
 }
 
+//  QCommonStylePrivate *QCommonStyle::d_func()
+extern "C" Q_DECL_EXPORT
+QCommonStylePrivate *ritual_ZN12QCommonStyle6d_funcEv(QCommonStyle *self) {
+  return self->d_func();
+}
+
+//  const QCommonStylePrivate *QCommonStyle::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCommonStylePrivate *ritual_ZNK12QCommonStyle6d_funcEv(
+    const QCommonStyle *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQCommonStyle, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

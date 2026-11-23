@@ -3,6 +3,8 @@
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import os
+
 import sys
 from abc import abstractmethod
 from typing import TYPE_CHECKING
@@ -211,6 +213,53 @@ class System:
       A 'Tuple[str, ...]', one argument per entry.
     """
     raise self._refuse('getCompilerFlags')
+
+  def getPrivateFolders(
+      self,
+      headerFolder: str,
+      qtFolder: str,
+      version: str,
+      part: str,
+  ) -> Paths:
+    """
+    Gives the folders 'clang++' has to look in for the headers of one
+    part of Qt that Qt calls private. Qt means by the word that it may
+    change them without telling; cutienator takes them all the same.
+
+    Parameters
+    ----------
+
+    headerFolder : str
+      The folder where Qt keeps its headers.
+
+    qtFolder : str
+      The folder where Qt keeps its shared objects. Only macOS has a use
+      for it here.
+
+    version : str
+      The version of Qt, as '6.12.0': Qt keeps these headers in a folder
+      of that name.
+
+    part : str
+      The part of Qt, as 'QtCore'.
+
+    Returns
+    -------
+
+    Paths
+      Four folders, as '/usr/include/qt6/QtCore',
+      '/usr/include/qt6/QtCore/6.12.0',
+      '/usr/include/qt6/QtCore/6.12.0/QtCore' and the folder 'private'
+      in that one: a header names another as '"qglobal.h"', as
+      '<private/qobject_p.h>', as '<QtCore/private/qobject_p.h>' or
+      barely as '"qobject_p.h"'.
+    """
+    partFolder = os.path.join(headerFolder, part)
+    inner = os.path.join(partFolder, version, part)
+    return (
+        partFolder, os.path.join(partFolder, version), inner,
+        os.path.join(inner, 'private'),
+    )
 
   @abstractmethod
   def getLinkerFlags(self, qtFolder: str) -> Paths:

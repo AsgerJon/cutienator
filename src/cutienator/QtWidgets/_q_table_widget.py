@@ -77,11 +77,15 @@ class QTableWidget(QTableView):
 
   - Qt's 'QTableWidget::~QTableWidget()': the destructor: Python never
     removes a C++ QTableWidget.
+  - Qt's 'QTableWidgetPrivate *QTableWidget::d_func()': gives
+    'QTableWidgetPrivate', which has no cute class yet.
+  - Qt's 'const QTableWidgetPrivate *QTableWidget::d_func() const': gives
+    'QTableWidgetPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  23 of the 92 functions Qt declares: 15 a signal; 4 takes or gives a type
+  21 of the 92 functions Qt declares: 15 a signal; 2 takes or gives a type
   that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
   nowhere to be found.
 

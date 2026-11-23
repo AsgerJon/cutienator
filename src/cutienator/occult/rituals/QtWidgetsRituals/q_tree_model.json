@@ -1,0 +1,147 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QTreeModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QTreeModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QTreeModel4viewEv": ["address", "address"],
+    "ritual_ZN10QTreeModel5clearEv": ["nothing", "address"],
+    "ritual_ZN10QTreeModel14setColumnCountEi": ["nothing", "address", "int"],
+    "ritual_ZNK10QTreeModel4itemERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QTreeModel11itemChangedEP15QTreeWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QTreeModel5indexEPK15QTreeWidgetItemi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK10QTreeModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK10QTreeModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTreeModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK10QTreeModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK10QTreeModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10QTreeModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN10QTreeModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN10QTreeModel13clearItemDataERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10QTreeModel8itemDataERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTreeModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN10QTreeModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti": [
+      "bool", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZNK10QTreeModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN10QTreeModel4sortEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QTreeModel10insertRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10QTreeModel13insertColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK10QTreeModel9mimeTypesEv": ["address", "address"],
+    "ritual_ZNK10QTreeModel8mimeDataERK5QListI11QModelIndexE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QTreeModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZNK10QTreeModel20supportedDropActionsEv": ["int", "address"],
+    "ritual_ZNK10QTreeModel20supportedDragActionsEv": ["int", "address"],
+    "ritual_ZNK10QTreeModel16internalMimeDataEv": ["address", "address"],
+    "ritual_ZNK10QTreeModel19createIndexFromItemEiiP15QTreeWidgetItem": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10QTreeModel16beginInsertItemsEP15QTreeWidgetItemii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN10QTreeModel14endInsertItemsEv": ["nothing", "address"],
+    "ritual_ZN10QTreeModel16beginRemoveItemsEP15QTreeWidgetItemii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN10QTreeModel14endRemoveItemsEv": ["nothing", "address"],
+    "ritual_ZN10QTreeModel10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QTreeModel18executePendingSortEv": ["bool", "address"],
+    "ritual_ZNK10QTreeModel10isChangingEv": ["bool", "address"],
+    "ritual_ZN10QTreeModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QTreeModel6d_funcEv": ["address", "address"],
+    "ritual_take_QTreeModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QTreeModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK10QTreeModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK10QTreeModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK10QTreeModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK10QTreeModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK10QTreeModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN10QTreeModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN10QTreeModel13clearItemDataERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK10QTreeModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN10QTreeModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti": [
+      "bool", "address", "int", "int", "address", "int"
+    ],
+    "ritual_own_ZNK10QTreeModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN10QTreeModel4sortEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN10QTreeModel10insertRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN10QTreeModel13insertColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN10QTreeModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
+      "bool", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_own_ZNK10QTreeModel20supportedDropActionsEv": ["int", "address"],
+    "ritual_own_ZNK10QTreeModel20supportedDragActionsEv": ["int", "address"],
+    "ritual_own_ZN10QTreeModel10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

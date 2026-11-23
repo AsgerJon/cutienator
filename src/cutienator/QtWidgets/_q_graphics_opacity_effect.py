@@ -54,11 +54,16 @@ class QGraphicsOpacityEffect(QGraphicsEffect):
 
   - Qt's 'QGraphicsOpacityEffect::~QGraphicsOpacityEffect()': the destructor:
     Python never removes a C++ QGraphicsOpacityEffect.
+  - Qt's 'QGraphicsOpacityEffectPrivate *QGraphicsOpacityEffect::d_func()':
+    gives 'QGraphicsOpacityEffectPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsOpacityEffectPrivate
+    *QGraphicsOpacityEffect::d_func() const': gives
+    'QGraphicsOpacityEffectPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  10 of the 19 functions Qt declares: 4 takes or gives a type that cannot be
+  8 of the 19 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
   to be found.
 

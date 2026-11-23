@@ -37,9 +37,9 @@ class QLatin1StringMatcher(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLatin1StringMatcher that has a ritual and that
-  Python can call so far, 5 names in all: 'setPattern', 'pattern',
-  'setCaseSensitivity', 'caseSensitivity', 'indexIn'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  Python can call so far, 7 names in all: 'setPattern', 'pattern',
+  'setCaseSensitivity', 'caseSensitivity', 'indexIn', 'setSearcher',
+  'freeSearcher'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,8 +51,7 @@ class QLatin1StringMatcher(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 12 functions Qt declares: 2 declared and nowhere to be found; 1 a
-  template.
+  1 of the 12 functions Qt declares: 1 a template.
 
   What to expect
   --------------
@@ -236,6 +235,16 @@ class QLatin1StringMatcher(CuteMixin, metaclass=MetaCute):
         cs.value,
     )
 
+  def setSearcher(self) -> None:
+    """
+    Calls Qt's 'void QLatin1StringMatcher::setSearcher()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlatin1stringmatcher.html#setSearcher
+    """
+    #  void QLatin1StringMatcher::setSearcher()
+    self.uglySide.call('ritual_ZN20QLatin1StringMatcher11setSearcherEv')
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -316,3 +325,13 @@ class QLatin1StringMatcher(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def freeSearcher(self) -> None:
+    """
+    Calls Qt's 'void QLatin1StringMatcher::freeSearcher()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlatin1stringmatcher.html#freeSearcher
+    """
+    #  void QLatin1StringMatcher::freeSearcher()
+    self.uglySide.call('ritual_ZN20QLatin1StringMatcher12freeSearcherEv')

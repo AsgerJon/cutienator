@@ -1502,6 +1502,19 @@ void ritual_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox(
   self->initStyleOption(option);
 }
 
+//  QComboBoxPrivate *QComboBox::d_func()
+extern "C" Q_DECL_EXPORT
+QComboBoxPrivate *ritual_ZN9QComboBox6d_funcEv(QComboBox *self) {
+  return self->d_func();
+}
+
+//  const QComboBoxPrivate *QComboBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QComboBoxPrivate *ritual_ZNK9QComboBox6d_funcEv(
+    const QComboBox *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQComboBox, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

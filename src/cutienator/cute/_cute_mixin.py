@@ -726,6 +726,33 @@ class CuteMixin(BaseObject):
     return Rituals.createCall(gives[0], words, called)
 
   @classmethod
+  def _findRealClass(cls, address: int) -> Any:
+    """
+    Gives the cute class of the C++ class a QObject at an address
+    really is, when there is one and it is built on the class this is
+    called on, and else the class this is called on.
+
+    Qt hands an object over as the class a function names, as
+    'QAbstractItemModel *' for 'QListWidget::model()', while the object
+    is of a class built on that one, as 'QListModel'. Every QObject
+    says which class it is, through its 'metaObject()'.
+    """
+    meta = Rituals.call('ritual_ZNK7QObject10metaObjectEv', address)
+    name = Rituals.call('ritual_ZNK11QMetaObject9classNameEv', meta)
+    name = name.decode('ascii', 'replace')
+    if name == cls.__name__:
+      return cls
+    for partName in Rituals.getQtParts():
+      part = importlib.import_module('..%s' % partName, __package__)
+      try:
+        found = getattr(part, name)
+      except AttributeError:
+        continue
+      if isinstance(found, type) and issubclass(found, cls):
+        return found
+    return cls
+
+  @classmethod
   def _cuteAnew(cls, address: int) -> Any:
     """
     Gives a new object of the class this is called on, made around the
@@ -743,6 +770,8 @@ class CuteMixin(BaseObject):
     address : int
       Where the C++ object is.
     """
+    if cls.__watched_by_qt__:
+      cls = cls._findRealClass(address)
     cuteSide = cls.__new__(cls)
     ugly = Ugly()
     ugly.setAddress(address)

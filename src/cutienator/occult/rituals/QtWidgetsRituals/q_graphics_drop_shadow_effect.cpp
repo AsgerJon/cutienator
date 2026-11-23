@@ -328,6 +328,21 @@ void ritual_ZN25QGraphicsDropShadowEffect4drawEP8QPainter(
   self->draw(painter);
 }
 
+//  QGraphicsDropShadowEffectPrivate *QGraphicsDropShadowEffect::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsDropShadowEffectPrivate *ritual_ZN25QGraphicsDropShadowEffect6d_funcEv(
+    QGraphicsDropShadowEffect *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsDropShadowEffectPrivate
+//      *QGraphicsDropShadowEffect::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsDropShadowEffectPrivate *ritual_ZNK25QGraphicsDropShadowEffect6d_funcEv(
+    const QGraphicsDropShadowEffect *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsDropShadowEffect, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

@@ -73,11 +73,15 @@ class QTreeWidget(QTreeView):
 
   - Qt's 'QTreeWidget::~QTreeWidget()': the destructor: Python never removes
     a C++ QTreeWidget.
+  - Qt's 'QTreeWidgetPrivate *QTreeWidget::d_func()': gives
+    'QTreeWidgetPrivate', which has no cute class yet.
+  - Qt's 'const QTreeWidgetPrivate *QTreeWidget::d_func() const': gives
+    'QTreeWidgetPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  18 of the 74 functions Qt declares: 10 a signal; 4 takes or gives a type
+  16 of the 74 functions Qt declares: 10 a signal; 2 takes or gives a type
   that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
   nowhere to be found.
 

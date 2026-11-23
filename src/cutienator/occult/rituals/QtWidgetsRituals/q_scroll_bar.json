@@ -43,6 +43,8 @@
     "ritual_ZNK10QScrollBar15initStyleOptionEP18QStyleOptionSlider": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN10QScrollBar6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QScrollBar6d_funcEv": ["address", "address"],
     "ritual_take_QScrollBar": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK10QScrollBar8sizeHintEv": ["address", "address"],
     "ritual_own_ZN10QScrollBar5eventEP6QEvent": [

@@ -43,9 +43,10 @@ class QWidgetItemV2(QWidgetItem):
   -----------
 
   Every function of Qt's QWidgetItemV2 that has a ritual and that Python can
-  call so far, 6 names in all: 'sizeHint', 'minimumSize', 'maximumSize',
-  'heightForWidth', 'updateCacheIfNecessary', 'invalidateSizeCache'. It can
-  be made from Python, in 1 way; see '__init__'.
+  call so far, 7 names in all: 'sizeHint', 'minimumSize', 'maximumSize',
+  'heightForWidth', 'useSizeCache', 'updateCacheIfNecessary',
+  'invalidateSizeCache'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,8 +57,7 @@ class QWidgetItemV2(QWidgetItem):
   What has no ritual
   ------------------
 
-  3 of the 11 functions Qt declares: 2 forbidden; 1 declared and nowhere to
-  be found.
+  2 of the 11 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -179,6 +179,15 @@ class QWidgetItemV2(QWidgetItem):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK13QWidgetItemV214heightForWidthEi'
     return self.uglySide.call(ritual, width)
+
+  def useSizeCache(self) -> bool:
+    """
+    Calls Qt's 'bool QWidgetItemV2::useSizeCache() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgetitemv2.html#useSizeCache
+    """
+    #  bool QWidgetItemV2::useSizeCache() const
+    return self.uglySide.call('ritual_ZNK13QWidgetItemV212useSizeCacheEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

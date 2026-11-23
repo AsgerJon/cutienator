@@ -373,6 +373,13 @@ int ritual_ZNK16QTableWidgetItem4typeEv(const QTableWidgetItem *self) {
   return self->type();
 }
 
+//  QTableModel *QTableWidgetItem::tableModel() const
+extern "C" Q_DECL_EXPORT
+QTableModel *ritual_ZNK16QTableWidgetItem10tableModelEv(
+    const QTableWidgetItem *self) {
+  return self->tableModel();
+}
+
 //  a Python function taken by a CuteQTableWidgetItem, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

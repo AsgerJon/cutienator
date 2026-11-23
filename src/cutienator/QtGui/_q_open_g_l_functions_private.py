@@ -37,7 +37,9 @@ class QOpenGLFunctionsPrivate(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  2 of the 3 functions Qt declares: 2 declared and nowhere to be found.
+  2 of the 3 functions Qt declares: 1 declared and nowhere to be found; 1
+  Qt's library has no name for it, and its code in Qt's source does not
+  compile apart from its file.
 
   What to expect
   --------------

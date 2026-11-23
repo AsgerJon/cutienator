@@ -656,6 +656,14 @@ void ritual_ZNK15QTreeWidgetItem18executePendingSortEv(
   self->executePendingSort();
 }
 
+//  QTreeModel *QTreeWidgetItem::treeModel(QTreeWidget *v) const
+extern "C" Q_DECL_EXPORT
+QTreeModel *ritual_ZNK15QTreeWidgetItem9treeModelEP11QTreeWidget(
+    const QTreeWidgetItem *self,
+    QTreeWidget *v) {
+  return self->treeModel(v);
+}
+
 //  a Python function taken by a CuteQTreeWidgetItem, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

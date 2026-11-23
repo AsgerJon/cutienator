@@ -1260,6 +1260,20 @@ int ritual_ZNK16QAbstractSpinBox11stepEnabledEv(
   return static_cast<int>(self->stepEnabled().toInt());
 }
 
+//  QAbstractSpinBoxPrivate *QAbstractSpinBox::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractSpinBoxPrivate *ritual_ZN16QAbstractSpinBox6d_funcEv(
+    QAbstractSpinBox *self) {
+  return self->d_func();
+}
+
+//  const QAbstractSpinBoxPrivate *QAbstractSpinBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractSpinBoxPrivate *ritual_ZNK16QAbstractSpinBox6d_funcEv(
+    const QAbstractSpinBox *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQAbstractSpinBox, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

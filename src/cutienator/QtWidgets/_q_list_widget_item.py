@@ -22,7 +22,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QSize, QVariant
   from ..QtGui import QBrush, QFont, QIcon
-  from . import QListWidget
+  from . import QListModel, QListWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -52,14 +52,14 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QListWidgetItem that has a ritual and that Python
-  can call so far, 34 names in all: 'clone', 'listWidget', 'setSelected',
+  can call so far, 35 names in all: 'clone', 'listWidget', 'setSelected',
   'isSelected', 'setHidden', 'isHidden', 'flags', 'setFlags', 'text',
   'setText', 'icon', 'setIcon', 'statusTip', 'setStatusTip', 'toolTip',
   'setToolTip', 'whatsThis', 'setWhatsThis', 'font', 'setFont',
   'textAlignment', 'setTextAlignment', 'background', 'setBackground',
   'foreground', 'setForeground', 'checkState', 'setCheckState', 'sizeHint',
-  'setSizeHint', 'data', 'setData', '__lt__', 'type'. It can be made from
-  Python, in 4 ways; see '__init__'.
+  'setSizeHint', 'data', 'setData', '__lt__', 'type', 'listModel'. It can be
+  made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -73,7 +73,7 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 45 functions Qt declares: 4 takes or gives a type that cannot be
+  3 of the 45 functions Qt declares: 3 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -457,6 +457,24 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  int QListWidgetItem::type() const
     return self.uglySide.call('ritual_ZNK15QListWidgetItem4typeEv')
+
+  def listModel(self) -> Optional[QListModel]:
+    """
+    Calls Qt's 'QListModel *QListWidgetItem::listModel() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidgetitem.html#listModel
+
+    Returns
+    -------
+
+    Optional[QListModel]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QListModel *QListWidgetItem::listModel() const
+    address = self.uglySide.call('ritual_ZNK15QListWidgetItem9listModelEv')
+    from . import QListModel
+    return QListModel._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

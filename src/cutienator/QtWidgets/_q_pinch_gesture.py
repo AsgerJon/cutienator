@@ -56,13 +56,17 @@ class QPinchGesture(QGesture):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPinchGesturePrivate *QPinchGesture::d_func()': gives
+    'QPinchGesturePrivate', which has no cute class yet.
+  - Qt's 'const QPinchGesturePrivate *QPinchGesture::d_func() const': gives
+    'QPinchGesturePrivate', which has no cute class yet.
   - Qt's 'QPinchGesture::~QPinchGesture()': the destructor: Python never
     removes a C++ QPinchGesture.
 
   What has no ritual
   ------------------
 
-  6 of the 32 functions Qt declares: 4 takes or gives a type that cannot be
+  4 of the 32 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 1 a template; 1 declared and nowhere to be found.
 
   What to expect

@@ -54,7 +54,9 @@ class QFontVariableAxis(CuteMixin, metaclass=MetaCute):
   ------------------
 
   10 of the 25 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 3 declared and nowhere to be found; 1 a template.
+  passed yet; 2 declared and nowhere to be found; 1 a template; 1 Qt's
+  library has no name for it, and its code in Qt's source does not compile
+  apart from its file.
 
   What to expect
   --------------

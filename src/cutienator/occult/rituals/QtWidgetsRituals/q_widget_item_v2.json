@@ -10,6 +10,7 @@
     "ritual_ZNK13QWidgetItemV211minimumSizeEv": ["address", "address"],
     "ritual_ZNK13QWidgetItemV211maximumSizeEv": ["address", "address"],
     "ritual_ZNK13QWidgetItemV214heightForWidthEi": ["int", "address", "int"],
+    "ritual_ZNK13QWidgetItemV212useSizeCacheEv": ["bool", "address"],
     "ritual_ZNK13QWidgetItemV222updateCacheIfNecessaryEv": [
       "nothing", "address"
     ],

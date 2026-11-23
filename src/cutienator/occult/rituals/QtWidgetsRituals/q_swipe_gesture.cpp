@@ -146,6 +146,20 @@ QString *ritual_ZN13QSwipeGesture2trEPKcS1_i(
   return new QString(QSwipeGesture::tr(s, c, n));
 }
 
+//  QSwipeGesturePrivate *QSwipeGesture::d_func()
+extern "C" Q_DECL_EXPORT
+QSwipeGesturePrivate *ritual_ZN13QSwipeGesture6d_funcEv(
+    QSwipeGesture *self) {
+  return self->d_func();
+}
+
+//  const QSwipeGesturePrivate *QSwipeGesture::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSwipeGesturePrivate *ritual_ZNK13QSwipeGesture6d_funcEv(
+    const QSwipeGesture *self) {
+  return self->d_func();
+}
+
 //  QSwipeGesture::QSwipeGesture(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QSwipeGesture *ritual_ZN13QSwipeGestureC1EP7QObject(QObject *parent) {

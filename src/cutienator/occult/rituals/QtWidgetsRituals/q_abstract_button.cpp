@@ -1129,6 +1129,20 @@ void ritual_ZN15QAbstractButton10timerEventEP11QTimerEvent(
   self->timerEvent(e);
 }
 
+//  QAbstractButtonPrivate *QAbstractButton::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractButtonPrivate *ritual_ZN15QAbstractButton6d_funcEv(
+    QAbstractButton *self) {
+  return self->d_func();
+}
+
+//  const QAbstractButtonPrivate *QAbstractButton::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractButtonPrivate *ritual_ZNK15QAbstractButton6d_funcEv(
+    const QAbstractButton *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQAbstractButton, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

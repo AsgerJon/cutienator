@@ -234,6 +234,8 @@ class QtPart:
   __named_header_paths__ = None  # type: Optional[Paths]
   __offered_names__ = None  # type: Optional[FrozenSet[str]]
   __found_pullers__ = None  # type: Optional[Dict[str, Optional[str]]]
+  __with_private__ = False
+  __own_list_paths__ = None  # type: Optional[FrozenSet[str]]
 
   #  Public Variables
 
@@ -488,11 +490,64 @@ class QtPart:
       A 'Tuple[str, ...]'. For 'QtCore' of Qt 6.12.0 it holds 286.
     """
     partFolder = self.getPartFolder()
-    return (*sorted(
+    found = sorted(
         os.path.join(partFolder, name) for name in os.listdir(partFolder)
         if name.endswith('.h')
         and os.path.isfile(os.path.join(partFolder, name))
-    ),)
+    )
+    if self.hasPrivate():
+      #  Qt calls these private. That is no concern of cutienator.
+      privateFolder = self.getPrivateFolder()
+      found.extend(sorted(
+          os.path.join(privateFolder, name)
+          for name in os.listdir(privateFolder)
+          if name.endswith('.h')
+          and os.path.isfile(os.path.join(privateFolder, name))
+      ))
+    return (*found,)
+
+  def hasPrivate(self) -> bool:
+    """Says whether the headers Qt calls private are read as well;
+    'setPrivate' says so."""
+    return True if self.__with_private__ else False
+
+  def getPrivateFolder(self) -> str:
+    """
+    Gives the folder of the headers of the part that Qt calls private,
+    as '/usr/include/qt6/QtWidgets/6.12.0/QtWidgets/private'.
+    """
+    partName = self.getPartName()
+    return os.path.join(
+        self.getPartFolder(), self.getQtVersion(), partName, 'private')
+
+  def getPrivateIncludeFolders(self) -> Paths:
+    """
+    Gives the folders the compiler has to look in beside the header
+    folder for a header Qt calls private to be read: such a header
+    pulls others in as '"qglobal.h"', as '<private/qobject_p.h>' and
+    as '<QtCore/private/qobject_p.h>'. For each part of Qt that has
+    such headers it is four folders, as '/usr/include/qt6/QtCore',
+    '/usr/include/qt6/QtCore/6.12.0',
+    '/usr/include/qt6/QtCore/6.12.0/QtCore' and the folder 'private'
+    in that one, for a file of Qt's source that names such a header
+    barely, as '"qlistwidget_p.h"'.
+    """
+    headerFolder, version = self.getQtHeaderFolder(), self.getQtVersion()
+    found = []
+    for name in sorted(os.listdir(headerFolder)):
+      folder = os.path.join(headerFolder, name, version)
+      if os.path.isdir(os.path.join(folder, name)):
+        found.append(os.path.join(headerFolder, name))
+        found.append(folder)
+        found.append(os.path.join(folder, name))
+        found.append(os.path.join(folder, name, 'private'))
+    #  Some of those headers name 'qplatformdefs.h', which Qt keeps
+    #  with what it knows of the system and the compiler it was built
+    #  for, as '/usr/lib/qt6/mkspecs/linux-g++'.
+    found.append(os.path.join(
+        self._run('qmake6', '-query', 'QT_HOST_DATA').strip(), 'mkspecs',
+        self._run('qmake6', '-query', 'QMAKE_SPEC').strip()))
+    return (*found,)
 
   def getCompilerCommand(self) -> Tuple[str, ...]:
     """
@@ -509,9 +564,12 @@ class QtPart:
       '-fPIC', which Qt's headers insist on;
       '-I' with the folder of Qt's headers.
     """
+    private = ()  # type: Tuple[str, ...]
+    if self.hasPrivate():
+      private = (*('-I%s' % f for f in self.getPrivateIncludeFolders()),)
     return (
         'clang++', '-x', 'c++', '-std=c++17', '-fPIC',
-        '-I%s' % self.getQtHeaderFolder(),
+        '-I%s' % self.getQtHeaderFolder(), *private,
     )
 
   def getReadingFolder(self) -> str:
@@ -616,7 +674,10 @@ class QtPart:
     headerFiles = []
     for name, entry in sorted(stamp['headerFiles'].items()):
       headerFile = HeaderFile()
-      headerFile.setHeaderPath(os.path.join(partFolder, name))
+      headerPath = os.path.join(partFolder, name)
+      if not os.path.isfile(headerPath) and self.hasPrivate():
+        headerPath = os.path.join(self.getPrivateFolder(), name)
+      headerFile.setHeaderPath(headerPath)
       recordPath = os.path.join(readingFolder, '%s.jsonl' % name)
       headerFile.setRecordPath(recordPath)
       headerFile.setRead(entry['read'])
@@ -816,7 +877,14 @@ class QtPart:
         header file that a line names: they lead through %s."""
         info = infoSpec % (headerPath, self.getPartName(), passed)
         raise LookupError(' '.join(info.split()))
-    return self._getIncludeLine(reached)
+    if reached in self._getOwnListPaths():
+      return self._getIncludeLine(reached)
+    #  A header file the own list of the part does not name was read on
+    #  top of that list, and may need what the list pulls in: most of
+    #  the headers Qt calls private do.
+    partName = self.getPartName()
+    ownLine = '#include <%s/%s>\n' % (partName, partName)
+    return '%s%s' % (ownLine, self._getIncludeLine(reached))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -856,6 +924,18 @@ class QtPart:
     self.__named_header_paths__ = None
     self.__offered_names__ = None
     self.__found_pullers__ = None
+
+  def setPrivate(self, withPrivate: bool) -> None:
+    """
+    Tells whether the headers Qt calls private are read as well, and
+    the classes in them count as classes of the part.
+
+    Optional; without it they are left alone. Set it before the part is
+    read or asked anything.
+    """
+    self.__with_private__ = True if withPrivate else False
+    self.__header_files__ = None
+    self.__named_header_paths__ = None
 
   def setWorkFolder(self, workFolder: str) -> None:
     """
@@ -924,6 +1004,23 @@ class QtPart:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def _getOwnListPaths(self) -> FrozenSet[str]:
+    """Gives the header files the own list of the part names outright,
+    as 'QtCore/QtCore' names 'QtCore/qobject.h'. A part without such a
+    list has none."""
+    if self.__own_list_paths__ is None:
+      partName = self.getPartName()
+      ownList = os.path.join(self.getPartFolder(), partName)
+      headerFolder, found = self.getQtHeaderFolder(), set()
+      if os.path.isfile(ownList):
+        with open(ownList) as file:
+          for line in file.read().splitlines():
+            match = self.__include_line__.match(line.strip())
+            if match is not None:
+              found.add(os.path.join(headerFolder, match.group(1)))
+      self.__own_list_paths__ = frozenset(found)
+    return self.__own_list_paths__
 
   def _findPuller(self, headerPath: str) -> Optional[str]:
     """

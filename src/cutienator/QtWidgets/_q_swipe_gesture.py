@@ -46,13 +46,17 @@ class QSwipeGesture(QGesture):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QSwipeGesturePrivate *QSwipeGesture::d_func()': gives
+    'QSwipeGesturePrivate', which has no cute class yet.
+  - Qt's 'const QSwipeGesturePrivate *QSwipeGesture::d_func() const': gives
+    'QSwipeGesturePrivate', which has no cute class yet.
   - Qt's 'QSwipeGesture::~QSwipeGesture()': the destructor: Python never
     removes a C++ QSwipeGesture.
 
   What has no ritual
   ------------------
 
-  6 of the 14 functions Qt declares: 4 takes or gives a type that cannot be
+  4 of the 14 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 1 a template; 1 declared and nowhere to be found.
 
   What to expect

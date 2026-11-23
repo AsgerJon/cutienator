@@ -996,6 +996,19 @@ QSize *ritual_ZNK11QScrollArea16viewportSizeHintEv(const QScrollArea *self) {
   return new QSize(self->viewportSizeHint());
 }
 
+//  QScrollAreaPrivate *QScrollArea::d_func()
+extern "C" Q_DECL_EXPORT
+QScrollAreaPrivate *ritual_ZN11QScrollArea6d_funcEv(QScrollArea *self) {
+  return self->d_func();
+}
+
+//  const QScrollAreaPrivate *QScrollArea::d_func() const
+extern "C" Q_DECL_EXPORT
+const QScrollAreaPrivate *ritual_ZNK11QScrollArea6d_funcEv(
+    const QScrollArea *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQScrollArea, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

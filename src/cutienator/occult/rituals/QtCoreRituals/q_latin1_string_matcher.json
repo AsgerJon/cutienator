@@ -25,6 +25,8 @@
     ],
     "ritual_ZNK20QLatin1StringMatcher7indexInE11QStringViewx": [
       "long long", "address", "text", "long long"
-    ]
+    ],
+    "ritual_ZN20QLatin1StringMatcher11setSearcherEv": ["nothing", "address"],
+    "ritual_ZN20QLatin1StringMatcher12freeSearcherEv": ["nothing", "address"]
   }
 }

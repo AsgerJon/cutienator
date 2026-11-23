@@ -83,6 +83,7 @@
     ],
     "ritual_ZNK15QListWidgetItemltERKS_": ["bool", "address", "address"],
     "ritual_ZNK15QListWidgetItem4typeEv": ["int", "address"],
+    "ritual_ZNK15QListWidgetItem9listModelEv": ["address", "address"],
     "ritual_take_QListWidgetItem": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QListWidgetItem5cloneEv": ["address", "address"],
     "ritual_own_ZNK15QListWidgetItem4dataEi": ["address", "address", "int"],

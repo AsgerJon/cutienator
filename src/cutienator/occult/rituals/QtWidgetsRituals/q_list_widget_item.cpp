@@ -377,6 +377,13 @@ int ritual_ZNK15QListWidgetItem4typeEv(const QListWidgetItem *self) {
   return self->type();
 }
 
+//  QListModel *QListWidgetItem::listModel() const
+extern "C" Q_DECL_EXPORT
+QListModel *ritual_ZNK15QListWidgetItem9listModelEv(
+    const QListWidgetItem *self) {
+  return self->listModel();
+}
+
 //  a Python function taken by a CuteQListWidgetItem, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

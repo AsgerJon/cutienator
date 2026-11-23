@@ -220,7 +220,8 @@ class RitualTester:
         '-fno-access-control', '-fvisibility-inlines-hidden',
         '-Wl,--version-script=%s' % self.getOfferFile(),
         '-Wl,--no-undefined',
-        '-I%s' % QtPart.getQtHeaderFolder(), generator.getRitualFile(),
+        '-I%s' % QtPart.getQtHeaderFolder(),
+        *generator.getPrivateArguments(), generator.getRitualFile(),
         '-o', self.getTargetFile(),
         *(qtPart.getQtSharedObject() for qtPart in qtParts),
     )

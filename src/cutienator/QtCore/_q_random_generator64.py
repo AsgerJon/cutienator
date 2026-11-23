@@ -48,7 +48,7 @@ class QRandomGenerator64(QRandomGenerator):
   ------------------
 
   5 of the 16 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 1 declared and nowhere to be found; 1 a template.
+  passed yet; 1 a template; 1 leans on 'QRandomGenerator.
 
   What to expect
   --------------

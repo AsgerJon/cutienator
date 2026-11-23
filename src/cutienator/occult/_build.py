@@ -59,6 +59,13 @@ class Build:
   - 'setTargetFile': the target file to write.
   - 'setQtSharedObjects': the Qt shared objects the rituals call into.
 
+  One more is optional:
+
+  - 'setQtParts': the parts of Qt the ritual files are of, as 'QtCore'.
+    With it 'clang++' also looks in the folders of the headers Qt calls
+    private, which a ritual file may name; see
+    'getPrivateIncludeFolders'.
+
   Found for you
   -------------
 
@@ -168,6 +175,7 @@ class Build:
   __target_file__ = None
   __qt_shared_objects__ = None
   __job_count__ = None
+  __qt_parts__ = None
 
   #  Public Variables
 
@@ -457,8 +465,9 @@ class Build:
   def getCommonHeaderText(self) -> str:
     """
     Gives the text of the common header: every line of the ritual files
-    that begins with '#include', each once, in the order they are first
-    met. It is read off the ritual files as they are now.
+    that begins with '#include' and stands under no '#if', each once,
+    in the order they are first met. It is read off the ritual files as
+    they are now.
 
     Raises
     ------
@@ -468,11 +477,22 @@ class Build:
     """
     lines = []
     for ritualFile in self.getRitualFiles():
+      depth = 0
       with open(ritualFile, encoding='utf-8') as file:
         for line in file:
           line = line.strip()
-          if line.startswith('#include') and line not in lines:
-            lines.append(line)
+          if not line.startswith('#'):
+            continue
+          word = line[1:].strip()
+          if word.startswith('if'):
+            depth += 1
+          elif word.startswith('endif'):
+            depth -= 1
+          elif depth == 0 and line.startswith('#include'):
+            #  A line under an '#if' is for some systems only, and
+            #  stays with its ritual file.
+            if line not in lines:
+              lines.append(line)
     return ''.join('%s\n' % line for line in lines)
 
   def getPrecompiledHeaderFile(self) -> str:
@@ -511,6 +531,38 @@ class Build:
     if self.__job_count__ is None:
       return os.cpu_count() or 1
     return self.__job_count__
+
+  def getQtParts(self) -> Paths:
+    """
+    Gives the parts of Qt whose private headers the ritual files may
+    name, as 'QtCore'. Provided by you, through 'setQtParts'; none
+    when it was not called.
+    """
+    return self.__qt_parts__ or ()
+
+  def getPrivateIncludeFolders(self) -> Paths:
+    """
+    Gives every folder 'clang++' has to look in for the headers Qt
+    calls private: what 'System.getPrivateFolders' gives for each part
+    of 'getQtParts', leaving out a folder that is not there.
+    """
+    system = System.getHere()
+    headerFolder = self.getQtHeaderFolder()
+    qtFolder, version = self.getQtSharedObjectFolder(), self.getQtVersion()
+    found = []
+    for part in self.getQtParts():
+      for folder in system.getPrivateFolders(
+          headerFolder, qtFolder, version, part):
+        if os.path.isdir(folder) and folder not in found:
+          found.append(folder)
+    if found:
+      #  Some of those headers name 'qplatformdefs.h', which Qt keeps
+      #  with what it knows of the system and the compiler it was
+      #  built for, as '/usr/lib/qt6/mkspecs/linux-g++'.
+      found.append(os.path.join(
+          self._run('qmake6', '-query', 'QT_HOST_DATA').strip(),
+          'mkspecs', self._run('qmake6', '-query', 'QMAKE_SPEC').strip()))
+    return (*found,)
 
   def getStaleRitualFiles(self) -> Paths:
     """
@@ -587,6 +639,7 @@ class Build:
         'clang++', '-std=c++17', '-O2', '-fno-access-control',
         *system.getCompilerFlags(qtFolder),
         '-I%s' % self.getQtHeaderFolder(),
+        *('-I%s' % f for f in self.getPrivateIncludeFolders()),
         '-fpch-instantiate-templates', '-x', 'c++-header',
         self.getCommonHeaderFile(),
         '-o', self.getPrecompiledHeaderFile(),
@@ -650,6 +703,7 @@ class Build:
         'clang++', '-std=c++17', '-O2', '-fno-access-control', '-c',
         *system.getCompilerFlags(qtFolder),
         '-I%s' % self.getQtHeaderFolder(),
+        *('-I%s' % f for f in self.getPrivateIncludeFolders()),
         '-include-pch', self.getPrecompiledHeaderFile(), ritualFile,
         '-o', self.getObjectFile(ritualFile),
     )
@@ -745,6 +799,17 @@ class Build:
     self.__ritual_files__ = (
         *(os.path.abspath(path) for path in ritualFiles),
     )
+
+  def setQtParts(self, *qtParts: str) -> None:
+    """
+    Tells the build which parts of Qt the ritual files are of, as
+    'QtCore', so that it looks in the folders of their private headers
+    too. Optional: without it only Qt's header folder is looked in.
+    """
+    for qtPart in qtParts:
+      if not isinstance(qtPart, str):
+        raise TypeException('qtPart', qtPart, str)
+    self.__qt_parts__ = (*qtParts,)
 
   def setJobCount(self, jobCount: int) -> None:
     """

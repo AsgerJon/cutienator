@@ -487,6 +487,19 @@ bool ritual_ZN12QApplication5eventEP6QEvent(QApplication *self, QEvent *a0) {
   return self->event(a0);
 }
 
+//  QApplicationPrivate *QApplication::d_func()
+extern "C" Q_DECL_EXPORT
+QApplicationPrivate *ritual_ZN12QApplication6d_funcEv(QApplication *self) {
+  return self->d_func();
+}
+
+//  const QApplicationPrivate *QApplication::d_func() const
+extern "C" Q_DECL_EXPORT
+const QApplicationPrivate *ritual_ZNK12QApplication6d_funcEv(
+    const QApplication *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQApplication, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

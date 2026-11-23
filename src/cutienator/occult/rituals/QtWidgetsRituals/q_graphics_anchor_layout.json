@@ -50,6 +50,8 @@
     "ritual_ZNK21QGraphicsAnchorLayout8sizeHintEN2Qt8SizeHintERK6QSizeF": [
       "address", "address", "int", "address"
     ],
+    "ritual_ZN21QGraphicsAnchorLayout6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QGraphicsAnchorLayout6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsAnchorLayout": [
       "bool", "address", "chars", "address"
     ],

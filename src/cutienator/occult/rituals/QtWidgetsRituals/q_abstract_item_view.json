@@ -346,6 +346,8 @@
     "ritual_ZNK17QAbstractItemView16viewportSizeHintEv": [
       "address", "address"
     ],
+    "ritual_ZN17QAbstractItemView6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QAbstractItemView6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractItemView": ["bool", "address", "chars", "address"],
     "ritual_own_ZN17QAbstractItemView8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"

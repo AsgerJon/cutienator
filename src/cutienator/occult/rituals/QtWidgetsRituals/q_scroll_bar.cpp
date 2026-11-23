@@ -914,6 +914,19 @@ void ritual_ZNK10QScrollBar15initStyleOptionEP18QStyleOptionSlider(
   self->initStyleOption(option);
 }
 
+//  QScrollBarPrivate *QScrollBar::d_func()
+extern "C" Q_DECL_EXPORT
+QScrollBarPrivate *ritual_ZN10QScrollBar6d_funcEv(QScrollBar *self) {
+  return self->d_func();
+}
+
+//  const QScrollBarPrivate *QScrollBar::d_func() const
+extern "C" Q_DECL_EXPORT
+const QScrollBarPrivate *ritual_ZNK10QScrollBar6d_funcEv(
+    const QScrollBar *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQScrollBar, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

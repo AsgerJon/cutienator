@@ -4,6 +4,41 @@
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
+#include "qlatin1stringmatcher.h"
+#include <limits.h>
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it.
+
+//  from src/corelib/text/qlatin1stringmatcher.cpp, line 77, as _ZN20QLatin1StringMatcher11setSearcherEv
+inline void QLatin1StringMatcher::setSearcher() noexcept
+{
+    if (m_cs == Qt::CaseSensitive) {
+        new (&m_caseSensitiveSearcher) CaseSensitiveSearcher(m_pattern.data(), m_pattern.end());
+    } else {
+        QtPrivate::QCaseInsensitiveLatin1Hash foldCase;
+        qsizetype bufferSize = std::min(m_pattern.size(), qsizetype(sizeof m_foldBuffer));
+        for (qsizetype i = 0; i < bufferSize; ++i)
+            m_foldBuffer[i] = static_cast<char>(foldCase(m_pattern[i].toLatin1()));
+
+        new (&m_caseInsensitiveSearcher)
+                CaseInsensitiveSearcher(m_foldBuffer, &m_foldBuffer[bufferSize]);
+    }
+}
+
+//  from src/corelib/text/qlatin1stringmatcher.cpp, line 95, as _ZN20QLatin1StringMatcher12freeSearcherEv
+inline void QLatin1StringMatcher::freeSearcher() noexcept
+{
+    if (m_cs == Qt::CaseSensitive)
+        m_caseSensitiveSearcher.~CaseSensitiveSearcher();
+    else
+        m_caseInsensitiveSearcher.~CaseInsensitiveSearcher();
+}
+//  -----------------------------------------------------------------------
 
 //  QLatin1StringMatcher::QLatin1StringMatcher()
 extern "C" Q_DECL_EXPORT
@@ -74,4 +109,18 @@ qsizetype ritual_ZNK20QLatin1StringMatcher7indexInE11QStringViewx(
     const QString *haystack,
     qsizetype from) {
   return self->indexIn(QStringView(*haystack), from);
+}
+
+//  void QLatin1StringMatcher::setSearcher()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLatin1StringMatcher11setSearcherEv(
+    QLatin1StringMatcher *self) {
+  self->setSearcher();
+}
+
+//  void QLatin1StringMatcher::freeSearcher()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QLatin1StringMatcher12freeSearcherEv(
+    QLatin1StringMatcher *self) {
+  self->freeSearcher();
 }

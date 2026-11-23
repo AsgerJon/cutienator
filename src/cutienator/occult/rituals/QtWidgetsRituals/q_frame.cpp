@@ -930,6 +930,18 @@ void ritual_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame(
   self->initStyleOption(option);
 }
 
+//  QFramePrivate *QFrame::d_func()
+extern "C" Q_DECL_EXPORT
+QFramePrivate *ritual_ZN6QFrame6d_funcEv(QFrame *self) {
+  return self->d_func();
+}
+
+//  const QFramePrivate *QFrame::d_func() const
+extern "C" Q_DECL_EXPORT
+const QFramePrivate *ritual_ZNK6QFrame6d_funcEv(const QFrame *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQFrame, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT
