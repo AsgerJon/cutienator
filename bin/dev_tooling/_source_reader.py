@@ -538,6 +538,27 @@ class SourceReader:
       self._createDefinitions(partName)
     return [*self.__found_definitions__[partName].get(name, ())]
 
+  @staticmethod
+  def getConditions(path: str, line: int) -> Tuple[str, ...]:
+    """
+    Gives what the '#if' lines around a line of a '.cpp' file of Qt's
+    source ask, outermost first, as '#if QT_CONFIG(tooltip)' asks
+    'QT_CONFIG(tooltip)'. They are read from the text of the file the
+    way 'HeaderReader.getConditions' reads those of a header file, by
+    that very reading: the lines say the same in either kind of file.
+
+    Parameters
+    ----------
+
+    path : str
+      The full path of the '.cpp' file, as a definition names it under
+      'path'.
+
+    line : int
+      The number of the line, the first line of the file being 1.
+    """
+    return HeaderReader.getConditions(path, line)
+
   def hasCode(self, partName: str, name: str) -> bool:
     """
     Says whether Qt's source writes code under the name of a function:

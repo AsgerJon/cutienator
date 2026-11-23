@@ -66,6 +66,9 @@ class HeaderReader:
   - 'setHeaderFolder': the 'HeaderFolder' that makes, from Qt's source,
     the folder Qt's header files are read in. Once, for every
     'HeaderReader'. Required.
+  - 'setUncoveredFile': the file naming the classes of Qt not covered
+    yet, as 'bin/dev_tooling/uncovered_names.txt'. Once, for every
+    'HeaderReader'. Required where the compiler cannot find a file.
   - 'setPartName': the part of Qt to read. Required.
   - 'setWorkFolder': an existing folder to keep readings in. Required.
 
@@ -79,6 +82,8 @@ class HeaderReader:
   - 'getHeaderFiles': one 'HeaderFile' per header file, once the part
     has been read.
   - 'getIncludeLines': the lines of C++ that pull a header file in.
+  - 'getConditions': what the '#if' lines around a line of a header
+    file ask, read from its text.
   - 'getSignalLines': the lines of a header file that declare signals,
     read from its text.
   - 'getQtSharedObject': the compiled Qt code of this part, of the Qt
@@ -226,6 +231,13 @@ class HeaderReader:
   #  The shorthands of each header file read so far, kept for every
   #  'HeaderReader'.
   __read_shorthands__ = dict()  # type: Dict[str, Tuple[Any, ...]]
+  #  The file naming the classes of Qt not covered yet with their
+  #  header files, and what it says: the names of the classes by the
+  #  bare name of each header file. Kept for every 'HeaderReader'.
+  __uncovered_file__ = None  # type: Optional[str]
+  __uncovered_headers__ = None  # type: Optional[Dict[str, List[str]]]
+  #  How the compiler says that it cannot find a file pulled in.
+  __not_found__ = re.compile(r"fatal error: '([^']+)' file not found")
 
   #  How the compiler lays out its report. A top-level thing opens with
   #  a line of four spaces and a bracket, and closes the same way. The
@@ -243,6 +255,17 @@ class HeaderReader:
   #  The file and the line of a place, as the compiler writes them.
   __file_key__ = re.compile(rb'^ *"file": (".*"),?\n$')
   __line_key__ = re.compile(rb'^ *"line": (\d+),?\n$')
+
+  #  A line of a header file that asks the compiler a question, goes on
+  #  to the next answer of one, or ends one.
+  __directive_line__ = re.compile(
+      r'^\s*#\s*(if|ifdef|ifndef|elif|else|endif)\b(.*)$')
+  #  A line by which a header file says that all of it belongs to one
+  #  part of Qt that a build of Qt may leave out.
+  __required_line__ = re.compile(r'^\s*QT_REQUIRE_CONFIG\((\w+)\)')
+  #  The conditions of each header file whose text was read for them,
+  #  kept for every 'HeaderReader'.
+  __read_conditions__ = dict()  # type: Dict[str, Any]
 
   #  A line of C++ pulling a header file in by its place in Qt's header
   #  folder, as the own list of a part has them.
@@ -309,6 +332,68 @@ class HeaderReader:
     cls.__header_folder__ = headerFolder
     cls.__qt_header_folder__ = None
     cls.__qt_version__ = None
+
+  @classmethod
+  def setUncoveredFile(cls, uncoveredFile: str) -> None:
+    """
+    Tells which file names the classes of Qt not covered yet, each with
+    its header file, one per line, as 'bin/dev_tooling/
+    uncovered_names.txt' does. A reading looks a header file up there
+    by its name when the compiler cannot find it; see
+    '_explainMissing'.
+
+    Raises
+    ------
+
+    TypeException
+      The path is not text.
+
+    FileNotFoundError
+      There is no such file.
+    """
+    if not isinstance(uncoveredFile, str):
+      raise TypeException('uncoveredFile', uncoveredFile, str)
+    if not os.path.isfile(uncoveredFile):
+      infoSpec = """There is no file '%s'."""
+      raise FileNotFoundError(infoSpec % uncoveredFile)
+    cls.__uncovered_file__ = os.path.abspath(uncoveredFile)
+    cls.__uncovered_headers__ = None
+
+  @classmethod
+  def getUncoveredHeaders(cls) -> Dict[str, List[str]]:
+    """
+    Gives the names of the classes of Qt not covered yet by the bare
+    name of the header file that defines each, as the file given to
+    'setUncoveredFile' says. Read at the first call and kept.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setUncoveredFile' has not been called.
+
+    ValueError
+      A line of the file is no name and a header file.
+    """
+    if cls.__uncovered_headers__ is not None:
+      return cls.__uncovered_headers__
+    if cls.__uncovered_file__ is None:
+      raise MissingVariable(cls, '__uncovered_file__', str)
+    found = dict()  # type: Dict[str, List[str]]
+    with open(cls.__uncovered_file__) as file:
+      for number, line in enumerate(file, 1):
+        if not line.strip() or line.startswith('#'):
+          continue
+        words = line.split()
+        if len(words) != 2:
+          infoSpec = """Line %d of '%s' is no name and a header file:
+          %s"""
+          info = infoSpec % (number, cls.__uncovered_file__, line.strip())
+          raise ValueError(' '.join(info.split()))
+        name, headerPath = words
+        found.setdefault(os.path.basename(headerPath), []).append(name)
+    cls.__uncovered_headers__ = found
+    return found
 
   @classmethod
   def _createQtHeaderFolder(cls, ) -> None:
@@ -423,6 +508,221 @@ class HeaderReader:
       raise FileNotFoundError(' '.join(info.split()))
     return path
 
+  @staticmethod
+  def _stripComment(text: str) -> str:
+    """Gives what an '#if' line asks without a comment written after
+    it, and without blanks around it."""
+    text = re.sub(r'/\*.*?\*/', ' ', text)
+    return ' '.join(re.sub(r'//.*$', '', text).split())
+
+  @classmethod
+  def _askedBy(cls, word: str, rest: str) -> str:
+    """Gives what an opening line asks, written the way '#if' asks it:
+    '#ifdef X' asks 'defined(X)' and '#ifndef X' asks '!defined(X)'."""
+    rest = cls._stripComment(rest)
+    if word == 'ifdef':
+      return 'defined(%s)' % rest
+    if word == 'ifndef':
+      return '!defined(%s)' % rest
+    return rest
+
+  @classmethod
+  def _isGuard(cls, lines: List[str], index: int, rest: str) -> bool:
+    """Says whether the '#ifndef' at the index only keeps its file from
+    being read twice: one of the next lines then defines the very name
+    it asks for. Such a line asks nothing about Qt."""
+    name = re.escape(cls._stripComment(rest))
+    for line in lines[index + 1:index + 4]:
+      if re.match(r'^\s*#\s*define\s+%s\b' % name, line):
+        return True
+    return False
+
+  @staticmethod
+  def _endsInComment(line: str, commented: bool) -> bool:
+    """Says whether a comment written between '/*' and '*/' is still
+    open at the end of a line, given whether one was open where the
+    line began."""
+    index = 0
+    while index < len(line):
+      if commented:
+        closes = line.find('*/', index)
+        if closes < 0:
+          return True
+        commented, index = False, closes + 2
+        continue
+      opens = line.find('/*', index)
+      short = line.find('//', index)
+      if opens < 0 or 0 <= short < opens:
+        return False
+      commented, index = True, opens + 2
+    return commented
+
+  @classmethod
+  def _readConditions(cls, headerPath: str) -> Tuple[Any, ...]:
+    """
+    Reads the text of one header file and gives, for each of its lines,
+    the conditions that have to hold for the compiler to read that
+    line. No compiler is asked: the text alone says it.
+
+    Returns
+    -------
+
+    Tuple[Any, ...]
+      Two entries. The first: the conditions that hold for the whole
+      file, one 'QT_CONFIG(x)' for each 'QT_REQUIRE_CONFIG(x)' in it.
+      The second: one entry for each line, the first line at index 0,
+      each the conditions of the '#if' lines that line stands under,
+      outermost first, after those of the whole file.
+
+    Raises
+    ------
+
+    ValueError
+      The '#if' and '#endif' lines of the file do not pair up.
+    """
+    kept = cls.__read_conditions__
+    if headerPath in kept:
+      return kept[headerPath]
+    with open(headerPath, errors='replace') as file:
+      lines = file.read().replace('\r', '').split('\n')
+    whole = []  # type: List[str]
+    #  One entry for each '#if' that is open: the answers that lead to
+    #  the lines now being read, or None for the guard of the file.
+    opened = []  # type: List[Optional[List[str]]]
+    current = ()  # type: Tuple[str, ...]
+    found = []  # type: List[Tuple[str, ...]]
+    commented = False
+    number = 0
+    while number < len(lines):
+      first, line = number, lines[number]
+      #  A line ending in a backslash goes on in the next one.
+      while line.endswith('\\') and number + 1 < len(lines):
+        number += 1
+        line = '%s %s' % (line[:-1], lines[number].strip())
+      number += 1
+      found.extend([current] * (number - first))
+      #  A line that begins inside a comment asks nothing, whatever it
+      #  looks like: Qt's comments show '#if' lines as examples.
+      began = commented
+      commented = cls._endsInComment(line, commented)
+      if began:
+        continue
+      required = cls.__required_line__.match(line)
+      if required is not None:
+        whole.append('QT_CONFIG(%s)' % required.group(1))
+        continue
+      directive = cls.__directive_line__.match(line)
+      if directive is None:
+        continue
+      word, rest = directive.group(1), directive.group(2)
+      if word in ('if', 'ifdef', 'ifndef'):
+        if word == 'ifndef' and cls._isGuard(lines, first, rest):
+          opened.append(None)
+        else:
+          opened.append([cls._askedBy(word, rest)])
+      elif not opened:
+        infoSpec = """Line %d of '%s' is '#%s' with no '#if' above it."""
+        raise ValueError(infoSpec % (first + 1, headerPath, word))
+      elif word == 'endif':
+        opened.pop()
+      elif opened[-1] is not None:
+        #  '#elif' and '#else': the answer before was no, and for
+        #  '#elif' the new one is yes.
+        answers = opened[-1]
+        answers[-1] = '!(%s)' % answers[-1]
+        if word == 'elif':
+          answers.append(cls._stripComment(rest))
+        else:
+          answers.append('1')
+      current = ()
+      for answers in opened:
+        if answers is None:
+          continue
+        said = [answer for answer in answers if answer != '1']
+        if len(said) == 1:
+          current = (*current, said[0])
+        elif said:
+          joined = ' && '.join('(%s)' % answer for answer in said)
+          current = (*current, joined)
+    if opened:
+      infoSpec = """'%s' ends with %d '#if' lines still open."""
+      raise ValueError(infoSpec % (headerPath, len(opened)))
+    whole = (*whole,)
+    kept[headerPath] = (whole, [(*whole, *one) for one in found])
+    return kept[headerPath]
+
+  @classmethod
+  def getFileConditions(cls, headerPath: str) -> Tuple[str, ...]:
+    """
+    Gives the conditions that hold for a whole header file: one
+    'QT_CONFIG(x)' for each 'QT_REQUIRE_CONFIG(x)' the file has. Where
+    one of them does not hold, the compiler refuses the file itself,
+    so the line that pulls the file in has to stand under them too.
+
+    Parameters
+    ----------
+
+    headerPath : str
+      The full path of the header file.
+
+    Raises
+    ------
+
+    ValueError
+      The '#if' and '#endif' lines of the file do not pair up.
+    """
+    return cls._readConditions(headerPath)[0]
+
+  @classmethod
+  def getConditions(cls, headerPath: str, line: int) -> Tuple[str, ...]:
+    """
+    Gives the conditions that have to hold for the compiler to read
+    one line of a header file: what each '#if' line around it asks.
+
+      HeaderReader.getConditions('/usr/include/qt6/QtWidgets/qwidget.h', 392)
+      #  ('QT_CONFIG(tooltip)',): line 392 declares 'setToolTip'
+
+    They are read from the text of the file alone. No compiler is
+    asked and no system's answers are used, so they hold for every
+    system. A ritual written between the same '#if' lines is compiled
+    exactly where Qt has the function it calls.
+
+    Parameters
+    ----------
+
+    headerPath : str
+      The full path of the header file, as a record names it under
+      'loc'.
+
+    line : int
+      The number of the line, the first line of the file being 1.
+
+    Returns
+    -------
+
+    Tuple[str, ...]
+      The conditions, outermost first, each written so that '#if' can
+      ask it: 'QT_CONFIG(tooltip)', '!defined(QT_NO_QOBJECT)'. Those
+      of the whole file come first; see 'getFileConditions'. A line in
+      an '#else' or '#elif' gets the answers before it turned around,
+      as '(!(A)) && (B)'. The guard that keeps a file from being read
+      twice is not among them. Empty for a line under no '#if'.
+
+    Raises
+    ------
+
+    LookupError
+      The file has no such line.
+
+    ValueError
+      The '#if' and '#endif' lines of the file do not pair up.
+    """
+    found = cls._readConditions(headerPath)[1]
+    if not 1 <= line <= len(found):
+      infoSpec = """'%s' has %d lines and no line %d."""
+      raise LookupError(infoSpec % (headerPath, len(found), line))
+    return found[line - 1]
+
   @classmethod
   def getSignalLines(cls, headerPath: str) -> FrozenSet[int]:
     """
@@ -522,32 +822,6 @@ class HeaderReader:
     kept[headerPath] = (*found,)
     return kept[headerPath]
 
-  def getMarkedNames(self) -> FrozenSet[str]:
-    """
-    Gives the names of the functions and values that the header files
-    of the part declare with Qt's mark for use from outside Qt in
-    front, as 'Q_CORE_EXPORT', read from the text of the files. It is
-    for what stands outside of every class: a class says by its own
-    declaration whether it is marked. 'Q_AUTOTEST_EXPORT' is no such
-    mark: it holds only in a Qt built for Qt's own tests.
-
-    Returns
-    -------
-
-    FrozenSet[str]
-      The bare names, without a namespace and without what a function
-      takes.
-    """
-    marked = re.compile(
-        r'^\s*(?:(?:\[\[nodiscard\]\]|Q_DECL_\w+|Q_REQUIRED_RESULT|'
-        r'extern|constexpr|inline)\s+)*Q_(?:CORE|GUI|WIDGETS)_EXPORT\b'
-        r'[^;{(=]*?\b([A-Za-z_]\w*)\s*(?:\(|;|=|\[)', re.M)
-    found = set()  # type: Set[str]
-    for headerPath in self.getHeaderPaths():
-      with open(headerPath, errors='replace') as file:
-        found.update(marked.findall(file.read()))
-    return frozenset(found)
-
   def getPartName(self) -> str:
     """
     Gives the part of Qt this object reads, as 'QtCore'.
@@ -609,8 +883,10 @@ class HeaderReader:
     Gives the full path of every header file of the part.
 
     Found for you: every file ending in '.h' that lies right in the
-    folder of the part, in alphabetical order. The folders inside it are
-    left alone; they hold Qt's private headers.
+    folder of the part, in alphabetical order. With 'setPrivate', also
+    every one in each folder Qt keeps apart for the part, as
+    'QtGui/6.12.0/QtGui/private', 'qpa' and 'rhi' beside it, each
+    folder in alphabetical order.
 
     Returns
     -------
@@ -625,15 +901,40 @@ class HeaderReader:
         and os.path.isfile(os.path.join(partFolder, name))
     )
     if self.hasPrivate():
-      #  Qt calls these private. That is no concern of cutienator.
-      privateFolder = self.getPrivateFolder()
-      found.extend(sorted(
-          os.path.join(privateFolder, name)
-          for name in os.listdir(privateFolder)
-          if name.endswith('.h')
-          and os.path.isfile(os.path.join(privateFolder, name))
-      ))
+      #  Qt calls these private, or keeps them apart for its own
+      #  plugins, as 'qpa'. That is no concern of cutienator.
+      for folder in self.getApartFolders():
+        found.extend(sorted(
+            os.path.join(folder, name) for name in os.listdir(folder)
+            if name.endswith('.h')
+            and os.path.isfile(os.path.join(folder, name))
+        ))
+    #  A reading keeps each header file under its bare name.
+    names = [os.path.basename(path) for path in found]
+    twice = sorted({name for name in names if names.count(name) > 1})
+    if twice:
+      infoSpec = """The part '%s' has header files of the same name in
+      two folders, which a reading cannot keep apart: %s"""
+      info = infoSpec % (self.getPartName(), ', '.join(twice))
+      raise ValueError(' '.join(info.split()))
     return (*found,)
+
+  def getApartFolders(self) -> Paths:
+    """
+    Gives every folder Qt keeps apart for the part beside its public
+    header files, in alphabetical order: 'private' for every part, and
+    for QtGui 'qpa' and 'rhi' as well, as
+    '/some/folder/headers/QtGui/6.12.0/QtGui/qpa'. An installed Qt lays
+    them out the same way.
+    """
+    partName = self.getPartName()
+    folder = os.path.join(
+        self.getPartFolder(), self.getQtVersion(), partName)
+    if not os.path.isdir(folder):
+      return ()
+    return (*sorted(
+        os.path.join(folder, name) for name in os.listdir(folder)
+        if os.path.isdir(os.path.join(folder, name))),)
 
   def hasPrivate(self) -> bool:
     """Says whether the headers Qt calls private are read as well;
@@ -803,7 +1104,10 @@ class HeaderReader:
       headerFile = HeaderFile()
       headerPath = os.path.join(partFolder, name)
       if not os.path.isfile(headerPath) and self.hasPrivate():
-        headerPath = os.path.join(self.getPrivateFolder(), name)
+        for folder in self.getApartFolders():
+          headerPath = os.path.join(folder, name)
+          if os.path.isfile(headerPath):
+            break
       headerFile.setHeaderPath(headerPath)
       recordPath = os.path.join(readingFolder, '%s.jsonl' % name)
       headerFile.setRecordPath(recordPath)
@@ -1419,7 +1723,7 @@ class HeaderReader:
       refused = []
       for headerPath, complaint in zip(leftOut, said):
         if complaint:
-          complaints[headerPath] = complaint
+          complaints[headerPath] = self._explainMissing(complaint)
           refused.append(headerPath)
         else:
           complaints.pop(headerPath, None)
@@ -1433,6 +1737,38 @@ class HeaderReader:
       feed = self._skipOutside(feed, filesRead, checked.stderr, complaints)
       checked = self._runCompiler(feed, '-fsyntax-only')
     return feed, complaints
+
+  def _explainMissing(self, complaint: str) -> str:
+    """
+    Gives the reason a header file is skipped, from what the compiler
+    said when it refused it.
+
+    Where the compiler cannot find a header file that one pulls in, as
+    'QtNetwork/qhostaddress.h', the header file is looked up by its
+    name among those of the classes of Qt not covered yet. When it is
+    there, the reason says so and names those classes. A file it is
+    not there for, as 'windows.h', is one from outside Qt that this
+    machine lacks, and the reason stays what the compiler said. Either
+    way the header file is skipped and the reason kept.
+
+    Raises
+    ------
+
+    MissingVariable
+      The compiler cannot find a file, and 'setUncoveredFile' has not
+      been called, so it cannot be looked up.
+    """
+    found = self.__not_found__.search(complaint)
+    if found is None:
+      return complaint
+    missing = found.group(1)
+    names = self.getUncoveredHeaders().get(os.path.basename(missing))
+    if not names:
+      return complaint
+    infoSpec = """skipped: it pulls in '%s', a header file of Qt not
+    covered yet, which defines %s"""
+    info = infoSpec % (missing, ', '.join(sorted(names)))
+    return ' '.join(info.split())
 
   def _findOutside(self, headerPath: str, known: Set[str]) -> Set[str]:
     """

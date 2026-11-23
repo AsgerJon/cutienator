@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import subprocess
 from typing import TYPE_CHECKING
 
@@ -45,6 +46,11 @@ class RitualTester:
   You provide
   -----------
 
+  - 'setInstalledFolder': the folder of an installed Qt of the version
+    read, as 'tmp/scratch/kit/qt_linux/6.12.0/gcc_64', which holds
+    'include', 'lib' and 'mkspecs'. Every ritual file is compiled
+    against that Qt and nothing else. Once, for every 'RitualTester'.
+    Required.
   - 'setRitualGenerator': the generator whose ritual file is to be
     verified, with its three setters called and 'write' done. Required.
 
@@ -54,12 +60,16 @@ class RitualTester:
   1. The ritual file on disk is what the generator would write now,
      and so is the rows file beside it, which reads back as the rows
      the generator decided.
-  2. 'clang++' compiles it against Qt's own headers, and finds every Qt
-     function it calls in Qt's shared objects. A ritual handing a Qt
-     function a wrong type does not compile, and neither does one
-     calling a function that Qt declares and offers nowhere.
-  3. The target file offers exactly the rituals the generator says it
-     wrote: none missing, none besides.
+  2. 'clang++' compiles it against the header files of the installed
+     Qt, and finds every Qt function it calls in that Qt's shared
+     objects. A ritual handing a Qt function a wrong type does not
+     compile, and neither does one calling a function that Qt declares
+     and offers nowhere.
+  3. The target file offers the rituals the generator says it wrote,
+     and nothing besides. A ritual that stands between Qt's own '#if'
+     lines is rightly missing where one of them does not hold for the
+     installed Qt; the compiler of that Qt is asked which hold. Any
+     other ritual has to be there.
   4. Every ritual is named after a function the class really has, as
      the record of the class has it.
   5. Every function the header declares for the class is accounted
@@ -71,6 +81,8 @@ class RitualTester:
   --------------
 
   - 'test' takes one to three seconds, most of it compiling.
+  - No Qt that the generator read is used here: only the installed Qt
+    given to 'setInstalledFolder', as a user's machine has one.
   - A fault is never raised. It is listed, and 'passed' is then False.
     'test' raises only when it cannot test at all.
   - What is not checked yet: that calling a ritual does what calling
@@ -121,6 +133,26 @@ class RitualTester:
 
   #  Fallback Variables
 
+  #  The folder of the installed Qt every ritual file is compiled
+  #  against, and what its compiler said of each '#if' asked so far:
+  #  whether it holds. Kept for every 'RitualTester'.
+  __installed_folder__ = None  # type: Optional[str]
+  __held_conditions__ = dict()  # type: Dict[str, bool]
+  #  The header file of each part of Qt that answers its '#if' lines,
+  #  and the one in its folder 'private' that answers those asking of
+  #  the parts Qt keeps to itself.
+  __global_headers__ = dict(
+      QtCore='qglobal.h', QtGui='qtguiglobal.h',
+      QtWidgets='qtwidgetsglobal.h',
+  )
+  __private_global_headers__ = dict(
+      QtCore='qglobal_p.h', QtGui='qtguiglobal_p.h',
+      QtWidgets='qtwidgetsglobal_p.h',
+  )
+  #  What Qt keeps of the system and the compiler it is built for, in
+  #  the folder 'mkspecs' of an installed Qt. The tests run on Linux.
+  __spec_name__ = 'linux-g++'
+
   #  Private Variables
   __ritual_generator__ = None  # type: Optional[RitualGenerator]
   __found_faults__ = None  # type: Optional[Faults]
@@ -134,6 +166,123 @@ class RitualTester:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @classmethod
+  def getInstalledFolder(cls) -> str:
+    """
+    Gives the folder of the installed Qt every ritual file is compiled
+    against, as 'tmp/scratch/kit/qt_linux/6.12.0/gcc_64'.
+
+    Provided by you, through 'setInstalledFolder'.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setInstalledFolder' has not been called.
+    """
+    if cls.__installed_folder__ is None:
+      raise MissingVariable(cls, '__installed_folder__', str)
+    return cls.__installed_folder__
+
+  @classmethod
+  def setInstalledFolder(cls, installedFolder: str) -> None:
+    """
+    Tells which installed Qt the ritual files are compiled and linked
+    against. It has to be of the version the header files were read
+    from.
+
+    Raises
+    ------
+
+    TypeException
+      The path is not text.
+
+    FileNotFoundError
+      The folder lacks 'include', 'lib' or 'mkspecs', or holds no
+      header files of the version read.
+    """
+    if not isinstance(installedFolder, str):
+      raise TypeException('installedFolder', installedFolder, str)
+    installedFolder = os.path.abspath(installedFolder)
+    version = HeaderReader.getQtVersion()
+    for needed in ('include', 'lib', 'mkspecs',
+                   os.path.join('include', 'QtCore', version)):
+      if not os.path.isdir(os.path.join(installedFolder, needed)):
+        infoSpec = """'%s' is no folder of an installed Qt %s: it has no
+        '%s'."""
+        info = infoSpec % (installedFolder, version, needed)
+        raise FileNotFoundError(' '.join(info.split()))
+    cls.__installed_folder__ = installedFolder
+    cls.__held_conditions__ = dict()
+
+  def getIncludeFolders(self) -> Tuple[str, ...]:
+    """
+    Gives the folders the compiler looks in for header files, all in
+    the installed Qt: its 'include'; for each part, the four folders a
+    header file Qt calls private pulls others in from, as
+    'include/QtCore', 'include/QtCore/6.12.0', its 'QtCore' and the
+    'private' in that; and 'mkspecs/linux-g++', where Qt keeps
+    'qplatformdefs.h'.
+    """
+    folder = self.getInstalledFolder()
+    include = os.path.join(folder, 'include')
+    version = HeaderReader.getQtVersion()
+    found = [include]
+    for name in sorted(os.listdir(include)):
+      versioned = os.path.join(include, name, version)
+      if os.path.isdir(os.path.join(versioned, name)):
+        found.append(os.path.join(include, name))
+        found.append(versioned)
+        found.append(os.path.join(versioned, name))
+        found.append(os.path.join(versioned, name, 'private'))
+    found.append(os.path.join(folder, 'mkspecs', self.__spec_name__))
+    return (*found,)
+
+  def _findHeld(self, conditions: Set[str]) -> Dict[str, bool]:
+    """
+    Gives, for each '#if' condition, whether it holds for the installed
+    Qt: its preprocessor reads every one once, after the header files
+    of each part that answer them, the public and the private one, and
+    says which lines it kept. The answers are kept for every
+    'RitualTester'.
+
+    Raises
+    ------
+
+    RuntimeError
+      The preprocessor refused the conditions. Its message is kept.
+    """
+    kept = self.__held_conditions__
+    asked = sorted(c for c in conditions if c not in kept)
+    if asked:
+      tree = self.getRitualGenerator().getDependencyTree()
+      lines = []  # type: List[str]
+      version = HeaderReader.getQtVersion()
+      for reader in tree.getHeaderReaders():
+        partName = reader.getPartName()
+        lines.append('#include <%s/%s>' % (
+            partName, self.__global_headers__[partName]))
+        lines.append('#include <%s/%s/%s/private/%s>' % (
+            partName, version, partName,
+            self.__private_global_headers__[partName]))
+      for index, condition in enumerate(asked):
+        lines.extend((
+            '#if %s' % condition, 'cutienator_held_%d' % index, '#endif'))
+      command = (
+          'clang++', '-std=c++17', '-x', 'c++', '-E', '-P',
+          *('-I%s' % one for one in self.getIncludeFolders()), '-')
+      done = subprocess.run(
+          command, input='\n'.join(lines), capture_output=True, text=True)
+      if done.returncode:
+        infoSpec = """The preprocessor of the installed Qt refused the
+        '#if' lines asked of it: %s"""
+        info = infoSpec % ' '.join(done.stderr.split())[:1200]
+        raise RuntimeError(' '.join(info.split()))
+      for index, condition in enumerate(asked):
+        found = re.search(r'\bcutienator_held_%d\b' % index, done.stdout)
+        kept[condition] = found is not None
+    return {condition: kept[condition] for condition in conditions}
 
   def getRitualGenerator(self) -> RitualGenerator:
     """
@@ -185,10 +334,11 @@ class RitualTester:
     running it.
 
     Found for you. The compiler and its '-std' are those the headers
-    were read with: see 'HeaderReader.getCompilerCommand'. A header may give
-    a class other functions for another compiler or another standard,
-    as Qt's 'qfloat16.h' does, and a ritual written from what one of
-    them read would then not compile with the other.
+    were read with: see 'HeaderReader.getCompilerCommand'. A header may
+    give a class other functions for another compiler or another
+    standard, as Qt's 'qfloat16.h' does, and a ritual written from what
+    one of them read would then not compile with the other. Header
+    files and shared objects are those of the installed Qt.
 
     Returns
     -------
@@ -208,22 +358,27 @@ class RitualTester:
       '-Wl,--no-undefined', so a ritual calling a function that no Qt
       shared object offers stops the build, and not the first program
       that opens the target file;
-      '-I' with the folder of Qt's headers;
+      '-I' with each folder of 'getIncludeFolders';
       the path of the ritual file;
       '-o' with the path of the target file;
-      the Qt shared object of each part of the dependency tree.
+      '-Wl,-rpath,' with the folder of the installed Qt's shared
+      objects, so the target file finds them there;
+      the installed Qt's shared object of each part of the tree.
     """
     generator = self.getRitualGenerator()
     headerReaders = generator.getDependencyTree().getHeaderReaders()
+    library = os.path.join(self.getInstalledFolder(), 'lib')
     return (
         'clang++', '-std=c++17', '-shared', '-fPIC', '-O2',
         '-fno-access-control', '-fvisibility-inlines-hidden',
         '-Wl,--version-script=%s' % self.getOfferFile(),
         '-Wl,--no-undefined',
-        '-I%s' % HeaderReader.getQtHeaderFolder(),
-        *generator.getPrivateArguments(), generator.getRitualFile(),
+        *('-I%s' % folder for folder in self.getIncludeFolders()),
+        generator.getRitualFile(),
         '-o', self.getTargetFile(),
-        *(reader.getQtSharedObject() for reader in headerReaders),
+        '-Wl,-rpath,%s' % library,
+        *(os.path.join(library, 'lib%s.so.6' % reader.getPartName().replace(
+            'Qt', 'Qt6', 1)) for reader in headerReaders),
     )
 
   def _createFaults(self, ) -> None:
@@ -297,6 +452,11 @@ class RitualTester:
       info = infoSpec % (
           counted, className, accounted, len(counting), len(notWritten),
       )
+      answered = [' '.join(r['function'].split()) for r in counting]
+      answered.extend(' '.join(n.split()) for n, _ in notWritten)
+      twice = sorted({n for n in answered if answered.count(n) > 1})
+      if twice:
+        info = '%s Answered more than once: %s.' % (info, '; '.join(twice))
       faults.append(' '.join(info.split()))
     with open(self.getOfferFile(), 'w') as file:
       file.write(self.__offer_text__)
@@ -310,9 +470,27 @@ class RitualTester:
       return
     offered = self._listOffered()
     self.__offered_names__ = (*sorted(offered),)
-    for name in sorted({*names} - offered):
+    #  A ritual between '#if' lines is rightly missing where one of them
+    #  does not hold for the installed Qt, and so is every ritual of a
+    #  file whose class stands under one that does not hold.
+    tree = generator.getDependencyTree()
+    wholeFile = generator._findConditions(tree.getClassRecord(className))
+    asked = {*wholeFile}
+    for ritual in written:
+      asked.update(ritual.get('conditions', ()))
+    held = self._findHeld(asked)
+    fileHolds = all(held[one] for one in wholeFile)
+    for ritual in written:
+      name = ritual['ritualName']
+      if name in offered:
+        continue
+      if not fileHolds:
+        continue
+      if not all(held[one] for one in ritual.get('conditions', ())):
+        continue
       infoSpec = """The ritual '%s' was written, and the target file does
-      not offer it."""
+      not offer it, though every '#if' line around it holds for the
+      installed Qt."""
       faults.append(' '.join((infoSpec % name).split()))
     for name in sorted(offered - {*names}):
       infoSpec = """The target file offers '%s', which is no ritual the

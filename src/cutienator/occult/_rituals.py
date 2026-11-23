@@ -15,7 +15,7 @@ from worktoy.waitaminute import TypeException
 from . import Build, System
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Any, Dict, List, Optional, Tuple
+  from typing import Any, Dict, FrozenSet, List, Optional, Set, Tuple
 
   Paths = Tuple[str, ...]
   Row = Tuple[str, ...]
@@ -81,10 +81,15 @@ class Rituals:
   --------------
 
   - Nothing is compiled unless 'build' is called. 'call' refuses to run
-    when the target file is missing, or older than a ritual file.
+    when the target file is missing.
   - The target file is opened at the first 'call', once.
-  - A ritual that no rows file lists, or that the target file does not
-    offer, raises 'LookupError' naming it.
+  - A ritual that no rows file lists raises 'LookupError' naming it.
+  - A ritual a rows file lists and the target file does not offer is
+    one the Qt of this machine has no function for: its ritual file
+    has it between Qt's own '#if' lines, and they do not hold here.
+    The target file opens all the same, and 'call' raises
+    'LookupError' for that ritual alone, when it is called. See
+    'getMissing'.
   - Anything but a 'str' in the place of text is refused here, with
     'TypeException'. No other wrong argument is caught here. C++ takes
     what it is given, and a wrong address ends the whole program.
@@ -168,6 +173,9 @@ class Rituals:
 
   #  The opened target file, or None until the first call.
   __opened_target__ = None  # type: Optional[ctypes.CDLL]
+  #  The rituals listed and not offered by the target file; see
+  #  'getMissing'.
+  __missing_rituals__ = None  # type: Optional[FrozenSet[str]]
 
   #  The texts a program was started with, each time they were handed to
   #  Qt, kept so that Python never removes them.
@@ -417,16 +425,24 @@ class Rituals:
     System.getHere().prepareOpening()
     opened = ctypes.CDLL(target)
     words = cls.__row_words__
+    missing = set()  # type: Set[str]
     for name, (gives, *takes) in rows.items():
       try:
         ritual = getattr(opened, name)
-      except AttributeError as attributeError:
-        infoSpec = """The ritual '%s' is listed in a rows file, but '%s'
-        does not offer it. No ritual file defines it."""
-        info = ' '.join((infoSpec % (name, target)).split())
-        raise LookupError(info) from attributeError
+      except AttributeError:
+        #  Its ritual file has it between Qt's own '#if' lines, which do
+        #  not hold for the Qt of this machine. It raises when called.
+        missing.add(name)
+        continue
       ritual.restype = words[gives]
       ritual.argtypes = [words[take] for take in takes]
+    for name in cls._getTextRituals():
+      if name in missing:
+        infoSpec = """The ritual '%s', by which text crosses, is listed
+        in a rows file, and '%s' does not offer it."""
+        info = infoSpec % (name, target)
+        raise LookupError(' '.join(info.split()))
+    cls.__missing_rituals__ = frozenset(missing)
     cls.__opened_target__ = opened
 
   @classmethod
@@ -450,11 +466,11 @@ class Rituals:
     ------
 
     FileNotFoundError
-      The target file is missing, or older than a ritual file.
+      The target file is missing.
 
     LookupError
-      A listed ritual is not offered by the target file, or text is
-      taken or given and the rituals of Qt's QString are not listed.
+      Text is taken or given and the rituals of Qt's QString are not
+      listed, or not offered by the target file.
     """
     if cls.__opened_target__ is None:
       if kwargs.get('_recursion', False):
@@ -462,6 +478,19 @@ class Rituals:
       cls._createOpened()
       return cls.getOpened(_recursion=True)
     return cls.__opened_target__
+
+  @classmethod
+  def getMissing(cls) -> FrozenSet[str]:
+    """
+    Gives the name of every ritual a rows file lists and the target file
+    does not offer: those whose functions the Qt of this machine does
+    not have. Their ritual files have them between Qt's own '#if' lines,
+    which do not hold here, so 'build' compiled them out.
+
+    Found for you when the target file is opened, as 'getOpened' does.
+    """
+    cls.getOpened()
+    return cls.__missing_rituals__
 
   @classmethod
   def hasKeptException(cls) -> bool:
@@ -863,10 +892,11 @@ class Rituals:
     ------
 
     LookupError
-      No rows file lists a ritual of that name.
+      No rows file lists a ritual of that name, or the Qt of this
+      machine has no function for it; see 'getMissing'.
 
     FileNotFoundError
-      The target file is missing, or older than a ritual file.
+      The target file is missing.
 
     TypeException
       Something that is no 'str' stands where the ritual takes text.
@@ -880,6 +910,12 @@ class Rituals:
     if name not in rows:
       infoSpec = """No rows file in '%s' lists a ritual named '%s'."""
       info = infoSpec % (cls.getRitualFolder(), name)
+      raise LookupError(' '.join(info.split()))
+    if name in cls.getMissing():
+      infoSpec = """The ritual '%s' calls a function the Qt of this
+      machine does not have: its ritual file has it between Qt's own
+      '#if' lines, which do not hold here, so '%s' does not offer it."""
+      info = infoSpec % (name, cls.getTargetFile())
       raise LookupError(' '.join(info.split()))
     ritual = getattr(cls.getOpened(), name)
     try:
