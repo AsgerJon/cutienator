@@ -3063,7 +3063,41 @@ class RitualGenerator:
       return True
     if name in tree.getDefinedNames():
       return True
-    return self._isMarked(member)
+    if not self._isMarked(member):
+      return False
+    return self._isWrittenToBeCalled(member)
+
+  def _isWrittenToBeCalled(self, member: Record) -> bool:
+    """
+    Says whether Qt's source writes the code of a marked function of
+    the class in a way that lets it be called from outside Qt.
+
+    Two things in the source say no, whatever the mark. Qt writes code
+    for the function nowhere: it only declares it, as it declares the
+    constructor of 'QStandardPaths' so that nobody can make one. Or
+    Qt writes the code in a '.cpp' file with 'inline' in front, as
+    'QCborStreamReader::preparse()': the compiler then puts the code
+    where Qt calls it and keeps no function that could be called.
+    Without Qt's source at hand the mark alone decides.
+    """
+    if member.get('kind') == 'FunctionDecl':
+      #  A function outside of every class, which Qt wrote inside the
+      #  class with 'friend' in front: it has no class in its name.
+      return True
+    tree = self.getDependencyTree()
+    source = tree.getSourceReader()
+    if source is None:
+      return True
+    className = self.getClassName()
+    name = member.get('name', '')
+    partName = tree.getPartName(className.split('::')[0])
+    if not source.hasCode(partName, '%s::%s' % (className, name)):
+      return False
+    definition = self._findSourceCode(member)
+    if definition is None:
+      return True
+    head = definition['text'].split('(')[0]
+    return False if re.search(r'\binline\b', head) else True
 
   def _spellOutside(self, cppType: str) -> str:
     """

@@ -71,9 +71,17 @@ class SourceReader:
   #  A line of the file that pulls another file in.
   __include_line__ = re.compile(r'^\s*#\s*include\s+([<"])([^>"]+)[>"]')
 
+  #  The name of a function with its class in front, right before the
+  #  bracket that opens what it takes, as 'QListModel::at(' and
+  #  'QSize::operator+=('.
+  __named_code__ = re.compile(
+      r'((?:[A-Za-z_]\w*\s*::\s*)+(?:operator\s*(?:\(\s*\)|\[\s*\]'
+      r'|[^\s\w(\[]+|\s[^(;{}]+?)|~?[A-Za-z_]\w*))\s*\(')
+
   #  Private Variables
   __source_folder__ = None  # type: Optional[str]
   __found_definitions__ = None  # type: Optional[Dict[str, Any]]
+  __named_functions__ = None  # type: Optional[Dict[str, Any]]
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -156,6 +164,7 @@ class SourceReader:
       raise FileNotFoundError(infoSpec % sourceFolder)
     self.__source_folder__ = sourceFolder
     self.__found_definitions__ = None
+    self.__named_functions__ = None
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -336,3 +345,44 @@ class SourceReader:
     if found is None or partName not in found:
       self._createDefinitions(partName)
     return [*self.__found_definitions__[partName].get(name, ())]
+
+  def hasCode(self, partName: str, name: str) -> bool:
+    """
+    Says whether Qt's source writes code under the name of a function:
+    whether the name, with its class in front, stands right before a
+    bracket in any file of code of the part. The files of code are
+    those ending in '.cpp', and those ending in '.mm', in which Qt
+    writes for Apple's systems.
+
+    Qt declares some functions and writes code for them nowhere, as
+    the constructor of 'QStandardPaths', which is there only so that
+    nobody can make one. Such a function is in no Qt on any system.
+
+    This is a look at the text. It finds a name wherever it is written
+    before a bracket, a call among them, so a yes does not say that a
+    definition was found; a no says that there is none.
+
+    Parameters
+    ----------
+
+    partName : str
+      The part of Qt, as 'QtCore'.
+
+    name : str
+      The name as C++ writes it with its class, as
+      'QStandardPaths::QStandardPaths' or 'QGlyphRun::operator+'.
+    """
+    kept = self.__named_functions__
+    if kept is None:
+      kept = self.__named_functions__ = dict()
+    if partName not in kept:
+      names = set()
+      for folder, _, files in os.walk(self.getPartFolder(partName)):
+        for file in files:
+          if not file.endswith(('.cpp', '.mm')):
+            continue
+          with open(os.path.join(folder, file), errors='replace') as code:
+            found = self.__named_code__.findall(code.read())
+          names.update(''.join(one.split()) for one in found)
+      kept[partName] = frozenset(names)
+    return True if ''.join(name.split()) in kept[partName] else False

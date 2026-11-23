@@ -46,7 +46,8 @@ class HeaderFolder:
   - Qt's source is what Qt is built from, as Qt's makers give it out.
     It is the same for every system.
   - A part of Qt is one of the pieces Qt comes in: QtCore, QtGui,
-    QtWidgets.
+    QtWidgets, QtDBus. QtDBus is here because header files of QtGui
+    pull its header files in.
   - A pointer is an entry of the folder that stands for a file of the
     source: a symbolic link. No header file is copied.
   - A switch names something a build of Qt may leave in or out, as
@@ -90,17 +91,21 @@ class HeaderFolder:
   #  has in the names Qt's build makes, as 'Q_CORE_EXPORT'.
   __part_folders__ = dict(
       QtCore='src/corelib', QtGui='src/gui', QtWidgets='src/widgets',
+      QtDBus='src/dbus',
   )
-  __part_words__ = dict(QtCore='CORE', QtGui='GUI', QtWidgets='WIDGETS')
+  __part_words__ = dict(
+      QtCore='CORE', QtGui='GUI', QtWidgets='WIDGETS', QtDBus='DBUS',
+  )
   #  The header file of each part that brings in its list of switches.
   __global_headers__ = dict(
       QtCore='qglobal.h', QtGui='qtguiglobal.h',
-      QtWidgets='qtwidgetsglobal.h',
+      QtWidgets='qtwidgetsglobal.h', QtDBus='qtdbusglobal.h',
   )
   #  The parts each part is built on: its file '...Depends' pulls
   #  those in.
   __part_needs__ = dict(
       QtCore=(), QtGui=('QtCore',), QtWidgets=('QtCore', 'QtGui'),
+      QtDBus=('QtCore',),
   )
   #  Switches that are out while every other switch is in, because
   #  each contradicts another one when both are in. 'static' names the
@@ -375,9 +380,13 @@ class HeaderFolder:
     those it marks PUBLIC, and those it marks PRIVATE. A switch may be
     both. What is no letter and no digit in a name becomes '_', as
     Qt's build writes it."""
+    public, private = [], []  # type: List[str], List[str]
+    if not os.path.isfile(path):
+      #  A part with no switches of its own, as QtDBus, has no such
+      #  file: what it can have is switched for Qt as a whole.
+      return public, private
     with open(path) as file:
       text = file.read()
-    public, private = [], []  # type: List[str], List[str]
     for found in self.__switch_line__.finditer(text):
       name = re.sub(r'[^A-Za-z0-9_]', '_', found.group(1))
       if re.search(r'\bPUBLIC\b', found.group(2)):

@@ -115,9 +115,9 @@ class RitualTester:
   )
 
   #  What the offer file says, in the words of the program that puts the
-  #  target file together: offer the names beginning with 'ritual' to
-  #  others, and keep every other name inside.
-  __offer_text__ = '{ global: ritual*; local: *; };\n'
+  #  target file together: offer the names beginning with 'r_' and
+  #  with 'ritual_' to others, and keep every other name inside.
+  __offer_text__ = '{ global: r_*; ritual_*; local: *; };\n'
 
   #  Fallback Variables
 
@@ -170,8 +170,9 @@ class RitualTester:
     without its ending, and '.offers', beside the ritual file.
 
     Found for you. The offer file is one line telling 'clang++' which names
-    the target file may offer to others: those beginning with 'ritual',
-    and no other. Code of Qt's own that the compiler copies into the
+    the target file may offer to others: those beginning with 'r_' or
+    'ritual_', and no other. Code of Qt's own that the compiler copies
+    into the
     target file while compiling a ritual then stays inside it, unseen.
     Having the path does not mean the file is there; 'test' writes it.
     """

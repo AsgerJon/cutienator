@@ -1,8 +1,10 @@
 /* What cutienator's own shared object offers on Linux: its rituals,
-   and nothing else. The C++ library marks some of its own functions,
+   and nothing else. A ritual for a function of Qt is named 'r_' and
+   then the part, the class and the function; the others are named
+   'ritual_' and then what they do. The C++ library marks some of its own functions,
    as those of std::map, to be offered whatever a build asks for; this
    keeps them inside. See 'Linux.getLinkerFlags'. */
 {
-  global: ritual_*;
+  global: r_*; ritual_*;
   local: *;
 };
